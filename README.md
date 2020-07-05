@@ -1,0 +1,1 @@
+# hypixel-translators-bot-discord
