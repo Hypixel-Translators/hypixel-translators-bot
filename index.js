@@ -78,7 +78,7 @@ client.on("message", message => {
 
     if (now < expirationTime) {
       const timeLeft = (expirationTime - now) / 1000;
-      return message.reply(
+      return message.channel.send(
         `Wait another ${timeLeft.toFixed(1)} second(s) before you use \`${
           command.name
         }\` again.`
@@ -93,8 +93,8 @@ client.on("message", message => {
     command.execute(message, args);
   } catch (error) {
     console.error(error);
-    message.reply(
-      "An error has occurred, sorry!"
+    message.channel.send(
+      "An error has occurred whilst executing that command, sorry!"
     );
   }
 });
