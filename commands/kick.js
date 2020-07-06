@@ -8,7 +8,7 @@ module.exports = {
   cooldown: 5,
   guildOnly: true,
   execute(message, args) {
-    message.delete();
+    //message.delete();
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
       .setTitle("User Management")
