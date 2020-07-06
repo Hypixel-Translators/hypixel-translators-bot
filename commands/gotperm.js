@@ -7,7 +7,7 @@ const {
 const Discord = require("discord.js");
 
 module.exports = {
-  name: "hasperm",
+  name: "gotperm",
   description: "See if user has a specified permission.",
   usage: "<perms> [user]",
   execute(message, args) {
