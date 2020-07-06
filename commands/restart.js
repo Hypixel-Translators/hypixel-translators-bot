@@ -11,7 +11,7 @@ module.exports = {
   description: "Refresh the bot to apply changes and to fix errors.",
   aliases: ["refresh", "reload", "update"],
   execute(message) {
-    message.delete();
+    //message.delete();
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
       .setTitle("Restart")
