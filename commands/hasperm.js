@@ -11,7 +11,7 @@ module.exports = {
   description: "See if user has a specified permission.",
   usage: "<perms> [user]",
   execute(message, args) {
-    message.delete();
+    //message.delete();
     const embed = new Discord.MessageEmbed()
       .setTitle("Has Permission")
       .setDescription("Just a moment...")
