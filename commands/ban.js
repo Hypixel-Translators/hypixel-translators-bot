@@ -9,7 +9,7 @@ module.exports = {
   guildOnly: true,
   execute(message, args) {
     const toBan = message.guild.members.cache.get(args[0]);
-    message.delete();
+    //message.delete();
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
       .setTitle("User Management")
