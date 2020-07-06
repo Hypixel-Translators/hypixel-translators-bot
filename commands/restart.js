@@ -22,13 +22,13 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
           .setTitle("Restart")
-          .setDescription("Restarting...")
+          .setDescription("Restarting...\nGive me a minute.")
           .setFooter("Executed by " + message.author.tag);
         msg.edit(embed);
         msg.client.user.setStatus("idle");
         setTimeout(() => {
           process.exit();
-        }, 1000);
+        }, 3000);
       } else {
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor)
