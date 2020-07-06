@@ -31,7 +31,7 @@ module.exports = {
           { name: "Essentials", value: "mention", inline: true },
           {
             name: "Moderation",
-            value: "kick, ban, warn, removewarns, purge",
+            value: "kick, ban, purge",
             inline: true
           },
           { name: "Development", value: "restart, get (beta)", inline: true }
