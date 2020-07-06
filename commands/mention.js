@@ -22,7 +22,7 @@ module.exports = {
         message.channel.send("<@&" + toPing + "> 🏓");
       } else {
         message.channel.send(
-          "You don't have a role of that language, so you can't mention it."
+          "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
         );
       }
     } else if (args[1] === "tr" || args[1] === "translator" || args[1] === "Translator") {
@@ -40,7 +40,7 @@ module.exports = {
         message.channel.send("<@&" + toPing + "> 🏓");
       } else {
         message.channel.send(
-          "You don't have a role of that language, so you can't mention it."
+          "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
         );
       }
     }
