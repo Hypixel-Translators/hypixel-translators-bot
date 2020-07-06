@@ -14,7 +14,7 @@ module.exports = {
   usage: "[user]",
   guildOnly: true,
   execute(message, args) {
-    message.delete();
+    //message.delete();
     if (!args[0]) {
       const embed = new Discord.MessageEmbed()
         .setColor(workingColor)
