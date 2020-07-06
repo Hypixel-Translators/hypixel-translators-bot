@@ -50,7 +50,7 @@ client.on("message", message => {
   if (!command) return;
 
   if (command.guildOnly && message.channel.type !== "text") {
-    return message.reply(
+    return message.channel.send(
       "You can't use this command in private messages."
     );
   }
