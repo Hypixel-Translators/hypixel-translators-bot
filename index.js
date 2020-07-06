@@ -1,6 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const { prefix, token } = require("./config.json");
+const { prefix, token, allowed1, allowed2, allowed3 } = require("./config.json");
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -36,66 +36,70 @@ client.once("ready", () => {
 });
 
 client.on("message", message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  if (message.channel.id == allowed1 || message.channel.id == allowed2 || message.channel.id == allowed3 || message.content.startsWith("+mention")) {
+    if (!message.channel.parent.id == "549503328472530975" && !message.channel.parent.id == "569178590697095168") {
+      if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-  const args = message.content.slice(prefix.length).split(/ +/);
-  const commandName = args.shift().toLowerCase();
+      const args = message.content.slice(prefix.length).split(/ +/);
+      const commandName = args.shift().toLowerCase();
 
-  const command =
-    client.commands.get(commandName) ||
-    client.commands.find(
-      cmd => cmd.aliases && cmd.aliases.includes(commandName)
-    );
+      const command =
+        client.commands.get(commandName) ||
+        client.commands.find(
+          cmd => cmd.aliases && cmd.aliases.includes(commandName)
+        );
 
-  if (!command) return;
+      if (!command) return;
 
-  if (command.guildOnly && message.channel.type !== "text") {
-    return message.channel.send(
-      "You can't use this command in private messages."
-    );
-  }
+      if (command.guildOnly && message.channel.type !== "text") {
+        return message.channel.send(
+          "You can't use this command in private messages."
+        );
+      }
 
-  if (command.args && !args.length) {
-    let reply = `You didn't leave any arguments, ${message.author}!`;
+      if (command.args && !args.length) {
+        let reply = `You didn't leave any arguments, ${message.author}!`;
 
-    if (command.usage) {
-      reply += `\nYou should use this command like this: \`${prefix}${command.name} ${command.usage}\``;
+        if (command.usage) {
+          reply += `\nYou should use this command like this: \`${prefix}${command.name} ${command.usage}\``;
+        }
+
+        return message.channel.send(reply);
+      }
+
+      if (!cooldowns.has(command.name)) {
+        cooldowns.set(command.name, new Discord.Collection());
+      }
+
+      const now = Date.now();
+      const timestamps = cooldowns.get(command.name);
+      const cooldownAmount = (command.cooldown || 3) * 1000;
+
+      if (timestamps.has(message.author.id)) {
+        const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+        if (now < expirationTime) {
+          const timeLeft = (expirationTime - now) / 1000;
+          return message.channel.send(
+            `Wait another ${timeLeft.toFixed(1)} second(s) before you use \`${
+            command.name
+            }\` again.`
+          );
+        }
+      }
+
+      timestamps.set(message.author.id, now);
+      setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+
+      try {
+        command.execute(message, args);
+      } catch (error) {
+        console.error(error);
+        message.channel.send(
+          "An error has occurred whilst executing that command, sorry!"
+        );
+      }
     }
-
-    return message.channel.send(reply);
-  }
-
-  if (!cooldowns.has(command.name)) {
-    cooldowns.set(command.name, new Discord.Collection());
-  }
-
-  const now = Date.now();
-  const timestamps = cooldowns.get(command.name);
-  const cooldownAmount = (command.cooldown || 3) * 1000;
-
-  if (timestamps.has(message.author.id)) {
-    const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
-
-    if (now < expirationTime) {
-      const timeLeft = (expirationTime - now) / 1000;
-      return message.channel.send(
-        `Wait another ${timeLeft.toFixed(1)} second(s) before you use \`${
-          command.name
-        }\` again.`
-      );
-    }
-  }
-
-  timestamps.set(message.author.id, now);
-  setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
-
-  try {
-    command.execute(message, args);
-  } catch (error) {
-    console.error(error);
-    message.channel.send(
-      "An error has occurred whilst executing that command, sorry!"
-    );
   }
 });
 

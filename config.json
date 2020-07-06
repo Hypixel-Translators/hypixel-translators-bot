@@ -5,6 +5,9 @@
   "errorColor": "#e02222",
   "successColor": "#21de70",
   "neutralColor": "#28dbde",
+  "allowed1": "624881429834366986",
+  "allowed2": "x",
+  "allowed3": "x",
   "langdb": [
     {"name": "Bulgarian", "emoji": "🇧🇬"},
     {"name": "Chinese", "emoji": "🇨🇳"},
