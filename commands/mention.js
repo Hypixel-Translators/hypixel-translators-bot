@@ -4,7 +4,7 @@ module.exports = {
   name: "mention",
   description: "Mentions a language role.",
   aliases: ["langping", "languageping"],
-  usage: "<language> <pf|tr>",
+  usage: "<language> <pf|tr|all>",
   execute(message, args) {
     const toLook = capitalizeFirstLetter(args[0])
     if (args[1] === "pf" || args[1] === "proofreader" || args[1] === "Proofreader") {
@@ -38,6 +38,24 @@ module.exports = {
         )
       ) {
         message.channel.send("<@&" + toPing + "> 🏓");
+      } else {
+        message.channel.send(
+          "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
+        );
+      }
+    } else if (args[1] === "all" || args[1] === "both") {
+      const translatorPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
+      const proofreaderPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
+      console.log(toPing + "\n" + higherRole);
+      if (
+        message.member.roles.cache.find(
+          role => role.name === toLook + " Translator"
+        ) ||
+        message.member.roles.cache.find(
+          role => role.name === toLook + " Proofreader"
+        )
+      ) {
+        message.channel.send("<@&" + translatorPing + " and " + proofreaderPing + "> 🏓");
       } else {
         message.channel.send(
           "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
