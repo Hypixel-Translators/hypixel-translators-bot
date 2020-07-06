@@ -13,34 +13,34 @@ module.exports = {
   execute(message, args) {
     //message.delete();
     const embed = new Discord.MessageEmbed()
-      .setTitle("Has Permission")
-      .setDescription("Just a moment...")
+      .setTitle("Permission " + toUpperCase(args[0]))
+      .setDescription("One second...")
       .setFooter("Executed by " + message.author.tag);
     message.channel.send(embed).then(msg => {
-      const authorPerm = message.member.hasPermission(args[0]);
-      const botPerm = msg.member.hasPermission(args[0]);
-
+      const authorPerm = message.member.hasPermission(toUpperCase(args[0]));
+      const botPerm = msg.member.hasPermission(toUpperCase(args[0]));
       if (args[1]) {
-        const user = args[1];
+        const guild = msg.client.guilds.get("549503328472530974")
+        const user = guild.member(args[1])
         console.log(user);
-        const userPerm = user.hasPermission(args[0]);
+        const userPerm = user.hasPermission(toUpperCase(args[0]));
         const embed = new Discord.MessageEmbed()
-          .setTitle("Has Permission")
+          .setTitle("Permission " + toUpperCase(args[0]))
           .addFields(
-            { name: "Bot has " + args[0], value: botPerm },
-            { name: "Author has " + args[0], value: authorPerm },
-            { name: "User _" + args[1] + "_ has " + args[0], value: userPerm }
+            { name: "Bot", value: botPerm },
+            { name: "Author", value: authorPerm },
+            { name: "User", value: userPerm }
           )
           .setFooter("Executed by " + message.author.tag);
         msg.edit(embed);
       } else {
         const embed = new Discord.MessageEmbed()
-          .setTitle("Has Permission")
+          .setTitle("Permission " + toUpperCase(toUpperCase(args[0])))
           .addFields(
-            { name: "Bot has " + args[0], value: botPerm },
-            { name: "Author has " + args[0], value: authorPerm }
+            { name: "Bot", value: botPerm },
+            { name: "Author", value: authorPerm }
           )
-          .setFooter("Executed by " + message.author.tag);
+          .setFooter("Executed by " + message.author.tag)
         msg.edit(embed);
       }
     });
