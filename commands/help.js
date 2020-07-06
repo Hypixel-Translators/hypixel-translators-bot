@@ -15,7 +15,7 @@ module.exports = {
   usage: "[name of command]",
   cooldown: 5,
   execute(message, args) {
-    message.delete();
+    //message.delete();
     const data = [];
     const { commands } = message.client;
 
