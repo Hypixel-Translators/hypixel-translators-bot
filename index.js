@@ -16,31 +16,13 @@ for (const file of commandFiles) {
 
 const cooldowns = new Discord.Collection();
 
-const http = require("http");
-const express = require("express");
-
-const app = express();
-
-app.get("/", (request, response) => {
-  console.log(Date.now() + " Ping Received");
-  response.sendStatus(200);
-});
-app.listen(process.env.PORT);
-setInterval(() => {
-  http.get(`http://hyper-v2-discord.glitch.me/`);
-}, 280000);
-
-setInterval(() => {
-  http.get(`http://hyper-v2-discord.glitch.me/clear-git`);
-}, 280000);
-
 client.once("ready", () => {
   console.log("Ready!");
   var used1 = false;
   client.user.setStatus("online").catch(console.error);
   setInterval(() => {
     if (used1) {
-      client.user.setActivity("-help", {
+      client.user.setActivity("+help", {
         type: "LISTENING"
       });
       used1 = false;
