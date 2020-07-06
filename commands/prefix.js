@@ -23,7 +23,12 @@ module.exports = {
         .setFooter("Executed by " + message.author.tag);
       message.channel.send(embed)
         .then(msg => {
-          
+          const embed = new Discord.MessageEmbed()
+            .setColor(errorColor)
+            .setTitle("Prefix")
+            .setDescription("This command hasn't been programmed yet, this is a fallback message. ")
+            .setFooter("Executed by " + message.author.tag);
+          msg.edit(embed)
         })
     }
   }
