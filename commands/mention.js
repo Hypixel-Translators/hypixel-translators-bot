@@ -19,7 +19,7 @@ module.exports = {
           role => role.name === toLook + " Translator"
         )
       ) {
-        message.channel.send("<@&" + toPing + "> 🏓");
+        message.channel.send("<@&" + toPing + "> <:ping:620954198493888512>");
       } else {
         message.channel.send(
           "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
@@ -37,7 +37,7 @@ module.exports = {
           role => role.name === toLook + " Proofreader"
         )
       ) {
-        message.channel.send("<@&" + toPing + "> 🏓");
+        message.channel.send("<@&" + toPing + "> <:ping:620954198493888512>");
       } else {
         message.channel.send(
           "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
@@ -55,7 +55,7 @@ module.exports = {
           role => role.name === toLook + " Proofreader"
         )
       ) {
-        message.channel.send("<@&" + translatorPing + " and " + proofreaderPing + "> 🏓");
+        message.channel.send("<@&" + translatorPing + " and " + proofreaderPing + "> <:ping:620954198493888512>");
       } else {
         message.channel.send(
           "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
