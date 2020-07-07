@@ -68,10 +68,7 @@ client.on("message", message => {
       }
 
       if (!cooldowns.has(command.name)) {
-        if (message.member.hasPermission("ADMINISTRATOR"))
-          if (command.args && args.length < 2) { } else {
-            cooldowns.set(command.name, new Discord.Collection());
-          }
+        cooldowns.set(command.name, new Discord.Collection());
       }
 
       const now = Date.now();
@@ -95,8 +92,10 @@ client.on("message", message => {
       setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
       try {
+        if (message.member.hasPermission("ADMINISTRATOR")) { timestamps.delete(message.author.id) }
         command.execute(message, args);
       } catch (error) {
+        timestamps.delete(message.author.id)
         console.error(error);
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor)
