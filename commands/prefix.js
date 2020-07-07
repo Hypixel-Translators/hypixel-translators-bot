@@ -120,40 +120,6 @@ module.exports = {
                 .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
                 .setFooter("Executed by " + message.author.tag);
               msg.edit(embed)
-              console.log(msg.reactions)
-              if (msg.reactions.count < 2) {
-                msg.reactions.removeAll()
-                if (prefixes.length > 0) {
-                  message.member.setNickname("[" + prefixes + "] " + message.member.user.username)
-                    .then(() => {
-                      const embed = new Discord.MessageEmbed()
-                        .setColor(successColor)
-                        .setTitle("Prefix")
-                        .setDescription("Your prefix has been saved!")
-                        .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
-                        .setFooter("Executed by " + message.author.tag);
-                      msg.edit(embed)
-                    })
-                    .catch(err => {
-                      const embed = new Discord.MessageEmbed()
-                        .setColor(errorColor)
-                        .setTitle("Prefix")
-                        .setDescription("Failed to change nickname to " + prefixes + ".\n\nReason:\n> " + err)
-                        .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
-                        .setFooter("Executed by " + message.author.tag);
-                      msg.edit(embed)
-                      console.log(err)
-                    })
-                } else {
-                  const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
-                    .setTitle("Prefix")
-                    .setDescription("You didn't react to any flags, so your prefix wasn't saved.")
-                    .addFields({ name: "Chosen flags", value: "None" })
-                    .setFooter("Executed by " + message.author.tag);
-                  msg.edit(embed)
-                }
-              }
             }
           });
 
