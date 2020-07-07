@@ -22,11 +22,10 @@ module.exports = {
       .setFooter("Executed by " + message.author.tag);
     message.channel.send(embed)
       .then(msg => {
-        if (args[0]) {
-          var prefixes = ""
-          const guild = msg.client.guilds.cache.get("549503328472530974")
-          const user = guild.member(args[0])
-        } else { const user = message.member }
+        var prefixes = ""
+        const guild = msg.client.guilds.cache.get("549503328472530974")
+        var user = message.member
+        if (args) { user = guild.member(args[0]) }
         if (user.roles.cache.some(r => r.name.startsWith("Bulgarian"))) {
           if (prefixes.length > 1) {
             prefixes = (prefixes + "-")
