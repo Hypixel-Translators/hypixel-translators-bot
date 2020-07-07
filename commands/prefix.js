@@ -27,132 +27,132 @@ module.exports = {
           const guild = msg.client.guilds.cache.get("549503328472530974")
           const user = guild.member(args[0])
           if (user.roles.cache.some(r => r.name.startsWith("Bulgarian"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇧🇬")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Chinese"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇨🇳")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Czech"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇨🇿")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Danish"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇩🇰")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Dutch"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇳🇱")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Finnish"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇫🇮")
           }
           if (user.roles.cache.some(r => r.name.startsWith("French"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇫🇷")
           }
           if (user.roles.cache.some(r => r.name.startsWith("German"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇩🇪")
           } if (user.roles.cache.some(r => r.name.startsWith("Greek"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇬🇷")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Italian"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇮🇹")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Japanese"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇯🇵")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Korean"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇰🇷")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Norwegian"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇳🇴")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Polish"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇵🇱")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Portuguese"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇵🇹")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Brazilian"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇧🇷")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Russian"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇷🇺")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Spanish"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇪🇸")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Swedish"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇸🇪")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Thai"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇹🇭")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Turkish"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇹🇷")
           }
           if (user.roles.cache.some(r => r.name.startsWith("Ukrainian"))) {
-            if (prefixes.length > 4) {
+            if (prefixes.length > 1) {
               prefixes = (prefixes + "-")
             }
             prefixes = (prefixes + "🇺🇦")
