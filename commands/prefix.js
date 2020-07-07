@@ -23,7 +23,7 @@ module.exports = {
     message.channel.send(embed)
       .then(msg => {
         if (args[0]) {
-          const prefixes = ""
+          var prefixes = ""
           const guild = msg.client.guilds.cache.get("549503328472530974")
           const user = guild.member(args[0])
           if (user.roles.cache.some(r => r.name.startsWith("Bulgarian"))) {
