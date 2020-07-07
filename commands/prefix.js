@@ -69,6 +69,8 @@ module.exports = {
         const collector = msg.createReactionCollector(filter, { time: 20000 });
 
         collector.on('collect', (reaction, user) => {
+          const valueToRemove = reaction.emoji.name
+          userLangs = userLangs.filter(item => item !== valueToRemove)
           console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
           if (prefixes.length > 0) { prefixes = (prefixes + "-") }
           prefixes = (prefixes + reaction.emoji.name)
