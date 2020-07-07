@@ -76,7 +76,7 @@ module.exports = {
             .setColor(neutralColor)
             .setTitle("Prefix")
             .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds in total.")
-            .addFields({ name: "Chosen flags", value: prefixes })
+            .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
             .setFooter("Executed by " + message.author.tag);
           msg.edit(embed)
         });
@@ -91,7 +91,7 @@ module.exports = {
                   .setColor(successColor)
                   .setTitle("Prefix")
                   .setDescription("Your prefix has been saved!")
-                  .addFields({ name: "Chosen flags", value: prefixes })
+                  .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
                   .setFooter("Executed by " + message.author.tag);
                 msg.edit(embed)
               })
@@ -100,7 +100,7 @@ module.exports = {
                   .setColor(errorColor)
                   .setTitle("Prefix")
                   .setDescription("Failed to change nickname to " + prefixes + ".\n\nReason:\n> " + err)
-                  .addFields({ name: "Chosen flags", value: prefixes })
+                  .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
                   .setFooter("Executed by " + message.author.tag);
                 msg.edit(embed)
                 console.log(err)
@@ -115,33 +115,6 @@ module.exports = {
             msg.edit(embed)
           }
         });
-
-
-        /*const embed = new Discord.MessageEmbed()
-          .setColor(workingColor)
-          .setTitle("Prefix")
-          .setDescription("Changing username with prefix(es) \`" + prefixes + "\`...")
-          .setFooter("Executed by " + message.author.tag);
-        msg.edit(embed)
-        console.log(prefixes)
-        user.setNickname("[" + prefixes + "] " + user.user.username)
-          .then(() => {
-            const embed = new Discord.MessageEmbed()
-              .setColor(successColor)
-              .setTitle("Prefix")
-              .setDescription("Changed username with prefix(es) \`" + prefixes + "\`.")
-              .setFooter("Executed by " + message.author.tag);
-            msg.edit(embed)
-          })
-          .catch(err => {
-            const embed = new Discord.MessageEmbed()
-              .setColor(errorColor)
-              .setTitle("Prefix")
-              .setDescription("Failed to change nickname to" + prefixes + ".\n\nReason:\n> " + err)
-              .setFooter("Executed by " + message.author.tag);
-            msg.edit(embed)
-            console.log(err)
-          })*/
       })
   }
 }
