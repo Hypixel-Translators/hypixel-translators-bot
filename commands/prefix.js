@@ -23,6 +23,17 @@ module.exports = {
         .setFooter("Executed by " + message.author.tag);
       message.channel.send(embed)
         .then(msg => {
+          if (args[0]) {
+            const guild = msg.client.guilds.get("549503328472530974")
+            const user = guild.member(args[0])
+            var roles = user.roles
+            console.log(roles)
+            var langRoles = roles.filter(x => !x.name.endsWith("Proofreader") || !x.name.endsWith("Translator"))
+            console.log(langRoles)
+          }
+
+
+
           const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setTitle("Prefix")
