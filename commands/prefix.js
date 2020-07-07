@@ -159,12 +159,18 @@ module.exports = {
           }
           prefixes = (prefixes + "🇺🇦")
         }
+        const embed = new Discord.MessageEmbed()
+          .setColor(workingColor)
+          .setTitle("Prefix")
+          .setDescription("Changing username with prefix(es) \`" + prefixes + "\`...")
+          .setFooter("Executed by " + message.author.tag);
+        msg.edit(embed)
         user.setNickname("[" + prefixes + "] " + user.username)
           .then(() => {
             const embed = new Discord.MessageEmbed()
-              .setColor(errorColor)
+              .setColor(successColor)
               .setTitle("Prefix")
-              .setDescription("Changed username with prefixes \`" + prefixes + "\`.")
+              .setDescription("Changed username with prefix(es) \`" + prefixes + "\`.")
               .setFooter("Executed by " + message.author.tag);
             msg.edit(embed)
           })
