@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 module.exports = {
   name: "kick",
   description: "Removes the user from the guild.",
-  usage: "<user id> [reason in one word]",
+  usage: "kick <user id>",
   cooldown: 5,
   guildOnly: true,
   execute(message, args) {

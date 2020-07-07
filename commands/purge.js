@@ -11,6 +11,7 @@ module.exports = {
   description: "Clears a specified amount of messages.",
   aliases: ["clear", "deletemsgs", "clean"],
   usage: "<amount>",
+  cooldown: 3,
   guildOnly: true,
   execute(message, args) {
     message.delete();

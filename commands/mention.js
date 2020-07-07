@@ -4,7 +4,8 @@ module.exports = {
   name: "mention",
   description: "Mentions a language role.",
   aliases: ["langping", "languageping"],
-  usage: "<language> <pf|tr|all>",
+  usage: "mention <language> <pf|tr>",
+  cooldown: 3,
   execute(message, args) {
     const lowerArg = args[0].toLowerCase()
     const toLook = lowerArg.capitalizeFirstLetter()

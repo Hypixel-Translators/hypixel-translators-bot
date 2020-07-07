@@ -1,6 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const { prefix, token, allowed1, allowed2, allowed3 } = require("./config.json");
+const { prefix, token, allowed1, allowed2, allowed3, workingColor, errorColor, successColor, neutralColor } = require("./config.json");
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -63,7 +63,7 @@ client.on("message", message => {
         let reply = `You didn't leave any arguments, ${message.author}!`;
 
         if (command.usage) {
-          reply += `\nYou should use this command like this: \`${prefix}${command.name} ${command.usage}\``;
+          reply += `\nYou should use this command like this: \`${prefix}${command.usage}\``;
         }
 
         return message.channel.send(reply);
@@ -97,9 +97,14 @@ client.on("message", message => {
         command.execute(message, args);
       } catch (error) {
         console.error(error);
-        message.channel.send(
-          "An error has occurred whilst executing that command, sorry!"
-        );
+        const embed = new Discord.MessageEmbed()
+          .setColor(errorColor)
+          .setTitle("Error")
+          .setDescription("Something has gone wrong. Have you entered the command correctly?")
+          .addFields({ name: "Command usage", value: `\`${prefix}${command.usage}\`` })
+          .setFooter("Executed by " + message.author.tag);
+        message.channel.send(embed)
+
       }
     }
   }

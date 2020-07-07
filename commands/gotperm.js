@@ -9,7 +9,8 @@ const Discord = require("discord.js");
 module.exports = {
   name: "gotperm",
   description: "See if user has a specified permission.",
-  usage: "<perms> [user]",
+  usage: "gotperm <perms> [user]",
+  cooldown: 3,
   execute(message, args) {
     //message.delete();
     const perm = args[0].toUpperCase()

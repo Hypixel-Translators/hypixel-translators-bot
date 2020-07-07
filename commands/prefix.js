@@ -11,6 +11,7 @@ module.exports = {
   name: "prefix",
   description: "Gives the author the appropriate prefix for their language(s).",
   aliases: ["langprefix", "languageprefix"],
+  usage: "prefix",
   cooldown: 60,
   guildOnly: true,
   execute(message) {

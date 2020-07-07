@@ -12,7 +12,7 @@ module.exports = {
   description:
     "Shows you all available commands and general info about the bot.",
   aliases: ["commands", "cmds", "info"],
-  usage: "[name of command]",
+  usage: "help [name of command]",
   cooldown: 5,
   execute(message, args) {
     //message.delete();
@@ -27,8 +27,7 @@ module.exports = {
           "Execute `+help <name of command>` to learn more about a specific command.\n_This bot was built by <@722738307477536778> for the **Hypixel Translators Community Discord** server._"
         )
         .addFields(
-          { name: "Help", value: "help, ping", inline: true },
-          { name: "Essentials", value: "mention, prefix", inline: true },
+          { name: "Essentials", value: "help, mention, prefix", inline: true },
           {
             name: "Moderation",
             value: "kick, ban, purge",

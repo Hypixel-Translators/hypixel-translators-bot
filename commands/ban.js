@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 module.exports = {
   name: "ban",
   description: "Removes the user from the guild.",
-  usage: "<user id> [days of messages to delete] [reason in one word]",
+  usage: "ban <user id> [days of messages to delete]",
   cooldown: 5,
   guildOnly: true,
   execute(message, args) {

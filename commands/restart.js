@@ -10,6 +10,8 @@ module.exports = {
   name: "restart",
   description: "Refresh the bot to apply changes and to fix errors.",
   aliases: ["refresh", "reload", "update"],
+  usage: "restart",
+  cooldown: 3,
   execute(message) {
     //message.delete();
     const embed = new Discord.MessageEmbed()
