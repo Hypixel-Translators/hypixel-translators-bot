@@ -37,7 +37,7 @@ client.once("ready", () => {
 
 client.on("message", message => {
   if (message.channel.id == allowed1 || message.channel.id == allowed2 || message.channel.id == allowed3 || message.content.startsWith("+mention")) {
-    if (!message.channel.parent.id == "549503328472530975" && !message.channel.parent.id == "569178590697095168") {
+    if (message.channel.parent.id != "549503328472530975" && message.channel.parent.id != "569178590697095168") {
       if (!message.content.startsWith(prefix) || message.author.bot) return;
 
       const args = message.content.slice(prefix.length).split(/ +/);
