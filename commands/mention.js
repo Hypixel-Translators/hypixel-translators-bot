@@ -7,9 +7,17 @@ module.exports = {
   usage: "mention <language> <proofreader|translator|all>",
   cooldown: 60,
   execute(message, args) {
-    const lowerArg = args[0].toLowerCase()
-    const toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
-    if (args[1] === "pf" || args[1] === "proofreader" || args[1] === "Proofreader") {
+    if (args.length == 2) {
+      const type = args[1]
+      const lowerArg = args[0].toLowerCase()
+      const toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
+    } else if (args.length == 3) {
+      const type = args[2]
+      const rawArg = args[0] + " " + args[1]
+      const lowerArg = rawArg.toLowerCase()
+      const toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
+    }
+    if (type === "pf" || type === "proofreader" || type === "Proofreader") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
       const lowerRole = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
       console.log(toPing + "\n" + lowerRole);
@@ -24,7 +32,7 @@ module.exports = {
           "You don't have that language's proofreader role, so you can't mention it. Contact the server owner or administrator if you really need to."
         );
       }
-    } else if (args[1] === "tr" || args[1] === "translator" || args[1] === "Translator") {
+    } else if (type === "tr" || type === "translator" || type === "Translator") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
       const higherRole = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
       console.log(toPing + "\n" + higherRole);
@@ -42,7 +50,7 @@ module.exports = {
           "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
         );
       }
-    } else if (args[1] === "all" || args[1] === "both") {
+    } else if (type === "all" || type === "both") {
       const translatorPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
       const proofreaderPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
       console.log(translatorPing + "\n" + proofreaderPing);
