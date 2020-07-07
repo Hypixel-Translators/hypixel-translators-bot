@@ -80,7 +80,7 @@ module.exports = {
           const collector = msg.createReactionCollector(filter, { time: 20000 });
 
           collector.on('collect', (reaction, user) => {
-            if (reaction.emoji.name === "✅") { endReactions(msg,user,collected,prefixes) } else {
+            if (reaction.emoji.name === "✅") { endReactions(msg,user,prefixes) } else {
               reaction.remove()
               const valueToRemove = reaction.emoji.name
               userLangs = userLangs.filter(item => item !== valueToRemove)
@@ -95,13 +95,13 @@ module.exports = {
                 .setFooter("Executed by " + message.author.tag);
               msg.edit(embed)
               if (msg.reactions.length < 2) {
-                endReactions(msg,user,collected,prefixes)
+                endReactions(msg,user,prefixes)
               }
             }
           });
 
           collector.on('end', collected => {
-            endReactions(msg,user,collected,prefixes)
+            endReactions(msg,user,prefixes)
           });
         }
       })
@@ -109,9 +109,8 @@ module.exports = {
   }
 }
 
-function endReactions(msg,user,collected,prefixes) {
+function endReactions(msg,user,prefixes) {
   msg.reactions.removeAll()
-  console.log(`Collected ${collected.size} items`);
   if (prefixes.length > 0) {
     user.setNickname("[" + prefixes + "] " + user.user.username)
       .then(() => {
