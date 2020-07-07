@@ -120,6 +120,7 @@ module.exports = {
                 .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
                 .setFooter("Executed by " + message.author.tag);
               msg.edit(embed)
+              console.log(msg.reactions)
               if (msg.reactions.count < 2) {
                 msg.reactions.removeAll()
                 if (prefixes.length > 0) {
