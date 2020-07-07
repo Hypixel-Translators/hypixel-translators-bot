@@ -64,7 +64,7 @@ module.exports = {
           const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle("Prefix")
-            .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds in total. Hit ✅ to stop.")
+            .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds. Hit ✅ to stop.")
             .addFields({ name: "Chosen flags", value: "None" })
             .setFooter("Executed by " + message.author.tag);
           msg.edit(embed)
@@ -114,15 +114,24 @@ module.exports = {
               userLangs = userLangs.filter(item => item !== valueToRemove)
               if (prefixes.length > 0) { prefixes = (prefixes + "-") }
               prefixes = (prefixes + reaction.emoji.name)
-              const embed = new Discord.MessageEmbed()
+              embed
                 .setColor(neutralColor)
                 .setTitle("Prefix")
-                .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds in total. Hit ✅ to stop.")
                 .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
                 .setFooter("Executed by " + message.author.tag);
               msg.edit(embed)
             }
           });
+
+          setTimeout(() => {
+            embed.setDescription("React with all flags you want to add to your prefix in order. You have about 15 seconds left. Hit ✅ to stop.")
+            setTimeout(() => {
+              embed.setDescription("React with all flags you want to add to your prefix in order. You have about 10 seconds left. Hit ✅ to stop.")
+              setTimeout(() => {
+                embed.setDescription("React with all flags you want to add to your prefix in order. You have about 5 seconds left. Hit ✅ to stop.")
+              }, 5000)
+            }, 5000)
+          }, 5000)
 
           collector.on('end', collected => {
             msg.reactions.removeAll()
