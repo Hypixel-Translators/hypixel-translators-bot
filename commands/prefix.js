@@ -25,7 +25,7 @@ module.exports = {
         var userLangs = []
         var prefixes = ""
         var user = message.member
-        if (args[0].length > 2) {
+        if (args[0] != undefined) {
           user = message.guild.members.cache.get(args[0])
         }
         console.log(user)
