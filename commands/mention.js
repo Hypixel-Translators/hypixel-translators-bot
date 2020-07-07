@@ -8,14 +8,14 @@ module.exports = {
   cooldown: 60,
   execute(message, args) {
     if (args.length == 2) {
-      const type = args[1]
+      var type = args[1]
       const lowerArg = args[0].toLowerCase()
-      const toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
+      var toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
     } else if (args.length == 3) {
-      const type = args[2]
+      var type = args[2]
       const rawArg = args[0] + " " + args[1]
       const lowerArg = rawArg.toLowerCase()
-      const toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
+      var toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
     }
     if (type === "pf" || type === "proofreader" || type === "Proofreader") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
