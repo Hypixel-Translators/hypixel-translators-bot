@@ -36,10 +36,6 @@ client.once("ready", () => {
 });
 
 client.on("message", message => {
-  if (message.isMemberMentioned(client.user)) {
-    message.channel.send("Send \`+help\` in a bot channel to get a list of commands.")
-      .then(msg => { setTimeout(() => { msg.delete }, 5000) })
-  }
   if (message.channel.id == allowed1 || message.channel.id == allowed2 || message.channel.id == allowed3 || message.content.startsWith("+mention")) {
     if (message.channel.parent.id != "549503328472530975" && message.channel.parent.id != "569178590697095168") {
       if (!message.content.startsWith(prefix) || message.author.bot) return;
