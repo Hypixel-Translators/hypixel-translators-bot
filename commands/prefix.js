@@ -166,7 +166,7 @@ module.exports = {
           .setFooter("Executed by " + message.author.tag);
         msg.edit(embed)
         console.log(prefixes)
-        user.setNickname("[" + prefixes + "] " + user.username)
+        user.setNickname("[" + prefixes + "] " + user.user.username)
           .then(() => {
             const embed = new Discord.MessageEmbed()
               .setColor(successColor)
