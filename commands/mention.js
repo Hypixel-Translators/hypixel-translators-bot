@@ -5,7 +5,7 @@ module.exports = {
   description: "Mentions a language role.",
   aliases: ["langping", "languageping"],
   usage: "mention <language> <pf|tr|all>",
-  cooldown: 3,
+  cooldown: 60,
   execute(message, args) {
     const lowerArg = args[0].toLowerCase()
     const toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
