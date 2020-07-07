@@ -6,7 +6,7 @@ module.exports = {
   aliases: ["langping", "languageping"],
   usage: "<language> <pf|tr|all>",
   execute(message, args) {
-    const toLook = capitalizeFirstLetter(toLowerCase(args[0]))
+    const toLook = args[0].toLowerCase().capitalizeFirstLetter()
     if (args[1] === "pf" || args[1] === "proofreader" || args[1] === "Proofreader") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
       const lowerRole = message.guild.roles.cache.find(role => role.name === toLook + " Translator");

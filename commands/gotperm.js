@@ -12,7 +12,7 @@ module.exports = {
   usage: "<perms> [user]",
   execute(message, args) {
     //message.delete();
-    const perm = toUpperCase(args[0])
+    const perm = args[0].toUpperCase()
     const embed = new Discord.MessageEmbed()
       .setTitle("Permission " + perm)
       .setDescription("One second...")
