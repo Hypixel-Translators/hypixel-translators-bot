@@ -24,11 +24,11 @@ module.exports = {
         .setColor(neutralColor)
         .setTitle("Information")
         .setDescription(
-          "Execute `+help <name of command>` to learn more about a specific command.\n_This bot was built by <@722738307477536778> for the **Hypixel Translators Community Discord** server._"
+          "Execute `+help <name of command>` to learn more about a specific command.\nMore commands will come!\n_This bot was built by <@722738307477536778> for the **Hypixel Translators Community Discord** server._"
         )
         .addFields(
           { name: "Essentials", value: "help, mention, prefix", inline: true },
-          { name: "Moderation", value: "purge", inline: true }
+          { name: "Moderation", value: "None (yet?)", inline: true }
         )
         .setFooter("Executed by " + message.author.tag);
 
