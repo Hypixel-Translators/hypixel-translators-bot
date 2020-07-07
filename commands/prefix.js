@@ -158,12 +158,22 @@ module.exports = {
           prefixes = (prefixes + "🇺🇦")
         }
         user.setNickname("[" + prefixes + "] " + user.username)
-        const embed = new Discord.MessageEmbed()
-          .setColor(errorColor)
-          .setTitle("Prefix")
-          .setDescription("This command hasn't been programmed yet, this is a fallback message.")
-          .setFooter("Executed by " + message.author.tag);
-        msg.edit(embed)
+          .then(() => {
+            const embed = new Discord.MessageEmbed()
+              .setColor(errorColor)
+              .setTitle("Prefix")
+              .setDescription("Changed username with prefixes \`" + prefixes + "\`.")
+              .setFooter("Executed by " + message.author.tag);
+            msg.edit(embed)
+          })
+          .catch(err => {
+            const embed = new Discord.MessageEmbed()
+              .setColor(errorColor)
+              .setTitle("Prefix")
+              .setDescription("Failed to change nickname.\n\nReason:\n> " + err)
+              .setFooter("Executed by " + message.author.tag);
+            msg.edit(embed)
+          })
       })
   }
 }
