@@ -165,6 +165,7 @@ module.exports = {
           .setDescription("Changing username with prefix(es) \`" + prefixes + "\`...")
           .setFooter("Executed by " + message.author.tag);
         msg.edit(embed)
+        console.log(prefixes)
         user.setNickname("[" + prefixes + "] " + user.username)
           .then(() => {
             const embed = new Discord.MessageEmbed()
@@ -181,6 +182,7 @@ module.exports = {
               .setDescription("Failed to change nickname.\n\nReason:\n> " + err)
               .setFooter("Executed by " + message.author.tag);
             msg.edit(embed)
+            console.log(err)
           })
       })
   }
