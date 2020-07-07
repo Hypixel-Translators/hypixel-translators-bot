@@ -4,7 +4,7 @@ module.exports = {
   name: "mention",
   description: "Mentions a language role.",
   aliases: ["langping", "languageping"],
-  usage: "mention <language> <pf|tr>",
+  usage: "mention <language> <pf|tr|all>",
   cooldown: 3,
   execute(message, args) {
     const lowerArg = args[0].toLowerCase()
@@ -57,7 +57,7 @@ module.exports = {
           role => role.name === toLook + " Proofreader"
         )
       ) {
-        message.channel.send("<@&" + translatorPing + " and " + proofreaderPing + "> <a:bongoping:614477510423478275>");
+        message.channel.send("<@&" + translatorPing + "> and <" + proofreaderPing + "> <a:bongoping:614477510423478275>");
       } else {
         message.channel.send(
           "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
