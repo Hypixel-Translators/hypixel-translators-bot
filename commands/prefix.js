@@ -109,7 +109,6 @@ module.exports = {
                 msg.edit(embed)
               }
             } else {
-              reaction.remove()
               const valueToRemove = reaction.emoji.name
               userLangs = userLangs.filter(item => item !== valueToRemove)
               if (prefixes.length > 0) { prefixes = (prefixes + "-") }
