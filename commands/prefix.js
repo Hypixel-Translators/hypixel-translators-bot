@@ -72,7 +72,6 @@ module.exports = {
           console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
           if (prefixes.length > 0) { prefixes = (prefixes + "-") }
           prefixes = (prefixes + reaction.emoji.name)
-          reaction.emoji.remove()
           const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle("Prefix")
