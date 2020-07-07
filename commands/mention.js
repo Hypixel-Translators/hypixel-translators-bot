@@ -48,7 +48,7 @@ module.exports = {
     } else if (args[1] === "all" || args[1] === "both") {
       const translatorPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
       const proofreaderPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
-      console.log(toPing + "\n" + higherRole);
+      console.log(translatorPing + "\n" + proofreaderPing);
       if (
         message.member.roles.cache.find(
           role => role.name === toLook + " Translator"
