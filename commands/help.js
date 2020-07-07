@@ -28,12 +28,7 @@ module.exports = {
         )
         .addFields(
           { name: "Essentials", value: "help, mention, prefix", inline: true },
-          {
-            name: "Moderation",
-            value: "kick, ban, purge",
-            inline: true
-          },
-          { name: "Development", value: "restart, gotperm", inline: true }
+          { name: "Moderation", value: "purge", inline: true }
         )
         .setFooter("Executed by " + message.author.tag);
 
