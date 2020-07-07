@@ -157,6 +157,7 @@ module.exports = {
             }
             prefixes = (prefixes + "🇺🇦")
           }
+          message.channel.send("Your prefixes would be: " + prefixes)
         }
 
 
