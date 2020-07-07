@@ -83,7 +83,7 @@ module.exports = {
             if (reaction.emoji.name === "✅") {
               msg.reactions.removeAll()
               if (prefixes.length > 0) {
-                user.setNickname("[" + prefixes + "] " + user.user.username)
+                user.setNickname("[" + prefixes + "] " + user.username)
                   .then(() => {
                     const embed = new Discord.MessageEmbed()
                       .setColor(successColor)
