@@ -17,6 +17,8 @@ module.exports = {
       const lowerArg = rawArg.toLowerCase()
       var toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
     }
+    console.log(toLook)
+    console.log(type)
     if (type === "pf" || type === "proofreader" || type === "Proofreader") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
       const lowerRole = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
