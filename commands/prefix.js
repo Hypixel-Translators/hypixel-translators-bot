@@ -53,71 +53,87 @@ module.exports = {
         if (user.roles.cache.some(r => r.name.startsWith("Thai"))) { userLangs.push("🇹🇭"); msg.react("🇹🇭") }
         if (user.roles.cache.some(r => r.name.startsWith("Turkish"))) { userLangs.push("🇹🇷"); msg.react("🇹🇷") }
         if (user.roles.cache.some(r => r.name.startsWith("Ukrainian"))) { userLangs.push("🇺🇦"); msg.react("🇺🇦") }
-
-        const embed = new Discord.MessageEmbed()
-          .setColor(neutralColor)
-          .setTitle("Prefix")
-          .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds in total.")
-          .addFields({ name: "Chosen flags", value: "None" })
-          .setFooter("Executed by " + message.author.tag);
-        msg.edit(embed)
-
-        const filter = (reaction, reacter) => {
-          return userLangs.includes(reaction.emoji.name) && reacter.id === message.author.id;
-        };
-
-        const collector = msg.createReactionCollector(filter, { time: 20000 });
-
-        collector.on('collect', (reaction, user) => {
-          reaction.remove()
-          const valueToRemove = reaction.emoji.name
-          userLangs = userLangs.filter(item => item !== valueToRemove)
-          console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
-          if (prefixes.length > 0) { prefixes = (prefixes + "-") }
-          prefixes = (prefixes + reaction.emoji.name)
+        if (userLangs.length < 1) {
+          const embed = new Discord.MessageEmbed()
+            .setColor(errorColor)
+            .setTitle("Prefix")
+            .setDescription("You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.")
+            .setFooter("Executed by " + message.author.tag);
+          msg.edit(embed)
+        } else {
           const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle("Prefix")
             .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds in total.")
-            .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
+            .addFields({ name: "Chosen flags", value: "None" })
             .setFooter("Executed by " + message.author.tag);
           msg.edit(embed)
-        });
 
-        collector.on('end', collected => {
-          message.reactions.removeAll()
-          console.log(`Collected ${collected.size} items`);
-          if (prefixes.length > 0) {
-            user.setNickname("[" + prefixes + "] " + user.user.username)
-              .then(() => {
-                const embed = new Discord.MessageEmbed()
-                  .setColor(successColor)
-                  .setTitle("Prefix")
-                  .setDescription("Your prefix has been saved!")
-                  .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
-                  .setFooter("Executed by " + message.author.tag);
-                msg.edit(embed)
-              })
-              .catch(err => {
-                const embed = new Discord.MessageEmbed()
-                  .setColor(errorColor)
-                  .setTitle("Prefix")
-                  .setDescription("Failed to change nickname to " + prefixes + ".\n\nReason:\n> " + err)
-                  .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
-                  .setFooter("Executed by " + message.author.tag);
-                msg.edit(embed)
-                console.log(err)
-              })
-          } else {
+          const filter = (reaction, reacter) => {
+            return userLangs.includes(reaction.emoji.name) && reacter.id === message.author.id;
+          };
+
+          const collector = msg.createReactionCollector(filter, { time: 20000 });
+
+          collector.on('collect', (reaction, user) => {
+            reaction.remove()
+            const valueToRemove = reaction.emoji.name
+            userLangs = userLangs.filter(item => item !== valueToRemove)
+            console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
+            if (prefixes.length > 0) { prefixes = (prefixes + "-") }
+            prefixes = (prefixes + reaction.emoji.name)
             const embed = new Discord.MessageEmbed()
-              .setColor(errorColor)
+              .setColor(neutralColor)
               .setTitle("Prefix")
-              .setDescription("You didn't react to any flags, so your prefix wasn't saved.")
-              .addFields({ name: "Chosen flags", value: "None" })
+              .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds in total.")
+              .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
               .setFooter("Executed by " + message.author.tag);
             msg.edit(embed)
-          }
-        });
+            if (!message.reactions) {
+              endReactions()
+            }
+          });
+
+          collector.on('end', collected => {
+            endReactions()
+          });
+        }
       })
+
+  }
+}
+
+function endReactions() {
+  message.reactions.removeAll()
+  console.log(`Collected ${collected.size} items`);
+  if (prefixes.length > 0) {
+    user.setNickname("[" + prefixes + "] " + user.user.username)
+      .then(() => {
+        const embed = new Discord.MessageEmbed()
+          .setColor(successColor)
+          .setTitle("Prefix")
+          .setDescription("Your prefix has been saved!")
+          .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
+          .setFooter("Executed by " + message.author.tag);
+        msg.edit(embed)
+      })
+      .catch(err => {
+        const embed = new Discord.MessageEmbed()
+          .setColor(errorColor)
+          .setTitle("Prefix")
+          .setDescription("Failed to change nickname to " + prefixes + ".\n\nReason:\n> " + err)
+          .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
+          .setFooter("Executed by " + message.author.tag);
+        msg.edit(embed)
+        console.log(err)
+      })
+  } else {
+    const embed = new Discord.MessageEmbed()
+      .setColor(errorColor)
+      .setTitle("Prefix")
+      .setDescription("You didn't react to any flags, so your prefix wasn't saved.")
+      .addFields({ name: "Chosen flags", value: "None" })
+      .setFooter("Executed by " + message.author.tag);
+    msg.edit(embed)
   }
 }
