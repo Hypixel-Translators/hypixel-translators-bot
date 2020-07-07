@@ -74,7 +74,7 @@ module.exports = {
           msg.edit(embed)
 
           const filter = (reaction, reacter) => {
-            return userLangs.includes(reaction.emoji.name) && reacter.id === message.author.id;
+            return (userLangs.includes(reaction.emoji.name) || reaction.emoji.name === "✅") && reacter.id === message.author.id;
           };
 
           const collector = msg.createReactionCollector(filter, { time: 20000 });
@@ -94,7 +94,7 @@ module.exports = {
                 .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
                 .setFooter("Executed by " + message.author.tag);
               msg.edit(embed)
-              if (!message.reactions) {
+              if (message.reactions.length < 2) {
                 endReactions()
               }
             }
