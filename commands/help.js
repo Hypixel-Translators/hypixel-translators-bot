@@ -28,13 +28,13 @@ module.exports = {
         )
         .addFields(
           { name: "Help", value: "help, ping", inline: true },
-          { name: "Essentials", value: "mention", inline: true },
+          { name: "Essentials", value: "mention, prefix", inline: true },
           {
             name: "Moderation",
             value: "kick, ban, purge",
             inline: true
           },
-          { name: "Development", value: "restart, get (beta)", inline: true }
+          { name: "Development", value: "restart, gotperm", inline: true }
         )
         .setFooter("Executed by " + message.author.tag);
 
