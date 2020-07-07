@@ -16,15 +16,12 @@ module.exports = {
       if (
         message.member.roles.cache.find(
           role => role.name === toLook + " Proofreader"
-        ) ||
-        message.member.roles.cache.find(
-          role => role.name === toLook + " Translator"
         )
       ) {
         message.channel.send("<@&" + toPing + "> <a:bongoping:614477510423478275>");
       } else {
         message.channel.send(
-          "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
+          "You don't have that language's proofreader role, so you can't mention it. Contact the server owner or administrator if you really need to."
         );
       }
     } else if (args[1] === "tr" || args[1] === "translator" || args[1] === "Translator") {
@@ -51,16 +48,13 @@ module.exports = {
       console.log(translatorPing + "\n" + proofreaderPing);
       if (
         message.member.roles.cache.find(
-          role => role.name === toLook + " Translator"
-        ) ||
-        message.member.roles.cache.find(
           role => role.name === toLook + " Proofreader"
         )
       ) {
         message.channel.send("<@&" + translatorPing + "> and <@&" + proofreaderPing + "> <a:bongoping:614477510423478275>");
       } else {
         message.channel.send(
-          "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
+          "You don't have that language's proofreader role, so you can't mention the entire language. Contact the server owner or administrator if you really need to."
         );
       }
     }
