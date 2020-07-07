@@ -23,7 +23,7 @@ module.exports = {
     message.channel.send(embed)
       .then(msg => {
         if (args[0]) {
-          const guild = msg.client.guilds.get("549503328472530974")
+          const guild = msg.client.guilds.cache.get("549503328472530974")
           const user = guild.member(args[0])
           var roles = user.roles
           console.log(roles)
