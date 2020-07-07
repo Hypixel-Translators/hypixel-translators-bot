@@ -79,7 +79,7 @@ module.exports = {
       const cooldown = command.cooldown + " second(s)";
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setTitle("Help")
+        .setTitle("Command help")
         .setAuthor("Command: " + command.name)
         .setDescription(command.description)
         .addFields(
