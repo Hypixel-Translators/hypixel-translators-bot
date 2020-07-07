@@ -1,4 +1,4 @@
-const {
+/*const {
   workingColor,
   errorColor,
   successColor,
@@ -48,4 +48,4 @@ module.exports = {
       message.channel.send(embed);
     }
   }
-};
+};*/
