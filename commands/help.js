@@ -33,21 +33,21 @@ module.exports = {
         .setFooter("Executed by " + message.author.tag);
 
       message.channel.send(embed)
-    }
+    } else {
 
-    const name = args[0].toLowerCase();
-    const command =
-      commands.get(name) ||
-      commands.find(c => c.aliases && c.aliases.includes(name));
+      const name = args[0].toLowerCase();
+      const command =
+        commands.get(name) ||
+        commands.find(c => c.aliases && c.aliases.includes(name));
 
-    if (!command) {
-      const embed = new Discord.MessageEmbed()
-        .setColor(errorColor)
-        .setTitle("Help")
-        .setDescription("That command doesn't exist!")
-        .setFooter("Executed by " + message.author.tag);
-      return message.channel.send(embed);
-    }
+      if (!command) {
+        const embed = new Discord.MessageEmbed()
+          .setColor(errorColor)
+          .setTitle("Help")
+          .setDescription("That command doesn't exist!")
+          .setFooter("Executed by " + message.author.tag);
+        return message.channel.send(embed);
+      }
 
       const cooldown = command.cooldown + " second(s)";
       const embed = new Discord.MessageEmbed()
@@ -71,5 +71,6 @@ module.exports = {
         .setFooter("Executed by " + message.author.tag);
 
       message.channel.send(embed);
+    }
   }
 };
