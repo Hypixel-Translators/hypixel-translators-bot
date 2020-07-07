@@ -8,7 +8,7 @@ module.exports = {
   cooldown: 3,
   execute(message, args) {
     const lowerArg = args[0].toLowerCase()
-    const toLook = lowerArg.capitalizeFirstLetter()
+    const toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
     if (args[1] === "pf" || args[1] === "proofreader" || args[1] === "Proofreader") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
       const lowerRole = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
