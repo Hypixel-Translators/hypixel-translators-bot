@@ -29,137 +29,72 @@ module.exports = {
         }
 
         if (user.roles.cache.some(r => r.name.startsWith("Bulgarian"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇧🇬")
+          msg.react("🇧🇬")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Chinese"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇨🇳")
+          msg.react("🇨🇳")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Czech"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇨🇿")
+          msg.react("🇨🇿")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Danish"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇩🇰")
+          msg.react("🇩🇰")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Dutch"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇳🇱")
+          msg.react("🇳🇱")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Finnish"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇫🇮")
+          msg.react("🇫🇮")
         }
         if (user.roles.cache.some(r => r.name.startsWith("French"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇫🇷")
+          msg.react("🇫🇷")
         }
         if (user.roles.cache.some(r => r.name.startsWith("German"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇩🇪")
-        } if (user.roles.cache.some(r => r.name.startsWith("Greek"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇬🇷")
+          msg.react("🇩🇪")
+        } 
+        if (user.roles.cache.some(r => r.name.startsWith("Greek"))) {
+          msg.react("🇬🇷")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Italian"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇮🇹")
+          msg.react("🇮🇹")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Japanese"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇯🇵")
+          msg.react("🇯🇵")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Korean"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇰🇷")
+          msg.react("🇰🇷")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Norwegian"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇳🇴")
+          msg.react("🇳🇴")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Polish"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇵🇱")
+          msg.react("🇵🇱")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Portuguese"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇵🇹")
+          msg.react("🇵🇹")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Brazilian"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇧🇷")
+          msg.react("🇧🇷")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Russian"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇷🇺")
+          msg.react("🇷🇺")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Spanish"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇪🇸")
+          msg.react("🇪🇸")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Swedish"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇸🇪")
+          msg.react("🇸🇪")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Thai"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇹🇭")
+          msg.react("🇹🇭")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Turkish"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇹🇷")
+          msg.react("🇹🇷")
         }
         if (user.roles.cache.some(r => r.name.startsWith("Ukrainian"))) {
-          if (prefixes.length > 1) {
-            prefixes = (prefixes + "-")
-          }
-          prefixes = (prefixes + "🇺🇦")
+          msg.react("🇺🇦")
         }
-        const embed = new Discord.MessageEmbed()
+        /*const embed = new Discord.MessageEmbed()
           .setColor(workingColor)
           .setTitle("Prefix")
           .setDescription("Changing username with prefix(es) \`" + prefixes + "\`...")
@@ -183,7 +118,7 @@ module.exports = {
               .setFooter("Executed by " + message.author.tag);
             msg.edit(embed)
             console.log(err)
-          })
+          })*/
       })
   }
 }
