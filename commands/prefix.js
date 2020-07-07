@@ -80,7 +80,7 @@ module.exports = {
           const collector = msg.createReactionCollector(filter, { time: 20000 });
 
           collector.on('collect', (reaction, user) => {
-            if (reaction.emoji.name === "✅") { endReactions() } else {
+            if (reaction.emoji.name === "✅") { endReactions(msg) } else {
               reaction.remove()
               const valueToRemove = reaction.emoji.name
               userLangs = userLangs.filter(item => item !== valueToRemove)
@@ -95,13 +95,13 @@ module.exports = {
                 .setFooter("Executed by " + message.author.tag);
               msg.edit(embed)
               if (msg.reactions.length < 2) {
-                endReactions()
+                endReactions(msg)
               }
             }
           });
 
           collector.on('end', collected => {
-            endReactions()
+            endReactions(msg)
           });
         }
       })
@@ -109,7 +109,7 @@ module.exports = {
   }
 }
 
-function endReactions() {
+function endReactions(msg) {
   msg.reactions.removeAll()
   console.log(`Collected ${collected.size} items`);
   if (prefixes.length > 0) {
