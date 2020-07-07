@@ -25,7 +25,7 @@ module.exports = {
         if (args[0]) {
           const guild = msg.client.guilds.cache.get("549503328472530974")
           const user = guild.member(args[0])
-          var roles = user.roles
+          var roles = user.roles.member[0].guild[0]._roles
           console.log(roles)
           var langRoles = roles.filter(x => !x.name.endsWith("Proofreader") || !x.name.endsWith("Translator"))
           console.log(langRoles)
