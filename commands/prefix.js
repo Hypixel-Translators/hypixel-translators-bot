@@ -80,7 +80,39 @@ module.exports = {
           const collector = msg.createReactionCollector(filter, { time: 20000 });
 
           collector.on('collect', (reaction, user) => {
-            if (reaction.emoji.name === "✅") { endReactions(msg,user,prefixes) } else {
+            if (reaction.emoji.name === "✅") {
+              msg.reactions.removeAll()
+              if (prefixes.length > 0) {
+                user.setNickname("[" + prefixes + "] " + user.user.username)
+                  .then(() => {
+                    const embed = new Discord.MessageEmbed()
+                      .setColor(successColor)
+                      .setTitle("Prefix")
+                      .setDescription("Your prefix has been saved!")
+                      .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
+                      .setFooter("Executed by " + message.author.tag);
+                    msg.edit(embed)
+                  })
+                  .catch(err => {
+                    const embed = new Discord.MessageEmbed()
+                      .setColor(errorColor)
+                      .setTitle("Prefix")
+                      .setDescription("Failed to change nickname to " + prefixes + ".\n\nReason:\n> " + err)
+                      .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
+                      .setFooter("Executed by " + message.author.tag);
+                    msg.edit(embed)
+                    console.log(err)
+                  })
+              } else {
+                const embed = new Discord.MessageEmbed()
+                  .setColor(errorColor)
+                  .setTitle("Prefix")
+                  .setDescription("You didn't react to any flags, so your prefix wasn't saved.")
+                  .addFields({ name: "Chosen flags", value: "None" })
+                  .setFooter("Executed by " + message.author.tag);
+                msg.edit(embed)
+              }
+            } else {
               reaction.remove()
               const valueToRemove = reaction.emoji.name
               userLangs = userLangs.filter(item => item !== valueToRemove)
@@ -95,50 +127,76 @@ module.exports = {
                 .setFooter("Executed by " + message.author.tag);
               msg.edit(embed)
               if (msg.reactions.length < 2) {
-                endReactions(msg,user,prefixes)
+                msg.reactions.removeAll()
+                if (prefixes.length > 0) {
+                  user.setNickname("[" + prefixes + "] " + user.user.username)
+                    .then(() => {
+                      const embed = new Discord.MessageEmbed()
+                        .setColor(successColor)
+                        .setTitle("Prefix")
+                        .setDescription("Your prefix has been saved!")
+                        .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
+                        .setFooter("Executed by " + message.author.tag);
+                      msg.edit(embed)
+                    })
+                    .catch(err => {
+                      const embed = new Discord.MessageEmbed()
+                        .setColor(errorColor)
+                        .setTitle("Prefix")
+                        .setDescription("Failed to change nickname to " + prefixes + ".\n\nReason:\n> " + err)
+                        .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
+                        .setFooter("Executed by " + message.author.tag);
+                      msg.edit(embed)
+                      console.log(err)
+                    })
+                } else {
+                  const embed = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setTitle("Prefix")
+                    .setDescription("You didn't react to any flags, so your prefix wasn't saved.")
+                    .addFields({ name: "Chosen flags", value: "None" })
+                    .setFooter("Executed by " + message.author.tag);
+                  msg.edit(embed)
+                }
               }
             }
           });
 
           collector.on('end', collected => {
-            endReactions(msg,user,prefixes)
+            msg.reactions.removeAll()
+            if (prefixes.length > 0) {
+              user.setNickname("[" + prefixes + "] " + user.user.username)
+                .then(() => {
+                  const embed = new Discord.MessageEmbed()
+                    .setColor(successColor)
+                    .setTitle("Prefix")
+                    .setDescription("Your prefix has been saved!")
+                    .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
+                    .setFooter("Executed by " + message.author.tag);
+                  msg.edit(embed)
+                })
+                .catch(err => {
+                  const embed = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setTitle("Prefix")
+                    .setDescription("Failed to change nickname to " + prefixes + ".\n\nReason:\n> " + err)
+                    .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
+                    .setFooter("Executed by " + message.author.tag);
+                  msg.edit(embed)
+                  console.log(err)
+                })
+            } else {
+              const embed = new Discord.MessageEmbed()
+                .setColor(errorColor)
+                .setTitle("Prefix")
+                .setDescription("You didn't react to any flags, so your prefix wasn't saved.")
+                .addFields({ name: "Chosen flags", value: "None" })
+                .setFooter("Executed by " + message.author.tag);
+              msg.edit(embed)
+            }
           });
         }
       })
 
-  }
-}
-
-function endReactions(msg,user,prefixes) {
-  msg.reactions.removeAll()
-  if (prefixes.length > 0) {
-    user.setNickname("[" + prefixes + "] " + user.user.username)
-      .then(() => {
-        const embed = new Discord.MessageEmbed()
-          .setColor(successColor)
-          .setTitle("Prefix")
-          .setDescription("Your prefix has been saved!")
-          .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
-          .setFooter("Executed by " + message.author.tag);
-        msg.edit(embed)
-      })
-      .catch(err => {
-        const embed = new Discord.MessageEmbed()
-          .setColor(errorColor)
-          .setTitle("Prefix")
-          .setDescription("Failed to change nickname to " + prefixes + ".\n\nReason:\n> " + err)
-          .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
-          .setFooter("Executed by " + message.author.tag);
-        msg.edit(embed)
-        console.log(err)
-      })
-  } else {
-    const embed = new Discord.MessageEmbed()
-      .setColor(errorColor)
-      .setTitle("Prefix")
-      .setDescription("You didn't react to any flags, so your prefix wasn't saved.")
-      .addFields({ name: "Chosen flags", value: "None" })
-      .setFooter("Executed by " + message.author.tag);
-    msg.edit(embed)
   }
 }
