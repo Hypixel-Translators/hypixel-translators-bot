@@ -94,7 +94,7 @@ module.exports = {
                 .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
                 .setFooter("Executed by " + message.author.tag);
               msg.edit(embed)
-              if (message.reactions.length < 2) {
+              if (msg.reactions.length < 2) {
                 endReactions()
               }
             }
@@ -110,7 +110,7 @@ module.exports = {
 }
 
 function endReactions() {
-  message.reactions.removeAll()
+  msg.reactions.removeAll()
   console.log(`Collected ${collected.size} items`);
   if (prefixes.length > 0) {
     user.setNickname("[" + prefixes + "] " + user.user.username)
