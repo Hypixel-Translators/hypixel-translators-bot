@@ -23,9 +23,11 @@ module.exports = {
     message.channel.send(embed)
       .then(msg => {
         var prefixes = ""
-        const guild = msg.client.guilds.cache.get("549503328472530974")
         var user = message.member
-        if (args) { user = guild.member(args[0]) }
+        if (args) {
+          user = message.guild.members.cache.get(args[0])
+        }
+
         if (user.roles.cache.some(r => r.name.startsWith("Bulgarian"))) {
           if (prefixes.length > 1) {
             prefixes = (prefixes + "-")
