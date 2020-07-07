@@ -18,7 +18,7 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
       .setTitle("Prefix")
-      .setDescription("Your prefix is being changed... ")
+      .setDescription("One second... ")
       .setFooter("Executed by " + message.author.tag);
     message.channel.send(embed)
       .then(msg => {
@@ -29,28 +29,7 @@ module.exports = {
           user = message.guild.members.cache.get(args[0])
         }
 
-        if (user.roles.cache.some(r => r.name.startsWith("Bulgarian"))) { userLangs.push("🇧🇬"); msg.react("🇧🇬") }
-        if (user.roles.cache.some(r => r.name.startsWith("Chinese"))) { userLangs.push("🇨🇳"); msg.react("🇨🇳") }
-        if (user.roles.cache.some(r => r.name.startsWith("Czech"))) { userLangs.push("🇨🇿"); msg.react("🇨🇿") }
-        if (user.roles.cache.some(r => r.name.startsWith("Danish"))) { userLangs.push("🇩🇰"); msg.react("🇩🇰") }
-        if (user.roles.cache.some(r => r.name.startsWith("Dutch"))) { userLangs.push("🇳🇱"); msg.react("🇳🇱") }
-        if (user.roles.cache.some(r => r.name.startsWith("Finnish"))) { userLangs.push("🇫🇮"); msg.react("🇫🇮") }
-        if (user.roles.cache.some(r => r.name.startsWith("French"))) { userLangs.push("🇫🇷"); msg.react("🇫🇷") }
-        if (user.roles.cache.some(r => r.name.startsWith("German"))) { userLangs.push("🇩🇪"); msg.react("🇩🇪") }
-        if (user.roles.cache.some(r => r.name.startsWith("Greek"))) { userLangs.push("🇬🇷"); msg.react("🇬🇷") }
-        if (user.roles.cache.some(r => r.name.startsWith("Italian"))) { userLangs.push("🇮🇹"); msg.react("🇮🇹") }
-        if (user.roles.cache.some(r => r.name.startsWith("Japanese"))) { userLangs.push("🇯🇵"); msg.react("🇯🇵") }
-        if (user.roles.cache.some(r => r.name.startsWith("Korean"))) { userLangs.push("🇰🇷"); msg.react("🇰🇷") }
-        if (user.roles.cache.some(r => r.name.startsWith("Norwegian"))) { userLangs.push("🇳🇴"); msg.react("🇳🇴") }
-        if (user.roles.cache.some(r => r.name.startsWith("Polish"))) { userLangs.push("🇵🇱"); msg.react("🇵🇱") }
-        if (user.roles.cache.some(r => r.name.startsWith("Portuguese"))) { userLangs.push("🇵🇹"); msg.react("🇵🇹") }
-        if (user.roles.cache.some(r => r.name.startsWith("Brazilian"))) { userLangs.push("🇧🇷"); msg.react("🇧🇷") }
-        if (user.roles.cache.some(r => r.name.startsWith("Russian"))) { userLangs.push("🇷🇺"); msg.react("🇷🇺") }
-        if (user.roles.cache.some(r => r.name.startsWith("Spanish"))) { userLangs.push("🇪🇸"); msg.react("🇪🇸") }
-        if (user.roles.cache.some(r => r.name.startsWith("Swedish"))) { userLangs.push("🇸🇪"); msg.react("🇸🇪") }
-        if (user.roles.cache.some(r => r.name.startsWith("Thai"))) { userLangs.push("🇹🇭"); msg.react("🇹🇭") }
-        if (user.roles.cache.some(r => r.name.startsWith("Turkish"))) { userLangs.push("🇹🇷"); msg.react("🇹🇷") }
-        if (user.roles.cache.some(r => r.name.startsWith("Ukrainian"))) { userLangs.push("🇺🇦"); msg.react("🇺🇦") }
+        checkUserLangs()
 
         const filter = (reaction, reacter) => {
           return userLangs.includes(reaction.emoji.name) && reacter.id === message.author.id;
@@ -94,4 +73,30 @@ module.exports = {
           })*/
       })
   }
+}
+
+
+async function checkUserLangs() {
+  if (user.roles.cache.some(r => r.name.startsWith("Bulgarian"))) { await userLangs.push("🇧🇬"); await msg.react("🇧🇬") }
+  if (user.roles.cache.some(r => r.name.startsWith("Chinese"))) { await userLangs.push("🇨🇳"); await msg.react("🇨🇳") }
+  if (user.roles.cache.some(r => r.name.startsWith("Czech"))) { await userLangs.push("🇨🇿"); await msg.react("🇨🇿") }
+  if (user.roles.cache.some(r => r.name.startsWith("Danish"))) { await userLangs.push("🇩🇰"); await msg.react("🇩🇰") }
+  if (user.roles.cache.some(r => r.name.startsWith("Dutch"))) { await userLangs.push("🇳🇱"); await msg.react("🇳🇱") }
+  if (user.roles.cache.some(r => r.name.startsWith("Finnish"))) { await userLangs.push("🇫🇮"); await msg.react("🇫🇮") }
+  if (user.roles.cache.some(r => r.name.startsWith("French"))) { await userLangs.push("🇫🇷"); await msg.react("🇫🇷") }
+  if (user.roles.cache.some(r => r.name.startsWith("German"))) { await userLangs.push("🇩🇪"); await msg.react("🇩🇪") }
+  if (user.roles.cache.some(r => r.name.startsWith("Greek"))) { await userLangs.push("🇬🇷"); await msg.react("🇬🇷") }
+  if (user.roles.cache.some(r => r.name.startsWith("Italian"))) { await userLangs.push("🇮🇹"); await msg.react("🇮🇹") }
+  if (user.roles.cache.some(r => r.name.startsWith("Japanese"))) { await userLangs.push("🇯🇵"); await msg.react("🇯🇵") }
+  if (user.roles.cache.some(r => r.name.startsWith("Korean"))) { await userLangs.push("🇰🇷"); await msg.react("🇰🇷") }
+  if (user.roles.cache.some(r => r.name.startsWith("Norwegian"))) { await userLangs.push("🇳🇴"); await msg.react("🇳🇴") }
+  if (user.roles.cache.some(r => r.name.startsWith("Polish"))) { await userLangs.push("🇵🇱"); await msg.react("🇵🇱") }
+  if (user.roles.cache.some(r => r.name.startsWith("Portuguese"))) { await userLangs.push("🇵🇹"); await msg.react("🇵🇹") }
+  if (user.roles.cache.some(r => r.name.startsWith("Brazilian"))) { await userLangs.push("🇧🇷"); await msg.react("🇧🇷") }
+  if (user.roles.cache.some(r => r.name.startsWith("Russian"))) { await userLangs.push("🇷🇺"); await msg.react("🇷🇺") }
+  if (user.roles.cache.some(r => r.name.startsWith("Spanish"))) { await userLangs.push("🇪🇸"); await msg.react("🇪🇸") }
+  if (user.roles.cache.some(r => r.name.startsWith("Swedish"))) { await userLangs.push("🇸🇪"); await msg.react("🇸🇪") }
+  if (user.roles.cache.some(r => r.name.startsWith("Thai"))) { await userLangs.push("🇹🇭"); await msg.react("🇹🇭") }
+  if (user.roles.cache.some(r => r.name.startsWith("Turkish"))) { await userLangs.push("🇹🇷"); await msg.react("🇹🇷") }
+  if (user.roles.cache.some(r => r.name.startsWith("Ukrainian"))) { await userLangs.push("🇺🇦"); await msg.react("🇺🇦") }
 }
