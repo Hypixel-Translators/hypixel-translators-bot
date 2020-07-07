@@ -28,7 +28,7 @@ module.exports = {
         )
         .addFields(
           { name: "Essentials", value: "help, mention, prefix", inline: true },
-          { name: "Moderation", value: "None (yet?)", inline: true }
+          { name: "More commands", value: "More commands will come soon:tm:!", inline: true }
         )
         .setFooter("Executed by " + message.author.tag);
 
