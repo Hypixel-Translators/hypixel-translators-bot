@@ -120,7 +120,7 @@ module.exports = {
                 .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
                 .setFooter("Executed by " + message.author.tag);
               msg.edit(embed)
-              if (msg.reactions.length < 2) {
+              if (msg.reactions.count < 2) {
                 msg.reactions.removeAll()
                 if (prefixes.length > 0) {
                   message.member.setNickname("[" + prefixes + "] " + message.member.user.username)
