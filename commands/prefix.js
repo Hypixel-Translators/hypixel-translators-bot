@@ -179,7 +179,7 @@ module.exports = {
             const embed = new Discord.MessageEmbed()
               .setColor(errorColor)
               .setTitle("Prefix")
-              .setDescription("Failed to change nickname.\n\nReason:\n> " + err)
+              .setDescription("Failed to change nickname to" + prefixes + ".\n\nReason:\n> " + err)
               .setFooter("Executed by " + message.author.tag);
             msg.edit(embed)
             console.log(err)
