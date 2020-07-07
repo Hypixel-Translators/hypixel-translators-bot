@@ -8,6 +8,8 @@
   "allowed1": "624881429834366986",
   "allowed2": "730042612647723058",
   "allowed3": "644620638878695424",
+  "listenStatuses" : ["+help", "+help", "+help", "you", "Hypixel's translators", "QkeleQ10", "Stannya and Rodry"],
+  "watchStatuses": ["your commands", "your messages", "your translations", "Hypixel's translators", "everything", "nicknames and stuff"],
   "langdb": [
     {"name": "Bulgarian", "emoji": "🇧🇬"},
     {"name": "Chinese", "emoji": "🇨🇳"},

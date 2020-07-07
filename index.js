@@ -1,6 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const { prefix, token, allowed1, allowed2, allowed3, workingColor, errorColor, successColor, neutralColor } = require("./config.json");
+const { prefix, token, allowed1, allowed2, allowed3, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses } = require("./config.json");
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -19,8 +19,6 @@ const cooldowns = new Discord.Collection();
 client.once("ready", () => {
   console.log("Ready!");
   var used1 = false;
-  var listenStatuses = ["+ help", "+help", "+help", "you", "Hypixel's translators", "QkeleQ10", "Stannya and Rodry"]
-  var watchStatuses = ["your commands", "your messages", "your needs", "Hypixel's translators", "everything", "nicknames and stuff"]
   client.user.setStatus("online").catch(console.error);
   setInterval(() => {
     if (used1) {
