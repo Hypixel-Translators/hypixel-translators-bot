@@ -24,10 +24,11 @@ module.exports = {
       .then(msg => {
         var userLangs = []
         var prefixes = ""
-        var user = message.guild.members.cache.get(message.member.id)
+        var user = message.member
         if (args[0].length > 2) {
           user = message.guild.members.cache.get(args[0])
         }
+        console.log(user)
 
         if (user.roles.cache.some(r => r.name.startsWith("Bulgarian"))) { userLangs.push("🇧🇬"); msg.react("🇧🇬") }
         if (user.roles.cache.some(r => r.name.startsWith("Chinese"))) { userLangs.push("🇨🇳"); msg.react("🇨🇳") }
