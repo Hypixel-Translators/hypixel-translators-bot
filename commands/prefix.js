@@ -69,6 +69,7 @@ module.exports = {
         const collector = msg.createReactionCollector(filter, { time: 20000 });
 
         collector.on('collect', (reaction, user) => {
+          reaction.remove()
           const valueToRemove = reaction.emoji.name
           userLangs = userLangs.filter(item => item !== valueToRemove)
           console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
