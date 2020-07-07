@@ -36,7 +36,7 @@ module.exports = {
         msg.edit(embed);
       } else {
         const embed = new Discord.MessageEmbed()
-          .setTitle("Permission " + toUpperCase(perm))
+          .setTitle("Permission " + perm)
           .addFields(
             { name: "Bot", value: botPerm },
             { name: "Author", value: authorPerm }
