@@ -29,7 +29,6 @@ module.exports = {
         if (args[0] != undefined) {
           user = message.guild.members.cache.get(args[0])
         }
-        console.log(user)
 
         if (user.roles.cache.some(r => r.name.startsWith("Bulgarian"))) { userLangs.push("🇧🇬"); msg.react("🇧🇬") }
         if (user.roles.cache.some(r => r.name.startsWith("Chinese"))) { userLangs.push("🇨🇳"); msg.react("🇨🇳") }
@@ -53,6 +52,11 @@ module.exports = {
         if (user.roles.cache.some(r => r.name.startsWith("Thai"))) { userLangs.push("🇹🇭"); msg.react("🇹🇭") }
         if (user.roles.cache.some(r => r.name.startsWith("Turkish"))) { userLangs.push("🇹🇷"); msg.react("🇹🇷") }
         if (user.roles.cache.some(r => r.name.startsWith("Ukrainian"))) { userLangs.push("🇺🇦"); msg.react("🇺🇦") }
+
+        setTimeout(() => {
+          msg.react("✅")
+        }, 1000)
+
         if (userLangs.length < 1) {
           const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
@@ -64,7 +68,7 @@ module.exports = {
           const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle("Prefix")
-            .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds in total.")
+            .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds in total. Hit ✅ to stop.")
             .addFields({ name: "Chosen flags", value: "None" })
             .setFooter("Executed by " + message.author.tag);
           msg.edit(embed)
@@ -76,21 +80,23 @@ module.exports = {
           const collector = msg.createReactionCollector(filter, { time: 20000 });
 
           collector.on('collect', (reaction, user) => {
-            reaction.remove()
-            const valueToRemove = reaction.emoji.name
-            userLangs = userLangs.filter(item => item !== valueToRemove)
-            console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
-            if (prefixes.length > 0) { prefixes = (prefixes + "-") }
-            prefixes = (prefixes + reaction.emoji.name)
-            const embed = new Discord.MessageEmbed()
-              .setColor(neutralColor)
-              .setTitle("Prefix")
-              .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds in total.")
-              .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
-              .setFooter("Executed by " + message.author.tag);
-            msg.edit(embed)
-            if (!message.reactions) {
-              endReactions()
+            if (reaction.emoji.name === "✅") { endReactions() } else {
+              reaction.remove()
+              const valueToRemove = reaction.emoji.name
+              userLangs = userLangs.filter(item => item !== valueToRemove)
+              console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
+              if (prefixes.length > 0) { prefixes = (prefixes + "-") }
+              prefixes = (prefixes + reaction.emoji.name)
+              const embed = new Discord.MessageEmbed()
+                .setColor(neutralColor)
+                .setTitle("Prefix")
+                .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds in total. Hit ✅ to stop.")
+                .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
+                .setFooter("Executed by " + message.author.tag);
+              msg.edit(embed)
+              if (!message.reactions) {
+                endReactions()
+              }
             }
           });
 
