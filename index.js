@@ -19,15 +19,17 @@ const cooldowns = new Discord.Collection();
 client.once("ready", () => {
   console.log("Ready!");
   var used1 = false;
+  var listenStatuses = ["+ help", "+help", "+help", "you", "Hypixel's translators", "QkeleQ10", "Stannya and Rodry"]
+  var watchStatuses = ["your commands", "your messages", "your needs", "Hypixel's translators", "everything", "nicknames and stuff"]
   client.user.setStatus("online").catch(console.error);
   setInterval(() => {
     if (used1) {
-      client.user.setActivity("+help", {
+      client.user.setActivity(listenStatuses[Math.floor(Math.random() * listenStatuses.length)], {
         type: "LISTENING"
       });
       used1 = false;
     } else {
-      client.user.setActivity("your commands", {
+      client.user.setActivity(watchStatuses[Math.floor(Math.random() * watchStatuses.length)], {
         type: "WATCHING"
       });
       used1 = true;
