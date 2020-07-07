@@ -68,7 +68,10 @@ client.on("message", message => {
       }
 
       if (!cooldowns.has(command.name)) {
-        cooldowns.set(command.name, new Discord.Collection());
+        if (message.member.hasPermission("ADMINISTRATOR"))
+          if (command.args && args.length < 2) { } else {
+            cooldowns.set(command.name, new Discord.Collection());
+          }
       }
 
       const now = Date.now();
