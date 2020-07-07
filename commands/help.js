@@ -32,34 +32,7 @@ module.exports = {
         )
         .setFooter("Executed by " + message.author.tag);
 
-      return message.author
-        .send(embed)
-        .then(() => {
-          if (message.channel.type === "dm") return;
-          const embed = new Discord.MessageEmbed()
-            .setColor(successColor)
-            .setTitle("Help")
-            .setDescription(
-              "I sent you a private message with all available commands!"
-            )
-            .setFooter("Executed by " + message.author.tag);
-
-          message.channel.send(embed);
-        })
-        .catch(error => {
-          console.error(
-            `Kon ${message.author.tag} geen bericht sturen.\n`,
-            error
-          );
-          const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
-            .setTitle("Help")
-            .setDescription(
-              "I couldn't send you a private message! Please check your DM settings."
-            )
-            .setFooter("Executed by " + message.author.tag);
-          return message.channel.send(embed);
-        });
+      message.channel.send(embed)
     }
 
     const name = args[0].toLowerCase();
@@ -79,8 +52,8 @@ module.exports = {
       const cooldown = command.cooldown + " second(s)";
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setTitle("Command help")
-        .setAuthor("Command: " + command.name)
+        .setTitle("Command: " + command.name)
+        .setAuthor("Information")
         .setDescription(command.description)
         .addFields(
           { name: "Aliases", value: command.aliases.join(", "), inline: true },
