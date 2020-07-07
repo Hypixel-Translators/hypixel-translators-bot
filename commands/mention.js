@@ -15,7 +15,7 @@ module.exports = {
       console.log(toPing + "\n" + lowerRole);
       if (
         message.member.roles.cache.find(
-          role => role.name === toLook + " Proofreader"
+          role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR")
         )
       ) {
         message.channel.send("<@&" + toPing + "> <a:bongoping:614477510423478275>");
@@ -33,7 +33,7 @@ module.exports = {
           role => role.name === toLook + " Translator"
         ) ||
         message.member.roles.cache.find(
-          role => role.name === toLook + " Proofreader"
+          role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR")
         )
       ) {
         message.channel.send("<@&" + toPing + "> <a:bongoping:614477510423478275>");
@@ -48,7 +48,7 @@ module.exports = {
       console.log(translatorPing + "\n" + proofreaderPing);
       if (
         message.member.roles.cache.find(
-          role => role.name === toLook + " Proofreader"
+          role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR")
         )
       ) {
         message.channel.send("<@&" + translatorPing + "> and <@&" + proofreaderPing + "> <a:bongoping:614477510423478275>");
