@@ -12,6 +12,7 @@ module.exports = {
   description: "Gives the specified user the appropriate prefix for their language(s).",
   aliases: ["langprefix", "languageprefix"],
   usage: "[user]",
+  cooldown: 60,
   guildOnly: true,
   execute(message, args) {
     //message.delete();
@@ -71,7 +72,7 @@ module.exports = {
           console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
           if (prefixes.length > 0) { prefixes = (prefixes + "-") }
           prefixes = (prefixes + reaction.emoji.name)
-          message.reactions.cache.get(reaction.emoji.name).remove()
+          reaction.emoji.remove()
           const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle("Prefix")
