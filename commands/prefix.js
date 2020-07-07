@@ -69,7 +69,9 @@ module.exports = {
 
         collector.on('collect', (reaction, user) => {
           console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
+          if (prefixes.length > 0) { prefixes = (prefixes + "-") }
           prefixes = (prefixes + reaction.emoji.name)
+          message.reactions.cache.get(reaction.emoji.name).remove()
           const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle("Prefix")
@@ -80,6 +82,7 @@ module.exports = {
         });
 
         collector.on('end', collected => {
+          message.reactions.removeAll()
           console.log(`Collected ${collected.size} items`);
           if (prefixes.length > 0) {
             user.setNickname("[" + prefixes + "] " + user.user.username)
@@ -96,7 +99,7 @@ module.exports = {
                 const embed = new Discord.MessageEmbed()
                   .setColor(errorColor)
                   .setTitle("Prefix")
-                  .setDescription("Failed to change nickname to" + prefixes + ".\n\nReason:\n> " + err)
+                  .setDescription("Failed to change nickname to " + prefixes + ".\n\nReason:\n> " + err)
                   .addFields({ name: "Chosen flags", value: prefixes })
                   .setFooter("Executed by " + message.author.tag);
                 msg.edit(embed)
