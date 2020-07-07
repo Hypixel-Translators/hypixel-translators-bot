@@ -75,30 +75,8 @@ module.exports = {
         .setFooter("Executed by " + message.author.tag);
       return message.channel.send(embed);
     }
-    if (command.cooldown) {
-      const cooldown = command.cooldown + " second(s)";
-      const embed = new Discord.MessageEmbed()
-        .setColor(neutralColor)
-        .setTitle("Help")
-        .setAuthor("Command: " + command.name)
-        .setDescription(command.description)
-        .addFields(
-          { name: "Aliases", value: command.aliases.join(", "), inline: true },
-          {
-            name: "Usage",
-            value: "`" + prefix + command.name + " " + command.usage + "`",
-            inline: true
-          },
-          {
-            name: "Cooldown",
-            value: cooldown,
-            inline: true
-          }
-        )
-        .setFooter("Executed by " + message.author.tag);
 
-      message.channel.send(embed);
-    } else {
+      const cooldown = command.cooldown + " second(s)";
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setTitle("Help")
@@ -113,13 +91,12 @@ module.exports = {
           },
           {
             name: "Cooldown",
-            value: "None",
+            value: cooldown,
             inline: true
           }
         )
         .setFooter("Executed by " + message.author.tag);
 
       message.channel.send(embed);
-    }
   }
 };
