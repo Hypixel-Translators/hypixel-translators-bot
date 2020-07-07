@@ -113,7 +113,7 @@ module.exports = {
           { name: "Aliases", value: command.aliases.join(", "), inline: true },
           {
             name: "Usage",
-            value: "`" + prefix + command.name + " " + command.usage + "`",
+            value: "`" + prefix + command.usage + "`",
             inline: true
           },
           {
