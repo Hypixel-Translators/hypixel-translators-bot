@@ -26,7 +26,7 @@ module.exports = {
             message.channel.send(embed)
                 .then(msg => {
                     const recipient = msg.client.users.cache.get(userToSend)
-                    recipient.send(toSend)
+                    recipient.send("Message from administrator:\n" + toSend)
                         .catch(err => {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
@@ -37,6 +37,7 @@ module.exports = {
                                     { name: "Recipient", value: "<@" + userToSend + ">" }
                                 )
                                 .setFooter("Executed by " + message.author.tag);
+                            msg.edit(embed)
                         })
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
@@ -47,6 +48,7 @@ module.exports = {
                             { name: "Recipient", value: "<@" + userToSend + ">" }
                         )
                         .setFooter("Executed by " + message.author.tag);
+                    msg.edit(embed)
                 })
         }
     }
