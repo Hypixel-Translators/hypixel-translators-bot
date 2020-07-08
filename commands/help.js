@@ -11,7 +11,7 @@ module.exports = {
   name: "help",
   description:
     "Shows you all available commands and general info about the bot.",
-  aliases: ["commands", "cmds", "info"],
+  aliases: ["commands", "cmds", "info", "botinfo"],
   usage: "help [name of command]",
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "644620638878695424"],
   cooldown: 5,
@@ -25,12 +25,14 @@ module.exports = {
         .setColor(neutralColor)
         .setTitle("Information")
         .setDescription(
-          "Execute `+help <name of command>` to learn more about a specific command.\nMore commands will come!\n_This bot was built by <@722738307477536778> for the **Hypixel Translators Community Discord** server._"
+          "Execute `+help <name of command>` to learn more about a specific command."
         )
         .addFields(
           { name: "Discord", value: "prefix, mention, discordthread, invite", inline: true },
           { name: "Translation", value: "hypixel, quickplay, guidelines", inline: true },
-          { name: "Miscellaneous", value: "help, twitter", inline: true }
+          { name: "Miscellaneous", value: "help, twitter", inline: true },
+          { name: '\u200B' },
+          { value: "This bot was made by <@722738307477536778> for the **Hypixel Translators Community Discord**." }
         )
         .setFooter("Executed by " + message.author.tag);
 
