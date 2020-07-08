@@ -68,7 +68,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
           .setColor(neutralColor)
           .setTitle("Prefix")
-          .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds. Hit ✅ to confirm or ❎ to cancel.")
+          .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds. Hit ❎ to cancel.")
           .addFields({ name: "Nickname preview", value: "No changes" })
           .setFooter("Executed by " + message.author.tag);
         msg.edit(embed)
@@ -112,14 +112,14 @@ module.exports = {
               msg.edit(embed)
             }
           } else if (reaction.emoji.name === "❎") {
+            prefixes = "n"
             const embed = new Discord.MessageEmbed()
-              .setColor(neutralColor)
+              .setColor(successColor)
               .setTitle("Prefix")
               .setDescription("You cancelled the changing of your nickname, so your prefix wasn't saved.")
               .addFields({ name: "New nickname", value: "No changes" })
               .setFooter("Executed by " + message.author.tag);
             msg.edit(embed)
-            return;
           } else {
             const valueToRemove = reaction.emoji.name
             userLangs = userLangs.filter(item => item !== valueToRemove)
@@ -137,6 +137,7 @@ module.exports = {
 
         collector.on('end', collected => {
           msg.reactions.removeAll()
+          if (prefixes === "n") { return; }
           if (prefixes.length > 0) {
             message.member.setNickname("[" + prefixes + "] " + message.member.user.username)
               .then(() => {
