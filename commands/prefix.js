@@ -112,6 +112,7 @@ module.exports = {
               msg.edit(embed)
             }
           } else if (reaction.emoji.name === "❎") {
+            msg.reactions.removeAll()
             prefixes = "n"
             const embed = new Discord.MessageEmbed()
               .setColor(successColor)
