@@ -59,9 +59,6 @@ module.exports = {
       console.log(toPing + "\n" + higherRole);
       if (
         message.member.roles.cache.find(
-          role => role.name === toLook + " Translator"
-        ) ||
-        message.member.roles.cache.find(
           role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR")
         )
       ) {
@@ -69,7 +66,7 @@ module.exports = {
         message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> " + toSend);
       } else {
         message.channel.send(
-          "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
+          "You don't have that language's proofreader role, so you can't mention its translator role. Contact the server owner or administrator if you really need to."
         );
       }
     } else if (type === "all" || type === "both") {
