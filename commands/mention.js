@@ -6,6 +6,7 @@ module.exports = {
   aliases: ["langping", "languageping"],
   usage: "mention <language> <proofreader|translator|all>",
   cooldown: 60,
+  categoryBlackList: ["549503328472530975"],
   execute(message, args) {
     var type = args[1]
     const lowerArg = args[0].toLowerCase()
