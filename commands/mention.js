@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 
 module.exports = {
   name: "mention",
-  description: "Mentions a language role.",
+  description: "Mentions a language role with a message.",
   aliases: ["langping", "languageping"],
-  usage: "mention <language> <proofreader|translator|all>",
+  usage: "mention <language> <proofreader|translator|all> [message to send]",
   cooldown: 60,
   categoryBlackList: ["549503328472530975"],
   execute(message, args) {
