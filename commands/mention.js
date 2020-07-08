@@ -18,6 +18,9 @@ module.exports = {
     if (toLook === "Chinesetraditional" || toLook === "Chinese-traditional") {
       toLook = "Chinese (Traditional)"
     }
+    if (toLook === "Lolcat") {
+      toLook = "LOLCAT"
+    }
 
     console.log(toLook)
     console.log(type)
