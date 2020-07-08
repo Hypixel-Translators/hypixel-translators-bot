@@ -28,7 +28,7 @@ module.exports = {
       message.channel.send("The role you entered doesn't exist. Make sure not to use abbreviations. For Chinese (Simplified/Traditional), use \`Chinese-simplified/traditional\`.");
       return;
     }
-    if (type === "pf" || type === "proofreader" || type === "Proofreader") {
+    if (type === "pf" || type === "pr" || type === "proofreader" || type === "Proofreader") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
       const lowerRole = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
       console.log(toPing + "\n" + lowerRole);
