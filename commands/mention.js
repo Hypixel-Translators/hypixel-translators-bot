@@ -44,7 +44,7 @@ module.exports = {
         )
       ) {
         message.delete()
-        message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> <a:bongoping:614477510423478275> " + toSend);
+        message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> " + toSend);
       } else {
         message.channel.send(
           "You don't have that language's proofreader role, so you can't mention it. Contact the server owner or administrator if you really need to."
@@ -63,7 +63,7 @@ module.exports = {
         )
       ) {
         message.delete()
-        message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> <a:bongoping:614477510423478275> " + toSend);
+        message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> " + toSend);
       } else {
         message.channel.send(
           "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
@@ -79,7 +79,7 @@ module.exports = {
         )
       ) {
         message.delete()
-        message.channel.send("**<@" + message.member.id + ">**: <@&" + translatorPing + "> <@&" + proofreaderPing + "> <a:bongoping:614477510423478275> " + toSend);
+        message.channel.send("**<@" + message.member.id + ">**: <@&" + translatorPing + "> <@&" + proofreaderPing + "> " + toSend);
       } else {
         message.channel.send(
           "You don't have that language's proofreader role, so you can't mention the entire language. Contact the server owner or administrator if you really need to."
