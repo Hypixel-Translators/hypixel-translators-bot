@@ -1,4 +1,4 @@
-const {
+/*const {
     workingColor,
     errorColor,
     successColor,
@@ -16,5 +16,4 @@ const {
       //message.delete();
       message.channel.send("This is our official Twitter account:\nhttps://twitter.com/HTranslators\nPlease feel free to share it with others!")
     }
-  };
-  
+  };*/
