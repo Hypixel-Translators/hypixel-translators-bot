@@ -7,7 +7,7 @@ module.exports = {
     usage: "verify <mention> <message>",
     cooldown: 3,
     aliases: ["message", "privatemessage"],
-    execute(message) {
+    execute(message, args) {
         if (message.member.hasPermission("ADMINISTRATOR")) {
             var userToSend = args[0].replace(/[\\<>@#&!]/g, "");
             args.splice(0, 1)
