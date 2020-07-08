@@ -21,7 +21,7 @@ module.exports = {
     console.log(toLook)
     console.log(type)
 
-    message.guild.roles.cache.find(x => x.name == (toLook + " Proofreader"))
+    const role = message.guild.roles.cache.find(x => x.name == (toLook + " Proofreader"))
     if (!role) {
       message.channel.send("The role you entered doesn't exist. Make sure not to use abbreviations. For Chinese (Simplified/Traditional), use \`Chinese-simplified/traditional\`.")
     } else {
