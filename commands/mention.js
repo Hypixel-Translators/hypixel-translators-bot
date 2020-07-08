@@ -7,65 +7,74 @@ module.exports = {
   usage: "mention <language> <proofreader|translator|all>",
   cooldown: 60,
   execute(message, args) {
-    if (args.length == 2) {
-      var type = args[1]
-      const lowerArg = args[0].toLowerCase()
-      var toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
-    } else if (args.length == 3) {
-      var type = args[2]
-      const rawArg = args[0] + " " + args[1]
-      const lowerArg = rawArg.toLowerCase()
-      var toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
+    var type = args[1]
+    const lowerArg = args[0].toLowerCase()
+    var toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
+
+    if (toLook === "Chinesesimplified" || toLook === "Chinese-simplified") {
+      toLook = "Chinese (Simplified)"
     }
+    if (toLook === "Chinesetraditional" || toLook === "Chinese-traditional") {
+      toLook = "Chinese (Traditional)"
+    }
+
     console.log(toLook)
     console.log(type)
-    if (type === "pf" || type === "proofreader" || type === "Proofreader") {
-      const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
-      const lowerRole = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
-      console.log(toPing + "\n" + lowerRole);
-      if (
-        message.member.roles.cache.find(
-          role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR")
-        )
-      ) {
-        message.channel.send("<@&" + toPing + "> <a:bongoping:614477510423478275>");
-      } else {
-        message.channel.send(
-          "You don't have that language's proofreader role, so you can't mention it. Contact the server owner or administrator if you really need to."
-        );
-      }
-    } else if (type === "tr" || type === "translator" || type === "Translator") {
-      const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
-      const higherRole = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
-      console.log(toPing + "\n" + higherRole);
-      if (
-        message.member.roles.cache.find(
-          role => role.name === toLook + " Translator"
-        ) ||
-        message.member.roles.cache.find(
-          role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR")
-        )
-      ) {
-        message.channel.send("<@&" + toPing + "> <a:bongoping:614477510423478275>");
-      } else {
-        message.channel.send(
-          "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
-        );
-      }
-    } else if (type === "all" || type === "both") {
-      const translatorPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
-      const proofreaderPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
-      console.log(translatorPing + "\n" + proofreaderPing);
-      if (
-        message.member.roles.cache.find(
-          role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR")
-        )
-      ) {
-        message.channel.send("<@&" + translatorPing + "> and <@&" + proofreaderPing + "> <a:bongoping:614477510423478275>");
-      } else {
-        message.channel.send(
-          "You don't have that language's proofreader role, so you can't mention the entire language. Contact the server owner or administrator if you really need to."
-        );
+
+    message.guild.roles.cache.find(x => x.name == (toLook + " Proofreader"))
+    if (!role) {
+      message.channel.send("The role you entered doesn't exist. Make sure not to use abbreviations. For Chinese (Simplified/Traditional), use \`Chinese-simplified/traditional\`.")
+      stopCooldown(this.name, message)
+    } else {
+
+      if (type === "pf" || type === "proofreader" || type === "Proofreader") {
+        const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
+        const lowerRole = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
+        console.log(toPing + "\n" + lowerRole);
+        if (
+          message.member.roles.cache.find(
+            role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR")
+          )
+        ) {
+          message.channel.send("<@&" + toPing + "> <a:bongoping:614477510423478275>");
+        } else {
+          message.channel.send(
+            "You don't have that language's proofreader role, so you can't mention it. Contact the server owner or administrator if you really need to."
+          );
+        }
+      } else if (type === "tr" || type === "translator" || type === "Translator") {
+        const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
+        const higherRole = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
+        console.log(toPing + "\n" + higherRole);
+        if (
+          message.member.roles.cache.find(
+            role => role.name === toLook + " Translator"
+          ) ||
+          message.member.roles.cache.find(
+            role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR")
+          )
+        ) {
+          message.channel.send("<@&" + toPing + "> <a:bongoping:614477510423478275>");
+        } else {
+          message.channel.send(
+            "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
+          );
+        }
+      } else if (type === "all" || type === "both") {
+        const translatorPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
+        const proofreaderPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
+        console.log(translatorPing + "\n" + proofreaderPing);
+        if (
+          message.member.roles.cache.find(
+            role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR")
+          )
+        ) {
+          message.channel.send("<@&" + translatorPing + "> and <@&" + proofreaderPing + "> <a:bongoping:614477510423478275>");
+        } else {
+          message.channel.send(
+            "You don't have that language's proofreader role, so you can't mention the entire language. Contact the server owner or administrator if you really need to."
+          );
+        }
       }
     }
   }
