@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+export { stopCooldown } from './index.js'
 
 module.exports = {
   name: "mention",

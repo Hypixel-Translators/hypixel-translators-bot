@@ -113,7 +113,8 @@ client.on("message", message => {
 client.login(token);
 
 
-export function stopCooldown(commandname, message) {
+function stopCooldown(commandname, message) {
   const timestamps = cooldowns.get(commandname);
   timestamps.delete(message.author.id)
 }
+export { stopCooldown }
