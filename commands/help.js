@@ -28,9 +28,9 @@ module.exports = {
           "Execute `+help <name of command>` to learn more about a specific command."
         )
         .addFields(
-          { name: "Discord", value: "prefix, mention, discordthread, invite", inline: true },
-          { name: "Translation", value: "hypixel, quickplay, guidelines", inline: true },
-          { name: "Miscellaneous", value: "help, twitter", inline: true },
+          { name: "Discord", value: "prefix, mention", inline: true },
+          { name: "Translation", value: "None anymore", inline: true },
+          { name: "Miscellaneous", value: "help", inline: true },
           { name: '\u200B' },
           { value: "This bot was made by <@722738307477536778> for the **Hypixel Translators Community Discord**." }
         )
