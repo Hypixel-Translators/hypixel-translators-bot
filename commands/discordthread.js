@@ -7,9 +7,9 @@ const {
   const Discord = require("discord.js");
   
   module.exports = {
-    name: "thread",
+    name: "discordthread",
     description: "Gives you the thread regarding this Discord server.",
-    aliases: ["discordthread", "communitythread"],
+    aliases: ["thread", "communitythread"],
     usage: "thread",
     cooldown: 30,
     channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
