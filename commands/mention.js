@@ -5,7 +5,7 @@ module.exports = {
   description: "Mentions a language role with a message.",
   aliases: ["langping", "languageping"],
   usage: "mention <language> <proofreader|translator|all> [message to send]",
-  cooldown: 60,
+  cooldown: 120,
   categoryBlackList: ["549503328472530975"],
   execute(message, args) {
     console.log(args)
@@ -14,6 +14,9 @@ module.exports = {
     var toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
     args.splice(0, 2)
     var toSend = args.join(" ")
+    if (toSend.length < 2) {
+      toSend = "<a:bongoping:614477510423478275>" + toSend
+    }
 
     if (toLook === "Chinesesimplified" || toLook === "Chinese-simplified") {
       toLook = "Chinese (Simplified)"
