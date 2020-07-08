@@ -21,12 +21,12 @@ module.exports = {
 
     console.log(toLook)
     console.log(type)
-
     const role = message.guild.roles.cache.find(x => x.name == (toLook + " Proofreader"))
+    console.log(role)
+
     if (!role) {
       message.channel.send("The role you entered doesn't exist. Make sure not to use abbreviations. For Chinese (Simplified/Traditional), use \`Chinese-simplified/traditional\`.")
     } else {
-
       if (type === "pf" || type === "proofreader" || type === "Proofreader") {
         const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
         const lowerRole = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
