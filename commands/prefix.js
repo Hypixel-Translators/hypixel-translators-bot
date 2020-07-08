@@ -93,7 +93,7 @@ module.exports = {
                     const embed = new Discord.MessageEmbed()
                       .setColor(errorColor)
                       .setTitle("Prefix")
-                      .setDescription("Failed to change nickname to " + prefixes + ".\n\nReason:\n> " + err)
+                      .setDescription("Failed to change nickname." + ".\n\nReason:\n> " + err)
                       .addFields({ name: "Chosen flags", value: "\`" + prefixes + "\`" })
                       .setFooter("Executed by " + message.author.tag);
                     msg.edit(embed)
@@ -104,7 +104,6 @@ module.exports = {
                   .setColor(errorColor)
                   .setTitle("Prefix")
                   .setDescription("You didn't react to any flags, so your prefix wasn't saved.")
-                  .addFields({ name: "Chosen flags", value: "None" })
                   .setFooter("Executed by " + message.author.tag);
                 msg.edit(embed)
               }
