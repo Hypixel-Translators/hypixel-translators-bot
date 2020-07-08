@@ -1,6 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const { prefix, token, allowed1, allowed2, allowed3, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses } = require("./config.json");
+const { prefix, token, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses } = require("./config.json");
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
