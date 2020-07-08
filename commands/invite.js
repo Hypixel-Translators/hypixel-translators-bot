@@ -1,4 +1,4 @@
-const {
+/*const {
     workingColor,
     errorColor,
     successColor,
@@ -17,5 +17,4 @@ const {
       //message.delete();
       message.channel.send("You can use this link to invite others to the community:\nhttps://discord.gg/rcT948A")
     }
-  };
-  
+  };*/
