@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-export { stopCooldown } from './index.js'
 
 module.exports = {
   name: "mention",
@@ -25,7 +24,6 @@ module.exports = {
     message.guild.roles.cache.find(x => x.name == (toLook + " Proofreader"))
     if (!role) {
       message.channel.send("The role you entered doesn't exist. Make sure not to use abbreviations. For Chinese (Simplified/Traditional), use \`Chinese-simplified/traditional\`.")
-      stopCooldown(this.name, message)
     } else {
 
       if (type === "pf" || type === "proofreader" || type === "Proofreader") {
