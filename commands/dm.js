@@ -20,12 +20,13 @@ module.exports = {
                 .setDescription("One second... ")
                 .addFields(
                     { name: "Message", value: toSend },
-                    { name: "Recipient", value: userToSend }
+                    { name: "Recipient", value: "<@" + userToSend + ">" }
                 )
                 .setFooter("Executed by " + message.author.tag);
             message.channel.send(embed)
                 .then(msg => {
-                    userToSend.send(toSend)
+                    const recipient = msg.client.users.cache.get(userToSend)
+                    recipient.send(toSend)
                         .then(() => {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(successColor)
@@ -33,7 +34,7 @@ module.exports = {
                                 .setDescription("Message sent!")
                                 .addFields(
                                     { name: "Message", value: toSend },
-                                    { name: "Recipient", value: userToSend }
+                                    { name: "Recipient", value: "<@" + userToSend + ">" }
                                 )
                                 .setFooter("Executed by " + message.author.tag);
                         })
@@ -44,7 +45,7 @@ module.exports = {
                                 .setDescription("Message couldn't be sent.\n\nReason:\n> " + err)
                                 .addFields(
                                     { name: "Message", value: toSend },
-                                    { name: "Recipient", value: userToSend }
+                                    { name: "Recipient", value: "<@" + userToSend + ">" }
                                 )
                                 .setFooter("Executed by " + message.author.tag);
                         })
