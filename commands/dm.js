@@ -27,17 +27,6 @@ module.exports = {
                 .then(msg => {
                     const recipient = msg.client.users.cache.get(userToSend)
                     recipient.send(toSend)
-                        .then(() => {
-                            const embed = new Discord.MessageEmbed()
-                                .setColor(successColor)
-                                .setTitle("DM")
-                                .setDescription("Message sent!")
-                                .addFields(
-                                    { name: "Message", value: toSend },
-                                    { name: "Recipient", value: "<@" + userToSend + ">" }
-                                )
-                                .setFooter("Executed by " + message.author.tag);
-                        })
                         .catch(err => {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
@@ -49,6 +38,15 @@ module.exports = {
                                 )
                                 .setFooter("Executed by " + message.author.tag);
                         })
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(successColor)
+                        .setTitle("DM")
+                        .setDescription("Message sent!")
+                        .addFields(
+                            { name: "Message", value: toSend },
+                            { name: "Recipient", value: "<@" + userToSend + ">" }
+                        )
+                        .setFooter("Executed by " + message.author.tag);
                 })
         }
     }
