@@ -4,7 +4,7 @@ module.exports = {
   name: "mention",
   description: "Mentions a language role with a message.",
   aliases: ["langping", "languageping"],
-  usage: "mention <language> <proofreader|translator|all> [message to send]",
+  usage: "mention <language> <proofreader|translator|all> [message]",
   cooldown: 120,
   categoryBlackList: ["549503328472530975"],
   execute(message, args) {
