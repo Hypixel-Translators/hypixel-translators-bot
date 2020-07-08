@@ -1,4 +1,4 @@
-const {
+/*const {
     workingColor,
     errorColor,
     successColor,
@@ -17,5 +17,4 @@ const {
       //message.delete();
       message.channel.send("This is the official thread for this community Discord server:\nhttps://hypixel.net/threads/hypixel-translator-discord.1970571")
     }
-  };
-  
+  };*/
