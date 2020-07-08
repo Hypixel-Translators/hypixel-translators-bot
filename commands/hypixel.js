@@ -1,4 +1,4 @@
-const {
+/*const {
     workingColor,
     errorColor,
     successColor,
@@ -16,4 +16,4 @@ module.exports = {
         //message.delete();
         message.channel.send("This is the Hypixel translation project on Crowdin:\nhttps://crowdin.com/project/hypixel\nIf you'd like to see the official translation guidelines and other info, run !guidelines.")
     }
-};
+};*/
