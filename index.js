@@ -100,8 +100,11 @@ client.on("message", message => {
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor)
           .setTitle("Error")
-          .setDescription("Something has gone wrong. Have you entered the command correctly?")
-          .addFields({ name: "Command usage", value: `\`${prefix}${command.usage}\`` })
+          .setDescription("Something has gone wrong. Have you entered the command correctly?\nThis can also be an internal error, contact <@722738307477536778> to report bugs.")
+          .addFields(
+            { name: "Command usage", value: `\`${prefix}${command.usage}\`` },
+            { name: "Error message", value: error }
+          )
           .setFooter("Executed by " + message.author.tag);
         message.channel.send(embed)
 
