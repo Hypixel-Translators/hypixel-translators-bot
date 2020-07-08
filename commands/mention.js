@@ -11,6 +11,8 @@ module.exports = {
     var type = args[1]
     const lowerArg = args[0].toLowerCase()
     var toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
+    var argsForMessage = args.splice(0, 2)
+    var toSend = argsForMessage.join(" ")
 
     if (toLook === "Chinesesimplified" || toLook === "Chinese-simplified") {
       toLook = "Chinese (Simplified)"
@@ -23,9 +25,9 @@ module.exports = {
     }
 
     console.log(toLook)
+    console.log(toSend)
     console.log(type)
     const role = message.guild.roles.cache.find(x => x.name == (toLook + " Proofreader"))
-    console.log(role)
 
     if (!role) {
       message.channel.send("The role you entered doesn't exist. Make sure not to use abbreviations. For Chinese (Simplified/Traditional), use \`Chinese-simplified/traditional\`.");
@@ -40,7 +42,8 @@ module.exports = {
           role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR")
         )
       ) {
-        message.channel.send("<@&" + toPing + "> <a:bongoping:614477510423478275>");
+        message.delete()
+        message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> <a:bongoping:614477510423478275> " + toSend);
       } else {
         message.channel.send(
           "You don't have that language's proofreader role, so you can't mention it. Contact the server owner or administrator if you really need to."
@@ -58,7 +61,8 @@ module.exports = {
           role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR")
         )
       ) {
-        message.channel.send("<@&" + toPing + "> <a:bongoping:614477510423478275>");
+        message.delete()
+        message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> <a:bongoping:614477510423478275> " + toSend);
       } else {
         message.channel.send(
           "You don't have a role of that language, so you can't mention it. Contact the server owner or administrator if you really need to."
@@ -73,7 +77,8 @@ module.exports = {
           role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR")
         )
       ) {
-        message.channel.send("<@&" + translatorPing + "> and <@&" + proofreaderPing + "> <a:bongoping:614477510423478275>");
+        message.delete()
+        message.channel.send("**<@" + message.member.id + ">**: <@&" + translatorPing + "> <@&" + proofreaderPing + "> <a:bongoping:614477510423478275> " + toSend);
       } else {
         message.channel.send(
           "You don't have that language's proofreader role, so you can't mention the entire language. Contact the server owner or administrator if you really need to."
