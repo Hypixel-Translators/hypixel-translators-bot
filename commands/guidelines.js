@@ -1,4 +1,4 @@
-const {
+/*const {
     workingColor,
     errorColor,
     successColor,
@@ -16,5 +16,4 @@ const {
       //message.delete();
       message.channel.send("Here are the official Hypixel translation guidelines!\nhttps://hypixel.net/translate/#post-7078208")
     }
-  };
-  
+  };*/
