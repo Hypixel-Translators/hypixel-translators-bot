@@ -12,8 +12,8 @@ module.exports = {
     var type = args[1]
     const lowerArg = args[0].toLowerCase()
     var toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
-    var argsForMessage = args.splice(0, 2)
-    var toSend = argsForMessage.join(" ")
+    args.splice(0, 2)
+    var toSend = args.join(" ")
 
     if (toLook === "Chinesesimplified" || toLook === "Chinese-simplified") {
       toLook = "Chinese (Simplified)"
