@@ -7,7 +7,7 @@
   "neutralColor": "#28dbde",
   "allowed1": "624881429834366986",
   "allowed2": "730042612647723058",
-  "allowed3": "644620638878695424",
+  "allowed3": "x",
   "listenStatuses" : ["+help", "+help", "+help", "you", "Hypixel's translators", "QkeleQ10", "Stannya and Rodry"],
   "watchStatuses": ["your commands", "your messages", "your translations", "Hypixel's translators", "everything", "nicknames and stuff"],
   "langdb": [
@@ -32,6 +32,8 @@
     {"name": "Swedish", "emoji": "🇸🇪"},
     {"name": "Thai", "emoji": "🇹🇭"},
     {"name": "Turkish", "emoji": "🇹🇷"},
-    {"name": "Ukrainian", "emoji": "🇺🇦"}
+    {"name": "Ukrainian", "emoji": "🇺🇦"},
+    {"name": "Pirate", "emoji": "☠"},
+    {"name": "LOLCAT", "emoji": "🐱"}
   ]
 }
