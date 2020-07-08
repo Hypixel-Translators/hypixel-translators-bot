@@ -26,7 +26,7 @@ module.exports = {
             message.channel.send(embed)
                 .then(msg => {
                     const recipient = msg.client.users.cache.get(userToSend)
-                    recipient.send("Message from administrator:\n" + toSend)
+                    recipient.send("Message from administrator:\n\n" + toSend)
                         .catch(err => {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
