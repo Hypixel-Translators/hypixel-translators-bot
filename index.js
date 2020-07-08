@@ -36,80 +36,75 @@ client.once("ready", () => {
 });
 
 client.on("message", message => {
-  if (message.channel.id == allowed1 || message.channel.id == allowed2 || message.channel.id == allowed3 || message.content.startsWith("+mention")) {
-    if (message.channel.parent.id != "549503328472530975" && message.channel.parent.id != "569178590697095168") {
-      if (!message.content.startsWith(prefix) || message.author.bot) return;
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-      const args = message.content.slice(prefix.length).split(/ +/);
-      const commandName = args.shift().toLowerCase();
+  const args = message.content.slice(prefix.length).split(/ +/);
+  const commandName = args.shift().toLowerCase();
 
-      const command =
-        client.commands.get(commandName) ||
-        client.commands.find(
-          cmd => cmd.aliases && cmd.aliases.includes(commandName)
-        );
+  const command =
+    client.commands.get(commandName) ||
+    client.commands.find(
+      cmd => cmd.aliases && cmd.aliases.includes(commandName)
+    );
 
-      if (!command) return;
+  if (!command) return;
 
-      if (command.guildOnly && message.channel.type !== "text") {
-        return message.channel.send(
-          "You can't use this command in private messages."
-        );
-      }
+  if (command.channelWhiteList) { if (!command.channelWhiteList.has(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { return; } }
+  if (command.categoryWhiteList) { if (!command.categoryWhiteList.has(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { return; } }
+  if (command.channelBlackList) { if (command.channelBlackList.has(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { return; } }
+  if (command.categoryBlackList) { if (command.categoryBlackList.has(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { return; } }
 
-      if (command.args && !args.length) {
-        let reply = `You didn't leave any arguments, ${message.author}!`;
+  if (command.args && !args.length) {
+    let reply = `You didn't leave any arguments, ${message.author}!`;
 
-        if (command.usage) {
-          reply += `\nYou should use this command like this: \`${prefix}${command.usage}\``;
-        }
-
-        return message.channel.send(reply);
-      }
-
-      if (!cooldowns.has(command.name)) {
-        cooldowns.set(command.name, new Discord.Collection());
-      }
-
-      const now = Date.now();
-      const timestamps = cooldowns.get(command.name);
-      const cooldownAmount = (command.cooldown || 3) * 1000;
-
-      if (timestamps.has(message.author.id)) {
-        const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
-
-        if (now < expirationTime) {
-          const timeLeft = (expirationTime - now) / 1000;
-          return message.channel.send(
-            `Wait another ${timeLeft.toFixed(1)} second(s) before you use \`${
-            command.name
-            }\` again.`
-          );
-        }
-      }
-
-      timestamps.set(message.author.id, now);
-      setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
-
-      try {
-        if (message.member.hasPermission("ADMINISTRATOR")) { timestamps.delete(message.author.id) }
-        command.execute(message, args);
-      } catch (error) {
-        timestamps.delete(message.author.id)
-        console.error(error);
-        const embed = new Discord.MessageEmbed()
-          .setColor(errorColor)
-          .setTitle("Error")
-          .setDescription("Something has gone wrong. Have you entered the command correctly?\nThis can also be an internal error, contact <@722738307477536778> to report bugs.")
-          .addFields(
-            { name: "Command usage", value: `\`${prefix}${command.usage}\`` },
-            { name: "Error message", value: error }
-          )
-          .setFooter("Executed by " + message.author.tag);
-        message.channel.send(embed)
-
-      }
+    if (command.usage) {
+      reply += `\nYou should use this command like this: \`${prefix}${command.usage}\``;
     }
+
+    return message.channel.send(reply);
+  }
+
+  if (!cooldowns.has(command.name)) {
+    cooldowns.set(command.name, new Discord.Collection());
+  }
+
+  const now = Date.now();
+  const timestamps = cooldowns.get(command.name);
+  const cooldownAmount = (command.cooldown || 3) * 1000;
+
+  if (timestamps.has(message.author.id)) {
+    const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+    if (now < expirationTime) {
+      const timeLeft = (expirationTime - now) / 1000;
+      return message.channel.send(
+        `Wait another ${timeLeft.toFixed(1)} second(s) before you use \`${
+        command.name
+        }\` again.`
+      );
+    }
+  }
+
+  timestamps.set(message.author.id, now);
+  setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+
+  try {
+    if (message.member.hasPermission("ADMINISTRATOR")) { timestamps.delete(message.author.id) }
+    command.execute(message, args);
+  } catch (error) {
+    timestamps.delete(message.author.id)
+    console.error(error);
+    const embed = new Discord.MessageEmbed()
+      .setColor(errorColor)
+      .setTitle("Error")
+      .setDescription("Something has gone wrong. Have you entered the command correctly?\nThis can also be an internal error, contact <@722738307477536778> to report bugs.")
+      .addFields(
+        { name: "Command usage", value: `\`${prefix}${command.usage}\`` },
+        { name: "Error message", value: error }
+      )
+      .setFooter("Executed by " + message.author.tag);
+    message.channel.send(embed)
+
   }
 });
 
