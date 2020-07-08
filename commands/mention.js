@@ -8,6 +8,7 @@ module.exports = {
   cooldown: 60,
   categoryBlackList: ["549503328472530975"],
   execute(message, args) {
+    console.log(args)
     var type = args[1]
     const lowerArg = args[0].toLowerCase()
     var toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
