@@ -28,8 +28,9 @@ module.exports = {
           "Execute `+help <name of command>` to learn more about a specific command.\nMore commands will come!\n_This bot was built by <@722738307477536778> for the **Hypixel Translators Community Discord** server._"
         )
         .addFields(
-          { name: "Essentials", value: "help, mention, prefix", inline: true },
-          { name: "More commands", value: "More commands will come soon:tm:!", inline: true }
+          { name: "Discord", value: "prefix, mention, discordthread, invite", inline: true },
+          { name: "Translation", value: "hypixel, quickplay, guidelines", inline: true },
+          { name: "Miscellaneous", value: "help, twitter", inline: true }
         )
         .setFooter("Executed by " + message.author.tag);
 
