@@ -34,11 +34,11 @@ client.once("ready", () => {
         var isTooOld = (now - randomUser.lastMessage.createdAt) > tooOld
       } else {
         var randomUser = guild.members.cache.random();
-        console.log("OldMsg, Looked for another user");
+        console.log("MsgNul, Looked for another user");
       }
       if (isTooOld) {
         var randomUser = guild.members.cache.random();
-        console.log("NoMsgs, Looked for another user");
+        console.log("MsgOld, Looked for another user");
       }
     }
 
