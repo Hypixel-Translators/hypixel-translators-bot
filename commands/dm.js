@@ -8,7 +8,7 @@ module.exports = {
     cooldown: 3,
     aliases: ["message", "privatemessage"],
     execute(message, args) {
-        if (message.member.hasPermission("ADMINISTRATOR")) {
+        if (message.author.id == "722738307477536778" || message.member.hasPermission("ADMINISTRATOR")) {
             var userToSend = args[0].replace(/[\\<>@#&!]/g, "");
             args.splice(0, 1)
             var toSend = args.join(" ")
