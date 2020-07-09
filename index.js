@@ -22,7 +22,7 @@ client.once("ready", () => {
   client.user.setStatus("online").catch(console.error);
   setInterval(() => {
     var guild = client.guilds.cache.get("549503328472530974")
-    var randomUser = guild.members.random()
+    var randomUser = guild.members.cache.random()
     var randomUserName = randomUser.user.username
     if (used1) {
       var listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
