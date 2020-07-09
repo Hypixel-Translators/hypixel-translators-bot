@@ -7,7 +7,7 @@ module.exports = {
     description: "Verifies the user on the Hypixel project.",
     usage: "verify <mention> <language> <pf|tr> <profile>",
     cooldown: 3,
-    execute(message) {
+    execute(message, args) {
         if (message.member.hasPermission("ADMINISTRATOR")) {
             var userToSend = args[0].replace(/[\\<>@#&!]/g, "");
             var type = args[2]
