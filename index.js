@@ -29,7 +29,8 @@ client.once("ready", () => {
     while (isTooOld) {
       if (randomUser.lastMessage) {
         var isTooOld = (now - randomUser.lastMessage.createdAt) > tooOld
-      }
+      } else { var randomUser = guild.members.cache.random() }
+      if (isTooOld) { var randomUser = guild.members.cache.random() }
     }
     var randomUserName = randomUser.user.username
     if (used1) {
