@@ -32,6 +32,7 @@ module.exports = {
             .setTitle("Say")
             .setDescription("Said!")
             .setFooter("Executed by " + message.author.tag);
+          msg.edit(embed)
         })
     }
   }
