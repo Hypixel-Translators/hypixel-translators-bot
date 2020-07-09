@@ -26,7 +26,7 @@ module.exports = {
                 type = " Translator"
             }
             const role = message.guild.roles.cache.find(x => x.name == (toLook + type))
-            const projectRole = message.guild.roles.cache.find(x => x.name == ("Hypixel " + type))
+            const projectRole = message.guild.roles.cache.find(x => x.name == ("Hypixel" + type))
             console.log(toLook)
             console.log(type)
             console.log(role)
