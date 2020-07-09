@@ -42,6 +42,7 @@ client.once("ready", () => {
     }
 
     var randomUserName = randomUser.user.username
+    console.log("Found user: " + randomUserName)
     if (used1) {
       var listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
       listenStatus = listenStatus.replace("RANDOM_USER", randomUserName)
