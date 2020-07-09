@@ -54,16 +54,16 @@ module.exports = {
             message.channel.send(embed)
                 .then(msg => {
                     const recipient = msg.client.users.cache.get(userToSend)
-                    recipient.addRole(role)
-                    recipient.addRole(projectRole)
-                    recipient.addRole("569194996964786178")
+                    recipient.roles.add(role)
+                    recipient.roles.add(projectRole)
+                    recipient.roles.add("569194996964786178")
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
                         .setTitle("Verify")
                         .setDescription("The mentioned user was verified! This is their Crowdin profile:\n> " + args[3])
                         .addFields(
-                            { name: "Role", value: role },
-                            { name: "User", value: "<@" + userToSend + ">" }
+                            { name: "Role", value: role, inline: true },
+                            { name: "User", value: "<@" + userToSend + ">", inline: true }
                         )
                         .setFooter("Executed by " + message.author.tag);
                 })
