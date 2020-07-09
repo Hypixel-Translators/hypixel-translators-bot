@@ -21,13 +21,19 @@ client.once("ready", () => {
   var used1 = false;
   client.user.setStatus("online").catch(console.error);
   setInterval(() => {
+    var randomUser = message.guild.members.random()
+    var randomUserName = randomUser.user.username
     if (used1) {
-      client.user.setActivity(listenStatuses[Math.floor(Math.random() * listenStatuses.length)], {
+      var listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
+      listenStatus.replace("RANDOM_USER", randomUserName)
+      client.user.setActivity(listenStatus, {
         type: "LISTENING"
       });
       used1 = false;
     } else {
-      client.user.setActivity(watchStatuses[Math.floor(Math.random() * watchStatuses.length)], {
+      var watchStatus = watchStatuses[Math.floor(Math.random() * watchStatuses.length)]
+      watchStatus.replace("RANDOM_USER", randomUserName)
+      client.user.setActivity(watchStatus, {
         type: "WATCHING"
       });
       used1 = true;

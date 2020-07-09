@@ -5,8 +5,8 @@
   "errorColor": "#e02222",
   "successColor": "#21de70",
   "neutralColor": "#28dbde",
-  "listenStatuses" : ["+help", "+help", "+help", "you", "Hypixel's translators", "QkeleQ10", "Stannya and Rodry"],
-  "watchStatuses": ["your commands", "your messages", "your translations", "Hypixel's translators", "everything", "nicknames and stuff"],
+  "listenStatuses" : ["+help", "RANDOM_USER's commands", "Hypixel's translators", "QkeleQ10", "Stannya and Rodry"],
+  "watchStatuses": ["your commands", "your messages", "your translations", "Hypixel's translators", "nicknames and stuff", "RANDOM_USER's messages"],
   "langdb": [  
     {"name": "THIS IS NOT IN USE!"},
     {"name": "Bulgarian", "emoji": "🇧🇬"},
