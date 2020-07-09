@@ -27,6 +27,7 @@ client.once("ready", () => {
     var guild = client.guilds.cache.get("549503328472530974")
     var randomUser = guild.members.cache.random();
     console.log("Looked for user");
+    var isTooOld = (now - randomUser.lastMessage.createdAt) > tooOld
 
     while (isTooOld) {
       if (randomUser.lastMessage) {
