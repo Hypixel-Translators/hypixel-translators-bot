@@ -26,14 +26,14 @@ client.once("ready", () => {
     var randomUserName = randomUser.user.username
     if (used1) {
       var listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
-      listenStatus.replace("RANDOM_USER", randomUserName)
+      listenStatus = listenStatus.replace("RANDOM_USER", randomUserName)
       client.user.setActivity(listenStatus, {
         type: "LISTENING"
       });
       used1 = false;
     } else {
       var watchStatus = watchStatuses[Math.floor(Math.random() * watchStatuses.length)]
-      watchStatus.replace("RANDOM_USER", randomUserName)
+      watchStatus = watchStatus.replace("RANDOM_USER", randomUserName)
       client.user.setActivity(watchStatus, {
         type: "WATCHING"
       });
