@@ -21,24 +21,24 @@ client.once("ready", () => {
 
   let now = +new Date();
   const tooOld = 60 * 60 * 12 * 1000;
-  var used1 = false;
   client.user.setStatus("online").catch(console.error);
   setInterval(() => {
     var pickedUser = randomUser[Math.floor(Math.random() * randomUser.length)]
-    if (used1) {
+    toPick = Math.random() >= 0.2;
+    if (toPick) {
       var listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
       listenStatus = listenStatus.replace("RANDOM_USER", pickedUser)
       client.user.setActivity(listenStatus, {
         type: "LISTENING"
       });
-      used1 = false;
+      toPick = Math.random() >= 0.6;
     } else {
       var watchStatus = watchStatuses[Math.floor(Math.random() * watchStatuses.length)]
       watchStatus = watchStatus.replace("RANDOM_USER", pickedUser)
       client.user.setActivity(watchStatus, {
         type: "WATCHING"
       });
-      used1 = true;
+      toPick = Math.random() >= 0.2;
     }
   }, 15000);
 });
