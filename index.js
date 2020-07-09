@@ -27,12 +27,17 @@ client.once("ready", () => {
     var guild = client.guilds.cache.get("549503328472530974")
     var randomUser = guild.members.cache.random();
     console.log("Looked for user");
-    var isTooOld = (now - randomUser.lastMessage.createdAt) > tooOld
+    if (randomUser.lastMessage) {
+      var isTooOld = (now - randomUser.lastMessage.createdAt) > tooOld
+    } else {
+      var isTooOld = true
+    }
 
     while (isTooOld) {
       if (randomUser.lastMessage) {
         var isTooOld = (now - randomUser.lastMessage.createdAt) > tooOld
       } else {
+        var isTooOld = true
         var randomUser = guild.members.cache.random();
         console.log("MsgNul, Looked for another user");
       }
