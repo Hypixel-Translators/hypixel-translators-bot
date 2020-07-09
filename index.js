@@ -18,11 +18,19 @@ const cooldowns = new Discord.Collection();
 
 client.once("ready", () => {
   console.log("Ready!");
+
+  let now = +new Date();
+  const tooOld = 60 * 60 * 12 * 1000;
   var used1 = false;
   client.user.setStatus("online").catch(console.error);
   setInterval(() => {
     var guild = client.guilds.cache.get("549503328472530974")
     var randomUser = guild.members.cache.random()
+    while (isTooOld) {
+      if (randomUser.lastMessage) {
+        var isTooOld = (now - randomUser.lastMessage.createdAt) > tooOld
+      }
+    }
     var randomUserName = randomUser.user.username
     if (used1) {
       var listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
@@ -39,7 +47,7 @@ client.once("ready", () => {
       });
       used1 = true;
     }
-  }, 20000);
+  }, 30000);
 });
 
 client.on("message", message => {
