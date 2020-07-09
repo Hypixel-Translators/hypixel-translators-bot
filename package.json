@@ -9,8 +9,6 @@
     "discord.js": "^12.2.0",
     "express": "^4.17.1",
     "fs": "^0.0.2",
-    "google-sheets": "^0.0.7",
-    "mongoose": "^5.9.22",
     "request": "^2.81.0"
   },
   "engines": {

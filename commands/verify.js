@@ -1,6 +1,5 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
-const mongoose = require('mongoose');
 
 module.exports = {
     name: "verify",
