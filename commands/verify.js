@@ -46,8 +46,8 @@ module.exports = {
                 .setTitle("Verify")
                 .setDescription("One second... ")
                 .addFields(
-                    { name: "Message", value: toSend },
-                    { name: "Recipient", value: "<@" + userToSend + ">" }
+                    { name: "Role", value: role },
+                    { name: "User", value: "<@" + userToSend + ">" }
                 )
                 .setFooter("Executed by " + message.author.tag);
             message.channel.send(embed)
@@ -61,8 +61,8 @@ module.exports = {
                         .setTitle("Verify")
                         .setDescription("The mentioned user was verified! This is their Crowdin profile:\n> " + args[3])
                         .addFields(
-                            { name: "Message", value: toSend },
-                            { name: "Recipient", value: "<@" + userToSend + ">" }
+                            { name: "Role", value: role },
+                            { name: "User", value: "<@" + userToSend + ">" }
                         )
                         .setFooter("Executed by " + message.author.tag);
                 })
