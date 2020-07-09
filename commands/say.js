@@ -27,13 +27,11 @@ module.exports = {
         .then(msg => {
           const sendTo = msg.client.channels.cache.get(rawSendTo)
           sendTo.send(toSend)
-            .then(() => {
-              const embed = new Discord.MessageEmbed()
-                .setColor(successColor)
-                .setTitle("Say")
-                .setDescription("Said!")
-                .setFooter("Executed by " + message.author.tag);
-            })
+          const embed = new Discord.MessageEmbed()
+            .setColor(successColor)
+            .setTitle("Say")
+            .setDescription("Said!")
+            .setFooter("Executed by " + message.author.tag);
         })
     }
   }
