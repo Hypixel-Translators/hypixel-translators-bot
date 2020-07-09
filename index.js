@@ -1,6 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const { prefix, token, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses } = require("./config.json");
+const { prefix, token, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json");
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -24,26 +24,23 @@ client.once("ready", () => {
   var used1 = false;
   client.user.setStatus("online").catch(console.error);
   setInterval(() => {
-    var guild = client.guilds.cache.get("549503328472530974")
-    var randomUser = guild.members.cache.random();
-    var randomUserName = randomUser.user.username
-    console.log("Found user: " + randomUserName)
+    var pickedUser = randomUser[Math.floor(Math.random() * randomUser.length)]
     if (used1) {
       var listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
-      listenStatus = listenStatus.replace("RANDOM_USER", randomUserName)
+      listenStatus = listenStatus.replace("RANDOM_USER", pickedUser)
       client.user.setActivity(listenStatus, {
         type: "LISTENING"
       });
       used1 = false;
     } else {
       var watchStatus = watchStatuses[Math.floor(Math.random() * watchStatuses.length)]
-      watchStatus = watchStatus.replace("RANDOM_USER", randomUserName)
+      watchStatus = watchStatus.replace("RANDOM_USER", pickedUser)
       client.user.setActivity(watchStatus, {
         type: "WATCHING"
       });
       used1 = true;
     }
-  }, 30000);
+  }, 15000);
 });
 
 client.on("message", message => {
