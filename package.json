@@ -11,7 +11,7 @@
     "fs": "^0.0.2",
     "google-sheets": "^0.0.7",
     "mongoose": "^5.9.22",
-    "request": "2.81.0"
+    "request": "^2.81.0"
   },
   "engines": {
     "node": "12.x"
