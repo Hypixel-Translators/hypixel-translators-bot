@@ -27,6 +27,10 @@ module.exports = {
             }
             const role = message.guild.roles.cache.find(x => x.name == (toLook + type))
             const projectRole = message.guild.roles.cache.find(x => x.name == ("Hypixel " + type))
+            console.log(toLook)
+            console.log(type)
+            console.log(role)
+            console.log(projectRole)
             if (!role) {
                 message.channel.send("The role you entered doesn't exist. Make sure not to use abbreviations. For Chinese (Simplified/Traditional), use \`Chinese-simplified/traditional\`.");
                 return;
