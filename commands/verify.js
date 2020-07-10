@@ -1,7 +1,5 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
-//const Keyv = require('keyv');
-//const keyv = new Keyv('mongodb+srv://hypixeltb:htbQkeleQ10@cluster0.yjdzx.mongodb.net/hypixel-translators-bot?retryWrites=true&w=majority');
 
 module.exports = {
     name: "verify",
