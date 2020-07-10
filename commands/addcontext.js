@@ -10,17 +10,22 @@ module.exports = {
     usage: "addcontext",
     cooldown: 3,
     execute(message, args) {
-        await doc.useServiceAccountAuth({
-            client_email: "database@hypixel-translators-bot.iam.gserviceaccount.com",
-            private_key: "8f8057b93cce4dda659f117b0401582414e10637",
-        });
-        await doc.loadInfo(); // loads document properties and worksheets
-        console.log(doc.title);
-        const embed = new Discord.MessageEmbed()
-            .setColor(neutralColor)
-            .setTitle("Add Context")
-            .setDescription(doc.title)
-            .setFooter("Executed by " + message.author.tag);
-        message.channel.send(embed)
+        checkSheet()
     }
+}
+
+
+async function checkSheet() {
+    await doc.useServiceAccountAuth({
+        client_email: "database@hypixel-translators-bot.iam.gserviceaccount.com",
+        private_key: "8f8057b93cce4dda659f117b0401582414e10637",
+    });
+    await doc.loadInfo(); // loads document properties and worksheets
+    console.log(doc.title);
+    const embed = new Discord.MessageEmbed()
+        .setColor(neutralColor)
+        .setTitle("Add Context")
+        .setDescription(doc.title)
+        .setFooter("Executed by " + message.author.tag);
+    message.channel.send(embed)
 }
