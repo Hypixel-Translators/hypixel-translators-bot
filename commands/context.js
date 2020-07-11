@@ -1,5 +1,7 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
+const ContextModel = require('./models/Context')
+const { connect } = require('mongoose')
 
 module.exports = {
     name: "context",
@@ -7,6 +9,10 @@ module.exports = {
     usage: "context <add|string link>",
     cooldown: 3,
     execute(message, args) {
-        
+
     }
 }
+
+(async () => {
+    await connect('mongodb://localhost/mongodb-demo');
+})()
