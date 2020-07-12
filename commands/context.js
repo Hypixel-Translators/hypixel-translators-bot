@@ -13,8 +13,8 @@ module.exports = {
         const req = ContextModel.findOne({ id: args[0] })
 
         console.log(message + "\n" + args)
-        console.log(req)
-        if (!req.id) {
+        console.log(req._doc.id)
+        if (!req._doc.id) {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setTitle("Context")
