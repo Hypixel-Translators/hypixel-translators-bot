@@ -12,7 +12,3 @@ module.exports = {
 
     }
 }
-
-(async () => {
-    await connect('mongodb://localhost/mongodb-demo');
-})()
