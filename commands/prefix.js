@@ -140,26 +140,36 @@ module.exports = {
           msg.reactions.removeAll()
           if (prefixes === "n") { return; }
           if (prefixes.length > 0) {
-            message.member.setNickname("[" + prefixes + "] " + message.member.user.username)
-              .then(() => {
-                const embed = new Discord.MessageEmbed()
-                  .setColor(successColor)
-                  .setTitle("Prefix")
-                  .setDescription("Your prefix has been saved!")
-                  .addFields({ name: "New nickname", value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                  .setFooter("Executed by " + message.author.tag);
-                msg.edit(embed)
-              })
-              .catch(err => {
-                const embed = new Discord.MessageEmbed()
-                  .setColor(errorColor)
-                  .setTitle("Prefix")
-                  .setDescription("Failed to change nickname to " + prefixes + ".\n\nReason:\n> " + err)
-                  .addFields({ name: "Nickname preview", value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                  .setFooter("Executed by " + message.author.tag);
-                msg.edit(embed)
-                console.log(err)
-              })
+            if (message.member.nickname === ("[" + prefixes + "] " + message.member.user.username)) {
+              message.member.setNickname("[" + prefixes + "] " + message.member.user.username)
+                .then(() => {
+                  const embed = new Discord.MessageEmbed()
+                    .setColor(successColor)
+                    .setTitle("Prefix")
+                    .setDescription("Your prefix has been saved!")
+                    .addFields({ name: "New nickname", value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                    .setFooter("Executed by " + message.author.tag);
+                  msg.edit(embed)
+                })
+                .catch(err => {
+                  const embed = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setTitle("Prefix")
+                    .setDescription("Failed to change nickname to " + prefixes + ".\n\nReason:\n> " + err)
+                    .addFields({ name: "Nickname preview", value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                    .setFooter("Executed by " + message.author.tag);
+                  msg.edit(embed)
+                  console.log(err)
+                })
+            } else {
+              const embed = new Discord.MessageEmbed()
+                .setColor(neutralColor)
+                .setTitle("Prefix")
+                .setDescription("You already have this username, so nothing changed.")
+                .addFields({ name: "New nickname", value: "No changes" })
+                .setFooter("Executed by " + message.author.tag);
+              msg.edit(embed)
+            }
           } else {
             const embed = new Discord.MessageEmbed()
               .setColor(errorColor)
