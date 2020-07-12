@@ -9,8 +9,8 @@ module.exports = {
     usage: "context <link/ID>",
     cooldown: 3,
     execute(message, args) {
-        ContextModel.findOne({ id: args[0] })
-            .then(req => {
+        const req = ContextModel.findOne({ id: args[0] })
+            .then(() => {
                 console.log(req)
                 if (!req) {
                     const embed = new Discord.MessageEmbed()
