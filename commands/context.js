@@ -38,12 +38,11 @@ module.exports = {
                             .setDescription("A new context entry has been made!\n\n> " + doc)
                             .setFooter("Executed by " + message.author.tag);
                         msg.edit(embed)
-                        var done = true
                     }
                 })
 
                 collector.on('end', collected => {
-                    if (!done) {
+                    if (!collected) {
                         const embed = new Discord.MessageEmbed()
                             .setColor(neutralColor)
                             .setTitle("Context")
