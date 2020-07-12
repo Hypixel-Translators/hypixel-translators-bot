@@ -1,6 +1,6 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
-const ContextModel = require('./models/Context')
+const ContextModel = require('../models/Context')
 const { connect } = require('mongoose')
 
 module.exports = {
