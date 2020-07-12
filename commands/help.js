@@ -58,7 +58,6 @@ module.exports = {
         .setAuthor("Information")
         .setDescription(command.description)
         .addFields(
-          { name: "Aliases", value: command.aliases.join(", "), inline: true },
           {
             name: "Usage",
             value: "`" + prefix + command.usage + "`",
@@ -71,6 +70,9 @@ module.exports = {
           }
         )
         .setFooter("Executed by " + message.author.tag);
+      if (command.aliases) {
+        embed.addFields({ name: "Aliases", value: command.aliases.join(", "), inline: true })
+      }
 
       message.channel.send(embed);
     }
