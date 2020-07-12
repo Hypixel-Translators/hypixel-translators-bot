@@ -11,6 +11,7 @@ module.exports = {
     execute(message, args) {
         ContextModel.findOne({ id: args[0] })
             .then(req => {
+                console.log(req)
                 if (!req) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
