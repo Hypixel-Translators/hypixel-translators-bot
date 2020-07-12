@@ -14,7 +14,7 @@ module.exports = {
 
         console.log(message + "\n" + args)
         console.log(req)
-        if (!req) {
+        if (!req.id) {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setTitle("Context")
