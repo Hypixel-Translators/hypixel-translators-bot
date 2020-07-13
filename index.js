@@ -14,6 +14,8 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
+const join = require('./events/join.js')
+
 const cooldowns = new Discord.Collection();
 
 client.once("ready", () => {
@@ -114,6 +116,10 @@ client.on("message", message => {
     message.channel.send(embed)
 
   }
+});
+
+client.on('guildMemberAdd', member => {
+  join.execute(member)
 });
 
 client.login(token);
