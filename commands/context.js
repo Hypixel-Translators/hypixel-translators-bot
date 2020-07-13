@@ -1,7 +1,9 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
-const { GoogleSpreadsheet } = require('google-spreadsheet');
-
+const { GoogleSpreadsheet } = require('google-spreadsheet')
+const { promisify } = require('util')
+const creds = require('../.gitignore/service-account.json')
+const doc = new GoogleSpreadsheet('8f8057b93cce4dda659f117b0401582414e10637');
 
 module.exports = {
     name: "context",
@@ -10,19 +12,29 @@ module.exports = {
     channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
     cooldown: 3,
     execute(message, args) {
-        const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts');
-        doc.useServiceAccountAuth({
-            client_email: 'database@hypixel-translators-bot.iam.gserviceaccount.com',
-            private_key: '8f8057b93cce4dda659f117b0401582414e10637',
-        })
-            .then(() => {
-                doc.loadInfo()
-                    .then(() => {
-                        const sheet = doc.sheetsByIndex[0]
-                        console.log(sheet.title)
-                    })
-                    .catch(err => { console.log(err); })
-            })
-            .catch(err => { console.log(err); })
+        accessSpreadsheet()
     }
+}
+
+function accessSpreadsheet() {
+    doc.useServiceAccountAuth({
+        client_email: creds.client_email,
+        private_key: creds.private_key,
+    })
+        .then(() => {
+            doc.loadInfo()
+                .then(() => {
+                    console.log(doc.title);
+
+                    const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
+                    console.log(sheet.title);
+                    console.log(sheet.rowCount);
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        })
+        .catch(err => {
+            console.log(err)
+        })
 }
