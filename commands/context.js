@@ -19,7 +19,7 @@ module.exports = {
 const SPREADSHEET_ID = '8f8057b93cce4dda659f117b0401582414e10637'
 async function accessSpreadsheet() {
     const doc = new GoogleSpreadsheet(SPREADSHEET_ID)
-    await promisify(doc.useServiceAccountAuth)(creds)
+    await promisify(doc.useServiceAccountAuth)(credentials)
     const info = await promisify(doc.getInfo)()
     console.log('Found document: ' + info.title + ' by ' + info.author.email)
     const sheet = info.worksheets[0]
