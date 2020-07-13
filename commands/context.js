@@ -14,6 +14,18 @@ module.exports = {
         doc.useServiceAccountAuth({
             client_email: 'database@hypixel-translators-bot.iam.gserviceaccount.com',
             private_key: '8f8057b93cce4dda659f117b0401582414e10637',
-        }).then(() => { doc.loadInfo().then(() => { console.log(doc.title) }) })
+        })
+            .then(() => {
+                doc.loadInfo()
+                    .then(() => {
+                        console.log(doc.title)
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 }
