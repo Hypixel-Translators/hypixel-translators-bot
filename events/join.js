@@ -12,7 +12,6 @@ module.exports = {
             .setColor(neutralColor)
             .setTitle("Welcome!")
             .setDescription("Hey there, thanks for joining **the Hypixel Translators Community Discord**! Are you a translator for Hypixel or Crowdin?\n\nClick <:q_vote_yes:714091580847554590> if so, or <:q_vote_no:714091580750954556> if you just want to chill in the Discord.")
-            .setFooter("Executed by " + message.author.tag);
         member.send(embed)
             .then(msg => {
                 msg.react("714091580847554590").then(() => { msg.react("714091580750954556") })
@@ -29,14 +28,12 @@ module.exports = {
                             .setColor(neutralColor)
                             .setTitle("Welcome!")
                             .setDescription("You're not a translator.")
-                            .setFooter("Executed by " + message.author.tag);
                     }
                     if (reaction.emoji.name === "714091580847554590") {
                         const embed = new Discord.MessageEmbed()
                             .setColor(neutralColor)
                             .setTitle("Welcome!")
                             .setDescription("You're a translator.")
-                            .setFooter("Executed by " + message.author.tag);
                     }
                 })
             })
