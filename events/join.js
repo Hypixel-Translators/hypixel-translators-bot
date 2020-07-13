@@ -11,25 +11,25 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle("Welcome!")
-            .setDescription("Hey there, thanks for joining **the Hypixel Translators Community Discord**! Are you a translator for Hypixel or Crowdin?\n\nClick <:q_vote_yes:714091580847554590> if so, or <:q_vote_no:714091580750954556> if you just want to chill in the Discord.")
+            .setDescription("Hey there, thanks for joining **the Hypixel Translators Community Discord**! Are you a translator for Hypixel or Crowdin?\n\nClick <:vote_yes:732298639749152769> if so, or <:vote_no:732298639736570007> if you just want to chill in the Discord.")
         member.send(embed)
             .then(msg => {
                 msg.react("714091580847554590").then(() => { msg.react("714091580750954556") })
 
                 const filter = (reaction, reacter) => {
-                    return (reaction.emoji.name === "714091580847554590" || reaction.emoji.name === "714091580750954556") && reacter.id === member;
+                    return (reaction.emoji.name === "732298639736570007" || reaction.emoji.name === "732298639749152769") && reacter.id === member;
                 };
 
                 const collector = msg.createReactionCollector(filter, { time: 120000 });
 
                 collector.on('collect', (reaction, reacter) => {
-                    if (reaction.emoji.name === "714091580750954556") {
+                    if (reaction.emoji.name === "732298639736570007") {
                         const embed = new Discord.MessageEmbed()
                             .setColor(neutralColor)
                             .setTitle("Welcome!")
                             .setDescription("You're not a translator.")
                     }
-                    if (reaction.emoji.name === "714091580847554590") {
+                    if (reaction.emoji.name === "732298639749152769") {
                         const embed = new Discord.MessageEmbed()
                             .setColor(neutralColor)
                             .setTitle("Welcome!")
