@@ -2,7 +2,7 @@ const { workingColor, errorColor, successColor, neutralColor } = require("../con
 const Discord = require("discord.js");
 const { GoogleSpreadsheet } = require('google-spreadsheet')
 const { promisify } = require('util')
-const creds = require('../.gitignore/service-account.json')
+const creds = require('../service-account.json')
 const doc = new GoogleSpreadsheet('8f8057b93cce4dda659f117b0401582414e10637');
 
 module.exports = {
