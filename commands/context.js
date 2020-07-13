@@ -2,8 +2,8 @@ const { workingColor, errorColor, successColor, neutralColor } = require("../con
 const Discord = require("discord.js");
 const { GoogleSpreadsheet } = require('google-spreadsheet')
 const { promisify } = require('util')
-const credentials = require('../.gitignore/service-account.json')
-
+const creds = require('../.gitignore/service-account.json')
+const doc = new GoogleSpreadsheet('8f8057b93cce4dda659f117b0401582414e10637');
 
 module.exports = {
     name: "context",
@@ -16,12 +16,17 @@ module.exports = {
     }
 }
 
-const SPREADSHEET_ID = '8f8057b93cce4dda659f117b0401582414e10637'
 async function accessSpreadsheet() {
-    const doc = new GoogleSpreadsheet(SPREADSHEET_ID)
-    await promisify(doc.useServiceAccountAuth)(credentials)
-    const info = await promisify(doc.getInfo)()
-    console.log('Found document: ' + info.title + ' by ' + info.author.email)
-    const sheet = info.worksheets[0]
-    console.log('sheet 1: ' + sheet.title + ' with rows: ' + sheet.rowCount + " and columns: " + sheet.colCount)
+    await doc.useServiceAccountAuth({
+        client_email: creds.client_email,
+        private_key: creds.private_key,
+    });
+
+    await doc.loadInfo(); // loads document properties and worksheets
+    console.log(doc.title);
+
+    const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
+    console.log(sheet.title);
+    console.log(sheet.rowCount);
+
 }
