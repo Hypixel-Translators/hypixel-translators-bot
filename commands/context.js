@@ -16,17 +16,25 @@ module.exports = {
     }
 }
 
-async function accessSpreadsheet() {
-    await doc.useServiceAccountAuth({
+function accessSpreadsheet() {
+    doc.useServiceAccountAuth({
         client_email: creds.client_email,
         private_key: creds.private_key,
-    });
+    })
+        .then(() => {
+            doc.loadInfo()
+                .then(() => {
+                    console.log(doc.title);
 
-    await doc.loadInfo(); // loads document properties and worksheets
-    console.log(doc.title);
-
-    const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
-    console.log(sheet.title);
-    console.log(sheet.rowCount);
-
+                    const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
+                    console.log(sheet.title);
+                    console.log(sheet.rowCount);
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        })
+        .catch(err => {
+            console.log(err)
+        })
 }
