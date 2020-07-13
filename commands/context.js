@@ -18,14 +18,11 @@ module.exports = {
             .then(() => {
                 doc.loadInfo()
                     .then(() => {
-                        console.log(doc.title)
+                        const sheet = doc.sheetsByIndex[0]
+                        console.log(sheet.title)
                     })
-                    .catch(err => {
-                        console.log(err)
-                    })
+                    .catch(err => { console.log(err); })
             })
-            .catch(err => {
-                console.log(err)
-            })
+            .catch(err => { console.log(err); })
     }
 }
