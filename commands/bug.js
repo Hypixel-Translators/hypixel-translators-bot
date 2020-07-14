@@ -7,6 +7,7 @@ module.exports = {
     usage: "bug [message]",
     aliases: ["bugreport", "reportbug"],
     cooldown: 480,
+    allowDM: true,
     execute(message, args) {
         var toSend = args.join(" ")
 

@@ -7,6 +7,7 @@ module.exports = {
     usage: "feedback [message]",
     aliases: ["feature", "idea"],
     cooldown: 480,
+    allowDM: true,
     execute(message, args) {
         var toSend = args.join(" ")
 

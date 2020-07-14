@@ -7,6 +7,7 @@ module.exports = {
     usage: "verify <mention> <message>",
     cooldown: 3,
     aliases: ["message", "privatemessage"],
+    allowDM: true,
     execute(message, args) {
         if (message.author.id == "722738307477536778") {
             var userToSend = args[0].replace(/[\\<>@#&!]/g, "");

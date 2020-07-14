@@ -11,13 +11,14 @@ module.exports = {
   description: "Say something in a specified channel.",
   usage: "say",
   cooldown: 3,
+  allowDM: true,
   execute(message, args) {
     const rawSendTo = args[0]
     args.splice(0, 1)
     var toSend = args.join(" ")
 
     //message.delete();
-    if (message.author.id == "722738307477536778" || message.member.hasPermission("ADMINISTRATOR")) {
+    if (message.author.id == "722738307477536778") {
       const embed = new Discord.MessageEmbed()
         .setColor(workingColor)
         .setTitle("Say")
