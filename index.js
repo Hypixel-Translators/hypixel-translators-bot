@@ -58,12 +58,10 @@ client.on("message", message => {
       sendTo.send(report)
 
       const embed = new Discord.MessageEmbed()
-        .setColor(neutralColor)
+        .setColor(successColor)
         .setTitle("📨 Messaging staff")
-        .setDescription("Message sent!")
-        .addFields(
-          { name: "Message", value: message }
-        )
+        .setDescription(message)
+        .setFooter("Any message you send here will get sent to staff.");
       message.channel.send(embed)
       return;
     } else { return; }
