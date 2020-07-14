@@ -16,7 +16,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle(quote)
-            .setDescription("_      - By " + name + "_")
+            .setDescription("_      - " + name + "_")
             .setFooter("Summoned by " + message.author.tag);
         message.channel.send(embed)
     }
