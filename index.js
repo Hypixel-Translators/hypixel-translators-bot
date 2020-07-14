@@ -81,6 +81,7 @@ client.on("message", message => {
         .setDescription("Sorry, but you can't execute this command in private messages. It might not be compatible with private messages (yet).")
         .setFooter("Executed by " + message.author.tag);
       message.channel.send(embed)
+      return;
     }
   }
 
