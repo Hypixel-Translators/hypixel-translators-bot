@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 module.exports = {
     name: "feedback",
     description: "Give feedback on the bot.",
-    usage: "feedback [message]",
+    usage: "feedback <message>",
     aliases: ["feature", "idea"],
     cooldown: 480,
     allowDM: true,
@@ -25,7 +25,7 @@ module.exports = {
                     .setColor(neutralColor)
                     .setTitle("Feedback")
                     .setDescription("Some feedback has arrived. Enjoy?")
-                    .addFields({ name: "Feedback", value: toSend })
+                    .addFields({ name: "Feedback", value: toSend }, { name: "Reply", value: "\`+dm " + message.author.id + " <message>\`" })
                     .setFooter("Suggested by " + message.author.tag);
                 sendTo.send(report)
                 const embed = new Discord.MessageEmbed()

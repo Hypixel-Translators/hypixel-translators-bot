@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 module.exports = {
     name: "bug",
     description: "Report a bug present in the bot.",
-    usage: "bug [message]",
+    usage: "bug <message>",
     aliases: ["bugreport", "reportbug"],
     cooldown: 480,
     allowDM: true,
@@ -25,7 +25,7 @@ module.exports = {
                     .setColor(neutralColor)
                     .setTitle("Bug report")
                     .setDescription("A fresh bug report has arrived. Time to fix stuff!")
-                    .addFields({ name: "Bug report", value: toSend })
+                    .addFields({ name: "Bug report", value: toSend }, { name: "Reply", value: "\`+dm " + message.author.id + " <message>\`" })
                     .setFooter("Reported by " + message.author.tag);
                 sendTo.send(report)
                 const embed = new Discord.MessageEmbed()
