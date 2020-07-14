@@ -59,7 +59,7 @@ client.on("message", message => {
 
   if (!command) return;
 
-  const notAllowed = client.emojis.cache.find(emoji => emoji.name === 'vote_no')
+  const notAllowed = client.emojis.cache.find(emoji => emoji.name === 'vote_no'); // "🚫"
 
   if (command.allowDM) {
     if (message.channel.type !== "dm") {
@@ -83,16 +83,6 @@ client.on("message", message => {
       message.channel.send(embed)
       return;
     }
-  }
-
-  if (command.args && !args.length) {
-    let reply = `You didn't leave any arguments, ${message.author}!`;
-
-    if (command.usage) {
-      reply += `\nYou should use this command like this: \`${prefix}${command.usage}\``;
-    }
-
-    return message.channel.send(reply);
   }
 
   if (!cooldowns.has(command.name)) {
@@ -120,7 +110,7 @@ client.on("message", message => {
   setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
   try {
-    if (message.member.hasPermission("ADMINISTRATOR")) { timestamps.delete(message.author.id) }
+    if (message.member) { if (message.member.hasPermission("ADMINISTRATOR")) { timestamps.delete(message.author.id) } }
     command.execute(message, args);
   } catch (error) {
     timestamps.delete(message.author.id)
