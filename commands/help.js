@@ -29,7 +29,7 @@ module.exports = {
         )
         .addFields(
           { name: "Discord", value: "prefix, mention", inline: true },
-          { name: "Miscellaneous", value: "help", inline: true },
+          { name: "Bot", value: "help, bug, feedback", inline: true },
           { name: '\u200B', value: "This bot was made by <@722738307477536778> for the **Hypixel Translators Community Discord**." }
         )
         .setFooter("Executed by " + message.author.tag);
