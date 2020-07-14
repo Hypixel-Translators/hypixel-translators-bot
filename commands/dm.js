@@ -21,7 +21,7 @@ module.exports = {
         //message.delete();
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
-            .setTitle("Messaging a user...")
+            .setTitle("📨 Messaging a user...")
             .setDescription("One second... ")
             .addFields(
                 { name: "Message", value: toSend }
@@ -32,14 +32,14 @@ module.exports = {
                 const recipient = msg.client.users.cache.get(userToSend)
                 const report = new Discord.MessageEmbed()
                     .setColor(neutralColor)
-                    .setTitle("Message from " + message.author.username)
+                    .setTitle("📩 Message from " + message.author.username)
                     .setDescription(toSend)
                     .setFooter("Any message you send here will get sent to staff.");
                 recipient.send(report)
                     .catch(err => {
                         const embed = new Discord.MessageEmbed()
                             .setColor(errorColor)
-                            .setTitle("Messaging " + recipient.username)
+                            .setTitle("📨 Messaging " + recipient.username)
                             .setDescription("Message couldn't be sent.\n\nReason:\n> " + err)
                             .addFields(
                                 { name: "Message", value: toSend }
@@ -49,7 +49,7 @@ module.exports = {
                     })
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
-                    .setTitle("Messaging " + recipient.username)
+                    .setTitle("📨 Messaging " + recipient.username)
                     .setDescription("Message sent!")
                     .addFields(
                         { name: "Message", value: toSend }

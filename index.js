@@ -52,10 +52,19 @@ client.on("message", message => {
       const sendTo = client.channels.cache.get("730042612647723058")
       const report = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setTitle("Message from " + message.author.username)
+        .setTitle("📩 Message from " + message.author.username)
         .setDescription(message.content)
         .addFields({ name: "Reply", value: "\`+dm " + message.author.id + " \`" })
       sendTo.send(report)
+
+      const embed = new Discord.MessageEmbed()
+        .setColor(neutralColor)
+        .setTitle("📨 Messaging staff")
+        .setDescription("Message sent!")
+        .addFields(
+          { name: "Message", value: message }
+        )
+      message.channel.send(embed)
       return;
     } else { return; }
   }
