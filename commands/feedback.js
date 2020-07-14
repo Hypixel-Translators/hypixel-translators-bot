@@ -25,7 +25,7 @@ module.exports = {
                     .setColor(neutralColor)
                     .setTitle("Feedback")
                     .setDescription("Some feedback has arrived. Enjoy?")
-                    .addFields({ name: "Feedback", value: toSend }, { name: "Reply", value: "\`+dm " + message.author.id + " <message>\`" })
+                    .addFields({ name: "Feedback", value: toSend }, { name: "Reply", value: "\`+dm " + message.author.id + " \`" })
                     .setFooter("Suggested by " + message.author.tag);
                 sendTo.send(report)
                 const embed = new Discord.MessageEmbed()

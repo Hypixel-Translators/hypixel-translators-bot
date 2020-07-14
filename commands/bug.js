@@ -25,7 +25,7 @@ module.exports = {
                     .setColor(neutralColor)
                     .setTitle("Bug report")
                     .setDescription("A fresh bug report has arrived. Time to fix stuff!")
-                    .addFields({ name: "Bug report", value: toSend }, { name: "Reply", value: "\`+dm " + message.author.id + " <message>\`" })
+                    .addFields({ name: "Bug report", value: toSend }, { name: "Reply", value: "\`+dm " + message.author.id + " \`" })
                     .setFooter("Reported by " + message.author.tag);
                 sendTo.send(report)
                 const embed = new Discord.MessageEmbed()
