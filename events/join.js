@@ -21,12 +21,13 @@ module.exports = {
                 msg.react("✅").then(() => { msg.react("❎") })
 
                 const filter = (reaction, reacter) => {
-                    return (reaction.emoji.name === '✅' || reaction.emoji.name === '❎') && reacter.id === member;
+                    return (reaction.emoji.name === '✅' || reaction.emoji.name === '❎');
                 };
 
                 const collector = msg.createReactionCollector(filter, { time: 240000 });
 
                 collector.on('collect', (reaction, reacter) => {
+                    console.log(reaction.emoji.name)
                     if (reaction.emoji.name === '❎') {
                         if (user.lastmessage()) {
                             const embed = new Discord.MessageEmbed()
