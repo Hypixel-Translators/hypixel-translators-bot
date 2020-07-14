@@ -46,7 +46,19 @@ client.once("ready", () => {
 });
 
 client.on("message", message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  if (!message.content.startsWith(prefix) || message.author.bot) {
+    if (message.channel.type === "dm") {
+      if (message.author.id == "722738307477536778") { return; }
+      const sendTo = client.users.cache.get("722738307477536778")
+      const report = new Discord.MessageEmbed()
+        .setColor(neutralColor)
+        .setTitle("Message from " + message.author.username)
+        .setDescription(message.content)
+        .addFields({ name: "Reply", value: "\`+dm " + message.author.id + " \`" })
+      sendTo.send(report)
+      return;
+    } else { return; }
+  }
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const commandName = args.shift().toLowerCase();
