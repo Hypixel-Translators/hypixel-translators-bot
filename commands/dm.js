@@ -13,7 +13,7 @@ module.exports = {
         if (message.author.id == "722738307477536778") { allowed = true }
         if (message.member) { if (message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("549885657749913621") || message.member.roles.cache.has("241926666400563203")) { allowed = true } }
         if (!allowed) return;
-        
+
         var userToSend = args[0].replace(/[\\<>@#&!]/g, "");
         args.splice(0, 1)
         var toSend = args.join(" ")
@@ -21,11 +21,10 @@ module.exports = {
         //message.delete();
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
-            .setTitle("DM")
+            .setTitle("Messaging a user...")
             .setDescription("One second... ")
             .addFields(
-                { name: "Message", value: toSend },
-                { name: "Recipient", value: "<@" + userToSend + ">" }
+                { name: "Message", value: toSend }
             )
             .setFooter("Executed by " + message.author.tag);
         message.channel.send(embed)
@@ -40,22 +39,20 @@ module.exports = {
                     .catch(err => {
                         const embed = new Discord.MessageEmbed()
                             .setColor(errorColor)
-                            .setTitle("DM")
+                            .setTitle("Messaging " + recipient.username)
                             .setDescription("Message couldn't be sent.\n\nReason:\n> " + err)
                             .addFields(
-                                { name: "Message", value: toSend },
-                                { name: "Recipient", value: "<@" + userToSend + ">" }
+                                { name: "Message", value: toSend }
                             )
                             .setFooter("Executed by " + message.author.tag);
                         msg.edit(embed)
                     })
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
-                    .setTitle("DM")
+                    .setTitle("Messaging " + recipient.username)
                     .setDescription("Message sent!")
                     .addFields(
-                        { name: "Message", value: toSend },
-                        { name: "Recipient", value: "<@" + userToSend + ">" }
+                        { name: "Message", value: toSend }
                     )
                     .setFooter("Executed by " + message.author.tag);
                 msg.edit(embed)
