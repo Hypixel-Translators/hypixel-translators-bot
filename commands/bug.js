@@ -20,7 +20,7 @@ module.exports = {
             .setFooter("Executed by " + message.author.tag);
         message.channel.send(embed)
             .then(msg => {
-                const sendTo = msg.client.users.cache.get("722738307477536778")
+                const sendTo = msg.client.channels.cache.get("730042612647723058")
                 const report = new Discord.MessageEmbed()
                     .setColor(neutralColor)
                     .setTitle("Bug report")
