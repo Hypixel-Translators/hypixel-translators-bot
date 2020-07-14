@@ -14,10 +14,10 @@ module.exports = {
 
         //message.delete();
         const embed = new Discord.MessageEmbed()
-            .setColor(successColor)
+            .setColor(neutralColor)
             .setTitle(quote)
             .setDescription("_      - By " + name + "_")
-            .setFooter("Executed by " + message.author.tag);
+            .setFooter("Summoned by " + message.author.tag);
         message.channel.send(embed)
     }
 };
