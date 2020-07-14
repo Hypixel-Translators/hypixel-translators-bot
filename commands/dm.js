@@ -27,7 +27,12 @@ module.exports = {
             message.channel.send(embed)
                 .then(msg => {
                     const recipient = msg.client.users.cache.get(userToSend)
-                    recipient.send("Message from administrator:\n\n" + toSend)
+                    const report = new Discord.MessageEmbed()
+                        .setColor(neutralColor)
+                        .setTitle("Message from " + message.author.username)
+                        .setDescription(toSend)
+                        .setFooter("You can't reply through the bot yet!");
+                    recipient.send(report)
                         .catch(err => {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
