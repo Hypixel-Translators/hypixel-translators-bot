@@ -8,7 +8,7 @@ module.exports = {
     cooldown: 10,
     allowDM: true,
     execute(message, args) {
-        var number = Math.floor(Math.random() * quotes.length)
+        var number = 7 //Math.floor(Math.random() * quotes.length)
         var quote = quotes[number]
         var name = names[number]
 
