@@ -14,6 +14,7 @@ module.exports = {
   aliases: ["commands", "cmds", "info", "botinfo"],
   usage: "help [name of command]",
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
+  allowDM: true,
   cooldown: 5,
   execute(message, args) {
     //message.delete();
@@ -30,7 +31,7 @@ module.exports = {
         .addFields(
           { name: "Discord", value: "prefix, mention", inline: true },
           { name: "Bot", value: "help, bug, feedback", inline: true },
-          { name: '\u200B', value: "This bot was made by <@722738307477536778> for the **Hypixel Translators Community Discord**." }
+          { name: '\u200B', value: "This bot was made by <@722738307477536778> for the **Hypixel Translators Community Discord**.\nReport any bugs using \`+bug\` and suggest stuff with \`+feedback\`." }
         )
         .setFooter("Executed by " + message.author.tag);
 
