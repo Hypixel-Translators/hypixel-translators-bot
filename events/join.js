@@ -11,29 +11,54 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle("Welcome!")
-            .setDescription("Hey there, thanks for joining **the Hypixel Translators Community Discord**! Are you a translator for Hypixel or Crowdin?\n\nClick <:vote_yes:732298639749152769> if so, or <:vote_no:732298639736570007> if you just want to chill in the Discord.")
+            .setDescription("Hey there, thanks for joining **the Hypixel Translators Community Discord**! Are you a translator/proofreader for Hypixel or Quickplay?\n\nClick <:vote_yes:732298639749152769> if so, or <:vote_no:732298639736570007> if you just want to chill in the Discord.")
         member.send(embed)
             .then(msg => {
-                msg.react("714091580847554590").then(() => { msg.react("714091580750954556") })
+                const server = msg.client.guilds.cache.get("549503328472530974")
+                const user = server.member(member)
+                const one = client.emojis.cache.get("714091580847554590"); const two = client.emojis.cache.get("714091580750954556");
+                const verify = msg.client.channels.cache.get("569178590697095168")
+                const verifylogs = msg.client.channels.cache.get("662660931838410754")
+
+                msg.react(one).then(() => { msg.react(two) })
 
                 const filter = (reaction, reacter) => {
-                    return (reaction.emoji.name === "732298639736570007" || reaction.emoji.name === "732298639749152769") && reacter.id === member;
+                    return (reaction.emoji === one || reaction.emoji === two) && reacter.id === member;
                 };
 
                 const collector = msg.createReactionCollector(filter, { time: 120000 });
 
                 collector.on('collect', (reaction, reacter) => {
-                    if (reaction.emoji.name === "732298639736570007") {
+                    if (reaction.emoji === two) {
                         const embed = new Discord.MessageEmbed()
-                            .setColor(neutralColor)
-                            .setTitle("Welcome!")
-                            .setDescription("You're not a translator.")
+                            .setColor(workingColor)
+                            .setTitle("Verification")
+                            .setDescription("You're not a translator. One second...")
+                        msg.edit(embed)
+                        if (user.lastmessage()) {
+                            const embed = new Discord.MessageEmbed()
+                                .setColor(neutralColor)
+                                .setTitle("Verification")
+                                .setDescription("You're not a translator. Because you have been in this server before, you'll need to be manually verified.")
+                            msg.edit(embed)
+                            verify.send(member.user.tag + " would like to be verified as a player, but a previous message has been found in the server.")
+                            verifylogs.send(member.user.tag + " has requested to be verified as a player, but a previous message has been detected in the server.")
+                        } else {
+                            const embed = new Discord.MessageEmbed()
+                                .setColor(neutralColor)
+                                .setTitle("Verification")
+                                .setDescription("You're not a translator. You'll gain access to the server shortly!")
+                            msg.edit(embed)
+                            verify.send(member.user.tag + " would like to be verified as a player.")
+                            verifylogs.send(member.user.tag + " has requested to be verified as a player.")
+                        }
                     }
-                    if (reaction.emoji.name === "732298639749152769") {
+                    if (reaction.emoji === one) {
                         const embed = new Discord.MessageEmbed()
                             .setColor(neutralColor)
                             .setTitle("Welcome!")
                             .setDescription("You're a translator.")
+                        msg.edit(embed)
                     }
                 })
             })
