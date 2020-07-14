@@ -34,7 +34,7 @@ module.exports = {
                     .setColor(neutralColor)
                     .setTitle("Message from " + message.author.username)
                     .setDescription(toSend)
-                    .setFooter("You can't reply through the bot yet!");
+                    .setFooter("Any message you send here will get sent to staff.");
                 recipient.send(report)
                     .catch(err => {
                         const embed = new Discord.MessageEmbed()
