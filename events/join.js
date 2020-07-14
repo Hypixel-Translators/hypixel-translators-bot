@@ -16,7 +16,8 @@ module.exports = {
             .then(msg => {
                 const server = msg.client.guilds.cache.get("549503328472530974")
                 const user = server.member(member)
-                const one = msg.client.emojis.cache.get("714091580847554590"); const two = msg.client.emojis.cache.get("714091580750954556");
+                const one = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_no')
+                const two = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_yes')
                 const verify = msg.client.channels.cache.get("569178590697095168")
                 const verifylogs = msg.client.channels.cache.get("662660931838410754")
 
