@@ -61,10 +61,28 @@ client.on("message", message => {
 
   const notAllowed = client.emojis.cache.find(emoji => emoji.name === 'vote_no')
 
-  if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-  if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-  if (command.channelBlackList) { if (command.channelBlackList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-  if (command.categoryBlackList) { if (command.categoryBlackList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+  if (command.allowDM) {
+    if (message.channel.type !== "dm") {
+      if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.channelBlackList) { if (command.channelBlackList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.categoryBlackList) { if (command.categoryBlackList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+    }
+  } else {
+    if (message.channel.type !== "dm") {
+      if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.channelBlackList) { if (command.channelBlackList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.categoryBlackList) { if (command.categoryBlackList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+    } else {
+      const embed = new Discord.MessageEmbed()
+        .setColor(errorColor)
+        .setTitle("Error")
+        .setDescription("Sorry, but you can't execute this command in private messages. It might not be compatible with private messages (yet).")
+        .setFooter("Executed by " + message.author.tag);
+      message.channel.send(embed)
+    }
+  }
 
   if (command.args && !args.length) {
     let reply = `You didn't leave any arguments, ${message.author}!`;
@@ -109,7 +127,7 @@ client.on("message", message => {
     const embed = new Discord.MessageEmbed()
       .setColor(errorColor)
       .setTitle("Error")
-      .setDescription("Something has gone wrong. Have you entered the command correctly?\nThis can also be an internal error, contact <@722738307477536778> to report bugs.")
+      .setDescription("Something has gone wrong. Have you entered the command correctly?\nThis can also be an internal error. Execute \`+bug\` to report a bug.")
       .addFields(
         { name: "Command usage", value: `\`${prefix}${command.usage}\`` },
         { name: "Error message", value: error }
