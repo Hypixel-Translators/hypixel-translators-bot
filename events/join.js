@@ -16,21 +16,21 @@ module.exports = {
             .then(msg => {
                 const server = msg.client.guilds.cache.get("549503328472530974")
                 const user = server.member(member)
-                const one = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_no')
-                const two = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_yes')
+                const one = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_yes')
+                const two = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_no')
                 const verify = msg.client.channels.cache.get("569178590697095168")
                 const verifylogs = msg.client.channels.cache.get("662660931838410754")
 
                 msg.react(one).then(() => { msg.react(two) })
 
                 const filter = (reaction, reacter) => {
-                    return (reaction.emoji === one || reaction.emoji === two) && reacter.id === member;
+                    return (reaction.emoji.name === 'vote_yes' || reaction.emoji.name === 'vote_no') && reacter.id === member;
                 };
 
                 const collector = msg.createReactionCollector(filter, { time: 120000 });
 
                 collector.on('collect', (reaction, reacter) => {
-                    if (reaction.emoji === two) {
+                    if (reaction.emoji.name === 'vote_no') {
                         if (user.lastmessage()) {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(neutralColor)
@@ -49,7 +49,7 @@ module.exports = {
                             verifylogs.send(member.user.tag + " has requested to be verified as a player.")
                         }
                     }
-                    if (reaction.emoji === one) {
+                    if (reaction.emoji.name === 'vote_yes') {
                         const embed = new Discord.MessageEmbed()
                             .setColor(workingColor)
                             .setTitle("Welcome!")
