@@ -59,7 +59,7 @@ client.on("message", message => {
 
   if (!command) return;
 
-  const notAllowed = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_no')
+  const notAllowed = client.emojis.cache.find(emoji => emoji.name === 'vote_no')
 
   if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
   if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
