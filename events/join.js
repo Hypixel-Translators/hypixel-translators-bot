@@ -11,31 +11,28 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle("Welcome!")
-            .setDescription("Hey there, thanks for joining **the Hypixel Translators Community Discord**! Are you a translator/proofreader for Hypixel or Quickplay?\n\nClick <:vote_yes:732298639749152769> if so, or <:vote_no:732298639736570007> if you just want to chill in the Discord.")
+            .setDescription("Hey there, thanks for joining **the Hypixel Translators Community Discord**! Are you a translator/proofreader for Hypixel or Quickplay?\n\nClick ✅ if so, or ❎ if you just want to chill in the Discord.")
         member.send(embed)
             .then(msg => {
                 const server = msg.client.guilds.cache.get("549503328472530974")
                 const user = server.member(member)
-                const one = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_yes')
-                const two = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_no')
-                const verify = msg.client.channels.cache.get("569178590697095168")
-                const verifylogs = msg.client.channels.cache.get("662660931838410754")
+                const verifiedRole = server.roles.cache.get("569194996964786178")
 
-                msg.react(one).then(() => { msg.react(two) })
+                msg.react("✅").then(() => { msg.react("❎") })
 
                 const filter = (reaction, reacter) => {
-                    return (reaction.emoji.name === 'vote_yes' || reaction.emoji.name === 'vote_no') && reacter.id === member;
+                    return (reaction.emoji.name === '✅' || reaction.emoji.name === '❎') && reacter.id === member;
                 };
 
-                const collector = msg.createReactionCollector(filter, { time: 120000 });
+                const collector = msg.createReactionCollector(filter, { time: 240000 });
 
                 collector.on('collect', (reaction, reacter) => {
-                    if (reaction.emoji.name === 'vote_no') {
+                    if (reaction.emoji.name === '❎') {
                         if (user.lastmessage()) {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(neutralColor)
                                 .setTitle("Verification")
-                                .setDescription("You're not a translator. Because you have been in this server before, you'll need to be manually verified.")
+                                .setDescription("You're not a translator. Because you have been in this server before, you'll need to be manually verified. You'll gain access to the server shortly!")
                             msg.edit(embed)
                             verify.send(member.user.tag + " would like to be verified as a player, but a previous message has been found in the server.")
                             verifylogs.send(member.user.tag + " has requested to be verified as a player, but a previous message has been detected in the server.")
@@ -45,17 +42,24 @@ module.exports = {
                                 .setTitle("Verification")
                                 .setDescription("You're not a translator. You'll gain access to the server shortly!")
                             msg.edit(embed)
-                            verify.send(member.user.tag + " would like to be verified as a player.")
-                            verifylogs.send(member.user.tag + " has requested to be verified as a player.")
+                            user.roles.add(verifiedRole)
+                            verify.send(member.user.tag + " was verified as a player.")
+                            verifylogs.send(member.user.tag + " has been verified as a player.")
                         }
                     }
-                    if (reaction.emoji.name === 'vote_yes') {
+                    if (reaction.emoji.name === '✅') {
                         const embed = new Discord.MessageEmbed()
                             .setColor(workingColor)
-                            .setTitle("Welcome!")
+                            .setTitle("Verification")
                             .setDescription("You're a translator.")
                         msg.edit(embed)
                     }
+                })
+
+                collector.on('end', collected => {
+                    const receivedEmbed = msg.embeds[0];
+                    const embed = new Discord.MessageEmbed(receivedEmbed).setFooter('The timer ended, reacting won\'t trigger anything anymore.');
+                    msg.edit(embed)
                 })
             })
     }
