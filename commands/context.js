@@ -5,10 +5,10 @@ const { promisify } = require('util')
 const creds = require('../service-account.json')
 
 module.exports = {
-    name: "contexttwo",
+    name: "context",
     description: "Does nothing for now!",
-    usage: "contexttwo <link/ID>",
-    channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
+    usage: "context <string ID>",
+    categoryBlackList: ["549503328472530975"],
     cooldown: 3,
     execute(message, args) {
         accessSpreadsheet()
