@@ -172,6 +172,19 @@ client.on('messageReactionAdd', async (reaction, user) => {
           reaction.message.edit(embed)
         }, 5000)
       })
+      .catch(err => {
+        const receivedEmbed = message.embeds[0];
+        const embed = new Discord.MessageEmbed(receivedEmbed)
+          .setFooter("An error occurred, please contact QkeleQ#6046.")
+          .setColor(successColor)
+        reaction.message.edit(embed)
+        setInterval(() => {
+          embed
+            .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
+            .setColor(neutralColor)
+          reaction.message.edit(embed)
+        }, 5000)
+      })
   }
 });
 
@@ -186,6 +199,19 @@ client.on('messageReactionRemove', async (reaction, user) => {
         const receivedEmbed = message.embeds[0];
         const embed = new Discord.MessageEmbed(receivedEmbed)
           .setFooter('Removed ' + user.username + "'s Bot Updates role!")
+          .setColor(successColor)
+        reaction.message.edit(embed)
+        setInterval(() => {
+          embed
+            .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
+            .setColor(neutralColor)
+          reaction.message.edit(embed)
+        }, 5000)
+      })
+      .catch(err => {
+        const receivedEmbed = message.embeds[0];
+        const embed = new Discord.MessageEmbed(receivedEmbed)
+          .setFooter("An error occurred, please contact QkeleQ#6046.")
           .setColor(successColor)
         reaction.message.edit(embed)
         setInterval(() => {
