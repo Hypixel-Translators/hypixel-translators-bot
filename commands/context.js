@@ -34,6 +34,7 @@ async function accessSpreadsheet(message, args, msg) {
     console.log(sheet.title)
 
     const rows = await sheet.getRows()
+    console.log(rows)
 
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
