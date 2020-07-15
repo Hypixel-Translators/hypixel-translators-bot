@@ -7,7 +7,7 @@ const creds = require('../service-account.json')
 module.exports = {
     name: "context",
     description: "",
-    usage: "context <string ID> [language code|'edit'] [field to edit] [new value]",
+    usage: "context <string ID> [language code]",
     categoryBlackList: ["549503328472530975"],
     cooldown: 3,
     execute(message, args) {
@@ -46,7 +46,10 @@ async function accessSpreadsheet(message, args, msg) {
             { name: "String ID", value: correctRow.id },
             { name: "Context", value: correctRow.context }
         )
-        .setImage(correctRow.screenshot)
         .setFooter("Executed by " + message.author.tag);
-    msg.edit(embed)
+    if (correctRow.screenshot) { embed.setImage(correctRow.screenshot) }
+    if (args[1]) {
+        if (correctRow.args[1]) { embed.addFields({ name: "Note for " + args[1], value: correctRow.args[1] }) } else { embed.addFields({ name: "Note for " + args[1], value: "None found" }) }
+        msg.edit(embed)
+    }
 }
