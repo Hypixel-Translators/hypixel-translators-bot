@@ -21,8 +21,8 @@ const cooldowns = new Discord.Collection();
 client.once("ready", () => {
   console.log("Ready!");
 
-  let now = +new Date();
-  const tooOld = 60 * 60 * 12 * 1000;
+  client.channels.get("732587569744838777").fetchMessage("733036798736990309");
+
   client.user.setStatus("online").catch(console.error);
   setInterval(() => {
     var pickedUser = randomUser[Math.floor(Math.random() * randomUser.length)]
@@ -153,7 +153,6 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('messageReactionAdd', async (reaction, user) => {
-  console.log("Reaction added")
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
     console.log("The correct reaction for Bot Updates has been added!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates');
@@ -162,6 +161,27 @@ client.on('messageReactionAdd', async (reaction, user) => {
         const receivedEmbed = message.embeds[0];
         const embed = new Discord.MessageEmbed(receivedEmbed)
           .setFooter('Given ' + user.username + " the Bot Updates role!")
+          .setColor(successColor)
+        reaction.message.edit(embed)
+        setInterval(() => {
+          embed
+            .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
+            .setColor(neutralColor)
+          reaction.message.edit(embed)
+        }, 5000)
+      })
+  }
+});
+
+client.on('messageReactionRemove', async (reaction, user) => {
+  if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
+    console.log("The correct reaction for Bot Updates has been added!")
+    let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates');
+    reaction.member.removeRole(role)
+      .then(() => {
+        const receivedEmbed = message.embeds[0];
+        const embed = new Discord.MessageEmbed(receivedEmbed)
+          .setFooter('Removed ' + user.username + "'s Bot Updates role!")
           .setColor(successColor)
         reaction.message.edit(embed)
         setInterval(() => {
