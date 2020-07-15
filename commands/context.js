@@ -6,8 +6,8 @@ const creds = require('../service-account.json')
 
 module.exports = {
     name: "context",
-    description: "Does nothing for now!",
-    usage: "context <string ID> [field to edit] [new value]",
+    description: "",
+    usage: "context <string ID> [language code|'edit'] [field to edit] [new value]",
     categoryBlackList: ["549503328472530975"],
     cooldown: 3,
     execute(message, args) {
@@ -36,16 +36,17 @@ async function accessSpreadsheet(message, args, msg) {
     const rows = await sheet.getRows()
     console.log(rows)
 
+    const correctRow = rows.find(r => r.id === args[0])
+
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle("Context for " + args[0])
         .setDescription("This system is in the testing phase. No actual data can be written.")
         .addFields(
-            { name: "Document title", value: doc.title, inline: true },
-            { name: "Sheet title", value: sheet.title, inline: true },
-            { name: "Row contents", value: rows[args[0]].id, inline: true }
+            { name: "String ID", value: correctRow.id },
+            { name: "Context", value: correctRow.context }
         )
-        .setImage(rows[args[0]].screenshot)
+        .setImage(correctRow.screenshot)
         .setFooter("Executed by " + message.author.tag);
     msg.edit(embed)
 }
