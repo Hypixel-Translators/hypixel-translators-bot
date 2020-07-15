@@ -32,7 +32,7 @@ module.exports = {
                 const recipient = msg.client.users.cache.get(userToSend)
                 const report = new Discord.MessageEmbed()
                     .setColor(neutralColor)
-                    .setTitle("📩 Message from " + message.author.username)
+                    .setTitle("📩 Message from staff")
                     .setDescription(toSend)
                     .setFooter("Any message you send here will get sent to staff.");
                 recipient.send(report)
