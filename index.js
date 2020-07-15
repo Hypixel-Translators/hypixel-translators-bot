@@ -158,7 +158,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates');
     let guild = client.guilds.cache.get("549503328472530974")
     let member = guild.members.cache.get(user.id)
-    const message = client.messages.cache.get("733036798736990309")
+    const message = client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
     member.roles.add(role)
       .then(() => {
         const receivedEmbed = message.embeds[0];
@@ -195,7 +195,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates');
     let guild = client.guilds.cache.get("549503328472530974")
     let member = guild.members.cache.get(user.id)
-    const message = client.messages.cache.get("733036798736990309")
+    const message = client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
     member.roles.remove(role)
       .then(() => {
         const receivedEmbed = message.embeds[0];
