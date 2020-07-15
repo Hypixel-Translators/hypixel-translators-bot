@@ -48,8 +48,4 @@ async function accessSpreadsheet(message, args, msg) {
         )
         .setFooter("Executed by " + message.author.tag);
     if (correctRow.screenshot) { embed.setImage(correctRow.screenshot) }
-    if (args[1]) {
-        if (correctRow.args[1]) { embed.addFields({ name: "Note for " + args[1], value: correctRow.args[1] }) } else { embed.addFields({ name: "Note for " + args[1], value: "None found" }) }
-        msg.edit(embed)
-    }
 }
