@@ -44,7 +44,7 @@ async function accessSpreadsheet(message, args, msg) {
             { name: "Sheet title", value: sheet.title, inline: true },
             { name: "Row contents", value: rows[args[0]].id, inline: true }
         )
-        .addImage(rows[args[0]].screenshot)
+        .setImage(rows[args[0]].screenshot)
         .setFooter("Executed by " + message.author.tag);
     msg.edit(embed)
 }
