@@ -153,6 +153,7 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('messageReactionAdd', async (reaction, user) => {
+  console.log("Reaction added")
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
     console.log("The correct reaction for Bot Updates has been added!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates');
