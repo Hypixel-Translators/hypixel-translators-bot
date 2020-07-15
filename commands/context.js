@@ -16,7 +16,7 @@ module.exports = {
 }
 
 async function accessSpreadsheet() {
-    const doc = new GoogleSpreadsheet('8f8057b93cce4dda659f117b0401582414e10637')
+    const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
     doc.useServiceAccountAuth(creds)
         .then(() => {
             doc.getInfo()
