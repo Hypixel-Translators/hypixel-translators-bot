@@ -55,4 +55,4 @@ module.exports = {
                 msg.edit(embed)
             })
     }
-};
+}; 
