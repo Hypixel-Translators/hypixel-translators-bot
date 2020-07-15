@@ -156,7 +156,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
     console.log("The correct reaction for Bot Updates has been added!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates');
-    user.roles.add(role)
+    user.addRole(role)
       .then(() => {
         const receivedEmbed = message.embeds[0];
         const embed = new Discord.MessageEmbed(receivedEmbed)
@@ -177,7 +177,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
     console.log("The correct reaction for Bot Updates has been added!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates');
-    user.roles.remove(role)
+    user.removeRole(role)
       .then(() => {
         const receivedEmbed = message.embeds[0];
         const embed = new Discord.MessageEmbed(receivedEmbed)
