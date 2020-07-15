@@ -48,4 +48,5 @@ async function accessSpreadsheet(message, args, msg) {
         )
         .setFooter("Executed by " + message.author.tag);
     if (correctRow.screenshot) { embed.setImage(correctRow.screenshot) }
+    msg.edit(embed)
 }
