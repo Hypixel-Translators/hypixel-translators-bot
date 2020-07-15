@@ -1,4 +1,4 @@
-const fs = require("fs");
+/*const fs = require("fs");
 const Discord = require("discord.js");
 const { prefix, token, workingColor, errorColor, successColor, neutralColor } = require("./config.json");
 
@@ -87,4 +87,4 @@ client.on('messageReactionRemove', async (reaction, user) => {
                 }, 5000)
             })
     }
-});
+});*/
