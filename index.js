@@ -21,7 +21,7 @@ const cooldowns = new Discord.Collection();
 client.once("ready", () => {
   console.log("Ready!");
 
-  client.channels.cache.get("732587569744838777").fetchMessage("733036798736990309");
+  client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309");
 
   client.user.setStatus("online").catch(console.error);
   setInterval(() => {
