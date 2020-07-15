@@ -158,33 +158,35 @@ client.on('messageReactionAdd', async (reaction, user) => {
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates');
     let guild = client.guilds.cache.get("549503328472530974")
     let member = guild.members.cache.get(user.id)
-    const message = client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
-    member.roles.add(role)
-      .then(() => {
-        const receivedEmbed = message.embeds[0];
-        const embed = new Discord.MessageEmbed(receivedEmbed)
-          .setFooter('Given ' + user.username + " the Bot Updates role!")
-          .setColor(successColor)
-        message.edit(embed)
-        setInterval(() => {
-          embed
-            .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
-            .setColor(neutralColor)
-          message.edit(embed)
-        }, 5000)
-      })
-      .catch(err => {
-        const receivedEmbed = message.embeds[0];
-        const embed = new Discord.MessageEmbed(receivedEmbed)
-          .setFooter("An error occurred, please contact QkeleQ#6046.")
-          .setColor(successColor)
-        message.edit(embed)
-        setInterval(() => {
-          embed
-            .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
-            .setColor(neutralColor)
-          message.edit(embed)
-        }, 5000)
+    client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
+      .then(message => {
+        member.roles.add(role)
+          .then(() => {
+            const receivedEmbed = message.embeds[0];
+            const embed = new Discord.MessageEmbed(receivedEmbed)
+              .setFooter('Given ' + user.username + " the Bot Updates role!")
+              .setColor(successColor)
+            message.edit(embed)
+            setInterval(() => {
+              embed
+                .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
+                .setColor(neutralColor)
+              message.edit(embed)
+            }, 5000)
+          })
+          .catch(err => {
+            const receivedEmbed = message.embeds[0];
+            const embed = new Discord.MessageEmbed(receivedEmbed)
+              .setFooter("An error occurred, please contact QkeleQ#6046.")
+              .setColor(successColor)
+            message.edit(embed)
+            setInterval(() => {
+              embed
+                .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
+                .setColor(neutralColor)
+              message.edit(embed)
+            }, 5000)
+          })
       })
   }
 });
@@ -195,33 +197,35 @@ client.on('messageReactionRemove', async (reaction, user) => {
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates');
     let guild = client.guilds.cache.get("549503328472530974")
     let member = guild.members.cache.get(user.id)
-    const message = client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
-    member.roles.remove(role)
-      .then(() => {
-        const receivedEmbed = message.embeds[0];
-        const embed = new Discord.MessageEmbed(receivedEmbed)
-          .setFooter('Removed ' + user.username + "'s Bot Updates role!")
-          .setColor(successColor)
-        message.edit(embed)
-        setInterval(() => {
-          embed
-            .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
-            .setColor(neutralColor)
-          message.edit(embed)
-        }, 5000)
-      })
-      .catch(err => {
-        const receivedEmbed = message.embeds[0];
-        const embed = new Discord.MessageEmbed(receivedEmbed)
-          .setFooter("An error occurred, please contact QkeleQ#6046.")
-          .setColor(successColor)
-        message.edit(embed)
-        setInterval(() => {
-          embed
-            .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
-            .setColor(neutralColor)
-          message.edit(embed)
-        }, 5000)
+    client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
+      .then(message => {
+        member.roles.remove(role)
+          .then(() => {
+            const receivedEmbed = message.embeds[0];
+            const embed = new Discord.MessageEmbed(receivedEmbed)
+              .setFooter('Removed ' + user.username + "'s Bot Updates role!")
+              .setColor(successColor)
+            message.edit(embed)
+            setInterval(() => {
+              embed
+                .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
+                .setColor(neutralColor)
+              message.edit(embed)
+            }, 5000)
+          })
+          .catch(err => {
+            const receivedEmbed = message.embeds[0];
+            const embed = new Discord.MessageEmbed(receivedEmbed)
+              .setFooter("An error occurred, please contact QkeleQ#6046.")
+              .setColor(successColor)
+            message.edit(embed)
+            setInterval(() => {
+              embed
+                .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
+                .setColor(neutralColor)
+              message.edit(embed)
+            }, 5000)
+          })
       })
   }
 });
