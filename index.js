@@ -168,8 +168,8 @@ client.on('messageReactionAdd', async (reaction, user) => {
             message.edit(embed)
             setInterval(() => {
               embed
-                .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. (<@&732615152246980628>)")
-                .setFooter("Please check if you received the <@732615152246980628> role after reacting. If not, please contact QkeleQ10#6046.")
+                .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. \n_This gives you <@&732615152246980628>._")
+                .setFooter("Please check if you received the role after reacting. If not, please contact QkeleQ10#6046.")
                 .setColor(neutralColor)
               message.edit(embed)
             }, 5000)
@@ -194,8 +194,8 @@ client.on('messageReactionRemove', async (reaction, user) => {
             message.edit(embed)
             setInterval(() => {
               embed
-                .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. (<@&732615152246980628>)")
-                .setFooter("Please check if you received the <@732615152246980628> role after reacting. If not, please contact QkeleQ10#6046.")
+                .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. \n_This gives you <@&732615152246980628>._")
+                .setFooter("Please check if you received the role after reacting. If not, please contact QkeleQ10#6046.")
                 .setColor(neutralColor)
               message.edit(embed)
             }, 5000)
