@@ -8,6 +8,7 @@ module.exports = {
     aliases: ["feature", "idea"],
     cooldown: 480,
     allowDM: true,
+    channelBlackList: "621298919535804426",
     execute(message, args) {
         var toSend = args.join(" ")
 

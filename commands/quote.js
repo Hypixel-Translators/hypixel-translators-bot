@@ -7,6 +7,7 @@ module.exports = {
     usage: "quote",
     cooldown: 10,
     allowDM: true,
+    channelBlackList: "621298919535804426",
     execute(message, args) {
         var number = Math.floor(Math.random() * quotes.length)
         var quote = quotes[number]

@@ -1,7 +1,6 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
 const { GoogleSpreadsheet } = require('google-spreadsheet')
-const { promisify } = require('util')
 const creds = require('../service-account.json')
 
 module.exports = {
@@ -34,7 +33,6 @@ async function accessSpreadsheet(message, args, msg) {
     console.log(sheet.title)
 
     const rows = await sheet.getRows()
-    console.log(rows)
 
     const correctRow = rows.find(r => r.id === args[0])
 
