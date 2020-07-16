@@ -96,7 +96,7 @@ async function editRow(message, args, msg) {
     console.log(correctRow)
 
     const newRow = correctRow
-    const oldRowNumber = Number(correctRow.rowNumber.substring(1)) - 2
+    const oldRowNumber = Number(correctRow._rowNumber.substring(1)) - 2
     rows[oldRowNumber].delete()
     if (args[2] === "context") { newRow.context = arguments }
     sheet.addRows(newRow)
