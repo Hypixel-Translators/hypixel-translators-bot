@@ -17,9 +17,9 @@ module.exports = {
             .setFooter("Executed by " + message.author.tag);
         message.channel.send(embed)
             .then(msg => {
-                if (!args[1]) {
-                    accessSpreadsheet(message, args, msg)
-                } else { editRow(message, args, msg) }
+                if (args[1]) {
+                    editRow(message, args, msg)
+                } else { accessSpreadsheet(message, args, msg) }
             })
     }
 }
@@ -74,26 +74,27 @@ async function accessSpreadsheet(message, args, msg) {
 
         msg.edit(embed)
     }
-    async function editRow(message, args, msg) {
-        var arguments = args
-        arguments.splice(0, 3)
+}
 
-        const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
-        await doc.useServiceAccountAuth(creds)
+async function editRow(message, args, msg) {
+    var arguments = args
+    arguments.splice(0, 3)
 
-        await doc.loadInfo()
-        console.log(doc.title)
+    const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
+    await doc.useServiceAccountAuth(creds)
 
-        const sheet = doc.sheetsByIndex[0]
-        console.log(sheet.title)
+    await doc.loadInfo()
+    console.log(doc.title)
 
-        const rows = await sheet.getRows()
+    const sheet = doc.sheetsByIndex[0]
+    console.log(sheet.title)
 
-        const correctRow = rows.find(r => r.id === args[0])
+    const rows = await sheet.getRows()
 
-        if (args[2] === "context") { correctRow.context = arguments }
-        const newContext = correctRow
-        await correctRow.delete()
-        await sheet.addRows(newContext)
-    }
+    const correctRow = rows.find(r => r.id === args[0])
+
+    if (args[2] === "context") { correctRow.context = arguments }
+    const newContext = correctRow
+    await correctRow.delete()
+    await sheet.addRows(newContext)
 }
