@@ -159,19 +159,6 @@ client.on('messageReactionAdd', async (reaction, user) => {
     client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
       .then(message => {
         reaction.message.guild.member(user).roles.add(role)
-          .then(() => {
-            const receivedEmbed = message.embeds[0];
-            const embed = new Discord.MessageEmbed(receivedEmbed)
-              .setFooter('Given ' + user.username + " the Bot Updates role!")
-              .setColor(successColor)
-            message.edit(embed)
-            setInterval(() => {
-              embed
-                .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
-                .setColor(neutralColor)
-              message.edit(embed)
-            }, 5000)
-          })
           .catch(err => {
             console.log(err)
             const receivedEmbed = message.embeds[0];
@@ -181,7 +168,8 @@ client.on('messageReactionAdd', async (reaction, user) => {
             message.edit(embed)
             setInterval(() => {
               embed
-                .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
+                .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. (<@&732615152246980628>)")
+                .setFooter("Please check if you received the <@732615152246980628> role after reacting. If not, please contact QkeleQ10#6046.")
                 .setColor(neutralColor)
               message.edit(embed)
             }, 5000)
@@ -197,19 +185,6 @@ client.on('messageReactionRemove', async (reaction, user) => {
     client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
       .then(message => {
         reaction.message.guild.member(user).roles.remove(role)
-          .then(() => {
-            const receivedEmbed = message.embeds[0];
-            const embed = new Discord.MessageEmbed(receivedEmbed)
-              .setFooter('Removed ' + user.username + "'s Bot Updates role!")
-              .setColor(successColor)
-            message.edit(embed)
-            setInterval(() => {
-              embed
-                .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
-                .setColor(neutralColor)
-              message.edit(embed)
-            }, 5000)
-          })
           .catch(err => {
             console.log(err)
             const receivedEmbed = message.embeds[0];
@@ -219,7 +194,8 @@ client.on('messageReactionRemove', async (reaction, user) => {
             message.edit(embed)
             setInterval(() => {
               embed
-                .setFooter("If this text doesn't change to a confirming message after you've reacted, please contact QkeleQ10#6046.")
+                .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. (<@&732615152246980628>)")
+                .setFooter("Please check if you received the <@732615152246980628> role after reacting. If not, please contact QkeleQ10#6046.")
                 .setColor(neutralColor)
               message.edit(embed)
             }, 5000)
