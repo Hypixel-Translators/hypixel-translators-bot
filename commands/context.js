@@ -90,6 +90,7 @@ async function editRow(message, args, msg) {
     console.log(sheet.title)
 
     const rows = await sheet.getRows()
+    console.log(rows)
 
     const correctRow = rows.find(r => r.id === args[0])
     console.log(correctRow)
