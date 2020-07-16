@@ -95,6 +95,6 @@ async function editRow(message, args, msg) {
 
     if (args[2] === "context") { correctRow.context = arguments }
     const newContext = correctRow
-    await correctRow.delete()
-    await sheet.addRows(newContext)
+    correctRow.delete()
+    sheet.addRows(newContext)
 }
