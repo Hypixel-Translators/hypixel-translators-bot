@@ -16,7 +16,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle("Get notified of bot updates")
-            .setDescription("React with 🤖 to get mentioned whenever a bot update comes out.")
+            .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. (<@&732615152246980628>)")
             .setFooter("This menu is not fully operational yet, wait about a minute for the changes to come through.");
         message.channel.send(embed).then(msg => {
             msg.react("🤖")
