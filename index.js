@@ -173,6 +173,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
             }, 5000)
           })
           .catch(err => {
+            console.log(err)
             const receivedEmbed = message.embeds[0];
             const embed = new Discord.MessageEmbed(receivedEmbed)
               .setFooter("An error occurred, please contact QkeleQ#6046.")
@@ -210,6 +211,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
             }, 5000)
           })
           .catch(err => {
+            console.log(err)
             const receivedEmbed = message.embeds[0];
             const embed = new Discord.MessageEmbed(receivedEmbed)
               .setFooter("An error occurred, please contact QkeleQ#6046.")
