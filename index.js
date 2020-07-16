@@ -177,7 +177,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
             const receivedEmbed = message.embeds[0];
             const embed = new Discord.MessageEmbed(receivedEmbed)
               .setFooter("An error occurred, please contact QkeleQ#6046.")
-              .setColor(successColor)
+              .setColor(errorColor)
             message.edit(embed)
             setInterval(() => {
               embed
@@ -192,7 +192,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 client.on('messageReactionRemove', async (reaction, user) => {
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
-    console.log("The correct reaction for Bot Updates has been added!")
+    console.log("The correct reaction for Bot Updates has been removed!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
     client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
       .then(message => {
@@ -215,7 +215,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
             const receivedEmbed = message.embeds[0];
             const embed = new Discord.MessageEmbed(receivedEmbed)
               .setFooter("An error occurred, please contact QkeleQ#6046.")
-              .setColor(successColor)
+              .setColor(errorColor)
             message.edit(embed)
             setInterval(() => {
               embed
