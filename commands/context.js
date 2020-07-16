@@ -6,7 +6,7 @@ const creds = require('../service-account.json')
 module.exports = {
     name: "context",
     description: "",
-    usage: "context <string ID> []",
+    usage: "context <string ID> ['edit'] ['context'|'screenshot'|note language code] [new value]",
     categoryBlackList: ["549503328472530975"],
     cooldown: 3,
     execute(message, args) {
@@ -17,7 +17,9 @@ module.exports = {
             .setFooter("Executed by " + message.author.tag);
         message.channel.send(embed)
             .then(msg => {
-                accessSpreadsheet(message, args, msg)
+                if (!args[1]) {
+                    accessSpreadsheet(message, args, msg)
+                } else { editRow(message, args, msg) }
             })
     }
 }
@@ -71,5 +73,27 @@ async function accessSpreadsheet(message, args, msg) {
         if (correctRow.uk) { if (correctRow.uk.length > 1) { embed.addFields({ name: "Note for Ukrainian", value: correctRow.uk, inline: true }) } }
 
         msg.edit(embed)
+    }
+    async function editRow(message, args, msg) {
+        var arguments = args
+        arguments.splice(0, 3)
+
+        const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
+        await doc.useServiceAccountAuth(creds)
+
+        await doc.loadInfo()
+        console.log(doc.title)
+
+        const sheet = doc.sheetsByIndex[0]
+        console.log(sheet.title)
+
+        const rows = await sheet.getRows()
+
+        const correctRow = rows.find(r => r.id === args[0])
+
+        if (args[2] === "context") { correctRow.context = arguments }
+        const newContext = correctRow
+        await correctRow.delete()
+        await sheet.addRows(newContext)
     }
 }
