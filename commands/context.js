@@ -92,6 +92,7 @@ async function editRow(message, args, msg) {
     const rows = await sheet.getRows()
 
     const correctRow = rows.find(r => r.id === args[0])
+    console.log(correctRow)
 
     const newRow = correctRow
     const oldRowNumber = Number(correctRow.rowNumber.substring(1)) - 2
