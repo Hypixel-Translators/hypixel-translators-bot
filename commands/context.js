@@ -72,11 +72,9 @@ async function getFromSpreadsheet(message, args, msg) {
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle("Context for " + args[1])
-        .addFields({ name: "Context", value: correctRow.context })
+        .setDescription(correctRow.context)
         .setFooter("Executed by " + message.author.tag);
     if (correctRow) {
-        if (correctRow.screenshot) { embed.setImage(correctRow.screenshot) }
-
         if (correctRow.bg) { if (correctRow.bg.length > 1) { embed.addFields({ name: "Note for Bulgarian", value: correctRow.bg, inline: true }) } }
         if (correctRow.zhCN) { if (correctRow.zhCN.length > 1) { embed.addFields({ name: "Note for Chinese (Simplified)", value: correctRow.zhCN, inline: true }) } }
         if (correctRow.zhTW) { if (correctRow.zhTW.length > 1) { embed.addFields({ name: "Note for Chinese (Traditional)", value: correctRow.zhTW, inline: true }) } }
@@ -101,7 +99,10 @@ async function getFromSpreadsheet(message, args, msg) {
         if (correctRow.th) { if (correctRow.th.length > 1) { embed.addFields({ name: "Note for Thai", value: correctRow.th, inline: true }) } }
         if (correctRow.tr) { if (correctRow.tr.length > 1) { embed.addFields({ name: "Note for Turkish", value: correctRow.tr, inline: true }) } }
         if (correctRow.uk) { if (correctRow.uk.length > 1) { embed.addFields({ name: "Note for Ukrainian", value: correctRow.uk, inline: true }) } }
-
+        if (correctRow.screenshot) {
+            embed.setImage(correctRow.screenshot)
+                .addFields({ name: "Screenshot", value: correctRow.screenshot, inline: true })
+        }
         msg.edit(embed)
     }
 }
@@ -145,11 +146,13 @@ async function addToSpreadsheet(message, args, msg) {
 
             collector.on('collect', async (reaction, reacter) => {
                 if (reaction.emoji.name === "📑") {
+                    reaction.remove()
+                    msg.react("📑")
                     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
                     const extraEmbed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setTitle("Add more to context for " + string)
-                        .setDescription("Send `screenshot <image link>` to add a screenshot, or send `<language code (e.g. enPT)> <note>` to add a language note. You can also edit existing fields using `<id|context> <new value`. You have one minute.")
+                        .setDescription("Send a message (without the prefix) containing `<field> <content>`. <field> can be `screemshot`, `id`, `context` or a language code. <content> needs to be the (new) content for that string, such as the screenshot link.")
                     msg.channel.send(extraEmbed).then(extraMsg => {
 
                         collector.on('collect', received => {
@@ -162,7 +165,7 @@ async function addToSpreadsheet(message, args, msg) {
                             const extraEmbed = new Discord.MessageEmbed()
                                 .setColor(successColor)
                                 .setTitle("Add more to context for " + string)
-                                .setDescription("Added this information to the context entry:")
+                                .setDescription("Added this information to the context entry. Re-add your reaction to add more info.")
                                 .addFields({ name: key, value: value })
                             extraMsg.edit(extraEmbed)
                         })
@@ -172,7 +175,7 @@ async function addToSpreadsheet(message, args, msg) {
                                 const extraEmbed = new Discord.MessageEmbed()
                                     .setColor(errorColor)
                                     .setTitle("Add more to context for " + args[1])
-                                    .setDescription("You didn't reply in time, so this prompt has been cancelled.")
+                                    .setDescription("You didn't reply in time, so this prompt has been cancelled. Re-add your reaction to try again.")
                                 extraMsg.edit(extraEmbed)
                             }
                         }
@@ -180,6 +183,7 @@ async function addToSpreadsheet(message, args, msg) {
                     })
                 }
                 if (reaction.emoji.name === "✅") {
+                    msg.reactions.removeAll()
                     collector.stop()
                     const result = await sheet.addRow(toAdd)
                     const embed = new Discord.MessageEmbed()
