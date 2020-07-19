@@ -174,7 +174,7 @@ async function addToSpreadsheet(message, args, msg) {
                             if (!collected) {
                                 const extraEmbed = new Discord.MessageEmbed()
                                     .setColor(errorColor)
-                                    .setTitle("Add more to context for " + args[1])
+                                    .setTitle("Add more to context for " + string)
                                     .setDescription("You didn't reply in time, so this prompt has been cancelled. Re-add your reaction to try again.")
                                 extraMsg.edit(extraEmbed)
                             }
@@ -188,17 +188,18 @@ async function addToSpreadsheet(message, args, msg) {
                     const result = await sheet.addRow(toAdd)
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
-                        .setTitle("Add context for " + args[1])
+                        .setTitle("Add context for " + string)
                         .setDescription("The context entry has been added! Execute `+context get " + result.id + "` to view the result.")
                         .setFooter("Executed by " + message.author.tag);
                     msg.edit(embed)
+                    msg.channel.send(embed)
                 }
             })
             collector.on('end'), collected => {
                 if (!collected && !result) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
-                        .setTitle("Add context for " + args[1])
+                        .setTitle("Add context for " + string)
                         .setDescription("You didn't reply in time, so the adding of the entry has been cancelled.")
                     msg.edit(embed)
                 }
