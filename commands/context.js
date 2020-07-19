@@ -107,7 +107,8 @@ async function getFromSpreadsheet(message, args, msg) {
 }
 
 async function addToSpreadsheet(message, args, msg) {
-    var toSend = args.splice(0, 2)
+    var toSend = args
+    toSend.splice(0, 2)
     toSend = toSend.join(" ")
 
     const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
