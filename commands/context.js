@@ -125,7 +125,7 @@ async function addToSpreadsheet(message, args, msg) {
 
             const collector = msg.createReactionCollector(filter, { time: 20000 });
 
-            collector.on('collect', (reaction, reacter) => {
+            collector.on('collect', async (reaction, reacter) => {
                 if (reaction.emoji.name === "📑") {
                     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
                     const extraEmbed = new Discord.MessageEmbed()
