@@ -110,7 +110,7 @@ async function addToSpreadsheet(message, args, msg) {
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setTitle("Add context for " + args[0])
-        .setDescription("The following entry will be added. Please react with 📑 if you'd like to add more to the entry (such as `screenshot` or a language note in the format `enPT`). React with ✅ to submit. This will be cancelled in two minutes.")
+        .setDescription("The following entry will be added. Please react with 📑 if you'd like to add more to the entry or change existing fields (such as a screenshot or a language note). React with ✅ to submit. This will be cancelled in two minutes.")
         .addFields(
             { name: "String ID", value: args[1] },
             { name: "Context", value: args[2] }
@@ -131,7 +131,7 @@ async function addToSpreadsheet(message, args, msg) {
                     const extraEmbed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setTitle("Add more to context for " + args[0])
-                        .setDescription("Send `screenshot <image link>` to add a screenshot. ||Not yet supported: Send `<language code (e.g. enPT)> <note>` to add a language note.||")
+                        .setDescription("Send `screenshot <image link>` to add a screenshot, or send `<language code (e.g. enPT)> <note>` to add a language note. You can also edit existing fields using `<id|context> <new value`.")
                     msg.channel.send(extraEmbed).then(extraMsg => {
 
                         collector.on('collect', received => {
@@ -151,7 +151,41 @@ async function addToSpreadsheet(message, args, msg) {
                     })
                 }
                 if (reaction.emoji.name === "✅") {
-                    sheet.addRow(toAdd)
+                    const result = await sheet.addRow(toAdd)
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(successColor)
+                        .setTitle("Add context for " + args[0])
+                        .setDescription("The following entry will be added. Please react with 📑 if you'd like to add more to the entry (such as `screenshot` or a language note in the format `enPT`). React with ✅ to submit. This will be cancelled in two minutes.")
+                        .addFields(
+                            { name: "String ID", value: result.id },
+                            { name: "Context", value: result.context }
+                        )
+                        .setFooter("Executed by " + message.author.tag);
+                    if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: "Note for Bulgarian", value: result.bg, inline: true }) } }
+                    if (result.zhCN) { if (result.zhCN.length > 1) { embed.addFields({ name: "Note for Chinese (Simplified)", value: result.zhCN, inline: true }) } }
+                    if (result.zhTW) { if (result.zhTW.length > 1) { embed.addFields({ name: "Note for Chinese (Traditional)", value: result.zhTW, inline: true }) } }
+                    if (result.cs) { if (result.cs.length > 1) { embed.addFields({ name: "Note for Czech", value: result.cs, inline: true }) } }
+                    if (result.da) { if (result.da.length > 1) { embed.addFields({ name: "Note for Danish", value: result.da, inline: true }) } }
+                    if (result.nl) { if (result.nl.length > 1) { embed.addFields({ name: "Note for Dutch", value: result.nl, inline: true }) } }
+                    if (result.fi) { if (result.fi.length > 1) { embed.addFields({ name: "Note for Finnish", value: result.fi, inline: true }) } }
+                    if (result.fr) { if (result.fr.length > 1) { embed.addFields({ name: "Note for French", value: result.fr, inline: true }) } }
+                    if (result.de) { if (result.de.length > 1) { embed.addFields({ name: "Note for German", value: result.de, inline: true }) } }
+                    if (result.el) { if (result.el.length > 1) { embed.addFields({ name: "Note for Greek", value: result.el, inline: true }) } }
+                    if (result.it) { if (result.it.length > 1) { embed.addFields({ name: "Note for Italian", value: result.it, inline: true }) } }
+                    if (result.ja) { if (result.ja.length > 1) { embed.addFields({ name: "Note for Japanese", value: result.ja, inline: true }) } }
+                    if (result.ko) { if (result.ko.length > 1) { embed.addFields({ name: "Note for Korean", value: result.ko, inline: true }) } }
+                    if (result.no) { if (result.no.length > 1) { embed.addFields({ name: "Note for Norwegian", value: result.no, inline: true }) } }
+                    if (result.enPT) { if (result.enPT.length > 1) { embed.addFields({ name: "Note fer Pirate ☠️", value: result.enPT, inline: true }) } }
+                    if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: "Note for Polish", value: result.pl, inline: true }) } }
+                    if (result.ptPT) { if (result.ptPT.length > 1) { embed.addFields({ name: "Note for Portuguese", value: result.ptPT, inline: true }) } }
+                    if (result.ptBR) { if (result.ptBR.length > 1) { embed.addFields({ name: "Note for Brazilian", value: result.ptBR, inline: true }) } }
+                    if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: "Note for Russian", value: result.ru, inline: true }) } }
+                    if (result.esES) { if (result.esES.length > 1) { embed.addFields({ name: "Note for Spanish", value: result.esES, inline: true }) } }
+                    if (result.svSE) { if (result.svSE.length > 1) { embed.addFields({ name: "Note for Swedish", value: result.svSE, inline: true }) } }
+                    if (result.th) { if (result.th.length > 1) { embed.addFields({ name: "Note for Thai", value: result.th, inline: true }) } }
+                    if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: "Note for Turkish", value: result.tr, inline: true }) } }
+                    if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: "Note for Ukrainian", value: result.uk, inline: true }) } }
+                    msg.edit(embed)
                 }
             })
         })
