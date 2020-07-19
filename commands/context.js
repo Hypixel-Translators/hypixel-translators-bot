@@ -135,8 +135,10 @@ async function addToSpreadsheet(message, args, msg) {
                     msg.channel.send(extraEmbed).then(extraMsg => {
 
                         collector.on('collect', received => {
-                            var key = received.replace(/ .*/, '')
-                            var value = received.substr(original.indexOf(" ") + 1)
+                            var key = received
+                            key = key.replace(/ .*/, '')
+                            var value = received
+                            value = value.substr(value.indexOf(" ") + 1)
                             toAdd[key] = value
                             const extraEmbed = new Discord.MessageEmbed()
                                 .setColor(successColor)
