@@ -33,8 +33,8 @@ async function accessSpreadsheet(message, args, msg) {
     console.log(sheet.title)
 
     const rows = await sheet.getRows()
-
     const correctRow = rows.find(r => r.id === args[0])
+
 
     if (args[1]) {
         if (args[1] === "delete") {
@@ -106,6 +106,18 @@ async function accessSpreadsheet(message, args, msg) {
 }
 
 async function addToSpreadsheet(message, args, msg) {
+    const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
+    await doc.useServiceAccountAuth(creds)
+
+    await doc.loadInfo()
+    console.log(doc.title)
+
+    const sheet = doc.sheetsByIndex[0]
+    console.log(sheet.title)
+
+    const rows = await sheet.getRows()
+
+
     var toAdd = { id: args[1], context: args[2] }
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
