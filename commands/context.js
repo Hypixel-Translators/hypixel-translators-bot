@@ -92,6 +92,7 @@ async function addToSpreadsheet(message, args, msg) {
             .setDescription("You're not a proofreader, so you can't add context! Soon you'll be able to suggest context though.")
             .setFooter("Executed by " + message.author.tag);
         msg.edit(embed)
+        return;
     }
 
     const string = args[1]
