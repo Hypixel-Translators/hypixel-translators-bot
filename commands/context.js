@@ -5,8 +5,8 @@ const creds = require('../service-account.json')
 
 module.exports = {
     name: "context",
-    description: "",
-    usage: "context <string ID> ['edit'] ['context'|'screenshot'|note language code] [new value]",
+    description: "Gets or adds context for the given string ID.",
+    usage: "context <string ID>\n+context add <string ID> <context>",
     categoryBlackList: ["549503328472530975"],
     cooldown: 3,
     execute(message, args) {
@@ -18,6 +18,56 @@ module.exports = {
         message.channel.send(embed)
             .then(msg => {
                 accessSpreadsheet(message, args, msg)
+                if (args[0] === "new" || args[0] === "add") {
+                    var toAdd = { id: args[1], context: args[2] }
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(neutralColor)
+                        .setTitle("Add context for " + args[0])
+                        .setDescription("The following entry will be added. Please react with 📑 if you'd like to add more to the entry (such as `screenshot` or a language note in the format `enPT`). React with ✅ to submit. This will be cancelled in two minutes.")
+                        .addFields(
+                            { name: "String ID", value: args[1] },
+                            { name: "Context", value: args[2] }
+                        )
+                        .setFooter("Executed by " + message.author.tag);
+                    message.channel.send(embed).then(msg => {
+                        msg.react("📑").then(() => {
+                            msg.react("✅")
+                            const filter = (reaction, reacter) => {
+                                return (reaction.emoji.name === "📑" || reaction.emoji.name === "✅") && reacter.id === message.author.id;
+                            };
+
+                            const collector = msg.createReactionCollector(filter, { time: 20000 });
+
+                            collector.on('collect', (reaction, reacter) => {
+                                if (reaction.emoji.name === "📑") {
+                                    const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
+                                    const extraEmbed = new Discord.MessageEmbed()
+                                        .setColor(neutralColor)
+                                        .setTitle("Add more to context for " + args[0])
+                                        .setDescription("Send `screenshot <image link>` to add a screenshot. ||Not yet supported: Send `<language code (e.g. enPT)> <note>` to add a language note.||")
+                                    msg.channel.send(extraEmbed).then(extraMsg => {
+
+                                        collector.on('collect', received => {
+                                            var key = received.replace(/ .*/, '')
+                                            var value = received.substr(original.indexOf(" ") + 1)
+                                            toAdd[key] = value
+                                            const extraEmbed = new Discord.MessageEmbed()
+                                                .setColor(successColor)
+                                                .setTitle("Add more to context for " + args[0])
+                                                .setDescription("Added this information to the context entry:")
+                                                .addFields({ name: key, value: value })
+                                            extraMsg.edit(extraEmbed)
+                                        })
+
+                                    })
+                                }
+                                if (reaction.emoji.name === "✅") {
+                                    sheet.addRow(toAdd)
+                                }
+                            })
+                        })
+                    })
+                }
             })
     }
 }
@@ -56,6 +106,16 @@ async function accessSpreadsheet(message, args, msg) {
             msg.edit(embed)
             return;
         }
+    }
+
+    if (!correctRow) {
+        const embed = new Discord.MessageEmbed()
+            .setColor(errorColor)
+            .setTitle("Context for " + args[0])
+            .setDescription("That context entry hasn't been found.")
+            .setFooter("Executed by " + message.author.tag);
+        msg.edit(embed)
+        return;
     }
 
     const embed = new Discord.MessageEmbed()
