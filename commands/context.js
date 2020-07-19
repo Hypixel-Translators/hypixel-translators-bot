@@ -12,7 +12,7 @@ module.exports = {
     execute(message, args) {
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
-            .setTitle("Context for " + args[0])
+            .setTitle("Context for " + args[1])
             .setDescription("One second...")
             .setFooter("Executed by " + message.author.tag);
         message.channel.send(embed)
@@ -187,7 +187,7 @@ async function addToSpreadsheet(message, args, msg) {
                 }
             })
             collector.on('end'), collected => {
-                if (!collected) {
+                if (!collected && !result) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setTitle("Add context for " + args[1])
