@@ -7,7 +7,7 @@ module.exports = {
     name: "context",
     description: "Gets or adds context for the given string ID.",
     usage: "context get|add <string ID> [context (when adding)]",
-    categoryBlackList: ["549503328472530975"],
+    channelBlackList: ["621298919535804426", "619662798133133312", "712046319375482910", "550951034332381184", "634101000340504576", "713084081579098152"],
     cooldown: 3,
     execute(message, args) {
         const embed = new Discord.MessageEmbed()
@@ -85,7 +85,7 @@ async function getFromSpreadsheet(message, args, msg) {
 }
 
 async function addToSpreadsheet(message, args, msg) {
-    if (!message.member.roles.cache.has("Hypixel Proofreader") && !message.member.hasPermission("ADMINISTRATOR")) {
+    if (message.member.roles.cache.has("569839517444341771") || message.member.hasPermission("ADMINISTRATOR")) { } else {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setTitle("Add context for " + string)
