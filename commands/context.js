@@ -36,29 +36,6 @@ async function getFromSpreadsheet(message, args, msg) {
     const rows = await sheet.getRows()
     const correctRow = rows.find(r => r.id === args[1])
 
-
-    if (args[1]) {
-        if (args[1] === "delete") {
-            if (!message.member.roles.cache.has("Hypixel Proofreader")) {
-                const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
-                    .setTitle("Delete context for " + args[1])
-                    .setDescription("You can't delete that context entry because you're not a Hypixel Proofreader.")
-                    .setFooter("Executed by " + message.author.tag);
-                msg.edit(embed)
-                return;
-            }
-            correctRow.delete()
-            const embed = new Discord.MessageEmbed()
-                .setColor(successColor)
-                .setTitle("Delete context for " + args[1])
-                .setDescription("The context entry has been deleted!")
-                .setFooter("Executed by " + message.author.tag);
-            msg.edit(embed)
-            return;
-        }
-    }
-
     if (!correctRow) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
@@ -108,6 +85,15 @@ async function getFromSpreadsheet(message, args, msg) {
 }
 
 async function addToSpreadsheet(message, args, msg) {
+    if (!message.member.roles.cache.has("Hypixel Proofreader") && !message.member.hasPermission("ADMINISTRATOR")) {
+        const embed = new Discord.MessageEmbed()
+            .setColor(errorColor)
+            .setTitle("Add context for " + string)
+            .setDescription("You're not a proofreader, so you can't add context! Soon you'll be able to suggest context though.")
+            .setFooter("Executed by " + message.author.tag);
+        msg.edit(embed)
+    }
+
     const string = args[1]
     var toSend = args
     toSend.splice(0, 2)
@@ -152,7 +138,7 @@ async function addToSpreadsheet(message, args, msg) {
                     const extraEmbed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setTitle("Add more to context for " + string)
-                        .setDescription("Send a message (without the prefix) containing `<field> <content>`. <field> can be `screemshot`, `id`, `context` or a language code. <content> needs to be the (new) content for that string, such as the screenshot link.")
+                        .setDescription("Send a message (without the prefix) containing `<field> <content>`. <field> can be `screenshot`, `id`, `context` or a language code. <content> needs to be the (new) content for that string, such as the screenshot link.")
                     msg.channel.send(extraEmbed).then(extraMsg => {
 
                         collector.on('collect', received => {
