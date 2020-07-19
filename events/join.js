@@ -1,7 +1,7 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
 
-module.exports = {
+module.exports = {/*
     execute(member) {
         const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
@@ -58,5 +58,5 @@ module.exports = {
                     msg.edit(embed)
                 })
             })
-    }
+    }*/
 }
