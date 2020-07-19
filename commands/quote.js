@@ -10,12 +10,19 @@ module.exports = {
     cooldown: 10,
     allowDM: true,
     channelBlackList: "621298919535804426",
-    execute(message, args) {
-        accessSpreadsheet(message, args)
+    execute(message) {
+        const embed = new Discord.MessageEmbed()
+            .setColor(workingColor)
+            .setTitle("Quote")
+            .setDescription("One second...")
+            .setFooter("Asked for by " + message.author.tag);
+        message.channel.send(embed).then(msg => {
+            accessSpreadsheet(message, msg)
+        })
     }
 };
 
-async function accessSpreadsheet(message, args) {
+async function accessSpreadsheet(message, msg) {
     const doc = new GoogleSpreadsheet('16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8')
     await doc.useServiceAccountAuth(creds)
 
@@ -27,11 +34,13 @@ async function accessSpreadsheet(message, args) {
 
     const rows = await sheet.getRows()
 
-    const correctRow = rows[Math.floor(Math.random() * Math.floor(sheet.rowCount))]
+    const rowNum = Math.floor(Math.random() * Math.floor(sheet.rowCount))
+
+    const correctRow = rows[rowNum]
     const embed = new Discord.MessageEmbed()
-            .setColor(neutralColor)
-            .setTitle(correctRow.quote)
-            .setDescription("_      - " + correctRow.user + "_")
-            .setFooter("Asked for by " + message.author.tag);
-        message.channel.send(embed)
+        .setColor(successColor)
+        .setTitle(correctRow.quote)
+        .setDescription("_      - " + correctRow.user + "_")
+        .setFooter("Asked for by " + message.author.tag);
+    msg.edit(embed)
 }
