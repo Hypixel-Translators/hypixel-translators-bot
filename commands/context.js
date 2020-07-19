@@ -17,9 +17,7 @@ module.exports = {
             .setFooter("Executed by " + message.author.tag);
         message.channel.send(embed)
             .then(msg => {
-                if (args[1]) {
-                    editRow(message, args, msg)
-                } else { accessSpreadsheet(message, args, msg) }
+                accessSpreadsheet(message, args, msg)
             })
     }
 }
@@ -38,10 +36,31 @@ async function accessSpreadsheet(message, args, msg) {
 
     const correctRow = rows.find(r => r.id === args[0])
 
+    if (args[1]) {
+        if (args[1] === "delete") {
+            if (!message.member.roles.cache.has("Hypixel Proofreader")) {
+                const embed = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setTitle("Delete context for " + args[0])
+                    .setDescription("You can't delete that context entry because you're not a Hypixel Proofreader.")
+                    .setFooter("Executed by " + message.author.tag);
+                msg.edit(embed)
+                return;
+            }
+            correctRow.delete()
+            const embed = new Discord.MessageEmbed()
+                .setColor(successColor)
+                .setTitle("Delete context for " + args[0])
+                .setDescription("The context entry has been deleted!")
+                .setFooter("Executed by " + message.author.tag);
+            msg.edit(embed)
+            return;
+        }
+    }
+
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle("Context for " + args[0])
-        .setDescription("This system is in the testing phase. No actual data can be written.")
         .addFields({ name: "Context", value: correctRow.context })
         .setFooter("Executed by " + message.author.tag);
     if (correctRow) {
@@ -74,30 +93,4 @@ async function accessSpreadsheet(message, args, msg) {
 
         msg.edit(embed)
     }
-}
-
-async function editRow(message, args, msg) {
-    var arguments = args
-    arguments.splice(0, 3)
-
-    const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
-    await doc.useServiceAccountAuth(creds)
-
-    await doc.loadInfo()
-    console.log(doc.title)
-
-    const sheet = doc.sheetsByIndex[0]
-    console.log(sheet.title)
-
-    const rows = await sheet.getRows()
-    console.log(rows)
-
-    const correctRow = rows.find(r => r.id === args[0])
-    console.log(correctRow)
-
-    const newRow = correctRow
-    const oldRowNumber = Number(correctRow._rowNumber.substring(1)) - 2
-    rows[oldRowNumber].delete()
-    if (args[2] === "context") { newRow.context = arguments }
-    sheet.addRows(newRow)
 }
