@@ -1,5 +1,7 @@
 const { workingColor, errorColor, successColor, neutralColor, quotes, names } = require("../config.json");
 const Discord = require("discord.js");
+const { GoogleSpreadsheet } = require('google-spreadsheet')
+const creds = require('../service-account.json')
 
 module.exports = {
     name: "quote",
@@ -9,16 +11,27 @@ module.exports = {
     allowDM: true,
     channelBlackList: "621298919535804426",
     execute(message, args) {
-        var number = Math.floor(Math.random() * quotes.length)
-        var quote = quotes[number]
-        var name = names[number]
-
-        //message.delete();
-        const embed = new Discord.MessageEmbed()
-            .setColor(neutralColor)
-            .setTitle(quote)
-            .setDescription("_      - " + name + "_")
-            .setFooter("Summoned by " + message.author.tag);
-        message.channel.send(embed)
+        accessSpreadsheet(message, args)
     }
 };
+
+async function accessSpreadsheet(message, args) {
+    const doc = new GoogleSpreadsheet('16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8')
+    await doc.useServiceAccountAuth(creds)
+
+    await doc.loadInfo()
+    console.log(doc.title)
+
+    const sheet = doc.sheetsByIndex[0]
+    console.log(sheet.title)
+
+    const rows = await sheet.getRows()
+
+    const correctRow = rows[Math.floor(Math.random() * Math.floor(sheet.rowCount))]
+    const embed = new Discord.MessageEmbed()
+            .setColor(neutralColor)
+            .setTitle(correctRow.quote)
+            .setDescription("_      - " + correctRow.user + "_")
+            .setFooter("Asked for by " + message.author.tag);
+        message.channel.send(embed)
+}
