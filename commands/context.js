@@ -107,6 +107,7 @@ async function getFromSpreadsheet(message, args, msg) {
 }
 
 async function addToSpreadsheet(message, args, msg) {
+    const string = args[1]
     var toSend = args
     toSend.splice(0, 2)
     toSend = toSend.join(" ")
@@ -123,13 +124,13 @@ async function addToSpreadsheet(message, args, msg) {
     const rows = await sheet.getRows()
 
 
-    var toAdd = { id: args[1], context: toSend }
+    var toAdd = { id: string, context: toSend }
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setTitle("Add context for " + args[1])
+        .setTitle("Add context for " + string)
         .setDescription("The following entry will be added. Please react with 📑 if you'd like to add more to the entry or change existing fields (such as a screenshot or a language note). React with ✅ to submit. This will be cancelled in two minutes.")
         .addFields(
-            { name: "String ID", value: args[1] },
+            { name: "String ID", value: string },
             { name: "Context", value: toSend }
         )
         .setFooter("Executed by " + message.author.tag);
@@ -140,18 +141,19 @@ async function addToSpreadsheet(message, args, msg) {
                 return (reaction.emoji.name === "📑" || reaction.emoji.name === "✅") && reacter.id === message.author.id;
             };
 
-            const collector = msg.createReactionCollector(filter, { time: 20000 });
+            const collector = msg.createReactionCollector(filter, { time: 120000 });
 
             collector.on('collect', async (reaction, reacter) => {
                 if (reaction.emoji.name === "📑") {
                     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
                     const extraEmbed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
-                        .setTitle("Add more to context for " + args[1])
+                        .setTitle("Add more to context for " + string)
                         .setDescription("Send `screenshot <image link>` to add a screenshot, or send `<language code (e.g. enPT)> <note>` to add a language note. You can also edit existing fields using `<id|context> <new value`. You have one minute.")
                     msg.channel.send(extraEmbed).then(extraMsg => {
 
                         collector.on('collect', received => {
+                            collector.stop()
                             var key = received.toString()
                             key = key.replace(/ .*/, '')
                             var value = received.toString()
@@ -159,7 +161,7 @@ async function addToSpreadsheet(message, args, msg) {
                             toAdd[key] = value
                             const extraEmbed = new Discord.MessageEmbed()
                                 .setColor(successColor)
-                                .setTitle("Add more to context for " + args[1])
+                                .setTitle("Add more to context for " + string)
                                 .setDescription("Added this information to the context entry:")
                                 .addFields({ name: key, value: value })
                             extraMsg.edit(extraEmbed)
@@ -178,6 +180,7 @@ async function addToSpreadsheet(message, args, msg) {
                     })
                 }
                 if (reaction.emoji.name === "✅") {
+                    collector.stop()
                     const result = await sheet.addRow(toAdd)
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
