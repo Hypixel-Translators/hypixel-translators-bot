@@ -86,8 +86,11 @@ async function getFromSpreadsheet(message, args, msg) {
     if (correctRow.tr) { if (correctRow.tr.length > 1) { embed.addFields({ name: "Note for Turkish", value: correctRow.tr, inline: true }) } }
     if (correctRow.uk) { if (correctRow.uk.length > 1) { embed.addFields({ name: "Note for Ukrainian", value: correctRow.uk, inline: true }) } }
     if (correctRow.screenshot) {
-        embed.setImage(correctRow.screenshot)
-            .addFields({ name: "Screenshot", value: correctRow.screenshot })
+        var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+        if (regexp.test(correctRow.screenshot)) {
+            embed.setImage(correctRow.screenshot)
+        }
+        embed.addFields({ name: "Screenshot", value: correctRow.screenshot })
     }
     msg.edit(embed)
 }
@@ -277,8 +280,11 @@ async function editInSpreadsheet(message, args, msg) {
     if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: "Note for Turkish", value: result.tr, inline: true }) } }
     if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: "Note for Ukrainian", value: result.uk, inline: true }) } }
     if (result.screenshot) {
-        embed.setImage(result.screenshot)
-            .addFields({ name: "Screenshot", value: result.screenshot })
+        var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+        if (regexp.test(result.screenshot)) {
+            embed.setImage(result.screenshot)
+        }
+        embed.addFields({ name: "Screenshot", value: result.screenshot })
     }
     msg.edit(embed)
 }
