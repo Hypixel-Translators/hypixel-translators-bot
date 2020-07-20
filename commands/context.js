@@ -17,6 +17,16 @@ module.exports = {
             .setFooter("Executed by " + message.author.tag);
         message.channel.send(embed)
             .then(msg => {
+                if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771")) {
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(errorColor)
+                        .setTitle("Context")
+                        .setDescription("You're not a translator or proofreader, so you can't use this!")
+                        .setFooter("Executed by " + message.author.tag);
+                    msg.edit(embed)
+                    return;
+                }
+
                 if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(message, args, msg) }
                 else if (args[0] === "get") { getFromSpreadsheet(message, args, msg) }
                 else if (args[0] === "edit") { editInSpreadsheet(message, args, msg) }
@@ -148,7 +158,7 @@ async function addToSpreadsheet(message, args, msg) {
                 if (reaction.emoji.name === "📑") {
                     reaction.remove()
                     msg.react("📑")
-                    const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
+                    const collectorB = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
                     const extraEmbed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setTitle("Add more to context for " + string)
@@ -157,9 +167,9 @@ async function addToSpreadsheet(message, args, msg) {
 
                         extraMsgs.push(extraMsg)
 
-                        collector.on('collect', received => {
+                        collectorB.on('collect', received => {
                             extraReceiveds.push(received)
-                            collector.stop()
+                            collectorB.stop()
                             var key = received.toString()
                             key = key.replace(/ .*/, '')
                             var value = received.toString()
@@ -173,7 +183,7 @@ async function addToSpreadsheet(message, args, msg) {
                             extraMsg.edit(extraEmbed)
                         })
 
-                        collector.on('end'), collected => {
+                        collectorB.on('end'), collected => {
                             if (!collected) {
                                 const extraEmbed = new Discord.MessageEmbed()
                                     .setColor(errorColor)
