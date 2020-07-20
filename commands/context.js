@@ -235,7 +235,18 @@ async function editInSpreadsheet(message, args, msg) {
 
     correctRow[key] = value
 
-    const result = await correctRow.save()
+    const save = await correctRow.save()
+    const result = rows.find(r => r.id === args[1])
+
+    if (!result) {
+        const embed = new Discord.MessageEmbed()
+            .setColor(errorColor)
+            .setTitle("Edit context for " + args[1])
+            .setDescription("That context entry hasn't been found. If you edited the string ID, you need to run `+context get <new string ID>` to see the result.")
+            .setFooter("Executed by " + message.author.tag);
+        msg.edit(embed)
+        return;
+    }
 
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
@@ -283,7 +294,7 @@ async function showInfo(message, args, msg) {
             { name: "Add", value: "_Adds a context entry_\n`+context add <string ID> <context>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <context> with the text you want to add. After running, you can add more fields using the reactions." },
             { name: "Edit", value: "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enPT`. Replace <new value> with the new value for that field." },
             { name: "Help", value: "_Shows this message!_\n`+context help`" },
-            { name: "Field", value: "id, context, screenshot, bg, zhCN, zhTW, cs, da, nl, fi, fr, de, el, it, ja, ko, no, enPT, pl, ptPT, ptBR, ru, esES, svSE, th, tr, uk" }
+            { name: "Fields", value: "id, context, screenshot, bg, zhCN, zhTW, cs, da, nl, fi, fr, de, el, it, ja, ko, no, enPT, pl, ptPT, ptBR, ru, esES, svSE, th, tr, uk" }
         )
         .setFooter("Executed by " + message.author.tag);
     msg.edit(embed)
