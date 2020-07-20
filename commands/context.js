@@ -210,7 +210,7 @@ async function addToSpreadsheet(message, args, msg) {
                                     .setTitle("Add context for " + string)
                                     .setDescription("The context entry hasn't been found. Try using `+context get` to see the results.")
                                     .setFooter("Executed by " + message.author.tag);
-                                msg.edit(embed)
+                                finalMsg.edit(embed)
                                 return;
                             }
 
@@ -250,7 +250,7 @@ async function addToSpreadsheet(message, args, msg) {
                                 }
                                 embed.addFields({ name: "Screenshot", value: result.screenshot })
                             }
-                            msg.edit(embed)
+                            finalMsg.edit(embed)
                         })
                 }
             })
