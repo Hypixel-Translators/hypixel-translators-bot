@@ -43,6 +43,5 @@ async function accessSpreadsheet(message, msg) {
         .setTitle(correctRow.quote)
         .setDescription("_      - " + correctRow.user + "_")
         .setFooter("Asked for by " + message.author.tag);
-    if (correctRow.link) { embed.setURL(correctRow.link) }
     msg.edit(embed)
 }
