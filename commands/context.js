@@ -229,7 +229,7 @@ async function editInSpreadsheet(message, args, msg) {
     }
 
     var key = args[2]
-    var arguments = args
+    var arguments = [...args]
     arguments.splice(0, 3)
     var value = arguments.join(" ")
 
