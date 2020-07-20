@@ -183,7 +183,7 @@ async function addToSpreadsheet(message, args, msg) {
                 }
             })
             collector.on('end'), collected => {
-                if (!collected && !result) {
+                if (!result) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setTitle("Add context for " + string)
