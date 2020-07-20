@@ -25,7 +25,7 @@ module.exports = {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setTitle("Context")
-                        .setDescription("Please enter a subcommand as first argument. This can either be `get`, `add`, `edit` or `help`.\n\nYour message should look something like `+context get 123456`.")
+                        .setDescription("Please enter a subcommand as first argument. This can either be `get`, `add`, `edit` or `help`.\nFor information, run `+context help`.")
                         .setFooter("Executed by " + message.author.tag);
                     msg.edit(embed)
                 }
