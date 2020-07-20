@@ -129,7 +129,7 @@ client.on("message", message => {
   setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
   try {
-    if (message.member) { if (message.member.hasPermission("ADMINISTRATOR")) { timestamps.delete(message.author.id) } }
+    if (message.member) { if (message.member.hasPermission("ADMINISTRATOR") || message.author.id === "722738307477536778") { timestamps.delete(message.author.id) } }
     command.execute(message, args);
   } catch (error) {
     timestamps.delete(message.author.id)
