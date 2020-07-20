@@ -26,7 +26,6 @@ module.exports = {
                     msg.edit(embed)
                     return;
                 }
-
                 if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(message, args, msg) }
                 else if (args[0] === "get") { getFromSpreadsheet(message, args, msg) }
                 else if (args[0] === "edit") { editInSpreadsheet(message, args, msg) }
@@ -38,6 +37,11 @@ module.exports = {
                         .setDescription("Please enter a subcommand as first argument. This can either be `get`, `add`, `edit` or `help`.\nFor information, run `+context help`.")
                         .setFooter("Executed by " + message.author.tag);
                     msg.edit(embed)
+                }
+                if (message.channel === "549894938712866816") {
+                    setTimeout(() => {
+                        message.delete()
+                    }, 60000)
                 }
             })
     }
