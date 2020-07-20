@@ -209,6 +209,16 @@ async function addToSpreadsheet(message, args, msg) {
 }
 
 async function editInSpreadsheet(message, args, msg) {
+    if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) {
+        const embed = new Discord.MessageEmbed()
+            .setColor(errorColor)
+            .setTitle("Edit context for " + args[1])
+            .setDescription("You're not a proofreader, so you can't edit context! We're working on a way to let you suggest context too.")
+            .setFooter("Executed by " + message.author.tag);
+        msg.edit(embed)
+        return;
+    }
+
     const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
     await doc.useServiceAccountAuth(creds)
 
