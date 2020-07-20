@@ -93,6 +93,11 @@ async function getFromSpreadsheet(message, args, msg) {
 }
 
 async function addToSpreadsheet(message, args, msg) {
+    const string = args[1]
+    var toSend = [...args]
+    toSend.splice(0, 2)
+    toSend = toSend.join(" ")
+
     if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
@@ -102,11 +107,6 @@ async function addToSpreadsheet(message, args, msg) {
         msg.edit(embed)
         return;
     }
-
-    const string = args[1]
-    var toSend = args
-    toSend.splice(0, 2)
-    toSend = toSend.join(" ")
 
     const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
     await doc.useServiceAccountAuth(creds)
@@ -118,7 +118,6 @@ async function addToSpreadsheet(message, args, msg) {
     console.log(sheet.title)
 
     const rows = await sheet.getRows()
-
 
     var toAdd = { id: string, context: toSend }
     const embed = new Discord.MessageEmbed()
