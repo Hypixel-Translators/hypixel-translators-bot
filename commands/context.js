@@ -75,7 +75,7 @@ async function getFromSpreadsheet(message, args, msg) {
     if (correctRow.ja) { if (correctRow.ja.length > 1) { embed.addFields({ name: "Note for Japanese", value: correctRow.ja, inline: true }) } }
     if (correctRow.ko) { if (correctRow.ko.length > 1) { embed.addFields({ name: "Note for Korean", value: correctRow.ko, inline: true }) } }
     if (correctRow.no) { if (correctRow.no.length > 1) { embed.addFields({ name: "Note for Norwegian", value: correctRow.no, inline: true }) } }
-    if (correctRow.enPT) { if (correctRow.enPT.length > 1) { embed.addFields({ name: "Note fer Pirate ☠️", value: correctRow.enPT, inline: true }) } }
+    if (correctRow.enPT) { if (correctRow.enPT.length > 1) { embed.addFields({ name: "Note for Pirate", value: correctRow.enPT, inline: true }) } }
     if (correctRow.pl) { if (correctRow.pl.length > 1) { embed.addFields({ name: "Note for Polish", value: correctRow.pl, inline: true }) } }
     if (correctRow.ptPT) { if (correctRow.ptPT.length > 1) { embed.addFields({ name: "Note for Portuguese", value: correctRow.ptPT, inline: true }) } }
     if (correctRow.ptBR) { if (correctRow.ptBR.length > 1) { embed.addFields({ name: "Note for Brazilian", value: correctRow.ptBR, inline: true }) } }
@@ -192,6 +192,7 @@ async function addToSpreadsheet(message, args, msg) {
                     msg.delete()
                     message.delete()
                     extraMsg.delete()
+                    received.delete()
                 }
             })
             collector.on('end'), collected => {
@@ -230,6 +231,16 @@ async function editInSpreadsheet(message, args, msg) {
         return;
     }
 
+    if (!args[3]) {
+        const embed = new Discord.MessageEmbed()
+            .setColor(errorColor)
+            .setTitle("Edit context for " + args[1])
+            .setDescription("You forgot to specify what field to edit!\nPlease follow this format: `+context edit " + args[1] + " <field to change> <new value>`.\nTo see all available fields, run `+context help`.")
+            .setFooter("Executed by " + message.author.tag);
+        msg.edit(embed)
+        return;
+    }
+
     var key = args[2]
     var arguments = [...args]
     arguments.splice(0, 3)
@@ -253,7 +264,7 @@ async function editInSpreadsheet(message, args, msg) {
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle("Edit context for " + args[1])
-        .setDescription("Edited this context entry! The new data is shown below.\n" + correctRow.context)
+        .setDescription("Edited this context entry! The new data is shown below.\n\n**Context**\n" + correctRow.context)
         .setFooter("Executed by " + message.author.tag);
     if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: "Note for Bulgarian", value: result.bg, inline: true }) } }
     if (result.zhCN) { if (result.zhCN.length > 1) { embed.addFields({ name: "Note for Chinese (Simplified)", value: result.zhCN, inline: true }) } }
@@ -269,7 +280,7 @@ async function editInSpreadsheet(message, args, msg) {
     if (result.ja) { if (result.ja.length > 1) { embed.addFields({ name: "Note for Japanese", value: result.ja, inline: true }) } }
     if (result.ko) { if (result.ko.length > 1) { embed.addFields({ name: "Note for Korean", value: result.ko, inline: true }) } }
     if (result.no) { if (result.no.length > 1) { embed.addFields({ name: "Note for Norwegian", value: result.no, inline: true }) } }
-    if (result.enPT) { if (result.enPT.length > 1) { embed.addFields({ name: "Note fer Pirate ☠️", value: result.enPT, inline: true }) } }
+    if (result.enPT) { if (result.enPT.length > 1) { embed.addFields({ name: "Note for Pirate", value: result.enPT, inline: true }) } }
     if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: "Note for Polish", value: result.pl, inline: true }) } }
     if (result.ptPT) { if (result.ptPT.length > 1) { embed.addFields({ name: "Note for Portuguese", value: result.ptPT, inline: true }) } }
     if (result.ptBR) { if (result.ptBR.length > 1) { embed.addFields({ name: "Note for Brazilian", value: result.ptBR, inline: true }) } }
