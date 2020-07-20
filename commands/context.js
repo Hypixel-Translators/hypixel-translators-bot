@@ -178,8 +178,10 @@ async function addToSpreadsheet(message, args, msg) {
                         .setTitle("Add context for " + string)
                         .setDescription("The context entry has been added! Execute `+context get " + result.id + "` to view the result.")
                         .setFooter("Executed by " + message.author.tag);
-                    msg.edit(embed)
                     msg.channel.send(embed)
+                    msg.delete()
+                    message.delete()
+                    extraMsg.delete()
                 }
             })
             collector.on('end'), collected => {
