@@ -141,6 +141,9 @@ async function addToSpreadsheet(message, args, msg) {
 
             const collector = msg.createReactionCollector(filter, { time: 120000 });
 
+            var extraMsgs = []
+            var extraReceiveds = []
+
             collector.on('collect', async (reaction, reacter) => {
                 if (reaction.emoji.name === "📑") {
                     reaction.remove()
@@ -152,7 +155,10 @@ async function addToSpreadsheet(message, args, msg) {
                         .setDescription("Send a message (without the prefix) containing `<field> <content>`. <field> can be `screenshot`, `id`, `context` or a language code. <content> needs to be the (new) content for that string, such as the screenshot link.")
                     msg.channel.send(extraEmbed).then(extraMsg => {
 
+                        extraMsgs.push(extraMsg)
+
                         collector.on('collect', received => {
+                            extraReceiveds.push(received)
                             collector.stop()
                             var key = received.toString()
                             key = key.replace(/ .*/, '')
@@ -191,8 +197,12 @@ async function addToSpreadsheet(message, args, msg) {
                     msg.channel.send(embed)
                     msg.delete()
                     message.delete()
-                    extraMsg.delete()
-                    received.delete()
+                    extraMsgs.forEach(function (item) {
+                        item.delete()
+                    })
+                    extraReceiveds.forEach(function (item) {
+                        item.delete()
+                    })
                 }
             })
             collector.on('end'), collected => {
