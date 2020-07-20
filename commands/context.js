@@ -85,11 +85,11 @@ async function getFromSpreadsheet(message, args, msg) {
 }
 
 async function addToSpreadsheet(message, args, msg) {
-    if (message.member.roles.cache.has("569839517444341771") || message.member.hasPermission("ADMINISTRATOR")) { } else {
+    if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setTitle("Add context for " + string)
-            .setDescription("You're not a proofreader, so you can't add context! Soon you'll be able to suggest context though.")
+            .setDescription("You're not a proofreader, so you can't add context! We're working on a way to let you suggest context too.")
             .setFooter("Executed by " + message.author.tag);
         msg.edit(embed)
         return;
