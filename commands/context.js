@@ -213,7 +213,7 @@ async function addToSpreadsheet(message, args, msg) {
                         return;
                     }
 
-                    const embed = new Discord.MessageEmbed()
+                    embed
                         .setColor(successColor)
                         .setTitle("Edit context for " + string)
                         .setDescription("Added the context entry! It is shown below.\n\n**Context**\n" + correctRow.context)
