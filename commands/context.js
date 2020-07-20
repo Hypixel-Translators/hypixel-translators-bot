@@ -216,7 +216,7 @@ async function addToSpreadsheet(message, args, msg) {
                     embed
                         .setColor(successColor)
                         .setTitle("Edit context for " + string)
-                        .setDescription("Added the context entry! It is shown below.\n\n**Context**\n" + correctRow.context)
+                        .setDescription("Added the context entry! It is shown below.\n\n**Context**\n" + result.context)
                         .setFooter("Executed by " + message.author.tag);
                     if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: "Note for Bulgarian", value: result.bg, inline: true }) } }
                     if (result.zhCN) { if (result.zhCN.length > 1) { embed.addFields({ name: "Note for Chinese (Simplified)", value: result.zhCN, inline: true }) } }
@@ -332,7 +332,7 @@ async function editInSpreadsheet(message, args, msg) {
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle("Edit context for " + args[1])
-        .setDescription("Edited this context entry! The new data is shown below.\n\n**Context**\n" + correctRow.context)
+        .setDescription("Edited this context entry! The new data is shown below.\n\n**Context**\n" + result.context)
         .setFooter("Executed by " + message.author.tag);
     if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: "Note for Bulgarian", value: result.bg, inline: true }) } }
     if (result.zhCN) { if (result.zhCN.length > 1) { embed.addFields({ name: "Note for Chinese (Simplified)", value: result.zhCN, inline: true }) } }
