@@ -5,20 +5,30 @@ const creds = require('../service-account.json')
 
 module.exports = {
     name: "context",
-    description: "Gets or adds context for the given string ID.",
-    usage: "context get|add <string ID> [context (when adding)]",
+    description: "Gets, adds or edits context for the given string ID. `info` shows you information about this command.",
+    usage: "context get|add|edit|help <arguments>`\nFor more info, run `+context help",
     channelBlackList: ["621298919535804426", "619662798133133312", "712046319375482910", "550951034332381184", "634101000340504576", "713084081579098152"],
     cooldown: 3,
     execute(message, args) {
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
-            .setTitle("Context for " + args[1])
+            .setTitle("Context")
             .setDescription("One second...")
             .setFooter("Executed by " + message.author.tag);
         message.channel.send(embed)
             .then(msg => {
                 if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(message, args, msg) }
-                if (args[0] === "get" || args[0] === "add") { getFromSpreadsheet(message, args, msg) }
+                else if (args[0] === "get") { getFromSpreadsheet(message, args, msg) }
+                else if (args[0] === "edit") { editInSpreadsheet(message, args, msg) }
+                else if (args[0] === "info" || args[0] === "help") { showInfo(message, args, msg) }
+                else {
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(errorColor)
+                        .setTitle("Context")
+                        .setDescription("Please enter a subcommand as first argument. This can either be `get`, `add`, `edit` or `help`.\n\nYour message should look something like `+context get 123456`.")
+                        .setFooter("Executed by " + message.author.tag);
+                    msg.edit(embed)
+                }
             })
     }
 }
@@ -51,37 +61,35 @@ async function getFromSpreadsheet(message, args, msg) {
         .setTitle("Context for " + args[1])
         .setDescription(correctRow.context)
         .setFooter("Executed by " + message.author.tag);
-    if (correctRow) {
-        if (correctRow.bg) { if (correctRow.bg.length > 1) { embed.addFields({ name: "Note for Bulgarian", value: correctRow.bg, inline: true }) } }
-        if (correctRow.zhCN) { if (correctRow.zhCN.length > 1) { embed.addFields({ name: "Note for Chinese (Simplified)", value: correctRow.zhCN, inline: true }) } }
-        if (correctRow.zhTW) { if (correctRow.zhTW.length > 1) { embed.addFields({ name: "Note for Chinese (Traditional)", value: correctRow.zhTW, inline: true }) } }
-        if (correctRow.cs) { if (correctRow.cs.length > 1) { embed.addFields({ name: "Note for Czech", value: correctRow.cs, inline: true }) } }
-        if (correctRow.da) { if (correctRow.da.length > 1) { embed.addFields({ name: "Note for Danish", value: correctRow.da, inline: true }) } }
-        if (correctRow.nl) { if (correctRow.nl.length > 1) { embed.addFields({ name: "Note for Dutch", value: correctRow.nl, inline: true }) } }
-        if (correctRow.fi) { if (correctRow.fi.length > 1) { embed.addFields({ name: "Note for Finnish", value: correctRow.fi, inline: true }) } }
-        if (correctRow.fr) { if (correctRow.fr.length > 1) { embed.addFields({ name: "Note for French", value: correctRow.fr, inline: true }) } }
-        if (correctRow.de) { if (correctRow.de.length > 1) { embed.addFields({ name: "Note for German", value: correctRow.de, inline: true }) } }
-        if (correctRow.el) { if (correctRow.el.length > 1) { embed.addFields({ name: "Note for Greek", value: correctRow.el, inline: true }) } }
-        if (correctRow.it) { if (correctRow.it.length > 1) { embed.addFields({ name: "Note for Italian", value: correctRow.it, inline: true }) } }
-        if (correctRow.ja) { if (correctRow.ja.length > 1) { embed.addFields({ name: "Note for Japanese", value: correctRow.ja, inline: true }) } }
-        if (correctRow.ko) { if (correctRow.ko.length > 1) { embed.addFields({ name: "Note for Korean", value: correctRow.ko, inline: true }) } }
-        if (correctRow.no) { if (correctRow.no.length > 1) { embed.addFields({ name: "Note for Norwegian", value: correctRow.no, inline: true }) } }
-        if (correctRow.enPT) { if (correctRow.enPT.length > 1) { embed.addFields({ name: "Note fer Pirate ☠️", value: correctRow.enPT, inline: true }) } }
-        if (correctRow.pl) { if (correctRow.pl.length > 1) { embed.addFields({ name: "Note for Polish", value: correctRow.pl, inline: true }) } }
-        if (correctRow.ptPT) { if (correctRow.ptPT.length > 1) { embed.addFields({ name: "Note for Portuguese", value: correctRow.ptPT, inline: true }) } }
-        if (correctRow.ptBR) { if (correctRow.ptBR.length > 1) { embed.addFields({ name: "Note for Brazilian", value: correctRow.ptBR, inline: true }) } }
-        if (correctRow.ru) { if (correctRow.ru.length > 1) { embed.addFields({ name: "Note for Russian", value: correctRow.ru, inline: true }) } }
-        if (correctRow.esES) { if (correctRow.esES.length > 1) { embed.addFields({ name: "Note for Spanish", value: correctRow.esES, inline: true }) } }
-        if (correctRow.svSE) { if (correctRow.svSE.length > 1) { embed.addFields({ name: "Note for Swedish", value: correctRow.svSE, inline: true }) } }
-        if (correctRow.th) { if (correctRow.th.length > 1) { embed.addFields({ name: "Note for Thai", value: correctRow.th, inline: true }) } }
-        if (correctRow.tr) { if (correctRow.tr.length > 1) { embed.addFields({ name: "Note for Turkish", value: correctRow.tr, inline: true }) } }
-        if (correctRow.uk) { if (correctRow.uk.length > 1) { embed.addFields({ name: "Note for Ukrainian", value: correctRow.uk, inline: true }) } }
-        if (correctRow.screenshot) {
-            embed.setImage(correctRow.screenshot)
-                .addFields({ name: "Screenshot", value: correctRow.screenshot, inline: true })
-        }
-        msg.edit(embed)
+    if (correctRow.bg) { if (correctRow.bg.length > 1) { embed.addFields({ name: "Note for Bulgarian", value: correctRow.bg, inline: true }) } }
+    if (correctRow.zhCN) { if (correctRow.zhCN.length > 1) { embed.addFields({ name: "Note for Chinese (Simplified)", value: correctRow.zhCN, inline: true }) } }
+    if (correctRow.zhTW) { if (correctRow.zhTW.length > 1) { embed.addFields({ name: "Note for Chinese (Traditional)", value: correctRow.zhTW, inline: true }) } }
+    if (correctRow.cs) { if (correctRow.cs.length > 1) { embed.addFields({ name: "Note for Czech", value: correctRow.cs, inline: true }) } }
+    if (correctRow.da) { if (correctRow.da.length > 1) { embed.addFields({ name: "Note for Danish", value: correctRow.da, inline: true }) } }
+    if (correctRow.nl) { if (correctRow.nl.length > 1) { embed.addFields({ name: "Note for Dutch", value: correctRow.nl, inline: true }) } }
+    if (correctRow.fi) { if (correctRow.fi.length > 1) { embed.addFields({ name: "Note for Finnish", value: correctRow.fi, inline: true }) } }
+    if (correctRow.fr) { if (correctRow.fr.length > 1) { embed.addFields({ name: "Note for French", value: correctRow.fr, inline: true }) } }
+    if (correctRow.de) { if (correctRow.de.length > 1) { embed.addFields({ name: "Note for German", value: correctRow.de, inline: true }) } }
+    if (correctRow.el) { if (correctRow.el.length > 1) { embed.addFields({ name: "Note for Greek", value: correctRow.el, inline: true }) } }
+    if (correctRow.it) { if (correctRow.it.length > 1) { embed.addFields({ name: "Note for Italian", value: correctRow.it, inline: true }) } }
+    if (correctRow.ja) { if (correctRow.ja.length > 1) { embed.addFields({ name: "Note for Japanese", value: correctRow.ja, inline: true }) } }
+    if (correctRow.ko) { if (correctRow.ko.length > 1) { embed.addFields({ name: "Note for Korean", value: correctRow.ko, inline: true }) } }
+    if (correctRow.no) { if (correctRow.no.length > 1) { embed.addFields({ name: "Note for Norwegian", value: correctRow.no, inline: true }) } }
+    if (correctRow.enPT) { if (correctRow.enPT.length > 1) { embed.addFields({ name: "Note fer Pirate ☠️", value: correctRow.enPT, inline: true }) } }
+    if (correctRow.pl) { if (correctRow.pl.length > 1) { embed.addFields({ name: "Note for Polish", value: correctRow.pl, inline: true }) } }
+    if (correctRow.ptPT) { if (correctRow.ptPT.length > 1) { embed.addFields({ name: "Note for Portuguese", value: correctRow.ptPT, inline: true }) } }
+    if (correctRow.ptBR) { if (correctRow.ptBR.length > 1) { embed.addFields({ name: "Note for Brazilian", value: correctRow.ptBR, inline: true }) } }
+    if (correctRow.ru) { if (correctRow.ru.length > 1) { embed.addFields({ name: "Note for Russian", value: correctRow.ru, inline: true }) } }
+    if (correctRow.esES) { if (correctRow.esES.length > 1) { embed.addFields({ name: "Note for Spanish", value: correctRow.esES, inline: true }) } }
+    if (correctRow.svSE) { if (correctRow.svSE.length > 1) { embed.addFields({ name: "Note for Swedish", value: correctRow.svSE, inline: true }) } }
+    if (correctRow.th) { if (correctRow.th.length > 1) { embed.addFields({ name: "Note for Thai", value: correctRow.th, inline: true }) } }
+    if (correctRow.tr) { if (correctRow.tr.length > 1) { embed.addFields({ name: "Note for Turkish", value: correctRow.tr, inline: true }) } }
+    if (correctRow.uk) { if (correctRow.uk.length > 1) { embed.addFields({ name: "Note for Ukrainian", value: correctRow.uk, inline: true }) } }
+    if (correctRow.screenshot) {
+        embed.setImage(correctRow.screenshot)
+            .addFields({ name: "Screenshot", value: correctRow.screenshot })
     }
+    msg.edit(embed)
 }
 
 async function addToSpreadsheet(message, args, msg) {
@@ -195,4 +203,88 @@ async function addToSpreadsheet(message, args, msg) {
             }
         })
     })
+}
+
+async function editInSpreadsheet(message, args, msg) {
+    var key = args[2]
+    var arguments = args
+    arguments.splice(0, 3)
+    var value = arguments.join(" ")
+
+    const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
+    await doc.useServiceAccountAuth(creds)
+
+    await doc.loadInfo()
+    console.log(doc.title)
+
+    const sheet = doc.sheetsByIndex[0]
+    console.log(sheet.title)
+
+    const rows = await sheet.getRows()
+    const correctRow = rows.find(r => r.id === args[1])
+
+    if (!correctRow) {
+        const embed = new Discord.MessageEmbed()
+            .setColor(errorColor)
+            .setTitle("Edit context for " + args[1])
+            .setDescription("That context entry hasn't been found.")
+            .setFooter("Executed by " + message.author.tag);
+        msg.edit(embed)
+        return;
+    }
+
+    correctRow[key] = value
+
+    const result = await correctRow.save()
+
+    const embed = new Discord.MessageEmbed()
+        .setColor(successColor)
+        .setTitle("Edit context for " + args[1])
+        .setDescription("Edited this context entry! The new data is shown below.\n" + correctRow.context)
+        .setFooter("Executed by " + message.author.tag);
+    if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: "Note for Bulgarian", value: result.bg, inline: true }) } }
+    if (result.zhCN) { if (result.zhCN.length > 1) { embed.addFields({ name: "Note for Chinese (Simplified)", value: result.zhCN, inline: true }) } }
+    if (result.zhTW) { if (result.zhTW.length > 1) { embed.addFields({ name: "Note for Chinese (Traditional)", value: result.zhTW, inline: true }) } }
+    if (result.cs) { if (result.cs.length > 1) { embed.addFields({ name: "Note for Czech", value: result.cs, inline: true }) } }
+    if (result.da) { if (result.da.length > 1) { embed.addFields({ name: "Note for Danish", value: result.da, inline: true }) } }
+    if (result.nl) { if (result.nl.length > 1) { embed.addFields({ name: "Note for Dutch", value: result.nl, inline: true }) } }
+    if (result.fi) { if (result.fi.length > 1) { embed.addFields({ name: "Note for Finnish", value: result.fi, inline: true }) } }
+    if (result.fr) { if (result.fr.length > 1) { embed.addFields({ name: "Note for French", value: result.fr, inline: true }) } }
+    if (result.de) { if (result.de.length > 1) { embed.addFields({ name: "Note for German", value: result.de, inline: true }) } }
+    if (result.el) { if (result.el.length > 1) { embed.addFields({ name: "Note for Greek", value: result.el, inline: true }) } }
+    if (result.it) { if (result.it.length > 1) { embed.addFields({ name: "Note for Italian", value: result.it, inline: true }) } }
+    if (result.ja) { if (result.ja.length > 1) { embed.addFields({ name: "Note for Japanese", value: result.ja, inline: true }) } }
+    if (result.ko) { if (result.ko.length > 1) { embed.addFields({ name: "Note for Korean", value: result.ko, inline: true }) } }
+    if (result.no) { if (result.no.length > 1) { embed.addFields({ name: "Note for Norwegian", value: result.no, inline: true }) } }
+    if (result.enPT) { if (result.enPT.length > 1) { embed.addFields({ name: "Note fer Pirate ☠️", value: result.enPT, inline: true }) } }
+    if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: "Note for Polish", value: result.pl, inline: true }) } }
+    if (result.ptPT) { if (result.ptPT.length > 1) { embed.addFields({ name: "Note for Portuguese", value: result.ptPT, inline: true }) } }
+    if (result.ptBR) { if (result.ptBR.length > 1) { embed.addFields({ name: "Note for Brazilian", value: result.ptBR, inline: true }) } }
+    if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: "Note for Russian", value: result.ru, inline: true }) } }
+    if (result.esES) { if (result.esES.length > 1) { embed.addFields({ name: "Note for Spanish", value: result.esES, inline: true }) } }
+    if (result.svSE) { if (result.svSE.length > 1) { embed.addFields({ name: "Note for Swedish", value: result.svSE, inline: true }) } }
+    if (result.th) { if (result.th.length > 1) { embed.addFields({ name: "Note for Thai", value: result.th, inline: true }) } }
+    if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: "Note for Turkish", value: result.tr, inline: true }) } }
+    if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: "Note for Ukrainian", value: result.uk, inline: true }) } }
+    if (result.screenshot) {
+        embed.setImage(result.screenshot)
+            .addFields({ name: "Screenshot", value: result.screenshot })
+    }
+    msg.edit(embed)
+}
+
+async function showInfo(message, args, msg) {
+    const embed = new Discord.MessageEmbed()
+    .setColor(neutralColor)
+    .setTitle("Context information")
+    .setDescription("Below is a list of all subcommands for this command and their explanations. **Fields** shows all available fields.")
+    .addFields(
+        {name: "Get", value: "_Gets context for given string_\n`+context get <string ID>`\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #."},
+        {name: "Add", value: "_Adds a context entry_\n`+context add <string ID> <context>`\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <context> with the text you want to add. After running, you can add more fields using the reactions."},
+        {name: "Edit", value: "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enPT`. Replace <new value> with the new value for that field."},
+        {name: "Help", value: "_Shows this message!_\n`+context help"},
+        {name: "Field", value: "id, context, screenshot, bg, zhCN, zhTW, cs, da, nl, fi, fr, de, el, it, ja, ko, no, enPT, pl, ptPT, ptBR, ru, esES, svSE, th, tr, uk"}
+        )
+    .setFooter("Executed by " + message.author.tag);
+msg.edit(embed)
 }
