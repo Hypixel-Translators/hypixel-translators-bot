@@ -279,10 +279,10 @@ async function showInfo(message, args, msg) {
     .setTitle("Context information")
     .setDescription("Below is a list of all subcommands for this command and their explanations. **Fields** shows all available fields.")
     .addFields(
-        {name: "Get", value: "_Gets context for given string_\n`+context get <string ID>`\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #."},
-        {name: "Add", value: "_Adds a context entry_\n`+context add <string ID> <context>`\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <context> with the text you want to add. After running, you can add more fields using the reactions."},
-        {name: "Edit", value: "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enPT`. Replace <new value> with the new value for that field."},
-        {name: "Help", value: "_Shows this message!_\n`+context help"},
+        {name: "Get", value: "_Gets context for given string_\n`+context get <string ID>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #."},
+        {name: "Add", value: "_Adds a context entry_\n`+context add <string ID> <context>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <context> with the text you want to add. After running, you can add more fields using the reactions."},
+        {name: "Edit", value: "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enPT`. Replace <new value> with the new value for that field."},
+        {name: "Help", value: "_Shows this message!_\n`+context help`"},
         {name: "Field", value: "id, context, screenshot, bg, zhCN, zhTW, cs, da, nl, fi, fr, de, el, it, ja, ko, no, enPT, pl, ptPT, ptBR, ru, esES, svSE, th, tr, uk"}
         )
     .setFooter("Executed by " + message.author.tag);
