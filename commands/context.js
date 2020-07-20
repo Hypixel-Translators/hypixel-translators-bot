@@ -216,7 +216,7 @@ async function addToSpreadsheet(message, args, msg) {
 
                             embed
                                 .setColor(successColor)
-                                .setTitle("Edit context for " + string)
+                                .setTitle("Add context for " + string)
                                 .setDescription("Added the context entry! It is shown below.\n\n**Context**\n" + result.context)
                                 .setFooter("Executed by " + message.author.tag);
                             if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: "Note for Bulgarian", value: result.bg, inline: true }) } }
