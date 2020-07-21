@@ -175,7 +175,6 @@ async function addToSpreadsheet(message, args, msg) {
 
                     collectorB.on('collect', received => {
                         extraReceiveds.push(received)
-                        collectorB.stop()
                         var key = received.toString()
                         key = key.replace(/ .*/, '')
                         var value = received.toString()
@@ -203,7 +202,6 @@ async function addToSpreadsheet(message, args, msg) {
             }
             if (reaction.emoji === yesEmoji) {
                 msg.reactions.removeAll()
-                collector.stop()
                 const result = await sheet.addRow(toAdd)
                 const embed = new Discord.MessageEmbed()
                     .setColor(workingColor)
@@ -269,7 +267,6 @@ async function addToSpreadsheet(message, args, msg) {
                         finalMsg.edit(embed)
                     })
                 if (reaction.emoji === noEmoji) {
-                    collector.stop()
                     message.delete()
                     msg.delete()
                     extraMsgs.forEach(function (item) {
@@ -282,7 +279,7 @@ async function addToSpreadsheet(message, args, msg) {
             }
         })
 
-        collector.on('end'), function () {
+        collector.on('end'), collected => {
             message.delete()
             msg.delete()
             extraMsgs.forEach(function (item) {
