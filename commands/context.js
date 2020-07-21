@@ -407,7 +407,7 @@ async function viewSheet(message, args, msg) {
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle("Context sheet")
-        .setDescription("[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tMoGTEZklK-aQhn9r6iRIXuwQXKBkwxZfr4F8LJIwCs)\nOnly specific people can open this sheet. If you'd like to open it as well, please ask <@241926666400563203> or <@240875059953139714> for access.")
+        .setDescription("[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tMoGTEZklK-aQhn9r6iRIXuwQXKBkwxZfr4F8LJIwCs)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username. Keep in mind we can see your email address.")
         .setFooter("Executed by " + message.author.tag);
     msg.edit(embed)
     return;
