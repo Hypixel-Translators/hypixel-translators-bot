@@ -134,8 +134,8 @@ async function addToSpreadsheet(message, args, msg) {
 
     const sheet = doc.sheetsByIndex[0]
     console.log(sheet.title)
-    const noEmoji = client.emojis.cache.find(emoji => emoji.name === 'vote_no');
-    const yesEmoji = client.emojis.cache.find(emoji => emoji.name === 'vote_yes');
+    const noEmoji = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_no');
+    const yesEmoji = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_yes');
 
     const rows = await sheet.getRows()
 
