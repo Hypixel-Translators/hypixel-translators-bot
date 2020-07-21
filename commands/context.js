@@ -201,7 +201,7 @@ async function addToSpreadsheet(message, args, msg) {
 
                 })
             }
-            if (reaction.emoji === yesEmoji) {
+            if (reaction.emoji.name === "vote_yes") {
                 msg.reactions.removeAll()
                 const result = await sheet.addRow(toAdd)
                 const embed = new Discord.MessageEmbed()
@@ -267,17 +267,18 @@ async function addToSpreadsheet(message, args, msg) {
                         }
                         finalMsg.edit(embed)
                     })
-                if (reaction.emoji === noEmoji) {
-                    message.delete()
-                    msg.delete()
-                    extraMsgs.forEach(function (item) {
-                        item.delete()
-                    })
-                    extraReceiveds.forEach(function (item) {
-                        item.delete()
-                    })
-                }
             }
+            if (reaction.emoji.name === "vote_no") {
+                message.delete()
+                msg.delete()
+                extraMsgs.forEach(function (item) {
+                    item.delete()
+                })
+                extraReceiveds.forEach(function (item) {
+                    item.delete()
+                })
+            }
+
         })
 
         collector.on('end', () => {
