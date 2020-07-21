@@ -161,6 +161,7 @@ async function addToSpreadsheet(message, args, msg) {
         var extraReceiveds = []
 
         collector.on('collect', async (reaction, reacter) => {
+            console.log(reaction.emoji.name)
             if (reaction.emoji.name === "📑") {
                 reaction.remove()
                 msg.react("📑")
