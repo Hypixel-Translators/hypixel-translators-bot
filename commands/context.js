@@ -282,7 +282,7 @@ async function addToSpreadsheet(message, args, msg) {
             }
         })
 
-        collector.on('end'), collected => {
+        collector.on('end'), function (collected) => {
             message.delete()
             msg.delete()
             extraMsgs.forEach(function (item) {
