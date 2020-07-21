@@ -279,7 +279,7 @@ async function addToSpreadsheet(message, args, msg) {
             }
         })
 
-        collector.on('end'), () => {
+        collector.on('end', () => {
             message.delete()
             msg.delete()
             extraMsgs.forEach(function (item) {
@@ -288,7 +288,7 @@ async function addToSpreadsheet(message, args, msg) {
             extraReceiveds.forEach(function (item) {
                 item.delete()
             })
-        }
+        })
     })
 }
 
