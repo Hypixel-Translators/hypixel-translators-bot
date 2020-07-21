@@ -175,6 +175,7 @@ async function addToSpreadsheet(message, args, msg) {
                     extraMsgs.push(extraMsg)
 
                     collectorB.on('collect', received => {
+                        collectorB.stop()
                         extraReceiveds.push(received)
                         var key = received.toString()
                         key = key.replace(/ .*/, '')
@@ -269,6 +270,7 @@ async function addToSpreadsheet(message, args, msg) {
                     })
             }
             if (reaction.emoji.name === "vote_no") {
+                msg.reactions.removeAll()
                 message.delete()
                 msg.delete()
                 extraMsgs.forEach(function (item) {
