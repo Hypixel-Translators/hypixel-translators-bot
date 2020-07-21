@@ -42,11 +42,15 @@ client.once("ready", () => {
       });
       toPick = Math.random() >= 0.2;
     }
-  }, 15000);
+  }, 30000);
 });
 
 client.on("message", message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) {
+  if (message.author.bot) return;
+
+
+
+  if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
       if (message.author.bot) { return; }
       const sendTo = client.channels.cache.get("730042612647723058")
