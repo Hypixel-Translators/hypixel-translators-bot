@@ -165,7 +165,7 @@ async function addToSpreadsheet(message, args, msg) {
             if (reaction.emoji.name === "📑") {
                 reaction.remove()
                 msg.react("📑")
-                const collectorB = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
+                const collectorB = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 120000 });
                 const extraEmbed = new Discord.MessageEmbed()
                     .setColor(neutralColor)
                     .setTitle("Add more to context for " + string)
@@ -191,13 +191,11 @@ async function addToSpreadsheet(message, args, msg) {
                     })
 
                     collectorB.on('end', function () {
-                        if (!collected) {
-                            const extraEmbed = new Discord.MessageEmbed()
-                                .setColor(errorColor)
-                                .setTitle("Add more to context for " + string)
-                                .setDescription("You didn't reply in time, so this prompt has been cancelled. Re-add your reaction to try again.")
-                            extraMsg.edit(extraEmbed)
-                        }
+                        const extraEmbed = new Discord.MessageEmbed()
+                            .setColor(errorColor)
+                            .setTitle("Add more to context for " + string)
+                            .setDescription("You didn't reply in time, so this prompt has been cancelled. Re-add your reaction to try again.")
+                        extraMsg.edit(extraEmbed)
                     })
 
                 })
