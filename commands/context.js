@@ -189,7 +189,7 @@ async function addToSpreadsheet(message, args, msg) {
                         extraMsg.edit(extraEmbed)
                     })
 
-                    collectorB.on('end'), collected => {
+                    collectorB.on('end'), function () {
                         if (!collected) {
                             const extraEmbed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
@@ -282,7 +282,7 @@ async function addToSpreadsheet(message, args, msg) {
             }
         })
 
-        collector.on('end'), function (collected) => {
+        collector.on('end'), function () {
             message.delete()
             msg.delete()
             extraMsgs.forEach(function (item) {
