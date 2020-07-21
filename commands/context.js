@@ -189,7 +189,7 @@ async function addToSpreadsheet(message, args, msg) {
                         extraMsg.edit(extraEmbed)
                     })
 
-                    collectorB.on('end'), function () {
+                    collectorB.on('end', function () {
                         if (!collected) {
                             const extraEmbed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
@@ -197,7 +197,7 @@ async function addToSpreadsheet(message, args, msg) {
                                 .setDescription("You didn't reply in time, so this prompt has been cancelled. Re-add your reaction to try again.")
                             extraMsg.edit(extraEmbed)
                         }
-                    }
+                    })
 
                 })
             }
