@@ -39,7 +39,7 @@ module.exports = {
                         .setFooter("Executed by " + message.author.tag);
                     msg.edit(embed)
                 }
-                if (message.channel === "549894938712866816") {
+                if (message.channel.id === "549894938712866816") {
                     setTimeout(() => {
                         message.delete()
                     }, 60000)
@@ -138,6 +138,16 @@ async function addToSpreadsheet(message, args, msg) {
     const yesEmoji = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_yes');
 
     const rows = await sheet.getRows()
+    const correctRow = rows.find(r => r.id === args[1])
+    if (correctRow.id) {
+        const embed = new Discord.MessageEmbed()
+            .setColor(errorColor)
+            .setTitle("Add context for " + string)
+            .setDescription("An context entry for " + string + " already exists, so yours wasn't added. Instead, use `+context edit`.")
+            .setFooter("Executed by " + message.author.tag);
+        msg.edit(embed)
+        return;
+    }
 
     var toAdd = { id: string, context: toSend }
     const embed = new Discord.MessageEmbed()
