@@ -376,12 +376,12 @@ async function editInSpreadsheet(message, args, msg) {
         .setTitle("Edit context for " + args[1])
         .setDescription("Please confirm you want to edit a field of " + args[1] + " by reacting. You have 10 seconds.")
         .setFooter("Executed by " + message.author.tag);
-    if (correctRow[value]) {
-        if (correctRow[value].length > 1) {
-            embed.addFields({ name: "Old " + key, value: correctRow.value })
+    if (correctRow[key]) {
+        if (correctRow[key].length > 1) {
+            embed.addFields({ name: "Old value for " + key, value: correctRow[value] })
         }
     }
-    embed.addFields({ name: "New " + key, value: value })
+    embed.addFields({ name: "New value for " + key, value: value })
     msg.edit(embed)
     msg.react(yesEmoji).then(() => { msg.react(noEmoji) })
     correctRow[key] = value
