@@ -464,12 +464,15 @@ async function editInSpreadsheet(message, args, msg) {
         }
     })
     collector.on('end', async (collected) => {
-        const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
-            .setTitle("Edit context for " + args[1])
-            .setDescription("You didn't react, so nothing was saved.")
-            .setFooter("Executed by " + message.author.tag);
-        msg.edit(embed)
+        msg.reactions.removeAll()
+        if (correctRow[key] !== value) {
+            const embed = new Discord.MessageEmbed()
+                .setColor(errorColor)
+                .setTitle("Edit context for " + args[1])
+                .setDescription("You didn't react, so nothing was saved.")
+                .setFooter("Executed by " + message.author.tag);
+            msg.edit(embed)
+        }
         return;
     })
 }
