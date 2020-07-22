@@ -292,14 +292,22 @@ async function addToSpreadsheet(message, args, msg) {
         })
 
         collector.on('end', () => {
+            const embed = new Discord.MessageEmbed()
+                .setColor(workingColor)
+                .setTitle("Add context for " + string)
+                .setDescription("You cancelled this prompt. Cleaning up...")
+                .setFooter("Executed by " + message.author.tag);
+            msg.edit(embed)
             message.delete()
-            msg.delete()
             extraMsgs.forEach(function (item) {
                 item.delete()
             })
             extraReceiveds.forEach(function (item) {
                 item.delete()
             })
+            setTimeout(() => {
+                msg.delete()
+            }, 5000)
         })
     })
 }
