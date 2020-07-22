@@ -341,7 +341,7 @@ async function editInSpreadsheet(message, args, msg) {
     console.log(sheet.title)
 
     const rows = await sheet.getRows()
-    const correctRow = rows.find(r => r.id === args[1])
+    var correctRow = rows.find(r => r.id === args[1])
 
     if (!correctRow) {
         const embed = new Discord.MessageEmbed()
@@ -384,7 +384,6 @@ async function editInSpreadsheet(message, args, msg) {
     embed.addFields({ name: "New value for " + key, value: value })
     msg.edit(embed)
     msg.react(yesEmoji).then(() => { msg.react(noEmoji) })
-    correctRow[key] = value
 
     const filter = (reaction, reacter) => {
         return (reaction.emoji === yesEmoji || reaction.emoji === noEmoji) && reacter.id === message.author.id;
@@ -411,6 +410,7 @@ async function editInSpreadsheet(message, args, msg) {
         if (reaction.emoji.name === "vote_yes") {
             msg.reactions.removeAll()
             collector.stop()
+            correctRow[key] = value
             const save = await correctRow.save()
             const result = rows.find(r => r.id === args[1])
 
@@ -466,7 +466,8 @@ async function editInSpreadsheet(message, args, msg) {
 
     collector.on('end', async (collected) => {
         msg.reactions.removeAll()
-        if (!save) {
+        var correctRow = rows.find(r => r.id === args[1])
+        if (correctRow[key] !== value) {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setTitle("Edit context for " + args[1])
