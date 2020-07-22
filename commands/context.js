@@ -463,9 +463,10 @@ async function editInSpreadsheet(message, args, msg) {
             msg.edit(embed)
         }
     })
+
     collector.on('end', async (collected) => {
         msg.reactions.removeAll()
-        if (correctRow[key] !== value) {
+        if (save) {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setTitle("Edit context for " + args[1])
