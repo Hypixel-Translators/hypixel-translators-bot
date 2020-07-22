@@ -139,7 +139,7 @@ async function addToSpreadsheet(message, args, msg) {
 
     const rows = await sheet.getRows()
     const correctRow = rows.find(r => r.id === args[1])
-    if (correctRow.id) {
+    if (correctRow) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setTitle("Add context for " + string)
