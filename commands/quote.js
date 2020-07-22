@@ -17,12 +17,12 @@ module.exports = {
             .setDescription("One second...")
             .setFooter("Asked for by " + message.author.tag);
         message.channel.send(embed).then(msg => {
-            accessSpreadsheet(message, msg)
+            accessSpreadsheet(message, args, msg)
         })
     }
 };
 
-async function accessSpreadsheet(message, msg) {
+async function accessSpreadsheet(message, args, msg) {
     const doc = new GoogleSpreadsheet('16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8')
     await doc.useServiceAccountAuth(creds)
 
