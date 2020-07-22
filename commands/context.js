@@ -371,16 +371,20 @@ async function editInSpreadsheet(message, args, msg) {
     const noEmoji = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_no');
     const yesEmoji = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_yes');
 
-    correctRow[key] = value
-
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setTitle("Edit context for " + args[1])
-        .setDescription("Please confirm you want to edit a field of " + args[1] + " by reacting.")
-        .addFields({ name: "New " + key, value: value })
+        .setDescription("Please confirm you want to edit a field of " + args[1] + " by reacting. You have 10 seconds.")
         .setFooter("Executed by " + message.author.tag);
+    if (correctRow[value]) {
+        if (correctRow[value].length > 1) {
+            embed.addFields({ name: "Old " + key, value: correctRow.value })
+        }
+    }
+    embed.addFields({ name: "New " + key, value: value })
     msg.edit(embed)
     msg.react(yesEmoji).then(() => { msg.react(noEmoji) })
+    correctRow[key] = value
 
     const filter = (reaction, reacter) => {
         return (reaction.emoji === yesEmoji || reaction.emoji === noEmoji) && reacter.id === message.author.id;
@@ -390,14 +394,19 @@ async function editInSpreadsheet(message, args, msg) {
 
     collector.on('collect', async (reaction, reacter) => {
         if (reaction.emoji.name === "vote_no") {
+            msg.reactions.removeAll()
+            collector.stop()
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setTitle("Edit context for " + args[1])
-                .setDescription("You cancelled this prompt.")
+                .setDescription("You cancelled this prompt, so nothing was saved.")
                 .setFooter("Executed by " + message.author.tag);
             msg.edit(embed)
+            return;
         }
         if (reaction.emoji.name === "vote_yes") {
+            msg.reactions.removeAll()
+            collector.stop()
             const save = await correctRow.save()
             const result = rows.find(r => r.id === args[1])
 
@@ -448,6 +457,17 @@ async function editInSpreadsheet(message, args, msg) {
                 embed.addFields({ name: "Screenshot", value: result.screenshot })
             }
             msg.edit(embed)
+        }
+    })
+    collector.on('end', collected => {
+        if (!collected) {
+            const embed = new Discord.MessageEmbed()
+                .setColor(errorColor)
+                .setTitle("Edit context for " + args[1])
+                .setDescription("You didn't react, so nothing was saved.")
+                .setFooter("Executed by " + message.author.tag);
+            msg.edit(embed)
+            return;
         }
     })
 }
