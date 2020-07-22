@@ -40,7 +40,6 @@ async function accessSpreadsheet(message, args, msg) {
     console.log(rowNum)
 
     const correctRow = rows[rowNum]
-
     if (!correctRow) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)

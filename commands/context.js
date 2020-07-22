@@ -463,7 +463,7 @@ async function editInSpreadsheet(message, args, msg) {
             msg.edit(embed)
         }
     })
-    collector.on('end', collected => {
+    collector.on('end', async (collected) => {
         if (!collected) {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
@@ -485,7 +485,7 @@ async function showInfo(message, args, msg) {
             { name: "Get", value: "_Gets context for given string_\n`+context get <string ID>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #." },
             { name: "Add", value: "_Adds a context entry_\n`+context add <string ID> <context>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <context> with the text you want to add. After running, you can add more fields using the reactions." },
             { name: "Edit", value: "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enPT`. Replace <new value> with the new value for that field." },
-            { name: "View", value: "_Shows the sheet containing context online_\n`+context view`" },
+            { name: "View", value: "_Gives you a link to the Google Sheet containing context_\n`+context view`" },
             { name: "Help", value: "_Shows this message!_\n`+context help`" },
             { name: "Fields", value: "id, context, screenshot, bg, zhCN, zhTW, cs, da, nl, fi, fr, de, el, it, ja, ko, no, enPT, pl, ptPT, ptBR, ru, esES, svSE, th, tr, uk" }
         )
