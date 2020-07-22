@@ -6,11 +6,11 @@ const creds = require('../service-account.json')
 module.exports = {
     name: "quote",
     description: "Get a funny/weird/wise quote from the server.",
-    usage: "quote",
+    usage: "quote [index]",
     cooldown: 10,
     allowDM: true,
     channelBlackList: "621298919535804426",
-    execute(message) {
+    execute(message, args) {
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
             .setTitle("Quote")
@@ -35,9 +35,20 @@ async function accessSpreadsheet(message, msg) {
     const rows = await sheet.getRows()
 
     const rowNum = Math.floor(Math.random() * Math.floor(rows.length))
+    if (args[0]) { rowNum = args[0] }
     console.log(rowNum)
 
     const correctRow = rows[rowNum]
+
+    if (!correctRow) {
+        const embed = new Discord.MessageEmbed()
+            .setColor(errorColor)
+            .setTitle("Quote")
+            .setDescription("That's not a valid quote! Min 0, max " + rows.length)
+            .setFooter("Asked for by " + message.author.tag);
+        msg.edit(embed)
+        return;
+    }
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle(correctRow.quote)
