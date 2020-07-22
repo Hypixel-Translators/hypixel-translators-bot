@@ -388,7 +388,7 @@ async function editInSpreadsheet(message, args, msg) {
 
     const collector = msg.createReactionCollector(filter, { time: 10000 });
 
-    collector.on('collect', (reaction, reacter) => {
+    collector.on('collect', async (reaction, reacter) => {
         if (reaction.emoji.name === "vote_no") {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
