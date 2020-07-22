@@ -34,7 +34,7 @@ async function accessSpreadsheet(message, args, msg) {
 
     const rows = await sheet.getRows()
 
-    const rowNum = Math.floor(Math.random() * Math.floor(rows.length))
+    var rowNum = Math.floor(Math.random() * Math.floor(rows.length))
     if (args[0]) { rowNum = args[0] }
     console.log(rowNum)
 
