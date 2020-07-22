@@ -280,9 +280,9 @@ async function addToSpreadsheet(message, args, msg) {
             if (reaction.emoji.name === "vote_no") {
                 msg.reactions.removeAll()
                 const embed = new Discord.MessageEmbed()
-                    .setColor(workingColor)
+                    .setColor(errorColor)
                     .setTitle("Add context for " + string)
-                    .setDescription("You cancelled this prompt. Cleaning up...")
+                    .setDescription("You cancelled this prompt, so nothing was saved.")
                     .setFooter("Executed by " + message.author.tag);
                 msg.edit(embed)
                 message.delete()
@@ -402,6 +402,10 @@ async function editInSpreadsheet(message, args, msg) {
                 .setDescription("You cancelled this prompt, so nothing was saved.")
                 .setFooter("Executed by " + message.author.tag);
             msg.edit(embed)
+            setTimeout(() => {
+                message.delete()
+                msg.delete()
+            }, 5000)
             return;
         }
         if (reaction.emoji.name === "vote_yes") {
