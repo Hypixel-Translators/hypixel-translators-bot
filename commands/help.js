@@ -26,7 +26,7 @@ module.exports = {
         .setColor(neutralColor)
         .setTitle("Information")
         .setDescription(
-          "Execute `+help <name of command>` to learn more about a specific command."
+          "Execute `+help <name of command>` to learn more about a specific command.\n_ _"
         )
         .addFields(
           { name: "Discord", value: "prefix, mention", inline: true },
