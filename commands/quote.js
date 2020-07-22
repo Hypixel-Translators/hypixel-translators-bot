@@ -35,7 +35,9 @@ async function accessSpreadsheet(message, args, msg) {
     const rows = await sheet.getRows()
 
     var rowNum = Math.floor(Math.random() * Math.floor(rows.length))
-    if (args[0]) { rowNum = args[0] }
+    var number = Number(args[0])
+    number = number + 1
+    if (args[0]) { rowNum = number }
     console.log(rowNum)
 
     const correctRow = rows[rowNum]
@@ -44,7 +46,7 @@ async function accessSpreadsheet(message, args, msg) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setTitle("Quote")
-            .setDescription("That's not a valid quote! Min 0, max " + rows.length)
+            .setDescription("That's not a valid quote index number! Min 1, max " + rows.length)
             .setFooter("Asked for by " + message.author.tag);
         msg.edit(embed)
         return;
