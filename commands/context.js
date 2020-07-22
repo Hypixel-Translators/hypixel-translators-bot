@@ -378,7 +378,7 @@ async function editInSpreadsheet(message, args, msg) {
         .setFooter("Executed by " + message.author.tag);
     if (correctRow[key]) {
         if (correctRow[key].length > 1) {
-            embed.addFields({ name: "Old value for " + key, value: correctRow[value] })
+            embed.addFields({ name: "Old value for " + key, value: correctRow[key] })
         }
     }
     embed.addFields({ name: "New value for " + key, value: value })
