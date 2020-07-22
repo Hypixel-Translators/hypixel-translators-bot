@@ -279,14 +279,22 @@ async function addToSpreadsheet(message, args, msg) {
             }
             if (reaction.emoji.name === "vote_no") {
                 msg.reactions.removeAll()
+                const embed = new Discord.MessageEmbed()
+                    .setColor(workingColor)
+                    .setTitle("Add context for " + string)
+                    .setDescription("You cancelled this prompt. Cleaning up...")
+                    .setFooter("Executed by " + message.author.tag);
+                msg.edit(embed)
                 message.delete()
-                msg.delete()
                 extraMsgs.forEach(function (item) {
                     item.delete()
                 })
                 extraReceiveds.forEach(function (item) {
                     item.delete()
                 })
+                setTimeout(() => {
+                    msg.delete()
+                }, 5000)
             }
 
         })
@@ -360,58 +368,88 @@ async function editInSpreadsheet(message, args, msg) {
     arguments.splice(0, 3)
     var value = arguments.join(" ")
 
+    const noEmoji = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_no');
+    const yesEmoji = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_yes');
+
     correctRow[key] = value
 
-    const save = await correctRow.save()
-    const result = rows.find(r => r.id === args[1])
-
-    if (!result) {
-        const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
-            .setTitle("Edit context for " + args[1])
-            .setDescription("That context entry hasn't been found. If you edited the string ID, you need to run `+context get <new string ID>` to see the result.")
-            .setFooter("Executed by " + message.author.tag);
-        msg.edit(embed)
-        return;
-    }
-
     const embed = new Discord.MessageEmbed()
-        .setColor(successColor)
+        .setColor(neutralColor)
         .setTitle("Edit context for " + args[1])
-        .setDescription("Edited this context entry! The new data is shown below.\n\n**Context**\n" + result.context)
+        .setDescription("Please confirm you want to edit a field of " + args[1] + " by reacting.")
+        .addFields({ name: "New " + key, value: value })
         .setFooter("Executed by " + message.author.tag);
-    if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: "Note for Bulgarian", value: result.bg, inline: true }) } }
-    if (result.zhCN) { if (result.zhCN.length > 1) { embed.addFields({ name: "Note for Chinese (Simplified)", value: result.zhCN, inline: true }) } }
-    if (result.zhTW) { if (result.zhTW.length > 1) { embed.addFields({ name: "Note for Chinese (Traditional)", value: result.zhTW, inline: true }) } }
-    if (result.cs) { if (result.cs.length > 1) { embed.addFields({ name: "Note for Czech", value: result.cs, inline: true }) } }
-    if (result.da) { if (result.da.length > 1) { embed.addFields({ name: "Note for Danish", value: result.da, inline: true }) } }
-    if (result.nl) { if (result.nl.length > 1) { embed.addFields({ name: "Note for Dutch", value: result.nl, inline: true }) } }
-    if (result.fi) { if (result.fi.length > 1) { embed.addFields({ name: "Note for Finnish", value: result.fi, inline: true }) } }
-    if (result.fr) { if (result.fr.length > 1) { embed.addFields({ name: "Note for French", value: result.fr, inline: true }) } }
-    if (result.de) { if (result.de.length > 1) { embed.addFields({ name: "Note for German", value: result.de, inline: true }) } }
-    if (result.el) { if (result.el.length > 1) { embed.addFields({ name: "Note for Greek", value: result.el, inline: true }) } }
-    if (result.it) { if (result.it.length > 1) { embed.addFields({ name: "Note for Italian", value: result.it, inline: true }) } }
-    if (result.ja) { if (result.ja.length > 1) { embed.addFields({ name: "Note for Japanese", value: result.ja, inline: true }) } }
-    if (result.ko) { if (result.ko.length > 1) { embed.addFields({ name: "Note for Korean", value: result.ko, inline: true }) } }
-    if (result.no) { if (result.no.length > 1) { embed.addFields({ name: "Note for Norwegian", value: result.no, inline: true }) } }
-    if (result.enPT) { if (result.enPT.length > 1) { embed.addFields({ name: "Note for Pirate", value: result.enPT, inline: true }) } }
-    if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: "Note for Polish", value: result.pl, inline: true }) } }
-    if (result.ptPT) { if (result.ptPT.length > 1) { embed.addFields({ name: "Note for Portuguese", value: result.ptPT, inline: true }) } }
-    if (result.ptBR) { if (result.ptBR.length > 1) { embed.addFields({ name: "Note for Brazilian", value: result.ptBR, inline: true }) } }
-    if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: "Note for Russian", value: result.ru, inline: true }) } }
-    if (result.esES) { if (result.esES.length > 1) { embed.addFields({ name: "Note for Spanish", value: result.esES, inline: true }) } }
-    if (result.svSE) { if (result.svSE.length > 1) { embed.addFields({ name: "Note for Swedish", value: result.svSE, inline: true }) } }
-    if (result.th) { if (result.th.length > 1) { embed.addFields({ name: "Note for Thai", value: result.th, inline: true }) } }
-    if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: "Note for Turkish", value: result.tr, inline: true }) } }
-    if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: "Note for Ukrainian", value: result.uk, inline: true }) } }
-    if (result.screenshot) {
-        var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-        if (regexp.test(result.screenshot)) {
-            embed.setImage(result.screenshot)
-        }
-        embed.addFields({ name: "Screenshot", value: result.screenshot })
-    }
     msg.edit(embed)
+    msg.react(yesEmoji).then(() => { msg.react(noEmoji) })
+
+    const filter = (reaction, reacter) => {
+        return (reaction.emoji === yesEmoji || reaction.emoji === noEmoji) && reacter.id === message.author.id;
+    };
+
+    const collector = msg.createReactionCollector(filter, { time: 10000 });
+
+    collector.on('collect', (reaction, reacter) => {
+        if (reaction.emoji.name === "vote_no") {
+            const embed = new Discord.MessageEmbed()
+                .setColor(errorColor)
+                .setTitle("Edit context for " + args[1])
+                .setDescription("You cancelled this prompt.")
+                .setFooter("Executed by " + message.author.tag);
+            msg.edit(embed)
+        }
+        if (reaction.emoji.name === "vote_yes") {
+            const save = await correctRow.save()
+            const result = rows.find(r => r.id === args[1])
+
+            if (!result) {
+                const embed = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setTitle("Edit context for " + args[1])
+                    .setDescription("Edited this context entry, but the resulting context entry hasn't been found. If you edited the string ID, you need to run `+context get <new string ID>` to see the result.")
+                    .setFooter("Executed by " + message.author.tag);
+                msg.edit(embed)
+                return;
+            }
+
+            const embed = new Discord.MessageEmbed()
+                .setColor(successColor)
+                .setTitle("Edit context for " + args[1])
+                .setDescription("Edited this context entry! The new data is shown below.\n\n**Context**\n" + result.context)
+                .setFooter("Executed by " + message.author.tag);
+            if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: "Note for Bulgarian", value: result.bg, inline: true }) } }
+            if (result.zhCN) { if (result.zhCN.length > 1) { embed.addFields({ name: "Note for Chinese (Simplified)", value: result.zhCN, inline: true }) } }
+            if (result.zhTW) { if (result.zhTW.length > 1) { embed.addFields({ name: "Note for Chinese (Traditional)", value: result.zhTW, inline: true }) } }
+            if (result.cs) { if (result.cs.length > 1) { embed.addFields({ name: "Note for Czech", value: result.cs, inline: true }) } }
+            if (result.da) { if (result.da.length > 1) { embed.addFields({ name: "Note for Danish", value: result.da, inline: true }) } }
+            if (result.nl) { if (result.nl.length > 1) { embed.addFields({ name: "Note for Dutch", value: result.nl, inline: true }) } }
+            if (result.fi) { if (result.fi.length > 1) { embed.addFields({ name: "Note for Finnish", value: result.fi, inline: true }) } }
+            if (result.fr) { if (result.fr.length > 1) { embed.addFields({ name: "Note for French", value: result.fr, inline: true }) } }
+            if (result.de) { if (result.de.length > 1) { embed.addFields({ name: "Note for German", value: result.de, inline: true }) } }
+            if (result.el) { if (result.el.length > 1) { embed.addFields({ name: "Note for Greek", value: result.el, inline: true }) } }
+            if (result.it) { if (result.it.length > 1) { embed.addFields({ name: "Note for Italian", value: result.it, inline: true }) } }
+            if (result.ja) { if (result.ja.length > 1) { embed.addFields({ name: "Note for Japanese", value: result.ja, inline: true }) } }
+            if (result.ko) { if (result.ko.length > 1) { embed.addFields({ name: "Note for Korean", value: result.ko, inline: true }) } }
+            if (result.no) { if (result.no.length > 1) { embed.addFields({ name: "Note for Norwegian", value: result.no, inline: true }) } }
+            if (result.enPT) { if (result.enPT.length > 1) { embed.addFields({ name: "Note for Pirate", value: result.enPT, inline: true }) } }
+            if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: "Note for Polish", value: result.pl, inline: true }) } }
+            if (result.ptPT) { if (result.ptPT.length > 1) { embed.addFields({ name: "Note for Portuguese", value: result.ptPT, inline: true }) } }
+            if (result.ptBR) { if (result.ptBR.length > 1) { embed.addFields({ name: "Note for Brazilian", value: result.ptBR, inline: true }) } }
+            if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: "Note for Russian", value: result.ru, inline: true }) } }
+            if (result.esES) { if (result.esES.length > 1) { embed.addFields({ name: "Note for Spanish", value: result.esES, inline: true }) } }
+            if (result.svSE) { if (result.svSE.length > 1) { embed.addFields({ name: "Note for Swedish", value: result.svSE, inline: true }) } }
+            if (result.th) { if (result.th.length > 1) { embed.addFields({ name: "Note for Thai", value: result.th, inline: true }) } }
+            if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: "Note for Turkish", value: result.tr, inline: true }) } }
+            if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: "Note for Ukrainian", value: result.uk, inline: true }) } }
+            if (result.screenshot) {
+                var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+                if (regexp.test(result.screenshot)) {
+                    embed.setImage(result.screenshot)
+                }
+                embed.addFields({ name: "Screenshot", value: result.screenshot })
+            }
+            msg.edit(embed)
+        }
+    })
 }
 
 async function showInfo(message, args, msg) {
