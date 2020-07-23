@@ -1,4 +1,4 @@
-/*const fs = require("fs");
+const fs = require("fs");
 const Discord = require("discord.js");
 const { prefix, token, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json");
 
@@ -208,4 +208,4 @@ client.on('messageReactionRemove', async (reaction, user) => {
   }
 });
 
-client.login(token);*/
+client.login(token);
