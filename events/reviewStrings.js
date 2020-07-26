@@ -2,7 +2,7 @@ const { workingColor, errorColor, successColor, neutralColor } = require("../con
 const Discord = require("discord.js");
 
 module.exports = {
-    execute(reaction, user) {
+    execute(reaction) {
         setTimeout(() => {
             if (reaction.message.reactions.cache.get(reaction).count > 0) { reaction.message.delete() }
         }, 10000)

@@ -182,7 +182,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
       })
   }
   if (reaction.message.channel.name.includes("review-strings")) {
+    console.log("Reaction added in review-strings channel")
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅") {
+      console.log("Is check reaction")
       reviewStrings.execute(reaction, user)
     }
   }
