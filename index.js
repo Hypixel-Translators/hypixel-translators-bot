@@ -15,6 +15,7 @@ for (const file of commandFiles) {
 }
 
 const join = require('./events/join.js')
+const reviewStrings = require('./events/reviewStrings.js')
 
 const cooldowns = new Discord.Collection();
 
@@ -179,6 +180,11 @@ client.on('messageReactionAdd', async (reaction, user) => {
             }, 5000)
           })
       })
+  }
+  if (reaction.message.channel.name.includes("review-strings")) {
+    if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅") {
+      reviewStrings.execute(reaction, user)
+    }
   }
 });
 
