@@ -159,11 +159,9 @@ client.on('guildMemberAdd', member => {
 
 client.on('messageReactionAdd', async (reaction, user) => {
   const channelName = reaction.message.channel.name
-  console.log(channelName)
   if (channelName.includes("review-strings")) {
-    console.log("Reaction added in review-strings channel")
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍") {
-      console.log("Is reaction emoji " + reaction.emoji.name)
+      console.log("Clear message (saw reaction " + reaction.emoji.name + ")")
       reviewStrings.execute(reaction, user)
     }
   }
