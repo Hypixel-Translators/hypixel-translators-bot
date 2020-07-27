@@ -159,6 +159,14 @@ client.on('guildMemberAdd', member => {
 
 client.on('messageReactionAdd', async (reaction, user) => {
   const channelName = reaction.message.channel.name
+  console.log(channelName)
+  if (channelName.includes("review-strings")) {
+    console.log("Reaction added in review-strings channel")
+    if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍") {
+      console.log("Is reaction emoji " + reaction.emoji.name)
+      reviewStrings.execute(reaction, user)
+    }
+  }
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
     console.log("The correct reaction for Bot Updates has been added!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
@@ -181,13 +189,6 @@ client.on('messageReactionAdd', async (reaction, user) => {
             }, 5000)
           })
       })
-  }
-  if (channelName.includes("review-strings")) {
-    console.log("Reaction added in review-strings channel")
-    if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅") {
-      console.log("Is check reaction")
-      reviewStrings.execute(reaction, user)
-    }
   }
 });
 
