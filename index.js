@@ -23,6 +23,9 @@ client.once("ready", () => {
   console.log("Ready!");
 
   client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309");
+  client.channels.cache.get("732326676192690236").messages.fetch({ limit: 100 })
+  client.channels.cache.get("734081393499308053").messages.fetch({ limit: 100 })
+  client.channels.cache.get("732326761882321046").messages.fetch({ limit: 100 })
 
   client.user.setStatus("online").catch(console.error);
   setInterval(() => {
