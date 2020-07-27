@@ -1,8 +1,8 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
 
-module.exports = {/*
-    execute(member) {
+module.exports = {
+    execute(member) {/*
         const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle("Welcome!")
@@ -57,6 +57,6 @@ module.exports = {/*
                     const embed = new Discord.MessageEmbed(receivedEmbed).setFooter('The timer ended, reacting won\'t trigger anything anymore.');
                     msg.edit(embed)
                 })
-            })
-    }*/
+            })*/
+    }
 }
