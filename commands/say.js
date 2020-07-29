@@ -31,7 +31,7 @@ module.exports = {
     message.channel.send(embed)
       .then(msg => {
         const sendTo = msg.client.channels.cache.get(rawSendTo)
-        sendTo.send("> " + toSend)
+        sendTo.send("" + toSend)
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
           .setTitle("Say")
