@@ -43,8 +43,9 @@ module.exports = {
                     var toSend = args.join(" ")
                     addToSpreadsheet(message, toSend, msg)
                 }
+            } else {
+                accessSpreadsheet(message, args, msg)
             }
-            accessSpreadsheet(message, args, msg)
         })
     }
 };
