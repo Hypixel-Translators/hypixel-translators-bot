@@ -37,7 +37,7 @@ module.exports = {
             args.forEach(async (arg) => {
                 const option = arg.split("-")
                 const emoji = option[0].replace(/\s+/g, '')
-                msg.react(emoji).catch(err => {
+                await msg.react(emoji).catch(err => {
                     const embedTwo = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setTitle("Poll")
