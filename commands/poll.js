@@ -46,7 +46,7 @@ module.exports = {
                     msg.edit(embedTwo)
                 })
                 emojis.push(emoji)
-                if (itemsProcessed === arg.length) {
+                if (itemsProcessed === args.length) {
                     addToSpreadsheet(msg, emojis)
                         .then(() => {
                             embed
