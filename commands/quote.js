@@ -5,8 +5,8 @@ const creds = require('../service-account.json')
 
 module.exports = {
     name: "quote",
-    description: "Get a funny/weird/wise quote from the server.",
-    usage: "quote [index]",
+    description: "Gets (or adds) a funny/weird/wise quote from the server.",
+    usage: "quote [index|'add'] [quote]/[user]",
     cooldown: 10,
     allowDM: true,
     channelBlackList: "621298919535804426",
@@ -17,6 +17,33 @@ module.exports = {
             .setDescription("One second...")
             .setFooter("Asked for by " + message.author.tag);
         message.channel.send(embed).then(msg => {
+            if (args[0] === "add") {
+                if (message.author.id == "722738307477536778") { allowed = true }
+                if (message.channel.type !== "dm") { if (message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("549885657749913621") || message.member.roles.cache.has("241926666400563203")) { allowed = true } }
+                if (!allowed) {
+                    args.splice(0, 0)
+                    var toSend = args.join(" ")
+                    const sendTo = msg.client.channels.cache.get("730042612647723058")
+                    const report = new Discord.MessageEmbed()
+                        .setColor(neutralColor)
+                        .setTitle("Quote request")
+                        .setDescription("A quote request has been sent!")
+                        .addFields({ name: "Quote", value: toSend }, { name: "Add it (admin and dev)", value: "\`+quote add " + toSend + "\`" })
+                        .setFooter("Suggested by " + message.author.tag);
+                    sendTo.send(report)
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(successColor)
+                        .setTitle("Add quote")
+                        .setDescription("Your quote has been sent!")
+                        .addFields({ name: "Quote", value: toSend })
+                        .setFooter("Executed by " + message.author.tag);
+                    msg.edit(embed)
+                } else {
+                    args.splice(0, 0)
+                    var toSend = args.join(" ")
+                    addToSpreadsheet(message, toSend, msg)
+                }
+            }
             accessSpreadsheet(message, args, msg)
         })
     }
@@ -54,5 +81,30 @@ async function accessSpreadsheet(message, args, msg) {
         .setTitle(correctRow.quote)
         .setDescription("_      - " + correctRow.user + "_")
         .setFooter("Asked for by " + message.author.tag);
+    msg.edit(embed)
+}
+
+async function addToSpreadsheet(message, toSend, msg) {
+    const doc = new GoogleSpreadsheet('16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8')
+    await doc.useServiceAccountAuth(creds)
+
+    await doc.loadInfo()
+    console.log(doc.title)
+
+    const sheet = doc.sheetsByIndex[0]
+    console.log(sheet.title)
+    const newLength = sheet.length + 1
+
+    const args = toSend.split("/")
+    const quote = args[0]
+    const user = args[1]
+    const result = await sheet.addRow({ quote, user })
+
+    const embed = new Discord.MessageEmbed()
+        .setColor(successColor)
+        .setTitle("Add quote")
+        .setDescription("The quote has been added!")
+        .addFields({ name: "Quote", value: result.quote }, { name: "User", value: result.user }, { name: "Index", value: newLength })
+        .setFooter("Added by " + message.author.tag);
     msg.edit(embed)
 }
