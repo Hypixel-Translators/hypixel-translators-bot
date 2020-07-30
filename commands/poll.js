@@ -27,7 +27,7 @@ module.exports = {
             const option = arg.split("-")
             const emoji = option[0]
             const text = option[1]
-            embed.addField((emoji + " — " + text))
+            embed.addField((emoji + " — " + text), "\u200b")
         })
 
         message.channel.send(embed).then(msg => {
