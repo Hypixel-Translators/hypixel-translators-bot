@@ -93,7 +93,9 @@ async function addToSpreadsheet(message, toSend, msg) {
 
     const sheet = doc.sheetsByIndex[0]
     console.log(sheet.title)
-    const newLength = Number(sheet.length) + 1
+
+    const rows = await sheet.getRows()
+    const newLength = Number(rows.length) + 1
 
     const args = toSend.split("/")
     const quote = args[0]
@@ -105,6 +107,7 @@ async function addToSpreadsheet(message, toSend, msg) {
             .setDescription("You have to specify a quote and a user, separated by a slash (`/`)!")
             .setFooter("Executed by " + message.author.tag);
         msg.edit(embed)
+        return;
     }
 
     const result = await sheet.addRow({ quote, user })
