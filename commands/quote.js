@@ -15,13 +15,13 @@ module.exports = {
             .setColor(workingColor)
             .setTitle("Quote")
             .setDescription("One second...")
-            .setFooter("Asked for by " + message.author.tag);
+            .setFooter("Executed by " + message.author.tag);
         message.channel.send(embed).then(msg => {
             if (args[0] === "add") {
                 if (message.author.id == "722738307477536778") { allowed = true }
                 if (message.channel.type !== "dm") { if (message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("549885657749913621") || message.member.roles.cache.has("241926666400563203")) { allowed = true } }
                 if (!allowed) {
-                    args.splice(0, 0)
+                    args.splice(0, 1)
                     var toSend = args.join(" ")
                     const sendTo = msg.client.channels.cache.get("730042612647723058")
                     const report = new Discord.MessageEmbed()
@@ -39,7 +39,7 @@ module.exports = {
                         .setFooter("Executed by " + message.author.tag);
                     msg.edit(embed)
                 } else {
-                    args.splice(0, 0)
+                    args.splice(0, 1)
                     var toSend = args.join(" ")
                     addToSpreadsheet(message, toSend, msg)
                 }
@@ -93,11 +93,20 @@ async function addToSpreadsheet(message, toSend, msg) {
 
     const sheet = doc.sheetsByIndex[0]
     console.log(sheet.title)
-    const newLength = sheet.length + 1
+    const newLength = Number(sheet.length) + 1
 
     const args = toSend.split("/")
     const quote = args[0]
     const user = args[1]
+    if (!user) {
+        const embed = new Discord.MessageEmbed()
+            .setColor(errorColor)
+            .setTitle("Add quote")
+            .setDescription("You have to specify a quote and a user, separated by a slash (`/`)!")
+            .setFooter("Executed by " + message.author.tag);
+        msg.edit(embed)
+    }
+
     const result = await sheet.addRow({ quote, user })
 
     const embed = new Discord.MessageEmbed()
