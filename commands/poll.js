@@ -70,8 +70,6 @@ async function addToSpreadsheet(msg, emojis) {
     const sheet = doc.sheetsByIndex[0]
     console.log(sheet.title)
 
-    const rows = await sheet.getRows()
-
     var toAdd = { messageID: msg.id, emojis: emojis }
     const result = await sheet.addRow(toAdd)
     console.log(result)
