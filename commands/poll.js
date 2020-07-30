@@ -45,19 +45,20 @@ module.exports = {
                     msg.edit(embedTwo)
                 })
                 emojis.push(emoji)
+            }).then(() => {
+                addToSpreadsheet(msg, emojis).then(() => {
+                    embed
+                        .setColor(neutralColor)
+                        .setDescription("To vote, react to this message.")
+                    msg.edit(embed)
+                })
             })
-
-            addToSpreadsheet(msg, emojis)
-            embed
-                .setColor(neutralColor)
-                .setDescription("To vote, react to this message.")
-            msg.edit(embed)
         })
     }
 }
 
 async function addToSpreadsheet(msg, emojis) {
-    const doc = new GoogleSpreadsheet('16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8')
+    const doc = new GoogleSpreadsheet('1MYEHIdzLVXVJyzDaNIknYlmSKjg7lxO15prLfAod3kI')
     await doc.useServiceAccountAuth(creds)
 
     await doc.loadInfo()
@@ -70,4 +71,5 @@ async function addToSpreadsheet(msg, emojis) {
 
     var toAdd = { messageID: msg.id, emojis: emojis }
     const result = await sheet.addRow(toAdd)
+    console.log(result)
 }
