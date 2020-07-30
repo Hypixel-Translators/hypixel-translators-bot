@@ -32,6 +32,7 @@ module.exports = {
 
         message.channel.send(embed).then(msg => {
             var emojis = []
+            var itemsProcessed = 0
 
             args.forEach(arg => {
                 const option = arg.split("-")
@@ -45,7 +46,7 @@ module.exports = {
                     msg.edit(embedTwo)
                 })
                 emojis.push(emoji)
-                if (arg === arg[arg.length - 1]) {
+                if (itemsProcessed === arg.length) {
                     addToSpreadsheet(msg, emojis)
                         .then(() => {
                             embed
