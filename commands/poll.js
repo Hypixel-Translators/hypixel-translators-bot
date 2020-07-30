@@ -40,18 +40,20 @@ module.exports = {
                     const embedTwo = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setTitle("Poll")
-                        .setDescription("Couldn't react with  `" + emoji + "`. Make sure to not type the emoji name, but the actual emoji. The emoji needs to either be a default Discord emoji or it needs to be in this server.")
+                        .setDescription("Couldn't react with  `" + emoji + "`. Make sure to not type the emoji name, but the actual emoji. The emoji needs to either be a default Discord emoji or it needs to be in this server.\n\nError message:\n> " + err)
                         .setFooter("Executed by " + message.author.tag);
                     msg.edit(embedTwo)
                 })
                 emojis.push(emoji)
-            }).then(() => {
-                addToSpreadsheet(msg, emojis).then(() => {
-                    embed
-                        .setColor(neutralColor)
-                        .setDescription("To vote, react to this message.")
-                    msg.edit(embed)
-                })
+                if (arg === arg[arg.length - 1]) {
+                    addToSpreadsheet(msg, emojis)
+                        .then(() => {
+                            embed
+                                .setColor(neutralColor)
+                                .setDescription("To vote, react to this message.")
+                            msg.edit(embed)
+                        })
+                }
             })
         })
     }
