@@ -46,15 +46,18 @@ module.exports = {
                     msg.edit(embedTwo)
                 })
                 emojis.push(emoji)
-                if (itemsProcessed === args.length) {
-                    addToSpreadsheet(msg, emojis)
-                        .then(() => {
-                            embed
-                                .setColor(neutralColor)
-                                .setDescription("To vote, react to this message.")
-                            msg.edit(embed)
-                        })
-                }
+                itemsProcessed = itemsProcessed + 1
+                    .then(() => {
+                        if (itemsProcessed === args.length) {
+                            addToSpreadsheet(msg, emojis)
+                                .then(() => {
+                                    embed
+                                        .setColor(neutralColor)
+                                        .setDescription("To vote, react to this message.")
+                                    msg.edit(embed)
+                                })
+                        }
+                    })
             })
         })
     }
