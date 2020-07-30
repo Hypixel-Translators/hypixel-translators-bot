@@ -34,7 +34,7 @@ module.exports = {
             var emojis = []
             var itemsProcessed = 0
 
-            args.forEach(arg => {
+            args.forEach(async (arg) => {
                 const option = arg.split("-")
                 const emoji = option[0].replace(/\s+/g, '')
                 msg.react(emoji).catch(err => {
@@ -45,19 +45,15 @@ module.exports = {
                         .setFooter("Executed by " + message.author.tag);
                     msg.edit(embedTwo)
                 })
-                emojis.push(emoji)
-                itemsProcessed = itemsProcessed + 1
-                    .then(() => {
-                        if (itemsProcessed === args.length) {
-                            addToSpreadsheet(msg, emojis)
-                                .then(() => {
-                                    embed
-                                        .setColor(neutralColor)
-                                        .setDescription("To vote, react to this message.")
-                                    msg.edit(embed)
-                                })
-                        }
-                    })
+                await emojis.push(emoji)
+                await itemsProcessed++
+                if (itemsProcessed === args.length) {
+                    await addToSpreadsheet(msg, emojis)
+                    embed
+                        .setColor(neutralColor)
+                        .setDescription("To vote, react to this message.")
+                    msg.edit(embed)
+                }
             })
         })
     }
