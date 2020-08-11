@@ -49,11 +49,12 @@ client.once("ready", () => {
   }, 30000);
 });
 
+
 client.on("message", message => {
   if (message.author.bot) return;
-
-
-
+  if (message.member) {
+    if (message.member.roles.cache.has("569194996964786178")) { return; }
+  }
   if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
       if (message.author.bot) { return; }
