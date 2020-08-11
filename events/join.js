@@ -2,7 +2,16 @@ const { workingColor, errorColor, successColor, neutralColor } = require("../con
 const Discord = require("discord.js");
 
 module.exports = {
-    execute(member) {/*
+    execute(member) {
+        const server = msg.client.guilds.cache.get("549503328472530974")
+        const user = server.member(member)
+        const unverifiedRole = server.roles.cache.get("739111904672481280")
+
+        user.roles.add(unverifiedRole)
+            .catch(err => { console.log(err) })
+            .then(() => { })
+
+        /*
         const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle("Welcome!")
