@@ -60,7 +60,6 @@ client.on("message", message => {
     const user = server.member(message.author)
     if (!user.roles.cache.has("569194996964786178")) return;
   }
-  if (!user.roles.cache.has("569194996964786178")) return;
 
 
   if (!message.content.startsWith(prefix)) {
@@ -83,7 +82,7 @@ client.on("message", message => {
       return;
     } else { return; }
   }
-  
+
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const commandName = args.shift().toLowerCase();
