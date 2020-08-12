@@ -54,9 +54,11 @@ client.on("message", message => {
   if (message.author.bot) return;
   if (message.member) {
     const user = message.member
+    if (!user.roles.cache.has("569194996964786178")) return;
   } else {
     const server = msg.client.guilds.cache.get("549503328472530974")
     const user = server.member(message.author)
+    if (!user.roles.cache.has("569194996964786178")) return;
   }
   if (!user.roles.cache.has("569194996964786178")) return;
 
