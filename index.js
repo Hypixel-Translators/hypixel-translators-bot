@@ -52,6 +52,7 @@ client.once("ready", () => {
 
 client.on("message", message => {
   if (message.author.bot) return;
+
   if (message.member) {
     if (!message.member.roles.cache.has("569194996964786178")) return;
   } else {
@@ -60,6 +61,7 @@ client.on("message", message => {
     if (!user.roles.cache.has("569194996964786178")) return;
   }
   if (!user.roles.cache.has("569194996964786178")) return;
+
 
   if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
@@ -81,6 +83,7 @@ client.on("message", message => {
       return;
     } else { return; }
   }
+  
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const commandName = args.shift().toLowerCase();
