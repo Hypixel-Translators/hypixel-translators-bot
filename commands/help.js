@@ -28,13 +28,13 @@ module.exports = {
           { name: '\u200B', value: "This bot was made by <@722738307477536778> for the **Hypixel Translators Community Discord**.\nReport any bugs using \`+bug\` and suggest stuff with \`+feedback\`." }
         )*/
         .addFields(
-          { name: commands.get("help").usage, value: commands.get("prefix").description, inline: false },
-          { name: commands.get("prefix").usage, value: commands.get("prefix").description, inline: false },
-          { name: commands.get("quote").usage, value: commands.get("prefix").description, inline: false },
-          { name: commands.get("mention").usage, value: commands.get("prefix").description, inline: false },
-          { name: commands.get("context").usage, value: commands.get("prefix").description, inline: false },
-          { name: commands.get("bug").usage, value: commands.get("prefix").description, inline: false },
-          { name: commands.get("feedback").usage, value: commands.get("prefix").description, inline: false }
+          { name: "`" + commands.get("help").usage + "`", value: commands.get("help").description, inline: false },
+          { name: "`" + commands.get("prefix").usage + "`", value: commands.get("prefix").description, inline: false },
+          { name: "`" + commands.get("quote").usage + "`", value: commands.get("quote").description, inline: false },
+          { name: "`" + commands.get("mention").usage + "`", value: commands.get("mention").description, inline: false },
+          { name: "`" + commands.get("context").usage + "`", value: commands.get("context").description, inline: false },
+          { name: "`" + commands.get("bug").usage + "`", value: commands.get("bug").description, inline: false },
+          { name: "`" + commands.get("feedback").usage + "`", value: commands.get("feedback").description, inline: false }
         )
         .setFooter("Executed by " + message.author.tag);
 
