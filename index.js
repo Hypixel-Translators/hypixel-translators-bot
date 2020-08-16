@@ -171,7 +171,7 @@ client.on('guildMemberAdd', member => {
 client.on('messageReactionAdd', async (reaction, user) => {
   const channelName = reaction.message.channel.name
   if (channelName.includes("review-strings")) {
-    if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍") {
+    if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
       console.log("Clear message (saw reaction " + reaction.emoji.name + ")")
       reviewStrings.execute(reaction, user)
     }
