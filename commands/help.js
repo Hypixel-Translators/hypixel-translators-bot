@@ -17,7 +17,8 @@ module.exports = {
     if (!args.length) {
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setTitle("Help")
+        .setAuthor("Help", "https://imgur.com/a/f7OC7ws")
+        .setTitle("List of commands")
         .setDescription(
           "Execute `+help <name of command>` to learn more about a specific command.\n_ _"
         )
@@ -49,7 +50,8 @@ module.exports = {
       if (!command) {
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor)
-          .setTitle("Help")
+          .setAuthor("Help", "https://imgur.com/a/f7OC7ws")
+          .setTitle("Command information")
           .setDescription("That command doesn't exist!")
           .setFooter("Executed by " + message.author.tag);
         return message.channel.send(embed);
@@ -58,8 +60,8 @@ module.exports = {
       const cooldown = command.cooldown + " second(s)";
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setTitle("Command: " + command.name)
-        .setAuthor("Information")
+        .setAuthor("Help", "https://imgur.com/a/f7OC7ws")
+        .setTitle("Command information for " + command.name)
         .setDescription(command.description)
         .addFields(
           {
@@ -77,7 +79,6 @@ module.exports = {
       if (command.aliases) {
         embed.addFields({ name: "Aliases", value: command.aliases.join(", "), inline: true })
       }
-
       message.channel.send(embed);
     }
   }
