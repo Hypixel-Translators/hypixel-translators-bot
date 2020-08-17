@@ -17,7 +17,7 @@ module.exports = {
     if (!args.length) {
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setAuthor("Help", "https://i.imgur.com/c43Wmo1.png")
+        .setAuthor("Help")
         .setTitle("List of commands")
         .setDescription(
           "Execute `+help <name of command>` to learn more about a specific command.\n_ _"
@@ -50,7 +50,7 @@ module.exports = {
       if (!command) {
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor)
-          .setAuthor("Help", "https://i.imgur.com/c43Wmo1.png")
+          .setAuthor("Help")
           .setTitle("Command information")
           .setDescription("That command doesn't exist!")
           .setFooter("Executed by " + message.author.tag);
@@ -60,7 +60,7 @@ module.exports = {
       const cooldown = command.cooldown + " second(s)";
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setAuthor("Help", "https://i.imgur.com/c43Wmo1.png")
+        .setAuthor("Help")
         .setTitle("Command information for " + command.name)
         .setDescription(command.description)
         .addFields(
