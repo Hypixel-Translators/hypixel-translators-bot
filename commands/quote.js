@@ -6,7 +6,7 @@ const creds = require('../service-account.json')
 module.exports = {
     name: "quote",
     description: "Gets (or adds) a funny/weird/wise quote from the server.",
-    usage: "quote [index|'add'] [quote]/[user]",
+    usage: "quote [index] | quote add <quote>/<user mention>",
     cooldown: 10,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "619662798133133312", "624881429834366986", "730042612647723058"],
