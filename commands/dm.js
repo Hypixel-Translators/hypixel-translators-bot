@@ -49,7 +49,7 @@ module.exports = {
                     })
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
-                    .setTitle("📨 Messaging " + recipient.username)
+                    .setTitle("📨 Sent message to " + recipient.username)
                     .setDescription(toSend)
                     .setFooter("Executed by " + message.author.tag);
                 msg.edit(embed)

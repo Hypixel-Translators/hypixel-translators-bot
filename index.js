@@ -74,7 +74,7 @@ client.on("message", message => {
 
       const embed = new Discord.MessageEmbed()
         .setColor(successColor)
-        .setTitle("📨 Messaging staff")
+        .setTitle("📨 Sent message to staff")
         .setDescription(message)
         .setFooter("Any message you send here will get sent to staff.");
       message.channel.send(embed)
