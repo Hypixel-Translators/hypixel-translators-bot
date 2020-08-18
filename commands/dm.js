@@ -39,7 +39,7 @@ module.exports = {
                     .catch(err => {
                         const embed = new Discord.MessageEmbed()
                             .setColor(errorColor)
-                            .setTitle("📨 Messaging " + recipient.username)
+                            .setTitle("📨 Tried to message " + recipient.username)
                             .setDescription("Message couldn't be sent.\n\nReason:\n> " + err)
                             .addFields(
                                 { name: "Message", value: toSend }
