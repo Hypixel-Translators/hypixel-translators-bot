@@ -13,11 +13,13 @@ module.exports = {
     execute(message, args) {
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
-            .setTitle("Quote")
-            .setDescription("One second...")
+            .setAuthor("Quote")
+            .setTitle("One second...")
+            .setDescription("Loading module...")
             .setFooter("Executed by " + message.author.tag);
         message.channel.send(embed).then(msg => {
             if (args[0] === "add") {
+                allowed = false
                 if (message.author.id == "722738307477536778") { allowed = true }
                 if (message.channel.type !== "dm") { if (message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("549885657749913621") || message.member.roles.cache.has("241926666400563203")) { allowed = true } }
                 if (!allowed) {
@@ -26,15 +28,17 @@ module.exports = {
                     const sendTo = msg.client.channels.cache.get("730042612647723058")
                     const report = new Discord.MessageEmbed()
                         .setColor(neutralColor)
+                        .setAuthor("Quote")
                         .setTitle("Quote request")
-                        .setDescription("A quote request has been sent!")
-                        .addFields({ name: "Quote", value: toSend }, { name: "Add it (admin and dev)", value: "\`+quote add " + toSend + "\`" })
+                        .setDescription("A quote request has been submitted!")
+                        .addFields({ name: "Quote", value: toSend }, { name: "Add it", value: "`+quote add <quote>/<quoted user mention>`" })
                         .setFooter("Suggested by " + message.author.tag);
                     sendTo.send(report)
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
-                        .setTitle("Add quote")
-                        .setDescription("Your quote has been sent!")
+                        .setAuthor("Quote")
+                        .setTitle("Request quote")
+                        .setDescription("Your quote request has been submitted, thanks!")
                         .addFields({ name: "Quote", value: toSend })
                         .setFooter("Executed by " + message.author.tag);
                     msg.edit(embed)
@@ -71,17 +75,19 @@ async function accessSpreadsheet(message, args, msg) {
     if (!correctRow) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
-            .setTitle("Quote")
-            .setDescription("That's not a valid quote index number! Min 1, max " + rows.length)
-            .setFooter("Asked for by " + message.author.tag);
+            .setAuthor("Quote")
+            .setTitle("Invalid argument")
+            .setDescription(args[0] + " is not a valid quote index number! Please provide a number between 1 and " + rows.length + ".")
+            .setFooter("Executed by " + message.author.tag);
         msg.edit(embed)
         return;
     }
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
+        .setAuthor("Quote")
         .setTitle(correctRow.quote)
         .setDescription("_      - " + correctRow.user + "_")
-        .setFooter("Asked for by " + message.author.tag);
+        .setFooter("Sumonned by " + message.author.tag);
     msg.edit(embed)
 }
 
@@ -104,8 +110,9 @@ async function addToSpreadsheet(message, toSend, msg) {
     if (!user) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
-            .setTitle("Add quote")
-            .setDescription("You have to specify a quote and a user, separated by a slash (`/`)!")
+            .setAuthor("Quote")
+            .setTitle("Invalid argument")
+            .setDescription("You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.")
             .setFooter("Executed by " + message.author.tag);
         msg.edit(embed)
         return;
@@ -115,8 +122,9 @@ async function addToSpreadsheet(message, toSend, msg) {
 
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
-        .setTitle("Add quote")
-        .setDescription("The quote has been added!")
+        .setAuthor("Quote")
+        .setTitle("Success")
+        .setDescription("The following quote has been added:")
         .addFields({ name: "Quote", value: result.quote }, { name: "User", value: result.user }, { name: "Index", value: newLength })
         .setFooter("Added by " + message.author.tag);
     msg.edit(embed)
