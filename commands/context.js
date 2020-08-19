@@ -216,17 +216,11 @@ async function addToSpreadsheet(message, args, msg) {
                 const embed = new Discord.MessageEmbed()
                     .setColor(workingColor)
                     .setTitle("Add context for " + string)
-                    .setDescription("Added the context entry! Loading the result and cleaning up...")
+                    .setDescription("Added the context entry! Loading the result...")
                     .setFooter("Executed by " + message.author.tag);
                 msg.channel.send(embed)
                     .then(finalMsg => {
                         msg.delete()
-                        extraMsgs.forEach(function (item) {
-                            item.delete()
-                        })
-                        extraReceiveds.forEach(function (item) {
-                            item.delete()
-                        })
 
                         if (!result) {
                             const embed = new Discord.MessageEmbed()
@@ -275,6 +269,12 @@ async function addToSpreadsheet(message, args, msg) {
                             embed.addFields({ name: "Screenshot", value: result.screenshot })
                         }
                         finalMsg.edit(embed)
+                        extraMsgs.forEach(function (item) {
+                            item.delete()
+                        })
+                        extraReceiveds.forEach(function (item) {
+                            item.delete()
+                        })
                     })
             }
             if (reaction.emoji.name === "vote_no") {
