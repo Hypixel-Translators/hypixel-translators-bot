@@ -1,6 +1,7 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
 const fs = require('fs');
+const ffmpeg = require('ffmpeg');
 
 module.exports = {
   name: "vcjoin",
