@@ -10,6 +10,6 @@ module.exports = {
     var allowed = false
     if (message.channel.type !== "dm") { if (message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("549885657749913621") || message.member.roles.cache.has("241926666400563203")) { allowed = true } }
     if (!allowed) return;
-    message.client.leaveVoiceChannel()
+    voiceChannel.leave();
   }
 };

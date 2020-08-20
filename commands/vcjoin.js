@@ -10,6 +10,13 @@ module.exports = {
     var allowed = false
     if (message.channel.type !== "dm") { if (message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("549885657749913621") || message.member.roles.cache.has("241926666400563203")) { allowed = true } }
     if (!allowed) { console.log("vcjoin not allowed"); return; }
-    message.member.voice.channel.join();
+
+    if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
+      const dispatcher = connection.play('https://media.vocaroo.com/mp3/cTRMtGxagDC');
+      dispatcher.on('finish', () => {
+        connection.disconnect();
+      });
+    }
   }
 };
