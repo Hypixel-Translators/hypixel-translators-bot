@@ -9,6 +9,7 @@
     "@keyv/mongo": "^1.1.0",
     "discord.js": "^12.2.0",
     "express": "^4.17.1",
+    "ffmpeg": "0.0.4",
     "fs": "^0.0.2",
     "google-spreadsheet": "^3.0.11",
     "keyv": "^4.0.1",

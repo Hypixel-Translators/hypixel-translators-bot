@@ -19,7 +19,7 @@ module.exports = {
 async function joinVoice(message) {
   if (message.member.voice.channel) {
     const connection = await message.member.voice.channel.join();
-    const dispatcher = connection.play(fs.createReadStream('https://sndup.net/9j79/Greetings-It-is-me-I-can-speak-I-will-leave-now-Salutations.ogg'), { type: 'ogg/opus' });
+    const dispatcher = connection.play('https://public.db.files.1drv.com/y4mKATMU-U14U9r3ubsDxts9QOrdOG2IU1nLGH9TwVy-BeMyg6IMSh6Dy8PP4Sb0n3_jXcd4o_EAmMTm3cWPDJw7o28COqlAHPHuDSxFh2MP1DshUuDiKvkFKmfiKjvE1_G3AEoaHIBnZY0b_hsL2vj7rTAvp_Xnx0ctrbAIdfyIzCFkHU-TCpDRNhiWVQpqvIF8b9rnmQYQIYDZx22c3j0IqF-G3MzYDcincOGPoO1bTc?');
     dispatcher.on('finish', () => {
       connection.disconnect();
     });
