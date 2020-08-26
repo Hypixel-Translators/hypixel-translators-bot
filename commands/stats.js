@@ -28,11 +28,8 @@ async function get(message, args) {
         .then(res => res.json())
         .then((json) => {
             json.forEach(async (r, index, array) => {
-                embed.addFields({ name: r.name, value: (r.translated + "translated _(" + ((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")_, " + r.approved + " approved _(" + ((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")_") })
-                await itemsProcessed++
-                if (itemsProcessed === array.length) {
-                    message.channel.send(embed)
-                }
+                embed.addFields({ name: r.name, value: (r.translated + " translated _(" + ((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")_\n" + r.approved + " approved _(" + ((100 * r.approved) / r.phrases) + "% from " + r.phrases + ")_") })
+                message.channel.send(index + "of " + array.length + "/" + json.length)
             })
         })
 }
