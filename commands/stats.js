@@ -9,11 +9,11 @@ module.exports = {
     cooldown: 10,
     allowDM: true,
     execute(message, args) {
-        fetch(message, args)
+        get(message, args)
     }
 }
 
-async function fetch(message, args) {
+async function get(message, args) {
     var itemsProcessed = 0;
 
     const embed = new Discord.MessageEmbed()
