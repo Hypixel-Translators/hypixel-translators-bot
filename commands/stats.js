@@ -3,13 +3,11 @@ const Discord = require("discord.js");
 const fetch = require("fetch");
 
 module.exports = {
-    name: "bug",
-    description: "Report a bug present in the bot.",
-    usage: "bug <message>",
-    aliases: ["bugreport", "reportbug"],
-    cooldown: 480,
+    name: "stats",
+    description: "Get the current translation progress.",
+    usage: "stats",
+    cooldown: 10,
     allowDM: true,
-    channelBlackList: "621298919535804426",
     execute(message, args) {
         fetch(message, args)
     }
