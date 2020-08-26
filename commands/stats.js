@@ -7,8 +7,8 @@ module.exports = {
     description: "Get the current translation progress.",
     usage: "stats",
     cooldown: 10,
-    allowDM: true,
     execute(message, args) {
+        if (!message.member.hasPermission("KICK_MEMBERS")) return;
         get(message, args)
     }
 }
