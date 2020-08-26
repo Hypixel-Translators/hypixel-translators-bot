@@ -6,16 +6,12 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@keyv/mongo": "^1.1.0",
     "discord.js": "^12.2.0",
     "express": "^4.17.1",
+    "fetch": "^1.1.0",
     "ffmpeg": "0.0.4",
-    "ffmpeg-static": "^4.2.7",
     "fs": "^0.0.2",
     "google-spreadsheet": "^3.0.11",
-    "keyv": "^4.0.1",
-    "mongoose": "^5.9.23",
-    "redis": "^3.0.2",
     "request": "^2.81.0"
   },
   "engines": {
