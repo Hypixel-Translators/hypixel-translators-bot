@@ -13,7 +13,8 @@
     "fs": "^0.0.2",
     "google-spreadsheet": "^3.0.11",
     "jquery": "^3.5.1",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "whatwg-fetch": "^3.4.0"
   },
   "engines": {
     "node": "12.x"
