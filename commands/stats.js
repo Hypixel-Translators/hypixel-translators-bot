@@ -28,7 +28,7 @@ async function get(message, args) {
         .then(res => res.json())
         .then((json) => {
             json.forEach(async (r, index, array) => {
-                embed.addFields({ name: r.name, value: (r.translated + " translated _(" + ((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")_\n" + r.approved + " approved _(" + ((100 * r.approved) / r.phrases) + "% from " + r.phrases + ")_") })
+                embed.addFields({ name: r.name, value: ("**" + r.translated + " translated** (" + Math.round((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")\n**" + r.approved + " approved** (" + Math.round((100 * r.approved) / r.phrases) + "% from " + r.phrases + ")") })
                 if ((index + 1) == array.length) {
                     message.channel.send(embed)
                 }
