@@ -22,7 +22,7 @@ async function get(message, args) {
         .setFooter("Executed by " + message.author.tag);
 
     let url = "https://api.crowdin.com/api/project/hypixel/language-status?login=qkeleq10&account-key=8205d22af119c4233b1940265bdd77d9&json"
-    fetch.url
+    fetch(url)
         .then(res => res.json())
         .then((out) => {
             out.forEach(async (r, index, array) => {
