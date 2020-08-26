@@ -14,13 +14,22 @@ module.exports = {
 }
 
 async function fetch(message, args) {
+    var itemsProcessed = 0;
+
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle("Language status")
         .setFooter("Executed by " + message.author.tag);
+
     let url = "https://api.crowdin.com/api/project/hypixel/language-status?login=qkeleq10&account-key=8205d22af119c4233b1940265bdd77d9&json"
     result = await fetch.url
-    result.forEach(r => {
+
+    result.forEach((r, index, array) => {
         embed.addFields({ name: r.name, value: (r.translated + "translated _(" + ((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")_, " + r.approved + " approved _(" + ((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")_") })
+        await itemsProcessed++
+        if (itemsProcessed === array.length) {
+            message.channel.send(embed)
+        }
     });
+
 }
