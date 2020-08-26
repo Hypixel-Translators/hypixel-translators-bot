@@ -1,7 +1,6 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
-const fetch = require("fetch");
-const jQuery = require("jquery")
+const fetch = require("node-fetch");
 
 module.exports = {
     name: "stats",
@@ -22,13 +21,18 @@ async function get(message, args) {
         .setTitle("Language status")
         .setFooter("Executed by " + message.author.tag);
 
-    jQuery.getJSON("https://api.crowdin.com/api/project/hypixel/language-status?login=qkeleq10&account-key=8205d22af119c4233b1940265bdd77d9&json", function (data) {
-        data.forEach(async (r, index, array) => {
-            embed.addFields({ name: r.name, value: (r.translated + "translated _(" + ((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")_, " + r.approved + " approved _(" + ((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")_") })
-            await itemsProcessed++
-            if (itemsProcessed === array.length) {
-                message.channel.send(embed)
-            }
+    let url = "https://api.crowdin.com/api/project/hypixel/status?login=qkeleq10&account-key=8205d22af119c4233b1940265bdd77d9&json"
+    let settings = { method: "Get" }
+
+    fetch(url, settings)
+        .then(res => res.json())
+        .then((json) => {
+            json.forEach(async (r, index, array) => {
+                embed.addFields({ name: r.name, value: (r.translated + "translated _(" + ((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")_, " + r.approved + " approved _(" + ((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")_") })
+                await itemsProcessed++
+                if (itemsProcessed === array.length) {
+                    message.channel.send(embed)
+                }
+            })
         })
-    })
 }

@@ -13,6 +13,7 @@
     "fs": "^0.0.2",
     "google-spreadsheet": "^3.0.11",
     "jquery": "^3.5.1",
+    "node-fetch": "^2.6.0",
     "request": "^2.81.0",
     "whatwg-fetch": "^3.4.0",
     "xmlhttprequest": "^1.8.0"
