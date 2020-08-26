@@ -1,7 +1,7 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
 require("whatwg-fetch");
-const XMLHttpRequest = require("xmlhttprequest")
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
 
 module.exports = {
     name: "stats",
