@@ -43,6 +43,7 @@ async function get(message, args) {
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         message.client.channels.cache.get("730042612647723058").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel project.")
+                        stringCount.edit(json[0].phrases)
                     }
                 })
         })
