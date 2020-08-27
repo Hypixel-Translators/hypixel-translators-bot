@@ -6,7 +6,7 @@ module.exports = {
   allowDM: true,
   execute(message, args) {
     if (!message.member.hasPermission("ADMINISTRATOR")) return;
-    const sendTo = msg.client.channels.cache.get(args[0])
+    const sendTo = message.client.channels.cache.get(args[0])
     sendmsg(sendTo, args[1])
   }
 };
