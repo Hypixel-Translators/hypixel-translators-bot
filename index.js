@@ -56,7 +56,7 @@ client.once("ready", () => {
 
 
 client.on("message", message => {
-  if ((message.content === "+stats" || message.content === "+updatestats") && (message.member.hasPermission("ADMINISTRATOR")) || message.author.id === "722738307477536778") {
+  if (message.content === "+stats" && message.member.hasPermission("MANAGE_MESSAGES")) {
     stats.execute(client, true)
     return;
   }

@@ -8,7 +8,7 @@ module.exports = {
         var n = d.getMinutes();
         if (n == "0" || n == "20" || n == "40" || manual) {
             hypixel(client)
-            //quickplay(client)
+            quickplay(client)
         }
     }
 }
@@ -54,7 +54,7 @@ async function quickplay(client) {
         .then(res => res.json())
         .then((json) => {
             json.reverse()
-            client.channels.cache.get("748538826003054643").messages.fetch({ limit: 100 })
+            client.channels.cache.get("748626115530326016").messages.fetch({ limit: 100 })
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async (msg) => {
