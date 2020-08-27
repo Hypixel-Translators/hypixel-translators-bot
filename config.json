@@ -9,9 +9,10 @@
   "watchStatuses": ["your commands", "your messages", "meatdata", "their prayers", "nicknames and stuff", "RANDOM_USER's messages"],
   "randomUser": ["Stannya", "Rodry", "Kiril", "Sucamos", "Sol", "Proofreader", "Nad", "freitas", "TinyWiFi", "QkeleQ10", "Wens", "Linewater", "TheComputer8423", "HoggyTheWizard", "MightyFixie"],
   "langdb": [  
-    {"name": "THIS IS NOT IN USE!"},
     {"name": "Bulgarian", "emoji": "🇧🇬"},
     {"name": "Chinese", "emoji": "🇨🇳"},
+    {"name": "Chinese Traditional", "emoji": "🇨🇳"},
+    {"name": "Chinese Simplified", "emoji": "🇨🇳"},
     {"name": "Czech", "emoji": "🇨🇿"},
     {"name": "Danish", "emoji": "🇩🇰"},
     {"name": "Dutch", "emoji": "🇳🇱"},

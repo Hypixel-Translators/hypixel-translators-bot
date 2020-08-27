@@ -1,4 +1,4 @@
-const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { workingColor, errorColor, successColor, neutralColor, langdb } = require("../config.json");
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 
@@ -14,24 +14,29 @@ module.exports = {
 }
 
 async function get(message, args) {
-    var itemsProcessed = 0;
-
-    const embed = new Discord.MessageEmbed()
-        .setColor(successColor)
-        .setTitle("Language status")
-        .setFooter("Executed by " + message.author.tag);
-
     let url = "https://api.crowdin.com/api/project/hypixel/status?login=qkeleq10&account-key=8205d22af119c4233b1940265bdd77d9&json"
     let settings = { method: "Get" }
 
     fetch(url, settings)
         .then(res => res.json())
         .then((json) => {
-            json.forEach(async (r, index, array) => {
-                embed.addFields({ name: r.name, value: ("**" + r.translated + " translated** (" + Math.round((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")\n**" + r.approved + " approved** (" + Math.round((100 * r.approved) / r.phrases) + "% from " + r.phrases + ")"), inline: true })
-                if ((index + 1) == array.length) {
-                    message.channel.send(embed)
-                }
-            })
+
+            client.channels.cache.get("748538826003054643").messages.fetch({ limit: 100 })
+                .then(messages => {
+                    messages.forEach(async (msg, index, array) => {
+                        var r = json[index]
+
+                        const embed = new Discord.MessageEmbed()
+                            .setColor(successColor)
+                            .setTitle(langdb[r.name].emoji + " | " + r.name)
+                            .addFields({ name: (Math.round((100 * r.translated) / r.phrases) + " translated (" + r.translated + "/" + r.phrases + ")"), value: (Math.round((100 * r.approved) / r.phrases) + " approved (" + r.approved + "/" + r.phrases + ")") })
+                            //.addFields({ name: r.name, value: ("**" + r.translated + " translated** (" + Math.round((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")\n**" + r.approved + " approved** (" + Math.round((100 * r.approved) / r.phrases) + "% from " + r.phrases + ")"), inline: true })
+                            .setFooter("Translate on https://crowdin.com/project/hypixel/" + r.code);
+
+                        if ((index + 1) == array.length) {
+                            msg.edit(embed)
+                        }
+                    })
+                })
         })
 }
