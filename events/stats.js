@@ -8,7 +8,7 @@ module.exports = {
         var n = d.getMinutes();
         if (n == "0" || n == "20" || n == "40" || manual) {
             hypixel(client)
-            //quickplay(client)
+            quickplay(client)
         }
     }
 }
