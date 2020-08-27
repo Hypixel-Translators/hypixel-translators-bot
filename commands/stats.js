@@ -24,6 +24,7 @@ async function get(message, args) {
                 .then(messages => {
                     messages.forEach(async (msg, index, array) => {
                         var r = json[index]
+                        console.log(r)
                         const embed = new Discord.MessageEmbed()
                             .setColor(successColor)
                             .setTitle(langdb[r.name].emoji + " | " + r.name)
