@@ -32,6 +32,7 @@
     {"name": "Thai", "emoji": "🇹🇭", "colour": "#e02222"},
     {"name": "Turkish", "emoji": "🇹🇷", "colour": "#e02222"},
     {"name": "Ukrainian", "emoji": "🇺🇦", "colour": "#e02222"},
-    {"name": "Pirate English", "emoji": "☠", "colour": "#21de70"}
+    {"name": "Pirate English", "emoji": "☠️", "colour": "#21de70"},
+    {"name": "LOLCAT", "emoji": "😹"}
   ]
 }
