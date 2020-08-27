@@ -3,10 +3,10 @@ const Discord = require("discord.js");
 const fetch = require("node-fetch");
 
 module.exports = {
-    execute(client) {
+    execute(client, manual) {
         var d = new Date();
         var n = d.getMinutes();
-        if (n == "0" || n == "20" || n == "40") {
+        if (n == "0" || n == "20" || n == "40" || manual) {
             get(client)
         }
     }

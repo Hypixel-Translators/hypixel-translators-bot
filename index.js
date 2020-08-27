@@ -50,7 +50,7 @@ client.once("ready", () => {
       toPick = Math.random() >= 0.2;
     }
 
-    stats.execute(client)
+    stats.execute(client, false)
   }, 30000);
 });
 
@@ -87,6 +87,9 @@ client.on("message", message => {
     } else { return; }
   }
 
+  if (message.content === "-stats" || message.content === "-updatestats") {
+    stats.execute(client, true)
+  }
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const commandName = args.shift().toLowerCase();
