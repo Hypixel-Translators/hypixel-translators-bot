@@ -4,11 +4,6 @@ const fetch = require("node-fetch");
 
 module.exports = {
     execute(client, manual) {
-        var allowed = false
-        if (message.author.id == "722738307477536778") { allowed = true }
-        if (message.channel.type !== "dm") { if (message.member.hasPermission("ADMINISTRATOR")) { allowed = true } }
-        if (!manual) { allowed = true }
-        if (!allowed) return;
         var d = new Date();
         var n = d.getMinutes();
         if (n == "0" || n == "20" || n == "40" || manual) {
