@@ -8,7 +8,7 @@ module.exports = {
         var n = d.getMinutes();
         if (n == "0" || n == "20" || n == "40" || manual) {
             hypixel(client)
-            quickplay(client)
+            //quickplay(client)
         }
     }
 }
@@ -64,18 +64,10 @@ async function quickplay(client) {
                             .setColor(neutralColor)
                             .setTitle(langdbEntry.emoji + " | " + r.name)
                             .addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate on https://crowdin.com/project/hypixel/" + r.code + "") })
-                            //.addFields({ name: r.name, value: ("**" + r.translated + " translated** (" + Math.round((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")\n**" + r.approved + " approved** (" + Math.round((100 * r.approved) / r.phrases) + "% from " + r.phrases + ")"), inline: true })
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
                     })
-                })
-            client.channels.cache.get("730042612647723058").messages.fetch("748584877921796146")
-                .then(stringCount => {
-                    if (stringCount.content !== json[0].phrases) {
-                        client.channels.cache.get("549503985501995011").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel project.")
-                        stringCount.edit(json[0].phrases)
-                    }
                 })
         })
 }
