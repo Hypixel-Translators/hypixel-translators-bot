@@ -22,7 +22,8 @@ async function get(client) {
             json.reverse()
             client.channels.cache.get("748538826003054643").messages.fetch({ limit: 100 })
                 .then(messages => {
-                    messages.forEach(async (msg) => {
+                    fiMessages = messages.filter(msg => msg.author.bot)
+                    fiMessages.forEach(async (msg) => {
                         var r = json[index]
                         var langdbEntry = langdb.find(o => o.name === r.name)
                         const embed = new Discord.MessageEmbed()
