@@ -23,9 +23,9 @@ async function get(message, args) {
         .then((json) => {
             message.client.channels.cache.get("748538826003054643").messages.fetch({ limit: 100 })
                 .then(messages => {
-                    messages.forEach(async (msg) => {
-                        const revJson = json.reverse()
-                        var r = revJson[index]
+                    revMessages = messages.reverse()
+                    revMessages.forEach(async (msg) => {
+                        var r = json[index]
                         var langdbEntry = langdb.find(o => o.name === r.name)
                         const embed = new Discord.MessageEmbed()
                             .setColor(successColor)
