@@ -26,9 +26,9 @@ async function get(client) {
                         var r = json[index]
                         var langdbEntry = langdb.find(o => o.name === r.name)
                         const embed = new Discord.MessageEmbed()
-                            .setColor(successColor)
+                            .setColor(langdbEntry.colour)
                             .setTitle(langdbEntry.emoji + " | " + r.name)
-                            .addFields({ name: (Math.round((100 * r.translated) / r.phrases) + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (Math.round((100 * r.approved) / r.phrases) + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate on https://crowdin.com/project/hypixel/" + r.code + "") })
+                            .addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate on https://crowdin.com/project/hypixel/" + r.code + "") })
                             //.addFields({ name: r.name, value: ("**" + r.translated + " translated** (" + Math.round((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")\n**" + r.approved + " approved** (" + Math.round((100 * r.approved) / r.phrases) + "% from " + r.phrases + ")"), inline: true })
                             .setTimestamp()
                         msg.edit("", embed)
