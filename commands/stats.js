@@ -24,14 +24,16 @@ async function get(message, args) {
             message.client.channels.cache.get("748538826003054643").messages.fetch({ limit: 100 })
                 .then(messages => {
                     messages.forEach(async (msg) => {
-                        var r = json[index]
+                        const revJson = json.reverse()
+                        var r = revJson[index]
                         var langdbEntry = langdb.find(o => o.name === r.name)
                         const embed = new Discord.MessageEmbed()
                             .setColor(successColor)
                             .setTitle(langdbEntry.emoji + " | " + r.name)
                             .addFields({ name: (Math.round((100 * r.translated) / r.phrases) + " translated (" + r.translated + "/" + r.phrases + ")"), value: (Math.round((100 * r.approved) / r.phrases) + " approved (" + r.approved + "/" + r.phrases + ")") })
                             //.addFields({ name: r.name, value: ("**" + r.translated + " translated** (" + Math.round((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")\n**" + r.approved + " approved** (" + Math.round((100 * r.approved) / r.phrases) + "% from " + r.phrases + ")"), inline: true })
-                            .setFooter("Translate on https://crowdin.com/project/hypixel/" + r.code);
+                            .setTimestamp()
+                            .setFooter("Translate on crowdin.com/project/hypixel/" + r.code);
                         msg.edit(embed)
                         index++
                     })
