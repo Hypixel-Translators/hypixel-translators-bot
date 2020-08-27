@@ -28,7 +28,7 @@ async function get(client) {
                         const embed = new Discord.MessageEmbed()
                             .setColor(successColor)
                             .setTitle(langdbEntry.emoji + " | " + r.name)
-                            .addFields({ name: (Math.round((100 * r.translated) / r.phrases) + "% translated (" + r.translated + "/" + r.phrases + ")"), value: (Math.round((100 * r.approved) / r.phrases) + "% approved (" + r.approved + "/" + r.phrases + ")\n\n_Translate on https://crowdin.com/project/hypixel/" + r.code + "_") })
+                            .addFields({ name: (Math.round((100 * r.translated) / r.phrases) + "% translated (" + r.translated + "/" + r.phrases + ")"), value: (Math.round((100 * r.approved) / r.phrases) + "% approved (" + r.approved + "/" + r.phrases + ")\n\nTranslate on https://crowdin.com/project/hypixel/" + r.code + "") })
                             //.addFields({ name: r.name, value: ("**" + r.translated + " translated** (" + Math.round((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")\n**" + r.approved + " approved** (" + Math.round((100 * r.approved) / r.phrases) + "% from " + r.phrases + ")"), inline: true })
                             .setTimestamp()
                         msg.edit("", embed)
