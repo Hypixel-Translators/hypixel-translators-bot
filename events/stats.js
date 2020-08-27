@@ -61,9 +61,9 @@ async function quickplay(client) {
                         var r = json[index]
                         var langdbEntry = langdb.find(o => o.name === r.name)
 
-                        if (r.approved_progress > 90) {
+                        if (r.approved_progress > 89) {
                             adapColour = successColor
-                        } else if (r.approved_progress > 50) {
+                        } else if (r.approved_progress > 49) {
                             adapColour = workingColor
                         } else {
                             adapColour = errorColor
