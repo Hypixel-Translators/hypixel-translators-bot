@@ -16,6 +16,7 @@ for (const file of commandFiles) {
 
 const join = require('./events/join.js')
 const reviewStrings = require('./events/reviewStrings.js')
+const stats = require('./events/stats.js')
 
 const cooldowns = new Discord.Collection();
 
@@ -28,9 +29,11 @@ client.once("ready", () => {
   client.channels.cache.get("732326761882321046").messages.fetch({ limit: 100 })
 
   client.user.setStatus("online").catch(console.error);
+
   setInterval(() => {
     var pickedUser = randomUser[Math.floor(Math.random() * randomUser.length)]
     toPick = Math.random() >= 0.2;
+
     if (toPick) {
       var listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
       listenStatus = listenStatus.replace("RANDOM_USER", pickedUser)
@@ -46,6 +49,8 @@ client.once("ready", () => {
       });
       toPick = Math.random() >= 0.2;
     }
+
+    stats.execute(client)
   }, 30000);
 });
 
