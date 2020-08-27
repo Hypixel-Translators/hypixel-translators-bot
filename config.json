@@ -10,9 +10,8 @@
   "randomUser": ["Stannya", "Rodry", "Kiril", "Sucamos", "Sol", "Proofreader", "Nad", "freitas", "TinyWiFi", "QkeleQ10", "Wens", "Linewater", "TheComputer8423", "HoggyTheWizard", "MightyFixie"],
   "langdb": [  
     {"name": "Bulgarian", "emoji": "🇧🇬"},
-    {"name": "Chinese", "emoji": "🇨🇳"},
-    {"name": "Chinese Traditional", "emoji": "🇨🇳"},
     {"name": "Chinese Simplified", "emoji": "🇨🇳"},
+    {"name": "Chinese Traditional", "emoji": "🇨🇳"},
     {"name": "Czech", "emoji": "🇨🇿"},
     {"name": "Danish", "emoji": "🇩🇰"},
     {"name": "Dutch", "emoji": "🇳🇱"},
@@ -26,14 +25,14 @@
     {"name": "Norwegian", "emoji": "🇳🇴"},
     {"name": "Polish", "emoji": "🇵🇱"},
     {"name": "Portuguese", "emoji": "🇵🇹"},
-    {"name": "Brazilian", "emoji": "🇧🇷"},
+    {"name": "Portuguese, Brazilian", "emoji": "🇧🇷"},
     {"name": "Russian", "emoji": "🇷🇺"},
     {"name": "Spanish", "emoji": "🇪🇸"},
     {"name": "Swedish", "emoji": "🇸🇪"},
     {"name": "Thai", "emoji": "🇹🇭"},
     {"name": "Turkish", "emoji": "🇹🇷"},
     {"name": "Ukrainian", "emoji": "🇺🇦"},
-    {"name": "Pirate", "emoji": "☠"},
+    {"name": "Pirate English", "emoji": "☠"},
     {"name": "LOLCAT", "emoji": "🐱"}
   ]
 }
