@@ -56,6 +56,11 @@ client.once("ready", () => {
 
 
 client.on("message", message => {
+  if (message.content === "+stats" || message.content === "+updatestats") {
+    stats.execute(client, true)
+    return;
+  }
+
   if (message.author.bot) return;
 
   if (message.member) {
@@ -87,9 +92,6 @@ client.on("message", message => {
     } else { return; }
   }
 
-  if (message.content === "-stats" || message.content === "-updatestats") {
-    stats.execute(client, true)
-  }
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const commandName = args.shift().toLowerCase();
