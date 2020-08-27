@@ -20,19 +20,16 @@ async function get(message, args) {
     fetch(url, settings)
         .then(res => res.json())
         .then((json) => {
-
-            client.channels.cache.get("748538826003054643").messages.fetch({ limit: 100 })
+            message.client.channels.cache.get("748538826003054643").messages.fetch({ limit: 100 })
                 .then(messages => {
                     messages.forEach(async (msg, index, array) => {
                         var r = json[index]
-
                         const embed = new Discord.MessageEmbed()
                             .setColor(successColor)
                             .setTitle(langdb[r.name].emoji + " | " + r.name)
                             .addFields({ name: (Math.round((100 * r.translated) / r.phrases) + " translated (" + r.translated + "/" + r.phrases + ")"), value: (Math.round((100 * r.approved) / r.phrases) + " approved (" + r.approved + "/" + r.phrases + ")") })
                             //.addFields({ name: r.name, value: ("**" + r.translated + " translated** (" + Math.round((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")\n**" + r.approved + " approved** (" + Math.round((100 * r.approved) / r.phrases) + "% from " + r.phrases + ")"), inline: true })
                             .setFooter("Translate on https://crowdin.com/project/hypixel/" + r.code);
-
                         if ((index + 1) == array.length) {
                             msg.edit(embed)
                         }
