@@ -39,7 +39,7 @@ async function hypixel(client) {
             client.channels.cache.get("730042612647723058").messages.fetch("748584877921796146")
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
-                        client.channels.cache.get("549503985501995011").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel project.")
+                        client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel project.")
                         stringCount.edit(json[0].phrases)
                     }
                 })
@@ -60,14 +60,30 @@ async function quickplay(client) {
                     fiMessages.forEach(async (msg) => {
                         var r = json[index]
                         var langdbEntry = langdb.find(o => o.name === r.name)
+
+                        if (r.approved_progress > 90) {
+                            adapColour = successColor
+                        } else if (r.approved_progress > 50) {
+                            adapColour = workingColor
+                        } else {
+                            adapColour = errorColor
+                        }
+
                         const embed = new Discord.MessageEmbed()
-                            .setColor(neutralColor)
+                            .setColor(adapColour)
                             .setTitle(langdbEntry.emoji + " | " + r.name)
                             .addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate on https://crowdin.com/project/hypixel/" + r.code + "") })
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
                     })
+                })
+            client.channels.cache.get("730042612647723058").messages.fetch("748644636318236672")
+                .then(stringCount => {
+                    if (stringCount.content !== json[0].phrases) {
+                        client.channels.cache.get("646383292010070016").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Quickplay project.")
+                        stringCount.edit(json[0].phrases)
+                    }
                 })
         })
 }
