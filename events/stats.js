@@ -3,10 +3,6 @@ const Discord = require("discord.js");
 const fetch = require("node-fetch");
 
 module.exports = {
-    name: "stats",
-    description: "Get the current translation progress.",
-    usage: "stats",
-    cooldown: 10,
     execute(client) {
         var d = new Date();
         var n = d.getMinutes();

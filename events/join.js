@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     execute(member) {
-        const server = msg.client.guilds.cache.get("549503328472530974")
+        const server = member.client.guilds.cache.get("549503328472530974")
         const user = server.member(member)
         const unverifiedRole = server.roles.cache.get("739111904672481280")
 
