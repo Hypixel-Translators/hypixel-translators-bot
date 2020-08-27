@@ -34,9 +34,16 @@ async function get(message, args) {
                             //.addFields({ name: r.name, value: ("**" + r.translated + " translated** (" + Math.round((100 * r.translated) / r.phrases) + "% from " + r.phrases + ")\n**" + r.approved + " approved** (" + Math.round((100 * r.approved) / r.phrases) + "% from " + r.phrases + ")"), inline: true })
                             .setTimestamp()
                             .setFooter("Translate on crowdin.com/project/hypixel/" + r.code);
-                        msg.edit(embed)
+                        msg.edit("", embed)
                         index++
                     })
+                })
+
+            message.client.channels.cache.get("730042612647723058").messages.fetch("748584877921796146")
+                .then(stringCount => {
+                    if (stringCount.content !== json[0].phrases) {
+                        message.client.channels.cache.get("730042612647723058").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel project.")
+                    }
                 })
         })
 }
