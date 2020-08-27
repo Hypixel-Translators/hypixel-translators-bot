@@ -22,9 +22,10 @@ async function get(message, args) {
         .then((json) => {
             message.client.channels.cache.get("748538826003054643").messages.fetch({ limit: 100 })
                 .then(messages => {
-                    messages.forEach(async (msg, index, array) => {
+                    messages.forEach(async (msg, ind, array) => {
                         var r = json[index]
-                        console.log(r)
+                        var index = Number(ind)
+                        console.log(index)
                         const embed = new Discord.MessageEmbed()
                             .setColor(successColor)
                             .setTitle(langdb[r.name].emoji + " | " + r.name)
