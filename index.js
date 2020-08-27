@@ -56,7 +56,7 @@ client.once("ready", () => {
 
 
 client.on("message", message => {
-  if (message.content === "+stats" && message.member.hasPermission("MANAGE_MESSAGES")) {
+  if (message.content === "+stats" && message.member.hasPermission("VIEW_AUDIT_LOG")) {
     stats.execute(client, true)
     return;
   }
