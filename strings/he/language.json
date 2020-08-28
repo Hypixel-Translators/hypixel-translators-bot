@@ -1,0 +1,8 @@
+{
+    "moduleName": "שפה",
+    "changingTitle": "משנה את השפה שלך...",
+    "changedToTitle": "שיניתי את השפה לעברית!",
+    "errorTitle": "That language doesn't exist or isn't completely translated!",
+    "errorDescription": "השפה שלך לא השתנת ונשארה עברית.",
+    "executedBy": "בוצע על ידי המשתמש "
+}

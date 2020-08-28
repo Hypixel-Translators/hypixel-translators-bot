@@ -1,0 +1,8 @@
+{
+    "moduleName": "Taal",
+    "changingTitle": "Je taal wordt veranderd...",
+    "changedToTitle": "Je taal is veranderd naar het Nederlands!",
+    "errorTitle": "Die taal bestaat niet of hij is niet compleet vertaald!",
+    "errorDescription": "Je taal is niet veranderd en het is nog steeds Nederlands.",
+    "executedBy": "Uitgevoerd door "
+}

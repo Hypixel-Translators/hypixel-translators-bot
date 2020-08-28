@@ -1,0 +1,8 @@
+{
+    "moduleName": "Язык",
+    "changingTitle": "Изменяю Ваш язык...",
+    "changedToTitle": "Изменил Ваш язык на Русский!",
+    "errorTitle": "That language doesn't exist or isn't completely translated!",
+    "errorDescription": "Ваш язык не был изменён и остался Русским.",
+    "executedBy": "Было выполнено пользователем "
+}
