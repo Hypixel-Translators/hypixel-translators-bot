@@ -40,7 +40,17 @@ module.exports = {
                                 element.delete()
                             });
                         }
-                        if (!fs.existsSync("../strings/" + args[0] + "/help.json")) {
+                        if (fs.existsSync("../strings/" + args[0] + "/help.json")) {
+                            message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
+                            strings = require(("../strings/" + args[0] + "/language.json"))
+                            var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
+                            const embed = new Discord.MessageEmbed()
+                                .setColor(successColor)
+                                .setAuthor(strings.moduleName)
+                                .setTitle(strings.changedToTitle)
+                                .setFooter(strings.executedBy + message.author.tag);
+                            msg.edit(embed)
+                        } else {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
                                 .setAuthor(strings.moduleName)
@@ -50,15 +60,7 @@ module.exports = {
                             msg.edit(embed)
                             return
                         }
-                        message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
-                        strings = require(("../strings/" + args[0] + "/language.json"))
-                        var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
-                        const embed = new Discord.MessageEmbed()
-                            .setColor(successColor)
-                            .setAuthor(strings.moduleName)
-                            .setTitle(strings.changedToTitle)
-                            .setFooter(strings.executedBy + message.author.tag);
-                        msg.edit(embed)
+
                     })
             })
     }
