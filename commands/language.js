@@ -7,7 +7,7 @@ module.exports = {
     allowDM: true,
     cooldown: 10,
     execute(message, args) {
-        client.channels.cache.get("748968125663543407").messages.fetch({ limit: 500 }) //languages database
+        message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 500 }) //languages database
             .then(messages => {
                 fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
                 if (fiMessages) {
@@ -15,7 +15,7 @@ module.exports = {
                         element.delete()
                     });
                 }
-                client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
+                message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
             })
     }
 }
