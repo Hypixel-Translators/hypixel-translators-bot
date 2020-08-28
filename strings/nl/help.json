@@ -1,0 +1,11 @@
+{
+    "moduleName": "Help",
+    "commandsListTitle": "Commandolijst",
+    "commandsListTooltip": "Voer `+help <commandonaam>` uit om meer te weten te komen over een specifiek commando.\n_ _",
+    "commandInfo": "Commando-informatie",
+    "commandInfoFor": "Commando-informatie voor ",
+    "usageField": "Gebruik",
+    "cooldownField": "Afkoeltijd",
+    "aliasesField": "Aliassen",
+    "executedBy": "Uitgevoerd door "
+}
