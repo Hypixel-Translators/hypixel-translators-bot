@@ -32,12 +32,6 @@ module.exports = {
         .setAuthor(strings.moduleName)
         .setTitle(strings.commandsListTitle)
         .setDescription(strings.commandsListTooltip)
-        /*.addFields(
-          { name: "Community", value: "prefix, mention, quote", inline: true },
-          { name: "Translation", value: "context", inline: true },
-          { name: "Bot", value: "help, bug, feedback", inline: true },
-          { name: '\u200B', value: "This bot was made by <@722738307477536778> for the **Hypixel Translators Community Discord**.\nReport any bugs using \`+bug\` and suggest stuff with \`+feedback\`." }
-        )*/
         .addFields(
           { name: "`" + commands.get("help").usage + "`", value: commands.get("help").description, inline: false },
           { name: "`" + commands.get("prefix").usage + "`", value: commands.get("prefix").description, inline: false },
@@ -48,7 +42,6 @@ module.exports = {
           { name: "`" + commands.get("feedback").usage + "`", value: commands.get("feedback").description, inline: false }
         )
         .setFooter(strings.executedBy + message.author.tag);
-
       message.channel.send(embed)
 
 

@@ -1,0 +1,8 @@
+{
+    "moduleName": "Language",
+    "changingTitle": "Changing your language",
+    "changedToTitle": "Changed your language to English!",
+    "errorTitle": "That language doesn't exist!",
+    "errorDescription": "Your language hasn't been changed and is still English.",
+    "executedBy": "Executed by "
+}
