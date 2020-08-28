@@ -1,13 +1,13 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "seconds": " second(s)",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
-    "executedBy": "Executed by "
+    "moduleName": "Помощь",
+    "commandsListTitle": "Список команд",
+    "commandsListTooltip": "Выполнить `+help <название команди>` для того, чтоб узнать больше про команду.",
+    "commandInfo": "Информация команди",
+    "commandInfoFor": "Информация про команду ",
+    "commandNotExist": "Данная команда не существует!",
+    "seconds": " секунд(ы)",
+    "usageField": "Использование",
+    "cooldownField": "Перезарядка",
+    "aliasesField": "Синонимы",
+    "executedBy": "Было выполнено пользователем "
 }
