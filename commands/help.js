@@ -27,7 +27,7 @@ module.exports = {
     if (!args.length) {
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setAuthor(strings.moduleTitle)
+        .setAuthor(strings.moduleName)
         .setTitle(strings.commandsListTitle)
         .setDescription(strings.commandsListTooltip)
         /*.addFields(
