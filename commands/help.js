@@ -1,4 +1,5 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { help } = require("../strings/en.json")
 const { prefix } = require("../config.json");
 const Discord = require("discord.js");
 
@@ -17,7 +18,7 @@ module.exports = {
     if (!args.length) {
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setAuthor("Help")
+        .setAuthor(help.moduleTitle)
         .setTitle("List of commands")
         .setDescription(
           "Execute `+help <name of command>` to learn more about a specific command.\n_ _"

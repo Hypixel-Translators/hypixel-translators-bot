@@ -27,6 +27,7 @@ client.once("ready", () => {
   client.channels.cache.get("732326676192690236").messages.fetch({ limit: 100 })
   client.channels.cache.get("734081393499308053").messages.fetch({ limit: 100 })
   client.channels.cache.get("732326761882321046").messages.fetch({ limit: 100 })
+  client.channels.cache.get("748968125663543407").messages.fetch({ limit: 500 }) //languages database
 
   client.user.setStatus("online").catch(console.error);
 

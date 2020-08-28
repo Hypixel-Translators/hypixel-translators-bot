@@ -72,7 +72,7 @@ async function quickplay(client) {
                         const embed = new Discord.MessageEmbed()
                             .setColor(adapColour)
                             .setTitle(langdbEntry.emoji + " | " + r.name)
-                            .addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate on https://crowdin.com/project/hypixel/" + r.code + "") })
+                            .addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate on https://crowdin.com/project/quickplay/" + r.code + "") })
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
