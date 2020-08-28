@@ -40,14 +40,7 @@ module.exports = {
                                 element.delete()
                             });
                         }
-                        await fs.readdir("../strings/en", (err, files) => {
-                            const enFileCount = files.length
-                        });
-                        await fs.readdir("../strings/" + args[0], (err, files) => {
-                            if (files) { const enFileCount = files.length } else { const enFileCount = 0 }
-                        });
-
-                        if (enFileCount.length !== langFileCount) {
+                        if (!fs.existsSync("../strings/" + args[0] + "/help.json")) {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
                                 .setAuthor(strings.moduleName)
@@ -57,7 +50,6 @@ module.exports = {
                             msg.edit(embed)
                             return
                         }
-
                         message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
                         strings = require(("../strings/" + args[0] + "/language.json"))
                         var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
