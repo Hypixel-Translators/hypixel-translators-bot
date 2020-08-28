@@ -1,7 +1,7 @@
 {
     "moduleName": "Ayuda",
     "commandsListTitle": "Comandos",
-    "commandsListTooltip": "Ejecuta `+help <nombre del comando>` para información sobre un comando específico.\n_ _",
+    "commandsListTooltip": "Ejecuta `+help <nombre del comando>` para información sobre un comando específico.",
     "commandInfo": "Coamdnd ifno",
     "commandInfoFor": "Coamdnd ifno for ",
     "usageField": "Usagae",

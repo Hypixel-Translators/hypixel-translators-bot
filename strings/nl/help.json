@@ -1,7 +1,7 @@
 {
     "moduleName": "Help",
     "commandsListTitle": "Commandolijst",
-    "commandsListTooltip": "Voer `+help <commandonaam>` uit om meer te weten te komen over een specifiek commando.\n_ _",
+    "commandsListTooltip": "Voer `+help <commandonaam>` uit om meer te weten te komen over een specifiek commando.",
     "commandInfo": "Commando-informatie",
     "commandInfoFor": "Commando-informatie voor ",
     "usageField": "Gebruik",
