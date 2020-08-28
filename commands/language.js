@@ -40,11 +40,11 @@ module.exports = {
                                 element.delete()
                             });
                         }
-                        fs.readdir("../strings/en", (err, files) => {
+                        await fs.readdir("../strings/en", (err, files) => {
                             const enFileCount = files.length
                         });
-                        fs.readdir("../strings/" + args[0], (err, files) => {
-                            const enFileCount = files.length
+                        await fs.readdir("../strings/" + args[0], (err, files) => {
+                            if (files) { const enFileCount = files.length } else { const enFileCount = 0 }
                         });
 
                         if (enFileCount.length !== langFileCount) {
