@@ -1,11 +1,11 @@
 {
-    "moduleName": "Допомога",
-    "commandsListTitle": "Список команд",
-    "commandsListTooltip": "Виконати `+help <назва команди>` для того, щоб дізнатись більше про цю команду.\n_ _",
-    "commandInfo": "Інформація щодо команди",
-    "commandInfoFor": "Інформація щодо команди ",
-    "usageField": "Використання",
-    "cooldownField": "Перезарядка",
-    "aliasesField": "Синоніми",
-    "executedBy": "Було виконано пользователем "
+    "moduleName": "Hælp",
+    "commandsListTitle": "Comandlsst",
+    "commandsListTooltip": "Do `+help <camnand næm>` to leanr more abriut a specicaifc caomand.\n_ _",
+    "commandInfo": "Coamdnd ifno",
+    "commandInfoFor": "Coamdnd ifno for ",
+    "usageField": "Usagae",
+    "cooldownField": "Cowldown",
+    "aliasesField": "Aslsialsas",
+    "executedBy": "Escecuteda by "
 }

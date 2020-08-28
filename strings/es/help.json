@@ -1,11 +1,11 @@
 {
     "moduleName": "Ayuda",
-    "commandsListTitle": "Lista de los comandos",
-    "commandsListTooltip": "Ejecuta `+help <name of command>` para información sobre un comando específico.\n_ _",
-    "commandInfo": "Información del comando",
-    "commandInfoFor": "Información para el comando ",
-    "usageField": "Uso",
-    "cooldownField": "Enfriamiento",
-    "aliasesField": "Otros Nombres",
-    "executedBy": "Ejecutado por "
+    "commandsListTitle": "Comandos",
+    "commandsListTooltip": "Ejecuta `+help <nombre del comando>` para información sobre un comando específico.\n_ _",
+    "commandInfo": "Coamdnd ifno",
+    "commandInfoFor": "Coamdnd ifno for ",
+    "usageField": "Usagae",
+    "cooldownField": "Cowldown",
+    "aliasesField": "Aslsialsas",
+    "executedBy": "Escecuteda by "
 }

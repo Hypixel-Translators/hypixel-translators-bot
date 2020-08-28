@@ -1,11 +1,11 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "Commandolijst",
-    "commandsListTooltip": "Voer `+help <commandonaam>` uit om meer te weten te komen over een specifiek commando.\n_ _",
-    "commandInfo": "Commando-informatie",
-    "commandInfoFor": "Commando-informatie voor ",
-    "usageField": "Gebruik",
-    "cooldownField": "Afkoeltijd",
-    "aliasesField": "Aliassen",
-    "executedBy": "Uitgevoerd door "
+    "moduleName": "Hælp",
+    "commandsListTitle": "Comandlsst",
+    "commandsListTooltip": "Do `+help <camnand næm>` to leanr more abriut a specicaifc caomand.\n_ _",
+    "commandInfo": "Coamdnd ifno",
+    "commandInfoFor": "Coamdnd ifno for ",
+    "usageField": "Usagae",
+    "cooldownField": "Cowldown",
+    "aliasesField": "Aslsialsas",
+    "executedBy": "Escecuteda by "
 }
