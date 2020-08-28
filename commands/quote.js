@@ -86,7 +86,7 @@ async function accessSpreadsheet(message, args, msg) {
         .setColor(successColor)
         .setAuthor("Quote")
         .setTitle(correctRow.quote)
-        .setDescription("_      - " + correctRow.user + "_")
+        .setDescription("      - " + correctRow.user)
         .setFooter("Sumonned by " + message.author.tag);
     msg.edit(embed)
 }
