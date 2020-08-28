@@ -1,13 +1,13 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "seconds": " second(s)",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
-    "executedBy": "Executed by "
+    "moduleName": "עזרה",
+    "commandsListTitle": "רשימת פעולות",
+    "commandsListTooltip": "לבצע `help+ <שם של הפעולה>` כדאי ללמוד יותר לגבי הפעולה.",
+    "commandInfo": "מידע לגבי הפקודה",
+    "commandInfoFor": "מידע לגבי הפקודה ",
+    "commandNotExist": "הפקודה הזו לא קיימת!",
+    "seconds": " שניות(יה)",
+    "usageField": "שימוש",
+    "cooldownField": "טעינה מחדש",
+    "aliasesField": "מילים נרדפות",
+    "executedBy": "בוצע על ידי המשתמש "
 }
