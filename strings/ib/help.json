@@ -1,13 +1,13 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "seconds": " second(s)",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
-    "executedBy": "Executed by "
+    "moduleName": "Halp",
+    "commandsListTitle": "All acomands",
+    "commandsListTooltip": "Do `+help <acomand næm>` for lern more abt a spacfic acomand.",
+    "commandInfo": "Info abt acomand",
+    "commandInfoFor": "Info abt acomand ",
+    "commandNotExist": "That acomand existn't!",
+    "seconds": " sacond(z)",
+    "usageField": "Usache",
+    "cooldownField": "Time to get cold and not hot",
+    "aliasesField": "Other ways of doing dis",
+    "executedBy": "Done by le "
 }
