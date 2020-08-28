@@ -1,11 +1,11 @@
 {
     "moduleName": "Помощь",
     "commandsListTitle": "Список команд",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.\n_ _",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
-    "executedBy": "Executed by "
+    "commandsListTooltip": "Выполнить `+help <название команди>` для того, чтоб узнать больше про команду.\n_ _",
+    "commandInfo": "Информация команди",
+    "commandInfoFor": "Информация про команду ",
+    "usageField": "Использование",
+    "cooldownField": "Перезарядка",
+    "aliasesField": "Синонимы",
+    "executedBy": "Было выполнено пользователем "
 }
