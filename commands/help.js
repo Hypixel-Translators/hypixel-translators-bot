@@ -1,6 +1,6 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const { prefix } = require("../config.json");
-const strings = require("../strings/en/help.json")
+var strings = require("../strings/en/help.json")
 const Discord = require("discord.js");
 
 module.exports = {
@@ -19,15 +19,18 @@ module.exports = {
       .then(messages => {
         fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
         if (fiMessages) {
-          const langprefs = fiMessages[0].content.split(" ")
-          strings = require(("../strings/" + langprefs[1] + "/help.json"))
+          fiMessages.forEach(element => {
+            const langprefs = element.content.split(" ")
+            strings = require(("../strings/" + langprefs[1] + "/help.json"))
+          });
+
         }
       })
 
     if (!args.length) {
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setAuthor(strings.moduleTitle)
+        .setAuthor(strings.moduleName)
         .setTitle(strings.commandsListTitle)
         .setDescription(strings.commandsListTooltip)
         /*.addFields(
@@ -45,7 +48,7 @@ module.exports = {
           { name: "`" + commands.get("bug").usage + "`", value: commands.get("bug").description, inline: false },
           { name: "`" + commands.get("feedback").usage + "`", value: commands.get("feedback").description, inline: false }
         )
-        .setFooter("Executed by " + message.author.tag);
+        .setFooter(strings.executedBy + message.author.tag);
 
       message.channel.send(embed)
 
@@ -58,34 +61,34 @@ module.exports = {
       if (!command) {
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor)
-          .setAuthor("Help")
-          .setTitle("Command information")
+          .setAuthor(strings.moduleName)
+          .setTitle(strings.commandInfo)
           .setDescription("That command doesn't exist!")
-          .setFooter("Executed by " + message.author.tag);
+          .setFooter(strings.executedBy + message.author.tag);
         return message.channel.send(embed);
       }
 
       const cooldown = command.cooldown + " second(s)";
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setAuthor("Help")
-        .setTitle("Command information for " + command.name)
+        .setAuthor(strings.moduleName)
+        .setTitle(strings.commandInfoFor + command.name)
         .setDescription(command.description)
         .addFields(
           {
-            name: "Usage",
+            name: strings.usageField,
             value: "`" + prefix + command.usage + "`",
             inline: true
           },
           {
-            name: "Cooldown",
+            name: strings.cooldownField,
             value: cooldown,
             inline: true
           }
         )
-        .setFooter("Executed by " + message.author.tag);
+        .setFooter(strings.executedBy + message.author.tag);
       if (command.aliases) {
-        embed.addFields({ name: "Aliases", value: command.aliases.join(", "), inline: true })
+        embed.addFields({ name: strings.aliasesField, value: command.aliases.join(", "), inline: true })
       }
       message.channel.send(embed);
     }
