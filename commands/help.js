@@ -1,6 +1,6 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
-const strings = require("../strings/en/help.json")
 const { prefix } = require("../config.json");
+const strings = require("../strings/en/help.json")
 const Discord = require("discord.js");
 
 module.exports = {
@@ -15,14 +15,21 @@ module.exports = {
   execute(message, args) {
     const { commands } = message.client;
 
+    message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
+      .then(messages => {
+        fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
+        if (fiMessages) {
+          const langprefs = fiMessages[0].content.split(" ")
+          strings = require(("../strings/" + langprefs[1] + "/help.json"))
+        }
+      })
+
     if (!args.length) {
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setAuthor(help.moduleTitle)
-        .setTitle("List of commands")
-        .setDescription(
-          "Execute `+help <name of command>` to learn more about a specific command.\n_ _"
-        )
+        .setAuthor(strings.moduleTitle)
+        .setTitle(strings.commandsListTitle)
+        .setDescription(strings.commandsListTooltip)
         /*.addFields(
           { name: "Community", value: "prefix, mention, quote", inline: true },
           { name: "Translation", value: "context", inline: true },
