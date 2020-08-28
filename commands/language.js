@@ -4,22 +4,6 @@ var strings = require("../strings/en/language.json")
 const Discord = require("discord.js");
 const fs = require("fs")
 
-const getAllDirFiles = function(dirPath, arrayOfFiles) {
-    files = fs.readdirSync(dirPath)
-
-    arrayOfFiles = arrayOfFiles || []
-
-    files.forEach(function (file) {
-        if (fs.statSync(dirPath + "/" + file).isDirectory()) {
-            arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles)
-        } else {
-            arrayOfFiles.push(file)
-        }
-    })
-
-    return arrayOfFiles
-}
-
 module.exports = {
     name: "language",
     description: "Saves your language preference.",
@@ -56,8 +40,13 @@ module.exports = {
                                 element.delete()
                             });
                         }
-                        const enFileCount = getAllDirFiles("../strings/en")
-                        const langFileCount = getAllDirFiles("../strings/" + args[0])
+                        fs.readdir("../strings/en", (err, files) => {
+                            const enFileCount = files.length
+                        });
+                        fs.readdir("../strings/" + args[0], (err, files) => {
+                            const enFileCount = files.length
+                        });
+
                         if (enFileCount.length !== langFileCount) {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
