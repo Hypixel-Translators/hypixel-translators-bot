@@ -16,7 +16,7 @@ module.exports = {
     const { commands } = message.client;
 
     await message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
-      .then(messages => {
+      .then(async messages => {
         fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
         if (fiMessages) {
           await fiMessages.forEach(element => {
