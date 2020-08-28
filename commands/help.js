@@ -48,7 +48,7 @@ module.exports = {
           { name: "`" + commands.get("bug").usage + "`", value: commands.get("bug").description, inline: false },
           { name: "`" + commands.get("feedback").usage + "`", value: commands.get("feedback").description, inline: false }
         )
-        .setFooter(strings.executedBy);
+        .setFooter(strings.executedBy + message.author.tag);
 
       message.channel.send(embed)
 
@@ -64,7 +64,7 @@ module.exports = {
           .setAuthor(strings.moduleName)
           .setTitle(strings.commandInfo)
           .setDescription("That command doesn't exist!")
-          .setFooter(strings.executedBy);
+          .setFooter(strings.executedBy + message.author.tag);
         return message.channel.send(embed);
       }
 
@@ -72,7 +72,7 @@ module.exports = {
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
-        .setTitle(strings.commandInfoFor)
+        .setTitle(strings.commandInfoFor + command.name)
         .setDescription(command.description)
         .addFields(
           {
@@ -86,7 +86,7 @@ module.exports = {
             inline: true
           }
         )
-        .setFooter(strings.executedBy);
+        .setFooter(strings.executedBy + message.author.tag);
       if (command.aliases) {
         embed.addFields({ name: strings.aliasesField, value: command.aliases.join(", "), inline: true })
       }
