@@ -19,7 +19,9 @@ module.exports = {
       .then(messages => {
         fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
         if (fiMessages) {
-          const langprefs = fiMessages[0].content.split(" ")
+          const fiMessage = fiMessages[0]
+          console.log(fiMessage)
+          const langprefs = fiMessage.content.split(" ")
           strings = require(("../strings/" + langprefs[1] + "/help.json"))
         }
       })
