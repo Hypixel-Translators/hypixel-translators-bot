@@ -48,7 +48,7 @@ module.exports = {
           { name: "`" + commands.get("bug").usage + "`", value: commands.get("bug").description, inline: false },
           { name: "`" + commands.get("feedback").usage + "`", value: commands.get("feedback").description, inline: false }
         )
-        .setFooter("Executed by " + message.author.tag);
+        .setFooter(strings.executedBy);
 
       message.channel.send(embed)
 
@@ -61,34 +61,34 @@ module.exports = {
       if (!command) {
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor)
-          .setAuthor("Help")
-          .setTitle("Command information")
+          .setAuthor(strings.moduleName)
+          .setTitle(strings.commandInfo)
           .setDescription("That command doesn't exist!")
-          .setFooter("Executed by " + message.author.tag);
+          .setFooter(strings.executedBy);
         return message.channel.send(embed);
       }
 
       const cooldown = command.cooldown + " second(s)";
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setAuthor("Help")
-        .setTitle("Command information for " + command.name)
+        .setAuthor(strings.moduleName)
+        .setTitle(strings.commandInfoFor)
         .setDescription(command.description)
         .addFields(
           {
-            name: "Usage",
+            name: strings.usageField,
             value: "`" + prefix + command.usage + "`",
             inline: true
           },
           {
-            name: "Cooldown",
+            name: strings.cooldownField,
             value: cooldown,
             inline: true
           }
         )
-        .setFooter("Executed by " + message.author.tag);
+        .setFooter(strings.executedBy);
       if (command.aliases) {
-        embed.addFields({ name: "Aliases", value: command.aliases.join(", "), inline: true })
+        embed.addFields({ name: strings.aliasesField, value: command.aliases.join(", "), inline: true })
       }
       message.channel.send(embed);
     }
