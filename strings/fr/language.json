@@ -1,0 +1,8 @@
+{
+    "moduleName": "Langue",
+    "changingTitle": "Je change ta langue maintenant...",
+    "changedToTitle": "J'ai changé ta langue en Français!",
+    "errorTitle": "Cette langue n'existe pas ou elle n'est pas complètement traduite!",
+    "errorDescription": "Ta langue n'a pas changé et c'est toujours le Français.",
+    "executedBy": "Exécuté par "
+}
