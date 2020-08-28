@@ -4,6 +4,8 @@
     "commandsListTooltip": "Выполнить `+help <название команди>` для того, чтоб узнать больше про команду.",
     "commandInfo": "Информация команди",
     "commandInfoFor": "Информация про команду ",
+    "commandNotExist": "Данная команда не существует!",
+    "seconds": " секунд(ы)",
     "usageField": "Использование",
     "cooldownField": "Перезарядка",
     "aliasesField": "Синонимы",

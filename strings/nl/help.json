@@ -4,6 +4,8 @@
     "commandsListTooltip": "Voer `+help <commandonaam>` uit om meer te weten te komen over een specifiek commando.",
     "commandInfo": "Commando-informatie",
     "commandInfoFor": "Commando-informatie voor ",
+    "commandNotExist": "Dat commando bestaat niet!",
+    "seconds": " seconde(n)",
     "usageField": "Gebruik",
     "cooldownField": "Afkoeltijd",
     "aliasesField": "Aliassen",
