@@ -1,6 +1,6 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const { prefix } = require("../config.json");
-const strings = require("../strings/en/help.json")
+var strings = require("../strings/en/help.json")
 const Discord = require("discord.js");
 
 module.exports = {
