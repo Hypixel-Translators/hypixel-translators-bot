@@ -12,7 +12,7 @@ module.exports = {
     channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
     allowDM: true,
     cooldown: 10,
-    execute(message, args) {
+    async execute(message, args) {
         await message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
             .then(async messages => {
                 fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
