@@ -1,7 +1,7 @@
 {
-    "moduleName": "Hælp",
-    "commandsListTitle": "Comandlsst",
-    "commandsListTooltip": "Do `+help <camnand næm>` to leanr more abriut a specicaifc caomand.\n_ _",
+    "moduleName": "Ayuda",
+    "commandsListTitle": "Comandos",
+    "commandsListTooltip": "Ejecuta `+help <nombre del comando>` para información sobre un comando específico.\n_ _",
     "commandInfo": "Coamdnd ifno",
     "commandInfoFor": "Coamdnd ifno for ",
     "usageField": "Usagae",
