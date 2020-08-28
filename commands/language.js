@@ -40,30 +40,45 @@ module.exports = {
                                 element.delete()
                             });
                         }
-                        const path = ("../strings/" + args[0] + "/language.json")
-                        fs.access(path, fs.F_OK, (err) => {
-                            if (err) {
-                                const embed = new Discord.MessageEmbed()
-                                    .setColor(errorColor)
-                                    .setAuthor(strings.moduleName)
-                                    .setTitle(strings.errorTitle)
-                                    .setDescription(strings.errorDescription)
-                                    .setFooter(strings.executedBy + message.author.tag);
-                                msg.edit(embed)
-                                return
-                            }
-
-                            message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
-                            strings = require(("../strings/" + args[0] + "/language.json"))
-                            var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
+                        const enFileCount = getAllDirFiles("../strings/en")
+                        const langFileCount = getAllDirFiles("../strings/" + args[0])
+                        if (enFileCount.length !== langFileCount) {
                             const embed = new Discord.MessageEmbed()
-                                .setColor(successColor)
+                                .setColor(errorColor)
                                 .setAuthor(strings.moduleName)
-                                .setTitle(strings.changedToTitle)
+                                .setTitle(strings.errorTitle)
+                                .setDescription(strings.errorDescription)
                                 .setFooter(strings.executedBy + message.author.tag);
                             msg.edit(embed)
-                        })
+                            return
+                        }
+
+                        message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
+                        strings = require(("../strings/" + args[0] + "/language.json"))
+                        var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
+                        const embed = new Discord.MessageEmbed()
+                            .setColor(successColor)
+                            .setAuthor(strings.moduleName)
+                            .setTitle(strings.changedToTitle)
+                            .setFooter(strings.executedBy + message.author.tag);
+                        msg.edit(embed)
                     })
             })
     }
 }
+
+getAllDirFiles(dirPath, arrayOfFiles => {
+    files = fs.readdirSync(dirPath)
+
+    arrayOfFiles = arrayOfFiles || []
+
+    files.forEach(function (file) {
+        if (fs.statSync(dirPath + "/" + file).isDirectory()) {
+            arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles)
+        } else {
+            arrayOfFiles.push(file)
+        }
+    })
+
+    return arrayOfFiles
+})
