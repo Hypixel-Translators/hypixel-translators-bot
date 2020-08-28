@@ -1,5 +1,5 @@
 {
     "moduleName": "Help",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.\n_ _"
+    "commandsListTitle": "Commandolijst",
+    "commandsListTooltip": "Voer `+help <commandonaam>` uit om meer te leren over een specifiek commando.\n_ _"
 }
