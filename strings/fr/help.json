@@ -1,0 +1,13 @@
+{
+    "moduleName": "Aide",
+    "commandsListTitle": "Liste de les commandes",
+    "commandsListTooltip": "Executer `+help <nom de la commande>` pour connaître sur une commande.",
+    "commandInfo": "Information sur la commande",
+    "commandInfoFor": "Information de la commande ",
+    "commandNotExist": "Cette commande n’existe pas!",
+    "seconds": " second(s)",
+    "usageField": "Utilisation",
+    "cooldownField": "Temps de recharge",
+    "aliasesField": "Les Alias",
+    "executedBy": "Exécuté par "
+}
