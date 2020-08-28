@@ -1,5 +1,11 @@
 {
     "moduleName": "Help",
     "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.\n_ _"
+    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.\n_ _",
+    "commandInfo": "Command information",
+    "commandInfoFor": "Command information for ${command.name}",
+    "usageField": "Usage",
+    "cooldownField": "Cooldown",
+    "aliasesField": "Aliases",
+    "executedBy": "Executed by ${message.author.tag}"
 }
