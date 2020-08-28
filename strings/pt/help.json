@@ -1,5 +1,5 @@
 {
-    "moduleName": "Help",
+    "moduleName": "Ajuda",
     "commandsListTitle": "List of commands",
     "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
     "commandInfo": "Command information",
