@@ -19,10 +19,11 @@ module.exports = {
       .then(messages => {
         fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
         if (fiMessages) {
-          const fiMessage = fiMessages
-          console.log(fiMessage)
-          const langprefs = fiMessage.content.split(" ")
-          strings = require(("../strings/" + langprefs[1] + "/help.json"))
+          fiMessages.forEach(element => {
+            const langprefs = element.content.split(" ")
+            strings = require(("../strings/" + langprefs[1] + "/help.json"))
+          });
+
         }
       })
 
