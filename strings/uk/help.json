@@ -1,0 +1,11 @@
+{
+    "moduleName": "Допомога",
+    "commandsListTitle": "Список команд",
+    "commandsListTooltip": "Виконати `+help <назва команди>` для того, щоб дізнатись більше про цю команду.\n_ _",
+    "commandInfo": "Інформація щодо команди",
+    "commandInfoFor": "Інформація щодо команди ",
+    "usageField": "Використання",
+    "cooldownField": "Перезарядка",
+    "aliasesField": "Синоніми",
+    "executedBy": "Було виконано пользователем "
+}
