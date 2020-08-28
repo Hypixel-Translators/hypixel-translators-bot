@@ -5,8 +5,7 @@ const Discord = require("discord.js");
 
 module.exports = {
   name: "help",
-  description:
-    "Shows you all available commands and general info about the bot.",
+  description: "Shows you all available commands and general info about the bot.",
   aliases: ["commands", "cmds", "info", "botinfo"],
   usage: "help [name of command]",
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
@@ -25,7 +24,7 @@ module.exports = {
           });
         }
       })
-    var currentTime = new Date().getTime();    while (currentTime + 100 >= new Date().getTime()) { };
+    var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
 
     if (!args.length) {
       const embed = new Discord.MessageEmbed()
@@ -63,12 +62,12 @@ module.exports = {
           .setColor(errorColor)
           .setAuthor(strings.moduleName)
           .setTitle(strings.commandInfo)
-          .setDescription("That command doesn't exist!")
+          .setDescription(strings.commandNotExist)
           .setFooter(strings.executedBy + message.author.tag);
         return message.channel.send(embed);
       }
 
-      const cooldown = command.cooldown + " second(s)";
+      const cooldown = command.cooldown + strings.seconds;
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
