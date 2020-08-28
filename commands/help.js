@@ -25,6 +25,7 @@ module.exports = {
           });
         }
       })
+    var currentTime = new Date().getTime();    while (currentTime + 100 >= new Date().getTime()) { };
 
     if (!args.length) {
       const embed = new Discord.MessageEmbed()
