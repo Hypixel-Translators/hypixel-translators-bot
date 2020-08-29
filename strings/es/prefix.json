@@ -1,22 +1,22 @@
 {
-    "moduleName": "Prefix",
-    "loading": "One second...",
-    "loadingRoles": "Fetching your roles...",
+    "moduleName": "Prefijo",
+    "loading": "Un segundo...",
+    "loadingRoles": "Obteniendo tus roles...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
-        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-        "cancelled": "You cancelled the changing of your nickname, ",
-        "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "so your prefix wasn't saved."
+        "noLanguages": "¡Parece que no tienes ningún role de idioma! Por favor, contacta a <@722738307477536778> si crees que esto es un error.",
+        "error": "No se ha podido cambiar tu apodo. Puedes copiar el apodo abajo y aplicarlo tú mismo.",
+        "confirmedNoFlags": "Has confirmado, pero no has reaccionado a ninguna bandera, ",
+        "cancelled": "Has cancelado el cambio de tu apodo, ",
+        "alreadyThis": "Ya tienes este apodo, ",
+        "timeOut": "No has reaccionado non ninguna bandera, ",
+        "notSaved": "así que tu prefijo no se ha guardado."
     },
-    "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
+    "react": "Reacciona con todas la banderas que quieres añadir a tu prefijo en orden.",
+    "reactTimer": "Tienes 20 segundos. Pulsa ❎ para cancelar.",
+    "reactTimer2": "Te quedan menos de 20 segundos. Pulsa ✅ para confirmar o ❎ para cancelar.",
     "previewT": "Nickname preview",
-    "newNickT": "New nickname",
-    "noChanges": "No changes",
-    "saved": "Your prefix has been saved!",
+    "newNickT": "Nuevo apodo",
+    "noChanges": "Sin cambios",
+    "saved": "¡Tu prefijo ha sido guardado!",
     "executedBy": "Ejecutado por "
 }
