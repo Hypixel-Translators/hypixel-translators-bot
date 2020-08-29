@@ -27,11 +27,11 @@ module.exports = {
                                 f = 1
                                 element.delete()
                                 const path = './strings/' + args[0] + '/language.json'
-                                fs.access(path, fs.F_OK, (err) => {
+                                fs.access(path, fs.F_OK, async (err) => {
                                     if (err) {
                                         const testFolder = './strings/';
                                         var langArr = []
-                                        fs.readdir(testFolder, (err, files) => {
+                                        await fs.readdir(testFolder, (err, files) => {
                                             files.forEach(file => {
                                                 langArr.push(file)
                                             });
@@ -59,11 +59,11 @@ module.exports = {
                             });
                         } if (f == 0) {
                             const path = './strings/' + args[0] + '/language.json'
-                            fs.access(path, fs.F_OK, (err) => {
+                            fs.access(path, fs.F_OK, async (err) => {
                                 if (err) {
                                     const testFolder = './strings/';
                                     var langArr = []
-                                    fs.readdir(testFolder, (err, files) => {
+                                    await fs.readdir(testFolder, (err, files) => {
                                         files.forEach(file => {
                                             langArr.push(file)
                                         });
