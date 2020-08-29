@@ -50,7 +50,7 @@ module.exports = {
                                     const embed = new Discord.MessageEmbed()
                                         .setColor(successColor)
                                         .setAuthor(strings.moduleName)
-                                        .setTitle(strings.changedToTitle1 + strings[args[0]] + strings.changedToTitle2)
+                                        .setTitle(strings.changedToTitle1 + strings[args[0]] + strings.changedToTitle2 + "\n\n" + strings.credits)
                                         .setFooter(strings.executedBy + message.author.tag);
                                     msg.edit(embed)
                                 })
@@ -80,7 +80,7 @@ module.exports = {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor)
                                     .setAuthor(strings.moduleName)
-                                    .setTitle(strings.changedToTitle1 + strings[args[0]] + strings.changedToTitle2)
+                                    .setTitle(strings.changedToTitle1 + strings[args[0]] + strings.changedToTitle2 + "\n\n" + strings.credits)
                                     .setFooter(strings.executedBy + message.author.tag);
                                 msg.edit(embed)
                             })
