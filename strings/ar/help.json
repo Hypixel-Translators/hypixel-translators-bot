@@ -1,13 +1,13 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "seconds": " second(s)",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
-    "executedBy": "Executed by "
+    "moduleName": "المساعدة",
+    "commandsListTitle": "قائمة الأوامر",
+    "commandsListTooltip": "نفذ `+help <name of command>` لمعرفة المزيد عن امر معين.",
+    "commandInfo": "معلومات الأوامر",
+    "commandInfoFor": "معلومات الأوامر لـ ",
+    "commandNotExist": "هذا الأمر غير موجود!",
+    "seconds": " ثانية(ثواني)",
+    "usageField": "الإستخدام",
+    "cooldownField": "فترة الاستراحة",
+    "aliasesField": "الإسم البديل",
+    "executedBy": "تم التنفيذ بواسطة "
 }

@@ -1,7 +1,7 @@
 {
     "moduleName": "اللغة",
     "changingTitle": "يتم تغيير لغتك...",
-    "changedToTitle1": "تم تغيير لغتك الى العربيه",
+    "changedToTitle1": "تم تغيير لغتك الى ",
     "changedToTitle2": "!",
     "errorTitle": "تلك اللغة غير موجودة أو غير مترجمة بالكامل!",
     "errorDescription": "لم يتم تغيير لغتك. هذه اللغات المتوفرة حاليا (هذا لا يعني أنها مترجمة):",
