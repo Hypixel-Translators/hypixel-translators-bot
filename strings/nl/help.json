@@ -11,7 +11,7 @@
     "aliasesField": "Aliassen",
     "executedBy": "Uitgevoerd door ",
     "help": {
-        "usage": "+help [name of command]",
-        "description": "Shows you all available commands and general info about the bot."
+        "usage": "+help [commandonaam]",
+        "description": "Geeft alle commando's en andere informatie over de bot weer."
     }
 }
