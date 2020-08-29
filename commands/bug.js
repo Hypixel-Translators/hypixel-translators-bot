@@ -12,6 +12,17 @@ module.exports = {
     execute(strings, message, args) {
         var toSend = args.join(" ")
 
+        if (args[0].length < 1) {
+            const embed = new Discord.MessageEmbed()
+                .setColor(errorColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.addMessage)
+                .setFooter(strings.executedBy + message.author.tag);
+            message.channel.send(embed)
+            return;
+        }
+
+
         //message.delete();
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
