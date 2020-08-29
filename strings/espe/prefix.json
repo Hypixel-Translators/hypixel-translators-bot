@@ -4,19 +4,19 @@
     "loadingRoles": "Obteniendo tus roles...",
     "errors": {
         "noLanguages": "¡Parece que no tienes ningún role de idioma! Por favor, contacta a <@722738307477536778> si crees que esto es un error.",
-        "error": "No se ha podido cambiar tu apodo. Puedes copiar el apodo abajo y aplicarlo tú mismo.",
+        "error": "No se pudo cambiar tu apodo. Puedes copiar el apodo y aplicarlo tú mismo.",
         "confirmedNoFlags": "Has confirmado, pero no has reaccionado a ninguna bandera, ",
         "cancelled": "Has cancelado el cambio de tu apodo, ",
         "alreadyThis": "Ya tienes este apodo, ",
         "timeOut": "No has reaccionado con ninguna bandera, ",
-        "notSaved": "así que tu prefijo no se ha guardado."
+        "notSaved": "entonces tu prefijo no fue guardado."
     },
     "react": "Reacciona con todas las banderas que quieres añadir a tu prefijo en orden.",
     "reactTimer": "Tienes 20 segundos. Pulsa ❎ para cancelar.",
     "reactTimer2": "Te quedan menos de 20 segundos. Pulsa ✅ para confirmar o ❎ para cancelar.",
-    "previewT": "Previsualización del apodo",
+    "previewT": "Preview del apodo",
     "newNickT": "Nuevo apodo",
     "noChanges": "Sin cambios",
-    "saved": "¡Tu prefijo ha sido guardado!",
+    "saved": "¡Tu prefijo fue guardado!",
     "executedBy": "Ejecutado por "
 }
