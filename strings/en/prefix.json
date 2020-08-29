@@ -8,7 +8,7 @@
         "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
         "cancelled": "You cancelled the changing of your nickname, ",
         "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, "
+        "timeOut": "You haven't reacted with any flags, ",
         "notSaved": "so your prefix wasn't saved."
     },
     "react": "React with all flags you want to add to your prefix in order.",
