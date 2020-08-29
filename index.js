@@ -155,7 +155,7 @@ client.on("message", async message => {
   setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
   try {
-    var strings = {}
+    var strings = require(("./strings/en/" + command.name + ".json"))
     if (message.member) { if (message.member.hasPermission("ADMINISTRATOR") || message.author.id === "722738307477536778") { timestamps.delete(message.author.id) } }
     await message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
       .then(async langDbMessages => {
@@ -166,14 +166,13 @@ client.on("message", async message => {
             const path = ("./strings/" + langprefs[1] + "/" + command.name + ".json")
             await fs.access(path, fs.F_OK, (err) => {
               if (err) {
+                console.error(err)
                 strings = require(("./strings/en/" + command.name + ".json"))
               } else {
-                strings = require(("./strings/" + langprefs[1] + "/" + command.name + ".json"))
+                strings = await require(("./strings/" + langprefs[1] + "/" + command.name + ".json"))
               }
             })
           });
-        } else {
-          strings = require(("./strings/en/" + command.name + ".json"))
         }
       })
     command.execute(strings, message, args);
