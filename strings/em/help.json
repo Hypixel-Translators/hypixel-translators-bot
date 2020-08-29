@@ -1,0 +1,13 @@
+{
+    "moduleName": "❓",
+    "commandsListTitle": "📜👩‍💻",
+    "commandsListTooltip": "↘ `+help <name of command>` 🤔 1️⃣ 👩‍💻.",
+    "commandInfo": "👩‍💻ℹ",
+    "commandInfoFor": "👩‍💻ℹ ➡ ",
+    "commandNotExist": "⏪ 👩‍💻 🚫!",
+    "seconds": " ⏱",
+    "usageField": "👷‍♂️❓",
+    "cooldownField": "🆒⬇",
+    "aliasesField": "🔀📛",
+    "executedBy": "👩‍💻🖊 ↖ "
+}
