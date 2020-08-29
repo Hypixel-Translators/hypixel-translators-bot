@@ -175,7 +175,7 @@ client.on("message", async message => {
           });
         }
       })
-    command.execute(strings, message, args);
+    setTimeout(() => { command.execute(strings, message, args); }, 100)
   } catch (error) {
     timestamps.delete(message.author.id)
     console.error(error);
