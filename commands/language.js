@@ -50,8 +50,9 @@ module.exports = {
                                     const embed = new Discord.MessageEmbed()
                                         .setColor(successColor)
                                         .setAuthor(strings.moduleName)
-                                        .setTitle(strings.changedToTitle1 + strings[args[0]] + strings.changedToTitle2 + "\n\n" + strings.credits)
+                                        .setTitle(strings.changedToTitle1 + strings[args[0]] + strings.changedToTitle2)
                                         .setFooter(strings.executedBy + message.author.tag);
+                                    if (args[0] !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("For bugs, execute `+bug <message>`.") }
                                     msg.edit(embed)
                                 })
                             });
@@ -80,8 +81,9 @@ module.exports = {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor)
                                     .setAuthor(strings.moduleName)
-                                    .setTitle(strings.changedToTitle1 + strings[args[0]] + strings.changedToTitle2 + "\n\n" + strings.credits)
+                                    .setTitle(strings.changedToTitle1 + strings[args[0]] + strings.changedToTitle2)
                                     .setFooter(strings.executedBy + message.author.tag);
+                                if (args[0] !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("For bugs, execute `+bug <message>`.") }
                                 msg.edit(embed)
                             })
                         }
