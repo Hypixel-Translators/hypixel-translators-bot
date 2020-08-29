@@ -7,7 +7,7 @@ module.exports = {
   description: "Shows you all available commands and general info about the bot.",
   aliases: ["commands", "cmds", "info", "botinfo"],
   usage: "help [name of command]",
-  channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
+  channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
   allowDM: true,
   cooldown: 5,
   async execute(strings, message, args) {

@@ -9,7 +9,7 @@ module.exports = {
     usage: "quote [index] | quote add <quote>/<user mention>",
     cooldown: 10,
     allowDM: true,
-    channelWhitelist: ["549894938712866816", "619662798133133312", "624881429834366986", "730042612647723058"],
+    channelWhitelist: ["549894938712866816", "619662798133133312", "624881429834366986", "730042612647723058", "749391414600925335"],
     execute(strings, message, args) {
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
