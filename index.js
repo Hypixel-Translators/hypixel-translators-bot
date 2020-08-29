@@ -56,7 +56,7 @@ client.once("ready", () => {
 });
 
 
-client.on("message", message => {
+client.on("message", async message => {
   if (message.content === "+stats" && message.member.hasPermission("VIEW_AUDIT_LOG")) {
     stats.execute(client, true)
     return;
@@ -156,8 +156,19 @@ client.on("message", message => {
   setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
   try {
+    var strings = {}
     if (message.member) { if (message.member.hasPermission("ADMINISTRATOR") || message.author.id === "722738307477536778") { timestamps.delete(message.author.id) } }
-    command.execute(message, args);
+    await message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
+      .then(async langDbMessages => {
+        fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
+        if (fiMessages) {
+          await fiMessages.forEach(element => {
+            const langprefs = element.content.split(" ")
+            strings = require(("../strings/" + langprefs[1] + "/" + command.name + ".json"))
+          });
+        }
+      })
+    command.execute(strings, message, args);
   } catch (error) {
     timestamps.delete(message.author.id)
     console.error(error);
