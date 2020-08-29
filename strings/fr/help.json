@@ -9,5 +9,9 @@
     "usageField": "Utilisation",
     "cooldownField": "Temps de recharge",
     "aliasesField": "Les Alias",
-    "executedBy": "Exécuté par "
+    "executedBy": "Exécuté par ",
+    "help": {
+        "usage": "+help [name of command]",
+        "description": "Shows you all available commands and general info about the bot."
+    }
 }

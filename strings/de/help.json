@@ -9,5 +9,9 @@
     "usageField": "Verwendung",
     "cooldownField": "Abklingzeit",
     "aliasesField": "Aliase",
-    "executedBy": "Ausgeführt von "
+    "executedBy": "Ausgeführt von ",
+    "help": {
+        "usage": "+help [name of command]",
+        "description": "Shows you all available commands and general info about the bot."
+    }
 }

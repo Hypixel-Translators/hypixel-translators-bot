@@ -9,5 +9,9 @@
     "usageField": "Uso",
     "cooldownField": "Enfriamiento",
     "aliasesField": "Otros Nombres",
-    "executedBy": "Ejecutado por "
+    "executedBy": "Ejecutado por ",
+    "help": {
+        "usage": "+help [nombre del comando]",
+        "description": "Muestra todos los comandos disponibles e información general sobre el bot."
+    }
 }
