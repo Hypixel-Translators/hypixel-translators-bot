@@ -1,7 +1,7 @@
 {
     "moduleName": "Help",
     "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
+    "commandsListTooltip": "Use `+help <nome do comando>` para saber mais sobre um comando.",
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "That command doesn't exist!",
