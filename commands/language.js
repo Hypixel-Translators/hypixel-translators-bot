@@ -29,6 +29,13 @@ module.exports = {
                                 const path = './strings/' + args[0] + '/language.json'
                                 fs.access(path, fs.F_OK, (err) => {
                                     if (err) {
+                                        const testFolder = './strings/';
+
+                                        fs.readdir(testFolder, (err, files) => {
+                                            files.forEach(file => {
+                                                console.log(file);
+                                            });
+                                        });
                                         console.error(err)
                                         const embed = new Discord.MessageEmbed()
                                             .setColor(errorColor)
@@ -54,6 +61,13 @@ module.exports = {
                             const path = './strings/' + args[0] + '/language.json'
                             fs.access(path, fs.F_OK, (err) => {
                                 if (err) {
+                                    const testFolder = './strings/';
+
+                                    fs.readdir(testFolder, (err, files) => {
+                                        files.forEach(file => {
+                                            console.log(file);
+                                        });
+                                    });
                                     console.error(err)
                                     const embed = new Discord.MessageEmbed()
                                         .setColor(errorColor)
