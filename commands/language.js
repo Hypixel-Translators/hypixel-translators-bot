@@ -21,6 +21,7 @@ module.exports = {
                 message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
                     .then(async messages => {
                         fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
+                        console.log(fiMessages)
                         if (fiMessages) {
                             fiMessages.forEach(element => {
                                 element.delete()
