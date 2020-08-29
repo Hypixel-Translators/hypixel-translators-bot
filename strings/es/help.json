@@ -11,7 +11,7 @@
     "aliasesField": "Otros Nombres",
     "executedBy": "Ejecutado por ",
     "help": {
-        "usage": "+help [name of command]",
-        "description": "Shows you all available commands and general info about the bot."
+        "usage": "+help [nombre del comando]",
+        "description": "Muestra todos los comandos disponibles e información general sobre el bot."
     }
 }
