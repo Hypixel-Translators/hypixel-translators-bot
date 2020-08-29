@@ -1,0 +1,11 @@
+{
+    "moduleName": "Citaten",
+    "loading": "Even geduld...",
+    "loadingModule": "Module laden...",
+    "invalidArg": "Ongeldig argument!",
+    "indexArg1": "Er bestaat geen quote met index ",
+    "indexArg2": "! Geef een nummer tussen de 1 en de ",
+    "indexArg3": ".",
+    "specUser": "Je hebt geen gebruiker opgegeven! Typ het citaat, en vermeld dan de geciteerde gebruiker, gescheiden door een slash.",
+    "executedBy": "Uitgevoerd door "
+}
