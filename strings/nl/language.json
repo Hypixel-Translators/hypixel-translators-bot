@@ -3,6 +3,6 @@
     "changingTitle": "Je taal wordt veranderd...",
     "changedToTitle": "Je taal is veranderd naar het Nederlands!",
     "errorTitle": "Die taal bestaat niet of hij is niet compleet vertaald!",
-    "errorDescription": "Je taal is niet veranderd en het is nog steeds Nederlands.",
+    "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "executedBy": "Uitgevoerd door "
 }
