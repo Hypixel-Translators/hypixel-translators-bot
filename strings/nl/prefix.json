@@ -1,0 +1,22 @@
+{
+    "moduleName": "Voorvoegsel",
+    "loading": "Even geduld...",
+    "loadingRoles": "Je rollen worden opgehaald...",
+    "errors": {
+        "noLanguages": "Je lijkt geen taalrollen te hebben! Neem contact op met <@722738307477536778> als je denkt dat dit een fout is.",
+        "error": "Kon bijnaam niet wijzigen. Je kunt de bijnaam wel kopiëren en hem zelf toepassen.",
+        "confirmedNoFlags": "Je hebt bevestigd maar niet gereageerd met vlaggen, ",
+        "cancelled": "Je hebt het wijzigen van je bijnaam geannuleerd, ",
+        "alreadyThis": "Je hebt deze bijnaam al, ",
+        "timeOut": "Je hebt niet gereageerd met vlaggen, ",
+        "notSaved": "dus is je voorvoegsel niet opgeslagen."
+    },
+    "react": "Reageer met alle vlaggen die je aan je voorvoegsel wilt toevoegen, in de gewenste volgorde.",
+    "reactTimer": "Je hebt 20 seconden. Klik op ❎ om te annuleren.",
+    "reactTimer2": "Je hebt minder dan 20 seconden over. Klik op ✅ om te bevestigen of ❎ om te annuleren.",
+    "previewT": "Voorbeeld bijnaam",
+    "newNickT": "Nieuwe bijnaam",
+    "noChanges": "Geen wijzigingen",
+    "saved": "Je voorvoegsel is opgeslagen!",
+    "executedBy": "Uitgevoerd door "
+}
