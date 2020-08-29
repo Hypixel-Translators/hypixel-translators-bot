@@ -1,22 +1,22 @@
 {
-    "moduleName": "Prefix",
-    "loading": "One second...",
-    "loadingRoles": "Fetching your roles...",
+    "moduleName": "البرفكس",
+    "loading": "ثانية واحدة...",
+    "loadingRoles": "جاري جلب الرتب الخاصة بك...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
-        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-        "cancelled": "You cancelled the changing of your nickname, ",
-        "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "so your prefix wasn't saved."
+        "noLanguages": "يبدو أنك لا تملك أي رتبة لغة! يرجى الاتصال <@722738307477536778> إذا كنت تعتقد أن هذا خطأ.",
+        "error": "فشل تغيير الاسم المستعار. يمكنك نسخ الاسم المستعار أدناه وتضعه بنفسك.",
+        "confirmedNoFlags": "لقد أكدت ولكنك لم تضغط على أي أعلام، ",
+        "cancelled": "قمت بإلغاء تغيير اسمك المستعار، ",
+        "alreadyThis": "لديك هذا الاسم المستعار بالفعل، ",
+        "timeOut": "لم تقوم بالضغط على اي من الاعلام، ",
+        "notSaved": "لذلك لم يتم حفظ البرفكس الخاص بك."
     },
-    "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "Nickname preview",
-    "newNickT": "New nickname",
-    "noChanges": "No changes",
-    "saved": "Your prefix has been saved!",
-    "executedBy": "Executed by "
+    "react": "اضغط على جميع الأعلام التي تريد إضافتها إلى البرفكس الخاص بك بالترتيب.",
+    "reactTimer": "لديك 20 ثانية. اضغط على ❎ للإلغاء.",
+    "reactTimer2": "لديك أقل من 20 ثانية متبقية. اضغط على ✅ للتأكيد أو ❎ للإلغاء.",
+    "previewT": "معاينه الإسم المستعار",
+    "newNickT": "اسم مستعار جديد",
+    "noChanges": "لا يوجد تغييرات",
+    "saved": "تم حفظ البرفكس الخاص بك!",
+    "executedBy": "تم التنفيذ بواسطة "
 }
