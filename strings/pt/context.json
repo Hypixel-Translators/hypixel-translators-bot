@@ -63,7 +63,7 @@
     "info": {
         "title": "Informação sobre o `+context`",
         "description": "Abaixo poderás encontrar uma lista com todos os comandos secundários e uma explicação para cada. **Parâmetros** mostra todos os parâmetros disponíveis.",
-        "get": "_Gets context for given string_\n`+context get <string ID>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #.",
+        "get": "_Fornece contexto para uma dada string_\n`+context get <ID da string>`\n\nSubstitui <ID da string> pelo ID da string, que pode ser encontrado depois do # ao copiar o URL da string.",
         "add": "_Adds a context entry_\n`+context add <string ID> <context>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <context> with the text you want to add. After running, you can add more fields using the reactions.",
         "edit": "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enpt`. Replace <new value> with the new value for that field.",
         "view": "_Gives you a link to the Google Sheet containing context_\n`+context view`",
