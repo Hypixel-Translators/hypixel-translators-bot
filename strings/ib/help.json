@@ -9,5 +9,9 @@
     "usageField": "Usache",
     "cooldownField": "Time to get cold and not hot",
     "aliasesField": "Other ways of doing dis",
-    "executedBy": "Done by le "
+    "executedBy": "Done by le ",
+    "help": {
+        "usage": "+help [name of command]",
+        "description": "Shows you all available commands and general info about the bot."
+    }
 }

@@ -9,5 +9,9 @@
     "usageField": "Gebruik",
     "cooldownField": "Afkoeltijd",
     "aliasesField": "Aliassen",
-    "executedBy": "Uitgevoerd door "
+    "executedBy": "Uitgevoerd door ",
+    "help": {
+        "usage": "+help [commandonaam]",
+        "description": "Geeft alle commando's en andere informatie over de bot weer."
+    }
 }

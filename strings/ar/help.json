@@ -9,5 +9,9 @@
     "usageField": "الإستخدام",
     "cooldownField": "فترة الاستراحة",
     "aliasesField": "الإسم البديل",
-    "executedBy": "تم التنفيذ بواسطة "
+    "executedBy": "تم التنفيذ بواسطة ",
+    "help": {
+        "usage": "+help [name of command]",
+        "description": "Shows you all available commands and general info about the bot."
+    }
 }
