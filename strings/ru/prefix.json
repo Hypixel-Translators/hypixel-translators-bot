@@ -1,6 +1,6 @@
 {
     "moduleName": "Prefix",
-    "loading": "One second...",
+    "loading": "Секундочку...",
     "loadingRoles": "Fetching your roles...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
@@ -8,7 +8,7 @@
         "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
         "cancelled": "You cancelled the changing of your nickname, ",
         "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, "
+        "timeOut": "You haven't reacted with any flags, ",
         "notSaved": "so your prefix wasn't saved."
     },
     "react": "React with all flags you want to add to your prefix in order.",
@@ -18,5 +18,5 @@
     "newNickT": "New nickname",
     "noChanges": "No changes",
     "saved": "Your prefix has been saved!",
-    "executedBy": "Executed by "
+    "executedBy": "Было выполнено пользователем "
 }
