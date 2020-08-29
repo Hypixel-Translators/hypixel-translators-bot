@@ -20,13 +20,13 @@ module.exports = {
         .setTitle(strings.commandsListTitle)
         .setDescription(strings.commandsListTooltip)
         .addFields(
-          { name: "`" + commands.get("help").usage + "`", value: commands.get("help").description, inline: false },
-          { name: "`" + commands.get("prefix").usage + "`", value: commands.get("prefix").description, inline: false },
-          { name: "`" + commands.get("quote").usage + "`", value: commands.get("quote").description, inline: false },
-          { name: "`" + commands.get("mention").usage + "`", value: commands.get("mention").description, inline: false },
-          { name: "`" + commands.get("context").usage + "`", value: commands.get("context").description, inline: false },
-          { name: "`" + commands.get("bug").usage + "`", value: commands.get("bug").description, inline: false },
-          { name: "`" + commands.get("feedback").usage + "`", value: commands.get("feedback").description, inline: false }
+          { name: "`+" + strings.help.usage + "`", value: strings.help.description, inline: false },
+          { name: "`+" + commands.get("prefix").usage + "`", value: commands.get("prefix").description, inline: false },
+          { name: "`+" + commands.get("quote").usage + "`", value: commands.get("quote").description, inline: false },
+          { name: "`+" + commands.get("mention").usage + "`", value: commands.get("mention").description, inline: false },
+          { name: "`+" + commands.get("context").usage + "`", value: commands.get("context").description, inline: false },
+          { name: "`+" + commands.get("bug").usage + "`", value: commands.get("bug").description, inline: false },
+          { name: "`+" + commands.get("feedback").usage + "`", value: commands.get("feedback").description, inline: false }
         )
         .setFooter(strings.executedBy + message.author.tag);
       message.channel.send(embed)
@@ -52,11 +52,11 @@ module.exports = {
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.commandInfoFor + "`+" + command.name + "`")
-        .setDescription(command.description)
+        .setDescription(strings[command.name].description)
         .addFields(
           {
             name: strings.usageField,
-            value: "`" + prefix + command.usage + "`",
+            value: "`" + prefix + strings[command.name].usage + "`",
             inline: true
           },
           {
