@@ -12,8 +12,9 @@ module.exports = {
     execute(strings, message, args) {
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
-            .setTitle("Context")
-            .setDescription("One second...")
+            .setAuthor("Context")
+            .setTitle("One second...")
+            .setDescription("Loading module...")
             .setFooter("Executed by " + message.author.tag);
         message.channel.send(embed)
             .then(msg => {
