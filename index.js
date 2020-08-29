@@ -164,7 +164,7 @@ client.on("message", async message => {
         if (fiMessages) {
           await fiMessages.forEach(element => {
             const langprefs = element.content.split(" ")
-            strings = require(("../strings/" + langprefs[1] + "/" + command.name + ".json"))
+            strings = require(("./strings/" + langprefs[1] + "/" + command.name + ".json"))
           });
         }
       })
