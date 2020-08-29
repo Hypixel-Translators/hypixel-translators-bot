@@ -9,5 +9,9 @@
     "usageField": "Використання",
     "cooldownField": "Перезарядка",
     "aliasesField": "Синоніми",
-    "executedBy": "Було виконано користувачем "
+    "executedBy": "Було виконано користувачем ",
+    "help": {
+        "usage": "+help [name of command]",
+        "description": "Shows you all available commands and general info about the bot."
+    }
 }
