@@ -9,5 +9,9 @@
     "usageField": "שימוש",
     "cooldownField": "טעינה מחדש",
     "aliasesField": "מילים נרדפות",
-    "executedBy": "בוצע על ידי המשתמש "
+    "executedBy": "בוצע על ידי המשתמש ",
+    "help": {
+        "usage": "+help [name of command]",
+        "description": "Shows you all available commands and general info about the bot."
+    }
 }
