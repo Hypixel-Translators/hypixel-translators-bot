@@ -27,11 +27,11 @@ module.exports = {
                     msg.edit(embed)
                     return;
                 }
-                if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(message, args, msg) }
-                else if (args[0] === "get") { getFromSpreadsheet(message, args, msg) }
-                else if (args[0] === "edit") { editInSpreadsheet(message, args, msg) }
-                else if (args[0] === "info" || args[0] === "help") { showInfo(message, args, msg) }
-                else if (args[0] === "view" || args[0] === "link") { viewSheet(message, args, msg) }
+                if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(strings, message, args, msg) }
+                else if (args[0] === "get") { getFromSpreadsheet(strings, message, args, msg) }
+                else if (args[0] === "edit") { editInSpreadsheet(strings, message, args, msg) }
+                else if (args[0] === "info" || args[0] === "help") { showInfo(strings, message, args, msg) }
+                else if (args[0] === "view" || args[0] === "link") { viewSheet(strings, message, args, msg) }
                 else {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
@@ -40,7 +40,7 @@ module.exports = {
                         .setFooter(strings.executedBy + message.author.tag);
                     msg.edit(embed)
                 }
-                if (message.channel.id === "549894938712866816") {
+                if (strings, message.channel.id === "549894938712866816") {
                     setTimeout(() => {
                         message.delete()
                     }, 60000)
@@ -49,7 +49,7 @@ module.exports = {
     }
 }
 
-async function getFromSpreadsheet(message, args, msg) {
+async function getFromSpreadsheet(strings, message, args, msg) {
     const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
     await doc.useServiceAccountAuth(creds)
 
@@ -113,7 +113,7 @@ async function getFromSpreadsheet(message, args, msg) {
     msg.edit(embed)
 }
 
-async function addToSpreadsheet(message, args, msg) {
+async function addToSpreadsheet(strings, message, args, msg) {
     const string = args[1]
     var toSend = [...args]
     toSend.splice(0, 2)
@@ -181,7 +181,7 @@ async function addToSpreadsheet(message, args, msg) {
             if (reaction.emoji.name === "📑") {
                 reaction.remove()
                 msg.react("📑")
-                const collectorB = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 120000 });
+                const collectorB = new Discord.MessageCollector(strings, message.channel, m => m.author.id === message.author.id, { time: 120000 });
                 const extraEmbed = new Discord.MessageEmbed()
                     .setColor(neutralColor)
                     .setAuthor(strings.moduleName)
@@ -334,7 +334,7 @@ async function addToSpreadsheet(message, args, msg) {
     })
 }
 
-async function editInSpreadsheet(message, args, msg) {
+async function editInSpreadsheet(strings, message, args, msg) {
     if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
@@ -493,7 +493,7 @@ async function editInSpreadsheet(message, args, msg) {
     })
 }
 
-async function showInfo(message, args, msg) {
+async function showInfo(strings, message, args, msg) {
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setTitle("Context information")
@@ -511,7 +511,7 @@ async function showInfo(message, args, msg) {
     return;
 }
 
-async function viewSheet(message, args, msg) {
+async function viewSheet(strings, message, args, msg) {
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle("Context sheet")
