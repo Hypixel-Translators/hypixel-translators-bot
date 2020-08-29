@@ -1,13 +1,13 @@
 {
     "moduleName": "Ajuda",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "seconds": " second(s)",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
-    "executedBy": "Executed by "
+    "commandsListTitle": "Lista de comandos",
+    "commandsListTooltip": "Faz `+help <nome do comando>` para saber mais sobre um comando específico.",
+    "commandInfo": "Informação do comando",
+    "commandInfoFor": "Informação para o comando ",
+    "commandNotExist": "Esse comando não existe!",
+    "seconds": " segundo(s)",
+    "usageField": "Uso",
+    "cooldownField": "Tempo de espera",
+    "aliasesField": "Alternativas",
+    "executedBy": "Executado por "
 }
