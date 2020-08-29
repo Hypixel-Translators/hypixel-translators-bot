@@ -32,19 +32,17 @@ module.exports = {
                                         const testFolder = './strings/';
                                         var langArr = []
                                         await fs.readdir(testFolder, (err, files) => {
-                                            files.forEach(file => {
-                                                langArr.push(file)
-                                            });
+                                            console.log(langArr)
+                                            const embed = new Discord.MessageEmbed()
+                                                .setColor(errorColor)
+                                                .setAuthor(strings.moduleName)
+                                                .setTitle(strings.errorTitle)
+                                                .setDescription(strings.errorDescription + "\n" + files.join(", "))
+                                                .setFooter(strings.executedBy + message.author.tag);
+                                            msg.edit(embed)
+                                            return
                                         });
-                                        console.error(err)
-                                        const embed = new Discord.MessageEmbed()
-                                            .setColor(errorColor)
-                                            .setAuthor(strings.moduleName)
-                                            .setTitle(strings.errorTitle)
-                                            .setDescription(strings.errorDescription + "\n" + langArr.join(", "))
-                                            .setFooter(strings.executedBy + message.author.tag);
-                                        msg.edit(embed)
-                                        return
+
                                     }
                                     message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
                                     strings = require(("../strings/" + args[0] + "/language.json"))
@@ -64,19 +62,17 @@ module.exports = {
                                     const testFolder = './strings/';
                                     var langArr = []
                                     await fs.readdir(testFolder, (err, files) => {
-                                        files.forEach(file => {
-                                            langArr.push(file)
-                                        });
+                                        console.log(langArr)
+                                        const embed = new Discord.MessageEmbed()
+                                            .setColor(errorColor)
+                                            .setAuthor(strings.moduleName)
+                                            .setTitle(strings.errorTitle)
+                                            .setDescription(strings.errorDescription + "\n" + files.join(", "))
+                                            .setFooter(strings.executedBy + message.author.tag);
+                                        msg.edit(embed)
+                                        return
                                     });
-                                    console.error(err)
-                                    const embed = new Discord.MessageEmbed()
-                                        .setColor(errorColor)
-                                        .setAuthor(strings.moduleName)
-                                        .setTitle(strings.errorTitle)
-                                        .setDescription(strings.errorDescription + "\n" + langArr.join(", "))
-                                        .setFooter(strings.executedBy + message.author.tag);
-                                    msg.edit(embed)
-                                    return
+
                                 }
                                 message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
                                 strings = require(("../strings/" + args[0] + "/language.json"))
