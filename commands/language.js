@@ -40,7 +40,7 @@ module.exports = {
                             });
                         }
 
-                        if (fs.existsSync('/strings/' + args[0] + "")) {
+                        if (fs.exists('/strings/' + args[0] + "")) {
                             message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
                             strings = require(("../strings/" + args[0] + "/language.json"))
                             var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
