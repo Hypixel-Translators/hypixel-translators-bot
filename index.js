@@ -160,12 +160,12 @@ client.on("message", async message => {
     await message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
       .then(async langDbMessages => {
         fiMessages = langDbMessages.filter(msg => msg.content.startsWith(message.author.id))
-        if (fiMessages) {
+        if (await fiMessages) {
           await fiMessages.forEach(async element => {
             const langprefs = element.content.split(" ")
             const path = ("./strings/" + langprefs[1] + "/" + command.name + ".json")
-            await fs.access(path, fs.F_OK, (err) => {
-              if (err) {
+            await fs.access(path, fs.F_OK, async (err) => {
+              if (await err) {
                 console.error(err)
                 strings = require(("./strings/en/" + command.name + ".json"))
               } else {
