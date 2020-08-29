@@ -31,7 +31,6 @@ module.exports = {
             .setFooter(strings.executedBy + message.author.tag);
         message.channel.send(embed)
             .then(msg => {
-
                 message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
                     .then(async messages => {
                         fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
@@ -40,7 +39,8 @@ module.exports = {
                                 element.delete()
                             });
                         }
-                        if (fs.existsSync("../strings/" + args[0] + "/help.json")) {
+                        var tester = require(("../strings/" + args[0] + "/help.json"))
+                        if (tester) {
                             message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
                             strings = require(("../strings/" + args[0] + "/language.json"))
                             var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
@@ -60,7 +60,6 @@ module.exports = {
                             msg.edit(embed)
                             return
                         }
-
                     })
             })
     }
