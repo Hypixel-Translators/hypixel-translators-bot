@@ -41,7 +41,7 @@ module.exports = {
                         }
 
 
-                        const path = '../strings/' + args[0] + '/language.json'
+                        const path = './strings/' + args[0] + '/language.json'
 
                         fs.access(path, fs.F_OK, (err) => {
                             if (err) {
