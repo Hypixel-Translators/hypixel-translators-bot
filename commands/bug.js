@@ -15,26 +15,27 @@ module.exports = {
         //message.delete();
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
-            .setTitle("Report a bug")
-            .setDescription("Your bug report is being sent...")
-            .addFields({ name: "Bug report", value: toSend })
-            .setFooter("Executed by " + message.author.tag);
+            .setAuthor(strings.moduleName)
+            .setTitle(strings.sendingTitle)
+            .setDescription(toSend)
+            .setFooter(strings.executedBy + message.author.tag);
         message.channel.send(embed)
             .then(msg => {
                 const sendTo = msg.client.channels.cache.get("730042612647723058")
                 const report = new Discord.MessageEmbed()
                     .setColor(neutralColor)
-                    .setTitle("Bug report")
-                    .setDescription("A fresh bug report has arrived. Time to fix stuff!")
-                    .addFields({ name: "Bug report", value: toSend }, { name: "Reply", value: "\`+dm " + message.author.id + " \`" })
+                    .setAuthor("Bug report")
+                    .setTitle("A fresh bug report has arrived. Time to fix stuff!")
+                    .setDescription(toSend)
+                    .addFields({ name: "To reply", value: "\`+dm " + message.author.id + " \`" })
                     .setFooter("Reported by " + message.author.tag);
                 sendTo.send(report)
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
-                    .setTitle("Report a bug")
-                    .setDescription("Your bug report has been sent!")
-                    .addFields({ name: "Bug report", value: toSend })
-                    .setFooter("Executed by " + message.author.tag);
+                    .setAuthor(strings.moduleName)
+                    .setTitle(strings.sentTitle)
+                    .setDescription(toSend)
+                    .setFooter(strings.executedBy + message.author.tag);
                 msg.edit(embed)
             })
     }
