@@ -6,6 +6,7 @@
     "errorTitle": "Diese Sprache existiert nicht oder ist nicht komplett übersetzt!",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "executedBy": "Ausgeführt von ",
+    "ar": "Arabic",
     "bg": "Bulgarian",
     "zhcn": "Chinese (Simplified)",
     "zhtw": "Chinese (Traditional)",
