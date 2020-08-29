@@ -3,6 +3,6 @@
     "changingTitle": "A mudar o teu idioma...",
     "changedToTitle": "Mudaste o teu idioma para português!",
     "errorTitle": "Esse idioma não existe ou não está completamente traduzido!",
-    "errorDescription": "O teu idioma não foi alterado.",
+    "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "executedBy": "Executado por "
 }
