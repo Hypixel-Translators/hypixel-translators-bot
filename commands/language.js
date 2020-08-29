@@ -40,7 +40,7 @@ module.exports = {
                             });
                         }
 
-                        if (fs.exists('/strings/' + args[0] + "", function (err, result))) {
+                        fs.exists('/strings/' + args[0] + "", function (err, result) {
                             if (result) {
                                 message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
                                 strings = require(("../strings/" + args[0] + "/language.json"))
@@ -62,7 +62,7 @@ module.exports = {
                                 msg.edit(embed)
                                 return
                             }
-                        }
+                        })
                     })
             })
     }
