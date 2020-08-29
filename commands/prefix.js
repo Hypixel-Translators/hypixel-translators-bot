@@ -12,9 +12,10 @@ module.exports = {
     //message.delete();
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
-      .setTitle("Prefix")
-      .setDescription("One second... ")
-      .setFooter("Executed by " + message.author.tag);
+      .setAuthor(strings.moduleName)
+      .setTitle(strings.loading)
+      .setDescription(strings.loadingRoles)
+      .setFooter(strings.executedBy + message.author.tag);
     message.channel.send(embed)
       .then(msg => {
         var userLangs = []
@@ -52,19 +53,20 @@ module.exports = {
         if (userLangs.length < 1) {
           const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
-            .setTitle("Prefix")
-            .setDescription("You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.")
-            .setFooter("Executed by " + message.author.tag);
+            .setAuthor(strings.moduleName)
+            .setTitle(strings.errors.noLanguages)
+            .setFooter(strings.executedBy + message.author.tag);
           msg.edit(embed)
           return;
         }
 
         const embed = new Discord.MessageEmbed()
           .setColor(neutralColor)
-          .setTitle("Prefix")
-          .setDescription("React with all flags you want to add to your prefix in order. You have 20 seconds. Hit ❎ to cancel.")
-          .addFields({ name: "Nickname preview", value: "No changes" })
-          .setFooter("Executed by " + message.author.tag);
+          .setAuthor(strings.moduleName)
+          .setTitle(strings.react)
+          .setDescription(strings.reactTimer)
+          .addFields({ name: strings.previewT, value: strings.noChanges })
+          .setFooter(strings.executedBy + message.author.tag);
         msg.edit(embed)
 
         const filter = (reaction, reacter) => {
@@ -82,27 +84,28 @@ module.exports = {
                 .then(() => {
                   const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
-                    .setTitle("Prefix")
-                    .setDescription("Your prefix has been saved!")
-                    .addFields({ name: "Nickname preview", value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                    .setFooter("Executed by " + message.author.tag);
+                    .setAuthor(strings.moduleName)
+                    .setTitle(strings.saved)
+                    .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                    .setFooter(strings.executedBy + message.author.tag);
                   msg.edit(embed)
                 })
                 .catch(err => {
                   const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setTitle("Prefix")
-                    .setDescription("Failed to change nickname. You can copy the nickname below and apply it yourself.\n\nReason:\n> " + err)
-                    .addFields({ name: "Nickname preview", value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                    .setFooter("Executed by " + message.author.tag);
+                    .setAuthor(strings.moduleName)
+                    .setTitle(strings.errors.error)
+                    .setDescription(err)
+                    .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                    .setFooter(strings.executedBy + message.author.tag);
                   msg.edit(embed)
                 })
             } else {
               const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
-                .setTitle("Prefix")
-                .setDescription("You confirmed but you didn't react to any flags, so your prefix wasn't saved.")
-                .setFooter("Executed by " + message.author.tag);
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.errors.confirmedNoFlags + strings.errors.notSaved)
+                .setFooter(strings.executedBy + message.author.tag);
               msg.edit(embed)
             }
           } else if (reaction.emoji.name === "❎") {
@@ -110,10 +113,10 @@ module.exports = {
             prefixes = "n"
             const embed = new Discord.MessageEmbed()
               .setColor(successColor)
-              .setTitle("Prefix")
-              .setDescription("You cancelled the changing of your nickname, so your prefix wasn't saved.")
-              .addFields({ name: "New nickname", value: "No changes" })
-              .setFooter("Executed by " + message.author.tag);
+              .setAuthor(strings.moduleName)
+              .setTitle(strings.errors.cancelled + strings.errors.notSaved)
+              .addFields({ name: strings.newNickT, value: strings.noChanges })
+              .setFooter(strings.executedBy + message.author.tag);
             msg.edit(embed)
           } else {
             const valueToRemove = reaction.emoji.name
@@ -122,10 +125,11 @@ module.exports = {
             prefixes = (prefixes + reaction.emoji.name)
             const embed = new Discord.MessageEmbed()
               .setColor(neutralColor)
-              .setTitle("Prefix")
-              .setDescription("React with all flags you want to add to your prefix in order. You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.")
-              .addFields({ name: "Nickname preview", value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-              .setFooter("Executed by " + message.author.tag);
+              .setAuthor(strings.moduleName)
+              .setTitle(strings.react)
+              .setDescription(strings.reactTimer2)
+              .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+              .setFooter(strings.executedBy + message.author.tag);
             msg.edit(embed)
           }
         });
@@ -139,38 +143,40 @@ module.exports = {
                 .then(() => {
                   const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
-                    .setTitle("Prefix")
-                    .setDescription("Your prefix has been saved!")
-                    .addFields({ name: "New nickname", value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                    .setFooter("Executed by " + message.author.tag);
+                    .setAuthor(strings.moduleName)
+                    .setTitle(strings.saved)
+                    .addFields({ name: strings.newNickT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                    .setFooter(strings.executedBy + message.author.tag);
                   msg.edit(embed)
                 })
                 .catch(err => {
                   const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setTitle("Prefix")
-                    .setDescription("Failed to change nickname to " + prefixes + ".\n\nReason:\n> " + err)
-                    .addFields({ name: "Nickname preview", value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                    .setFooter("Executed by " + message.author.tag);
+                    .setAuthor(strings.moduleName)
+                    .setTitle(strings.errors.error)
+                    .setDescription(err)
+                    .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                    .setFooter(strings.executedBy + message.author.tag);
                   msg.edit(embed)
                   console.log(err)
                 })
             } else {
               const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor)
-                .setTitle("Prefix")
-                .setDescription("You already have this username, so nothing changed.")
-                .addFields({ name: "New nickname", value: "No changes" })
-                .setFooter("Executed by " + message.author.tag);
+                .setColor(successColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.errors.alreadyThis + strings.errors.notSaved)
+                .addFields({ name: strings.newNickT, value: strings.noChanges })
+                .setFooter(strings.executedBy + message.author.tag);
               msg.edit(embed)
             }
           } else {
             const embed = new Discord.MessageEmbed()
               .setColor(errorColor)
+              .setAuthor(strings.moduleName)
               .setTitle("Prefix")
-              .setDescription("The time ran out without you reacting to any flags, so your prefix wasn't saved.")
-              .addFields({ name: "New nickname", value: "No changes" })
-              .setFooter("Executed by " + message.author.tag);
+              .setDescription(strings.errors.timeOut + strings.errors.notSaved)
+              .addFields({ name: strings.newNickT, value: strings.noChanges })
+              .setFooter(strings.executedBy + message.author.tag);
             msg.edit(embed)
           }
         });

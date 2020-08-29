@@ -1,4 +1,5 @@
 commit-message: Crowdin - Update localisation
+append-commit-message: false
 files:
   - source: /strings/en/*.json
     translation: /strings/%osx_locale%/%original_file_name%
