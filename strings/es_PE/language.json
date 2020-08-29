@@ -1,8 +1,0 @@
-{
-    "moduleName": "Idioma",
-    "changingTitle": "Cambiando tu idioma...",
-    "changedToTitle": "¡Idioma cambiado a Español, Perú!",
-    "errorTitle": "¡Ese idioma no existe o no está completamente traducido!",
-    "errorDescription": "Tu idioma no fue cambiado y todavía es Español.",
-    "executedBy": "Ejecutado por "
-}
