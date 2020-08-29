@@ -20,8 +20,8 @@ module.exports = {
         message.channel.send(embed).then(msg => {
             if (args[0] === "add") {
                 allowed = false
-                if (message.author.id == "722738307477536778") { allowed = true }
-                if (message.channel.type !== "dm") { if (message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("549885657749913621") || message.member.roles.cache.has("241926666400563203")) { allowed = true } }
+                if (strings, message.author.id == "722738307477536778") { allowed = true }
+                if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("549885657749913621") || message.member.roles.cache.has("241926666400563203")) { allowed = true } }
                 if (!allowed) {
                     args.splice(0, 1)
                     var toSend = args.join(" ")
@@ -45,16 +45,16 @@ module.exports = {
                 } else {
                     args.splice(0, 1)
                     var toSend = args.join(" ")
-                    addToSpreadsheet(message, toSend, msg)
+                    addToSpreadsheet(strings, message, toSend, msg)
                 }
             } else {
-                accessSpreadsheet(message, args, msg)
+                accessSpreadsheet(strings, message, args, msg)
             }
         })
     }
 };
 
-async function accessSpreadsheet(message, args, msg) {
+async function accessSpreadsheet(strings, message, args, msg) {
     const doc = new GoogleSpreadsheet('16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8')
     await doc.useServiceAccountAuth(creds)
 
@@ -91,7 +91,7 @@ async function accessSpreadsheet(message, args, msg) {
     msg.edit(embed)
 }
 
-async function addToSpreadsheet(message, toSend, msg) {
+async function addToSpreadsheet(strings, message, toSend, msg) {
     const doc = new GoogleSpreadsheet('16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8')
     await doc.useServiceAccountAuth(creds)
 
