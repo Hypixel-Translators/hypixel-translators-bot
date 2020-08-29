@@ -76,7 +76,7 @@ module.exports = {
                                         .setDescription(strings.errorDescription + "\n" + langArr.join(", "))
                                         .setFooter(strings.executedBy + message.author.tag);
                                     msg.edit(embed)
-                                    returnp
+                                    return
                                 }
                                 message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
                                 strings = require(("../strings/" + args[0] + "/language.json"))
