@@ -23,7 +23,7 @@
     "editedResult": "¡La entrada de contexto fue editada! Los nuevos datos se muestran abajo.\n\n**Contexto**\n",
     "tryRunGet": "No se pudo encontrar esa entrada. Intenta ejecutar `+context get <ID del string>` para ver los resultos.",
     "editContextFor": "Edit context for ",
-    "willAdd": "The following entry will be added. Please react with 📑 if you'd like to add more to the entry or change existing fields (such as a screenshot or a language note). React with <:vote_yes:732298639749152769> to submit. This will be cancelled in two minutes or when you hit <:vote_no:732298639736570007>.",
+    "willAdd": "La siguiente entrada será añadida. Por favor, reaccione con 📑 si quieres añadir más a la entrada o cambiar el texto (como screenshot o una nota para un idioma). Reaccione con <:vote_yes:732298639749152769> para enviar. Esto será cancelado en dos minutos o cuando reaccionas con <:vote_no:732298639736570007>.",
     "promptAddMore": "Send a message (without the prefix) containing `<field> <content>`. <field> can be `screenshot`, `id`, `context` or a language code. <content> needs to be the new content for that string, such as the screenshot link.",
     "addedMore": "Added this information to the context entry. Re-react with 📑 to add more.",
     "added": "Added the context entry! Loading the result...",
