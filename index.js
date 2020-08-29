@@ -14,7 +14,6 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
-const join = require('./events/join.js')
 const reviewStrings = require('./events/reviewStrings.js')
 const stats = require('./events/stats.js')
 
@@ -164,8 +163,17 @@ client.on("message", async message => {
         if (fiMessages) {
           await fiMessages.forEach(element => {
             const langprefs = element.content.split(" ")
-            strings = require(("./strings/" + langprefs[1] + "/" + command.name + ".json"))
+            const path = ("./strings/" + langprefs[1] + "/" + command.name + ".json")
+            fs.access(path, fs.F_OK, (err) => {
+              if (err) {
+                strings = require(("./strings/en/" + command.name + ".json"))
+              } else {
+                strings = require(("./strings/" + langprefs[1] + "/" + command.name + ".json"))
+              }
+            })
           });
+        } else {
+          strings = require(("./strings/en/" + command.name + ".json"))
         }
       })
     command.execute(strings, message, args);
@@ -184,10 +192,6 @@ client.on("message", async message => {
     message.channel.send(embed)
 
   }
-});
-
-client.on('guildMemberAdd', member => {
-  join.execute(member)
 });
 
 client.on('messageReactionAdd', async (reaction, user) => {
