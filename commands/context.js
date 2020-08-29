@@ -78,30 +78,30 @@ async function getFromSpreadsheet(strings, message, args, msg) {
         .setTitle(strings.contextFor + args[1])
         .setDescription(correctRow.context)
         .setFooter(strings.executedBy + message.author.tag);
-    if (correctRow.bg) { if (correctRow.bg.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.bulgarian, value: correctRow.bg, inline: true }) } }
-    if (correctRow.zhcn) { if (correctRow.zhcn.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.chineseS, value: correctRow.zhcn, inline: true }) } }
-    if (correctRow.zhtw) { if (correctRow.zhtw.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.chineseT, value: correctRow.zhtw, inline: true }) } }
-    if (correctRow.cs) { if (correctRow.cs.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.czech, value: correctRow.cs, inline: true }) } }
-    if (correctRow.da) { if (correctRow.da.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.danish, value: correctRow.da, inline: true }) } }
-    if (correctRow.nl) { if (correctRow.nl.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.dutch, value: correctRow.nl, inline: true }) } }
-    if (correctRow.fi) { if (correctRow.fi.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.finnish, value: correctRow.fi, inline: true }) } }
-    if (correctRow.fr) { if (correctRow.fr.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.french, value: correctRow.fr, inline: true }) } }
-    if (correctRow.de) { if (correctRow.de.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.german, value: correctRow.de, inline: true }) } }
-    if (correctRow.el) { if (correctRow.el.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.greek, value: correctRow.el, inline: true }) } }
-    if (correctRow.it) { if (correctRow.it.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.italian, value: correctRow.it, inline: true }) } }
-    if (correctRow.ja) { if (correctRow.ja.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.japanese, value: correctRow.ja, inline: true }) } }
-    if (correctRow.ko) { if (correctRow.ko.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.korean, value: correctRow.ko, inline: true }) } }
-    if (correctRow.no) { if (correctRow.no.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.norwegian, value: correctRow.no, inline: true }) } }
-    if (correctRow.enpt) { if (correctRow.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.pirate, value: correctRow.enpt, inline: true }) } }
-    if (correctRow.pl) { if (correctRow.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.polish, value: correctRow.pl, inline: true }) } }
-    if (correctRow.ptpt) { if (correctRow.ptpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.portuguese, value: correctRow.ptpt, inline: true }) } }
-    if (correctRow.ptbr) { if (correctRow.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.brazilian, value: correctRow.ptbr, inline: true }) } }
-    if (correctRow.ru) { if (correctRow.ru.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.russian, value: correctRow.ru, inline: true }) } }
-    if (correctRow.eses) { if (correctRow.eses.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.spanish, value: correctRow.eses, inline: true }) } }
-    if (correctRow.svse) { if (correctRow.svse.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.swedish, value: correctRow.svse, inline: true }) } }
-    if (correctRow.th) { if (correctRow.th.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.thai, value: correctRow.th, inline: true }) } }
-    if (correctRow.tr) { if (correctRow.tr.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.turkish, value: correctRow.tr, inline: true }) } }
-    if (correctRow.uk) { if (correctRow.uk.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.ukrainian, value: correctRow.uk, inline: true }) } }
+    if (correctRow.bg) { if (correctRow.bg.length > 1) { embed.addFields({ name: strings.noteFor + strings.bulgarian, value: correctRow.bg, inline: true }) } }
+    if (correctRow.zhcn) { if (correctRow.zhcn.length > 1) { embed.addFields({ name: strings.noteFor + strings.chineseS, value: correctRow.zhcn, inline: true }) } }
+    if (correctRow.zhtw) { if (correctRow.zhtw.length > 1) { embed.addFields({ name: strings.noteFor + strings.chineseT, value: correctRow.zhtw, inline: true }) } }
+    if (correctRow.cs) { if (correctRow.cs.length > 1) { embed.addFields({ name: strings.noteFor + strings.czech, value: correctRow.cs, inline: true }) } }
+    if (correctRow.da) { if (correctRow.da.length > 1) { embed.addFields({ name: strings.noteFor + strings.danish, value: correctRow.da, inline: true }) } }
+    if (correctRow.nl) { if (correctRow.nl.length > 1) { embed.addFields({ name: strings.noteFor + strings.dutch, value: correctRow.nl, inline: true }) } }
+    if (correctRow.fi) { if (correctRow.fi.length > 1) { embed.addFields({ name: strings.noteFor + strings.finnish, value: correctRow.fi, inline: true }) } }
+    if (correctRow.fr) { if (correctRow.fr.length > 1) { embed.addFields({ name: strings.noteFor + strings.french, value: correctRow.fr, inline: true }) } }
+    if (correctRow.de) { if (correctRow.de.length > 1) { embed.addFields({ name: strings.noteFor + strings.german, value: correctRow.de, inline: true }) } }
+    if (correctRow.el) { if (correctRow.el.length > 1) { embed.addFields({ name: strings.noteFor + strings.greek, value: correctRow.el, inline: true }) } }
+    if (correctRow.it) { if (correctRow.it.length > 1) { embed.addFields({ name: strings.noteFor + strings.italian, value: correctRow.it, inline: true }) } }
+    if (correctRow.ja) { if (correctRow.ja.length > 1) { embed.addFields({ name: strings.noteFor + strings.japanese, value: correctRow.ja, inline: true }) } }
+    if (correctRow.ko) { if (correctRow.ko.length > 1) { embed.addFields({ name: strings.noteFor + strings.korean, value: correctRow.ko, inline: true }) } }
+    if (correctRow.no) { if (correctRow.no.length > 1) { embed.addFields({ name: strings.noteFor + strings.norwegian, value: correctRow.no, inline: true }) } }
+    if (correctRow.enpt) { if (correctRow.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.pirate, value: correctRow.enpt, inline: true }) } }
+    if (correctRow.pl) { if (correctRow.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.polish, value: correctRow.pl, inline: true }) } }
+    if (correctRow.ptpt) { if (correctRow.ptpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.portuguese, value: correctRow.ptpt, inline: true }) } }
+    if (correctRow.ptbr) { if (correctRow.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.brazilian, value: correctRow.ptbr, inline: true }) } }
+    if (correctRow.ru) { if (correctRow.ru.length > 1) { embed.addFields({ name: strings.noteFor + strings.russian, value: correctRow.ru, inline: true }) } }
+    if (correctRow.eses) { if (correctRow.eses.length > 1) { embed.addFields({ name: strings.noteFor + strings.spanish, value: correctRow.eses, inline: true }) } }
+    if (correctRow.svse) { if (correctRow.svse.length > 1) { embed.addFields({ name: strings.noteFor + strings.swedish, value: correctRow.svse, inline: true }) } }
+    if (correctRow.th) { if (correctRow.th.length > 1) { embed.addFields({ name: strings.noteFor + strings.thai, value: correctRow.th, inline: true }) } }
+    if (correctRow.tr) { if (correctRow.tr.length > 1) { embed.addFields({ name: strings.noteFor + strings.turkish, value: correctRow.tr, inline: true }) } }
+    if (correctRow.uk) { if (correctRow.uk.length > 1) { embed.addFields({ name: strings.noteFor + strings.ukrainian, value: correctRow.uk, inline: true }) } }
     if (correctRow.screenshot) {
         var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
         if (regexp.test(correctRow.screenshot)) {
@@ -248,30 +248,30 @@ async function addToSpreadsheet(strings, message, args, msg) {
                             .setTitle(strings.addContextFor + string)
                             .setDescription(strings.addedResult + result.context)
                             .setFooter(strings.executedBy + message.author.tag);
-                        if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.bulgarian, value: result.bg, inline: true }) } }
-                        if (result.zhcn) { if (result.zhcn.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.chineseS, value: result.zhcn, inline: true }) } }
-                        if (result.zhtw) { if (result.zhtw.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.chineseT, value: result.zhtw, inline: true }) } }
-                        if (result.cs) { if (result.cs.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.czech, value: result.cs, inline: true }) } }
-                        if (result.da) { if (result.da.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.danish, value: result.da, inline: true }) } }
-                        if (result.nl) { if (result.nl.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.dutch, value: result.nl, inline: true }) } }
-                        if (result.fi) { if (result.fi.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.finnish, value: result.fi, inline: true }) } }
-                        if (result.fr) { if (result.fr.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.french, value: result.fr, inline: true }) } }
-                        if (result.de) { if (result.de.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.german, value: result.de, inline: true }) } }
-                        if (result.el) { if (result.el.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.greek, value: result.el, inline: true }) } }
-                        if (result.it) { if (result.it.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.italian, value: result.it, inline: true }) } }
-                        if (result.ja) { if (result.ja.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.japanese, value: result.ja, inline: true }) } }
-                        if (result.ko) { if (result.ko.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.korean, value: result.ko, inline: true }) } }
-                        if (result.no) { if (result.no.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.norwegian, value: result.no, inline: true }) } }
-                        if (result.enpt) { if (result.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.pirate, value: result.enpt, inline: true }) } }
-                        if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.polish, value: result.pl, inline: true }) } }
-                        if (result.ptpt) { if (result.ptpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.portuguese, value: result.ptpt, inline: true }) } }
-                        if (result.ptbr) { if (result.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.brazilian, value: result.ptbr, inline: true }) } }
-                        if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.russian, value: result.ru, inline: true }) } }
-                        if (result.eses) { if (result.eses.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.spanish, value: result.eses, inline: true }) } }
-                        if (result.svse) { if (result.svse.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.swedish, value: result.svse, inline: true }) } }
-                        if (result.th) { if (result.th.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.thai, value: result.th, inline: true }) } }
-                        if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.turkish, value: result.tr, inline: true }) } }
-                        if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.ukrainian, value: result.uk, inline: true }) } }
+                        if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: strings.noteFor + strings.bulgarian, value: result.bg, inline: true }) } }
+                        if (result.zhcn) { if (result.zhcn.length > 1) { embed.addFields({ name: strings.noteFor + strings.chineseS, value: result.zhcn, inline: true }) } }
+                        if (result.zhtw) { if (result.zhtw.length > 1) { embed.addFields({ name: strings.noteFor + strings.chineseT, value: result.zhtw, inline: true }) } }
+                        if (result.cs) { if (result.cs.length > 1) { embed.addFields({ name: strings.noteFor + strings.czech, value: result.cs, inline: true }) } }
+                        if (result.da) { if (result.da.length > 1) { embed.addFields({ name: strings.noteFor + strings.danish, value: result.da, inline: true }) } }
+                        if (result.nl) { if (result.nl.length > 1) { embed.addFields({ name: strings.noteFor + strings.dutch, value: result.nl, inline: true }) } }
+                        if (result.fi) { if (result.fi.length > 1) { embed.addFields({ name: strings.noteFor + strings.finnish, value: result.fi, inline: true }) } }
+                        if (result.fr) { if (result.fr.length > 1) { embed.addFields({ name: strings.noteFor + strings.french, value: result.fr, inline: true }) } }
+                        if (result.de) { if (result.de.length > 1) { embed.addFields({ name: strings.noteFor + strings.german, value: result.de, inline: true }) } }
+                        if (result.el) { if (result.el.length > 1) { embed.addFields({ name: strings.noteFor + strings.greek, value: result.el, inline: true }) } }
+                        if (result.it) { if (result.it.length > 1) { embed.addFields({ name: strings.noteFor + strings.italian, value: result.it, inline: true }) } }
+                        if (result.ja) { if (result.ja.length > 1) { embed.addFields({ name: strings.noteFor + strings.japanese, value: result.ja, inline: true }) } }
+                        if (result.ko) { if (result.ko.length > 1) { embed.addFields({ name: strings.noteFor + strings.korean, value: result.ko, inline: true }) } }
+                        if (result.no) { if (result.no.length > 1) { embed.addFields({ name: strings.noteFor + strings.norwegian, value: result.no, inline: true }) } }
+                        if (result.enpt) { if (result.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.pirate, value: result.enpt, inline: true }) } }
+                        if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.polish, value: result.pl, inline: true }) } }
+                        if (result.ptpt) { if (result.ptpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.portuguese, value: result.ptpt, inline: true }) } }
+                        if (result.ptbr) { if (result.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.brazilian, value: result.ptbr, inline: true }) } }
+                        if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: strings.noteFor + strings.russian, value: result.ru, inline: true }) } }
+                        if (result.eses) { if (result.eses.length > 1) { embed.addFields({ name: strings.noteFor + strings.spanish, value: result.eses, inline: true }) } }
+                        if (result.svse) { if (result.svse.length > 1) { embed.addFields({ name: strings.noteFor + strings.swedish, value: result.svse, inline: true }) } }
+                        if (result.th) { if (result.th.length > 1) { embed.addFields({ name: strings.noteFor + strings.thai, value: result.th, inline: true }) } }
+                        if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: strings.noteFor + strings.turkish, value: result.tr, inline: true }) } }
+                        if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: strings.noteFor + strings.ukrainian, value: result.uk, inline: true }) } }
                         if (result.screenshot) {
                             var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
                             if (regexp.test(result.screenshot)) {
@@ -448,30 +448,30 @@ async function editInSpreadsheet(strings, message, args, msg) {
                 .setTitle(strings.editContextFor + args[1])
                 .setDescription(strings.editedResult + result.context)
                 .setFooter(strings.executedBy + message.author.tag);
-            if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.bulgarian, value: result.bg, inline: true }) } }
-            if (result.zhcn) { if (result.zhcn.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.chineseS, value: result.zhcn, inline: true }) } }
-            if (result.zhtw) { if (result.zhtw.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.chineseT, value: result.zhtw, inline: true }) } }
-            if (result.cs) { if (result.cs.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.czech, value: result.cs, inline: true }) } }
-            if (result.da) { if (result.da.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.danish, value: result.da, inline: true }) } }
-            if (result.nl) { if (result.nl.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.dutch, value: result.nl, inline: true }) } }
-            if (result.fi) { if (result.fi.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.finnish, value: result.fi, inline: true }) } }
-            if (result.fr) { if (result.fr.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.french, value: result.fr, inline: true }) } }
-            if (result.de) { if (result.de.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.german, value: result.de, inline: true }) } }
-            if (result.el) { if (result.el.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.greek, value: result.el, inline: true }) } }
-            if (result.it) { if (result.it.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.italian, value: result.it, inline: true }) } }
-            if (result.ja) { if (result.ja.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.japanese, value: result.ja, inline: true }) } }
-            if (result.ko) { if (result.ko.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.korean, value: result.ko, inline: true }) } }
-            if (result.no) { if (result.no.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.norwegian, value: result.no, inline: true }) } }
-            if (result.enpt) { if (result.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.pirate, value: result.enpt, inline: true }) } }
-            if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.polish, value: result.pl, inline: true }) } }
-            if (result.ptpt) { if (result.ptpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.portuguese, value: result.ptpt, inline: true }) } }
-            if (result.ptbr) { if (result.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.brazilian, value: result.ptbr, inline: true }) } }
-            if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.russian, value: result.ru, inline: true }) } }
-            if (result.eses) { if (result.eses.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.spanish, value: result.eses, inline: true }) } }
-            if (result.svse) { if (result.svse.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.swedish, value: result.svse, inline: true }) } }
-            if (result.th) { if (result.th.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.thai, value: result.th, inline: true }) } }
-            if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.turkish, value: result.tr, inline: true }) } }
-            if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: strings.noteFor + strings.languages.ukrainian, value: result.uk, inline: true }) } }
+            if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: strings.noteFor + strings.bulgarian, value: result.bg, inline: true }) } }
+            if (result.zhcn) { if (result.zhcn.length > 1) { embed.addFields({ name: strings.noteFor + strings.chineseS, value: result.zhcn, inline: true }) } }
+            if (result.zhtw) { if (result.zhtw.length > 1) { embed.addFields({ name: strings.noteFor + strings.chineseT, value: result.zhtw, inline: true }) } }
+            if (result.cs) { if (result.cs.length > 1) { embed.addFields({ name: strings.noteFor + strings.czech, value: result.cs, inline: true }) } }
+            if (result.da) { if (result.da.length > 1) { embed.addFields({ name: strings.noteFor + strings.danish, value: result.da, inline: true }) } }
+            if (result.nl) { if (result.nl.length > 1) { embed.addFields({ name: strings.noteFor + strings.dutch, value: result.nl, inline: true }) } }
+            if (result.fi) { if (result.fi.length > 1) { embed.addFields({ name: strings.noteFor + strings.finnish, value: result.fi, inline: true }) } }
+            if (result.fr) { if (result.fr.length > 1) { embed.addFields({ name: strings.noteFor + strings.french, value: result.fr, inline: true }) } }
+            if (result.de) { if (result.de.length > 1) { embed.addFields({ name: strings.noteFor + strings.german, value: result.de, inline: true }) } }
+            if (result.el) { if (result.el.length > 1) { embed.addFields({ name: strings.noteFor + strings.greek, value: result.el, inline: true }) } }
+            if (result.it) { if (result.it.length > 1) { embed.addFields({ name: strings.noteFor + strings.italian, value: result.it, inline: true }) } }
+            if (result.ja) { if (result.ja.length > 1) { embed.addFields({ name: strings.noteFor + strings.japanese, value: result.ja, inline: true }) } }
+            if (result.ko) { if (result.ko.length > 1) { embed.addFields({ name: strings.noteFor + strings.korean, value: result.ko, inline: true }) } }
+            if (result.no) { if (result.no.length > 1) { embed.addFields({ name: strings.noteFor + strings.norwegian, value: result.no, inline: true }) } }
+            if (result.enpt) { if (result.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.pirate, value: result.enpt, inline: true }) } }
+            if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.polish, value: result.pl, inline: true }) } }
+            if (result.ptpt) { if (result.ptpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.portuguese, value: result.ptpt, inline: true }) } }
+            if (result.ptbr) { if (result.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.brazilian, value: result.ptbr, inline: true }) } }
+            if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: strings.noteFor + strings.russian, value: result.ru, inline: true }) } }
+            if (result.eses) { if (result.eses.length > 1) { embed.addFields({ name: strings.noteFor + strings.spanish, value: result.eses, inline: true }) } }
+            if (result.svse) { if (result.svse.length > 1) { embed.addFields({ name: strings.noteFor + strings.swedish, value: result.svse, inline: true }) } }
+            if (result.th) { if (result.th.length > 1) { embed.addFields({ name: strings.noteFor + strings.thai, value: result.th, inline: true }) } }
+            if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: strings.noteFor + strings.turkish, value: result.tr, inline: true }) } }
+            if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: strings.noteFor + strings.ukrainian, value: result.uk, inline: true }) } }
             if (result.screenshot) {
                 var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
                 if (regexp.test(result.screenshot)) {
