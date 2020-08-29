@@ -6,7 +6,7 @@
     "errorTitle": "Esse idioma não existe ou não está completamente traduzido!",
     "errorDescription": "O teu idioma não foi alterado. Estes são os idiomas disponíveis neste momento (isto não significa que estejam traduzidos):",
     "executedBy": "Executado por ",
-    "credits": "Translated by <@PUT_YOUR_DISCORD_ID_IN_HERE>",
+    "credits": "Translated by <@PUT_YOUR_DISCORD_ID_IN_HERE>.",
     "ar": "Arabic",
     "bg": "Búlgaro",
     "zhcn": "Chinês (Simplificado)",
