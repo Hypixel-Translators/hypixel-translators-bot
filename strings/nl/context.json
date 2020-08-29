@@ -1,0 +1,13 @@
+{
+    "moduleName": "Context",
+    "loading": "Even geduld...",
+    "loadingModule": "Module laden...",
+    "notFound": "Die contextvermelding is niet gevonden.",
+    "notAllowed": "Je bent geen vertaler of proeflezer, dus je kunt dit niet gebruiken!",
+    "incorrectArgument": "Voer een subcommando in als eerste argument. Dit kan `get`, `add`, `edit`, `link` of `help` zijn.\nVoor meer informatie kun je `+context help` uitvoeren.",
+    "contextFor": "Context voor ",
+    "noteFor": "Opmerking voor ",
+    "screenshot": "Schermopname",
+    "addContextFor": "Context toevoegen aan ",
+    "executedBy": "Uitgevoerd door "
+}
