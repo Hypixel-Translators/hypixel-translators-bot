@@ -10,7 +10,7 @@ module.exports = {
     cooldown: 10,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "619662798133133312", "624881429834366986", "730042612647723058"],
-    execute(message, args) {
+    execute(strings, message, args) {
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
             .setAuthor("Quote")

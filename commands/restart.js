@@ -14,7 +14,7 @@ module.exports = {
   cooldown: 3,
   allowDM: true,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
-  execute(message) {
+  execute(strings, message) {
     //message.delete();
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)

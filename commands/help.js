@@ -1,6 +1,5 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const { prefix } = require("../config.json");
-var strings = require("../strings/en/help.json")
 const Discord = require("discord.js");
 
 module.exports = {
@@ -11,20 +10,8 @@ module.exports = {
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
   allowDM: true,
   cooldown: 5,
-  async execute(message, args) {
+  async execute(strings, message, args) {
     const { commands } = message.client;
-
-    await message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
-      .then(async messages => {
-        fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
-        if (fiMessages) {
-          await fiMessages.forEach(element => {
-            const langprefs = element.content.split(" ")
-            strings = require(("../strings/" + langprefs[1] + "/help.json"))
-          });
-        }
-      })
-    var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
 
     if (!args.length) {
       const embed = new Discord.MessageEmbed()

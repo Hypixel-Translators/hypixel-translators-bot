@@ -12,7 +12,7 @@ module.exports = {
   usage: "say",
   cooldown: 3,
   allowDM: true,
-  execute(message, args) {
+  execute(strings, message, args) {
     const rawSendTo = args[0]
     args.splice(0, 1)
     var toSend = args.join(" ")

@@ -7,7 +7,7 @@ module.exports = {
   usage: "mention <language> <proofreader|translator|all> [message]",
   cooldown: 120,
   categoryBlackList: ["549503328472530975"],
-  execute(message, args) {
+  execute(strings, message, args) {
     console.log(args)
     var type = args[1]
     const lowerArg = args[0].toLowerCase()

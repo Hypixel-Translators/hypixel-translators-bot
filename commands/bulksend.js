@@ -4,7 +4,7 @@ module.exports = {
   usage: "bulksend",
   cooldown: 30,
   allowDM: true,
-  execute(message, args) {
+  execute(strings, message, args) {
     if (!message.member.hasPermission("ADMINISTRATOR")) return;
     const sendTo = message.client.channels.cache.get(args[0])
     sendmsg(sendTo, args[1])

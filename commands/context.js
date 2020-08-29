@@ -9,7 +9,7 @@ module.exports = {
     usage: "context get|add|edit|view|help <arguments>",
     channelBlackList: ["621298919535804426", "619662798133133312", "712046319375482910", "550951034332381184", "634101000340504576", "713084081579098152"],
     cooldown: 3,
-    execute(message, args) {
+    execute(strings, message, args) {
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
             .setTitle("Context")

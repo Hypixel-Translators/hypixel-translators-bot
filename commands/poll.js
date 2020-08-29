@@ -8,7 +8,7 @@ module.exports = {
     description: "Creates a poll in the current channel.",
     usage: "poll <role to ping|'none'>/<question>/<a1 emoji>-<a1 text>/<a2 emoji>-<a2 text>[/...-...]",
     cooldown: 30,
-    execute(message) {
+    execute(strings, message) {
         const args = message.content.slice(6).split("/")
         message.delete()
         const pingRole = args[0]
