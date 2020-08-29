@@ -160,7 +160,7 @@ client.on("message", async message => {
     if (message.member) { if (message.member.hasPermission("ADMINISTRATOR") || message.author.id === "722738307477536778") { timestamps.delete(message.author.id) } }
     await message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
       .then(async langDbMessages => {
-        fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
+        fiMessages = langDbMessages.filter(msg => msg.content.startsWith(message.author.id))
         if (fiMessages) {
           await fiMessages.forEach(element => {
             const langprefs = element.content.split(" ")
