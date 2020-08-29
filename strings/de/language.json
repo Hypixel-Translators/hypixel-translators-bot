@@ -1,8 +1,8 @@
 {
-    "moduleName": "Language",
-    "changingTitle": "Changing your language...",
-    "changedToTitle": "Changed your language to English!",
-    "errorTitle": "That language doesn't exist or isn't completely translated!",
-    "errorDescription": "Your language hasn't been changed and is still English.",
-    "executedBy": "Executed by "
+    "moduleName": "Sprache",
+    "changingTitle": "Sprache wird geändert …",
+    "changedToTitle": "Deine Sprache wurde zu Deutsch geändert!",
+    "errorTitle": "Diese Sprache existiert nicht oder ist nicht komplett übersetzt!",
+    "errorDescription": "Deine Sprache hat sich nicht verändert und ist immer noch Deutsch.",
+    "executedBy": "Ausgeführt von "
 }
