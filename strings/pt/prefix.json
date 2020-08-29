@@ -1,7 +1,7 @@
 {
-    "moduleName": "Prefix",
+    "moduleName": "Prefixo",
     "loading": "Só um segundo...",
-    "loadingRoles": "Fetching your roles...",
+    "loadingRoles": "A analisar os teus cargos...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
         "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
