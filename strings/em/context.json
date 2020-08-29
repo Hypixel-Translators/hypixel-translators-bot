@@ -1,0 +1,13 @@
+{
+    "moduleName": "⏮⌨⏭",
+    "loading": "⏱...",
+    "loadingModule": "🔳 ⏱...",
+    "notFound": "↖ ⏮⌨⏭ 🚫.",
+    "notAllowed": "⤵ 🚫 🌐🔀 / 🌐🔀☑, ⤵ ⛔!",
+    "incorrectArgument": "🖊 ↪👩‍💻 ➡ 1️⃣ 👩‍💻. 📜: `get`, `add`, `edit`, `link`, `help`.\n➕ ℹ, ↘ `+context help`.",
+    "contextFor": "⏮⌨⏭ ",
+    "noteFor": "🗒 ",
+    "screenshot": "💻🤳",
+    "addContextFor": "➕ ⏮⌨⏭ ",
+    "executedBy": "👩‍💻🖊 ↖ "
+}

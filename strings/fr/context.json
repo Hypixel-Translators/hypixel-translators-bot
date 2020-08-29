@@ -1,0 +1,13 @@
+{
+    "moduleName": "Context",
+    "loading": "One second...",
+    "loadingModule": "Loading module...",
+    "notFound": "That context entry hasn't been found.",
+    "notAllowed": "You're not a translator or proofreader, so you can't use this!",
+    "incorrectArgument": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
+    "contextFor": "Context for ",
+    "noteFor": "Note for ",
+    "screenshot": "Screenshot",
+    "addContextFor": "Add context for ",
+    "executedBy": "Exécuté par "
+}

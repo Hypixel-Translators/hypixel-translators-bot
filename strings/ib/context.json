@@ -1,0 +1,13 @@
+{
+    "moduleName": "Centoxt",
+    "loading": "Wait, idot...",
+    "loadingModule": "Modul not reddi yet...",
+    "notFound": "Dat centoxt entriye foundn't.",
+    "notAllowed": "Ur not a translater ore proofreder, so disn't avalaebul fer u!",
+    "incorrectArgument": "Oh pls entar sbusbacomand as 1nd gargarment. Dis scan be `get`, `add`, `edit`, `link` ore `help`.\nIf ur too dumb, do `+context help`.",
+    "contextFor": "Centoxt fer ",
+    "noteFor": "Noot fer ",
+    "screenshot": "Picturr of scren",
+    "addContextFor": "Do add centoxt for ",
+    "executedBy": "Done by le "
+}
