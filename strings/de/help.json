@@ -1,13 +1,13 @@
 {
     "moduleName": "Hilfe",
     "commandsListTitle": "Liste der Befehle",
-    "commandsListTooltip": "Führe `+help <name of command>` aus um mehr über einzelne Befehle zu lernen.",
+    "commandsListTooltip": "Führe `+help <Befehlsnamen>` aus um mehr über einzelne Befehle zu lernen.",
     "commandInfo": "Befehlsinformationen",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "seconds": " second(s)",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
-    "executedBy": "Executed by "
+    "commandInfoFor": "Befehlsinformationen für ",
+    "commandNotExist": "Dieser Befehl existiert nicht!",
+    "seconds": " Sekunde(n)",
+    "usageField": "Verwendung",
+    "cooldownField": "Abklingzeit",
+    "aliasesField": "Aliase",
+    "executedBy": "Ausgeführt von "
 }
