@@ -21,9 +21,10 @@ module.exports = {
                 message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
                     .then(async messages => {
                         fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
-                        console.log(fiMessages)
+                        var f = 0
                         if (fiMessages) {
                             fiMessages.forEach(element => {
+                                f = 1
                                 element.delete()
                                 const path = './strings/' + args[0] + '/language.json'
                                 fs.access(path, fs.F_OK, (err) => {
@@ -49,7 +50,7 @@ module.exports = {
                                     msg.edit(embed)
                                 })
                             });
-                        } else {
+                        } if (f == 0) {
                             const path = './strings/' + args[0] + '/language.json'
                             fs.access(path, fs.F_OK, (err) => {
                                 if (err) {
