@@ -30,10 +30,10 @@ module.exports = {
                                 fs.access(path, fs.F_OK, (err) => {
                                     if (err) {
                                         const testFolder = './strings/';
-
+                                        var langArr = []
                                         fs.readdir(testFolder, (err, files) => {
                                             files.forEach(file => {
-                                                console.log(file);
+                                                langArr.push(file)
                                             });
                                         });
                                         console.error(err)
@@ -41,7 +41,7 @@ module.exports = {
                                             .setColor(errorColor)
                                             .setAuthor(strings.moduleName)
                                             .setTitle(strings.errorTitle)
-                                            .setDescription(strings.errorDescription)
+                                            .setDescription(strings.errorDescription + "\n" + langArr.join(", "))
                                             .setFooter(strings.executedBy + message.author.tag);
                                         msg.edit(embed)
                                         return
@@ -62,10 +62,10 @@ module.exports = {
                             fs.access(path, fs.F_OK, (err) => {
                                 if (err) {
                                     const testFolder = './strings/';
-
+                                    var langArr = []
                                     fs.readdir(testFolder, (err, files) => {
                                         files.forEach(file => {
-                                            console.log(file);
+                                            langArr.push(file)
                                         });
                                     });
                                     console.error(err)
@@ -73,10 +73,10 @@ module.exports = {
                                         .setColor(errorColor)
                                         .setAuthor(strings.moduleName)
                                         .setTitle(strings.errorTitle)
-                                        .setDescription(strings.errorDescription)
+                                        .setDescription(strings.errorDescription + "\n" + langArr.join(", "))
                                         .setFooter(strings.executedBy + message.author.tag);
                                     msg.edit(embed)
-                                    return
+                                    returnp
                                 }
                                 message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
                                 strings = require(("../strings/" + args[0] + "/language.json"))
