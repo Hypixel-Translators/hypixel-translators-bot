@@ -8,10 +8,10 @@
         "confirmedNoFlags": "Has confirmado, pero no has reaccionado a ninguna bandera, ",
         "cancelled": "Has cancelado el cambio de tu apodo, ",
         "alreadyThis": "Ya tienes este apodo, ",
-        "timeOut": "No has reaccionado non ninguna bandera, ",
+        "timeOut": "No has reaccionado con ninguna bandera, ",
         "notSaved": "así que tu prefijo no se ha guardado."
     },
-    "react": "Reacciona con todas la banderas que quieres añadir a tu prefijo en orden.",
+    "react": "Reacciona con todas las banderas que quieres añadir a tu prefijo en orden.",
     "reactTimer": "Tienes 20 segundos. Pulsa ❎ para cancelar.",
     "reactTimer2": "Te quedan menos de 20 segundos. Pulsa ✅ para confirmar o ❎ para cancelar.",
     "previewT": "Previsualización del apodo",
