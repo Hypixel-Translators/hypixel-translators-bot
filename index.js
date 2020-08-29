@@ -161,7 +161,7 @@ client.on("message", async message => {
       .then(async langDbMessages => {
         fiMessages = langDbMessages.filter(msg => msg.content.startsWith(message.author.id))
         if (fiMessages) {
-          await fiMessages.forEach(element => {
+          await fiMessages.forEach(async element => {
             const langprefs = element.content.split(" ")
             const path = ("./strings/" + langprefs[1] + "/" + command.name + ".json")
             await fs.access(path, fs.F_OK, (err) => {
