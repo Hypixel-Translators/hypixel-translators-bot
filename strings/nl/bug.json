@@ -2,5 +2,6 @@
     "moduleName": "Een fout melden",
     "sendingTitle": "Je foutrapport wordt verzonden...",
     "sentTitle": "Je foutrapport is verzonden!",
+    "addMessage": "You haven't provided a message!",
     "executedBy": "Uitgevoerd door "
 }
