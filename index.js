@@ -164,7 +164,7 @@ client.on("message", async message => {
           await fiMessages.forEach(element => {
             const langprefs = element.content.split(" ")
             const path = ("./strings/" + langprefs[1] + "/" + command.name + ".json")
-            fs.access(path, fs.F_OK, (err) => {
+            await fs.access(path, fs.F_OK, (err) => {
               if (err) {
                 strings = require(("./strings/en/" + command.name + ".json"))
               } else {
