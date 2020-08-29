@@ -3,6 +3,6 @@
     "changingTitle": "Sprache wird geändert …",
     "changedToTitle": "Deine Sprache wurde zu Deutsch geändert!",
     "errorTitle": "Diese Sprache existiert nicht oder ist nicht komplett übersetzt!",
-    "errorDescription": "Deine Sprache hat sich nicht verändert und ist immer noch Deutsch.",
+    "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "executedBy": "Ausgeführt von "
 }

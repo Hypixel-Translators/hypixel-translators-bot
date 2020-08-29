@@ -3,6 +3,6 @@
     "changingTitle": "משנה את השפה שלך...",
     "changedToTitle": "שיניתי את השפה לעברית!",
     "errorTitle": "השפה הזאת לא קיימת או שלא מתורגמת לחלוטין!",
-    "errorDescription": "השפה שלך לא השתנת ונשארה עברית.",
+    "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "executedBy": "בוצע על ידי המשתמש "
 }

@@ -3,6 +3,6 @@
     "changingTitle": "Змінюю мову...",
     "changedToTitle": "Змінив Вашу мову на Українську!",
     "errorTitle": "Ця мова не існує або не повністю перекладена!",
-    "errorDescription": "Ваша мова не змінилась і залишилась Українською.",
+    "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "executedBy": "Було виконано користувачем "
 }
