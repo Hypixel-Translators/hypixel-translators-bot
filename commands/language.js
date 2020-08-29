@@ -40,6 +40,16 @@ module.exports = {
                             });
                         }
                         var tester = require(("../strings/" + args[0] + "/help.json"))
+                            .catch(err => {
+                                const embed = new Discord.MessageEmbed()
+                                    .setColor(errorColor)
+                                    .setAuthor(strings.moduleName)
+                                    .setTitle(strings.errorTitle)
+                                    .setDescription(strings.errorDescription)
+                                    .setFooter(strings.executedBy + message.author.tag);
+                                msg.edit(embed)
+                                return
+                            })
                         if (tester) {
                             message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
                             strings = require(("../strings/" + args[0] + "/language.json"))
