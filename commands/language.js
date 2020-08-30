@@ -49,6 +49,7 @@ module.exports = {
                                         element.delete()
                                         message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[1])
                                         strings = require(("../strings/" + args[1] + "/language.json"))
+                                        executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
                                         var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
                                         const embed = new Discord.MessageEmbed()
                                             .setColor(successColor)
@@ -78,6 +79,7 @@ module.exports = {
                                     }
                                     message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[1])
                                     strings = require(("../strings/" + args[1] + "/language.json"))
+                                    executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
                                     var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
                                     const embed = new Discord.MessageEmbed()
                                         .setColor(successColor)
