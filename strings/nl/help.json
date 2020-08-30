@@ -13,5 +13,33 @@
     "help": {
         "usage": "+help [commandonaam]",
         "description": "Geeft alle commando's en andere informatie over de bot weer."
+    },
+    "prefix": {
+        "usage": "+prefix",
+        "description": "Geeft je het juiste voorvoegsel voor je taal/talen."
+    },
+    "quote": {
+        "usage": "+quote [index] | +quote add <citaat>/<gebruikersvermelding>",
+        "description": "Geeft een grappig/raar/wijs citaat uit de server (of voegt er een toe)."
+    },
+    "mention": {
+        "usage": "+mention <taal> proofreader|translator|all [bericht]",
+        "description": "Vermeldt een taalrol en voegt een bericht bij."
+    },
+    "context": {
+        "usage": "+context get|add|edit|view|help <argumenten>",
+        "description": "Geeft context voor het gegeven string-ID, voegt het toe of bewerkt het. `+context help` geeft je informatie over dit commando."
+    },
+    "bug": {
+        "usage": "+bug <bericht>",
+        "description": "Laat je botfouten rapporteren."
+    },
+    "feedback": {
+        "usage": "+feedback <bericht>",
+        "description": "Verstuurt je feedback naar staff."
+    },
+    "language": {
+        "usage": "+language [nieuwe taal]",
+        "description": "Laat je huidige taal zien, of verandert het naar een andere taal."
     }
 }
