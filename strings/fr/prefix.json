@@ -18,5 +18,5 @@
     "newNickT": "Nouveau pseudo",
     "noChanges": "Aucun changement",
     "saved": "Ton préfixe a été enregistré!",
-    "executedBy": "Exécuté par "
+    "executedBy": "Executed by %%user%%"
 }
