@@ -1,11 +1,11 @@
 {
-    "moduleName": "Quote",
-    "loading": "One second...",
-    "loadingModule": "Loading module...",
-    "invalidArg": "Invalid argument!",
-    "indexArg1": "A quote with index ",
-    "indexArg2": " doesn't exist! Please provide a number between 1 and ",
+    "moduleName": "Lainaus",
+    "loading": "Odota sekunti...",
+    "loadingModule": "Ladataan moduulia...",
+    "invalidArg": "Virheellinen argumentti!",
+    "indexArg1": "Lainausta numerolla ",
+    "indexArg2": " ei löytynyt! Ole hyvä ja syötä numero välillä 1-",
     "indexArg3": ".",
-    "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
-    "executedBy": "Executed by "
+    "specUser": "Et ole määrittänyt käyttäjää! Ole hyvä ja kirjoita lainaus ja mainitse lainattu käyttäjä, erotettuna vinoviivalla.",
+    "executedBy": "Komennon suoritti "
 }
