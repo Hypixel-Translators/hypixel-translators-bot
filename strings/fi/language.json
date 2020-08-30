@@ -1,8 +1,7 @@
 {
     "moduleName": "Kieli",
     "changingTitle": "Vaihdetaan kieltä...",
-    "changedToTitle1": "Kieleksesi vaihdettiin ",
-    "changedToTitle2": "!",
+    "changedToTitle": "Changed your language to English!",
     "errorTitle": "Tätä kieltä ei ole olemassa tai sille ei löydy käännöstä!",
     "errorDescription": "Kieltäsi ei vaihdettu. Tällä hetkellä saatavilla olevat kielet (käännöstä ei välttämättä löydy):",
     "current1": "Käytössäsi oleva kieli on ",
