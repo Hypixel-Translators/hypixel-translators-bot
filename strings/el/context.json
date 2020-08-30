@@ -28,7 +28,7 @@
     "addedMore": "Αυτή η πληροφορία προστέθηκε στην εισαγωγή περιγραφής. Αντίδρασε ξανά με 📑 για να προσθέσεις περισσότερα.",
     "added": "Η εισαγωγή περιγραφής προστέθηκε! Το αποτέλεσμα φορτώνει...",
     "addedResult": "Η εισαγωγή περιγραφής προστέθηκε! Φαίνεται παρακάτω.\n\n**Περιγραφή**\n",
-    "specifyFieldEdit": "You forgot to specify what field to edit!\nPlease follow this format: `+context edit <string ID> <field to change> <new value>`.\nTo see all available fields, run `+context help`.",
+    "specifyFieldEdit": "Ξέχασες να προσδιορίσεις ποιο πεδίο θα επεξεργαστείς!\nΠαρακαλώ ακολούθησε αυτή την διάταξη: `+context edit <string ID> <πεδίο για αλλαγή> <νέα τιμή>`.\nΓια να δεις όλα τα διαθέσιμα πεδία, τρέξε `+context help`.",
     "confirm": "Please confirm this change by reacting with <:vote_yes:732298639749152769> within 10 seconds. To cancel, wait or react with <:vote_no:732298639736570007>.",
     "oldVal": "Old value for ",
     "newVal": "New value for ",
