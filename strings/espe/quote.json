@@ -5,5 +5,5 @@
     "invalidArg": "¡Argumento inválido!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "specUser": "¡No especificaste un usuario! Por favor, escriba la cita y menciona al usuario citado, separado por /.",
-    "executedBy": "Ejecutado por "
+    "executedBy": "Executed by %%user%%"
 }
