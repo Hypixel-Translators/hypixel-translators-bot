@@ -1,8 +1,7 @@
 {
     "moduleName": "Язык",
     "changingTitle": "Изменяю Ваш язык...",
-    "changedToTitle1": "Changed your language to ",
-    "changedToTitle2": "!",
+    "changedToTitle": "Changed your language to English!",
     "errorTitle": "Данный язык не существует или же не полностью переведён!",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "current1": "Your language preference is set to ",
