@@ -1,6 +1,6 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
+    "moduleName": "Hjelp",
+    "commandsListTitle": "Liste av kommandoer",
     "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
