@@ -70,5 +70,5 @@
         "sheetD": "[Klik hier om de Google Sheet te openen met contextinformatie.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nAlleen specifieke personen kunnen deze Sheet openen. Je kunt toegang aanvragen op de pagina die je ziet als je de link volgt. Voer daar je Crowdin-profiellink (`.../profile/<gebruikersnaam>`) en je Discord-gebruikersnaam in.\nLet wel dat Stannya, Rodry en QkeleQ10 je Google-profielnaam en -e-mail kunnen zien.",
         "sheetDel": " | Bericht verwijderen in 2 minuten"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Uitgevoerd door %%user%%"
 }
