@@ -1,10 +1,10 @@
 {
-    "moduleName": "Quote",
+    "moduleName": "Zitieren",
     "loading": "Eine Sekunde …",
     "loadingModule": "Loading module...",
-    "invalidArg": "Invalid argument!",
-    "indexArg1": "A quote with index ",
-    "indexArg2": " doesn't exist! Please provide a number between 1 and ",
+    "invalidArg": "Ungültiges Argument!",
+    "indexArg1": "Ein Zitat mit Index ",
+    "indexArg2": " existiert nicht! Gebe bitte eine Number zwischen 1 und ",
     "indexArg3": ".",
     "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
     "executedBy": "Ausgeführt von "
