@@ -5,5 +5,5 @@
     "invalidArg": "مُعطى غير صالح!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "specUser": "لم تقم بتحديد شخص! الرجاء كتابة الاقتباس ثم ذكر المستخدم المقتبس، مفصولة بخط فاصل.",
-    "executedBy": "تم التنفيذ بواسطة "
+    "executedBy": "Executed by %%user%%"
 }
