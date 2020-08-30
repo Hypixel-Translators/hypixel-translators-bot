@@ -1,8 +1,7 @@
 {
     "moduleName": "语言",
     "changingTitle": "正在更改您的语言...",
-    "changedToTitle1": "您的语言已更改为 ",
-    "changedToTitle2": "！",
+    "changedToTitle": "Changed your language to English!",
     "errorTitle": "该语言不存在或尚未完全翻译！",
     "errorDescription": "您的语言未被更改。以下是目前可用的语言（可能未翻译）：",
     "current1": "您的偏好语言已设置为 ",
