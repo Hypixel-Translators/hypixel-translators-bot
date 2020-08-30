@@ -21,12 +21,12 @@ module.exports = {
         .setDescription(strings.commandsListTooltip)
         .addFields(
           { name: "`" + strings.help.usage + "`", value: strings.help.description, inline: false },
-          { name: "`" + commands.get("prefix").usage + "`", value: commands.get("prefix").description, inline: false },
-          { name: "`" + commands.get("quote").usage + "`", value: commands.get("quote").description, inline: false },
-          { name: "`" + commands.get("mention").usage + "`", value: commands.get("mention").description, inline: false },
-          { name: "`" + commands.get("context").usage + "`", value: commands.get("context").description, inline: false },
-          { name: "`" + commands.get("bug").usage + "`", value: commands.get("bug").description, inline: false },
-          { name: "`" + commands.get("feedback").usage + "`", value: commands.get("feedback").description, inline: false }
+          { name: "`" + strings.prefix.usage + "`", value: strings.prefix.description, inline: false },
+          { name: "`" + strings.quote.usage + "`", value: strings.quote.description, inline: false },
+          { name: "`" + strings.mention.usage + "`", value: strings.mention.description, inline: false },
+          { name: "`" + strings.context.usage + "`", value: strings.context.description, inline: false },
+          { name: "`" + strings.bug.usage + "`", value: strings.bug.description, inline: false },
+          { name: "`" + strings.feedback.usage + "`", value: strings.feedback.description, inline: false }
         )
         .setFooter(strings.executedBy + message.author.tag);
       message.channel.send(embed)
