@@ -9,7 +9,6 @@
     "usageField": "Verwendung",
     "cooldownField": "Abklingzeit",
     "aliasesField": "Aliase",
-    "executedBy": "Ausgeführt von ",
     "help": {
         "usage": "+help [Befehlsname]",
         "description": "Zeigt alle verfügbaren Befehle und andere Informationen über den Bot."
@@ -41,5 +40,6 @@
     "language": {
         "usage": "+language [Neue Sprache]",
         "description": "Zeigt deine aktuelle Sprache an oder ändert sie in eine andere."
-    }
+    },
+    "executedBy": "Executed by %%user%%"
 }
