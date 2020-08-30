@@ -1,12 +1,11 @@
 {
     "moduleName": "Langue",
     "changingTitle": "Je change ta langue maintenant...",
-    "changedToTitle": "Changed your language to English!",
+    "changedToTitle": "J'ai changé ta langue en Français!",
     "errorTitle": "Cette langue n'existe pas ou elle n'est pas complètement traduite!",
     "errorDescription": "Ta langue n'a pas été changée. Ces langues sont actuellement disponibles (ne signifie pas qu'elles sont traduites):",
-    "current": "Your language preference is set to English.",
-    "executedBy": "Exécuté par ",
-    "credits": "Proofreader: <@435546264432803840>!",
+    "current": "Ta préférence de langue est définie à Français.",
+    "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "Arabe",
     "bg": "Bulgare",
     "zhcn": "Chinois (Simplifié)",
@@ -20,7 +19,7 @@
     "em": "Émoticône",
     "en": "Anglais",
     "el": "Grec",
-    "ib": "Inhale Banana",
+    "ib": "Inhaler Banane",
     "it": "Italien",
     "ja": "Japonais",
     "ko": "Coréen",
@@ -36,5 +35,6 @@
     "sv": "Suédois",
     "th": "Thaï",
     "tr": "Turc",
-    "ua": "Ukrainien"
+    "ua": "Ukrainien",
+    "executedBy": "Executed by %%user%%"
 }

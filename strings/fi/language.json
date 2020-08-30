@@ -1,12 +1,11 @@
 {
     "moduleName": "Kieli",
     "changingTitle": "Vaihdetaan kieltä...",
-    "changedToTitle": "Changed your language to English!",
+    "changedToTitle": "Kieleksesi vaihdettiin suomi!",
     "errorTitle": "Tätä kieltä ei ole olemassa tai sille ei löydy käännöstä!",
     "errorDescription": "Kieltäsi ei vaihdettu. Tällä hetkellä saatavilla olevat kielet (käännöstä ei välttämättä löydy):",
-    "current": "Your language preference is set to English.",
-    "executedBy": "Komennon suoritti ",
-    "credits": "Proofread by <@PUT_YOUR_DISCORD_ID_IN_HERE>.",
+    "current": "Käytössäsi oleva kieli on suomi.",
+    "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "arabia",
     "bg": "bulgaria",
     "zhcn": "kiina (yksinkertaistettu)",
@@ -36,5 +35,6 @@
     "sv": "ruotsi",
     "th": "thai",
     "tr": "turkki",
-    "ua": "ukraina"
+    "ua": "ukraina",
+    "executedBy": "Executed by %%user%%"
 }

@@ -4,9 +4,8 @@
     "changedToTitle": "Taal is veranderd naar het Nederlands!",
     "errorTitle": "Die taal bestaat niet of hij is niet compleet vertaald!",
     "errorDescription": "Je taal is niet veranderd. Deze talen zijn momenteel beschikbaar (dit betekent niet dat ze vertaald zijn):",
-    "current": "Your language preference is set to English.",
-    "executedBy": "Uitgevoerd door ",
-    "credits": "Proefgelezen door <@722738307477536778>.",
+    "current": "Je taalvoorkeur is Nederlands.",
+    "credits": "Fout gespot? Rapporteer hem met `+bug <bericht>`.",
     "ar": "Arabisch",
     "bg": "Bulgaars",
     "zhcn": "Chinees (vereenvoudigd)",
@@ -36,5 +35,6 @@
     "sv": "Zweeds",
     "th": "Thais",
     "tr": "Turks",
-    "ua": "Oekraïens"
+    "ua": "Oekraïens",
+    "executedBy": "Uitgevoerd door %%user%%"
 }

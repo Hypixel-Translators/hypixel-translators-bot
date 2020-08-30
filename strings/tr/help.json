@@ -9,7 +9,6 @@
     "usageField": "Kullanım",
     "cooldownField": "Bekleme Süresi",
     "aliasesField": "Aliaslar",
-    "executedBy": "Yürüten kişi ",
     "help": {
         "usage": "+help [komut ismi]",
         "description": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir."
@@ -41,5 +40,6 @@
     "language": {
         "usage": "+language [yeni dil]",
         "description": "Şu anki dilini gösterir veya başka bir dil ile değiştirir."
-    }
+    },
+    "executedBy": "Executed by %%user%%"
 }

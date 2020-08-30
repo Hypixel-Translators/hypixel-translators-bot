@@ -3,7 +3,7 @@
     "loading": "Odota sekunti...",
     "loadingModule": "Ladataan moduulia...",
     "invalidArg": "Virheellinen argumentti!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
+    "indexArg": "Lainausta numerolla %%arg%% ei ole olemassa! Ole hyvä ja syötä numero välillä 1-%%max%%.",
     "specUser": "Et ole määrittänyt käyttäjää! Ole hyvä ja kirjoita lainaus ja mainitse lainattu käyttäjä, erotettuna vinoviivalla.",
-    "executedBy": "Komennon suoritti "
+    "executedBy": "Executed by %%user%%"
 }

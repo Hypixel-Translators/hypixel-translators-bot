@@ -10,10 +10,10 @@
         "didntReply": "You didn't reply in time, ",
         "hitReaction": "You reacted with <:vote_no:732298639736570007>, ",
         "cancelledPrompt": "so this prompt has been cancelled. ",
-        "readdTryAgain": "Re-react with 📑 to try again."
+        "readdTryAgain": "Reaja com 📑 para tentar novamente."
     },
-    "notAllowed": "You're not a translator or proofreader, so you can't use this!",
-    "notProofreader": "You're not a proofreader, so you can't use this! We're working on a way to let you suggest context too.",
+    "notAllowed": "Você não é um tradutor ou revisor, então você não pode usar isso!",
+    "notProofreader": "Você não é um revisor, então você não pode usar isso! Estamos trabalhando para adicionar uma forma para que você possa sugerir contextos também.",
     "incorrectArgument": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
     "contextFor": "Context for ",
     "noteFor": "Note for ",
@@ -33,7 +33,6 @@
     "oldVal": "Old value for ",
     "newVal": "New value for ",
     "stringId": "String ID",
-    "executedBy": "Executed by ",
     "bulgarian": "Bulgarian",
     "chineseS": "Chinese (Simplified)",
     "chineseT": "Chinese (Traditional)",
@@ -70,5 +69,6 @@
         "sheetT": "Context Sheet",
         "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya, Rodry and QkeleQ10 can see your Google profile name and email.",
         "sheetDel": " | Deleting message after 2 minutes"
-    }
+    },
+    "executedBy": "Executed by %%user%%"
 }

@@ -12,11 +12,11 @@
         "notSaved": "so your prefix wasn't saved."
     },
     "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
+    "reactTimer": "Você tem 20 segundos. Clique em ❎ para cancelar.",
+    "reactTimer2": "Você tem menos de 20 segundos restantes. Clique em ✅ para confirmar ou ❎ para cancelar.",
     "previewT": "Nickname preview",
     "newNickT": "New nickname",
     "noChanges": "No changes",
-    "saved": "Your prefix has been saved!",
-    "executedBy": "Executed by "
+    "saved": "Seu prefixo foi salvo!",
+    "executedBy": "Executed by %%user%%"
 }

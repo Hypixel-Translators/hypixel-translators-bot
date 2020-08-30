@@ -5,8 +5,7 @@
     "errorTitle": "Ця мова не існує або не повністю перекладена!",
     "errorDescription": "Ваша мова не змінилась. Ці мови в даний час доступні (це не означає, що вони перекладені):",
     "current": "Your language preference is set to English.",
-    "executedBy": "Було виконано користувачем ",
-    "credits": "Proofread by <@PUT_YOUR_DISCORD_ID_IN_HERE>.",
+    "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "Арабська",
     "bg": "Болгарський",
     "zhcn": "Китайська (спрощене письмо)",
@@ -36,5 +35,6 @@
     "sv": "Шведська",
     "th": "Тайська",
     "tr": "Турецька",
-    "ua": "Українська"
+    "ua": "Українська",
+    "executedBy": "Executed by %%user%%"
 }

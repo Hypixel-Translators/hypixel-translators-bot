@@ -5,5 +5,5 @@
     "invalidArg": "Недійсний аргумент!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "specUser": "Ви не вказали користувача! Будь ласка, введіть цитату і @ вказаного користувача, розділивши їх косою рискою.",
-    "executedBy": "Було виконано користувачем "
+    "executedBy": "Executed by %%user%%"
 }

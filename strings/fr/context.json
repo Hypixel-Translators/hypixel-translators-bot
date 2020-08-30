@@ -33,7 +33,6 @@
     "oldVal": "Ancienne information pour ",
     "newVal": "Nouvelle information pour ",
     "stringId": "ID du string",
-    "executedBy": "Exécuté par ",
     "bulgarian": "Bulgare",
     "chineseS": "Chinois (Simplifié)",
     "chineseT": "Chinois (Traditionnel)",
@@ -70,5 +69,6 @@
         "sheetT": "Feuille de Contexte",
         "sheetD": "[Cliquez ici pour ouvrir la Google Sheet qui contient des informations de contexte.]\n(https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nSeules les personnes spécifiques peuvent ouvrir cette feuille. Tu peux demander l'accès sur la page que tu vois en suivant le lien. \nEntre ton lien de profil Crowdin (`.../profile/<nom d'utilisateur>`) et ton nom d'utilisateur Discord. \n\nAttention! Stannya, Rodry et QkeleQ10 peuvent voir ton nom de profil Google et ton email.",
         "sheetDel": " | Suppression du message après 2 minutes"
-    }
+    },
+    "executedBy": "Executed by %%user%%"
 }

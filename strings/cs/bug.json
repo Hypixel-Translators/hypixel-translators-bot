@@ -3,5 +3,5 @@
     "sendingTitle": "Tvoje zpráva se odesílá...",
     "sentTitle": "Tvoje zpráva se odeslala!",
     "addMessage": "Nic jsi nenapsal!",
-    "executedBy": "Provedeno uživatelem "
+    "executedBy": "Provedeno uživatelem %%user%%"
 }

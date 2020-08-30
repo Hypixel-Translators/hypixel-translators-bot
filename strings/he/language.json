@@ -5,8 +5,7 @@
     "errorTitle": "השפה הזאת לא קיימת או שלא מתורגמת לחלוטין!",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "current": "Your language preference is set to English.",
-    "executedBy": "בוצע על ידי המשתמש ",
-    "credits": "Proofread by <@PUT_YOUR_DISCORD_ID_IN_HERE>.",
+    "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "Arabic",
     "bg": "Bulgarian",
     "zhcn": "Chinese (Simplified)",
@@ -36,5 +35,6 @@
     "sv": "Swedish",
     "th": "Thai",
     "tr": "Turkish",
-    "ua": "Ukrainian"
+    "ua": "Ukrainian",
+    "executedBy": "Executed by %%user%%"
 }

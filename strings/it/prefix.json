@@ -18,5 +18,5 @@
     "newNickT": "Nuovo nickname",
     "noChanges": "Nessuna modifica",
     "saved": "Il tuo prefisso è stato salvato!",
-    "executedBy": "Eseguito da "
+    "executedBy": "Executed by %%user%%"
 }

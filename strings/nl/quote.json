@@ -3,7 +3,7 @@
     "loading": "Even geduld...",
     "loadingModule": "Module laden...",
     "invalidArg": "Ongeldig argument!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
+    "indexArg": "Er bestaat geen citaat met index %%arg%%! Geef een nummer tussen 1 en %%max%%.",
     "specUser": "Je hebt geen gebruiker opgegeven! Typ het citaat, en vermeld dan de geciteerde gebruiker, gescheiden door een slash.",
-    "executedBy": "Uitgevoerd door "
+    "executedBy": "Uitgevoerd door %%user%%"
 }

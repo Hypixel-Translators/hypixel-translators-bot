@@ -1,12 +1,11 @@
 {
     "moduleName": "Langag",
     "changingTitle": "Changeng langag...",
-    "changedToTitle": "Changed your language to English!",
+    "changedToTitle": "Chaned langag to inhale banana!",
     "errorTitle": "Dat langag existn't or itz trabslateion is completn't!",
     "errorDescription": "Yuor langag hants been changang. Thse langagns are curentl avalbe (this dostn mean thery tansalaet):",
-    "current": "Your language preference is set to English.",
-    "executedBy": "Done by le ",
-    "credits": "Proofread by <@PUT_YOUR_DISCORD_ID_IN_HERE>.",
+    "current": "Ur langag parfanrne is inhale banana.",
+    "credits": "Fount eror? Saiye it to uz wit `+bug <mesag>`.",
     "ar": "Arbarbac",
     "bg": "Ballgaryan",
     "zhcn": "Chines (les hard)",
@@ -36,5 +35,6 @@
     "sv": "Sveedash",
     "th": "Ye Thaiiiiiii",
     "tr": "Torkesh",
-    "ua": "United Ki- oh sorry Ukraanan"
+    "ua": "United Ki- oh sorry Ukraanan",
+    "executedBy": "Done by le %%user%%"
 }

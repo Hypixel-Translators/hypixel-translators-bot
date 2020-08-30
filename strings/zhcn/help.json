@@ -9,7 +9,6 @@
     "usageField": "用法",
     "cooldownField": "冷却时间",
     "aliasesField": "别名",
-    "executedBy": "触发者：",
     "help": {
         "usage": "+help [命令]",
         "description": "显示所有可用的命令以及关于机器人的其他信息。"
@@ -41,5 +40,6 @@
     "language": {
         "usage": "+language [新语言]",
         "description": "显示您当前的语言，或将其更改为另一语言。"
-    }
+    },
+    "executedBy": "Executed by %%user%%"
 }

@@ -3,5 +3,5 @@
     "sendingTitle": "Lähetetään bugi-ilmoitustasi ylläpidolle...",
     "sentTitle": "Bugi-ilmoituksesi lähetettiin!",
     "addMessage": "Et syöttänyt viestiä!",
-    "executedBy": "Komennon suoritti "
+    "executedBy": "Executed by %%user%%"
 }

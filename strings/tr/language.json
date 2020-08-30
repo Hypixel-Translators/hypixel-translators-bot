@@ -5,8 +5,7 @@
     "errorTitle": "Bu dil ya yok veya çevrilmedi!",
     "errorDescription": "Dilin değişmedi. Şu an bu diller mevcut (bu, onların çevrildiği anlamına gelmez):",
     "current": "Your language preference is set to English.",
-    "executedBy": "Yürüten kişi ",
-    "credits": "<@341513886681268224> tarafından düzeltildi.",
+    "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "Arapça",
     "bg": "Bulgarca",
     "zhcn": "Çince (Basitleştirilmiş)",
@@ -36,5 +35,6 @@
     "sv": "İsveççe",
     "th": "Tay Dili",
     "tr": "Türkçe",
-    "ua": "Ukraynaca"
+    "ua": "Ukraynaca",
+    "executedBy": "Executed by %%user%%"
 }

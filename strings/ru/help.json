@@ -9,7 +9,6 @@
     "usageField": "Использование",
     "cooldownField": "Перезарядка",
     "aliasesField": "Синонимы",
-    "executedBy": "Было выполнено пользователем ",
     "help": {
         "usage": "+help [name of command]",
         "description": "Shows you all available commands and other info about the bot."
@@ -41,5 +40,6 @@
     "language": {
         "usage": "+language [new language]",
         "description": "Shows your current language, or changes it to another one."
-    }
+    },
+    "executedBy": "Исполнено %%user%%"
 }

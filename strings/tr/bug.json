@@ -3,5 +3,5 @@
     "sendingTitle": "Hata raporun yetkililere gönderiliyor...",
     "sentTitle": "Hata raporunuz gönderildi!",
     "addMessage": "Bir mesaj yazmadınız!",
-    "executedBy": "Yürüten kişi "
+    "executedBy": "Executed by %%user%%"
 }

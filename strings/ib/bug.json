@@ -3,5 +3,5 @@
     "sendingTitle": "Ur riport is senting to satf...",
     "sentTitle": "Ur riport is sendde!",
     "addMessage": "You haven't provided a message!",
-    "executedBy": "Done by le "
+    "executedBy": "Done by le %%user%%"
 }

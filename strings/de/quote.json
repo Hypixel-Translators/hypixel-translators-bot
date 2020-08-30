@@ -5,5 +5,5 @@
     "invalidArg": "Ungültiges Argument!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "specUser": "Du hast keinen Benutzer angegeben! Bitte gebe das Zitat ein und erwähne dann den zitierten Benutzer, getrennt durch einen Schrägstrich.",
-    "executedBy": "Ausgeführt von "
+    "executedBy": "Executed by %%user%%"
 }

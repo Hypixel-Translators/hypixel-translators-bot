@@ -18,5 +18,5 @@
     "newNickT": "New nickname",
     "noChanges": "No changes",
     "saved": "Your prefix has been saved!",
-    "executedBy": "Executado por "
+    "executedBy": "Executado por %%user%%"
 }

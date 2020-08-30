@@ -3,7 +3,7 @@
     "loading": "Un secondo...",
     "loadingModule": "Caricamento modulo...",
     "invalidArg": "Argomento non valido!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
+    "indexArg": "Una citazione con indice %%arg%% non esiste! Per favore fornisci un numero tra 1 e %%max%%.",
     "specUser": "Non hai specificato un utente! Digita la citazione e poi menziona l'utente citato, separato da uno slash.",
-    "executedBy": "Eseguito da "
+    "executedBy": "Executed by %%user%%"
 }

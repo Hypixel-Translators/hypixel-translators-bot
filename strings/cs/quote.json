@@ -5,5 +5,5 @@
     "invalidArg": "Neplatný důvod!",
     "indexArg": "Citát s číslem %%arg%% neexistuje! Prosím zadej číslo mezi 1 a %%max%%.",
     "specUser": "Nespecifikoval jsi uživatele! Prosím napiš citát a pak označ citovaného uživatele, odděleného lomítkem.",
-    "executedBy": "Provedeno uživatelem "
+    "executedBy": "Provedeno uživatelem %%user%%"
 }

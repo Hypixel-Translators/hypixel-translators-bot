@@ -5,8 +5,7 @@
     "errorTitle": "¡Ese idioma no existe o no está completamente traducido!",
     "errorDescription": "Tu idioma no ha sido cambiado. Estos idiomas están disponibles (no significa que están traducidos):",
     "current": "Tu preferencia de idioma ha sido establecida en Español.",
-    "executedBy": "Ejecutado por ",
-    "credits": "¡Proofreaders: <@435546264432803840> y <@452557056566755339>!",
+    "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "Árabe",
     "bg": "Búlgaro",
     "zhcn": "Chino (Simplificado)",
@@ -36,5 +35,6 @@
     "sv": "Sueco",
     "th": "Tailandés",
     "tr": "Turco",
-    "ua": "Ucraniano"
+    "ua": "Ucraniano",
+    "executedBy": "Ejecutado por %%user%%"
 }

@@ -5,8 +5,7 @@
     "errorTitle": "Tento jazyk neexistuje nebo ještě není kompletně přeložen!",
     "errorDescription": "Tvůj jazyk nebyl změněn. Momentálně jsou dostupné tyto jazyky (to neznamená, že jsou přeložené):",
     "current": "Tvoje předvolba jazyka je nastavena na češtinu.",
-    "executedBy": "Provedeno uživatelem ",
-    "credits": "Přeložil <@384771321860718594>.",
+    "credits": "Nalezena chyba? Nahlas ji pomocí `+bug <message>`.",
     "ar": "arabštinu",
     "bg": "bulharštinu",
     "zhcn": "čínštinu (zjednodušenou)",
@@ -20,7 +19,7 @@
     "em": "emoji",
     "en": "angličtinu",
     "el": "řečtinu",
-    "ib": "Vdechnout banán",
+    "ib": "Vdechnutý banán",
     "it": "italštinu",
     "ja": "japonštinu",
     "ko": "korejštinu",
@@ -36,5 +35,6 @@
     "sv": "švédštinu",
     "th": "thajštinu",
     "tr": "turečtinu",
-    "ua": "ukrajinštinu"
+    "ua": "ukrajinštinu",
+    "executedBy": "Provedeno uživatelem %%user%%"
 }

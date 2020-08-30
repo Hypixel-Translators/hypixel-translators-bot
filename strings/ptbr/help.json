@@ -4,12 +4,11 @@
     "commandsListTooltip": "Use `+help <nome do comando>` para saber mais sobre um comando.",
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
+    "commandNotExist": "Este comando não existe!",
     "seconds": " segundo(s)",
     "usageField": "Usage",
     "cooldownField": "Cooldown",
     "aliasesField": "Aliases",
-    "executedBy": "Executed by ",
     "help": {
         "usage": "+help [name of command]",
         "description": "Shows you all available commands and other info about the bot."
@@ -41,5 +40,6 @@
     "language": {
         "usage": "+language [new language]",
         "description": "Shows your current language, or changes it to another one."
-    }
+    },
+    "executedBy": "Executed by %%user%%"
 }

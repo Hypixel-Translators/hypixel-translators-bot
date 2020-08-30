@@ -3,5 +3,5 @@
     "sendingTitle": "Fehlerbericht wird geschickt …",
     "sentTitle": "Dein Fehlerbericht wurde geschickt!",
     "addMessage": "Du hast keine Nachricht angegeben!",
-    "executedBy": "Ausgeführt von "
+    "executedBy": "Executed by %%user%%"
 }

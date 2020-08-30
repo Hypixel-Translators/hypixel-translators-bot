@@ -5,8 +5,7 @@
     "errorTitle": "ภาษานั้นไม่มีอยู่จริงหรือยังไม่ถูกแปลจนหมด!",
     "errorDescription": "ภาษาของคุณยังไม่ถูกเปลี่ยน. ข้างล่างคือภาษาที่คุณสามารถเลือกได้ (นี่ไม่ได้แปลว่าพวกมันถูกแปลแล้ว)",
     "current": "Your language preference is set to English.",
-    "executedBy": "Executed by ",
-    "credits": "Proofread by <@PUT_YOUR_DISCORD_ID_IN_HERE>.",
+    "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "อารบิก",
     "bg": "Bulgarian",
     "zhcn": "Chinese (Simplified)",
@@ -36,5 +35,6 @@
     "sv": "Swedish",
     "th": "Thai",
     "tr": "Turkish",
-    "ua": "Ukrainian"
+    "ua": "Ukrainian",
+    "executedBy": "Executed by %%user%%"
 }

@@ -1,12 +1,11 @@
 {
     "moduleName": "🌐",
     "changingTitle": "🔀 🌐...",
-    "changedToTitle": "Changed your language to English!",
+    "changedToTitle": "🔀 🌐 😄!",
     "errorTitle": "↖ 🌐 🚫 / ↖ 🌐 🚫 🆗!",
     "errorDescription": "🌐 🚫🔀. 👉🌐 ✅ (🙅‍♂️ 💯 🌐):",
-    "current": "Your language preference is set to English.",
-    "executedBy": "👩‍💻🖊 ↖ ",
-    "credits": "Proofread by <@PUT_YOUR_DISCORD_ID_IN_HERE>.",
+    "current": "⤵ 🌐 ➡ 😄.",
+    "credits": "🔎 🐛? ⚠ ↘ `+bug <⌨>`.",
     "ar": "🇸🇦",
     "bg": "🇧🇬",
     "zhcn": "🇨🇳",
@@ -18,7 +17,7 @@
     "fr": "🇫🇷",
     "de": "🇩🇪",
     "em": "😄",
-    "en": "🇺🇸",
+    "en": "🇬🇧",
     "el": "🇬🇷",
     "ib": "🍌💦",
     "it": "🇮🇹",
@@ -36,5 +35,6 @@
     "sv": "🇸🇪",
     "th": "🇹🇭",
     "tr": "🇹🇷",
-    "ua": "🇺🇦"
+    "ua": "🇺🇦",
+    "executedBy": "Executed by %%user%%"
 }

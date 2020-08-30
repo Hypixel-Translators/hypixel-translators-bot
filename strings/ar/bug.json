@@ -3,5 +3,5 @@
     "sendingTitle": "جاري إرسال تقرير الأخطاء إلى الموظفين...",
     "sentTitle": "تم إرسال تقرير الأخطاء الخاص بك!",
     "addMessage": "You haven't provided a message!",
-    "executedBy": "تم التنفيذ بواسطة "
+    "executedBy": "Executed by %%user%%"
 }

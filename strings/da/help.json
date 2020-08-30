@@ -9,7 +9,6 @@
     "usageField": "Anvendelse",
     "cooldownField": "Nedkøling",
     "aliasesField": "Aliasser",
-    "executedBy": "Udført af ",
     "help": {
         "usage": "+help [kommandoens navn]",
         "description": "Viser dig alle tilgængelige kommandoer og andet information omkring botten."
@@ -41,5 +40,6 @@
     "language": {
         "usage": "+language [nyt sprog]",
         "description": "Viser dig dit nuværende sprog, eller ændrer det til et andet."
-    }
+    },
+    "executedBy": "Executed by %%user%%"
 }

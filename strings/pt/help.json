@@ -9,7 +9,6 @@
     "usageField": "Uso",
     "cooldownField": "Tempo de espera",
     "aliasesField": "Alternativas",
-    "executedBy": "Executado por ",
     "help": {
         "usage": "+help [name of command]",
         "description": "Shows you all available commands and other info about the bot."
@@ -41,5 +40,6 @@
     "language": {
         "usage": "+language [new language]",
         "description": "Shows your current language, or changes it to another one."
-    }
+    },
+    "executedBy": "Executado por %%user%%"
 }
