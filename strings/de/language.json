@@ -1,8 +1,7 @@
 {
     "moduleName": "Sprache",
     "changingTitle": "Sprache wird geändert …",
-    "changedToTitle1": "Sprache geändert zu ",
-    "changedToTitle2": "!",
+    "changedToTitle": "Changed your language to English!",
     "errorTitle": "Diese Sprache existiert nicht oder ist nicht komplett übersetzt!",
     "errorDescription": "Deine Sprache wurde nicht geändert. Diese Sprachen sind derzeit verfügbar (dies bedeutet nicht, dass sie übersetzt wurden):",
     "current1": "Deine Spracheinstellung ist ",
