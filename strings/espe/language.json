@@ -1,8 +1,7 @@
 {
     "moduleName": "Idioma",
     "changingTitle": "Cambiando tu idioma...",
-    "changedToTitle1": "¡Tu idioma fue cambiado a ",
-    "changedToTitle2": "!",
+    "changedToTitle": "Changed your language to English!",
     "errorTitle": "¡Ese idioma no existe o no está completamente traducido!",
     "errorDescription": "Tu idioma no fue cambiado. Estos idiomas están disponibles (no significa que están traducidos):",
     "current1": "Your language preference is set to ",
