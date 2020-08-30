@@ -1,7 +1,7 @@
 {
     "moduleName": "Quote",
-    "loading": "One second...",
-    "loadingModule": "Loading module...",
+    "loading": "Un second...",
+    "loadingModule": "Chargement du module...",
     "invalidArg": "Invalid argument!",
     "indexArg1": "A quote with index ",
     "indexArg2": " doesn't exist! Please provide a number between 1 and ",
