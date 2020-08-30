@@ -5,8 +5,7 @@
     "errorTitle": "Quella lingua non esiste o non è completamente tradotta!",
     "errorDescription": "La tua lingua non è stata cambiata. Queste lingue sono attualmente disponibili (non significa che siano tradotte):",
     "current": "La tua lingua predefinita è stata impostata su Italiano.",
-    "executedBy": "Eseguito da ",
-    "credits": "Revisionato da leopanta#6640.",
+    "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "Arabo",
     "bg": "Bulgaro",
     "zhcn": "Cinese (Semplificato)",
@@ -36,5 +35,6 @@
     "sv": "Svedese",
     "th": "Thailandese",
     "tr": "Turco",
-    "ua": "Ucraino"
+    "ua": "Ucraino",
+    "executedBy": "Executed by %%user%%"
 }
