@@ -9,9 +9,9 @@
         "cancelled": "Ви скасували зміну нікнейму, ",
         "alreadyThis": "У Вас вже є цей псевдонім, ",
         "timeOut": "Ви не відреагували з прапорцями, ",
-        "notSaved": "so your prefix wasn't saved."
+        "notSaved": "тому Ваш префікс не було збережено."
     },
-    "react": "React with all flags you want to add to your prefix in order.",
+    "react": "Відреагуйте з усіма прапорцями, які Ви хочете додати до вашого префіксу в тому порядку, в якому вони повинні відображатися.",
     "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
     "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
     "previewT": "Nickname preview",
