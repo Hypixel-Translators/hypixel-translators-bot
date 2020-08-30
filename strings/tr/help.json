@@ -1,45 +1,45 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "seconds": " second(s)",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
-    "executedBy": "Executed by ",
+    "moduleName": "Yardım",
+    "commandsListTitle": "Komut listesi",
+    "commandsListTooltip": "Bir komut hakkında daha fazla bilgi almak istiyorsan '+help <komudun ismi>' komudunu yürüt.",
+    "commandInfo": "Komut bilgisi",
+    "commandInfoFor": "için komut bilgisi ",
+    "commandNotExist": "Böyle bir komut yok!",
+    "seconds": " saniye",
+    "usageField": "Kullanım",
+    "cooldownField": "Bekleme Süresi",
+    "aliasesField": "Aliaslar",
+    "executedBy": "tarafından yürütüldü ",
     "help": {
-        "usage": "+help [name of command]",
-        "description": "Shows you all available commands and other info about the bot."
+        "usage": "+help [komut ismi]",
+        "description": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "Dil(lerin) için uygun ön ekleri verir."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote>/<user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "usage": "+quote [index] | +quote add <alıntı>/<kullanıcı>",
+        "description": "Sunucudan komik/garip/ bilge bir alıntı alır (veya ekler)."
     },
     "mention": {
-        "usage": "+mention <language> proofreader|translator|all [message]",
-        "description": "Mentions a language role with a message."
+        "usage": "+mention <dil> proofreader|translator|all [message]",
+        "description": "Bir mesajla, bir dil rolünden bahseder."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "usage": "+context get|add|edit|view|help <konu>",
+        "description": "Verilen string kimliği için bağlamı alır, ekler veya düzenler. `+context help` size bu komutla ilgili bilgileri gösterir."
     },
     "bug": {
-        "usage": "+bug <message>",
-        "description": "Allows you to report bugs present in the bot."
+        "usage": "+bug <mesaj>",
+        "description": "Botta bulunan hataları rapor etmenize olanak sağlar."
     },
     "feedback": {
-        "usage": "+feedback <message>",
-        "description": "Sends your feedback on the bot to staff."
+        "usage": "+feedback <mesaj>",
+        "description": "Bot ile ilgili geri bildirimini yetkililere gönderir."
     },
     "language": {
-        "usage": "+language [new language]",
-        "description": "Shows your current language, or changes it to another one."
+        "usage": "+language [yeni dil]",
+        "description": "Şu anki dilini gösterir veya başka bir dil ile değiştirir."
     }
 }
