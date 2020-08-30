@@ -3,9 +3,7 @@
     "loading": "Un second...",
     "loadingModule": "Chargement du module...",
     "invalidArg": "Arguments invalides!",
-    "indexArg1": "Une citation avec indice ",
-    "indexArg2": " n'existe pas! Fournis un nombre entre 1 et ",
-    "indexArg3": ".",
+    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "specUser": "Tu n'as pas spécifié d'utilisateur! Tape la citation puis mentionne l'utilisateur cité, séparés par un /.",
     "executedBy": "Exécuté par "
 }
