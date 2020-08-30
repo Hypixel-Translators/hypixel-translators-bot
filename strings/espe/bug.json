@@ -3,5 +3,5 @@
     "sendingTitle": "Enviando tu reporte de bug al staff...",
     "sentTitle": "¡Tu reporte de bug fue enviado!",
     "addMessage": "¡No has dado ningún mensaje!",
-    "executedBy": "Ejecutado por "
+    "executedBy": "Executed by %%user%%"
 }
