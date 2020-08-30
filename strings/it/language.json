@@ -1,10 +1,10 @@
 {
     "moduleName": "Lingua",
     "changingTitle": "Cambiando la lingua...",
-    "changedToTitle": "Changed your language to English!",
+    "changedToTitle": "Lingua cambiata su Italiano!",
     "errorTitle": "Quella lingua non esiste o non è completamente tradotta!",
     "errorDescription": "La tua lingua non è stata cambiata. Queste lingue sono attualmente disponibili (non significa che siano tradotte):",
-    "current": "Your language preference is set to English.",
+    "current": "La tua lingua predefinita è stata impostata su Italiano.",
     "executedBy": "Eseguito da ",
     "credits": "Proofread by <@PUT_YOUR_DISCORD_ID_IN_HERE>.",
     "ar": "Arabo",
