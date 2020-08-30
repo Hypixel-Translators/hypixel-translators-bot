@@ -11,14 +11,17 @@ module.exports = {
     allowDM: true,
     cooldown: 10,
     async execute(strings, message, args) {
-        if (args[0].length < 1) {
-            const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.current1 + strings[args[0]] + strings.current2)
-                .setFooter(strings.executedBy + message.author.tag);
-            message.channel.send(embed)
-            return;c
+        if (args[0]) {
+            await fs.readdir(testFolder, (err, files) => {
+                const embed = new Discord.MessageEmbed()
+                    .setColor(neutralColor)
+                    .setAuthor(strings.moduleName)
+                    .setTitle(strings.current1 + strings[args[0]] + strings.current2)
+                    .setDescription(strings.errorDescription + "\n" + files.join(", "))
+                    .setFooter(strings.executedBy + message.author.tag);
+                message.channel.send(embed)
+                return;
+            })
         }
 
 
@@ -41,9 +44,7 @@ module.exports = {
                                 fs.access(path, fs.F_OK, async (err) => {
                                     if (err) {
                                         const testFolder = './strings/';
-                                        var langArr = []
                                         await fs.readdir(testFolder, (err, files) => {
-                                            console.log(langArr)
                                             const embed = new Discord.MessageEmbed()
                                                 .setColor(errorColor)
                                                 .setAuthor(strings.moduleName)
@@ -72,9 +73,7 @@ module.exports = {
                             fs.access(path, fs.F_OK, async (err) => {
                                 if (err) {
                                     const testFolder = './strings/';
-                                    var langArr = []
                                     await fs.readdir(testFolder, (err, files) => {
-                                        console.log(langArr)
                                         const embed = new Discord.MessageEmbed()
                                             .setColor(errorColor)
                                             .setAuthor(strings.moduleName)
