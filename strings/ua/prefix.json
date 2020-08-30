@@ -1,10 +1,10 @@
 {
-    "moduleName": "Prefix",
+    "moduleName": "Префікс",
     "loading": "Секундочку...",
-    "loadingRoles": "Fetching your roles...",
+    "loadingRoles": "Отримання Ваших ролей...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
-        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
+        "noLanguages": "Здається, у вас немає ніяких мовних ролей! Будь ласка, зв'яжіться з <@722738307477536778>, якщо вам здається, що це помилка.",
+        "error": "Не вдалося змінити псевдонім. Ви можете скопіювати його нижче і самі змінити псевдонім.",
         "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
         "cancelled": "You cancelled the changing of your nickname, ",
         "alreadyThis": "You already have this nickname, ",
