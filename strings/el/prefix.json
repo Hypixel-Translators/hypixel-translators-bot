@@ -18,5 +18,5 @@
     "newNickT": "Νέο ψευδώνυμο",
     "noChanges": "Δεν έγιναν αλλαγές",
     "saved": "Το πρόθεμα σου αποθηκεύτηκε!",
-    "executedBy": "Εκτελέστηκε από "
+    "executedBy": "Executed by %%user%%"
 }
