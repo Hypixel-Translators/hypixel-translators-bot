@@ -3,9 +3,7 @@
     "loading": "Dej mi sekundu...",
     "loadingModule": "Načítá se modul...",
     "invalidArg": "Neplatný důvod!",
-    "indexArg1": "Citace s číslem ",
-    "indexArg2": " neexistuje! Prosím zadej číslo mezi 1 a ",
-    "indexArg3": ".",
+    "indexArg": "Citát s číslem %%arg%% neexistuje! Prosím zadej číslo mezi 1 a %%max%%.",
     "specUser": "Nespecifikoval jsi uživatele! Prosím napiš citát a pak označ citovaného uživatele, odděleného lomítkem.",
-    "executedBy": "Provedl "
+    "executedBy": "Provedeno uživatelem "
 }

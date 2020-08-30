@@ -28,7 +28,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumentit>",
-        "description": "Näytä, lisää tai muokkaa valitun stringin (ID) kontekstia. `+context help` näyttää tietoa tästä komennosta."
+        "description": "Näyttää, lisää tai muokkaa valitun stringin (ID) kontekstia. `+context help` näyttää tietoa tästä komennosta."
     },
     "bug": {
         "usage": "+bug <viesti>",

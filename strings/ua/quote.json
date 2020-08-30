@@ -3,9 +3,7 @@
     "loading": "Секундочку...",
     "loadingModule": "Завантаження модуля...",
     "invalidArg": "Недійсний аргумент!",
-    "indexArg1": "Цитата з індексом ",
-    "indexArg2": " не існує! Будь ласка вкажіть число від 1 до ",
-    "indexArg3": ".",
+    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "specUser": "Ви не вказали користувача! Будь ласка, введіть цитату і @ вказаного користувача, розділивши їх косою рискою.",
     "executedBy": "Було виконано користувачем "
 }
