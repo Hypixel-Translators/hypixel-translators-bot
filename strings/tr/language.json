@@ -1,8 +1,7 @@
 {
     "moduleName": "Dil",
     "changingTitle": "Dilin değiştiriliyor...",
-    "changedToTitle1": "Diliniz Türkçe olarak değiştirildi ",
-    "changedToTitle2": "olarak değiştirildi!",
+    "changedToTitle": "Changed your language to English!",
     "errorTitle": "Bu dil ya yok veya çevrilmedi!",
     "errorDescription": "Dilin değişmedi. Şu an bu diller mevcut (bu, onların çevrildiği anlamına gelmez):",
     "current1": "Diliniz ",
