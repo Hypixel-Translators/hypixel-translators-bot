@@ -3,5 +3,5 @@
     "sendingTitle": "Sender din fejlrapport til personalet...",
     "sentTitle": "Din fejlrapport er blevet sendt!",
     "addMessage": "Du har ikke angivet en besked!",
-    "executedBy": "Udført af "
+    "executedBy": "Executed by %%user%%"
 }
