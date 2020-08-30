@@ -54,7 +54,7 @@ module.exports = {
                                             .setAuthor(strings.moduleName)
                                             .setTitle(strings.changedToTitle1 + strings[args[1]] + strings.changedToTitle2)
                                             .setFooter(strings.executedBy + message.author.tag);
-                                        if (args[1] !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("For bugs, execute `+bug <message>`.") }
+                                        if (args[1] !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("Found a bug? Execute `+bug <message>`.") }
                                         msg.edit(embed)
                                     })
                                 });
@@ -83,7 +83,7 @@ module.exports = {
                                         .setAuthor(strings.moduleName)
                                         .setTitle(strings.changedToTitle1 + strings[args[1]] + strings.changedToTitle2)
                                         .setFooter(strings.executedBy + message.author.tag);
-                                    if (args[1] !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("For bugs, execute `+bug <message>`.") }
+                                    if (args[1] !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("Found a bug? Execute `+bug <message>`.") }
                                     msg.edit(embed)
                                 })
                             }
@@ -92,15 +92,24 @@ module.exports = {
         } else {
             const testFolder = './strings/';
             await fs.readdir(testFolder, async (err, files) => {
-                const embed = new Discord.MessageEmbed()
-                    .setColor(neutralColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.current1 + strings[args[1]] + strings.current2)
-                    .setDescription(strings.errorDescription + "\n" + files.join(", "))
-                    .setFooter(strings.executedBy + message.author.tag);
-                await message.channel.send(embed)
+                await message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
+                    .then(async langDbMessages => {
+                        fiMessages = langDbMessages.filter(msg => msg.content.startsWith(message.author.id))
+                        if (await fiMessages) {
+                            await fiMessages.forEach(async element => {
+                                const langprefs = element.content.split(" ")
+                                const embed = new Discord.MessageEmbed()
+                                    .setColor(neutralColor)
+                                    .setAuthor(strings.moduleName)
+                                    .setTitle(strings.current1 + strings[langprefs[1]] + strings.current2)
+                                    .setDescription(strings.errorDescription + "\n" + files.join(", "))
+                                    .setFooter(strings.executedBy + message.author.tag);
+                                await message.channel.send(embed)
+                                return;
+                            })
+                        }
+                    })
             })
-            return;
         }
     }
 }
