@@ -1,11 +1,11 @@
 {
-    "moduleName": "Quote",
+    "moduleName": "Цитата",
     "loading": "Секундочку...",
     "loadingModule": "Завантаження модуля...",
-    "invalidArg": "Invalid argument!",
-    "indexArg1": "A quote with index ",
-    "indexArg2": " doesn't exist! Please provide a number between 1 and ",
+    "invalidArg": "Недійсний аргумент!",
+    "indexArg1": "Цитата з індексом ",
+    "indexArg2": " не існує! Будь ласка вкажіть число від 1 до ",
     "indexArg3": ".",
-    "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
+    "specUser": "Ви не вказали користувача! Будь ласка, введіть цитату і @ вказаного користувача, розділивши їх косою рискою.",
     "executedBy": "Було виконано користувачем "
 }
