@@ -1,22 +1,22 @@
 {
-    "moduleName": "Prefix",
+    "moduleName": "คำนำหน้า",
     "loading": "One second...",
-    "loadingRoles": "Fetching your roles...",
+    "loadingRoles": "กำลังโหลดยศของคุณ",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
-        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-        "cancelled": "You cancelled the changing of your nickname, ",
-        "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "so your prefix wasn't saved."
+        "noLanguages": "ดูเหมือนว่าคุนจะไม่มียศผู้แปลภาษา! กรุณาติดต่อ <@722738307477536778> ถ้าคุณคิดว่านี่คือข้อผิดพลาด",
+        "error": "ไม่สามารถเปลี่ยนชื่อเล่นของคุณได้. คุณสามารถคัดลอกชื่อเล่นและเปลี่ยนชื่อของคุณได้",
+        "confirmedNoFlags": "คุณได้ยืนยันแต่ไม่ได้เลือกธงประเทศ, ",
+        "cancelled": "คุณได้ยกเลิกการเปลี่ยนชื่อเล่นของคุณ, ",
+        "alreadyThis": "คุณมีชื่อเล่นนี้แล้ว, ",
+        "timeOut": "คุณยังไม่ได้เลือกธงประเทศ, ",
+        "notSaved": "ดังนั้นคำนำหน้าของคุณไม่ถูกบันทึก"
     },
-    "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "Nickname preview",
-    "newNickT": "New nickname",
-    "noChanges": "No changes",
-    "saved": "Your prefix has been saved!",
+    "react": "เลือกธงทุกอันที่คุณต้องการให้เป็นคำนำหน้าชื่อตามลำดับ.",
+    "reactTimer": "คุณมี 20 วินาที. กด ❎ เพื่อยกเลิก",
+    "reactTimer2": "คุณมีเวลาเหลือน้อยกว่า 20 วินาที. กด ✅ เพื่อยืนยัน หรือ ❎ เพื่อยกเลิก.",
+    "previewT": "ตัวอย่างชื่อเล่น",
+    "newNickT": "ชื่อเล่นใหม่",
+    "noChanges": "ไม่มีการเปลี่ยนแปลง",
+    "saved": "คำนำหน้าชื่อของคุณบันทึกเรียบร้อยแล้ว",
     "executedBy": "Executed by "
 }
