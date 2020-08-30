@@ -5,8 +5,7 @@
     "errorTitle": "Dette sprog findes ikke, ellers er det ikke helt oversat!",
     "errorDescription": "Dit sprog er ikke blevet ændret. Disse sprog er i øjeblikket tilgængelig (Det betyder ikke, at de er oversat):",
     "current": "Your language preference is set to English.",
-    "executedBy": "Udført af ",
-    "credits": "Proofread by <@PUT_YOUR_DISCORD_ID_IN_HERE>.",
+    "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "Arabisk",
     "bg": "Bulgarsk",
     "zhcn": "Kinesisk (forenklet)",
@@ -36,5 +35,6 @@
     "sv": "Svensk",
     "th": "Thai",
     "tr": "Tyrkisk",
-    "ua": "Ukrainsk"
+    "ua": "Ukrainsk",
+    "executedBy": "Executed by %%user%%"
 }
