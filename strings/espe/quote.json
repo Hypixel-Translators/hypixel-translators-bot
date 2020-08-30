@@ -6,6 +6,6 @@
     "indexArg1": "¡Una cita con índice ",
     "indexArg2": " no existe! Por favor, da un número entre 1 y ",
     "indexArg3": ".",
-    "specUser": "¡No has especificado un usuario! Por favor, escriba la cita y mencione al usuario citado, separado por /.",
+    "specUser": "¡No especificaste un usuario! Por favor, escriba la cita y menciona al usuario citado, separado por /.",
     "executedBy": "Ejecutado por "
 }
