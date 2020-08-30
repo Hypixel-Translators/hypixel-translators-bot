@@ -5,6 +5,8 @@
     "changedToTitle2": "!",
     "errorTitle": "¡Ese idioma no existe o no está completamente traducido!",
     "errorDescription": "Tu idioma no fue cambiado. Estos idiomas están disponibles (no significa que están traducidos):",
+    "current1": "Your language preference is set to ",
+    "current2": ".",
     "executedBy": "Ejecutado por ",
     "credits": "¡Traducido por <@435546264432803840>!",
     "ar": "Árabe",

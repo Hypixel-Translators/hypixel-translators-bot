@@ -5,6 +5,8 @@
     "changedToTitle2": "!",
     "errorTitle": "Diese Sprache existiert nicht oder ist nicht komplett übersetzt!",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
+    "current1": "Your language preference is set to ",
+    "current2": ".",
     "executedBy": "Ausgeführt von ",
     "credits": "Translated by <@PUT_YOUR_DISCORD_ID_IN_HERE>.",
     "ar": "Arabic",

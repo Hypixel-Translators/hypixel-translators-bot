@@ -1,22 +1,22 @@
 {
-    "moduleName": "Prefix",
+    "moduleName": "Префікс",
     "loading": "Секундочку...",
-    "loadingRoles": "Fetching your roles...",
+    "loadingRoles": "Отримання Ваших ролей...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
-        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-        "cancelled": "You cancelled the changing of your nickname, ",
-        "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "so your prefix wasn't saved."
+        "noLanguages": "Здається, у вас немає ніяких мовних ролей! Будь ласка, зв'яжіться з <@722738307477536778>, якщо вам здається, що це помилка.",
+        "error": "Не вдалося змінити псевдонім. Ви можете скопіювати його нижче і самі змінити псевдонім.",
+        "confirmedNoFlags": "Ви підтвердили, але Ви не відреагували на жодний прапор, ",
+        "cancelled": "Ви скасували зміну нікнейму, ",
+        "alreadyThis": "У Вас вже є цей псевдонім, ",
+        "timeOut": "Ви не відреагували з прапорцями, ",
+        "notSaved": "тому Ваш префікс не було збережено."
     },
-    "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "Nickname preview",
-    "newNickT": "New nickname",
-    "noChanges": "No changes",
-    "saved": "Your prefix has been saved!",
+    "react": "Відреагуйте з усіма прапорцями, які Ви хочете додати до вашого префіксу в тому порядку, в якому вони повинні відображатися.",
+    "reactTimer": "Ви маєте 20 секунд. Натисніть на кнопку ❎, щоб скасувати.",
+    "reactTimer2": "Залишилося менш ніж 20 секунд. Натисніть на кнопку ✅, щоб підтвердити або ❎, щоб скасувати.",
+    "previewT": "Попередній перегляд нікнейма",
+    "newNickT": "Новий нікнейм",
+    "noChanges": "Без змін",
+    "saved": "Ваш префікс був збережений!",
     "executedBy": "Було виконано користувачем "
 }

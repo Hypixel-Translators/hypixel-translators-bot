@@ -2,6 +2,6 @@
     "moduleName": "Повідомити про помилку",
     "sendingTitle": "Відправляю повідомлення про помилку до персоналу...",
     "sentTitle": "Ваш звіт про помилку було надіслано!",
-    "addMessage": "You haven't provided a message!",
+    "addMessage": "Ви не надали повідомлення!",
     "executedBy": "Було виконано користувачем "
 }
