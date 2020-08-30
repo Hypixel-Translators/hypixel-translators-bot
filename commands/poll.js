@@ -9,6 +9,7 @@ module.exports = {
     usage: "poll <role to ping|'none'>/<question>/<a1 emoji>-<a1 text>/<a2 emoji>-<a2 text>[/...-...]",
     cooldown: 30,
     execute(strings, message) {
+        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const args = message.content.slice(6).split("/")
         message.delete()
         const pingRole = args[0]

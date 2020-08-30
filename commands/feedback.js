@@ -10,6 +10,7 @@ module.exports = {
     allowDM: true,
     channelBlackList: "621298919535804426",
     execute(strings, message, args) {
+        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         var toSend = args.join(" ")
 
         if (!args[0]) {
@@ -17,7 +18,7 @@ module.exports = {
                 .setColor(errorColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.addMessage)
-                .setFooter(strings.executedBy + message.author.tag);
+                .setFooter(executedBy);
             message.channel.send(embed)
             return;
         }

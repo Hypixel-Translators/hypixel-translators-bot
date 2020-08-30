@@ -9,6 +9,7 @@ module.exports = {
     aliases: ["message", "privatemessage"],
     allowDM: true,
     execute(strings, message, args) {
+        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         var allowed = false
         if (message.author.id == "722738307477536778") { allowed = true }
         if (message.channel.type !== "dm") { if (message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("549885657749913621") || message.member.roles.cache.has("241926666400563203")) { allowed = true } }

@@ -5,6 +5,7 @@ module.exports = {
   cooldown: 30,
   allowDM: true,
   execute(strings, message, args) {
+    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     if (!message.member.hasPermission("ADMINISTRATOR")) return;
     const sendTo = message.client.channels.cache.get(args[0])
     sendmsg(sendTo, args[1])

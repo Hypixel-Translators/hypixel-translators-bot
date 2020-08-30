@@ -9,6 +9,7 @@ module.exports = {
   cooldown: 30,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
   execute(strings, message) {
+    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     //message.delete();
     message.channel.send("You can use this link to invite others to the community:\nhttps://discord.gg/rcT948A")
   }

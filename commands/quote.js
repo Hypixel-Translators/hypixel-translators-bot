@@ -11,12 +11,13 @@ module.exports = {
     allowDM: true,
     channelWhitelist: ["549894938712866816", "619662798133133312", "624881429834366986", "730042612647723058", "749391414600925335"],
     execute(strings, message, args) {
+        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.loading)
             .setDescription(strings.loadingModule)
-            .setFooter(strings.executedBy + message.author.tag);
+            .setFooter(executedBy);
         message.channel.send(embed).then(msg => {
             if (args[0] === "add") {
                 allowed = false
@@ -40,7 +41,7 @@ module.exports = {
                         .setTitle("Request quote")
                         .setDescription("Your quote request has been submitted, thanks!")
                         .addFields({ name: strings.moduleName, value: toSend })
-                        .setFooter(strings.executedBy + message.author.tag);
+                        .setFooter(executedBy);
                     msg.edit(embed)
                 } else {
                     args.splice(0, 1)
@@ -80,7 +81,7 @@ async function accessSpreadsheet(strings, message, args, msg) {
             .setAuthor(strings.moduleName)
             .setTitle(strings.invalidArg)
             .setDescription(indexArg)
-            .setFooter(strings.executedBy + message.author.tag);
+            .setFooter(executedBy);
         msg.edit(embed)
         return;
     }
@@ -89,7 +90,7 @@ async function accessSpreadsheet(strings, message, args, msg) {
         .setAuthor(strings.moduleName)
         .setTitle(correctRow.quote)
         .setDescription("      - " + correctRow.user)
-        .setFooter(strings.executedBy + message.author.tag);
+        .setFooter(executedBy);
     msg.edit(embed)
 }
 
@@ -115,7 +116,7 @@ async function addToSpreadsheet(strings, message, toSend, msg) {
             .setAuthor(strings.moduleName)
             .setTitle(strings.invalidArg)
             .setDescription(strings.specUser)
-            .setFooter(strings.executedBy + message.author.tag);
+            .setFooter(executedBy);
         msg.edit(embed)
         return;
     }
@@ -128,6 +129,6 @@ async function addToSpreadsheet(strings, message, toSend, msg) {
         .setTitle("Success")
         .setDescription("The following quote has been added:")
         .addFields({ name: strings.moduleName, value: result.quote }, { name: "User", value: result.user }, { name: "Index", value: newLength })
-        .setFooter(strings.executedBy + message.author.tag);
+        .setFooter(executedBy);
     msg.edit(embed)
 }

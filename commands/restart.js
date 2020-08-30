@@ -15,6 +15,7 @@ module.exports = {
   allowDM: true,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
   execute(strings, message) {
+    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     //message.delete();
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)

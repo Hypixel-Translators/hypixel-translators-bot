@@ -11,6 +11,7 @@ module.exports = {
   allowDM: true,
   cooldown: 5,
   async execute(strings, message, args) {
+    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const { commands } = message.client;
 
     if (!args.length) {
@@ -28,7 +29,7 @@ module.exports = {
           { name: "`" + strings.bug.usage + "`", value: strings.bug.description, inline: false },
           { name: "`" + strings.feedback.usage + "`", value: strings.feedback.description, inline: false }
         )
-        .setFooter(strings.executedBy + message.author.tag);
+        .setFooter(executedBy);
       message.channel.send(embed)
 
 
@@ -43,7 +44,7 @@ module.exports = {
           .setAuthor(strings.moduleName)
           .setTitle(strings.commandInfo)
           .setDescription(strings.commandNotExist)
-          .setFooter(strings.executedBy + message.author.tag);
+          .setFooter(executedBy);
         return message.channel.send(embed);
       }
 
@@ -65,7 +66,7 @@ module.exports = {
             inline: true
           }
         )
-        .setFooter(strings.executedBy + message.author.tag);
+        .setFooter(executedBy);
       if (command.aliases) {
         embed.addFields({ name: strings.aliasesField, value: command.aliases.join(", "), inline: true })
       }

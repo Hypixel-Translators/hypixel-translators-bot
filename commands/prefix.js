@@ -9,13 +9,14 @@ module.exports = {
   cooldown: 30,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
   execute(strings, message) {
+    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     //message.delete();
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
       .setAuthor(strings.moduleName)
       .setTitle(strings.loading)
       .setDescription(strings.loadingRoles)
-      .setFooter(strings.executedBy + message.author.tag);
+      .setFooter(executedBy);
     message.channel.send(embed)
       .then(msg => {
         var userLangs = []
@@ -55,7 +56,7 @@ module.exports = {
             .setColor(errorColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.errors.noLanguages)
-            .setFooter(strings.executedBy + message.author.tag);
+            .setFooter(executedBy);
           msg.edit(embed)
           return;
         }
@@ -66,7 +67,7 @@ module.exports = {
           .setTitle(strings.react)
           .setDescription(strings.reactTimer)
           .addFields({ name: strings.previewT, value: strings.noChanges })
-          .setFooter(strings.executedBy + message.author.tag);
+          .setFooter(executedBy);
         msg.edit(embed)
 
         const filter = (reaction, reacter) => {
@@ -87,7 +88,7 @@ module.exports = {
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.saved)
                     .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                    .setFooter(strings.executedBy + message.author.tag);
+                    .setFooter(executedBy);
                   msg.edit(embed)
                 })
                 .catch(err => {
@@ -97,7 +98,7 @@ module.exports = {
                     .setTitle(strings.errors.error)
                     .setDescription(err)
                     .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                    .setFooter(strings.executedBy + message.author.tag);
+                    .setFooter(executedBy);
                   msg.edit(embed)
                 })
             } else {
@@ -105,7 +106,7 @@ module.exports = {
                 .setColor(errorColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.errors.confirmedNoFlags + strings.errors.notSaved)
-                .setFooter(strings.executedBy + message.author.tag);
+                .setFooter(executedBy);
               msg.edit(embed)
             }
           } else if (reaction.emoji.name === "❎") {
@@ -116,7 +117,7 @@ module.exports = {
               .setAuthor(strings.moduleName)
               .setTitle(strings.errors.cancelled + strings.errors.notSaved)
               .addFields({ name: strings.newNickT, value: strings.noChanges })
-              .setFooter(strings.executedBy + message.author.tag);
+              .setFooter(executedBy);
             msg.edit(embed)
           } else {
             const valueToRemove = reaction.emoji.name
@@ -129,7 +130,7 @@ module.exports = {
               .setTitle(strings.react)
               .setDescription(strings.reactTimer2)
               .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-              .setFooter(strings.executedBy + message.author.tag);
+              .setFooter(executedBy);
             msg.edit(embed)
           }
         });
@@ -146,7 +147,7 @@ module.exports = {
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.saved)
                     .addFields({ name: strings.newNickT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                    .setFooter(strings.executedBy + message.author.tag);
+                    .setFooter(executedBy);
                   msg.edit(embed)
                 })
                 .catch(err => {
@@ -156,7 +157,7 @@ module.exports = {
                     .setTitle(strings.errors.error)
                     .setDescription(err)
                     .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                    .setFooter(strings.executedBy + message.author.tag);
+                    .setFooter(executedBy);
                   msg.edit(embed)
                   console.log(err)
                 })
@@ -166,7 +167,7 @@ module.exports = {
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.errors.alreadyThis + strings.errors.notSaved)
                 .addFields({ name: strings.newNickT, value: strings.noChanges })
-                .setFooter(strings.executedBy + message.author.tag);
+                .setFooter(executedBy);
               msg.edit(embed)
             }
           } else {
@@ -176,7 +177,7 @@ module.exports = {
               .setTitle("Prefix")
               .setDescription(strings.errors.timeOut + strings.errors.notSaved)
               .addFields({ name: strings.newNickT, value: strings.noChanges })
-              .setFooter(strings.executedBy + message.author.tag);
+              .setFooter(executedBy);
             msg.edit(embed)
           }
         });
