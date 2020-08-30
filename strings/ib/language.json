@@ -5,8 +5,7 @@
     "errorTitle": "Dat langag existn't or itz trabslateion is completn't!",
     "errorDescription": "Yuor langag hants been changang. Thse langagns are curentl avalbe (this dostn mean thery tansalaet):",
     "current": "Ur langag parfanrne is Inhale Banana",
-    "executedBy": "Done by le ",
-    "credits": "Profeaf by <@722738307477536778> ans <@435546264432803840>.",
+    "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "Arbarbac",
     "bg": "Ballgaryan",
     "zhcn": "Chines (les hard)",
@@ -36,5 +35,6 @@
     "sv": "Sveedash",
     "th": "Ye Thaiiiiiii",
     "tr": "Torkesh",
-    "ua": "United Ki- oh sorry Ukraanan"
+    "ua": "United Ki- oh sorry Ukraanan",
+    "executedBy": "Executed by %%user%%"
 }
