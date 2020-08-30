@@ -3,5 +3,5 @@
     "sendingTitle": "שולח הדו\"ח שלך לאיש צוות...",
     "sentTitle": "הדיווח שלך נשלח!",
     "addMessage": "You haven't provided a message!",
-    "executedBy": "בוצע על ידי המשתמש "
+    "executedBy": "Executed by %%user%%"
 }
