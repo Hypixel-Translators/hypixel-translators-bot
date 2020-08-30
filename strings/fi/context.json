@@ -33,7 +33,6 @@
     "oldVal": "Vanhat tiedot stringille ",
     "newVal": "Uudet tiedot stringille ",
     "stringId": "Stringin ID",
-    "executedBy": "Komennon suoritti ",
     "bulgarian": "bulgaria",
     "chineseS": "kiina (yksinkertaistettu)",
     "chineseT": "kiina (perinteinen)",
@@ -70,5 +69,6 @@
         "sheetT": "Kontekstitaulukko",
         "sheetD": "[Klikkaa tästä avataksesi Google Sheetsin, josta löytyvät kaikki kontekstit.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nVain tietyt henkilöt voivat avata tämän taulukkoasiakirjan. Voit pyytää pääsyä linkin takaa löytyvältä sivulta. Syötäthän Crowdin-profiilisi linkin (`.../profile/<käyttäjänimi>`) sekä Discord-käyttäjänimesi. Huomaathan, että Stannya, Rodry ja QkeleQ10 voivat nähdä Google-käyttäjänimesi ja sähköpostisi.",
         "sheetDel": " | Viesti poistetaan 2 minuutin kuluttua"
-    }
+    },
+    "executedBy": "Executed by %%user%%"
 }
