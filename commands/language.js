@@ -52,8 +52,8 @@ module.exports = {
                                         const embed = new Discord.MessageEmbed()
                                             .setColor(successColor)
                                             .setAuthor(strings.moduleName)
-                                            .setTitle(strings.changedToTitle1 + strings[args[1]] + strings.changedToTitle2)
                                             .setFooter(strings.executedBy + message.author.tag);
+                                        if (strings.changedToTitle === "Changed your language to English!") { embed.setTitle("Changed your language to " + args[1] + "!") } else { embed.setTitle(strings.changedToTitle) }
                                         if (args[1] !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("Found a bug? Execute `+bug <message>`.") }
                                         msg.edit(embed)
                                     })
@@ -81,8 +81,8 @@ module.exports = {
                                     const embed = new Discord.MessageEmbed()
                                         .setColor(successColor)
                                         .setAuthor(strings.moduleName)
-                                        .setTitle(strings.changedToTitle1 + strings[args[1]] + strings.changedToTitle2)
                                         .setFooter(strings.executedBy + message.author.tag);
+                                    if (strings.changedToTitle === "Changed your language to English!") { embed.setTitle("Changed your language to " + args[1] + "!") } else { embed.setTitle(strings.changedToTitle) }
                                     if (args[1] !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("Found a bug? Execute `+bug <message>`.") }
                                     msg.edit(embed)
                                 })
