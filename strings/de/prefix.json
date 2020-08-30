@@ -1,17 +1,17 @@
 {
     "moduleName": "Präfix",
     "loading": "Eine Sekunde …",
-    "loadingRoles": "Fetching your roles...",
+    "loadingRoles": "Rollen werden abgerufen …",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
-        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-        "cancelled": "You cancelled the changing of your nickname, ",
-        "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "so your prefix wasn't saved."
+        "noLanguages": "Du scheinst keine Sprachrollen zu haben! Bitte kontaktiere <@722738307477536778> falls du denkst, dass dies ein Fehler ist.",
+        "error": "Spitzname konnte nicht geändert werden. Du kannst den Spitznamen unten kopieren und ihn selbst anwenden.",
+        "confirmedNoFlags": "Du hast bestätigt, aber du hast auf keine Flagen reagiert, ",
+        "cancelled": "Du hast die Änderung deines Spitznamens abgebrochen, ",
+        "alreadyThis": "Du hast bereits diesen Spitznamen, ",
+        "timeOut": "Du hast mit keiner Flagge reagiert, ",
+        "notSaved": "deswegen wurde dein Präfix nicht gespeichert."
     },
-    "react": "React with all flags you want to add to your prefix in order.",
+    "react": "Reagiere mit allen Flagen, die du deinem Präfix in der Reihenfolge hinzufügen möchtest.",
     "reactTimer": "Du hast 20 Sekunden. Drücke ❎ um abzubrechen.",
     "reactTimer2": "Du hast weniger als 20 Sekunden übrig. Drücke ✅ um zu bestätigen oder ❎ um abzubrechen.",
     "previewT": "Spitznamen Vorschau",
