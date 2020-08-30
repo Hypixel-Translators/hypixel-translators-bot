@@ -1,15 +1,15 @@
 {
     "moduleName": "Nápověda",
     "commandsListTitle": "Seznam příkazů",
-    "commandsListTooltip": "Proveď `+help <jméno příkazu>` pro více informací o konkrétním příkazu.",
+    "commandsListTooltip": "Napiš `+help <jméno příkazu>` pro více informací o konkrétním příkazu.",
     "commandInfo": "Informace o příkazu",
-    "commandInfoFor": "Informace o příkazu pro ",
+    "commandInfoFor": "Informace o příkazu ",
     "commandNotExist": "Tento příkaz neexistuje!",
     "seconds": " sekund/u/y",
     "usageField": "Použití",
     "cooldownField": "Časové omezení",
     "aliasesField": "Přezdívky",
-    "executedBy": "Provedl ",
+    "executedBy": "Provedeno uživatelem ",
     "help": {
         "usage": "+help [název příkazu]",
         "description": "Zobrazí ti všechny dostupné příkazy a další informace o botovi."
