@@ -26,10 +26,8 @@ module.exports = {
                         .then(async messages => {
                             fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
                             var f = 0
-                            console.log(fiMessages)
                             if (fiMessages) {
                                 fiMessages.forEach(element => {
-                                    console.log(element)
                                     f = 1
                                     const path = './strings/' + args[1] + '/language.json'
                                     fs.access(path, fs.F_OK, async (err) => {
@@ -97,7 +95,7 @@ module.exports = {
                 await message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
                     .then(async langDbMessages => {
                         fiMessages = langDbMessages.filter(msg => msg.content.startsWith(message.author.id))
-                        if (await fiMessages) {
+                        if (fiMessages) {
                             await fiMessages.forEach(async element => {
                                 const langprefs = element.content.split(" ")
                                 const embed = new Discord.MessageEmbed()
@@ -110,6 +108,16 @@ module.exports = {
                                 await message.channel.send(embed)
                                 return;
                             })
+                        } else {
+                            const embed = new Discord.MessageEmbed()
+                                .setColor(neutralColor)
+                                .setAuthor(strings.moduleName)
+                                .setTitle(strings.current1 + strings["en"] + strings.current2)
+                                .setDescription()
+                                .setFooter(strings.executedBy + message.author.tag)
+                                .setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\nFound a bug? Execute `+bug <message>`.")
+                            await message.channel.send(embed)
+                            return;
                         }
                     })
             })
