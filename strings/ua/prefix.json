@@ -12,11 +12,11 @@
         "notSaved": "тому Ваш префікс не було збережено."
     },
     "react": "Відреагуйте з усіма прапорцями, які Ви хочете додати до вашого префіксу в тому порядку, в якому вони повинні відображатися.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "Nickname preview",
-    "newNickT": "New nickname",
-    "noChanges": "No changes",
-    "saved": "Your prefix has been saved!",
+    "reactTimer": "Ви маєте 20 секунд. Натисніть на кнопку ❎, щоб скасувати.",
+    "reactTimer2": "Залишилося менш ніж 20 секунд. Натисніть на кнопку ✅, щоб підтвердити або ❎, щоб скасувати.",
+    "previewT": "Попередній перегляд нікнейма",
+    "newNickT": "Новий нікнейм",
+    "noChanges": "Без змін",
+    "saved": "Ваш префікс був збережений!",
     "executedBy": "Було виконано користувачем "
 }
