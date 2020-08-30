@@ -1,10 +1,10 @@
 {
     "moduleName": "Kieli",
     "changingTitle": "Vaihdetaan kieltä...",
-    "changedToTitle": "Changed your language to English!",
+    "changedToTitle": "Kieleksesi vaihdettiin suomi!",
     "errorTitle": "Tätä kieltä ei ole olemassa tai sille ei löydy käännöstä!",
     "errorDescription": "Kieltäsi ei vaihdettu. Tällä hetkellä saatavilla olevat kielet (käännöstä ei välttämättä löydy):",
-    "current": "Your language preference is set to English.",
+    "current": "Käytössäsi oleva kieli on suomi.",
     "executedBy": "Komennon suoritti ",
     "credits": "Proofread by <@PUT_YOUR_DISCORD_ID_IN_HERE>.",
     "ar": "arabia",
