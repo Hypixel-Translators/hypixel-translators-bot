@@ -12,7 +12,7 @@ module.exports = {
     execute(strings, message, args) {
         var toSend = args.join(" ")
 
-        if (args[0]) {
+        if (!args[0]) {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor(strings.moduleName)

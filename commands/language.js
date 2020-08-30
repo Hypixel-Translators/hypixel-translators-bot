@@ -11,7 +11,7 @@ module.exports = {
     allowDM: true,
     cooldown: 10,
     async execute(strings, message, args) {
-        if (args[0]) {
+        if (!args[0]) {
             await fs.readdir(testFolder, (err, files) => {
                 const embed = new Discord.MessageEmbed()
                     .setColor(neutralColor)
