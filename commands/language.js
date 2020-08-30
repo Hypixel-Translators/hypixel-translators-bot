@@ -44,7 +44,7 @@ module.exports = {
                                                 msg.edit(embed)
                                                 return
                                             });
-
+                                            return
                                         }
                                         message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[1])
                                         strings = require(("../strings/" + args[1] + "/language.json"))
@@ -73,7 +73,7 @@ module.exports = {
                                             msg.edit(embed)
                                             return
                                         });
-
+                                        return
                                     }
                                     message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[1])
                                     strings = require(("../strings/" + args[1] + "/language.json"))
@@ -104,7 +104,7 @@ module.exports = {
                                     .setTitle(strings.current1 + strings[langprefs[1]] + strings.current2)
                                     .setDescription()
                                     .setFooter(strings.executedBy + message.author.tag);
-                                    if (args[1] !== "en") { embed.setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\n" + strings.credits) } else { embed.setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\nFound a bug? Execute `+bug <message>`.") }
+                                if (args[1] !== "en") { embed.setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\n" + strings.credits) } else { embed.setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\nFound a bug? Execute `+bug <message>`.") }
                                 await message.channel.send(embed)
                                 return;
                             })
