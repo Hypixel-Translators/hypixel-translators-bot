@@ -18,5 +18,5 @@
     "newNickT": "Nyt kaldenavn",
     "noChanges": "Ingen ændringer",
     "saved": "Dit præfiks er blevet gemt!",
-    "executedBy": "Udført af "
+    "executedBy": "Executed by %%user%%"
 }
