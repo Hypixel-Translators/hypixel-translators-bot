@@ -50,7 +50,7 @@
     "pirate": "Inglês Pirata",
     "polish": "Polaco",
     "portuguese": "Português",
-    "brazilian": "Português (Brasil)",
+    "brazilian": "português (Brasil)",
     "russian": "Russo",
     "spanish": "Espanhol",
     "swedish": "Sueco",
@@ -65,10 +65,10 @@
         "edit": "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enpt`. Replace <new value> with the new value for that field.",
         "view": "_Gives you a link to the Google Sheet containing context_\n`+context view`",
         "help": "_Shows this message!_\n`+context help`",
-        "fields": "Fields",
+        "fields": "Parâmetros",
         "sheetT": "Context Sheet",
         "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya, Rodry and QkeleQ10 can see your Google profile name and email.",
         "sheetDel": " | Deleting message after 2 minutes"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Executado por %%user%%"
 }
