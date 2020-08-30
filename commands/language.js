@@ -12,16 +12,16 @@ module.exports = {
     cooldown: 10,
     async execute(strings, message, args) {
         if (!args[0]) {
-            await fs.readdir(testFolder, (err, files) => {
+            await fs.readdir(testFolder, async (err, files) => {
                 const embed = new Discord.MessageEmbed()
                     .setColor(neutralColor)
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.current1 + strings[args[0]] + strings.current2)
                     .setDescription(strings.errorDescription + "\n" + files.join(", "))
                     .setFooter(strings.executedBy + message.author.tag);
-                message.channel.send(embed)
-                return;
+                await message.channel.send(embed)
             })
+            return;
         }
 
 
