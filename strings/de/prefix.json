@@ -12,8 +12,8 @@
         "notSaved": "so your prefix wasn't saved."
     },
     "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
+    "reactTimer": "Du hast 20 Sekunden. Drücke ❎ um abzubrechen.",
+    "reactTimer2": "Du hast weniger als 20 Sekunden übrig. Drücke ✅ um zu bestätigen oder ❎ um abzubrechen.",
     "previewT": "Nickname preview",
     "newNickT": "New nickname",
     "noChanges": "No changes",
