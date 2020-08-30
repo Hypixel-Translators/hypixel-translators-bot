@@ -41,5 +41,5 @@
         "usage": "+language [nieuwe taal]",
         "description": "Laat je huidige taal zien, of verandert het naar een andere taal."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Uitgevoerd door %%user%%"
 }
