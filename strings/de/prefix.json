@@ -1,5 +1,5 @@
 {
-    "moduleName": "Prefix",
+    "moduleName": "Präfix",
     "loading": "Eine Sekunde …",
     "loadingRoles": "Fetching your roles...",
     "errors": {
@@ -14,9 +14,9 @@
     "react": "React with all flags you want to add to your prefix in order.",
     "reactTimer": "Du hast 20 Sekunden. Drücke ❎ um abzubrechen.",
     "reactTimer2": "Du hast weniger als 20 Sekunden übrig. Drücke ✅ um zu bestätigen oder ❎ um abzubrechen.",
-    "previewT": "Nickname preview",
-    "newNickT": "New nickname",
-    "noChanges": "No changes",
+    "previewT": "Spitznamen Vorschau",
+    "newNickT": "Neuer Spitzname",
+    "noChanges": "Keine Änderungen",
     "saved": "Your prefix has been saved!",
     "executedBy": "Ausgeführt von "
 }
