@@ -18,5 +18,5 @@
     "newNickT": "Neuer Spitzname",
     "noChanges": "Keine Änderungen",
     "saved": "Dein Präfix wurde gespeichert!",
-    "executedBy": "Ausgeführt von "
+    "executedBy": "Executed by %%user%%"
 }
