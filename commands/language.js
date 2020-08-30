@@ -90,6 +90,7 @@ module.exports = {
                         })
                 })
         } else {
+            const testFolder = './strings/';
             await fs.readdir(testFolder, async (err, files) => {
                 const embed = new Discord.MessageEmbed()
                     .setColor(neutralColor)
