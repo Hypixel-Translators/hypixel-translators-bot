@@ -52,6 +52,7 @@ module.exports = {
                                         .setAuthor(strings.moduleName)
                                         .setTitle(strings.changedToTitle1 + strings[args[0]] + strings.changedToTitle2)
                                         .setFooter(strings.executedBy + message.author.tag);
+                                    if (args[0] !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("For bugs, execute `+bug <message>`.") }
                                     msg.edit(embed)
                                 })
                             });
@@ -82,6 +83,7 @@ module.exports = {
                                     .setAuthor(strings.moduleName)
                                     .setTitle(strings.changedToTitle1 + strings[args[0]] + strings.changedToTitle2)
                                     .setFooter(strings.executedBy + message.author.tag);
+                                if (args[0] !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("For bugs, execute `+bug <message>`.") }
                                 msg.edit(embed)
                             })
                         }
