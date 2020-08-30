@@ -33,7 +33,6 @@
     "oldVal": " İçin eski değer",
     "newVal": " İçin yeni değer",
     "stringId": "String Kimliği",
-    "executedBy": "Yürüten kişi ",
     "bulgarian": "Bulgarca",
     "chineseS": "Çince (Basitleştirilmiş)",
     "chineseT": "Çince (Geleneksel)",
@@ -70,5 +69,6 @@
         "sheetT": "Bağlam Yaprağı",
         "sheetD": "[Bağlam bilgilerini içeren Google Sayfasını açmak için burayı tıklayın.] (Https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nBu sayfayı yalnızca belirli kişiler açabilir. Bağlantıyı takip ederken gördüğünüz sayfaya erişim talebinde bulunabilirsiniz. Lütfen Crowdin profil bağlantınızı (`.../profil/<kullanıcı adı>`) ve Discord kullanıcı adınızı doldurun.\nStannya, Rodry ve QkeleQ10'un Google profil adınızı ve e-postanızı görebileceğini unutmayın.",
         "sheetDel": " | Mesaj 2 dakika sonra siliniyor"
-    }
+    },
+    "executedBy": "Executed by %%user%%"
 }
