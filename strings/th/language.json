@@ -5,6 +5,8 @@
     "changedToTitle2": "!",
     "errorTitle": "ภาษานั้นไม่มีอยู่จริงหรือยังไม่ถูกแปลจนหมด!",
     "errorDescription": "ภาษาของคุณยังไม่ถูกเปลี่ยน. ข้างล่างคือภาษาที่คุณสามารถเลือกได้ (นี่ไม่ได้แปลว่าพวกมันถูกแปลแล้ว)",
+    "current1": "Your language preference is set to ",
+    "current2": ".",
     "executedBy": "Executed by ",
     "credits": "แปลโดย\n<@397011506715164683>.",
     "ar": "อารบิก",
