@@ -102,8 +102,9 @@ module.exports = {
                                     .setColor(neutralColor)
                                     .setAuthor(strings.moduleName)
                                     .setTitle(strings.current1 + strings[langprefs[1]] + strings.current2)
-                                    .setDescription(strings.errorDescription + "\n" + files.join(", "))
+                                    .setDescription()
                                     .setFooter(strings.executedBy + message.author.tag);
+                                    if (args[1] !== "en") { embed.setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\n" + strings.credits) } else { embed.setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\nFound a bug? Execute `+bug <message>`.") }
                                 await message.channel.send(embed)
                                 return;
                             })
