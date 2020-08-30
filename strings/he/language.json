@@ -1,8 +1,7 @@
 {
     "moduleName": "שפה",
     "changingTitle": "משנה את השפה שלך...",
-    "changedToTitle1": "Changed your language to ",
-    "changedToTitle2": "!",
+    "changedToTitle": "Changed your language to English!",
     "errorTitle": "השפה הזאת לא קיימת או שלא מתורגמת לחלוטין!",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "current1": "Your language preference is set to ",
