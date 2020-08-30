@@ -11,7 +11,7 @@ module.exports = {
     allowDM: true,
     cooldown: 10,
     async execute(strings, message) {
-        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+        var executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const msgL = String(message).toLowerCase()
         const args = msgL.split(" ")
 
