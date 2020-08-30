@@ -6,6 +6,6 @@
     "indexArg1": "Ein Zitat mit Index ",
     "indexArg2": " existiert nicht! Gebe bitte eine Number zwischen 1 und ",
     "indexArg3": ".",
-    "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
+    "specUser": "Du hast keinen Benutzer angegeben! Bitte gebe das Zitat ein und erwähne dann den zitierten Benutzer, getrennt durch einen Schrägstrich.",
     "executedBy": "Ausgeführt von "
 }
