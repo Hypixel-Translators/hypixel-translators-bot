@@ -1,14 +1,14 @@
 {
     "moduleName": "Помощь",
     "commandsListTitle": "Список команд",
-    "commandsListTooltip": "Выполнить `+help <название команди>` для того, чтоб узнать больше про команду.",
-    "commandInfo": "Информация команди",
+    "commandsListTooltip": "Пропишите `+help <название команды>`, чтобы узнать больше про команду.",
+    "commandInfo": "Информация о команде",
     "commandInfoFor": "Информация про команду ",
     "commandNotExist": "Данная команда не существует!",
     "seconds": " секунд(ы)",
     "usageField": "Использование",
     "cooldownField": "Перезарядка",
-    "aliasesField": "Синонимы",
+    "aliasesField": "Альтернативы",
     "help": {
         "usage": "+help [команда]",
         "description": "Показывает все доступные команды и другую информацию про бота."
