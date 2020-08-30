@@ -11,23 +11,23 @@
     "aliasesField": "الإسم البديل",
     "executedBy": "تم التنفيذ بواسطة ",
     "help": {
-        "usage": "+help [name of command]",
-        "description": "Shows you all available commands and other info about the bot."
+        "usage": "+مساعده [اسم الأمر]",
+        "description": "يظهر لك جميع الأوامر المتاحة ومعلومات أخرى عن البوت."
     },
     "prefix": {
-        "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "usage": "+برفكس",
+        "description": "يعطيك البرفكس المناسب للغات الخاصة بك."
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote>/<user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "description": "يحضر (أو يضيف) اقتباس مضحك / غريب/حكيم من السيرفر."
     },
     "mention": {
-        "usage": "+mention <language> proofreader|translator|all [message]",
-        "description": "Mentions a language role with a message."
+        "usage": "+منشن <اللغة> محرر مطبعي|مترجم|الكل [message]",
+        "description": "يمنشن رتبة لغه في الرسالة."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
+        "usage": "+سياق احصل|اضيف|عدِّل|اعرض|مساعده <الوسيطه>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
     },
     "bug": {
