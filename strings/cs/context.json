@@ -33,7 +33,6 @@
     "oldVal": "Stará hodnota pro ",
     "newVal": "Nová hodnota pro ",
     "stringId": "ID stringu",
-    "executedBy": "Provedeno uživatelem ",
     "bulgarian": "Bulharština",
     "chineseS": "Čínština (zjednodušená)",
     "chineseT": "Čínština (tradiční)",
@@ -70,5 +69,6 @@
         "sheetT": "Tabulka kontextů",
         "sheetD": "[Klikni sem pro otevření Google Tabulek, které obsahují informace o kontextech] (https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nTuto tabulku mohou otevírat jen určití lidé. O přístup můžeš zažádat na stránce, kterou vidíš, když klikneš na odkaz. Prosím napiš tam odkaz na svůj Crowdin profil (`.../profile/<jméno>`) a své Discord jméno.\nMěj na paměti, že Stannya, Rodry a QkeleQ10 můžou vidět jméno tvého Google profilu a email.",
         "sheetDel": " | Zpráva se odstraní po 2 minutách"
-    }
+    },
+    "executedBy": "Executed by %%user%%"
 }
