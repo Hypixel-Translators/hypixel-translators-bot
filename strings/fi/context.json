@@ -16,7 +16,7 @@
     "notProofreader": "Et ole oikolukija, joten et voi käyttää tätä ominaisuutta! Työstämme tapaa antaa myös sinulle mahdollisuuden ehdottaa kontekstia.",
     "incorrectArgument": "Ole hyvä ja syötä alakomento ensimmäisenä argumenttina. Tämä voi olla `get`, `add`, `edit`, `link` tai `help`. Saadaksesi lisätietoa käytä komentoa `+context help`.",
     "contextFor": "Konteksti stringille ",
-    "noteFor": "Merkintä stringille ",
+    "noteFor": "Muistiinpano kielelle ",
     "screenshot": "Ruudunkaappaus",
     "addContextFor": "Lisää konteksti stringille ",
     "edited": "Muokattiin kontekstia! ",
