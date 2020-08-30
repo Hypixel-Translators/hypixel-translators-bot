@@ -5,8 +5,7 @@
     "errorTitle": "↖ 🌐 🚫 / ↖ 🌐 🚫 🆗!",
     "errorDescription": "🌐 🚫🔀. 👉🌐 ✅ (🙅‍♂️ 💯 🌐):",
     "current": "Your language preference is set to English.",
-    "executedBy": "👩‍💻🖊 ↖ ",
-    "credits": "🛃✅➡️ <@722738307477536778> ➕<@435546264432803840>.",
+    "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "🇸🇦",
     "bg": "🇧🇬",
     "zhcn": "🇨🇳",
@@ -36,5 +35,6 @@
     "sv": "🇸🇪",
     "th": "🇹🇭",
     "tr": "🇹🇷",
-    "ua": "🇺🇦"
+    "ua": "🇺🇦",
+    "executedBy": "Executed by %%user%%"
 }
