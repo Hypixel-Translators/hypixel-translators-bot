@@ -3,9 +3,7 @@
     "loading": "Bir saniye...",
     "loadingModule": "Modül yükleniyor...",
     "invalidArg": "Geçersiz argüman!",
-    "indexArg1": "Göstergeli alıntı ",
-    "indexArg2": " yok! Lütfen 1 ve arasında bir sayı ",
-    "indexArg3": ".",
+    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "specUser": "Bir kullanıcıyı belirtmedin! Lütfen alıntıyı önce yaz ve ondan sonra alıntı yapılan kullanıcıdan bahset, eğik çizgiyle ayırarak.",
     "executedBy": "Yürüten kişi "
 }
