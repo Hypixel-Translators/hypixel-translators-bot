@@ -18,5 +18,5 @@
     "newNickT": "Nuevo apodo",
     "noChanges": "Sin cambios",
     "saved": "¡Tu prefijo fue guardado!",
-    "executedBy": "Ejecutado por "
+    "executedBy": "Executed by %%user%%"
 }
