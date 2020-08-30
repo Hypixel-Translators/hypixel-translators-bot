@@ -11,7 +11,7 @@ module.exports = {
     allowDM: true,
     cooldown: 10,
     async execute(strings, message) {
-        const msgL = message.toLowerCase()
+        const msgL = String(message).toLowerCase()
         const args = msgL.split(" ")
 
         if (args[1]) {
