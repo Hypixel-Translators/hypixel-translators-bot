@@ -1,11 +1,12 @@
 {
-    "moduleName": "Taal",
+    "moduleName": "Talen",
     "changingTitle": "Je taal wordt veranderd...",
     "changedToTitle1": "Taal veranderd naar het ",
     "changedToTitle2": "!",
     "errorTitle": "Die taal bestaat niet of hij is niet compleet vertaald!",
     "errorDescription": "Je taal is niet veranderd. Deze talen zijn momenteel beschikbaar (dit betekent niet dat ze vertaald zijn):",
     "executedBy": "Uitgevoerd door ",
+    "credits": "Vertaald door <@722738307477536778>.",
     "ar": "Arabisch",
     "bg": "Bulgaars",
     "zhcn": "Chinees (vereenvoudigd)",

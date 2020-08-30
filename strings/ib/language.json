@@ -6,6 +6,7 @@
     "errorTitle": "Dat langag existn't or itz trabslateion is completn't!",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "executedBy": "Done by le ",
+    "credits": "Translated by <@PUT_YOUR_DISCORD_ID_IN_HERE>.",
     "ar": "Arabic",
     "bg": "Ballgaryan",
     "zhcn": "Chines (les hard)",
