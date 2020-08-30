@@ -9,7 +9,6 @@
     "usageField": "Použití",
     "cooldownField": "Časové omezení",
     "aliasesField": "Přezdívky",
-    "executedBy": "Provedeno uživatelem ",
     "help": {
         "usage": "+help [název příkazu]",
         "description": "Zobrazí ti všechny dostupné příkazy a další informace o botovi."
@@ -41,5 +40,6 @@
     "language": {
         "usage": "+language [nový jazyk]",
         "description": "Zobrazí tvůj aktuální jazyk nebo ho změní na jiný."
-    }
+    },
+    "executedBy": "Executed by %%user%%"
 }
