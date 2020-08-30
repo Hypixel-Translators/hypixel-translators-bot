@@ -18,5 +18,5 @@
     "newNickT": "Nieuwe bijnaam",
     "noChanges": "Geen wijzigingen",
     "saved": "Je voorvoegsel is opgeslagen!",
-    "executedBy": "Uitgevoerd door "
+    "executedBy": "Uitgevoerd door %%user%%"
 }
