@@ -15,10 +15,10 @@ module.exports = {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor(strings.moduleName)
-                .setTitle(strings.current1 + strings[args[0].toLowerCase()] + strings.current2)
+                .setTitle(strings.current1 + strings[args[0]] + strings.current2)
                 .setFooter(strings.executedBy + message.author.tag);
             message.channel.send(embed)
-            return;
+            return;c
         }
 
 
