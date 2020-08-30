@@ -19,7 +19,7 @@
         "description": "Gives you the appropriate prefix for your language(s)."
     },
     "quote": {
-        "usage": "+quote [index] | quote add <quote>/<user mention>",
+        "usage": "+quote [index] | +quote add <quote>/<user mention>",
         "description": "Gets (or adds) a funny/weird/wise quote from the server."
     },
     "mention": {
