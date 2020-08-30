@@ -1,45 +1,45 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "seconds": " second(s)",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
-    "executedBy": "Executed by ",
+    "moduleName": "Ohjeet",
+    "commandsListTitle": "Komentoluettelo",
+    "commandsListTooltip": "Käytä komentoa `+help <komento>` saadaksesi lisätietoa valitsemastasi komennosta.",
+    "commandInfo": "Komennon tiedot",
+    "commandInfoFor": "Tiedot komennolle ",
+    "commandNotExist": "Tätä komentoa ei ole olemassa!",
+    "seconds": " sekunti(a)",
+    "usageField": "Käyttö",
+    "cooldownField": "Odotusaika",
+    "aliasesField": "Aliakset",
+    "executedBy": "Komennon suoritti ",
     "help": {
-        "usage": "+help [name of command]",
-        "description": "Shows you all available commands and other info about the bot."
+        "usage": "+help [komennon nimi]",
+        "description": "Näyttää kaikki saatavilla olevat komennot ja muuta tietoa botista."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote>/<user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "usage": "+quote [numero] | +quote add <lainaus>/<käyttäjä>",
+        "description": "Hakee (tai lisää) hauskan/oudon/viisaan lainauksen palvelimelta."
     },
     "mention": {
-        "usage": "+mention <language> proofreader|translator|all [message]",
-        "description": "Mentions a language role with a message."
+        "usage": "+mention <kieli> proofreader|translator|all [viesti]",
+        "description": "Lähettää viestin käyttäjälle, jolla on valittu kielirooli."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "usage": "+context get|add|edit|view|help <argumentit>",
+        "description": "Näytä, lisää tai muokkaa valitun stringin (ID) kontekstia. `+context help` näyttää tietoa tästä komennosta."
     },
     "bug": {
-        "usage": "+bug <message>",
-        "description": "Allows you to report bugs present in the bot."
+        "usage": "+bug <viesti>",
+        "description": "Antaa sinun ilmoittaa botissa esiintyvistä bugeista."
     },
     "feedback": {
-        "usage": "+feedback <message>",
-        "description": "Sends your feedback on the bot to staff."
+        "usage": "+feedback <viesti>",
+        "description": "Lähettää palautetta botista ylläpidolle."
     },
     "language": {
-        "usage": "+language [new language]",
-        "description": "Shows your current language, or changes it to another one."
+        "usage": "+language [kieli]",
+        "description": "Näyttää valitsemasi kielen tai vaihtaa sen toiseksi."
     }
 }
