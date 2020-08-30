@@ -64,11 +64,11 @@
         "get": "_Δείχνει περιγραφή για το string που δόθηκε_\n`+context get <string ID>`\n\nΑντικατέστησε το <string ID> με το ID του string, που βρέθηκε αντιγράφοντας το URL του string. Είναι το νούμερο μετά το #.",
         "add": "_Προσθέτει μία εισαγωγή περιγραφής_\n`+context add <string ID> <περιγραφή>`\n\nΑντικατέστησε το <string ID> με το ID του string, που βρέθηκε αντιγράφοντας το URL του string. Είναι το νούμερο μετά το #. Αντικατέστησε το <περιεχόμενο> με το κείμενο που θέλεις να προσθέσεις. Αφού το τρέξεις, μπορείς να προσθέσεις περισσότερα πεδία χρησιμοποιώντας τις αντιδράσεις.",
         "edit": "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enpt`. Replace <new value> with the new value for that field.",
-        "view": "_Gives you a link to the Google Sheet containing context_\n`+context view`",
-        "help": "_Shows this message!_\n`+context help`",
-        "fields": "Fields",
-        "sheetT": "Context Sheet",
-        "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya, Rodry and QkeleQ10 can see your Google profile name and email.",
+        "view": "_Σου δίνει ένα link στο Φύλλο Google που περιέχει περιγραφές_\n`+context view`",
+        "help": "_Δείχνει αυτό το μήνυμα!_\n`+context help`",
+        "fields": "Πεδία",
+        "sheetT": "Φύλλο Περιγραφών",
+        "sheetD": "[Κάνε κλικ εδώ για να ανοίξεις το Φύλλο Google που περιέχει πληροφορίες περιγραφής.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nΜόνο συγκεκριμένα άτομα μπορούν να ανοίξουν αυτό το φύλλο. Μπορείς να ζητήσεις πρόσβαση στην σελίδα που θα δεις όταν πατήσεις το link. Παρακαλώ συμπερίλαβε μέσα το link του προφίλ σου στο Crowdin (`.../profile/<όνομα χρήστη>`) και το όνομα χρήστη σου στο Discord.\nΘυμήσου ότι ο Stannya, ο Rodry και ο QkeleQ10 θα μπορούν να δουν το όνομα προφίλ σου στο Google και το email σου.",
         "sheetDel": " | Το μήνυμα διαγράφεται μετά από 2 λεπτά"
     }
 }
