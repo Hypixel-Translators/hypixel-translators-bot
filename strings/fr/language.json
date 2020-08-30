@@ -5,8 +5,7 @@
     "errorTitle": "Cette langue n'existe pas ou elle n'est pas complètement traduite!",
     "errorDescription": "Ta langue n'a pas été changée. Ces langues sont actuellement disponibles (ne signifie pas qu'elles sont traduites):",
     "current": "Ta préférence de langue est définie à Français.",
-    "executedBy": "Exécuté par ",
-    "credits": "Proofreader: <@435546264432803840>!",
+    "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "Arabe",
     "bg": "Bulgare",
     "zhcn": "Chinois (Simplifié)",
@@ -36,5 +35,6 @@
     "sv": "Suédois",
     "th": "Thaï",
     "tr": "Turc",
-    "ua": "Ukrainien"
+    "ua": "Ukrainien",
+    "executedBy": "Executed by %%user%%"
 }
