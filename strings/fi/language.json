@@ -5,7 +5,7 @@
     "changedToTitle2": "!",
     "errorTitle": "Tätä kieltä ei ole olemassa tai sille ei löydy käännöstä!",
     "errorDescription": "Kieltäsi ei vaihdettu. Tällä hetkellä saatavilla olevat kielet (käännöstä ei välttämättä löydy):",
-    "current1": "Valitsit kielen ",
+    "current1": "Käytössäsi oleva kieli on ",
     "current2": ".",
     "executedBy": "Komennon suoritti ",
     "credits": "Kääntänyt <@236826409287286784>.",
