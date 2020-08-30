@@ -19,7 +19,7 @@
         "description": "Dá ti odpovídající prefix pro tvůj/tvoje jazyk/y."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <citát>/<označení uživatele>",
+        "usage": "+quote [číslo] | +quote add <citát>/<označení uživatele>",
         "description": "Zobrazí (nebo přidá) vtipný/divný/moudrý citát ze serveru."
     },
     "mention": {
