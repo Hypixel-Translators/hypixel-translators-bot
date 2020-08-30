@@ -5,10 +5,10 @@
     "errors": {
         "noLanguages": "Здається, у вас немає ніяких мовних ролей! Будь ласка, зв'яжіться з <@722738307477536778>, якщо вам здається, що це помилка.",
         "error": "Не вдалося змінити псевдонім. Ви можете скопіювати його нижче і самі змінити псевдонім.",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-        "cancelled": "You cancelled the changing of your nickname, ",
-        "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, ",
+        "confirmedNoFlags": "Ви підтвердили, але Ви не відреагували на жодний прапор, ",
+        "cancelled": "Ви скасували зміну нікнейму, ",
+        "alreadyThis": "У Вас вже є цей псевдонім, ",
+        "timeOut": "Ви не відреагували з прапорцями, ",
         "notSaved": "so your prefix wasn't saved."
     },
     "react": "React with all flags you want to add to your prefix in order.",
