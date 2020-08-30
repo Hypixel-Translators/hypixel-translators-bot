@@ -29,7 +29,7 @@ module.exports = {
             .setTitle("Give feedback")
             .setDescription("Your feedback is being sent...")
             .addFields({ name: "Feedback", value: toSend })
-            .setFooter("Executed by " + message.author.tag);
+            .setFooter(executedBy)
         message.channel.send(embed)
             .then(msg => {
                 const sendTo = msg.client.channels.cache.get("730042612647723058")
@@ -45,7 +45,7 @@ module.exports = {
                     .setTitle("Give feedback")
                     .setDescription("Your feedback has been sent!")
                     .addFields({ name: "Feedback", value: toSend })
-                    .setFooter("Executed by " + message.author.tag);
+                    .setFooter(executedBy)
                 msg.edit(embed)
             })
     }

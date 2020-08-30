@@ -21,14 +21,14 @@ module.exports = {
       .setColor(workingColor)
       .setTitle("Restart")
       .setDescription("Just a moment...")
-      .setFooter("Executed by " + message.author.tag);
+      .setFooter(executedBy)
     message.channel.send(embed).then(msg => {
       if (message.author.id == "722738307477536778") {
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
           .setTitle("Restart")
           .setDescription("Restarting...\nGive me a minute.")
-          .setFooter("Executed by " + message.author.tag);
+          .setFooter(executedBy)
         msg.edit(embed);
         msg.client.user.setStatus("idle");
         setTimeout(() => {
@@ -41,7 +41,7 @@ module.exports = {
           .setDescription(
             "You're not the bot owner, so you aren't allowed to restart the bot. If you really want to, please contact <@722738307477536778>."
           )
-          .setFooter("Executed by " + message.author.tag);
+          .setFooter(executedBy)
         msg.edit(embed);
       }
     });

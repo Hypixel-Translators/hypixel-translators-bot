@@ -43,7 +43,7 @@ module.exports = {
                         .setColor(errorColor)
                         .setTitle("Poll")
                         .setDescription("Couldn't react with  `" + emoji + "`. Make sure to not type the emoji name, but the actual emoji. The emoji needs to either be a default Discord emoji or it needs to be in this server.\n\nError message:\n> " + err)
-                        .setFooter("Executed by " + message.author.tag);
+                        .setFooter(executedBy)
                     msg.edit(embedTwo)
                 })
                 await emojis.push(emoji)

@@ -27,7 +27,7 @@ module.exports = {
             .addFields(
                 { name: "Message", value: toSend }
             )
-            .setFooter("Executed by " + message.author.tag);
+            .setFooter(executedBy)
         message.channel.send(embed)
             .then(msg => {
                 const recipient = msg.client.users.cache.get(userToSend)
@@ -45,14 +45,14 @@ module.exports = {
                             .addFields(
                                 { name: "Message", value: toSend }
                             )
-                            .setFooter("Executed by " + message.author.tag);
+                            .setFooter(executedBy)
                         msg.edit(embed)
                     })
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
                     .setTitle("📨 Sent message to " + recipient.username)
                     .setDescription(toSend)
-                    .setFooter("Executed by " + message.author.tag);
+                    .setFooter(executedBy)
                 msg.edit(embed)
             })
     }

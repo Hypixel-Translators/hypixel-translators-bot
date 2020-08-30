@@ -28,7 +28,7 @@ module.exports = {
       .setColor(workingColor)
       .setTitle("Say")
       .setDescription("Saying...")
-      .setFooter("Executed by " + message.author.tag);
+      .setFooter(executedBy)
     message.channel.send(embed)
       .then(msg => {
         const sendTo = msg.client.channels.cache.get(rawSendTo)
@@ -37,7 +37,7 @@ module.exports = {
           .setColor(successColor)
           .setTitle("Say")
           .setDescription("Said!")
-          .setFooter("Executed by " + message.author.tag);
+          .setFooter(executedBy)
         msg.edit(embed)
       })
   }
