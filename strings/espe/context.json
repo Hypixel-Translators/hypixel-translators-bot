@@ -21,7 +21,7 @@
     "addContextFor": "Añadir contexto para ",
     "edited": "¡La entrada de contexto fue editada! ",
     "editedResult": "¡La entrada de contexto fue editada! Los nuevos datos se muestran abajo.\n\n**Contexto**\n",
-    "tryRunGet": "No se pudo encontrar esa entrada. Intenta ejecutar `+context get <ID del string>` para ver los resultos.",
+    "tryRunGet": "No se pudo encontrar esa entrada. Intenta ejecutar `+context get <ID del string>` para ver los resultados.",
     "editContextFor": "Editar contexto para ",
     "willAdd": "La siguiente entrada será añadida. Por favor, reaccione con 📑 si quieres añadir más a la entrada o cambiar el texto (como screenshot o una nota para un idioma). Reacciona con <:vote_yes:732298639749152769> para enviar. Esto será cancelado en dos minutos o cuando reaccionas con <:vote_no:732298639736570007>.",
     "promptAddMore": "Envía un mensaje (sin el prefijo) que contiene `<parámetro> <contenido>`. <parámetro> puede ser `screenshot`, `id`, `context`, o un código de idioma. <contenido> necesita ser el nuevo contenido de ese string, como un enlace de screenshot.",
