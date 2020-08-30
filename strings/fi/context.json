@@ -60,10 +60,10 @@
     "ukrainian": "ukraina",
     "info": {
         "title": "Ohjeet komennolle `+context`",
-        "description": "Alla olevasta listasta löytyvät tämän komennon kaikki alakomennot ja niiden selitykset. Kohdasta **kentät** löytyvät saatavilla olevat kentät.",
+        "description": "Alla olevasta listasta löytyvät tämän komennon kaikki alakomennot ja niiden selitykset. Kohdasta **Fields** löytyvät saatavilla olevat kentät.",
         "get": "_Hakee kontekstin valitulle stringille_\n`+context get <stringin ID>`\n\nKorvaa <stringin ID> stringin URL-osoitteesta löytyvällä numerolla, joka alkaa #-merkin jälkeen.",
         "add": "_Lisää kontekstin valitulle stringille_\n`+context add <stringin ID> <konteksti>`\n\nKorvaa <stringin ID> stringin URL-osoitteesta löytyvällä numerolla, joka alkaa #-merkin jälkeen.\nKorvaa <konteksti> haluamallasi tekstillä. Suoritettuasi komennon voit antaa lisätietoja reaktioilla.",
-        "edit": "_Muokkaa olemassaolevaa kontekstia_\n`+context edit <stringin ID> <kenttä> <uudet tiedot>\n\nKorvaa <stringin ID> stringin URL-osoitteesta löytyvällä numerolla, joka alkaa #-merkin jälkeen.\nKorvaa <kenttä> sen kentän nimellä, jota haluat muokata, kuten `screenshot` tai `enpt`. Korvaa <uudet tiedot> haluamillasi uusilla tiedoilla ko. kentälle.",
+        "edit": "_Muokkaa olemassaolevaa kontekstia_\n`+context edit <stringin ID> <kenttä> <uudet tiedot>`\n\nKorvaa <stringin ID> stringin URL-osoitteesta löytyvällä numerolla, joka alkaa #-merkin jälkeen.\nKorvaa <kenttä> sen kentän nimellä, jota haluat muokata, kuten `screenshot` tai `enpt`. Korvaa <uudet tiedot> haluamillasi uusilla tiedoilla ko. kentälle.",
         "view": "_Antaa sinulle linkin Google Sheetsiin, josta löytyvät kaikki kontekstit_\n`+context view`",
         "help": "_Näyttää tämän viestin!_\n`+context help`",
         "fields": "Kentät",
