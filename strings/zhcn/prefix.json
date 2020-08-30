@@ -18,5 +18,5 @@
     "newNickT": "新昵称",
     "noChanges": "未修改",
     "saved": "您的前缀已保存！",
-    "executedBy": "触发者："
+    "executedBy": "Executed by %%user%%"
 }
