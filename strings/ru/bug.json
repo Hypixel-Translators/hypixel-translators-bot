@@ -3,5 +3,5 @@
     "sendingTitle": "Отправляю отчета об ошибке персоналу...",
     "sentTitle": "Ваше сообщение об ошибке отправлено!",
     "addMessage": "You haven't provided a message!",
-    "executedBy": "Было выполнено пользователем "
+    "executedBy": "Executed by %%user%%"
 }
