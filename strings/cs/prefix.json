@@ -18,5 +18,5 @@
     "newNickT": "Nová přezdívka",
     "noChanges": "Žádné změny",
     "saved": "Tvůj prefix byl uložen!",
-    "executedBy": "Provedeno uživatelem "
+    "executedBy": "Executed by %%user%%"
 }
