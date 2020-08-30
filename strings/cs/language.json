@@ -1,8 +1,7 @@
 {
     "moduleName": "Jazyk",
     "changingTitle": "Probíhá změna jazyka...",
-    "changedToTitle1": "Tvůj jazyk byl změněn na ",
-    "changedToTitle2": "!",
+    "changedToTitle": "Changed your language to English!",
     "errorTitle": "Tento jazyk neexistuje nebo ještě není kompletně přeložen!",
     "errorDescription": "Tvůj jazyk nebyl změněn. Momentálně jsou dostupné tyto jazyky (to neznamená, že jsou přeložené):",
     "current1": "Tvoje předvolba jazyka je nastavena na ",
