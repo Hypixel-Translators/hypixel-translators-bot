@@ -28,11 +28,11 @@ module.exports = {
                     msg.edit(embed)
                     return;
                 }
-                if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(strings, message, args, msg) }
-                else if (args[0] === "get") { getFromSpreadsheet(strings, message, args, msg) }
-                else if (args[0] === "edit") { editInSpreadsheet(strings, message, args, msg) }
-                else if (args[0] === "info" || args[0] === "help") { showInfo(strings, message, args, msg) }
-                else if (args[0] === "view" || args[0] === "link") { viewSheet(strings, message, args, msg) }
+                if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(executedBy, strings, message, args, msg) }
+                else if (args[0] === "get") { getFromSpreadsheet(executedBy, strings, message, args, msg) }
+                else if (args[0] === "edit") { editInSpreadsheet(executedBy, strings, message, args, msg) }
+                else if (args[0] === "info" || args[0] === "help") { showInfo(executedBy, strings, message, args, msg) }
+                else if (args[0] === "view" || args[0] === "link") { viewsheet(executedBy, strings, message, args, msg) }
                 else {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
@@ -50,7 +50,7 @@ module.exports = {
     }
 }
 
-async function getFromSpreadsheet(strings, message, args, msg) {
+async function getFromSpreadsheet(executedBy, strings, message, args, msg) {
     const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
     await doc.useServiceAccountAuth(creds)
 
@@ -113,7 +113,7 @@ async function getFromSpreadsheet(strings, message, args, msg) {
     msg.edit(embed)
 }
 
-async function addToSpreadsheet(strings, message, args, msg) {
+async function addToSpreadsheet(executedBy, strings, message, args, msg) {
     const string = args[1]
     var toSend = [...args]
     toSend.splice(0, 2)
@@ -334,7 +334,7 @@ async function addToSpreadsheet(strings, message, args, msg) {
     })
 }
 
-async function editInSpreadsheet(strings, message, args, msg) {
+async function editInSpreadsheet(executedBy, strings, message, args, msg) {
     if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
@@ -500,7 +500,7 @@ async function editInSpreadsheet(strings, message, args, msg) {
     })
 }
 
-async function showInfo(strings, message, args, msg) {
+async function showInfo(executedBy, strings, message, args, msg) {
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
@@ -519,7 +519,7 @@ async function showInfo(strings, message, args, msg) {
     return;
 }
 
-async function viewSheet(strings, message, args, msg) {
+async function viewsheet(executedBy, strings, message, args, msg) {
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle(strings.info.sheetT)

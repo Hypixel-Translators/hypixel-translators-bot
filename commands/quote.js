@@ -46,16 +46,16 @@ module.exports = {
                 } else {
                     args.splice(0, 1)
                     var toSend = args.join(" ")
-                    addToSpreadsheet(strings, message, toSend, msg)
+                    addToSpreadsheet(executedBy, strings, message, toSend, msg)
                 }
             } else {
-                accessSpreadsheet(strings, message, args, msg)
+                accessSpreadsheet(executedBy, strings, message, args, msg)
             }
         })
     }
 };
 
-async function accessSpreadsheet(strings, message, args, msg) {
+async function accessSpreadsheet(executedBy, strings, message, args, msg) {
     const doc = new GoogleSpreadsheet('16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8')
     await doc.useServiceAccountAuth(creds)
 
@@ -94,7 +94,7 @@ async function accessSpreadsheet(strings, message, args, msg) {
     msg.edit(embed)
 }
 
-async function addToSpreadsheet(strings, message, toSend, msg) {
+async function addToSpreadsheet(executedBy, strings, message, toSend, msg) {
     const doc = new GoogleSpreadsheet('16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8')
     await doc.useServiceAccountAuth(creds)
 

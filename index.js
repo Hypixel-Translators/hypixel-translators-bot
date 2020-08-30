@@ -124,7 +124,7 @@ client.on("message", async message => {
         .setColor(errorColor)
         .setTitle("Error")
         .setDescription("Sorry, but you can't execute this command in private messages. It might not be compatible with private messages (yet).")
-        .setFooter(executedBy)
+        .setFooter("undefined")
       message.channel.send(embed)
       return;
     }
@@ -187,7 +187,7 @@ client.on("message", async message => {
         { name: "Command usage", value: `\`${prefix}${command.usage}\`` },
         { name: "Error message", value: error }
       )
-      .setFooter(executedBy)
+      .setFooter("undefined")
     message.channel.send(embed)
 
   }
