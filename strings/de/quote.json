@@ -3,9 +3,7 @@
     "loading": "Eine Sekunde …",
     "loadingModule": "Loading module...",
     "invalidArg": "Ungültiges Argument!",
-    "indexArg1": "Ein Zitat mit Index ",
-    "indexArg2": " existiert nicht! Gebe bitte eine Number zwischen 1 und ",
-    "indexArg3": ".",
+    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "specUser": "Du hast keinen Benutzer angegeben! Bitte gebe das Zitat ein und erwähne dann den zitierten Benutzer, getrennt durch einen Schrägstrich.",
     "executedBy": "Ausgeführt von "
 }
