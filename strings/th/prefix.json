@@ -18,5 +18,5 @@
     "newNickT": "ชื่อเล่นใหม่",
     "noChanges": "ไม่มีการเปลี่ยนแปลง",
     "saved": "คำนำหน้าชื่อของคุณบันทึกเรียบร้อยแล้ว",
-    "executedBy": "Executed by "
+    "executedBy": "Executed by %%user%%"
 }
