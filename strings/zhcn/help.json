@@ -1,45 +1,45 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "seconds": " second(s)",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
-    "executedBy": "Executed by ",
+    "moduleName": "帮助",
+    "commandsListTitle": "命令列表",
+    "commandsListTooltip": "执行 `+help <name of command>` 命令以了解更多关于某一命令的详情。",
+    "commandInfo": "命令信息",
+    "commandInfoFor": "命令信息：",
+    "commandNotExist": "此命令不存在！",
+    "seconds": " 秒",
+    "usageField": "用法",
+    "cooldownField": "冷却时间",
+    "aliasesField": "别名",
+    "executedBy": "触发者：",
     "help": {
-        "usage": "+help [name of command]",
-        "description": "Shows you all available commands and other info about the bot."
+        "usage": "+help [命令]",
+        "description": "显示所有可用的命令以及关于机器人的其他信息。"
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "根据您的语言设置合适的前缀"
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote>/<user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "description": "获取（或添加）一条此服务器上的有趣/神奇/明智的话语。"
     },
     "mention": {
-        "usage": "+mention <language> proofreader|translator|all [message]",
-        "description": "Mentions a language role with a message."
+        "usage": "+mention <语言> proofreader|translator|all [消息]",
+        "description": "提及某一语言的用户并附带消息。"
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "usage": "+context get|add|edit|view|help <参数>",
+        "description": "获取、添加或编辑所给字符串 ID 对应的语境信息。执行 `+context help` 命令以获取此命令的详情。"
     },
     "bug": {
-        "usage": "+bug <message>",
-        "description": "Allows you to report bugs present in the bot."
+        "usage": "+bug <消息>",
+        "description": "允许您报告此机器人中存在的 bug。"
     },
     "feedback": {
-        "usage": "+feedback <message>",
-        "description": "Sends your feedback on the bot to staff."
+        "usage": "+feedback <消息>",
+        "description": "将您对机器人的反馈消息发送给工作人员。"
     },
     "language": {
-        "usage": "+language [new language]",
-        "description": "Shows your current language, or changes it to another one."
+        "usage": "+language [新语言]",
+        "description": "显示您当前的语言，或将其更改为另一语言。"
     }
 }

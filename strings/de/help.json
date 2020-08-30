@@ -12,34 +12,34 @@
     "executedBy": "Ausgeführt von ",
     "help": {
         "usage": "+help [Befehlsname]",
-        "description": "Shows you all available commands and other info about the bot."
+        "description": "Zeigt alle verfügbaren Befehle und andere Informationen über den Bot."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "Gibt dir den passenden Präfix für deine Sprache(n)."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote>/<user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "usage": "+quote [index] | +quote add <Zitat>/<Nutzer erwähnen>",
+        "description": "Ruft (oder hinzufügt) ein lustiges / seltsames Zitat vom Server ab."
     },
     "mention": {
-        "usage": "+mention <language> proofreader|translator|all [message]",
-        "description": "Mentions a language role with a message."
+        "usage": "+mention <Sprache> proofreader|translator|all [Nachricht]",
+        "description": "Erwähnt eine Sprachrolle mit einer Nachricht."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "usage": "+context get|add|edit|view|help <Argument>",
+        "description": "Zeigt, fügt oder bearbeitet Kontext für die angegebene String ID. `+context help` zeigt dir Informationen über diesen Befehl."
     },
     "bug": {
         "usage": "+bug <Nachricht>",
-        "description": "Allows you to report bugs present in the bot."
+        "description": "Erlaubt es dir, im Bot vorhandene Fehler zu melden."
     },
     "feedback": {
         "usage": "+feedback <Nachricht>",
-        "description": "Sends your feedback on the bot to staff."
+        "description": "Sendet dein Feedback an Staff."
     },
     "language": {
         "usage": "+language [Neue Sprache]",
-        "description": "Shows your current language, or changes it to another one."
+        "description": "Zeigt deine aktuelle Sprache an oder ändert sie in eine andere."
     }
 }

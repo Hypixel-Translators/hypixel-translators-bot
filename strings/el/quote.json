@@ -1,11 +1,11 @@
 {
-    "moduleName": "Quote",
-    "loading": "One second...",
-    "loadingModule": "Loading module...",
-    "invalidArg": "Invalid argument!",
-    "indexArg1": "A quote with index ",
-    "indexArg2": " doesn't exist! Please provide a number between 1 and ",
+    "moduleName": "Παράθεμα",
+    "loading": "Ένα δευτερόλεπτο...",
+    "loadingModule": "Φόρτωση τμήματος...",
+    "invalidArg": "Μη έγκυρο επιχείρημα!",
+    "indexArg1": "Ένα παράθεμα με ένδειξη ",
+    "indexArg2": " δεν υπάρχει! Παρακαλώ εισήγαγε έναν αριθμό μεταξύ του 1 και ",
     "indexArg3": ".",
-    "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
-    "executedBy": "Executed by "
+    "specUser": "Δεν προσδιόρισες έναν χρήστη! Παρακαλώ πληκτρολόγησε το παράθεμα και μετά ανέφερε τον χρήστη που το παρέθεσε, χωρισμένα από μία κάθετη γραμμή.",
+    "executedBy": "Εκτελέστηκε από "
 }

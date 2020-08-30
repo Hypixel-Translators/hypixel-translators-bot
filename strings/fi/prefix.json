@@ -1,22 +1,22 @@
 {
-    "moduleName": "Prefix",
-    "loading": "One second...",
-    "loadingRoles": "Fetching your roles...",
+    "moduleName": "Etuliite",
+    "loading": "Odota sekunti...",
+    "loadingRoles": "Haetaan roolejasi...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
-        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-        "cancelled": "You cancelled the changing of your nickname, ",
-        "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "so your prefix wasn't saved."
+        "noLanguages": "Sinulla ei vaikuttaisi olevan kielirooleja! Ole hyvä ja ota yhteyttä käyttäjään <@722738307477536778> mikäli luulet tämän olevan virhe.",
+        "error": "Nimen vaihtaminen epäonnistui. Voit kopioida nimen alapuolelta ja vaihtaa sen itse.",
+        "confirmedNoFlags": "Vahvistit pyynnön, mutta et reagoinut lipuilla, ",
+        "cancelled": "Peruutit nimimerkkisi vaihtamisen, ",
+        "alreadyThis": "Sinulla on jo tämä nimimerkki, ",
+        "timeOut": "Et reagoinut lipuilla, ",
+        "notSaved": "joten etuliitettäsi ei tallennettu."
     },
-    "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "Nickname preview",
-    "newNickT": "New nickname",
-    "noChanges": "No changes",
-    "saved": "Your prefix has been saved!",
-    "executedBy": "Executed by "
+    "react": "Reagoi kaikilla lipuilla, jotka haluat asetettavan etuliitteiksesi.",
+    "reactTimer": "Sinulla on 20 sekuntia aikaa. Paina ❎ peruaksesi.",
+    "reactTimer2": "Sinulla on alle 20 sekuntia jäljellä. Paina ✅ vahvistaaksesi tai ❎ peruaksesi.",
+    "previewT": "Nimimerkin esikatselu",
+    "newNickT": "Uusi nimimerkki",
+    "noChanges": "Ei muutoksia",
+    "saved": "Etuliitteesi tallennettiin!",
+    "executedBy": "Komennon suoritti "
 }
