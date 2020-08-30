@@ -82,7 +82,7 @@ module.exports = {
                                         .setColor(successColor)
                                         .setAuthor(strings.moduleName)
                                         .setFooter(strings.executedBy + message.author.tag);
-                                    if (strings.changedToTitle === "Changed your language to English!") { embed.setTitle("Changed your language to " + args[1] + "!") } else { embed.setTitle(strings.changedToTitle) }
+                                    if (strings.changedToTitle === "Changed your language to English!") { embed.setTitle("Changed your language to " + strings[args[1]] + "!") } else { embed.setTitle(strings.changedToTitle) }
                                     if (args[1] !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("Found a bug? Execute `+bug <message>`.") }
                                     msg.edit(embed)
                                 })
@@ -101,9 +101,8 @@ module.exports = {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(neutralColor)
                                     .setAuthor(strings.moduleName)
-                                    .setTitle(strings.current1 + strings[langprefs[1]] + strings.current2)
-                                    .setDescription()
                                     .setFooter(strings.executedBy + message.author.tag);
+                                if (strings.changedToTitle === "Your language preference is set to English.") { embed.setTitle("Your language preference is set to " + strings[langprefs[1]] + ".") } else { embed.setTitle(strings.changedToTitle) }
                                 if (args[1] !== "en") { embed.setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\n" + strings.credits) } else { embed.setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\nFound a bug? Execute `+bug <message>`.") }
                                 await message.channel.send(embed)
                                 return;
@@ -112,8 +111,7 @@ module.exports = {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(neutralColor)
                                 .setAuthor(strings.moduleName)
-                                .setTitle(strings.current1 + strings["en"] + strings.current2)
-                                .setDescription()
+                                .setTitle("Your language preference is set to English.")
                                 .setFooter(strings.executedBy + message.author.tag)
                                 .setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\nFound a bug? Execute `+bug <message>`.")
                             await message.channel.send(embed)

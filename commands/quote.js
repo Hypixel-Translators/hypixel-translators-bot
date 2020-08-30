@@ -73,11 +73,13 @@ async function accessSpreadsheet(strings, message, args, msg) {
 
     const correctRow = rows[rowNum]
     if (!correctRow) {
+        var indexArg = strings.indexArg.replace("%%arg%%", args[0])
+        indexArg = indexArg.replace("%%max%%", rows.length)
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.invalidArg)
-            .setDescription(strings.indexArg1 + args[0] + strings.indexArg2 + rows.length + strings.indexArg3)
+            .setDescription(indexArg)
             .setFooter(strings.executedBy + message.author.tag);
         msg.edit(embed)
         return;
