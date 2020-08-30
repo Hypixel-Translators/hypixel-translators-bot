@@ -10,7 +10,10 @@ module.exports = {
     channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
     allowDM: true,
     cooldown: 10,
-    async execute(strings, message, args) {
+    async execute(strings, message) {
+        const msgL = message.toLowerCase()
+        const args = msgL.split(" ")
+
         if (args[0]) {
             const embed = new Discord.MessageEmbed()
                 .setColor(workingColor)
