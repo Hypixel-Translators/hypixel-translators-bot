@@ -1,8 +1,7 @@
 {
     "moduleName": "Langag",
     "changingTitle": "Changeng langag...",
-    "changedToTitle1": "Changend lanag to ",
-    "changedToTitle2": "!",
+    "changedToTitle": "Changed your language to English!",
     "errorTitle": "Dat langag existn't or itz trabslateion is completn't!",
     "errorDescription": "Yuor langag hants been changang. Thse langagns are curentl avalbe (this dostn mean thery tansalaet):",
     "current1": "Ur langag parfarnce is ",
