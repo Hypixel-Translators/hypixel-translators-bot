@@ -7,7 +7,7 @@ module.exports = {
   aliases: ["langprefix", "languageprefix"],
   usage: "prefix",
   cooldown: 30,
-  channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
+  channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
   execute(strings, message) {
     //message.delete();
     const embed = new Discord.MessageEmbed()

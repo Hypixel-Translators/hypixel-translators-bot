@@ -11,6 +11,17 @@ module.exports = {
     allowDM: true,
     cooldown: 10,
     async execute(strings, message, args) {
+        if (args[0].length < 1) {
+            const embed = new Discord.MessageEmbed()
+                .setColor(neutralColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.current1 + strings[args[0].toLowerCase()] + strings.current2)
+                .setFooter(strings.executedBy + message.author.tag);
+            message.channel.send(embed)
+            return;
+        }
+
+
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
             .setAuthor(strings.moduleName)
@@ -26,7 +37,7 @@ module.exports = {
                             fiMessages.forEach(element => {
                                 f = 1
                                 element.delete()
-                                const path = './strings/' + args[0] + '/language.json'
+                                const path = './strings/' + args[0].tolowercase() + '/language.json'
                                 fs.access(path, fs.F_OK, async (err) => {
                                     if (err) {
                                         const testFolder = './strings/';
@@ -44,20 +55,20 @@ module.exports = {
                                         });
 
                                     }
-                                    message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
-                                    strings = require(("../strings/" + args[0] + "/language.json"))
+                                    message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0].tolowercase())
+                                    strings = require(("../strings/" + args[0].tolowercase() + "/language.json"))
                                     var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
                                     const embed = new Discord.MessageEmbed()
                                         .setColor(successColor)
                                         .setAuthor(strings.moduleName)
-                                        .setTitle(strings.changedToTitle1 + strings[args[0]] + strings.changedToTitle2)
+                                        .setTitle(strings.changedToTitle1 + strings[args[0].tolowercase()] + strings.changedToTitle2)
                                         .setFooter(strings.executedBy + message.author.tag);
-                                    if (args[0] !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("For bugs, execute `+bug <message>`.") }
+                                    if (args[0].tolowercase() !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("For bugs, execute `+bug <message>`.") }
                                     msg.edit(embed)
                                 })
                             });
                         } if (f == 0) {
-                            const path = './strings/' + args[0] + '/language.json'
+                            const path = './strings/' + args[0].tolowercase() + '/language.json'
                             fs.access(path, fs.F_OK, async (err) => {
                                 if (err) {
                                     const testFolder = './strings/';
@@ -75,15 +86,15 @@ module.exports = {
                                     });
 
                                 }
-                                message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0])
-                                strings = require(("../strings/" + args[0] + "/language.json"))
+                                message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[0].tolowercase())
+                                strings = require(("../strings/" + args[0].tolowercase() + "/language.json"))
                                 var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor)
                                     .setAuthor(strings.moduleName)
-                                    .setTitle(strings.changedToTitle1 + strings[args[0]] + strings.changedToTitle2)
+                                    .setTitle(strings.changedToTitle1 + strings[args[0].tolowercase()] + strings.changedToTitle2)
                                     .setFooter(strings.executedBy + message.author.tag);
-                                if (args[0] !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("For bugs, execute `+bug <message>`.") }
+                                if (args[0].tolowercase() !== "en") { embed.setDescription(strings.credits) } else { embed.setDescription("For bugs, execute `+bug <message>`.") }
                                 msg.edit(embed)
                             })
                         }
