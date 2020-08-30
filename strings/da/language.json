@@ -1,8 +1,7 @@
 {
     "moduleName": "Sprog",
     "changingTitle": "Skifter dit sprog...",
-    "changedToTitle1": "Skiftede dit sprog til ",
-    "changedToTitle2": "!",
+    "changedToTitle": "Changed your language to English!",
     "errorTitle": "Dette sprog findes ikke, ellers er det ikke helt oversat!",
     "errorDescription": "Dit sprog er ikke blevet ændret. Disse sprog er i øjeblikket tilgængelig (Det betyder ikke, at de er oversat):",
     "current1": "Din sprogpræference er ",
