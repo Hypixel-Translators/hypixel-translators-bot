@@ -9,7 +9,6 @@
     "usageField": "Käyttö",
     "cooldownField": "Odotusaika",
     "aliasesField": "Aliakset",
-    "executedBy": "Komennon suoritti ",
     "help": {
         "usage": "+help [komennon nimi]",
         "description": "Näyttää kaikki saatavilla olevat komennot ja muuta tietoa botista."
@@ -41,5 +40,6 @@
     "language": {
         "usage": "+language [kieli]",
         "description": "Näyttää valitsemasi kielen tai vaihtaa sen toiseksi."
-    }
+    },
+    "executedBy": "Executed by %%user%%"
 }
