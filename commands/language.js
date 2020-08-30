@@ -26,8 +26,10 @@ module.exports = {
                         .then(async messages => {
                             fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
                             var f = 0
+                            console.log(fiMessages)
                             if (fiMessages) {
                                 fiMessages.forEach(element => {
+                                    console.log(element)
                                     f = 1
                                     const path = './strings/' + args[1] + '/language.json'
                                     fs.access(path, fs.F_OK, async (err) => {
