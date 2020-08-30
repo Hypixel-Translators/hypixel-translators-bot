@@ -3,5 +3,5 @@
     "sendingTitle": "Invio della segnalazione allo staff...",
     "sentTitle": "La segnalazione è stata inviata!",
     "addMessage": "Non hai specificato un messaggio!",
-    "executedBy": "Eseguito da "
+    "executedBy": "Executed by %%user%%"
 }
