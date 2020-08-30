@@ -18,5 +18,5 @@
     "newNickT": "اسم مستعار جديد",
     "noChanges": "لا يوجد تغييرات",
     "saved": "تم حفظ البرفكس الخاص بك!",
-    "executedBy": "تم التنفيذ بواسطة "
+    "executedBy": "Executed by %%user%%"
 }
