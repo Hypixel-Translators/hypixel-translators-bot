@@ -1,8 +1,7 @@
 {
     "moduleName": "Мова",
     "changingTitle": "Змінюю мову...",
-    "changedToTitle1": "Змінив Вашу мову на ",
-    "changedToTitle2": "!",
+    "changedToTitle": "Changed your language to English!",
     "errorTitle": "Ця мова не існує або не повністю перекладена!",
     "errorDescription": "Ваша мова не змінилась. Ці мови в даний час доступні (це не означає, що вони перекладені):",
     "current1": "Your language preference is set to ",
