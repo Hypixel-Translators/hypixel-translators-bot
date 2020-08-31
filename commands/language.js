@@ -54,14 +54,14 @@ module.exports = {
             })
             if (!exists) {
                 const testFolder = './strings/';
-                await fs.readdir(testFolder, (err, files) => {
+                await fs.readdir(testFolder, async (err, files) => {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setAuthor(strings.moduleName)
                         .setTitle(strings.errorTitle)
                         .setDescription(strings.errorDescription + "\n" + files.join(", "))
                         .setFooter(executedBy);
-                    msg.edit(embed)
+                    await msg.edit(embed)
                 });
                 return
             }
@@ -72,7 +72,7 @@ module.exports = {
                 selected = true
                 oldMsg = await element.content.split(" ")
                 const testFolder = './strings/';
-                await fs.readdir(testFolder, (err, files) => {
+                await fs.readdir(testFolder, async (err, files) => {
                     const embed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor(strings.moduleName)
@@ -85,7 +85,7 @@ module.exports = {
             })
             if (!selected) {
                 const testFolder = './strings/';
-                await fs.readdir(testFolder, (err, files) => {
+                await fs.readdir(testFolder, async (err, files) => {
                     const embed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor(strings.moduleName)
