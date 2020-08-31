@@ -36,6 +36,16 @@ module.exports = {
             })
             const newMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
             const newFiMessages = await newMessages.filter(element => element.content.startsWith(args[1]))
+            if (!newFiMessages) {
+                const embed = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setAuthor(strings.moduleName)
+                    .setTitle(strings.errorTitle)
+                    .setDescription(strings.errorDescription + "\n" + files.join(", "))
+                    .setFooter(executedBy);
+                await msg.edit(embed)
+                return
+            }
             newFiMessages.forEach(async element => {
                 exists = true
                 strings = await require(("../strings/" + args[1] + "/language.json"))
@@ -53,14 +63,7 @@ module.exports = {
                 await msg.edit(embed)
             })
             if (!exists) {
-                const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.errorTitle)
-                    .setDescription(strings.errorDescription + "\n" + files.join(", "))
-                    .setFooter(executedBy);
-                await msg.edit(embed)
-                return
+
             }
         } else {
             const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
