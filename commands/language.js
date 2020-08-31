@@ -18,6 +18,7 @@ module.exports = {
         var newMsg = {}
         var exists = false
         var selected = false
+        var saved = false
 
         if (args[1]) {
             const embed = new Discord.MessageEmbed()
@@ -38,7 +39,6 @@ module.exports = {
                         await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
                         await message.client.channels.cache.get("748968125663543407").send(oldMsg.join(" "))
                     })
-                    setTimeout(async () => {
                         const newMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
                         const newFiMessages = await newMessages.filter(element => element.content.startsWith(args[1]))
                         newFiMessages.forEach(async element => {
@@ -51,6 +51,7 @@ module.exports = {
                             console.log(newMsg.includes(message.author.id))
                             await element.delete()
                             await message.client.channels.cache.get("748968125663543407").send(newMsg.join(" "))
+                            saved = true
                             const embed = new Discord.MessageEmbed()
                                 .setColor(successColor)
                                 .setAuthor(strings.moduleName)
@@ -59,6 +60,15 @@ module.exports = {
                             if (strings.changedToTitle === "Changed your language to English!") { embed.setTitle("Changed your language to " + strings[args[1]] + "!") } else { embed.setTitle(strings.changedToTitle) }
                             await msg.edit(embed)
                         })
+                    setTimeout(async () => {
+                        if (!saved) {
+                            const embed = new Discord.MessageEmbed()
+                                .setColor(successColor)
+                                .setAuthor("Language")
+                                .setTitle("Your language preference has been deleted because you've selected the language you already had selected.")
+                                .setFooter(executedBy);
+                            await msg.edit(embed)
+                        }
                     }, 100)
                 } else {
                     const testFolder = './strings/';
