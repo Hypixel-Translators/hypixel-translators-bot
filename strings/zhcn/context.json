@@ -3,8 +3,8 @@
     "loading": "请稍等...",
     "loadingModule": "正在加载模块...",
     "errors": {
-        "notFound1": "The context entry ",
-        "notFound2": " hasn't been found!",
+        "notFound1": "找不到字符串 ID ",
+        "notFound2": " 对应的语境",
         "exists1": "A context entry for ",
         "exists2": " already exists, so yours wasn't added. Instead, use `+context edit`.",
         "didntReply": "You didn't reply in time, ",
@@ -68,7 +68,7 @@
         "fields": "Fields",
         "sheetT": "Context Sheet",
         "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya, Rodry and QkeleQ10 can see your Google profile name and email.",
-        "sheetDel": " | Deleting message after 2 minutes"
+        "sheetDel": " | 2 分钟后删除此消息"
     },
     "executedBy": "触发者：%%user%%"
 }
