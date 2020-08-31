@@ -42,8 +42,8 @@ module.exports = {
                         if (strings.current === "Your language preference is set to English.") { embed.setTitle("Your language preference is set to " + strings[oldMsg[0]] + ".") } else { embed.setTitle(strings.current) }
                         await message.channel.send(embed)
                     })
+                    return
                 }
-                return
             })
 
             setTimeout(() => {
