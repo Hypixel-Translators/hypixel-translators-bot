@@ -5,7 +5,7 @@
     "commandInfo": "معلومات الأوامر",
     "commandInfoFor": "معلومات الأوامر لـ ",
     "commandNotExist": "هذا الأمر غير موجود!",
-    "seconds": " ثانية(ثواني)",
+    "seconds": " seconds",
     "usageField": "الإستخدام",
     "cooldownField": "فترة الاستراحة",
     "aliasesField": "الإسم البديل",
