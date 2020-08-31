@@ -2,7 +2,7 @@
     "moduleName": "Βοήθεια",
     "commandsListTitle": "Λίστα εντολών",
     "commandsListTooltip": "Εκτέλεσε `+help <όνομα εντολής>` για να μάθεις περισσότερα για μία συγκεκριμένη εντολή.",
-    "madeBy": " | Bot made with lots of care by %%q10%%",
+    "madeBy": " | Το Bot φτιάχτηκε με πολλή φροντίδα από τον %%q10%%",
     "commandInfo": "Πληροφορίες Εντολής",
     "commandInfoFor": "Πληροφορίες Εντολής για ",
     "commandNotExist": "Αυτή η εντολή δεν υπάρχει!",
