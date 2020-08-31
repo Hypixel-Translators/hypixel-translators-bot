@@ -5,7 +5,7 @@
     "errorTitle": "That language doesn't exist or isn't completely translated!",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "current": "Your language preference is set to English.",
-    "credits": "Found an error? Report it using `+bug <message>`.",
+    "credits": "エラーを発見した場合は「+bug <メッセージ>」で報告してください。",
     "ar": "アラビア語",
     "bg": "ブルガリア語",
     "zhcn": "中国語（簡体）",
@@ -36,5 +36,5 @@
     "th": "タイ語",
     "tr": "トルコ語",
     "ua": "ウクライナ語",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% によって実行されました"
 }
