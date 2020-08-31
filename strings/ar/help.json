@@ -2,6 +2,7 @@
     "moduleName": "المساعدة",
     "commandsListTitle": "قائمة الأوامر",
     "commandsListTooltip": "نفذ `+help <name of command>` لمعرفة المزيد عن امر معين.",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "معلومات الأوامر",
     "commandInfoFor": "معلومات الأوامر لـ ",
     "commandNotExist": "هذا الأمر غير موجود!",
