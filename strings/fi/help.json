@@ -2,6 +2,7 @@
     "moduleName": "Ohjeet",
     "commandsListTitle": "Komentoluettelo",
     "commandsListTooltip": "Käytä komentoa `+help <komento>` saadaksesi lisätietoa valitsemastasi komennosta.",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Komennon tiedot",
     "commandInfoFor": "Tiedot komennolle ",
     "commandNotExist": "Tätä komentoa ei ole olemassa!",
