@@ -10,6 +10,7 @@ module.exports = {
     allowDM: true,
     channelBlackList: "621298919535804426",
     execute(strings, message, args) {
+        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         var toSend = args.join(" ")
 
         if (!args[0]) {
@@ -17,7 +18,7 @@ module.exports = {
                 .setColor(errorColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.addMessage)
-                .setFooter(strings.executedBy + message.author.tag);
+                .setFooter(executedBy);
             message.channel.send(embed)
             return;
         }
@@ -28,7 +29,7 @@ module.exports = {
             .setTitle("Give feedback")
             .setDescription("Your feedback is being sent...")
             .addFields({ name: "Feedback", value: toSend })
-            .setFooter("Executed by " + message.author.tag);
+            .setFooter(executedBy)
         message.channel.send(embed)
             .then(msg => {
                 const sendTo = msg.client.channels.cache.get("730042612647723058")
@@ -44,7 +45,7 @@ module.exports = {
                     .setTitle("Give feedback")
                     .setDescription("Your feedback has been sent!")
                     .addFields({ name: "Feedback", value: toSend })
-                    .setFooter("Executed by " + message.author.tag);
+                    .setFooter(executedBy)
                 msg.edit(embed)
             })
     }

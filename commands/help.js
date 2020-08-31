@@ -10,6 +10,7 @@ module.exports = {
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
   allowDM: true,
   async execute(strings, message, args) {
+    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const { commands } = message.client;
 
     if (!args.length) {
@@ -27,7 +28,7 @@ module.exports = {
           { name: "`" + strings.bug.usage + "`", value: strings.bug.description, inline: false },
           { name: "`" + strings.feedback.usage + "`", value: strings.feedback.description, inline: false }
         )
-        .setFooter(strings.executedBy + message.author.tag);
+        .setFooter(executedBy);
       message.channel.send(embed)
 
 
@@ -42,7 +43,7 @@ module.exports = {
           .setAuthor(strings.moduleName)
           .setTitle(strings.commandInfo)
           .setDescription(strings.commandNotExist)
-          .setFooter(strings.executedBy + message.author.tag);
+          .setFooter(executedBy);
         return message.channel.send(embed);
       }
 
@@ -59,7 +60,7 @@ module.exports = {
             inline: true
           }
         )
-        .setFooter(strings.executedBy + message.author.tag);
+        .setFooter(executedBy);
       if (command.cooldown) {
         embed.addFields({ name: strings.cooldownField, value: cooldown + strings.seconds, inline: true })
       }

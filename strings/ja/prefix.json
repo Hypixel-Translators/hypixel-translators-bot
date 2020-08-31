@@ -17,6 +17,6 @@
     "previewT": "Nickname preview",
     "newNickT": "New nickname",
     "noChanges": "No changes",
-    "saved": "Your prefix has been saved!",
-    "executedBy": "Executed by %%user%%"
+    "saved": "プレフィックスが保存されました！",
+    "executedBy": "%%user%% によって実行されました"
 }

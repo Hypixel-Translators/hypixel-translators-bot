@@ -10,12 +10,13 @@ module.exports = {
     channelBlackList: ["621298919535804426", "619662798133133312", "712046319375482910", "550951034332381184", "634101000340504576", "713084081579098152"],
     cooldown: 10,
     execute(strings, message, args) {
+        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.loading)
             .setDescription(strings.loadingModule)
-            .setFooter(strings.executedBy + message.author.tag);
+            .setFooter(executedBy);
         message.channel.send(embed)
             .then(msg => {
                 if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771")) {
@@ -23,21 +24,21 @@ module.exports = {
                         .setColor(errorColor)
                         .setAuthor(strings.moduleName)
                         .setTitle(strings.notAllowed)
-                        .setFooter(strings.executedBy + message.author.tag);
+                        .setFooter(executedBy);
                     msg.edit(embed)
                     return;
                 }
-                if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(strings, message, args, msg) }
-                else if (args[0] === "get") { getFromSpreadsheet(strings, message, args, msg) }
-                else if (args[0] === "edit") { editInSpreadsheet(strings, message, args, msg) }
-                else if (args[0] === "info" || args[0] === "help") { showInfo(strings, message, args, msg) }
-                else if (args[0] === "view" || args[0] === "link") { viewSheet(strings, message, args, msg) }
+                if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(executedBy, strings, message, args, msg) }
+                else if (args[0] === "get") { getFromSpreadsheet(executedBy, strings, message, args, msg) }
+                else if (args[0] === "edit") { editInSpreadsheet(executedBy, strings, message, args, msg) }
+                else if (args[0] === "info" || args[0] === "help") { showInfo(executedBy, strings, message, args, msg) }
+                else if (args[0] === "view" || args[0] === "link") { viewsheet(executedBy, strings, message, args, msg) }
                 else {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setAuthor(strings.moduleName)
                         .setTitle(strings.incorrectArgument)
-                        .setFooter(strings.executedBy + message.author.tag);
+                        .setFooter(executedBy);
                     msg.edit(embed)
                 }
                 if (strings, message.channel.id === "549894938712866816") {
@@ -49,7 +50,7 @@ module.exports = {
     }
 }
 
-async function getFromSpreadsheet(strings, message, args, msg) {
+async function getFromSpreadsheet(executedBy, strings, message, args, msg) {
     const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
     await doc.useServiceAccountAuth(creds)
 
@@ -67,7 +68,7 @@ async function getFromSpreadsheet(strings, message, args, msg) {
             .setColor(errorColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.errors.notFound1 + args[1] + strings.errors.notFound2)
-            .setFooter(strings.executedBy + message.author.tag);
+            .setFooter(executedBy);
         msg.edit(embed)
         return;
     }
@@ -77,7 +78,7 @@ async function getFromSpreadsheet(strings, message, args, msg) {
         .setAuthor(strings.moduleName)
         .setTitle(strings.contextFor + args[1])
         .setDescription(correctRow.context)
-        .setFooter(strings.executedBy + message.author.tag);
+        .setFooter(executedBy);
     if (correctRow.bg) { if (correctRow.bg.length > 1) { embed.addFields({ name: strings.noteFor + strings.bulgarian, value: correctRow.bg, inline: true }) } }
     if (correctRow.zhcn) { if (correctRow.zhcn.length > 1) { embed.addFields({ name: strings.noteFor + strings.chineseS, value: correctRow.zhcn, inline: true }) } }
     if (correctRow.zhtw) { if (correctRow.zhtw.length > 1) { embed.addFields({ name: strings.noteFor + strings.chineseT, value: correctRow.zhtw, inline: true }) } }
@@ -112,7 +113,7 @@ async function getFromSpreadsheet(strings, message, args, msg) {
     msg.edit(embed)
 }
 
-async function addToSpreadsheet(strings, message, args, msg) {
+async function addToSpreadsheet(executedBy, strings, message, args, msg) {
     const string = args[1]
     var toSend = [...args]
     toSend.splice(0, 2)
@@ -124,7 +125,7 @@ async function addToSpreadsheet(strings, message, args, msg) {
             .setAuthor(strings.moduleName)
             .setTitle(strings.addContextFor + string)
             .setDescription(strings.notProofreader)
-            .setFooter(strings.executedBy + message.author.tag);
+            .setFooter(executedBy);
         msg.edit(embed)
         return;
     }
@@ -148,7 +149,7 @@ async function addToSpreadsheet(strings, message, args, msg) {
             .setAuthor(strings.moduleName)
             .setTitle(strings.addContextFor + string)
             .setDescription(strings.errors.exists1 + string + strings.errors.exists2)
-            .setFooter(strings.executedBy + message.author.tag);
+            .setFooter(executedBy);
         msg.edit(embed)
         return;
     }
@@ -163,7 +164,7 @@ async function addToSpreadsheet(strings, message, args, msg) {
             { name: strings.stringId, value: string },
             { name: strings.moduleName, value: toSend }
         )
-        .setFooter(strings.executedBy + message.author.tag);
+        .setFooter(executedBy);
     msg.edit(embed).then(msg => {
         msg.react("📑").then(() => { msg.react(yesEmoji).then(() => { msg.react(noEmoji) }) })
         const filter = (reaction, reacter) => {
@@ -226,7 +227,7 @@ async function addToSpreadsheet(strings, message, args, msg) {
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.addContextFor + string)
                     .setDescription(strings.added)
-                    .setFooter(strings.executedBy + message.author.tag);
+                    .setFooter(executedBy);
                 msg.channel.send(embed)
                     .then(finalMsg => {
                         msg.delete()
@@ -237,7 +238,7 @@ async function addToSpreadsheet(strings, message, args, msg) {
                                 .setAuthor(strings.moduleName)
                                 .setTitle(strings.addContextFor + string)
                                 .setDescription(strings.errors.notFound1 + strings.errors.notFound2)
-                                .setFooter(strings.executedBy + message.author.tag);
+                                .setFooter(executedBy);
                             finalMsg.edit(embed)
                             return;
                         }
@@ -247,7 +248,7 @@ async function addToSpreadsheet(strings, message, args, msg) {
                             .setAuthor(strings.moduleName)
                             .setTitle(strings.addContextFor + string)
                             .setDescription(strings.addedResult + result.context)
-                            .setFooter(strings.executedBy + message.author.tag);
+                            .setFooter(executedBy);
                         if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: strings.noteFor + strings.bulgarian, value: result.bg, inline: true }) } }
                         if (result.zhcn) { if (result.zhcn.length > 1) { embed.addFields({ name: strings.noteFor + strings.chineseS, value: result.zhcn, inline: true }) } }
                         if (result.zhtw) { if (result.zhtw.length > 1) { embed.addFields({ name: strings.noteFor + strings.chineseT, value: result.zhtw, inline: true }) } }
@@ -295,7 +296,7 @@ async function addToSpreadsheet(strings, message, args, msg) {
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.addContextFor + string)
                     .setDescription(strings.errors.hitReaction + strings.errors.cancelledPrompt)
-                    .setFooter(strings.executedBy + message.author.tag);
+                    .setFooter(executedBy);
                 msg.edit(embed)
                 message.delete()
                 extraMsgs.forEach(function (item) {
@@ -317,7 +318,7 @@ async function addToSpreadsheet(strings, message, args, msg) {
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.addContextFor + string)
                 .setDescription(strings.errors.hitReaction + strings.errors.cancelledPrompt + strings.loading)
-                .setFooter(strings.executedBy + message.author.tag);
+                .setFooter(executedBy);
             msg.edit(embed)
             message.delete()
             extraMsgs.forEach(function (item) {
@@ -333,14 +334,14 @@ async function addToSpreadsheet(strings, message, args, msg) {
     })
 }
 
-async function editInSpreadsheet(strings, message, args, msg) {
+async function editInSpreadsheet(executedBy, strings, message, args, msg) {
     if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.editContextFor + args[1])
             .setDescription(strings.notProofreader)
-            .setFooter(strings.executedBy + message.author.tag);
+            .setFooter(executedBy);
         msg.edit(embed)
         return;
     }
@@ -362,7 +363,7 @@ async function editInSpreadsheet(strings, message, args, msg) {
             .setColor(errorColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.errors.notFound1 + args[1] + strings.errors.notFound2)
-            .setFooter(strings.executedBy + message.author.tag);
+            .setFooter(executedBy);
         msg.edit(embed)
         return;
     }
@@ -373,7 +374,7 @@ async function editInSpreadsheet(strings, message, args, msg) {
             .setAuthor(strings.moduleName)
             .setTitle(strings.editContextFor + args[1])
             .setDescription(strings.specifyFieldEdit)
-            .setFooter(strings.executedBy + message.author.tag);
+            .setFooter(executedBy);
         msg.edit(embed)
         return;
     }
@@ -391,7 +392,7 @@ async function editInSpreadsheet(strings, message, args, msg) {
         .setAuthor(strings.moduleName)
         .setTitle(strings.editContextFor + args[1])
         .setDescription(strings.confirm)
-        .setFooter(strings.executedBy + message.author.tag);
+        .setFooter(executedBy);
     if (correctRow[key]) {
         if (correctRow[key].length > 1) {
             embed.addFields({ name: strings.oldVal + key, value: correctRow[key] })
@@ -416,7 +417,7 @@ async function editInSpreadsheet(strings, message, args, msg) {
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.editContextFor + args[1])
                 .setDescription(strings.hitReaction + strings.cancelledPrompt)
-                .setFooter(strings.executedBy + message.author.tag);
+                .setFooter(executedBy);
             msg.edit(embed)
             setTimeout(() => {
                 message.delete()
@@ -437,7 +438,7 @@ async function editInSpreadsheet(strings, message, args, msg) {
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.editContextFor + args[1])
                     .setDescription(string.edited + string.tryRunGet)
-                    .setFooter(strings.executedBy + message.author.tag);
+                    .setFooter(executedBy);
                 msg.edit(embed)
                 return;
             }
@@ -447,7 +448,7 @@ async function editInSpreadsheet(strings, message, args, msg) {
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.editContextFor + args[1])
                 .setDescription(strings.editedResult + result.context)
-                .setFooter(strings.executedBy + message.author.tag);
+                .setFooter(executedBy);
             if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: strings.noteFor + strings.bulgarian, value: result.bg, inline: true }) } }
             if (result.zhcn) { if (result.zhcn.length > 1) { embed.addFields({ name: strings.noteFor + strings.chineseS, value: result.zhcn, inline: true }) } }
             if (result.zhtw) { if (result.zhtw.length > 1) { embed.addFields({ name: strings.noteFor + strings.chineseT, value: result.zhtw, inline: true }) } }
@@ -492,14 +493,14 @@ async function editInSpreadsheet(strings, message, args, msg) {
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.editContextFor + args[1])
                 .setDescription(strings.errors.didntReply + strings.errors.cancelledPrompt)
-                .setFooter(strings.executedBy + message.author.tag);
+                .setFooter(executedBy);
             msg.edit(embed)
         }
         return;
     })
 }
 
-async function showInfo(strings, message, args, msg) {
+async function showInfo(executedBy, strings, message, args, msg) {
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
@@ -513,12 +514,12 @@ async function showInfo(strings, message, args, msg) {
             { name: "Help", value: strings.info.help },
             { name: "Fields", value: "id, context, screenshot, bg, zhcn, zhtw, cs, da, nl, fi, fr, de, el, it, ja, ko, no, enpt, pl, ptpt, ptbr, ru, eses, svse, th, tr, uk" }
         )
-        .setFooter(strings.executedBy + message.author.tag);
+        .setFooter(executedBy);
     msg.edit(embed)
     return;
 }
 
-async function viewSheet(strings, message, args, msg) {
+async function viewsheet(executedBy, strings, message, args, msg) {
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle(strings.info.sheetT)

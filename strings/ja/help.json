@@ -10,7 +10,7 @@
     "cooldownField": "Cooldown",
     "aliasesField": "Aliases",
     "help": {
-        "usage": "+help [name of command]",
+        "usage": "+help [コマンドの名前]",
         "description": "Shows you all available commands and other info about the bot."
     },
     "prefix": {
@@ -30,16 +30,16 @@
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
     },
     "bug": {
-        "usage": "+bug <message>",
+        "usage": "+bug <メッセージ>",
         "description": "Allows you to report bugs present in the bot."
     },
     "feedback": {
-        "usage": "+feedback <message>",
+        "usage": "+feedback <メッセージ>",
         "description": "Sends your feedback on the bot to staff."
     },
     "language": {
-        "usage": "+language [new language]",
+        "usage": "+language [設定する言語]",
         "description": "Shows your current language, or changes it to another one."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% によって実行されました"
 }

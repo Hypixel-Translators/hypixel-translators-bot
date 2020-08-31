@@ -12,6 +12,7 @@ module.exports = {
   usage: "say",
   allowDM: true,
   execute(strings, message, args) {
+    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const rawSendTo = args[0]
     args.splice(0, 1)
     var toSend = args.join(" ")
@@ -26,7 +27,7 @@ module.exports = {
       .setColor(workingColor)
       .setTitle("Say")
       .setDescription("Saying...")
-      .setFooter("Executed by " + message.author.tag);
+      .setFooter(executedBy)
     message.channel.send(embed)
       .then(msg => {
         const sendTo = msg.client.channels.cache.get(rawSendTo)
@@ -35,7 +36,7 @@ module.exports = {
           .setColor(successColor)
           .setTitle("Say")
           .setDescription("Said!")
-          .setFooter("Executed by " + message.author.tag);
+          .setFooter(executedBy)
         msg.edit(embed)
       })
   }

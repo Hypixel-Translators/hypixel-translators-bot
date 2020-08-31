@@ -12,13 +12,14 @@ module.exports = {
   usage: "gotperm <perms> [user]",
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
   execute(strings, message, args) {
+    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     //message.delete();
     const perm = args[0].toUpperCase()
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
       .setTitle("Permission " + perm)
       .setDescription("One second...")
-      .setFooter("Executed by " + message.author.tag);
+      .setFooter(executedBy)
     message.channel.send(embed).then(msg => {
       const authorPerm = message.member.hasPermission(perm);
       const botPerm = msg.member.hasPermission(perm);
@@ -37,7 +38,7 @@ module.exports = {
             { name: "Author", value: authorPerm },
             { name: "User", value: userPerm }
           )
-          .setFooter("Executed by " + message.author.tag);
+          .setFooter(executedBy)
         msg.edit(embed);
 
       } else {

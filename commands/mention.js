@@ -8,6 +8,7 @@ module.exports = {
   cooldown: 320,
   categoryBlackList: ["549503328472530975"],
   execute(strings, message, args) {
+    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     console.log(args)
     var type = args[1]
     const lowerArg = args[0].toLowerCase()
