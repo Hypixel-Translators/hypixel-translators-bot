@@ -5,7 +5,7 @@
     "commandInfo": "Komennon tiedot",
     "commandInfoFor": "Tiedot komennolle ",
     "commandNotExist": "Tätä komentoa ei ole olemassa!",
-    "seconds": " sekunti(a)",
+    "seconds": " seconds",
     "usageField": "Käyttö",
     "cooldownField": "Odotusaika",
     "aliasesField": "Aliakset",
