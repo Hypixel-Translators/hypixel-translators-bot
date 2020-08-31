@@ -5,7 +5,7 @@
     "commandInfo": "Πληροφορίες Εντολής",
     "commandInfoFor": "Πληροφορίες Εντολής για ",
     "commandNotExist": "Αυτή η εντολή δεν υπάρχει!",
-    "seconds": " seconds",
+    "seconds": " δευτερόλεπτα",
     "usageField": "Χρήση",
     "cooldownField": "Χρόνος Επαναφόρτωσης",
     "aliasesField": "Εναλλακτικές Ονομασίες",
@@ -31,7 +31,7 @@
     },
     "bug": {
         "usage": "+bug <μήνυμα>",
-        "description": "Σου επιτρέπει να αναφέρεις bugs που παρεβρίσκονται στο bot."
+        "description": "Σου επιτρέπει να αναφέρεις σφάλματα που υπάρχουν στο bot."
     },
     "feedback": {
         "usage": "+feedback <μήνυμα>",
