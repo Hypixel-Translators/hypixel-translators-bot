@@ -18,5 +18,5 @@
     "newNickT": "New nickname",
     "noChanges": "No changes",
     "saved": "プレフィックスが保存されました！",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% によって実行されました"
 }
