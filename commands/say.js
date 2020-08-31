@@ -10,7 +10,6 @@ module.exports = {
   name: "say",
   description: "Say something in a specified channel.",
   usage: "say",
-  cooldown: 3,
   allowDM: true,
   execute(strings, message, args) {
     const rawSendTo = args[0]

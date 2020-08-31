@@ -9,7 +9,7 @@ module.exports = {
     usage: "language [language code]",
     channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
     allowDM: true,
-    cooldown: 10,
+    cooldown: 5,
     async execute(strings, message) {
         const msgL = String(message).toLowerCase()
         const args = msgL.split(" ")

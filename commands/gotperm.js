@@ -11,7 +11,6 @@ module.exports = {
   description: "See if user has a specified permission.",
   usage: "gotperm <perms> [user]",
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
-  cooldown: 3,
   execute(strings, message, args) {
     //message.delete();
     const perm = args[0].toUpperCase()

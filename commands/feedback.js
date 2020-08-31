@@ -6,7 +6,7 @@ module.exports = {
     description: "Give feedback on the bot.",
     usage: "feedback <message>",
     aliases: ["feature", "idea"],
-    cooldown: 480,
+    cooldown: 320,
     allowDM: true,
     channelBlackList: "621298919535804426",
     execute(strings, message, args) {

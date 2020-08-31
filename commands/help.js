@@ -9,7 +9,6 @@ module.exports = {
   usage: "help [name of command]",
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
   allowDM: true,
-  cooldown: 5,
   async execute(strings, message, args) {
     const { commands } = message.client;
 
@@ -51,21 +50,19 @@ module.exports = {
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
-        .setTitle(strings.commandInfoFor + "`+" + command.name + "`")
+        .setTitle(strings.commandInfoFor + "`" + command.name + "`")
         .setDescription(strings[command.name].description)
         .addFields(
           {
             name: strings.usageField,
             value: "`" + prefix + strings[command.name].usage + "`",
             inline: true
-          },
-          {
-            name: strings.cooldownField,
-            value: cooldown,
-            inline: true
           }
         )
         .setFooter(strings.executedBy + message.author.tag);
+      if (command.cooldown) {
+        embed.addFields({ name: strings.cooldownField, value: cooldown + strings.seconds, inline: true })
+      }
       if (command.aliases) {
         embed.addFields({ name: strings.aliasesField, value: command.aliases.join(", "), inline: true })
       }
