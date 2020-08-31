@@ -1,6 +1,6 @@
 {
     "moduleName": "Quote",
-    "loading": "One second...",
+    "loading": "少々お待ちください…",
     "loadingModule": "Loading module...",
     "invalidArg": "Invalid argument!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
