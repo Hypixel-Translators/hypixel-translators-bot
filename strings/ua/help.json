@@ -11,7 +11,7 @@
     "aliasesField": "Синоніми",
     "help": {
         "usage": "+help [назва команди]",
-        "description": "Shows you all available commands and other info about the bot."
+        "description": "Показує Вам усі доступні команди та іншу інформацію щодо бота."
     },
     "prefix": {
         "usage": "+prefix",
