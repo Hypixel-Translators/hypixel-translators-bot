@@ -6,7 +6,7 @@
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "そのコマンドは存在しません！",
-    "seconds": " seconds",
+    "seconds": " 秒",
     "usageField": "Usage",
     "cooldownField": "Cooldown",
     "aliasesField": "Aliases",
@@ -40,7 +40,7 @@
     },
     "language": {
         "usage": "+language [設定する言語]",
-        "description": "Shows your current language, or changes it to another one."
+        "description": "現在の言語を表示するか、別の言語に変更します。"
     },
     "executedBy": "%%user%% によって実行されました"
 }
