@@ -45,8 +45,9 @@ module.exports = {
                         strings = await require(("../strings/" + args[1] + "/language.json"))
                         executedBy = await strings.executedBy.replace("%%user%%", message.author.tag)
                         newMsg = await element.content.split(" ")
+                        console.log(element.content.contains(message.author.id))
                         if (!element.content.includes(message.author.id)) { await newMsg.push(message.author.id) }
-                        if (!newMsg.includes(message.author.id)) { await newMsg.push(message.author.id) }
+                        console.log(newMsg.contains(message.author.id))
                         await element.delete()
                         await message.client.channels.cache.get("748968125663543407").send(newMsg.join(" "))
                         const embed = new Discord.MessageEmbed()
