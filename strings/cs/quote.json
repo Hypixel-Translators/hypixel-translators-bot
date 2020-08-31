@@ -2,7 +2,7 @@
     "moduleName": "Citát",
     "loading": "Dej mi sekundu...",
     "loadingModule": "Načítá se modul...",
-    "invalidArg": "Neplatný důvod!",
+    "invalidArg": "Neplatný argument!",
     "indexArg": "Citát s číslem %%arg%% neexistuje! Prosím zadej číslo mezi 1 a %%max%%.",
     "specUser": "Nespecifikoval jsi uživatele! Prosím napiš citát a pak označ citovaného uživatele, odděleného lomítkem.",
     "executedBy": "Provedeno uživatelem %%user%%"
