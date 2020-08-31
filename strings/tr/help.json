@@ -1,7 +1,8 @@
 {
     "moduleName": "Yardım",
     "commandsListTitle": "Komut listesi",
-    "commandsListTooltip": "Bir komut hakkında daha fazla bilgi almak istiyorsan '+help <komudun ismi>' komutunu yürüt.",
+    "commandsListTooltip": "Bir komut hakkında daha fazla bilgi almak istiyorsan `+help <komudun ismi>` komutunu yürüt.",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Komut bilgisi",
     "commandInfoFor": "için komut bilgisi ",
     "commandNotExist": "Böyle bir komut yok!",
