@@ -5,7 +5,7 @@
     "commandInfo": "Информация о команде",
     "commandInfoFor": "Информация про команду ",
     "commandNotExist": "Данная команда не существует!",
-    "seconds": " секунд(ы)",
+    "seconds": " seconds",
     "usageField": "Использование",
     "cooldownField": "Перезарядка",
     "aliasesField": "Альтернативы",
