@@ -1,6 +1,6 @@
 {
     "moduleName": "接頭辞",
-    "loading": "One second...",
+    "loading": "少々お待ちください…",
     "loadingRoles": "Fetching your roles...",
     "errors": {
         "noLanguages": "あなたは言語のロールを保有していない可能性があります！ これがエラーと思われる場合は <@722738307477536778> にご連絡ください。",
