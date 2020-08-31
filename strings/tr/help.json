@@ -41,5 +41,5 @@
         "usage": "+language [yeni dil]",
         "description": "Şu anki dilini gösterir veya başka bir dil ile değiştirir."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% tarafından yürütüldü"
 }
