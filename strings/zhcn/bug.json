@@ -1,7 +1,7 @@
 {
-    "moduleName": "Report a bug",
-    "sendingTitle": "Sending your bug report to staff...",
-    "sentTitle": "Your bug report has been sent!",
-    "addMessage": "You haven't provided a message!",
-    "executedBy": "Executed by %%user%%"
+    "moduleName": "反馈 bug",
+    "sendingTitle": "正在向工作人员发送您的 bug 报告...",
+    "sentTitle": "您的 bug 报告已发送！",
+    "addMessage": "您尚未提供信息！",
+    "executedBy": "触发者：%%user%%"
 }
