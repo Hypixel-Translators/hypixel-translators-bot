@@ -1,7 +1,7 @@
 {
     "moduleName": "Nahlásit chybu",
-    "sendingTitle": "Tvoje zpráva se odesílá...",
+    "sendingTitle": "Tvoje zpráva se odesílá adminům...",
     "sentTitle": "Tvoje zpráva se odeslala!",
-    "addMessage": "Nic jsi nenapsal!",
+    "addMessage": "Nenapsal jsi žádnou zprávu!",
     "executedBy": "Provedeno uživatelem %%user%%"
 }
