@@ -2,6 +2,7 @@
     "moduleName": "Hjælp",
     "commandsListTitle": "Kommandoliste",
     "commandsListTooltip": "Udfør `+help <name of command>` for at lære mere om en bestemt kommando.",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Kommando information",
     "commandInfoFor": "Kommando information om ",
     "commandNotExist": "Denne kommando findes ikke!",

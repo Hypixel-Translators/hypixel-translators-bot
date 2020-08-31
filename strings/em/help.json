@@ -2,6 +2,7 @@
     "moduleName": "❓",
     "commandsListTitle": "📜👩‍💻",
     "commandsListTooltip": "↘ `+help <name of command>` 🤔 1️⃣ 👩‍💻.",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "👩‍💻ℹ",
     "commandInfoFor": "👩‍💻ℹ ➡ ",
     "commandNotExist": "↖ 👩‍💻 🚫!",

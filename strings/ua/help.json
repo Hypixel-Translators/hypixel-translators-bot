@@ -2,6 +2,7 @@
     "moduleName": "Допомога",
     "commandsListTitle": "Список команд",
     "commandsListTooltip": "Виконати `+help <назва команди>` для того, щоб дізнатись більше про цю команду.",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Інформація щодо команди",
     "commandInfoFor": "Інформація щодо команди ",
     "commandNotExist": "Ця команда не існує!",

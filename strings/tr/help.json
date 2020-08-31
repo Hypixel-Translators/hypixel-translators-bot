@@ -1,11 +1,12 @@
 {
     "moduleName": "Yardım",
     "commandsListTitle": "Komut listesi",
-    "commandsListTooltip": "Bir komut hakkında daha fazla bilgi almak istiyorsan '+help <komudun ismi>' komutunu yürüt.",
+    "commandsListTooltip": "Bir komut hakkında daha fazla bilgi almak istiyorsan `+help <komudun ismi>` komutunu yürüt.",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Komut bilgisi",
     "commandInfoFor": "için komut bilgisi ",
     "commandNotExist": "Böyle bir komut yok!",
-    "seconds": " seconds",
+    "seconds": " saniye",
     "usageField": "Kullanım",
     "cooldownField": "Bekleme Süresi",
     "aliasesField": "Aliaslar",
@@ -22,7 +23,7 @@
         "description": "Sunucudan komik/garip/bilge bir alıntı alır (veya ekler)."
     },
     "mention": {
-        "usage": "+mention <dil> proofreader|translator|all [message]",
+        "usage": "+mention <dil> proofreader|translator|all [mesaj]",
         "description": "Bir mesajla, bir dil rolünden bahseder."
     },
     "context": {

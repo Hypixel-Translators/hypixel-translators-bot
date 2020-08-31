@@ -2,6 +2,7 @@
     "moduleName": "Hilfe",
     "commandsListTitle": "Liste der Befehle",
     "commandsListTooltip": "Führe `+help <Befehlsname>` aus um mehr über einzelne Befehle zu lernen.",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Befehlsinformationen",
     "commandInfoFor": "Befehlsinformationen für ",
     "commandNotExist": "Dieser Befehl existiert nicht!",
