@@ -4,7 +4,7 @@
     "commandsListTooltip": "Bir komut hakkında daha fazla bilgi almak istiyorsan `+help <komutun ismi>` komutunu yürüt.",
     "madeBy": " | Bot, %%q10%% tarafından özenle yapıldı",
     "commandInfo": "Komut bilgisi",
-    "commandInfoFor": "için komut bilgisi ",
+    "commandInfoFor": "Komut bilgisi: ",
     "commandNotExist": "Böyle bir komut yok!",
     "seconds": " saniye",
     "usageField": "Kullanım",
