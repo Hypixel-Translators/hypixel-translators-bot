@@ -2,6 +2,7 @@
     "moduleName": "Aiuto",
     "commandsListTitle": "Lista dei comandi",
     "commandsListTooltip": "Esegui `+help <nome comando>` per saperne di più su un comando specifico.",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Informazioni sul comando",
     "commandInfoFor": "Informazioni sul comando ",
     "commandNotExist": "Quel comando non esiste!",
