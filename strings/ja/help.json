@@ -41,5 +41,5 @@
         "usage": "+language [設定する言語]",
         "description": "Shows your current language, or changes it to another one."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% によって実行されました"
 }
