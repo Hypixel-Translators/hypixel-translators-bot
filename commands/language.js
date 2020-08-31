@@ -27,7 +27,7 @@ module.exports = {
             const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
             const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
             oldFiMessages.forEach(async element => {
-                oldMsg = await element.split(" ")
+                oldMsg = await element.content.split(" ")
                 await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
                 await element.delete()
                 await message.client.channels.cache.get("748968125663543407").send(oldMsg.join(" "))
@@ -35,7 +35,7 @@ module.exports = {
             const newMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
             const newFiMessages = await newMessages.filter(element => element.content.startsWith(args[1]))
             newFiMessages.forEach(async element => {
-                newMsg = await element.split(" ")
+                newMsg = await element.content.split(" ")
                 await newMsg.push(message.author.id)
                 await element.delete()
                 await message.client.channels.cache.get("748968125663543407").send(newMsg.join(" "))
