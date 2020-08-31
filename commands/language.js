@@ -62,9 +62,7 @@ module.exports = {
                 await msg.edit(embed)
                 return
             }
-        }
-
-        if (!args[1]) {
+        } else {
             const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
             const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
             oldFiMessages.forEach(async element => {
