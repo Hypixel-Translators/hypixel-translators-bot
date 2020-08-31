@@ -5,7 +5,7 @@
     "commandInfo": "命令信息",
     "commandInfoFor": "命令信息：",
     "commandNotExist": "此命令不存在！",
-    "seconds": " 秒",
+    "seconds": " seconds",
     "usageField": "用法",
     "cooldownField": "冷却时间",
     "aliasesField": "别名",
