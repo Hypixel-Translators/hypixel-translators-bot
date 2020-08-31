@@ -58,7 +58,7 @@
     "turkish": "トルコ語",
     "ukrainian": "ウクライナ語",
     "info": {
-        "title": "Help for `+context`",
+        "title": "`+context` のヘルプ",
         "description": "Below is a list of all subcommands for this command and their explanations. **Fields** shows all available fields.",
         "get": "_Gets context for given string_\n`+context get <string ID>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #.",
         "add": "_Adds a context entry_\n`+context add <string ID> <context>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <context> with the text you want to add. After running, you can add more fields using the reactions.",
