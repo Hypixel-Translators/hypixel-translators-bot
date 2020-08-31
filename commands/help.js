@@ -11,6 +11,7 @@ module.exports = {
   allowDM: true,
   async execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+    const madeBy = strings.madeBy.replace("%%q10%%", "QkeleQ10#6046")
     const { commands } = message.client;
 
     if (!args.length) {
@@ -28,7 +29,7 @@ module.exports = {
           { name: "`" + strings.bug.usage + "`", value: strings.bug.description, inline: false },
           { name: "`" + strings.feedback.usage + "`", value: strings.feedback.description, inline: false }
         )
-        .setFooter(executedBy);
+        .setFooter(executedBy + madeBy);
       message.channel.send(embed)
 
 
@@ -43,7 +44,7 @@ module.exports = {
           .setAuthor(strings.moduleName)
           .setTitle(strings.commandInfo)
           .setDescription(strings.commandNotExist)
-          .setFooter(executedBy);
+          .setFooter(executedBy + madeBy);
         return message.channel.send(embed);
       }
 
@@ -60,7 +61,7 @@ module.exports = {
             inline: true
           }
         )
-        .setFooter(executedBy);
+        .setFooter(executedBy + madeBy);
       if (command.cooldown) {
         embed.addFields({ name: strings.cooldownField, value: cooldown + strings.seconds, inline: true })
       }
