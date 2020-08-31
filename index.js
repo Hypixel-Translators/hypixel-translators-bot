@@ -58,26 +58,14 @@ client.once("ready", () => {
 
 
 client.on("message", async message => {
-  await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
-    .then(async langDbMessages => {
-      fiMessages = langDbMessages.filter(msg => msg.content.startsWith(message.author.id))
-      if (await fiMessages) {
-        await fiMessages.forEach(async element => {
-          const langprefs = element.content.split(" ")
-          const path = ("./strings/" + langprefs[1] + "/global.json")
-          await fs.access(path, fs.F_OK, async (err) => {
-            if (await err) {
-              console.error(err)
-              globalStrings = require(("./strings/en/global.json"))
-              helpStrings = require(("./strings/en/help.json"))
-            } else {
-              globalStrings = await require(("./strings/" + langprefs[1] + "/global.json"))
-              helpStrings = await require(("./strings/" + langprefs[1] + "/help.json"))
-            }
-          })
-        });
-      }
-    })
+  const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
+  const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
+  oldFiMessages.forEach(async element => {
+    oldMsg = await element.content.split(" ")
+    await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
+    globalStrings = await require(("./strings/" + oldMsg[0] + "/global.json"))
+    helpStrings = await require(("./strings/" + oldMsg[0] + "/help.json"))
+  })
 
   const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
@@ -178,26 +166,14 @@ client.on("message", async message => {
 
   try {
     var strings = require(("./strings/en/" + command.name + ".json"))
-    if (message.member) { if (message.member.hasPermission("ADMINISTRATOR") || message.author.id === "722738307477536778") { timestamps.delete(message.author.id) } }
-    await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
-      .then(async langDbMessages => {
-        fiMessages = langDbMessages.filter(msg => msg.content.startsWith(message.author.id))
-        if (await fiMessages) {
-          await fiMessages.forEach(async element => {
-            const langprefs = element.content.split(" ")
-            const path = ("./strings/" + langprefs[1] + "/" + command.name + ".json")
-            await fs.access(path, fs.F_OK, async (err) => {
-              if (await err) {
-                console.error(err)
-                strings = require(("./strings/en/" + command.name + ".json"))
-              } else {
-                strings = await require(("./strings/" + langprefs[1] + "/" + command.name + ".json"))
-              }
-            })
-          });
-        }
-      })
-    setTimeout(() => { command.execute(strings, message, args); }, 100)
+    const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
+    const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
+    oldFiMessages.forEach(async element => {
+      oldMsg = await element.content.split(" ")
+      await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
+      strings = await require(("./strings/" + oldMsg[0] + "/" + command.name + ".json"))
+    })
+    command.execute(strings, message, args);
   } catch (error) {
     timestamps.delete(message.author.id)
     console.error(error);
