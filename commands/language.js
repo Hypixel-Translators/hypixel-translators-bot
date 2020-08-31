@@ -66,7 +66,7 @@ module.exports = {
                                 .setColor(successColor)
                                 .setAuthor("Language")
                                 .setTitle("Your language preference has been deleted because you've selected the language you already had selected.")
-                                .setFooter(executedBy);
+                                .setFooter("Executed by " + message.author.tag);
                             await msg.edit(embed)
                         }
                     }, 200)
