@@ -1,22 +1,22 @@
 {
-    "moduleName": "Prefix",
+    "moduleName": "接頭辞",
     "loading": "One second...",
     "loadingRoles": "Fetching your roles...",
     "errors": {
         "noLanguages": "あなたは言語のロールを保有していない可能性があります！ これがエラーと思われる場合は <@722738307477536778> にご連絡ください。",
         "error": "ニックネームの変更に失敗しました。以下のニックネームをコピーして自分で適用できます。",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
+        "confirmedNoFlags": "確定しましたが、旗に回答しなかったため",
         "cancelled": "ニックネームの変更をキャンセルしたため、",
         "alreadyThis": "既にこのニックネームに設定しているため、",
-        "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "プレフィックスが保存されませんでした。"
+        "timeOut": "旗をクリックして回答しなかったため、",
+        "notSaved": "接頭辞が保存されませんでした。"
     },
-    "react": "React with all flags you want to add to your prefix in order.",
+    "react": "接頭辞に追加したい順番に、旗をクリックして回答してください。",
     "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
     "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "Nickname preview",
+    "previewT": "ニックネームのプレビュー",
     "newNickT": "新しいニックネーム",
-    "noChanges": "No changes",
-    "saved": "プレフィックスが保存されました！",
+    "noChanges": "変更なし",
+    "saved": "接頭辞が保存されました！",
     "executedBy": "%%user%% によって実行されました"
 }
