@@ -1,7 +1,7 @@
 {
     "moduleName": "Report a bug",
-    "sendingTitle": "Sending your bug report to staff...",
+    "sendingTitle": "スタッフにバグレポートを送信中…",
     "sentTitle": "バグレポートが送信されました！",
-    "addMessage": "You haven't provided a message!",
-    "executedBy": "Executed by %%user%%"
+    "addMessage": "メッセージを入力していません！",
+    "executedBy": "%%user%% によって実行されました"
 }
