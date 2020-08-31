@@ -1,6 +1,8 @@
 const fs = require("fs");
 const Discord = require("discord.js");
 const { prefix, token, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json");
+var globalStrings = require(("./strings/en/global.json"))
+var helpStrings = require(("./strings/en/help.json"))
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -56,6 +58,29 @@ client.once("ready", () => {
 
 
 client.on("message", async message => {
+  await message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
+    .then(async langDbMessages => {
+      fiMessages = langDbMessages.filter(msg => msg.content.startsWith(message.author.id))
+      if (await fiMessages) {
+        await fiMessages.forEach(async element => {
+          const langprefs = element.content.split(" ")
+          const path = ("./strings/" + langprefs[1] + "/global.json")
+          await fs.access(path, fs.F_OK, async (err) => {
+            if (await err) {
+              console.error(err)
+              globalStrings = require(("./strings/en/global.json"))
+              helpStrings = require(("./strings/en/help.json"))
+            } else {
+              globalStrings = await require(("./strings/" + langprefs[1] + "/global.json"))
+              helpStrings = await require(("./strings/" + langprefs[1] + "/help.json"))
+            }
+          })
+        });
+      }
+    })
+
+  const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
+
   if (message.content === "+stats" && message.member.hasPermission("VIEW_AUDIT_LOG")) {
     stats.execute(client, true)
     return;
@@ -77,16 +102,16 @@ client.on("message", async message => {
       const sendTo = client.channels.cache.get("730042612647723058")
       const report = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setTitle("📩 Message from " + message.author.username)
+        .setAuthor("Incoming message from " + message.author.tag)
         .setDescription(message.content)
-        .addFields({ name: "Reply", value: "\`+dm " + message.author.id + " \`" })
+        .addFields({ name: "To reply", value: "\`+dm " + message.author.id + " \`" })
       sendTo.send(report)
 
       const embed = new Discord.MessageEmbed()
         .setColor(successColor)
-        .setTitle("📨 Sent message to staff")
-        .setDescription(message)
-        .setFooter("Any message you send here will get sent to staff.");
+        .setAuthor(globalStrings.outgoing)
+        .setDescription(message.content)
+        .setFooter(globalStrings.outgoingDisclaimer);
       message.channel.send(embed)
       return;
     } else { return; }
@@ -122,9 +147,9 @@ client.on("message", async message => {
     } else {
       const embed = new Discord.MessageEmbed()
         .setColor(errorColor)
-        .setTitle("Error")
-        .setDescription("Sorry, but you can't execute this command in private messages. It might not be compatible with private messages (yet).")
-        .setFooter("undefined")
+        .setAuthor(globalStrings.error)
+        .setTitle(globalStrings.dmError)
+        .setFooter(executedBy)
       message.channel.send(embed)
       return;
     }
@@ -143,11 +168,8 @@ client.on("message", async message => {
 
     if (now < expirationTime) {
       const timeLeft = (expirationTime - now) / 1000;
-      return message.channel.send(
-        `Wait another ${timeLeft.toFixed(1)} second(s) before you use \`${
-        command.name
-        }\` again.`
-      );
+      const timeLeftT = globalStrings.timeLeftT.replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", command.name)
+      return message.channel.send(timeLeftT);
     }
   }
 
@@ -181,13 +203,14 @@ client.on("message", async message => {
     console.error(error);
     const embed = new Discord.MessageEmbed()
       .setColor(errorColor)
-      .setTitle("Error")
-      .setDescription("Something has gone wrong. Have you entered the command correctly?\nThis can also be an internal error. Execute \`+bug\` to report a bug.")
+      .setAuthor(globalStrings.error)
+      .setTitle(globalStrings.generalError)
+      .setDescription(globalStrings.generalErrorD)
       .addFields(
-        { name: "Command usage", value: `\`${prefix}${command.usage}\`` },
-        { name: "Error message", value: error }
+        { name: helpStrings.usageField, value: "`" + helpStrings[command.name].usage + "`" },
+        { name: globalStrings.error, value: error }
       )
-      .setFooter("undefined")
+      .setFooter(executedBy)
     message.channel.send(embed)
 
   }
@@ -211,7 +234,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
             console.log(err)
             const receivedEmbed = message.embeds[0];
             const embed = new Discord.MessageEmbed(receivedEmbed)
-              .setFooter("An error occurred, please contact QkeleQ#6046.")
+              .setFooter("An error occurred, please contact QkeleQ10#6046.")
               .setColor(errorColor)
             message.edit(embed)
             setInterval(() => {
@@ -237,7 +260,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
             console.log(err)
             const receivedEmbed = message.embeds[0];
             const embed = new Discord.MessageEmbed(receivedEmbed)
-              .setFooter("An error occurred, please contact QkeleQ#6046.")
+              .setFooter("An error occurred, please contact QkeleQ10#6046.")
               .setColor(errorColor)
             message.edit(embed)
             setInterval(() => {
