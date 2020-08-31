@@ -31,7 +31,7 @@
     },
     "bug": {
         "usage": "+bug <zpráva>",
-        "description": "Umožní ti nahlásit chyby bota."
+        "description": "Umožňuje ti nahlásit chyby bota."
     },
     "feedback": {
         "usage": "+feedback <zpráva>",
