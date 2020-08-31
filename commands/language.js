@@ -30,6 +30,24 @@ module.exports = {
             const path = './strings/' + args[1] + '/language.json'
             fs.access(path, fs.F_OK, async (err) => {
                 if (!err) {
+                    const newMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
+                    const newFiMessages = await newMessages.filter(element => element.content.startsWith(args[1]))
+                    newFiMessages.forEach(async element => {
+                        exists = true
+                        strings = await require(("../strings/" + args[1] + "/language.json"))
+                        executedBy = await strings.executedBy.replace("%%user%%", message.author.tag)
+                        newMsg = await element.content.split(" ")
+                        await newMsg.push(message.author.id)
+                        await element.delete()
+                        await message.client.channels.cache.get("748968125663543407").send(newMsg.join(" "))
+                        const embed = new Discord.MessageEmbed()
+                            .setColor(successColor)
+                            .setAuthor(strings.moduleName)
+                            .setDescription(strings.credits)
+                            .setFooter(executedBy);
+                        if (strings.changedToTitle === "Changed your language to English!") { embed.setTitle("Changed your language to " + strings[args[1]] + "!") } else { embed.setTitle(strings.changedToTitle) }
+                        await msg.edit(embed)
+                    })
                     const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
                     const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
                     oldFiMessages.forEach(async element => {
@@ -38,39 +56,20 @@ module.exports = {
                         await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
                         await message.client.channels.cache.get("748968125663543407").send(oldMsg.join(" "))
                     })
+                } else {
+                    const testFolder = './strings/';
+                    await fs.readdir(testFolder, async (err, files) => {
+                        const embed = new Discord.MessageEmbed()
+                            .setColor(errorColor)
+                            .setAuthor(strings.moduleName)
+                            .setTitle(strings.errorTitle)
+                            .setDescription(strings.errorDescription + "\n" + files.join(", "))
+                            .setFooter(executedBy);
+                        await msg.edit(embed)
+                    });
+                    return
                 }
             })
-            const newMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
-            const newFiMessages = await newMessages.filter(element => element.content.startsWith(args[1]))
-            newFiMessages.forEach(async element => {
-                exists = true
-                strings = await require(("../strings/" + args[1] + "/language.json"))
-                executedBy = await strings.executedBy.replace("%%user%%", message.author.tag)
-                newMsg = await element.content.split(" ")
-                await newMsg.push(message.author.id)
-                await element.delete()
-                await message.client.channels.cache.get("748968125663543407").send(newMsg.join(" "))
-                const embed = new Discord.MessageEmbed()
-                    .setColor(successColor)
-                    .setAuthor(strings.moduleName)
-                    .setDescription(strings.credits)
-                    .setFooter(executedBy);
-                if (strings.changedToTitle === "Changed your language to English!") { embed.setTitle("Changed your language to " + strings[args[1]] + "!") } else { embed.setTitle(strings.changedToTitle) }
-                await msg.edit(embed)
-            })
-            if (!exists) {
-                const testFolder = './strings/';
-                await fs.readdir(testFolder, async (err, files) => {
-                    const embed = new Discord.MessageEmbed()
-                        .setColor(errorColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.errorTitle)
-                        .setDescription(strings.errorDescription + "\n" + files.join(", "))
-                        .setFooter(executedBy);
-                    await msg.edit(embed)
-                });
-                return
-            }
         } else {
             const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
             const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
