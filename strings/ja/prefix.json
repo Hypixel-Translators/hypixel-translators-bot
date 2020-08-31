@@ -4,9 +4,9 @@
     "loadingRoles": "Fetching your roles...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
-        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
+        "error": "ニックネームの変更に失敗しました。以下のニックネームをコピーして自分で適用できます。",
         "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-        "cancelled": "You cancelled the changing of your nickname, ",
+        "cancelled": "ニックネームの変更をキャンセルしました。",
         "alreadyThis": "You already have this nickname, ",
         "timeOut": "You haven't reacted with any flags, ",
         "notSaved": "so your prefix wasn't saved."
@@ -15,7 +15,7 @@
     "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
     "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
     "previewT": "Nickname preview",
-    "newNickT": "New nickname",
+    "newNickT": "新しいニックネーム",
     "noChanges": "No changes",
     "saved": "プレフィックスが保存されました！",
     "executedBy": "%%user%% によって実行されました"
