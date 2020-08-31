@@ -10,7 +10,7 @@
     "cooldownField": "Cooldown",
     "aliasesField": "Aliases",
     "help": {
-        "usage": "+help [name of command]",
+        "usage": "+help [コマンドの名前]",
         "description": "Shows you all available commands and other info about the bot."
     },
     "prefix": {
