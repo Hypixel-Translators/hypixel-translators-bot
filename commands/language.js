@@ -46,7 +46,7 @@ module.exports = {
                 }
             })
 
-            setTimeout(() => {
+            setTimeout(async () => {
                 const path = './strings/' + args[1] + '/language.json'
                 fs.access(path, fs.F_OK, async (err) => {
                     if (!err) {
