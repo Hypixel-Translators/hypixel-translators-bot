@@ -38,7 +38,7 @@ module.exports = {
                         await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
                         await message.client.channels.cache.get("748968125663543407").send(oldMsg.join(" "))
                     })
-                    setTimeout(() => {
+                    setTimeout(async () => {
                         const newMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
                         const newFiMessages = await newMessages.filter(element => element.content.startsWith(args[1]))
                         newFiMessages.forEach(async element => {
