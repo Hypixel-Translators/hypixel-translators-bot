@@ -25,10 +25,10 @@ client.once("ready", () => {
   console.log("Ready!");
 
   client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309");
-  client.channels.cache.get("732326676192690236").messages.fetch({ limit: 100 })
-  client.channels.cache.get("734081393499308053").messages.fetch({ limit: 100 })
-  client.channels.cache.get("732326761882321046").messages.fetch({ limit: 100 })
-  client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
+  client.channels.cache.get("732326676192690236").messages.fetch()
+  client.channels.cache.get("734081393499308053").messages.fetch()
+  client.channels.cache.get("732326761882321046").messages.fetch()
+  client.channels.cache.get("748968125663543407").messages.fetch() //languages database
 
   client.user.setStatus("online").catch(console.error);
 
@@ -58,7 +58,7 @@ client.once("ready", () => {
 
 
 client.on("message", async message => {
-  await message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
+  await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
     .then(async langDbMessages => {
       fiMessages = langDbMessages.filter(msg => msg.content.startsWith(message.author.id))
       if (await fiMessages) {
@@ -179,7 +179,7 @@ client.on("message", async message => {
   try {
     var strings = require(("./strings/en/" + command.name + ".json"))
     if (message.member) { if (message.member.hasPermission("ADMINISTRATOR") || message.author.id === "722738307477536778") { timestamps.delete(message.author.id) } }
-    await message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
+    await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
       .then(async langDbMessages => {
         fiMessages = langDbMessages.filter(msg => msg.content.startsWith(message.author.id))
         if (await fiMessages) {

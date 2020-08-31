@@ -21,7 +21,7 @@ async function hypixel(client) {
         .then(res => res.json())
         .then((json) => {
             json.reverse()
-            client.channels.cache.get("748538826003054643").messages.fetch({ limit: 100 })
+            client.channels.cache.get("748538826003054643").messages.fetch()
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async (msg) => {
@@ -54,7 +54,7 @@ async function quickplay(client) {
         .then(res => res.json())
         .then((json) => {
             json.reverse()
-            client.channels.cache.get("748626115530326016").messages.fetch({ limit: 100 })
+            client.channels.cache.get("748626115530326016").messages.fetch()
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async (msg) => {

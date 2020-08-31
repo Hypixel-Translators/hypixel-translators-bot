@@ -14,6 +14,8 @@ module.exports = {
         var executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const msgL = String(message).toLowerCase()
         const args = msgL.split(" ")
+        var oldMsg = {}
+        var newMsg = {}
 
         if (args[1]) {
             const embed = new Discord.MessageEmbed()
@@ -21,9 +23,36 @@ module.exports = {
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.changingTitle)
                 .setFooter(executedBy);
+            const msg = await message.channel.send(embed)
+            const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
+            const oldFiMessages = await oldMessages.filter(oldMessage => oldMessage.contains(message.author.id))
+            oldFiMessages.forEach(element => {
+                oldMsg = await element.split(" ")
+                await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
+                await element.delete()
+                await message.client.channels.cache.get("748968125663543407").send(oldMsg.join(" "))
+            })
+
+            const newMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
+            const newFiMessages = await newMessages.filter(newMessage => newMessage.startsWith(args[1]))
+            newFiMessages.forEach(element => {
+                newMsg = await element.split(" ")
+                await newMsg.push(message.author.id)
+                await element.delete()
+                await message.client.channels.cache.get("748968125663543407").send(newMsg.join(" "))
+            })
+        }
+
+
+        /*if (args[1]) {
+            const embed = new Discord.MessageEmbed()
+                .setColor(workingColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.changingTitle)
+                .setFooter(executedBy);
             message.channel.send(embed)
                 .then(msg => {
-                    message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
+                    message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
                         .then(async messages => {
                             fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
                             var f = 0
@@ -95,7 +124,7 @@ module.exports = {
         } else {
             const testFolder = './strings/';
             await fs.readdir(testFolder, async (err, files) => {
-                await message.client.channels.cache.get("748968125663543407").messages.fetch({ limit: 100 }) //languages database
+                await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
                     .then(async langDbMessages => {
                         fiMessages = langDbMessages.filter(msg => msg.content.startsWith(message.author.id))
                         if (fiMessages) {
@@ -122,6 +151,6 @@ module.exports = {
                         }
                     })
             })
-        }
+        }*/
     }
 }
