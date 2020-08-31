@@ -1,7 +1,7 @@
 {
     "moduleName": "接頭辞",
     "loading": "少々お待ちください…",
-    "loadingRoles": "Fetching your roles...",
+    "loadingRoles": "あなたのロールを取得中…",
     "errors": {
         "noLanguages": "あなたは言語のロールを保有していない可能性があります！ これがエラーと思われる場合は <@722738307477536778> にご連絡ください。",
         "error": "ニックネームの変更に失敗しました。以下のニックネームをコピーして自分で適用できます。",
@@ -12,8 +12,8 @@
         "notSaved": "接頭辞が保存されませんでした。"
     },
     "react": "接頭辞に追加したい順番に、旗をクリックして回答してください。",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
+    "reactTimer": "有効時間は20秒です。❎ を押してキャンセルします。",
+    "reactTimer2": "有効時間は20秒以下です。 ✅ を押して確定するか\n❎ を押してキャンセルします。",
     "previewT": "ニックネームのプレビュー",
     "newNickT": "新しいニックネーム",
     "noChanges": "変更なし",
