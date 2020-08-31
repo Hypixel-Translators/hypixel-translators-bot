@@ -69,7 +69,7 @@ module.exports = {
                                 .setFooter("Executed by " + message.author.tag);
                             await msg.edit(embed)
                         }
-                    }, 200)
+                    }, 300)
                 } else {
                     const testFolder = './strings/';
                     await fs.readdir(testFolder, async (err, files) => {
