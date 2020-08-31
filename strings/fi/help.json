@@ -41,5 +41,5 @@
         "usage": "+language [kieli]",
         "description": "Näyttää valitsemasi kielen tai vaihtaa sen toiseksi."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Komennon suoritti %%user%%"
 }
