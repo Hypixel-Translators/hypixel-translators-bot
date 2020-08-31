@@ -106,7 +106,7 @@ module.exports = {
                                     .setAuthor(strings.moduleName)
                                     .setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\n" + strings.credits)
                                     .setFooter(executedBy)
-                                if (strings.changedToTitle === "Your language preference is set to English.") { embed.setTitle("Your language preference is set to " + strings[langprefs[1]] + ".") } else { embed.setTitle(strings.current) }
+                                if (strings.current === "Your language preference is set to English.") { embed.setTitle("Your language preference is set to " + strings[langprefs[1]] + ".") } else { embed.setTitle(strings.current) }
                                 await message.channel.send(embed)
                                 return;
                             })
