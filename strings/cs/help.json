@@ -2,6 +2,7 @@
     "moduleName": "Nápověda",
     "commandsListTitle": "Seznam příkazů",
     "commandsListTooltip": "Napiš `+help <jméno příkazu>` pro více informací o konkrétním příkazu.",
+    "madeBy": " | Bot s velkou péčí udělal %%q10%%",
     "commandInfo": "Informace o příkazu",
     "commandInfoFor": "Informace o příkazu ",
     "commandNotExist": "Tento příkaz neexistuje!",
@@ -31,7 +32,7 @@
     },
     "bug": {
         "usage": "+bug <zpráva>",
-        "description": "Umožní ti nahlásit chyby bota."
+        "description": "Umožňuje ti nahlásit chyby bota."
     },
     "feedback": {
         "usage": "+feedback <zpráva>",

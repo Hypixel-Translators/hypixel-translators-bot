@@ -2,6 +2,7 @@
     "moduleName": "帮助",
     "commandsListTitle": "命令列表",
     "commandsListTooltip": "执行 `+help <name of command>` 命令以了解更多关于某一命令的详情。",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "命令信息",
     "commandInfoFor": "命令信息：",
     "commandNotExist": "此命令不存在！",

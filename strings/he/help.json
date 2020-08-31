@@ -2,6 +2,7 @@
     "moduleName": "עזרה",
     "commandsListTitle": "רשימת פעולות",
     "commandsListTooltip": "לבצע `help+ <שם של הפעולה>` כדאי ללמוד יותר לגבי הפעולה.",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "מידע לגבי הפקודה",
     "commandInfoFor": "מידע לגבי הפקודה ",
     "commandNotExist": "הפקודה הזו לא קיימת!",

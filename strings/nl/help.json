@@ -2,6 +2,7 @@
     "moduleName": "Hulp",
     "commandsListTitle": "Commandolijst",
     "commandsListTooltip": "Voer `+help <commandonaam>` uit om meer te weten te komen over een specifiek commando.",
+    "madeBy": " | Bot met veel zorg gemaakt door %%q10%%",
     "commandInfo": "Commando-informatie",
     "commandInfoFor": "Commando-informatie voor ",
     "commandNotExist": "Dat commando bestaat niet!",

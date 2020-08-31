@@ -2,6 +2,7 @@
     "moduleName": "Halp",
     "commandsListTitle": "All acomands",
     "commandsListTooltip": "Do `+help <acomand næm>` for lern more abt a spacfic acomand.",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Info abt acomand",
     "commandInfoFor": "Info abt acomand ",
     "commandNotExist": "Dat acomand existn't!",
