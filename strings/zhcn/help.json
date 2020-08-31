@@ -5,7 +5,7 @@
     "commandInfo": "命令信息",
     "commandInfoFor": "命令信息：",
     "commandNotExist": "此命令不存在！",
-    "seconds": " seconds",
+    "seconds": "秒",
     "usageField": "用法",
     "cooldownField": "冷却时间",
     "aliasesField": "别名",
@@ -41,5 +41,5 @@
         "usage": "+language [新语言]",
         "description": "显示您当前的语言，或将其更改为另一语言。"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "触发者：%%user%%"
 }
