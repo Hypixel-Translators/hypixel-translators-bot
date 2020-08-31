@@ -5,5 +5,5 @@
     "invalidArg": "Virheellinen argumentti!",
     "indexArg": "Lainausta numerolla %%arg%% ei ole olemassa! Ole hyvä ja syötä numero välillä 1-%%max%%.",
     "specUser": "Et ole määrittänyt käyttäjää! Ole hyvä ja kirjoita lainaus ja mainitse lainattu käyttäjä, erotettuna vinoviivalla.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Komennon suoritti %%user%%"
 }
