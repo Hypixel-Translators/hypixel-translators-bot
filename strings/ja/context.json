@@ -1,6 +1,6 @@
 {
-    "moduleName": "Context",
-    "loading": "One second...",
+    "moduleName": "説明",
+    "loading": "少々お待ちください…",
     "loadingModule": "Loading module...",
     "errors": {
         "notFound1": "The context entry ",
