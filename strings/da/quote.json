@@ -5,5 +5,5 @@
     "invalidArg": "Ugyldigt argument!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "specUser": "Du har ikke skrevet et brugernavn! Skriv venligst citatet og så nævn derefter den citerede bruger, adskilt af et skråstreg.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Udført af %%user%%"
 }
