@@ -15,7 +15,7 @@
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "あなたの言語に対して適切な接頭辞を設定します。"
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote>/<user mention>",
