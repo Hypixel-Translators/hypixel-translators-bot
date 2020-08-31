@@ -5,7 +5,7 @@
     "commandInfo": "Information sur la commande",
     "commandInfoFor": "Information de la commande ",
     "commandNotExist": "Cette commande n’existe pas!",
-    "seconds": " second(s)",
+    "seconds": " seconds",
     "usageField": "Utilisation",
     "cooldownField": "Temps de recharge",
     "aliasesField": "Les Alias",

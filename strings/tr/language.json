@@ -1,11 +1,11 @@
 {
     "moduleName": "Dil",
     "changingTitle": "Dilin değiştiriliyor...",
-    "changedToTitle": "Changed your language to English!",
+    "changedToTitle": "Diliniz Türkçe olarak değiştirildi!",
     "errorTitle": "Bu dil ya yok veya çevrilmedi!",
     "errorDescription": "Dilin değişmedi. Şu an bu diller mevcut (bu, onların çevrildiği anlamına gelmez):",
-    "current": "Your language preference is set to English.",
-    "credits": "Found an error? Report it using `+bug <message>`.",
+    "current": "Dil tercihiniz Türkçe olarak ayarlandı.",
+    "credits": "Bir hata mı buldun? '+bug <mesaj>' komutunu kullanarak raporla.",
     "ar": "Arapça",
     "bg": "Bulgarca",
     "zhcn": "Çince (Basitleştirilmiş)",
@@ -36,5 +36,5 @@
     "th": "Tay Dili",
     "tr": "Türkçe",
     "ua": "Ukraynaca",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% tarafından yürütüldü"
 }

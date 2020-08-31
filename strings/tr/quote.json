@@ -5,5 +5,5 @@
     "invalidArg": "Geçersiz argüman!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "specUser": "Bir kullanıcıyı belirtmedin! Lütfen alıntıyı önce yaz ve ondan sonra alıntı yapılan kullanıcıdan bahset, eğik çizgiyle ayırarak.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% tarafından yürütüldü"
 }

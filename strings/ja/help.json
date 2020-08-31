@@ -1,32 +1,32 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
+    "moduleName": "ヘルプ",
+    "commandsListTitle": "コマンドの一覧",
+    "commandsListTooltip": "特定のコマンドの詳細については `+help <コマンドの名前>` を実行してください。",
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "seconds": " second(s)",
+    "commandNotExist": "そのコマンドは存在しません！",
+    "seconds": " seconds",
     "usageField": "Usage",
     "cooldownField": "Cooldown",
     "aliasesField": "Aliases",
     "help": {
-        "usage": "+help [name of command]",
+        "usage": "+help [コマンドの名前]",
         "description": "Shows you all available commands and other info about the bot."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "あなたの言語に対して適切な接頭辞を設定します。"
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote>/<user mention>",
         "description": "Gets (or adds) a funny/weird/wise quote from the server."
     },
     "mention": {
-        "usage": "+mention <language> proofreader|translator|all [message]",
-        "description": "Mentions a language role with a message."
+        "usage": "+mention <言語> proofreader|translator|all [メッセージ]",
+        "description": "言語のロールに、メッセージ付きでメンションします。"
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
+        "usage": "+context get|add|edit|view|help <引数>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
     },
     "bug": {
@@ -41,5 +41,5 @@
         "usage": "+language [設定する言語]",
         "description": "Shows your current language, or changes it to another one."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% によって実行されました"
 }

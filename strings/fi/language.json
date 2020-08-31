@@ -5,7 +5,7 @@
     "errorTitle": "Tätä kieltä ei ole olemassa tai sille ei löydy käännöstä!",
     "errorDescription": "Kieltäsi ei vaihdettu. Tällä hetkellä saatavilla olevat kielet (käännöstä ei välttämättä löydy):",
     "current": "Käytössäsi oleva kieli on suomi.",
-    "credits": "Found an error? Report it using `+bug <message>`.",
+    "credits": "Löysitkö virheen? Ilmoita siitä komennolla `+bug <viesti>`.",
     "ar": "arabia",
     "bg": "bulgaria",
     "zhcn": "kiina (yksinkertaistettu)",
@@ -36,5 +36,5 @@
     "th": "thai",
     "tr": "turkki",
     "ua": "ukraina",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Komennon suoritti %%user%%"
 }

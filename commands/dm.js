@@ -5,7 +5,6 @@ module.exports = {
     name: "dm",
     description: "Sends the user a private message.",
     usage: "verify <mention> <message>",
-    cooldown: 3,
     aliases: ["message", "privatemessage"],
     allowDM: true,
     execute(strings, message, args) {

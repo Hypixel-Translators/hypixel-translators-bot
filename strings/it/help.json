@@ -5,7 +5,7 @@
     "commandInfo": "Informazioni sul comando",
     "commandInfoFor": "Informazioni sul comando ",
     "commandNotExist": "Quel comando non esiste!",
-    "seconds": " secondo(i)",
+    "seconds": " secondi",
     "usageField": "Utilizzo",
     "cooldownField": "Cooldown",
     "aliasesField": "Alias",
@@ -41,5 +41,5 @@
         "usage": "+language [nuova lingua]",
         "description": "Mostra la tua lingua attuale o la modifica in un'altra lingua."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Eseguito da %%user%%"
 }

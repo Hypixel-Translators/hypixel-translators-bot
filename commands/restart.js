@@ -11,7 +11,6 @@ module.exports = {
   description: "Refresh the bot to apply changes and to fix errors.",
   aliases: ["refresh", "reload", "update"],
   usage: "restart",
-  cooldown: 3,
   allowDM: true,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
   execute(strings, message) {

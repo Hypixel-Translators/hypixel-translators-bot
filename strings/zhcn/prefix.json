@@ -1,6 +1,6 @@
 {
     "moduleName": "前缀",
-    "loading": "One second...",
+    "loading": "请稍等...",
     "loadingRoles": "正在获取您的角色...",
     "errors": {
         "noLanguages": "您似乎没有任何语言角色！如果您认为这是错误，请联系 <@72738307477536778>。",
@@ -18,5 +18,5 @@
     "newNickT": "新昵称",
     "noChanges": "未修改",
     "saved": "您的前缀已保存！",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "触发者：%%user%%"
 }

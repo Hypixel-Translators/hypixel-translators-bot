@@ -108,17 +108,17 @@ client.on("message", async message => {
 
   if (command.allowDM) {
     if (message.channel.type !== "dm") {
-      if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-      if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-      if (command.channelBlackList) { if (command.channelBlackList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-      if (command.categoryBlackList) { if (command.categoryBlackList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
+      if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
+      if (command.channelBlackList) { if (command.channelBlackList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
+      if (command.categoryBlackList) { if (command.categoryBlackList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
     }
   } else {
     if (message.channel.type !== "dm") {
-      if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-      if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-      if (command.channelBlackList) { if (command.channelBlackList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-      if (command.categoryBlackList) { if (command.categoryBlackList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
+      if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
+      if (command.channelBlackList) { if (command.channelBlackList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
+      if (command.categoryBlackList) { if (command.categoryBlackList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
     } else {
       const embed = new Discord.MessageEmbed()
         .setColor(errorColor)

@@ -5,28 +5,28 @@
     "commandInfo": "Інформація щодо команди",
     "commandInfoFor": "Інформація щодо команди ",
     "commandNotExist": "Ця команда не існує!",
-    "seconds": " секунд(и)",
+    "seconds": " секунди",
     "usageField": "Використання",
     "cooldownField": "Перезарядка",
     "aliasesField": "Синоніми",
     "help": {
         "usage": "+help [назва команди]",
-        "description": "Показує Вам усі доступні команди та іншу інформацію щодо бота."
+        "description": "Відображає Вам усі доступні команди та іншу інформацію щодо бота."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "Дає відповідний префікс для Вашої(их) мови(ах)."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote>/<user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "usage": "+quote [індекс] | +quote add <цитата>/<згадка користувача>",
+        "description": "Надає (або додає) смішну/дивну/мудру цитату з сервера."
     },
     "mention": {
-        "usage": "+mention <language> proofreader|translator|all [message]",
-        "description": "Mentions a language role with a message."
+        "usage": "+mention <мова> proofreader|translator|all [повідомлення]",
+        "description": "Згадує мовну роль із повідомленням."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
+        "usage": "+context get|add|edit|view|help <аргументи>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
     },
     "bug": {
