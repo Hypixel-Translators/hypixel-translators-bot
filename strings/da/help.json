@@ -6,7 +6,7 @@
     "commandInfo": "Kommando information",
     "commandInfoFor": "Kommando information om ",
     "commandNotExist": "Denne kommando findes ikke!",
-    "seconds": " seconds",
+    "seconds": " sekunder",
     "usageField": "Anvendelse",
     "cooldownField": "Nedkøling",
     "aliasesField": "Aliasser",
@@ -42,5 +42,5 @@
         "usage": "+language [nyt sprog]",
         "description": "Viser dig dit nuværende sprog, eller ændrer det til et andet."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Udført af %%user%%"
 }
