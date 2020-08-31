@@ -2,6 +2,7 @@
     "moduleName": "ヘルプ",
     "commandsListTitle": "コマンドの一覧",
     "commandsListTooltip": "特定のコマンドの詳細については `+help <コマンドの名前>` を実行してください。",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "そのコマンドは存在しません！",
