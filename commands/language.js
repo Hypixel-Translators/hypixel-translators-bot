@@ -69,7 +69,7 @@ module.exports = {
                                 .setFooter(executedBy);
                             await msg.edit(embed)
                         }
-                    }, 100)
+                    }, 200)
                 } else {
                     const testFolder = './strings/';
                     await fs.readdir(testFolder, async (err, files) => {
