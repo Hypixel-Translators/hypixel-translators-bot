@@ -5,7 +5,7 @@
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "そのコマンドは存在しません！",
-    "seconds": " 秒",
+    "seconds": " seconds",
     "usageField": "Usage",
     "cooldownField": "Cooldown",
     "aliasesField": "Aliases",
