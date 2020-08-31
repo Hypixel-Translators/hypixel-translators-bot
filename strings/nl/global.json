@@ -1,0 +1,10 @@
+{
+    "outgoing": "Bericht verzonden aan staff",
+    "outgoingDisclaimer": "Als je hier een bericht stuurt, wordt het verzonden naar staff.",
+    "error": "Fout",
+    "generalError": "Er is iets misgegaan.",
+    "generalErrorD": "Controleer het commandogebruik en probeer het opnieuw. Als je denkt dat dit een interne fout is, voer dan alsjeblieft `+bug <bericht>` uit.",
+    "dmError": "Sorry, maar je kunt dit commando niet uitvoeren in privéberichten.",
+    "timeLeftT": "Wacht nog %%time%% seconden voor je `+%%command%%` weer gebruikt.",
+    "executedBy": "Uitgevoerd door %%user%%"
+}
