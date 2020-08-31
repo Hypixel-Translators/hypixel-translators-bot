@@ -46,6 +46,7 @@ module.exports = {
                         executedBy = await strings.executedBy.replace("%%user%%", message.author.tag)
                         newMsg = await element.content.split(" ")
                         if (!element.content.includes(message.author.id)) { await newMsg.push(message.author.id) }
+                        if (!newMsg.includes(message.author.id)) { await newMsg.push(message.author.id) }
                         await element.delete()
                         await message.client.channels.cache.get("748968125663543407").send(newMsg.join(" "))
                         const embed = new Discord.MessageEmbed()
