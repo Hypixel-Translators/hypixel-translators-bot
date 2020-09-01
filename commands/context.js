@@ -524,7 +524,7 @@ async function viewsheet(executedBy, strings, message, args, msg) {
         .setColor(successColor)
         .setTitle(strings.info.sheetT)
         .setDescription(strings.info.sheetD)
-        .setFooter(strings.executedBy + message.author.tag + strings.info.sheetDel);
+        .setFooter(strings.executedBy + strings.info.sheetDel);
     msg.edit(embed)
         .then(linkMsg => {
             setTimeout(() => {
