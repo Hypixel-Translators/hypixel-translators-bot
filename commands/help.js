@@ -52,12 +52,12 @@ module.exports = {
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
-        .setTitle(strings.commandInfoFor + "`" + command.name + "`")
+        .setTitle(strings.commandInfoFor + "`+" + command.name + "`")
         .setDescription(strings[command.name].description)
         .addFields(
           {
             name: strings.usageField,
-            value: "`" + prefix + strings[command.name].usage + "`",
+            value: "`" + strings[command.name].usage + "`",
             inline: true
           }
         )
