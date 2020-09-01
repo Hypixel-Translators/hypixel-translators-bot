@@ -1,10 +1,10 @@
 {
-    "outgoing": "Sent message to staff",
-    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
-    "error": "Error",
-    "generalError": "Something has gone wrong.",
-    "generalErrorD": "Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
-    "dmError": "Sorry, but you can't execute this command in private messages.",
-    "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
+    "outgoing": "Snet mesgage to stafs",
+    "outgoingDisclaimer": "Al meagegs you sned ehere will gst sent to staf.",
+    "error": "Not good",
+    "generalError": "Sth hasnt gon good.",
+    "generalErrorD": "Pls chek acomand an tyr agen. If u thinkk thsis is an eterninal erorr, pls do `+bug <mesgag>`.",
+    "dmError": "Wat are u thinkin?! U cantt do htis in priavet masages.",
+    "timeLeftT": "Ur speed! Pls waist %%time%% scaconds for do `+%%command%%` agen tho.",
     "executedBy": "Executed by %%user%%"
 }
