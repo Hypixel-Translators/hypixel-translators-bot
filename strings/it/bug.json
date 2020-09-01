@@ -1,7 +1,7 @@
 {
-    "moduleName": "Segnala un bug",
-    "sendingTitle": "Invio della segnalazione allo staff...",
-    "sentTitle": "La segnalazione è stata inviata!",
-    "addMessage": "Non hai specificato un messaggio!",
-    "executedBy": "Eseguito da %%user%%"
+    "moduleName": "Report a bug",
+    "sendingTitle": "Sending your bug report to staff...",
+    "sentTitle": "Your bug report has been sent!",
+    "addMessage": "You haven't provided a message!",
+    "executedBy": "Executed by %%user%%"
 }
