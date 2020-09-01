@@ -16,18 +16,18 @@
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Дає відповідний префікс для Вашої(их) мови(ах)."
+        "description": "Gives you the appropriate prefix for your language(s)."
     },
     "quote": {
-        "usage": "+quote [індекс] | +quote add <цитата>/<згадка користувача>",
-        "description": "Надає (або додає) смішну/дивну/мудру цитату з сервера."
+        "usage": "+quote [index] | +quote add <quote>/<user mention>",
+        "description": "Gets (or adds) a funny/weird/wise quote from the server."
     },
     "mention": {
         "usage": "+mention <language> translator|proofreader|all [message]",
         "description": "Mentions a language role with an optional message."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <аргументи>",
+        "usage": "+context get|add|edit|view|help <arguments>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
     },
     "bug": {
