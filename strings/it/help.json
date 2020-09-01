@@ -36,7 +36,7 @@
     },
     "feedback": {
         "usage": "+feedback <messaggio>",
-        "description": "Invia il tuo feedback sul bot allo staff."
+        "description": "Invia il tuo feedback sul bot allo personale."
     },
     "language": {
         "usage": "+language [<nuova lingua> | list]",
