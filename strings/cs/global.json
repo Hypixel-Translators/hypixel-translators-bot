@@ -1,10 +1,10 @@
 {
-    "outgoing": "Zpráva se odeslala adminům",
-    "outgoingDisclaimer": "Jakákoli zpráva, kterou sem pošleš, bude odeslána adminům.",
-    "error": "Chyba",
-    "generalError": "Něco se pokazilo.",
-    "generalErrorD": "Zkontroluj použití příkazu a zkus to znovu. Pokud si myslíš, že se jedná o interní chybu, proveď prosím `+bug <zpráva>`.",
-    "dmError": "Omlouváme se, ale tento příkaz nelze provést v soukromých zprávách.",
-    "timeLeftT": "Počkej prosím dalších %%time%% sekund/y pro použití příkazu `+%%command%%`.",
+    "outgoing": "Sent message to staff",
+    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
+    "error": "Error",
+    "generalError": "Something has gone wrong.",
+    "generalErrorD": "Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
+    "dmError": "Sorry, but you can't execute this command in private messages.",
+    "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
     "executedBy": "Provedeno uživatelem %%user%%"
 }
