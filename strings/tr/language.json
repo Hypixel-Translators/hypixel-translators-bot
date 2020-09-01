@@ -5,7 +5,7 @@
     "errorTitle": "Bu dil ya yok veya çevrilmedi!",
     "errorDescription": "Dilin değişmedi. Şu an bu diller mevcut (bu, onların çevrildiği anlamına gelmez):",
     "current": "Dil tercihiniz Türkçe olarak ayarlandı.",
-    "credits": "Bir hata mı buldun? '+bug <mesaj>' komutunu kullanarak raporla.",
+    "credits": "Bir hata mı buldun? `+bug <mesaj>` komutunu kullanarak raporla.",
     "ar": "Arapça",
     "bg": "Bulgarca",
     "zhcn": "Çince (Basitleştirilmiş)",

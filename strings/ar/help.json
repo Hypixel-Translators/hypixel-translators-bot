@@ -23,8 +23,8 @@
         "description": "يحضر (أو يضيف) اقتباس مضحك / غريب/حكيم من السيرفر."
     },
     "mention": {
-        "usage": "+منشن <اللغة> محرر مطبعي|مترجم|الكل [message]",
-        "description": "يمنشن رتبة لغه في الرسالة."
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+سياق احصل|اضيف|عدِّل|اعرض|مساعده <الوسيطه>",

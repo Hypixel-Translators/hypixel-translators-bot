@@ -8,15 +8,15 @@
         "confirmedNoFlags": "Confirmaste o apelido, porém não reagiste com nenhuma bandeira, ",
         "cancelled": "Cancelaste a alteração do teu apelido, ",
         "alreadyThis": "Já tens este apelido, ",
-        "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "so your prefix wasn't saved."
+        "timeOut": "Não reagiste a nenhuma reação, ",
+        "notSaved": "então o teu prefixo não foi guardado."
     },
-    "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "Nickname preview",
-    "newNickT": "New nickname",
-    "noChanges": "No changes",
-    "saved": "Your prefix has been saved!",
+    "react": "Reage com todas as reações em ordem que quiseres adicionar ao teu prefixo.",
+    "reactTimer": "Tens 20 segundos. Carrega no ❎ para cancelar.",
+    "reactTimer2": "Tens menos de 20 segundos. Carrega no ✅ para confirmar ou no ❎ para cancelar.",
+    "previewT": "Preview do apelido",
+    "newNickT": "Novo apelido",
+    "noChanges": "Sem alterações",
+    "saved": "O teu prefixo foi guardado!",
     "executedBy": "Executado por %%user%%"
 }

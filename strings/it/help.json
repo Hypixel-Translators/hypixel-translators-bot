@@ -2,7 +2,7 @@
     "moduleName": "Aiuto",
     "commandsListTitle": "Lista dei comandi",
     "commandsListTooltip": "Esegui `+help <nome comando>` per saperne di più su un comando specifico.",
-    "madeBy": " | Bot made with lots of care by %%q10%%",
+    "madeBy": " | Bot realizzato con molta cura da %%q10%%",
     "commandInfo": "Informazioni sul comando",
     "commandInfoFor": "Informazioni sul comando ",
     "commandNotExist": "Quel comando non esiste!",
@@ -23,8 +23,8 @@
         "description": "Ottiene (o aggiunge) una citazione divertente/strana/saggia dal server."
     },
     "mention": {
-        "usage": "+mention <lingua> proofreader|translator|all [messaggio]",
-        "description": "Menziona un ruolo lingua con un messaggio."
+        "usage": "+mention <lingua> translator|proofreader|all [messaggio]",
+        "description": "Menziona un ruolo di lingua con un messaggio opzionale."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argomenti>",

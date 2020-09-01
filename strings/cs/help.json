@@ -24,7 +24,7 @@
     },
     "mention": {
         "usage": "+mention <jazyk> proofreader|translator|all [zpráva]",
-        "description": "Označí ve zprávě roli jazyka."
+        "description": "Zmíní jazykovou roli s volitelnou zprávou."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumenty>",

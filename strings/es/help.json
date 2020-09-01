@@ -2,45 +2,45 @@
     "moduleName": "Ayuda",
     "commandsListTitle": "Lista de los comandos",
     "commandsListTooltip": "Ejecuta `+help <nombre del comando>` para información sobre un comando específico.",
-    "madeBy": " | Bot made with lots of care by %%q10%%",
+    "madeBy": " | Bot hecho con mucho amor por %%q10%%",
     "commandInfo": "Información del comando",
     "commandInfoFor": "Información para el comando ",
     "commandNotExist": "¡Ese comando no existe!",
-    "seconds": " seconds",
+    "seconds": " segundos",
     "usageField": "Uso",
     "cooldownField": "Enfriamiento",
     "aliasesField": "Otros Nombres",
     "help": {
         "usage": "+help [nombre del comando]",
-        "description": "Shows you all available commands and other info about the bot."
+        "description": "Muestra todos los comandos disponibles e información general sobre el bot."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "Te da el prefijo apropiado para tu(s) idioma(s)."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote>/<user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "usage": "+quote [número] | +quote add <cita>/<mención del citado>",
+        "description": "Obtiene (o añade) una cita divertida/extraña/sabia del servidor."
     },
     "mention": {
-        "usage": "+mention <language> proofreader|translator|all [message]",
-        "description": "Mentions a language role with a message."
+        "usage": "+mention <idioma> translator|proofreader|all [mensaje]",
+        "description": "Menciona un role de idioma con un mensaje opcional."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "usage": "+context get|add|edit|view|help <argumentos>",
+        "description": "Obtiene, añade o edita context para la ID del string dada. `+context help` te muestra información sobre este comando."
     },
     "bug": {
-        "usage": "+bug <message>",
-        "description": "Allows you to report bugs present in the bot."
+        "usage": "+bug <mensaje>",
+        "description": "Te permite reportar bugs en el bot."
     },
     "feedback": {
-        "usage": "+feedback <message>",
-        "description": "Sends your feedback on the bot to staff."
+        "usage": "+feedback <mensaje>",
+        "description": "Envía tus comentarios sobre el bot al staff."
     },
     "language": {
-        "usage": "+language [new language]",
-        "description": "Shows your current language, or changes it to another one."
+        "usage": "+language [nuevo idioma]",
+        "description": "Muestra tu idioma actual o lo cambia a otro."
     },
     "executedBy": "Ejecutado por %%user%%"
 }

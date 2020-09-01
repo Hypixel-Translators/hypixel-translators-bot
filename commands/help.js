@@ -52,18 +52,18 @@ module.exports = {
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
-        .setTitle(strings.commandInfoFor + "`" + command.name + "`")
+        .setTitle(strings.commandInfoFor + "`+" + command.name + "`")
         .setDescription(strings[command.name].description)
         .addFields(
           {
             name: strings.usageField,
-            value: "`" + prefix + strings[command.name].usage + "`",
+            value: "`" + strings[command.name].usage + "`",
             inline: true
           }
         )
         .setFooter(executedBy + madeBy);
       if (command.cooldown) {
-        embed.addFields({ name: strings.cooldownField, value: cooldown + strings.seconds, inline: true })
+        embed.addFields({ name: strings.cooldownField, value: cooldown, inline: true })
       }
       if (command.aliases) {
         embed.addFields({ name: strings.aliasesField, value: command.aliases.join(", "), inline: true })

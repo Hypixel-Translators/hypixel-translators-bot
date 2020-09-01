@@ -23,8 +23,8 @@
         "description": "Ruft (oder hinzufügt) ein lustiges / seltsames Zitat vom Server ab."
     },
     "mention": {
-        "usage": "+mention <Sprache> proofreader|translator|all [Nachricht]",
-        "description": "Erwähnt eine Sprachrolle mit einer Nachricht."
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <Argument>",

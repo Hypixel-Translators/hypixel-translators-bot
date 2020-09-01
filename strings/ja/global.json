@@ -1,10 +1,10 @@
 {
-    "outgoing": "Sent message to staff",
-    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
-    "error": "Error",
-    "generalError": "Something has gone wrong.",
-    "generalErrorD": "Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
-    "dmError": "Sorry, but you can't execute this command in private messages.",
-    "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
+    "outgoing": "スタッフにメッセージを送信",
+    "outgoingDisclaimer": "ここに送信したメッセージはすべてスタッフに送信されます。",
+    "error": "エラー",
+    "generalError": "問題が発生しました。",
+    "generalErrorD": "コマンドの使用法を確認して、もう一度お試しください。これが内部エラーだと思われる場合は `+bug <メッセージ>` を実行してください。",
+    "dmError": "申し訳ありませんが、プライベートメッセージではこのコマンドを実行できません。",
+    "timeLeftT": "もう一度 `+%%command%%` を使用するにはあと %%time%% 秒お待ちください。",
     "executedBy": "%%user%% によって実行されました"
 }

@@ -9,6 +9,7 @@ module.exports = {
         if (n == "0" || n == "20" || n == "40" || manual) {
             hypixel(client)
             quickplay(client)
+            bot(client)
         }
     }
 }
@@ -82,6 +83,24 @@ async function quickplay(client) {
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         client.channels.cache.get("646383292010070016").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Quickplay project.")
+                        stringCount.edit(json[0].phrases)
+                    }
+                })
+        })
+}
+
+async function bot(client) {
+    let url = "https://api.crowdin.com/api/project/hypixel-translators-bot/status?login=qkeleq10&account-key=8205d22af119c4233b1940265bdd77d9&json"
+    let settings = { method: "Get" }
+    var index = 0
+    fetch(url, settings)
+        .then(res => res.json())
+        .then((json) => {
+            json.reverse()
+            client.channels.cache.get("730042612647723058").messages.fetch("750161237106622634")
+                .then(stringCount => {
+                    if (stringCount.content !== json[0].phrases) {
+                        client.channels.cache.get("749391414600925335").send("> <:star_pleading:740326880368132107> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel Translators Bot project.")
                         stringCount.edit(json[0].phrases)
                     }
                 })

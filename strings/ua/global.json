@@ -1,10 +1,10 @@
 {
-    "outgoing": "Sent message to staff",
-    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
-    "error": "Error",
-    "generalError": "Something has gone wrong.",
-    "generalErrorD": "Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
-    "dmError": "Sorry, but you can't execute this command in private messages.",
-    "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
+    "outgoing": "Відправлено повідомлення персоналу",
+    "outgoingDisclaimer": "Будь-яке повідомлення, яке буде Ви надсилаєте сюди буде переадресовано до персоналу.",
+    "error": "Помилка",
+    "generalError": "Щось пішло не так.",
+    "generalErrorD": "Будь ласка, перевірте використання команди та спробуйте ще раз. Якщо Ви вважаєте, що це помилка з нашого боку, будь ласка, виконайте `+bug <повідомлення>`.",
+    "dmError": "Вибачте, але Ви не можете виконувати цю команду в приватних повідомленнях.",
+    "timeLeftT": "Будь ласка, зачекайте ще %%time%% секунд(у\\\\и), щоб використовувати `+%%command%%` знову.",
     "executedBy": "Executed by %%user%%"
 }

@@ -23,8 +23,8 @@
         "description": "Надає (або додає) смішну/дивну/мудру цитату з сервера."
     },
     "mention": {
-        "usage": "+mention <мова> proofreader|translator|all [повідомлення]",
-        "description": "Згадує мовну роль із повідомленням."
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <аргументи>",

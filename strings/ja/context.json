@@ -1,6 +1,6 @@
 {
-    "moduleName": "Context",
-    "loading": "One second...",
+    "moduleName": "説明",
+    "loading": "少々お待ちください…",
     "loadingModule": "Loading module...",
     "errors": {
         "notFound1": "The context entry ",
@@ -32,7 +32,7 @@
     "confirm": "Please confirm this change by reacting with <:vote_yes:732298639749152769> within 10 seconds. To cancel, wait or react with <:vote_no:732298639736570007>.",
     "oldVal": "Old value for ",
     "newVal": "New value for ",
-    "stringId": "String ID",
+    "stringId": "文字列ID",
     "bulgarian": "ブルガリア語",
     "chineseS": "中国語（簡体）",
     "chineseT": "中国語（繁体）",
@@ -60,14 +60,14 @@
     "info": {
         "title": "`+context` のヘルプ",
         "description": "Below is a list of all subcommands for this command and their explanations. **Fields** shows all available fields.",
-        "get": "_Gets context for given string_\n`+context get <string ID>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #.",
-        "add": "_Adds a context entry_\n`+context add <string ID> <context>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <context> with the text you want to add. After running, you can add more fields using the reactions.",
+        "get": "_入力した文字列の説明を取得_\n`+context get <文字列ID>`\n\n<文字列ID> を文字列のIDに置き換えてください。文字列のURLをコピーすると取得できます。#の後の数字です。",
+        "add": "_説明を追加_\n`+context add <文字列ID> <説明>`\n\n<文字列ID> を文字列のIDに置き換えてください。文字列のURLをコピーすると取得できます。#の後の数字です。\n<説明> を追加したい説明文に置き換えてください。実行後、リアクションすることで追加ができます。",
         "edit": "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enpt`. Replace <new value> with the new value for that field.",
         "view": "_Gives you a link to the Google Sheet containing context_\n`+context view`",
         "help": "_Shows this message!_\n`+context help`",
         "fields": "Fields",
         "sheetT": "Context Sheet",
-        "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya, Rodry and QkeleQ10 can see your Google profile name and email.",
+        "sheetD": "[こちらをクリックして、説明情報が掲載されているGoogleシートを開きます。](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n許可された人だけがこのシートを表示できます。リンク先にてページへのアクセス許可をリクエストできます。その際Crowdinのプロフィールリンク (`.../profile/<ユーザ名>`) とDiscordのユーザ名を入力してください。\nStannya、Rodry、QkeleQ10はあなたのGoogleユーザ名とメールアドレスを閲覧できることにご注意ください。",
         "sheetDel": " | Deleting message after 2 minutes"
     },
     "executedBy": "%%user%% によって実行されました"
