@@ -2,21 +2,21 @@
     "moduleName": "Ajuda",
     "commandsListTitle": "Lista de comandos",
     "commandsListTooltip": "Faz `+help <nome do comando>` para saber mais sobre um comando específico.",
-    "madeBy": " | Bot made with lots of care by %%q10%%",
+    "madeBy": " | Bot desenvolvido por %%q10%%",
     "commandInfo": "Informação do comando",
     "commandInfoFor": "Informação para o comando ",
     "commandNotExist": "Esse comando não existe!",
-    "seconds": " seconds",
+    "seconds": " segundos",
     "usageField": "Uso",
     "cooldownField": "Tempo de espera",
     "aliasesField": "Alternativas",
     "help": {
-        "usage": "+help [name of command]",
-        "description": "Shows you all available commands and other info about the bot."
+        "usage": "+help [nome do comando]",
+        "description": "Mostra-te todos os comandos disponíveis e outras informações sobre o bot."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "Dá-te o prefixo apropriado para o(s) teu(s) idioma(s)."
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote>/<user mention>",
