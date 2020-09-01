@@ -2,7 +2,7 @@
     "moduleName": "Hjælp",
     "commandsListTitle": "Kommandoliste",
     "commandsListTooltip": "Udfør `+help <kommandoens navn>` for at lære mere om en bestemt kommando.",
-    "madeBy": " | Bot made with lots of care by %%q10%%",
+    "madeBy": " | Botten er lavet med massere af pleje af %%q10%%",
     "commandInfo": "Kommando information",
     "commandInfoFor": "Kommando information om ",
     "commandNotExist": "Denne kommando findes ikke!",
@@ -23,8 +23,8 @@
         "description": "Får (eller tilføjer) en sjov, mærkelig eller et klogt citat fra serveren."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with an optional message."
+        "usage": "+mention <sprog> translator|proofreader|all [besked]",
+        "description": "Nævner en sprogrolle med en valgfri besked."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumenter>",
@@ -39,8 +39,8 @@
         "description": "Sender dig feedback på botten til personalet."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "usage": "+language [<nyt sprog> | list]",
+        "description": "Skifter dit sprog, viser din nuværende sprogindstilling eller viser en liste af tilgængelige sprog."
     },
     "executedBy": "Udført af %%user%%"
 }
