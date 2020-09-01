@@ -66,9 +66,9 @@
         "view": "_Dá-te um link para a folha do Google Sheets que contém o contexto_\n`+context view`",
         "help": "_Mostra esta mensagem!_\n`+context help`",
         "fields": "Parâmetros",
-        "sheetT": "Folha do contexto",
+        "sheetT": "Context Sheet",
         "sheetD": "[Clica aqui para abrir o Google Sheet contendo informação de contexto.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nApenas pessoas autorizadas podem abrir esta folha. Podes pedir acesso na página que vês ao abrir o link. No pedido, deves incluir o link para o teu perfil do Crowdin (`.../profile/<nome>`) e o teu nome do Discord.\nTem em atenção que o Stannya, o Rodry e o QkeleQ10 podem ver o teu nome do perfil do Google e o teu e-mail.",
-        "sheetDel": " | A eliminar a mensagem depois de 2 minutos"
+        "sheetDel": " | Esta mensagem será eliminada dentro de 2 minutos"
     },
     "executedBy": "Executado por %%user%%"
 }
