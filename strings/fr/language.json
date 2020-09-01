@@ -5,6 +5,7 @@
     "errorTitle": "Cette langue n'existe pas ou elle n'est pas complètement traduite!",
     "errorDescription": "Ta langue n'a pas été changée. Ces langues sont actuellement disponibles (ne signifie pas qu'elles sont traduites):",
     "current": "Ta préférence de langue est définie à Français.",
+    "listTitle": "List of languages",
     "credits": "Tu as trouvé une erreur? Signale-la en utilisant `+bug <message>`.",
     "ar": "Arabe",
     "bg": "Bulgare",
