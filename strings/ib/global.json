@@ -6,5 +6,5 @@
     "generalErrorD": "Pls chek acomand an tyr agen. If u thinkk thsis is an eterninal erorr, pls do `+bug <mesgag>`.",
     "dmError": "Wat are u thinkin?! U cantt do htis in priavet masages.",
     "timeLeftT": "Ur speed! Pls waist %%time%% scaconds for do `+%%command%%` agen tho.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Done by le %%user%%"
 }
