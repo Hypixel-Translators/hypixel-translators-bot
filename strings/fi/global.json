@@ -1,10 +1,10 @@
 {
-    "outgoing": "Lähetettiin viesti ylläpidolle",
-    "outgoingDisclaimer": "Kaikki täällä lähettämäsi viestit lähetetään ylläpidolle.",
-    "error": "Virhe",
-    "generalError": "Jokin meni vikaan.",
-    "generalErrorD": "Ole hyvä ja tarkista komento, ja yritä uudelleen. Mikäli uskot tämän olevan virhe, suorita komento `+bug <viesti>`.",
-    "dmError": "Valitettavasti sinulla ei ole käyttää tätä komentoa yksityisviesteissä.",
-    "timeLeftT": "Ole hyvä ja odota vielä %%time%% sekuntia ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
-    "executedBy": "Komennon suoritti %%user%%"
+    "outgoing": "Sent message to staff",
+    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
+    "error": "Error",
+    "generalError": "Something has gone wrong.",
+    "generalErrorD": "Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
+    "dmError": "Sorry, but you can't execute this command in private messages.",
+    "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
+    "executedBy": "Executed by %%user%%"
 }
