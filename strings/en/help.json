@@ -24,7 +24,7 @@
     },
     "mention": {
         "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with a message."
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <arguments>",
