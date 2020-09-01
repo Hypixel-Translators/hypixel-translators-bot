@@ -11,36 +11,36 @@
     "cooldownField": "Перезарядка",
     "aliasesField": "Альтернативы",
     "help": {
-        "usage": "+help [команда]",
-        "description": "Показывает все доступные команды и другую информацию про бота."
+        "usage": "+help [name of command]",
+        "description": "Shows you all available commands and other info about the bot."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Дает вам соответствующий префикс для вашего(-их) языка(-ов)."
+        "description": "Gives you the appropriate prefix for your language(s)."
     },
     "quote": {
-        "usage": "+quote [индекс] | +quote add <цитата>/<упоминание пользователя>",
-        "description": "Дает (или добавляет) смешную/странную/мудрую цитату с сервера."
+        "usage": "+quote [index] | +quote add <quote>/<user mention>",
+        "description": "Gets (or adds) a funny/weird/wise quote from the server."
     },
     "mention": {
         "usage": "+mention <language> translator|proofreader|all [message]",
         "description": "Mentions a language role with an optional message."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <аргументы>",
-        "description": "Получает, добавляет или редактирует контекст предоставленного ID строки. `+context help` показывает вам информацию об этой команде."
+        "usage": "+context get|add|edit|view|help <arguments>",
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
     },
     "bug": {
-        "usage": "+bug <сообщение>",
-        "description": "Позволяет сообщать вам об ошибках в боте."
+        "usage": "+bug <message>",
+        "description": "Allows you to report bugs present in the bot."
     },
     "feedback": {
-        "usage": "+feedback <сообщение>",
-        "description": "Отправляет персоналу отзыв о боте."
+        "usage": "+feedback <message>",
+        "description": "Sends your feedback on the bot to staff."
     },
     "language": {
         "usage": "+language [<new language> | list]",
         "description": "Changes your language, shows your current one or shows a list of available languages."
     },
-    "executedBy": "Исполнено %%user%%"
+    "executedBy": "Executed by %%user%%"
 }

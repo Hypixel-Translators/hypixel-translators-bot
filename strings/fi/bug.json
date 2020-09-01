@@ -1,7 +1,7 @@
 {
-    "moduleName": "Ilmoita bugista",
-    "sendingTitle": "Lähetetään bugi-ilmoitustasi ylläpidolle...",
-    "sentTitle": "Bugi-ilmoituksesi lähetettiin!",
-    "addMessage": "Et syöttänyt viestiä!",
-    "executedBy": "Komennon suoritti %%user%%"
+    "moduleName": "Report a bug",
+    "sendingTitle": "Sending your bug report to staff...",
+    "sentTitle": "Your bug report has been sent!",
+    "addMessage": "You haven't provided a message!",
+    "executedBy": "Executed by %%user%%"
 }

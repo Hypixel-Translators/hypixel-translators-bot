@@ -1,9 +1,9 @@
 {
     "moduleName": "Quote",
-    "loading": "请稍等...",
-    "loadingModule": "正在加载模块...",
-    "invalidArg": "无效参数！",
+    "loading": "One second...",
+    "loadingModule": "Loading module...",
+    "invalidArg": "Invalid argument!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-    "specUser": "未指定用户名！请输入语句并提及该用户，使用斜杠分隔。",
-    "executedBy": "触发者：%%user%%"
+    "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
+    "executedBy": "Executed by %%user%%"
 }

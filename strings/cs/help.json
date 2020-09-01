@@ -24,7 +24,7 @@
     },
     "mention": {
         "usage": "+mention <jazyk> proofreader|translator|all [zpráva]",
-        "description": "Zmíní jazykovou roli s volitelnou zprávou."
+        "description": "Zmíní roli jazyka s volitelnou zprávou."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumenty>",
@@ -39,8 +39,8 @@
         "description": "Pošle tvou zpětnou vazbu na bota adminům."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "usage": "+language [<nový jazyk> | list]",
+        "description": "Změní tvůj jazyk, zobrazí tvůj aktuální jazyk nebo zobrazí seznam dostupných jazyků."
     },
     "executedBy": "Provedeno uživatelem %%user%%"
 }

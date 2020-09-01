@@ -4,6 +4,6 @@
     "loadingModule": "A carregar o modulo...",
     "invalidArg": "Argumento inválido!",
     "indexArg": "A frase número %%arg%% não existe! O número deve estar entre 1 e %%max%%.",
-    "specUser": "Não especificaste um utilizador! Por favor, escreve a citação e menciona o utilizador citado, separados por uma barra.",
+    "specUser": "Não especificaste um utilizador! Deves escrever a frase e mencionar o seu autor, separados por uma barra.",
     "executedBy": "Executado por %%user%%"
 }

@@ -1,6 +1,6 @@
 {
-    "moduleName": "Ön ek",
-    "loading": "Bir saniye...",
+    "moduleName": "Prefix",
+    "loading": "One second...",
     "loadingRoles": "Rollerin getiriliyor...",
     "errors": {
         "noLanguages": "Görünüşe göre hiçbir dil rolün yok! Bunun bir hata olduğunu düşünüyorsan lütfen <@722738307477536778> ile iletişime geç.",
@@ -11,12 +11,12 @@
         "timeOut": "Hiçbir bayrakla tepki vermedin, ",
         "notSaved": "yani ön ekin kaydedilmedi."
     },
-    "react": "Ön ekinize eklemek istediğiniz bayrakla sırayla tepki verin.",
+    "react": "React with all flags you want to add to your prefix in order.",
     "reactTimer": "20 saniyen var. İptal etmek için ❎'e bas.",
     "reactTimer2": "20 saniyeden daha az vaktin kaldı. Onaylamak için ✅'e, iptal etmek için ❎'e bas.",
     "previewT": "Takma ad önizlemesi",
     "newNickT": "Yeni takma ad",
     "noChanges": "Değişiklik yok",
-    "saved": "Ön ekin kaydedildi!",
+    "saved": "Your prefix has been saved!",
     "executedBy": "%%user%% tarafından yürütüldü"
 }

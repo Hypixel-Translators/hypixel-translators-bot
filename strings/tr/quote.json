@@ -1,9 +1,9 @@
 {
-    "moduleName": "Alıntı",
-    "loading": "Bir saniye...",
-    "loadingModule": "Modül yükleniyor...",
-    "invalidArg": "Geçersiz argüman!",
+    "moduleName": "Quote",
+    "loading": "One second...",
+    "loadingModule": "Loading module...",
+    "invalidArg": "Invalid argument!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-    "specUser": "Bir kullanıcıyı belirtmedin! Lütfen alıntıyı önce yaz ve ondan sonra alıntı yapılan kullanıcıdan bahset, eğik çizgiyle ayırarak.",
+    "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
     "executedBy": "%%user%% tarafından yürütüldü"
 }
