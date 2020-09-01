@@ -39,8 +39,8 @@
         "description": "Sender dig feedback på botten til personalet."
     },
     "language": {
-        "usage": "+language [nyt sprog]",
-        "description": "Viser dig dit nuværende sprog, eller ændrer det til et andet."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or shows a list of available languages."
     },
     "executedBy": "Udført af %%user%%"
 }
