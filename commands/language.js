@@ -25,7 +25,7 @@ module.exports = {
                 const testFolder = './strings/';
                 await fs.readdir(testFolder, async (err, files) => {
                     var listD = ""
-                    files.forEach(element, index, array => {
+                    files.forEach(async (element, index, array) => {
                         listD = listD + "\n" + element + " | " + strings[element]
                         if (index === array.length - 1) {
                             const embed = new Discord.MessageEmbed()
