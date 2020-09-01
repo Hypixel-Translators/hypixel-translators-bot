@@ -40,7 +40,11 @@ async function hypixel(client) {
             client.channels.cache.get("730042612647723058").messages.fetch("748584877921796146")
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
-                        client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel project.")
+                        if (stringCount.content < json[0].phrases) {
+                            client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel project.")
+                        } else {
+                            client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been removed from the Hypixel project.")
+                        }
                         stringCount.edit(json[0].phrases)
                     }
                 })
@@ -82,7 +86,11 @@ async function quickplay(client) {
             client.channels.cache.get("730042612647723058").messages.fetch("748644636318236672")
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
-                        client.channels.cache.get("646383292010070016").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Quickplay project.")
+                        if (stringCount.content < json[0].phrases) {
+                            client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Quickplay project.")
+                        } else {
+                            client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been removed from the Quickplay project.")
+                        }
                         stringCount.edit(json[0].phrases)
                     }
                 })
@@ -100,7 +108,11 @@ async function bot(client) {
             client.channels.cache.get("730042612647723058").messages.fetch("750161237106622634")
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
-                        client.channels.cache.get("749391414600925335").send("> <:star_pleading:740326880368132107> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel Translators Bot project.")
+                        if (stringCount.content < json[0].phrases) {
+                            client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel Translators Bot project.")
+                        } else {
+                            client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been removed from the Hypixel Translators Bot project.")
+                        }
                         stringCount.edit(json[0].phrases)
                     }
                 })
