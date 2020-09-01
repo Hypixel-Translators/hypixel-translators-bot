@@ -1,9 +1,9 @@
 {
-    "moduleName": "Quote",
-    "loading": "One second...",
-    "loadingModule": "Loading module...",
-    "invalidArg": "Invalid argument!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-    "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
-    "executedBy": "Executed by %%user%%"
+    "moduleName": "Citat",
+    "loading": "Et sekund...",
+    "loadingModule": "Indlæser modul...",
+    "invalidArg": "Ugyldigt argument!",
+    "indexArg": "Et citat med indekset %%arg%% findes ikke! Angiv venligst et nummer mellem 1 og %%max%%.",
+    "specUser": "Du har ikke skrevet et brugernavn! Skriv venligst citatet og så nævn derefter den citerede bruger, adskilt af et skråstreg.",
+    "executedBy": "Udført af %%user%%"
 }

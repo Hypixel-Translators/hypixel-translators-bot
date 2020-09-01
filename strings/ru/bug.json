@@ -2,6 +2,6 @@
     "moduleName": "Сообщить об ошибке",
     "sendingTitle": "Отправляю отчет об ошибке персоналу...",
     "sentTitle": "Ваше сообщение об ошибке отправлено!",
-    "addMessage": "You haven't provided a message!",
-    "executedBy": "Executed by %%user%%"
+    "addMessage": "Вы не предоставили сообщение!",
+    "executedBy": "Исполнено %%user%%"
 }

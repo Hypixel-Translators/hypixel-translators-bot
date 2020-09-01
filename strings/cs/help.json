@@ -23,8 +23,8 @@
         "description": "Zobrazí (nebo přidá) vtipný/divný/moudrý citát ze serveru."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with an optional message."
+        "usage": "+mention <jazyk> proofreader|translator|all [zpráva]",
+        "description": "Zmíní jazykovou roli s volitelnou zprávou."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumenty>",
@@ -39,8 +39,8 @@
         "description": "Pošle tvou zpětnou vazbu na bota adminům."
     },
     "language": {
-        "usage": "+language [nový jazyk]",
-        "description": "Zobrazí tvůj aktuální jazyk nebo ho změní na jiný."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or shows a list of available languages."
     },
     "executedBy": "Provedeno uživatelem %%user%%"
 }

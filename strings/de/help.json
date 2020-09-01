@@ -39,8 +39,8 @@
         "description": "Sendet dein Feedback an Staff."
     },
     "language": {
-        "usage": "+language [Neue Sprache]",
-        "description": "Zeigt deine aktuelle Sprache an oder ändert sie in eine andere."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or shows a list of available languages."
     },
     "executedBy": "Executed by %%user%%"
 }
