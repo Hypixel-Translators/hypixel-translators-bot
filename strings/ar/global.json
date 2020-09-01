@@ -1,10 +1,10 @@
 {
-    "outgoing": "تم إرسال رسالة إلى موظفين السيرفر",
-    "outgoingDisclaimer": "سيتم إرسال أي رسالة ترسلها هنا إلى موظفين السيرفر.",
-    "error": "حدث خطأ",
-    "generalError": "لقد حدث خطأ ما.",
-    "generalErrorD": "الرجاء التحقق من استخدام الأوامر وحاول مرة أخرى. إذا كنت تعتقد أن هذا خطأ داخلي، الرجاء تنفيذ `+bug <رسالة>`.",
-    "dmError": "عذراً، ولكن لا يمكنك تنفيذ هذا الأمر في الرسائل الخاصة.",
-    "timeLeftT": "الرجاء الانتظار %%time%% ثانية لاستخدام `+%%command%%` مرة أخرى.",
+    "outgoing": "Sent message to staff",
+    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
+    "error": "Error",
+    "generalError": "Something has gone wrong.",
+    "generalErrorD": "Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
+    "dmError": "Sorry, but you can't execute this command in private messages.",
+    "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
     "executedBy": "Executed by %%user%%"
 }

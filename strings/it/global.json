@@ -1,10 +1,10 @@
 {
-    "outgoing": "Messaggio inviato allo staff",
-    "outgoingDisclaimer": "Qualsiasi messaggio che invii qui verrà inviato allo staff.",
-    "error": "Errore",
-    "generalError": "Qualcosa è andato storto.",
-    "generalErrorD": "Controlla l'utilizzo del comando e riprova. Se pensi che si tratti di un errore interno, esegui `+bug <messaggio>`.",
-    "dmError": "Mi dispiace, ma non è possibile eseguire questo comando nei messaggi privati.",
-    "timeLeftT": "Attendi altri %%time%% secondi prima di usare di nuovo `+%%command%%`.",
-    "executedBy": "Eseguito da %%user%%"
+    "outgoing": "Sent message to staff",
+    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
+    "error": "Error",
+    "generalError": "Something has gone wrong.",
+    "generalErrorD": "Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
+    "dmError": "Sorry, but you can't execute this command in private messages.",
+    "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
+    "executedBy": "Executed by %%user%%"
 }

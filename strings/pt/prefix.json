@@ -8,13 +8,13 @@
         "confirmedNoFlags": "Confirmaste o apelido, porém não reagiste com nenhuma bandeira, ",
         "cancelled": "Cancelaste a alteração do teu apelido, ",
         "alreadyThis": "Já tens este apelido, ",
-        "timeOut": "Não reagiste a nenhuma reação, ",
-        "notSaved": "então o teu prefixo não foi guardado."
+        "timeOut": "Não reagiste com nenhuma bandeira, ",
+        "notSaved": "logo o teu prefixo não foi guardado."
     },
-    "react": "Reage com todas as reações em ordem que quiseres adicionar ao teu prefixo.",
+    "react": "Reage com todas as bandeiras que desejas adicionar ao teu prefixo, por ordem.",
     "reactTimer": "Tens 20 segundos. Carrega no ❎ para cancelar.",
     "reactTimer2": "Tens menos de 20 segundos. Carrega no ✅ para confirmar ou no ❎ para cancelar.",
-    "previewT": "Preview do apelido",
+    "previewT": "Pré-visualização do apelido",
     "newNickT": "Novo apelido",
     "noChanges": "Sem alterações",
     "saved": "O teu prefixo foi guardado!",

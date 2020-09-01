@@ -1,9 +1,9 @@
 {
-    "moduleName": "引用",
-    "loading": "少々お待ちください…",
+    "moduleName": "Quote",
+    "loading": "One second...",
     "loadingModule": "Loading module...",
-    "invalidArg": "無効な引数です！",
-    "indexArg": "インデックス %%arg%% の引用は存在しません！ 1から%%max%%の間の数字を入力してください。",
+    "invalidArg": "Invalid argument!",
+    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
-    "executedBy": "%%user%% によって実行されました"
+    "executedBy": "Executed by %%user%%"
 }
