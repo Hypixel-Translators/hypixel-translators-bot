@@ -16,7 +16,7 @@
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Te da el prefijo apropiado para su(s) idioma(s)."
+        "description": "Te da el prefijo apropiado para tu(s) idioma(s)."
     },
     "quote": {
         "usage": "+quote [número] | +quote add <cita>/<mención del citado>",
