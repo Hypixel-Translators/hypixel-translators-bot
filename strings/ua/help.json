@@ -42,5 +42,5 @@
         "usage": "+language [нова мова]",
         "description": "Відображає поточну мову або змінює її на іншу."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Виконано користувачем %%user%%"
 }

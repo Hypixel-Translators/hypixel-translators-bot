@@ -6,6 +6,7 @@
     "errorDescription": "Tu idioma no ha sido cambiado. Estos idiomas están disponibles (no significa que están traducidos):",
     "current": "Tu preferencia de idioma ha sido establecida en Español.",
     "listTitle": "List of languages",
+    "listElement": "`%%code%%` | **%%language%%**",
     "credits": "¿Has encontrado un error? Reportarlo usando `+bug <mensaje>`.",
     "ar": "Árabe",
     "bg": "Búlgaro",
