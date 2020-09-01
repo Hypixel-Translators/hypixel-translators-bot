@@ -1,22 +1,22 @@
 {
-    "moduleName": "Prefisso",
-    "loading": "Un secondo...",
-    "loadingRoles": "Recupero dei ruoli...",
+    "moduleName": "Prefix",
+    "loading": "One second...",
+    "loadingRoles": "Fetching your roles...",
     "errors": {
-        "noLanguages": "Sembra che tu non abbia alcun ruolo lingua! Contatta <@722738307477536778> se pensi che questo sia in errore.",
-        "error": "Impossibile cambiare il nickname. Puoi copiare il nickname qui sotto e applicarlo da solo.",
-        "confirmedNoFlags": "Hai confermato, ma non hai reagito a nessuna bandiera, ",
-        "cancelled": "Hai annullato la modifica del tuo nickname, ",
-        "alreadyThis": "Hai già questo nickname, ",
-        "timeOut": "Non hai reagito con nessuna bandiera, ",
-        "notSaved": "pertanto il tuo prefisso non è stato salvato."
+        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
+        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
+        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
+        "cancelled": "You cancelled the changing of your nickname, ",
+        "alreadyThis": "You already have this nickname, ",
+        "timeOut": "You haven't reacted with any flags, ",
+        "notSaved": "so your prefix wasn't saved."
     },
-    "react": "Aggiungi una reazione ad ogni bandiera che preferisci per aggiungerne il relativo prefisso.",
-    "reactTimer": "Hai 20 secondi. Premi ❎ per annullare.",
-    "reactTimer2": "Hai meno di 20 secondi rimanenti. Premi ✅ per confermare o ❎ per annullare.",
-    "previewT": "Anteprima nickname",
-    "newNickT": "Nuovo nickname",
-    "noChanges": "Nessuna modifica",
-    "saved": "Il tuo prefisso è stato salvato!",
-    "executedBy": "Eseguito da %%user%%"
+    "react": "React with all flags you want to add to your prefix in order.",
+    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
+    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
+    "previewT": "Nickname preview",
+    "newNickT": "New nickname",
+    "noChanges": "No changes",
+    "saved": "Your prefix has been saved!",
+    "executedBy": "Executed by %%user%%"
 }

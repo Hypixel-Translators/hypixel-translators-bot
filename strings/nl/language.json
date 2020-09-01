@@ -5,6 +5,7 @@
     "errorTitle": "Die taal bestaat niet of hij is niet compleet vertaald!",
     "errorDescription": "Je taal is niet veranderd. Deze talen zijn momenteel beschikbaar (dit betekent niet dat ze vertaald zijn):",
     "current": "Je taalvoorkeur is Nederlands.",
+    "listTitle": "Talenlijst",
     "credits": "Fout gespot? Rapporteer hem met `+bug <bericht>`.",
     "ar": "Arabisch",
     "bg": "Bulgaars",

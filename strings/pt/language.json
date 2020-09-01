@@ -5,6 +5,7 @@
     "errorTitle": "Esse idioma não existe ou não está completamente traduzido!",
     "errorDescription": "O teu idioma não foi alterado. Estes são os idiomas disponíveis neste momento (isto não significa que estejam traduzidos):",
     "current": "O teu idioma de preferência está definido para português.",
+    "listTitle": "List of languages",
     "credits": "Encontraste um erro? Reporta-o usando `+bug <erro>`.",
     "ar": "árabe",
     "bg": "Búlgaro",

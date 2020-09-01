@@ -62,13 +62,13 @@
         "description": "Abaixo poderás encontrar uma lista com todos os comandos secundários e uma explicação para cada. **Parâmetros** mostra todos os parâmetros disponíveis.",
         "get": "_Fornece contexto para uma dada string_\n`+context get <ID da string>`\n\nSubstitui <ID da string> pelo ID da string, que pode ser encontrado depois do # ao copiar o URL da string.",
         "add": "_Adiciona contexto a uma string_\n`+context add <ID da string> <contexto>`\n\nSubstitui <ID da string> pelo ID da string, que pode ser encontrado depois do # ao copiar o URL da string. Substitui <contexto> com a informação que desejas adicionar. Depois de executado, podes adicionar mais parâmetros usando reações.",
-        "edit": "_Edita o contexto de uma string_\n`+context edit <ID da string> <parâmetro> <nova informação>`\n\nSubstitui <ID da string> pelo ID da string, que pode ser encontrado depois do # ao copiar o URL da string. Substitui <parâmetro> com o parâmetro que queres editar, como por exemplo `screenshot` ou `enpt`. Substitui <nova informação> com a nova informação para o parâmetro que definiste.",
-        "view": "_Dá-te um link para a folha do Google Sheets que contém o contexto_\n`+context view`",
-        "help": "_Mostra esta mensagem!_\n`+context help`",
+        "edit": "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enpt`. Replace <new value> with the new value for that field.",
+        "view": "_Gives you a link to the Google Sheet containing context_\n`+context view`",
+        "help": "_Shows this message!_\n`+context help`",
         "fields": "Parâmetros",
-        "sheetT": "Folha do contexto",
-        "sheetD": "[Clica aqui para abrir o Google Sheet contendo informação de contexto.]\n(https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nApenas pessoas específicas podem abrir este sheet. Podes pedir acesso na página que vês ao abrir o link. Por favor, preenche no teu link do perfil do Crowdin (`.../profile/<username>`) e com o teu nome do Discord. \nTem em atenção que o Stannya, o Rodry e o QkeleQ10 podem ver o teu nome do perfil do Google e o teu e-mail.",
-        "sheetDel": " | A eliminar a mensagem depois de 2 minutos"
+        "sheetT": "Context Sheet",
+        "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya, Rodry and QkeleQ10 can see your Google profile name and email.",
+        "sheetDel": " | Deleting message after 2 minutes"
     },
     "executedBy": "Executado por %%user%%"
 }

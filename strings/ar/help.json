@@ -11,23 +11,23 @@
     "cooldownField": "فترة الاستراحة",
     "aliasesField": "الإسم البديل",
     "help": {
-        "usage": "+مساعده [اسم الأمر]",
-        "description": "يظهر لك جميع الأوامر المتاحة ومعلومات أخرى عن البوت."
+        "usage": "+help [اسم الأمر]",
+        "description": "Shows you all available commands and other info about the bot."
     },
     "prefix": {
-        "usage": "+برفكس",
-        "description": "يعطيك البرفكس المناسب للغات الخاصة بك."
+        "usage": "+prefix",
+        "description": "Gives you the appropriate prefix for your language(s)."
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote>/<user mention>",
-        "description": "يحضر (أو يضيف) اقتباس مضحك / غريب/حكيم من السيرفر."
+        "description": "Gets (or adds) a funny/weird/wise quote from the server."
     },
     "mention": {
         "usage": "+mention <language> translator|proofreader|all [message]",
         "description": "Mentions a language role with an optional message."
     },
     "context": {
-        "usage": "+سياق احصل|اضيف|عدِّل|اعرض|مساعده <الوسيطه>",
+        "usage": "+context احصل|اضيف|عدِّل|اعرض|مساعده <الوسيطه>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
     },
     "bug": {
