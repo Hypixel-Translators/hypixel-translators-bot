@@ -1,11 +1,11 @@
 {
     "moduleName": "Sprog",
     "changingTitle": "Skifter dit sprog...",
-    "changedToTitle": "Changed your language to English!",
+    "changedToTitle": "Skiftede dit sprog til Dansk!",
     "errorTitle": "Dette sprog findes ikke, ellers er det ikke helt oversat!",
     "errorDescription": "Dit sprog er ikke blevet ændret. Disse sprog er i øjeblikket tilgængelig (Det betyder ikke, at de er oversat):",
-    "current": "Your language preference is set to English.",
-    "credits": "Found an error? Report it using `+bug <message>`.",
+    "current": "Din sprogpræference er Dansk.",
+    "credits": "Har du fundet en fejl? Rapporter den ved brug af `+bug <besked>`.",
     "ar": "Arabisk",
     "bg": "Bulgarsk",
     "zhcn": "Kinesisk (forenklet)",
@@ -36,5 +36,5 @@
     "th": "Thai",
     "tr": "Tyrkisk",
     "ua": "Ukrainsk",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Udført af %%user%%"
 }

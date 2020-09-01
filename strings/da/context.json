@@ -70,5 +70,5 @@
         "sheetD": "[Klik her for at åbne Google Sheet, som indeholder kontekstinformation.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nKun nogle bestemte folk kan åbne denne sheet. Du kan anmode om adgang ved at trykke på linket ovenover. Angiv venligst dit profil link til Crowdin (`.../profile/<brugernavn>`) og dit Discord-brugernavn.\nHusk at Stannya, Rodry og QkeleQ10 kan se dit Google-brugernavn og din e-mail.",
         "sheetDel": " | Sletter beskeden om 2 minutter"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Udført af %%user%%"
 }

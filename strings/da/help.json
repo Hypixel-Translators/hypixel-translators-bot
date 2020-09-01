@@ -1,12 +1,12 @@
 {
     "moduleName": "Hjælp",
     "commandsListTitle": "Kommandoliste",
-    "commandsListTooltip": "Udfør `+help <name of command>` for at lære mere om en bestemt kommando.",
+    "commandsListTooltip": "Udfør `+help <kommandoens navn>` for at lære mere om en bestemt kommando.",
     "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Kommando information",
     "commandInfoFor": "Kommando information om ",
     "commandNotExist": "Denne kommando findes ikke!",
-    "seconds": " seconds",
+    "seconds": " sekunder",
     "usageField": "Anvendelse",
     "cooldownField": "Nedkøling",
     "aliasesField": "Aliasser",
@@ -16,7 +16,7 @@
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Giver dig det præfiks, der passer til dit/dine sprog."
+        "description": "Giver dig det præfiks, der passer til dine sprog."
     },
     "quote": {
         "usage": "+quote [index] | +quote add <citat>/<nævnelse af bruger>",
@@ -42,5 +42,5 @@
         "usage": "+language [nyt sprog]",
         "description": "Viser dig dit nuværende sprog, eller ændrer det til et andet."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Udført af %%user%%"
 }
