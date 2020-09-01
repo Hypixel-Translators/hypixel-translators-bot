@@ -6,5 +6,5 @@
     "generalErrorD": "Vérifie l'utilisation de la commande et réessayer. Si tu pense qu'il s'agit d'une erreur interne, exécute `+bug <message>`.",
     "dmError": "Désolé, tu ne peux pas exécuter cette commande dans des messages privés.",
     "timeLeftT": "Attend encore %%time%% secondes pour utiliser `+%%command%%` à nouveau.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Exécuté par %%user%%"
 }
