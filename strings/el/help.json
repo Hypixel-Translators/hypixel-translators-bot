@@ -39,8 +39,8 @@
         "description": "Στέλνει την άποψή σου για το bot στο προσωπικό του server."
     },
     "language": {
-        "usage": "+language [νέα γλώσσα]",
-        "description": "Δείχνει την τρέχουσα γλώσσα σου, ή την αλλάζει σε μία άλλη."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or shows a list of available languages."
     },
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
