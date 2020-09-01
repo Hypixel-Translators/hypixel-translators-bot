@@ -62,7 +62,6 @@ module.exports = {
                         })
                         const newMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
                         const newFiMessages = await newMessages.filter(element => (element.content.split(" ")[0] === args[1]))
-                        console.log("Filtered new messages: " + newFiMessages)
                         newFiMessages.forEach(async element => {
                             exists = true
                             strings = await require(("../strings/" + args[1] + "/language.json"))
