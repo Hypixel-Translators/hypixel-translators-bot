@@ -3,7 +3,7 @@
     "loading": "少々お待ちください…",
     "loadingModule": "Loading module...",
     "invalidArg": "無効な引数です！",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
+    "indexArg": "インデックス %%arg%% の引用は存在しません！ 1から%%max%%の間の数字を入力してください。",
     "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
     "executedBy": "%%user%% によって実行されました"
 }
