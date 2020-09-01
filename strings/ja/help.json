@@ -20,11 +20,11 @@
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote>/<user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "description": "サーバーから面白い/奇妙な/賢い引用を取得(または追加)します。"
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with an optional message."
+        "usage": "+mention <言語> translator|proofreader|all [メッセージ]",
+        "description": "任意のメッセージを、言語のロールにメンションします。"
     },
     "context": {
         "usage": "+context get|add|edit|view|help <引数>",
@@ -39,8 +39,8 @@
         "description": "このbotのフィードバックをスタッフに送信できます。"
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "usage": "+language [<設定する言語> | list]",
+        "description": "言語の変更、現在の言語の表示、利用可能な言語の一覧を表示します。"
     },
     "executedBy": "%%user%% によって実行されました"
 }
