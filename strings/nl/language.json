@@ -6,6 +6,7 @@
     "errorDescription": "Je taal is niet veranderd. Deze talen zijn momenteel beschikbaar (dit betekent niet dat ze vertaald zijn):",
     "current": "Je taalvoorkeur is Nederlands.",
     "listTitle": "Talenlijst",
+    "listElement": "`%%code%%` | **%%language%%**",
     "credits": "Fout gespot? Rapporteer hem met `+bug <bericht>`.",
     "ar": "Arabisch",
     "bg": "Bulgaars",

@@ -6,6 +6,7 @@
     "errorDescription": "Dilin değişmedi. Şu an bu diller mevcut (bu, onların çevrildiği anlamına gelmez):",
     "current": "Dil tercihiniz Türkçe olarak ayarlandı.",
     "listTitle": "List of languages",
+    "listElement": "`%%code%%` | **%%language%%**",
     "credits": "Bir hata mı buldun? `+bug <mesaj>` komutunu kullanarak raporla.",
     "ar": "Arapça",
     "bg": "Bulgarian",

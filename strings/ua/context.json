@@ -19,12 +19,12 @@
     "noteFor": "Примітка для ",
     "screenshot": "Знімок екрану",
     "addContextFor": "Додати контекст для ",
-    "edited": "Edited this context entry! ",
-    "editedResult": "Edited this context entry! The new data is shown below.\n\n**Context**\n",
-    "tryRunGet": "We couldn't find the resulting entry. Try to run `+context get <string ID>` to see the result instead.",
-    "editContextFor": "Edit context for ",
-    "willAdd": "The following entry will be added. Please react with 📑 if you'd like to add more to the entry or change existing fields (such as a screenshot or a language note). React with <:vote_yes:732298639749152769> to submit. This will be cancelled in two minutes or when you hit <:vote_no:732298639736570007>.",
-    "promptAddMore": "Send a message (without the prefix) containing `<field> <content>`. <field> can be `screenshot`, `id`, `context` or a language code. <content> needs to be the new content for that string, such as the screenshot link.",
+    "edited": "Змінив цій запис в контексті! ",
+    "editedResult": "Змінив цій запис в контексті! Нові дані відображені нижче.\n\n**Контекст**\n",
+    "tryRunGet": "Ми не змогли знайти результат виконання. Спробуйте запустити `+context get <string ID>, щоб побачити результат запису.",
+    "editContextFor": "Редагувати контекст для ",
+    "willAdd": "Буде додано наступний запис. Будь ласка, відреагуйте з 📑 якщо Ви хочете додати більше запису або змінити існуючи поля (наприклад, скріншот або мовна нотатка). Відреагуйте з <:vote_yes:732298639749152769>, щоб підтвердити додавання запису. Ця дія буде скасована через дві хвилини або Ви натиснете <:vote_no:732298639736570007>.",
+    "promptAddMore": "Надсилайте повідомлення (без префікса), що містить `<поле> <вміст>`. <поле> може бути `screenshot`, `id`, `context` або код мови. <вміст> повинен бути новий вміст для цього string, наприклад посилання на скріншот.",
     "addedMore": "Added this information to the context entry. Re-react with 📑 to add more.",
     "added": "Added the context entry! Loading the result...",
     "addedResult": "Added the context entry! It is shown below.\n\n**Context**\n",
@@ -70,5 +70,5 @@
         "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya, Rodry and QkeleQ10 can see your Google profile name and email.",
         "sheetDel": " | Deleting message after 2 minutes"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Виконано користувачем %%user%%"
 }
