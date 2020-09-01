@@ -173,7 +173,10 @@ client.on("message", async message => {
       await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
       strings = await require(("./strings/" + oldMsg[0] + "/" + command.name + ".json"))
     })
-    setTimeout(() => { command.execute(strings, message, args); }, 50)
+    setTimeout(() => {
+      command.execute(strings, message, args)
+      if (message.member) { if (message.member.hasPermission("BAN_MEMBERS")) { timestamps.delete(message.author.id) } }
+    }, 50)
   } catch (error) {
     timestamps.delete(message.author.id)
     console.error(error);
