@@ -53,9 +53,11 @@ module.exports = {
                         const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
                         const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
                         oldFiMessages.forEach(async element => {
+                            console.log("Old old message: " + element.content)
                             await element.delete()
                             oldMsg = await element.content.split(" ")
                             await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
+                            console.log("New old message: " + oldMsg)
                             await message.client.channels.cache.get("748968125663543407").send(oldMsg.join(" "))
                         })
                         const newMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
@@ -65,9 +67,11 @@ module.exports = {
                             strings = await require(("../strings/" + args[1] + "/language.json"))
                             executedBy = await strings.executedBy.replace("%%user%%", message.author.tag)
                             newMsg = await element.content.split(" ")
-                            console.log(element.content.includes(message.author.id))
+                            console.log("Old new message: " + element.content)
+                            console.log("Old new message included author id: " + element.content.includes(message.author.id))
                             if (!element.content.includes(message.author.id)) { await newMsg.push(message.author.id) }
-                            console.log(newMsg.includes(message.author.id))
+                            console.log("New new message includes author id: " + newMsg.includes(message.author.id))
+                            console.log("New new message: " + newMsg)
                             await element.delete()
                             await message.client.channels.cache.get("748968125663543407").send(newMsg.join(" "))
                             saved = true
