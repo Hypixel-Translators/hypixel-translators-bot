@@ -6,6 +6,7 @@
     "errorDescription": "Yuor langag hants been changang. Thse langagns are curentl avalbe (this dostn mean thery tansalaet):",
     "current": "Ur langag parfanrne is inhale banana.",
     "listTitle": "List of languages",
+    "listElement": "`%%code%%` | **%%language%%**",
     "credits": "Fount eror? Saiye it to uz wit `+bug <mesag>`.",
     "ar": "Arabic",
     "bg": "Ballgaryan",
