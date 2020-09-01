@@ -1,22 +1,22 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
+    "moduleName": "ヘルプ",
+    "commandsListTitle": "コマンドの一覧",
+    "commandsListTooltip": "特定のコマンドの詳細については `+help <コマンドの名前>` を実行してください。",
     "madeBy": " | Bot made with lots of care by %%q10%%",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "seconds": " seconds",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
+    "commandInfo": "コマンド情報",
+    "commandInfoFor": "コマンド情報： ",
+    "commandNotExist": "そのコマンドは存在しません！",
+    "seconds": " 秒",
+    "usageField": "使用法",
+    "cooldownField": "クールダウン",
+    "aliasesField": "別の使用法",
     "help": {
-        "usage": "+help [name of command]",
-        "description": "Shows you all available commands and other info about the bot."
+        "usage": "+help [コマンドの名前]",
+        "description": "利用可能なすべてのコマンドや bot に関するその他の情報を表示します。"
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "あなたの言語に対して適切な接頭辞を設定します。"
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote>/<user mention>",
@@ -27,20 +27,20 @@
         "description": "Mentions a language role with an optional message."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "usage": "+context get|add|edit|view|help <引数>",
+        "description": "入力したIDの説明文を取得、追加、編集します。 `+context help` でこのコマンドの詳細を確認できます。"
     },
     "bug": {
-        "usage": "+bug <message>",
-        "description": "Allows you to report bugs present in the bot."
+        "usage": "+bug <メッセージ>",
+        "description": "このbotのバグを報告できます。"
     },
     "feedback": {
-        "usage": "+feedback <message>",
-        "description": "Sends your feedback on the bot to staff."
+        "usage": "+feedback <メッセージ>",
+        "description": "このbotのフィードバックをスタッフに送信できます。"
     },
     "language": {
-        "usage": "+language [new language]",
-        "description": "Shows your current language, or changes it to another one."
+        "usage": "+language [設定する言語]",
+        "description": "現在の言語を表示するか、別の言語に変更します。"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% によって実行されました"
 }
