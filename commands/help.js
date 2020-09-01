@@ -63,7 +63,7 @@ module.exports = {
         )
         .setFooter(executedBy + madeBy);
       if (command.cooldown) {
-        embed.addFields({ name: strings.cooldownField, value: cooldown + strings.seconds, inline: true })
+        embed.addFields({ name: strings.cooldownField, value: cooldown, inline: true })
       }
       if (command.aliases) {
         embed.addFields({ name: strings.aliasesField, value: command.aliases.join(", "), inline: true })
