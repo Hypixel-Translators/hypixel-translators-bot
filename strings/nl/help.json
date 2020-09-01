@@ -40,7 +40,7 @@
     },
     "language": {
         "usage": "+language [<nieuwe taal> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "description": "Verandert je taal, toont je huidige taal of geeft een lijst met alle beschikbare talen."
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }
