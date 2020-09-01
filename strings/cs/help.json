@@ -23,8 +23,8 @@
         "description": "Zobrazí (nebo přidá) vtipný/divný/moudrý citát ze serveru."
     },
     "mention": {
-        "usage": "+mention <jazyk> proofreader|translator|all [zpráva]",
-        "description": "Označí ve zprávě roli jazyka."
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumenty>",
