@@ -67,8 +67,8 @@
         "help": "_Mostra esta mensagem!_\n`+context help`",
         "fields": "Parâmetros",
         "sheetT": "Folha do contexto",
-        "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya, Rodry and QkeleQ10 can see your Google profile name and email.",
-        "sheetDel": " | Deleting message after 2 minutes"
+        "sheetD": "[Clica aqui para abrir o Google Sheet contendo informação de contexto.]\n(https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nApenas pessoas específicas podem abrir este sheet. Podes pedir acesso na página que vês ao abrir o link. Por favor, preenche no teu link do perfil do Crowdin (`.../profile/<username>`) e com o teu nome do Discord. \nTem em atenção que o Stannya, o Rodry e o QkeleQ10 podem ver o teu nome do perfil do Google e o teu e-mail.",
+        "sheetDel": " | A eliminar a mensagem depois de 2 minutos"
     },
     "executedBy": "Executado por %%user%%"
 }
