@@ -1,22 +1,22 @@
 {
-    "moduleName": "Prefix",
-    "loading": "One second...",
-    "loadingRoles": "Fetching your roles...",
+    "moduleName": "前缀",
+    "loading": "请稍等...",
+    "loadingRoles": "正在获取您的角色...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
-        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-        "cancelled": "You cancelled the changing of your nickname, ",
-        "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "so your prefix wasn't saved."
+        "noLanguages": "您似乎没有任何语言角色！如果您认为这是错误，请联系 <@72738307477536778>。",
+        "error": "更改昵称失败。您可以复制下面的昵称并自行更改。",
+        "confirmedNoFlags": "您已确认，但未对任何旗帜作出反应。",
+        "cancelled": "您取消了昵称更改。",
+        "alreadyThis": "您已在使用此昵称。",
+        "timeOut": "您还未对任何旗帜作出反应。",
+        "notSaved": "因此前缀未保存。"
     },
-    "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "Nickname preview",
-    "newNickT": "New nickname",
-    "noChanges": "No changes",
-    "saved": "Your prefix has been saved!",
-    "executedBy": "Executed by %%user%%"
+    "react": "请按顺序对您所有想要的旗帜作出反应。",
+    "reactTimer": "您有 20 秒的时间。点按 ❎ 以取消。",
+    "reactTimer2": "您还剩不到 20 秒的时间。点按 ✅ 以确认或 ❎ 取消。",
+    "previewT": "昵称预览",
+    "newNickT": "新昵称",
+    "noChanges": "未修改",
+    "saved": "您的前缀已保存！",
+    "executedBy": "触发者：%%user%%"
 }
