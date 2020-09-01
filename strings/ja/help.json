@@ -3,13 +3,13 @@
     "commandsListTitle": "コマンドの一覧",
     "commandsListTooltip": "特定のコマンドの詳細については `+help <コマンドの名前>` を実行してください。",
     "madeBy": " | Bot made with lots of care by %%q10%%",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
+    "commandInfo": "コマンド情報",
+    "commandInfoFor": "コマンド情報： ",
     "commandNotExist": "そのコマンドは存在しません！",
     "seconds": " 秒",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
+    "usageField": "使用法",
+    "cooldownField": "クールダウン",
+    "aliasesField": "別の使用法",
     "help": {
         "usage": "+help [コマンドの名前]",
         "description": "利用可能なすべてのコマンドや bot に関するその他の情報を表示します。"
@@ -23,8 +23,8 @@
         "description": "Gets (or adds) a funny/weird/wise quote from the server."
     },
     "mention": {
-        "usage": "+mention <言語> proofreader|translator|all [メッセージ]",
-        "description": "言語のロールに、メッセージ付きでメンションします。"
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <引数>",
