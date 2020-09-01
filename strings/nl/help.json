@@ -23,8 +23,8 @@
         "description": "Geeft een grappig/raar/wijs citaat uit de server (of voegt er een toe)."
     },
     "mention": {
-        "usage": "+mention <taal> proofreader|translator|all [bericht]",
-        "description": "Vermeldt een taalrol en voegt een bericht bij."
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumenten>",
