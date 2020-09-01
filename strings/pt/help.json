@@ -40,7 +40,7 @@
     },
     "language": {
         "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "description": "Muda o teu idioma, mostra o teu atual ou mostra uma lista dos idiomas disponíveis."
     },
     "executedBy": "Executado por %%user%%"
 }
