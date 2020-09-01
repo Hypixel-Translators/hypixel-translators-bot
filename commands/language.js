@@ -103,7 +103,7 @@ module.exports = {
                                 .setColor(errorColor)
                                 .setAuthor(strings.moduleName)
                                 .setTitle(strings.errorTitle)
-                                .setDescription(strings.errorDescription + "\n" + files.join(", "))
+                                .setDescription(strings.errorDescription + "\n`" + files.join("`, "))
                                 .setFooter(executedBy);
                             await msg.edit(embed)
                         });
@@ -122,7 +122,7 @@ module.exports = {
                     const embed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor(strings.moduleName)
-                        .setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\n" + strings.credits)
+                        .setDescription(strings.errorDescription + "\n`" + files.join("`, ") + "\n\n" + strings.credits)
                         .setFooter(executedBy)
                     if (strings.current === "Your language preference is set to English.") { embed.setTitle("Your language preference is set to " + strings[oldMsg[0]] + ".") } else { embed.setTitle(strings.current) }
                     await message.channel.send(embed)
@@ -137,7 +137,7 @@ module.exports = {
                         .setAuthor(strings.moduleName)
                         .setTitle("Your language preference is set to English.")
                         .setFooter(executedBy)
-                        .setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\nFound a bug? Execute `+bug <message>`.")
+                        .setDescription(strings.errorDescription + "\n`" + files.join("`, ") + "\n\nFound a bug? Execute `+bug <message>`.")
                     await message.channel.send(embed)
                 })
                 return
