@@ -23,24 +23,24 @@
         "description": "Надає (або додає) смішну/дивну/мудру цитату з сервера."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with an optional message."
+        "usage": "+mention <мова> translator|proofreader|all [повідомлення]",
+        "description": "Згадує мовну роль із повідомленням."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <аргументи>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "description": "Знаходить, додає або редагує контекст для заданого string ID. `+context help` показує інформацію щодо цієї команду."
     },
     "bug": {
-        "usage": "+bug <message>",
-        "description": "Allows you to report bugs present in the bot."
+        "usage": "+bug <повідомлення>",
+        "description": "Дозволяє Вам повідомляти про помилки, які є у бота."
     },
     "feedback": {
-        "usage": "+feedback <message>",
-        "description": "Sends your feedback on the bot to staff."
+        "usage": "+feedback <повідомлення>",
+        "description": "Надсилає ваш відгук щодо бота до персоналу."
     },
     "language": {
-        "usage": "+language [new language]",
-        "description": "Shows your current language, or changes it to another one."
+        "usage": "+language [нова мова]",
+        "description": "Відображає поточну мову або змінює її на іншу."
     },
     "executedBy": "Executed by %%user%%"
 }
