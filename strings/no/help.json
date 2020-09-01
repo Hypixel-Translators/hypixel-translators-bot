@@ -23,8 +23,8 @@
         "description": "Gets (or adds) a funny/weird/wise quote from the server."
     },
     "mention": {
-        "usage": "+mention <language> proofreader|translator|all [message]",
-        "description": "Mentions a language role with a message."
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <arguments>",

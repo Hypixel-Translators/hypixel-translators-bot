@@ -23,8 +23,8 @@
         "description": "Hakee (tai lisää) hauskan/oudon/viisaan lainauksen palvelimelta."
     },
     "mention": {
-        "usage": "+mention <kieli> proofreader|translator|all [viesti]",
-        "description": "Lähettää viestin käyttäjälle, jolla on valittu kielirooli."
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumentit>",

@@ -23,8 +23,8 @@
         "description": "Får (eller tilføjer) en sjov, mærkelig eller et klogt citat fra serveren."
     },
     "mention": {
-        "usage": "+mention <sprog> proofreader|translator|all [besked]",
-        "description": "Nævner en sprogrolle med en besked."
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumenter>",

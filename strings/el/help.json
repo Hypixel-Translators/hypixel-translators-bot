@@ -23,8 +23,8 @@
         "description": "Παίρνει (ή προσθέτει) ένα αστείο/περίεργο/σοφό παράθεμα από τον διακομιστή."
     },
     "mention": {
-        "usage": "+mention <γλώσσα> proofreader|translator|all [μήνυμα]",
-        "description": "Αναφέρει έναν ρόλο γλώσσας με ένα μήνυμα."
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <επιχειρήματα>",

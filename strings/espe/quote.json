@@ -3,7 +3,7 @@
     "loading": "Un segundo...",
     "loadingModule": "Cargando módulo...",
     "invalidArg": "¡Argumento inválido!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
+    "indexArg": "¡Una cita con el número %%arg%% no existe! Por favor, da un número entre 1 y %%max%%.",
     "specUser": "¡No especificaste un usuario! Por favor, escriba la cita y menciona al usuario citado, separado por /.",
     "executedBy": "Ejecutado por %%user%%"
 }
