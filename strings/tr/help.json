@@ -23,8 +23,8 @@
         "description": "Sunucudan komik/garip/bilge bir alıntı alır (veya ekler)."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with an optional message."
+        "usage": "+mention <language> translator|proofreader|all [mesaj]",
+        "description": "İsteğe bağlı bir mesajla bir dil rolünden bahseder."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <konu>",
