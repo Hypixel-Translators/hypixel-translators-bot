@@ -1,9 +1,9 @@
 {
-    "moduleName": "Citazione",
-    "loading": "Un secondo...",
-    "loadingModule": "Caricamento modulo...",
-    "invalidArg": "Argomento non valido!",
-    "indexArg": "Una citazione con indice %%arg%% non esiste! Per favore fornisci un numero tra 1 e %%max%%.",
-    "specUser": "Non hai specificato un utente! Digita la citazione e poi menziona l'utente citato, separato da uno slash.",
-    "executedBy": "Eseguito da %%user%%"
+    "moduleName": "Quote",
+    "loading": "One second...",
+    "loadingModule": "Loading module...",
+    "invalidArg": "Invalid argument!",
+    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
+    "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
+    "executedBy": "Executed by %%user%%"
 }
