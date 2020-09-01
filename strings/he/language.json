@@ -5,6 +5,7 @@
     "errorTitle": "השפה הזאת לא קיימת או שלא מתורגמת לחלוטין!",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "current": "Your language preference is set to English.",
+    "listTitle": "List of languages",
     "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "Arabic",
     "bg": "Bulgarian",
