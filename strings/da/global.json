@@ -1,9 +1,9 @@
 {
     "outgoing": "Sendte en besked til personalet",
-    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
+    "outgoingDisclaimer": "Enhver besked, som du sender her, vil blive sendt til personalet.",
     "error": "Fejl",
     "generalError": "Noget gik galt.",
-    "generalErrorD": "Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
+    "generalErrorD": "Tjek venligst kommandoforbruget og prøv igen. Hvis du tænker, at det her er en fejl, så skriv `+bug <besked>`.",
     "dmError": "Beklager, men du kan ikke udfører denne kommando i private beskeder.",
     "timeLeftT": "Vent venligst %%time%% sekunder for at bruge `+%%command%%` igen.",
     "executedBy": "Udført af %%user%%"
