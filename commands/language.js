@@ -26,7 +26,7 @@ module.exports = {
                 await fs.readdir(testFolder, async (err, files) => {
                     var listD = ""
                     files.forEach(async (element, index, array) => {
-                        listD = listD + "\n" + element + " | " + strings[element]
+                        listD = listD + "\n" + strings.listElement.replace("%%code%%", element).replace("%%language%%", strings[element])
                         if (index === array.length - 1) {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(neutralColor)
