@@ -6,6 +6,7 @@
     "errorDescription": "ภาษาของคุณยังไม่ถูกเปลี่ยน. ข้างล่างคือภาษาที่คุณสามารถเลือกได้ (นี่ไม่ได้แปลว่าพวกมันถูกแปลแล้ว)",
     "current": "Your language preference is set to English.",
     "listTitle": "List of languages",
+    "listElement": "`%%code%%` | **%%language%%**",
     "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "อารบิก",
     "bg": "Bulgarian",
