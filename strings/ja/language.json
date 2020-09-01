@@ -5,7 +5,7 @@
     "errorTitle": "その言語は存在しないか、完全に翻訳されていません！",
     "errorDescription": "言語が変更されませんでした。現在以下の言語が利用可能です（翻訳されているとは限りません）：",
     "current": "あなたの言語が日本語に設定されました。",
-    "listTitle": "List of languages",
+    "listTitle": "言語の一覧",
     "listElement": "`%%code%%` | **%%language%%**",
     "credits": "エラーを発見した場合は `+bug <メッセージ>` で報告してください。",
     "ar": "アラビア語",
