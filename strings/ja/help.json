@@ -6,13 +6,13 @@
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "そのコマンドは存在しません！",
-    "seconds": " seconds",
+    "seconds": " 秒",
     "usageField": "Usage",
     "cooldownField": "Cooldown",
     "aliasesField": "Aliases",
     "help": {
         "usage": "+help [コマンドの名前]",
-        "description": "Shows you all available commands and other info about the bot."
+        "description": "利用可能なすべてのコマンドや bot に関するその他の情報を表示します。"
     },
     "prefix": {
         "usage": "+prefix",
@@ -28,19 +28,19 @@
     },
     "context": {
         "usage": "+context get|add|edit|view|help <引数>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "description": "入力したIDの説明文を取得、追加、編集します。 `+context help` でこのコマンドの詳細を確認できます。"
     },
     "bug": {
         "usage": "+bug <メッセージ>",
-        "description": "Allows you to report bugs present in the bot."
+        "description": "このbotのバグを報告できます。"
     },
     "feedback": {
         "usage": "+feedback <メッセージ>",
-        "description": "Sends your feedback on the bot to staff."
+        "description": "このbotのフィードバックをスタッフに送信できます。"
     },
     "language": {
         "usage": "+language [設定する言語]",
-        "description": "Shows your current language, or changes it to another one."
+        "description": "現在の言語を表示するか、別の言語に変更します。"
     },
     "executedBy": "%%user%% によって実行されました"
 }
