@@ -2,25 +2,25 @@
     "moduleName": "المساعدة",
     "commandsListTitle": "قائمة الأوامر",
     "commandsListTooltip": "نفذ `+help <name of command>` لمعرفة المزيد عن امر معين.",
-    "madeBy": " | Bot made with lots of care by %%q10%%",
+    "madeBy": " | بوت مصنوع مع الكثير من العناية من قبل %%q10%%",
     "commandInfo": "معلومات الأوامر",
     "commandInfoFor": "معلومات الأوامر لـ ",
     "commandNotExist": "هذا الأمر غير موجود!",
-    "seconds": " seconds",
+    "seconds": " ثواني",
     "usageField": "الإستخدام",
     "cooldownField": "فترة الاستراحة",
     "aliasesField": "الإسم البديل",
     "help": {
         "usage": "+help [اسم الأمر]",
-        "description": "Shows you all available commands and other info about the bot."
+        "description": "يظهر لك جميع الأوامر المتاحة ومعلومات أخرى عن البوت."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "يعطيك البرفكس المناسب للغات الخاصة بك."
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote>/<user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "description": "يحضر (أو يضيف) اقتباس مضحك / غريب/حكيم من السيرفر."
     },
     "mention": {
         "usage": "+mention <language> translator|proofreader|all [message]",
