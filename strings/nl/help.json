@@ -39,8 +39,8 @@
         "description": "Verstuurt je feedback naar staff."
     },
     "language": {
-        "usage": "+language [nieuwe taal]",
-        "description": "Laat je huidige taal zien, of verandert het naar een andere taal."
+        "usage": "+language [<nieuwe taal> | list]",
+        "description": "Verandert je taal, toont je huidige taal of geeft een lijst met alle beschikbare talen."
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }

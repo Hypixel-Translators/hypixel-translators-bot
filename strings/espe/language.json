@@ -5,7 +5,7 @@
     "errorTitle": "¡Ese idioma no existe o no está completamente traducido!",
     "errorDescription": "Tu idioma no fue cambiado. Estos idiomas están disponibles (no significa que están traducidos):",
     "current": "Tu preferencia de idioma está establecida en Español (Perú).",
-    "listTitle": "List of languages",
+    "listTitle": "Lista de idiomas",
     "listElement": "`%%code%%` | **%%language%%**",
     "credits": "¿Has encontrado un error? Reportarlo usando `+bug <mensaje>`.",
     "ar": "Árabe",

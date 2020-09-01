@@ -9,7 +9,7 @@
     "seconds": " saniye",
     "usageField": "Kullanım",
     "cooldownField": "Bekleme Süresi",
-    "aliasesField": "Aliases",
+    "aliasesField": "Aliaslar",
     "help": {
         "usage": "+help [komut ismi]",
         "description": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir."
@@ -27,7 +27,7 @@
         "description": "İsteğe bağlı bir mesajla bir dil rolünden bahseder."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
+        "usage": "+context get|add|edit|view|help <konu>",
         "description": "Verilen string kimliği için bağlamı alır, ekler veya düzenler. `+context help` size bu komutla ilgili bilgileri gösterir."
     },
     "bug": {
@@ -39,8 +39,8 @@
         "description": "Bot ile ilgili geri bildirimini yetkililere gönderir."
     },
     "language": {
-        "usage": "+language [yeni dil]",
-        "description": "Şu anki dilini gösterir veya başka bir dil ile değiştirir."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or shows a list of available languages."
     },
     "executedBy": "%%user%% tarafından yürütüldü"
 }

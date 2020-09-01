@@ -2,17 +2,17 @@
     "moduleName": "Halp",
     "commandsListTitle": "All acomands",
     "commandsListTooltip": "Do `+help <acomand næm>` for lern more abt a spacfic acomand.",
-    "madeBy": " | Bot made with lots of care by %%q10%%",
+    "madeBy": " | Bot maed by a lotof banans and alsso %%q10%%",
     "commandInfo": "Info abt acomand",
     "commandInfoFor": "Info abt acomand ",
     "commandNotExist": "Dat acomand existn't!",
-    "seconds": " seconds",
+    "seconds": " sacondz",
     "usageField": "Usache",
     "cooldownField": "Time to get cold and not hot",
     "aliasesField": "Other ways of doing dis",
     "help": {
-        "usage": "+help [name of command]",
-        "description": "Shows you all available commands and other info about the bot."
+        "usage": "+help [naem acomand]",
+        "description": "Letz u look at al de acomcnadns and moar infoo abt the bot."
     },
     "prefix": {
         "usage": "+prefix",
@@ -39,8 +39,8 @@
         "description": "Sends your feedback on the bot to staff."
     },
     "language": {
-        "usage": "+language [new language]",
-        "description": "Shows your current language, or changes it to another one."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or shows a list of available languages."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Done by le %%user%%"
 }
