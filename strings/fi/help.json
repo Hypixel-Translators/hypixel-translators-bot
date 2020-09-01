@@ -1,46 +1,46 @@
 {
-    "moduleName": "Ohjeet",
-    "commandsListTitle": "Komentoluettelo",
-    "commandsListTooltip": "Käytä komentoa `+help <komento>` saadaksesi lisätietoa valitsemastasi komennosta.",
-    "madeBy": " | Botin on huolellisesti kasannut %%q10%%",
-    "commandInfo": "Komennon tiedot",
-    "commandInfoFor": "Tiedot komennolle ",
-    "commandNotExist": "Tätä komentoa ei ole olemassa!",
-    "seconds": " sekuntia",
-    "usageField": "Käyttö",
-    "cooldownField": "Odotusaika",
-    "aliasesField": "Aliakset",
+    "moduleName": "Help",
+    "commandsListTitle": "List of commands",
+    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
+    "commandInfo": "Command information",
+    "commandInfoFor": "Command information for ",
+    "commandNotExist": "That command doesn't exist!",
+    "seconds": " seconds",
+    "usageField": "Usage",
+    "cooldownField": "Cooldown",
+    "aliasesField": "Aliases",
     "help": {
-        "usage": "+help [komennon nimi]",
-        "description": "Näyttää kaikki saatavilla olevat komennot ja muuta tietoa botista."
+        "usage": "+help [name of command]",
+        "description": "Shows you all available commands and other info about the bot."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen."
+        "description": "Gives you the appropriate prefix for your language(s)."
     },
     "quote": {
-        "usage": "+quote [numero] | +quote add <lainaus>/<käyttäjä>",
-        "description": "Hakee (tai lisää) hauskan/oudon/viisaan lainauksen palvelimelta."
+        "usage": "+quote [index] | +quote add <quote>/<user mention>",
+        "description": "Gets (or adds) a funny/weird/wise quote from the server."
     },
     "mention": {
         "usage": "+mention <language> translator|proofreader|all [message]",
         "description": "Mentions a language role with an optional message."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <argumentit>",
-        "description": "Näyttää, lisää tai muokkaa valitun stringin (ID) kontekstia. `+context help` näyttää tietoa tästä komennosta."
+        "usage": "+context get|add|edit|view|help <arguments>",
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
     },
     "bug": {
-        "usage": "+bug <viesti>",
-        "description": "Antaa sinun ilmoittaa botissa esiintyvistä bugeista."
+        "usage": "+bug <message>",
+        "description": "Allows you to report bugs present in the bot."
     },
     "feedback": {
-        "usage": "+feedback <viesti>",
-        "description": "Lähettää palautetta botista ylläpidolle."
+        "usage": "+feedback <message>",
+        "description": "Sends your feedback on the bot to staff."
     },
     "language": {
-        "usage": "+language [kieli]",
-        "description": "Näyttää valitsemasi kielen tai vaihtaa sen toiseksi."
+        "usage": "+language [new language]",
+        "description": "Shows your current language, or changes it to another one."
     },
-    "executedBy": "Komennon suoritti %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
