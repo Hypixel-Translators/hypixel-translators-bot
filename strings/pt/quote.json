@@ -1,9 +1,9 @@
 {
-    "moduleName": "Quote",
+    "moduleName": "Frase",
     "loading": "Só um segundo...",
     "loadingModule": "A carregar o modulo...",
-    "invalidArg": "Invalid argument!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
+    "invalidArg": "Argumento inválido!",
+    "indexArg": "A frase número %%arg%% não existe! O número deve estar entre 1 e %%max%%.",
     "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
     "executedBy": "Executado por %%user%%"
 }
