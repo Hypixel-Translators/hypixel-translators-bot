@@ -23,24 +23,24 @@
         "description": "Mostra (ou adiciona) uma frase engraçada/estranha/sábia dita por um membro do servidor."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with an optional message."
+        "usage": "+mention <idioma> translator|proofreader|all [mensagem]",
+        "description": "Menciona o cargo de um idioma com uma mensagem opcional."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumentos>",
-        "description": "Mostra, adiciona ou edita o contexto de uma string. `+context help` mostra-te mais informações sobre este comando."
+        "description": "Mostra, adiciona ou edita o contexto de uma string. `+context help` dá-te mais informações sobre este comando."
     },
     "bug": {
-        "usage": "+bug <message>",
-        "description": "Allows you to report bugs present in the bot."
+        "usage": "+bug <erro>",
+        "description": "Permite-te reportar erros do bot."
     },
     "feedback": {
-        "usage": "+feedback <message>",
-        "description": "Sends your feedback on the bot to staff."
+        "usage": "+feedback <mensagem>",
+        "description": "Envia o teu feedback sobre o bot para a staff."
     },
     "language": {
-        "usage": "+language [new language]",
-        "description": "Shows your current language, or changes it to another one."
+        "usage": "+language [novo idioma]",
+        "description": "Mostra o teu idioma atual ou altera-o."
     },
     "executedBy": "Executado por %%user%%"
 }
