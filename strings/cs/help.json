@@ -39,8 +39,8 @@
         "description": "Pošle tvou zpětnou vazbu na bota adminům."
     },
     "language": {
-        "usage": "+language [nový jazyk]",
-        "description": "Zobrazí tvůj aktuální jazyk nebo ho změní na jiný."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or shows a list of available languages."
     },
     "executedBy": "Provedeno uživatelem %%user%%"
 }
