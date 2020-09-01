@@ -23,8 +23,8 @@
         "description": "Ottiene (o aggiunge) una citazione divertente/strana/saggia dal server."
     },
     "mention": {
-        "usage": "+mention <lingua> proofreader|translator|all [messaggio]",
-        "description": "Menziona un ruolo lingua con un messaggio."
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argomenti>",
