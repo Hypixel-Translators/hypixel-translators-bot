@@ -42,5 +42,5 @@
         "usage": "+language [new language]",
         "description": "Shows your current language, or changes it to another one."
     },
-    "executedBy": "Done by le %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
