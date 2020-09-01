@@ -6,6 +6,7 @@
     "errorDescription": "Tvůj jazyk nebyl změněn. Momentálně jsou dostupné tyto jazyky (to neznamená, že jsou přeložené):",
     "current": "Tvoje předvolba jazyka je nastavena na češtinu.",
     "listTitle": "List of languages",
+    "listElement": "`%%code%%` | **%%language%%**",
     "credits": "Našel jsi chybu? Nahlas ji pomocí `+bug <zpráva>`.",
     "ar": "arabštinu",
     "bg": "bulharštinu",
