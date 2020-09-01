@@ -32,7 +32,7 @@
     "confirm": "Please confirm this change by reacting with <:vote_yes:732298639749152769> within 10 seconds. To cancel, wait or react with <:vote_no:732298639736570007>.",
     "oldVal": "Old value for ",
     "newVal": "New value for ",
-    "stringId": "String ID",
+    "stringId": "文字列ID",
     "bulgarian": "ブルガリア語",
     "chineseS": "中国語（簡体）",
     "chineseT": "中国語（繁体）",
@@ -67,7 +67,7 @@
         "help": "_Shows this message!_\n`+context help`",
         "fields": "Fields",
         "sheetT": "Context Sheet",
-        "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya, Rodry and QkeleQ10 can see your Google profile name and email.",
+        "sheetD": "[こちらをクリックして、説明情報が掲載されているGoogleシートを開きます。](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n許可された人だけがこのシートを表示できます。リンク先にてページへのアクセス許可をリクエストできます。その際Crowdinのプロフィールリンク (`.../profile/<ユーザ名>`) とDiscordのユーザ名を入力してください。\nStannya、Rodry、QkeleQ10はあなたのGoogleユーザ名とメールアドレスを閲覧できることにご注意ください。",
         "sheetDel": " | Deleting message after 2 minutes"
     },
     "executedBy": "%%user%% によって実行されました"
