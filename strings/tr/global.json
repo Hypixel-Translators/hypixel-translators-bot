@@ -3,7 +3,7 @@
     "outgoingDisclaimer": "Buraya gönderdiğin her mesaj, yetkililere gönderilecek.",
     "error": "Hata",
     "generalError": "Bir şeyler ters gitti.",
-    "generalErrorD": "Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
+    "generalErrorD": "Lütfen komut kullanımını kontrol et ve tekrar dene. Bunun bir iç sorun olduğunu düşünüyorsan, lütfen `+bug <mesaj>` komutunu kullan.",
     "dmError": "Üzgünüm, ama bu komutu özel mesajlarda yürütemezsin.",
     "timeLeftT": "'+%%command%%' komutunu kullanmak için lütfen %%time%% saniye bekle.",
     "executedBy": "%%user%% tarafından yürütüldü"
