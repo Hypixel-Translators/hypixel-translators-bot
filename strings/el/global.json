@@ -1,10 +1,10 @@
 {
-    "outgoing": "Το μήνυμα στάλθηκε στο προσωπικό",
-    "outgoingDisclaimer": "Οποιοδήποτε μήνυμα που θα στείλεις εδώ θα σταλεί στο προσωπικό.",
-    "error": "Σφάλμα",
-    "generalError": "Κάτι πήγε στραβά.",
-    "generalErrorD": "Παρακαλώ τσέκαρε την χρήση της εντολής και προσπάθησε ξανά. Αν νομίζεις ότι αυτό είναι εσωτερικό σφάλμα, παρακαλώ εκτέλεσε `+bug <μήνυμα>`.",
-    "dmError": "Συγνώμη, αλλά δεν μπορείς να εκτελέσεις αυτή την εντολή στα προσωπικά μηνύματα.",
-    "timeLeftT": "Παρακαλώ περίμενε ακόμα %%time%% δευτερόλεπτα για να χρησιμοποιήσεις το `+%%command%%` ξανά.",
+    "outgoing": "Sent message to staff",
+    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
+    "error": "Error",
+    "generalError": "Something has gone wrong.",
+    "generalErrorD": "Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
+    "dmError": "Sorry, but you can't execute this command in private messages.",
+    "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
