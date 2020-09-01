@@ -1,6 +1,6 @@
 {
-    "outgoing": "Sent message to staff",
-    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
+    "outgoing": "スタッフにメッセージを送信",
+    "outgoingDisclaimer": "ここに送信したメッセージはすべてスタッフに送信されます。",
     "error": "エラー",
     "generalError": "問題が発生しました。",
     "generalErrorD": "コマンドの使用法を確認して、もう一度お試しください。これが内部エラーだと思われる場合は `+bug <メッセージ>` を実行してください。",
