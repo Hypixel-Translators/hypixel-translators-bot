@@ -1,7 +1,7 @@
 {
     "moduleName": "説明",
     "loading": "少々お待ちください…",
-    "loadingModule": "Loading module...",
+    "loadingModule": "モジュールを読み込み中…",
     "errors": {
         "notFound1": "The context entry ",
         "notFound2": " hasn't been found!",
