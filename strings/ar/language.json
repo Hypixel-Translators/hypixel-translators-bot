@@ -5,6 +5,7 @@
     "errorTitle": "تلك اللغة غير موجودة أو غير مترجمة بالكامل!",
     "errorDescription": "لم يتم تغيير لغتك. هذه اللغات المتوفرة حاليا (هذا لا يعني أنها مترجمة):",
     "current": "Your language preference is set to English.",
+    "listTitle": "List of languages",
     "credits": "Found an error? Report it using `+bug <message>`.",
     "ar": "العربية",
     "bg": "البلغارية",
