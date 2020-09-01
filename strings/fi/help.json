@@ -39,8 +39,8 @@
         "description": "Lähettää palautetta botista ylläpidolle."
     },
     "language": {
-        "usage": "+language [kieli]",
-        "description": "Näyttää valitsemasi kielen tai vaihtaa sen toiseksi."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or shows a list of available languages."
     },
     "executedBy": "Komennon suoritti %%user%%"
 }
