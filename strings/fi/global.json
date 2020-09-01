@@ -6,5 +6,5 @@
     "generalErrorD": "Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
     "dmError": "Sorry, but you can't execute this command in private messages.",
     "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Komennon suoritti %%user%%"
 }
