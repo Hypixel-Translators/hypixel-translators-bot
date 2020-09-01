@@ -23,8 +23,8 @@
         "description": "获取（或添加）一条此服务器上的有趣/神奇/明智的话语。"
     },
     "mention": {
-        "usage": "+mention <语言> proofreader|translator|all [消息]",
-        "description": "提及某一语言的用户并附带消息。"
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <参数>",
