@@ -39,8 +39,8 @@
         "description": "将您对机器人的反馈消息发送给工作人员。"
     },
     "language": {
-        "usage": "+language [新语言]",
-        "description": "显示您当前的语言，或将其更改为另一语言。"
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or shows a list of available languages."
     },
     "executedBy": "触发者：%%user%%"
 }
