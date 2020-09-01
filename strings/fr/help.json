@@ -39,8 +39,8 @@
         "description": "Envoie tes commentaires sur le bot au staff."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "usage": "+language [nouvelle langue | list]",
+        "description": "Change tu langue, affiche ta langue actuelle ou affiche une liste de langues disponibles."
     },
     "executedBy": "Exécuté par %%user%%"
 }
