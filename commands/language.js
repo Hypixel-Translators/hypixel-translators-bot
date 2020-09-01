@@ -59,7 +59,7 @@ module.exports = {
                             await message.client.channels.cache.get("748968125663543407").send(oldMsg.join(" "))
                         })
                         const newMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
-                        const newFiMessages = await newMessages.filter(element => element.content.startsWith(args[1]))
+                        const newFiMessages = await newMessages.filter(element => element.content.startsWith(args[1] + " "))
                         newFiMessages.forEach(async element => {
                             exists = true
                             strings = await require(("../strings/" + args[1] + "/language.json"))
@@ -89,6 +89,7 @@ module.exports = {
                                     .setDescription("This happened because you chose a language that already was your language preference.")
                                     .setFooter("Executed by " + message.author.tag);
                                 await msg.edit(embed)
+                                return
                             }
                         }, 500)
                     } else {
