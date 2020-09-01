@@ -155,9 +155,11 @@ client.on("message", async message => {
     const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
 
     if (now < expirationTime) {
-      const timeLeft = (expirationTime - now) / 1000;
-      const timeLeftT = globalStrings.timeLeftT.replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", command.name)
-      return message.channel.send(timeLeftT);
+      setTimeout(() => {
+        const timeLeft = (expirationTime - now) / 1000;
+        const timeLeftT = globalStrings.timeLeftT.replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", command.name)
+        return message.channel.send(timeLeftT)
+      }, 100)
     }
   }
 

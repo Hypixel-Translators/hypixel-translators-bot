@@ -22,6 +22,7 @@ module.exports = {
         .setDescription(strings.commandsListTooltip)
         .addFields(
           { name: "`" + strings.help.usage + "`", value: strings.help.description, inline: false },
+          { name: "`" + strings.language.usage + "`", value: strings.language.description, inline: false },
           { name: "`" + strings.prefix.usage + "`", value: strings.prefix.description, inline: false },
           { name: "`" + strings.quote.usage + "`", value: strings.quote.description, inline: false },
           { name: "`" + strings.mention.usage + "`", value: strings.mention.description, inline: false },
