@@ -6,7 +6,7 @@
     "errorDescription": "Yuor langag hants been changang. Thse langagns are curentl avalbe (this dostn mean thery tansalaet):",
     "current": "Ur langag parfanrne is inhale banana.",
     "credits": "Fount eror? Saiye it to uz wit `+bug <mesag>`.",
-    "ar": "Arbarbac",
+    "ar": "Arabic",
     "bg": "Ballgaryan",
     "zhcn": "Chines (les hard)",
     "zhtw": "Chines (veri old)",
@@ -36,5 +36,5 @@
     "th": "Ye Thaiiiiiii",
     "tr": "Torkesh",
     "ua": "United Ki- oh sorry Ukraanan",
-    "executedBy": "Done by le %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
