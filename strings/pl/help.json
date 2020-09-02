@@ -5,42 +5,42 @@
     "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Informacje o poleceniu",
     "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
+    "commandNotExist": "To polecenie nie istnieje!",
     "seconds": " seconds",
     "usageField": "Usage",
     "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
+    "aliasesField": "Aliasy",
     "help": {
-        "usage": "+help [name of command]",
-        "description": "Shows you all available commands and other info about the bot."
+        "usage": "+help [nazwa polecenia]",
+        "description": "Pokazuje wszystkie dostępne polecenia i inne informacje o bocie."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "Podaje przedrostek odpowiedni dla twojego języka/ów."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote>/<user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "usage": "+quote [index] | +quote add <cytat>/<wzmianka użytkownika>",
+        "description": "Pobiera (lub dodaje) śmieszny/dziwny/mądry cytat z serwera."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with an optional message."
+        "usage": "+mention <język> translator|proofreader|all [message]",
+        "description": "Oznacza rolę językową z opcjonalną wiadomością."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "usage": "+context get|add|edit|view|help <argumenty>",
+        "description": "Pobiera, dodaje lub edytuje kontekst danego identyfikatora ciągu. `+context help` pokazuje informację o tym poleceniu."
     },
     "bug": {
-        "usage": "+bug <message>",
+        "usage": "+bug <wiadomość>",
         "description": "Allows you to report bugs present in the bot."
     },
     "feedback": {
-        "usage": "+feedback <message>",
-        "description": "Sends your feedback on the bot to staff."
+        "usage": "+feedback <wiadomość>",
+        "description": "Wysyła opinię o bocie do administracji"
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "usage": "+language [<nowy język> | list]",
+        "description": "Zmienia Twój język, pokazuje bieżący lub pokazuje listę dostępnych języków."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Wykonano przez %%user%%"
 }
