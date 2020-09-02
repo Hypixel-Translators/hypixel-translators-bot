@@ -3,7 +3,7 @@
     "outgoingDisclaimer": "Każda wiadomość wysłana w tym miejscu, zostanie przekazana administracji.",
     "error": "Błąd",
     "generalError": "Coś poszło nie tak.",
-    "generalErrorD": "Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
+    "generalErrorD": "Sprawdź użycie polecenia i spróbuj ponownie. Jeśli uważasz, że jest to błąd wewnętrzny, użyj `+bug <wiadomość>`.",
     "dmError": "Przepraszamy, ale nie możesz wykonać tego polecenia w wiadomości prywatnej.",
     "timeLeftT": "Poczekaj kolejne %%time%% s, aby ponownie użyć `+%%command%%`.",
     "executedBy": "Wykonano przez %%user%%"
