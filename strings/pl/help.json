@@ -1,14 +1,14 @@
 {
     "moduleName": "Pomoc",
     "commandsListTitle": "Spis poleceń",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
+    "commandsListTooltip": "Wykonaj `+help <nazwa polecenia>`, aby dowiedzieć się więcej o określonym poleceniu.",
     "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Informacje o poleceniu",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "To polecenie nie istnieje!",
     "seconds": " seconds",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
+    "usageField": "Użycie",
+    "cooldownField": "Czas odnawiania",
     "aliasesField": "Aliasy",
     "help": {
         "usage": "+help [nazwa polecenia]",
