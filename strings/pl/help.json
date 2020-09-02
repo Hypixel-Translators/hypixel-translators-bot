@@ -1,9 +1,9 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
+    "moduleName": "Pomoc",
+    "commandsListTitle": "Spis poleceń",
     "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
     "madeBy": " | Bot made with lots of care by %%q10%%",
-    "commandInfo": "Command information",
+    "commandInfo": "Informacje o poleceniu",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "That command doesn't exist!",
     "seconds": " seconds",
