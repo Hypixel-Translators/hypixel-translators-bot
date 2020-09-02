@@ -12,11 +12,11 @@
         "notSaved": "so your prefix wasn't saved."
     },
     "react": "Dodaj reakcje wszystkich flag, które chciałbyś dodać do swojego prefiksu w odpowiedniej kolejności.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "Nickname preview",
-    "newNickT": "New nickname",
-    "noChanges": "No changes",
+    "reactTimer": "Masz 20 sekund, aby anulować poprzez wciśnięcie ❎.",
+    "reactTimer2": "Pozostało Ci mniej niż 20 sekund. Naciśnij ✅, aby potwierdzić lub ❎ aby anulować.",
+    "previewT": "Podgląd pseudonimu",
+    "newNickT": "Nowy pseudonim",
+    "noChanges": "Bez zmian",
     "saved": "Your prefix has been saved!",
     "executedBy": "Wykonano przez %%user%%"
 }
