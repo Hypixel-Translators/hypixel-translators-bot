@@ -67,7 +67,7 @@
         "help": "_Pokazuje tę wiadomość!_\n`+context help`",
         "fields": "Pola",
         "sheetT": "Arkusz kontekstowy",
-        "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya, Rodry and QkeleQ10 can see your Google profile name and email.",
+        "sheetD": "[Kliknij tutaj, aby otworzyć Google Sheet zawierający kontekst informacji.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nTylko konkretne osoby mogą otworzyć ten arkusz. Możesz poprosić o dostęp poprzez podany link. Proszę wypełnić go podając link do swojego profilu Crowdin (`.../profile/<nick>`) i dodając swój pseudonim Discord.\nPamiętaj, że Stannya, Rodry i QkeleQ10 mogą zobaczyć nazwę oraz adres e-mail twojego profilu Google.",
         "sheetDel": " | Wiadomość zostanie usunięta po dwu minutach"
     },
     "executedBy": "Wykonano przez %%user%%"
