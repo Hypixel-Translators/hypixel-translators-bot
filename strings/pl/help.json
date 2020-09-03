@@ -2,11 +2,11 @@
     "moduleName": "Pomoc",
     "commandsListTitle": "Spis poleceń",
     "commandsListTooltip": "Wykonaj `+help <nazwa polecenia>`, aby dowiedzieć się więcej o określonym poleceniu.",
-    "madeBy": " | Bot made with lots of care by %%q10%%",
+    "madeBy": " | Bot wykonany z ogromną starannością przez %%q10%%",
     "commandInfo": "Informacje o poleceniu",
-    "commandInfoFor": "Command information for ",
+    "commandInfoFor": "Informacje o poleceniu dla ",
     "commandNotExist": "To polecenie nie istnieje!",
-    "seconds": " seconds",
+    "seconds": " sekund",
     "usageField": "Użycie",
     "cooldownField": "Czas odnawiania",
     "aliasesField": "Aliasy",
@@ -32,7 +32,7 @@
     },
     "bug": {
         "usage": "+bug <wiadomość>",
-        "description": "Allows you to report bugs present in the bot."
+        "description": "Pozwala na zgłoszenie błędów wstępujących w bocie."
     },
     "feedback": {
         "usage": "+feedback <wiadomość>",

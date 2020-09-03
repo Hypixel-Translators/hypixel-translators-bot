@@ -5,6 +5,6 @@
     "generalError": "Coś poszło nie tak.",
     "generalErrorD": "Sprawdź użycie polecenia i spróbuj ponownie. Jeśli uważasz, że jest to błąd wewnętrzny, użyj `+bug <wiadomość>`.",
     "dmError": "Przepraszamy, ale nie możesz wykonać tego polecenia w wiadomości prywatnej.",
-    "timeLeftT": "Poczekaj kolejne %%time%% s, aby ponownie użyć `+%%command%%`.",
+    "timeLeftT": "Poczekaj kolejne %%time%% sekund, aby ponownie użyć `+%%command%%`.",
     "executedBy": "Wykonano przez %%user%%"
 }
