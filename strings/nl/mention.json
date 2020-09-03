@@ -1,9 +1,9 @@
 {
-    "errorNoPing": "You don't have that language's proofreader role, ",
-    "errorNoPingPr": "so you can't mention it.",
-    "errorNoPingTr": "so you can't mention its translator role.",
-    "errorNoPingAll": "so you can't mention the entire language.",
-    "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to.",
-    "errorNotFound": "The role you entered doesn't exist. You can enter the language name, or any of these: ",
+    "errorNoPing": "Je hebt de proeflezerrol van die taal niet, ",
+    "errorNoPingPr": "dus je kunt het niet vermelden.",
+    "errorNoPingTr": "dus je kunt de vertalersrol niet vermelden.",
+    "errorNoPingAll": "dus je kunt de hele taal niet vermelden.",
+    "errorNoPingDisclaimer": "Neem contact op met de servereigenaar of -beheerder als het echt nodig is.",
+    "errorNotFound": "De ingevoerde rol bestaat niet. Je kunt de taalnaam of een van deze opgeven: ",
     "executedBy": "Uitgevoerd door %%user%%"
 }
