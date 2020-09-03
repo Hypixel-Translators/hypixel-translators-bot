@@ -3,13 +3,13 @@
     "loading": "Sekundkę…",
     "loadingRoles": "Pobieranie ról...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
-        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
+        "noLanguages": "Nie masz żadnych ról językowych! Skontaktuj się z <@722738307477536778>, jeśli uważasz, że jest to błąd.",
+        "error": "Nie udało się zmienić pseudonimu. Możesz skopiować pseudonim poniżej i dodać go własnoręcznie.",
+        "confirmedNoFlags": "Potwierdzono, ale nie zareagowano na żadne flagi, ",
         "cancelled": "Anulowałeś zmianę swojego pseudonimu, ",
         "alreadyThis": "Posługujesz się już tym pseudonimem, ",
         "timeOut": "Nie zareagowałeś żadnymi flagami, ",
-        "notSaved": "so your prefix wasn't saved."
+        "notSaved": "więc Twój przedrostek nie został zapisany."
     },
     "react": "Dodaj reakcje wszystkich flag, które chciałbyś dodać do swojego prefiksu w odpowiedniej kolejności.",
     "reactTimer": "Masz 20 sekund, aby anulować poprzez wciśnięcie ❎.",
@@ -17,6 +17,6 @@
     "previewT": "Podgląd pseudonimu",
     "newNickT": "Nowy pseudonim",
     "noChanges": "Bez zmian",
-    "saved": "Your prefix has been saved!",
+    "saved": "Twój przedrostek został zapisany!",
     "executedBy": "Wykonano przez %%user%%"
 }
