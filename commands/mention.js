@@ -33,6 +33,7 @@ module.exports = {
     if (toLook === "It") { toLook = "Italian" }
     if (toLook === "Ja") { toLook = "Japanese" }
     if (toLook === "Ko") { toLook = "Korean" }
+    if (toLook === "Ms") { toLook = "Malay" }
     if (toLook === "No") { toLook = "Norwegian" }
     if (toLook === "Pl") { toLook = "Polish" }
     if (toLook === "Pt") { toLook = "Portuguese" }
@@ -52,7 +53,7 @@ module.exports = {
     const role = message.guild.roles.cache.find(x => x.name == (toLook + " Proofreader"))
 
     if (!role) {
-      message.channel.send(strings.errorNotFound + "`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.");
+      message.channel.send(strings.errorNotFound + "`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.");
       return;
     }
     if (type === "pf" || type === "pr" || type === "proofreader" || type === "Proofreader") {

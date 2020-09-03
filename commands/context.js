@@ -92,6 +92,7 @@ async function getFromSpreadsheet(executedBy, strings, message, args, msg) {
     if (correctRow.it) { if (correctRow.it.length > 1) { embed.addFields({ name: strings.noteFor + strings.italian, value: correctRow.it, inline: true }) } }
     if (correctRow.ja) { if (correctRow.ja.length > 1) { embed.addFields({ name: strings.noteFor + strings.japanese, value: correctRow.ja, inline: true }) } }
     if (correctRow.ko) { if (correctRow.ko.length > 1) { embed.addFields({ name: strings.noteFor + strings.korean, value: correctRow.ko, inline: true }) } }
+    if (correctRow.ms) { if (correctRow.ms.length > 1) { embed.addFields({ name: strings.noteFor + strings.malay, value: correctRow.ms, inline: true }) } }
     if (correctRow.no) { if (correctRow.no.length > 1) { embed.addFields({ name: strings.noteFor + strings.norwegian, value: correctRow.no, inline: true }) } }
     if (correctRow.enpt) { if (correctRow.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.pirate, value: correctRow.enpt, inline: true }) } }
     if (correctRow.pl) { if (correctRow.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.polish, value: correctRow.pl, inline: true }) } }
@@ -262,6 +263,7 @@ async function addToSpreadsheet(executedBy, strings, message, args, msg) {
                         if (result.it) { if (result.it.length > 1) { embed.addFields({ name: strings.noteFor + strings.italian, value: result.it, inline: true }) } }
                         if (result.ja) { if (result.ja.length > 1) { embed.addFields({ name: strings.noteFor + strings.japanese, value: result.ja, inline: true }) } }
                         if (result.ko) { if (result.ko.length > 1) { embed.addFields({ name: strings.noteFor + strings.korean, value: result.ko, inline: true }) } }
+                        if (result.ms) { if (result.ms.length > 1) { embed.addFields({ name: strings.noteFor + strings.malay, value: result.ms, inline: true }) } }
                         if (result.no) { if (result.no.length > 1) { embed.addFields({ name: strings.noteFor + strings.norwegian, value: result.no, inline: true }) } }
                         if (result.enpt) { if (result.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.pirate, value: result.enpt, inline: true }) } }
                         if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.polish, value: result.pl, inline: true }) } }
@@ -462,6 +464,7 @@ async function editInSpreadsheet(executedBy, strings, message, args, msg) {
             if (result.it) { if (result.it.length > 1) { embed.addFields({ name: strings.noteFor + strings.italian, value: result.it, inline: true }) } }
             if (result.ja) { if (result.ja.length > 1) { embed.addFields({ name: strings.noteFor + strings.japanese, value: result.ja, inline: true }) } }
             if (result.ko) { if (result.ko.length > 1) { embed.addFields({ name: strings.noteFor + strings.korean, value: result.ko, inline: true }) } }
+            if (result.ms) { if (result.ms.length > 1) { embed.addFields({ name: strings.noteFor + strings.malay, value: result.ms, inline: true }) } }
             if (result.no) { if (result.no.length > 1) { embed.addFields({ name: strings.noteFor + strings.norwegian, value: result.no, inline: true }) } }
             if (result.enpt) { if (result.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.pirate, value: result.enpt, inline: true }) } }
             if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.polish, value: result.pl, inline: true }) } }
