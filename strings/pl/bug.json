@@ -2,6 +2,6 @@
     "moduleName": "Zgłoś błąd",
     "sendingTitle": "Wysyłanie zgłoszenia o błędzie do administracji…",
     "sentTitle": "Zgłoszenie o błędzie zostało wysłane!",
-    "addMessage": "You haven't provided a message!",
+    "addMessage": "Nie podano wiadomości!",
     "executedBy": "Wykonano przez %%user%%"
 }
