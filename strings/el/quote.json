@@ -1,9 +1,9 @@
 {
-    "moduleName": "Quote",
+    "moduleName": "Παράθεμα",
     "loading": "One second...",
     "loadingModule": "Loading module...",
-    "invalidArg": "Invalid argument!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-    "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
+    "invalidArg": "Μη έγκυρο επιχείρημα!",
+    "indexArg": "Ένα παράθεμα με ένδειξη %%arg%% δεν υπάρχει! Παρακαλώ εισήγαγε έναν αριθμό μεταξύ του 1 και %%max%%.",
+    "specUser": "Δεν προσδιόρισες έναν χρήστη! Παρακαλώ πληκτρολόγησε το παράθεμα και μετά ανέφερε τον χρήστη που το παρέθεσε, χωρισμένα από μία κάθετη γραμμή.",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
