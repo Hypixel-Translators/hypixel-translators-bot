@@ -22,6 +22,7 @@
     {"name": "Italian", "emoji": "🇮🇹", "colour": "#21de70", "code": "it"},
     {"name": "Japanese", "emoji": "🇯🇵", "colour": "#21de70", "code": "ja"},
     {"name": "Korean", "emoji": "🇰🇷", "colour": "#21de70", "code": "ko"},
+    {"name": "Malay", "emoji": "🇲🇾", "colour": "#e02222", "code": "ms"},
     {"name": "Norwegian", "emoji": "🇳🇴", "colour": "#e02222", "code": "no"},
     {"name": "Polish", "emoji": "🇵🇱", "colour": "#21de70", "code": "pl"},
     {"name": "Portuguese", "emoji": "🇵🇹", "colour": "#21de70", "code": "pt"},
