@@ -9,8 +9,8 @@ module.exports = {
   cooldown: 120,
   channelBlackList: ["621298919535804426", "619662798133133312", "712046319375482910", "644620638878695424", "550951034332381184", "549894938712866816", "713084081579098152"],
   execute(strings, message, args) {
-    if (!args[0]) {
-      message.channel.send(strings.errorNotFound + "`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.");
+    if (!args[1]) {
+      message.channel.send(strings.errorNoArgs + "\n`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.");
       return
     }
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
@@ -57,7 +57,7 @@ module.exports = {
     const role = message.guild.roles.cache.find(x => x.name == (toLook + " Proofreader"))
 
     if (!role) {
-      message.channel.send(strings.errorNotFound + "`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.");
+      message.channel.send(strings.errorNotFound + "\n`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.");
       return;
     }
     if (type === "pf" || type === "pr" || type === "proofreader" || type === "Proofreader") {
