@@ -1,5 +1,5 @@
 {
-    "moduleName": "Help",
+    "moduleName": "Hjælp",
     "commandsListTitle": "List of commands",
     "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
     "madeBy": " | Bot made with lots of care by %%q10%%",
