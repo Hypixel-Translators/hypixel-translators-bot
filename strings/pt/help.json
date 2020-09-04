@@ -19,7 +19,7 @@
         "description": "Dá-te o prefixo apropriado para o(s) teu(s) idioma(s)."
     },
     "quote": {
-        "usage": "+quote [número] | +quote add <frase>/<autor identificado>",
+        "usage": "+quote [número] | +quote add <citação>/<autor identificado>",
         "description": "Mostra (ou adiciona) uma frase engraçada/estranha/sábia dita por um membro do servidor."
     },
     "mention": {
