@@ -31,11 +31,11 @@
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
     },
     "bug": {
-        "usage": "+bug <message>",
+        "usage": "+bug <besked>",
         "description": "Allows you to report bugs present in the bot."
     },
     "feedback": {
-        "usage": "+feedback <message>",
+        "usage": "+feedback <besked>",
         "description": "Sends your feedback on the bot to staff."
     },
     "language": {
