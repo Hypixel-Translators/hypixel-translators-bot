@@ -6,10 +6,10 @@
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "That command doesn't exist!",
-    "seconds": " seconds",
-    "usageField": "Usage",
+    "seconds": " sekunder",
+    "usageField": "Anvendelse",
     "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
+    "aliasesField": "Aliasser",
     "help": {
         "usage": "+help [name of command]",
         "description": "Shows you all available commands and other info about the bot."
@@ -42,5 +42,5 @@
         "usage": "+language [<new language> | list]",
         "description": "Changes your language, shows your current one or shows a list of available languages."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Udført af %%user%%"
 }
