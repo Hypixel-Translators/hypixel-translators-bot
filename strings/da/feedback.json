@@ -2,6 +2,6 @@
     "moduleName": "Giv feedback",
     "sendingTitle": "Sender din feedback til personalet...",
     "sentTitle": "Din feedback er blevet sendt!",
-    "addMessage": "You haven't provided a message!",
-    "executedBy": "Executed by %%user%%"
+    "addMessage": "Du har ikke angivet en besked!",
+    "executedBy": "Udført af %%user%%"
 }
