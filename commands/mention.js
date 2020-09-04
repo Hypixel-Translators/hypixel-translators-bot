@@ -11,7 +11,7 @@ module.exports = {
   execute(strings, message, args) {
     if (!args[0]) {
       message.channel.send(strings.errorNotFound + "`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.");
-      r
+      return
     }
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     var type = args[1]
