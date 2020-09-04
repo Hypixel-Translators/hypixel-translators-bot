@@ -1,9 +1,9 @@
 {
-    "errorNoPing": "You don't have that language's proofreader role, ",
-    "errorNoPingPr": "so you can't mention it.",
-    "errorNoPingTr": "so you can't mention its translator role.",
-    "errorNoPingAll": "so you can't mention the entire language.",
-    "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to.",
-    "errorNotFound": "The role you entered doesn't exist. You can enter the language name, or any of these: ",
+    "errorNoPing": "Nie masz roli korektora tego języka, ",
+    "errorNoPingPr": "więc nie możesz jej oznaczyć.",
+    "errorNoPingTr": "więc nie możesz oznaczyć roli tłumacza.",
+    "errorNoPingAll": "więc nie możesz oznaczyć całego języka.",
+    "errorNoPingDisclaimer": "Jeżeli musisz, skontaktuj się z właścicielem serwera lub administratorem.",
+    "errorNotFound": "Wprowadzona rola nie istnieje. Możesz wprowadzić nazwę języka lub dowolne z podanych: ",
     "executedBy": "Wykonano przez %%user%%"
 }

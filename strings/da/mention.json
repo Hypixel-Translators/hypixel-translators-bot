@@ -5,5 +5,5 @@
     "errorNoPingAll": "so you can't mention the entire language.",
     "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to.",
     "errorNotFound": "The role you entered doesn't exist. You can enter the language name, or any of these: ",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Udført af %%user%%"
 }
