@@ -5,6 +5,6 @@
     "errorNoPingAll": "logo não podes mencionar o idioma todo.",
     "errorNoPingDisclaimer": "Se precisares mesmo de o fazer, contacta o dono ou o administrador do servidor.",
     "errorNotFound": "O cargo que inseriste não existe. Podes escrever o nome do idioma, ou qualquer um destes: ",
-    "errorNoArgs": "You forgot to specify a language/role! These are available right now: ",
+    "errorNoArgs": "Esqueceste-te de especificar um idioma/cargo! Estes são os idiomas disponíveis neste momento: ",
     "executedBy": "Executado por %%user%%"
 }
