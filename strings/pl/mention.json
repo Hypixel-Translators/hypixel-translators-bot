@@ -5,5 +5,6 @@
     "errorNoPingAll": "więc nie możesz oznaczyć całego języka.",
     "errorNoPingDisclaimer": "Jeżeli musisz, skontaktuj się z właścicielem serwera lub administratorem.",
     "errorNotFound": "Wprowadzona rola nie istnieje. Możesz wprowadzić nazwę języka lub dowolne z podanych: ",
+    "errorNoArgs": "You forgot to specify a language/role! These are available right now: ",
     "executedBy": "Wykonano przez %%user%%"
 }
