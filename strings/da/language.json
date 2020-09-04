@@ -1,5 +1,5 @@
 {
-    "moduleName": "Language",
+    "moduleName": "Sprog",
     "changingTitle": "Changing your language...",
     "changedToTitle": "Changed your language to English!",
     "errorTitle": "That language doesn't exist or isn't completely translated!",
@@ -39,5 +39,5 @@
     "th": "Thai",
     "tr": "Tyrkisk",
     "ua": "Ukrainsk",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Udført af %%user%%"
 }
