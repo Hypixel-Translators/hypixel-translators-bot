@@ -1,7 +1,7 @@
 {
     "moduleName": "Kontekst",
     "loading": "Et sekund...",
-    "loadingModule": "Loading module...",
+    "loadingModule": "Indlæser modulet...",
     "errors": {
         "notFound1": "The context entry ",
         "notFound2": " hasn't been found!",
