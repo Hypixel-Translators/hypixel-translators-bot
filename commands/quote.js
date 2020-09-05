@@ -17,7 +17,7 @@ module.exports = {
             .setAuthor(strings.moduleName)
             .setTitle(strings.loading)
             .setDescription(strings.loadingModule)
-            .setImage("https://i.imgur.com/x97qbkw.gif")
+            .setImage("https://i.imgur.com/5dxAsao.gif")
             .setFooter(executedBy);
         message.channel.send(embed).then(msg => {
             if (args[0] === "add") {
