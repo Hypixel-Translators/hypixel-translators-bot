@@ -416,7 +416,7 @@ async function editInSpreadsheet(executedBy, strings, message, args, msg) {
                 .setColor(errorColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.editContextFor + args[1])
-                .setDescription(strings.hitReaction + strings.cancelledPrompt)
+                .setDescription(strings.errors.hitReaction + strings.errors.cancelledPrompt)
                 .setFooter(executedBy);
             msg.edit(embed)
             setTimeout(() => {
