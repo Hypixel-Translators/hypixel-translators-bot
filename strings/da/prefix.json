@@ -1,6 +1,6 @@
 {
     "moduleName": "Prefix",
-    "loading": "One second...",
+    "loading": "Et sekund...",
     "loadingRoles": "Fetching your roles...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
