@@ -1,7 +1,7 @@
 {
     "moduleName": "Citat",
     "loading": "Et sekund...",
-    "loadingModule": "Loading module...",
+    "loadingModule": "Indlæser modulet...",
     "invalidArg": "Ugyldigt argument!",
     "indexArg": "Et citat med indekset %%arg%% findes ikke! Angiv venligst et nummer mellem 1 og %%max%%.",
     "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
