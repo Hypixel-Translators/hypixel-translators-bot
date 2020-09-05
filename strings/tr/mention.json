@@ -5,7 +5,7 @@
     "errorNoPingAll": "yani bütün dilden bahsedemezsin.",
     "errorNoPingDisclaimer": "Gerçekten gerekiyorsa sunucu sahibi veya yöneticisiyle iletişime geç.",
     "errorNotFound": "Girdiğin rol yok. Bir dil ismi veya bunlardan birini girebilirsin: ",
-    "errorNoArgs": "You forgot to specify a language! You can enter the language name, or any of these: ",
+    "errorNoArgs": "You forgot to specify a language! You can enter the language name, in english, or any of these: ",
     "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
     "executedBy": "%%user%% tarafından yürütüldü"
 }
