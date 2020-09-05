@@ -23,7 +23,6 @@ module.exports = {
             return;
         }
 
-
         //message.delete();
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)

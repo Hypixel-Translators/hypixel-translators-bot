@@ -1,3 +1,7 @@
 {
+    "moduleName": "Poslat zpětnou vazbu",
+    "sendingTitle": "Tvá zpětná vazba se odesílá adminům...",
+    "sentTitle": "Tvá zpětná vazba byla odeslána!",
+    "addMessage": "Nenapsal jsi žádnou zprávu!",
     "executedBy": "Provedeno uživatelem %%user%%"
 }

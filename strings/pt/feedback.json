@@ -1,3 +1,7 @@
 {
+    "moduleName": "Dar feedback",
+    "sendingTitle": "A enviar o teu feedback à staff...",
+    "sentTitle": "O teu feedback foi enviado!",
+    "addMessage": "Não adicionaste uma mensagem!",
     "executedBy": "Executado por %%user%%"
 }

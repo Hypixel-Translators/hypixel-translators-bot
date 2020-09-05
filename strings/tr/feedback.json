@@ -1,3 +1,7 @@
 {
+    "moduleName": "Geri bildirim ver",
+    "sendingTitle": "Geri bildirimin yetkililere gönderiliyor...",
+    "sentTitle": "Geri bildiriminiz gönderildi!",
+    "addMessage": "Bir mesaj yazmadınız!",
     "executedBy": "%%user%% tarafından yürütüldü"
 }

@@ -1,3 +1,11 @@
 {
+    "errorNoPing": "Não tens o cargo de revisor desse idioma, ",
+    "errorNoPingPr": "logo não o podes mencionar.",
+    "errorNoPingTr": "logo não podes mencionar o seu cargo de tradutor.",
+    "errorNoPingAll": "logo não podes mencionar o idioma todo.",
+    "errorNoPingDisclaimer": "Se precisares mesmo de o fazer, contacta o dono ou o administrador do servidor.",
+    "errorNotFound": "O cargo que inseriste não existe. Podes escrever o nome do idioma, ou qualquer um destes: ",
+    "errorNoArgs": "Esqueceste-te de especificar um idioma! Podes escrever o nome do mesmo, em inglês, ou qualquer um destes: ",
+    "errorNoArgs2": "Esqueceste-te de especificar um tipo de cargo! Seleciona um destes: ",
     "executedBy": "Executado por %%user%%"
 }

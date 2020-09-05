@@ -1,3 +1,7 @@
 {
+    "moduleName": "Enviar comentarios",
+    "sendingTitle": "Enviando tu comentario al staff...",
+    "sentTitle": "¡Tus comentarios se han enviado!",
+    "addMessage": "¡No has introducido ningún mensaje!",
     "executedBy": "Ejecutado por %%user%%"
 }

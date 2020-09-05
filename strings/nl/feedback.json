@@ -1,3 +1,7 @@
 {
+    "moduleName": "Feedback geven",
+    "sendingTitle": "Je feedback wordt verzonden...",
+    "sentTitle": "Je feedback is verzonden!",
+    "addMessage": "Je hebt geen bericht opgegeven!",
     "executedBy": "Uitgevoerd door %%user%%"
 }

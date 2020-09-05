@@ -1,3 +1,11 @@
 {
-    "executedBy": "Executed by %%user%%"
+    "errorNoPing": "Nie masz roli korektora tego języka, ",
+    "errorNoPingPr": "więc nie możesz jej oznaczyć.",
+    "errorNoPingTr": "więc nie możesz oznaczyć roli tłumacza.",
+    "errorNoPingAll": "więc nie możesz oznaczyć całego języka.",
+    "errorNoPingDisclaimer": " Jeżeli musisz, skontaktuj się z właścicielem serwera lub administratorem.",
+    "errorNotFound": "Wprowadzona rola nie istnieje. Możesz wprowadzić nazwę języka lub dowolne z podanych: ",
+    "errorNoArgs": "You forgot to specify a language! You can enter the language name, in english, or any of these: ",
+    "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
+    "executedBy": "Wykonano przez %%user%%"
 }

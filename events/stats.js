@@ -43,7 +43,7 @@ async function hypixel(client) {
                         if (stringCount.content < json[0].phrases) {
                             client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel project.")
                         } else {
-                            client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been removed from the Hypixel project.")
+                            client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " strings have been removed from the Hypixel project.")
                         }
                         stringCount.edit(json[0].phrases)
                     }
@@ -87,9 +87,9 @@ async function quickplay(client) {
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Quickplay project.")
+                            client.channels.cache.get("646383292010070016").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Quickplay project.")
                         } else {
-                            client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been removed from the Quickplay project.")
+                            client.channels.cache.get("646383292010070016").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " strings have been removed from the Quickplay project.")
                         }
                         stringCount.edit(json[0].phrases)
                     }
@@ -109,9 +109,9 @@ async function bot(client) {
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel Translators Bot project.")
+                            client.channels.cache.get("749391414600925335").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel Translators Bot project.")
                         } else {
-                            client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been removed from the Hypixel Translators Bot project.")
+                            client.channels.cache.get("749391414600925335").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " strings have been removed from the Hypixel Translators Bot project.")
                         }
                         stringCount.edit(json[0].phrases)
                     }
