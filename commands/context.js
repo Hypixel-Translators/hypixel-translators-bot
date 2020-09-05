@@ -96,11 +96,11 @@ async function getFromSpreadsheet(executedBy, strings, message, args, msg) {
     if (correctRow.no) { if (correctRow.no.length > 1) { embed.addFields({ name: strings.noteFor + strings.norwegian, value: correctRow.no, inline: true }) } }
     if (correctRow.enpt) { if (correctRow.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.pirate, value: correctRow.enpt, inline: true }) } }
     if (correctRow.pl) { if (correctRow.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.polish, value: correctRow.pl, inline: true }) } }
-    if (correctRow.ptpt) { if (correctRow.ptpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.portuguese, value: correctRow.ptpt, inline: true }) } }
+    if (correctRow.pt) { if (correctRow.pt.length > 1) { embed.addFields({ name: strings.noteFor + strings.portuguese, value: correctRow.pt, inline: true }) } }
     if (correctRow.ptbr) { if (correctRow.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.brazilian, value: correctRow.ptbr, inline: true }) } }
     if (correctRow.ru) { if (correctRow.ru.length > 1) { embed.addFields({ name: strings.noteFor + strings.russian, value: correctRow.ru, inline: true }) } }
-    if (correctRow.eses) { if (correctRow.eses.length > 1) { embed.addFields({ name: strings.noteFor + strings.spanish, value: correctRow.eses, inline: true }) } }
-    if (correctRow.svse) { if (correctRow.svse.length > 1) { embed.addFields({ name: strings.noteFor + strings.swedish, value: correctRow.svse, inline: true }) } }
+    if (correctRow.es) { if (correctRow.es.length > 1) { embed.addFields({ name: strings.noteFor + strings.spanish, value: correctRow.es, inline: true }) } }
+    if (correctRow.sv) { if (correctRow.sv.length > 1) { embed.addFields({ name: strings.noteFor + strings.swedish, value: correctRow.sv, inline: true }) } }
     if (correctRow.th) { if (correctRow.th.length > 1) { embed.addFields({ name: strings.noteFor + strings.thai, value: correctRow.th, inline: true }) } }
     if (correctRow.tr) { if (correctRow.tr.length > 1) { embed.addFields({ name: strings.noteFor + strings.turkish, value: correctRow.tr, inline: true }) } }
     if (correctRow.uk) { if (correctRow.uk.length > 1) { embed.addFields({ name: strings.noteFor + strings.ukrainian, value: correctRow.uk, inline: true }) } }
@@ -267,11 +267,11 @@ async function addToSpreadsheet(executedBy, strings, message, args, msg) {
                         if (result.no) { if (result.no.length > 1) { embed.addFields({ name: strings.noteFor + strings.norwegian, value: result.no, inline: true }) } }
                         if (result.enpt) { if (result.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.pirate, value: result.enpt, inline: true }) } }
                         if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.polish, value: result.pl, inline: true }) } }
-                        if (result.ptpt) { if (result.ptpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.portuguese, value: result.ptpt, inline: true }) } }
+                        if (result.pt) { if (result.pt.length > 1) { embed.addFields({ name: strings.noteFor + strings.portuguese, value: result.pt, inline: true }) } }
                         if (result.ptbr) { if (result.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.brazilian, value: result.ptbr, inline: true }) } }
                         if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: strings.noteFor + strings.russian, value: result.ru, inline: true }) } }
-                        if (result.eses) { if (result.eses.length > 1) { embed.addFields({ name: strings.noteFor + strings.spanish, value: result.eses, inline: true }) } }
-                        if (result.svse) { if (result.svse.length > 1) { embed.addFields({ name: strings.noteFor + strings.swedish, value: result.svse, inline: true }) } }
+                        if (result.es) { if (result.es.length > 1) { embed.addFields({ name: strings.noteFor + strings.spanish, value: result.es, inline: true }) } }
+                        if (result.sv) { if (result.sv.length > 1) { embed.addFields({ name: strings.noteFor + strings.swedish, value: result.sv, inline: true }) } }
                         if (result.th) { if (result.th.length > 1) { embed.addFields({ name: strings.noteFor + strings.thai, value: result.th, inline: true }) } }
                         if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: strings.noteFor + strings.turkish, value: result.tr, inline: true }) } }
                         if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: strings.noteFor + strings.ukrainian, value: result.uk, inline: true }) } }
@@ -468,11 +468,11 @@ async function editInSpreadsheet(executedBy, strings, message, args, msg) {
             if (result.no) { if (result.no.length > 1) { embed.addFields({ name: strings.noteFor + strings.norwegian, value: result.no, inline: true }) } }
             if (result.enpt) { if (result.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.pirate, value: result.enpt, inline: true }) } }
             if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.polish, value: result.pl, inline: true }) } }
-            if (result.ptpt) { if (result.ptpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.portuguese, value: result.ptpt, inline: true }) } }
+            if (result.pt) { if (result.pt.length > 1) { embed.addFields({ name: strings.noteFor + strings.portuguese, value: result.pt, inline: true }) } }
             if (result.ptbr) { if (result.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.brazilian, value: result.ptbr, inline: true }) } }
             if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: strings.noteFor + strings.russian, value: result.ru, inline: true }) } }
-            if (result.eses) { if (result.eses.length > 1) { embed.addFields({ name: strings.noteFor + strings.spanish, value: result.eses, inline: true }) } }
-            if (result.svse) { if (result.svse.length > 1) { embed.addFields({ name: strings.noteFor + strings.swedish, value: result.svse, inline: true }) } }
+            if (result.es) { if (result.es.length > 1) { embed.addFields({ name: strings.noteFor + strings.spanish, value: result.es, inline: true }) } }
+            if (result.sv) { if (result.sv.length > 1) { embed.addFields({ name: strings.noteFor + strings.swedish, value: result.sv, inline: true }) } }
             if (result.th) { if (result.th.length > 1) { embed.addFields({ name: strings.noteFor + strings.thai, value: result.th, inline: true }) } }
             if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: strings.noteFor + strings.turkish, value: result.tr, inline: true }) } }
             if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: strings.noteFor + strings.ukrainian, value: result.uk, inline: true }) } }
@@ -515,7 +515,7 @@ async function showInfo(executedBy, strings, message, args, msg) {
             { name: "Edit", value: strings.info.edit },
             { name: "View", value: strings.info.view },
             { name: "Help", value: strings.info.help },
-            { name: "Fields", value: "id, context, screenshot, bg, zhcn, zhtw, cs, da, nl, fi, fr, de, el, it, ja, ko, no, enpt, pl, ptpt, ptbr, ru, eses, svse, th, tr, uk" }
+            { name: "Fields", value: "id, context, screenshot, bg, zhcn, zhtw, cs, da, nl, fi, fr, de, el, it, ja, ko, no, enpt, pl, pt, ptbr, ru, es, sv, th, tr, uk" }
         )
         .setFooter(executedBy);
     msg.edit(embed)
