@@ -5,7 +5,7 @@
     "errorNoPingAll": "así que no puedes mencionar el idioma entero.",
     "errorNoPingDisclaimer": "Contacta el dueño del servidor o administrador si realmente lo necesitas.",
     "errorNotFound": "El role que ingresó no existe. Puedes ingresar el nombre del idioma o cualquiera de estos: ",
-    "errorNoArgs": "You forgot to specify a language! You can enter the language name, or any of these: ",
+    "errorNoArgs": "You forgot to specify a language! You can enter the language name, in english, or any of these: ",
     "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
     "executedBy": "Ejecutado por %%user%%"
 }
