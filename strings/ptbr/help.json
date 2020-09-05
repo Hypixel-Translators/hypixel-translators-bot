@@ -16,7 +16,7 @@
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "Fornece o prefixo apropriado para seu(s) idioma(s)."
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote>/<user mention>",
