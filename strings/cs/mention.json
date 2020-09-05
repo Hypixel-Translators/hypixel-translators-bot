@@ -5,6 +5,7 @@
     "errorNoPingAll": "takže nemůžeš zmínit celý jazyk.",
     "errorNoPingDisclaimer": "Pokud to opravdu potřebuješ, obrať se na majitele serveru nebo admina.",
     "errorNotFound": "Uživatelská role, kterou jsi zadal, neexistuje. Můžeš zadat název jazyka, nebo kteroukoliv roli z těchto možností: ",
-    "errorNoArgs": "You forgot to specify a language/role! These are available right now: ",
+    "errorNoArgs": "You forgot to specify a language! You can enter the language name, or any of these: ",
+    "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
     "executedBy": "Provedeno uživatelem %%user%%"
 }

@@ -5,6 +5,7 @@
     "errorNoPingAll": "dus je kunt de hele taal niet vermelden.",
     "errorNoPingDisclaimer": "Neem contact op met de servereigenaar of -beheerder als het echt nodig is.",
     "errorNotFound": "De ingevoerde rol bestaat niet. Je kunt de taalnaam of een van deze opgeven: ",
-    "errorNoArgs": "Je bent vergeten een taal/rol op te geven! Deze zijn beschikbaar: ",
+    "errorNoArgs": "You forgot to specify a language! You can enter the language name, or any of these: ",
+    "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
     "executedBy": "Uitgevoerd door %%user%%"
 }
