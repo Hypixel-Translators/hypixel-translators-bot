@@ -14,7 +14,7 @@ module.exports = {
       return
     }
     if (!args[1]) {
-      message.channel.send(strings.errorNoArgs2 + "`proofreader`, `translator`, `all`.");
+      message.channel.send(strings.errorNoArgs2 + "\n`proofreader`, `translator`, `all`.");
       return
     }
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
