@@ -1,26 +1,26 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
-    "madeBy": " | Bot made with lots of care by %%q10%%",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "seconds": " seconds",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
+    "moduleName": "Hjelp",
+    "commandsListTitle": "Liste av kommandoer",
+    "commandsListTooltip": "Kjør `+help <navn av kommando>` for å få vite mer om en bestemt kommando.",
+    "madeBy": " | En bot laget med masse pleie av %%q10%%",
+    "commandInfo": "Kommandoinformasjon",
+    "commandInfoFor": "Kommandoinformasjon for ",
+    "commandNotExist": "Den kommandoen finnes ikke!",
+    "seconds": " sekunder",
+    "usageField": "Bruk",
+    "cooldownField": "Nedkjøling",
+    "aliasesField": "Aliaser",
     "help": {
-        "usage": "+help [name of command]",
-        "description": "Shows you all available commands and other info about the bot."
+        "usage": "+help [kommandonavn]",
+        "description": "Viser alle tilgjengelig kommandoer og annet info om boten."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "Gir deg den riktige prefiksen for din(e) språk."
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote>/<user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "description": "Henter (eller legger til) et morsomt/rart/klokt sitat fra serveren."
     },
     "mention": {
         "usage": "+mention <language> translator|proofreader|all [message]",

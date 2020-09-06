@@ -4,12 +4,12 @@
     "loadingModule": "Indlæser modulet...",
     "errors": {
         "notFound1": "The context entry ",
-        "notFound2": " hasn't been found!",
+        "notFound2": " blev ikke fundet!",
         "exists1": "A context entry for ",
-        "exists2": " already exists, so yours wasn't added. Instead, use `+context edit`.",
-        "didntReply": "You didn't reply in time, ",
-        "hitReaction": "You reacted with <:vote_no:732298639736570007>, ",
-        "cancelledPrompt": "so this prompt has been cancelled. ",
+        "exists2": " findes allerede, så din kontekst blev ikke tilføjet. Brug `+context edit` i stedet.",
+        "didntReply": "Du svarede ikke i tide, ",
+        "hitReaction": "Du reagerede med <:vote_no:732298639736570007>, ",
+        "cancelledPrompt": "så denne prompt blev annulleret. ",
         "readdTryAgain": "Re-react with 📑 to try again."
     },
     "notAllowed": "You're not a translator or proofreader, so you can't use this!",

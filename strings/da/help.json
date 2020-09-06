@@ -1,17 +1,17 @@
 {
     "moduleName": "Hjælp",
-    "commandsListTitle": "List of commands",
+    "commandsListTitle": "Kommandoliste",
     "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
     "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
+    "commandNotExist": "Denne kommando findes ikke!",
     "seconds": " sekunder",
     "usageField": "Anvendelse",
     "cooldownField": "Cooldown",
     "aliasesField": "Aliasser",
     "help": {
-        "usage": "+help [name of command]",
+        "usage": "+help [kommandoens navn]",
         "description": "Shows you all available commands and other info about the bot."
     },
     "prefix": {
@@ -19,15 +19,15 @@
         "description": "Gives you the appropriate prefix for your language(s)."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote>/<user mention>",
+        "usage": "+quote [index] | +quote add <citat>/<nævnelse af bruger>",
         "description": "Gets (or adds) a funny/weird/wise quote from the server."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with an optional message."
+        "usage": "+mention <sprog> translator|proofreader|all [besked]",
+        "description": "Nævner en sprogrolle med en valgfri besked."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
+        "usage": "+context get|add|edit|view|help <argumenter>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
     },
     "bug": {
@@ -39,7 +39,7 @@
         "description": "Sends your feedback on the bot to staff."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
+        "usage": "+language [<nyt sprog> | list]",
         "description": "Changes your language, shows your current one or shows a list of available languages."
     },
     "executedBy": "Udført af %%user%%"

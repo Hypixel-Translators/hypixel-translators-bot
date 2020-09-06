@@ -6,6 +6,6 @@
     "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to.",
     "errorNotFound": "The role you entered doesn't exist. You can enter the language name, or any of these: ",
     "errorNoArgs": "You forgot to specify a language! You can enter the language name, in english, or any of these: ",
-    "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
+    "errorNoArgs2": "Du glemte at angive en rolletype! Vælg en af disse: ",
     "executedBy": "Udført af %%user%%"
 }
