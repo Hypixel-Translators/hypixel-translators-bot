@@ -7,7 +7,7 @@
   "neutralColor": "#28dbde",
   "listenStatuses" : ["+help", "RANDOM_USER's commands", "RANDOM_USER", "wise words from RANDOM_USER", "QkeleQ10", "Stannya and Rodry"],
   "watchStatuses": ["your commands", "your messages", "meatdata", "their prayers", "nicknames and stuff", "RANDOM_USER's messages"],
-  "randomUser": ["Stannya", "Rodry", "Sol", "QkeleQ10", "Wens", "Linewater", "Kiril", "TheComputer8423", "Sucamos", "Proofreader", "Nad", "freitas", "TinyWiFi", "HoggyTheWizard", "MightyFixie", "Exy"],
+  "randomUser": ["Stannya", "Rodry", "Sol", "QkeleQ10", "Wens", "Linewater", "Kiril", "TheComputer8423", "Sucamos", "Proofreader", "Nad", "TinyWiFi", "HoggyTheWizard", "MightyFixie", "Exy"],
   "langdb": [  
     {"name": "Bulgarian", "emoji": "🇧🇬", "colour": "#e02222", "code" : "bg"},
     {"name": "Chinese Simplified", "emoji": "🇨🇳", "colour": "#21de70", "code": "zhcn"},
