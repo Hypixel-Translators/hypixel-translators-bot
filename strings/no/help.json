@@ -1,7 +1,7 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
+    "moduleName": "Hjelp",
+    "commandsListTitle": "Liste av kommandoer",
+    "commandsListTooltip": "Kjør `+help <navn av kommando>` for å få vite mer om en bestemt kommando.",
     "madeBy": " | Bot made with lots of care by %%q10%%",
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
