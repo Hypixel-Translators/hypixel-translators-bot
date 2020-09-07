@@ -42,5 +42,5 @@
         "usage": "+language [<новый язык> | list]",
         "description": "Изменяет Ваш язык, показывает Ваш текущий или отображает список доступных языков."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Выполнено %%user%%"
 }
