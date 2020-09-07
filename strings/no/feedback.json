@@ -2,6 +2,6 @@
     "moduleName": "Gi tilbakemelding",
     "sendingTitle": "Sender din tilbakemelding til staben...",
     "sentTitle": "Din tilbakemelding har blitt sendt!",
-    "addMessage": "You haven't provided a message!",
-    "executedBy": "Executed by %%user%%"
+    "addMessage": "Du har ikke oppgitt en melding!",
+    "executedBy": "Utført av %%user%%"
 }
