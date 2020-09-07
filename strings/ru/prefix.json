@@ -1,22 +1,22 @@
 {
-    "moduleName": "Prefix",
+    "moduleName": "Префикс",
     "loading": "Секундочку...",
-    "loadingRoles": "Fetching your roles...",
+    "loadingRoles": "Получаю Ваши роли...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
-        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-        "cancelled": "You cancelled the changing of your nickname, ",
-        "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "so your prefix wasn't saved."
+        "noLanguages": "Похоже, что у Вас нет языковых ролей! Пожалуйста, свяжитесь с <@722738307477536778>, если вы считаете, что это ошибка.",
+        "error": "Не удалось изменить никнейм. Вы можете скопировать его ниже и установить его самостоятельно.",
+        "confirmedNoFlags": "Вы подтвердили, но не поставили реакцию ни на одном флаге, ",
+        "cancelled": "Вы отменили изменение вашего никнейма, ",
+        "alreadyThis": "У вас уже стоит данный никнейм, ",
+        "timeOut": "Вы не поставили реакцию ни на одном флаге, ",
+        "notSaved": "поэтому Ваш префикс не был сохранен."
     },
-    "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "Nickname preview",
-    "newNickT": "New nickname",
-    "noChanges": "No changes",
-    "saved": "Your prefix has been saved!",
-    "executedBy": "Executed by %%user%%"
+    "react": "Поставьте реакцию по очереди на всех флагах, которые вы хотите добавить в Ваш префикс.",
+    "reactTimer": "У Вас есть 20 секунд. Нажмите ❎, чтобы отменить.",
+    "reactTimer2": "У Вас осталось менее, чем 20 секунд. Нажмите на ✅, чтобы подтвердить, или ❎, чтобы отменить.",
+    "previewT": "Предварительный просмотр никнейма",
+    "newNickT": "Новый никнейм",
+    "noChanges": "Без изменений",
+    "saved": "Ваш префикс был сохранен!",
+    "executedBy": "Выполнено %%user%%"
 }
