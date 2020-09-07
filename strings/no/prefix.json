@@ -1,22 +1,22 @@
 {
-    "moduleName": "Prefix",
+    "moduleName": "Prefiks",
     "loading": "One second...",
-    "loadingRoles": "Fetching your roles...",
+    "loadingRoles": "Henter dine roller...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
-        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-        "cancelled": "You cancelled the changing of your nickname, ",
-        "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "so your prefix wasn't saved."
+        "noLanguages": "Det ser ikke ut som du har noen roller! Vennligst kontakt <@722738307477536778> hvis du mener dette er en feil.",
+        "error": "Kunne ikke endre kallenavn. Du kan kopiere kallenavnet under og ta det i bruk selv.",
+        "confirmedNoFlags": "Du bekreftet, men du la ikke til en reaksjon på noen flagg, ",
+        "cancelled": "Du avbrytet endringen av kallenavnet ditt, ",
+        "alreadyThis": "Du har allerede dette kallenavnet, ",
+        "timeOut": "Du har ikke reagert med et flagg, ",
+        "notSaved": "så din prefiks ble ikke lagret."
     },
-    "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "Nickname preview",
-    "newNickT": "New nickname",
-    "noChanges": "No changes",
-    "saved": "Your prefix has been saved!",
+    "react": "Reager med de flaggene du vil ha i prefiksen din i rekkefølge.",
+    "reactTimer": "Du har 20 sekunder. Trykk på ❎ for å avbryte.",
+    "reactTimer2": "Du har mindre enn 20 sekunder igjen. Trykk på ✅ for å bekrefte eller ❎ får å avbryte.",
+    "previewT": "Forhåndsvisning av kallenavn",
+    "newNickT": "Nytt kallenavn",
+    "noChanges": "Ingen endringer",
+    "saved": "Din prefiks har blitt lagret!",
     "executedBy": "Executed by %%user%%"
 }
