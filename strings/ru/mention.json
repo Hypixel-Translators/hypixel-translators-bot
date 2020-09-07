@@ -1,11 +1,11 @@
 {
-    "errorNoPing": "You don't have that language's proofreader role, ",
-    "errorNoPingPr": "so you can't mention it.",
-    "errorNoPingTr": "so you can't mention its translator role.",
-    "errorNoPingAll": "so you can't mention the entire language.",
-    "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to.",
-    "errorNotFound": "The role you entered doesn't exist. You can enter the language name, or any of these: ",
-    "errorNoArgs": "You forgot to specify a language! You can enter the language name, in english, or any of these: ",
-    "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
+    "errorNoPing": "У вас нет роли корректора этого языка, ",
+    "errorNoPingPr": "поэтому Вы не можете это сделать.",
+    "errorNoPingTr": "поэтому Вы не можете упомянуть эту роль переводчика.",
+    "errorNoPingAll": "поэтому Вы не можете упомянуть весь язык.",
+    "errorNoPingDisclaimer": "Свяжитесь с владельцем или администратором сервера, если вам это действительно нужно.",
+    "errorNotFound": "Введенная Вами роль не существует. Вы можете ввести название языка или выбрать любой из перечисленных: ",
+    "errorNoArgs": "Вы забыли указать язык! Вы можете ввести название языка (написать его на английском), или выбрать любой из перечисленных: ",
+    "errorNoArgs2": "Вы забыли указать тип роли! Выберите один из перечисленных: ",
     "executedBy": "Executed by %%user%%"
 }
