@@ -3,5 +3,5 @@
     "sendingTitle": "Отправлю отзыв персоналу...",
     "sentTitle": "Ваш отзыв был успешно отправлен!",
     "addMessage": "Вы не предоставили сообщение!",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Выполнено %%user%%"
 }
