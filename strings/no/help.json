@@ -42,5 +42,5 @@
         "usage": "+language [<nye språk> | list]",
         "description": "Endrer ditt språk, viser ditt nåværende eller viser en liste over alle tilgjengelige."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Utført av %%user%%"
 }
