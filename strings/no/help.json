@@ -19,28 +19,28 @@
         "description": "Gir deg den riktige prefiksen for din(e) språk."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote>/<user mention>",
+        "usage": "+quote [index] | +quote add <sitat>/<nevn bruker>",
         "description": "Henter (eller legger til) et morsomt/rart/klokt sitat fra serveren."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with an optional message."
+        "usage": "+mention <språk> translator|proofreader|all [melding]",
+        "description": "Nevner en språkrolle med en valgfri melding."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "usage": "+context get|add|edit|view|help <argumenter>",
+        "description": "Henter, legger til eller redigerer konteksten for den angitte string-IDen. `+context help` viser informasjon om denne kommandoen."
     },
     "bug": {
-        "usage": "+bug <message>",
-        "description": "Allows you to report bugs present in the bot."
+        "usage": "+bug <melding>",
+        "description": "Lar deg rapportere feil som finnes i boten."
     },
     "feedback": {
-        "usage": "+feedback <message>",
-        "description": "Sends your feedback on the bot to staff."
+        "usage": "+feedback <melding>",
+        "description": "Sender din tilbakemelding på boten til staben."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "usage": "+language [<nye språk> | list]",
+        "description": "Endrer ditt språk, viser ditt nåværende eller viser en liste over alle tilgjengelige."
     },
     "executedBy": "Executed by %%user%%"
 }
