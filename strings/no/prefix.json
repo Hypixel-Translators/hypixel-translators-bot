@@ -1,6 +1,6 @@
 {
     "moduleName": "Prefiks",
-    "loading": "One second...",
+    "loading": "Ett sekund...",
     "loadingRoles": "Henter dine roller...",
     "errors": {
         "noLanguages": "Det ser ikke ut som du har noen roller! Vennligst kontakt <@722738307477536778> hvis du mener dette er en feil.",
@@ -18,5 +18,5 @@
     "newNickT": "Nytt kallenavn",
     "noChanges": "Ingen endringer",
     "saved": "Din prefiks har blitt lagret!",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Utført av %%user%%"
 }

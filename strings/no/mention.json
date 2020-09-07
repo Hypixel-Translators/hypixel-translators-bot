@@ -1,11 +1,11 @@
 {
-    "errorNoPing": "You don't have that language's proofreader role, ",
-    "errorNoPingPr": "so you can't mention it.",
-    "errorNoPingTr": "so you can't mention its translator role.",
-    "errorNoPingAll": "so you can't mention the entire language.",
-    "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to.",
-    "errorNotFound": "The role you entered doesn't exist. You can enter the language name, or any of these: ",
-    "errorNoArgs": "You forgot to specify a language! You can enter the language name, in english, or any of these: ",
-    "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
-    "executedBy": "Executed by %%user%%"
+    "errorNoPing": "Du har ikke det språkets korrekturleser-rolle, ",
+    "errorNoPingPr": "så du kan ikke nevne det.",
+    "errorNoPingTr": "så du kan ikke nevne oversetter-rollen.",
+    "errorNoPingAll": "så du kan ikke nevne hele språket.",
+    "errorNoPingDisclaimer": "Kontakt servereieren eller administratoren dersom det er nødvendig.",
+    "errorNotFound": "Rollen du oppga eksisterer ikke. Du kan oppgi navnet på språket, eller en av disse: ",
+    "errorNoArgs": "Du glemte å spesifisere et språk! Du kan oppgi navnet på språket, på engelsk, eller en av disse: ",
+    "errorNoArgs2": "Du glemte å spesifisere en rolletype! Velg en av disse: ",
+    "executedBy": "Utført av %%user%%"
 }

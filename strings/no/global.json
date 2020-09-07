@@ -6,5 +6,5 @@
     "generalErrorD": "Vennligst les kommandoinstruksen og prøv igjen. Hvis du tror dette var en intern feil, skriv `+bug <melding>`.",
     "dmError": "Beklager, men du kan ikke utføre denne kommandoen i private meldinger.",
     "timeLeftT": "Vennligst vent %%time%% sekunder før du utfører `+%%command%%` igjen.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Utført av %%user%%"
 }

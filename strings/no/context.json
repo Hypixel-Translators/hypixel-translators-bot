@@ -1,24 +1,24 @@
 {
-    "moduleName": "Context",
-    "loading": "One second...",
-    "loadingModule": "Loading module...",
+    "moduleName": "Kontekst",
+    "loading": "Ett sekund...",
+    "loadingModule": "Laster inn modul...",
     "errors": {
-        "notFound1": "The context entry ",
-        "notFound2": " hasn't been found!",
-        "exists1": "A context entry for ",
-        "exists2": " already exists, so yours wasn't added. Instead, use `+context edit`.",
-        "didntReply": "You didn't reply in time, ",
-        "hitReaction": "You reacted with <:vote_no:732298639736570007>, ",
-        "cancelledPrompt": "so this prompt has been cancelled. ",
-        "readdTryAgain": "Re-react with 📑 to try again."
+        "notFound1": "Kontekstoppføringen ",
+        "notFound2": " har ikke blitt funnet!",
+        "exists1": "En kontekstoppføring for ",
+        "exists2": " eksisterer allerede, så din ble ikke lagt til. Bruk `+context edit` i stedet.",
+        "didntReply": "Du svarte ikke i tide, ",
+        "hitReaction": "Du reagerte med <:vote_no:732298639736570007>, ",
+        "cancelledPrompt": "så denne spørringen har blitt avbrutt. ",
+        "readdTryAgain": "Reager igjen med 📑 for å prøve på nytt."
     },
-    "notAllowed": "You're not a translator or proofreader, so you can't use this!",
-    "notProofreader": "You're not a proofreader, so you can't use this! We're working on a way to let you suggest context too.",
-    "incorrectArgument": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
-    "contextFor": "Context for ",
-    "noteFor": "Note for ",
-    "screenshot": "Screenshot",
-    "addContextFor": "Add context for ",
+    "notAllowed": "Du er ikke en oversetter eller korrekturleser, så du kan ikke bruke denne!",
+    "notProofreader": "Du er ikke en korrekturleser, så du kan ikke bruke denne! Vi jobber med en løsning som lar deg foreslå kontekst også.",
+    "incorrectArgument": "Vennligst oppgi en underkommando som det første argumentet. Dette kan enten være `get`, `add`,`edit`,`link` or `help`.\nFor informasjon, skriv `+context help`.",
+    "contextFor": "Kontekst for ",
+    "noteFor": "Merknad for ",
+    "screenshot": "Skjermdump",
+    "addContextFor": "Legg til kontekst for ",
     "edited": "Edited this context entry! ",
     "editedResult": "Edited this context entry! The new data is shown below.\n\n**Context**\n",
     "tryRunGet": "We couldn't find the resulting entry. Try to run `+context get <string ID>` to see the result instead.",
@@ -51,7 +51,7 @@
     "pirate": "Pirate English",
     "polish": "Polish",
     "portuguese": "Portuguese",
-    "brazilian": "Portuguese (Brazil)",
+    "brazilian": "Portugisisk (Brasil)",
     "russian": "Russian",
     "spanish": "Spanish",
     "swedish": "Swedish",
@@ -71,5 +71,5 @@
         "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya, Rodry and QkeleQ10 can see your Google profile name and email.",
         "sheetDel": " | Deleting message after 2 minutes"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Utført av %%user%%"
 }
