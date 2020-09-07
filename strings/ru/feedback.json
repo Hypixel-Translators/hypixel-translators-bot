@@ -1,7 +1,7 @@
 {
-    "moduleName": "Give feedback",
-    "sendingTitle": "Sending your feedback to staff...",
-    "sentTitle": "Your feedback has been sent!",
-    "addMessage": "You haven't provided a message!",
+    "moduleName": "Оставить отзыв",
+    "sendingTitle": "Отправлю отзыв персоналу...",
+    "sentTitle": "Ваш отзыв был успешно отправлен!",
+    "addMessage": "Вы не предоставили сообщение!",
     "executedBy": "Executed by %%user%%"
 }
