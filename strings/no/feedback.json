@@ -1,7 +1,7 @@
 {
-    "moduleName": "Give feedback",
-    "sendingTitle": "Sending your feedback to staff...",
-    "sentTitle": "Your feedback has been sent!",
+    "moduleName": "Gi tilbakemelding",
+    "sendingTitle": "Sender din tilbakemelding til staben...",
+    "sentTitle": "Din tilbakemelding har blitt sendt!",
     "addMessage": "You haven't provided a message!",
     "executedBy": "Executed by %%user%%"
 }
