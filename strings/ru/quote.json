@@ -1,9 +1,9 @@
 {
-    "moduleName": "Quote",
+    "moduleName": "Цитата",
     "loading": "Секундочку...",
     "loadingModule": "Загрузка модуля...",
-    "invalidArg": "Invalid argument!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-    "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
+    "invalidArg": "Неверный аргумент!",
+    "indexArg": "Цитата с индексом %%arg%% не существует! Пожалуйста, укажите число между 1 и %%max%%.",
+    "specUser": "Вы не указали пользователя! Пожалуйста, введите цитату и затем упомяните цитируемого пользователя, разделив знаком '/'.",
     "executedBy": "Executed by %%user%%"
 }
