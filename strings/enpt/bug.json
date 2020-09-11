@@ -1,7 +1,7 @@
 {
     "moduleName": "Report a bug",
-    "sendingTitle": "Sending your bug report to staff...",
-    "sentTitle": "Your bug report has been sent!",
-    "addMessage": "You haven't provided a message!",
+    "sendingTitle": "Sending yer bug report to staff...",
+    "sentTitle": "Yer bug report 'as been sent!",
+    "addMessage": "Ye 'aven't provided a message!",
     "executedBy": "Executed by %%user%%"
 }
