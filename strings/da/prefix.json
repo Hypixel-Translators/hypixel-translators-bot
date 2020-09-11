@@ -1,22 +1,22 @@
 {
-    "moduleName": "Prefix",
+    "moduleName": "Præfiks",
     "loading": "Et sekund...",
-    "loadingRoles": "Fetching your roles...",
+    "loadingRoles": "Henter dine roller...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
+        "noLanguages": "Det ser ud til, at du ikke har nogen sprogroller! Kontakt venligst <@722738307477536778>, hvis du tror, at det er en fejl.",
         "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-        "cancelled": "You cancelled the changing of your nickname, ",
+        "confirmedNoFlags": "Du bekræftede, men du reagerede ikke på nogen flag, ",
+        "cancelled": "Du annullerede ændringen af dit kaldenavn, ",
         "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "so your prefix wasn't saved."
+        "timeOut": "Du har ikke reageret med nogen flag, ",
+        "notSaved": "så dit præfiks blev ikke gemt."
     },
     "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
+    "reactTimer": "Du har 20 sekunder. Tryk på ❎ for at annullere.",
+    "reactTimer2": "Du har mindre end 20 sekunder tilbage. Tryk på ✅ for at bekræfte eller tryk på ❎ for at annullere.",
     "previewT": "Nickname preview",
-    "newNickT": "New nickname",
+    "newNickT": "Nyt kaldenavn",
     "noChanges": "Ingen ændringer",
-    "saved": "Your prefix has been saved!",
+    "saved": "Dit præfiks er blevet gemt!",
     "executedBy": "Udført af %%user%%"
 }
