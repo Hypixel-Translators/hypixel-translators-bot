@@ -3,7 +3,7 @@
     "loading": "Un segundo...",
     "loadingRoles": "Obteniendo tus roles...",
     "errors": {
-        "noLanguages": "¡Parece que no tienes ningún role de idioma! Por favor, contacta a <@722738307477536778> si crees que esto es un error.",
+        "noLanguages": "¡Parece que no tienes ningún rol de idioma! Por favor, contacta a <@722738307477536778> si crees que esto es un error.",
         "error": "No se ha podido cambiar tu apodo. Puedes copiar el apodo abajo y aplicarlo tú mismo.",
         "confirmedNoFlags": "Has confirmado, pero no has reaccionado a ninguna bandera, ",
         "cancelled": "Has cancelado el cambio de tu apodo, ",
