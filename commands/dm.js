@@ -21,38 +21,45 @@ module.exports = {
         //message.delete();
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
-            .setTitle("📨 Messaging a user...")
-            .setDescription("One second... ")
-            .addFields(
-                { name: "Message", value: toSend }
-            )
+            .setAuthor(strings.outgoingLoad)
+            .setTitle(strings.loading)
+            .setDescription(toSend)
             .setFooter(executedBy)
         message.channel.send(embed)
-            .then(msg => {
+            .then(async msg => {
                 const recipient = msg.client.users.cache.get(userToSend)
-                const report = new Discord.MessageEmbed()
-                    .setColor(neutralColor)
-                    .setTitle("📩 Message from staff")
-                    .setDescription(toSend)
-                    .setFooter("Any message you send here will get sent to staff.");
-                recipient.send(report)
-                    .catch(err => {
-                        const embed = new Discord.MessageEmbed()
-                            .setColor(errorColor)
-                            .setTitle("📨 Tried to message " + recipient.username)
-                            .setDescription("Message couldn't be sent.\n\nReason:\n> " + err)
-                            .addFields(
-                                { name: "Message", value: toSend }
-                            )
-                            .setFooter(executedBy)
-                        msg.edit(embed)
-                    })
-                const embed = new Discord.MessageEmbed()
-                    .setColor(successColor)
-                    .setTitle("📨 Sent message to " + recipient.username)
-                    .setDescription(toSend)
-                    .setFooter(executedBy)
-                msg.edit(embed)
+                var rStrings = await require(("./strings/en/dm.json"))
+                const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
+                const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
+                oldFiMessages.forEach(async element => {
+                    oldMsg = await element.content.split(" ")
+                    await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
+                    rStrings = await require(("./strings/" + oldMsg[0] + "/dm.json"))
+                })
+                setTimeout(() => {
+                    const report = new Discord.MessageEmbed()
+                        .setColor(neutralColor)
+                        .setAuthor(rStrings.incoming)
+                        .setDescription(toSend)
+                        .setFooter(rStrings.incomingDisclaimer);
+                    recipient.send(report)
+                        .catch(err => {
+                            const embed = new Discord.MessageEmbed()
+                                .setColor(errorColor)
+                                .setAuthor(strings.outgoingLoad)
+                                .setTitle(strings.generalError)
+                                .setDescription(err)
+                                .addFields({ name: strings.message, value: toSend })
+                                .setFooter(executedBy)
+                            msg.edit(embed)
+                        })
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(successColor)
+                        .setAuthor(strings.outgoing.replace("%%recipient%%", recipient.tag))
+                        .setDescription(toSend)
+                        .setFooter(executedBy)
+                    msg.edit(embed)
+                }, 50)
             })
     }
 }; 
