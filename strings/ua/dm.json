@@ -1,3 +1,10 @@
 {
+    "outgoing": "Sent message to %%recipient%%",
+    "outgoingLoad": "Sending message to user",
+    "loading": "Секундочку...",
+    "generalError": "Щось пішло не так.",
+    "message": "Message",
+    "incoming": "Received message from staff",
+    "incomingDisclaimer": "Будь-яке повідомлення, яке буде Ви надсилаєте сюди буде переадресовано до персоналу.",
     "executedBy": "Виконано користувачем %%user%%"
 }
