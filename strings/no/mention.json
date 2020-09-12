@@ -5,7 +5,7 @@
     "errorNoPingAll": "så du kan ikke nevne hele språket.",
     "errorNoPingDisclaimer": "Kontakt servereieren eller administratoren dersom det er nødvendig.",
     "errorNotFound": "Rollen du oppga eksisterer ikke. Du kan oppgi navnet på språket, eller en av disse: ",
-    "errorNoArgs": "Du glemte å spesifisere et språk! Du kan oppgi navnet på språket, på engelsk, eller en av disse: ",
+    "errorNoArgs": "You forgot to specify a language! You can enter the language name (in English) or any of these: ",
     "errorNoArgs2": "Du glemte å spesifisere en rolletype! Velg en av disse: ",
     "executedBy": "Utført av %%user%%"
 }
