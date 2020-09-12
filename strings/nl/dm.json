@@ -1,10 +1,10 @@
 {
-    "outgoing": "Sent message to %%recipient%%",
-    "outgoingLoad": "Sending message to user",
+    "outgoing": "Bericht verzonden aan %%recipient%%",
+    "outgoingLoad": "Bericht verzenden aan gebruiker",
     "loading": "Even geduld...",
     "generalError": "Er is iets misgegaan.",
-    "message": "Message",
-    "incoming": "Received message from staff",
+    "message": "Bericht",
+    "incoming": "Bericht ontvangen van staff",
     "incomingDisclaimer": "Als je hier een bericht stuurt, wordt het verzonden naar staff.",
     "executedBy": "Uitgevoerd door %%user%%"
 }
