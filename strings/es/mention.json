@@ -1,7 +1,7 @@
 {
-    "errorNoPing": "No tienes el rol de proofreader de ese idioma, ",
+    "errorNoPing": "No tienes el rol de revisor de ese idioma, ",
     "errorNoPingPr": "así que no puedes mencionarlo.",
-    "errorNoPingTr": "así que no puedes mencionar su rol de translator.",
+    "errorNoPingTr": "así que no puedes mencionar su rol de traductor.",
     "errorNoPingAll": "así que no puedes mencionar el idioma entero.",
     "errorNoPingDisclaimer": "Contacta el dueño del servidor o administrador si realmente lo necesitas.",
     "errorNotFound": "El rol que ingresó no existe. Puedes ingresar el nombre del idioma o cualquiera de estos: ",
