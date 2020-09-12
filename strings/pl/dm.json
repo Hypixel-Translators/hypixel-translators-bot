@@ -1,3 +1,10 @@
 {
+    "outgoing": "Sent message to %%recipient%%",
+    "outgoingLoad": "Sending message to user",
+    "loading": "Sekundkę…",
+    "generalError": "Coś poszło nie tak.",
+    "message": "Message",
+    "incoming": "Received message from staff",
+    "incomingDisclaimer": "Każda wiadomość wysłana w tym miejscu, zostanie przekazana administracji.",
     "executedBy": "Wykonano przez %%user%%"
 }
