@@ -1,3 +1,10 @@
 {
+    "outgoing": "Sent message to %%recipient%%",
+    "outgoingLoad": "Sending message to user",
+    "loading": "שנייה...",
+    "generalError": "Something has gone wrong.",
+    "message": "Message",
+    "incoming": "Received message from staff",
+    "incomingDisclaimer": "Any message you send here will get sent to staff.",
     "executedBy": "Executed by %%user%%"
 }
