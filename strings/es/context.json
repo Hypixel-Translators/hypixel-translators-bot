@@ -12,8 +12,8 @@
         "cancelledPrompt": "así que esta acción fue cancelada. ",
         "readdTryAgain": "Reacciona con 📑 para intentar de nuevo."
     },
-    "notAllowed": "¡No eres un translator o proofreader, así que no puedes usar esto!",
-    "notProofreader": "No eres un proofreader, ¡así que no puedes usar esto! Estamos trabajando en una manera de permitirte sugerir contextos.",
+    "notAllowed": "¡No eres un translator o revisor, así que no puedes usar esto!",
+    "notProofreader": "No eres un revisor, ¡así que no puedes usar esto! Estamos trabajando en una manera de permitirte sugerir contextos.",
     "incorrectArgument": "Por favor, introduce un subcomando como primer argumento. Puede ser `get`, `add`, `edit`, `link` o `help`.\nPara obtener información, ejecuta `+context help`.",
     "contextFor": "Contexto para ",
     "noteFor": "Nota para ",

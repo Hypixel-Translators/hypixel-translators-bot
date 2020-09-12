@@ -1,3 +1,10 @@
 {
+    "outgoing": "Sent message to %%recipient%%",
+    "outgoingLoad": "Sending message to user",
+    "loading": "Wait, idot...",
+    "generalError": "Sth hasnt gon good.",
+    "message": "Message",
+    "incoming": "Received message from staff",
+    "incomingDisclaimer": "Al meagegs you sned ehere will gst sent to staf.",
     "executedBy": "Executed by %%user%%"
 }

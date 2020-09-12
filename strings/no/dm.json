@@ -1,3 +1,10 @@
 {
+    "outgoing": "Sent message to %%recipient%%",
+    "outgoingLoad": "Sending message to user",
+    "loading": "Ett sekund...",
+    "generalError": "Noe har gått galt.",
+    "message": "Message",
+    "incoming": "Received message from staff",
+    "incomingDisclaimer": "Meldinger som blir sendt her vil bli sendt til staben.",
     "executedBy": "Utført av %%user%%"
 }
