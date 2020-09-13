@@ -1,6 +1,11 @@
 {
     "moduleName": "Parrot",
     "loading": "Sekundkę…",
-    "success": "Sent message to %%channel%%!",
+    "success": "Success! Message sent.",
+    "invalidArg": "Nieprawidłowy argument!",
+    "notFound": "That %%type%% hasn't been found!",
+    "notProvided": "You haven't provided a %%type%%!",
+    "typeMessage": "message",
+    "typeChannel": "channel",
     "executedBy": "Wykonano przez %%user%%"
 }

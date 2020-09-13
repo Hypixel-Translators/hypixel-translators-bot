@@ -1,6 +1,11 @@
 {
     "moduleName": "Parrot",
     "loading": "One second...",
-    "success": "Sent message to %%channel%%!",
+    "success": "Success! Message sent.",
+    "invalidArg": "Μη έγκυρο επιχείρημα!",
+    "notFound": "That %%type%% hasn't been found!",
+    "notProvided": "You haven't provided a %%type%%!",
+    "typeMessage": "message",
+    "typeChannel": "channel",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }

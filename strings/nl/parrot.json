@@ -1,6 +1,11 @@
 {
     "moduleName": "Papegaai",
     "loading": "Even geduld...",
-    "success": "Bericht verzonden in %%channel%%!",
+    "success": "Success! Message sent.",
+    "invalidArg": "Ongeldig argument!",
+    "notFound": "That %%type%% hasn't been found!",
+    "notProvided": "You haven't provided a %%type%%!",
+    "typeMessage": "message",
+    "typeChannel": "channel",
     "executedBy": "Uitgevoerd door %%user%%"
 }

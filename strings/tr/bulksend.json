@@ -1,3 +1,6 @@
 {
+    "moduleName": "Bulk Send",
+    "success": "Success! Message sent.",
+    "generalError": "Bir şeyler ters gitti.",
     "executedBy": "%%user%% tarafından yürütüldü"
 }
