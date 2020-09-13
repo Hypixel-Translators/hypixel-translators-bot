@@ -1,3 +1,6 @@
 {
+    "moduleName": "Parrot",
+    "loading": "Un second...",
+    "success": "Sent message to %%channel%%!",
     "executedBy": "Exécuté par %%user%%"
 }
