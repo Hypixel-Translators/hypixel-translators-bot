@@ -1,45 +1,45 @@
 {
-    "moduleName": "Help",
-    "commandsListTitle": "List of commands",
-    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
-    "madeBy": " | Bot made with lots of care by %%q10%%",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "seconds": " seconds",
-    "usageField": "Usage",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
+    "moduleName": "Βοήθεια",
+    "commandsListTitle": "Λίστα εντολών",
+    "commandsListTooltip": "Εκτέλεσε `+help <όνομα εντολής>` για να μάθεις περισσότερα για μία συγκεκριμένη εντολή.",
+    "madeBy": " | Το Bot φτιάχτηκε με πολλή φροντίδα από τον %%q10%%",
+    "commandInfo": "Πληροφορίες Εντολής",
+    "commandInfoFor": "Πληροφορίες Εντολής για ",
+    "commandNotExist": "Αυτή η εντολή δεν υπάρχει!",
+    "seconds": " δευτερόλεπτα",
+    "usageField": "Χρήση",
+    "cooldownField": "Χρόνος Επαναφόρτωσης",
+    "aliasesField": "Εναλλακτικές Ονομασίες",
     "help": {
-        "usage": "+help [name of command]",
-        "description": "Shows you all available commands and other info about the bot."
+        "usage": "+help [όνομα εντολής]",
+        "description": "Σου δείχνει όλες τις διαθέσιμες εντολές και άλλες πληροφορίες σχετικά με το bot."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "Σου δίνει το κατάλληλο πρόθεμα για την γλώσσα/γλώσσες σου."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote>/<user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "usage": "+quote [index] | +quote add <παράθεμα>/<αναφορά χρήστη>",
+        "description": "Παίρνει (ή προσθέτει) ένα αστείο/περίεργο/σοφό παράθεμα από τον διακομιστή."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
+        "usage": "+mention <γλώσσα> translator|proofreader|all [μήνυμα]",
         "description": "Mentions a language role with an optional message."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "usage": "+context get|add|edit|view|help <επιχειρήματα>",
+        "description": "Παίρνει, προσθέτει ή επεξεργάζεται την περιγραφή για το string ID που δόθηκε. Το `+context help` σου δείχνει πληροφορίες σχετικά με αυτή την εντολή."
     },
     "bug": {
-        "usage": "+bug <message>",
-        "description": "Allows you to report bugs present in the bot."
+        "usage": "+bug <μήνυμα>",
+        "description": "Σου επιτρέπει να αναφέρεις σφάλματα που υπάρχουν στο bot."
     },
     "feedback": {
-        "usage": "+feedback <message>",
-        "description": "Sends your feedback on the bot to staff."
+        "usage": "+feedback <μήνυμα>",
+        "description": "Στέλνει την άποψή σου για το bot στο προσωπικό του server."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
+        "usage": "+language [<νέα γλώσσα> | list]",
         "description": "Changes your language, shows your current one or shows a list of available languages."
     },
     "executedBy": "Εκτελέστηκε από τον %%user%%"
