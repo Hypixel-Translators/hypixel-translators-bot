@@ -3,9 +3,11 @@
     "loading": "One second...",
     "success": "Success! Message sent.",
     "invalidArg": "مُعطى غير صالح!",
-    "notFound": "That %%type%% hasn't been found!",
-    "notProvided": "You haven't provided a %%type%%!",
-    "typeMessage": "message",
-    "typeChannel": "channel",
+    "notFound": "%%type%% hasn't been found!",
+    "notProvided": "You haven't provided %%type%%!",
+    "thatMessage": "That message",
+    "thatChannel": "That channel",
+    "aMessage": "a message",
+    "aChannel": "a channel",
     "executedBy": "Executed by %%user%%"
 }
