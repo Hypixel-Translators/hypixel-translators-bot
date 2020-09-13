@@ -1,4 +1,4 @@
-const {  workingColor,  errorColor,  successColor,  neutralColor} = require("../config.json");
+const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -26,13 +26,23 @@ module.exports = {
       .setFooter(executedBy)
     message.channel.send(embed)
       .then(msg => {
-        const sendTo = msg.client.channels.cache.get(rawSendTo)
+        const sendTo = msg.client.channels.cache.get(rawSendTo.replace("<#", "").replace(">", ""))
         sendTo.send(">>> " + toSend)
+          .catch(err => {
+            const embed = new Discord.MessageEmbed()
+              .setColor(errorColor)
+              .setAuthor(strings.moduleName)
+              .setTitle(strings.invalidArg)
+              .setFooter(executedBy)
+            if (!rawSendTo) { embed.setDescription(strings.notProvided.replace("%%type%%", "strings.typeChannel")) }
+            else { embed.setDescription(strings.notFound.replace("%%type%%", "strings.typeChannel")) }
+            msg.edit(embed)
+          })
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
           .setAuthor(strings.moduleName)
-          .setTitle(strings.success.replace("%%channel%%", "<#" + sendTo.id + ">"))
-          .setDescription(">>> " + toSend)
+          .setTitle(strings.success)
+          .setDescription("<#" + sendTo.id + " >:\n>>> " + toSend)
           .setFooter(executedBy)
         msg.edit(embed)
       })
