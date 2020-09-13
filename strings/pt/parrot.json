@@ -1,6 +1,11 @@
 {
     "moduleName": "Papagaio",
     "loading": "Só um segundo...",
-    "success": "Mensagem enviada para %%channel%%!",
+    "success": "Success! Message sent.",
+    "invalidArg": "Argumento inválido!",
+    "notFound": "That %%type%% hasn't been found!",
+    "notProvided": "You haven't provided a %%type%%!",
+    "typeMessage": "message",
+    "typeChannel": "channel",
     "executedBy": "Executado por %%user%%"
 }
