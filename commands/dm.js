@@ -28,13 +28,13 @@ module.exports = {
         message.channel.send(embed)
             .then(async msg => {
                 const recipient = msg.client.users.cache.get(userToSend)
-                var rStrings = await require(("./strings/en/dm.json"))
+                var rStrings = await require(("../strings/en/dm.json"))
                 const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
                 const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
                 oldFiMessages.forEach(async element => {
                     oldMsg = await element.content.split(" ")
                     await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
-                    rStrings = await require(("./strings/" + oldMsg[0] + "/dm.json"))
+                    rStrings = await require(("../strings/" + oldMsg[0] + "/dm.json"))
                 })
                 setTimeout(() => {
                     const report = new Discord.MessageEmbed()
