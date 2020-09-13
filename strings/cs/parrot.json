@@ -1,6 +1,11 @@
 {
-    "moduleName": "Parrot",
+    "moduleName": "Papoušek",
     "loading": "Dej mi sekundu...",
-    "success": "Sent message to %%channel%%!",
+    "success": "Success! Message sent.",
+    "invalidArg": "Neplatný argument!",
+    "notFound": "That %%type%% hasn't been found!",
+    "notProvided": "You haven't provided a %%type%%!",
+    "typeMessage": "message",
+    "typeChannel": "channel",
     "executedBy": "Provedeno uživatelem %%user%%"
 }
