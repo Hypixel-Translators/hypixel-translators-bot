@@ -1,6 +1,6 @@
 {
-  "name": "hyper",
-  "version": "2.0.0",
+  "name": "hypixel-translators",
+  "version": "5.1.57",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
