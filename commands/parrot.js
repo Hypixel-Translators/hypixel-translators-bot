@@ -34,8 +34,8 @@ module.exports = {
               .setAuthor(strings.moduleName)
               .setTitle(strings.invalidArg)
               .setFooter(executedBy)
-            if (!rawSendTo) { embed.setDescription(strings.notProvided.replace("%%type%%", "strings.typeChannel")) }
-            else { embed.setDescription(strings.notFound.replace("%%type%%", "strings.typeChannel")) }
+            if (!rawSendTo) { embed.setDescription(strings.notProvided.replace("%%type%%", strings.aChannel)) }
+            else { embed.setDescription(strings.notFound.replace("%%type%%", strings.thatChannel)) }
             msg.edit(embed)
           })
         const embed = new Discord.MessageEmbed()
