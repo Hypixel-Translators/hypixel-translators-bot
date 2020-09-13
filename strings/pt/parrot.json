@@ -1,0 +1,6 @@
+{
+    "moduleName": "Papagaio",
+    "loading": "Só um segundo...",
+    "success": "Mensagem enviada para %%channel%%!",
+    "executedBy": "Executado por %%user%%"
+}
