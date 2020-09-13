@@ -1,6 +1,11 @@
 {
     "moduleName": "Parrot",
     "loading": "Секундочку...",
-    "success": "Sent message to %%channel%%!",
+    "success": "Success! Message sent.",
+    "invalidArg": "Недійсний аргумент!",
+    "notFound": "That %%type%% hasn't been found!",
+    "notProvided": "You haven't provided a %%type%%!",
+    "typeMessage": "message",
+    "typeChannel": "channel",
     "executedBy": "Виконано користувачем %%user%%"
 }
