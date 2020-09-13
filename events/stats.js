@@ -31,7 +31,8 @@ async function hypixel(client) {
                         const embed = new Discord.MessageEmbed()
                             .setColor(langdbEntry.colour)
                             .setTitle(langdbEntry.emoji + " | " + r.name)
-                            .addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate on https://crowdin.com/project/hypixel/" + r.code + "") })
+                            .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n_Translate at https://crowdin.com/project/hypixel/" + r.code + "_")
+                            //.addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/hypixel/" + r.code + "") })
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
@@ -41,7 +42,7 @@ async function hypixel(client) {
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel project.")
+                            client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel project.\n_Translate at https://crowdin.com/project/hypixel")
                         } else {
                             client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " strings have been removed from the Hypixel project.")
                         }
@@ -77,7 +78,8 @@ async function quickplay(client) {
                         const embed = new Discord.MessageEmbed()
                             .setColor(adapColour)
                             .setTitle(langdbEntry.emoji + " | " + r.name)
-                            .addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate on https://crowdin.com/project/quickplay/" + r.code + "") })
+                            .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n_Translate at https://crowdin.com/project/quickplay/" + r.code + "_")
+                            //.addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/quickplay/" + r.code + "") })
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
@@ -87,7 +89,7 @@ async function quickplay(client) {
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("646383292010070016").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Quickplay project.")
+                            client.channels.cache.get("646383292010070016").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Quickplay project.\n_Translate at https://crowdin.com/project/quickplay_")
                         } else {
                             client.channels.cache.get("646383292010070016").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " strings have been removed from the Quickplay project.")
                         }
@@ -109,7 +111,7 @@ async function bot(client) {
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("749391414600925335").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel Translators Bot project.")
+                            client.channels.cache.get("749391414600925335").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " strings have been added to the Hypixel Translators Bot project.\n_Translate at https://crowdin.com/project/hypixel-translators-bot")
                         } else {
                             client.channels.cache.get("749391414600925335").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " strings have been removed from the Hypixel Translators Bot project.")
                         }
