@@ -1,3 +1,6 @@
 {
+    "moduleName": "Parrot",
+    "loading": "Dej mi sekundu...",
+    "success": "Sent message to %%channel%%!",
     "executedBy": "Provedeno uživatelem %%user%%"
 }
