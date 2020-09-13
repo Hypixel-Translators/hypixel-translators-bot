@@ -3,9 +3,11 @@
     "loading": "Dej mi sekundu...",
     "success": "Success! Message sent.",
     "invalidArg": "Neplatný argument!",
-    "notFound": "That %%type%% hasn't been found!",
-    "notProvided": "You haven't provided a %%type%%!",
-    "typeMessage": "message",
-    "typeChannel": "channel",
+    "notFound": "%%type%% hasn't been found!",
+    "notProvided": "You haven't provided %%type%%!",
+    "thatMessage": "That message",
+    "thatChannel": "That channel",
+    "aMessage": "a message",
+    "aChannel": "a channel",
     "executedBy": "Provedeno uživatelem %%user%%"
 }
