@@ -1,11 +1,13 @@
 {
     "moduleName": "Papegaai",
     "loading": "Even geduld...",
-    "success": "Success! Message sent.",
+    "success": "Gelukt! Bericht verzonden.",
     "invalidArg": "Ongeldig argument!",
-    "notFound": "That %%type%% hasn't been found!",
-    "notProvided": "You haven't provided a %%type%%!",
-    "typeMessage": "message",
-    "typeChannel": "channel",
+    "notFound": "%%type%% is niet gevonden!",
+    "notProvided": "Je bent vergeten %%type%% op te geven!",
+    "thatMessage": "Dat bericht",
+    "thatChannel": "Dat kanaal",
+    "aMessage": "een bericht",
+    "aChannel": "een kanaal",
     "executedBy": "Uitgevoerd door %%user%%"
 }
