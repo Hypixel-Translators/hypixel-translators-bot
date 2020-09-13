@@ -42,7 +42,7 @@ module.exports = {
           .setColor(successColor)
           .setAuthor(strings.moduleName)
           .setTitle(strings.success)
-          .setDescription("<#" + sendTo.id + " >:\n>>> " + toSend)
+          .setDescription("<#" + sendTo.id + ">:\n>>> " + toSend)
           .setFooter(executedBy)
         msg.edit(embed)
       })
