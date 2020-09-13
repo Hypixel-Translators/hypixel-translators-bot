@@ -1,3 +1,7 @@
 {
+    "moduleName": "Herstarten",
+    "loading": "Even geduld...",
+    "success": "Gelukt! Herstarten...",
+    "error": "Je hebt geen rechten om de bot te herstarten! Als het echt nodig is, kun je contact opnemen met %%developer%%.",
     "executedBy": "Uitgevoerd door %%user%%"
 }
