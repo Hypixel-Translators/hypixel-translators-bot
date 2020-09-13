@@ -1,7 +1,7 @@
 {
     "moduleName": "Restart",
     "loading": "Dej mi sekundu...",
-    "success": "Success! Restarting...",
+    "success": "Úspěch! Restartuji...",
     "error": "You don't have permission to restart the bot! If you really want to, please contact %%developer%%.",
     "executedBy": "Provedeno uživatelem %%user%%"
 }
