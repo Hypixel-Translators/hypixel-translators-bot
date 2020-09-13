@@ -1,3 +1,8 @@
 {
+    "moduleName": "Permission checker",
+    "loading": "Dej mi sekundu...",
+    "bot": "Bot",
+    "author": "Author",
+    "user": "User",
     "executedBy": "Provedeno uživatelem %%user%%"
 }
