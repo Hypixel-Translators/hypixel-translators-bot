@@ -1,9 +1,4 @@
-const {
-  workingColor,
-  errorColor,
-  successColor,
-  neutralColor
-} = require("../config.json");
+const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -18,30 +13,26 @@ module.exports = {
     //message.delete();
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
-      .setTitle("Restart")
-      .setDescription("Just a moment...")
+      .setAuthor(strings.moduleName)
+      .setTitle(strings.loading)
       .setFooter(executedBy)
     message.channel.send(embed).then(msg => {
       if (message.author.id == "722738307477536778") {
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
-          .setTitle("Restart")
-          .setDescription("Restarting...\nGive me a minute.")
+          .setAuthor(strings.moduleName)
+          .setTitle(strings.success)
           .setFooter(executedBy)
-        msg.edit(embed);
+        msg.edit(embed)
         msg.client.user.setStatus("idle");
-        setTimeout(() => {
-          process.exit();
-        }, 3000);
+        setTimeout(() => { process.exit() }, 3000)
       } else {
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor)
           .setTitle("Restart")
-          .setDescription(
-            "You're not the bot owner, so you aren't allowed to restart the bot. If you really want to, please contact <@722738307477536778>."
-          )
+          .setDescription(strings.error.replace("%%developer%%", "<@722738307477536778>"))
           .setFooter(executedBy)
-        msg.edit(embed);
+        msg.edit(embed)
       }
     });
   }

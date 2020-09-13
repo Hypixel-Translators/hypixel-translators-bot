@@ -1,15 +1,11 @@
-const {
-  workingColor,
-  errorColor,
-  successColor,
-  neutralColor
-} = require("../config.json");
+const {  workingColor,  errorColor,  successColor,  neutralColor} = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
-  name: "say",
-  description: "Say something in a specified channel.",
-  usage: "say",
+  name: "parrot",
+  description: "Say something in a specific channel.",
+  usage: "parrot <message>",
+  aliases: ["say", "repeat", "send"],
   allowDM: true,
   execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
@@ -25,17 +21,18 @@ module.exports = {
 
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
-      .setTitle("Say")
-      .setDescription("Saying...")
+      .setAuthor(strings.moduleName)
+      .setTitle(strings.loading)
       .setFooter(executedBy)
     message.channel.send(embed)
       .then(msg => {
         const sendTo = msg.client.channels.cache.get(rawSendTo)
-        sendTo.send("> " + toSend)
+        sendTo.send(">>> " + toSend)
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
-          .setTitle("Say")
-          .setDescription("Said!")
+          .setAuthor(strings.moduleName)
+          .setTitle(strings.success.replace("%%channel%%", "<#" + sendTo.id + ">"))
+          .setDescription(">>> " + toSend)
           .setFooter(executedBy)
         msg.edit(embed)
       })

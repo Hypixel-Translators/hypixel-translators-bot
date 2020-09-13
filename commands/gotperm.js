@@ -4,7 +4,8 @@ const Discord = require("discord.js");
 module.exports = {
   name: "gotperm",
   description: "See if user has a specified permission.",
-  usage: "gotperm <perms> [user]",
+  aliases: ["hasperm", "permchecker", "permcheck", "checkperm"],
+  usage: "gotperm <permission name> [user]",
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"],
   execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
@@ -12,8 +13,8 @@ module.exports = {
     const perm = args[0].toUpperCase()
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
-      .setTitle("Permission " + perm)
-      .setDescription("One second...")
+      .setAuthor(strings.moduleName)
+      .setTitle(strings.loading)
       .setFooter(executedBy)
     message.channel.send(embed).then(msg => {
       const authorPerm = message.member.hasPermission(perm);
@@ -27,11 +28,12 @@ module.exports = {
 
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
-          .setTitle("Permission " + perm)
+          .setAuthor(strings.moduleName)
+          .setTitle(perm)
           .addFields(
-            { name: "Bot", value: botPerm },
-            { name: "Author", value: authorPerm },
-            { name: "User", value: userPerm }
+            { name: strings.bot, value: botPerm },
+            { name: strings.author, value: authorPerm },
+            { name: strings.user, value: userPerm }
           )
           .setFooter(executedBy)
         msg.edit(embed);
@@ -40,12 +42,13 @@ module.exports = {
 
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
-          .setTitle("Permission " + perm)
+          .setAuthor(strings.moduleName)
+          .setTitle(perm)
           .addFields(
-            { name: "Bot", value: botPerm },
-            { name: "Author", value: authorPerm }
+            { name: strings.bot, value: botPerm },
+            { name: strings.author, value: authorPerm }
           )
-          .setFooter("Executed by " + message.author.tag)
+          .setFooter(executedBy)
         msg.edit(embed);
       }
     });
