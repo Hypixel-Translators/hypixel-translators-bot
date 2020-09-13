@@ -1,10 +1,10 @@
 {
-    "outgoing": "Sent message to %%recipient%%",
-    "outgoingLoad": "Sending message to user",
+    "outgoing": "Mesaj, %%recipient%%'e gönderildi",
+    "outgoingLoad": "Kullanıcıya mesaj gönderiliyor",
     "loading": "One second...",
     "generalError": "Bir şeyler ters gitti.",
-    "message": "Message",
-    "incoming": "Received message from staff",
+    "message": "Mesaj",
+    "incoming": "Yetkiliden mesaj alındı",
     "incomingDisclaimer": "Buraya gönderdiğin her mesaj, yetkililere gönderilecek.",
     "executedBy": "%%user%% tarafından yürütüldü"
 }
