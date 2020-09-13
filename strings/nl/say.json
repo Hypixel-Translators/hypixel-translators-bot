@@ -1,3 +1,6 @@
 {
+    "moduleName": "Papegaai",
+    "loading": "Even geduld...",
+    "success": "Bericht verzonden in %%channel%%!",
     "executedBy": "Uitgevoerd door %%user%%"
 }
