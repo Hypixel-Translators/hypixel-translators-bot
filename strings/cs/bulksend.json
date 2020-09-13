@@ -1,3 +1,6 @@
 {
+    "moduleName": "Bulk Send",
+    "success": "Success! Message sent.",
+    "generalError": "Něco se pokazilo.",
     "executedBy": "Provedeno uživatelem %%user%%"
 }
