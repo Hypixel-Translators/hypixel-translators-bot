@@ -5,9 +5,9 @@
     "invalidArg": "Nieprawidłowy argument!",
     "notFound": "%%type%% nie został odnaleziony!",
     "notProvided": "Nie podano %%type%%!",
-    "thatMessage": "That message",
-    "thatChannel": "That channel",
-    "aMessage": "a message",
-    "aChannel": "a channel",
+    "thatMessage": "Ta wiadomość",
+    "thatChannel": "Ten kanał",
+    "aMessage": "wiadomość",
+    "aChannel": "kanał",
     "executedBy": "Wykonano przez %%user%%"
 }
