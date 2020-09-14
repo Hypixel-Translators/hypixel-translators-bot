@@ -1,6 +1,6 @@
 {
-    "moduleName": "Bulk Send",
-    "success": "Success! Message sent.",
+    "moduleName": "Wysyłanie zbiorcze",
+    "success": "Udało się! Wiadomość wysłana.",
     "generalError": "Coś poszło nie tak.",
     "executedBy": "Wykonano przez %%user%%"
 }
