@@ -6,6 +6,6 @@
     "errorNoPingDisclaimer": " Jeżeli musisz, skontaktuj się z właścicielem serwera lub administratorem.",
     "errorNotFound": "Wprowadzona rola nie istnieje. Możesz wprowadzić nazwę języka lub dowolne z podanych: ",
     "errorNoArgs": "Zapomniałeś określić język! Możesz wprowadzić nazwę języka (po angielsku) lub dowolny z podanych: ",
-    "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
+    "errorNoArgs2": "Zapomniałeś określić typ roli! Wybierz jedną z nich: ",
     "executedBy": "Wykonano przez %%user%%"
 }
