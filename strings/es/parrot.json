@@ -1,13 +1,13 @@
 {
-    "moduleName": "Parrot",
+    "moduleName": "Loro",
     "loading": "Un segundo...",
-    "success": "Success! Message sent.",
+    "success": "¡Éxito! Mensaje enviado.",
     "invalidArg": "¡Argumento no válido!",
-    "notFound": "%%type%% hasn't been found!",
-    "notProvided": "You haven't provided %%type%%!",
-    "thatMessage": "That message",
-    "thatChannel": "That channel",
-    "aMessage": "a message",
-    "aChannel": "a channel",
+    "notFound": "¡%%type%% no ha sido encontrado!",
+    "notProvided": "¡No has introducido %%type%%!",
+    "thatMessage": "Ese mensaje",
+    "thatChannel": "Ese canal",
+    "aMessage": "un mensaje",
+    "aChannel": "un canal",
     "executedBy": "Ejecutado por %%user%%"
 }
