@@ -2,13 +2,13 @@
     "moduleName": "Hjælp",
     "commandsListTitle": "Kommandoliste",
     "commandsListTooltip": "Udfør `+help <kommandoens navn>` for at lære mere om en bestemt kommando.",
-    "madeBy": " | Bot made with lots of care by %%q10%%",
+    "madeBy": " | Botten er lavet med massere af pleje af %%q10%%",
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "Denne kommando findes ikke!",
     "seconds": " sekunder",
     "usageField": "Anvendelse",
-    "cooldownField": "Cooldown",
+    "cooldownField": "Nedkøling",
     "aliasesField": "Aliasser",
     "help": {
         "usage": "+help [kommandoens navn]",
@@ -32,7 +32,7 @@
     },
     "bug": {
         "usage": "+bug <besked>",
-        "description": "Allows you to report bugs present in the bot."
+        "description": "Giver dig muligheden for at rapportere fejl, der er til stede i botten."
     },
     "feedback": {
         "usage": "+feedback <besked>",
