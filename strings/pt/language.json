@@ -1,9 +1,11 @@
 {
     "moduleName": "Idioma",
-    "changingTitle": "A mudar o teu idioma...",
+    "loading": "Só um segundo...",
+    "changing": "Changing your language... This may take a while.",
     "changedToTitle": "O teu idioma foi alterado para português!",
-    "errorTitle": "Esse idioma não existe ou não está completamente traduzido!",
+    "errorTitle": "That language hasn't been added yet!",
     "errorDescription": "O teu idioma não foi alterado. Estes são os idiomas disponíveis neste momento (isto não significa que estejam traduzidos):",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact <@722738307477536778>.",
     "current": "O teu idioma de preferência está definido para português.",
     "listTitle": "Lista de idiomas",
     "listElement": "`%%code%%` - **%%language%%**",
