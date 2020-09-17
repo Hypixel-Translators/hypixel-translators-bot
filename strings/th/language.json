@@ -1,9 +1,11 @@
 {
     "moduleName": "ภาษา",
-    "changingTitle": "กำลังเปลี่ยนภาษาของคุณ...",
+    "loading": "One second...",
+    "changing": "Changing your language... This may take a while.",
     "changedToTitle": "Changed your language to English!",
-    "errorTitle": "ภาษานั้นไม่มีอยู่จริงหรือยังไม่ถูกแปลจนหมด!",
+    "errorTitle": "That language hasn't been added yet!",
     "errorDescription": "ภาษาของคุณยังไม่ถูกเปลี่ยน. ข้างล่างคือภาษาที่คุณสามารถเลือกได้ (นี่ไม่ได้แปลว่าพวกมันถูกแปลแล้ว)",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact <@722738307477536778>.",
     "current": "Your language preference is set to English.",
     "listTitle": "List of languages",
     "listElement": "`%%code%%` | **%%language%%**",
