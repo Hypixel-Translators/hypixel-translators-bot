@@ -1,9 +1,11 @@
 {
     "moduleName": "Γλώσσα",
-    "changingTitle": "Αλλαγή Γλώσσας...",
+    "loading": "One second...",
+    "changing": "Changing your language... This may take a while.",
     "changedToTitle": "Η γλώσσα σου άλλαξε στα Ελληνικά!",
-    "errorTitle": "Αυτή η γλώσσα δεν υπάρχει ή δεν είναι ολοκληρωτικά μεταφρασμένη!",
+    "errorTitle": "That language hasn't been added yet!",
     "errorDescription": "Η γλώσσα σου δεν έχει αλλάξει. Αυτές οι γλώσσες είναι προσωρινά διαθέσιμες (αυτό δεν σημαίνει ότι είναι μεταφρασμένες):",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact <@722738307477536778>.",
     "current": "Η προτίμηση της γλώσσας σου είναι ρυθμισμένη στα Ελληνικά.",
     "listTitle": "Λίστα Γλωσσών",
     "listElement": "`%%code%%` | **%%language%%**",
