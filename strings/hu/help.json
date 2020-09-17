@@ -1,0 +1,46 @@
+{
+    "moduleName": "Help",
+    "commandsListTitle": "List of commands",
+    "commandsListTooltip": "Execute `+help <name of command>` to learn more about a specific command.",
+    "madeBy": " | Bot made with lots of care by %%q10%%",
+    "commandInfo": "Command information",
+    "commandInfoFor": "Command information for ",
+    "commandNotExist": "That command doesn't exist!",
+    "seconds": " seconds",
+    "usageField": "Usage",
+    "cooldownField": "Cooldown",
+    "aliasesField": "Aliases",
+    "help": {
+        "usage": "+help [name of command]",
+        "description": "Shows you all available commands and other info about the bot."
+    },
+    "prefix": {
+        "usage": "+prefix",
+        "description": "Gives you the appropriate prefix for your language(s)."
+    },
+    "quote": {
+        "usage": "+quote [index] | +quote add <quote>/<user mention>",
+        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+    },
+    "mention": {
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
+    },
+    "context": {
+        "usage": "+context get|add|edit|view|help <arguments>",
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+    },
+    "bug": {
+        "usage": "+bug <message>",
+        "description": "Allows you to report bugs present in the bot."
+    },
+    "feedback": {
+        "usage": "+feedback <message>",
+        "description": "Sends your feedback on the bot to staff."
+    },
+    "language": {
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or shows a list of available languages."
+    },
+    "executedBy": "Executed by %%user%%"
+}

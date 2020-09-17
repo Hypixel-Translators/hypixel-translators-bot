@@ -1,8 +1,8 @@
 {
-    "moduleName": "Permission checker",
+    "moduleName": "Verificador de permisos",
     "loading": "Un segundo...",
     "bot": "Bot",
-    "author": "Author",
-    "user": "User",
+    "author": "Autor",
+    "user": "Usuario",
     "executedBy": "Ejecutado por %%user%%"
 }

@@ -3,7 +3,8 @@
     "loading": "One second...",
     "loadingRoles": "กำลังโหลดยศของคุณ",
     "errors": {
-        "noLanguages": "ดูเหมือนว่าคุนจะไม่มียศผู้แปลภาษา! กรุณาติดต่อ <@722738307477536778> ถ้าคุณคิดว่านี่คือข้อผิดพลาด",
+        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
+        "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
         "error": "ไม่สามารถเปลี่ยนชื่อเล่นของคุณได้. คุณสามารถคัดลอกชื่อเล่นและเปลี่ยนชื่อของคุณได้",
         "confirmedNoFlags": "คุณได้ยืนยันแต่ไม่ได้เลือกธงประเทศ, ",
         "cancelled": "คุณได้ยกเลิกการเปลี่ยนชื่อเล่นของคุณ, ",

@@ -3,7 +3,8 @@
     "loading": "Секундочку...",
     "loadingRoles": "Отримання Ваших ролей...",
     "errors": {
-        "noLanguages": "Здається, у вас немає ніяких мовних ролей! Будь ласка, зв'яжіться з <@722738307477536778>, якщо вам здається, що це помилка.",
+        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
+        "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
         "error": "Не вдалося змінити псевдонім. Ви можете скопіювати його нижче і самі змінити псевдонім.",
         "confirmedNoFlags": "Ви підтвердили, але Ви не відреагували на жодний прапор, ",
         "cancelled": "Ви скасували зміну нікнейму, ",

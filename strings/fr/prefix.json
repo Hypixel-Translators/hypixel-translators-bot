@@ -3,7 +3,8 @@
     "loading": "Un second...",
     "loadingRoles": "J'obtiens tes rôles...",
     "errors": {
-        "noLanguages": "Tu n'as pas de rôle de langue! Contacte <@722738307477536778> si tu penses que c'est une erreur.",
+        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
+        "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
         "error": "Échoué à changer le pseudo. Tu peux copier le pseudo ci-dessous et l'appliquer tu-même.",
         "confirmedNoFlags": "Tu as confirmé mais tu n'as pas réagi à aucun drapeau, ",
         "cancelled": "Tu as annulé le changement de pseudo ",
