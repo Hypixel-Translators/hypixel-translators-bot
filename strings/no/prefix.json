@@ -3,7 +3,8 @@
     "loading": "Ett sekund...",
     "loadingRoles": "Henter dine roller...",
     "errors": {
-        "noLanguages": "Det ser ikke ut som du har noen roller! Vennligst kontakt <@722738307477536778> hvis du mener dette er en feil.",
+        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
+        "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
         "error": "Kunne ikke endre kallenavn. Du kan kopiere kallenavnet under og ta det i bruk selv.",
         "confirmedNoFlags": "Du bekreftet, men du la ikke til en reaksjon på noen flagg, ",
         "cancelled": "Du avbrytet endringen av kallenavnet ditt, ",
