@@ -3,7 +3,8 @@
     "loading": "Sekundkę…",
     "loadingRoles": "Pobieranie ról...",
     "errors": {
-        "noLanguages": "Nie masz żadnych ról językowych! Skontaktuj się z <@722738307477536778>, jeśli uważasz, że jest to błąd.",
+        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
+        "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
         "error": "Nie udało się zmienić pseudonimu. Możesz skopiować pseudonim poniżej i dodać go własnoręcznie.",
         "confirmedNoFlags": "Potwierdzono, ale nie zareagowano na żadne flagi, ",
         "cancelled": "Anulowałeś zmianę swojego pseudonimu, ",
