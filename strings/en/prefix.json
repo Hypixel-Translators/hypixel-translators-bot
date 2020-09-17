@@ -3,7 +3,8 @@
     "loading": "One second...",
     "loadingRoles": "Fetching your roles...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact <@722738307477536778> if you think this is in error.",
+        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
+        "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
         "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
         "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
         "cancelled": "You cancelled the changing of your nickname, ",
