@@ -3,7 +3,8 @@
     "loading": "Dej mi sekundu...",
     "loadingRoles": "Načítají se tvé role...",
     "errors": {
-        "noLanguages": "Vypadá to, že nemáš roli žádného jazyka! Prosím kontaktuj <@722738307477536778>, pokud si myslíš, že je to chyba.",
+        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
+        "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
         "error": "Nepodařilo se změnit přezdívku. Můžeš si zkopírovat přezdívku níže a nastavit si ji sám.",
         "confirmedNoFlags": "Potvrdil jsi to, ale nezareagoval jsi žádnou vlajkou, ",
         "cancelled": "Zrušil jsi změnu své přezdívky, ",
