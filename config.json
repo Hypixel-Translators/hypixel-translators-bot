@@ -11,7 +11,7 @@
   "langdb": [  
     {"name": "Bulgarian", "emoji": "🇧🇬", "colour": "#e02222", "code" : "bg"},
     {"name": "Chinese Simplified", "emoji": "🇨🇳", "colour": "#21de70", "code": "zhcn"},
-    {"name": "Chinese Traditional", "emoji": "🇹🇼", "colour": "#21de70", "code": "zhtw"},
+    {"name": "Chinese Traditional", "emoji": "🇭🇰", "colour": "#21de70", "code": "zhtw"},
     {"name": "Czech", "emoji": "🇨🇿", "colour": "#e02222", "code": "cs"},
     {"name": "Danish", "emoji": "🇩🇰", "colour": "#e02222", "code": "da"},
     {"name": "Dutch", "emoji": "🇳🇱", "colour": "#21de70", "code": "nl"},
