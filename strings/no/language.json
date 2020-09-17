@@ -1,9 +1,11 @@
 {
     "moduleName": "Språk",
-    "changingTitle": "Endrer ditt språk...",
+    "loading": "Ett sekund...",
+    "changing": "Changing your language... This may take a while.",
     "changedToTitle": "Endret språket ditt til norsk!",
-    "errorTitle": "Det språket eksisterer ikke, eller er ikke fullstendig oversatt enda!",
+    "errorTitle": "That language hasn't been added yet!",
     "errorDescription": "Språket ditt har ikke blitt endret. Disse språkene er tilgjengelig for øyeblikket (det betyr ikke at de er fullstendig oversatt):",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact <@722738307477536778>.",
     "current": "Språket du foretrekker har blitt satt til norsk.",
     "listTitle": "Liste over språk",
     "listElement": "`%%code%%` | **%%language%%**",
