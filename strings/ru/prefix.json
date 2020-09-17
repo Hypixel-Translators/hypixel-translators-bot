@@ -3,7 +3,8 @@
     "loading": "Секундочку...",
     "loadingRoles": "Получаю Ваши роли...",
     "errors": {
-        "noLanguages": "Похоже, что у Вас нет языковых ролей! Пожалуйста, свяжитесь с <@722738307477536778>, если вы считаете, что это ошибка.",
+        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
+        "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
         "error": "Не удалось изменить никнейм. Вы можете скопировать его ниже и установить его самостоятельно.",
         "confirmedNoFlags": "Вы подтвердили, но не поставили реакцию ни на одном флаге, ",
         "cancelled": "Вы отменили изменение вашего никнейма, ",
