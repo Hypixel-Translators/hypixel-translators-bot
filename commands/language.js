@@ -43,8 +43,8 @@ module.exports = {
                 const embed = new Discord.MessageEmbed()
                     .setColor(workingColor)
                     .setAuthor(strings.moduleName)
-                    .setTitle(strings.changingTitle)
-                    .setThumbnail("https://i.pinimg.com/originals/eb/73/8b/eb738bda5d55e818644809e93385620a.gif")
+                    .setTitle(strings.loading)
+                    .setDescription(strings.changing)
                     .setFooter(executedBy);
                 const msg = await message.channel.send(embed)
 
@@ -63,7 +63,7 @@ module.exports = {
                         })
                         const newMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
                         const newFiMessages = await newMessages.filter(element => (element.content.split(" ")[0] === args[1]))
-                        newFiMessages.forEach(async element => {
+                        await newFiMessages.forEach(async element => {
                             exists = true
                             strings = await require(("../strings/" + args[1] + "/language.json"))
                             executedBy = await strings.executedBy.replace("%%user%%", message.author.tag)
@@ -85,7 +85,7 @@ module.exports = {
                             await msg.edit(embed)
                             return
                         })
-                        setTimeout(async () => {
+                        await setTimeout(async () => {
                             if (!saved) {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor)
@@ -96,7 +96,7 @@ module.exports = {
                                 await msg.edit(embed)
                                 return
                             }
-                        }, 500)
+                        }, 1000)
                     } else {
                         const testFolder = './strings/';
                         await fs.readdir(testFolder, async (err, files) => {
@@ -104,7 +104,7 @@ module.exports = {
                                 .setColor(errorColor)
                                 .setAuthor(strings.moduleName)
                                 .setTitle(strings.errorTitle)
-                                .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`")
+                                .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n" + strings.suggestAdd)
                                 .setFooter(executedBy);
                             await msg.edit(embed)
                         });
@@ -144,116 +144,5 @@ module.exports = {
                 return
             }
         }
-
-
-
-        /*if (args[1]) {
-            const embed = new Discord.MessageEmbed()
-                .setColor(workingColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.changingTitle)
-                .setFooter(executedBy);
-            message.channel.send(embed)
-                .then(msg => {
-                    message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
-                        .then(async messages => {
-                            fiMessages = messages.filter(msg => msg.content.startsWith(message.author.id))
-                            var f = 0
-                            if (fiMessages) {
-                                fiMessages.forEach(element => {
-                                    f = 1
-                                    const path = './strings/' + args[1] + '/language.json'
-                                    fs.access(path, fs.F_OK, async (err) => {
-                                        if (err) {
-                                            const testFolder = './strings/';
-                                            await fs.readdir(testFolder, (err, files) => {
-                                                const embed = new Discord.MessageEmbed()
-                                                    .setColor(errorColor)
-                                                    .setAuthor(strings.moduleName)
-                                                    .setTitle(strings.errorTitle)
-                                                    .setDescription(strings.errorDescription + "\n" + files.join(", "))
-                                                    .setFooter(executedBy);
-                                                msg.edit(embed)
-                                                return
-                                            });
-                                            return
-                                        }
-                                        element.delete()
-                                        message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[1])
-                                        strings = require(("../strings/" + args[1] + "/language.json"))
-                                        executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-                                        var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
-                                        const embed = new Discord.MessageEmbed()
-                                            .setColor(successColor)
-                                            .setAuthor(strings.moduleName)
-                                            .setDescription(strings.credits)
-                                            .setFooter(executedBy);
-                                        if (strings.changedToTitle === "Changed your language to English!") { embed.setTitle("Changed your language to " + strings[args[1]] + "!") } else { embed.setTitle(strings.changedToTitle) }
-                                        msg.edit(embed)
-                                    })
-                                });
-                            } if (f == 0) {
-                                const path = './strings/' + args[1] + '/language.json'
-                                fs.access(path, fs.F_OK, async (err) => {
-                                    if (err) {
-                                        const testFolder = './strings/';
-                                        await fs.readdir(testFolder, (err, files) => {
-                                            const embed = new Discord.MessageEmbed()
-                                                .setColor(errorColor)
-                                                .setAuthor(strings.moduleName)
-                                                .setTitle(strings.errorTitle)
-                                                .setDescription(strings.errorDescription + "\n" + files.join(", "))
-                                                .setFooter(executedBy);
-                                            msg.edit(embed)
-                                            return
-                                        });
-                                        return
-                                    }
-                                    message.client.channels.cache.get("748968125663543407").send(message.author.id + " " + args[1])
-                                    strings = require(("../strings/" + args[1] + "/language.json"))
-                                    executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-                                    var currentTime = new Date().getTime(); while (currentTime + 100 >= new Date().getTime()) { };
-                                    const embed = new Discord.MessageEmbed()
-                                        .setColor(successColor)
-                                        .setAuthor(strings.moduleName)
-                                        .setDescription(strings.credits)
-                                        .setFooter(executedBy);
-                                    if (strings.changedToTitle === "Changed your language to English!") { embed.setTitle("Changed your language to " + strings[args[1]] + "!") } else { embed.setTitle(strings.changedToTitle) }
-                                    msg.edit(embed)
-                                })
-                            }
-                        })
-                })
-        } else {
-            const testFolder = './strings/';
-            await fs.readdir(testFolder, async (err, files) => {
-                await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
-                    .then(async langDbMessages => {
-                        fiMessages = langDbMessages.filter(msg => msg.content.startsWith(message.author.id))
-                        if (fiMessages) {
-                            await fiMessages.forEach(async element => {
-                                const langprefs = element.content.split(" ")
-                                const embed = new Discord.MessageEmbed()
-                                    .setColor(neutralColor)
-                                    .setAuthor(strings.moduleName)
-                                    .setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\n" + strings.credits)
-                                    .setFooter(executedBy)
-                                if (strings.current === "Your language preference is set to English.") { embed.setTitle("Your language preference is set to " + strings[langprefs[1]] + ".") } else { embed.setTitle(strings.current) }
-                                await message.channel.send(embed)
-                                return;
-                            })
-                        } else {
-                            const embed = new Discord.MessageEmbed()
-                                .setColor(neutralColor)
-                                .setAuthor(strings.moduleName)
-                                .setTitle("Your language preference is set to English.")
-                                .setFooter(executedBy)
-                                .setDescription(strings.errorDescription + "\n" + files.join(", ") + "\n\nFound a bug? Execute `+bug <message>`.")
-                            await message.channel.send(embed)
-                            return;
-                        }
-                    })
-            })
-        }*/
     }
 }
