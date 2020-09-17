@@ -1,7 +1,7 @@
 {
     "moduleName": "Give feedback",
     "sendingTitle": "Sending your feedback to staff...",
-    "sentTitle": "Your feedback has been sent!",
+    "sentTitle": "Τα σχόλιά σας έχουν σταλεί!",
     "addMessage": "You haven't provided a message!",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
