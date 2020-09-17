@@ -1,9 +1,11 @@
 {
     "moduleName": "Язык",
-    "changingTitle": "Изменяю Ваш язык...",
+    "loading": "Секундочку...",
+    "changing": "Changing your language... This may take a while.",
     "changedToTitle": "Ваш язык был изменён на Русский!",
-    "errorTitle": "Данный язык не существует или же не полностью переведён!",
+    "errorTitle": "That language hasn't been added yet!",
     "errorDescription": "Ваш язык не был изменён. На данный момент поддерживаются следующие языки (но это не значит, что они переведены):",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact <@722738307477536778>.",
     "current": "Вы выбрали Русский язык в качестве предпочитаемого языка.",
     "listTitle": "Список языков",
     "listElement": "`%%code%%` | **%%language%%**",
