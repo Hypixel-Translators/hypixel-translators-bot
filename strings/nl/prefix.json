@@ -3,8 +3,8 @@
     "loading": "Even geduld...",
     "loadingRoles": "Je rollen worden opgehaald...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
-        "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
+        "noLanguages": "Je lijkt geen taalrollen te hebben! Neem contact op met de administrator of eigenaar als je denkt dat dit een fout is.",
+        "sbaInfo": "Als SBA vertaler heb je geen taalrollen. We werken aan een manier om jou ook een voorvoegsel te laten kiezen. We houden je op de hoogte.",
         "error": "Kon bijnaam niet wijzigen. Je kunt de bijnaam wel kopiëren en hem zelf toepassen.",
         "confirmedNoFlags": "Je hebt bevestigd maar niet gereageerd met vlaggen, ",
         "cancelled": "Je hebt het wijzigen van je bijnaam geannuleerd, ",
