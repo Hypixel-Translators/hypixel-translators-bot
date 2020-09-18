@@ -2,7 +2,7 @@
     "moduleName": "Pomoc",
     "commandsListTitle": "Spis poleceń",
     "commandsListTooltip": "Wykonaj `+help <nazwa polecenia>`, aby dowiedzieć się więcej o określonym poleceniu.",
-    "madeBy": " | Bot wykonany z ogromną starannością przez %%q10%%",
+    "madeBy": " | Bot stworzony z ogromną starannością przez %%q10%%",
     "commandInfo": "Informacje o poleceniu",
     "commandInfoFor": "Informacje o poleceniu dla ",
     "commandNotExist": "To polecenie nie istnieje!",
