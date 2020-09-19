@@ -58,24 +58,7 @@ client.once("ready", () => {
 
 
 client.on("message", async message => {
-  const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
-  const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
-  oldFiMessages.forEach(async element => {
-    oldMsg = await element.content.split(" ")
-    await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
-    globalStrings = await require(("./strings/" + oldMsg[0] + "/global.json"))
-    helpStrings = await require(("./strings/" + oldMsg[0] + "/help.json"))
-  })
-
-  const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
-
-  if (message.content === "+stats" && message.member.hasPermission("VIEW_AUDIT_LOG")) {
-    stats.execute(client, true)
-    return;
-  }
-
   if (message.author.bot) return;
-
   if (message.member) {
     if (!message.member.roles.cache.has("569194996964786178")) return;
   } else {
@@ -84,6 +67,22 @@ client.on("message", async message => {
     if (!user.roles.cache.has("569194996964786178")) return;
   }
 
+  const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
+  const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
+  oldFiMessages.forEach(async element => {
+    oldMsg = await element.content.split(" ")
+    await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
+    globalStrings = await require(("./strings/" + oldMsg[0] + "/global.json"))
+    helpStrings = await require(("./strings/" + oldMsg[0] + "/help.json"))
+  })
+  const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
+
+  if (message.content === "+stats" && message.member.hasPermission("VIEW_AUDIT_LOG")) {
+    stats.execute(client, true)
+    return;
+  }
+
+  if (message.contains(""))
 
   if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
