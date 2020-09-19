@@ -1,7 +1,7 @@
 {
-    "moduleName": "Give feedback",
+    "moduleName": "Feedback geben",
     "sendingTitle": "Sending your feedback to staff...",
-    "sentTitle": "Your feedback has been sent!",
+    "sentTitle": "Dein Feedback wurde erfolgreich versendet!",
     "addMessage": "Du hast keine Nachricht angegeben!",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Ausgeführt von %%user%%"
 }
