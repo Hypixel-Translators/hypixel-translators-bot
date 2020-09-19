@@ -7,7 +7,7 @@ module.exports = {
         var d = new Date()
         var m = d.getUTCHours()
         var n = d.getUTCMinutes()
-        if (n == "6" && m == "19") {
+        if (n == "7" && m == "19") {
             check(client)
         }
     }

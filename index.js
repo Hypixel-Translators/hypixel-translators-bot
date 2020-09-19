@@ -82,7 +82,7 @@ client.on("message", async message => {
     return;
   }
 
-  if (message.content.contains(""))
+  //if (message.content.contains(""))
 
   if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
