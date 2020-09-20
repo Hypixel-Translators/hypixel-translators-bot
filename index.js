@@ -58,6 +58,7 @@ client.once("ready", () => {
 
 
 client.on("message", async message => {
+  const notAllowed = client.emojis.cache.find(emoji => emoji.name === 'vote_no'); // "🚫"
   if (message.author.bot) return;
   if (message.member) {
     if (!message.member.roles.cache.has("569194996964786178")) return;
@@ -82,12 +83,18 @@ client.on("message", async message => {
     return;
   }
 
-  if (message.content.includes("/translate/") && message.content.includes("://") && !message.content.includes("/en-en#") && message.channel.id === "730042612647723058") {
-    var times = 0
-    while (message.content.includes("/en-") && message.content.includes("#") && !message.content.includes("/en-en#")) {
-      message.content.indexOf("/en")
+  if (message.content.includes("/translate/") && message.content.includes("://") && message.channel.id === "730042612647723058") {
+    var msgTxt = String(message.content)
+    while (msgTxt.contains("translate.hypixel.net")) {
+      msgTxt.replace("translate.hypixel.net", "crowdin.com")
     }
+    while (msgTxt.contains(/\/en-(?!en)[a-z]{2,4}/g)) {
+      msgTxt.replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
+    }
+    message.react(notAllowed)
+    message.channel.send("_Some things in your original message were fixed._\n**<@" + message.author.id + ">:**" + msgTxt)
   }
+
   //https://translate.hypixel.net/translate/hypixel/136/en-nl#137092
 
   if (!message.content.startsWith(prefix)) {
@@ -121,8 +128,6 @@ client.on("message", async message => {
     );
 
   if (!command) return;
-
-  const notAllowed = client.emojis.cache.find(emoji => emoji.name === 'vote_no'); // "🚫"
 
   if (command.allowDM) {
     if (message.channel.type !== "dm") {
