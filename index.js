@@ -84,7 +84,7 @@ client.on("message", async message => {
   }
 
   if (message.content.includes("/translate/") && message.content.includes("://") && message.channel.id === "730042612647723058") {
-    var msgTxt = message.content
+    var msgTxt = (" " + message.content).slice(1)
     await msgTxt.replace(/translate\.hypixel\.net/g, "crowdin.com")
     await msgTxt.replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
     await message.react(notAllowed)
