@@ -83,8 +83,8 @@ client.on("message", async message => {
   }
 
   if (message.content.includes("/translate/") && message.content.includes("://") && !message.content.includes("/en-en#") && message.channel.id !== "749391414600925335") {
-    const firstPart = message.content.split("/en-")[0]
-    const lastPart = firstPart[1].split("#")[0]
+    const firstPart = message.content.split("/en-")
+    const lastPart = firstPart[1].split("#")
     console.log(firstPart)
     console.log(lastPart)
     console.log(firstPart[0] + "/en-en#" + lastPart[1])
