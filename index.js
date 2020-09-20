@@ -86,13 +86,8 @@ client.on("message", async message => {
   if (message.content.includes("/translate/") && message.content.includes("://") && message.channel.id === "730042612647723058") {
     var msgTxt = String(message.content)
     console.log(msgTxt)
-    while (msgTxt.includes("translate.hypixel.net")) {
-      msgTxt.replace("translate.hypixel.net", "crowdin.com")
-      console.log(msgTxt)
-    }
-    while (msgTxt.includes(/\/en-(?!en)[a-z]{2,4}/g)) {
-      msgTxt.replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
-    }
+    msgTxt.replace(/translate\.hypixel\.net/g, "crowdin.com")
+    msgTxt.replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
     message.react(notAllowed)
     message.channel.send("_Some things in your original message were fixed._\n**<@" + message.author.id + ">:**" + msgTxt)
   }
