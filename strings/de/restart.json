@@ -1,7 +1,7 @@
 {
-    "moduleName": "Restart",
+    "moduleName": "Neustart",
     "loading": "Eine Sekunde …",
-    "success": "Success! Restarting...",
+    "success": "Erfolgreich! Neustarten...",
     "error": "You don't have permission to restart the bot! If you really want to, please contact %%developer%%.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Ausgeführt von %%user%%"
 }
