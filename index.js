@@ -88,6 +88,7 @@ client.on("message", async message => {
     console.log(msgTxt)
     while (msgTxt.includes("translate.hypixel.net")) {
       msgTxt.replace("translate.hypixel.net", "crowdin.com")
+      console.log(msgTxt)
     }
     while (msgTxt.includes(/\/en-(?!en)[a-z]{2,4}/g)) {
       msgTxt.replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
