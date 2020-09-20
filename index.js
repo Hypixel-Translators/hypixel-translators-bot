@@ -86,7 +86,7 @@ client.on("message", async message => {
     const firstPart = message.content.split("/en-")[0]
     const lastPart = firstPart[1].split("#")[0]
     console.log(firstPart[0] + "/en-en#" + lastPart[1])
-    message.channel.send("_Next time, please change the link from `" + lastpart[0] + "` to `en`!_\n<@" + message.author.id + ">: " + firstPart[0] + "/en-en#" + lastPart[1])
+    message.channel.send("_Next time, please change the link from `" + lastPart[0] + "` to `en`!_\n<@" + message.author.id + ">: " + firstPart[0] + "/en-en#" + lastPart[1])
   }
 
   if (!message.content.startsWith(prefix)) {
