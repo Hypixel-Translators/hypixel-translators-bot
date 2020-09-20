@@ -85,6 +85,7 @@ client.on("message", async message => {
 
   if (message.content.includes("/translate/") && message.content.includes("://") && message.channel.id === "730042612647723058") {
     var msgTxt = String(message.content)
+    console.log(msgTxt)
     while (msgTxt.includes("translate.hypixel.net")) {
       msgTxt.replace("translate.hypixel.net", "crowdin.com")
     }
