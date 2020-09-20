@@ -83,12 +83,17 @@ client.on("message", async message => {
   }
 
   if (message.content.includes("/translate/") && message.content.includes("://") && !message.content.includes("/en-en#") && message.channel.id !== "749391414600925335") {
-    const firstPart = message.content.split("/en-")
-    const lastPart = firstPart[1].split("#")
-    console.log(firstPart)
-    console.log(lastPart)
-    console.log(firstPart[0] + "/en-en#" + lastPart[1])
-    message.channel.send("_Next time, please change the link from `" + lastPart[0] + "` to `en`!_\n<@" + message.author.id + ">: " + firstPart[0] + "/en-en#" + lastPart[1])
+    try {
+      const firstPart = message.content.split("/en-")
+      const lastPart = firstPart[1].split("#")
+      console.log(firstPart)
+      console.log(lastPart)
+      console.log(firstPart[0] + "/en-en#" + lastPart[1])
+      message.channel.send("_Next time, please change the link from `" + lastPart[0] + "` to `en`!_\n<@" + message.author.id + ">: " + firstPart[0] + "/en-en#" + lastPart[1])
+      message.delete()
+    } catch(err) {
+      console.error(err)
+    }
   }
   //https://translate.hypixel.net/translate/hypixel/136/en-nl#137092
 
