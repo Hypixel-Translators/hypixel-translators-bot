@@ -84,12 +84,11 @@ client.on("message", async message => {
   }
 
   if (message.content.includes("/translate/") && message.content.includes("://") && message.channel.id === "730042612647723058") {
-    var msgTxt = String(message.content)
-    console.log(msgTxt)
-    msgTxt.replace(/translate\.hypixel\.net/g, "crowdin.com")
-    msgTxt.replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
-    message.react(notAllowed)
-    message.channel.send("_Some things in your original message were fixed._\n**<@" + message.author.id + ">:**" + msgTxt)
+    var msgTxt = message.content
+    await msgTxt.replace(/translate\.hypixel\.net/g, "crowdin.com")
+    await msgTxt.replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
+    await message.react(notAllowed)
+    await message.channel.send("_Some things in the original message have been fixed._\n<@" + message.author.id + ">: " + msgTxt)
   }
   //https://translate.hypixel.net/translate/hypixel/136/en-nl#137092
 
