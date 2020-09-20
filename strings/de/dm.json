@@ -2,9 +2,9 @@
     "outgoing": "Sent message to %%recipient%%",
     "outgoingLoad": "Sending message to user",
     "loading": "Eine Sekunde …",
-    "generalError": "Something has gone wrong.",
-    "message": "Message",
+    "generalError": "Irgendetwas lief schief.",
+    "message": "Nachricht",
     "incoming": "Received message from staff",
     "incomingDisclaimer": "Any message you send here will get sent to staff.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Ausgeführt von %%user%%"
 }
