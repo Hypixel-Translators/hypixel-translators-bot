@@ -85,16 +85,15 @@ client.on("message", async message => {
 
   if (message.content.includes("/translate/") && message.content.includes("://") && message.channel.id === "730042612647723058") {
     var msgTxt = String(message.content)
-    while (msgTxt.contains("translate.hypixel.net")) {
+    while (msgTxt.includes("translate.hypixel.net")) {
       msgTxt.replace("translate.hypixel.net", "crowdin.com")
     }
-    while (msgTxt.contains(/\/en-(?!en)[a-z]{2,4}/g)) {
+    while (msgTxt.includes(/\/en-(?!en)[a-z]{2,4}/g)) {
       msgTxt.replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
     }
     message.react(notAllowed)
     message.channel.send("_Some things in your original message were fixed._\n**<@" + message.author.id + ">:**" + msgTxt)
   }
-
   //https://translate.hypixel.net/translate/hypixel/136/en-nl#137092
 
   if (!message.content.startsWith(prefix)) {
