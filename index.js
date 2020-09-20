@@ -82,7 +82,12 @@ client.on("message", async message => {
     return;
   }
 
-  //if (message.content.contains(""))
+  if (message.content.contains("/translate/hypixel/") && message.content.contains("://") && !message.content.contains("/en-en#") && message.channel.id !== "749391414600925335") {
+    const firstPart = message.content.split("/en-")[0]
+    const lastPart = firstPart[1].split("#")[0]
+    console.log(firstPart[0] + "/en-en#" + lastPart[1])
+    message.channel.send("_Next time, please change the link from `" + lastpart[0] + "` to `en`!_\n<@" + message.author.id + ">: " + firstPart[0] + "/en-en#" + lastPart[1])
+  }
 
   if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
