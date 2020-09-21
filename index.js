@@ -191,7 +191,7 @@ client.on("message", async message => {
       .setColor(errorColor)
       .setAuthor(globalStrings.error)
       .setTitle(globalStrings[error] || error)
-      .setDescription(globalStrings.generalError + globalStrings.generalErrorD)
+      .setDescription(globalStrings.generalError)
       .addFields(
         { name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" }
       )
