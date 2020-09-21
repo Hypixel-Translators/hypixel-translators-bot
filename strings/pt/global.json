@@ -3,9 +3,11 @@
     "outgoingDisclaimer": "Quaisquer mensagens que envies aqui serão enviadas para a staff.",
     "error": "Erro",
     "usage": "Expected command usage",
-    "generalError": "Alguma coisa correu mal.",
-    "generalErrorD": "Verifica a utilização correta do comando e tenta novamente. Se pensas que isto é um erro interno, executa `+bug <mensagem>`.",
+    "generalError": "Something has gone wrong. Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
     "dmError": "Não podes executar este comando nas mensagens privadas.",
+    "noMessage": "Não adicionaste uma mensagem!",
+    "noChannel": "You haven't provided a channel!",
+    "noUser": "You haven't provided a user!",
     "timeLeftT": "Espera mais %%time%% segundos para usares `+%%command%%` outra vez.",
     "executedBy": "Executado por %%user%%"
 }
