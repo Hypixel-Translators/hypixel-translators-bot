@@ -3,9 +3,11 @@
     "outgoingDisclaimer": "Любое сообщение, которое Вы тут напишите, будет отправлено персоналу.",
     "error": "Ошибка",
     "usage": "Expected command usage",
-    "generalError": "Что-то пошло не так.",
-    "generalErrorD": "Пожалуйста, проверьте использование команды и попробуйте снова. Если вы считаете, что это внутренняя ошибка, пропишите `+bug <сообщение>`.",
+    "generalError": "Something has gone wrong. Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
     "dmError": "К сожалению, Вы не можете использовать эту команду в личных сообщениях.",
+    "noMessage": "Вы не предоставили сообщение!",
+    "noChannel": "You haven't provided a channel!",
+    "noUser": "You haven't provided a user!",
     "timeLeftT": "Пожалуйста, подождите %%time%% секунд перед тем, как использовать `+%%command%%` снова.",
     "executedBy": "Выполнено %%user%%"
 }
