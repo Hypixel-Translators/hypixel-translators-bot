@@ -190,11 +190,10 @@ client.on("message", async message => {
     const embed = new Discord.MessageEmbed()
       .setColor(errorColor)
       .setAuthor(globalStrings.error)
-      .setTitle(globalStrings.generalError)
-      .setDescription(globalStrings.generalErrorD)
+      .setTitle(globalStrings[error] || error)
+      .setDescription(globalStrings.generalError + globalStrings.generalErrorD)
       .addFields(
-        { name: helpStrings.usageField, value: "`" + helpStrings[command.name].usage + "`" },
-        { name: globalStrings.error, value: error }
+        { name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" }
       )
       .setFooter(executedBy)
     message.channel.send(embed)
