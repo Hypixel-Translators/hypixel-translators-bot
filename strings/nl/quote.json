@@ -4,6 +4,9 @@
     "loadingModule": "Module laden...",
     "invalidArg": "Ongeldig argument!",
     "indexArg": "Er bestaat geen citaat met index %%arg%%! Geef een nummer tussen 1 en %%max%%.",
-    "specUser": "Je hebt geen gebruiker opgegeven! Typ het citaat, en vermeld dan de geciteerde gebruiker, gescheiden door een slash.",
+    "reqSub": "Your quote request has been submitted, thanks!",
+    "reqAdd": "Success! The following quote has been added:",
+    "user": "Gebruiker",
+    "index": "Quote number",
     "executedBy": "Uitgevoerd door %%user%%"
 }
