@@ -3,9 +3,11 @@
     "outgoingDisclaimer": "Any message you send here will get sent to staff.",
     "error": "Fehler",
     "usage": "Expected command usage",
-    "generalError": "Irgendetwas lief schief.",
-    "generalErrorD": "Bitte überprüfe die Verwendung des Befehls und versuche es erneut. Wenn du denkst, dass dies ein interner Fehler ist, führe bitte `+bug <Nachricht> ` aus.",
+    "generalError": "Something has gone wrong. Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
     "dmError": "Sorry, but you can't execute this command in private messages.",
+    "noMessage": "Du hast keine Nachricht angegeben!",
+    "noChannel": "You haven't provided a channel!",
+    "noUser": "You haven't provided a user!",
     "timeLeftT": "Bitte warte noch %%time%% Sekunden, um den Befehl `+%%command%%` erneut zu benutzen.",
     "executedBy": "Ausgeführt von %%user%%"
 }
