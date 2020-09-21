@@ -4,6 +4,9 @@
     "loadingModule": "Indlæser modulet...",
     "invalidArg": "Ugyldigt argument!",
     "indexArg": "Et citat med indekset %%arg%% findes ikke! Angiv venligst et nummer mellem 1 og %%max%%.",
-    "specUser": "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
+    "reqSub": "Your quote request has been submitted, thanks!",
+    "reqAdd": "Success! The following quote has been added:",
+    "user": "User",
+    "index": "Quote number",
     "executedBy": "Udført af %%user%%"
 }
