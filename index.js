@@ -167,7 +167,6 @@ client.on("message", async message => {
   setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
   var strings = require(("./strings/en/" + command.name + ".json"))
-  const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
   const oldFiMessages = oldMessages.filter(element => element.content.includes(message.author.id))
   oldFiMessages.forEach(async element => {
     oldMsg = element.content.split(" ")
