@@ -115,12 +115,7 @@ client.on("message", async message => {
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const commandName = args.shift().toLowerCase();
-
-  const command =
-    client.commands.get(commandName) ||
-    client.commands.find(
-      cmd => cmd.aliases && cmd.aliases.includes(commandName)
-    );
+  const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
   if (!command) return;
 
@@ -168,36 +163,34 @@ client.on("message", async message => {
     }
   }
 
-  timestamps.set(message.author.id, now);
+  if (message.member) if (message.member.hasPermission("BAN_MEMBERS")) timestamps.set(message.author.id, now);
   setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-  try {
-    var strings = require(("./strings/en/" + command.name + ".json"))
-    const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
-    const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
-    oldFiMessages.forEach(async element => {
-      oldMsg = await element.content.split(" ")
-      await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
-      strings = await require(("./strings/" + oldMsg[0] + "/" + command.name + ".json"))
-    })
-    setTimeout(() => {
+  var strings = require(("./strings/en/" + command.name + ".json"))
+  const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
+  const oldFiMessages = oldMessages.filter(element => element.content.includes(message.author.id))
+  oldFiMessages.forEach(async element => {
+    oldMsg = element.content.split(" ")
+    oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
+    strings = require(("./strings/" + oldMsg[0] + "/" + command.name + ".json"))
+  })
+  setTimeout(() => {
+    try {
       command.execute(strings, message, args)
-      if (message.member) { if (message.member.hasPermission("BAN_MEMBERS")) { timestamps.delete(message.author.id) } }
-    }, 50)
-  } catch (error) {
-    timestamps.delete(message.author.id)
-    console.error(error);
-    const embed = new Discord.MessageEmbed()
-      .setColor(errorColor)
-      .setAuthor(globalStrings.error)
-      .setTitle(globalStrings[error] || error)
-      .setDescription(globalStrings.generalError)
-      .addFields(
-        { name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" }
-      )
-      .setFooter(executedBy)
-    message.channel.send(embed)
-  }
+    } catch (error) {
+      timestamps.delete(message.author.id)
+      console.error(error);
+      const embed = new Discord.MessageEmbed()
+        .setColor(errorColor)
+        .setAuthor(globalStrings.error)
+        .setTitle(globalStrings[error] || error)
+        .setDescription(globalStrings.generalError)
+        .addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" })
+        .setFooter(executedBy)
+      message.channel.send(embed)
+    }
+  }, 50)
+
 });
 
 client.on('messageReactionAdd', async (reaction, user) => {

@@ -15,13 +15,6 @@ module.exports = {
 
         if (!args[0]) {
             throw "noMessage";
-            /*const embed = new Discord.MessageEmbed()
-                .setColor(errorColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.addMessage)
-                .setFooter(executedBy);
-            message.channel.send(embed)
-            return;*/
         }
 
         const embed = new Discord.MessageEmbed()
