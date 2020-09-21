@@ -8,6 +8,8 @@
     "noMessage": "You haven't provided a message!",
     "noChannel": "You haven't provided a channel!",
     "noUser": "You haven't provided a user!",
+    "falseChannel": "That channel couldn't be found!",
+    "falseUser": "That user couldn't be found!",
     "timeLeftT": "Ur speed! Pls waist %%time%% scaconds for do `+%%command%%` agen tho.",
     "executedBy": "Executed by %%user%%"
 }
