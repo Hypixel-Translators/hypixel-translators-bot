@@ -8,6 +8,8 @@
     "noMessage": "Bir mesaj yazmadınız!",
     "noChannel": "You haven't provided a channel!",
     "noUser": "You haven't provided a user!",
+    "falseChannel": "That channel couldn't be found!",
+    "falseUser": "That user couldn't be found!",
     "timeLeftT": "'+%%command%%' komutunu kullanmak için lütfen %%time%% saniye bekle.",
     "executedBy": "%%user%% tarafından yürütüldü"
 }
