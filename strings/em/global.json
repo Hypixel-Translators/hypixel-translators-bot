@@ -3,9 +3,11 @@
     "outgoingDisclaimer": "Any message you send here will get sent to staff.",
     "error": "Error",
     "usage": "Expected command usage",
-    "generalError": "Something has gone wrong.",
-    "generalErrorD": "Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
+    "generalError": "Something has gone wrong. Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
     "dmError": "Sorry, but you can't execute this command in private messages.",
+    "noMessage": "You haven't provided a message!",
+    "noChannel": "You haven't provided a channel!",
+    "noUser": "You haven't provided a user!",
     "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
     "executedBy": "Executed by %%user%%"
 }
