@@ -8,6 +8,8 @@
     "noMessage": "Du har ikke angivet en besked!",
     "noChannel": "You haven't provided a channel!",
     "noUser": "You haven't provided a user!",
+    "falseChannel": "That channel couldn't be found!",
+    "falseUser": "That user couldn't be found!",
     "timeLeftT": "Vent venligst %%time%% sekunder for at bruge `+%%command%%` igen.",
     "executedBy": "Udført af %%user%%"
 }
