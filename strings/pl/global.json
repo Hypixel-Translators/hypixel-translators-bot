@@ -2,6 +2,7 @@
     "outgoing": "Wysłano wiadomość do administracji",
     "outgoingDisclaimer": "Każda wiadomość wysłana w tym miejscu, zostanie przekazana administracji.",
     "error": "Błąd",
+    "usage": "Expected command usage",
     "generalError": "Coś poszło nie tak.",
     "generalErrorD": "Sprawdź użycie polecenia i spróbuj ponownie. Jeśli uważasz, że jest to błąd wewnętrzny, użyj `+bug <wiadomość>`.",
     "dmError": "Przepraszamy, ale nie możesz wykonać tego polecenia w wiadomości prywatnej.",
