@@ -2,6 +2,7 @@
     "outgoing": "Sent message to staff",
     "outgoingDisclaimer": "Any message you send here will get sent to staff.",
     "error": "Fehler",
+    "usage": "Expected command usage",
     "generalError": "Irgendetwas lief schief.",
     "generalErrorD": "Bitte überprüfe die Verwendung des Befehls und versuche es erneut. Wenn du denkst, dass dies ein interner Fehler ist, führe bitte `+bug <Nachricht> ` aus.",
     "dmError": "Sorry, but you can't execute this command in private messages.",
