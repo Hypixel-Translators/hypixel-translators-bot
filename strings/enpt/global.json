@@ -2,6 +2,7 @@
     "outgoing": "Sent message to staff",
     "outgoingDisclaimer": "Any message ye send 'ere will get sent to staff.",
     "error": "Error",
+    "usage": "Expected command usage",
     "generalError": "Something 'as gone wrong.",
     "generalErrorD": "Please check the command usage an' try again. If ye think this here be an internal error, please execute `+bug <message>`.",
     "dmError": "Sorry, but ye can't execute this here command in private messages.",
