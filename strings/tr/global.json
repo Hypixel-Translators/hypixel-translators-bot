@@ -2,6 +2,7 @@
     "outgoing": "Yetkililere mesaj gönderildi",
     "outgoingDisclaimer": "Buraya gönderdiğin her mesaj, yetkililere gönderilecek.",
     "error": "Hata",
+    "usage": "Expected command usage",
     "generalError": "Bir şeyler ters gitti.",
     "generalErrorD": "Lütfen komut kullanımını kontrol et ve tekrar dene. Bunun bir iç sorun olduğunu düşünüyorsan, lütfen `+bug <mesaj>` komutunu kullan.",
     "dmError": "Üzgünüm, ama bu komutu özel mesajlarda yürütemezsin.",
