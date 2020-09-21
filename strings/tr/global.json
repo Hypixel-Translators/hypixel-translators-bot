@@ -3,9 +3,11 @@
     "outgoingDisclaimer": "Buraya gönderdiğin her mesaj, yetkililere gönderilecek.",
     "error": "Hata",
     "usage": "Expected command usage",
-    "generalError": "Bir şeyler ters gitti.",
-    "generalErrorD": "Lütfen komut kullanımını kontrol et ve tekrar dene. Bunun bir iç sorun olduğunu düşünüyorsan, lütfen `+bug <mesaj>` komutunu kullan.",
+    "generalError": "Something has gone wrong. Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
     "dmError": "Üzgünüm, ama bu komutu özel mesajlarda yürütemezsin.",
+    "noMessage": "Bir mesaj yazmadınız!",
+    "noChannel": "You haven't provided a channel!",
+    "noUser": "You haven't provided a user!",
     "timeLeftT": "'+%%command%%' komutunu kullanmak için lütfen %%time%% saniye bekle.",
     "executedBy": "%%user%% tarafından yürütüldü"
 }
