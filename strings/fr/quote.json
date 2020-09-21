@@ -4,6 +4,9 @@
     "loadingModule": "Chargement du module...",
     "invalidArg": "Arguments invalides!",
     "indexArg": "Une citation avec le nombre %%arg%% n'existe pas! Fournis un nombre entre 1 et %%max%%.",
-    "specUser": "Tu n'as pas spécifié d'utilisateur! Tape la citation puis mentionne l'utilisateur cité, séparés par un /.",
+    "reqSub": "Your quote request has been submitted, thanks!",
+    "reqAdd": "Success! The following quote has been added:",
+    "user": "User",
+    "index": "Quote number",
     "executedBy": "Exécuté par %%user%%"
 }

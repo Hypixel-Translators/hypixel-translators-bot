@@ -4,6 +4,9 @@
     "loadingModule": "Ładowanie modułu…",
     "invalidArg": "Nieprawidłowy argument!",
     "indexArg": "Cytat z indeksem %%arg%% nie istnieje! Podaj liczbę pomiędzy 1 a %%max%%.",
-    "specUser": "Nie określono użytkownika! Wpisz cytat, a następnie oznacz cytowanego użytkownika, oddzielając oznaczenie ukośnikiem.",
+    "reqSub": "Your quote request has been submitted, thanks!",
+    "reqAdd": "Success! The following quote has been added:",
+    "user": "Użytkownik",
+    "index": "Quote number",
     "executedBy": "Wykonano przez %%user%%"
 }

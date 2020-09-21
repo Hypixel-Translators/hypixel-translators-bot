@@ -4,6 +4,9 @@
     "loadingModule": "Loading module...",
     "invalidArg": "Invalid argument!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 an' %%max%%.",
-    "specUser": "Ye 'aven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.",
+    "reqSub": "Your quote request has been submitted, thanks!",
+    "reqAdd": "Success! The following quote has been added:",
+    "user": "User",
+    "index": "Quote number",
     "executedBy": "Executed by %%user%%"
 }

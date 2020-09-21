@@ -4,6 +4,9 @@
     "loadingModule": "Завантаження модуля...",
     "invalidArg": "Недійсний аргумент!",
     "indexArg": "Цитата з індексом %%arg%% не існує! Будь-ласка вкажіть число між 1 і %%max%%.",
-    "specUser": "Ви не вказали користувача! Будь ласка, введіть цитату і @ вказаного користувача, розділивши їх косою рискою.",
+    "reqSub": "Your quote request has been submitted, thanks!",
+    "reqAdd": "Success! The following quote has been added:",
+    "user": "User",
+    "index": "Quote number",
     "executedBy": "Виконано користувачем %%user%%"
 }
