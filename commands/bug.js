@@ -14,7 +14,7 @@ module.exports = {
         var toSend = args.join(" ")
 
         if (!args[0]) {
-            throw "noMsgPrvd";
+            throw "noMessage";
             /*const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor(strings.moduleName)

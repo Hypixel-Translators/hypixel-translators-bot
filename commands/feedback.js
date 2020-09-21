@@ -14,16 +14,16 @@ module.exports = {
         var toSend = args.join(" ")
 
         if (!args[0]) {
-            const embed = new Discord.MessageEmbed()
+            throw "noMessage";
+            /*const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.addMessage)
                 .setFooter(executedBy);
             message.channel.send(embed)
-            return;
+            return;*/
         }
 
-        //message.delete();
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
             .setTitle(strings.moduleName)

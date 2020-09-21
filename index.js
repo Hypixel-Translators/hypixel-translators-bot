@@ -197,7 +197,6 @@ client.on("message", async message => {
       )
       .setFooter(executedBy)
     message.channel.send(embed)
-
   }
 });
 
