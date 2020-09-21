@@ -8,6 +8,7 @@
     "noMessage": "Je hebt geen bericht opgegeven!",
     "noChannel": "Je hebt geen kanaal opgegeven!",
     "noUser": "Je hebt geen gebruiker opgegeven!",
+    "noUserQuote": "Je hebt geen gebruiker opgegeven! Typ het citaat, en vermeld dan de geciteerde gebruiker, gescheiden door een slash.",
     "falseChannel": "Dat kanaal kon niet worden gevonden!",
     "falseUser": "Die gebruiker kon niet worden gevonden!",
     "timeLeftT": "Wacht nog %%time%% seconden voor je `+%%command%%` weer gebruikt.",
