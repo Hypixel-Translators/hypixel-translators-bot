@@ -167,7 +167,6 @@ client.on("message", async message => {
   setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
   var strings = require(("./strings/en/" + command.name + ".json"))
-  const oldFiMessages = oldMessages.filter(element => element.content.includes(message.author.id))
   oldFiMessages.forEach(async element => {
     oldMsg = element.content.split(" ")
     oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
