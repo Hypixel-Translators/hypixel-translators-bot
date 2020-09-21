@@ -30,7 +30,7 @@ module.exports = {
                     const sendTo = msg.client.channels.cache.get("730042612647723058")
                     const report = new Discord.MessageEmbed()
                         .setColor(neutralColor)
-                        .setAuthor(strings.moduleName)
+                        .setAuthor("Quote")
                         .setTitle("A quote request has been submitted!")
                         .setDescription(toSend)
                         .addFields({ name: "To add it", value: "`+quote add <quote>/<quoted user mention>`" })
