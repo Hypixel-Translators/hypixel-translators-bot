@@ -111,7 +111,7 @@ async function addToSpreadsheet(executedBy, strings, message, toSend, msg) {
     const quote = args[0]
     const user = args[1]
     if (!user) {
-        throw "You haven't specified a user! Please type the quote and then mention the quoted user, separated by a slash.";
+        throw "noUserQuote";
         /*const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(strings.moduleName)
