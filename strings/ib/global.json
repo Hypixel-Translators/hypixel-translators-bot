@@ -1,15 +1,15 @@
 {
-    "outgoing": "Snet mesgage to stafs",
+    "outgoing": "Did le send of mesgag to staf",
     "outgoingDisclaimer": "Al meagegs you sned ehere will gst sent to staf.",
-    "error": "Not good",
+    "error": "Mesgag but not gud",
     "usage": "Expected command usage",
-    "generalError": "Something has gone wrong. Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
-    "dmError": "Wat are u thinkin?! U cantt do htis in priavet masages.",
+    "generalError": "I drank easter. Pls chek acomand an tyr agen. If u thinkk thsis is an eterninal erorr, pls do `+bug <mesgag>`.",
+    "dmError": "U cant do dis in dms, idot.",
     "noMessage": "You haven't provided a message!",
     "noChannel": "You haven't provided a channel!",
     "noUser": "You haven't provided a user!",
     "falseChannel": "That channel couldn't be found!",
     "falseUser": "That user couldn't be found!",
-    "timeLeftT": "Ur speed! Pls waist %%time%% scaconds for do `+%%command%%` agen tho.",
+    "timeLeftT": "U quicc, but too quicc so pls wait %%time%% skakund befr do `+%%command%%`.",
     "executedBy": "Executed by %%user%%"
 }
