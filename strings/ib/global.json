@@ -2,6 +2,7 @@
     "outgoing": "Snet mesgage to stafs",
     "outgoingDisclaimer": "Al meagegs you sned ehere will gst sent to staf.",
     "error": "Not good",
+    "usage": "Expected command usage",
     "generalError": "Sth hasnt gon good.",
     "generalErrorD": "Pls chek acomand an tyr agen. If u thinkk thsis is an eterninal erorr, pls do `+bug <mesgag>`.",
     "dmError": "Wat are u thinkin?! U cantt do htis in priavet masages.",
