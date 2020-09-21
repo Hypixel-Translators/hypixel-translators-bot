@@ -1,7 +1,7 @@
 {
     "moduleName": "Papuga",
     "loading": "Sekundkę…",
-    "success": "Udało się! Wiadomość wysłana.",
+    "success": "Udało się! Wysłano wiadomość.",
     "invalidArg": "Nieprawidłowy argument!",
     "executedBy": "Wykonano przez %%user%%"
 }
