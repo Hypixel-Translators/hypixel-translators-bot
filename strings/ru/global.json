@@ -8,6 +8,8 @@
     "noMessage": "Вы не предоставили сообщение!",
     "noChannel": "You haven't provided a channel!",
     "noUser": "You haven't provided a user!",
+    "falseChannel": "That channel couldn't be found!",
+    "falseUser": "That user couldn't be found!",
     "timeLeftT": "Пожалуйста, подождите %%time%% секунд перед тем, как использовать `+%%command%%` снова.",
     "executedBy": "Выполнено %%user%%"
 }
