@@ -4,6 +4,9 @@
     "loadingModule": "Načítá se modul...",
     "invalidArg": "Neplatný argument!",
     "indexArg": "Citát s číslem %%arg%% neexistuje! Prosím zadej číslo mezi 1 a %%max%%.",
-    "specUser": "Nespecifikoval jsi uživatele! Prosím napiš citát a pak označ citovaného uživatele, odděleného lomítkem.",
+    "reqSub": "Your quote request has been submitted, thanks!",
+    "reqAdd": "Success! The following quote has been added:",
+    "user": "Uživatel",
+    "index": "Quote number",
     "executedBy": "Provedeno uživatelem %%user%%"
 }
