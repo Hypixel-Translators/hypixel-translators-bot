@@ -29,14 +29,16 @@ module.exports = {
         const sendTo = msg.client.channels.cache.get(rawSendTo.replace("<#", "").replace(">", ""))
         sendTo.send(">>> " + toSend)
           .catch(err => {
-            const embed = new Discord.MessageEmbed()
+            msg.delete()
+            throw "noChannel";
+            /*const embed = new Discord.MessageEmbed()
               .setColor(errorColor)
               .setAuthor(strings.moduleName)
               .setTitle(strings.invalidArg)
               .setFooter(executedBy)
             if (!rawSendTo) { embed.setDescription(strings.notProvided.replace("%%type%%", strings.aChannel)) }
             else { embed.setDescription(strings.notFound.replace("%%type%%", strings.thatChannel)) }
-            msg.edit(embed)
+            msg.edit(embed)*/
           })
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
