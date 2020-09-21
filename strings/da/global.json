@@ -2,9 +2,14 @@
     "outgoing": "Sent message to staff",
     "outgoingDisclaimer": "Enhver besked, som du sender her, vil blive sendt til personalet.",
     "error": "Fejl",
-    "generalError": "Noget gik galt.",
-    "generalErrorD": "Tjek venligst kommandoforbruget og prøv igen. Hvis du tænker, at det her er en fejl, så skriv `+bug <besked>`.",
+    "usage": "Expected command usage",
+    "generalError": "Something has gone wrong. Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
     "dmError": "Beklager, men du kan ikke udføre denne kommando i private beskeder.",
+    "noMessage": "Du har ikke angivet en besked!",
+    "noChannel": "You haven't provided a channel!",
+    "noUser": "You haven't provided a user!",
+    "falseChannel": "That channel couldn't be found!",
+    "falseUser": "That user couldn't be found!",
     "timeLeftT": "Vent venligst %%time%% sekunder for at bruge `+%%command%%` igen.",
     "executedBy": "Udført af %%user%%"
 }

@@ -2,9 +2,14 @@
     "outgoing": "Sent message to staff",
     "outgoingDisclaimer": "Any message ye send 'ere will get sent to staff.",
     "error": "Error",
-    "generalError": "Something 'as gone wrong.",
-    "generalErrorD": "Please check the command usage an' try again. If ye think this here be an internal error, please execute `+bug <message>`.",
+    "usage": "Expected command usage",
+    "generalError": "Something has gone wrong. Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
     "dmError": "Sorry, but ye can't execute this here command in private messages.",
+    "noMessage": "Ye 'aven't provided a message!",
+    "noChannel": "You haven't provided a channel!",
+    "noUser": "You haven't provided a user!",
+    "falseChannel": "That channel couldn't be found!",
+    "falseUser": "That user couldn't be found!",
     "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
     "executedBy": "Executed by %%user%%"
 }

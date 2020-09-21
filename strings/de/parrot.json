@@ -3,11 +3,5 @@
     "loading": "Eine Sekunde …",
     "success": "Success! Message sent.",
     "invalidArg": "Ungültiges Argument!",
-    "notFound": "%%type%% wurde nicht gefunden!",
-    "notProvided": "You haven't provided %%type%%!",
-    "thatMessage": "That message",
-    "thatChannel": "That channel",
-    "aMessage": "eine Nachricht",
-    "aChannel": "a channel",
     "executedBy": "Ausgeführt von %%user%%"
 }

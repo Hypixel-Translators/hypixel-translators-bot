@@ -2,9 +2,14 @@
     "outgoing": "Zpráva se odeslala adminům",
     "outgoingDisclaimer": "Jakákoli zpráva, kterou sem pošleš, bude odeslána adminům.",
     "error": "Chyba",
-    "generalError": "Něco se pokazilo.",
-    "generalErrorD": "Zkontroluj použití příkazu a zkus to znovu. Pokud si myslíš, že se jedná o interní chybu, proveď prosím `+bug <zpráva>`.",
+    "usage": "Expected command usage",
+    "generalError": "Something has gone wrong. Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
     "dmError": "Omlouváme se, ale tento příkaz nelze provést v soukromých zprávách.",
+    "noMessage": "Nenapsal jsi žádnou zprávu!",
+    "noChannel": "You haven't provided a channel!",
+    "noUser": "You haven't provided a user!",
+    "falseChannel": "That channel couldn't be found!",
+    "falseUser": "That user couldn't be found!",
     "timeLeftT": "Počkej prosím dalších %%time%% sekund/y pro použití příkazu `+%%command%%`.",
     "executedBy": "Provedeno uživatelem %%user%%"
 }

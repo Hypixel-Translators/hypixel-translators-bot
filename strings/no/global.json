@@ -2,9 +2,14 @@
     "outgoing": "Melding sendt til staben",
     "outgoingDisclaimer": "Meldinger som blir sendt her vil bli sendt til staben.",
     "error": "Feil",
-    "generalError": "Noe har gått galt.",
-    "generalErrorD": "Vennligst les kommandoinstruksen og prøv igjen. Hvis du tror dette var en intern feil, skriv `+bug <melding>`.",
+    "usage": "Expected command usage",
+    "generalError": "Something has gone wrong. Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
     "dmError": "Beklager, men du kan ikke utføre denne kommandoen i private meldinger.",
+    "noMessage": "Du har ikke oppgitt en melding!",
+    "noChannel": "You haven't provided a channel!",
+    "noUser": "You haven't provided a user!",
+    "falseChannel": "That channel couldn't be found!",
+    "falseUser": "That user couldn't be found!",
     "timeLeftT": "Vennligst vent %%time%% sekunder før du utfører `+%%command%%` igjen.",
     "executedBy": "Utført av %%user%%"
 }

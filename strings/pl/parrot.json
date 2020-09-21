@@ -3,11 +3,5 @@
     "loading": "Sekundkę…",
     "success": "Udało się! Wiadomość wysłana.",
     "invalidArg": "Nieprawidłowy argument!",
-    "notFound": "%%type%% nie został odnaleziony!",
-    "notProvided": "Nie podano %%type%%!",
-    "thatMessage": "Ta wiadomość",
-    "thatChannel": "Ten kanał",
-    "aMessage": "wiadomość",
-    "aChannel": "kanał",
     "executedBy": "Wykonano przez %%user%%"
 }

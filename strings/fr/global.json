@@ -2,9 +2,14 @@
     "outgoing": "Le message a été envoyé à les staff",
     "outgoingDisclaimer": "Tout message que tu envoie ici sera envoyé au personnel.",
     "error": "Erreur",
-    "generalError": "Une erreur s'est produite.",
-    "generalErrorD": "Vérifie l'utilisation de la commande et réessayer. Si tu pense qu'il s'agit d'une erreur interne, exécute `+bug <message>`.",
+    "usage": "Expected command usage",
+    "generalError": "Something has gone wrong. Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
     "dmError": "Désolé, tu ne peux pas exécuter cette commande dans des messages privés.",
+    "noMessage": "Tu n'as pas fournir un message!",
+    "noChannel": "You haven't provided a channel!",
+    "noUser": "You haven't provided a user!",
+    "falseChannel": "That channel couldn't be found!",
+    "falseUser": "That user couldn't be found!",
     "timeLeftT": "Attend encore %%time%% secondes pour utiliser `+%%command%%` à nouveau.",
     "executedBy": "Exécuté par %%user%%"
 }
