@@ -3,9 +3,11 @@
     "outgoingDisclaimer": "Al meagegs you sned ehere will gst sent to staf.",
     "error": "Not good",
     "usage": "Expected command usage",
-    "generalError": "Sth hasnt gon good.",
-    "generalErrorD": "Pls chek acomand an tyr agen. If u thinkk thsis is an eterninal erorr, pls do `+bug <mesgag>`.",
+    "generalError": "Something has gone wrong. Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
     "dmError": "Wat are u thinkin?! U cantt do htis in priavet masages.",
+    "noMessage": "You haven't provided a message!",
+    "noChannel": "You haven't provided a channel!",
+    "noUser": "You haven't provided a user!",
     "timeLeftT": "Ur speed! Pls waist %%time%% scaconds for do `+%%command%%` agen tho.",
     "executedBy": "Executed by %%user%%"
 }
