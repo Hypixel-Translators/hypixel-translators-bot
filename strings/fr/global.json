@@ -2,6 +2,7 @@
     "outgoing": "Le message a été envoyé à les staff",
     "outgoingDisclaimer": "Tout message que tu envoie ici sera envoyé au personnel.",
     "error": "Erreur",
+    "usage": "Expected command usage",
     "generalError": "Une erreur s'est produite.",
     "generalErrorD": "Vérifie l'utilisation de la commande et réessayer. Si tu pense qu'il s'agit d'une erreur interne, exécute `+bug <message>`.",
     "dmError": "Désolé, tu ne peux pas exécuter cette commande dans des messages privés.",
