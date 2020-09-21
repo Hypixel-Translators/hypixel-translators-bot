@@ -2,6 +2,7 @@
     "outgoing": "Sent message to staff",
     "outgoingDisclaimer": "Enhver besked, som du sender her, vil blive sendt til personalet.",
     "error": "Fejl",
+    "usage": "Expected command usage",
     "generalError": "Noget gik galt.",
     "generalErrorD": "Tjek venligst kommandoforbruget og prøv igen. Hvis du tænker, at det her er en fejl, så skriv `+bug <besked>`.",
     "dmError": "Beklager, men du kan ikke udføre denne kommando i private beskeder.",
