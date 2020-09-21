@@ -7,10 +7,10 @@
     "dmError": "Não podes executar este comando nas mensagens privadas.",
     "noMessage": "Não adicionaste uma mensagem!",
     "noChannel": "Não mencionaste um canal!",
-    "noUser": "You haven't provided a user!",
+    "noUser": "Não mencionaste um utilizador!",
     "noUserQuote": "Não mencionaste um utilizador! Escreve a citação e menciona o utilizador citado, separados por uma barra.",
-    "falseChannel": "That channel couldn't be found!",
-    "falseUser": "That user couldn't be found!",
+    "falseChannel": "Esse canal não foi encontrado!",
+    "falseUser": "Esse utilizador não foi encontrado!",
     "timeLeftT": "Espera mais %%time%% segundos para usares `+%%command%%` outra vez.",
     "executedBy": "Executado por %%user%%"
 }
