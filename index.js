@@ -68,15 +68,15 @@ client.on("message", async message => {
     if (!user.roles.cache.has("569194996964786178")) return;
   }
 
-  const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
-  const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
+  var oldMessages = message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
+  var oldFiMessages = oldMessages.filter(element => element.content.includes(message.author.id))
   oldFiMessages.forEach(async element => {
-    oldMsg = await element.content.split(" ")
-    await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
-    globalStrings = await require(("./strings/" + oldMsg[0] + "/global.json"))
-    helpStrings = await require(("./strings/" + oldMsg[0] + "/help.json"))
+    oldMsg = element.content.split(" ")
+    oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
+    globalStrings = require(("./strings/" + oldMsg[0] + "/global.json"))
+    helpStrings = require(("./strings/" + oldMsg[0] + "/help.json"))
   })
-  const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
+  var executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
   if (message.content === "+stats" && message.member.hasPermission("VIEW_AUDIT_LOG")) {
     stats.execute(client, true)
@@ -88,9 +88,8 @@ client.on("message", async message => {
     await msgTxt.replace(/translate\.hypixel\.net/g, "crowdin.com")
     await msgTxt.replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
     await message.react(notAllowed)
-    await message.channel.send("_Some things in the original message have been fixed._\n<@" + message.author.id + ">: " + msgTxt)
+    await message.channel.send("Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n<@" + message.author.id + ">: " + msgTxt)
   }
-  //https://translate.hypixel.net/translate/hypixel/136/en-nl#137092
 
   if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
@@ -172,6 +171,7 @@ client.on("message", async message => {
     oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
     strings = require(("./strings/" + oldMsg[0] + "/" + command.name + ".json"))
   })
+  globalStrings.executedBy.replace("%%user%%", message.author.tag)
   setTimeout(() => {
     try {
       command.execute(strings, message, args)
