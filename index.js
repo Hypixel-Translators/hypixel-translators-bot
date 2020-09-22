@@ -91,6 +91,8 @@ client.on("message", async message => {
     await message.channel.send("Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n<@" + message.author.id + ">: " + msgTxt)
   }
 
+  if (message.content.toLowerCase().includes("rodry")) { var d = Math.random(); if (d < 0.04) message.channel.send("rory"); }
+
   if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
       const sendTo = client.channels.cache.get("730042612647723058")
