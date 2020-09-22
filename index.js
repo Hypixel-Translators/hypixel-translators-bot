@@ -87,7 +87,7 @@ client.on("message", async message => {
     var msgTxt = (" " + message.content).slice(1)
     await msgTxt.replace(/translate\.hypixel\.net/g, "crowdin.com")
     await msgTxt.replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
-    await message.react(notAllowed)
+    if (message.content != msgTxt) await message.react(notAllowed)
     if (message.content != msgTxt) await message.channel.send("<@" + message.author.id + "> _Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n\n>>> " + msgTxt)
   }
 
