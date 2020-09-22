@@ -88,7 +88,7 @@ client.on("message", async message => {
     await msgTxt.replace(/translate\.hypixel\.net/g, "crowdin.com")
     await msgTxt.replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
     await message.react(notAllowed)
-    await message.channel.send("Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n<@" + message.author.id + ">: " + msgTxt)
+    await message.channel.send("<@" + message.author.id + "> _Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n\n>>>" + msgTxt)
   }
 
   if (message.content.toLowerCase().includes("rodry")) { var d = Math.random(); if (d < 0.04) message.channel.send("rory"); }
