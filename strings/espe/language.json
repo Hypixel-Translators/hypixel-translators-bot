@@ -1,11 +1,11 @@
 {
     "moduleName": "Idioma",
     "loading": "Un segundo...",
-    "changing": "Cambiando tu idioma... Esto puede llevar un tiempo.",
+    "changing": "Cambiando tu idioma... Esto puede demorar un poco.",
     "changedToTitle": "¡Tu idioma fue cambiado a Español (Perú)!",
     "errorTitle": "¡Ese idioma aún no ha sido añadido!",
     "errorDescription": "Tu idioma no fue cambiado. Estos idiomas están disponibles (no significa que están traducidos):",
-    "suggestAdd": "Si quieres que este idioma se agregue al bot, por favor contacta con <@722738307477536778>.",
+    "suggestAdd": "Si quieres que este idioma se agregue al bot, por favor contacta a <@722738307477536778>.",
     "current": "Tu preferencia de idioma está establecida en Español (Perú).",
     "listTitle": "Lista de idiomas",
     "listElement": "`%%code%%` | **%%language%%**",
