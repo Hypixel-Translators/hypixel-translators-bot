@@ -84,11 +84,8 @@ client.on("message", async message => {
   }
 
   if (message.content.includes("/translate/") && message.content.includes("://") && message.channel.id === "730042612647723058") {
-    var msgTxt = (" " + message.content).slice(1)
-    await msgTxt.replace(/translate\.hypixel\.net/g, "crowdin.com")
-    await msgTxt.replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
-    if (message.content != msgTxt) await message.react(notAllowed)
-    if (message.content != msgTxt) await message.channel.send("<@" + message.author.id + "> _Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n\n>>> " + msgTxt)
+    var msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
+    if (message.content != msgTxt) message.react(notAllowed); message.channel.send("<@" + message.author.id + "> _Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n\n>>> " + msgTxt)
   }
 
   if (message.content.toLowerCase().includes("rodry")) { var d = Math.random(); if (d < 0.04) message.channel.send("rory"); }
