@@ -3,8 +3,8 @@
     "loading": "Un segundo...",
     "loadingRoles": "Obteniendo tus roles...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
-        "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
+        "noLanguages": "¡Parece que no tienes ningún rol de idioma! Si crees que esto es un error, por favor contacta al administrador o al dueño.",
+        "sbaInfo": "Como eres un traductor de SBA, no tienes ningún rol de idioma. Estamos trabajando en una forma de permitirte elegir un prefijo también. Te mantendremos actualizado.",
         "error": "No se pudo cambiar tu apodo. Puedes copiar el apodo y aplicarlo tú mismo.",
         "confirmedNoFlags": "Has confirmado, pero no has reaccionado a ninguna bandera, ",
         "cancelled": "Has cancelado el cambio de tu apodo, ",

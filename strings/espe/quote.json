@@ -4,9 +4,9 @@
     "loadingModule": "Cargando módulo...",
     "invalidArg": "¡Argumento inválido!",
     "indexArg": "¡Una cita con el número %%arg%% no existe! Por favor, da un número entre 1 y %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!",
-    "reqAdd": "Success! The following quote has been added:",
+    "reqSub": "¡Tu pedida de cita ha sido enviada, gracias!",
+    "reqAdd": "¡Éxito! El siguiente presupuesto ha sido añadido:",
     "user": "Usuario",
-    "index": "Quote number",
+    "index": "Número de cita",
     "executedBy": "Ejecutado por %%user%%"
 }
