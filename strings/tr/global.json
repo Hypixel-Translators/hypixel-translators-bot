@@ -13,9 +13,12 @@
     "falseUser": "That user couldn't be found!",
     "timeLeftT": "'+%%command%%' komutunu kullanmak için lütfen %%time%% saniye bekle.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
+    "tip": "**TIP:** ",
     "tips": {
-        "1": "Have you tried Inhale Banana? Change your language to it using `+lang ib`!",
-        "2": ""
+        "1": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
+        "2": "I need translators! Find out how to become a bot translator in the pins in <#732587569744838777>.",
+        "3": "Have you tried Emoji language? Change your language to it using `+lang ib`!",
+        "4": ""
     },
     "executedBy": "%%user%% tarafından yürütüldü"
 }
