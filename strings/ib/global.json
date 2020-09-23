@@ -13,5 +13,5 @@
     "falseUser": "That user couldn't be found!",
     "timeLeftT": "U quicc, but too quicc so pls wait %%time%% skakund befr do `+%%command%%`.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Done by le %%user%%"
 }
