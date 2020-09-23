@@ -15,10 +15,10 @@
     "minsLeftT": "Poczekaj kolejne %%time%% minut, aby ponownie użyć `+%%command%%`.",
     "tip": "**WSKAZÓWKA:** ",
     "tips": {
-        "0": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
-        "1": "I need translators! Find out how to become a bot translator in the pins in <#732587569744838777>.",
-        "2": "Have you tried Emoji language? Change your language to it using `+lang em`!",
-        "3": "Please change your links to en-en!"
+        "0": "Czy wypróbowałeś język Inhale Banana? Zmień swój język, używając `+lang ib`!",
+        "1": "Potrzebuję tłumaczy! Dowiedz się, jak zostać tłumaczem bota w przypiętych wiadomościach <#732587569744838777>.",
+        "2": "Czy wypróbowałeś język Emotikon? Zmień swój język, używając `+lang em`!",
+        "3": "Proszę zmienić swoje linki na en-en!"
     },
     "executedBy": "Wykonano przez %%user%%"
 }
