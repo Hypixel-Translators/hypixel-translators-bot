@@ -18,7 +18,9 @@
         "0": "Czy wypróbowałeś język Inhale Banana? Zmień swój język, używając `+lang ib`!",
         "1": "Potrzebuję tłumaczy! Dowiedz się, jak zostać tłumaczem bota w przypiętych wiadomościach <#732587569744838777>.",
         "2": "Czy wypróbowałeś język Emotikon? Zmień swój język, używając `+lang em`!",
-        "3": "Proszę zmienić swoje linki na en-en!"
+        "3": "Proszę zmienić swoje linki na en-en!",
+        "4": "You get XP every minute you chat, which will eventually make you level up.",
+        "5": "We need more tips! Submit them using `+feedback`."
     },
     "executedBy": "Wykonano przez %%user%%"
 }
