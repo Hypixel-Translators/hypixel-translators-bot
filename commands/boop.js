@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 module.exports = {
     name: "boop",
     description: "Boop!",
-    usage: "boop <mention>",
+    usage: "+boop <mention>",
     cooldown: 600000,
     allowDM: true,
     execute(strings, message, args) {
@@ -14,7 +14,7 @@ module.exports = {
         try {
             if (message.client.users.cache.get(userToSend).presence.status === "online") {
                 message.client.users.cache.get(userToSend).send(boop)
-            } else { message.reply("not online")}
+            } else { message.channel.send(strings.notOnline.replace("%%presence%%", strings[message.client.users.cache.get(userToSend).presence.status]))}
         } catch (error) { console.error(error); throw "falseUser"; }
     }
 }
