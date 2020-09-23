@@ -19,7 +19,7 @@
         "description": "Dil(lerin) için uygun ön ekleri verir."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <alıntı>/<kullanıcı>",
+        "usage": "+quote [index] | +quote add <quote> / <user mention>",
         "description": "Sunucudan komik/garip/bilge bir alıntı alır (veya ekler)."
     },
     "mention": {
