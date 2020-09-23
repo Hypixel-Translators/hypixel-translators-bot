@@ -17,7 +17,8 @@
     "node-fetch": "^2.6.1",
     "request": "^2.81.0",
     "whatwg-fetch": "^3.4.0",
-    "xmlhttprequest": "^1.8.0"
+    "xmlhttprequest": "^1.8.0",
+    "node-forge": ">=0.10.0"
   },
   "engines": {
     "node": "12.x"

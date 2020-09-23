@@ -2,8 +2,6 @@ const fs = require("fs");
 const Discord = require("discord.js");
 const { prefix, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json");
 const token = process.env.TOKEN
-var globalStrings = require(("./strings/en/global.json"))
-var helpStrings = require(("./strings/en/help.json"))
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -25,7 +23,7 @@ const cooldowns = new Discord.Collection();
 client.once("ready", () => {
   console.log("Ready!");
 
-  client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309");
+  client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
   client.channels.cache.get("732326676192690236").messages.fetch()
   client.channels.cache.get("734081393499308053").messages.fetch()
   client.channels.cache.get("732326761882321046").messages.fetch()
@@ -66,6 +64,8 @@ client.on("message", async message => {
     if (!user.roles.cache.has("569194996964786178")) return;
   }
 
+  var globalStrings = require(("./strings/en/global.json"))
+  var helpStrings = require(("./strings/en/help.json"))
   const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
   const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
   oldFiMessages.forEach(async element => {
