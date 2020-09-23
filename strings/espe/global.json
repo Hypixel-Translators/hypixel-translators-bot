@@ -17,8 +17,8 @@
     "tips": {
         "1": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
         "2": "I need translators! Find out how to become a bot translator in the pins in <#732587569744838777>.",
-        "3": "Have you tried Emoji language? Change your language to it using `+lang ib`!",
-        "4": ""
+        "3": "Have you tried Emoji language? Change your language to it using `+lang em`!",
+        "4": "Please change your links to en-en!"
     },
     "executedBy": "Ejecutado por %%user%%"
 }
