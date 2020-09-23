@@ -13,9 +13,12 @@
     "falseUser": "That user couldn't be found!",
     "timeLeftT": "Počkej prosím dalších %%time%% sekund/y pro použití příkazu `+%%command%%`.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
+    "tip": "**TIP:** ",
     "tips": {
-        "1": "Have you tried Inhale Banana? Change your language to it using `+lang ib`!",
-        "2": ""
+        "0": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
+        "1": "I need translators! Find out how to become a bot translator in the pins in <#732587569744838777>.",
+        "2": "Have you tried Emoji language? Change your language to it using `+lang em`!",
+        "3": "Please change your links to en-en!"
     },
     "executedBy": "Provedeno uživatelem %%user%%"
 }

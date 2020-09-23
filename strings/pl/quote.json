@@ -4,9 +4,9 @@
     "loadingModule": "Ładowanie modułu…",
     "invalidArg": "Nieprawidłowy argument!",
     "indexArg": "Cytat z indeksem %%arg%% nie istnieje! Podaj liczbę pomiędzy 1 a %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!",
-    "reqAdd": "Success! The following quote has been added:",
+    "reqSub": "Twoja prośba o cytat została złożona, dziękujemy!",
+    "reqAdd": "Sukces! Dodano następujący cytat:",
     "user": "Użytkownik",
-    "index": "Quote number",
+    "index": "Numer cytatu",
     "executedBy": "Wykonano przez %%user%%"
 }

@@ -12,10 +12,13 @@
     "falseChannel": "¡No se pudo encontrar ese canal!",
     "falseUser": "¡Ese usuario no se pudo encontrar!",
     "timeLeftT": "Por favor, espera otros %%time%% segundos para usar `+%%command%%` de nuevo.",
-    "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
+    "minsLeftT": "Por favor, espera otros %%time%% minutos para usar `+%%command%%` de nuevo.",
+    "tip": "**CONSEJO:** ",
     "tips": {
-        "1": "Have you tried Inhale Banana? Change your language to it using `+lang ib`!",
-        "2": ""
+        "0": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
+        "1": "I need translators! Find out how to become a bot translator in the pins in <#732587569744838777>.",
+        "2": "Have you tried Emoji language? Change your language to it using `+lang em`!",
+        "3": "Please change your links to en-en!"
     },
     "executedBy": "Ejecutado por %%user%%"
 }

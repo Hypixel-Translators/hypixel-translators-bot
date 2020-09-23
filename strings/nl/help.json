@@ -19,7 +19,7 @@
         "description": "Geeft je het juiste voorvoegsel voor je taal/talen."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <user mention>",
+        "usage": "+quote [nummer] | +quote add <citaat> / <gebruikersvermelding>",
         "description": "Geeft een grappig/raar/wijs citaat uit de server (of voegt er een toe)."
     },
     "mention": {

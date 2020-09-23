@@ -13,9 +13,12 @@
     "falseUser": "Die gebruiker kon niet worden gevonden!",
     "timeLeftT": "Wacht nog %%time%% seconden voor je `+%%command%%` weer gebruikt.",
     "minsLeftT": "Wacht nog %%time%% minuten voor je `+%%command%%` weer gebruikt.",
+    "tip": "**TIP:** ",
     "tips": {
-        "1": "Have you tried Inhale Banana? Change your language to it using `+lang ib`!",
-        "2": ""
+        "0": "Heb je de Inhale Banana-taal geprobeerd? Verander je taal ernaar met `+lang ib`!",
+        "1": "Ik heb vertalers nodig! Ontdek hoe je botvertaler wordt in de pins in <#732587569744838777>.",
+        "2": "Heb je Emojitaal geprobeerd? Verander je taal ernaar met `+lang em`!",
+        "3": "Verander je links naar en-en!"
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }
