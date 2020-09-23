@@ -3,5 +3,5 @@
     "loading": "Wait, idot...",
     "success": "Success! Message sent.",
     "invalidArg": "Invalid argument!",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Done by le %%user%%"
 }
