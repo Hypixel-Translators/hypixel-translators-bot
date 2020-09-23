@@ -42,5 +42,9 @@
         "usage": "+language [<nový jazyk> | list]",
         "description": "Změní tvůj jazyk, zobrazí tvůj aktuální jazyk nebo zobrazí seznam dostupných jazyků."
     },
+    "boop": {
+        "usage": "+boop <user>",
+        "description": "Boop!"
+    },
     "executedBy": "Provedeno uživatelem %%user%%"
 }
