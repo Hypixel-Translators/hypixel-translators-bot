@@ -36,20 +36,16 @@ client.once("ready", () => {
   setInterval(() => {
     var pickedUser = randomUser[Math.floor(Math.random() * randomUser.length)]
     toPick = Math.random() >= 0.2;
+    client.user.setActivity("+help", { type: "WATCHING" });
 
     if (toPick) {
       var listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
       listenStatus = listenStatus.replace("RANDOM_USER", pickedUser)
-      client.user.setActivity(listenStatus, {
-        type: "LISTENING"
-      });
+      client.user.setActivity(listenStatus, { type: "LISTENING" });
       toPick = Math.random() >= 0.6;
     } else {
       var watchStatus = watchStatuses[Math.floor(Math.random() * watchStatuses.length)]
-      watchStatus = watchStatus.replace("RANDOM_USER", pickedUser)
-      client.user.setActivity(watchStatus, {
-        type: "WATCHING"
-      });
+      watchStatus = watchStatus.replace("RANDOM_USER", pickedUser)      client.user.setActivity(watchStatus, { type: "WATCHING" });
       toPick = Math.random() >= 0.2;
     }
 
