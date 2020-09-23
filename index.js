@@ -88,7 +88,7 @@ client.on("message", async message => {
     if (message.content != msgTxt) message.react(notAllowed); message.channel.send("<@" + message.author.id + "> _Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n\n>>> " + msgTxt)
   }
 
-  if (message.content.toLowerCase().includes("rodry")) { var d = Math.random(); if (d < 0.04) message.channel.send("rory"); }
+  if (message.content.toLowerCase().includes("rodry")) { var d = Math.random(); if (d < 0.09) message.channel.send("rory"); }
 
   if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
@@ -189,9 +189,10 @@ client.on("message", async message => {
       if (!helpStrings[command.name]) { embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" }) } else { embed.addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" }) }
       message.channel.send(embed)
     }
+    var d = Math.random(); var s = Math.round(Math.random()); if (d < 0.05) message.channel.send(globalStrings.tip + globalStrings.tips[s])
   }, 50)
-
 });
+
 
 client.on('messageReactionAdd', async (reaction, user) => {
   const channelName = reaction.message.channel.name
@@ -225,6 +226,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
       })
   }
 });
+
 
 client.on('messageReactionRemove', async (reaction, user) => {
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
