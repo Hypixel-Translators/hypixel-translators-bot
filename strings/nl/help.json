@@ -42,5 +42,9 @@
         "usage": "+language [<nieuwe taal> | list]",
         "description": "Verandert je taal, toont je huidige taal of geeft een lijst met alle beschikbare talen."
     },
+    "boop": {
+        "usage": "+boop <user>",
+        "description": "Boop!"
+    },
     "executedBy": "Uitgevoerd door %%user%%"
 }
