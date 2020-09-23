@@ -18,7 +18,9 @@
         "0": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
         "1": "I need translators! Find out how to become a bot translator in the pins in <#732587569744838777>.",
         "2": "Have you tried Emoji language? Change your language to it using `+lang em`!",
-        "3": "Please change your links to en-en!"
+        "3": "Please change your links to en-en!",
+        "4": "You get XP every minute you chat, which will eventually make you level up.",
+        "5": "We need more tips! Submit them using `+feedback`."
     },
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
