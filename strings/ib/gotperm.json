@@ -4,5 +4,5 @@
     "bot": "Bot",
     "author": "Author",
     "user": "User",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Done by le %%user%%"
 }
