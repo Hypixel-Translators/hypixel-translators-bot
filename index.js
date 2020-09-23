@@ -182,7 +182,7 @@ client.on("message", async message => {
         .setAuthor(globalStrings.error)
         .setTitle(globalStrings[error] || error)
         .setDescription(globalStrings.generalError)
-        .addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" })
+        .addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage || command.usage + "`" })
         .setFooter(executedBy)
       message.channel.send(embed)
     }
