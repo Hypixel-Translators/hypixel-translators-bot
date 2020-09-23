@@ -19,7 +19,7 @@
         "description": "Дає відповідний префікс для Вашої(их) мови(ах)."
     },
     "quote": {
-        "usage": "+quote [індекс] | +quote add <цитата>/<згадка користувача>",
+        "usage": "+quote [index] | +quote add <quote> / <user mention>",
         "description": "Надає (або додає) смішну/дивну/мудру цитату з сервера."
     },
     "mention": {
