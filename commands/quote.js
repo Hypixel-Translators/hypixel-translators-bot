@@ -129,7 +129,7 @@ async function addToSpreadsheet(executedBy, strings, message, toSend, msg) {
         .setAuthor(strings.moduleName)
         .setTitle(strings.reqAdd)
         .setDescription(result.quote)
-        .addFields({ name: strings.quoted, value: result.user }, { name: strings.index, value: newLength })
+        .addFields({ name: strings.user, value: result.user }, { name: strings.index, value: newLength })
         .setFooter(executedBy);
     msg.edit(embed)
 }
