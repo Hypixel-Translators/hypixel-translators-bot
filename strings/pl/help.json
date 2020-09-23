@@ -19,7 +19,7 @@
         "description": "Podaje przedrostek odpowiedni dla twojego języka/ów."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <cytat>/<wzmianka użytkownika>",
+        "usage": "+quote [index] | +quote add <quote> / <user mention>",
         "description": "Pobiera (lub dodaje) śmieszny/dziwny/mądry cytat z serwera."
     },
     "mention": {
