@@ -19,7 +19,7 @@
         "description": "Gibt dir den passenden Präfix für deine Sprache(n)."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <Zitat>/<Nutzer erwähnen>",
+        "usage": "+quote [index] | +quote add <quote> / <user mention>",
         "description": "Ruft (oder hinzufügt) ein lustiges / seltsames Zitat vom Server ab."
     },
     "mention": {
