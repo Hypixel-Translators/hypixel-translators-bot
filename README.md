@@ -1,7 +1,7 @@
 # Hypixel Translators Bot 
 Welcome to the [Hypixel Translators](https://discord.gg/rcT948A) Bot GitHub repository! Here you can [report bugs](https://github.com/QkeleQ10/hypixel-translators-bot-discord/issues), [contribute to the code](https://github.com/QkeleQ10/hypixel-translators-bot-discord/pulls) and [view information](https://github.com/QkeleQ10/hypixel-translators-bot-discord/wiki) (soon:tm: maybe).
 
-# Localization [![Crowdin](https://badges.crowdin.net/hypixel-translators-bot/localized.svg)](https://crowdin.com/project/hypixel-translators-bot)
+# Localisation Localæþüúised 69%
 The bot has a `+language` command which allows you to change your language when using it. You can also help translate it to your language! We currently support all languages on the Hypixel project to the bot, plus some other ones requested by the community. If your language isn't supported yet, please let us know and we will work on implementing it.
 
 ## Want to help?
