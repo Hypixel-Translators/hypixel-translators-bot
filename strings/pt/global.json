@@ -18,7 +18,9 @@
         "0": "Já experimentaste o idioma Inhale Banana? Muda o teu idioma usando `+lang ib` para experimentares!",
         "1": "Preciso de tradutores! Descobre como te podes tornar num através da mensagem afixada em <#732587569744838777>.",
         "2": "Já experimentaste o idioma dos Emojis? Muda o teu idioma usando `+lang em` para experimentares!",
-        "3": "Muda os teus links para en-en!"
+        "3": "Muda os teus links para en-en!",
+        "4": "You get XP every minute you chat, which will eventually make you level up.",
+        "5": "We need more tips! Submit them using `+feedback`."
     },
     "executedBy": "Executado por %%user%%"
 }
