@@ -1,4 +1,4 @@
-# Hypixel Translators Bot ![logo](https://hwncpa.db.files.1drv.com/y4piVVB-Wqh6Z5tOq4uxXZDWIpeJ9KlzivTy0-Fd4EgihUkwNspyFar2lTZvPz7wrKsHmsP3axElN3_INMgXBoI53QeW_VI1MDFpGsJ1sD5vfvpqChJ0SaZSXaOsdcadB1-C1rzKM7nOkc9HiXbkMC8veVI45BrEDg6eAcfoRl9loOcx-Tp8yeVJbWW6ZqlUqUeV68ifQ-7mepds8aB0rHpBP7il_x43cMvuF8XNuVDyL4/HTCD-01.png?psid=1)
+# Hypixel Translators Bot ![logo](https://hwncpa.db.files.1drv.com/y4piVVB-Wqh6Z5tOq4uxXZDWIpeJ9KlzivTy0-Fd4EgihUkwNspyFar2lTZvPz7wrKsHmsP3axElN3_INMgXBoI53QeW_VI1MDFpGsJ1sD5vfvpqChJ0SaZSXaOsdcadB1-C1rzKM7nOkc9HiXbkMC8veVI45BrEDg6eAcfoRl9loOcx-Tp8yeVJbWW6ZqlUqUeV68ifQ-7mepds8aB0rHpBP7il_x43cMvuF8XNuVDyL4/HTCD-01.png)
 Welcome to the Hypixel Translators Bot GitHub repository! Here you can [report bugs](https://github.com/QkeleQ10/hypixel-translators-bot-discord/issues), [contribute to the code](https://github.com/QkeleQ10/hypixel-translators-bot-discord/pulls) and [view information](https://github.com/QkeleQ10/hypixel-translators-bot-discord/wiki) (soon:tm: maybe).
 
 # Localisation [![Crowdin](https://badges.crowdin.net/hypixel-translators-bot/localized.svg)](https://crowdin.com/project/hypixel-translators-bot)
