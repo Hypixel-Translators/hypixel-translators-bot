@@ -13,5 +13,9 @@
     "falseUser": "That user couldn't be found!",
     "timeLeftT": "'+%%command%%' komutunu kullanmak için lütfen %%time%% saniye bekle.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
+    "tips": {
+        "1": "Have you tried Inhale Banana? Change your language to it using `+lang ib`!",
+        "2": ""
+    },
     "executedBy": "%%user%% tarafından yürütüldü"
 }
