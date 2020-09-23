@@ -20,7 +20,10 @@
         "2": "¿Sabes del idioma de Emoji? ¡Cambia tu idioma usando `+lang em`!",
         "3": "¡Por favor, cambia tus links a en-en!",
         "4": "You get random amounts of XP every minute when you're chatting, which will eventually make you level up.",
-        "5": "We need more tips! Submit them using `+feedback`."
+        "5": "We need more tips! Submit them using `+feedback`.",
+        "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at <#699275092026458122>, it has some useful tips!",
+        "7": "Have you followed our twitter account? Check it out at <https://twitter.com/HTranslators>!",
+        "8": "<#699367003135148063> and <#699367079241056347> have all the info you need about this server!"
     },
     "executedBy": "Ejecutado por %%user%%"
 }
