@@ -13,5 +13,9 @@
     "falseUser": "That user couldn't be found!",
     "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
+    "tips": {
+        "1": "Have you tried Inhale Banana? Change your language to it using `+lang ib`!",
+        "2": ""
+    },
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
