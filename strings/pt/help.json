@@ -42,5 +42,9 @@
         "usage": "+language [<novo idioma> | list]",
         "description": "Muda o teu idioma, mostra o teu idioma atual ou mostra uma lista de idiomas disponíveis."
     },
+    "boop": {
+        "usage": "+boop <user>",
+        "description": "Boop!"
+    },
     "executedBy": "Executado por %%user%%"
 }
