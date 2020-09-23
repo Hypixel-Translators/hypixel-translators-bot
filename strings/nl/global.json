@@ -18,7 +18,9 @@
         "0": "Heb je de Inhale Banana-taal geprobeerd? Verander je taal ernaar met `+lang ib`!",
         "1": "Ik heb vertalers nodig! Ontdek hoe je botvertaler wordt in de pins in <#732587569744838777>.",
         "2": "Heb je Emojitaal geprobeerd? Verander je taal ernaar met `+lang em`!",
-        "3": "Verander je links naar en-en!"
+        "3": "Verander je links naar en-en!",
+        "4": "Wanneer je chat krijg je elke minuut een willekeurige hoeveelheid XP, waarmee je uiteindelijk meer levels krijgt.",
+        "5": "We hebben meer tips nodig! Stuur ze door met `+feedback`."
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }

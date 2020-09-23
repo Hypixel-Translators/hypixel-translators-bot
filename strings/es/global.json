@@ -18,7 +18,9 @@
         "0": "¿Has probado el idioma Inhale Banana? ¡Cambia tu idioma usando `+lang ib`!",
         "1": "¡Necesito traductores! Aprende sobre como ser un traductor en los mensajes fijados en <#732587569744838777>.",
         "2": "¿Sabes del idioma de Emoji? ¡Cambia tu idioma usando `+lang em`!",
-        "3": "¡Por favor, cambia tus enlaces a en-en!"
+        "3": "¡Por favor, cambia tus enlaces a en-en!",
+        "4": "You get random amounts of XP every minute when you're chatting, which will eventually make you level up.",
+        "5": "We need more tips! Submit them using `+feedback`."
     },
     "executedBy": "Ejecutado por %%user%%"
 }
