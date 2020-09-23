@@ -12,5 +12,6 @@
     "falseChannel": "That channel couldn't be found!",
     "falseUser": "That user couldn't be found!",
     "timeLeftT": "Poczekaj kolejne %%time%% sekund, aby ponownie użyć `+%%command%%`.",
+    "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
     "executedBy": "Wykonano przez %%user%%"
 }
