@@ -19,7 +19,7 @@
         "description": "Te da el prefijo apropiado para tu(s) idioma(s)."
     },
     "quote": {
-        "usage": "+quote [número] | +quote add <cita>/<mención del citado>",
+        "usage": "+quote [index] | +quote add <quote> / <user mention>",
         "description": "Obtiene (o añade) una cita divertida/extraña/sabia del servidor."
     },
     "mention": {
