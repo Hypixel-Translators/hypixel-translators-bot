@@ -2,5 +2,5 @@
     "moduleName": "Bulk Send",
     "success": "Success! Message sent.",
     "generalError": "I drank easter.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Done by le %%user%%"
 }

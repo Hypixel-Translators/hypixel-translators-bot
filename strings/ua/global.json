@@ -12,5 +12,10 @@
     "falseChannel": "That channel couldn't be found!",
     "falseUser": "That user couldn't be found!",
     "timeLeftT": "Будь ласка, зачекайте ще %%time%% секунд(у\\\\и), щоб використовувати `+%%command%%` знову.",
+    "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
+    "tips": {
+        "1": "Have you tried Inhale Banana? Change your language to it using `+lang ib`!",
+        "2": ""
+    },
     "executedBy": "Виконано користувачем %%user%%"
 }
