@@ -1,6 +1,7 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const { prefix, token, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json");
+const { prefix, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json");
+const token = process.env.TOKEN
 var globalStrings = require(("./strings/en/global.json"))
 var helpStrings = require(("./strings/en/help.json"))
 
