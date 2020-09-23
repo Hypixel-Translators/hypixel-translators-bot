@@ -79,7 +79,7 @@ client.on("message", async message => {
   var executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
   if (message.content === "+stats" && message.member.hasPermission("VIEW_AUDIT_LOG")) { stats.execute(client, true); return; }
-  if (message.content === "+tip") { var s = Math.round(Math.random()); message.channel.send(globalStrings.tip + globalStrings.tips[String(s)]) }
+  if (message.content === "+tip") { var s = Math.round(Math.random()); message.channel.send(globalStrings.tip + globalStrings.tips[s.toString()]) }
 
   if (message.content.includes("/translate/") && message.content.includes("://") && message.channel.id === "730042612647723058") {
     var msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
@@ -187,7 +187,7 @@ client.on("message", async message => {
       if (!helpStrings[command.name]) { embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" }) } else { embed.addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" }) }
       message.channel.send(embed)
     }
-    var d = Math.random(); var s = Math.round(Math.random()); if (d < 0.05) message.channel.send(globalStrings.tip + globalStrings.tips[String(s)])
+    var d = Math.random(); var s = Math.round(Math.random()); if (d < 0.05) message.channel.send(globalStrings.tip + globalStrings.tips[s.toString()])
   }, 50)
 });
 
