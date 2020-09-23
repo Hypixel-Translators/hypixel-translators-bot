@@ -15,6 +15,6 @@ module.exports = {
             if (message.client.members.cache.get(userToSend).presence.status === "online") {
                 message.client.members.cache.get(userToSend).send(boop)
             }
-        } catch { throw "falseUser" }
+        } catch (error) { console.error(error); throw "falseUser"; }
     }
 }
