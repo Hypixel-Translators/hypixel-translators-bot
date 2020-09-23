@@ -17,7 +17,7 @@ module.exports = {
       .setTitle(strings.loading)
       .setFooter(executedBy)
     message.channel.send(embed).then(msg => {
-      if (message.author.id == "722738307477536778") {
+      if (message.author.id == "722738307477536778" || "240875059953139714") {
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
           .setAuthor(strings.moduleName)
