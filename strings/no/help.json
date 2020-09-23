@@ -19,7 +19,7 @@
         "description": "Gir deg den riktige prefiksen for din(e) språk."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <sitat>/<nevn bruker>",
+        "usage": "+quote [index] | +quote add <quote> / <user mention>",
         "description": "Henter (eller legger til) et morsomt/rart/klokt sitat fra serveren."
     },
     "mention": {
