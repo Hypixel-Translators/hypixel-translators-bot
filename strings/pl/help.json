@@ -19,7 +19,7 @@
         "description": "Podaje przedrostek odpowiedni dla twojego języka/ów."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <user mention>",
+        "usage": "+quote [index] | +quote add <cytat> / <wzmianka użytkownika>",
         "description": "Pobiera (lub dodaje) śmieszny/dziwny/mądry cytat z serwera."
     },
     "mention": {
@@ -43,7 +43,7 @@
         "description": "Zmienia Twój język, pokazuje bieżący lub pokazuje listę dostępnych języków."
     },
     "boop": {
-        "usage": "+boop <user>",
+        "usage": "+boop <użytkownik>",
         "description": "Boop!"
     },
     "executedBy": "Wykonano przez %%user%%"
