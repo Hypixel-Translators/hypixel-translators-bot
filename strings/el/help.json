@@ -19,7 +19,7 @@
         "description": "Σου δίνει το κατάλληλο πρόθεμα για την γλώσσα/γλώσσες σου."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <παράθεμα>/<αναφορά χρήστη>",
+        "usage": "+quote [index] | +quote add <quote> / <user mention>",
         "description": "Παίρνει (ή προσθέτει) ένα αστείο/περίεργο/σοφό παράθεμα από τον διακομιστή."
     },
     "mention": {
@@ -41,6 +41,10 @@
     "language": {
         "usage": "+language [<νέα γλώσσα> | list]",
         "description": "Changes your language, shows your current one or shows a list of available languages."
+    },
+    "boop": {
+        "usage": "+boop <user>",
+        "description": "Boop!"
     },
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }

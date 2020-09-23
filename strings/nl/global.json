@@ -12,5 +12,10 @@
     "falseChannel": "Dat kanaal kon niet worden gevonden!",
     "falseUser": "Die gebruiker kon niet worden gevonden!",
     "timeLeftT": "Wacht nog %%time%% seconden voor je `+%%command%%` weer gebruikt.",
+    "minsLeftT": "Wacht nog %%time%% minuten voor je `+%%command%%` weer gebruikt.",
+    "tips": {
+        "1": "Have you tried Inhale Banana? Change your language to it using `+lang ib`!",
+        "2": ""
+    },
     "executedBy": "Uitgevoerd door %%user%%"
 }

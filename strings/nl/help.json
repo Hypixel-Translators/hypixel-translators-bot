@@ -19,7 +19,7 @@
         "description": "Geeft je het juiste voorvoegsel voor je taal/talen."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <citaat>/<gebruikersvermelding>",
+        "usage": "+quote [index] | +quote add <quote> / <user mention>",
         "description": "Geeft een grappig/raar/wijs citaat uit de server (of voegt er een toe)."
     },
     "mention": {
@@ -41,6 +41,10 @@
     "language": {
         "usage": "+language [<nieuwe taal> | list]",
         "description": "Verandert je taal, toont je huidige taal of geeft een lijst met alle beschikbare talen."
+    },
+    "boop": {
+        "usage": "+boop <gebruiker>",
+        "description": "Boop!"
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }

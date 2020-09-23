@@ -19,7 +19,7 @@
         "description": "Te da el prefijo apropiado para tu(s) idioma(s)."
     },
     "quote": {
-        "usage": "+quote [número] | +quote add <cita>/<mención del citado>",
+        "usage": "+quote [index] | +quote add <quote> / <user mention>",
         "description": "Obtiene (o añade) una cita chistosa/extraña/sabia del servidor."
     },
     "mention": {
@@ -41,6 +41,10 @@
     "language": {
         "usage": "+language [<nuevo idioma> | list]",
         "description": "Cambia tu idioma, muestra tu idioma actual o muestra una lista de idiomas disponibles."
+    },
+    "boop": {
+        "usage": "+boop <user>",
+        "description": "Boop!"
     },
     "executedBy": "Ejecutado por %%user%%"
 }

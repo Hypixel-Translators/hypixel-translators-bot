@@ -3,14 +3,14 @@
     "loading": "Wait, idot...",
     "loadingModule": "Modul not reddi yet...",
     "errors": {
-        "notFound1": "The context entry ",
-        "notFound2": " hasn't been found!",
-        "exists1": "A context entry for ",
-        "exists2": " already exists, so yours wasn't added. Instead, use `+context edit`.",
-        "didntReply": "You didn't reply in time, ",
-        "hitReaction": "You reacted with <:vote_no:732298639736570007>, ",
-        "cancelledPrompt": "so this prompt has been cancelled. ",
-        "readdTryAgain": "Re-react with 📑 to try again."
+        "notFound1": "Dah centoxt entri ",
+        "notFound2": " is foundn't!",
+        "exists1": "A centoxt entri fer ",
+        "exists2": " alreddi existz, so urs was addedn't. Use `+context edit` u dum dum.",
+        "didntReply": "U were too slo to reactt, ",
+        "hitReaction": "You did a hit on <:vote_no:732298639736570007>, ",
+        "cancelledPrompt": "so dis prropt has ben canseled. ",
+        "readdTryAgain": "Reakt agen with 📑 to do agen but then gud."
     },
     "notAllowed": "Ur not a translater ore proofreder, so disn't avalaebul fer u!",
     "notProofreader": "You're not a proofreader, so you can't use this! We're working on a way to let you suggest context too.",
@@ -47,7 +47,7 @@
     "japanese": "Jap-o-knees",
     "korean": "Krian",
     "norwegian": "Norwigun",
-    "malay": "Malay",
+    "malay": "Mlaiy",
     "pirate": "Arr am pirte",
     "polish": "Polishd Andersitt",
     "portuguese": "Port-o-geese",
@@ -71,5 +71,5 @@
         "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya, Rodry and QkeleQ10 can see your Google profile name and email.",
         "sheetDel": " | Mesgag wil go poof in 2 mintsuts"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Done by le %%user%%"
 }
