@@ -45,7 +45,8 @@ client.once("ready", () => {
       toPick = Math.random() >= 0.6;
     } else {
       var watchStatus = watchStatuses[Math.floor(Math.random() * watchStatuses.length)]
-      watchStatus = watchStatus.replace("RANDOM_USER", pickedUser)      client.user.setActivity(watchStatus, { type: "WATCHING" });
+      watchStatus = watchStatus.replace("RANDOM_USER", pickedUser)
+      client.user.setActivity(watchStatus, { type: "WATCHING" });
       toPick = Math.random() >= 0.2;
     }
 
