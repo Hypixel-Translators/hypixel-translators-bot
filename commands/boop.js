@@ -14,7 +14,7 @@ module.exports = {
         try {
             if (message.client.users.cache.get(userToSend).presence.status === "online") {
                 message.client.users.cache.get(userToSend).send(boop)
-            }
+            } else { message.reply("not online")}
         } catch (error) { console.error(error); throw "falseUser"; }
     }
 }

@@ -182,8 +182,8 @@ client.on("message", async message => {
         .setAuthor(globalStrings.error)
         .setTitle(globalStrings[error] || error)
         .setDescription(globalStrings.generalError)
-        .addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage || command.usage + "`" })
         .setFooter(executedBy)
+      if (!helpStrings[command.name]) { embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" }) } else { embed.addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" }) }
       message.channel.send(embed)
     }
   }, 50)
