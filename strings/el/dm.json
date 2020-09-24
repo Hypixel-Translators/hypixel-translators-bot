@@ -1,7 +1,7 @@
 {
     "outgoing": "Sent message to %%recipient%%",
     "outgoingLoad": "Sending message to user",
-    "loading": "One second...",
+    "loading": "Ένα δευτερόλεπτο...",
     "generalError": "Something has gone wrong.",
     "message": "Message",
     "incoming": "Received message from staff",
