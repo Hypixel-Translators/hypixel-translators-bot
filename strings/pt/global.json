@@ -13,7 +13,7 @@
     "falseUser": "Esse utilizador não foi encontrado!",
     "timeLeftT": "Espera mais %%time%% segundos para usares `+%%command%%` outra vez.",
     "minsLeftT": "Espera mais %%time%% minutos para usares `+%%command%%` outra vez.",
-    "tip": "Tip",
+    "tip": "Dica",
     "tips": {
         "0": "Já experimentaste o idioma Inhale Banana? Muda o teu idioma usando `+lang ib` para experimentares!",
         "1": "Preciso de tradutores! Descobre como te podes tornar num através da mensagem afixada em <#732587569744838777>.",
