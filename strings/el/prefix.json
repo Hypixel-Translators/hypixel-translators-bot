@@ -1,6 +1,6 @@
 {
     "moduleName": "Πρόθεμα",
-    "loading": "One second...",
+    "loading": "Ένα δευτερόλεπτο...",
     "loadingRoles": "Λαμβάνουμε τους ρόλους σου...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
