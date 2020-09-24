@@ -78,7 +78,8 @@ client.on("message", async message => {
 
   if (message.content === "+stats" && message.member.hasPermission("VIEW_AUDIT_LOG")) { stats.execute(client, true); return; }
   if (message.content === "+tip") {
-    const embed = new Discord.MessageEmbed
+    const embed = new Discord.MessageEmbed()
+      .setColor(successColor)
       .setAuthor(globalStrings.tip)
       .setTitle(globalStrings.tips[Math.floor(Math.random() * Object.keys(globalStrings.tips).length)])
       .setFooter(executedBy)
