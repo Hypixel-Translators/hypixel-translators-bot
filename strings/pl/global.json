@@ -24,7 +24,8 @@
         "6": "Czy wiedziałeś, że mamy poradnik jak zacząć z Crowdin, dostępny dla wszystkich tłumaczy? Sprawdź go na <#699275092026458122>, zawiera kilka przydatnych wskazówek!",
         "7": "Czy zaobserwowałeś już nasze konto na Twitterze? Sprawdź je tutaj <https://twitter.com/HTranslators>!",
         "8": "Na <#699367003135148063> i <#699367079241056347> znajdziesz wszystkie potrzebne informacje o tym serwerze!",
-        "9": "Znalazłeś błąd w tłumaczeniu? Skontaktuj się z korektorem swojego języka lub poinformuj o tym innych na kanale tłumaczeniowym."
+        "9": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
+        "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!"
     },
     "executedBy": "Wykonano przez %%user%%"
 }
