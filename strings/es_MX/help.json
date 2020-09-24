@@ -1,6 +1,6 @@
 {
     "moduleName": "Ayuda",
-    "commandsListTitle": "Lista de los comandos",
+    "commandsListTitle": "Lista de comandos",
     "commandsListTooltip": "Ejecuta `+help <nombre del comando>` para información sobre un comando específico.",
     "madeBy": " | Bot hecho con mucho amor por %%q10%%",
     "commandInfo": "Información del comando",
