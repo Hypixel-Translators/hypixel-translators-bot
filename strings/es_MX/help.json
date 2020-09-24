@@ -1,0 +1,50 @@
+{
+    "moduleName": "Ayuda",
+    "commandsListTitle": "Lista de comandos",
+    "commandsListTooltip": "Ejecuta `+help <nombre del comando>` para obtener más información sobre un comando específico.",
+    "madeBy": " | Bot hecho con mucho amor por %%q10%%",
+    "commandInfo": "Información del comando",
+    "commandInfoFor": "Información para el comando ",
+    "commandNotExist": "¡Ese comando no existe!",
+    "seconds": " segundos",
+    "usageField": "Uso",
+    "cooldownField": "Enfriamiento",
+    "aliasesField": "Otros Nombres",
+    "help": {
+        "usage": "+help [nombre del comando]",
+        "description": "Muestra todos los comandos disponibles e información general sobre el bot."
+    },
+    "prefix": {
+        "usage": "+prefix",
+        "description": "Te da el prefijo apropiado para tu(s) idioma(s)."
+    },
+    "quote": {
+        "usage": "+quote [número] | +quote add <cita> / <mención del citado>",
+        "description": "Obtiene (o agrega) una cita divertida/extraña/sabia del servidor."
+    },
+    "mention": {
+        "usage": "+mention <idioma> translator|proofreader|all [mensaje]",
+        "description": "Menciona un rol de idioma con un mensaje opcional."
+    },
+    "context": {
+        "usage": "+context get|add|edit|view|help <argumentos>",
+        "description": "Obtiene, añade o edita context para la ID del string dada. `+context help` te muestra información sobre este comando."
+    },
+    "bug": {
+        "usage": "+bug <mensaje>",
+        "description": "Te permite reportar bugs en el bot."
+    },
+    "feedback": {
+        "usage": "+feedback <mensaje>",
+        "description": "Envía tus comentarios sobre el bot al staff."
+    },
+    "language": {
+        "usage": "+language [<nuevo idioma> | list]",
+        "description": "Cambia tu idioma, muestra tu idioma actual o muestra una lista de idiomas disponibles."
+    },
+    "boop": {
+        "usage": "+boop <usuario>",
+        "description": "¡Boop!"
+    },
+    "executedBy": "Ejecutado por %%user%%"
+}

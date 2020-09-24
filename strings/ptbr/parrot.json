@@ -1,7 +1,7 @@
 {
     "moduleName": "Parrot",
     "loading": "One second...",
-    "success": "Success! Message sent.",
-    "invalidArg": "Invalid argument!",
+    "success": "Sucesso! Mensagem enviada.",
+    "invalidArg": "Argumento inválido!",
     "executedBy": "Executed by %%user%%"
 }

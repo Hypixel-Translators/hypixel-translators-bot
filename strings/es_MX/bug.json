@@ -1,0 +1,7 @@
+{
+    "moduleName": "Reporta un bug",
+    "sendingTitle": "Enviando tu reporte de bug al staff...",
+    "sentTitle": "¡Tu reporte de bug ha sido enviado!",
+    "addMessage": "¡No has introducido ningún mensaje!",
+    "executedBy": "Ejecutado por %%user%%"
+}

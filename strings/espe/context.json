@@ -4,7 +4,7 @@
     "loadingModule": "Cargando módulo...",
     "errors": {
         "notFound1": "¡La entrada de contexto ",
-        "notFound2": " no fue encontrado!",
+        "notFound2": " no fue encontrada!",
         "exists1": "Una entrada de contexto para ",
         "exists2": " ya existe, entonces la tuya no fue añadida. En vez, usa `+context edit`.",
         "didntReply": "No respondiste en tiempo, ",
