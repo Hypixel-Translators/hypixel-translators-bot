@@ -91,7 +91,7 @@ client.on("message", async message => {
     if (message.content != msgTxt) message.react(notAllowed); message.channel.send("<@" + message.author.id + "> _Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n\n>>> " + msgTxt)
   }
 
-  if (message.content.toLowerCase().includes("rodry")) { var d = Math.random(); if (d < 0.04) message.channel.send("rory"); }
+  if (message.content.toLowerCase().includes("kele")) { var d = Math.random(); if (d < 0.15) message.channel.send("inhale banana"); }
 
   if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
