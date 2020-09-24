@@ -13,7 +13,7 @@
     "falseUser": "That user couldn't be found!",
     "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
-    "tip": "Tip",
+    "tip": "Tipp",
     "tips": {
         "0": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
         "1": "I need translators! Find out how to become a bot translator in the pins in <#732587569744838777>.",
