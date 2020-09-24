@@ -24,11 +24,11 @@
     },
     "mention": {
         "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with an optional message."
+        "description": "Menciona um cargo de idioma com uma mensagem opcional."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "usage": "+context get|add|edit|view|help <argumentos>",
+        "description": "Obtém, adiciona ou edita o contexto de uma mensagem com o ID informado. Veja as informações deste comando usando `+context help`."
     },
     "bug": {
         "usage": "+bug <mensagem>",
@@ -39,8 +39,8 @@
         "description": "Sends your feedback on the bot to staff."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "usage": "+language [<novo idioma> | list]",
+        "description": "Altera seu idioma, mostra seu idioma atual ou lista todos os idiomas disponíveis."
     },
     "boop": {
         "usage": "+boop <usuário>",
