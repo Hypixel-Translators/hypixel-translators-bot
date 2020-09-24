@@ -13,7 +13,7 @@
     "falseUser": "That user couldn't be found!",
     "timeLeftT": "Počkej prosím dalších %%time%% sekund/y pro použití příkazu `+%%command%%`.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
-    "tip": "**TIP:** ",
+    "tip": "Tip",
     "tips": {
         "0": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
         "1": "I need translators! Find out how to become a bot translator in the pins in <#732587569744838777>.",
@@ -23,7 +23,8 @@
         "5": "We need more tips! Submit them using `+feedback`.",
         "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at <#699275092026458122>, it has some useful tips!",
         "7": "Have you followed our twitter account? Check it out at <https://twitter.com/HTranslators>!",
-        "8": "<#699367003135148063> and <#699367079241056347> have all the info you need about this server!"
+        "8": "<#699367003135148063> and <#699367079241056347> have all the info you need about this server!",
+        "9": "Found a mistake in a translation? Contact a proofreader of your language or let people know in a translation channel."
     },
     "executedBy": "Provedeno uživatelem %%user%%"
 }
