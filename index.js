@@ -81,7 +81,7 @@ client.on("message", async message => {
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
       .setAuthor(globalStrings.tip)
-      .setTitle(globalStrings.tips[Math.floor(Math.random() * Object.keys(globalStrings.tips).length)])
+      .setDescription(globalStrings.tips[Math.floor(Math.random() * Object.keys(globalStrings.tips).length)])
       .setFooter(executedBy)
     message.channel.send(embed)
   }
