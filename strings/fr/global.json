@@ -12,18 +12,19 @@
     "falseChannel": "Ce canal n'a pas pu être trouvé!",
     "falseUser": "Cet utilisateur n'a pas pu être trouvé!",
     "timeLeftT": "Attend encore %%time%% secondes pour utiliser `+%%command%%` à nouveau.",
-    "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
-    "tip": "**TIP:** ",
+    "minsLeftT": "Attend encore %%time%% minutes pour utiliser `+%%command%%` à nouveau.",
+    "tip": "Conseil",
     "tips": {
-        "0": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
-        "1": "I need translators! Find out how to become a bot translator in the pins in <#732587569744838777>.",
-        "2": "Have you tried Emoji language? Change your language to it using `+lang em`!",
-        "3": "Please change your links to en-en!",
-        "4": "You get random amounts of XP every minute when you're chatting, which will eventually make you level up.",
-        "5": "We need more tips! Submit them using `+feedback`.",
-        "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at <#699275092026458122>, it has some useful tips!",
-        "7": "Have you followed our twitter account? Check it out at <https://twitter.com/HTranslators>!",
-        "8": "<#699367003135148063> and <#699367079241056347> have all the info you need about this server!"
+        "0": "As-tu essayé la langue Inhale Banana? Change ta langue en utilisant `+lang ib`!",
+        "1": "J'ai besoin de traducteurs! Découvre comment devenir un traducteur de bot dans les messages épinglés de <#732587569744838777>.",
+        "2": "As-tu essayé la langue Inhale Banana? Change ta langue en utilisant `+lang ib`!",
+        "3": "Change tes liens à en-en!",
+        "4": "Tu obtiens des quantités d'XP aléatoires chaque minute lorsque tu discutes, ce qui tu fera monter de niveau.",
+        "5": "Nous avons besoin de plus de conseils! Envoie-les en utilisant `+feedback`.",
+        "6": "Sais-tu que nous avons un guide sur la façon de commencer avec Crowdin, disponible pour tous les traducteurs? Regarde-le à <#699275092026458122>, il a quelques conseils utiles!",
+        "7": "As-tu suivi notre twitter? Regarde-le à <https://twitter.com/HTranslators>!",
+        "8": "<#699367003135148063> et <#699367079241056347> ont toutes les infos dont tu as besoin à propos de ce serveur!",
+        "9": "Tu as trouvé une erreur dans une traduction? Contacte un correcteur de ta langue ou faites-le savoir dans un canal de traduction."
     },
     "executedBy": "Exécuté par %%user%%"
 }

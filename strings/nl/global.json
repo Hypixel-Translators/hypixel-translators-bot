@@ -13,7 +13,7 @@
     "falseUser": "Die gebruiker kon niet worden gevonden!",
     "timeLeftT": "Wacht nog %%time%% seconden voor je `+%%command%%` weer gebruikt.",
     "minsLeftT": "Wacht nog %%time%% minuten voor je `+%%command%%` weer gebruikt.",
-    "tip": "**TIP:** ",
+    "tip": "Tip",
     "tips": {
         "0": "Heb je de Inhale Banana-taal geprobeerd? Verander je taal ernaar met `+lang ib`!",
         "1": "Ik heb vertalers nodig! Ontdek hoe je botvertaler wordt in de pins in <#732587569744838777>.",
@@ -21,9 +21,10 @@
         "3": "Verander je links naar en-en!",
         "4": "Wanneer je chat krijg je elke minuut een willekeurige hoeveelheid XP, waarmee je uiteindelijk meer levels krijgt.",
         "5": "We hebben meer tips nodig! Stuur ze door met `+feedback`.",
-        "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at <#699275092026458122>, it has some useful tips!",
-        "7": "Have you followed our twitter account? Check it out at <https://twitter.com/HTranslators>!",
-        "8": "<#699367003135148063> and <#699367079241056347> have all the info you need about this server!"
+        "6": "Wist je dat we een gids hebben die uitlegt hoe je aan de slag gaat met Crowdin? Hij is beschikbaar voor vertalers in <#699275092026458122>, het is best nuttig!",
+        "7": "Volg je ons al op Twitter? Kijk eens op <https://twitter.com/HTranslators>!",
+        "8": "<#699367003135148063> en <#699367079241056347> bevatten alle benodigde informatie over deze server!",
+        "9": "Fout in een vertaling gevonden? Neem contact op met een proeflezer van je taal of laat het weten in een vertalingskanaal."
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }

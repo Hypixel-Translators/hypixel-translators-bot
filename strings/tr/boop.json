@@ -1,6 +1,6 @@
 {
-    "notOnline": "That user is currently %%presence%%, so you can't do this!",
-    "offline": "offline",
-    "dnd": "in Do Not Disturb mode",
-    "idle": "idle"
+    "notOnline": "Bu kullanıcı şu anda %%presence%%, bu yüzden bunu yapamazsınız!",
+    "offline": "Çevrimdışı",
+    "dnd": "rahatsız etmeyin modunda",
+    "idle": "Boşta"
 }

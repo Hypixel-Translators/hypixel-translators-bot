@@ -1,12 +1,12 @@
 {
-    "moduleName": "Quote",
-    "loading": "One second...",
-    "loadingModule": "Loading module...",
-    "invalidArg": "Invalid argument!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!",
-    "reqAdd": "Success! The following quote has been added:",
-    "user": "User",
-    "index": "Quote number",
+    "moduleName": "Alıntı",
+    "loading": "Bir saniye...",
+    "loadingModule": "Modül yükleniyor...",
+    "invalidArg": "Geçersiz argüman!",
+    "indexArg": "%%arg%% endeksine sahip bir alıntı mevcut değil! Lütfen 1 ile %%max%% arasında bir sayı sağlayın.",
+    "reqSub": "Alıntı isteğiniz gönderildi, teşekkürler!",
+    "reqAdd": "Başarı! Aşağıdaki alıntı eklendi:",
+    "user": "Kullanıcı",
+    "index": "Alıntı numarası",
     "executedBy": "%%user%% tarafından yürütüldü"
 }
