@@ -1,6 +1,6 @@
 {
-    "notOnline": "That user is currently %%presence%%, so you can't do this!",
-    "offline": "offline",
+    "notOnline": "Αυτός ο χρήστης είναι %%presence%% προς το παρόν, οπότε δεν μπορείς να το κάνεις αυτό!",
+    "offline": "εκτός σύνδεσης",
     "dnd": "in Do Not Disturb mode",
-    "idle": "idle"
+    "idle": "αδρανής"
 }
