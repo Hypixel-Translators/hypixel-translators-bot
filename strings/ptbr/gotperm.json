@@ -2,7 +2,7 @@
     "moduleName": "Permission checker",
     "loading": "One second...",
     "bot": "Bot",
-    "author": "Author",
-    "user": "User",
+    "author": "Autor",
+    "user": "Usuário",
     "executedBy": "Executed by %%user%%"
 }
