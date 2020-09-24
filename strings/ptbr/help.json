@@ -2,16 +2,16 @@
     "moduleName": "Ajuda",
     "commandsListTitle": "Lista de comandos",
     "commandsListTooltip": "Use `+help <nome do comando>` para saber mais sobre um comando.",
-    "madeBy": " | Bot made with lots of care by %%q10%%",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
+    "madeBy": " | Bot feito com muito carinho por %%q10%%",
+    "commandInfo": "Informações do comando",
+    "commandInfoFor": "Informação para o comando ",
     "commandNotExist": "Este comando não existe!",
-    "seconds": " seconds",
-    "usageField": "Usage",
+    "seconds": " segundos",
+    "usageField": "Uso",
     "cooldownField": "Cooldown",
     "aliasesField": "Aliases",
     "help": {
-        "usage": "+help [name of command]",
+        "usage": "+help [nome do comando]",
         "description": "Shows you all available commands and other info about the bot."
     },
     "prefix": {
@@ -31,11 +31,11 @@
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
     },
     "bug": {
-        "usage": "+bug <message>",
+        "usage": "+bug <mensagem>",
         "description": "Allows you to report bugs present in the bot."
     },
     "feedback": {
-        "usage": "+feedback <message>",
+        "usage": "+feedback <mensagem>",
         "description": "Sends your feedback on the bot to staff."
     },
     "language": {
@@ -43,7 +43,7 @@
         "description": "Changes your language, shows your current one or shows a list of available languages."
     },
     "boop": {
-        "usage": "+boop <user>",
+        "usage": "+boop <usuário>",
         "description": "Boop!"
     },
     "executedBy": "Executed by %%user%%"
