@@ -1,8 +1,8 @@
 {
     "moduleName": "Idioma",
     "loading": "One second...",
-    "changing": "Changing your language... This may take a while.",
-    "changedToTitle": "Changed your language to English!",
+    "changing": "Alterando seu idioma... Isso pode demorar um pouco.",
+    "changedToTitle": "Seu idioma foi alterado para Português (Brasil)!",
     "errorTitle": "Este idioma ainda não foi adicionado!",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "suggestAdd": "If you'd like to have this language added to the bot, please contact <@722738307477536778>.",
@@ -37,6 +37,7 @@
     "ru": "Russian",
     "es": "Spanish",
     "espe": "Spanish (Peru)",
+    "esmx": "Spanish (Mexico)",
     "he": "Hebrew",
     "sv": "Swedish",
     "th": "Thai",
