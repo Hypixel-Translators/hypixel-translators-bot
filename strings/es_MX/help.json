@@ -1,7 +1,7 @@
 {
     "moduleName": "Ayuda",
     "commandsListTitle": "Lista de comandos",
-    "commandsListTooltip": "Ejecuta `+help <nombre del comando>` para información sobre un comando específico.",
+    "commandsListTooltip": "Ejecuta `+help <nombre del comando>` para obtener más información sobre un comando específico.",
     "madeBy": " | Bot hecho con mucho amor por %%q10%%",
     "commandInfo": "Información del comando",
     "commandInfoFor": "Información para el comando ",
@@ -20,7 +20,7 @@
     },
     "quote": {
         "usage": "+quote [número] | +quote add <cita> / <mención del citado>",
-        "description": "Obtiene (o añade) una cita divertida/extraña/sabia del servidor."
+        "description": "Obtiene (o agrega) una cita divertida/extraña/sabia del servidor."
     },
     "mention": {
         "usage": "+mention <idioma> translator|proofreader|all [mensaje]",
