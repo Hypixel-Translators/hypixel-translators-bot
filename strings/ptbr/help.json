@@ -12,7 +12,7 @@
     "aliasesField": "Aliases",
     "help": {
         "usage": "+help [nome do comando]",
-        "description": "Shows you all available commands and other info about the bot."
+        "description": "Mostra todos os comandos disponíveis e outras informações sobre o bot."
     },
     "prefix": {
         "usage": "+prefix",
@@ -23,8 +23,8 @@
         "description": "Gets (or adds) a funny/weird/wise quote from the server."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Menciona um cargo de idioma com uma mensagem opcional."
+        "usage": "+mention <idioma> translator|proofreader|all [mensagem]",
+        "description": "Menciona os usuários com o cargo do idioma informado. Você também pode adicionar uma mensagem na notificação."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumentos>",
