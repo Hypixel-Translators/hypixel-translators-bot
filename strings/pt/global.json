@@ -19,12 +19,12 @@
         "1": "Preciso de tradutores! Descobre como te podes tornar num através da mensagem afixada em <#732587569744838777>.",
         "2": "Já experimentaste o idioma dos Emojis? Muda o teu idioma usando `+lang em` para experimentares!",
         "3": "Muda os teus links para en-en!",
-        "4": "You get random amounts of XP every minute when you're chatting, which will eventually make you level up.",
-        "5": "We need more tips! Submit them using `+feedback`.",
-        "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at <#699275092026458122>, it has some useful tips!",
-        "7": "Have you followed our twitter account? Check it out at <https://twitter.com/HTranslators>!",
-        "8": "<#699367003135148063> and <#699367079241056347> have all the info you need about this server!",
-        "9": "Found a mistake in a translation? Contact a proofreader of your language or let people know in a translation channel."
+        "4": "À medida que vais falando nos chats, vais ganhando quantidades de XP aleatórias a cada minuto, as quais te farão subir de nível eventualmente.",
+        "5": "Precisamos de mais dicas! Envia-as usando `+feedback`.",
+        "6": "Sabias que temos um guia para iniciantes do Crowdin, disponível para todos os tradutores? Recomendamos que o leias em <#699275092026458122>, tem boas dicas!",
+        "7": "Já seguiste a nossa conta no twitter? Podes fazê-lo em <https://twitter.com/HTranslators>!",
+        "8": "<#699367003135148063> e <#699367079241056347> têm toda a informação que precisas de saber sobre este servidor!",
+        "9": "Encontraste um erro numa tradução? Entra em contacto com um revisor do teu idioma ou informa os restantes tradutores no canal do vosso idioma."
     },
     "executedBy": "Executado por %%user%%"
 }

@@ -1,7 +1,7 @@
 {
     "moduleName": "Context",
-    "loading": "One second...",
-    "loadingModule": "Loading module...",
+    "loading": "Ένα δευτερόλεπτο...",
+    "loadingModule": "Φόρτωση τμήματος...",
     "errors": {
         "notFound1": "The context entry ",
         "notFound2": " hasn't been found!",
