@@ -24,7 +24,7 @@ class ReactionManager extends BaseManager {
 
   /**
    * The reaction cache of this manager
-   * @type {Collection<string|Snowflake, MessageReaction>}
+   * @type {Collection<Snowflake, MessageReaction>}
    * @name ReactionManager#cache
    */
 
