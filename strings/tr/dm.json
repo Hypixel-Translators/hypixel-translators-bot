@@ -1,7 +1,7 @@
 {
     "outgoing": "Mesaj, %%recipient%%'e gönderildi",
     "outgoingLoad": "Kullanıcıya mesaj gönderiliyor",
-    "loading": "One second...",
+    "loading": "Bir saniye...",
     "generalError": "Bir şeyler ters gitti.",
     "message": "Mesaj",
     "incoming": "Yetkiliden mesaj alındı",
