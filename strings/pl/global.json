@@ -13,18 +13,18 @@
     "falseUser": "Użytkownik nie został odnaleziony!",
     "timeLeftT": "Poczekaj kolejne %%time%% sekund, aby ponownie użyć `+%%command%%`.",
     "minsLeftT": "Poczekaj kolejne %%time%% minut, aby ponownie użyć `+%%command%%`.",
-    "tip": "Tip",
+    "tip": "Wskazówka",
     "tips": {
         "0": "Czy wypróbowałeś język Inhale Banana? Zmień swój język, używając `+lang ib`!",
         "1": "Potrzebuję tłumaczy! Dowiedz się, jak zostać tłumaczem bota w przypiętych wiadomościach <#732587569744838777>.",
         "2": "Czy wypróbowałeś język Emotikon? Zmień swój język, używając `+lang em`!",
         "3": "Proszę zmienić swoje linki na en-en!",
-        "4": "You get random amounts of XP every minute when you're chatting, which will eventually make you level up.",
-        "5": "We need more tips! Submit them using `+feedback`.",
-        "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at <#699275092026458122>, it has some useful tips!",
-        "7": "Have you followed our twitter account? Check it out at <https://twitter.com/HTranslators>!",
-        "8": "<#699367003135148063> and <#699367079241056347> have all the info you need about this server!",
-        "9": "Found a mistake in a translation? Contact a proofreader of your language or let people know in a translation channel."
+        "4": "Otrzymujesz losową ilość PD za każdą minutę rozmowy, co ostatecznie sprawi, że osiągniesz wyższy poziom.",
+        "5": "Potrzebujemy więcej wskazówek! Prześlij je używając `+feedback`.",
+        "6": "Czy wiedziałeś, że mamy poradnik jak zacząć z Crowdin, dostępny dla wszystkich tłumaczy? Sprawdź go na <#699275092026458122>, zawiera kilka przydatnych wskazówek!",
+        "7": "Czy zaobserwowałeś już nasze konto na Twitterze? Sprawdź je tutaj <https://twitter.com/HTranslators>!",
+        "8": "<#699367003135148063> i <#699367079241056347> mają wszystkie potrzebne informacje o tym serwerze!",
+        "9": "Znalazłeś błąd w tłumaczeniu? Skontaktuj się z korektorem swojego języka lub poinformuj o tym innych na kanale tłumaczeniowym."
     },
     "executedBy": "Wykonano przez %%user%%"
 }
