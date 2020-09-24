@@ -44,7 +44,7 @@
     },
     "boop": {
         "usage": "+boop <user>",
-        "description": "Boop!"
+        "description": "Boop！"
     },
     "executedBy": "Executed by %%user%%"
 }

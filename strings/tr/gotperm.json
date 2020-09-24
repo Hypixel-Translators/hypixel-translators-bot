@@ -1,8 +1,8 @@
 {
-    "moduleName": "Permission checker",
-    "loading": "One second...",
+    "moduleName": "İzin denetleyicisi",
+    "loading": "Bir saniye...",
     "bot": "Bot",
-    "author": "Author",
-    "user": "User",
+    "author": "Yapımcı",
+    "user": "Kullanıcı",
     "executedBy": "%%user%% tarafından yürütüldü"
 }

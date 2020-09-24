@@ -9,7 +9,7 @@
     "seconds": " saniye",
     "usageField": "Kullanım",
     "cooldownField": "Bekleme Süresi",
-    "aliasesField": "Aliases",
+    "aliasesField": "Takma adlar",
     "help": {
         "usage": "+help [komut ismi]",
         "description": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir."
@@ -19,7 +19,7 @@
         "description": "Dil(lerin) için uygun ön ekleri verir."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <user mention>",
+        "usage": "+quote [index] | +quote add <alıntı> / <user mention>>",
         "description": "Sunucudan komik/garip/bilge bir alıntı alır (veya ekler)."
     },
     "mention": {
@@ -27,7 +27,7 @@
         "description": "İsteğe bağlı bir mesajla bir dil rolünden bahseder."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <arguments>",
+        "usage": "+context get|add|edit|view|help <konu>",
         "description": "Verilen string kimliği için bağlamı alır, ekler veya düzenler. `+context help` size bu komutla ilgili bilgileri gösterir."
     },
     "bug": {
@@ -39,11 +39,11 @@
         "description": "Bot ile ilgili geri bildirimini yetkililere gönderir."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "usage": "+language [<yeni dil> | liste]",
+        "description": "Dilinizi değiştirir, mevcut dilinizi gösterir veya mevcut dillerin bir listesini gösterir."
     },
     "boop": {
-        "usage": "+boop <user>",
+        "usage": "+boop <kullanıcı>",
         "description": "Boop!"
     },
     "executedBy": "%%user%% tarafından yürütüldü"

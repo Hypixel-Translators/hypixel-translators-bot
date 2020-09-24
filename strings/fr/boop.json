@@ -1,6 +1,6 @@
 {
-    "notOnline": "That user is currently %%presence%%, so you can't do this!",
-    "offline": "offline",
-    "dnd": "in Do Not Disturb mode",
-    "idle": "idle"
+    "notOnline": "Cet utilisateur est actuellement %%presence%%, tu ne peux pas le faire!",
+    "offline": "Hors ligne",
+    "dnd": "en Ne pas déranger",
+    "idle": "Inactif"
 }
