@@ -11,6 +11,7 @@ module.exports = {
             hypixel(client)
             quickplay(client)
             bot(client)
+            skyblockaddons(client)
         }
     }
 }
@@ -43,9 +44,9 @@ async function hypixel(client) {
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Hypixel project.\n\nTranslate at <https://crowdin.com/project/hypixel>")
+                            client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Hypixel project.\n\nTranslate at <https://crowdin.com/project/hypixel>")
                         } else {
-                            client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Hypixel project.")
+                            client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Hypixel project.")
                         }
                         stringCount.edit(json[0].phrases)
                     }
@@ -90,9 +91,9 @@ async function quickplay(client) {
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("646383292010070016").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Quickplay project.\n\nTranslate at <https://crowdin.com/project/quickplay>")
+                            client.channels.cache.get("646383292010070016").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Quickplay project.\n\nTranslate at <https://crowdin.com/project/quickplay>")
                         } else {
-                            client.channels.cache.get("646383292010070016").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Quickplay project.")
+                            client.channels.cache.get("646383292010070016").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Quickplay project.")
                         }
                         stringCount.edit(json[0].phrases)
                     }
@@ -112,9 +113,32 @@ async function bot(client) {
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("749391414600925335").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Hypixel Translators Bot project.\n\nTranslate at <https://crowdin.com/project/hypixel-translators-bot>")
+                            client.channels.cache.get("749391414600925335").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Hypixel Translators Bot project.\n\nTranslate at <https://crowdin.com/project/hypixel-translators-bot>")
                         } else {
-                            client.channels.cache.get("749391414600925335").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Hypixel Translators Bot project.")
+                            client.channels.cache.get("749391414600925335").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Hypixel Translators Bot project.")
+                        }
+                        stringCount.edit(json[0].phrases)
+                    }
+                })
+        })
+}
+
+//Added SkyblockAddons - TheComputer8423
+async function skyblockaddons(client) {
+    let url = "https://api.crowdin.com/api/project/skyblockaddons/status?login=qkeleq10&account-key=8205d22af119c4233b1940265bdd77d9&json"
+    let settings = { method: "Get" }
+    var index = 0
+    fetch(url, settings)
+        .then(res => res.json())
+        .then((json) => {
+            json.reverse()
+            client.channels.cache.get("730042612647723058").messages.fetch("758819913224683520")
+                .then(stringCount => {
+                    if (stringCount.content !== json[0].phrases) {
+                        if (stringCount.content < json[0].phrases) {
+                            client.channels.cache.get("748594964476329994").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/project/skyblockaddons>")
+                        } else {
+                            client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the SkyblockAddons project.")
                         }
                         stringCount.edit(json[0].phrases)
                     }
