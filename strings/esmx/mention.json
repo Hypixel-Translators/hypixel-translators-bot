@@ -1,11 +1,11 @@
 {
-    "errorNoPing": "No tienes el rol de revisor de ese idioma, ",
-    "errorNoPingPr": "así que no puedes mencionarlo.",
-    "errorNoPingTr": "así que no puedes mencionar su rol de traductor.",
-    "errorNoPingAll": "así que no puedes mencionar el idioma entero.",
-    "errorNoPingDisclaimer": "Contacta el dueño del servidor o administrador si realmente lo necesitas.",
+    "errorNoPing": "No tienes el rol de corrector de pruebas de ese idioma, ",
+    "errorNoPingPr": "por lo que no puedes mencionarlo.",
+    "errorNoPingTr": "por lo que no puede mencionar su rol de traductor.",
+    "errorNoPingAll": "por lo que no puede mencionar todo el idioma.",
+    "errorNoPingDisclaimer": "Póngase en contacto con el propietario o administrador del servidor si realmente lo necesita.",
     "errorNotFound": "El rol que ingresó no existe. Puedes ingresar el nombre del idioma o cualquiera de estos: ",
-    "errorNoArgs": "¡Te olvidaste de especificar un idioma! Puedes ingresar el nombre del idioma (en inglés) o cualquiera de estos: ",
-    "errorNoArgs2": "¡Te olvidaste de especificar un tipo de rol! Selecciona uno de estos: ",
+    "errorNoArgs": "¡Olvidaste especificar un idioma! Puedes ingresar el nombre del idioma (en inglés) o cualquiera de estos: ",
+    "errorNoArgs2": "¡Olvidaste especificar un tipo de rol! Seleccione uno de estos: ",
     "executedBy": "Ejecutado por %%user%%"
 }
