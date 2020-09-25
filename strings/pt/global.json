@@ -11,6 +11,7 @@
     "noUserQuote": "Não mencionaste um utilizador! Escreve a citação e menciona o utilizador citado, separados por uma barra.",
     "falseChannel": "Esse canal não foi encontrado!",
     "falseUser": "Esse utilizador não foi encontrado!",
+    "disabled": "This command has been temporarily disabled.",
     "timeLeftT": "Espera mais %%time%% segundos para usares `+%%command%%` outra vez.",
     "minsLeftT": "Espera mais %%time%% minutos para usares `+%%command%%` outra vez.",
     "tip": "Dica",
