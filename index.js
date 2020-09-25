@@ -157,11 +157,11 @@ client.on("message", async message => {
     if (now < expirationTime) {
       setTimeout(() => {
         const timeLeft = (expirationTime - now) / 1000;
-        var timeLeftT
-        if (timeLeft => 120) { timeLeftT = globalStrings.minsLeftT.replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", command.name) } else {
-          timeLeftT = globalStrings.timeLeftT.replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", command.name)
+        if (Math.ceil(timeLeft) > 120) {
+          message.channel.send(globalStrings.minsLeftT.replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", command.name))
+        } else {
+          message.channel.send(globalStrings.timeLeftT.replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", command.name))
         }
-        return message.channel.send(timeLeftT)
       }, 100)
     }
   }
