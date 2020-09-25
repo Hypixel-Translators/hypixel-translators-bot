@@ -11,12 +11,12 @@
     "noUserQuote": "Nie określono użytkownika! Wpisz cytat, a następnie oznacz cytowanego użytkownika, oddzielając oznaczenie ukośnikiem.",
     "falseChannel": "Ten kanał nie został odnaleziony!",
     "falseUser": "Użytkownik nie został odnaleziony!",
-    "disabled": "This command has been temporarily disabled.",
+    "disabled": "To polecenie zostało tymczasowo wyłączone.",
     "timeLeftT": "Poczekaj kolejne %%time%% sekund, aby ponownie użyć `+%%command%%`.",
     "minsLeftT": "Poczekaj kolejne %%time%% minut, aby ponownie użyć `+%%command%%`.",
     "tip": "Wskazówka",
     "tips": {
-        "0": "Czy wypróbowałeś język Inhale Banana? Zmień swój język, używając `+lang ib`!",
+        "0": "Czy wypróbowałeś/aś język Inhale Banana? Zmień swój język, używając `+lang ib`!",
         "1": "Potrzebuję tłumaczy! Dowiedz się, jak zostać tłumaczem bota w przypiętych wiadomościach <#732587569744838777>.",
         "2": "Czy wypróbowałeś język Emotikon? Zmień swój język, używając `+lang em`!",
         "3": "Proszę zmienić swoje linki na en-en!",
@@ -25,8 +25,8 @@
         "6": "Czy wiedziałeś, że mamy poradnik jak zacząć z Crowdin, dostępny dla wszystkich tłumaczy? Sprawdź go na <#699275092026458122>, zawiera kilka przydatnych wskazówek!",
         "7": "Czy zaobserwowałeś już nasze konto na Twitterze? Sprawdź je tutaj <https://twitter.com/HTranslators>!",
         "8": "Na <#699367003135148063> i <#699367079241056347> znajdziesz wszystkie potrzebne informacje o tym serwerze!",
-        "9": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
-        "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!"
+        "9": "Znalazłeś/aś błąd w tłumaczeniu? Skontaktuj się z korektorem swojego języka lub poinformuj o tym innych na kanale tłumaczeniowym.",
+        "10": "Czy wiedziałeś, że na większości kanałów najważniejsze informacje są przypięte? Powinieneś je sprawdzać za każdym razem, jak odwiedzasz kanały!"
     },
     "executedBy": "Wykonano przez %%user%%"
 }
