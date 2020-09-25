@@ -11,6 +11,7 @@
     "noUserQuote": "Nie określono użytkownika! Wpisz cytat, a następnie oznacz cytowanego użytkownika, oddzielając oznaczenie ukośnikiem.",
     "falseChannel": "Ten kanał nie został odnaleziony!",
     "falseUser": "Użytkownik nie został odnaleziony!",
+    "disabled": "This command has been temporarily disabled.",
     "timeLeftT": "Poczekaj kolejne %%time%% sekund, aby ponownie użyć `+%%command%%`.",
     "minsLeftT": "Poczekaj kolejne %%time%% minut, aby ponownie użyć `+%%command%%`.",
     "tip": "Wskazówka",
