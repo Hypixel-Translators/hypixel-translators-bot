@@ -166,7 +166,7 @@ client.on("message", async message => {
     }
   }
 
-  if (message.member) if (message.member.hasPermission("BAN_MEMBERS")) timestamps.set(message.author.id, now);
+  if (message.member) if (message.member.hasPermission("KICK_MEMBERS")) timestamps.set(message.author.id, now);
   setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
   var strings = require(("./strings/en/" + command.name + ".json"))
