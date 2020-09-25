@@ -11,7 +11,7 @@
     "noUserQuote": "Je hebt geen gebruiker opgegeven! Typ het citaat, en vermeld dan de geciteerde gebruiker, gescheiden door een slash.",
     "falseChannel": "Dat kanaal kon niet worden gevonden!",
     "falseUser": "Die gebruiker kon niet worden gevonden!",
-    "disabled": "This command has been temporarily disabled.",
+    "disabled": "Dit commando is tijdelijk uitgeschakeld.",
     "timeLeftT": "Wacht nog %%time%% seconden voor je `+%%command%%` weer gebruikt.",
     "minsLeftT": "Wacht nog %%time%% minuten voor je `+%%command%%` weer gebruikt.",
     "tip": "Tip",
