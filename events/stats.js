@@ -125,14 +125,14 @@ async function bot(client) {
 
 //Added SkyblockAddons - TheComputer8423
 async function skyblockaddons(client) {
-    let url = "https://api.crowdin.com/api/project/skyblockaddons/status?login=qkeleq10&account-key=8205d22af119c4233b1940265bdd77d9&json"
+    let url = "https://api.crowdin.com/api/project/skyblockaddons/status?login=qkeleq10&account-key=" + ctoken + "&json"
     let settings = { method: "Get" }
     var index = 0
     fetch(url, settings)
         .then(res => res.json())
         .then((json) => {
             json.reverse()
-            client.channels.cache.get("730042612647723058").messages.fetch("758819913224683520")
+            client.channels.cache.get("730042612647723058").messages.fetch("758819913577136190")
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
