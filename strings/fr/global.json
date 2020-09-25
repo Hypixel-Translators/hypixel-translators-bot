@@ -11,6 +11,7 @@
     "noUserQuote": "Tu n'as pas fournir un utilisateur! Tape la citation puis mentionne l'utilisateur cité, séparés par un /.",
     "falseChannel": "Ce canal n'a pas pu être trouvé!",
     "falseUser": "Cet utilisateur n'a pas pu être trouvé!",
+    "disabled": "This command has been temporarily disabled.",
     "timeLeftT": "Attend encore %%time%% secondes pour utiliser `+%%command%%` à nouveau.",
     "minsLeftT": "Attend encore %%time%% minutes pour utiliser `+%%command%%` à nouveau.",
     "tip": "Conseil",
@@ -24,8 +25,8 @@
         "6": "Sais-tu que nous avons un guide sur la façon de commencer avec Crowdin, disponible pour tous les traducteurs? Regarde-le à <#699275092026458122>, il a quelques conseils utiles!",
         "7": "As-tu suivi notre twitter? Regarde-le à <https://twitter.com/HTranslators>!",
         "8": "<#699367003135148063> et <#699367079241056347> ont toutes les infos dont tu as besoin à propos de ce serveur!",
-        "9": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
-        "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!"
+        "9": "Tu as trouvé une erreur dans une traduction? Contacte un proofreader de ta langue ou faites-le savoir dans un canal de traduction.",
+        "10": "Sais-tu que les canals contiennent des informations importantes épinglées? Trouve-le lorsque tu visites un canal!"
     },
     "executedBy": "Exécuté par %%user%%"
 }
