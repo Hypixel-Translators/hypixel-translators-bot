@@ -1,6 +1,7 @@
 const { workingColor, errorColor, successColor, neutralColor, langdb } = require("../config.json");
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
+const ctoken = process.env.CTOKEN
 
 module.exports = {
     execute(client, manual) {
@@ -15,7 +16,7 @@ module.exports = {
 }
 
 async function hypixel(client) {
-    let url = "https://api.crowdin.com/api/project/hypixel/status?login=qkeleq10&account-key=8205d22af119c4233b1940265bdd77d9&json"
+    let url = "https://api.crowdin.com/api/project/hypixel/status?login=qkeleq10&account-key=" + ctoken + "&json"
     let settings = { method: "Get" }
     var index = 0
     fetch(url, settings)
@@ -53,7 +54,7 @@ async function hypixel(client) {
 }
 
 async function quickplay(client) {
-    let url = "https://api.crowdin.com/api/project/quickplay/status?login=qkeleq10&account-key=8205d22af119c4233b1940265bdd77d9&json"
+    let url = "https://api.crowdin.com/api/project/quickplay/status?login=qkeleq10&account-key=" + ctoken + "&json"
     let settings = { method: "Get" }
     var index = 0
     fetch(url, settings)
@@ -100,7 +101,7 @@ async function quickplay(client) {
 }
 
 async function bot(client) {
-    let url = "https://api.crowdin.com/api/project/hypixel-translators-bot/status?login=qkeleq10&account-key=8205d22af119c4233b1940265bdd77d9&json"
+    let url = "https://api.crowdin.com/api/project/hypixel-translators-bot/status?login=qkeleq10&account-key=" + ctoken + "&json"
     let settings = { method: "Get" }
     var index = 0
     fetch(url, settings)
