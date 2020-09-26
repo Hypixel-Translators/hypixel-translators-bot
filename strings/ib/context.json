@@ -3,8 +3,7 @@
     "loading": "Wait, idot...",
     "loadingModule": "Modul not reddi yet...",
     "errors": {
-        "notFound1": "Dah centoxt entri ",
-        "notFound2": " is foundn't!",
+        "notFound": "The context entry%%name%% hasn't been found!",
         "exists1": "A centoxt entri fer ",
         "exists2": " alreddi existz, so urs was addedn't. Use `+context edit` u dum dum.",
         "didntReply": "U were too slo to reactt, ",
@@ -12,9 +11,7 @@
         "cancelledPrompt": "so dis prropt has ben canseled. ",
         "readdTryAgain": "Reakt agen with 📑 to do agen but then gud."
     },
-    "notAllowed": "Ur not a translater ore proofreder, so disn't avalaebul fer u!",
     "notProofreader": "You're not a proofreader, so you can't use this! We're working on a way to let you suggest context too.",
-    "incorrectArgument": "Oh pls entar sbusbacomand as 1nd gargarment. Dis scan be `get`, `add`, `edit`, `link` ore `help`.\nIf ur too dumb, do `+context help`.",
     "contextFor": "Centoxt fer ",
     "noteFor": "Noot fer ",
     "screenshot": "Picturr of scren",
