@@ -3,8 +3,7 @@
     "loading": "Ett sekund...",
     "loadingModule": "Laster inn modul...",
     "errors": {
-        "notFound1": "Kontekstoppføringen ",
-        "notFound2": " har ikke blitt funnet!",
+        "notFound": "The context entry%%name%% hasn't been found!",
         "exists1": "En kontekstoppføring for ",
         "exists2": " eksisterer allerede, så din ble ikke lagt til. Bruk `+context edit` i stedet.",
         "didntReply": "Du svarte ikke i tide, ",
@@ -12,9 +11,7 @@
         "cancelledPrompt": "så denne spørringen har blitt avbrutt. ",
         "readdTryAgain": "Reager igjen med 📑 for å prøve på nytt."
     },
-    "notAllowed": "Du er ikke en oversetter eller korrekturleser, så du kan ikke bruke denne!",
     "notProofreader": "Du er ikke en korrekturleser, så du kan ikke bruke denne! Vi jobber med en løsning som lar deg foreslå kontekst også.",
-    "incorrectArgument": "Vennligst oppgi en underkommando som det første argumentet. Dette kan enten være `get`, `add`,`edit`,`link` or `help`.\nFor informasjon, skriv `+context help`.",
     "contextFor": "Kontekst for ",
     "noteFor": "Merknad for ",
     "screenshot": "Skjermdump",
