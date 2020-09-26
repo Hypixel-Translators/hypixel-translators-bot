@@ -9,7 +9,7 @@
     "current": "Tu preferencia de idioma está establecida en Español (Perú).",
     "listTitle": "Lista de idiomas",
     "listElement": "`%%code%%` | **%%language%%**",
-    "credits": "¿Has encontrado un error? Reportalo usando `+bug <mensaje>`.",
+    "credits": "¿Has encontrado un error? Repórtalo usando `+bug <mensaje>`.",
     "ar": "Árabe",
     "bg": "Búlgaro",
     "zhcn": "Chino (Simplificado)",
