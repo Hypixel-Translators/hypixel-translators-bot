@@ -3,10 +3,10 @@
     "loading": "Et sekund...",
     "loadingModule": "Indlæser modulet...",
     "invalidArg": "Ugyldigt argument!",
-    "indexArg": "Et citat med indekset %%arg%% findes ikke! Angiv venligst et nummer mellem 1 og %%max%%.",
+    "indexArg": "Et citat med indekset %%arg%% findes ikke! Angiv venligst et tal mellem 1 og %%max%%.",
     "reqSub": "Your quote request has been submitted, thanks!",
     "reqAdd": "Success! The following quote has been added:",
-    "user": "User",
+    "user": "Bruger",
     "index": "Quote number",
     "executedBy": "Udført af %%user%%"
 }

@@ -1,7 +1,7 @@
 {
-    "moduleName": "Parrot",
+    "moduleName": "Papegøje",
     "loading": "Et sekund...",
-    "success": "Success! Message sent.",
+    "success": "Succes! Beskeden blev sendt.",
     "invalidArg": "Ugyldigt argument!",
     "executedBy": "Udført af %%user%%"
 }
