@@ -7,7 +7,7 @@ module.exports = {
     usage: "verify <mention> <message>",
     aliases: ["message", "privatemessage"],
     allowDM: true,
-    execute(strings, message, args) {
+    execute: async (strings, message, args) => {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         var allowed = false
         var userToSend = args[0].replace(/[\\<>@#&!]/g, "");
@@ -18,7 +18,7 @@ module.exports = {
         if (!allowed) return;
 
         const recipient = message.client.users.cache.get(userToSend)
-        var rStrings = await require(("../strings/en/dm.json"))
+        var rStrings = require(("../strings/en/dm.json"))
         const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
         const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
         oldFiMessages.forEach(async element => {
