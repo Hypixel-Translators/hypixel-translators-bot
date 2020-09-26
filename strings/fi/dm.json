@@ -1,10 +1,10 @@
 {
-    "outgoing": "Sent message to %%recipient%%",
-    "outgoingLoad": "Sending message to user",
-    "loading": "One second...",
-    "generalError": "Something has gone wrong.",
-    "message": "Message",
-    "incoming": "Received message from staff",
-    "incomingDisclaimer": "Any message you send here will get sent to staff.",
-    "executedBy": "Executed by %%user%%"
+    "outgoing": "Lähetettiin viesti käyttäjälle %%recipient%%",
+    "outgoingLoad": "Lähetetään viesti käyttäjälle",
+    "loading": "Odota sekunti...",
+    "generalError": "Jokin meni vikaan.",
+    "message": "Viesti",
+    "incoming": "Vastaanotettu viesti ylläpidolta",
+    "incomingDisclaimer": "Kaikki täällä lähettämäsi viestit lähetetään ylläpidolle.",
+    "executedBy": "Komennon suoritti %%user%%"
 }
