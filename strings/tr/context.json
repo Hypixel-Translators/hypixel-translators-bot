@@ -3,8 +3,7 @@
     "loading": "Bir saniye...",
     "loadingModule": "Modül yükleniyor...",
     "errors": {
-        "notFound1": "Bağlam girişi ",
-        "notFound2": " bulunamadı!",
+        "notFound": "The context entry%%name%% hasn't been found!",
         "exists1": "İçin bir bağlam girişi ",
         "exists2": " zaten var, bu nedenle sizinki eklenmedi. Bunun yerine '+context edit' komutunu kullanın.",
         "didntReply": "Zamanında yanıt vermedin, ",
@@ -12,9 +11,7 @@
         "cancelledPrompt": "yani bu istem iptal edildi. ",
         "readdTryAgain": "Tekrar denemek için 📑 ile yeniden tepki ver."
     },
-    "notAllowed": "Bir çevirmen veya düzeltmen değilsin, yani bunu kullanamazsın!",
     "notProofreader": "Bir düzeltmen değilsin, yani bunu kullanamazsın! Bağlam önermenize izin verecek bir yol üzerinde çalışıyoruz.",
-    "incorrectArgument": "Lütfen ilk argüman olarak bir alt komut girin. Bu, 'get', 'add', 'edit', 'link' veya 'help' olabilir.\nBilgi için '+context help' komutunu çalıştırın.",
     "contextFor": "İçin bağlam ",
     "noteFor": "İçin not ",
     "screenshot": "Ekran görüntüsü",
