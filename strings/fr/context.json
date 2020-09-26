@@ -3,8 +3,7 @@
     "loading": "Un second...",
     "loadingModule": "Chargement du module...",
     "errors": {
-        "notFound1": "L'entée de contexte ",
-        "notFound2": " n'a pas été trouvé!",
+        "notFound": "The context entry%%name%% hasn't been found!",
         "exists1": "Une entrée pour ",
         "exists2": " existe déjà, donc ta entrée n'a pas été ajoutée.",
         "didntReply": "Tu n'as pas répondu à temps, ",
@@ -12,9 +11,7 @@
         "cancelledPrompt": "donc cette action a été annulée. ",
         "readdTryAgain": "Réagis avec 📑 pour réessayer."
     },
-    "notAllowed": "Tu n'est pas un traducteur ou un proofreader, donc tu ne peux pas utiliser cette commande!",
     "notProofreader": "Tu n'est pas un proofreader, tu ne peux pas utiliser cette commande! Nous travaillons sur un moyen de tu laisser suggérer un contexte.",
-    "incorrectArgument": "Entre une sous-commande comme premier argument. Cela peut être soit `get`, `add`, `edit`, `link` ou `help`.\nPour plus d'information, exécute `+context help`.",
     "contextFor": "Contexte pour ",
     "noteFor": "Remarque pour ",
     "screenshot": "Screenshot",
