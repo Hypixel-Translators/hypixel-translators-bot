@@ -21,27 +21,14 @@ module.exports = {
         message.channel.send(embed)
             .then(msg => {
                 if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771")) {
-                    const embed = new Discord.MessageEmbed()
-                        .setColor(errorColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.notAllowed)
-                        .setFooter(executedBy);
-                    msg.edit(embed)
-                    return;
+                    throw "noTrPr"
                 }
                 if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(executedBy, strings, message, args, msg) }
                 else if (args[0] === "get") { getFromSpreadsheet(executedBy, strings, message, args, msg) }
                 else if (args[0] === "edit") { editInSpreadsheet(executedBy, strings, message, args, msg) }
                 else if (args[0] === "info" || args[0] === "help") { showInfo(executedBy, strings, message, args, msg) }
                 else if (args[0] === "view" || args[0] === "link") { viewsheet(executedBy, strings, message, args, msg) }
-                else {
-                    const embed = new Discord.MessageEmbed()
-                        .setColor(errorColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.incorrectArgument)
-                        .setFooter(executedBy);
-                    msg.edit(embed)
-                }
+                else { throw "contextSubArg" }
                 if (strings, message.channel.id === "549894938712866816") {
                     setTimeout(() => {
                         message.delete()
@@ -65,13 +52,7 @@ async function getFromSpreadsheet(executedBy, strings, message, args, msg) {
     const correctRow = rows.find(r => r.id === args[1])
 
     if (!correctRow) {
-        const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
-            .setAuthor(strings.moduleName)
-            .setTitle(strings.errors.notFound1 + args[1] + strings.errors.notFound2)
-            .setFooter(executedBy);
-        msg.edit(embed)
-        return;
+        throw strings.notFound.replace("%%name%%", " " + args[1])
     }
 
     const embed = new Discord.MessageEmbed()
@@ -235,14 +216,7 @@ async function addToSpreadsheet(executedBy, strings, message, args, msg) {
                         msg.delete()
 
                         if (!result) {
-                            const embed = new Discord.MessageEmbed()
-                                .setColor(errorColor)
-                                .setAuthor(strings.moduleName)
-                                .setTitle(strings.addContextFor + string)
-                                .setDescription(strings.errors.notFound1 + strings.errors.notFound2)
-                                .setFooter(executedBy);
-                            finalMsg.edit(embed)
-                            return;
+                            throw strings.notFound.replace("%%name%%", "")
                         }
 
                         embed
@@ -362,13 +336,7 @@ async function editInSpreadsheet(executedBy, strings, message, args, msg) {
     var correctRow = rows.find(r => r.id === args[1])
 
     if (!correctRow) {
-        const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
-            .setAuthor(strings.moduleName)
-            .setTitle(strings.errors.notFound1 + args[1] + strings.errors.notFound2)
-            .setFooter(executedBy);
-        msg.edit(embed)
-        return;
+        throw strings.notFound.replace("%%name%%", args[1])
     }
 
     if (!args[3]) {

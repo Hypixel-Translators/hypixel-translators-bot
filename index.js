@@ -90,7 +90,7 @@ client.on("message", async message => {
     var msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
     if (message.content != msgTxt) message.react(notAllowed); message.channel.send("<@" + message.author.id + "> _Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n\n>>> " + msgTxt)
   }
-  if (message.content.toLowerCase().includes("kele")) { var d = Math.random(); if (d < 0.15) message.channel.send("inhale banana"); }
+  if (message.content.toLowerCase().includes("kele")) { var d = Math.random(); if (d < 0.05) message.channel.send("inhale banana"); }
 
   if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
@@ -157,11 +157,17 @@ client.on("message", async message => {
     if (now < expirationTime) {
       setTimeout(() => {
         const timeLeft = (expirationTime - now) / 1000;
+        var timeLeftS
         if (Math.ceil(timeLeft) > 120) {
-          message.channel.send(globalStrings.minsLeftT.replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", command.name))
+          timeLeftS = (globalStrings.minsLeftT.replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", command.name))
         } else {
-          message.channel.send(globalStrings.timeLeftT.replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", command.name))
+          timeLeftS = (globalStrings.timeLeftT.replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", command.name))
         }
+        const embed = new Discord.MessageEmbed()
+          .setColor(errorColor)
+          .setAuthor(globalStrings.cooldown)
+          .setTitle(timeLeftS)
+          .setFooter(executedBy)
       }, 100)
     }
   }
@@ -180,15 +186,18 @@ client.on("message", async message => {
     try {
       command.execute(strings, message, args)
     } catch (error) {
-      timestamps.delete(message.author.id)
       console.error(error);
+      timestamps.delete(message.author.id)
       const embed = new Discord.MessageEmbed()
         .setColor(errorColor)
         .setAuthor(globalStrings.error)
         .setTitle(globalStrings[error] || error)
-        //.setDescription(globalStrings.generalError)
         .setFooter(executedBy)
-      if (!helpStrings[command.name]) { embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" }) } else { embed.addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" }) }
+      if (!helpStrings[command.name]) {
+        embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" })
+      } else {
+        embed.addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" })
+      }
       message.channel.send(embed)
     }
     var d = Math.random(); var s = Math.round(Math.random()); if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${globalStrings.tips[globalStrings.tips.length * Math.random() | 0]}`)
