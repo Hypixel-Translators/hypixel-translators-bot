@@ -3,8 +3,7 @@
     "loading": "Sekundkę…",
     "loadingModule": "Ładowanie modułu…",
     "errors": {
-        "notFound1": "Wpis kontekstowy ",
-        "notFound2": " nie został odnaleziony!",
+        "notFound": "The context entry%%name%% hasn't been found!",
         "exists1": "Wpis kontekstowy ",
         "exists2": " już istnieje, więc Twój nie został dodany. Zamiast tego użyj `+context edit`.",
         "didntReply": "Nie odpowiedziałeś w porę, ",
@@ -12,9 +11,7 @@
         "cancelledPrompt": "więc zgłoszenie zostało anulowane. ",
         "readdTryAgain": "Dodaj reakcję 📑, aby spróbować ponownie."
     },
-    "notAllowed": "Nie jesteś tłumaczem ani korektorem, więc nie możesz tego użyć!",
     "notProofreader": "Nie jesteś korektorem, więc nie możesz tego użyć! Pracujemy nad sposobem, by również wam umożliwić dodawanie kontekstu.",
-    "incorrectArgument": "Wprowadź podpolecenie jako pierwszy argument. Może to być: `get`, `add`, `edit`, `link` lub `help`.\nAby uzyskać informacje, użyj `+context help`.",
     "contextFor": "Kontekst dla ",
     "noteFor": "Uwaga dotycząca ",
     "screenshot": "Zrzut ekranu",
