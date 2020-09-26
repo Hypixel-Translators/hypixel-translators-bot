@@ -1,7 +1,7 @@
 {
-    "moduleName": "Parrot",
-    "loading": "One second...",
-    "success": "Success! Message sent.",
-    "invalidArg": "Invalid argument!",
-    "executedBy": "Executed by %%user%%"
+    "moduleName": "Papukaija",
+    "loading": "Odota sekunti...",
+    "success": "Onnistui! Viesti lähetetty.",
+    "invalidArg": "Virheellinen argumentti!",
+    "executedBy": "Komennon suoritti %%user%%"
 }
