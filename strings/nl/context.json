@@ -3,7 +3,7 @@
     "loading": "Even geduld...",
     "loadingModule": "Module laden...",
     "errors": {
-        "notFound": "The context entry%%name%% hasn't been found!",
+        "notFound": "De contextvermelding%%name%% is niet gevonden!",
         "exists1": "Een contextvermelding voor ",
         "exists2": " bestaat al, dus die van jou is niet toegevoegd. Gebruik in plaats daarvan `+context edit`.",
         "didntReply": "Je hebt niet op tijd gereageerd, ",
