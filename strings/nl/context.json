@@ -3,8 +3,7 @@
     "loading": "Even geduld...",
     "loadingModule": "Module laden...",
     "errors": {
-        "notFound1": "De contextvermelding ",
-        "notFound2": " is niet gevonden!",
+        "notFound": "The context entry%%name%% hasn't been found!",
         "exists1": "Een contextvermelding voor ",
         "exists2": " bestaat al, dus die van jou is niet toegevoegd. Gebruik in plaats daarvan `+context edit`.",
         "didntReply": "Je hebt niet op tijd gereageerd, ",
@@ -12,9 +11,7 @@
         "cancelledPrompt": "dus dit prompt is geannuleerd. ",
         "readdTryAgain": "Reageer met 📑 om het opnieuw te proberen."
     },
-    "notAllowed": "Je bent geen vertaler of proeflezer, dus je kunt dit niet gebruiken!",
     "notProofreader": "Je bent geen proeflezer, dus je kunt dit niet gebruiken! We werken aan een manier om jou óók context te laten suggereren.",
-    "incorrectArgument": "Voer een subcommando in als eerste argument. Dit kan `get`, `add`, `edit`, `link` of `help` zijn.\nVoor meer informatie kun je `+context help` uitvoeren.",
     "contextFor": "Context voor ",
     "noteFor": "Opmerking voor ",
     "screenshot": "Schermopname",
