@@ -3,8 +3,7 @@
     "loading": "Eine Sekunde …",
     "loadingModule": "Lade Module...",
     "errors": {
-        "notFound1": "Der Kontexteintrag ",
-        "notFound2": " wurde nicht gefunden!",
+        "notFound": "The context entry%%name%% hasn't been found!",
         "exists1": "Ein Kontexteintrag für ",
         "exists2": " already exists, so yours wasn't added. Instead, use `+context edit`.",
         "didntReply": "Du hast nicht rechtzeitig geantwortet, ",
@@ -12,9 +11,7 @@
         "cancelledPrompt": "also wurde diese Eingabeaufforderung abgebrochen. ",
         "readdTryAgain": "Reagiere erneut mit 📑 um es erneut zu versuchen."
     },
-    "notAllowed": "You're not a translator or proofreader, so you can't use this!",
     "notProofreader": "You're not a proofreader, so you can't use this! We're working on a way to let you suggest context too.",
-    "incorrectArgument": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
     "contextFor": "Kontext für ",
     "noteFor": "Notiz für ",
     "screenshot": "Screenshot",
