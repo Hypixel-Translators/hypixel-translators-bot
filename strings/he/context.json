@@ -3,8 +3,7 @@
     "loading": "שנייה...",
     "loadingModule": "טוען מודולים...",
     "errors": {
-        "notFound1": "The context entry ",
-        "notFound2": " hasn't been found!",
+        "notFound": "The context entry%%name%% hasn't been found!",
         "exists1": "A context entry for ",
         "exists2": " already exists, so yours wasn't added. Instead, use `+context edit`.",
         "didntReply": "You didn't reply in time, ",
@@ -12,9 +11,7 @@
         "cancelledPrompt": "so this prompt has been cancelled. ",
         "readdTryAgain": "Re-react with 📑 to try again."
     },
-    "notAllowed": "את\\\\ה לא מתרגם או מגיה, לכן את\\\\ה לא יכול\\\\ה להשתמש בזה!",
     "notProofreader": "You're not a proofreader, so you can't use this! We're working on a way to let you suggest context too.",
-    "incorrectArgument": "בבקשה תשתמש\\\\י בפקודת המשנה בתחילת המשפט. זה יכול להיות `get`, `add`, `edit`, `link` או `help`.\nלקבלת מידע תפעיל\\\\י `+context help`.",
     "contextFor": "הקשר לגבי ",
     "noteFor": "הערה לגבי ",
     "screenshot": "צילום מסך",
