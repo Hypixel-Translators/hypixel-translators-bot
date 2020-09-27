@@ -1,6 +1,6 @@
 {
-    "moduleName": "Statistics updater",
-    "started": "Please wait a minute or two for all statistics to update...",
-    "done": "All statistics have been updated!",
+    "moduleName": "Statistiekupdater",
+    "started": "Wacht een minuut of twee tot de statistieken geüpdatet zijn...",
+    "done": "Alle statistieken zijn bijgewerkt!",
     "executedBy": "Uitgevoerd door %%user%%"
 }
