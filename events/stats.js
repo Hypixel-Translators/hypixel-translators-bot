@@ -8,10 +8,19 @@ module.exports = {
         var d = new Date();
         var n = d.getMinutes();
         if (n == "0" || n == "20" || n == "40" || manual) {
-            hypixel(client)
-            quickplay(client)
-            bot(client)
-            skyblockaddons(client)
+            try {
+                hypixel(client)
+                quickplay(client)
+                bot(client)
+                skyblockaddons(client)
+            } catch (err) {
+                const errEmb = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setAuthor("Statistics")
+                    .setTitle(err || "Something went wrong, but there's no error message.")
+                    .setFooter(executedBy)
+                client.channels.cache.get("730042612647723058").send(errEmb)
+            }
         }
     }
 }
@@ -32,7 +41,7 @@ async function hypixel(client) {
                         var langdbEntry = langdb.find(o => o.name === r.name)
                         const embed = new Discord.MessageEmbed()
                             .setColor(langdbEntry.colour)
-                            .setTitle(langdbEntry.emoji + " | " + r.name)
+                            .setTitle(langdbEntry.emoji || "<:icon_question:756582065834688662>" + " | " + r.name)
                             .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/hypixel/" + r.code)
                             //.addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/hypixel/" + r.code + "") })
                             .setTimestamp()
@@ -79,7 +88,7 @@ async function quickplay(client) {
 
                         const embed = new Discord.MessageEmbed()
                             .setColor(adapColour)
-                            .setTitle(langdbEntry.emoji + " | " + r.name)
+                            .setTitle(langdbEntry.emoji || "<:icon_question:756582065834688662>" + " | " + r.name)
                             .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/quickplay/" + r.code)
                             //.addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/quickplay/" + r.code + "") })
                             .setTimestamp()
@@ -123,7 +132,6 @@ async function bot(client) {
         })
 }
 
-//Added SkyblockAddons - TheComputer8423
 async function skyblockaddons(client) {
     let url = "https://api.crowdin.com/api/project/skyblockaddons/status?login=qkeleq10&account-key=" + ctoken + "&json"
     let settings = { method: "Get" }
@@ -149,7 +157,7 @@ async function skyblockaddons(client) {
 
                         const embed = new Discord.MessageEmbed()
                             .setColor(adapColour)
-                            .setTitle(langdbEntry.emoji + " | " + r.name)
+                            .setTitle(langdbEntry.emoji || "<:icon_question:756582065834688662>" + " | " + r.name)
                             .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/quickplay/" + r.code)
                             //.addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/quickplay/" + r.code + "") })
                             .setTimestamp()
