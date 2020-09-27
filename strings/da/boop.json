@@ -1,6 +1,6 @@
 {
-    "notOnline": "That user is currently %%presence%%, so you can't do this!",
+    "notOnline": "Denne bruger er i øjeblikket %%presence%%, så derfor kan du ikke gøre det her!",
     "offline": "offline",
-    "dnd": "in Do Not Disturb mode",
+    "dnd": "i 'Vil ikke forstyrres'-tilstand",
     "idle": "inaktiv"
 }

@@ -5,6 +5,6 @@
     "generalError": "Algo salió mal.",
     "message": "Mensaje",
     "incoming": "Mensaje recibido del staff",
-    "incomingDisclaimer": "Cualquier mensaje que envías aquí se enviará al staff.",
+    "incomingDisclaimer": "Cualquier mensaje que envíes aquí se enviará al staff.",
     "executedBy": "Ejecutado por %%user%%"
 }

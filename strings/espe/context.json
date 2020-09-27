@@ -3,8 +3,7 @@
     "loading": "Un segundo...",
     "loadingModule": "Cargando módulo...",
     "errors": {
-        "notFound1": "¡La entrada de contexto ",
-        "notFound2": " no fue encontrada!",
+        "notFound": "The context entry%%name%% hasn't been found!",
         "exists1": "Una entrada de contexto para ",
         "exists2": " ya existe, entonces la tuya no fue añadida. En vez, usa `+context edit`.",
         "didntReply": "No respondiste en tiempo, ",
@@ -12,9 +11,7 @@
         "cancelledPrompt": "entonces este acción fue cancelado. ",
         "readdTryAgain": "Reacciona con 📑 para intentar de nuevo."
     },
-    "notAllowed": "¡No eres un translator o proofreader, entonces no puedes usar esto!",
     "notProofreader": "¡No eres un proofreader, entonces no puedes usar esto! Estamos trabajando en una manera de permitirte sugerir contextos.",
-    "incorrectArgument": "Por favor, da un subcomando como primer argumento. Puede ser`get`, `add`, `edit, `link` or `help. \nPara más información, ejecuta `+context help`.",
     "contextFor": "Contexto para ",
     "noteFor": "Nota para ",
     "screenshot": "Screenshot",

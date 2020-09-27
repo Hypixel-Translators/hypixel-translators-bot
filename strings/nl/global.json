@@ -3,7 +3,6 @@
     "outgoingDisclaimer": "Als je hier een bericht stuurt, wordt het verzonden naar staff.",
     "error": "Fout",
     "usage": "Verwacht commandogebruik",
-    "generalError": "Er is iets misgegaan. Controleer het commandogebruik en probeer het opnieuw. Als je denkt dat dit een interne fout is, voer dan alsjeblieft `+bug <bericht>` uit.",
     "dmError": "Sorry, maar je kunt dit commando niet uitvoeren in privéberichten.",
     "noMessage": "Je hebt geen bericht opgegeven!",
     "noChannel": "Je hebt geen kanaal opgegeven!",
@@ -11,6 +10,10 @@
     "noUserQuote": "Je hebt geen gebruiker opgegeven! Typ het citaat, en vermeld dan de geciteerde gebruiker, gescheiden door een slash.",
     "falseChannel": "Dat kanaal kon niet worden gevonden!",
     "falseUser": "Die gebruiker kon niet worden gevonden!",
+    "disabled": "Dit commando is tijdelijk uitgeschakeld.",
+    "noTrPr": "Je bent geen vertaler of proeflezer, dus je kunt dit niet gebruiken!",
+    "contextSubArg": "Voer een subcommando in als eerste argument. Dit kan `get`, `add`, `edit`, `link` of `help` zijn.\nVoor meer informatie kun je `+context help` uitvoeren.",
+    "cooldown": "Afkoeltijd",
     "timeLeftT": "Wacht nog %%time%% seconden voor je `+%%command%%` weer gebruikt.",
     "minsLeftT": "Wacht nog %%time%% minuten voor je `+%%command%%` weer gebruikt.",
     "tip": "Tip",
@@ -24,7 +27,8 @@
         "6": "Wist je dat we een gids hebben die uitlegt hoe je aan de slag gaat met Crowdin? Hij is beschikbaar voor vertalers in <#699275092026458122>, het is best nuttig!",
         "7": "Volg je ons al op Twitter? Kijk eens op <https://twitter.com/HTranslators>!",
         "8": "<#699367003135148063> en <#699367079241056347> bevatten alle benodigde informatie over deze server!",
-        "9": "Fout in een vertaling gevonden? Neem contact op met een proeflezer van je taal of laat het weten in een vertalingskanaal."
+        "9": "Fout in een vertaling gevonden? Neem contact op met een proeflezer van je taal of laat het weten in een vertalingskanaal.",
+        "10": "Wist je dat de meeste kanalen belangrijke info hebben in vastgezette berichten? Lees het eens als je een kanaal gebruikt!"
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }

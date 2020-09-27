@@ -3,8 +3,7 @@
     "loading": "Só um segundo...",
     "loadingModule": "A carregar o modulo...",
     "errors": {
-        "notFound1": "Não foi possível encontrar contexto para ",
-        "notFound2": "!",
+        "notFound": "Não foi possível encontrar contexto para%%name%%!",
         "exists1": "Já temos contexto para ",
         "exists2": ", logo o teu não foi adicionado. Usa `+context edit` em vez disso.",
         "didntReply": "Não respondeste a tempo, ",
@@ -12,9 +11,7 @@
         "cancelledPrompt": "logo esta ação foi cancelada. ",
         "readdTryAgain": "Reage outra vez com 📑 para tentares outra vez."
     },
-    "notAllowed": "Não és um tradutor nem um revisor, logo não podes fazer isto!",
     "notProofreader": "Não és um revisor, logo não podes fazer isto! Apesar disso, estamos a trabalhar numa forma de permitir sugestões de contexto.",
-    "incorrectArgument": "Tens de incluir um comando secundário como primeiro argumento. Este pode ser `get`, `add`, `edit`, `link` ou `help`. Para mais informações, faz `+context help`.",
     "contextFor": "Contexto para ",
     "noteFor": "Nota para ",
     "screenshot": "Imagem",

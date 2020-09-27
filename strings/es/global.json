@@ -3,7 +3,6 @@
     "outgoingDisclaimer": "Cualquier mensaje que envías aquí se enviará al staff.",
     "error": "Error",
     "usage": "Uso esperado del comando",
-    "generalError": "Algo ha salido mal. Verifica el uso del comando y vuelve a intentarlo. Si crees que se trata de un error interno, ejecuta `+bug <mensaje>`.",
     "dmError": "Lo sentimos, pero no puedes ejecutar este comando en mensajes privados.",
     "noMessage": "¡No has introducido ningún mensaje!",
     "noChannel": "¡No has introducido ningún canal!",
@@ -11,6 +10,10 @@
     "noUserQuote": "¡No has especificado un usuario! Por favor, escribe la cita y menciona al usuario citado, separado por /.",
     "falseChannel": "¡No se pudo encontrar ese canal!",
     "falseUser": "¡Ese usuario no se pudo encontrar!",
+    "disabled": "Este comando ha sido temporalmente desactivado.",
+    "noTrPr": "You're not a translator or proofreader, so you can't use this!",
+    "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
+    "cooldown": "Enfriamiento",
     "timeLeftT": "Por favor, espera otros %%time%% segundos para usar `+%%command%%` de nuevo.",
     "minsLeftT": "Por favor, espera otros %%time%% minutos para usar `+%%command%%` de nuevo.",
     "tip": "Consejo",
@@ -24,7 +27,8 @@
         "6": "¿Sabías que tenemos una guía para empezar con Crowdin, disponible para todos los traductores? ¡Échale un vistazo a <#699275092026458122>, tiene algunos consejos útiles!",
         "7": "¿Has seguido nuestra cuenta de twitter? ¡Échale un vistazo a <https://twitter.com/HTranslators>!",
         "8": "¡<#699367003135148063> y <#699367079241056347> tienen toda la información que necesitas sobre este servidor!",
-        "9": "¿Has encontrado un error en una traducción? Ponte en contacto con un revisor de tu idioma o haz que la gente lo sepa en un canal de traducción."
+        "9": "¿Has encontrado un error en una traducción? Ponte en contacto con un revisor de tu idioma o haz que la gente lo sepa en un canal de traducción.",
+        "10": "¿Sabes que la mayoría de canales tienen información importante fijada? ¡Deberías echarles un vistazo cada vez que visites uno!"
     },
     "executedBy": "Ejecutado por %%user%%"
 }

@@ -3,8 +3,7 @@
     "loading": "Dej mi sekundu...",
     "loadingModule": "Načítá se modul...",
     "errors": {
-        "notFound1": "Kontextový záznam ",
-        "notFound2": " nebyl nalezen!",
+        "notFound": "The context entry%%name%% hasn't been found!",
         "exists1": "Kontextový záznam pro ",
         "exists2": " už existuje, takže tvůj nebyl přidán. Místo toho použij `+context edit`.",
         "didntReply": "Neodpověděl jsi včas, ",
@@ -12,9 +11,7 @@
         "cancelledPrompt": "takže tato akce byla zrušena. ",
         "readdTryAgain": "Znovu zareaguj s 📑, abys to zkusil znovu."
     },
-    "notAllowed": "Nejsi překladatel ani korektor, takže to nemůžeš použít!",
     "notProofreader": "Nejsi korektor, takže to nemůžeš použít! Pracujeme na způsobu, jakým bys mohl taky navrhovat kontext.",
-    "incorrectArgument": "Zadej prosím subpříkaz jako první argument. Může to být buď `get`, `add`, `edit`, `link` nebo `help`.\nPro informace napiš `+context help`.",
     "contextFor": "Kontext pro ",
     "noteFor": "Poznámka pro ",
     "screenshot": "Snímek obrazovky",

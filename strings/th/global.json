@@ -3,7 +3,6 @@
     "outgoingDisclaimer": "Any message you send here will get sent to staff.",
     "error": "Error",
     "usage": "Expected command usage",
-    "generalError": "Something has gone wrong. Please check the command usage and try again. If you think this is an internal error, please execute `+bug <message>`.",
     "dmError": "Sorry, but you can't execute this command in private messages.",
     "noMessage": "You haven't provided a message!",
     "noChannel": "You haven't provided a channel!",
@@ -11,6 +10,10 @@
     "noUserQuote": "You haven't provided a user! Please type the quote and then mention the quoted user, separated by a slash.",
     "falseChannel": "That channel couldn't be found!",
     "falseUser": "That user couldn't be found!",
+    "disabled": "This command has been temporarily disabled.",
+    "noTrPr": "You're not a translator or proofreader, so you can't use this!",
+    "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
+    "cooldown": "Cooldown",
     "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
     "tip": "Tip",
@@ -24,7 +27,8 @@
         "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at <#699275092026458122>, it has some useful tips!",
         "7": "Have you followed our twitter account? Check it out at <https://twitter.com/HTranslators>!",
         "8": "<#699367003135148063> and <#699367079241056347> have all the info you need about this server!",
-        "9": "Found a mistake in a translation? Contact a proofreader of your language or let people know in a translation channel."
+        "9": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
+        "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!"
     },
     "executedBy": "Executed by %%user%%"
 }

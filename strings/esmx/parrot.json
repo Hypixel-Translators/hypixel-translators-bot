@@ -2,6 +2,6 @@
     "moduleName": "Loro",
     "loading": "Un segundo...",
     "success": "¡Éxito! Mensaje enviado.",
-    "invalidArg": "¡Argumento no válido!",
+    "invalidArg": "¡Argumento inválido!",
     "executedBy": "Ejecutado por %%user%%"
 }

@@ -18,6 +18,7 @@ module.exports = {
           .setFooter(executedBy)
         msg.edit(embed)
       })
+      .catch(error => { throw error; })
   }
 };
 

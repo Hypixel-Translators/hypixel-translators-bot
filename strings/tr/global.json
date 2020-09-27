@@ -3,7 +3,6 @@
     "outgoingDisclaimer": "Buraya gönderdiğin her mesaj, yetkililere gönderilecek.",
     "error": "Hata",
     "usage": "Beklenen komut kullanımı",
-    "generalError": "Bir şeyler yanlış gitti. Lütfen komut kullanımını kontrol edin ve tekrar deneyin. Bunun bottan kaynaklı bir hata olduğunu düşünüyorsanız, lütfen `+bug <mesaj> ' komutunu kullanın.",
     "dmError": "Üzgünüm, ama bu komutu özel mesajlarda yürütemezsin.",
     "noMessage": "Bir mesaj yazmadınız!",
     "noChannel": "Bir kanal sağlamadın!",
@@ -11,6 +10,10 @@
     "noUserQuote": "Bir kullanıcı sağlamadın! Lütfen alıntıyı yazın ve ardından alıntı yapılan kullanıcıdan eğik çizgiyle ayırarak bahsedin.",
     "falseChannel": "Bu kanal bulunamadı!",
     "falseUser": "Bu kullanıcı bulunamadı!",
+    "disabled": "Bu komut geçici olarak devre dışı bırakıldı.",
+    "noTrPr": "Bir çevirmen veya düzeltmen değilsin, yani bunu kullanamazsın!",
+    "contextSubArg": "Lütfen ilk argüman olarak bir alt komut girin. Bu, `get`, `add`, `edit`,`link` veya `help` olabilir.\nBilgi için `+context help` komutunu çalıştırın.",
+    "cooldown": "Bekleme Süresi",
     "timeLeftT": "'+%%command%%' komutunu kullanmak için lütfen %%time%% saniye bekle.",
     "minsLeftT": "`+%%command%%' tekrar kullanmak için lütfen %%time%% dakika daha bekleyin.",
     "tip": "İpucu",
@@ -24,7 +27,8 @@
         "6": "Tüm çevirmenler için Crowdin'i nasıl kullanacağınıza dair bir rehberimiz olduğunu biliyor muydunuz? <#699275092026458122> buradan kontrol edin, bazı yararlı ipuçları var!",
         "7": "Twitter hesabımızı henüz takip etmedin mi? Buradan edebilirsin <https://twitter.com/HTranslators>!",
         "8": "<#699367003135148063> ve <#699367079241056347> bu sunucu hakkında ihtiyacınız olan tüm bilgilere sahip!",
-        "9": "Çeviride bir hata mı buldun? Dilinin düzelticisine başvur veya çeviri kanalında ki insanlara bildir."
+        "9": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
+        "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!"
     },
     "executedBy": "%%user%% tarafından yürütüldü"
 }
