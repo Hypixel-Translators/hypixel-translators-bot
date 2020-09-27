@@ -20,7 +20,7 @@
     },
     "quote": {
         "usage": "+quote [indeks] | +quote add <citat> / <brugernævnelse>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "description": "Får eller tilføjer en sjov, mærkelig eller klogt citat fra serveren."
     },
     "mention": {
         "usage": "+mention <sprog> translator|proofreader|all [besked]",
