@@ -128,30 +128,22 @@ async function bot(client) {
 }
 
 async function skyblockaddons(client) {
-<<<<<<< HEAD
-<<<<<<< HEAD
     let url = "https://api.crowdin.com/api/project/skyblockaddons/status?login=qkeleq10&account-key=8205d22af119c4233b1940265bdd77d9&json"
-=======
     let url = "https://api.crowdin.com/api/project/skyblockaddons/status?login=qkeleq10&account-key=" + ctoken + "&json"
->>>>>>> 019f246954f60605acf21b975e8ecf7f006b73bd
     let settings = { method: "Get" }
     var index = 0
     fetch(url, settings)
         .then(res => res.json())
         .then((json) => {
             json.reverse()
-<<<<<<< HEAD
             client.channels.cache.get("730042612647723058").messages.fetch("758819913224683520")
-=======
             client.channels.cache.get("730042612647723058").messages.fetch("758819913577136190")
->>>>>>> 019f246954f60605acf21b975e8ecf7f006b73bd
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
                             client.channels.cache.get("748594964476329994").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/project/skyblockaddons>")
                         } else {
                             client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the SkyblockAddons project.")
-=======
     try {
         let url = "https://api.crowdin.com/api/project/skyblockaddons/status?login=qkeleq10&account-key=" + ctoken + "&json"
         let settings = { method: "Get" }
