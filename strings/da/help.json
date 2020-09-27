@@ -12,7 +12,7 @@
     "aliasesField": "Aliasser",
     "help": {
         "usage": "+help [kommandoens navn]",
-        "description": "Shows you all available commands and other info about the bot."
+        "description": "Viser dig alle de tilgængelige kommandoer og andet information omkring botten."
     },
     "prefix": {
         "usage": "+prefix",
@@ -20,7 +20,7 @@
     },
     "quote": {
         "usage": "+quote [indeks] | +quote add <citat> / <brugernævnelse>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "description": "Får eller tilføjer en sjov, mærkelig eller klogt citat fra serveren."
     },
     "mention": {
         "usage": "+mention <sprog> translator|proofreader|all [besked]",
@@ -28,7 +28,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumenter>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "description": "Får, tilføjer eller redigerer konteksten på den givne string-ID. `+context help` viser dig information omkring denne kommando."
     },
     "bug": {
         "usage": "+bug <besked>",

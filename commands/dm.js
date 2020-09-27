@@ -7,7 +7,7 @@ module.exports = {
     usage: "verify <mention> <message>",
     aliases: ["message", "privatemessage"],
     allowDM: true,
-    execute: async (strings, message, args) => {
+    async execute(strings, message, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         var allowed = false
         var userToSend = args[0].replace(/[\\<>@#&!]/g, "");

@@ -76,7 +76,6 @@ client.on("message", async message => {
   })
   var executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
-  if (message.content === "+stats" && message.member.hasPermission("VIEW_AUDIT_LOG")) { stats.execute(client, true); return; }
   if (message.content === "+tip") {
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
@@ -90,7 +89,6 @@ client.on("message", async message => {
     var msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
     if (message.content != msgTxt) message.react(notAllowed); message.channel.send("<@" + message.author.id + "> _Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n\n>>> " + msgTxt)
   }
-  if (message.content.toLowerCase().includes("kele")) { var d = Math.random(); if (d < 0.05) message.channel.send("inhale banana"); }
 
   if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {

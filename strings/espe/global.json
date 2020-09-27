@@ -11,8 +11,9 @@
     "falseChannel": "¡Ese canal no fue encontrado!",
     "falseUser": "¡Ese usuario no fue encontrado!",
     "disabled": "Este comando ha sido temporalmente desactivado.",
-    "noTrPr": "You're not a translator or proofreader, so you can't use this!",
-    "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
+    "noTrPr": "¡No eres traductor ni proofreader, así que no puedes usar esto!",
+    "noAccess": "You're not allowed to execute this command!",
+    "contextSubArg": "Por favor, da un subcomando como primer argumento. Puede ser `get`, `add`, `edit`, `link` o `help`.",
     "cooldown": "Enfriamiento",
     "timeLeftT": "Espera otros %%time%% segundos para usar `+%%command%%` otra vez.",
     "minsLeftT": "Por favor, espera otros %%time%% minutos para usar `+%%command%%` de nuevo.",
@@ -27,7 +28,7 @@
         "6": "¿Sabías que tenemos una guía para empezar con Crowdin, disponible para todos los traductores? ¡Dale una mirada a <#699275092026458122>, tiene algunos consejos útiles!",
         "7": "¿Has seguido nuestra cuenta de twitter? ¡Siguela en <https://twitter.com/HTranslators>!",
         "8": "¡<#699367003135148063> y <#699367079241056347> tienen toda la información que necesitas sobre este servidor!",
-        "9": "¿Encontraste un error en una traducción? Ponte en contacto con un revisor de tu idioma o haz que la gente lo sepa en un canal de traducción.",
+        "9": "¿Encontraste un error en una traducción? Ponte en contacto con un proofreader de tu idioma o haz que la gente lo sepa en un canal de traducción.",
         "10": "¿Sabes que la mayoría de canales tienen información importante fijada? ¡Deberías verlas cada vez que visites uno!"
     },
     "executedBy": "Ejecutado por %%user%%"
