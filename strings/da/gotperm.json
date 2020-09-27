@@ -1,8 +1,8 @@
 {
-    "moduleName": "Permission checker",
+    "moduleName": "Tilladelseskontrol",
     "loading": "Et sekund...",
     "bot": "Bot",
-    "author": "Author",
-    "user": "User",
+    "author": "Forfatter",
+    "user": "Bruger",
     "executedBy": "Udført af %%user%%"
 }
