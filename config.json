@@ -48,6 +48,6 @@
     {"name": "Turkish", "emoji": "🇹🇷", "colour": "#e02222", "code": "tr"},
     {"name": "Ukrainian", "emoji": "🇺🇦", "colour": "#e02222", "code": "ua"},
     {"name": "Vietnamese", "emoji": "🇻🇳", "code": "vi"},
-    {"name": "owo", "emoji": "🇼", "code": "ow"},
+    {"name": "owo", "emoji": "🇼", "code": "ow"}
   ]
 }
