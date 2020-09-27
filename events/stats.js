@@ -155,7 +155,7 @@ async function skyblockaddons(client) {
             .then(res => res.json())
             .then((json) => {
                 json.reverse()
-                client.channels.cache.get("748626115530326016").messages.fetch()
+                client.channels.cache.get("759740668310192199").messages.fetch()
                     .then(messages => {
                         fiMessages = messages.filter(msg => msg.author.bot)
                         fiMessages.forEach(async (msg) => {
