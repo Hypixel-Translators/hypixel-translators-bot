@@ -4,9 +4,9 @@
     "loadingModule": "Indlæser modulet...",
     "invalidArg": "Ugyldigt argument!",
     "indexArg": "Et citat med indekset %%arg%% findes ikke! Angiv venligst et tal mellem 1 og %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!",
-    "reqAdd": "Success! The following quote has been added:",
+    "reqSub": "Din anmodning om et citat blev indsendt. Tak for det!",
+    "reqAdd": "Succes! De følgende citater blev tilføjet:",
     "user": "Bruger",
-    "index": "Quote number",
+    "index": "Citatnummer",
     "executedBy": "Udført af %%user%%"
 }
