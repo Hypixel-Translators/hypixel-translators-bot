@@ -146,9 +146,7 @@ async function skyblockaddons(client) {
                         fiMessages = messages.filter(msg => msg.author.bot)
                         fiMessages.forEach(async (msg) => {
                             var r = json[index]
-                            console.log(r.name)
                             var langdbEntry = langdb.find(o => o.name === r.name)
-                            console.log(langdbEntry.name)
 
                             if (r.approved_progress > 89) {
                                 adapColour = successColor
