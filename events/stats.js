@@ -19,6 +19,31 @@ module.exports = {
                 await hypixel(client)
                 await quickplay(client)
                 await bot(client)
+            } catch (err) {
+                const errEmb = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setAuthor("Statistics")
+                    .setTitle(err || "Something went wrong, but there's no error message.")
+                client.channels.cache.get("730042612647723058").send(errEmb)
+                return
+            }
+            if (manual) {
+                const embed = new Discord.MessageEmbed()
+                    .setColor(successColor)
+                    .setAuthor("Statistics")
+                    .setTitle("All statistics have been updated!")
+                client.channels.cache.get("730042612647723058").send(embed)
+            }
+        }
+        if (n == "10" || n == "30" || n == "50" || manual) {
+            if (manual) {
+                const embed = new Discord.MessageEmbed()
+                    .setColor(workingColor)
+                    .setAuthor("Statistics")
+                    .setTitle("Please wait a minute or two for all statistics to update...")
+                client.channels.cache.get("730042612647723058").send(embed)
+            }
+            try {
                 await skyblockaddons(client)
             } catch (err) {
                 const errEmb = new Discord.MessageEmbed()
