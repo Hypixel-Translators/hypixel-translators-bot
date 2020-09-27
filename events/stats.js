@@ -4,22 +4,36 @@ const fetch = require("node-fetch");
 const ctoken = process.env.CTOKEN
 
 module.exports = {
-    execute(client, manual) {
+    async execute(client, manual) {
         var d = new Date()
         var n = d.getMinutes()
         if (n == "0" || n == "20" || n == "40" || manual) {
+            if (manual) {
+                const embed = new Discord.MessageEmbed()
+                    .setColor(workingColor)
+                    .setAuthor("Statistics")
+                    .setTitle("Please wait a minute or two for all statistics to update...")
+                client.channels.cache.get("730042612647723058").send(embed)
+            }
             try {
-                hypixel(client)
-                quickplay(client)
-                bot(client)
-                skyblockaddons(client)
+                await hypixel(client)
+                await quickplay(client)
+                await bot(client)
+                await skyblockaddons(client)
             } catch (err) {
                 const errEmb = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor("Statistics")
                     .setTitle(err || "Something went wrong, but there's no error message.")
-                    .setFooter(executedBy)
                 client.channels.cache.get("730042612647723058").send(errEmb)
+                return
+            }
+            if (manual) {
+                const embed = new Discord.MessageEmbed()
+                    .setColor(successColor)
+                    .setAuthor("Statistics")
+                    .setTitle("All statistics have been updated!")
+                client.channels.cache.get("730042612647723058").send(embed)
             }
         }
     }
