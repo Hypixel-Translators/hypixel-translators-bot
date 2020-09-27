@@ -9,10 +9,10 @@
         "didntReply": "Du svarede ikke i tide, ",
         "hitReaction": "Du reagerede med <:vote_no:732298639736570007>, ",
         "cancelledPrompt": "så denne prompt blev annulleret. ",
-        "readdTryAgain": "Re-react with 📑 to try again."
+        "readdTryAgain": "Reager igen med 📑for at prøve igen."
     },
     "notProofreader": "You're not a proofreader, so you can't use this! We're working on a way to let you suggest context too.",
-    "contextFor": "Context for ",
+    "contextFor": "Kontekst til ",
     "noteFor": "Note for ",
     "screenshot": "Skærmbillede",
     "addContextFor": "Add context for ",
