@@ -5,16 +5,18 @@ const ctoken = process.env.CTOKEN
 
 module.exports = {
     async execute(client, manual) {
-        var d = new Date()
-        var n = d.getMinutes()
-        if (n == "0" || n == "20" || n == "40" || manual) {
-            await hypixel(client)
-            await quickplay(client)
-            await bot(client)
-        }
-        if (n == "10" || n == "30" || n == "50" || manual) {
-            await skyblockaddons(client)
-        }
+        try {
+            var d = new Date()
+            var n = d.getMinutes()
+            if (n == "0" || n == "20" || n == "40" || manual) {
+                await hypixel(client)
+                await quickplay(client)
+                await bot(client)
+            }
+            if (n == "10" || n == "30" || n == "50" || manual) {
+                await skyblockaddons(client)
+            }
+        } catch (err) { throw err }
     }
 }
 
