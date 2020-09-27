@@ -132,30 +132,6 @@ async function skyblockaddons(client) {
         .then(res => res.json())
         .then((json) => {
             json.reverse()
-            client.channels.cache.get("759740668310192199").messages.fetch()
-                .then(messages => {
-                    fiMessages = messages.filter(msg => msg.author.bot)
-                    fiMessages.forEach(async (msg) => {
-                        var r = json[index]
-                        var langdbEntry = langdb.find(o => o.name === r.name)
-
-                        if (r.approved_progress > 89) {
-                            adapColour = successColor
-                        } else if (r.approved_progress > 49) {
-                            adapColour = workingColor
-                        } else {
-                            adapColour = errorColor
-                        }
-                        const embed = new Discord.MessageEmbed()
-                            .setColor(adapColour)
-                            .setTitle(langdbEntry.emoji + " | " + r.name)
-                            .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/quickplay/" + r.code)
-                            //.addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/quickplay/" + r.code + "") })
-                            .setTimestamp()
-                        msg.edit("", embed)
-                        index++
-                    })
-                })
             client.channels.cache.get("730042612647723058").messages.fetch("758819913577136190")
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
