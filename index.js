@@ -76,7 +76,6 @@ client.on("message", async message => {
   })
   var executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
-  if (message.content === "+stats" && message.member.hasPermission("VIEW_AUDIT_LOG")) { stats.execute(client, true); return; }
   if (message.content === "+tip") {
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
