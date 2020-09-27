@@ -187,7 +187,6 @@ async function skyblockaddons(client) {
                                 client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the SkyblockAddons project.")
                             }
                             stringCount.edit(json[0].phrases)
->>>>>>> d18a502b48a3672f5c5602b597cc7a66d197ebcf
                         }
                     })
             })
