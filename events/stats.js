@@ -5,8 +5,8 @@ const ctoken = process.env.CTOKEN
 
 module.exports = {
     execute(client, manual) {
-        var d = new Date();
-        var n = d.getMinutes();
+        var d = new Date()
+        var n = d.getMinutes()
         if (n == "0" || n == "20" || n == "40" || manual) {
             try {
                 hypixel(client)
