@@ -1,6 +1,8 @@
 {
-    "moduleName": "Parrot",
+    "moduleName": "Say",
     "loading": "Dej mi sekundu...",
-    "success": "Sent message to %%channel%%!",
+    "error": "You don't have permission to use this command!",
+    "success": "Success! Message sent.",
+    "invalidArg": "Neplatný argument!",
     "executedBy": "Provedeno uživatelem %%user%%"
 }
