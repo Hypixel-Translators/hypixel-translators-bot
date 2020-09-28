@@ -1,7 +1,6 @@
 {
     "moduleName": "Say",
     "loading": "One second...",
-    "error": "You don't have permission to use this command!",
     "success": "Sucesso! Mensagem enviada.",
     "invalidArg": "Argumento inválido!",
     "executedBy": "Executed by %%user%%"

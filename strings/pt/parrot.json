@@ -1,6 +1,7 @@
 {
     "moduleName": "Papagaio",
     "loading": "Só um segundo...",
+    "noPerm": "Não tens permissão para usar este comando!",
     "success": "Mensagem enviada.",
     "invalidArg": "Argumento inválido!",
     "executedBy": "Executado por %%user%%"

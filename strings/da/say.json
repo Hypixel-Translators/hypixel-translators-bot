@@ -1,7 +1,6 @@
 {
     "moduleName": "Say",
     "loading": "Et sekund...",
-    "error": "You don't have permission to use this command!",
     "success": "Succes! Beskeden blev sendt.",
     "invalidArg": "Ugyldigt argument!",
     "executedBy": "Udført af %%user%%"

@@ -1,6 +1,7 @@
 {
     "moduleName": "Papukaija",
     "loading": "Odota sekunti...",
+    "noPerm": "Sinulla ei ole oikeuksia käyttää tätä komentoa!",
     "success": "Onnistui! Viesti lähetetty.",
     "invalidArg": "Virheellinen argumentti!",
     "executedBy": "Komennon suoritti %%user%%"

@@ -1,7 +1,6 @@
 {
     "moduleName": "Mensagem",
     "loading": "Só um segundo...",
-    "error": "Não tens permissão para usar este comando!",
     "success": "Mensagem enviada.",
     "invalidArg": "Argumento inválido!",
     "executedBy": "Executado por %%user%%"

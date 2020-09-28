@@ -1,6 +1,7 @@
 {
     "moduleName": "Loro",
     "loading": "Un segundo...",
+    "noPerm": "You don't have permission to use this command!",
     "success": "¡Éxito! Mensaje enviado.",
     "invalidArg": "¡Argumento no válido!",
     "executedBy": "Ejecutado por %%user%%"

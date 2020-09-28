@@ -1,6 +1,6 @@
 {
-    "moduleName": "Statistics updater",
-    "started": "Please wait a minute or two for all statistics to update...",
-    "done": "All statistics have been updated!",
+    "moduleName": "Statistiikkojen päivitys",
+    "started": "Odota hetki kun kaikki statistiikat päivittyvät...",
+    "done": "Kaikki statistiikat on päivitetty!",
     "executedBy": "Komennon suoritti %%user%%"
 }

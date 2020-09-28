@@ -1,7 +1,6 @@
 {
     "moduleName": "Say",
     "loading": "Wait, idot...",
-    "error": "You don't have permission to use this command!",
     "success": "Success! Message sent.",
     "invalidArg": "Invalid argument!",
     "executedBy": "Done by le %%user%%"

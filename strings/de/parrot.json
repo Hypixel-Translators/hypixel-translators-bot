@@ -1,6 +1,7 @@
 {
     "moduleName": "Papagei",
     "loading": "Eine Sekunde …",
+    "noPerm": "You don't have permission to use this command!",
     "success": "Success! Message sent.",
     "invalidArg": "Ungültiges Argument!",
     "executedBy": "Ausgeführt von %%user%%"
