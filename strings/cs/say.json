@@ -1,7 +1,7 @@
 {
     "moduleName": "Say",
     "loading": "Dej mi sekundu...",
-    "error": "You don't have permission to use this command!",
+    "noPerm": "You don't have permission to use this command!",
     "success": "Success! Message sent.",
     "invalidArg": "Neplatný argument!",
     "executedBy": "Provedeno uživatelem %%user%%"
