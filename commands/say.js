@@ -20,7 +20,7 @@ module.exports = {
       .setAuthor(strings.moduleName)
       .setTitle(strings.error)
       .setFooter(executedBy)
-    if (message.channel.type !== "dm") { if (message.member.roles.cache.has("620274909700161556")) { allowed = true } } // * role
+    if (message.channel.type !== "dm") { if (message.member.roles.cache.has("549885657749913621")) { allowed = true } } // admin role
     if (allowed = false) message.channel.send(errEmbed);
 
     const embed = new Discord.MessageEmbed()
