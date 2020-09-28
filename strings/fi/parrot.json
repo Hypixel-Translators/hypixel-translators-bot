@@ -1,7 +1,7 @@
 {
     "moduleName": "Papukaija",
     "loading": "Odota sekunti...",
-    "noPerm": "You don't have permission to use this command!",
+    "noPerm": "Sinulla ei ole oikeuksia käyttää tätä komentoa!",
     "success": "Onnistui! Viesti lähetetty.",
     "invalidArg": "Virheellinen argumentti!",
     "executedBy": "Komennon suoritti %%user%%"
