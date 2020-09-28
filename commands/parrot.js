@@ -5,7 +5,7 @@ module.exports = {
   name: "parrot",
   description: "Say something in a specific channel.",
   usage: "parrot <message>",
-  aliases: ["say", "repeat", "send"],
+  aliases: ["repeat", "send"],
   allowDM: true,
   execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
