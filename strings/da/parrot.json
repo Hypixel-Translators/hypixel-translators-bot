@@ -1,6 +1,7 @@
 {
     "moduleName": "Papegøje",
     "loading": "Et sekund...",
+    "noPerm": "You don't have permission to use this command!",
     "success": "Succes! Beskeden blev sendt.",
     "invalidArg": "Ugyldigt argument!",
     "executedBy": "Udført af %%user%%"
