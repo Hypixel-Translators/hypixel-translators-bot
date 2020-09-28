@@ -1,7 +1,7 @@
 {
     "moduleName": "Say",
     "loading": "Odota sekunti...",
-    "error": "You don't have permission to use this command!",
+    "noPerm": "You don't have permission to use this command!",
     "success": "Onnistui! Viesti lähetetty.",
     "invalidArg": "Virheellinen argumentti!",
     "executedBy": "Komennon suoritti %%user%%"
