@@ -1,6 +1,8 @@
 {
-    "moduleName": "Parrot",
+    "moduleName": "Say",
     "loading": "Eine Sekunde …",
-    "success": "Sent message to %%channel%%!",
-    "executedBy": "Executed by %%user%%"
+    "error": "You don't have permission to use this command!",
+    "success": "Success! Message sent.",
+    "invalidArg": "Ungültiges Argument!",
+    "executedBy": "Ausgeführt von %%user%%"
 }
