@@ -1,6 +1,7 @@
 {
     "moduleName": "Papağan",
     "loading": "Bir saniye...",
+    "noPerm": "You don't have permission to use this command!",
     "success": "Başarılı! Mesaj gönderildi.",
     "invalidArg": "Geçersiz argüman!",
     "executedBy": "%%user%% tarafından yürütüldü"
