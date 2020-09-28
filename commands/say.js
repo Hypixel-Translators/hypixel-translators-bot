@@ -21,7 +21,7 @@ module.exports = {
       .setTitle(strings.error)
       .setFooter(executedBy)
     if (message.channel.type !== "dm") { if (message.member.roles.cache.has("620274909700161556")) { allowed = true } } // * role
-    if (!allowed) message.channel.send(errEmbed);
+    if (allowed = false) message.channel.send(errEmbed);
 
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
@@ -48,7 +48,7 @@ module.exports = {
           .setColor(successColor)
           .setAuthor(strings.moduleName)
           .setTitle(strings.success)
-          .setDescription("<#" + sendTo.id + ">:\n>>> " + toSend)
+          .setDescription("<#" + sendTo.id + ">:\n" + toSend)
           .setFooter(executedBy)
         msg.edit(embed)
       })
