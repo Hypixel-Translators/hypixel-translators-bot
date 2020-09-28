@@ -18,10 +18,10 @@ module.exports = {
     const errEmbed = new Discord.MessageEmbed()
       .setColor(errorColor)
       .setAuthor(strings.moduleName)
-      .setTitle(strings.error)
+      .setTitle(strings.noPerm)
       .setFooter(executedBy)
     if (message.channel.type !== "dm") { if (message.member.roles.cache.has("549885657749913621")) { allowed = true } } // admin role
-    if (allowed = false) message.channel.send(errEmbed);
+    if (allowed = false) throw "noPerm";
 
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
