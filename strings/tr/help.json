@@ -23,7 +23,7 @@
         "description": "Sunucudan komik/garip/bilge bir alıntı alır (veya ekler)."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [mesaj]",
+        "usage": "+mention <language> translator|proofreader|all [message]",
         "description": "İsteğe bağlı bir mesajla bir dil rolünden bahseder."
     },
     "context": {
