@@ -1,7 +1,6 @@
 {
     "moduleName": "Say",
     "loading": "Секундочку...",
-    "noPerm": "You don't have permission to use this command!",
     "success": "Success! Message sent.",
     "invalidArg": "Неверный аргумент!",
     "executedBy": "Выполнено %%user%%"
