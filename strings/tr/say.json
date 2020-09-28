@@ -1,7 +1,7 @@
 {
     "moduleName": "Say",
     "loading": "Bir saniye...",
-    "error": "You don't have permission to use this command!",
+    "noPerm": "You don't have permission to use this command!",
     "success": "Başarılı! Mesaj gönderildi.",
     "invalidArg": "Geçersiz argüman!",
     "executedBy": "%%user%% tarafından yürütüldü"
