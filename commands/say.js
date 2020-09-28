@@ -9,17 +9,16 @@ module.exports = {
   allowDM: true,
   async execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-    const rawSendTo = args[0]
     args.splice(0, 1)
     const toSend = args.join(" ")
-    const sendTo = message.client.channels.cache.get(rawSendTo.replace("<#", "").replace(">", ""))
     var msg
 
     var allowed = false
     if (message.author.id == "722738307477536778") { allowed = true }
     if (message.channel.type !== "dm") { if (message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("549885657749913621") || message.member.roles.cache.has("241926666400563203")) { allowed = true } }
     if (!allowed) throw "noAccess";
-    if (!sendTo) throw "noChannel";
+    if (!args[0]) throw "noChannel";
+    const sendTo = message.client.channels.cache.get(args[0].replace("<#", "").replace(">", ""))
     if (!toSend) throw "noMessage";
 
     if (message.member) if (message.member.hasPermission("ADMINISTRATOR")) {
