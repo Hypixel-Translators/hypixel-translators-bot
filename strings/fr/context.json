@@ -3,7 +3,7 @@
     "loading": "Un second...",
     "loadingModule": "Chargement du module...",
     "errors": {
-        "notFound": "The context entry%%name%% hasn't been found!",
+        "notFound": "L'entrée de contexte%%name%% n'a pas été trouvé!",
         "exists1": "Une entrée pour ",
         "exists2": " existe déjà, donc ta entrée n'a pas été ajoutée.",
         "didntReply": "Tu n'as pas répondu à temps, ",
