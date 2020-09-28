@@ -1,6 +1,8 @@
 {
-    "moduleName": "Parrot",
-    "loading": "One second...",
-    "success": "Sent message to %%channel%%!",
-    "executedBy": "Executed by %%user%%"
+    "moduleName": "Say",
+    "loading": "Odota sekunti...",
+    "error": "You don't have permission to use this command!",
+    "success": "Onnistui! Viesti lähetetty.",
+    "invalidArg": "Virheellinen argumentti!",
+    "executedBy": "Komennon suoritti %%user%%"
 }
