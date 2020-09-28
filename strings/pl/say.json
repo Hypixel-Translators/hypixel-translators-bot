@@ -1,7 +1,7 @@
 {
     "moduleName": "Say",
     "loading": "Sekundkę…",
-    "error": "You don't have permission to use this command!",
+    "noPerm": "You don't have permission to use this command!",
     "success": "Udało się! Wysłano wiadomość.",
     "invalidArg": "Nieprawidłowy argument!",
     "executedBy": "Wykonano przez %%user%%"
