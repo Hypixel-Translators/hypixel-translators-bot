@@ -1,5 +1,5 @@
 {
-    "moduleName": "Parrot",
+    "moduleName": "Say",
     "loading": "One second...",
     "success": "Success! Message sent.",
     "invalidArg": "Invalid argument!",
