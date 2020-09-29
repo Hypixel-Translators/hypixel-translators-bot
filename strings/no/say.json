@@ -1,7 +1,7 @@
 {
-    "moduleName": "Say",
+    "moduleName": "Si",
     "loading": "Ett sekund...",
-    "success": "Success! Message sent.",
+    "success": "Suksess! Melding sendt.",
     "invalidArg": "Ugyldig argument!",
     "executedBy": "Utført av %%user%%"
 }
