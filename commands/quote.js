@@ -9,7 +9,7 @@ module.exports = {
     usage: "quote [index] | quote add <quote> / <user mention>",
     cooldown: 5,
     allowDM: true,
-    channelWhitelist: ["549894938712866816", "619662798133133312", "624881429834366986", "730042612647723058", "749391414600925335"],
+    channelWhitelist: ["549894938712866816", "619662798133133312", "624881429834366986", "730042612647723058", "749391414600925335"], //bots memes staff-bots bot-development bot-translators
     execute(strings, message, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const embed = new Discord.MessageEmbed()
@@ -23,7 +23,7 @@ module.exports = {
             if (args[0] === "add") {
                 allowed = false
                 if (strings, message.author.id == "722738307477536778") { allowed = true }
-                if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("549885657749913621") || message.member.roles.cache.has("241926666400563203")) { allowed = true } }
+                if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("620274909700161556")) { allowed = true } } // mod and *
                 if (!allowed) {
                     args.splice(0, 1)
                     var toSend = args.join(" ")
