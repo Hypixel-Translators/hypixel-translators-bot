@@ -6,7 +6,7 @@
     "indexArg": "Et sitat med index %%arg%% eksisterer ikke! Vennligst oppgi et nummer mellom 1 og %%max%%.",
     "reqSub": "Din sitat forespørsel har blitt sendt inn, takk!",
     "reqAdd": "Suksess! Følgende sitat er lagt til:",
-    "user": "User",
+    "user": "Bruker",
     "index": "Sitat nummer",
     "executedBy": "Utført av %%user%%"
 }
