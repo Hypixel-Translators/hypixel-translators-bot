@@ -19,7 +19,7 @@
         "description": "Gir deg den riktige prefiksen for din(e) språk."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <user mention>",
+        "usage": "+quote [index] | +quote add <sitat> / <bruker å nevne>",
         "description": "Henter (eller legger til) et morsomt/rart/klokt sitat fra serveren."
     },
     "mention": {
@@ -43,7 +43,7 @@
         "description": "Endrer ditt språk, viser ditt nåværende eller viser en liste over alle tilgjengelige."
     },
     "boop": {
-        "usage": "+boop <user>",
+        "usage": "+boop <bruker>",
         "description": "Boop!"
     },
     "executedBy": "Utført av %%user%%"
