@@ -3,7 +3,7 @@
     "loading": "Ett sekund...",
     "loadingModule": "Laster inn modul...",
     "errors": {
-        "notFound": "The context entry%%name%% hasn't been found!",
+        "notFound": "Kontekst innlegg%%navnet%% har ikke blitt funnet!",
         "exists1": "En kontekstoppføring for ",
         "exists2": " eksisterer allerede, så din ble ikke lagt til. Bruk `+context edit` i stedet.",
         "didntReply": "Du svarte ikke i tide, ",
