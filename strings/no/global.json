@@ -12,7 +12,7 @@
     "falseUser": "That user couldn't be found!",
     "disabled": "This command has been temporarily disabled.",
     "noTrPr": "You're not a translator or proofreader, so you can't use this!",
-    "noAccess": "You're not allowed to execute this command!",
+    "noAccess": "Du har ikke tillatelse til å bruke denne kommandoen!",
     "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
     "cooldown": "Nedkjøling",
     "timeLeftT": "Vennligst vent %%time%% sekunder før du utfører `+%%command%%` igjen.",
