@@ -4,9 +4,9 @@
     "loadingModule": "Laster inn modul...",
     "invalidArg": "Ugyldig argument!",
     "indexArg": "Et sitat med index %%arg%% eksisterer ikke! Vennligst oppgi et nummer mellom 1 og %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!",
-    "reqAdd": "Success! The following quote has been added:",
+    "reqSub": "Din sitat forespørsel har blitt sendt inn, takk!",
+    "reqAdd": "Suksess! Følgende sitat er lagt til:",
     "user": "User",
-    "index": "Quote number",
+    "index": "Sitat nummer",
     "executedBy": "Utført av %%user%%"
 }
