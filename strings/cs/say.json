@@ -1,5 +1,5 @@
 {
-    "moduleName": "Say",
+    "moduleName": "Message",
     "loading": "Dej mi sekundu...",
     "success": "Success! Message sent.",
     "invalidArg": "Neplatný argument!",
