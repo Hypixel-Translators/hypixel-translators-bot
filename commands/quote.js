@@ -17,7 +17,6 @@ module.exports = {
             .setAuthor(strings.moduleName)
             .setTitle(strings.loading)
             .setDescription(strings.loadingModule)
-            .setThumbnail("https://i.pinimg.com/originals/eb/73/8b/eb738bda5d55e818644809e93385620a.gif")
             .setFooter(executedBy);
         message.channel.send(embed).then(msg => {
             if (args[0] === "add") {
