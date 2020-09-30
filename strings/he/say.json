@@ -1,5 +1,5 @@
 {
-    "moduleName": "Say",
+    "moduleName": "Message",
     "loading": "שנייה...",
     "success": "Success! Message sent.",
     "invalidArg": "Invalid argument!",
