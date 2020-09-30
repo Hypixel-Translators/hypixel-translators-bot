@@ -3,7 +3,6 @@
     "outgoingLoad": "Sending message to user",
     "loading": "Eine Sekunde …",
     "generalError": "Irgendetwas lief schief.",
-    "message": "Nachricht",
     "incoming": "Received message from staff",
     "incomingDisclaimer": "Any message you send here will get sent to staff.",
     "executedBy": "Ausgeführt von %%user%%"
