@@ -1,5 +1,5 @@
 {
-    "moduleName": "Ilmoitus",
+    "moduleName": "Viesti",
     "loading": "Odota sekunti...",
     "success": "Onnistui! Viesti lähetetty.",
     "invalidArg": "Virheellinen argumentti!",
