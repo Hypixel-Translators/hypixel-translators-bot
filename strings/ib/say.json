@@ -1,5 +1,5 @@
 {
-    "moduleName": "Say",
+    "moduleName": "Message",
     "loading": "Wait, idot...",
     "success": "Success! Message sent.",
     "invalidArg": "Invalid argument!",

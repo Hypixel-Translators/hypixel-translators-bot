@@ -3,7 +3,6 @@
     "outgoingLoad": "Sending message to user",
     "loading": "Ένα δευτερόλεπτο...",
     "generalError": "Something has gone wrong.",
-    "message": "Message",
     "incoming": "Received message from staff",
     "incomingDisclaimer": "Any message you send here will get sent to staff.",
     "executedBy": "Εκτελέστηκε από τον %%user%%"

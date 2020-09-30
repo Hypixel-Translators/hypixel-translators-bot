@@ -3,7 +3,6 @@
     "outgoingLoad": "Sending message to user",
     "loading": "Секундочку...",
     "generalError": "Что-то пошло не так.",
-    "message": "Message",
     "incoming": "Received message from staff",
     "incomingDisclaimer": "Любое сообщение, которое Вы тут напишите, будет отправлено персоналу.",
     "executedBy": "Выполнено %%user%%"

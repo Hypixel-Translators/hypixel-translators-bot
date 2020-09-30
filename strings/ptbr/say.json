@@ -1,5 +1,5 @@
 {
-    "moduleName": "Say",
+    "moduleName": "Mensagem",
     "loading": "One second...",
     "success": "Sucesso! Mensagem enviada.",
     "invalidArg": "Argumento inválido!",

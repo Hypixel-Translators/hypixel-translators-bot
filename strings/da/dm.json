@@ -3,7 +3,6 @@
     "outgoingLoad": "Sender beskeden til brugeren",
     "loading": "Et sekund...",
     "generalError": "Noget gik galt.",
-    "message": "Besked",
     "incoming": "Du modtog en besked fra personalet",
     "incomingDisclaimer": "Enhver besked, som du sender her, vil blive sendt til personalet.",
     "executedBy": "Udført af %%user%%"
