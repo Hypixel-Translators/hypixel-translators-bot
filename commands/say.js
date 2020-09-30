@@ -12,7 +12,7 @@ module.exports = {
     const rawSendTo = args[0]
     args.splice(0, 1)
     const toSend = args.join(" ")
-    try { const sendTo = message.client.channels.cache.get(rawSendTo.replace("<#", "").replace(">", "")) } catch (err) { throw "noChannel" }
+    const sendTo = message.client.channels.cache.get(rawSendTo.replace("<#", "").replace(">", "")) F
     var msg
 
     var allowed = false
