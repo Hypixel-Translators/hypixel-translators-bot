@@ -185,6 +185,7 @@ client.on("message", async message => {
     try {
       command.execute(strings, message, args)
     } catch (error) {
+      console.log("Error incoming! Message:\n>>>" + message)
       console.error(error);
       timestamps.delete(message.author.id)
       const embed = new Discord.MessageEmbed()
