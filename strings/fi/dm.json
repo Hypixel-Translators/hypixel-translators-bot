@@ -3,7 +3,6 @@
     "outgoingLoad": "Lähetetään viesti käyttäjälle",
     "loading": "Odota sekunti...",
     "generalError": "Jokin meni vikaan.",
-    "message": "Viesti",
     "incoming": "Vastaanotettu viesti ylläpidolta",
     "incomingDisclaimer": "Kaikki täällä lähettämäsi viestit lähetetään ylläpidolle.",
     "executedBy": "Komennon suoritti %%user%%"
