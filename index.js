@@ -83,6 +83,7 @@ client.on("message", async message => {
       .setDescription(globalStrings.tips[Math.floor(Math.random() * Object.keys(globalStrings.tips).length)])
       .setFooter(executedBy)
     message.channel.send(embed)
+    return;
   }
 
   if (message.content.includes("/translate/") && message.content.includes("://") && message.channel.id === "730042612647723058") {
