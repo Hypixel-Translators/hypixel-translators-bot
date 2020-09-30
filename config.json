@@ -5,7 +5,8 @@
   "errorColor": "#e02222",
   "successColor": "#21de70",
   "neutralColor": "#28dbde",
-  "watchStatuses": ["Rodry's proofreader funeral - RIP Rodry"],
+  "listenStatuses" : ["+help", "RANDOM_USER's commands", "RANDOM_USER", "wise words from RANDOM_USER", "QkeleQ10", "Stannya and Rodry"],
+  "watchStatuses": ["your commands", "your messages", "meatdata", "their prayers", "nicknames and stuff", "RANDOM_USER's messages"],
   "randomUser": ["Stannya", "Rodry", "Sol", "QkeleQ10", "Wens", "Linewater", "Kiril", "TheComputer8423", "Sucamos", "Nad", "HoggyTheWizard", "puggyxo", "Exy", "lasse", "doublechecked"],
   "langdb": [  
     {"name": "Arabic, Saudi Arabia", "emoji": "🇸🇦", "code" : "arsa"},
