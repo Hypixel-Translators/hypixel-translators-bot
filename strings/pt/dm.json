@@ -3,7 +3,6 @@
     "outgoingLoad": "A enviar mensagem ao utilizador",
     "loading": "Só um segundo...",
     "generalError": "Alguma coisa correu mal.",
-    "message": "Mensagem",
     "incoming": "Recebeste uma mensagem da staff",
     "incomingDisclaimer": "Quaisquer mensagens que envies aqui serão enviadas para a staff.",
     "executedBy": "Executado por %%user%%"
