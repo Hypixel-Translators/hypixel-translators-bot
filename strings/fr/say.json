@@ -1,5 +1,5 @@
 {
-    "moduleName": "Dire",
+    "moduleName": "Message",
     "loading": "Un second...",
     "success": "Succès! Message envoyé.",
     "invalidArg": "Arguments invalides!",
