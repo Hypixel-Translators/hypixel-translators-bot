@@ -1,8 +1,8 @@
 {
     "moduleName": "Report a bug",
     "bugT": "Viewing and adding issues",
-    "bugD": "To show and make suggestions or bug reports, please [click here]%%link%%.",
+    "bugD": "To show and make suggestions or bug reports, please [click here]%%github%%.",
     "urgentT": "Is it urgent?",
-    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention %%q10%% in a public channel, explaining the issue.",
+    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention %%QkeleQ10%% in a public channel, explaining the issue.",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
