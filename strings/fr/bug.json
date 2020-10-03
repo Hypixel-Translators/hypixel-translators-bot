@@ -1,8 +1,8 @@
 {
     "moduleName": "Rapporter un bug",
-    "bugT": "Viewing and adding issues",
-    "bugD": "To show and make suggestions or bug reports, please [click here]%%link%%.",
-    "urgentT": "Is it urgent?",
-    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention %%q10%% in a public channel, explaining the issue.",
+    "bugT": "Afficher et ajouter des bugs",
+    "bugD": "Pour afficher et faire des suggestions ou des rapports de bugs, veuille [clique ici]%%link%%.",
+    "urgentT": "C'est urgent?",
+    "urgentD": "Si tu essaies de signaler un bug fatal ou que le bot est en panne depuis longtemps sans préavis, veuille mentionner %%q10%% dans une chaîne publique, expliquant le problème.",
     "executedBy": "Exécuté par %%user%%"
 }
