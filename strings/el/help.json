@@ -31,8 +31,8 @@
         "description": "Παίρνει, προσθέτει ή επεξεργάζεται την περιγραφή για το string ID που δόθηκε. Το `+context help` σου δείχνει πληροφορίες σχετικά με αυτή την εντολή."
     },
     "bug": {
-        "usage": "+bug <μήνυμα>",
-        "description": "Σου επιτρέπει να αναφέρεις σφάλματα που υπάρχουν στο bot."
+        "usage": "+bug",
+        "description": "Opens our GitHub issues page, where you can report any bugs."
     },
     "feedback": {
         "usage": "+feedback <μήνυμα>",
