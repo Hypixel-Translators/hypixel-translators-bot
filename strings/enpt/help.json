@@ -31,8 +31,8 @@
         "description": "Gets, adds or edits context fer the given string ID. `+context help` shows ye information about this here command."
     },
     "bug": {
-        "usage": "+bug <message>",
-        "description": "Allows ye to report bugs present in the bot."
+        "usage": "+bug",
+        "description": "Opens our GitHub issues page, where you can report any bugs."
     },
     "feedback": {
         "usage": "+feedback <message>",
