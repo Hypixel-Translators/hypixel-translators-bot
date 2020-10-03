@@ -142,7 +142,7 @@ async function addToSpreadsheet(executedBy, strings, message, args, msg) {
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.addContextFor + string)
-        .setDescription(strings.willAdd.replace("%%noRea%%", "<:vote_no:732298639736570007>").replace("%%yesRea%%", "<:vote_yes:732298639749152769>"))
+        .setDescription(strings.willAdd.replace("%%voteNo%%", "<:vote_no:732298639736570007>").replace("%%voteYes%%", "<:vote_yes:732298639749152769>"))
         .addFields(
             { name: strings.stringId, value: string },
             { name: strings.moduleName, value: toSend }
@@ -272,7 +272,7 @@ async function addToSpreadsheet(executedBy, strings, message, args, msg) {
                     .setColor(errorColor)
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.addContextFor + string)
-                    .setDescription(strings.errors.hitReaction.replace("%%noRea%%", "<:vote_no:732298639736570007>") + strings.errors.cancelledPrompt)
+                    .setDescription(strings.errors.hitReaction.replace("%%voteNo%%", "<:vote_no:732298639736570007>") + strings.errors.cancelledPrompt)
                     .setFooter(executedBy);
                 msg.edit(embed)
                 message.delete()
@@ -294,7 +294,7 @@ async function addToSpreadsheet(executedBy, strings, message, args, msg) {
                 .setColor(workingColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.addContextFor + string)
-                .setDescription(strings.errors.hitReaction.replace("%%noRea%%", "<:vote_no:732298639736570007>") + strings.errors.cancelledPrompt + strings.loading)
+                .setDescription(strings.errors.hitReaction.replace("%%voteNo%%", "<:vote_no:732298639736570007>") + strings.errors.cancelledPrompt + strings.loading)
                 .setFooter(executedBy);
             msg.edit(embed)
             message.delete()
@@ -362,7 +362,7 @@ async function editInSpreadsheet(executedBy, strings, message, args, msg) {
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.editContextFor + args[1])
-        .setDescription(strings.confirm.replace("%%noRea%%", "<:vote_no:732298639736570007>").replace("%%yesRea%%", "<:vote_yes:732298639749152769>"))
+        .setDescription(strings.confirm.replace("%%voteNo%%", "<:vote_no:732298639736570007>").replace("%%voteYes%%", "<:vote_yes:732298639749152769>"))
         .setFooter(executedBy);
     if (correctRow[key]) {
         if (correctRow[key].length > 1) {
@@ -387,7 +387,7 @@ async function editInSpreadsheet(executedBy, strings, message, args, msg) {
                 .setColor(errorColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.editContextFor + args[1])
-                .setDescription(strings.errors.hitReaction.replace("%%noRea%%", "<:vote_no:732298639736570007>") + strings.errors.cancelledPrompt)
+                .setDescription(strings.errors.hitReaction.replace("%%voteNo%%", "<:vote_no:732298639736570007>") + strings.errors.cancelledPrompt)
                 .setFooter(executedBy);
             msg.edit(embed)
             setTimeout(() => {

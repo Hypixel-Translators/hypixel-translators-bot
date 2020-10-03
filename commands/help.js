@@ -11,7 +11,7 @@ module.exports = {
   allowDM: true,
   async execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-    const madeBy = strings.madeBy.replace("%%q10%%", "QkeleQ10#6046")
+    const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
     const { commands } = message.client;
 
     if (!args.length) {
@@ -19,7 +19,7 @@ module.exports = {
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.commandsListTitle)
-        .setDescription(strings.commandsListTooltip.replace("%%q10%%", "<@722738307477536778>").replace("%%link%%", "(https://github.com/QkeleQ10/hypixel-translators-bot-discord)").replace("%%msgLink%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)"))
+        .setDescription(strings.commandsListTooltip.replace("%%QkeleQ10%%", "<@722738307477536778>").replace("%%github%%", "(https://github.com/QkeleQ10/hypixel-translators-bot-discord)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)"))
         .addFields(
           { name: "`" + strings.help.usage + "`", value: strings.help.description, inline: false },
           { name: "`" + strings.language.usage + "`", value: strings.language.description, inline: false },

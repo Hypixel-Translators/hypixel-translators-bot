@@ -20,14 +20,14 @@
     "tip": "Συμβουλή",
     "tips": {
         "0": "Δοκίμασες ποτέ την γλώσσα Inhale Banana; Άλλαξε την γλώσσα σου σε αυτό εκτελώντας `+lang ib`!",
-        "1": "I need translators! Find out how to become a bot translator [here]%%locLink%%.",
+        "1": "I need translators! Find out how to become a bot translator [here]%%translate%%.",
         "2": "Have you tried Emoji language? Change your language to it using `+lang em`!",
         "3": "Please change your links to en-en!",
         "4": "You get random amounts of XP every minute when you're chatting, which will eventually make you level up.",
         "5": "We need more tips! Submit them using `+feedback`.",
-        "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%getstartedCh%%, it has some useful tips!",
+        "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%gettingStarted%%, it has some useful tips!",
         "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
-        "8": "%%info1%% and %%info2%% have all the info you need about this server!",
+        "8": "%%rules%% and %%serverInfo%% have all the info you need about this server!",
         "9": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
         "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!"
     },

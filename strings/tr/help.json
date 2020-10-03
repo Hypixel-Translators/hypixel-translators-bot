@@ -1,8 +1,8 @@
 {
     "moduleName": "Bilgi",
     "commandsListTitle": "Bağlantılar ve komutlar",
-    "commandsListTooltip": "Bu bot, Hypixel Translators Topluluğu için %%q10%% tarafından oluşturuldu. Bu bot açık kaynak kodludur ve GitHub depomuza [here]%%link%% bu bağlantıdan erişebilirsin.\n[bu mesajda]%%msgLink%% bölümündeki yönergeleri izleyerek botun çevrilmesine yardımcı olabilirsin.\nBelirli bir komut hakkında daha fazla bilgi edinmek için `+help <komutun adı>` komutunu çalıştırabilirsiniz.\nİşte tüm komutların bir listesi: ",
-    "madeBy": " | Bot, %%q10%% tarafından özenle yapıldı",
+    "commandsListTooltip": "Bu bot, Hypixel Translators Topluluğu için %%QkeleQ10%% tarafından oluşturuldu. Bu bot açık kaynak kodludur ve GitHub depomuza [here]%%github%% bu bağlantıdan erişebilirsin.\n[bu mesajda]%%translate%% bölümündeki yönergeleri izleyerek botun çevrilmesine yardımcı olabilirsin.\nBelirli bir komut hakkında daha fazla bilgi edinmek için `+help <komutun adı>` komutunu çalıştırabilirsiniz.\nİşte tüm komutların bir listesi: ",
+    "madeBy": " | Bot, %%QkeleQ10%% tarafından özenle yapıldı",
     "commandInfo": "Komut bilgisi",
     "commandInfoFor": "Komut bilgisi: ",
     "commandNotExist": "Böyle bir komut yok!",
