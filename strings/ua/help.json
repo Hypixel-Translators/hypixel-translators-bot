@@ -31,8 +31,8 @@
         "description": "Знаходить, додає або редагує контекст для заданого string ID. `+context help` показує інформацію щодо цієї команду."
     },
     "bug": {
-        "usage": "+bug <повідомлення>",
-        "description": "Дозволяє Вам повідомляти про помилки, які є у бота."
+        "usage": "+bug",
+        "description": "Opens our GitHub issues page, where you can report any bugs."
     },
     "feedback": {
         "usage": "+feedback <повідомлення>",

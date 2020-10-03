@@ -31,8 +31,8 @@
         "description": "Obtém, adiciona ou edita o contexto de uma mensagem com o ID informado. Veja as informações deste comando usando `+context help`."
     },
     "bug": {
-        "usage": "+bug <mensagem>",
-        "description": "Allows you to report bugs present in the bot."
+        "usage": "+bug",
+        "description": "Opens our GitHub issues page, where you can report any bugs."
     },
     "feedback": {
         "usage": "+feedback <mensagem>",

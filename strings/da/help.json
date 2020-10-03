@@ -31,8 +31,8 @@
         "description": "Får, tilføjer eller redigerer konteksten på den givne string-ID. `+context help` viser dig information omkring denne kommando."
     },
     "bug": {
-        "usage": "+bug <besked>",
-        "description": "Giver dig muligheden for at rapportere fejl, der er til stede i botten."
+        "usage": "+bug",
+        "description": "Opens our GitHub issues page, where you can report any bugs."
     },
     "feedback": {
         "usage": "+feedback <besked>",

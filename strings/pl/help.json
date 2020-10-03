@@ -31,8 +31,8 @@
         "description": "Pobiera, dodaje lub edytuje kontekst danego identyfikatora ciągu. `+context help` pokazuje informację o tym poleceniu."
     },
     "bug": {
-        "usage": "+bug <wiadomość>",
-        "description": "Pozwala na zgłoszenie błędów wstępujących w bocie."
+        "usage": "+bug",
+        "description": "Opens our GitHub issues page, where you can report any bugs."
     },
     "feedback": {
         "usage": "+feedback <wiadomość>",
