@@ -12,7 +12,7 @@
     "falseUser": "Bu kullanıcı bulunamadı!",
     "disabled": "Bu komut geçici olarak devre dışı bırakıldı.",
     "noTrPr": "Bir çevirmen veya düzeltmen değilsin, yani bunu kullanamazsın!",
-    "noAccess": "You're not allowed to execute this command!",
+    "noAccess": "Bu komutu kullanmana izin verilmiyor!",
     "contextSubArg": "Lütfen ilk argüman olarak bir alt komut girin. Bu, `get`, `add`, `edit`,`link` veya `help` olabilir.\nBilgi için `+context help` komutunu çalıştırın.",
     "cooldown": "Bekleme Süresi",
     "timeLeftT": "'+%%command%%' komutunu kullanmak için lütfen %%time%% saniye bekle.",
@@ -20,16 +20,16 @@
     "tip": "İpucu",
     "tips": {
         "0": "Henüz Muz dilini denemedin mi? Dilini `+lang ib` komutu ile muz dili olarak güncelleyebilirsin!",
-        "1": "I need translators! Find out how to become a bot translator [here]%%locLink%%.",
+        "1": "Çevirmenlere ihtiyacım var! Nasıl bir bot çevirmeni olacağınızı öğrenin [here]%%locLink%%.",
         "2": "Emoji dilini denedin mi? `+lang em` komutunu kullanarak dilini değiştir!",
         "3": "Lütfen bağlantılarınızı en-en olarak değiştirin!",
         "4": "Sohbet ederken her dakika rastgele miktarda XP elde edersiniz, bu da seviyenizi yükseltmenizi sağlar.",
         "5": "Daha fazla tüyoya ihtiyacımız var! '+feedback' kullanarak bize geri bildirim gönderin.",
-        "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%getstartedCh%%, it has some useful tips!",
-        "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
-        "8": "%%info1%% and %%info2%% have all the info you need about this server!",
-        "9": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
-        "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!"
+        "6": "Tüm çevirmenler için Crowdin'i nasıl kullanacağınıza dair bir rehberimiz olduğunu biliyor muydunuz? %%getstartedCh%% buradan kontrol edin, bazı yararlı ipuçları var!",
+        "7": "Twitter hesabımızı henüz takip etmedin mi? Buradan edebilirsin %%twitter%%!",
+        "8": "%%info1%% ve %%info2%% bu sunucu hakkında ihtiyacınız olan tüm bilgilere sahip!",
+        "9": "Çeviride bir hata mı buldun? Dilinin düzelticisine başvur veya çeviri kanalındaki insanlara bildir.",
+        "10": "Çoğu kanalın önemli bilgilere sahip olduğunu biliyor muydun? Bunlardan birini her ziyaret ettiğinde kontrol etmelisin!"
     },
     "executedBy": "%%user%% tarafından yürütüldü"
 }
