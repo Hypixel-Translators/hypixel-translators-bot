@@ -80,7 +80,7 @@ client.on("message", async message => {
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
       .setAuthor(globalStrings.tip)
-      .setDescription(globalStrings.tips[Math.floor(Math.random() * Object.keys(globalStrings.tips).length)])
+      .setDescription(globalStrings.tips[Math.floor(Math.random() * Object.keys(globalStrings.tips).length)].replace("%%updateCh%%", "<#732587569744838777>").replace("%%getstartedCh%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%locLink%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)").replace("%%info1%%", "<#699367003135148063>").replace("%%info2%%", "<#699367079241056347>"))
       .setFooter(executedBy)
     message.channel.send(embed)
     return;
@@ -200,7 +200,8 @@ client.on("message", async message => {
       }
       message.channel.send(embed)
     }
-    var d = Math.random(); var s = Math.round(Math.random()); if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${globalStrings.tips[globalStrings.tips.length * Math.random() | 0]}`)
+    var d = Math.random(); var s = Math.round(Math.random())
+    if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${globalStrings.tips[globalStrings.tips.length * Math.random() | 0].replace("%%updateCh%%", "<#732587569744838777>").replace("%%getstartedCh%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%locLink%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)").replace("%%info1%%", "<#699367003135148063>").replace("%%info2%%", "<#699367079241056347>")}`)
   }, 50)
 });
 
