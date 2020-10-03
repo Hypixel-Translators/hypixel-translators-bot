@@ -1,8 +1,8 @@
 {
     "moduleName": "Informação",
     "commandsListTitle": "Links e comandos",
-    "commandsListTooltip": "Este bot foi feito para a Comunidade de Tradutores do Hypixel por %%q10%%. É de código aberto e o repositório do GitHub pode ser encontrado [aqui]%%link%%.\nPodes ajudar a traduzir o bot seguindo as instruções [nesta mensagem]%%msgLink%%.\n\nPodes fazer `+help <nome do comando>` para saberes mais sobre um comando específico.\nAqui tens uma lista com todos os comandos:\n ",
-    "madeBy": " | Bot desenvolvido por %%q10%%",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
+    "madeBy": " | Bot made with lots of care by %%QkeleQ10%%",
     "commandInfo": "Informação do comando",
     "commandInfoFor": "Informação para o comando ",
     "commandNotExist": "Esse comando não existe!",
