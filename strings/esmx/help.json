@@ -1,7 +1,7 @@
 {
-    "moduleName": "Ayuda",
-    "commandsListTitle": "Lista de comandos",
-    "commandsListTooltip": "Ejecuta `+help <nombre del comando>` para obtener más información sobre un comando específico.",
+    "moduleName": "Información",
+    "commandsListTitle": "Enlaces y comandos",
+    "commandsListTooltip": "Este bot fue creado para la Comunidad de Traductores de Hypixel por %%q10%%. Es de código abierto y nuestro repositorio de GitHub se puede encontrar [aquí]%%link%%.\nPuedes ayudar a traducir el bot siguiendo las instrucciones en [este mensaje]%%msgLink%%.\n\nPuedes ejecutar `+help <nombre del comando>` para aprender más sobre un comando especifico.\nAquí hay una lista de todos los comandos:\n ",
     "madeBy": " | Bot hecho con mucho amor por %%q10%%",
     "commandInfo": "Información del comando",
     "commandInfoFor": "Información para el comando ",
@@ -32,7 +32,7 @@
     },
     "bug": {
         "usage": "+bug",
-        "description": "Opens our GitHub issues page, where you can report any bugs."
+        "description": "Abre nuestra página de errores de GitHub, donde puedes reportar bugs."
     },
     "feedback": {
         "usage": "+feedback <mensaje>",

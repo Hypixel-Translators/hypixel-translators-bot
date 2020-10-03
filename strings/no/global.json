@@ -20,14 +20,14 @@
     "tip": "Tips",
     "tips": {
         "0": "Har du prøvd Inhalere Banan språket? Endre språket ditt til det med `+lang ib`!",
-        "1": "Jeg trenger oversettere! Finn ut hvordan du kan bli en bot oversetter i pins'ene i <#732587569744838777>.",
+        "1": "I need translators! Find out how to become a bot translator [here]%%locLink%%.",
         "2": "Har du prøvd Emoji språket? Endre språket ditt til det med `+lang em`!",
         "3": "Vennligst endre linkene dine til en-en!",
         "4": "Du får et tilfeldig antall av XP hvert minutt når du chatter, noe som til slutt vil gjøre sånn at du leveler opp.",
         "5": "Vi trenger flere tips! Send dem inn med `+feedback`.",
-        "6": "Visste du at vi har en guide på hvordan å blir startet med Crowdin, tilgjengelig for oversettere? Sjekk den ut i <#699275092026458122>, den har noen hjelpsomme tips!",
-        "7": "Følger du twitter brukeren vår? Sjekk den ut her <https://twitter.com/HTranslators>!",
-        "8": "<#699367003135148063> og <#699367079241056347> har all informasjonen du trenger å vite om denne serveren!",
+        "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%getstartedCh%%, it has some useful tips!",
+        "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
+        "8": "%%info1%% and %%info2%% have all the info you need about this server!",
         "9": "Fant en feil oversettelse? Kontakt en korrekturleser for ditt språk eller la andre folk vite i en oversettelses kanal.",
         "10": "Visste du at flesteparten av kanalen har viktig informasjon pinned? Du bør sjekke de ut hver gang du er innom en!"
     },

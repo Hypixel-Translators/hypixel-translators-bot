@@ -1,7 +1,7 @@
 {
-    "moduleName": "Yardım",
-    "commandsListTitle": "Komut listesi",
-    "commandsListTooltip": "Bir komut hakkında daha fazla bilgi almak istiyorsan `+help <komutun ismi>` komutunu yürüt.",
+    "moduleName": "Bilgi",
+    "commandsListTitle": "Bağlantılar ve komutlar",
+    "commandsListTooltip": "Bu bot, Hypixel Translators Topluluğu için %%q10%% tarafından oluşturuldu. Bu bot açık kaynak kodludur ve GitHub depomuza [here]%%link%% bu bağlantıdan erişebilirsin.\n[bu mesajda]%%msgLink%% bölümündeki yönergeleri izleyerek botun çevrilmesine yardımcı olabilirsin.\nBelirli bir komut hakkında daha fazla bilgi edinmek için `+help <komutun adı>` komutunu çalıştırabilirsiniz.\nİşte tüm komutların bir listesi: ",
     "madeBy": " | Bot, %%q10%% tarafından özenle yapıldı",
     "commandInfo": "Komut bilgisi",
     "commandInfoFor": "Komut bilgisi: ",
@@ -23,7 +23,7 @@
         "description": "Sunucudan komik/garip/bilge bir alıntı alır (veya ekler)."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
+        "usage": "+mention <language> translator|proofreader|all [mesaj]",
         "description": "İsteğe bağlı bir mesajla bir dil rolünden bahseder."
     },
     "context": {
@@ -32,7 +32,7 @@
     },
     "bug": {
         "usage": "+bug",
-        "description": "Opens our GitHub issues page, where you can report any bugs."
+        "description": "Herhangi bir hatayı bildirebileceğiniz GitHub sorunları sayfamızı açar."
     },
     "feedback": {
         "usage": "+feedback <mesaj>",

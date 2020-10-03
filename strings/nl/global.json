@@ -20,14 +20,14 @@
     "tip": "Tip",
     "tips": {
         "0": "Heb je de Inhale Banana-taal geprobeerd? Verander je taal ernaar met `+lang ib`!",
-        "1": "Ik heb vertalers nodig! Ontdek hoe je botvertaler wordt in de pins in <#732587569744838777>.",
+        "1": "Ik heb vertalers nodig! Ontdek [hier]%%locLink%% hoe je botvertaler wordt.",
         "2": "Heb je Emojitaal geprobeerd? Verander je taal ernaar met `+lang em`!",
         "3": "Verander je links naar en-en!",
         "4": "Wanneer je chat krijg je elke minuut een willekeurige hoeveelheid XP, waarmee je uiteindelijk meer levels krijgt.",
         "5": "We hebben meer tips nodig! Stuur ze door met `+feedback`.",
-        "6": "Wist je dat we een gids hebben die uitlegt hoe je aan de slag gaat met Crowdin? Hij is beschikbaar voor vertalers in <#699275092026458122>, het is best nuttig!",
-        "7": "Volg je ons al op Twitter? Kijk eens op <https://twitter.com/HTranslators>!",
-        "8": "<#699367003135148063> en <#699367079241056347> bevatten alle benodigde informatie over deze server!",
+        "6": "Wist je dat we een gids hebben die uitlegt hoe je aan de slag gaat met Crowdin? Hij is beschikbaar voor vertalers in %%getstartedCh%%, het is best nuttig!",
+        "7": "Volg je ons al op Twitter? Kijk eens op %%twitter%%!",
+        "8": "%%info1%% en %%info2%% bevatten alle benodigde informatie over deze server!",
         "9": "Fout in een vertaling gevonden? Neem contact op met een proeflezer van je taal of laat het weten in een vertalingskanaal.",
         "10": "Wist je dat de meeste kanalen belangrijke info hebben in vastgezette berichten? Lees het eens als je een kanaal gebruikt!"
     },

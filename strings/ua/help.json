@@ -1,7 +1,7 @@
 {
-    "moduleName": "Допомога",
-    "commandsListTitle": "Список команд",
-    "commandsListTooltip": "Виконати `+help <назва команди>` для того, щоб дізнатись більше про цю команду.",
+    "moduleName": "Information",
+    "commandsListTitle": "Links and commands",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%q10%%. It's open source and our GitHub repository can be found [here]%%link%%.\nYou can help translate the bot by following the instructions in [this message]%%msgLink%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
     "madeBy": " | Бот виготовлений з великою турботою %%q10%%",
     "commandInfo": "Інформація щодо команди",
     "commandInfoFor": "Інформація щодо команди ",
