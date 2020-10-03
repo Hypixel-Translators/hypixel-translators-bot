@@ -31,8 +31,8 @@
         "description": "Zobrazí ti, přidá nebo upraví kontext zadaného ID stringu. `+context help` ti zobrazí informace o tomto příkazu."
     },
     "bug": {
-        "usage": "+bug <zpráva>",
-        "description": "Umožňuje ti nahlásit chyby bota."
+        "usage": "+bug",
+        "description": "Opens our GitHub issues page, where you can report any bugs."
     },
     "feedback": {
         "usage": "+feedback <zpráva>",
