@@ -5,7 +5,7 @@
     "changedToTitle": "Zmieniono Twój język na polski!",
     "errorTitle": "Ten język nie został jeszcze dodany!",
     "errorDescription": "Twój język nie został zmieniony. Obecnie dostępne są te języki (nie oznacza to jednak, że zostały przetłumaczone):",
-    "suggestAdd": "Jeśli chcesz, aby dodano ten język do bota, skontaktuj się z <@722738307477536778>.",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact %%q10%% or make a suggestion using `+bug`.",
     "current": "Twoje preferencje językowe zostały ustawione na język polski.",
     "listTitle": "Lista języków",
     "listElement": "`%%code%%` | **%%language%%**",
