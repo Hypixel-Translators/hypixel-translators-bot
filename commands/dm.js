@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 module.exports = {
     name: "dm",
     description: "Sends the user a private message.",
-    usage: "verify <mention> <message>",
+    usage: "dm <mention> <message>",
     aliases: ["message", "privatemessage"],
     allowDM: true,
     async execute(strings, message, args) {
@@ -14,7 +14,7 @@ module.exports = {
         args.splice(0, 1)
         var toSend = args.join(" ")
         if (message.author.id == "722738307477536778") { allowed = true }
-        if (message.channel.type !== "dm") { if (message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("549885657749913621") || message.member.roles.cache.has("241926666400563203")) { allowed = true } }
+        if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("620274909700161556")) { allowed = true } } // mod and *
         if (!allowed) return;
 
         const recipient = message.client.users.cache.get(userToSend)

@@ -3,7 +3,6 @@
     "outgoingLoad": "Kullanıcıya mesaj gönderiliyor",
     "loading": "Bir saniye...",
     "generalError": "Bir şeyler ters gitti.",
-    "message": "Mesaj",
     "incoming": "Yetkiliden mesaj alındı",
     "incomingDisclaimer": "Buraya gönderdiğin her mesaj, yetkililere gönderilecek.",
     "executedBy": "%%user%% tarafından yürütüldü"

@@ -3,7 +3,6 @@
     "outgoingLoad": "Sending message to user",
     "loading": "Dej mi sekundu...",
     "generalError": "Něco se pokazilo.",
-    "message": "Message",
     "incoming": "Received message from staff",
     "incomingDisclaimer": "Jakákoli zpráva, kterou sem pošleš, bude odeslána adminům.",
     "executedBy": "Provedeno uživatelem %%user%%"
