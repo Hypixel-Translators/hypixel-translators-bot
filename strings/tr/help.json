@@ -31,8 +31,8 @@
         "description": "Verilen string kimliği için bağlamı alır, ekler veya düzenler. `+context help` size bu komutla ilgili bilgileri gösterir."
     },
     "bug": {
-        "usage": "+bug <mesaj>",
-        "description": "Botta bulunan hataları rapor etmenize olanak sağlar."
+        "usage": "+bug",
+        "description": "Opens our GitHub issues page, where you can report any bugs."
     },
     "feedback": {
         "usage": "+feedback <mesaj>",
