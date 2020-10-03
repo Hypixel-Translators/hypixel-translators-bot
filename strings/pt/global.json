@@ -20,14 +20,14 @@
     "tip": "Dica",
     "tips": {
         "0": "Já experimentaste o idioma Inhale Banana? Muda o teu idioma usando `+lang ib` para experimentares!",
-        "1": "Preciso de tradutores! Descobre como te podes tornar num através da mensagem afixada em <#732587569744838777>.",
+        "1": "I need translators! Find out how to become a bot translator [here]%%locLink%%.",
         "2": "Já experimentaste o idioma dos Emojis? Muda o teu idioma usando `+lang em` para experimentares!",
         "3": "Muda os teus links para en-en!",
         "4": "À medida que vais falando nos chats, vais ganhando quantidades de XP aleatórias a cada minuto, as quais te farão subir de nível eventualmente.",
         "5": "Precisamos de mais dicas! Envia-as usando `+feedback`.",
-        "6": "Sabias que temos um guia para iniciantes do Crowdin, disponível para todos os tradutores? Recomendamos que o leias em <#699275092026458122>, tem boas dicas!",
-        "7": "Já seguiste a nossa conta no twitter? Podes fazê-lo em <https://twitter.com/HTranslators>!",
-        "8": "<#699367003135148063> e <#699367079241056347> têm toda a informação que precisas de saber sobre este servidor!",
+        "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%getstartedCh%%, it has some useful tips!",
+        "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
+        "8": "%%info1%% and %%info2%% have all the info you need about this server!",
         "9": "Encontraste um erro numa tradução? Entra em contacto com um revisor do teu idioma ou informa os tradutores no canal das traduções apropriado.",
         "10": "Sabias que a maioria dos canais têm informação importante afixada? Devias ver as mensagens afixadas sempre que estás num!"
     },
