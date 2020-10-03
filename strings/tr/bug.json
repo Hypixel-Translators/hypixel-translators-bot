@@ -1,8 +1,8 @@
 {
     "moduleName": "Bir hata bildir",
     "bugT": "Sorunları görüntüleme ve ekleme",
-    "bugD": "Hata raporlarını göstermek veya öneri yapmak için lütfen [buraya tıklayın]%%link%%.",
+    "bugD": "To show and make suggestions or bug reports, please [click here]%%github%%.",
     "urgentT": "Acil mi?",
-    "urgentD": "Önemli bir hatayı bildirmeye çalışıyorsanız veya bot önceden haber vermeksizin uzun bir süre çalışmıyorsa, lütfen sorunu açıklayan bir mesaj ile herkese açık kanalda %%q10%% 'ı etiketleyerek sorundan bahsedin.",
+    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention %%QkeleQ10%% in a public channel, explaining the issue.",
     "executedBy": "%%user%% tarafından yürütüldü"
 }
