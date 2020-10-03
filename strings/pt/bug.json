@@ -3,6 +3,6 @@
     "bugT": "Ver e adicionar issues",
     "bugD": "Para ver ou fazer sugestões e reportar erros, [clica aqui]%%link%%.",
     "urgentT": "É urgente?",
-    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention %%q10%% in a public channel, explaining the issue.",
+    "urgentD": "Se estás a tentar reportar um erro fatal ou o bot tem estado offline por muito tempo sem notícias da staff, identifica %%q10%% num canal público e explica o problema.",
     "executedBy": "Executado por %%user%%"
 }
