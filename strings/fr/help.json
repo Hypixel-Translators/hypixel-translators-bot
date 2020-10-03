@@ -1,6 +1,6 @@
 {
     "moduleName": "Information",
-    "commandsListTitle": "Lien et commandes",
+    "commandsListTitle": "Liens et commandes",
     "commandsListTooltip": "Ce bot a été conçu pour la Communauté des Traducteurs Hypixel par %%q10%%. Il est open source et notre référentiel GitHub peut être trouvé [ici]%%link%%.\nTu peux aider à traduire le bot en suivant les instructions de [ce message]%%msgLink%%.\n\nTu puex exécuter `+help <nom de la commande>` pour en savoir plus sur une commande spécifique.\nVoici une liste de toutes les commandes:\n ",
     "madeBy": " | Bot fait avec beaucoup d'amour par %%q10%%",
     "commandInfo": "Information sur la commande",
