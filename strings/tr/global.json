@@ -20,14 +20,14 @@
     "tip": "İpucu",
     "tips": {
         "0": "Henüz Muz dilini denemedin mi? Dilini `+lang ib` komutu ile muz dili olarak güncelleyebilirsin!",
-        "1": "Çevirmenlere ihtiyacım var! <#732587569744838777> kanalında ki başa tutturulmuş mesajı okuyarak nasıl çevirmen olacağını öğren.",
+        "1": "I need translators! Find out how to become a bot translator [here]%%locLink%%.",
         "2": "Emoji dilini denedin mi? `+lang em` komutunu kullanarak dilini değiştir!",
         "3": "Lütfen bağlantılarınızı en-en olarak değiştirin!",
         "4": "Sohbet ederken her dakika rastgele miktarda XP elde edersiniz, bu da seviyenizi yükseltmenizi sağlar.",
         "5": "Daha fazla tüyoya ihtiyacımız var! '+feedback' kullanarak bize geri bildirim gönderin.",
-        "6": "Tüm çevirmenler için Crowdin'i nasıl kullanacağınıza dair bir rehberimiz olduğunu biliyor muydunuz? <#699275092026458122> buradan kontrol edin, bazı yararlı ipuçları var!",
-        "7": "Twitter hesabımızı henüz takip etmedin mi? Buradan edebilirsin <https://twitter.com/HTranslators>!",
-        "8": "<#699367003135148063> ve <#699367079241056347> bu sunucu hakkında ihtiyacınız olan tüm bilgilere sahip!",
+        "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%getstartedCh%%, it has some useful tips!",
+        "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
+        "8": "%%info1%% and %%info2%% have all the info you need about this server!",
         "9": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
         "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!"
     },
