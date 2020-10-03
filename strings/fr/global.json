@@ -20,14 +20,14 @@
     "tip": "Conseil",
     "tips": {
         "0": "As-tu essayé la langue Inhale Banana? Change ta langue en utilisant `+lang ib`!",
-        "1": "I need translators! Find out how to become a bot translator [here]%%locLink%%.",
+        "1": "J'ai besoin de traducteurs! Découvre comment devenir un traducteur de bot [ici[%%locLink%%.",
         "2": "As-tu essayé la langue Inhale Banana? Change ta langue en utilisant `+lang ib`!",
         "3": "Change tes liens à en-en!",
         "4": "Tu obtiens des quantités d'XP aléatoires chaque minute lorsque tu discutes, ce qui tu fera monter de niveau.",
         "5": "Nous avons besoin de plus de conseils! Envoie-les en utilisant `+feedback`.",
-        "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%getstartedCh%%, it has some useful tips!",
-        "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
-        "8": "%%info1%% and %%info2%% have all the info you need about this server!",
+        "6": "Sais-tu que nous avons un guide sur la façon de commencer avec Crowdin, disponible pour tous les traducteurs? Regarde-le à %%getstartedCh%%, il a quelques conseils utiles!",
+        "7": "As-tu suivi notre twitter? Regarde-le à %%twitter%%!",
+        "8": "%%info1%% et %%info2%% ont toutes les infos dont tu as besoin à propos de ce serveur!",
         "9": "Tu as trouvé une erreur dans une traduction? Contacte un proofreader de ta langue ou faites-le savoir dans un canal de traduction.",
         "10": "Sais-tu que les canals contiennent des informations importantes épinglées? Trouve-le lorsque tu visites un canal!"
     },
