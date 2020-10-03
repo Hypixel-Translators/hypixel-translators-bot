@@ -31,8 +31,8 @@
         "description": "Получает, добавляет или редактирует контекст предоставленного ID строки. `+context help` показывает вам информацию об этой команде."
     },
     "bug": {
-        "usage": "+bug <сообщение>",
-        "description": "Позволяет сообщать Вам об ошибках в боте."
+        "usage": "+bug",
+        "description": "Opens our GitHub issues page, where you can report any bugs."
     },
     "feedback": {
         "usage": "+feedback <сообщение>",
