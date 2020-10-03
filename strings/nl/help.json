@@ -31,8 +31,8 @@
         "description": "Geeft context voor het gegeven string-ID, voegt het toe of bewerkt het. `+context help` geeft je informatie over dit commando."
     },
     "bug": {
-        "usage": "+bug <bericht>",
-        "description": "Laat je botfouten rapporteren."
+        "usage": "+bug",
+        "description": "Opent onze GitHub-issuespagina, waar je fouten kunt rapporteren."
     },
     "feedback": {
         "usage": "+feedback <bericht>",

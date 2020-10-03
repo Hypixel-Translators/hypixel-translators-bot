@@ -1,7 +1,8 @@
 {
     "moduleName": "Reportar un bug",
-    "sendingTitle": "Enviando tu reporte de bug al staff...",
-    "sentTitle": "¡Tu reporte de bug ha sido enviado!",
-    "addMessage": "¡No has introducido ningún mensaje!",
+    "bugT": "Viewing and adding issues",
+    "bugD": "To show and make suggestions or bug reports, please [click here]%%link%%.",
+    "urgentT": "Is it urgent?",
+    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention %%q10%% in a public channel, explaining the issue.",
     "executedBy": "Ejecutado por %%user%%"
 }

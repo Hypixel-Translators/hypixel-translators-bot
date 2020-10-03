@@ -31,8 +31,8 @@
         "description": "Zeigt, fügt oder bearbeitet Kontext für die angegebene String ID. `+context help` zeigt dir Informationen über diesen Befehl."
     },
     "bug": {
-        "usage": "+bug <Nachricht>",
-        "description": "Erlaubt es dir, im Bot vorhandene Fehler zu melden."
+        "usage": "+bug",
+        "description": "Opens our GitHub issues page, where you can report any bugs."
     },
     "feedback": {
         "usage": "+feedback <Nachricht>",

@@ -31,8 +31,8 @@
         "description": "Näyttää, lisää tai muokkaa valitun stringin (ID) kontekstia. `+context help` näyttää tietoa tästä komennosta."
     },
     "bug": {
-        "usage": "+bug <viesti>",
-        "description": "Antaa sinun ilmoittaa botissa esiintyvistä bugeista."
+        "usage": "+bug",
+        "description": "Opens our GitHub issues page, where you can report any bugs."
     },
     "feedback": {
         "usage": "+feedback <viesti>",
