@@ -32,7 +32,7 @@
     },
     "bug": {
         "usage": "+bug",
-        "description": "Opens our GitHub issues page, where you can report any bugs."
+        "description": "Åpner vår GitHub issues-side, hvor du kan rapportere inn feil."
     },
     "feedback": {
         "usage": "+feedback <melding>",
