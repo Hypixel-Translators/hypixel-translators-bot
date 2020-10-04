@@ -1,8 +1,8 @@
 {
-    "moduleName": "Information",
-    "commandsListTitle": "Links and commands",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
-    "madeBy": " | Bot made with lots of care by %%QkeleQ10%%",
+    "moduleName": "Informasjon",
+    "commandsListTitle": "Lenker og kommandoer",
+    "commandsListTooltip": "Denne boten ble laget for Hypixel Translators Community av %%QkeleQ10%%. Den har åpen kildekode og vår GitHub repository kan bli funnet [her]%%github%%.\nDu kan hjelpe til med å oversette boten ved å følge instruksjonene i [denne meldingen]%%translate%%.\n\nDu kan utføre `+help <kommandonavn>` for å lære mer om en spesifikk kommando.\nHer er en liste over alle kommandoer:\n ",
+    "madeBy": " | En bot laget med masse pleie av %%q10%%",
     "commandInfo": "Kommandoinformasjon",
     "commandInfoFor": "Kommandoinformasjon for ",
     "commandNotExist": "Den kommandoen finnes ikke!",
@@ -32,7 +32,7 @@
     },
     "bug": {
         "usage": "+bug",
-        "description": "Opens our GitHub issues page, where you can report any bugs."
+        "description": "Åpner vår GitHub issues-side, hvor du kan rapportere inn feil."
     },
     "feedback": {
         "usage": "+feedback <melding>",

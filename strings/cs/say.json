@@ -1,7 +1,7 @@
 {
-    "moduleName": "Message",
+    "moduleName": "Zpráva",
     "loading": "Dej mi sekundu...",
-    "success": "Success! Message sent.",
+    "success": "Úspěch! Zpráva se odeslala.",
     "invalidArg": "Neplatný argument!",
     "executedBy": "Provedeno uživatelem %%user%%"
 }
