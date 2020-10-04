@@ -1,7 +1,7 @@
 const fs = require("fs");
 const Discord = require("discord.js");
+const fetch = require("node-fetch");
 const { prefix, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json");
-const token = process.env.TOKEN
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -75,6 +75,12 @@ client.on("message", async message => {
     helpStrings = require(("./strings/" + oldMsg[0] + "/help.json"))
   })
   var executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
+
+  if (message.channel.id === "732587569744838777") {
+    fetch(`https://discordapp.com/api/v8/channels/${message.channel.id}/messages/${message.id}/crosspost`,
+      { method: 'POST', headers: { 'Authorization': `Bot ${process.env.TOKEN}` } });
+
+  }
 
   if (message.content === "+tip") {
     const embed = new Discord.MessageEmbed()
@@ -266,4 +272,4 @@ client.on('messageReactionRemove', async (reaction, user) => {
   }
 });
 
-client.login(token);
+client.login(process.env.TOKEN);
