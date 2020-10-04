@@ -150,9 +150,9 @@ async function skyblockaddons(client) {
                             } else {
                                 adapColour = errorColor
                             }
-
-                            const embed = new Discord.MessageEmbed()
-                                .setColor(adapColour)
+                            
+                            console.log(r.code)
+                            const embed = new Discord.MessageEmbed().setColor(adapColour)
                             if (r.code = "bc") {
                                 embed.setThumbnail("https://crowdin-static.downloads.crowdin.com/images/custom_flags/big/13809467_bc.png")
                             } else if (r.code = "ow") {
