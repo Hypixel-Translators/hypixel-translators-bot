@@ -153,13 +153,13 @@ async function skyblockaddons(client) {
                             
                             console.log(r.code)
                             const embed = new Discord.MessageEmbed().setColor(adapColour)
+                            embed.setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/skyblockaddons/" + r.code)
+                            embed.setTimestamp()
                             if (r.code = "bc") {
                                 embed.setThumbnail("https://crowdin-static.downloads.crowdin.com/images/custom_flags/big/13809467_bc.png")
                             } else if (r.code = "ow") {
                                 embed.setThumbnail("https://crowdin-static.downloads.crowdin.com/images/custom_flags/big/13809467_ow.png")
                             } else { embed.setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png") }
-                            embed.setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/skyblockaddons/" + r.code)
-                            embed.setTimestamp()
                             if (langdbEntry) { embed.setTitle(langdbEntry.emoji + " | " + r.name) } else { embed.setTitle("<:icon_question:756582065834688662> | " + r.name) }
                             msg.edit("", embed)
                             index++
