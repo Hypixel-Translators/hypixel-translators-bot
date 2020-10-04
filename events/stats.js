@@ -151,7 +151,6 @@ async function skyblockaddons(client) {
                                 adapColour = errorColor
                             }
 
-                            console.log(r.code)
                             const embed = new Discord.MessageEmbed()
                                 .setColor(adapColour)
                                 .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/skyblockaddons/" + r.code)
