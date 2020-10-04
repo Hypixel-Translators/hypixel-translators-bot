@@ -36,7 +36,7 @@ async function hypixel(client) {
                         var langdbEntry = langdb.find(o => o.name === r.name)
                         const embed = new Discord.MessageEmbed()
                             .setColor(langdbEntry.colour)
-                            .setTitle(langdbEntry.emoji + " | " + r.name|| "<:icon_question:756582065834688662>" + " | " + r.name)
+                            .setTitle(langdbEntry.emoji + " | " + r.name || "<:icon_question:756582065834688662>" + " | " + r.name)
                             .setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png")
                             .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/hypixel/" + r.code)
                             //.addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/hypixel/" + r.code + "") })
@@ -84,7 +84,7 @@ async function quickplay(client) {
 
                         const embed = new Discord.MessageEmbed()
                             .setColor(adapColour)
-                            .setTitle(langdbEntry.emoji + " | " + r.name|| "<:icon_question:756582065834688662>" + " | " + r.name)
+                            .setTitle(langdbEntry.emoji + " | " + r.name || "<:icon_question:756582065834688662>" + " | " + r.name)
                             .setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png")
                             .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/quickplay/" + r.code)
                             //.addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/quickplay/" + r.code + "") })
@@ -155,7 +155,7 @@ async function skyblockaddons(client) {
 
                             const embed = new Discord.MessageEmbed()
                                 .setColor(adapColour)
-                                if (r.code = bc) { embed.setThumbnail("https://crowdin-static.downloads.crowdin.com/images/custom_flags/big/13809467_bc.png") } else if (r.code = ow) { embed.setThumbnail("https://crowdin-static.downloads.crowdin.com/images/custom_flags/big/13809467_ow.png") } else embed.setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png")
+                            if (r.code = "bc") { embed.setThumbnail("https://crowdin-static.downloads.crowdin.com/images/custom_flags/big/13809467_bc.png") } else if (r.code = "ow") { embed.setThumbnail("https://crowdin-static.downloads.crowdin.com/images/custom_flags/big/13809467_ow.png") } else embed.setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png")
                                 .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/skyblockaddons/" + r.code)
                                 //.addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/skyblockaddons/" + r.code + "") })
                                 .setTimestamp()
