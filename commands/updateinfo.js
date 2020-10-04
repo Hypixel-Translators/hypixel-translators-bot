@@ -4,10 +4,10 @@ const Discord = require("discord.js");
 module.exports = {
     name: "updateinfo",
     description: "Updates the #server-info channel.",
-    usage: "updateinfo",
-    execute(client) {
+    usage: "+updateinfo",
+    execute(strings, message) {
         if (!message.member.roles.has("752541221980733571")) return;
-        client.channels.cache.get("730042612647723058").then(channel => {
+        message.client.channels.cache.get("730042612647723058").then(channel => {
             const embed1 = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setTitle("Channels")
