@@ -1,4 +1,4 @@
-commit_message: Crowdin - Translations update
+commit_message: Crowdin - New translations for %original_file_name% (%language%)
 append_commit_message: false
 files:
   - source: /strings/en/*.json
