@@ -53,8 +53,8 @@ module.exports = {
         message.client.channels.cache.get("762341271611506708").send("", embed3)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)
-            .setAuthor("Information channel updater")
-            .setTitle("Updated the information channel!")
+            .setAuthor(strings.moduleName)
+            .setTitle(strings.success)
             .setFooter(executedBy)
         message.channel.send(embed)
     }
