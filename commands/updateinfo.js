@@ -6,7 +6,7 @@ module.exports = {
     description: "Updates the #server-info channel.",
     usage: "+updateinfo",
     execute(strings, message) {
-        if (!message.member.roles.has("752541221980733571")) return;
+        if (!message.member.roles.cache.has("752541221980733571")) return;
         message.client.channels.cache.get("730042612647723058").then(channel => {
             const embed1 = new Discord.MessageEmbed()
                 .setColor(neutralColor)
