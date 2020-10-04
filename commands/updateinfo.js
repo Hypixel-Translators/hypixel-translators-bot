@@ -6,6 +6,7 @@ module.exports = {
     description: "Updates the #server-info channel.",
     usage: "+updateinfo",
     execute(strings, message) {
+        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         if (!message.member.roles.cache.has("752541221980733571")) return;
         message.client.channels.cache.get("762341271611506708").messages.fetch().then(msgs => { msgs.forEach(msg => { msg.delete().catch(console.error()) }) })
         const embed1 = new Discord.MessageEmbed()
@@ -50,5 +51,10 @@ module.exports = {
             )
             .setFooter("Need help? Ask your questions in #off-topic | Bot made with lots of care by QkeleQ10#6163")
         message.client.channels.cache.get("762341271611506708").send("", embed3)
+        const embed = new Discord.MessageEmbed()
+            .setColor(successColor)
+            .setAuthor("Information channel updater")
+            .setTitle("Updated the information channel!")
+            .setFooter(executedBy)
     }
 }
