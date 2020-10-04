@@ -10,7 +10,7 @@ module.exports = {
         if (!message.member.roles.cache.has("752541221980733571")) return;
         message.client.channels.cache.get("762341271611506708").messages.fetch().then(msgs => { msgs.forEach(msg => { msg.delete().catch(console.error()) }) })
         const embed1 = new Discord.MessageEmbed()
-            .setColor("#0099ff")
+            .setColor("#0022ff")
             .setTitle("Channels")
             .setDescription("Each channel has important information pinned in it. We highly recommend checking it out.")
             .addFields(
@@ -38,7 +38,7 @@ module.exports = {
             )
         message.client.channels.cache.get("762341271611506708").send("", embed2)
         const embed3 = new Discord.MessageEmbed()
-            .setColor("#0022ff")
+            .setColor("#0099ff")
             .setTitle("Bots")
             .setDescription("Information about all bots in the server is found here. The symbol inside the _[]_ in their nicknames indicate their prefix.")
             .addFields(
