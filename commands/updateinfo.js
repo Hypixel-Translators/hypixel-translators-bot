@@ -2,9 +2,9 @@ const { workingColor, errorColor, successColor, neutralColor } = require("../con
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "infoUpdate",
+    name: "updateinfo",
     description: "Updates the #server-info channel.",
-    usage: "infoUpdate",
+    usage: "updateinfo",
     execute(client) {
         if (!message.member.roles.has("752541221980733571")) return;
         client.channels.cache.get("730042612647723058").then(channel => {
