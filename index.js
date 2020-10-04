@@ -15,7 +15,6 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
-const roleMenuUpdate = require('./events/roleMenuUpdate.js')
 const stats = require('./events/stats.js')
 
 const cooldowns = new Discord.Collection();
