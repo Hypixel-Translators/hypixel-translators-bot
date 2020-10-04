@@ -56,5 +56,6 @@ module.exports = {
             .setAuthor("Information channel updater")
             .setTitle("Updated the information channel!")
             .setFooter(executedBy)
+        message.channel.send(embed)
     }
 }
