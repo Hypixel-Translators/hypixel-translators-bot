@@ -1,7 +1,7 @@
 {
-    "moduleName": "Information",
-    "commandsListTitle": "Links and commands",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
+    "moduleName": "Tietoa",
+    "commandsListTitle": "Linkit ja komennot",
+    "commandsListTooltip": "Tämän botin on tehnyt Hypixelin kääntäjien yhteisölle %%QkeleQ10%%. Sen avoin lähdekoodi on saatavilla GitHubista [täältä]%%github%%. Voit auttaa kääntämään bottia seuraamalla ohjeita, jotka löytyvät [tämän linkin]%%translate%% takaa.\n\nVoit suorittaa komennon `+help <komennon nimi>` saadaksesi tietää lisää valitusta komennosta.\nTässä lista kaikista komennoista:\n ",
     "madeBy": " | Botin on huolellisesti kasannut %%q10%%",
     "commandInfo": "Komennon tiedot",
     "commandInfoFor": "Tiedot komennolle ",
@@ -32,7 +32,7 @@
     },
     "bug": {
         "usage": "+bug",
-        "description": "Opens our GitHub issues page, where you can report any bugs."
+        "description": "Avaa GitHubin issues-sivun, jossa voit ilmiantaa botissa ilmeneviä virheitä."
     },
     "feedback": {
         "usage": "+feedback <viesti>",
