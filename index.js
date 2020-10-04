@@ -77,7 +77,8 @@ client.on("message", async message => {
   var executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
   if (message.channel.id === "732587569744838777") {
-    fetch(`https://discordapp.com/api/v8/channels/${message.channel.id}/messages/${message.id}/crosspost`, { method: 'POST', headers: { 'Authorization': `Bot ${process.env.TOKEN}` } });
+    fetch(`https://discordapp.com/api/v8/channels/${message.channel.id}/messages/${message.id}/crosspost`,
+      { method: 'Post', headers: { 'Authorization': `Bot ${process.env.TOKEN}` } });
   }
 
   if (message.content === "+tip") {
