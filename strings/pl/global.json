@@ -26,7 +26,7 @@
         "4": "Otrzymujesz losową ilość PD za każdą minutę rozmowy, co ostatecznie sprawi, że osiągniesz wyższy poziom.",
         "5": "Potrzebujemy więcej wskazówek! Prześlij je używając `+feedback`.",
         "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%gettingStarted%%, it has some useful tips!",
-        "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
+        "7": "Have you followed our twitter account? Check it out [here]%%twitter%%!",
         "8": "%%rules%% and %%serverInfo%% have all the info you need about this server!",
         "9": "Znalazłeś/aś błąd w tłumaczeniu? Skontaktuj się z korektorem swojego języka lub poinformuj o tym innych na kanale tłumaczeniowym.",
         "10": "Czy wiedziałeś/aś, że na większości kanałów najważniejsze informacje są przypięte? Należy je sprawdzać za każdym razem, jak odwiedzasz kanały!"
