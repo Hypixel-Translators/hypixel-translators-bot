@@ -38,7 +38,7 @@ module.exports = {
             )
         message.client.channels.cache.get("762341271611506708").send("", embed2)
         const embed3 = new Discord.MessageEmbed()
-            .setColor("#0088ff")
+            .setColor("#007ff")
             .setTitle("Bots")
             .setDescription("Information about all bots in the server is found here. The symbol inside the _[]_ in their nicknames indicate their prefix.")
             .addFields(
