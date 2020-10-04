@@ -15,13 +15,15 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
-const reviewStrings = require('./events/reviewStrings.js')
+const roleMenuUpdate = require('./events/roleMenuUpdate.js')
 const stats = require('./events/stats.js')
 
 const cooldowns = new Discord.Collection();
 
 client.once("ready", () => {
-  console.log("Ready!");
+  console.log("Ready!")
+
+  roleMenuUpdate.execute(client)
 
   client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
   client.channels.cache.get("732326676192690236").messages.fetch()
@@ -216,7 +218,10 @@ client.on('messageReactionAdd', async (reaction, user) => {
   if (channelName.includes("review-strings")) {
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
       console.log("Clear message (saw reaction " + reaction.emoji.name + ")")
-      reviewStrings.execute(reaction, user)
+      reaction.message.react("⏱")
+      setTimeout(() => {
+        reaction.message.delete()
+      }, 10000)
     }
   }
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
