@@ -9,7 +9,7 @@ module.exports = {
         if (!message.member.roles.cache.has("752541221980733571")) return;
         message.client.channels.cache.get("762341271611506708").messages.fetch().then(msgs => { msgs.forEach(msg => { msg.delete().catch(console.error()) }) })
         const embed1 = new Discord.MessageEmbed()
-            .setColor(neutralColor)
+            .setColor("#0099ff")
             .setTitle("Channels")
             .setDescription("Each channel has important information pinned in it. We highly recommend checking it out.")
             .addFields(
@@ -18,7 +18,7 @@ module.exports = {
                 { name: "Language-specific channels", value: "We offer channels where translators and proofreaders for specific languages can interact with one another! You can speak English here, but we encourage you to speak the language you're translating. Please keep in mind these channels are not actively moderated. In case anything happens, please get in touch with an administrator." })
         message.client.channels.cache.get("762341271611506708").send("", embed1)
         const embed2 = new Discord.MessageEmbed()
-            .setColor(neutralColor)
+            .setColor("#0055ff")
             .setTitle("Roles")
             .setDescription("Every role has a meaning behind it. Find out what they all are below!")
             .addFields(
@@ -37,7 +37,7 @@ module.exports = {
             )
         message.client.channels.cache.get("762341271611506708").send("", embed2)
         const embed3 = new Discord.MessageEmbed()
-            .setColor(neutralColor)
+            .setColor("#0022ff")
             .setTitle("Bots")
             .setDescription("Information about all bots in the server is found here. The symbol inside the _[]_ in their nicknames indicate their prefix.")
             .addFields(
