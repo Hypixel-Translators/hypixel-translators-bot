@@ -7,6 +7,9 @@ module.exports = {
     usage: "+updateinfo",
     execute(strings, message) {
         if (!message.member.roles.cache.has("752541221980733571")) return;
+        client.channels.cache.get("762341271611506708").messages.fetch()
+        fiMessages = messages.filter(msg => msg.author.bot)
+        fiMessages.forEach(message.delete)
         const embed1 = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setTitle("Channels")
