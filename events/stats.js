@@ -84,7 +84,8 @@ async function quickplay(client) {
 
                         const embed = new Discord.MessageEmbed()
                             .setColor(adapColour)
-                            .setTitle(langdbEntry.emoji || "<:icon_question:756582065834688662>" + " | " + r.name)
+                            .setTitle(langdbEntry.emoji + " | " + r.name|| "<:icon_question:756582065834688662>" + " | " + r.name)
+                            .setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png")
                             .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/quickplay/" + r.code)
                             //.addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/quickplay/" + r.code + "") })
                             .setTimestamp()
@@ -154,6 +155,7 @@ async function skyblockaddons(client) {
 
                             const embed = new Discord.MessageEmbed()
                                 .setColor(adapColour)
+                                .setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png")
                                 .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/skyblockaddons/" + r.code)
                                 //.addFields({ name: (r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)"), value: (r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/skyblockaddons/" + r.code + "") })
                                 .setTimestamp()
