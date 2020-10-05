@@ -9,17 +9,17 @@ module.exports = {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         if (!message.member.roles.cache.has("752541221980733571")) return;
         message.client.channels.cache.get("762341271611506708").messages.fetch().then(msgs => { msgs.forEach(msg => { msg.delete().catch(console.error()) }) })
-        const embed1 = new Discord.MessageEmbed()
+        const channelsEmbed = new Discord.MessageEmbed()
             .setColor("#0022ff")
             .setTitle("Channels")
             .setDescription("Each channel has important information pinned in it. We highly recommend checking it out.")
             .addFields(
                 { name: "**Important ❕**", value: "<#549503985501995011> - Important messages about the Discord server and the Crowdin projects.\n<#732587569744838777> - Here bot updates will be posted every now and then.\n<#646096405252800512> - In this channel we will post polls that you will be able to vote on in order influence certain changes on the server.\n<#618909521741348874> - The feed of our @HTranslators [Twitter page](https://twitter.com/HTranslators).\n<#758314105328762912> - Updates from our bot's [GitHub repository](https://github.com/QkeleQ10/hypixel-translators-bot-discord).\n<#699367003135148063> - All rules are listed here. Follow them, or there'll be consequences.\n<#699367079241056347> - This channel contains information about this server, so you can understand how it works better.\n<#699275092026458122> - A full guide to help you start translating with Crowdin! Here you'll find all info and some basic tools to help you translate.\n<#549882021934137354> - Displays members who join and leave the server.".substring(0, 1024) },
                 { name: "**Main Channels 💬**", value: "<#621298919535804426> - You can use this channel to talk about anything you want really.\n<#619662798133133312> - A text channel where you can post your favorite memes.\n<#712046319375482910> - Post pics of your or someone else's cute pets here.\n<#644620638878695424> - A special channel for special people that have boosted our server. Thank you!\n<#550951034332381184> - A text channel where you can suggest things you would like to see in the Discord server. If you would like to suggest things for Hypixel, please visit the forums.\n<#549894938712866816> -  A channel for you to use bot commands in.\n<#713084081579098152> - If you can't speak while you're in a voice chat, talk here.".substring(0, 1024) },
-                { name: "**Translation Channels**", value: "We offer channels for each one of the 3 currently supported projects: Hypixel, Quickplay and SkyblockAddons. Each category has 3 text channels: one for translators, one for proofreaders and one with the project's language status that gets updated every 20 minutes. They also have 2 voice channels: one for translators and one for proofreaders as well. If you have any questions related to your project, they should be sent here!".substring(0, 1024) },
+                { name: "**Translation Channels 🔠**", value: "We offer channels for each one of the 3 currently supported projects: Hypixel, Quickplay and SkyblockAddons.\nEach category has 3 text channels: one for translators, one for proofreaders and one with the project's language status that gets updated every 20 minutes. They also have 2 voice channels: one for translators and one for proofreaders as well. If you have any questions related to your project, they should be sent here!".substring(0, 1024) },
                 { name: "**Language-specific channels**", value: "We offer channels where translators and proofreaders for specific languages can interact with one another! You can speak English here, but we encourage you to speak the language you're translating. Please keep in mind these channels are not actively moderated. In case anything happens, please get in touch with an administrator." })
-        message.client.channels.cache.get("762341271611506708").send("", embed1)
-        const embed2 = new Discord.MessageEmbed()
+        message.client.channels.cache.get("762341271611506708").send("", channelsEmbed)
+        const rolesEmbed = new Discord.MessageEmbed()
             .setColor("#0055ff")
             .setTitle("Roles")
             .setDescription("Every role has a meaning behind it. Find out what they all are below!")
@@ -37,8 +37,8 @@ module.exports = {
                     name: "**Miscellaneous**", value: "<@&719263346909773864> - A role given to <@291635552678313985> who gave away 3 MVP+ ranks during an event!\n<@&618502156638617640> - A role given to people who have helped create art for this server.\n<@&732586582787358781> - A role given to members who are in charge of the bot, <@722738307477536778> at the moment.\n<@&557090185670557716> - A role given to all users that joined in the first 6 months this server existed (August 28, 2019)\n<@&549894155174674432> - A role given to all bots in the Discord."
                 }
             )
-        message.client.channels.cache.get("762341271611506708").send("", embed2)
-        const embed3 = new Discord.MessageEmbed()
+        message.client.channels.cache.get("762341271611506708").send("", rolesEmbed)
+        const botsEmbed = new Discord.MessageEmbed()
             .setColor("#0077ff")
             .setTitle("Bots")
             .setDescription("Information about all bots in the server is found here. The symbol inside the _[]_ in their nicknames indicate their prefix.")
@@ -51,12 +51,12 @@ module.exports = {
                 }
             )
             .setFooter("Need help? Ask your questions in #off-topic | Bot made with lots of care by QkeleQ10#6163")
-        message.client.channels.cache.get("762341271611506708").send("", embed3)
-        const embed = new Discord.MessageEmbed()
+        message.client.channels.cache.get("762341271611506708").send("", botsEmbed)
+        const successEmbed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.success)
             .setFooter(executedBy)
-        message.channel.send(embed)
+        message.channel.send(successEmbed)
     }
 }

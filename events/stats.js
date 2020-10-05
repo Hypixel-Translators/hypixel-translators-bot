@@ -11,10 +11,10 @@ module.exports = {
             if (n == "0" || n == "20" || n == "40" || manual) {
                 await hypixel(client)
                 await quickplay(client)
-                await bot(client)
             }
             if (n == "10" || n == "30" || n == "50" || manual) {
                 await skyblockaddons(client)
+                await bot(client)
             }
         } catch (err) { throw err }
     }
@@ -113,6 +113,31 @@ async function bot(client) {
         .then(res => res.json())
         .then((json) => {
             json.reverse()
+            /*client.channels.cache.get("748626115530326016").messages.fetch()
+            .then(messages => {
+                fiMessages = messages.filter(msg => msg.author.bot)
+                fiMessages.forEach(async (msg) => {
+                    var r = json[index]
+                    var langdbEntry = langdb.find(o => o.name === r.name)
+
+                    if (r.approved_progress > 89) {
+                        adapColour = successColor
+                    } else if (r.approved_progress > 49) {
+                        adapColour = workingColor
+                    } else {
+                        adapColour = errorColor
+                    }
+
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(adapColour)
+                        .setTitle(langdbEntry.emoji + " | " + r.name || "<:icon_question:756582065834688662>" + " | " + r.name)
+                        .setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png")
+                        .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/project/hypixel-translators-bot/" + r.code)
+                        .setTimestamp()
+                    msg.edit("", embed)
+                    index++
+                })
+            })*/
             client.channels.cache.get("730042612647723058").messages.fetch("750161237106622634")
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
