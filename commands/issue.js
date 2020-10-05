@@ -2,10 +2,10 @@ const { workingColor, errorColor, successColor, neutralColor } = require("../con
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "bug",
+    name: "issue",
     description: "Opens the GitHub issues page.",
-    usage: "bug",
-    aliases: ["issue", "issues"],
+    usage: "+issue",
+    aliases: ["issues", "bug", "feedback"],
     cooldown: 320,
     allowDM: true,
     channelBlackList: "621298919535804426",
