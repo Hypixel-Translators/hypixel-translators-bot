@@ -9,6 +9,7 @@
   "watchStatuses": ["your commands", "your messages", "meatdata", "their prayers", "nicknames and stuff", "RANDOM_USER's messages"],
   "randomUser": ["Stannya", "Rodry", "Sol", "QkeleQ10", "Wens", "Linewater", "Kiril", "TheComputer8423", "Sucamos", "Nad", "HoggyTheWizard", "lasse", "doublechecked", "Deentrox"],
   "langdb": [  
+    {"name": "Arabic", "emoji": "<:flag_ab:762677278513299466>", "code" : "ar"},
     {"name": "Arabic, Saudi Arabia", "emoji": "🇸🇦", "code" : "arsa"},
     {"name": "Biscuitish", "emoji": "🍪", "code" : "bc"},
     {"name": "Bulgarian", "emoji": "🇧🇬", "colour": "#e02222", "code" : "bg"},
@@ -18,6 +19,7 @@
     {"name": "Czech", "emoji": "🇨🇿", "colour": "#e02222", "code": "cs"},
     {"name": "Danish", "emoji": "🇩🇰", "colour": "#e02222", "code": "da"},
     {"name": "Dutch", "emoji": "🇳🇱", "colour": "#21de70", "code": "nl"},
+    {"name": "Emoji", "emoji": "😂", "code" : "em"},
     {"name": "Filipino", "emoji": "🇵🇭", "code" : "fil"},
     {"name": "Finnish", "emoji": "🇫🇮", "colour": "#e02222", "code": "fi"},
     {"name": "French", "emoji": "🇫🇷", "colour": "#21de70", "code": "fr"},
@@ -27,6 +29,7 @@
     {"name": "Hindi", "emoji": "🇮🇳", "code" : "hi"},
     {"name": "Hungarian", "emoji": "🇭🇺", "code" : "hu"},
     {"name": "Irish", "emoji": "🇮🇪", "code" : "gaie"},
+    {"name": "Inhale Banana", "emoji": "🍌", "code" : "ib"},
     {"name": "Italian", "emoji": "🇮🇹", "colour": "#21de70", "code": "it"},
     {"name": "Japanese", "emoji": "🇯🇵", "colour": "#21de70", "code": "ja"},
     {"name": "Korean", "emoji": "🇰🇷", "colour": "#21de70", "code": "ko"},
