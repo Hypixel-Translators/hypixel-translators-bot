@@ -1,7 +1,7 @@
 {
-    "moduleName": "Message",
+    "moduleName": "Üzenet",
     "loading": "One second...",
-    "success": "Success! Message sent.",
+    "success": "Siker! Üzenet elküldve.",
     "invalidArg": "Invalid argument!",
     "executedBy": "Executed by %%user%%"
 }
