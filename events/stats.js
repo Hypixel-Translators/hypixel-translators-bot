@@ -10,10 +10,10 @@ module.exports = {
             var n = d.getMinutes()
             if (n == "0" || n == "20" || n == "40" || manual) {
                 await hypixel(client)
-                await quickplay(client)
+                await skyblockaddons(client)
             }
             if (n == "10" || n == "30" || n == "50" || manual) {
-                await skyblockaddons(client)
+                await quickplay(client)
                 await bot(client)
             }
         } catch (err) { throw err }
