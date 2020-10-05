@@ -32,7 +32,7 @@ module.exports = {
                         .setAuthor("Quote")
                         .setTitle("A quote request has been submitted!")
                         .setDescription(toSend)
-                        .addFields({ name: "To add it", value: "`+quote add <quote> / <quoted user mention>`" })
+                        .addFields({ name: "To add it", value: "`+quote add " + toSend + "`" })
                         .setFooter("Suggested by " + message.author.tag);
                     sendTo.send(report)
                     const embed = new Discord.MessageEmbed()
