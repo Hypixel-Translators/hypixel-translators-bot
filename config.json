@@ -10,7 +10,6 @@
   "randomUser": ["Stannya", "Rodry", "Sol", "QkeleQ10", "Wens", "Linewater", "Kiril", "TheComputer8423", "Sucamos", "Nad", "HoggyTheWizard", "lasse", "doublechecked", "Deentrox"],
   "langdb": [  
     {"name": "Arabic", "emoji": "<:flag_ab:762677278513299466>", "code" : "ar"},
-    {"name": "Arabic, Saudi Arabia", "emoji": "🇸🇦", "code" : "arsa"},
     {"name": "Biscuitish", "emoji": "🍪", "code" : "bc"},
     {"name": "Bulgarian", "emoji": "🇧🇬", "colour": "#e02222", "code" : "bg"},
     {"name": "Chinese Simplified", "emoji": "🇨🇳", "colour": "#21de70", "code": "zhcn"},
