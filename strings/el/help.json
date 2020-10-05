@@ -30,13 +30,9 @@
         "usage": "+context get|add|edit|view|help <επιχειρήματα>",
         "description": "Παίρνει, προσθέτει ή επεξεργάζεται την περιγραφή για το string ID που δόθηκε. Το `+context help` σου δείχνει πληροφορίες σχετικά με αυτή την εντολή."
     },
-    "bug": {
-        "usage": "+bug",
-        "description": "Opens our GitHub issues page, where you can report any bugs."
-    },
-    "feedback": {
-        "usage": "+feedback <μήνυμα>",
-        "description": "Στέλνει την άποψή σου για το bot στο προσωπικό του server."
+    "issue": {
+        "usage": "+issue",
+        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
     },
     "language": {
         "usage": "+language [<νέα γλώσσα> | list]",

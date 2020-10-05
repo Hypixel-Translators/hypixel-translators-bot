@@ -30,13 +30,9 @@
         "usage": "+context get|add|edit|view|help <argumentit>",
         "description": "Näyttää, lisää tai muokkaa valitun stringin (ID) kontekstia. `+context help` näyttää tietoa tästä komennosta."
     },
-    "bug": {
-        "usage": "+bug",
-        "description": "Avaa GitHubin issues-sivun, jossa voit ilmiantaa botissa ilmeneviä virheitä."
-    },
-    "feedback": {
-        "usage": "+feedback <viesti>",
-        "description": "Lähettää palautetta botista ylläpidolle."
+    "issue": {
+        "usage": "+issue",
+        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
     },
     "language": {
         "usage": "+language [<kieli> | list]",

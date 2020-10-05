@@ -30,13 +30,9 @@
         "usage": "+context get|add|edit|view|help <аргументи>",
         "description": "Знаходить, додає або редагує контекст для заданого string ID. `+context help` показує інформацію щодо цієї команду."
     },
-    "bug": {
-        "usage": "+bug",
-        "description": "Opens our GitHub issues page, where you can report any bugs."
-    },
-    "feedback": {
-        "usage": "+feedback <повідомлення>",
-        "description": "Надсилає ваш відгук щодо бота до персоналу."
+    "issue": {
+        "usage": "+issue",
+        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
     },
     "language": {
         "usage": "+language [<new language> | list]",

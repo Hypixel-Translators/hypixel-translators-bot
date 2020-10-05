@@ -1,5 +1,5 @@
 {
-    "moduleName": "Information channel updater",
-    "success": "Updated the information channel!",
+    "moduleName": "Aktualizator kanału informacyjnego",
+    "success": "Zaktualizowano kanał informacyjny!",
     "executedBy": "Wykonano przez %%user%%"
 }

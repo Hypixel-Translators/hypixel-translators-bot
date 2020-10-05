@@ -30,13 +30,9 @@
         "usage": "+context get|add|edit|view|help <konu>",
         "description": "Verilen string kimliği için bağlamı alır, ekler veya düzenler. `+context help` size bu komutla ilgili bilgileri gösterir."
     },
-    "bug": {
-        "usage": "+bug",
-        "description": "Herhangi bir hatayı bildirebileceğiniz GitHub sorunları sayfamızı açar."
-    },
-    "feedback": {
-        "usage": "+feedback <mesaj>",
-        "description": "Bot ile ilgili geri bildirimini yetkililere gönderir."
+    "issue": {
+        "usage": "+issue",
+        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
     },
     "language": {
         "usage": "+language [<yeni dil> | liste]",

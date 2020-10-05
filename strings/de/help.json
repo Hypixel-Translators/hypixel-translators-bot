@@ -30,13 +30,9 @@
         "usage": "+context get|add|edit|view|help <Argument>",
         "description": "Zeigt, fügt oder bearbeitet Kontext für die angegebene String ID. `+context help` zeigt dir Informationen über diesen Befehl."
     },
-    "bug": {
-        "usage": "+bug",
-        "description": "Opens our GitHub issues page, where you can report any bugs."
-    },
-    "feedback": {
-        "usage": "+feedback <Nachricht>",
-        "description": "Sendet dein Feedback an Staff."
+    "issue": {
+        "usage": "+issue",
+        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
     },
     "language": {
         "usage": "+language [<Neue Sprache> | list]",
