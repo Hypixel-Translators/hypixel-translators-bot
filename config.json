@@ -44,6 +44,7 @@
     {"name": "Slovenian", "emoji": "🇸🇮", "code": "sl"},
     {"name": "Spanish", "emoji": "🇪🇸", "colour": "#21de70", "code": "es"},
     {"name": "Spanish, Mexico", "emoji": "🇲🇽", "code": "esmx"},
+    {"name": "Spanish, Peru", "emoji": "🇵🇪", "code": "espe"},
     {"name": "Swedish", "emoji": "🇸🇪", "colour": "#e02222", "code": "sv"},
     {"name": "Thai", "emoji": "🇹🇭", "colour": "#e02222", "code": "th"},
     {"name": "Turkish", "emoji": "🇹🇷", "colour": "#e02222", "code": "tr"},
