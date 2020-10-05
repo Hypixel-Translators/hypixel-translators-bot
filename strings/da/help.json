@@ -30,13 +30,9 @@
         "usage": "+context get|add|edit|view|help <argumenter>",
         "description": "Får, tilføjer eller redigerer konteksten på den givne string-ID. `+context help` viser dig information omkring denne kommando."
     },
-    "bug": {
-        "usage": "+bug",
-        "description": "Opens our GitHub issues page, where you can report any bugs."
-    },
-    "feedback": {
-        "usage": "+feedback <besked>",
-        "description": "Sender din feedback på botten til personalet."
+    "issue": {
+        "usage": "+issue",
+        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
     },
     "language": {
         "usage": "+language [<nyt sprog> | list]",
