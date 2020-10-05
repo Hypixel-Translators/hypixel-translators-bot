@@ -30,13 +30,9 @@
         "usage": "+context get|add|edit|view|help <argumenty>",
         "description": "Pobiera, dodaje lub edytuje kontekst danego identyfikatora ciągu. `+context help` pokazuje informację o tym poleceniu."
     },
-    "bug": {
-        "usage": "+bug",
-        "description": "Otwórz naszą stronę GitHub z problemami, gdzie możesz zgłosić błędy."
-    },
-    "feedback": {
-        "usage": "+feedback <wiadomość>",
-        "description": "Wysyła opinię o bocie do administracji"
+    "issue": {
+        "usage": "+issue",
+        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
     },
     "language": {
         "usage": "+language [<nowy język> | list]",
