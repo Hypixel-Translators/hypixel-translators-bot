@@ -113,7 +113,7 @@ async function bot(client) {
         .then(res => res.json())
         .then((json) => {
             json.reverse()
-            /*client.channels.cache.get("748626115530326016").messages.fetch()
+            client.channels.cache.get("762661287749484614").messages.fetch()
             .then(messages => {
                 fiMessages = messages.filter(msg => msg.author.bot)
                 fiMessages.forEach(async (msg) => {
@@ -137,7 +137,7 @@ async function bot(client) {
                     msg.edit("", embed)
                     index++
                 })
-            })*/
+            })
             client.channels.cache.get("730042612647723058").messages.fetch("750161237106622634")
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
