@@ -30,13 +30,9 @@
         "usage": "+context get|add|edit|view|help <argumenty>",
         "description": "Zobrazí ti, přidá nebo upraví kontext zadaného ID stringu. `+context help` ti zobrazí informace o tomto příkazu."
     },
-    "bug": {
-        "usage": "+bug",
-        "description": "Opens our GitHub issues page, where you can report any bugs."
-    },
-    "feedback": {
-        "usage": "+feedback <zpráva>",
-        "description": "Pošle tvou zpětnou vazbu na bota adminům."
+    "issue": {
+        "usage": "+issue",
+        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
     },
     "language": {
         "usage": "+language [<nový jazyk> | list]",
