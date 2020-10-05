@@ -1,5 +1,5 @@
 {
-    "moduleName": "Information channel updater",
-    "success": "Updated the information channel!",
+    "moduleName": "Infokanavan päivitys",
+    "success": "Infokanava päivitetty!",
     "executedBy": "Komennon suoritti %%user%%"
 }
