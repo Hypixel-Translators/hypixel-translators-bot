@@ -1,7 +1,7 @@
 {
-    "moduleName": "Message",
+    "moduleName": "رسالة",
     "loading": "One second...",
-    "success": "Success! Message sent.",
+    "success": "نجحت! تم الإرسال.",
     "invalidArg": "مُعطى غير صالح!",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "نفذ من قبل %%user%%"
 }
