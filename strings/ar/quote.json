@@ -3,10 +3,10 @@
     "loading": "ثانية واحدة...",
     "loadingModule": "جاري تحميل الوحدة...",
     "invalidArg": "مُعطى غير صالح!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!",
-    "reqAdd": "Success! The following quote has been added:",
-    "user": "User",
-    "index": "Quote number",
-    "executedBy": "Executed by %%user%%"
+    "indexArg": "اقتباس ذو سجل %%arg%% ليس موجود! الرجاء اعطاء رقم بين 1 و %%max%%.",
+    "reqSub": "تم ارسال طلب اقتباسك, شكرًا!",
+    "reqAdd": "نجحت! تم اضافة الاقتباس التالي:",
+    "user": "مستخدم",
+    "index": "رقم الاقتباس",
+    "executedBy": "نفذ من قبل %%user%%"
 }
