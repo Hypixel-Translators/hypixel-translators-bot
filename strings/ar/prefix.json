@@ -3,8 +3,8 @@
     "loading": "ثانية واحدة...",
     "loadingRoles": "جاري جلب الرتب الخاصة بك...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
-        "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
+        "noLanguages": "يبدو أنك لا تملك أي رتبة لغة! يرجى الاتصال اداري او مالك السيرفر إذا كنت تعتقد أن هذا خطأ.",
+        "sbaInfo": "كمترجم لSBA, ليس لديك اي رتب ترجمةز نحن نعمل على طريقة لجعلك تستطيع اختيار البرفكس ايضا. سنبقيك على دراية في آخر الاخبار.",
         "error": "فشل تغيير الاسم المستعار. يمكنك نسخ الاسم المستعار أدناه وتضعه بنفسك.",
         "confirmedNoFlags": "لقد أكدت ولكنك لم تضغط على أي أعلام، ",
         "cancelled": "قمت بإلغاء تغيير اسمك المستعار، ",
