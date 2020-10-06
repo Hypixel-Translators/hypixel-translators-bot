@@ -1,8 +1,8 @@
 {
     "moduleName": "Información",
     "commandsListTitle": "Enlaces y comandos",
-    "commandsListTooltip": "Este bot fue creado para la Comunidad de Traductores de Hypixel por %%QkeleQ10%%. Es de código abierto y nuestro repositorio de GitHub se puede encontrar [aquí]%%github%%.\nPuedes ayudar a traducir el bot siguiendo las instrucciones en [este mensaje]%%translate%%.\n\nPuedes ejecutar `+help <nombre del comando>` para aprender más sobre un comando especifico.\nAquí hay una lista de todos los comandos:\n ",
-    "madeBy": " | Bot hecho con mucho amor por %%QkeleQ10%%",
+    "commandsListTooltip": "Este bot fue creado para la Comunidad de Traductores de Hypixel por %%QkeleQ10%%. Es de código abierto y nuestro repositorio de GitHub se puede encontrar [aquí]%%github%%.\nPuede ayudar a traducir el bot siguiendo las instrucciones en [este mensaje]%%translate%%.\n\nPuede ejecutar `+help <nombre del comando>` para obtener más información sobre un comando específico.\nAquí hay una lista de todos los comandos:\n ",
+    "madeBy": " | Bot hecho con mucho cariño por %%QkeleQ10%%",
     "commandInfo": "Información del comando",
     "commandInfoFor": "Información para el comando ",
     "commandNotExist": "¡Ese comando no existe!",
@@ -32,7 +32,7 @@
     },
     "issue": {
         "usage": "+issue",
-        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
+        "description": "Abre nuestra página de problemas de GitHub, donde puede reportar problemas y enviar comentarios."
     },
     "language": {
         "usage": "+language [<nuevo idioma> | list]",
