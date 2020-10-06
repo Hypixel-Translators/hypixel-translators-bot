@@ -9,7 +9,7 @@ module.exports = {
     aliases: ["statistics", "progress"],
     allowDM: true,
     async execute(strings, message, args) {
-        if (!message.member.roles.cache.has("620274909700161556") || !message.member.roles.cache.has("732586582787358781")) throw noAccess; // * and dev
+        if (!message.member.hasPermission("VIEW_AUDIT_LOG")) throw noAccess;
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
             .setAuthor(strings.moduleName)
