@@ -1,6 +1,6 @@
 {
-    "moduleName": "Statistics updater",
-    "started": "Please wait a minute or two for all statistics to update...",
-    "done": "All statistics have been updated!",
-    "executedBy": "Executed by %%user%%"
+    "moduleName": "محدث الإحصائيات",
+    "started": "الرجاء انتظار دقيقة او اثنتين حتى يتم تحديث جميع الإحصائيات...",
+    "done": "تم تحديث جميع الإحصائيات!",
+    "executedBy": "نفذ من قبل %%user%%"
 }
