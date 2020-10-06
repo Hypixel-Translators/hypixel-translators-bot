@@ -1,8 +1,8 @@
 {
-    "moduleName": "Problems and feedback",
-    "bugT": "Ver y añadir bugs",
-    "bugD": "[Haz clic aquí]%%github%% para ver o enviar sugerencias o reportes de bug.",
+    "moduleName": "Problemas y comentarios",
+    "bugT": "Ver y añadir errores",
+    "bugD": "[Haga clic aquí]%%github%% para mostrar y enviar sugerencias o informes de errores.",
     "urgentT": "¿Es urgente?",
-    "urgentD": "Si estas reportado un bug crucial o el bot está desconectado por mucho tiempo sin que nos damos cuenta, por favor, menciona a %%QkeleQ10%% en un canal publico, explicando la situación.",
+    "urgentD": "Si está tratando de reportar un error fatal o el bot ha estado inactivo durante mucho tiempo sin previo aviso, por favor menciónelo a %%QkeleQ10%% en un canal público y explique el problema.",
     "executedBy": "Ejecutado por %%user%%"
 }
