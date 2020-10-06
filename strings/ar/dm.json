@@ -1,7 +1,7 @@
 {
     "outgoing": "تم ارسال رسالة الى %%recipient%%",
     "outgoingLoad": "يتم ارسال رسالة الى المستخدم",
-    "loading": "One second...",
+    "loading": "ثانية واحدة...",
     "generalError": "لقد حدث خطأ ما.",
     "incoming": "تلقيت رسالة من الإدارة",
     "incomingDisclaimer": "Any message you send here will get sent to staff.",
