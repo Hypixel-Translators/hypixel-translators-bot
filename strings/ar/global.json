@@ -4,7 +4,7 @@
     "error": "Error",
     "usage": "Expected command usage",
     "dmError": "Sorry, but you can't execute this command in private messages.",
-    "noMessage": "You haven't provided a message!",
+    "noMessage": "لم تقم بتقديم رسالة!",
     "noChannel": "You haven't provided a channel!",
     "noUser": "You haven't provided a user!",
     "noUserQuote": "You haven't provided a user! Please type the quote and then mention the quoted user, separated by a slash.",
@@ -31,5 +31,5 @@
         "9": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
         "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "نفذ من قبل %%user%%"
 }

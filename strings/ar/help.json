@@ -42,5 +42,5 @@
         "usage": "+boop <user>",
         "description": "Boop!"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "نفذ من قبل %%user%%"
 }

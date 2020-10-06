@@ -1,6 +1,6 @@
 {
-    "moduleName": "Bulk Send",
-    "success": "Success! Message sent.",
-    "generalError": "Something has gone wrong.",
-    "executedBy": "Executed by %%user%%"
+    "moduleName": "ارسال مجموعة",
+    "success": "نجحت! تم الإرسال.",
+    "generalError": "لقد حدث خطأ ما.",
+    "executedBy": "نفذ من قبل %%user%%"
 }

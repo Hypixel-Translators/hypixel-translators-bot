@@ -1,5 +1,5 @@
 {
-    "moduleName": "Information channel updater",
-    "success": "Updated the information channel!",
+    "moduleName": "Bilgi kanalı Güncelleyici",
+    "success": "Bilgi kanalı güncellendi!",
     "executedBy": "%%user%% tarafından yürütüldü"
 }
