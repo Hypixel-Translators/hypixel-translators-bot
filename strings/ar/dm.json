@@ -1,9 +1,9 @@
 {
-    "outgoing": "Sent message to %%recipient%%",
-    "outgoingLoad": "Sending message to user",
+    "outgoing": "تم ارسال رسالة الى %%recipient%%",
+    "outgoingLoad": "يتم ارسال رسالة الى المستخدم",
     "loading": "One second...",
-    "generalError": "Something has gone wrong.",
-    "incoming": "Received message from staff",
+    "generalError": "لقد حدث خطأ ما.",
+    "incoming": "تلقيت رسالة من الإدارة",
     "incomingDisclaimer": "Any message you send here will get sent to staff.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "نفذ من قبل %%user%%"
 }
