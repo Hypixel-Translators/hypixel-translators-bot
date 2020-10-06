@@ -1,7 +1,7 @@
 {
-    "moduleName": "Give feedback",
-    "sendingTitle": "Sending your feedback to staff...",
-    "sentTitle": "Your feedback has been sent!",
-    "addMessage": "You haven't provided a message!",
-    "executedBy": "Executed by %%user%%"
+    "moduleName": "قدم تقييم",
+    "sendingTitle": "جاري إرسال تقييمك إلى الموظفين...",
+    "sentTitle": "تم ارسال تقييمك!",
+    "addMessage": "لم تقم بتقديم رسالة!",
+    "executedBy": "نفذ من قبل %%user%%"
 }
