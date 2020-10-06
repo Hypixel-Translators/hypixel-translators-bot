@@ -1,8 +1,8 @@
 {
-    "moduleName": "Permission checker",
+    "moduleName": "المتحقق من الصلاحيات",
     "loading": "One second...",
-    "bot": "Bot",
-    "author": "Author",
-    "user": "User",
-    "executedBy": "Executed by %%user%%"
+    "bot": "بوت",
+    "author": "الكاتب",
+    "user": "مستخدم",
+    "executedBy": "نفذ من قبل %%user%%"
 }
