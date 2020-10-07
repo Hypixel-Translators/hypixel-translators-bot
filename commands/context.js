@@ -11,30 +11,32 @@ module.exports = {
     channelBlackList: ["621298919535804426", "619662798133133312", "712046319375482910", "550951034332381184", "634101000340504576", "713084081579098152"],
     cooldown: 10,
     execute(strings, message, args) {
-        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        const embed = new Discord.MessageEmbed()
-            .setColor(workingColor)
-            .setAuthor(strings.moduleName)
-            .setTitle(strings.loading)
-            .setDescription(strings.loadingModule)
-            .setFooter(executedBy);
-        message.channel.send(embed)
-            .then(msg => {
-                if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771")) {
-                    throw "noTrPr"
-                }
-                if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(executedBy, strings, message, args, msg) }
-                else if (args[0] === "get") { getFromSpreadsheet(executedBy, strings, message, args, msg) }
-                else if (args[0] === "edit") { editInSpreadsheet(executedBy, strings, message, args, msg) }
-                else if (args[0] === "info" || args[0] === "help") { showInfo(executedBy, strings, message, args, msg) }
-                else if (args[0] === "view" || args[0] === "link") { viewsheet(executedBy, strings, message, args, msg) }
-                else { throw "contextSubArg" }
-                if (strings, message.channel.id === "549894938712866816") {
-                    setTimeout(() => {
-                        message.delete()
-                    }, 60000)
-                }
-            })
+        try {
+            const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+            const embed = new Discord.MessageEmbed()
+                .setColor(workingColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.loading)
+                .setDescription(strings.loadingModule)
+                .setFooter(executedBy);
+            message.channel.send(embed)
+                .then(msg => {
+                    if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771")) {
+                        throw "noTrPr"
+                    }
+                    if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(executedBy, strings, message, args, msg) }
+                    else if (args[0] === "get") { getFromSpreadsheet(executedBy, strings, message, args, msg) }
+                    else if (args[0] === "edit") { editInSpreadsheet(executedBy, strings, message, args, msg) }
+                    else if (args[0] === "info" || args[0] === "help") { showInfo(executedBy, strings, message, args, msg) }
+                    else if (args[0] === "view" || args[0] === "link") { viewsheet(executedBy, strings, message, args, msg) }
+                    else { throw "contextSubArg" }
+                    if (strings, message.channel.id === "549894938712866816") {
+                        setTimeout(() => {
+                            message.delete()
+                        }, 60000)
+                    }
+                })
+        } catch (err) { throw err }
     }
 }
 
