@@ -79,7 +79,7 @@ async function getFromSpreadsheet(executedBy, strings, message, args, msg) {
     if (correctRow.enpt) { if (correctRow.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.pirate, value: correctRow.enpt, inline: true }) } }
     if (correctRow.pl) { if (correctRow.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.polish, value: correctRow.pl, inline: true }) } }
     if (correctRow.pt) { if (correctRow.pt.length > 1) { embed.addFields({ name: strings.noteFor + strings.portuguese, value: correctRow.pt, inline: true }) } }
-    if (correctRow.ptbr) { if (correctRow.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.brazilian, value: correctRow.ptbr, inline: true }) } }
+    if (correctRow.ptbr) { if (correctRow.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.portugueseBr, value: correctRow.ptbr, inline: true }) } }
     if (correctRow.ru) { if (correctRow.ru.length > 1) { embed.addFields({ name: strings.noteFor + strings.russian, value: correctRow.ru, inline: true }) } }
     if (correctRow.es) { if (correctRow.es.length > 1) { embed.addFields({ name: strings.noteFor + strings.spanish, value: correctRow.es, inline: true }) } }
     if (correctRow.sv) { if (correctRow.sv.length > 1) { embed.addFields({ name: strings.noteFor + strings.swedish, value: correctRow.sv, inline: true }) } }
@@ -243,7 +243,7 @@ async function addToSpreadsheet(executedBy, strings, message, args, msg) {
                         if (result.enpt) { if (result.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.pirate, value: result.enpt, inline: true }) } }
                         if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.polish, value: result.pl, inline: true }) } }
                         if (result.pt) { if (result.pt.length > 1) { embed.addFields({ name: strings.noteFor + strings.portuguese, value: result.pt, inline: true }) } }
-                        if (result.ptbr) { if (result.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.brazilian, value: result.ptbr, inline: true }) } }
+                        if (result.ptbr) { if (result.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.portugueseBr, value: result.ptbr, inline: true }) } }
                         if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: strings.noteFor + strings.russian, value: result.ru, inline: true }) } }
                         if (result.es) { if (result.es.length > 1) { embed.addFields({ name: strings.noteFor + strings.spanish, value: result.es, inline: true }) } }
                         if (result.sv) { if (result.sv.length > 1) { embed.addFields({ name: strings.noteFor + strings.swedish, value: result.sv, inline: true }) } }
@@ -438,7 +438,7 @@ async function editInSpreadsheet(executedBy, strings, message, args, msg) {
             if (result.enpt) { if (result.enpt.length > 1) { embed.addFields({ name: strings.noteFor + strings.pirate, value: result.enpt, inline: true }) } }
             if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: strings.noteFor + strings.polish, value: result.pl, inline: true }) } }
             if (result.pt) { if (result.pt.length > 1) { embed.addFields({ name: strings.noteFor + strings.portuguese, value: result.pt, inline: true }) } }
-            if (result.ptbr) { if (result.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.brazilian, value: result.ptbr, inline: true }) } }
+            if (result.ptbr) { if (result.ptbr.length > 1) { embed.addFields({ name: strings.noteFor + strings.portugueseBr, value: result.ptbr, inline: true }) } }
             if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: strings.noteFor + strings.russian, value: result.ru, inline: true }) } }
             if (result.es) { if (result.es.length > 1) { embed.addFields({ name: strings.noteFor + strings.spanish, value: result.es, inline: true }) } }
             if (result.sv) { if (result.sv.length > 1) { embed.addFields({ name: strings.noteFor + strings.swedish, value: result.sv, inline: true }) } }
