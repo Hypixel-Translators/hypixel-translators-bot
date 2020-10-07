@@ -4,6 +4,6 @@
     "loading": "ثانية واحدة...",
     "generalError": "لقد حدث خطأ ما.",
     "incoming": "تلقيت رسالة من الإدارة",
-    "incomingDisclaimer": "Any message you send here will get sent to staff.",
+    "incomingDisclaimer": "سيتم إرسال أي رسالة ترسلها هنا إلى موظفين السيرفر.",
     "executedBy": "نفذ من قبل %%user%%"
 }

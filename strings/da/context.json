@@ -7,7 +7,7 @@
         "exists1": "A context entry for ",
         "exists2": " findes allerede, så din kontekst blev ikke tilføjet. Brug `+context edit` i stedet.",
         "didntReply": "Du svarede ikke i tide, ",
-        "hitReaction": "You reacted with %%voteNo%%, ",
+        "hitReaction": "Du reagerede med %%voteNo%%, ",
         "cancelledPrompt": "så denne prompt blev annulleret. ",
         "readdTryAgain": "Reager igen med 📑for at prøve igen."
     },

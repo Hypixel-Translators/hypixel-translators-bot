@@ -32,7 +32,7 @@
     },
     "issue": {
         "usage": "+issue",
-        "description": "Abre nuestra página de errores de GitHub, donde puedes reportar bugs."
+        "description": "Abre nuestra página de errores de GitHub, donde puedes reportar bugs y dar comentarios."
     },
     "language": {
         "usage": "+language [<nuevo idioma> | list]",

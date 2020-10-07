@@ -1,45 +1,45 @@
 {
-    "moduleName": "Information",
-    "commandsListTitle": "Links and commands",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
-    "madeBy": " | Bot made with lots of care by %%QkeleQ10%%",
+    "moduleName": "معلومات",
+    "commandsListTitle": "روابط و أوامر",
+    "commandsListTooltip": "تم صنع هذا البوت لمجتمع مترجمين هايبكسل من قبل %%QkeleQ10%%. انه مصدر مفتوح و مشروع قيت هب يمكن العثور عليه [here]%%github%%.\nيمكنك مساعدتنا في ترجمة البوت من خلال اتباع التعليمات التاليه في [هذه الرسالة]%%translate%%.\n\nيمكنك تنفيذ `+help <اسم الأمر>` لمعرفة المزيد عن أمر معين.\nهنا قائمة الأوامر:\n ",
+    "madeBy": " | بوت مصنوع مع الكثير من العناية من قبل %%QkeleQ10%%",
     "commandInfo": "معلومات الأوامر",
     "commandInfoFor": "معلومات الأوامر لـ ",
     "commandNotExist": "هذا الأمر غير موجود!",
-    "seconds": " seconds",
+    "seconds": " ثواني",
     "usageField": "الإستخدام",
     "cooldownField": "فترة الاستراحة",
     "aliasesField": "الإسم البديل",
     "help": {
         "usage": "+help [اسم الأمر]",
-        "description": "Shows you all available commands and other info about the bot."
+        "description": "يظهر لك جميع الأوامر المتاحة ومعلومات أخرى عن البوت."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "يعطيك البرفكس المناسب للغه/لغات الخاصة بك."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "usage": "+quote [سجل] | +quote add <اقتباس> / <منشن مستخدم>",
+        "description": "يحضر (أو يضيف) اقتباس مضحك / غريب/حكيم من السيرفر."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with an optional message."
+        "usage": "+mention <اللغة> translator|proofreader|all [الرسالة]",
+        "description": "منشن رتبة اللغه مع رسالة اختيارية."
     },
     "context": {
-        "usage": "+context احصل|اضيف|عدِّل|اعرض|مساعده <الوسيطه>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
+        "usage": "+context get|add|edit|view|help <مُعطى>",
+        "description": "تجلب, تضيف أو تعدل السياق لآيدي سترينج السياق المعطى. `+context help` تظهر لك معلومات عن هذا الأمر."
     },
     "issue": {
         "usage": "+issue",
-        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
+        "description": "تفتح لك صفحة المشاكل الخاصة بنا في Github, المكان الذي تستطيع فيه إخبارنا عن المشاكل و ترسل تقييم."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "usage": "+language [<لغة جديدة> | list]",
+        "description": "تغير لغتك, تظهر لك لغتك الحالية أو تظهر قائمة اللغات المتاحة حاليا."
     },
     "boop": {
-        "usage": "+boop <user>",
+        "usage": "+boop <مستخدم>",
         "description": "Boop!"
     },
     "executedBy": "نفذ من قبل %%user%%"
