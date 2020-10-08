@@ -1,6 +1,6 @@
 {
     "moduleName": "Bulk Send",
-    "success": "Success! Message sent.",
+    "success": "Επιτυχία! Το μήνυμα στάλθηκε.",
     "generalError": "Something has gone wrong.",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
