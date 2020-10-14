@@ -185,7 +185,6 @@ client.on("message", async message => {
     strings = require(("./strings/" + oldMsg[0] + "/" + command.name + ".json"))
     if (strings = "unknown") {
       var strings = require(("./strings/en/" + command.name + ".json"))
-      console.log(strings)
     }
   })
   globalStrings.executedBy.replace("%%user%%", message.author.tag)
