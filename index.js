@@ -183,10 +183,9 @@ client.on("message", async message => {
     oldMsg = element.content.split(" ")
     oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
     strings = require(("./strings/" + oldMsg[0] + "/" + command.name + ".json"))
-    if (strings = "unknown") {
-      var strings = require(("./strings/en/" + command.name + ".json"))
+    if (strings = "unknown") {var strings = require(("./strings/en/" + command.name + ".json"))}
+      else {strings = require(("./strings/" + oldMsg[0] + "/" + command.name + ".json"))}
       console.log(strings)
-    }
   })
   globalStrings.executedBy.replace("%%user%%", message.author.tag)
   setTimeout(() => {
