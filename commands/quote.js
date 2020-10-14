@@ -89,7 +89,7 @@ async function accessSpreadsheet(executedBy, strings, message, args, msg) {
         .setAuthor(strings.moduleName)
         .setTitle(correctRow.quote)
         .setDescription("      - " + correctRow.user)
-        .setFooter(executedBy);
+        .setFooter(strings.test);
     msg.edit(embed)
 }
 
