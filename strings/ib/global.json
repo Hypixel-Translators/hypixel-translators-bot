@@ -17,7 +17,7 @@
     "cooldown": "Time to get cold and not hot",
     "timeLeftT": "U quicc, but too quicc so pls wait %%time%% skakund befr do `+%%command%%`.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
-    "tip": "Tip",
+    "tip": "Gun factory",
     "tips": {
         "0": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
         "1": "I need translators! Find out how to become a bot translator [here]%%translate%%.",
