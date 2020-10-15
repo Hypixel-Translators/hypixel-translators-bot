@@ -1,15 +1,15 @@
 {
-    "moduleName": "Information",
-    "commandsListTitle": "Links and commands",
+    "moduleName": "Informasi",
+    "commandsListTitle": "Pautan dan perintah",
     "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
     "madeBy": " | Bot made with lots of care by %%QkeleQ10%%",
-    "commandInfo": "Command information",
+    "commandInfo": "Informasi Perintah",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "That command doesn't exist!",
-    "seconds": " seconds",
-    "usageField": "Usage",
+    "seconds": " Detik",
+    "usageField": "Penggunaan",
     "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
+    "aliasesField": "Alias",
     "help": {
         "usage": "+help [name of command]",
         "description": "Shows you all available commands and other info about the bot."
