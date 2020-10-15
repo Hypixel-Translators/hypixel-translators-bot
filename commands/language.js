@@ -138,7 +138,7 @@ module.exports = {
                         .setAuthor(strings.moduleName)
                         .setTitle("Your language preference is set to English.")
                         .setFooter(executedBy)
-                        .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n\nFound a bug? Execute `+bug <message>`.")
+                        .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n\nFound a bug? Report it using `+bug`.")
                     await message.channel.send(embed)
                 })
                 return
