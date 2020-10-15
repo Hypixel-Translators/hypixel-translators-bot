@@ -71,7 +71,7 @@ module.exports = {
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR"))) {
         message.delete()
         message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> " + toSend);
-      } else { message.channel.send(strings.errorNoPing + strings.errorNoPingPr + strings.errorNoPingDisclaimer) }
+      } else { message.channel.send(strings.errorNoPing + strings.errorNoPingPr + " " + strings.errorNoPingDisclaimer) }
     } else if (type === "tr" || type === "translator" || type === "Translator") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
       const higherRole = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
@@ -80,7 +80,7 @@ module.exports = {
       ) {
         message.delete()
         message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> " + toSend);
-      } else { message.channel.send(strings.errorNoPing + strings.errorNoPingTr + strings.errorNoPingDisclaimer) }
+      } else { message.channel.send(strings.errorNoPing + strings.errorNoPingTr + " " + strings.errorNoPingDisclaimer) }
     } else if (type === "all" || type === "both") {
       const translatorPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
       const proofreaderPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
@@ -88,7 +88,7 @@ module.exports = {
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR"))) {
         message.delete()
         message.channel.send("**<@" + message.member.id + ">**: <@&" + translatorPing + "> <@&" + proofreaderPing + "> " + toSend);
-      } else { message.channel.send(strings.errorNoPing + strings.errorNoPingAll + strings.errorNoPingDisclaimer) }
+      } else { message.channel.send(strings.errorNoPing + strings.errorNoPingAll + " " + strings.errorNoPingDisclaimer) }
     }
   }
 };
