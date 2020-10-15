@@ -5,9 +5,9 @@
   "errorColor": "#e02222",
   "successColor": "#21de70",
   "neutralColor": "#28dbde",
-  "listenStatuses" : ["+help", "RANDOM_USER's commands", "RANDOM_USER", "wise words from RANDOM_USER", "Stannya and Rodry"],
+  "listenStatuses" : ["+help", "RANDOM_USER's commands", "RANDOM_USER", "wise words from RANDOM_USER", "QkeleQ10", "Stannya and Rodry"],
   "watchStatuses": ["your commands", "your messages", "meatdata", "their prayers", "nicknames and stuff", "RANDOM_USER's messages"],
-  "randomUser": ["Stannya", "Rodry", "Sol", "Wens", "Linewater", "Kiril", "TheComputer8423", "Sucamos", "Nad", "lasse", "doublechecked", "Deentrox", "uncheated", "joze"],
+  "randomUser": ["Stannya", "Rodry", "QkeleQ10", "Sol", "Wens", "Linewater", "Kiril", "TheComputer8423", "Sucamos", "Nad", "lasse", "doublechecked", "Deentrox", "uncheated", "joze"],
   "langdb": [  
     {"name": "Arabic", "emoji": "🇵🇸", "code" : "ar"},
     {"name": "Biscuitish", "emoji": "🍪", "code" : "bc"},
