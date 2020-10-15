@@ -8,6 +8,6 @@ The bot has a `+language` command which allows you to change your language when 
 To join the translation project, please make a join request [here](https://crowdin.com/project/hypixel-translators-bot) and include your Discord tag (QkeleQ10#6046 for example) or your Discord ID. If you don't include either of these you will be denied, even if we know who you are. This is so that we can give you access to the special channel made to discuss bot translations (#bot-translators).
 
 ## Just want to check it out?
-In order to change your language, execute `+language <language>`. If you find any bugs, please let us know using `+bug`. Keep in mind you do not have to join the translation project in order to use the language, but it may not be fully translated. 
+In order to change your language, execute `+language <language>`. If you find any bugs, please let us know by adding an issue [here](https://github.com/QkeleQ10/hypixel-translators-bot-discord/issues). Keep in mind you do not have to join the translation project in order to use the language, but it may not be fully translated. 
 
 **Done reading? Cool! [Click here to join our server.](https://discord.gg/rcT948A)**
