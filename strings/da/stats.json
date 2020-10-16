@@ -1,5 +1,5 @@
 {
-    "moduleName": "Statistics updater",
+    "moduleName": "Opdatering af statistikker",
     "started": "Please wait a minute or two for all statistics to update...",
     "done": "Alle statistikker er blevet opdateret!",
     "executedBy": "Udført af %%user%%"
