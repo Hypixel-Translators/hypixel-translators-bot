@@ -4,14 +4,14 @@
     "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
     "madeBy": " | Bot made with lots of care by %%QkeleQ10%%",
     "commandInfo": "Informasi Perintah",
-    "commandInfoFor": "Command information for ",
+    "commandInfoFor": "Informasi perintah untuk ",
     "commandNotExist": "That command doesn't exist!",
     "seconds": " Detik",
     "usageField": "Penggunaan",
     "cooldownField": "Cooldown",
     "aliasesField": "Alias",
     "help": {
-        "usage": "+help [name of command]",
+        "usage": "+help [nama perintah]",
         "description": "Shows you all available commands and other info about the bot."
     },
     "prefix": {
