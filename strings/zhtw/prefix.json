@@ -16,7 +16,7 @@
     "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
     "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
     "previewT": "Nickname preview",
-    "newNickT": "New nickname",
+    "newNickT": "新暱稱",
     "noChanges": "No changes",
     "saved": "Your prefix has been saved!",
     "executedBy": "Executed by %%user%%"
