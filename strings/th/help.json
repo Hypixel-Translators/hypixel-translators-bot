@@ -15,7 +15,7 @@
         "description": "Shows you all available commands and other info about the bot."
     },
     "prefix": {
-        "usage": "+prefix",
+        "usage": "+คำนำหน้า",
         "description": "Gives you the appropriate prefix for your language(s)."
     },
     "quote": {
