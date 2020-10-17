@@ -9,7 +9,7 @@
     "current": "Your language preference is set to English.",
     "listTitle": "List of languages",
     "listElement": "`%%code%%` | **%%language%%**",
-    "credits": "Found an issue? Report it using `+issue`.",
+    "credits": "發現問題了？請使用 `+bug` 來回報問題。",
     "ar": "阿拉伯語",
     "bg": "保加利亞語",
     "zhcn": "簡體中文",
