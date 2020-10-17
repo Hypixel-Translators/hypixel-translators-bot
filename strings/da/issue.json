@@ -3,6 +3,6 @@
     "bugT": "Visning, samt tilføjelse af problemer",
     "bugD": "For at vise og lave forslag eller fejlrapporter, så [klik her]%%github%%.",
     "urgentT": "Is it urgent?",
-    "urgentD": "Hvis du prøver at rapporterer en fatal fejl eller botten har været nede i lang tid uden en varsel, så nævn venligst %%QkeleQ10%% i en offentlig kanal, hvor du forklarer problemet.",
+    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention %%QkeleQ10%% in a public channel, explaining the issue.",
     "executedBy": "Udført af %%user%%"
 }
