@@ -15,7 +15,7 @@
         "description": "Te montre toutes les commandes disponibles et les informations générales sur le bot."
     },
     "prefix": {
-        "usage": "+préfixe",
+        "usage": "+prefix",
         "description": "Te donne le préfixe approprié pour ta(es) langue(s)."
     },
     "quote": {
