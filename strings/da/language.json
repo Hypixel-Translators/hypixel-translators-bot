@@ -9,7 +9,7 @@
     "current": "Din sprogpræference er Dansk.",
     "listTitle": "Liste over sprog",
     "listElement": "`%%code%%` = **%%language%%**",
-    "credits": "Found an issue? Report it using `+issue`.",
+    "credits": "Har du fundet en fejl? Rapporter den ved at skrive `+issue`.",
     "ar": "Arabisk",
     "bg": "Bulgarsk",
     "zhcn": "Kinesisk (forenklet)",
