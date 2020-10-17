@@ -6,12 +6,12 @@
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "That command doesn't exist!",
-    "seconds": " 秒",
+    "seconds": " seconds",
     "usageField": "Usage",
     "cooldownField": "Cooldown",
     "aliasesField": "Aliases",
     "help": {
-        "usage": "+help [指令名稱]",
+        "usage": "+help [name of command]",
         "description": "Shows you all available commands and other info about the bot."
     },
     "prefix": {
@@ -23,11 +23,11 @@
         "description": "Gets (or adds) a funny/weird/wise quote from the server."
     },
     "mention": {
-        "usage": "+mention <語言> translator|proofreader|all [訊息]",
+        "usage": "+mention <language> translator|proofreader|all [message]",
         "description": "Mentions a language role with an optional message."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <參數>",
+        "usage": "+context get|add|edit|view|help <arguments>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command."
     },
     "issue": {
