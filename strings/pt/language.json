@@ -3,7 +3,7 @@
     "loading": "Só um segundo...",
     "changing": "A alterar o teu idioma... Isto pode levar algum tempo.",
     "changedToTitle": "O teu idioma foi alterado para português!",
-    "errorTitle": "Esse idioma não foi ainda adicionado!",
+    "errorTitle": "Esse idioma ainda não foi adicionado!",
     "errorDescription": "O teu idioma não foi alterado. Estes são os idiomas disponíveis neste momento (isto não significa que estejam traduzidos):",
     "suggestAdd": "Se quiseres que este idioma seja adicionado ao bot, entra em contacto com %%QkeleQ10%% ou envia uma sugestão usando `+feedback`.",
     "current": "O teu idioma de preferência está definido para português.",
