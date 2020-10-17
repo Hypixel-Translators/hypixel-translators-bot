@@ -15,7 +15,7 @@
         "description": "Viser dig alle de tilgængelige kommandoer og andet information omkring botten."
     },
     "prefix": {
-        "usage": "+præfiks",
+        "usage": "+prefix",
         "description": "Giver dig det præfiks, der passer til dine sprog."
     },
     "quote": {

@@ -15,7 +15,7 @@
         "description": "Viser alle tilgjengelig kommandoer og annet info om boten."
     },
     "prefix": {
-        "usage": "+prefiks",
+        "usage": "+prefix",
         "description": "Gir deg den riktige prefiksen for din(e) språk."
     },
     "quote": {
