@@ -15,7 +15,7 @@
         "description": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir."
     },
     "prefix": {
-        "usage": "+prefix",
+        "usage": "+ön ek",
         "description": "Dil(lerin) için uygun ön ekleri verir."
     },
     "quote": {
