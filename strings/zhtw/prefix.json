@@ -15,8 +15,8 @@
     "react": "React with all flags you want to add to your prefix in order.",
     "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
     "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "暱稱預覽",
-    "newNickT": "新暱稱",
+    "previewT": "Nickname preview",
+    "newNickT": "New nickname",
     "noChanges": "No changes",
     "saved": "Your prefix has been saved!",
     "executedBy": "Executed by %%user%%"
