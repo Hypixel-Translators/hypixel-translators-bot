@@ -15,7 +15,7 @@
     "contextFor": "Sammanhang för ",
     "noteFor": "Note for ",
     "screenshot": "Skärmdump",
-    "addContextFor": "Add context for ",
+    "addContextFor": "Lägg till sammanhang för ",
     "edited": "Edited this context entry! ",
     "editedResult": "Edited this context entry! The new data is shown below.\n\n**Context**\n",
     "tryRunGet": "We couldn't find the resulting entry. Try to run `+context get <string ID>` to see the result instead.",
