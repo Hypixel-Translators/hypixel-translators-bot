@@ -7,6 +7,7 @@
     "noMessage": "¡No has dado ningún mensaje!",
     "noChannel": "¡No has dado ningún canal!",
     "noUser": "¡No has dado ningún usuario!",
+    "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
     "noUserQuote": "¡No has dado ningún usuario! Por favor, escribe la cita y menciona al usuario citado, separado por /.",
     "falseChannel": "¡Ese canal no fue encontrado!",
     "falseUser": "¡Ese usuario no fue encontrado!",
