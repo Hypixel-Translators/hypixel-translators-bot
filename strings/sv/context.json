@@ -1,7 +1,7 @@
 {
-    "moduleName": "Context",
+    "moduleName": "Sammanhang",
     "loading": "En sekund...",
-    "loadingModule": "Loading module...",
+    "loadingModule": "Läser in modul...",
     "errors": {
         "notFound": "The context entry%%name%% hasn't been found!",
         "exists1": "A context entry for ",
