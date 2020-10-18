@@ -36,7 +36,7 @@ module.exports = {
                         }, 60000)
                     }
                 })
-        } catch (err) { throw err }
+        } catch (err) { throw err.toString() }
     }
 }
 
