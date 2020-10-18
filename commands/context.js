@@ -12,20 +12,14 @@ module.exports = {
     cooldown: 10,
     execute(strings, message, args) {
         try {
-            if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771")) {
-                throw "noTrPr"
-            }
+            if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771")) throw "noTrPr"
             if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(executedBy, strings, message, args) }
             else if (args[0] === "get") { getFromSpreadsheet(executedBy, strings, message, args) }
             else if (args[0] === "edit") { editInSpreadsheet(executedBy, strings, message, args) }
             else if (args[0] === "info" || args[0] === "help") { showInfo(executedBy, strings, message, args) }
             else if (args[0] === "view" || args[0] === "link") { viewsheet(executedBy, strings, message, args) }
-            else { throw "contextSubArg" }
-            if (strings, message.channel.id === "549894938712866816") {
-                setTimeout(() => {
-                    message.delete()
-                }, 60000)
-            }
+            else throw "contextSubArg"
+            if (strings, message.channel.id === "549894938712866816") { setTimeout(message.delete(), 60000) }
         } catch (err) { throw err.toString() }
     }
 }
