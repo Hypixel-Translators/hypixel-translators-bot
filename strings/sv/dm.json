@@ -2,7 +2,7 @@
     "outgoing": "Sent message to %%recipient%%",
     "outgoingLoad": "Sending message to user",
     "loading": "En sekund...",
-    "generalError": "Something has gone wrong.",
+    "generalError": "Något gick fel.",
     "incoming": "Received message from staff",
     "incomingDisclaimer": "Any message you send here will get sent to staff.",
     "executedBy": "Executed by %%user%%"
