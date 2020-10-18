@@ -33,7 +33,7 @@ async function getFromSpreadsheet(executedBy, strings, message, args) {
         .setDescription(strings.loadingModule)
         .setFooter(executedBy);
     message.channel.send(embed)
-        .then(msg => {
+        .then (async msg => {
             const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
             await doc.useServiceAccountAuth(creds)
 
@@ -81,7 +81,7 @@ async function getFromSpreadsheet(executedBy, strings, message, args) {
             if (correctRow.th) { if (correctRow.th.length > 1) { embed.addFields({ name: strings.noteFor + strings.thai, value: correctRow.th, inline: true }) } }
             if (correctRow.tr) { if (correctRow.tr.length > 1) { embed.addFields({ name: strings.noteFor + strings.turkish, value: correctRow.tr, inline: true }) } }
             if (correctRow.uk) { if (correctRow.uk.length > 1) { embed.addFields({ name: strings.noteFor + strings.ukrainian, value: correctRow.uk, inline: true }) } }
-            if (correctRow.screenshot) {
+            if (correctRow.screenshot) {h
                 var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
                 if (regexp.test(correctRow.screenshot)) {
                     embed.setImage(correctRow.screenshot)
@@ -100,7 +100,7 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
         .setDescription(strings.loadingModule)
         .setFooter(executedBy);
     message.channel.send(embed)
-        .then(msg => {
+        .then (async msg => {
             const string = args[1]
             var toSend = [...args]
             toSend.splice(0, 2)
@@ -152,7 +152,7 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
                     { name: strings.moduleName, value: toSend }
                 )
                 .setFooter(executedBy);
-            msg.edit(embed).then(msg => {
+            msg.edit(embed).then (async msg => {
                 msg.react("📑").then(() => { msg.react(yesEmoji).then(() => { msg.react(noEmoji) }) })
                 const filter = (reaction, reacter) => {
                     return (reaction.emoji.name === "📑" || reaction.emoji === yesEmoji || reaction.emoji === noEmoji) && reacter.id === message.author.id;
@@ -324,7 +324,7 @@ async function editInSpreadsheet(executedBy, strings, message, args) {
         .setDescription(strings.loadingModule)
         .setFooter(executedBy);
     message.channel.send(embed)
-        .then(msg => {
+        .then (async msg => {
             if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) {
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
@@ -494,7 +494,7 @@ async function showInfo(executedBy, strings, message, args) {
         .setDescription(strings.loadingModule)
         .setFooter(executedBy);
     message.channel.send(embed)
-        .then(msg => {
+        .then (async msg => {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor(strings.moduleName)
@@ -522,7 +522,7 @@ async function viewsheet(executedBy, strings, message, args) {
         .setDescription(strings.loadingModule)
         .setFooter(executedBy);
     message.channel.send(embed)
-        .then(msg => {
+        .then (async msg => {
             const embed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setTitle(strings.info.sheetT)
