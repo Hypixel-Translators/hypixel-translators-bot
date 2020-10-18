@@ -1,5 +1,5 @@
 {
-    "moduleName": "Quote",
+    "moduleName": "Citat",
     "loading": "En sekund...",
     "loadingModule": "Loading module...",
     "invalidArg": "Invalid argument!",
@@ -7,6 +7,6 @@
     "reqSub": "Your quote request has been submitted, thanks!",
     "reqAdd": "Success! The following quote has been added:",
     "user": "Användare",
-    "index": "Quote number",
+    "index": "Citatnummer",
     "executedBy": "Executed by %%user%%"
 }
