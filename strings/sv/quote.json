@@ -1,11 +1,11 @@
 {
     "moduleName": "Citat",
     "loading": "En sekund...",
-    "loadingModule": "Loading module...",
-    "invalidArg": "Invalid argument!",
+    "loadingModule": "Läser in modul...",
+    "invalidArg": "Ogiltigt argument!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "reqSub": "Your quote request has been submitted, thanks!",
-    "reqAdd": "Success! The following quote has been added:",
+    "reqAdd": "Sucess! Följande citat har lagts till:",
     "user": "Användare",
     "index": "Citatnummer",
     "executedBy": "Executed by %%user%%"
