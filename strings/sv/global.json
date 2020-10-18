@@ -25,7 +25,7 @@
         "2": "Have you tried Emoji language? Change your language to it using `+lang em`!",
         "3": "Please change your links to en-en!",
         "4": "You get random amounts of XP every minute when you're chatting, which will eventually make you level up.",
-        "5": "We need more tips! Submit them using `+feedback`.",
+        "5": "Vi behöver fler tips! Skicka in dem med hjälp av `+feedback`.",
         "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%gettingStarted%%, it has some useful tips!",
         "7": "Have you followed our twitter account? Check it out [here]%%twitter%%!",
         "8": "%%rules%% and %%serverInfo%% have all the info you need about this server!",
