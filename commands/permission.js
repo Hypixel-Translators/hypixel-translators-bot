@@ -33,8 +33,8 @@ module.exports = {
         } else { //No argument given - show all bot and author permissions
           var authorP = []
           var botP = []
-          const authorPerms = message.member.permissions.toArray().forEach(e => { authorP.push(strings.perms[e]) })
-          const botPerms = msg.member.permissions.toArray().forEach(e => { botP.push(strings.perms[e]) })
+          const authorPerms = message.member.permissions.toArray().forEach(e => { authorP.push(strings.perms[e] || e) })
+          const botPerms = msg.member.permissions.toArray().forEach(e => { botP.push(strings.perms[e] || e) })
           const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor(strings.moduleName)
