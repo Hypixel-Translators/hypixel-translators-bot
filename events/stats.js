@@ -178,7 +178,7 @@ async function skyblockaddons(client) {
 
                             const embed = new Discord.MessageEmbed()
                                 .setColor(adapColour)
-                                .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-" + r.code)
+                                .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-" + r.code); console.log
                                 .setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png" || "https://crowdin-static.downloads.crowdin.com/images/custom_flags/big/13809467_" + r.code + ".png")
                                 .setTimestamp()
                             if (langdbEntry) { embed.setTitle(langdbEntry.emoji + " | " + r.name) } else { embed.setTitle("<:icon_question:756582065834688662> | " + r.name) }
