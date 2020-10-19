@@ -2,8 +2,6 @@
     "moduleName": "Permission checker",
     "loading": "One second...",
     "bot": "Bot",
-    "false": "doesn't have this permission",
-    "true": "has this permission",
     "list": "List of permissions",
     "specific": "%%perm%% permission",
     "perms": {
