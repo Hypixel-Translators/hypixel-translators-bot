@@ -21,7 +21,7 @@ module.exports = {
         var userP = [] //user perm array
         const authorPerms = message.member.permissions.toArray().forEach(e => { authorP.push(strings.perms[e] || e) })
         const botPerms = msg.member.permissions.toArray().forEach(e => { botP.push(strings.perms[e] || e) })
-        if (args[0]) const userPerms = msg.member.permissions.toArray().forEach(e => { userP.push(strings.perms[e] || e) })
+        if (args[0]) { const userPerms = msg.member.permissions.toArray().forEach(e => { userP.push(strings.perms[e] || e) }) }
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
           .setAuthor(strings.moduleName)
@@ -29,7 +29,7 @@ module.exports = {
           .addFields(
             { name: msg.author.tag, value: botP.join(", ") },
             { name: message.author.tag, value: authorP.join(", ") }
-          ) 
+          )
           .setFooter(executedBy)
         msg.edit(embed)
       })
