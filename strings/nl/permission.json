@@ -2,15 +2,15 @@
     "moduleName": "Permissiecontrole",
     "loading": "Even geduld...",
     "bot": "Bot",
-    "false": "doesn't have this permission",
-    "true": "has this permission",
-    "list": "List of permissions",
-    "specific": "%%perm%% permission",
+    "false": "heeft deze permissie niet",
+    "true": "heeft deze permissie wel",
+    "list": "Permissielijst",
+    "specific": "%%perm%%-permissie",
     "perms": {
         "ADMINISTRATOR": "Administrator",
-        "CREATE_INSTANT_INVITE": "Create invites",
-        "KICK_MEMBERS": "Kick members",
-        "BAN_MEMBERS": "Ban members",
+        "CREATE_INSTANT_INVITE": "Uitnodigingen aanmaken",
+        "KICK_MEMBERS": "Leden kicken",
+        "BAN_MEMBERS": "Leden verbannen",
         "": ""
     },
     "executedBy": "Uitgevoerd door %%user%%"
