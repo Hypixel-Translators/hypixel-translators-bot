@@ -23,7 +23,7 @@ module.exports = {
           const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor(strings.moduleName)
-            .setTitle(strings.specific.replace("%%perm%%", perm))
+            .setTitle(strings.specific.replace("%%perm%%", strings.perms[perm]))
             .addFields(
               { name: msg.author.tag, value: strings[botPerm], inline: true },
               { name: message.author.tag, value: strings[authorPerm], inline: true }
@@ -31,15 +31,17 @@ module.exports = {
             .setFooter(executedBy)
           msg.edit(embed)
         } else { //No argument given - show all bot and author permissions
-          const authorPerms = message.member.permissions.toArray().join(", ")
-          const botPerms = msg.member.permissions.toArray().join(", ")
+          var authorP = []
+          var botP = []
+          const authorPerms = message.member.permissions.toArray().forEach(e => { authorP.push(strings.perms[e]) })
+          const botPerms = msg.member.permissions.toArray().forEach(e => { botP.push(strings.perms[e]) })
           const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.list)
             .addFields(
-              { name: msg.author.tag, value: botPerms },
-              { name: message.author.tag, value: authorPerms }
+              { name: msg.author.tag, value: botP.join(", ") },
+              { name: message.author.tag, value: authorP.join(", ") }
             )
             .setFooter(executedBy)
           msg.edit(embed)
