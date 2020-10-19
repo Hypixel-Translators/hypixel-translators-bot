@@ -6,5 +6,19 @@
     "true": "has this permission",
     "list": "List of permissions",
     "specific": "%%perm%% permission",
+    "perms": {
+        "ADMINISTRATOR": "Administrator",
+        "CREATE_INSTANT_INVITE": "Create invites",
+        "KICK_MEMBERS": "Kick members",
+        "BAN_MEMBERS": "Ban members",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": ""
+    },
     "executedBy": "Executed by %%user%%"
 }
