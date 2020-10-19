@@ -9,7 +9,6 @@ module.exports = {
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-development
   execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-    const perm = args[0].toUpperCase()
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
       .setAuthor(strings.moduleName)
@@ -17,12 +16,13 @@ module.exports = {
       .setFooter(executedBy)
     message.channel.send(embed).then(msg => {
       if (args[0]) { //Argument given - show if bot and author have specific permission
+        const perm = args[0].toUpperCase()
         const authorPerm = message.member.hasPermission(perm)
         const botPerm = msg.member.hasPermission(perm)
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
           .setAuthor(strings.moduleName)
-          .setTitle(perm)
+          .setTitle(strings.specific.replace("%%perm%%", perm))
           .addFields(
             { name: strings.bot, value: strings[botPerm], inline: true },
             { name: message.author.tag, value: strings[authorPerm], inline: true }
