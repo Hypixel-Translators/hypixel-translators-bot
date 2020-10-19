@@ -36,7 +36,7 @@
     {"name": "Lithuanian", "emoji": "🇱🇹", "code" : "lt"},
     {"name": "Malay", "emoji": "🇲🇾", "colour": "#e02222", "code": "ms"},
     {"name": "Norwegian", "emoji": "🇳🇴", "colour": "#e02222", "code": "no"},
-    {"name": "Pirate English", "emoji": "☠️", "colour": "#21de70", "code": "enpt"},
+    {"name": "Pirate English", "emoji": "🏴‍☠️", "colour": "#21de70", "code": "enpt"},
     {"name": "Polish", "emoji": "🇵🇱", "colour": "#21de70", "code": "pl"},
     {"name": "Portuguese", "emoji": "🇵🇹", "colour": "#21de70", "code": "pt"},
     {"name": "Portuguese, Brazilian", "emoji": "🇧🇷", "colour": "#21de70", "code": "ptbr"},
