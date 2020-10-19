@@ -2,14 +2,13 @@ const { workingColor, errorColor, successColor, neutralColor } = require("../con
 const Discord = require("discord.js");
 
 module.exports = {
-  name: "gotperm",
-  description: "See if user has a specified permission.",
-  aliases: ["hasperm", "permchecker", "permcheck", "checkperm"],
-  usage: "gotperm <permission name> [user]",
+  name: "permission",
+  description: "See if the bot and author have a specified permission or lists all permissions.",
+  aliases: ["perm", "perms", "gotperm", "hasperm", "permissions"],
+  usage: "permission [name of permission]",
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-development
   execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-    //message.delete();
     const perm = args[0].toUpperCase()
     const embed = new Discord.MessageEmbed()
       .setColor(workingColor)
@@ -17,40 +16,33 @@ module.exports = {
       .setTitle(strings.loading)
       .setFooter(executedBy)
     message.channel.send(embed).then(msg => {
-      const authorPerm = message.member.hasPermission(perm);
-      const botPerm = msg.member.hasPermission(perm);
-
-      if (args[1]) {
-        const guild = msg.client.guilds.get("549503328472530974")
-        const user = guild.member(args[1])
-        console.log(user);
-        const userPerm = user.hasPermission(perm);
-
+      if (args[0]) { //Argument given - show if bot and author have specific permission
+        const authorPerm = message.member.hasPermission(perm)
+        const botPerm = msg.member.hasPermission(perm)
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
           .setAuthor(strings.moduleName)
           .setTitle(perm)
           .addFields(
-            { name: strings.bot, value: botPerm },
-            { name: strings.author, value: authorPerm },
-            { name: strings.user, value: userPerm }
+            { name: strings.bot, value: strings[botPerm], inline: true },
+            { name: message.author.tag, value: strings[authorPerm], inline: true }
           )
           .setFooter(executedBy)
-        msg.edit(embed);
-
-      } else {
-
+        msg.edit(embed)
+      } else { //No argument given - show all bot and author permissions
+        const authorPerms = message.member.permissions.toArray().join(", ")
+        const botPerms = msg.member.permissions.toArray().join(", ")
         const embed = new Discord.MessageEmbed()
           .setColor(successColor)
           .setAuthor(strings.moduleName)
-          .setTitle(perm)
+          .setTitle(strings.list)
           .addFields(
-            { name: strings.bot, value: botPerm },
-            { name: strings.author, value: authorPerm }
+            { name: strings.bot, value: botPerms, inline: true },
+            { name: message.author.tag, value: authorPerms, inline: true }
           )
           .setFooter(executedBy)
-        msg.edit(embed);
+        msg.edit(embed)
       }
-    });
+    })
   }
-};
+}

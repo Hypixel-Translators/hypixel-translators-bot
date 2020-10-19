@@ -2,7 +2,8 @@
     "moduleName": "Permission checker",
     "loading": "One second...",
     "bot": "Bot",
-    "author": "Author",
-    "user": "User",
+    "false": "doesn't have this permission",
+    "true": "does have this permission",
+    "list": "List of permissions",
     "executedBy": "Executed by %%user%%"
 }
