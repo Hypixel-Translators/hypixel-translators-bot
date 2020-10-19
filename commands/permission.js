@@ -24,7 +24,7 @@ module.exports = {
           .setAuthor(strings.moduleName)
           .setTitle(strings.specific.replace("%%perm%%", perm))
           .addFields(
-            { name: strings.bot, value: strings[botPerm], inline: true },
+            { name: msg.author.tag, value: strings[botPerm], inline: true },
             { name: message.author.tag, value: strings[authorPerm], inline: true }
           )
           .setFooter(executedBy)
@@ -37,8 +37,8 @@ module.exports = {
           .setAuthor(strings.moduleName)
           .setTitle(strings.list)
           .addFields(
-            { name: strings.bot, value: botPerms, inline: true },
-            { name: message.author.tag, value: authorPerms, inline: true }
+            { name: msg.author.tag, value: botPerms },
+            { name: message.author.tag, value: authorPerms }
           )
           .setFooter(executedBy)
         msg.edit(embed)
