@@ -6,7 +6,7 @@ module.exports = {
   description: "Shows info about the bot, author and any specified user.",
   aliases: ["perm", "perms", "user", "userinfo", "permission", "permissions"],
   usage: "check [user]",
-  channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-development
+  channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "768160446368186428"], // bots staff-bots bot-development managers
   execute(strings, message, args) {
     try {
       const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
