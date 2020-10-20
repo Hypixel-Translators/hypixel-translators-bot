@@ -11,7 +11,7 @@ module.exports = {
     if (args[0]) {
       var user = message.guild.members.cache.find(m => (m.id === args[0].replace("<@", "").replace(">", "")) || m.user.tag === args[0] || m.user.username === args[0] || m.nickname === args[0] || m.user.tag.toLowerCase().includes(args[0].toLowerCase()) || m.displayName.toLowerCase().includes(args[0].toLowerCase()))
       if (!user) {
-        message.channel.send("Couldn't find that user!")
+        message.channel.send(args[0] + " hasn't been found!")
         return;
         //throw "falseUser"
       }
