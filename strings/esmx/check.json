@@ -1,8 +1,10 @@
 {
-    "moduleName": "Comprobador de permisos",
+    "moduleName": "User information",
     "loading": "Un segundo...",
     "bot": "Bot",
     "list": "Lista de permisos",
+    "uperms": "%%user%%'s permissions",
+    "utitle": "Info for %%user%%",
     "specific": "Permiso de %%perm%%",
     "perms": {
         "ADMINISTRATOR": "Administrador",
