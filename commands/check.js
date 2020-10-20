@@ -39,10 +39,12 @@ module.exports = {
           const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor(strings.moduleName)
-            .setTitle(strings.utitle.replace("%%user%%", user.tag))
+            .setTitle(user.user.tag)
             .addFields(
-              { name: strings.uperms.replace("%%user%%", user.tag), value: userP.join(", ") }
+              { name: strings.uroles, value: user.roles.map(r => `<@&${r}>`).join(', ') },
+              { name: strings.uperms, value: userP.join(", ") }
             )
+            .setImage(user.user.avatarURL)
             .setFooter(executedBy)
           msg.edit(embed)
         }

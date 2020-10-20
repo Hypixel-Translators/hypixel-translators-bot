@@ -3,8 +3,8 @@
     "loading": "One second...",
     "bot": "Bot",
     "list": "List of permissions",
-    "uperms": "%%user%%'s permissions",
-    "utitle":"Info for %%user%%",
+    "uperms": "Permissions",
+    "uroles": "Roles",
     "specific": "%%perm%% permission",
     "perms": {
         "ADMINISTRATOR": "Administrator",
