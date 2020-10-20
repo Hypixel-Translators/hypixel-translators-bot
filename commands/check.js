@@ -40,8 +40,9 @@ module.exports = {
             .setColor(successColor)
             .setAuthor(strings.moduleName)
             .setTitle(user.user.tag)
+            .setDescription("<@" + user.id + ">")
             .addFields(
-              { name: strings.uroles, value: user.roles.cache.map(r => `<@&${r}>`).join(', ') },
+              { name: strings.uroles, value: user.roles.cache.map(r => `${r}`).join(', ') },
               { name: strings.uperms, value: userP.join(", ") }
             )
             .setImage(user.user.avatarURL)
