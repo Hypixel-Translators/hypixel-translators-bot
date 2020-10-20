@@ -1,0 +1,46 @@
+{
+    "moduleName": "Información",
+    "commandsListTitle": "Links y comandos",
+    "commandsListTooltip": "Este bot fue creado para la Comunidad de Traductores de Hypixel por %%QkeleQ10%%. Es de código abierto y nuestro repositorio de GitHub se puede encontrar [aquí]%%github%%.\nPuedes ayudar a traducir el bot siguiendo las instrucciones en [este mensaje]%%translate%%.\n\nPuedes ejecutar `+help <nombre del comando>` para aprender más sobre un comando especifico.\nAquí hay una lista de todos los comandos:\n ",
+    "madeBy": " | Bot hecho con mucho amor por %%QkeleQ10%%",
+    "commandInfo": "Información del comando",
+    "commandInfoFor": "Información para el comando ",
+    "commandNotExist": "¡Ese comando no existe!",
+    "seconds": " segundos",
+    "usageField": "Uso",
+    "cooldownField": "Enfriamiento",
+    "aliasesField": "Otros Nombres",
+    "help": {
+        "usage": "+help [nombre del comando]",
+        "description": "Muestra todos los comandos disponibles e información general sobre el bot."
+    },
+    "prefix": {
+        "usage": "+prefix",
+        "description": "Te da el prefijo apropiado para tu(s) idioma(s)."
+    },
+    "quote": {
+        "usage": "+quote [número] | +quote add <cita> / <mención del citado>",
+        "description": "Obtiene (o añade) una cita chistosa/extraña/sabia del servidor."
+    },
+    "mention": {
+        "usage": "+mention <idioma> translator|proofreader|all [mensaje]",
+        "description": "Menciona un rol de idioma con un mensaje opcional."
+    },
+    "context": {
+        "usage": "+context get|add|edit|view|help <argumentos>",
+        "description": "Obtiene, añade o edita contexto para la ID del string dada. `+context help` te muestra información sobre este comando."
+    },
+    "issue": {
+        "usage": "+issue",
+        "description": "Abre nuestra página de errores de GitHub, donde puedes reportar bugs."
+    },
+    "language": {
+        "usage": "+language [<nuevo idioma> | list]",
+        "description": "Cambia tu idioma, muestra tu idioma actual o muestra una lista de idiomas disponibles."
+    },
+    "boop": {
+        "usage": "+boop <usuario>",
+        "description": "¡Boop!"
+    },
+    "executedBy": "Ejecutado por %%user%%"
+}
