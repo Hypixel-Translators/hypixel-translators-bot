@@ -1,8 +1,0 @@
-{
-    "moduleName": "Rapporter en feil",
-    "bugT": "Avleser og legger til problemer",
-    "bugD": "For å vise og lage forslag eller problems-rapporter, vær snill å [klikk her]%%github%%.",
-    "urgentT": "Haster det?",
-    "urgentD": "Hvis du prøver å rapportere et fatalt problem eller boten har vært nede i lang tid uten beskjed, vær snill å nevn %%QkeleQ10%% i en offentlig kanal, med forklaring av problemet.",
-    "executedBy": "Utført av %%user%%"
-}

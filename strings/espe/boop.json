@@ -1,6 +1,0 @@
-{
-    "notOnline": "¡Ese usuario está actualmente %%presence%%, entonces que no puedes hacer esto!",
-    "offline": "desconectado",
-    "dnd": "en modo No molestar",
-    "idle": "inactivo"
-}

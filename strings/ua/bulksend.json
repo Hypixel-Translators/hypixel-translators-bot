@@ -1,6 +1,0 @@
-{
-    "moduleName": "Bulk Send",
-    "success": "Success! Message sent.",
-    "generalError": "Щось пішло не так.",
-    "executedBy": "Виконано користувачем %%user%%"
-}

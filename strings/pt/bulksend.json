@@ -1,6 +1,0 @@
-{
-    "moduleName": "Envio em massa",
-    "success": "Mensagem enviada.",
-    "generalError": "Alguma coisa correu mal.",
-    "executedBy": "Executado por %%user%%"
-}

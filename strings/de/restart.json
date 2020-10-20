@@ -1,7 +1,0 @@
-{
-    "moduleName": "Neustart",
-    "loading": "Eine Sekunde …",
-    "success": "Erfolgreich! Neustarten...",
-    "error": "You don't have permission to restart the bot! If you really want to, please contact %%developer%%.",
-    "executedBy": "Ausgeführt von %%user%%"
-}

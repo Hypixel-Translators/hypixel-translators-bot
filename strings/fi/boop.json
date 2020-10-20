@@ -1,6 +1,0 @@
-{
-    "notOnline": "Tämä käyttäjä on tällä hetkellä %%presence%%, joten et voi tehdä tuota!",
-    "offline": "offline-tilassa",
-    "dnd": "älä häiritse -tilassa",
-    "idle": "idle-tilassa"
-}

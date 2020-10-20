@@ -1,8 +1,0 @@
-{
-    "moduleName": "Papegaai",
-    "loading": "Even geduld...",
-    "noPerm": "You don't have permission to use this command!",
-    "success": "Gelukt! Bericht verzonden.",
-    "invalidArg": "Ongeldig argument!",
-    "executedBy": "Uitgevoerd door %%user%%"
-}

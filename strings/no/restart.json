@@ -1,7 +1,0 @@
-{
-    "moduleName": "Restart",
-    "loading": "Ett sekund...",
-    "success": "Suksess! Restarter...",
-    "error": "Du har ikke tillatelse til å restarte boten! Hvis du virkelig har lyst, vennligst kontakt %%developer%%.",
-    "executedBy": "Utført av %%user%%"
-}

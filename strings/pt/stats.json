@@ -1,6 +1,0 @@
-{
-    "moduleName": "Atualizador de estatísticas",
-    "started": "Espera um ou dois minutos para que todas as estatísticas atualizem...",
-    "done": "Todas as estatísticas foram atualizadas!",
-    "executedBy": "Executado por %%user%%"
-}

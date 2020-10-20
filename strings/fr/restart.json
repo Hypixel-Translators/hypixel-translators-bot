@@ -1,7 +1,0 @@
-{
-    "moduleName": "Redémarrer",
-    "loading": "Un second...",
-    "success": "Succès! Redémarrage...",
-    "error": "Tu n'as pas la permission de redémarrer le bot! Si tu le peux vraiment, veuille contacter %%developer%%.",
-    "executedBy": "Exécuté par %%user%%"
-}

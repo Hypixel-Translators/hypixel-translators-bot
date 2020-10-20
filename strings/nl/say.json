@@ -1,7 +1,0 @@
-{
-    "moduleName": "Bericht",
-    "loading": "Even geduld...",
-    "success": "Gelukt! Bericht verzonden.",
-    "invalidArg": "Ongeldig argument!",
-    "executedBy": "Uitgevoerd door %%user%%"
-}
