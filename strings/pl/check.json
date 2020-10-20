@@ -1,8 +1,10 @@
 {
-    "moduleName": "Tester uprawnień",
+    "moduleName": "User information",
     "loading": "Sekundkę…",
     "bot": "Bot",
     "list": "List of permissions",
+    "uperms": "%%user%%'s permissions",
+    "utitle": "Info for %%user%%",
     "specific": "%%perm%% permission",
     "perms": {
         "ADMINISTRATOR": "Administrator",
