@@ -1,8 +1,10 @@
 {
-    "moduleName": "Käyttöoikeuksien tarkistus",
+    "moduleName": "Käyttäjän tiedot",
     "loading": "Odota sekunti...",
     "bot": "Botti",
     "list": "Luettelo oikeuksista",
+    "uperms": "Käyttäjän %%user%% oikeudet",
+    "utitle": "Info for %%user%%",
     "specific": "Oikeus: %%perm%%",
     "perms": {
         "ADMINISTRATOR": "järjestelmänvalvoja",
