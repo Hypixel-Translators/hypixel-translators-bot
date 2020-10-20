@@ -3,8 +3,11 @@
     "loading": "Odota sekunti...",
     "bot": "Botti",
     "list": "Luettelo oikeuksista",
-    "uperms": "Käyttäjän %%user%% oikeudet",
-    "utitle": "Info for %%user%%",
+    "uperms": "Permissions",
+    "uroles": "Roles",
+    "ujoined": "Joined at",
+    "ucreated": "Account created at",
+    "dateLocale": "en-GB",
     "specific": "Oikeus: %%perm%%",
     "perms": {
         "ADMINISTRATOR": "järjestelmänvalvoja",
