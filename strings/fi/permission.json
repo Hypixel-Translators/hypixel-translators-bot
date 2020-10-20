@@ -2,8 +2,8 @@
     "moduleName": "Käyttöoikeuksien tarkistus",
     "loading": "Odota sekunti...",
     "bot": "Botti",
-    "false": "ei oikeuksia",
-    "true": "on oikeudet",
+    "false": "käyttäjällä ei ole oikeuksia",
+    "true": "käyttäjällä on oikeudet",
     "list": "Luettelo oikeuksista",
     "specific": "Oikeus: %%perm%%",
     "perms": {

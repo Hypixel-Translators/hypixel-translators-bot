@@ -1,8 +1,10 @@
 {
-    "moduleName": "Tilladelseskontrol",
+    "moduleName": "User information",
     "loading": "Et sekund...",
     "bot": "Bot",
     "list": "Liste over tilladelser",
+    "uperms": "%%user%%'s permissions",
+    "utitle": "Info for %%user%%",
     "specific": "%%perm%% permission",
     "perms": {
         "ADMINISTRATOR": "Administrator",

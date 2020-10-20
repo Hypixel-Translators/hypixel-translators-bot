@@ -1,8 +1,10 @@
 {
-    "moduleName": "Vérificateur des droits d'accès",
+    "moduleName": "User information",
     "loading": "Un second...",
     "bot": "Bot",
     "list": "List of permissions",
+    "uperms": "%%user%%'s permissions",
+    "utitle": "Info for %%user%%",
     "specific": "%%perm%% permission",
     "perms": {
         "ADMINISTRATOR": "Administrator",
