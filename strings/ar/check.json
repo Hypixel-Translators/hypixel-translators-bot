@@ -1,8 +1,10 @@
 {
-    "moduleName": "المتحقق من الصلاحيات",
+    "moduleName": "User information",
     "loading": "ثانية واحدة...",
     "bot": "بوت",
     "list": "List of permissions",
+    "uperms": "%%user%%'s permissions",
+    "utitle": "Info for %%user%%",
     "specific": "%%perm%% permission",
     "perms": {
         "ADMINISTRATOR": "Administrator",
