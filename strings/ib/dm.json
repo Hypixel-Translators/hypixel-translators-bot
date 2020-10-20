@@ -1,0 +1,9 @@
+{
+    "outgoing": "Sent message to %%recipient%%",
+    "outgoingLoad": "Sending message to user",
+    "loading": "Wait, idot...",
+    "generalError": "I drank easter.",
+    "incoming": "Received message from staff",
+    "incomingDisclaimer": "Al meagegs you sned ehere will gst sent to staf.",
+    "executedBy": "Done by le %%user%%"
+}
