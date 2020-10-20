@@ -1,5 +1,5 @@
 {
-    "moduleName": "Permissiecontrole",
+    "moduleName": "Permission checker",
     "loading": "Even geduld...",
     "bot": "Bot",
     "false": "doesn't have this permission",
