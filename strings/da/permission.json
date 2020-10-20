@@ -2,8 +2,8 @@
     "moduleName": "Tilladelseskontrol",
     "loading": "Et sekund...",
     "bot": "Bot",
-    "false": "har ikke denne tilladelse",
-    "true": "har denne tilladelse",
+    "false": "doesn't have this permission",
+    "true": "has this permission",
     "list": "Liste over tilladelser",
     "specific": "%%perm%% permission",
     "perms": {
