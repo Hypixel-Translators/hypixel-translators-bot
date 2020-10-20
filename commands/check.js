@@ -39,13 +39,14 @@ module.exports = {
           const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor(strings.moduleName)
-            .setTitle(user.user.tag)
-            .setDescription("<@" + user.id + ">")
+            .setDescription("<@" + user.user.id + "> (ID: `" + user.user.id + "`)")
             .addFields(
+              { name: strings.ujoined, value: user.joinedAt.toLocaleString(strings.dateLocale, { timeZone: 'UTC' }) + " UTC", inline: true },
+              { name: strings.ucreated, value: user.user.createdAt.toLocaleString(strings.dateLocale, { timeZone: 'UTC' }) + " UTC", inline: true },
               { name: strings.uroles, value: user.roles.cache.map(r => `${r}`).join(', ') },
               { name: strings.uperms, value: userP.join(", ") }
             )
-            .setImage(user.user.avatarURL)
+            .setThumbnail(user.user.displayAvatarURL)
             .setFooter(executedBy)
           msg.edit(embed)
         }

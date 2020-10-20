@@ -5,6 +5,9 @@
     "list": "List of permissions",
     "uperms": "Permissions",
     "uroles": "Roles",
+    "ujoined": "Joined at",
+    "ucreated": "Account created at",
+    "dateLocale": "en-GB",
     "specific": "%%perm%% permission",
     "perms": {
         "ADMINISTRATOR": "Administrator",
