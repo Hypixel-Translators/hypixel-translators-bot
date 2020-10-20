@@ -8,8 +8,8 @@ module.exports = {
   usage: "check [user]",
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "768160446368186428"], // bots staff-bots bot-development managers
   execute(strings, message, args) {
-    if (userRaw) {
-      var userRaw = userRaw.replace("<@", "").replace(">", "")
+    if (args[0]) {
+      var userRaw = args[0].replace("<@", "").replace(">", "")
       var user = message.guild.members.cache.find(m => m.id === userRaw || m.user.tag === userRaw || m.user.username === userRaw || m.nickname === userRaw || m.user.tag.toLowerCase().includes(userRaw.toLowerCase()) || m.displayName.toLowerCase().includes(userRaw.toLowerCase()))
       if (!user) {
         message.channel.send("That user hasn't been found!")
@@ -26,7 +26,7 @@ module.exports = {
         .setTitle(strings.loading)
         .setFooter(executedBy)
       message.channel.send(embed).then(msg => {
-        if (!userRaw) { //no arguments given - display bot and author perms
+        if (!args[0]) { //no arguments given - display bot and author perms
           var authorP = []
           var botP = []
           message.member.permissions.toArray().forEach(e => { authorP.push(strings.perms[e] || e) })
