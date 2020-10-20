@@ -1,0 +1,23 @@
+{
+    "moduleName": "Awalan",
+    "loading": "One second...",
+    "loadingRoles": "Fetching your roles...",
+    "errors": {
+        "noLanguages": "Anda tidak memiliki peranan bahasa! mohon kntak admin atau pemilik jika anda pikir ini adalah error.",
+        "sbaInfo": "Jika anda penerjermah ABA. anda tidak mempunyai peranan bahasa. kami sedang bekerja untuk memberi anda pilihan untuk memilih awalan. Kami akan sentiasa mengemas kini anda.",
+        "error": "Gagal untuk mengganti nama panggilan anda.",
+        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
+        "cancelled": "You cancelled the changing of your nickname, ",
+        "alreadyThis": "Anda sudah meiliki nama panggilan ini, ",
+        "timeOut": "Anda belum reaksi dengan bendera apa saja, ",
+        "notSaved": "so your prefix wasn't saved."
+    },
+    "react": "React with all flags you want to add to your prefix in order.",
+    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
+    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
+    "previewT": "Nickname preview",
+    "newNickT": "Nama panggilan baru",
+    "noChanges": "Tidak ada perubahan",
+    "saved": "Awalan anda telah di simpan!",
+    "executedBy": "Executed by %%user%%"
+}
