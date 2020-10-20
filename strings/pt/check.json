@@ -1,12 +1,12 @@
 {
-    "moduleName": "User information",
+    "moduleName": "Informação do utilizador",
     "loading": "Só um segundo...",
     "bot": "Bot",
     "list": "Lista de permissões",
-    "uperms": "Permissions",
-    "uroles": "Roles",
-    "ujoined": "Joined at",
-    "ucreated": "Account created at",
+    "uperms": "Permissões",
+    "uroles": "Cargos",
+    "ujoined": "Entrou a",
+    "ucreated": "Conta criada a",
     "dateLocale": "pt-PT",
     "specific": "Permissão %%perm%%",
     "perms": {
