@@ -1,0 +1,6 @@
+{
+    "moduleName": "Aktualizator statystyk",
+    "started": "Proszę poczekać minutę lub dwie na aktualizację statystyk...",
+    "done": "Wszystkie statystyki zostały zaktualizowane!",
+    "executedBy": "Wykonano przez %%user%%"
+}
