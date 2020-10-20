@@ -1,0 +1,12 @@
+{
+    "moduleName": "Citat",
+    "loading": "En sekund...",
+    "loadingModule": "Läser in modul...",
+    "invalidArg": "Ogiltigt argument!",
+    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
+    "reqSub": "Your quote request has been submitted, thanks!",
+    "reqAdd": "Sucess! Följande citat har lagts till:",
+    "user": "Användare",
+    "index": "Citatnummer",
+    "executedBy": "Executed by %%user%%"
+}
