@@ -38,8 +38,8 @@ module.exports = {
           var userP = []
           user.permissions.toArray().forEach(e => { userP.push(strings.perms[e] || e) })
 
-          const joinD = user.joinedAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: "GMT", timeZoneName: "short" })
-          const creaD = user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: "GMT", timeZoneName: "short" })
+          const joinD = user.joinedAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: "Europe/Amsterdam", timeZoneName: "short" })
+          const creaD = user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: "Europe/Amsterdam", timeZoneName: "short" })
 
           const embed = new Discord.MessageEmbed()
             .setColor(successColor)
