@@ -1,0 +1,6 @@
+{
+    "moduleName": "Statistics updater",
+    "started": "Please wait a minute or two for all statistics to update...",
+    "done": "All statistics have been updated!",
+    "executedBy": "Ausgeführt von %%user%%"
+}

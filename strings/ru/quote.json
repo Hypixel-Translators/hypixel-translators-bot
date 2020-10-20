@@ -1,0 +1,12 @@
+{
+    "moduleName": "Цитата",
+    "loading": "Секундочку...",
+    "loadingModule": "Загрузка модуля...",
+    "invalidArg": "Неверный аргумент!",
+    "indexArg": "Цитата с индексом %%arg%% не существует! Пожалуйста, укажите число между 1 и %%max%%.",
+    "reqSub": "Your quote request has been submitted, thanks!",
+    "reqAdd": "Success! The following quote has been added:",
+    "user": "User",
+    "index": "Quote number",
+    "executedBy": "Выполнено %%user%%"
+}

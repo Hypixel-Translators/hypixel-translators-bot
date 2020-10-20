@@ -1,0 +1,46 @@
+{
+    "moduleName": "Tietoa",
+    "commandsListTitle": "Linkit ja komennot",
+    "commandsListTooltip": "Tämän botin on tehnyt Hypixelin kääntäjien yhteisölle %%QkeleQ10%%. Sen avoin lähdekoodi on saatavilla GitHubista [täältä]%%github%%. Voit auttaa kääntämään bottia seuraamalla ohjeita, jotka löytyvät [tämän linkin]%%translate%% takaa.\n\nVoit suorittaa komennon `+help <komennon nimi>` saadaksesi tietää lisää valitusta komennosta.\nTässä lista kaikista komennoista:\n ",
+    "madeBy": " | Botin on huolellisesti kasannut %%q10%%",
+    "commandInfo": "Komennon tiedot",
+    "commandInfoFor": "Tiedot komennolle ",
+    "commandNotExist": "Tätä komentoa ei ole olemassa!",
+    "seconds": " sekuntia",
+    "usageField": "Käyttö",
+    "cooldownField": "Odotusaika",
+    "aliasesField": "Aliakset",
+    "help": {
+        "usage": "+help [komennon nimi]",
+        "description": "Näyttää kaikki saatavilla olevat komennot ja muuta tietoa botista."
+    },
+    "prefix": {
+        "usage": "+prefix",
+        "description": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen."
+    },
+    "quote": {
+        "usage": "+quote [numero] | +quote add <lainaus> / <käyttäjä>",
+        "description": "Hakee (tai lisää) hauskan/oudon/viisaan lainauksen palvelimelta."
+    },
+    "mention": {
+        "usage": "+mention <kieli> translator|proofreader|all [viesti]",
+        "description": "Mainitsee kieliroolin ja lähettää valinnaisen viestin."
+    },
+    "context": {
+        "usage": "+context get|add|edit|view|help <argumentit>",
+        "description": "Näyttää, lisää tai muokkaa valitun stringin (ID) kontekstia. `+context help` näyttää tietoa tästä komennosta."
+    },
+    "issue": {
+        "usage": "+issue",
+        "description": "Avaa GitHubin issues-sibun, jossa voit ilmiantaa botissa ilmeneviä ongelmia ja antaa palautetta."
+    },
+    "language": {
+        "usage": "+language [<kieli> | list]",
+        "description": "Vaihtaa kielesi, näyttää käytössä olevan kielesi tai listaa kaikki saatavilla olevat kielet."
+    },
+    "boop": {
+        "usage": "+boop <käyttäjä>",
+        "description": "Boop!"
+    },
+    "executedBy": "Komennon suoritti %%user%%"
+}

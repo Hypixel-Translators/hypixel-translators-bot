@@ -1,0 +1,6 @@
+{
+    "notOnline": "Tento uživatel je momentálně %%presence%%, takže to nemůžeš udělat!",
+    "offline": "offline",
+    "dnd": "v režimu \"nerušit\"",
+    "idle": "nečinný"
+}

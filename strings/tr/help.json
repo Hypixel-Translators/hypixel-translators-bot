@@ -1,0 +1,46 @@
+{
+    "moduleName": "Bilgi",
+    "commandsListTitle": "Bağlantılar ve komutlar",
+    "commandsListTooltip": "Bu bot, Hypixel Translators Topluluğu için %%QkeleQ10%% tarafından oluşturuldu. Bu bot açık kaynak kodludur ve GitHub depomuza [here]%%github%% bu bağlantıdan erişebilirsin.\n[Bu mesajdaki]%%translate%%talimatları izleyerek botun çevirilmesine yardımcı olabilirsiniz.\nBelirli bir komut hakkında daha fazla bilgi edinmek için `+help <komutun adı>` komutunu çalıştırabilirsiniz.\nİşte tüm komutların bir listesi: ",
+    "madeBy": " | Bot, %%QkeleQ10%% tarafından özenle yapıldı",
+    "commandInfo": "Komut bilgisi",
+    "commandInfoFor": "Komut bilgisi: ",
+    "commandNotExist": "Böyle bir komut yok!",
+    "seconds": " saniye",
+    "usageField": "Kullanım",
+    "cooldownField": "Bekleme Süresi",
+    "aliasesField": "Takma adlar",
+    "help": {
+        "usage": "+help [komut ismi]",
+        "description": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir."
+    },
+    "prefix": {
+        "usage": "+prefix",
+        "description": "Dil(lerin) için uygun ön ekleri verir."
+    },
+    "quote": {
+        "usage": "+quote [index] | +quote add <alıntı> / <user mention>>",
+        "description": "Sunucudan komik/garip/bilge bir alıntı alır (veya ekler)."
+    },
+    "mention": {
+        "usage": "+mention <language> translator|proofreader|all [mesaj]",
+        "description": "İsteğe bağlı bir mesajla bir dil rolünden bahseder."
+    },
+    "context": {
+        "usage": "+context get|add|edit|view|help <konu>",
+        "description": "Verilen string kimliği için bağlamı alır, ekler veya düzenler. `+context help` size bu komutla ilgili bilgileri gösterir."
+    },
+    "issue": {
+        "usage": "+issue",
+        "description": "Herhangi bir hatayı bildirebileceğiniz GitHub sorunları sayfamızı açar."
+    },
+    "language": {
+        "usage": "+language [<yeni dil> | liste]",
+        "description": "Dilinizi değiştirir, mevcut dilinizi gösterir veya mevcut dillerin bir listesini gösterir."
+    },
+    "boop": {
+        "usage": "+boop <kullanıcı>",
+        "description": "Boop!"
+    },
+    "executedBy": "%%user%% tarafından yürütüldü"
+}

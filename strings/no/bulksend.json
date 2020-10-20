@@ -1,0 +1,6 @@
+{
+    "moduleName": "Send i bulk",
+    "success": "Suksess! Melding sendt.",
+    "generalError": "Noe har gått galt.",
+    "executedBy": "Utført av %%user%%"
+}

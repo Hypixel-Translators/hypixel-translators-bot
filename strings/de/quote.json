@@ -1,0 +1,12 @@
+{
+    "moduleName": "Zitieren",
+    "loading": "Eine Sekunde …",
+    "loadingModule": "Lade Module...",
+    "invalidArg": "Ungültiges Argument!",
+    "indexArg": "Ein Zitat mit Index %%arg%% existiert nicht! Bitte gebe eine Zahl zwischen 1 und %%max%% an.",
+    "reqSub": "Your quote request has been submitted, thanks!",
+    "reqAdd": "Success! The following quote has been added:",
+    "user": "Benutzer",
+    "index": "Quote number",
+    "executedBy": "Ausgeführt von %%user%%"
+}
