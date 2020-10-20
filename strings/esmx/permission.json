@@ -1,5 +1,5 @@
 {
-    "moduleName": "Comprobador de permisos",
+    "moduleName": "Permission checker",
     "loading": "Un segundo...",
     "bot": "Bot",
     "false": "doesn't have this permission",
