@@ -45,7 +45,7 @@ module.exports = {
             .addFields(
               { name: strings.ujoined, value: user.joinedAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: "GMT", timeZoneName: "short" }), inline: true },
               { name: strings.ucreated, value: user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: "GMT", timeZoneName: "short" }), inline: true },
-              { name: strings.uroles, value: user.roles.cache.map(r => `${r}`).join(', ') },
+              { name: strings.uroles, value: user.roles.cache.sort((a, b) => b.position - a.position).map(r => `${r}`).join(', ') },
               { name: strings.uperms, value: userP.join(", ") }
             )
             .setThumbnail(user.user.displayAvatarURL())
