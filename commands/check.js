@@ -40,6 +40,7 @@ module.exports = {
           const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor(strings.moduleName)
+            .setTitle(user.user.tag)
             .setDescription("<@" + user.user.id + "> (ID: `" + user.user.id + "`)")
             .addFields(
               { name: strings.ujoined, value: user.joinedAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: "GMT", timeZoneName: "short" }), inline: true },
