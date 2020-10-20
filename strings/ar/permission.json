@@ -1,5 +1,5 @@
 {
-    "moduleName": "المتحقق من الصلاحيات",
+    "moduleName": "Permission checker",
     "loading": "ثانية واحدة...",
     "bot": "بوت",
     "false": "doesn't have this permission",
