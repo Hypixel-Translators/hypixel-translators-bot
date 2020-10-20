@@ -1,8 +1,9 @@
 {
-    "moduleName": "Permission checker",
+    "moduleName": "User information",
     "loading": "One second...",
     "bot": "Bot",
     "list": "List of permissions",
+    "uperms": "%%user%%'s permissions",
     "specific": "%%perm%% permission",
     "perms": {
         "ADMINISTRATOR": "Administrator",
