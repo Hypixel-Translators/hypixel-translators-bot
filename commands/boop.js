@@ -5,7 +5,7 @@ module.exports = {
     name: "boop",
     description: "Boop!",
     usage: "+boop <mention>",
-    cooldown: 3600000,
+    cooldown: 43200,
     allowDM: true,
     execute(strings, message, args) {
         throw "disabled";
