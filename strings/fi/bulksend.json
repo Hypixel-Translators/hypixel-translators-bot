@@ -1,0 +1,6 @@
+{
+    "moduleName": "Massaviesti",
+    "success": "Onnistui! Viesti lähetetty.",
+    "generalError": "Jokin meni vikaan.",
+    "executedBy": "Komennon suoritti %%user%%"
+}
