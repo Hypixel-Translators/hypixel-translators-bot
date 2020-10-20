@@ -47,7 +47,7 @@ module.exports = {
               { name: strings.uroles, value: user.roles.cache.map(r => `${r}`).join(', ') },
               { name: strings.uperms, value: userP.join(", ") }
             )
-            .setThumbnail("https://i.imgur.com/wSTFkRM.png")
+            .setThumbnail(user.user.displayAvatarURL())
             .setFooter(executedBy)
           msg.edit(embed)
         }
