@@ -1,0 +1,7 @@
+{
+    "moduleName": "Mesaj",
+    "loading": "Bir saniye...",
+    "success": "Başarılı! Mesaj gönderildi.",
+    "invalidArg": "Geçersiz argüman!",
+    "executedBy": "%%user%% tarafından yürütüldü"
+}
