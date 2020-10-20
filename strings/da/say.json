@@ -1,0 +1,7 @@
+{
+    "moduleName": "Besked",
+    "loading": "Et sekund...",
+    "success": "Succes! Beskeden blev sendt.",
+    "invalidArg": "Ugyldigt argument!",
+    "executedBy": "Udført af %%user%%"
+}
