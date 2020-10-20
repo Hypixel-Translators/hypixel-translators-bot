@@ -1,6 +1,6 @@
 {
     "moduleName": "Prefix",
-    "loading": "One second...",
+    "loading": "En sekund...",
     "loadingRoles": "Fetching your roles...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
@@ -16,7 +16,7 @@
     "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
     "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
     "previewT": "Nickname preview",
-    "newNickT": "New nickname",
+    "newNickT": "Nytt smeknamn",
     "noChanges": "No changes",
     "saved": "Your prefix has been saved!",
     "executedBy": "Executed by %%user%%"

@@ -27,6 +27,7 @@
     {"name": "Hebrew", "emoji": "🇮🇱", "code" : "he"},
     {"name": "Hindi", "emoji": "🇮🇳", "code" : "hi"},
     {"name": "Hungarian", "emoji": "🇭🇺", "code" : "hu"},
+    {"name": "Indonesian", "emoji": "🇮🇩", "code" : "id"},
     {"name": "Irish", "emoji": "🇮🇪", "code" : "gaie"},
     {"name": "Inhale Banana", "emoji": "🍌", "code" : "ib"},
     {"name": "Italian", "emoji": "🇮🇹", "colour": "#21de70", "code": "it"},

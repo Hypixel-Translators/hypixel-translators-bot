@@ -7,6 +7,7 @@
     "noMessage": "You haven't provided a message!",
     "noChannel": "Anda belum menyediakan saluran!",
     "noUser": "Anda belum menyediakan pengguna!",
+    "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
     "noUserQuote": "Anda belum menyediakan pengguna! tolong tulis quote dan kemudian sebutkan pengguna yang dipetik, dipisahkan dengan garis miring.",
     "falseChannel": "Saluran itu tidak dapat ditemukan!",
     "falseUser": "Pengguna itu tidak dapat ditemukan!",

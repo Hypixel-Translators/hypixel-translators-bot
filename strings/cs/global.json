@@ -7,6 +7,7 @@
     "noMessage": "Nenapsal jsi žádnou zprávu!",
     "noChannel": "Nezadal jsi název kanálu!",
     "noUser": "Nezadal jsi jméno uživatele!",
+    "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
     "noUserQuote": "Nezadal jsi jméno uživatele! Prosím napiš citát a následně označ citovaného uživatele, odděleného lomítkem.",
     "falseChannel": "Tento kanál se nepodařilo najít!",
     "falseUser": "Tohoto uživatele se nepodařilo najít!",
