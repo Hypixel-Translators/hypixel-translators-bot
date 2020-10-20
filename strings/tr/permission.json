@@ -1,5 +1,5 @@
 {
-    "moduleName": "İzin denetleyicisi",
+    "moduleName": "Permission checker",
     "loading": "Bir saniye...",
     "bot": "Bot",
     "false": "doesn't have this permission",
