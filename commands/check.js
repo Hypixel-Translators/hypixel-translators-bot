@@ -37,14 +37,18 @@ module.exports = {
           if (!user) { throw "falseUser" }
           var userP = []
           user.permissions.toArray().forEach(e => { userP.push(strings.perms[e] || e) })
+
+          const joinD = user.joinedAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: "GMT", timeZoneName: "short" })
+          const creaD = user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: "GMT", timeZoneName: "short" })
+
           const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor(strings.moduleName)
             .setTitle(user.user.tag)
             .setDescription("<@" + user.user.id + "> (ID: `" + user.user.id + "`)")
             .addFields(
-              { name: strings.ujoined, value: user.joinedAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: "GMT", timeZoneName: "short" }), inline: true },
-              { name: strings.ucreated, value: user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: "GMT", timeZoneName: "short" }), inline: true },
+              { name: strings.ujoined, value: joinD.charAt(0).toUpperCase() + joinD.slice(1), inline: true },
+              { name: strings.ucreated, value: creaD.charAt(0).toUpperCase() + creaD.slice(1), inline: true },
               { name: strings.uroles, value: user.roles.cache.sort((a, b) => b.position - a.position).map(r => `${r}`).join(', ') },
               { name: strings.uperms, value: userP.join(", ") }
             )
