@@ -187,8 +187,8 @@ client.on("message", async message => {
   globalStrings.executedBy.replace("%%user%%", message.author.tag)
   setTimeout(() => {
     try {
-      command.execute(strings, message, args)
-    } catch (error) {
+      command.execute(strings, message, args) //execute the command
+    } catch (error) { //handle error
       console.log("Error incoming! Message:\n>>>" + message)
       console.error(error);
       timestamps.delete(message.author.id)
@@ -203,7 +203,7 @@ client.on("message", async message => {
         embed.addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" })
       }
       message.channel.send(embed)
-    } finally {
+    } finally { //try sending a tip
       var d = Math.random(); var s = Math.round(Math.random())
       if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${globalStrings.tips[globalStrings.tips.length * Math.random() | 0].replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "(https://twitter.com/HTranslators)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#699367079241056347>")}`)
     }

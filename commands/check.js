@@ -3,14 +3,18 @@ const Discord = require("discord.js");
 
 module.exports = {
   name: "check",
-  description: "Shows info about the bot, author and any specified user.",
+  description: "Shows bot and author's permissions or information about the specified user.",
   aliases: ["perm", "perms", "user", "userinfo", "permission", "permissions"],
   usage: "check [user]",
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "768160446368186428"], // bots staff-bots bot-development managers
-  async execute(strings, message, args) {
+  execute(strings, message, args) {
     if (args[0]) {
-      var user = message.guild.members.cache.find(m => (m.id === args[0].replace("<@", "").replace(">", "")) || m.user.tag === args[0] || m.user.username === args[0] || m.nickname === args[0] || m.user.tag.toLowerCase().includes(args[0].toLowerCase()) || m.displayName.toLowerCase().includes(args[0].toLowerCase()))
-      if (!user) { throw "falseUser" }
+      const user = message.guild.members.cache.find(m => (m.id === args[0].replace("<@", "").replace(">", "")) || m.user.tag === args[0] || m.user.username === args[0] || m.nickname === args[0] || m.user.tag.toLowerCase().includes(args[0].toLowerCase()) || m.displayName.toLowerCase().includes(args[0].toLowerCase()))
+      if (!user) {
+        message.channel.send("Couldn't find that user!")
+        return;
+        //throw "falseUser"
+      }
     }
     if (!message.member.hasPermission("VIEW_AUDIT_LOG") && !message.member.roles.cache.has("748269219619274893") && !message.member.roles.cache.has("752541221980733571")) return;
     try {
