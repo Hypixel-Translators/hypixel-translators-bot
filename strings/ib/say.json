@@ -1,0 +1,7 @@
+{
+    "moduleName": "Message",
+    "loading": "Wait, idot...",
+    "success": "Success! Message sent.",
+    "invalidArg": "Invalid argument!",
+    "executedBy": "Done by le %%user%%"
+}
