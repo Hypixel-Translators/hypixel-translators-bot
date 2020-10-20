@@ -1,0 +1,12 @@
+{
+    "moduleName": "Citat",
+    "loading": "Et sekund...",
+    "loadingModule": "Indlæser modulet...",
+    "invalidArg": "Ugyldigt argument!",
+    "indexArg": "Et citat med indekset %%arg%% findes ikke! Angiv venligst et tal mellem 1 og %%max%%.",
+    "reqSub": "Din anmodning om et citat blev indsendt. Tak for det!",
+    "reqAdd": "Succes! De følgende citater blev tilføjet:",
+    "user": "Bruger",
+    "index": "Citatnummer",
+    "executedBy": "Udført af %%user%%"
+}

@@ -1,0 +1,46 @@
+{
+    "moduleName": "Informace",
+    "commandsListTitle": "Odkazy a příkazy",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
+    "madeBy": " | Bota s velkou péčí vytvořil %%q10%%",
+    "commandInfo": "Informace o příkazu",
+    "commandInfoFor": "Informace o příkazu ",
+    "commandNotExist": "Tento příkaz neexistuje!",
+    "seconds": " sekund/y",
+    "usageField": "Použití",
+    "cooldownField": "Časové omezení",
+    "aliasesField": "Přezdívky",
+    "help": {
+        "usage": "+help [název příkazu]",
+        "description": "Zobrazí ti všechny dostupné příkazy a další informace o botovi."
+    },
+    "prefix": {
+        "usage": "+prefix",
+        "description": "Dá ti odpovídající prefix pro tvůj/tvoje jazyk/y."
+    },
+    "quote": {
+        "usage": "+quote [číslo] | +quote add <citát> / <označení uživatele>",
+        "description": "Zobrazí (nebo přidá) vtipný/divný/moudrý citát ze serveru."
+    },
+    "mention": {
+        "usage": "+mention <jazyk> proofreader|translator|all [zpráva]",
+        "description": "Zmíní roli jazyka s volitelnou zprávou."
+    },
+    "context": {
+        "usage": "+context get|add|edit|view|help <argumenty>",
+        "description": "Zobrazí ti, přidá nebo upraví kontext zadaného ID stringu. `+context help` ti zobrazí informace o tomto příkazu."
+    },
+    "issue": {
+        "usage": "+issue",
+        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
+    },
+    "language": {
+        "usage": "+language [<nový jazyk> | list]",
+        "description": "Změní tvůj jazyk, zobrazí tvůj aktuální jazyk nebo zobrazí seznam dostupných jazyků."
+    },
+    "boop": {
+        "usage": "+boop <uživatel>",
+        "description": "Boop!"
+    },
+    "executedBy": "Provedeno uživatelem %%user%%"
+}

@@ -1,0 +1,6 @@
+{
+    "moduleName": "Statistiikkojen päivitys",
+    "started": "Odota hetki kun kaikki statistiikat päivittyvät...",
+    "done": "Kaikki statistiikat on päivitetty!",
+    "executedBy": "Komennon suoritti %%user%%"
+}

@@ -1,0 +1,11 @@
+{
+    "errorNoPing": "You don't have that language's proofreader role, ",
+    "errorNoPingPr": "so you can't mention it.",
+    "errorNoPingTr": "so you can't mention its translator role.",
+    "errorNoPingAll": "so you can't mention the entire language.",
+    "errorNoPingDisclaimer": "Kontakt serverejeren eller en administrator, hvis du virkelig har brug for det.",
+    "errorNotFound": "Den rolle, du indtastede findes ikke. Du kan indtaste sprognavnet eller en af disse: ",
+    "errorNoArgs": "Du glemte at angive et sprog! Du kan skrive navnet på sproget på engelsk, eller vælge en af disse: ",
+    "errorNoArgs2": "Du glemte at angive en rolletype! Vælg en af disse: ",
+    "executedBy": "Udført af %%user%%"
+}

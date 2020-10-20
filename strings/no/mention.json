@@ -1,0 +1,11 @@
+{
+    "errorNoPing": "Du har ikke det språkets korrekturleser-rolle, ",
+    "errorNoPingPr": "så du kan ikke nevne det.",
+    "errorNoPingTr": "så du kan ikke nevne oversetter-rollen.",
+    "errorNoPingAll": "så du kan ikke nevne hele språket.",
+    "errorNoPingDisclaimer": "Kontakt servereieren eller administratoren dersom det er nødvendig.",
+    "errorNotFound": "Rollen du oppga eksisterer ikke. Du kan oppgi navnet på språket, eller en av disse: ",
+    "errorNoArgs": "Du glemte å spesifisere et språk! Du kan skrive inn språknavnet (på engelsk) eller en av disse: ",
+    "errorNoArgs2": "Du glemte å spesifisere en rolletype! Velg en av disse: ",
+    "executedBy": "Utført av %%user%%"
+}

@@ -1,0 +1,7 @@
+{
+    "moduleName": "Melding",
+    "loading": "Ett sekund...",
+    "success": "Suksess! Melding sendt.",
+    "invalidArg": "Ugyldig argument!",
+    "executedBy": "Utført av %%user%%"
+}

@@ -1,0 +1,46 @@
+{
+    "moduleName": "Informasjon",
+    "commandsListTitle": "Lenker og kommandoer",
+    "commandsListTooltip": "Denne boten ble laget for Hypixel Translators Community av %%QkeleQ10%%. Den har åpen kildekode og vår GitHub repository kan bli funnet [her]%%github%%.\nDu kan hjelpe til med å oversette boten ved å følge instruksjonene i [denne meldingen]%%translate%%.\n\nDu kan utføre `+help <kommandonavn>` for å lære mer om en spesifikk kommando.\nHer er en liste over alle kommandoer:\n ",
+    "madeBy": " | En bot laget med masse pleie av %%q10%%",
+    "commandInfo": "Kommandoinformasjon",
+    "commandInfoFor": "Kommandoinformasjon for ",
+    "commandNotExist": "Den kommandoen finnes ikke!",
+    "seconds": " sekunder",
+    "usageField": "Bruk",
+    "cooldownField": "Nedkjøling",
+    "aliasesField": "Aliaser",
+    "help": {
+        "usage": "+help [kommandonavn]",
+        "description": "Viser alle tilgjengelig kommandoer og annet info om boten."
+    },
+    "prefix": {
+        "usage": "+prefix",
+        "description": "Gir deg den riktige prefiksen for din(e) språk."
+    },
+    "quote": {
+        "usage": "+quote [index] | +quote add <sitat> / <bruker å nevne>",
+        "description": "Henter (eller legger til) et morsomt/rart/klokt sitat fra serveren."
+    },
+    "mention": {
+        "usage": "+mention <språk> translator|proofreader|all [melding]",
+        "description": "Nevner en språkrolle med en valgfri melding."
+    },
+    "context": {
+        "usage": "+context get|add|edit|view|help <argumenter>",
+        "description": "Henter, legger til eller redigerer konteksten for den angitte string-IDen. `+context help` viser informasjon om denne kommandoen."
+    },
+    "issue": {
+        "usage": "+issue",
+        "description": "Åpner vår GitHub issues-side, hvor du kan rapportere inn feil og sende tilbakemelding."
+    },
+    "language": {
+        "usage": "+language [<nye språk> | list]",
+        "description": "Endrer ditt språk, viser ditt nåværende eller viser en liste over alle tilgjengelige."
+    },
+    "boop": {
+        "usage": "+boop <bruker>",
+        "description": "Boop!"
+    },
+    "executedBy": "Utført av %%user%%"
+}
