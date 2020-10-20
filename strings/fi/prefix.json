@@ -1,0 +1,23 @@
+{
+    "moduleName": "Etuliite",
+    "loading": "Odota sekunti...",
+    "loadingRoles": "Haetaan roolejasi...",
+    "errors": {
+        "noLanguages": "Sinulla ei vaikuttaisi olevan kielirooleja! Ole hyvä ja ota yhteyttä ylläpitäjään tai omistajaan, mikäli luulet tämän olevan virhe.",
+        "sbaInfo": "Koska olet SBA-kääntäjä, ei sinulla ole kielirooleja. Työstämme mahdollisuutta antaa myös sinun valita oman etuliitteesi. Pidämme sinut ajan tasalla.",
+        "error": "Nimen vaihtaminen epäonnistui. Voit kopioida nimen alapuolelta ja vaihtaa sen itse.",
+        "confirmedNoFlags": "Vahvistit pyynnön, mutta et reagoinut lipuilla, ",
+        "cancelled": "Peruutit nimimerkkisi vaihtamisen, ",
+        "alreadyThis": "Sinulla on jo tämä nimimerkki, ",
+        "timeOut": "Et reagoinut lipuilla, ",
+        "notSaved": "joten etuliitettäsi ei tallennettu."
+    },
+    "react": "Reagoi kaikilla lipuilla, jotka haluat asetettavan etuliitteiksesi.",
+    "reactTimer": "Sinulla on 20 sekuntia aikaa. Paina ❎ peruaksesi.",
+    "reactTimer2": "Sinulla on alle 20 sekuntia jäljellä. Paina ✅ vahvistaaksesi tai ❎ peruaksesi.",
+    "previewT": "Nimimerkin esikatselu",
+    "newNickT": "Uusi nimimerkki",
+    "noChanges": "Ei muutoksia",
+    "saved": "Etuliitteesi tallennettiin!",
+    "executedBy": "Komennon suoritti %%user%%"
+}
