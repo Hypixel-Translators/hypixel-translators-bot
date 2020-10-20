@@ -1,8 +1,10 @@
 {
-    "moduleName": "Permissiecontrole",
+    "moduleName": "User information",
     "loading": "Even geduld...",
     "bot": "Bot",
     "list": "Permissielijst",
+    "uperms": "%%user%%'s permissions",
+    "utitle": "Info for %%user%%",
     "specific": "%%perm%%-permissie",
     "perms": {
         "ADMINISTRATOR": "Administrator",
