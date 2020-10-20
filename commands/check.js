@@ -32,7 +32,7 @@ module.exports = {
             .setFooter(executedBy)
           msg.edit(embed)
         } else {
-          var user = msg.guild.members.find(m => m.id === args[0].replace("<@", "").replace(">", "")) || m.user.username === args[0] || m.nickname === args[0] || m.user.username.toLowerCase().includes(args[0].toLowerCase()) || m.nickname.toLowerCase().includes(args[0].toLowerCase())
+          var user = msg.guild.members.cache.find(m => m.id === args[0].replace("<@", "").replace(">", "")) || m.user.username === args[0] || m.nickname === args[0] || m.user.username.toLowerCase().includes(args[0].toLowerCase()) || m.nickname.toLowerCase().includes(args[0].toLowerCase())
           var userP = []
           user.permissions.toArray().forEach(e => { userP.push(strings.perms[e] || e) })
           const embed = new Discord.MessageEmbed()
