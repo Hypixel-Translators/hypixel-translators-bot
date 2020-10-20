@@ -1,6 +1,5 @@
 const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
-const intl = require("intl");
 
 module.exports = {
   name: "check",
@@ -43,8 +42,8 @@ module.exports = {
             .setAuthor(strings.moduleName)
             .setDescription("<@" + user.user.id + "> (ID: `" + user.user.id + "`)")
             .addFields(
-              { name: strings.ujoined, value: user.joinedAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: "GMT", timeZoneName: "short" }), inline: true },
-              { name: strings.ucreated, value: user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: "GMT", timeZoneName: "short" }), inline: true },
+              { name: strings.ujoined, value: user.joinedAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: "GMT", timeZoneName: "short" }), inline: true },
+              { name: strings.ucreated, value: user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: "GMT", timeZoneName: "short" }), inline: true },
               { name: strings.uroles, value: user.roles.cache.map(r => `${r}`).join(', ') },
               { name: strings.uperms, value: userP.join(", ") }
             )
