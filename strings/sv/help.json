@@ -1,12 +1,12 @@
 {
     "moduleName": "Information",
-    "commandsListTitle": "Links and commands",
+    "commandsListTitle": "Länkar och kommandon",
     "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
     "madeBy": " | Bot made with lots of care by %%QkeleQ10%%",
-    "commandInfo": "Command information",
+    "commandInfo": "Kommandoinformation",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "That command doesn't exist!",
-    "seconds": " seconds",
+    "seconds": " sekunder",
     "usageField": "Usage",
     "cooldownField": "Cooldown",
     "aliasesField": "Aliases",
@@ -39,7 +39,7 @@
         "description": "Changes your language, shows your current one or shows a list of available languages."
     },
     "boop": {
-        "usage": "+boop <user>",
+        "usage": "+boop <användare>",
         "description": "Boop!"
     },
     "executedBy": "Executed by %%user%%"

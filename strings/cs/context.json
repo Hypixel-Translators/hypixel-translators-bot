@@ -60,7 +60,7 @@
         "description": "Níže je seznam všech podpříkazů pro tento příkaz a jejich vysvětlení. **Pole** zobrazuje všechna dostupná pole.",
         "get": "_Zobrazí kontext pro daný string_\n`+context get <ID stringu>`\n\nNahraď <ID stringu> s ID stringu, které nalezneš kopírováním URL stringu. Je to to číslo po #.",
         "add": "_Přidá kontextový záznam_\n`+context add <ID stringu> <kontext>`\n\nNahraď <ID stringu> ID stringu, které nalezneš kopírováním URL stringu. To je to číslo za #. Nahraď <kontext> textem, který chceš přidat. Po spuštění můžeš přidat další pole pomocí reakcí.",
-        "edit": "_Upraví existující kontextový záznam_\n`+context edit <ID stringu> <pole> <nová hodnota>`\n\nNahraď <ID stringu> ID stringu, který nalezneš kopírováním URL stringu. To je to číslo za #. Nahraď <pole> polem, které chceš upravit, jako například `snímek obrazovky` nebo `enpt`. Nahraď <nová hodnota> novou hodnotou pro toto pole.",
+        "edit": "_Upraví existující kontextový záznam_\n`+context edit <ID stringu> <pole> <nová hodnota>`\n\nNahraď <ID stringu> ID stringu, který nalezneš kopírováním URL stringu. To je to číslo za #. Nahraď <pole> polem, které chceš upravit, jako například `screenshot` nebo `enpt`. Nahraď <nová hodnota> novou hodnotou pro toto pole.",
         "view": "_Dá ti odkaz na Google Tabulku obsahující kontext_\n`+context view`",
         "help": "_Zobrazí tuto zprávu!_\n`+context help`",
         "fields": "Pole",

@@ -7,6 +7,7 @@
     "noMessage": "Du har ikke oppgitt en melding!",
     "noChannel": "Du har ikke oppgitt en kanal!",
     "noUser": "Du har ikke oppgitt en bruker!",
+    "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
     "noUserQuote": "Du har ikke spesifisert en bruker! Vennligst skriv sitatet og deretter nevn den siterte brukeren, separert med en skråstrek.",
     "falseChannel": "Den kanalen kunne ikke bli funnet!",
     "falseUser": "Den brukeren kunne ikke bli funnet!",

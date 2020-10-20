@@ -7,6 +7,7 @@
     "noMessage": "Tu n'as pas fournir un message!",
     "noChannel": "Tu n'as pas fournir un canal!",
     "noUser": "Tu n'as pas fournir un utilisateur!",
+    "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
     "noUserQuote": "Tu n'as pas fournir un utilisateur! Tape la citation puis mentionne l'utilisateur cité, séparés par un /.",
     "falseChannel": "Ce canal n'a pas pu être trouvé!",
     "falseUser": "Cet utilisateur n'a pas pu être trouvé!",

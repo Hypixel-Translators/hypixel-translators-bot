@@ -1,5 +1,5 @@
 {
-    "moduleName": "Prefix",
+    "moduleName": "Prefuck",
     "loading": "Wait, idot...",
     "loadingRoles": "Fetching your roles...",
     "errors": {
@@ -18,6 +18,6 @@
     "previewT": "Nickname preview",
     "newNickT": "New nickname",
     "noChanges": "No changes",
-    "saved": "Your prefix has been saved!",
+    "saved": "Ur prefuck have ben savd!",
     "executedBy": "Done by le %%user%%"
 }

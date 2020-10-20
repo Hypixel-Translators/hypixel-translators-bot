@@ -1,6 +1,6 @@
 {
-    "moduleName": "Statistics updater",
-    "started": "Please wait a minute or two for all statistics to update...",
-    "done": "All statistics have been updated!",
+    "moduleName": "Ενημέρωση στατιστικών",
+    "started": "Περιμένετε ένα με δύο λεπτά για να ενημερωθούν όλα τα στατιστικά...",
+    "done": "Όλα τα στατιστικά ενημερώθηκαν!",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
