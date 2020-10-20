@@ -1,5 +1,5 @@
 {
-    "moduleName": "Verificar permissões",
+    "moduleName": "Permission checker",
     "loading": "Só um segundo...",
     "bot": "Bot",
     "false": "doesn't have this permission",
