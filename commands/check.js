@@ -33,14 +33,15 @@ module.exports = {
           msg.edit(embed)
         } else { //arguments given - display specified user info
           var user = msg.guild.members.cache.find(m => (m.id === args[0].replace("<@", "").replace(">", "")) || m.user.username === args[0] || m.nickname === args[0] || m.user.username.toLowerCase().includes(args[0].toLowerCase()) || m.displayName.toLowerCase().includes(args[0].toLowerCase()))
+          if (!user) { throw "falseUser" }
           var userP = []
           user.permissions.toArray().forEach(e => { userP.push(strings.perms[e] || e) })
           const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor(strings.moduleName)
-            .setTitle(strings.list)
+            .setTitle(strings.utitle.replace("%%user%%", user.tag))
             .addFields(
-              { name: strings.uperms.replace("%%uperms%%", user.tag), value: userP.join(", ") }
+              { name: strings.uperms.replace("%%user%%", user.tag), value: userP.join(", ") }
             )
             .setFooter(executedBy)
           msg.edit(embed)
