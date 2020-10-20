@@ -3,8 +3,11 @@
     "loading": "Um segundo...",
     "bot": "Bot",
     "list": "List of permissions",
-    "uperms": "%%user%%'s permissions",
-    "utitle": "Info for %%user%%",
+    "uperms": "Permissions",
+    "uroles": "Roles",
+    "ujoined": "Joined at",
+    "ucreated": "Account created at",
+    "dateLocale": "en-GB",
     "specific": "%%perm%% permission",
     "perms": {
         "ADMINISTRATOR": "Administrator",
