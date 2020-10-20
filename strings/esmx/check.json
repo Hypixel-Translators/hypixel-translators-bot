@@ -8,6 +8,7 @@
     "ujoined": "Joined at",
     "ucreated": "Account created at",
     "dateLocale": "en-GB",
+    "timeZone": "Europe/London",
     "specific": "Permiso de %%perm%%",
     "perms": {
         "ADMINISTRATOR": "Administrador",
