@@ -1,0 +1,23 @@
+{
+    "moduleName": "Prefijo",
+    "loading": "Un segundo...",
+    "loadingRoles": "Obteniendo tus roles...",
+    "errors": {
+        "noLanguages": "¡No parece tener ningún rol de idioma! Por favor comuníquese con el administrador o el propietario si cree que se trata de un error.",
+        "sbaInfo": "Como eres un traductor de SBA, no tienes ningún rol de idioma. Estamos trabajando en una forma de permitirle elegir un prefijo también. Te mantendremos informado.",
+        "error": "No se pudo cambiar el apodo. Puede copiar el apodo a continuación y aplicarlo usted mismo.",
+        "confirmedNoFlags": "Has confirmado, pero no reaccionaste a ninguna bandera, ",
+        "cancelled": "Has cancelado el cambio de tu apodo, ",
+        "alreadyThis": "Ya tienes este apodo, ",
+        "timeOut": "No has reaccionado con ninguna bandera, ",
+        "notSaved": "por lo que su prefijo no se guardó."
+    },
+    "react": "Reacciona con todas las banderas que quieras agregar a tu prefijo en orden.",
+    "reactTimer": "Tienes 20 segundos. Presiona ❎ para cancelar.",
+    "reactTimer2": "Te quedan menos de 20 segundos. Presione ✅ para confirmar o ❎ para cancelar.",
+    "previewT": "Vista previa del apodo",
+    "newNickT": "Nuevo apodo",
+    "noChanges": "Sin cambios",
+    "saved": "¡Tu prefijo ha sido guardado!",
+    "executedBy": "Ejecutado por %%user%%"
+}
