@@ -10,7 +10,7 @@ module.exports = {
     usage: "+checklanguage [<user> | detail]",
     channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "768160446368186428"], // bots staff-bots bot-development managers
     async execute(strings, message, args) {
-        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+        /*const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const testFolder = './strings/';
         await fs.readdir(testFolder, async (err, files) => {
             files.forEach(f => {
@@ -20,6 +20,6 @@ module.exports = {
                     
                 })
             })
-        })
+        })*/
     }
 }
