@@ -3,7 +3,7 @@
     "loading": "One second...",
     "loadingRoles": "Fetching your roles...",
     "errors": {
-        "noLanguages": "Anda tidak memiliki peranan bahasa! mohon kntak admin atau pemilik jika anda pikir ini adalah error.",
+        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
         "sbaInfo": "Jika anda penerjermah ABA. anda tidak mempunyai peranan bahasa. kami sedang bekerja untuk memberi anda pilihan untuk memilih awalan. Kami akan sentiasa mengemas kini anda.",
         "error": "Gagal untuk mengganti nama panggilan anda.",
         "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
