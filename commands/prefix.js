@@ -22,7 +22,7 @@ module.exports = {
         var userLangs = []
         var prefixes = ""
 
-        await message.member.roles.cache.forEach(r => {
+        await message.member.roles.cache.forEach(async r => {
           if (r.name.startsWith("Chinese")) { userLangs.push("🇨🇳"); msg.react("🇨🇳"); userLangs.push("🇹🇼"); msg.react("🇹🇼"); userLangs.push("🇭🇰"); msg.react("🇭🇰") }
           if (langdb.includes(r.name.split(" ")[0])) {
             var langdbEntry = langdb[r.name.split(" ")[0]]
