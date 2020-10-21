@@ -8,7 +8,7 @@ module.exports = {
   usage: "prefix",
   cooldown: 15,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
-  execute(strings, message) {
+  async execute(strings, message) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     //message.delete();
     const embed = new Discord.MessageEmbed()
@@ -18,16 +18,16 @@ module.exports = {
       .setDescription(strings.loadingRoles)
       .setFooter(executedBy);
     message.channel.send(embed)
-      .then(msg => {
+      .then(async msg => {
         var userLangs = []
         var prefixes = ""
 
-        message.member.roles.cache.forEach(r => {
+        await message.member.roles.cache.forEach(r => {
           if (r.name.startsWith("Chinese")) { userLangs.push("🇨🇳"); msg.react("🇨🇳"); userLangs.push("🇹🇼"); msg.react("🇹🇼"); userLangs.push("🇭🇰"); msg.react("🇭🇰") }
           if (langdb.includes(r.name.split(" ")[0])) {
             var langdbEntry = langdb[r.name.split(" ")[0]]
-            userLangs.push(langdbEntry.emoji)
-            msg.react(langdbEntry.emoji)
+            await userLangs.push(langdbEntry.emoji)
+            await msg.react(langdbEntry.emoji)
           }
         })
 
@@ -58,138 +58,138 @@ module.exports = {
 
         setTimeout(() => {
           msg.react("❎")
-        }, 1000)
+          if (userLangs.length < 1) {
+            const embed = new Discord.MessageEmbed()
+              .setColor(errorColor)
+              .setAuthor(strings.moduleName)
+              .setTitle(strings.errors.noLanguages)
+              .setFooter(executedBy);
+            msg.edit(embed)
+            return;
+          }
 
-        if (userLangs.length < 1) {
+
           const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
+            .setColor(neutralColor)
             .setAuthor(strings.moduleName)
-            .setTitle(strings.errors.noLanguages)
+            .setTitle(strings.react)
+            .setDescription(strings.reactTimer)
+            .addFields({ name: strings.previewT, value: strings.noChanges })
             .setFooter(executedBy);
           msg.edit(embed)
-          return;
-        }
 
-        const embed = new Discord.MessageEmbed()
-          .setColor(neutralColor)
-          .setAuthor(strings.moduleName)
-          .setTitle(strings.react)
-          .setDescription(strings.reactTimer)
-          .addFields({ name: strings.previewT, value: strings.noChanges })
-          .setFooter(executedBy);
-        msg.edit(embed)
+          const filter = (reaction, reacter) => {
+            return (userLangs.includes(reaction.emoji.name) || reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id;
+          };
 
-        const filter = (reaction, reacter) => {
-          return (userLangs.includes(reaction.emoji.name) || reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id;
-        };
+          const collector = msg.createReactionCollector(filter, { time: 20000 });
 
-        const collector = msg.createReactionCollector(filter, { time: 20000 });
+          collector.on('collect', (reaction, reacter) => {
+            msg.react("✅")
+            if (reaction.emoji.name === "✅") {
+              msg.reactions.removeAll()
+              if (prefixes.length > 0) {
+                message.member.setNickname("[" + prefixes + "] " + message.member.user.username)
+                  .then(() => {
+                    const embed = new Discord.MessageEmbed()
+                      .setColor(successColor)
+                      .setAuthor(strings.moduleName)
+                      .setTitle(strings.saved)
+                      .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                      .setFooter(executedBy);
+                    msg.edit(embed)
+                  })
+                  .catch(err => {
+                    const embed = new Discord.MessageEmbed()
+                      .setColor(errorColor)
+                      .setAuthor(strings.moduleName)
+                      .setTitle(strings.errors.error)
+                      .setDescription(err)
+                      .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                      .setFooter(executedBy);
+                    msg.edit(embed)
+                  })
+              } else {
+                const embed = new Discord.MessageEmbed()
+                  .setColor(errorColor)
+                  .setAuthor(strings.moduleName)
+                  .setTitle(strings.errors.confirmedNoFlags + strings.errors.notSaved)
+                  .setFooter(executedBy);
+                msg.edit(embed)
+              }
+            } else if (reaction.emoji.name === "❎") {
+              msg.reactions.removeAll()
+              prefixes = "n"
+              const embed = new Discord.MessageEmbed()
+                .setColor(successColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.errors.cancelled + strings.errors.notSaved)
+                .addFields({ name: strings.newNickT, value: strings.noChanges })
+                .setFooter(executedBy);
+              msg.edit(embed)
+            } else {
+              const valueToRemove = reaction.emoji.name
+              userLangs = userLangs.filter(item => item !== valueToRemove)
+              if (prefixes.length > 0) { prefixes = (prefixes + "-") }
+              prefixes = (prefixes + reaction.emoji.name)
+              const embed = new Discord.MessageEmbed()
+                .setColor(neutralColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.react)
+                .setDescription(strings.reactTimer2)
+                .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                .setFooter(executedBy);
+              msg.edit(embed)
+            }
+          });
 
-        collector.on('collect', (reaction, reacter) => {
-          msg.react("✅")
-          if (reaction.emoji.name === "✅") {
+          collector.on('end', collected => {
             msg.reactions.removeAll()
+            if (prefixes === "n") { return; }
             if (prefixes.length > 0) {
-              message.member.setNickname("[" + prefixes + "] " + message.member.user.username)
-                .then(() => {
-                  const embed = new Discord.MessageEmbed()
-                    .setColor(successColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.saved)
-                    .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                    .setFooter(executedBy);
-                  msg.edit(embed)
-                })
-                .catch(err => {
-                  const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.errors.error)
-                    .setDescription(err)
-                    .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                    .setFooter(executedBy);
-                  msg.edit(embed)
-                })
+              if (message.member.nickname === ("[" + prefixes + "] " + message.member.user.username)) {
+                message.member.setNickname("[" + prefixes + "] " + message.member.user.username)
+                  .then(() => {
+                    const embed = new Discord.MessageEmbed()
+                      .setColor(successColor)
+                      .setAuthor(strings.moduleName)
+                      .setTitle(strings.saved)
+                      .addFields({ name: strings.newNickT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                      .setFooter(executedBy);
+                    msg.edit(embed)
+                  })
+                  .catch(err => {
+                    const embed = new Discord.MessageEmbed()
+                      .setColor(errorColor)
+                      .setAuthor(strings.moduleName)
+                      .setTitle(strings.errors.error)
+                      .setDescription(err)
+                      .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                      .setFooter(executedBy);
+                    msg.edit(embed)
+                    console.log(err)
+                  })
+              } else {
+                const embed = new Discord.MessageEmbed()
+                  .setColor(successColor)
+                  .setAuthor(strings.moduleName)
+                  .setTitle(strings.errors.alreadyThis + strings.errors.notSaved)
+                  .addFields({ name: strings.newNickT, value: strings.noChanges })
+                  .setFooter(executedBy);
+                msg.edit(embed)
+              }
             } else {
               const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor(strings.moduleName)
-                .setTitle(strings.errors.confirmedNoFlags + strings.errors.notSaved)
-                .setFooter(executedBy);
-              msg.edit(embed)
-            }
-          } else if (reaction.emoji.name === "❎") {
-            msg.reactions.removeAll()
-            prefixes = "n"
-            const embed = new Discord.MessageEmbed()
-              .setColor(successColor)
-              .setAuthor(strings.moduleName)
-              .setTitle(strings.errors.cancelled + strings.errors.notSaved)
-              .addFields({ name: strings.newNickT, value: strings.noChanges })
-              .setFooter(executedBy);
-            msg.edit(embed)
-          } else {
-            const valueToRemove = reaction.emoji.name
-            userLangs = userLangs.filter(item => item !== valueToRemove)
-            if (prefixes.length > 0) { prefixes = (prefixes + "-") }
-            prefixes = (prefixes + reaction.emoji.name)
-            const embed = new Discord.MessageEmbed()
-              .setColor(neutralColor)
-              .setAuthor(strings.moduleName)
-              .setTitle(strings.react)
-              .setDescription(strings.reactTimer2)
-              .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-              .setFooter(executedBy);
-            msg.edit(embed)
-          }
-        });
-
-        collector.on('end', collected => {
-          msg.reactions.removeAll()
-          if (prefixes === "n") { return; }
-          if (prefixes.length > 0) {
-            if (message.member.nickname === ("[" + prefixes + "] " + message.member.user.username)) {
-              message.member.setNickname("[" + prefixes + "] " + message.member.user.username)
-                .then(() => {
-                  const embed = new Discord.MessageEmbed()
-                    .setColor(successColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.saved)
-                    .addFields({ name: strings.newNickT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                    .setFooter(executedBy);
-                  msg.edit(embed)
-                })
-                .catch(err => {
-                  const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.errors.error)
-                    .setDescription(err)
-                    .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                    .setFooter(executedBy);
-                  msg.edit(embed)
-                  console.log(err)
-                })
-            } else {
-              const embed = new Discord.MessageEmbed()
-                .setColor(successColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.errors.alreadyThis + strings.errors.notSaved)
+                .setTitle("Prefix")
+                .setDescription(strings.errors.timeOut + strings.errors.notSaved)
                 .addFields({ name: strings.newNickT, value: strings.noChanges })
                 .setFooter(executedBy);
               msg.edit(embed)
             }
-          } else {
-            const embed = new Discord.MessageEmbed()
-              .setColor(errorColor)
-              .setAuthor(strings.moduleName)
-              .setTitle("Prefix")
-              .setDescription(strings.errors.timeOut + strings.errors.notSaved)
-              .addFields({ name: strings.newNickT, value: strings.noChanges })
-              .setFooter(executedBy);
-            msg.edit(embed)
-          }
-        });
+          })
+        }, 1000)
 
       })
 
