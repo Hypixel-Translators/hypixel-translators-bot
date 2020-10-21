@@ -1,4 +1,4 @@
-const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { workingColor, errorColor, successColor, neutralColor, langdb } = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -22,7 +22,16 @@ module.exports = {
         var userLangs = []
         var prefixes = ""
 
-        if (message.member.roles.cache.some(r => r.name.startsWith("Bulgarian"))) { userLangs.push("🇧🇬"); msg.react("🇧🇬") }
+        message.member.roles.cache.forEach(r => {
+          if (r.name.startsWith("Chinese")) { userLangs.push("🇨🇳"); msg.react("🇨🇳"); userLangs.push("🇹🇼"); msg.react("🇹🇼"); userLangs.push("🇭🇰"); msg.react("🇭🇰") }
+          if (langdb.includes(r.name.split(" ")[0])) {
+            var langdbEntry = langdb[r.name.split(" ")[0]]
+            userLangs.push(langdbEntry.emoji)
+            msg.react(langdbEntry.emoji)
+          }
+        })
+
+        /*if (message.member.roles.cache.some(r => r.name.startsWith("Bulgarian"))) { userLangs.push("🇧🇬"); msg.react("🇧🇬") }
         if (message.member.roles.cache.some(r => r.name.startsWith("Chinese"))) { userLangs.push("🇨🇳"); msg.react("🇨🇳"); userLangs.push("🇹🇼"); msg.react("🇹🇼"); userLangs.push("🇭🇰"); msg.react("🇭🇰") }
         if (message.member.roles.cache.some(r => r.name.startsWith("Czech"))) { userLangs.push("🇨🇿"); msg.react("🇨🇿") }
         if (message.member.roles.cache.some(r => r.name.startsWith("Danish"))) { userLangs.push("🇩🇰"); msg.react("🇩🇰") }
@@ -45,7 +54,7 @@ module.exports = {
         if (message.member.roles.cache.some(r => r.name.startsWith("Turkish"))) { userLangs.push("🇹🇷"); msg.react("🇹🇷") }
         if (message.member.roles.cache.some(r => r.name.startsWith("Ukrainian"))) { userLangs.push("🇺🇦"); msg.react("🇺🇦") }
         if (message.member.roles.cache.some(r => r.name.startsWith("Pirate"))) { userLangs.push("☠"); msg.react("☠") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("LOLCAT"))) { userLangs.push("🐱"); msg.react("🐱") }
+        if (message.member.roles.cache.some(r => r.name.startsWith("LOLCAT"))) { userLangs.push("🐱"); msg.react("🐱") }*/
 
         setTimeout(() => {
           msg.react("❎")
