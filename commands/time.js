@@ -1,4 +1,4 @@
-const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
+/*const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -11,4 +11,4 @@ module.exports = {
         throw "disabled";
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     }
-}
+}*/
