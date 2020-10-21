@@ -8,6 +8,7 @@
     "ujoined": "Entrou a",
     "ucreated": "Conta criada a",
     "dateLocale": "pt-PT",
+    "timeZone": "Europe/Lisbon",
     "specific": "Permissão %%perm%%",
     "perms": {
         "ADMINISTRATOR": "Administrador",
