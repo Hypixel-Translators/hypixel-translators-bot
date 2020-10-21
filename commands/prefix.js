@@ -23,14 +23,15 @@ module.exports = {
         var prefixes = ""
 
         await message.member.roles.cache.forEach(async r => {
-          if (r.name.startsWith("Chinese")) { userLangs.push("🇨🇳"); msg.react("🇨🇳"); userLangs.push("🇹🇼"); msg.react("🇹🇼"); userLangs.push("🇭🇰"); msg.react("🇭🇰") }
-          console.log(r.name.split(" ")[0])
-          if (langdb.includes(r.name.split(" ")[0])) {
-            var langdbEntry = langdb[r.name.split(" ")[0]]
-            await userLangs.push(langdbEntry.emoji)
-            await msg.react(langdbEntry.emoji)
+          if (r.name.startsWith("Chinese")) { userLangs.push("🇨🇳"); msg.react("🇨🇳"); userLangs.push("🇹🇼"); msg.react("🇹🇼"); userLangs.push("🇭🇰"); msg.react("🇭🇰") } else {
+            var langdbEntry = langdb.find(l => l.name.includes(r.name.split(" ")[0]))
+            if (langdbEntry) {
+              await userLangs.push(langdbEntry.emoji)
+              await msg.react(langdbEntry.emoji)
+            }
           }
         })
+
 
         /*if (message.member.roles.cache.some(r => r.name.startsWith("Bulgarian"))) { userLangs.push("🇧🇬"); msg.react("🇧🇬") }
         if (message.member.roles.cache.some(r => r.name.startsWith("Chinese"))) { userLangs.push("🇨🇳"); msg.react("🇨🇳"); userLangs.push("🇹🇼"); msg.react("🇹🇼"); userLangs.push("🇭🇰"); msg.react("🇭🇰") }
