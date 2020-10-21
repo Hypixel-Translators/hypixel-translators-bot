@@ -24,6 +24,7 @@ module.exports = {
 
         await message.member.roles.cache.forEach(async r => {
           if (r.name.startsWith("Chinese")) { userLangs.push("🇨🇳"); msg.react("🇨🇳"); userLangs.push("🇹🇼"); msg.react("🇹🇼"); userLangs.push("🇭🇰"); msg.react("🇭🇰") }
+          console.log(r.name.split(" ")[0])
           if (langdb.includes(r.name.split(" ")[0])) {
             var langdbEntry = langdb[r.name.split(" ")[0]]
             await userLangs.push(langdbEntry.emoji)
