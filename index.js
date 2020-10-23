@@ -222,7 +222,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
         reaction.message.delete()
       }, 10000)
       const log = new Discord.MessageEmbed()
-        .setColor(errorColor)
+        .setColor(ff470f)
         .setAuthor(user.tag, user.displayAvatarURL)
         .setTitle("String review request finished and deleted.")
         .addFields(
