@@ -223,7 +223,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
       const log = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor("Review Strings")
-        .setTitle("Message \"" + message.content + "\"cleared from" + channelName)
+        .setTitle("Message \"" + reaction.message.content + "\"cleared from" + channelName)
         .setFooter("Help how do I do timestamps")
       message.channel.send(log)
     }
