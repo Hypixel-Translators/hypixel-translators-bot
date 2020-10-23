@@ -228,9 +228,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
         .addFields(
           { name: "Message", value: reaction.message.content },
           { name: "Channel", value: channelName },
-          { name: "User", value: user.user.tag }
+          { name: "User", value: user.tag }
         )
-        .setFooter("Deleted by " + user.user.tag)
+        .setFooter("Deleted by " + user.tag)
       reaction.message.guild.channels.cache.get("591280178873892901").send(log)
     }
   }
