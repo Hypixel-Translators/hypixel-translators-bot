@@ -213,13 +213,19 @@ client.on("message", async message => {
 
 client.on('messageReactionAdd', async (reaction, user) => {
   const channelName = reaction.message.channel.name
-  if (channelName.includes("review-strings")) {
+  if (channelName.endsWith("review-strings")) {
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
-      console.log("Clear message (saw reaction " + reaction.emoji.name + ")")
+      console.log("String reviewed (saw reaction " + reaction.emoji.name + ")")
       reaction.message.react("⏱")
       setTimeout(() => {
         reaction.message.delete()
       }, 10000)
+      const log = new Discord.MessageEmbed()
+        .setColor(neutralColor)
+        .setAuthor("Review Strings")
+        .setTitle("Message \"" + message.content + "\"cleared from" + channelName)
+        .setFooter("Help how do I do timestamps")
+      message.channel.send(log)
     }
   }
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
