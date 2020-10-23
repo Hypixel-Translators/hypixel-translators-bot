@@ -222,11 +222,16 @@ client.on('messageReactionAdd', async (reaction, user) => {
         reaction.message.delete()
       }, 10000)
       const log = new Discord.MessageEmbed()
-        .setColor(neutralColor)
-        .setAuthor("Review Strings")
-        .setTitle("Message \"" + reaction.message.content + "\" cleared from " + channelName)
-        .setFooter("Deleted by " + reaction.user)
-      reaction.message.channel.send(log)
+        .setColor(errorColor)
+        .setAuthor("String review")
+        .setTitle("String reviewed!")
+        .addFields(
+          { name: "Message", value: reaction.message.content },
+          { name: "Channel", value: channelName },
+          { name: "User", value: user.user.tag }
+        )
+        .setFooter("Deleted by " + user.user.tag)
+      reaction.message.guild.channels.cache.get("591280178873892901").send(log)
     }
   }
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
