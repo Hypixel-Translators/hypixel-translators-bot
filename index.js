@@ -217,6 +217,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
       console.log("String reviewed (saw reaction " + reaction.emoji.name + ")")
       reaction.message.react("⏱")
+      reaction.message.react(reaction.emoji)
       setTimeout(() => {
         reaction.message.delete()
       }, 10000)
@@ -225,7 +226,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
         .setAuthor("Review Strings")
         .setTitle("Message \"" + reaction.message.content + "\"cleared from" + channelName)
         .setFooter("Help how do I do timestamps")
-      message.channel.send(log)
+      reaction.message.channel.send(log)
     }
   }
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
