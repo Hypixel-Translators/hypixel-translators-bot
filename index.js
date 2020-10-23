@@ -212,8 +212,8 @@ client.on("message", async message => {
 
 
 client.on('messageReactionAdd', async (reaction, user) => {
-  const channelName = reaction.message.channel.name
-  if (channelName.endsWith("review-strings")) {
+  const channel = reaction.message.channel
+  if (channel.name.endsWith("review-strings")) {
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
       console.log("String reviewed (saw reaction " + reaction.emoji.name + ")")
       reaction.message.react("⏱")
@@ -223,12 +223,12 @@ client.on('messageReactionAdd', async (reaction, user) => {
       }, 10000)
       const log = new Discord.MessageEmbed()
         .setColor(errorColor)
-        .setAuthor("String review")
-        .setTitle("String reviewed!")
+        .setAuthor(user.tag, user.displayAvatarURL)
+        .setTitle("String review request finished and deleted.")
         .addFields(
           { name: "Message", value: reaction.message.content },
-          { name: "Channel", value: channelName },
-          { name: "User", value: user.tag }
+          { name: "Author", value: `<@${reaction.message.author.id}>`, inline: true },
+          { name: "Channel", value: `<#${channel.id}>`, inline: true }
         )
         .setFooter("Deleted by " + user.tag)
       reaction.message.guild.channels.cache.get("591280178873892901").send(log)
