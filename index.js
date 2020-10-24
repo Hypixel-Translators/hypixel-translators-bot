@@ -219,12 +219,12 @@ client.on('messageReactionAdd', async (reaction, user) => {
       reaction.message.react("⏱")
       reaction.message.react(reaction.emoji)
       const log = new Discord.MessageEmbed()
-      .setColor(errorColor)
+      .setColor("#ff470f") //should be errorColor but i can't get it working help
       .setAuthor(user.tag, user.displayAvatarURL)
       .setTitle("String successfully reviewed. Deleting now")
       .addFields(
-        { name: "Message", value: reaction.message.content },
-        { name: "Emoji", value: reaction.emoji },
+        { name: "Message", value: reaction.message.content, inline:true },
+        { name: "Emoji", value: reaction.emoji, inline: true },
         { name: "Author", value: `<@${reaction.message.author.id}>`, inline: true },
         { name: "Channel", value: `<#${channel.id}>`, inline: true }
       )
