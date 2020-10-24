@@ -218,7 +218,10 @@ client.on('messageReactionAdd', async (reaction, user) => {
       console.log("String reviewed (saw reaction " + reaction.emoji.name + ")")
       reaction.message.react("⏱")
       reaction.message.react(reaction.emoji)
-      const log = new Discord.MessageEmbed()
+      setTimeout(() => {
+        reaction.message.delete()
+      }, 10000)
+      /* const log = new Discord.MessageEmbed()
       .setColor("#ff470f") //should be errorColor but i can't get it working help
       .setAuthor(user.tag, user.displayAvatarURL)
       .setTitle("String successfully reviewed. Deleting now")
@@ -229,13 +232,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
         { name: "Channel", value: `<#${channel.id}>`, inline: true }
       )
       .setFooter("Deleted by " + user.tag)
-      reaction.message.guild.channels.cache.get("591280178873892901").send(log)
-      setTimeout(() => {
-        reaction.message.delete()
-      }, 10000)
-      log.setColor("#ff470f")
-      log.setTitle("String successfully reviewed and deleted.")
-      msg.edit(log)
+      reaction.message.guild.channels.cache.get("591280178873892901").send(log) */
     }
   }
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
