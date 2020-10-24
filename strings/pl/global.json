@@ -7,7 +7,7 @@
     "noMessage": "Nie podano wiadomości!",
     "noChannel": "Nie określono kanału!",
     "noUser": "Nie określono użytkownika!",
-    "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
+    "noContext": "Nie dostarczyłeś kontekstu! Proszę dodać ID ciągu, oraz kontekst go wyjaśniający.",
     "noUserQuote": "Nie określono użytkownika! Wpisz cytat, a następnie oznacz cytowanego użytkownika, oddzielając oznaczenie ukośnikiem.",
     "falseChannel": "Ten kanał nie został odnaleziony!",
     "falseUser": "Użytkownik nie został odnaleziony!",
