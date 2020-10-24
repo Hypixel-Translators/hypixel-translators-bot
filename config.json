@@ -7,7 +7,7 @@
   "neutralColor": "#28dbde",
   "listenStatuses" : ["+help", "RANDOM_USER's commands", "RANDOM_USER", "wise words from RANDOM_USER", "QkeleQ10", "Stannya and Rodry"],
   "watchStatuses": ["your commands", "your messages", "meatdata", "their prayers", "nicknames and stuff", "RANDOM_USER's messages"],
-  "randomUser": ["Stannya", "Rodry", "QkeleQ10", "Sol", "Wens", "Linewater", "Kiril", "TheComputer8423", "Sucamos", "Nad", "lasse", "doublechecked", "Deentrox", "uncheated", "joze", "MightyFixie", "Proofreader", "nicknase27"],
+  "randomUser": ["Stannya", "Rodry", "QkeleQ10", "Sol", "Wens", "Linewater", "Kiril", "TheComputer8423", "lasse", "Deentrox", "uncheated", "MightyFixie", "Proofreader", "nicknase27"],
   "langdb": [  
     {"name": "Arabic", "emoji": "🇵🇸", "code" : "ar"},
     {"name": "Biscuitish", "emoji": "🍪", "code" : "bc"},
