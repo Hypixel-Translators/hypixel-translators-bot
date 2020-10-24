@@ -218,20 +218,24 @@ client.on('messageReactionAdd', async (reaction, user) => {
       console.log("String reviewed (saw reaction " + reaction.emoji.name + ")")
       reaction.message.react("⏱")
       reaction.message.react(reaction.emoji)
+      const log = new Discord.MessageEmbed()
+      .setColor(errorColor)
+      .setAuthor(user.tag, user.displayAvatarURL)
+      .setTitle("String successfully reviewed. Deleting now")
+      .addFields(
+        { name: "Message", value: reaction.message.content },
+        { name: "Emoji", value: reaction.emoji },
+        { name: "Author", value: `<@${reaction.message.author.id}>`, inline: true },
+        { name: "Channel", value: `<#${channel.id}>`, inline: true }
+      )
+      .setFooter("Deleted by " + user.tag)
+      reaction.message.guild.channels.cache.get("591280178873892901").send(log)
       setTimeout(() => {
         reaction.message.delete()
       }, 10000)
-      const log = new Discord.MessageEmbed()
-        .setColor("#ff470f")
-        .setAuthor(user.tag, user.displayAvatarURL)
-        .setTitle("String review request finished and deleted.")
-        .addFields(
-          { name: "Message", value: reaction.message.content },
-          { name: "Author", value: `<@${reaction.message.author.id}>`, inline: true },
-          { name: "Channel", value: `<#${channel.id}>`, inline: true }
-        )
-        .setFooter("Deleted by " + user.tag)
-      reaction.message.guild.channels.cache.get("591280178873892901").send(log)
+      log.setColor("#ff470f")
+      log.setTitle("String successfully reviewed and deleted.")
+      msg.edit(log)
     }
   }
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
