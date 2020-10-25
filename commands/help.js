@@ -25,7 +25,6 @@ module.exports = {
           { name: "`" + strings.language.usage + "`", value: strings.language.description, inline: false },
           { name: "`" + strings.prefix.usage + "`", value: strings.prefix.description, inline: false },
           { name: "`" + strings.quote.usage + "`", value: strings.quote.description, inline: false },
-          { name: "`" + strings.boop.usage + "`", value: strings.boop.description, inline: false },
           { name: "`" + strings.mention.usage + "`", value: strings.mention.description, inline: false },
           { name: "`" + strings.context.usage + "`", value: strings.context.description, inline: false },
           { name: "`" + strings.issue.usage + "`", value: strings.issue.description, inline: false },
