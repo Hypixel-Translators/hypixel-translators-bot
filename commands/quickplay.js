@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 
 module.exports = {
   name: "quickplay",
-  description: "Gives you useful information regarding the Hypixel Crowdin project.",
+  description: "Gives you useful information regarding the Quickplay Crowdin project.",
   usage: "quickplay",
   aliases: "qp",
   cooldown: 120,
