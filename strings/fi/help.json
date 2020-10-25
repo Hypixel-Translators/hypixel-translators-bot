@@ -40,11 +40,11 @@
     },
     "invite": {
         "usage": "+invite",
-        "description": "Antaa palvelimen kutsulinkin - käytäthän tätä aina kutsuessasi jonkun."
+        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Antaa linkin viralliselle palstalle, jossa kerrotaan Hypixelin kääntämisestä."
+        "description": "Gives you the link to the official thread regarding Hypixel translations."
     },
     "hypixel": {
         "usage": "+hypixel",
@@ -52,19 +52,19 @@
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Antaa hyödyllistä tietoa Quickplay-projektista."
+        "description": "Gives you useful information regarding the Quickplay Crowdin project."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Antaa hyödyllistä tietoa SkyblockAddons-projektista."
+        "description": "Gives you useful information regarding the SkyblockAddons Crowdin project."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you a link to the thread announcing this discord server."
+        "description": "Gives you the link to the thread announcing this Discord server."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Antaa linkin viralliselle Hypixel Translators Communityn Twitter-sivulle."
+        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
     },
     "executedBy": "Komennon suoritti %%user%%"
 }
