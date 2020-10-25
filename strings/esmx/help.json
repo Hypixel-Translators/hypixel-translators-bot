@@ -42,9 +42,9 @@
         "usage": "+invite",
         "description": "Gives you an invite link to the server - please use this one whenever you want to invite a friend."
     },
-    "guide": {
-        "usage": "+guide",
-        "description": "Gives a link to the official thread regarding translations by the Hypixel team."
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "Gives a link to the official thread regarding Hypixel translations."
     },
     "hypixel": {
         "usage": "+hypixel",
