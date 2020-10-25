@@ -40,11 +40,11 @@
     },
     "invite": {
         "usage": "+invite",
-        "description": "Dá-te um link de convite para o servidor - usa-o sempre que quiseres convidar alguém."
+        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Dá-te um link para o artigo oficial sobre as traduções do Hypixel."
+        "description": "Gives you the link to the official thread regarding Hypixel translations."
     },
     "hypixel": {
         "usage": "+hypixel",
@@ -52,19 +52,19 @@
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Dá-te informação útil sobre o projeto do Quickplay."
+        "description": "Gives you useful information regarding the Quickplay Crowdin project."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Dá-te informação útil sobre o projeto do SkyblockAddons."
+        "description": "Gives you useful information regarding the SkyblockAddons Crowdin project."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you a link to the thread announcing this discord server."
+        "description": "Gives you the link to the thread announcing this Discord server."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Dá-te um link para a página oficial da comunidade de tradutores do Hypixel no twitter."
+        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
     },
     "executedBy": "Executado por %%user%%"
 }
