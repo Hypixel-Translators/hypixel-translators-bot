@@ -1,5 +1,5 @@
 {
-    "quickplayCrowdin": "Tässä Quickplayn Crowdin-projekti: %%crowdin%%",
-    "quickplayThread": "Tässä viestiketjussa esitellään modi: %%thread%%",
-    "quickplayDiscord": "Täältä löydät Quickplayn discordin: %%discord%%"
+    "quickplayCrowdin": "Here's the Quickplay Crowdin project: %%crowdin%%.",
+    "quickplayThread": "Follow this link for the thread showcasing the Quickplay mod: %%thread%%.",
+    "quickplayDiscord": "Join Quickplay's Discord server at %%discord%%."
 }
