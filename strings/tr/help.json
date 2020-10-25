@@ -40,11 +40,11 @@
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server - please use this one whenever you want to invite someone."
+        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives a link to the official thread regarding Hypixel translations."
+        "description": "Gives you the link to the official thread regarding Hypixel translations."
     },
     "hypixel": {
         "usage": "+hypixel",
@@ -52,19 +52,19 @@
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information about the Quickplay project."
+        "description": "Gives you useful information regarding the Quickplay Crowdin project."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information about the SkyblockAddons project."
+        "description": "Gives you useful information regarding the SkyblockAddons Crowdin project."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you a link to the thread announcing this discord server."
+        "description": "Gives you the link to the thread announcing this Discord server."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Gives you a link to the official Hypixel Translators Community Twitter page."
+        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
     },
     "executedBy": "%%user%% tarafından yürütüldü"
 }
