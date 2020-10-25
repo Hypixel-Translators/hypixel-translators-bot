@@ -42,5 +42,13 @@
         "usage": "+boop <user>",
         "description": "Boop!"
     },
+    "invite": {
+        "usage": "+invite",
+        "description": "Gives you the servers invite link."
+    },
+    "guide": {
+        "usage": "+guide",
+        "description": "Gives you the link to the translations guide on Hypixel."
+    },
     "executedBy": "Executed by %%user%%"
 }
