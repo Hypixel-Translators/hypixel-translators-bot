@@ -1,5 +1,5 @@
 {
     "hypixelCrowdin": "Tässä Hypixelin Crowdin-projekti: %%crowdin%%",
-    "hypixelGuide": "Mikäli haluat kurkata projektin sääntöjä, käytä komentoa !guide.",
-    "hypixelDiscord": "Hypixelin discord-palvelin löytyy osoitteesta %%discord%%. (hyödyllinen oikolukijoille)"
+    "hypixelGuide": "If you'd like to see the guidelines for translating Hypixel, execute `+guide`.",
+    "hypixelDiscord": "Hypixel's Discord server can be found at %%discord%% (useful for proofreaders)."
 }
