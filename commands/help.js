@@ -30,7 +30,7 @@ module.exports = {
           { name: "`" + strings.context.usage + "`", value: strings.context.description, inline: false },
           { name: "`" + strings.issue.usage + "`", value: strings.issue.description, inline: false },
           { name: "`" + strings.invite.usage + "`", value: strings.invite.description, inline: false},
-          { name: "`" + strings.guide.usage + "`", value: strings.invite.description, inline: false}
+          { name: "`" + strings.guide.usage + "`", value: strings.guide.description, inline: false}
         )
         .setFooter(executedBy + madeBy);
       message.channel.send(embed)
