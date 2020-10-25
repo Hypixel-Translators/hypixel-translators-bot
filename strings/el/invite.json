@@ -1,4 +1,4 @@
 {
-    "invite": "Μπορείς να χρησιμοποιήσεις αυτό τον σύνδεσμο για να προσκαλέσεις άτομα στην κοινότητα:",
+    "invite": "You can use this link to invite others to the community: %%invite%%",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
