@@ -40,7 +40,7 @@
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server - please use this one whenever you want to invite a friend."
+        "description": "Gives you an invite link to the server - please use this one whenever you want to invite someone."
     },
     "guidelines": {
         "usage": "+guidelines",
