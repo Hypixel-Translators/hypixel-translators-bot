@@ -38,9 +38,33 @@
         "usage": "+language [<nowy język> | list]",
         "description": "Zmienia Twój język, pokazuje bieżący lub pokazuje listę dostępnych języków."
     },
-    "boop": {
-        "usage": "+boop <użytkownik>",
-        "description": "Boop!"
+    "invite": {
+        "usage": "+invite",
+        "description": "Gives you an invite link to the server - please use this one whenever you want to invite a friend."
+    },
+    "guide": {
+        "usage": "+guide",
+        "description": "Gives a link to the official thread regarding translations by the Hypixel team."
+    },
+    "hypixel": {
+        "usage": "+hypixel",
+        "description": "Gives you useful information regarding the Hypixel Crowdin project."
+    },
+    "quickplay": {
+        "usage": "+quickplay",
+        "description": "Gives you useful information about the Quickplay project."
+    },
+    "skyblockaddons": {
+        "usage": "+skyblockaddons",
+        "description": "Gives you useful information about the SkyblockAddons project."
+    },
+    "thread": {
+        "usage": "+thread",
+        "description": "Gives you a link to the thread announcing this discord."
+    },
+    "twitter": {
+        "usage": "+twitter",
+        "description": "Gives you a link to the official Hypixel Translators Community Twitter page."
     },
     "executedBy": "Wykonano przez %%user%%"
 }
