@@ -53,11 +53,11 @@ module.exports = {
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.commandInfoFor + "`+" + command.name + "`")
-        .setDescription(strings[command.name].description)
+        .setDescription(strings[command.name].description || command.description)
         .addFields(
           {
             name: strings.usageField,
-            value: "`" + strings[command.name].usage + "`",
+            value: "`" + (strings[command.name].usage || command.usage) + "`",
             inline: true
           }
         )
