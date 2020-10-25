@@ -60,7 +60,7 @@
     },
     "thread": {
         "usage": "+thread",
-        "description": "Antaa linkin viestiketjuun, jossa kerrotaan tästä palvelimesta."
+        "description": "Gives you a link to the thread announcing this discord server."
     },
     "twitter": {
         "usage": "+twitter",
