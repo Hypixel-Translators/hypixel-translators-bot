@@ -1,4 +1,4 @@
 {
-    "invite": "Voit käyttää tätä linkkiä kutsuaksesi muita yhteisöön:",
+    "invite": "You can use this link to invite others to the community: %%invite%%",
     "executedBy": "Komennon suoritti %%user%%"
 }

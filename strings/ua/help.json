@@ -2,7 +2,7 @@
     "moduleName": "Інформація",
     "commandsListTitle": "Посилання та команди",
     "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
-    "madeBy": " | Бот виготовлений з великою турботою %%q10%%",
+    "madeBy": " | Бот виготовлений з великою турботою %%QkeleQ10%%",
     "commandInfo": "Інформація щодо команди",
     "commandInfoFor": "Інформація щодо команди ",
     "commandNotExist": "Ця команда не існує!",
@@ -38,9 +38,33 @@
         "usage": "+language [<нова мова> | list]",
         "description": "Змінює вашу мову, показує вашу поточну або показує список доступних мов."
     },
-    "boop": {
-        "usage": "+boop <користувач>",
-        "description": "Boop!"
+    "invite": {
+        "usage": "+invite",
+        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+    },
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "Gives you the link to the official thread regarding Hypixel translations."
+    },
+    "hypixel": {
+        "usage": "+hypixel",
+        "description": "Gives you useful information regarding the Hypixel Crowdin project."
+    },
+    "quickplay": {
+        "usage": "+quickplay",
+        "description": "Gives you useful information regarding the Quickplay Crowdin project."
+    },
+    "skyblockaddons": {
+        "usage": "+skyblockaddons",
+        "description": "Gives you useful information regarding the SkyblockAddons Crowdin project."
+    },
+    "thread": {
+        "usage": "+thread",
+        "description": "Gives you the link to the thread announcing this Discord server."
+    },
+    "twitter": {
+        "usage": "+twitter",
+        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
     },
     "executedBy": "Виконано користувачем %%user%%"
 }

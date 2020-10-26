@@ -60,7 +60,7 @@
         "description": "Aşağıda, bu komut için tüm alt komutların ve açıklamalarının bir listesi bulunmaktadır. **Alanlar** mevcut tüm alanları gösterir.",
         "get": "Verilen dize için _gets bağlamı_\n'+context get <string ID>`\n\nDize URL'sini kopyalayarak bulunan dizenin kimliği ile <<string ID> değiştirin. #'Dan sonraki numara.",
         "add": "_ Bir bağlam girişi ekler_\n'+context add <string ID> <context>`\n\nDize URL'sini kopyalayarak bulunan dizenin kimliği ile <string ID> değiştirin. #'Dan sonraki numara. Eklemek istediğiniz metinle <context> değiştirin. Çalıştırdıktan sonra, reaksiyonları kullanarak daha fazla alan ekleyebilirsiniz.",
-        "edit": "_edits varolan bir bağlam girişi_\n'+context edit <string ID> <field> <new value>`\n\nDize URL'sini kopyalayarak bulunan dizenin kimliği ile <string ID> değiştirin. #'Dan sonraki numara. `Ekran görüntüsü` veya `enpt`gibi düzenlemek istediğiniz alanla <field> değiştirin. <new value> bu alan için yeni bir değerle değiştirin.",
+        "edit": "_Varolan bir bağlam girişini düzenler_\n'+context edit <string kimliği> <field> <yeni değer>`\n\nDize URL'sini kopyalayarak bulunan dizenin kimliği ile <string ID> değiştirin. #'Dan sonraki numara. `screenshot` veya `enpt`gibi düzenlemek istediğiniz alanla <field> değiştirin. <new value> bu alan için yeni bir değerle değiştirin.",
         "view": "_Size bağlam içeren bir Google Yaprağı bağlantısı verir_\n'+context view'",
         "help": "_Bu mesajı gösterir!_\n`+context help`",
         "fields": "Alanlar",

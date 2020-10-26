@@ -1,4 +1,4 @@
 {
-    "invite": "يمكنك استعمال هذا الرابط لكي تدعو الناس الآخرين لهذا المجتمع:",
+    "invite": "You can use this link to invite others to the community: %%invite%%",
     "executedBy": "نفذ من قبل %%user%%"
 }
