@@ -1,5 +1,5 @@
 {
-    "quickplayCrowdin": "Here's the Quickplay Crowdin project: %%crowdin%%.",
-    "quickplayThread": "Follow this link for the thread showcasing the Quickplay mod: %%thread%%.",
-    "quickplayDiscord": "Join Quickplay's Discord server at %%discord%%."
+    "quickplayCrowdin": "هنا رابط مشروع Quickplay على Crowdin: %%crowdin%%.",
+    "quickplayThread": "تتبع الرابط للـthread الذي يتم فيه عرض مود الـQuickplay: %%thread%%.",
+    "quickplayDiscord": "أدخل سيرفر الديسكورد الخاص بـQuickplay %%discord%%."
 }
