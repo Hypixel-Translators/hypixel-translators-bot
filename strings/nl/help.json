@@ -40,31 +40,31 @@
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Geeft je een uitnodigingslink voor deze server. Gebruik deze wanneer je iemand wilt uitnodigen."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Geeft je de link naar de officiële thread omtrent Hypixel-vertalingen."
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel Crowdin project."
+        "description": "Geeft je nuttige informatie omtrent het Hypixel-Crowdinproject."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay Crowdin project."
+        "description": "Geeft je nuttige informatie omtrent het Quickplay-Crowdinproject."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons Crowdin project."
+        "description": "Geeft je nuttige informatie omtrent het SkyblockAddons-Crowdinproject."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Geeft je de link naar de thread die deze Discordserver aankondigt."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Geeft je de link naar de officiële Hypixel-vertaalcommunity-Twitterpagina."
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }
