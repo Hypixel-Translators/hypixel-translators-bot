@@ -48,15 +48,15 @@
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "يعطيك معلومات مفيدة بخصوص مشروع هايبكسل على Crowdin."
+        "description": "Gives you useful information regarding the Hypixel project."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "يعطيك معلومات مفيدة بخصوص مشروع الـQuickplay على Crowdin."
+        "description": "Gives you useful information regarding the Quickplay project."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "يعطيك معلومات مفيدة بخصوص مشروع الـSkyblockAddons على Crowdin."
+        "description": "Gives you useful information regarding the SkyblockAddons project."
     },
     "thread": {
         "usage": "+thread",
