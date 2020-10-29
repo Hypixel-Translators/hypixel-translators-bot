@@ -67,9 +67,9 @@ async function accessSpreadsheet(executedBy, strings, message, args, msg) {
     const rows = await sheet.getRows()
 
     var rowNum = Math.floor(Math.random() * Math.floor(rows.length))
-    var number = Number(args[0]) - 1
+    var number = Number(args[0]) + 1
     if (args[0]) { rowNum = number }
-    console.log(rowNum)
+    console.log("Requested quote from row " + rowNum)
 
     const correctRow = rows[rowNum]
     if (!correctRow) {
