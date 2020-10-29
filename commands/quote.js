@@ -66,21 +66,20 @@ async function accessSpreadsheet(executedBy, strings, message, args, msg) {
 
     const rows = await sheet.getRows()
 
-    var rowNum = Math.floor(Math.random() * Math.floor(rows.length))
-    var number = Number(args[0]) - 1
-    var rowNumLog = Number(rowNum) + 2
-    if (args[0]) { rowNum = number }
-    console.log("Requested quote from row " + rowNumLog)
+    var quoteNumCode = 0
+    if (!args[0]) quoteNumCode = Math.floor(Math.random() * Math.floor(rows.length)) //generate random 0-base index number if no arg is given
+    if (args[0]) quoteNumCode = Number(args[0]) - 1 //subtract 1 from argument in order to create 0-base index number
+    var quoteNumUser = quoteNumCode + 1
+    var quoteNumSheet = quoteNumCode - 1
+    console.log(`Quote #${quoteNumUser} has been requested (0-base number ${quoteNumCode}, sheet position ${quoteNumSheet})`)
 
-    const correctRow = rows[rowNum]
+    const correctRow = rows[quoteNumCode]
     if (!correctRow) {
-        var indexArg = strings.indexArg.replace("%%arg%%", args[0])
-        indexArg = indexArg.replace("%%max%%", rows.length)
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.invalidArg)
-            .setDescription(indexArg)
+            .setDescription(strings.indexArg.replace("%%arg%%", args[0]).replace("%%max%%", rows.length))
             .setFooter(executedBy);
         msg.edit(embed)
         return;
