@@ -35,9 +35,8 @@ module.exports = {
 
     } else {
 
-      const name = args[0].toLowerCase()
-      const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name))
-      console.log(command.name)
+      const name = args[0].toLowerCase();
+      const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
 
       if (!command) {
         const embed = new Discord.MessageEmbed()
