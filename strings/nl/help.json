@@ -48,15 +48,15 @@
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Geeft je nuttige informatie omtrent het Hypixel-Crowdinproject."
+        "description": "Gives you useful information regarding the Hypixel project."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Geeft je nuttige informatie omtrent het Quickplay-Crowdinproject."
+        "description": "Gives you useful information regarding the Quickplay project."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Geeft je nuttige informatie omtrent het SkyblockAddons-Crowdinproject."
+        "description": "Gives you useful information regarding the SkyblockAddons project."
     },
     "thread": {
         "usage": "+thread",
