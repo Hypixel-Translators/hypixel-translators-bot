@@ -64,7 +64,7 @@
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Te de un enlace a la página oficial de Twitter de la cuenta de Hypixel Translators Community."
+        "description": "Te da un enlace a la página oficial de Twitter de la cuenta de Hypixel Translators Community."
     },
     "executedBy": "Ejecutado por %%user%%"
 }
