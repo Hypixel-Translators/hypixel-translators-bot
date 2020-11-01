@@ -114,30 +114,30 @@ async function bot(client) {
         .then((json) => {
             json.reverse()
             client.channels.cache.get("762661287749484614").messages.fetch()
-            .then(messages => {
-                fiMessages = messages.filter(msg => msg.author.bot)
-                fiMessages.forEach(async (msg) => {
-                    var r = json[index]
-                    var langdbEntry = langdb.find(o => o.name === r.name)
+                .then(messages => {
+                    fiMessages = messages.filter(msg => msg.author.bot)
+                    fiMessages.forEach(async (msg) => {
+                        var r = json[index]
+                        var langdbEntry = langdb.find(o => o.name === r.name)
 
-                    if (r.approved_progress > 89) {
-                        adapColour = successColor
-                    } else if (r.approved_progress > 49) {
-                        adapColour = workingColor
-                    } else {
-                        adapColour = errorColor
-                    }
+                        if (r.approved_progress > 89) {
+                            adapColour = successColor
+                        } else if (r.approved_progress > 49) {
+                            adapColour = workingColor
+                        } else {
+                            adapColour = errorColor
+                        }
 
-                    const embed = new Discord.MessageEmbed()
-                        .setColor(adapColour)
-                        .setTitle(langdbEntry.emoji + " | " + r.name || "<:icon_question:756582065834688662>" + " | " + r.name)
-                        .setThumbnail(langdbEntry.flag).replace("%code%", r.code)
-                        .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/hypixel-translators-bot/all/en-" + langdbEntry.code)
-                        .setTimestamp()
-                    msg.edit("", embed)
-                    index++
+                        const embed = new Discord.MessageEmbed()
+                            .setColor(adapColour)
+                            .setTitle(langdbEntry.emoji + " | " + r.name || "<:icon_question:756582065834688662>" + " | " + r.name)
+                            .setThumbnail((langdbEntry.flag).replace("%code%", r.code))
+                            .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/hypixel-translators-bot/all/en-" + langdbEntry.code)
+                            .setTimestamp()
+                        msg.edit("", embed)
+                        index++
+                    })
                 })
-            })
             client.channels.cache.get("730042612647723058").messages.fetch("750161237106622634")
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
@@ -179,7 +179,7 @@ async function skyblockaddons(client) {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(adapColour)
                                 .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-" + langdbEntry.code)
-                                .setThumbnail(langdbEntry.flag).replace("%code%", r.code)
+                                .setThumbnail((langdbEntry.flag).replace("%code%", r.code))
                                 .setTimestamp()
                             if (langdbEntry) { embed.setTitle(langdbEntry.emoji + " | " + r.name) } else { embed.setTitle("<:icon_question:756582065834688662> | " + r.name) }
                             msg.edit("", embed)
