@@ -10,7 +10,7 @@
   "randomUser": ["Stannya", "Rodry", "QkeleQ10", "Sol", "Wens", "Linewater", "Kiril", "TheComputer8423", "lasse", "Deentrox", "uncheated", "MightyFixie", "Proofreader", "nicknase27"],
   "langdb": [  
     {"name": "Arabic", "emoji": "🇵🇸", "code" : "ar", "flag": "https://crowdin.com/images/flags/%code%.png"},
-    {"name": "Biscuitish", "emoji": "🍪", "code" : "bc", "flag": "https://crowdin-static.downloads.crowdin.com/images/custom_flags/big/13809467_%code%.png"},
+    {"name": "Biscuitish", "emoji": "🍪", "code" : "bc", "flag": "https://github.com/BiscuitDevelopment/SkyblockAddons/blob/development/src/main/resources/assets/skyblockaddons/flags/bc_bc.png?raw=true"},
     {"name": "Bulgarian", "emoji": "🇧🇬", "colour": "#e02222", "code" : "bg", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Chinese Simplified", "emoji": "🇨🇳", "colour": "#21de70", "code": "zhcn", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Chinese Traditional", "emoji": "🇭🇰", "colour": "#21de70", "code": "zhtw", "flag": "https://crowdin.com/images/flags/%code%.png"},
@@ -18,7 +18,7 @@
     {"name": "Czech", "emoji": "🇨🇿", "colour": "#e02222", "code": "cs", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Danish", "emoji": "🇩🇰", "colour": "#e02222", "code": "da", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Dutch", "emoji": "🇳🇱", "colour": "#21de70", "code": "nl", "flag": "https://crowdin.com/images/flags/%code%.png"},
-    {"name": "Emoji", "emoji": "😂", "code" : "em", "flag": "https://crowdin-static.downloads.crowdin.com/images/custom_flags/big/13471269_%code%.png"},
+    {"name": "Emoji", "emoji": "😂", "code" : "em", "flag": "https://i.imgur.com/oRoCMON.png"},
     {"name": "Filipino", "emoji": "🇵🇭", "code" : "fil", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Finnish", "emoji": "🇫🇮", "colour": "#e02222", "code": "fi", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "French", "emoji": "🇫🇷", "colour": "#21de70", "code": "fr", "flag": "https://crowdin.com/images/flags/%code%.png"},
@@ -29,7 +29,7 @@
     {"name": "Hungarian", "emoji": "🇭🇺", "code" : "hu", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Indonesian", "emoji": "🇮🇩", "code" : "id", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Irish", "emoji": "🇮🇪", "code" : "gaie", "flag": "https://crowdin.com/images/flags/%code%.png"},
-    {"name": "Inhale Banana", "emoji": "🍌", "code" : "ib", "flag": "https://crowdin-static.downloads.crowdin.com/images/custom_flags/big/13471269_%code%.png"},
+    {"name": "Inhale Banana", "emoji": "🍌", "code" : "ib", "flag": "https://i.imgur.com/Moavpb7.png"},
     {"name": "Italian", "emoji": "🇮🇹", "colour": "#21de70", "code": "it", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Japanese", "emoji": "🇯🇵", "colour": "#21de70", "code": "ja", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Korean", "emoji": "🇰🇷", "colour": "#21de70", "code": "ko", "flag": "https://crowdin.com/images/flags/%code%.png"},
@@ -53,6 +53,6 @@
     {"name": "Turkish", "emoji": "🇹🇷", "colour": "#e02222", "code": "tr", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Ukrainian", "emoji": "🇺🇦", "colour": "#e02222", "code": "ua", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Vietnamese", "emoji": "🇻🇳", "code": "vi", "flag": "https://crowdin.com/images/flags/%code%.png"},
-    {"name": "owo", "emoji": "<:owo:759891385221644318>", "code": "ow", "flag": "https://crowdin-static.downloads.crowdin.com/images/custom_flags/big/13809467_%code%.png"}
+    {"name": "owo", "emoji": "<:owo:759891385221644318>", "code": "ow", "flag": "https://github.com/BiscuitDevelopment/SkyblockAddons/blob/development/src/main/resources/assets/skyblockaddons/flags/ow_wo.png?raw=true"}
   ]
 }
