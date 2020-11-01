@@ -38,7 +38,7 @@ async function hypixel(client) {
                             .setColor(langdbEntry.colour)
                             .setTitle(langdbEntry.emoji + " | " + r.name || "<:icon_question:756582065834688662>" + " | " + r.name)
                             .setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png")
-                            .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/hypixel/all/en-" + r.code)
+                            .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/hypixel/all/en-" + langdbEntry.code)
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
@@ -85,7 +85,7 @@ async function quickplay(client) {
                             .setColor(adapColour)
                             .setTitle(langdbEntry.emoji + " | " + r.name || "<:icon_question:756582065834688662>" + " | " + r.name)
                             .setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png")
-                            .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/quickplay/all/en-" + r.code)
+                            .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/quickplay/all/en-" + langdbEntry.code)
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
@@ -131,8 +131,8 @@ async function bot(client) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(adapColour)
                         .setTitle(langdbEntry.emoji + " | " + r.name || "<:icon_question:756582065834688662>" + " | " + r.name)
-                        .setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png")
-                        .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/hypixel-translators-bot/all/en-" + r.code)
+                        .setThumbnail(langdbEntry.flag).replace("%code%", r.code)
+                        .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/hypixel-translators-bot/all/en-" + langdbEntry.code)
                         .setTimestamp()
                     msg.edit("", embed)
                     index++
@@ -178,8 +178,8 @@ async function skyblockaddons(client) {
 
                             const embed = new Discord.MessageEmbed()
                                 .setColor(adapColour)
-                                .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-" + r.code)
-                                .setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png") // "https://crowdin-static.downloads.crowdin.com/images/custom_flags/big/13809467_" + r.code + ".png" if we ever try to support custom language flags
+                                .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-" + langdbEntry.code)
+                                .setThumbnail(langdbEntry.flag).replace("%code%", r.code)
                                 .setTimestamp()
                             if (langdbEntry) { embed.setTitle(langdbEntry.emoji + " | " + r.name) } else { embed.setTitle("<:icon_question:756582065834688662> | " + r.name) }
                             msg.edit("", embed)
