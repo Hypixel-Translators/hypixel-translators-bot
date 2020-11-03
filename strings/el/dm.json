@@ -4,6 +4,6 @@
     "loading": "Ένα δευτερόλεπτο...",
     "generalError": "Something has gone wrong.",
     "incoming": "Λήφθηκε μήνυμα από το προσωπικό",
-    "incomingDisclaimer": "Any message you send here will get sent to staff.",
+    "incomingDisclaimer": "Οποιοδήποτε μήνυμα που θα στείλεις εδώ θα σταλεί στο προσωπικό.",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
