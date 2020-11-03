@@ -19,12 +19,12 @@
         "description": "Σου δίνει το κατάλληλο πρόθεμα για την γλώσσα/γλώσσες σου."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <user mention>",
+        "usage": "+quote [index] | +quote add <παράθεμα> / <αναφορά χρήστη>",
         "description": "Παίρνει (ή προσθέτει) ένα αστείο/περίεργο/σοφό παράθεμα από τον διακομιστή."
     },
     "mention": {
         "usage": "+mention <γλώσσα> translator|proofreader|all [μήνυμα]",
-        "description": "Mentions a language role with an optional message."
+        "description": "Αναφέρει έναν ρόλο γλώσσας με ένα προαιρετικό μήνυμα."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <επιχειρήματα>",
@@ -36,7 +36,7 @@
     },
     "language": {
         "usage": "+language [<νέα γλώσσα> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "description": "Αλλάζει την γλώσσα σου, δείχνει την τωρινή σου ή δείχνει μία λίστα με τις διαθέσιμες γλώσσες."
     },
     "invite": {
         "usage": "+invite",
