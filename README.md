@@ -1,5 +1,7 @@
+![Join our Discord server](https://discordapp.com/api/guilds/549503328472530974/widget.png?style=banner2)
+
 # Hypixel Translators Bot [![Twitter](https://img.shields.io/twitter/follow/HTranslators?style=social)](https://twitter.com/HTranslators)
-Welcome to the [Hypixel Translators](https://discord.gg/rcT948A) Bot GitHub repository! Here you can [report bugs](https://github.com/QkeleQ10/hypixel-translators-bot-discord/issues), [contribute to the code](https://github.com/QkeleQ10/hypixel-translators-bot-discord/pulls) and [view information](https://github.com/QkeleQ10/hypixel-translators-bot-discord/wiki). ![Join our Discord server](https://discordapp.com/api/guilds/549503328472530974/widget.png?style=banner2)
+Welcome to the [Hypixel Translators](https://discord.gg/rcT948A) Bot GitHub repository! Here you can [report bugs](https://github.com/QkeleQ10/hypixel-translators-bot-discord/issues), [contribute to the code](https://github.com/QkeleQ10/hypixel-translators-bot-discord/pulls) and [view information](https://github.com/QkeleQ10/hypixel-translators-bot-discord/wiki). 
 
 # News
 The [#bot-updates channel](https://discord.com/channels/549503328472530974/732587569744838777) in our Discord server has all significant updates to the bot in it. The [#github channel](https://discord.com/channels/549503328472530974/758314105328762912) will have every commit to this repository posted to it. React to [this message](https://discord.com/channels/549503328472530974/732587569744838777/733036798736990309) to get mentioned whenever a significant announcement or poll is made regarding the bot.
