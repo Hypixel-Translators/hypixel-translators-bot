@@ -7,7 +7,7 @@ module.exports = {
     usage: "+updateinfo",
     execute(strings, message) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        if (!message.member.roles.cache.has("752541221980733571")) return;
+        if (!message.member.roles.cache.has("620274909700161556")) return;
         message.client.channels.cache.get("762341271611506708").messages.fetch().then(msgs => { msgs.forEach(msg => { msg.delete().catch(err => { console.error(err) }) }) })
         const channelsEmbed = new Discord.MessageEmbed()
             .setColor("#0022ff")

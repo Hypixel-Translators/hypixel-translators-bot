@@ -21,7 +21,6 @@ module.exports = {
         message.channel.send(embed).then(msg => {
             if (args[0] === "add") {
                 allowed = false
-                if (strings, message.author.id == "722738307477536778") { allowed = true }
                 if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("620274909700161556")) { allowed = true } } // mod and *
                 if (!allowed) {
                     args.splice(0, 1)

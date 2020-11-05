@@ -13,7 +13,6 @@ module.exports = {
         var userToSend = args[0].replace(/[\\<>@#&!]/g, "");
         args.splice(0, 1)
         var toSend = args.join(" ")
-        if (message.author.id == "722738307477536778") { allowed = true }
         if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("620274909700161556")) { allowed = true } } // mod and *
         if (!allowed) return;
 
