@@ -17,7 +17,6 @@ module.exports = {
     var msg
 
     var allowed = false
-    if (message.author.id == "722738307477536778") { allowed = true }
     if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("620274909700161556")) { allowed = true } } // mod and *
     if (!allowed) throw "noAccess";
     if (!sendTo) throw "noChannel";
