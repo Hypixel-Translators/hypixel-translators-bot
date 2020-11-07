@@ -4,7 +4,7 @@
     "errorNoPingTr": "οπότε δεν μπορείς να αναφέρεις τον ρόλο μεταφραστή του.",
     "errorNoPingAll": "οπότε δεν μπορείς να αναφέρεις ολόκληρη την γλώσσα.",
     "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to.",
-    "errorNotFound": "The role you entered doesn't exist. You can enter the language name, or any of these: ",
+    "errorNotFound": "Ο ρόλος που εισαγάγατε δεν υπάρχει. Μπορείτε να εισάγετε το όνομα της γλώσσας ή οποιοδήποτε από αυτά: ",
     "errorNoArgs": "You forgot to specify a language! You can enter the language name (in English) or any of these: ",
     "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
