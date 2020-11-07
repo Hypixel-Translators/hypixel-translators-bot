@@ -5,8 +5,8 @@
     "invalidArg": "Μη έγκυρο επιχείρημα!",
     "indexArg": "Ένα παράθεμα με ένδειξη %%arg%% δεν υπάρχει! Παρακαλώ εισήγαγε έναν αριθμό μεταξύ του 1 και %%max%%.",
     "reqSub": "Your quote request has been submitted, thanks!",
-    "reqAdd": "Success! The following quote has been added:",
+    "reqAdd": "Επιτυχία! Προστέθηκε το ακόλουθο παράθεμα:",
     "user": "Χρήστης",
-    "index": "Quote number",
+    "index": "Αριθμός παραθέματος",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
