@@ -2,7 +2,7 @@
     "moduleName": "Tietoa",
     "commandsListTitle": "Linkit ja komennot",
     "commandsListTooltip": "Tämän botin on tehnyt Hypixelin kääntäjien yhteisölle %%QkeleQ10%%. Sen avoin lähdekoodi on saatavilla GitHubista [täältä]%%github%%. Voit auttaa kääntämään bottia seuraamalla ohjeita, jotka löytyvät [tämän linkin]%%translate%% takaa.\n\nVoit suorittaa komennon `+help <komennon nimi>` saadaksesi tietää lisää valitusta komennosta.\nTässä lista kaikista komennoista:\n ",
-    "madeBy": " | Botin on huolellisesti kasannut %%q10%%",
+    "madeBy": " | Botin on huolellisesti kasannut %%QkeleQ10%%",
     "commandInfo": "Komennon tiedot",
     "commandInfoFor": "Tiedot komennolle ",
     "commandNotExist": "Tätä komentoa ei ole olemassa!",
@@ -48,15 +48,15 @@
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Antaa hyödyllistä tietoa Hypixelin Crowdin-projektista."
+        "description": "Gives you useful information regarding the Hypixel project."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay Crowdin project."
+        "description": "Gives you useful information regarding the Quickplay project."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons Crowdin project."
+        "description": "Gives you useful information regarding the SkyblockAddons project."
     },
     "thread": {
         "usage": "+thread",
