@@ -27,8 +27,8 @@
         "description": "Zmíní roli jazyka s volitelnou zprávou."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <argumenty>",
-        "description": "Zobrazí ti, přidá nebo upraví kontext zadaného ID stringu. `+context help` ti zobrazí informace o tomto příkazu."
+        "usage": "+context get|add|edit|link|help <arguments>",
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
