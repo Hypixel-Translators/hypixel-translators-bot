@@ -27,8 +27,8 @@
         "description": "Згадує мовну роль із повідомленням."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <аргументи>",
-        "description": "Знаходить, додає або редагує контекст для заданого string ID. `+context help` показує інформацію щодо цієї команду."
+        "usage": "+context get|add|edit|link|help <arguments>",
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
