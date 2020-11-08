@@ -26,7 +26,7 @@ client.once("ready", () => {
   client.channels.cache.get("732326676192690236").messages.fetch()
   client.channels.cache.get("734081393499308053").messages.fetch()
   client.channels.cache.get("732326761882321046").messages.fetch()
-  client.channels.cache.get("748968125663543407").messages.fetch() //languages database
+  client.channels.cache.get("775004037443223563").messages.fetch() //languages database
 
   client.user.setStatus("online").catch(console.error);
 
@@ -65,7 +65,7 @@ client.on("message", async message => {
 
   var globalStrings = require(("./strings/en/global.json"))
   var helpStrings = require(("./strings/en/help.json"))
-  const oldMessages = await message.client.channels.cache.get("748968125663543407").messages.fetch() //languages database
+  const oldMessages = await message.client.channels.cache.get("775004037443223563").messages.fetch() //languages database
   const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
   oldFiMessages.forEach(async element => {
     oldMsg = element.content.split(" ")
