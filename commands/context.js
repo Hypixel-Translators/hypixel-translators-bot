@@ -533,6 +533,7 @@ async function viewsheet(executedBy, strings, message, args) {
                 .then(linkMsg => {
                     setTimeout(() => {
                         linkMsg.delete()
+                        message.delete()
                     }, 60000)
                 })
         })
