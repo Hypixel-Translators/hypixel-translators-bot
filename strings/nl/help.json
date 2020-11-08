@@ -27,8 +27,8 @@
         "description": "Vermeldt een taalrol met een optioneel bericht."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <argumenten>",
-        "description": "Geeft context voor het gegeven string-ID, voegt het toe of bewerkt het. `+context help` geeft je informatie over dit commando."
+        "usage": "+context get|add|edit|link|help <arguments>",
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
