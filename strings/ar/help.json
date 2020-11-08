@@ -27,8 +27,8 @@
         "description": "منشن رتبة اللغه مع رسالة اختيارية."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <مُعطى>",
-        "description": "تجلب, تضيف أو تعدل السياق لآيدي سترينج السياق المعطى. `+context help` تظهر لك معلومات عن هذا الأمر."
+        "usage": "+context get|add|edit|link|help <arguments>",
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
