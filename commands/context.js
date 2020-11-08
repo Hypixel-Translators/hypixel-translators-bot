@@ -7,20 +7,19 @@ const creds = { "type": process.env.type, "project_id": process.env.project_id, 
 module.exports = {
     name: "context",
     description: "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command.",
-    usage: "context get|add|edit|view|help <arguments>",
+    usage: "context get|add|edit|link|help <arguments>",
     channelBlackList: ["621298919535804426", "619662798133133312", "712046319375482910", "550951034332381184", "634101000340504576", "713084081579098152"],
     cooldown: 10,
     execute(strings, message, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         try {
             if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771")) throw "noTrPr"
-            if (args[0] === "new" || args[0] === "add") { addToSpreadsheet(executedBy, strings, message, args) }
-            else if (args[0] === "get") { getFromSpreadsheet(executedBy, strings, message, args) }
+            if (args[0] === "add" || args[0] === "new") { addToSpreadsheet(executedBy, strings, message, args) }
+            else if (args[0] === "get" || args[0] === "show") { getFromSpreadsheet(executedBy, strings, message, args) }
             else if (args[0] === "edit") { editInSpreadsheet(executedBy, strings, message, args) }
-            else if (args[0] === "info" || args[0] === "help") { showInfo(executedBy, strings, message, args) }
-            else if (args[0] === "view" || args[0] === "link") { viewsheet(executedBy, strings, message, args) }
+            else if (args[0] === "help" || args[0] === "info") { showInfo(executedBy, strings, message, args) }
+            else if (args[0] === "link" || args[0] === "sheet" || args[0] === "list") { viewsheet(executedBy, strings, message, args) }
             else throw "contextSubArg"
-            if (strings, message.channel.id === "549894938712866816") { setTimeout(message.delete(), 60000) }
         } catch (err) { throw err.toString() }
     }
 }
@@ -508,7 +507,7 @@ async function showInfo(executedBy, strings, message, args) {
                     { name: "Edit", value: strings.info.edit },
                     { name: "View", value: strings.info.view },
                     { name: "Help", value: strings.info.help },
-                    { name: "Fields", value: "id, context, screenshot, bg, zhcn, zhtw, cs, da, nl, fi, fr, de, el, it, ja, ko, no, enpt, pl, pt, ptbr, ru, es, sv, th, tr, uk" }
+                    { name: "Fields", value: "id, context, screenshot, bg, zhcn, zhtw, cs, da, nl, fi, fr, de, el, it, ja, ko, ms, no, enpt, pl, pt, ptbr, ru, es, sv, th, tr, uk" }
                 )
                 .setFooter(executedBy);
             msg.edit(embed)
@@ -534,7 +533,7 @@ async function viewsheet(executedBy, strings, message, args) {
                 .then(linkMsg => {
                     setTimeout(() => {
                         linkMsg.delete()
-                    }, 120000)
+                    }, 60000)
                 })
         })
 }
