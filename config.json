@@ -7,10 +7,10 @@
   "neutralColor": "#28dbde",
   "listenStatuses" : ["+help", "RANDOM_USER's commands", "RANDOM_USER", "wise words from RANDOM_USER", "QkeleQ10", "Stannya and Rodry"],
   "watchStatuses": ["your commands", "your messages", "meatdata", "their prayers", "nicknames and stuff", "RANDOM_USER's messages"],
-  "randomUser": ["Stannya", "Rodry", "Sol", "Wens", "Linewater", "Kiril", "TheComputer8423", "lasse", "MightyFixie", "Proofreader"],
+  "randomUser": ["Stannya", "Rodry", "Sol", "Wens", "Linewater", "Kiril", "TheComputer8423", "Stannya", "Rodry", "Kiril", "lasse", "MightyFixie", "Proofreader", "airboot"],
   "langdb": [  
     {"name": "Arabic", "emoji": "🇵🇸", "code" : "ar", "flag": "https://crowdin.com/images/flags/%code%.png"},
-    {"name": "Biscuitish", "emoji": "🍪", "code" : "bc", "flag": "https://github.com/BiscuitDevelopment/SkyblockAddons/blob/development/src/main/resources/assets/skyblockaddons/flags/bc_bc.png?raw=true"},
+    {"name": "Biscuitish", "emoji": "🍪", "code" : "bc", "flag": "https://github.com/BiscuitDevelopment/SkyblockAddons/blob/development/src/main/resources/assets/skyblockaddons/flags/%code%_bc.png?raw=true"},
     {"name": "Bulgarian", "emoji": "🇧🇬", "colour": "#e02222", "code" : "bg", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Chinese Simplified", "emoji": "🇨🇳", "colour": "#21de70", "code": "zhcn", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Chinese Traditional", "emoji": "🇭🇰", "colour": "#21de70", "code": "zhtw", "flag": "https://crowdin.com/images/flags/%code%.png"},
@@ -18,7 +18,7 @@
     {"name": "Czech", "emoji": "🇨🇿", "colour": "#e02222", "code": "cs", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Danish", "emoji": "🇩🇰", "colour": "#e02222", "code": "da", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Dutch", "emoji": "🇳🇱", "colour": "#21de70", "code": "nl", "flag": "https://crowdin.com/images/flags/%code%.png"},
-    {"name": "Emoji", "emoji": "😂", "code" : "em", "flag": "https://i.imgur.com/oRoCMON.png"},
+    {"name": "Emoji", "emoji": "😂", "code" : "em", "flag": "https://github.com/QkeleQ10/hypixel-translators-bot-discord/blob/master/flags/%code%.png?raw=true"},
     {"name": "Filipino", "emoji": "🇵🇭", "code" : "fil", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Finnish", "emoji": "🇫🇮", "colour": "#e02222", "code": "fi", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "French", "emoji": "🇫🇷", "colour": "#21de70", "code": "fr", "flag": "https://crowdin.com/images/flags/%code%.png"},
@@ -29,7 +29,7 @@
     {"name": "Hungarian", "emoji": "🇭🇺", "code" : "hu", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Indonesian", "emoji": "🇮🇩", "code" : "id", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Irish", "emoji": "🇮🇪", "code" : "gaie", "flag": "https://crowdin.com/images/flags/%code%.png"},
-    {"name": "Inhale Banana", "emoji": "🍌", "code" : "ib", "flag": "https://i.imgur.com/Moavpb7.png"},
+    {"name": "Inhale Banana", "emoji": "🍌", "code" : "ib", "flag": "https://github.com/QkeleQ10/hypixel-translators-bot-discord/blob/master/flags/%code%.png?raw=true"},
     {"name": "Italian", "emoji": "🇮🇹", "colour": "#21de70", "code": "it", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Japanese", "emoji": "🇯🇵", "colour": "#21de70", "code": "ja", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Korean", "emoji": "🇰🇷", "colour": "#21de70", "code": "ko", "flag": "https://crowdin.com/images/flags/%code%.png"},
@@ -53,6 +53,6 @@
     {"name": "Turkish", "emoji": "🇹🇷", "colour": "#e02222", "code": "tr", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Ukrainian", "emoji": "🇺🇦", "colour": "#e02222", "code": "ua", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Vietnamese", "emoji": "🇻🇳", "code": "vi", "flag": "https://crowdin.com/images/flags/%code%.png"},
-    {"name": "owo", "emoji": "<:owo:759891385221644318>", "code": "ow", "flag": "https://github.com/BiscuitDevelopment/SkyblockAddons/blob/development/src/main/resources/assets/skyblockaddons/flags/ow_wo.png?raw=true"}
+    {"name": "owo", "emoji": "<:owo:759891385221644318>", "code": "ow", "flag": "https://github.com/BiscuitDevelopment/SkyblockAddons/blob/development/src/main/resources/assets/skyblockaddons/flags/%code%_wo.png?raw=true"}
   ]
 }
