@@ -61,7 +61,7 @@
         "get": "_Fornece contexto para uma dada string_\n`+context get <ID da string>`\n\nSubstitui <ID da string> pelo ID da string, que pode ser encontrado depois do # ao copiar o URL da string.",
         "add": "_Adiciona contexto a uma string_\n`+context add <ID da string> <contexto>`\n\nSubstitui <ID da string> pelo ID da string, que pode ser encontrado depois do # ao copiar o URL da string. Substitui <contexto> com a informação que desejas adicionar. Depois de executado, podes adicionar mais parâmetros usando reações.",
         "edit": "_Edita o contexto de uma string_\n`+context edit <ID da string> <parâmetro> <nova informação>`\n\nSubstitui <ID da string> pelo ID da string, que pode ser encontrado depois do # ao copiar o URL da string. Substitui <parâmetro> com o parâmetro que queres editar, como por exemplo `screenshot` ou `ptpt`. Substitui <nova informação> com a nova informação para o parâmetro que definiste.",
-        "link": "_Gives you a link to the Google Sheet containing context_\n`+context link`",
+        "link": "_Dá-te um link para a folha do Google Sheets que contém o contexto_\n`+context link`",
         "help": "_Mostra esta mensagem!_\n`+context help`",
         "fields": "Parâmetros",
         "sheetT": "Folha do contexto",
