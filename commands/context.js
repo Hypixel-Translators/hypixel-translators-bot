@@ -18,7 +18,7 @@ module.exports = {
             else if (args[0] === "get" || args[0] === "show") { getFromSpreadsheet(executedBy, strings, message, args) }
             else if (args[0] === "edit") { editInSpreadsheet(executedBy, strings, message, args) }
             else if (args[0] === "help" || args[0] === "info") { showInfo(executedBy, strings, message, args) }
-            else if (args[0] === "link" || args[0] === "sheet" || args[0] === "list") { viewsheet(executedBy, strings, message, args) }
+            else if (args[0] === "link" || args[0] === "sheet" || args[0] === "list") { sheetLink(executedBy, strings, message, args) }
             else throw "contextSubArg"
         } catch (err) { throw err.toString() }
     }
@@ -505,7 +505,7 @@ async function showInfo(executedBy, strings, message, args) {
                     { name: "Get", value: strings.info.get },
                     { name: "Add", value: strings.info.add },
                     { name: "Edit", value: strings.info.edit },
-                    { name: "View", value: strings.info.view },
+                    { name: "Link", value: strings.info.link },
                     { name: "Help", value: strings.info.help },
                     { name: "Fields", value: "id, context, screenshot, bg, zhcn, zhtw, cs, da, nl, fi, fr, de, el, it, ja, ko, ms, no, enpt, pl, pt, ptbr, ru, es, sv, th, tr, uk" }
                 )
@@ -515,7 +515,7 @@ async function showInfo(executedBy, strings, message, args) {
         })
 }
 
-async function viewsheet(executedBy, strings, message, args) {
+async function sheetLink(executedBy, strings, message, args) {
     const embed = new Discord.MessageEmbed()
         .setColor(workingColor)
         .setAuthor(strings.moduleName)
