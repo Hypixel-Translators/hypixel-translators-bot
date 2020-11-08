@@ -27,8 +27,8 @@
         "description": "Nevner en språkrolle med en valgfri melding."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <argumenter>",
-        "description": "Henter, legger til eller redigerer konteksten for den angitte string-IDen. `+context help` viser informasjon om denne kommandoen."
+        "usage": "+context get|add|edit|link|help <arguments>",
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
