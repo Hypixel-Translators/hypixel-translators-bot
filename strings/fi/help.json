@@ -27,8 +27,8 @@
         "description": "Mainitsee kieliroolin ja lähettää valinnaisen viestin."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
+        "usage": "+context get|add|edit|view|help <argumentit>",
+        "description": "Näyttää, lisää tai muokkaa valitun stringin (ID) kontekstia. Komennnolla `+context help` näyttää tietoa tästä komennosta. Komennolla `+context link` voit pyytää oikeutta nähdä kontekstitaulukkokirjan."
     },
     "issue": {
         "usage": "+issue",
@@ -40,31 +40,31 @@
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Antaa palvelimen kutsulinkin. Käytäthän aina tätä kutsuessasi jonkun."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Antaa linkin viralliselle palstalle, jossa kerrotaan Hypixelin kääntämisestä."
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "Antaa hyödyllistä tietoa Hypixelin Crowdin-projektista."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Antaa hyödyllistä tietoa Quickplay-projektista."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "Antaa hyödyllistä tietoa SkyblockAddons-projektista."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Antaa linkin viestiketjuun, jossa kerrotaan tästä palvelimesta."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Antaa linkin viralliselle Hypixel Translators Communityn Twitter-sivulle."
     },
     "executedBy": "Komennon suoritti %%user%%"
 }
