@@ -27,8 +27,8 @@
         "description": "Menciona os usuários com o cargo do idioma informado. Você também pode adicionar uma mensagem na notificação."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <argumentos>",
-        "description": "Obtém, adiciona ou edita o contexto de uma mensagem com o ID informado. Veja as informações deste comando usando `+context help`."
+        "usage": "+context get|add|edit|link|help <arguments>",
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
@@ -48,15 +48,15 @@
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel Crowdin project."
+        "description": "Gives you useful information regarding the Hypixel project."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay Crowdin project."
+        "description": "Gives you useful information regarding the Quickplay project."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons Crowdin project."
+        "description": "Gives you useful information regarding the SkyblockAddons project."
     },
     "thread": {
         "usage": "+thread",

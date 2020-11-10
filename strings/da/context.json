@@ -61,12 +61,12 @@
         "get": "_Gets context for given string_\n`+context get <string ID>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #.",
         "add": "_Adds a context entry_\n`+context add <string ID> <context>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <context> with the text you want to add. After running, you can add more fields using the reactions.",
         "edit": "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enpt`. Replace <new value> with the new value for that field.",
-        "view": "_Giver dig et link til Google Sheet, der indeholder kontekst_\n`+context view`",
+        "link": "_Gives you a link to the Google Sheet containing context_\n`+context link`",
         "help": "_Viser denne besked!_\n`+context help`",
         "fields": "Felter",
         "sheetT": "Kontekst ark",
         "sheetD": "[Klik her for at åbne Google Sheet, som indeholder kontekstinformation.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nKun nogle bestemte folk kan åbne denne sheet. Du kan anmode om adgang ved at trykke på linket ovenover. Angiv venligst dit profil link til Crowdin (`.../profile/<brugernavn>`) og dit Discord-brugernavn.\nHusk at Stannya, Rodry og QkeleQ10 kan se dit Google-brugernavn og din e-mail.",
-        "sheetDel": " | Sletter beskeden om 2 minutter"
+        "sheetDel": " | Deleting message in 1 minute"
     },
     "executedBy": "Udført af %%user%%"
 }

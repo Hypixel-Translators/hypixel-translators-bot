@@ -2,7 +2,7 @@
     "moduleName": "Informasjon",
     "commandsListTitle": "Lenker og kommandoer",
     "commandsListTooltip": "Denne boten ble laget for Hypixel Translators Community av %%QkeleQ10%%. Den har åpen kildekode og vår GitHub repository kan bli funnet [her]%%github%%.\nDu kan hjelpe til med å oversette boten ved å følge instruksjonene i [denne meldingen]%%translate%%.\n\nDu kan utføre `+help <kommandonavn>` for å lære mer om en spesifikk kommando.\nHer er en liste over alle kommandoer:\n ",
-    "madeBy": " | En bot laget med masse pleie av %%q10%%",
+    "madeBy": " | En bot laget med masse pleie av %%QkeleQ10%%",
     "commandInfo": "Kommandoinformasjon",
     "commandInfoFor": "Kommandoinformasjon for ",
     "commandNotExist": "Den kommandoen finnes ikke!",
@@ -27,8 +27,8 @@
         "description": "Nevner en språkrolle med en valgfri melding."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <argumenter>",
-        "description": "Henter, legger til eller redigerer konteksten for den angitte string-IDen. `+context help` viser informasjon om denne kommandoen."
+        "usage": "+context get|add|edit|link|help <arguments>",
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
@@ -48,15 +48,15 @@
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel Crowdin project."
+        "description": "Gives you useful information regarding the Hypixel project."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay Crowdin project."
+        "description": "Gives you useful information regarding the Quickplay project."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons Crowdin project."
+        "description": "Gives you useful information regarding the SkyblockAddons project."
     },
     "thread": {
         "usage": "+thread",

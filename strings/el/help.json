@@ -2,7 +2,7 @@
     "moduleName": "Πληροφορίες",
     "commandsListTitle": "Σύνδεσμοι και εντολές",
     "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
-    "madeBy": " | Bot made with lots of care by %%QkeleQ10%%",
+    "madeBy": " | Το Bot φτιάχτηκε με πολλή φροντίδα από τον %%QkeleQ10%%",
     "commandInfo": "Πληροφορίες Εντολής",
     "commandInfoFor": "Πληροφορίες Εντολής για ",
     "commandNotExist": "Αυτή η εντολή δεν υπάρχει!",
@@ -19,16 +19,16 @@
         "description": "Σου δίνει το κατάλληλο πρόθεμα για την γλώσσα/γλώσσες σου."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <user mention>",
+        "usage": "+quote [index] | +quote add <παράθεμα> / <αναφορά χρήστη>",
         "description": "Παίρνει (ή προσθέτει) ένα αστείο/περίεργο/σοφό παράθεμα από τον διακομιστή."
     },
     "mention": {
         "usage": "+mention <γλώσσα> translator|proofreader|all [μήνυμα]",
-        "description": "Mentions a language role with an optional message."
+        "description": "Αναφέρει έναν ρόλο γλώσσας με ένα προαιρετικό μήνυμα."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <επιχειρήματα>",
-        "description": "Παίρνει, προσθέτει ή επεξεργάζεται την περιγραφή για το string ID που δόθηκε. Το `+context help` σου δείχνει πληροφορίες σχετικά με αυτή την εντολή."
+        "usage": "+context get|add|edit|link|help <arguments>",
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
@@ -36,7 +36,7 @@
     },
     "language": {
         "usage": "+language [<νέα γλώσσα> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "description": "Αλλάζει την γλώσσα σου, δείχνει την τωρινή σου ή δείχνει μία λίστα με τις διαθέσιμες γλώσσες."
     },
     "invite": {
         "usage": "+invite",
@@ -48,15 +48,15 @@
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel Crowdin project."
+        "description": "Gives you useful information regarding the Hypixel project."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay Crowdin project."
+        "description": "Gives you useful information regarding the Quickplay project."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons Crowdin project."
+        "description": "Gives you useful information regarding the SkyblockAddons project."
     },
     "thread": {
         "usage": "+thread",

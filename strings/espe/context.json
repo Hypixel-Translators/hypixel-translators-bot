@@ -61,12 +61,12 @@
         "get": "_Obtiene contexto de un string_\n`+context get <ID del string>`\n\nReemplaza <ID del string> con el ID del string encontrado copiando el link del string. Es el número después del #.",
         "add": "_Añade una entrada de contexto_\n`+context add <ID del string> <contexto>`\n\nReemplaza <ID del string> con el ID del string encontrado copiando el link del string. Es el número después del #. Reemplaza <contexto> con el texto que quieres añadir. Después de ejecutarlo, puedes añadir más parámetros con reacciones.",
         "edit": "_Edita una entrada de contexto_\n`+context edit <ID del string> <parámetro> <nueva información>`\n\nReemplaza <ID del string> con el ID del string encontrado copiando el link del string. Es el número después del #. Reemplaza <parámetro> con el parámetro que quieres editar, como `screenshot` o `enpt`. Reemplaza <nueva información> con la nueva información para ese parámetro.",
-        "view": "_Te da un link a la Google Sheet que contiene el contexto_\n`+context view`",
+        "link": "_Gives you a link to the Google Sheet containing context_\n`+context link`",
         "help": "_¡Muestra este mensaje!_\n`+context help`",
         "fields": "Parámetros",
         "sheetT": "Hoja de Contexto",
         "sheetD": "[Haz clic aquí para abrir la Google Sheet que contiene información del contexto.]\n(https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nSolo personas especificas pueden abrir esta página. Puedes pedir acceso en la página que ves cuando haces clic en el link.\nPor favor, da un link a tu perfil de Crowdin (`../profile/<usuario>`) y tu usuario de Discord.\nAcuérdate que Stannya, Rodry, y QkeleQ10 pueden ver tu perfil de Google y tu correo electrónico.",
-        "sheetDel": " | Borrando mensaje después de 2 minutos"
+        "sheetDel": " | Deleting message in 1 minute"
     },
     "executedBy": "Ejecutado por %%user%%"
 }

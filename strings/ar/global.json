@@ -7,7 +7,7 @@
     "noMessage": "لم تقم بتقديم رسالة!",
     "noChannel": "لم تقم بإعطاء اسم الروم!",
     "noUser": "لم تقم بإعطاء اسم المستخدم!",
-    "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
+    "noContext": "لم تقدم السياق! الرجاء إضافة كل من ايدي السترينج والسياق الذي يشرحه.",
     "noUserQuote": "لم تقم بإعطاء اسم المستخدم! الرجاء كتابة الإقتباس ثم منشن المستخدم, مفصولتين بخط فاصل.",
     "falseChannel": "لم يتم العثور على الروم!",
     "falseUser": "لم يتم العثور على هذا المستخدم!",

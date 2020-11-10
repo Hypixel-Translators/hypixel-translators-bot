@@ -61,12 +61,12 @@
         "get": "Verilen dize için _gets bağlamı_\n'+context get <string ID>`\n\nDize URL'sini kopyalayarak bulunan dizenin kimliği ile <<string ID> değiştirin. #'Dan sonraki numara.",
         "add": "_ Bir bağlam girişi ekler_\n'+context add <string ID> <context>`\n\nDize URL'sini kopyalayarak bulunan dizenin kimliği ile <string ID> değiştirin. #'Dan sonraki numara. Eklemek istediğiniz metinle <context> değiştirin. Çalıştırdıktan sonra, reaksiyonları kullanarak daha fazla alan ekleyebilirsiniz.",
         "edit": "_Varolan bir bağlam girişini düzenler_\n'+context edit <string kimliği> <field> <yeni değer>`\n\nDize URL'sini kopyalayarak bulunan dizenin kimliği ile <string ID> değiştirin. #'Dan sonraki numara. `screenshot` veya `enpt`gibi düzenlemek istediğiniz alanla <field> değiştirin. <new value> bu alan için yeni bir değerle değiştirin.",
-        "view": "_Size bağlam içeren bir Google Yaprağı bağlantısı verir_\n'+context view'",
+        "link": "_Gives you a link to the Google Sheet containing context_\n`+context link`",
         "help": "_Bu mesajı gösterir!_\n`+context help`",
         "fields": "Alanlar",
         "sheetT": "Bağlam Yaprağı",
         "sheetD": "[Bağlam bilgilerini içeren Google Sayfasını açmak için burayı tıklayın.] (Https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nBu sayfayı yalnızca belirli kişiler açabilir. Bağlantıyı takip ederken gördüğünüz sayfaya erişim talebinde bulunabilirsiniz. Lütfen Crowdin profil bağlantınızı (`.../profil/<kullanıcı adı>`) ve Discord kullanıcı adınızı doldurun.\nStannya, Rodry ve QkeleQ10'un Google profil adınızı ve e-postanızı görebileceğini unutmayın.",
-        "sheetDel": " | Mesaj 2 dakika sonra siliniyor"
+        "sheetDel": " | Deleting message in 1 minute"
     },
     "executedBy": "%%user%% tarafından yürütüldü"
 }

@@ -27,8 +27,8 @@
         "description": "Menciona o cargo de um idioma com uma mensagem opcional."
     },
     "context": {
-        "usage": "+context get|add|edit|view|help <argumentos>",
-        "description": "Mostra, adiciona ou edita o contexto de uma string. `+context help` dá-te mais informações sobre este comando."
+        "usage": "+context get|add|edit|link|help <argumentos>",
+        "description": "Mostra, adiciona ou edita o contexto de uma string. `+context help` dá-te mais informações sobre este comando. `+context link` dá-te um link onde podes pedir acesso ao documento com o contexto."
     },
     "issue": {
         "usage": "+issue",
@@ -40,31 +40,31 @@
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Dá-te um link de convite para o servidor. Usa-o sempre que quiseres convidar alguém."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Dá-te um link para o artigo oficial sobre as traduções no Hypixel."
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Dá-te informação útil sobre o projeto do Hypixel no Crowdin."
+        "description": "Dá-te informação útil sobre o projeto do Hypixel."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay Crowdin project."
+        "description": "Dá-te informação útil sobre o projeto do Quickplay."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons Crowdin project."
+        "description": "Dá-te informação útil sobre o projeto do SkyblockAddons."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Dá-te um link para o artigo onde foi anunciado este servidor de discord."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Dá-te um link para a página oficial da comunidade de tradutores do Hypixel no twitter."
     },
     "executedBy": "Executado por %%user%%"
 }
