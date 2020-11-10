@@ -27,8 +27,8 @@
         "description": "Vermeldt een taalrol met een optioneel bericht."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
+        "usage": "+context get|add|edit|link|help <argumenten>",
+        "description": "Geeft context voor het gegeven string-ID, voegt het toe of bewerkt het. `+context help` geeft je informatie over dit commando. `+context link` geeft je een link om toegang tot de spreadsheet aan te vragen."
     },
     "issue": {
         "usage": "+issue",
@@ -48,15 +48,15 @@
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "Geeft je nuttige informatie omtrent het Hypixel-project."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Geeft je nuttige informatie omtrent het Quickplay-project."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "Geeft je nuttige informatie omtrent het SkyblockAddons-project."
     },
     "thread": {
         "usage": "+thread",
