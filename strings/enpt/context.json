@@ -15,11 +15,11 @@
     "contextFor": "Context fer ",
     "noteFor": "Note fer ",
     "screenshot": "Screenshot",
-    "addContextFor": "Add context for ",
+    "addContextFor": "Add context fer ",
     "edited": "Edited this context entry! ",
-    "editedResult": "Edited this context entry! The new data is shown below.\n\n**Context**\n",
-    "tryRunGet": "We couldn't find the resulting entry. Try to run `+context get <string ID>` to see the result instead.",
-    "editContextFor": "Edit context for ",
+    "editedResult": "Edited this here context entry! Th' new data be shown below.\n\n**Context**\n",
+    "tryRunGet": "We couldn't find th' resultin' entry. Try t' run `+context get <string id>` t' see th' result instead.",
+    "editContextFor": "Edit context fer ",
     "willAdd": "The following entry will be added. Please react with 📑 if you'd like to add more to the entry or change existing fields (such as a screenshot or a language note). React with %%voteYes%% to submit. This will be cancelled in two minutes or when you hit %%voteNo%%.",
     "promptAddMore": "Send a message (without the prefix) containing `<field> <content>`. <field> can be `screenshot`, `id`, `context` or a language code. <content> needs to be the new content for that string, such as the screenshot link.",
     "addedMore": "Added this information to the context entry. Re-react with 📑 to add more.",
@@ -61,12 +61,12 @@
         "get": "_Gets context for given string_\n`+context get <string ID>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #.",
         "add": "_Adds a context entry_\n`+context add <string ID> <context>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <context> with the text you want to add. After running, you can add more fields using the reactions.",
         "edit": "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enpt`. Replace <new value> with the new value for that field.",
-        "view": "_Gives you a link to the Google Sheet containing context_\n`+context view`",
+        "link": "_Gives you a link to the Google Sheet containing context_\n`+context link`",
         "help": "_Shows this message!_\n`+context help`",
         "fields": "Fields",
         "sheetT": "Context Sheet",
         "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya, Rodry and QkeleQ10 can see your Google profile name and email.",
-        "sheetDel": " | Deleting message after 2 minutes"
+        "sheetDel": " | Deleting message in 1 minute"
     },
     "executedBy": "Executed by %%user%%"
 }

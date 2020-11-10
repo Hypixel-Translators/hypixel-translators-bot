@@ -3,7 +3,7 @@
     "loading": "Ένα δευτερόλεπτο...",
     "loadingRoles": "Λαμβάνουμε τους ρόλους σου...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
+        "noLanguages": "Δεν φαίνεται να έχεις κάποιο ρόλο γλώσσας! Παρακαλώ επικοινώνησε με τον διαχειριστή ή με τον ιδιοκτήτη αν πιστεύεις ότι αυτό είναι ένα σφάλμα.",
         "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
         "error": "Απέτυχε η αλλαγή ψευδωνύμου. Μπορείς να αντιγράψεις το ψευδώνυμο παρακάτω και εφάρμοσε το από μόνος σου.",
         "confirmedNoFlags": "Επιβεβαίωσες αλλά δεν αντίδρασες σε κάποια σημαία, ",

@@ -61,12 +61,12 @@
         "get": "_Hakee kontekstin valitulle stringille_\n`+context get <stringin ID>`\n\nKorvaa <stringin ID> stringin URL-osoitteesta löytyvällä numerolla, joka alkaa #-merkin jälkeen.",
         "add": "_Lisää kontekstin valitulle stringille_\n`+context add <stringin ID> <konteksti>`\n\nKorvaa <stringin ID> stringin URL-osoitteesta löytyvällä numerolla, joka alkaa #-merkin jälkeen.\nKorvaa <konteksti> haluamallasi tekstillä. Suoritettuasi komennon voit antaa lisätietoja reaktioilla.",
         "edit": "_Muokkaa olemassaolevaa kontekstia_\n`+context edit <stringin ID> <kenttä> <uudet tiedot>`\n\nKorvaa <stringin ID> stringin URL-osoitteesta löytyvällä numerolla, joka alkaa #-merkin jälkeen.\nKorvaa <kenttä> sen kentän nimellä, jota haluat muokata, kuten `screenshot` tai `enpt`. Korvaa <uudet tiedot> haluamillasi uusilla tiedoilla ko. kentälle.",
-        "view": "_Antaa sinulle linkin Google Sheetsiin, josta löytyvät kaikki kontekstit_\n`+context view`",
+        "link": "_Antaa sinulle linkin Google Sheetsiin, josta löytyvät kaikki kontekstit_\n`+context link`",
         "help": "_Näyttää tämän viestin!_\n`+context help`",
         "fields": "Kentät",
         "sheetT": "Kontekstitaulukko",
         "sheetD": "[Klikkaa tästä avataksesi Google Sheetsin, josta löytyvät kaikki kontekstit.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nVain tietyt henkilöt voivat avata tämän taulukkoasiakirjan. Voit pyytää pääsyä linkin takaa löytyvältä sivulta. Syötäthän Crowdin-profiilisi linkin (`.../profile/<käyttäjänimi>`) sekä Discord-käyttäjänimesi. Huomaathan, että Stannya, Rodry ja QkeleQ10 voivat nähdä Google-käyttäjänimesi ja sähköpostisi.",
-        "sheetDel": " | Viesti poistetaan 2 minuutin kuluttua"
+        "sheetDel": " | Viesti poistetaan 1 minuutin kuluttua"
     },
     "executedBy": "Komennon suoritti %%user%%"
 }

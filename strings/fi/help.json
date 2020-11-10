@@ -2,7 +2,7 @@
     "moduleName": "Tietoa",
     "commandsListTitle": "Linkit ja komennot",
     "commandsListTooltip": "Tämän botin on tehnyt Hypixelin kääntäjien yhteisölle %%QkeleQ10%%. Sen avoin lähdekoodi on saatavilla GitHubista [täältä]%%github%%. Voit auttaa kääntämään bottia seuraamalla ohjeita, jotka löytyvät [tämän linkin]%%translate%% takaa.\n\nVoit suorittaa komennon `+help <komennon nimi>` saadaksesi tietää lisää valitusta komennosta.\nTässä lista kaikista komennoista:\n ",
-    "madeBy": " | Botin on huolellisesti kasannut %%q10%%",
+    "madeBy": " | Botin on huolellisesti kasannut %%QkeleQ10%%",
     "commandInfo": "Komennon tiedot",
     "commandInfoFor": "Tiedot komennolle ",
     "commandNotExist": "Tätä komentoa ei ole olemassa!",
@@ -28,7 +28,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumentit>",
-        "description": "Näyttää, lisää tai muokkaa valitun stringin (ID) kontekstia. `+context help` näyttää tietoa tästä komennosta."
+        "description": "Näyttää, lisää tai muokkaa valitun stringin (ID) kontekstia. Komennnolla `+context help` näyttää tietoa tästä komennosta. Komennolla `+context link` voit pyytää oikeutta nähdä kontekstitaulukkokirjan."
     },
     "issue": {
         "usage": "+issue",
@@ -40,11 +40,11 @@
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Antaa palvelimen kutsulinkin. Käytäthän aina tätä kutsuessasi jonkun."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Antaa linkin viralliselle palstalle, jossa kerrotaan Hypixelin kääntämisestä."
     },
     "hypixel": {
         "usage": "+hypixel",
@@ -52,19 +52,19 @@
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay Crowdin project."
+        "description": "Antaa hyödyllistä tietoa Quickplay-projektista."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons Crowdin project."
+        "description": "Antaa hyödyllistä tietoa SkyblockAddons-projektista."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Antaa linkin viestiketjuun, jossa kerrotaan tästä palvelimesta."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Antaa linkin viralliselle Hypixel Translators Communityn Twitter-sivulle."
     },
     "executedBy": "Komennon suoritti %%user%%"
 }
