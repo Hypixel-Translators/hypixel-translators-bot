@@ -1,5 +1,5 @@
 {
-    "moduleName": "Problems and feedback",
+    "moduleName": "Report a bug",
     "bugT": "Viewing and adding issues",
     "bugD": "To show and make suggestions or bug reports, please [click here]%%github%%.",
     "urgentT": "Is it urgent?",
