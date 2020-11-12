@@ -27,8 +27,8 @@
         "description": "Menciona un rol de idioma con un mensaje opcional."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
+        "usage": "+context get|add|edit|link|help <argumentos>",
+        "description": "Obtiene, añade o edita contexto para la ID del string dada. `+context help` te muestra información sobre este comando. `+context link` te da un enlace para pedir acceso al Google Sheet de contexto."
     },
     "issue": {
         "usage": "+issue",
