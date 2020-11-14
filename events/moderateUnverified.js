@@ -7,7 +7,7 @@ module.exports = {
         var d = new Date()
         var h = d.getUTCHours()
         var m = d.getUTCMinutes()
-        if (h == "22" && m == "37" || manual) {
+        if (h == "23" && m == "02" || manual) {
             check(client)
         }
     }
@@ -24,6 +24,6 @@ async function check(client) {
             member.send("Hey there!\nWe noticed you haven't verified yourself on our server. Are you having any trouble? Please message Rodry or Stannya or just ask any questions in the verify channel! Otherwise, please send your profile link like shown in the channel.\n\nThis message was sent to you because you have been on our server for too long, and you're in risk of getting kicked for inactivity soon.\nPlease do not reply to this bot.")
             client.channels.cache.get("662660931838410754").send("Sent an alert to **<@" + member.id + ">** as they've been stood in the server for 7 days without verifying.") //verify-logs
             console.log(member)
-        }
+        }   else { client.channels.cache.get("662660931838410754").send("Checked through all members and found no inactive ones to alert or kick") }
     })
 }
