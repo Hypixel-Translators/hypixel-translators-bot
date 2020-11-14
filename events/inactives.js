@@ -3,11 +3,11 @@ const Discord = require("discord.js");
 const fetch = require("node-fetch");
 
 module.exports = {
-    execute(client, manual) {
+    execute(client) {
         var d = new Date()
         var h = d.getUTCHours()
         var m = d.getUTCMinutes()
-        if (h == "23" && m == "09" || manual) {
+        if (h == "4" && m == "00") {
             check(client)
         }
     }
