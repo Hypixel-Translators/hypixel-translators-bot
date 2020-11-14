@@ -28,7 +28,7 @@ client.once("ready", () => {
   client.channels.cache.get("737684715317887130").messages.fetch() //no-review-strings
   client.channels.cache.get("734081393499308053").messages.fetch() //pt-review-strings
   client.channels.cache.get("732326761882321046").messages.fetch() //es-review-strings
-  client.channels.cache.filter(channel => channel.name.endsWith("review-strings")).forEach(channel => channel.messages.fetch()).console.log()
+  client.channels.cache.filter(channel => channel.name.endsWith("review-strings")).forEach(channel => channel.messages.fetch()), console.log(channel)
 
   client.user.setStatus("online").catch(console.error);
 
