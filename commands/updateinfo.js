@@ -7,8 +7,8 @@ module.exports = {
     usage: "+updateinfo",
     execute(strings, message) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        if (!message.member.roles.cache.has("620274909700161556")) return;
-        message.client.channels.cache.get("762341271611506708").messages.fetch().then(msgs => { msgs.forEach(msg => { msg.delete().catch(err => { console.error(err) }) }) })
+        if (!message.member.roles.cache.has("620274909700161556")) return; //*
+        message.client.channels.cache.get("762341271611506708").messages.fetch().then(msgs => { msgs.forEach(msg => { msg.delete().catch(err => { console.error(err) }) }) }) //random-temp-thing
         const channelsEmbed = new Discord.MessageEmbed()
             .setColor("#0022ff")
             .setTitle("Channels")
@@ -18,7 +18,7 @@ module.exports = {
                 { name: "**Main Channels 💬**", value: "<#621298919535804426> - You can use this channel to talk about anything you want really.\n<#619662798133133312> - A text channel where you can post your favorite memes.\n<#712046319375482910> - Post pics of your or someone else's cute pets here.\n<#644620638878695424> - A special channel for special people that have boosted our server. Thank you!\n<#550951034332381184> - A text channel where you can suggest things you would like to see in the Discord server. If you would like to suggest things for Hypixel, please visit the forums.\n<#549894938712866816> -  A channel for you to use bot commands in.\n<#713084081579098152> - If you can't speak while you're in a voice chat, talk here.".substring(0, 1024) },
                 { name: "**Translation Channels 🔠**", value: "We offer channels for each one of the 3 currently supported projects: **Hypixel**, **Quickplay** and **SkyblockAddons**.\nEach category has 3 text channels: one for translators, one for proofreaders and one with the project's language status that gets updated every 20 minutes. They also have 2 voice channels: one for translators and one for proofreaders as well. If you have any questions related to your project, they should be sent here!".substring(0, 1024) },
                 { name: "**Language-specific channels**", value: "We offer channels where translators and proofreaders for specific languages can interact with one another! You can speak English here, but we encourage you to speak the language you're translating. Please keep in mind these channels are not actively moderated. In case anything happens, please get in touch with an administrator." })
-        message.client.channels.cache.get("762341271611506708").send("", channelsEmbed)
+        message.client.channels.cache.get("762341271611506708").send("", channelsEmbed) //random-temp-thing
         const rolesEmbed = new Discord.MessageEmbed()
             .setColor("#0055ff")
             .setTitle("Roles")
@@ -37,7 +37,7 @@ module.exports = {
                     name: "**Miscellaneous**", value: "<@&549894155174674432> - A role given to all bots in the Discord.\n<@&732586582787358781> - A role given to the main developer of our bot, <@722738307477536778>.\n<@&618502156638617640> - A role given to people who have helped create art for this server.\n<@&719263346909773864> - A role given to <@291635552678313985> who gave away 3 MVP+ ranks during an event!\n<@&557090185670557716> - A role given to all users that joined in the first 6 months of this server (August 28, 2019)."
                 }
             )
-        message.client.channels.cache.get("762341271611506708").send("", rolesEmbed)
+        message.client.channels.cache.get("762341271611506708").send("", rolesEmbed) //random-temp-thing
         const botsEmbed = new Discord.MessageEmbed()
             .setColor("#0077ff")
             .setTitle("Bots")
@@ -51,7 +51,7 @@ module.exports = {
                 }
             )
             .setFooter("Need help? Ask your questions in #off-topic | Bot made with lots of care by QkeleQ10#6163")
-        message.client.channels.cache.get("762341271611506708").send("", botsEmbed)
+        message.client.channels.cache.get("762341271611506708").send("", botsEmbed) //random-temp-thing
         const successEmbed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor(strings.moduleName)

@@ -21,11 +21,11 @@ module.exports = {
         message.channel.send(embed).then(msg => {
             if (args[0] === "add") {
                 allowed = false
-                if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("620274909700161556")) { allowed = true } } // mod and *
+                if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("768435276191891456")) { allowed = true } } // Discord Staff
                 if (!allowed) {
                     args.splice(0, 1)
                     var toSend = args.join(" ")
-                    const sendTo = msg.client.channels.cache.get("730042612647723058")
+                    const sendTo = msg.client.channels.cache.get("730042612647723058") //bot-development
                     const report = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor("Quote")

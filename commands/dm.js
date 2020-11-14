@@ -13,12 +13,12 @@ module.exports = {
         var userToSend = args[0].replace(/[\\<>@#&!]/g, "");
         args.splice(0, 1)
         var toSend = args.join(" ")
-        if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("620274909700161556")) { allowed = true } } // mod and *
+        if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("768435276191891456")) { allowed = true } } // Discord Staff
         if (!allowed) return;
 
         const recipient = message.client.users.cache.get(userToSend)
         var rStrings = require(("../strings/en/dm.json"))
-        const oldMessages = await message.client.channels.cache.get("775004037443223563").messages.fetch() //languages database
+        const oldMessages = await message.client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
         const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
         oldFiMessages.forEach(async element => {
             oldMsg = await element.content.split(" ")

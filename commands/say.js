@@ -17,7 +17,7 @@ module.exports = {
     var msg
 
     var allowed = false
-    if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("621071221462663169") || message.member.roles.cache.has("620274909700161556")) { allowed = true } } // mod and *
+    if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("730042612647723058")) { allowed = true } } // Discord Staff
     if (!allowed) throw "noAccess";
     if (!sendTo) throw "noChannel";
     if (!toSend) throw "noMessage";

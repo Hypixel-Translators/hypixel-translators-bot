@@ -13,7 +13,7 @@ module.exports = {
     execute(strings, message, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         try {
-            if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771")) throw "noTrPr"
+            if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771")) throw "noTrPr" //Hypixel Translator and Hypixel Proofreader
             if (args[0] === "add" || args[0] === "new") { addToSpreadsheet(executedBy, strings, message, args) }
             else if (args[0] === "get" || args[0] === "show") { getFromSpreadsheet(executedBy, strings, message, args) }
             else if (args[0] === "edit") { editInSpreadsheet(executedBy, strings, message, args) }
@@ -107,7 +107,7 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
 
             if (!toSend || !string) { throw "noContext" }
 
-            if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) {
+            if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) { //Hypixel Proofreader
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor(strings.moduleName)
@@ -326,7 +326,7 @@ async function editInSpreadsheet(executedBy, strings, message, args) {
         .setFooter(executedBy);
     message.channel.send(embed)
         .then(async msg => {
-            if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) {
+            if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) { //Hypixel Proofreader
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor(strings.moduleName)

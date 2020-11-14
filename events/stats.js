@@ -28,7 +28,7 @@ async function hypixel(client) {
         .then(res => res.json())
         .then((json) => {
             json.reverse()
-            client.channels.cache.get("748538826003054643").messages.fetch()
+            client.channels.cache.get("748538826003054643").messages.fetch() //hypixel-language-status
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async (msg) => {
@@ -44,13 +44,13 @@ async function hypixel(client) {
                         index++
                     })
                 })
-            client.channels.cache.get("730042612647723058").messages.fetch("748584877921796146")
+            client.channels.cache.get("730042612647723058").messages.fetch("748584877921796146") //bot development Hypixel string count
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Hypixel project.\n\nTranslate at <https://crowdin.com/translate/hypixel/all/en>")
+                            client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Hypixel project.\n\nTranslate at <https://crowdin.com/translate/hypixel/all/en>") //hypixel-translators
                         } else {
-                            client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Hypixel project.")
+                            client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Hypixel project.") //hypixel-translators
                         }
                         stringCount.edit(json[0].phrases)
                     }
@@ -66,7 +66,7 @@ async function quickplay(client) {
         .then(res => res.json())
         .then((json) => {
             json.reverse()
-            client.channels.cache.get("748626115530326016").messages.fetch()
+            client.channels.cache.get("748626115530326016").messages.fetch() //quickplay-language-status
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async (msg) => {
@@ -91,13 +91,13 @@ async function quickplay(client) {
                         index++
                     })
                 })
-            client.channels.cache.get("730042612647723058").messages.fetch("748644636318236672")
+            client.channels.cache.get("730042612647723058").messages.fetch("748644636318236672") //bot-development Quickplay string count
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("646383292010070016").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Quickplay project.\n\nTranslate at <https://crowdin.com/translate/quickplay/all/en>")
+                            client.channels.cache.get("646383292010070016").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Quickplay project.\n\nTranslate at <https://crowdin.com/translate/quickplay/all/en>") //quickplay-translators
                         } else {
-                            client.channels.cache.get("646383292010070016").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Quickplay project.")
+                            client.channels.cache.get("646383292010070016").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Quickplay project.") //quickplay-translators
                         }
                         stringCount.edit(json[0].phrases)
                     }
@@ -113,7 +113,7 @@ async function bot(client) {
         .then(res => res.json())
         .then((json) => {
             json.reverse()
-            client.channels.cache.get("762661287749484614").messages.fetch()
+            client.channels.cache.get("762661287749484614").messages.fetch() //bot-language-status
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async (msg) => {
@@ -138,13 +138,13 @@ async function bot(client) {
                         index++
                     })
                 })
-            client.channels.cache.get("730042612647723058").messages.fetch("750161237106622634")
+            client.channels.cache.get("730042612647723058").messages.fetch("750161237106622634") //bot-development Bot string count
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("749391414600925335").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Hypixel Translators Bot project.\n\nTranslate at <https://crowdin.com/translate/hypixel-translators-bot/all/en>")
+                            client.channels.cache.get("749391414600925335").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Hypixel Translators Bot project.\n\nTranslate at <https://crowdin.com/translate/hypixel-translators-bot/all/en>") //bot-translators
                         } else {
-                            client.channels.cache.get("749391414600925335").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Hypixel Translators Bot project.")
+                            client.channels.cache.get("749391414600925335").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Hypixel Translators Bot project.") //bot-translators
                         }
                         stringCount.edit(json[0].phrases)
                     }
@@ -161,7 +161,7 @@ async function skyblockaddons(client) {
             .then(res => res.json())
             .then((json) => {
                 json.reverse()
-                client.channels.cache.get("759740668310192199").messages.fetch()
+                client.channels.cache.get("759740668310192199").messages.fetch() //sba-language-status
                     .then(messages => {
                         fiMessages = messages.filter(msg => msg.author.bot)
                         fiMessages.forEach(async (msg) => {
@@ -187,13 +187,13 @@ async function skyblockaddons(client) {
                         })
                     })
 
-                client.channels.cache.get("730042612647723058").messages.fetch("758819913577136190")
+                client.channels.cache.get("730042612647723058").messages.fetch("758819913577136190") //bot-development Sba string count
                     .then(stringCount => {
                         if (stringCount.content !== json[0].phrases) {
                             if (stringCount.content < json[0].phrases) {
-                                client.channels.cache.get("748594964476329994").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>")
+                                client.channels.cache.get("748594964476329994").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>") //sba-translators
                             } else {
-                                client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the SkyblockAddons project.")
+                                client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the SkyblockAddons project.") //sba-translators
                             }
                             stringCount.edit(json[0].phrases)
                         }

@@ -22,11 +22,8 @@ const cooldowns = new Discord.Collection();
 client.once("ready", () => {
   console.log("Ready!")
 
-  client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
-  client.channels.cache.get("732326676192690236").messages.fetch()
-  client.channels.cache.get("734081393499308053").messages.fetch()
-  client.channels.cache.get("732326761882321046").messages.fetch()
-  client.channels.cache.get("775004037443223563").messages.fetch() //languages database
+  client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309") //bot-updates reaction role message
+  client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
 
   client.user.setStatus("online").catch(console.error);
 
@@ -56,16 +53,16 @@ client.on("message", async message => {
   const notAllowed = client.emojis.cache.find(emoji => emoji.name === 'vote_no'); // "🚫"
   if (message.author.bot) return;
   if (message.member) {
-    if (!message.member.roles.cache.has("569194996964786178")) return;
+    if (!message.member.roles.cache.has("569194996964786178")) return; //Verified
   } else {
-    const server = message.client.guilds.cache.get("549503328472530974")
+    const server = message.client.guilds.cache.get("549503328472530974") //everyone
     const user = server.member(message.author)
-    if (!user.roles.cache.has("569194996964786178")) return;
+    if (!user.roles.cache.has("569194996964786178")) return; //Verified
   }
 
   var globalStrings = require(("./strings/en/global.json"))
   var helpStrings = require(("./strings/en/help.json"))
-  const oldMessages = await message.client.channels.cache.get("775004037443223563").messages.fetch() //languages database
+  const oldMessages = await message.client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
   const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
   oldFiMessages.forEach(async element => {
     oldMsg = element.content.split(" ")
@@ -75,7 +72,7 @@ client.on("message", async message => {
   })
   var executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
-  if (message.channel.id === "732587569744838777") {
+  if (message.channel.id === "732587569744838777") { //bot-updates
     fetch(`https://discordapp.com/api/v8/channels/${message.channel.id}/messages/${message.id}/crosspost`,
       { method: 'Post', headers: { 'Authorization': `Bot ${process.env.TOKEN}` } });
   }
@@ -97,7 +94,7 @@ client.on("message", async message => {
 
   if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
-      const sendTo = client.channels.cache.get("730042612647723058")
+      const sendTo = client.channels.cache.get("730042612647723058") //bot-development
       const report = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor("Incoming message from " + message.author.tag)
@@ -124,17 +121,17 @@ client.on("message", async message => {
 
   if (command.allowDM) {
     if (message.channel.type !== "dm") {
-      if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
-      if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
-      if (command.channelBlackList) { if (command.channelBlackList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
-      if (command.categoryBlackList) { if (command.categoryBlackList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
+      if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.channelBlackList) { if (command.channelBlackList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.categoryBlackList) { if (command.categoryBlackList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
     }
   } else {
     if (message.channel.type !== "dm") {
-      if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
-      if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
-      if (command.channelBlackList) { if (command.channelBlackList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
-      if (command.categoryBlackList) { if (command.categoryBlackList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR") && message.author.id !== "722738307477536778") { message.react(notAllowed); return; } }
+      if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.channelBlackList) { if (command.channelBlackList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
+      if (command.categoryBlackList) { if (command.categoryBlackList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
     } else {
       const embed = new Discord.MessageEmbed()
         .setColor(errorColor)
@@ -215,11 +212,11 @@ client.on('messageReactionAdd', async (reaction, user) => {
   const channel = reaction.message.channel
   if (channel.name.endsWith("review-strings")) {
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
-      console.log("String reviewed (saw reaction " + reaction.emoji.name + ")")
       reaction.message.react("⏱")
       reaction.message.react(reaction.emoji)
       setTimeout(() => {
         reaction.message.delete()
+        console.log("String reviewed (saw reaction " + reaction.emoji.name + ")")
       }, 10000)
       /* const log = new Discord.MessageEmbed()
       .setColor("#ff470f") //should be errorColor but i can't get it working help
@@ -232,13 +229,13 @@ client.on('messageReactionAdd', async (reaction, user) => {
         { name: "Channel", value: `<#${channel.id}>`, inline: true }
       )
       .setFooter("Deleted by " + user.tag)
-      reaction.message.guild.channels.cache.get("591280178873892901").send(log) */
+      reaction.message.guild.channels.cache.get("591280178873892901").send(log) //logs */
     }
   }
-  if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
+  if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been added!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
-    client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
+    client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309") //bot-updates reaction role message
       .then(message => {
         reaction.message.guild.member(user).roles.add(role)
           .catch(err => {
@@ -262,10 +259,10 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 
 client.on('messageReactionRemove', async (reaction, user) => {
-  if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") {
+  if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been removed!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
-    client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309")
+    client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309") //bot-updates reaction role message
       .then(message => {
         reaction.message.guild.member(user).roles.remove(role)
           .catch(err => {
