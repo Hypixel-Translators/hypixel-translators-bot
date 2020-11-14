@@ -24,6 +24,10 @@ client.once("ready", () => {
 
   client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309") //bot-updates reaction role message
   client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
+  client.channels.cache.get("732326676192690236").messages.fetch() //gr-review-strings
+  client.channels.cache.get("737684715317887130").messages.fetch() //no-review-strings
+  client.channels.cache.get("734081393499308053").messages.fetch() //pt-review-strings
+  client.channels.cache.get("732326761882321046").messages.fetch() //es-review-strings
 
   client.user.setStatus("online").catch(console.error);
 
