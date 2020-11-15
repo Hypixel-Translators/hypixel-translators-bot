@@ -15,16 +15,15 @@ module.exports = {
             .setAuthor(strings.moduleName)
             .setTitle(strings.started)
         message.channel.send(embed)
-            .then(msg => {
-                inactives.execute(message.client, true)
-                    .then(() => {
-                        const embed = new Discord.MessageEmbed()
-                            .setColor(successColor)
-                            .setAuthor(strings.moduleName)
-                            .setTitle(strings.done)
-                        msg.edit(embed)
-                    })
-                    .catch(err => { throw err })
+            .then(async msg => {
+                try {
+                    await inactives.execute(message.client, true)
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(successColor)
+                        .setAuthor(strings.moduleName)
+                        .setTitle(strings.done)
+                    msg.edit(embed)
+                } catch (err) { throw err }
             })
     }
 }

@@ -26,7 +26,7 @@ client.once("ready", async () => {
   client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309") //bot-updates reaction role message
   client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
   const reviewStringsChannels = await client.channels.cache.filter(c => c.name.includes("review-strings"))
-  reviewStringsChannels.forEach(c => { c.messages.fetch() })
+  reviewStringsChannels.forEach(c => { console.log(c.name); c.messages.fetch() })
 
   client.user.setStatus("online").catch(console.error)
   client.user.setActivity("+help", { type: "WATCHING" })
