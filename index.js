@@ -20,22 +20,20 @@ const inactives = require('../events/inactives.js')
 
 const cooldowns = new Discord.Collection();
 
-client.once("ready", () => {
+client.once("ready", async () => {
   console.log("Ready!")
 
   client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309") //bot-updates reaction role message
   client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
-  client.channels.cache.get("732326676192690236").messages.fetch() //gr-review-strings
-  client.channels.cache.get("737684715317887130").messages.fetch() //no-review-strings
-  client.channels.cache.get("734081393499308053").messages.fetch() //pt-review-strings
-  client.channels.cache.get("732326761882321046").messages.fetch() //es-review-strings
+  const reviewStringsChannels = await client.channels.cache.filter(c => c.name.includes("review-strings"))
+  reviewStringsChannels.forEach(c => { c.messages.fetch() })
 
-  client.user.setStatus("online").catch(console.error);
+  client.user.setStatus("online").catch(console.error)
+  client.user.setActivity("+help", { type: "WATCHING" })
 
   setInterval(() => {
     var pickedUser = randomUser[Math.floor(Math.random() * randomUser.length)]
     toPick = Math.random() >= 0.2;
-    client.user.setActivity("+help", { type: "WATCHING" });
 
     if (toPick) {
       var listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
