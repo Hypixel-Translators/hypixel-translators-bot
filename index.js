@@ -27,6 +27,7 @@ client.once("ready", async () => {
   client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
   const reviewStringsChannels = await client.channels.cache.filter(c => c.name.endsWith("review-strings"))
   reviewStringsChannels.forEach(c => { c.messages.fetch() })
+  client.guilds.cache.get("549503328472530974").members.fetch() // Fetch HTCD
 
   client.user.setStatus("online").catch(console.error)
   client.user.setActivity("+help", { type: "WATCHING" })
