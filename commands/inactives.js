@@ -3,13 +3,13 @@ const Discord = require("discord.js");
 const inactives = require('../events/inactives.js')
 
 module.exports = {
-    name: "updateinactives",
-    description: "Moderates unverified members (if applicable).",
-    usage: "updateinactives",
-    aliases: ["inactives"],
+    name: "inactives",
+    description: "Checks for inactive unverified members (if applicable).",
+    usage: "inactives",
+    aliases: ["updateinactives", "unverifieds", "inactive"],
     allowDM: true,
     async execute(strings, message, args) {
-        if (!message.member.hasPermission("VIEW_AUDIT_LOG")) throw noAccess;
+        if (!message.member.hasPermission("ADMINISTRATOR")) throw noAccess;
         const embed = new Discord.MessageEmbed()
             .setColor(workingColor)
             .setAuthor(strings.moduleName)
