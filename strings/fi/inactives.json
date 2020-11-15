@@ -1,6 +1,6 @@
 {
-    "moduleName": "Inactive checker",
-    "started": "Please wait a minute or two for all inactive unverified members to be alerted...",
-    "done": "All inactive members have been notified!",
+    "moduleName": "Epäaktiivisuuden tarkistus",
+    "started": "Odota hetki, kun lähetetään ilmoitus kaikille epäaktiivisille vahvistamattomille käyttäjille...",
+    "done": "Kaikille epäaktiivisille käyttäjille on lähetetty ilmoitus!",
     "executedBy": "Komennon suoritti %%user%%"
 }
