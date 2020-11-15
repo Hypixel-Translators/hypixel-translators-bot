@@ -15,8 +15,8 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
-const stats = require('./events/stats.js')
-const inactives = require('../events/inactives.js')
+const stats = require("./events/stats.js")
+const inactives = require("./events/inactives.js")
 
 const cooldowns = new Discord.Collection();
 
