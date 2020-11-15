@@ -11,6 +11,6 @@ module.exports = {
   execute(strings, message) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     //message.delete();
-    message.channel.send(strings.invite.replace("%%invite%%", "https://discord.gg/hypixeltranslators"))
+    message.channel.send(strings.invite.replace("%%invite%%", "https://discord.gg/rcT948A"))
   }
 };

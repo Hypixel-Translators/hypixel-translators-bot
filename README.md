@@ -1,5 +1,5 @@
 # Hypixel Translators Bot [![Twitter](https://img.shields.io/twitter/follow/HTranslators?style=social)](https://twitter.com/HTranslators)
-[![Join our Discord server](https://discordapp.com/api/guilds/549503328472530974/widget.png?style=banner2)](https://discord.gg/hypixeltranslators)
+[![Join our Discord server](https://discordapp.com/api/guilds/549503328472530974/widget.png?style=banner2)](https://discord.gg/rcT948A)
 
 Welcome to the [Hypixel Translators](https://discord.gg/rcT948A) Bot GitHub repository! Here you can [report bugs](https://github.com/QkeleQ10/hypixel-translators-bot-discord/issues), [contribute to the code](https://github.com/QkeleQ10/hypixel-translators-bot-discord/pulls) and [view information](https://github.com/QkeleQ10/hypixel-translators-bot-discord/wiki). 
 
