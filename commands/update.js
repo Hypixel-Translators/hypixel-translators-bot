@@ -2,10 +2,10 @@ const { workingColor, errorColor, successColor, neutralColor } = require("../con
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "updateinfo",
+    name: "update",
     description: "Updates the specified information channel.",
-    usage: "+updateinfo <info|verify>",
-    execute(strings, message) {
+    usage: "+update <info|verify>",
+    execute(strings, message, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         if (!message.member.roles.cache.has("620274909700161556")) return; //*
 
