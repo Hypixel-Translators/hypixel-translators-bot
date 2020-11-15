@@ -1,0 +1,5 @@
+{
+    "moduleName": "Information channel updater",
+    "success": "Updated the information channel!",
+    "executedBy": "Executado por %%user%%"
+}
