@@ -1,35 +1,44 @@
-const fs = require("fs");
-const Discord = require("discord.js");
-const fetch = require("node-fetch");
-const { prefix, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json");
+//Import dependencies and define client
+const fs = require("fs")
+const fetch = require("node-fetch")
+const Discord = require("discord.js")
+const client = new Discord.Client()
 
-const client = new Discord.Client();
-client.commands = new Discord.Collection();
-
+//Import data, assets and commands
+const { prefix, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json")
+client.commands = new Discord.Collection()
 const commandFiles = fs
   .readdirSync("./commands")
-  .filter(file => file.endsWith(".js"));
-
+  .filter(file => file.endsWith(".js"))
 for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
-  client.commands.set(command.name, command);
+  const command = require(`./commands/${file}`)
+  client.commands.set(command.name, command)
 }
+const cooldowns = new Discord.Collection()
 
+//Define assets
+const notAllowed = client.emojis.cache.find(emoji => emoji.name === 'vote_no')
+
+//Import events
 const stats = require("./events/stats.js")
 const inactives = require("./events/inactives.js")
 
-const cooldowns = new Discord.Collection();
 
+//Run when bot is ready
 client.once("ready", async () => {
   console.log("Ready!")
 
+  //Fetch channels
   client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309") //bot-updates reaction role message
   client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
   const reviewStringsChannels = await client.channels.cache.filter(c => c.name.endsWith("review-strings"))
   reviewStringsChannels.forEach(c => { c.messages.fetch() })
+
+  //Set status
   client.user.setStatus("online").catch(console.error)
   client.user.setActivity("+help", { type: "WATCHING" })
 
+  //Change status and run events every 30 seconds
   setInterval(() => {
     var pickedUser = randomUser[Math.floor(Math.random() * randomUser.length)]
     toPick = Math.random() >= 0.2;
@@ -52,17 +61,25 @@ client.once("ready", async () => {
 });
 
 
+//Run when message is received
 client.on("message", async message => {
-  const notAllowed = client.emojis.cache.find(emoji => emoji.name === 'vote_no'); // "🚫"
-  if (message.author.bot) return;
+
+  //Return if user is a bot or unverified
+  if (message.author.bot) return
   if (message.member) {
-    if (!message.member.roles.cache.has("569194996964786178")) return; //Verified
+    if (!message.member.roles.cache.has("569194996964786178")) return //Verified
   } else {
-    const server = message.client.guilds.cache.get("549503328472530974") //everyone
+    const server = message.client.guilds.cache.get("549503328472530974")
     const user = server.member(message.author)
-    if (!user.roles.cache.has("569194996964786178")) return; //Verified
+    if (!user.roles.cache.has("569194996964786178")) return //Verified
   }
 
+  //Publish message if sent in channel
+  if (message.channel.id === "732587569744838777") { //bot-updates
+    return fetch(`https://discordapp.com/api/v8/channels/${message.channel.id}/messages/${message.id}/crosspost`, { method: 'Post', headers: { 'Authorization': `Bot ${process.env.TOKEN}` } })
+  }
+
+  //Get global strings
   var globalStrings = require(("./strings/en/global.json"))
   var helpStrings = require(("./strings/en/help.json"))
   const oldMessages = await message.client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
@@ -75,26 +92,23 @@ client.on("message", async message => {
   })
   var executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
-  if (message.channel.id === "732587569744838777") { //bot-updates
-    fetch(`https://discordapp.com/api/v8/channels/${message.channel.id}/messages/${message.id}/crosspost`,
-      { method: 'Post', headers: { 'Authorization': `Bot ${process.env.TOKEN}` } });
-  }
-
+  //+tip command
   if (message.content === "+tip") {
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
       .setAuthor(globalStrings.tip)
       .setDescription(globalStrings.tips[Math.floor(Math.random() * Object.keys(globalStrings.tips).length)].replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "(https://twitter.com/HTranslators)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#699367079241056347>"))
       .setFooter(executedBy)
-    message.channel.send(embed)
-    return;
+    return message.channel.send(embed)
   }
 
+  //Link correction system
   if (message.content.includes("/translate/") && message.content.includes("://")) if (message.channel.id === "730042612647723058" || message.channel.id === "624881429834366986") { // staff-bots and bot-dev
     var msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
     if (message.content != msgTxt) message.react(notAllowed); message.channel.send("<@" + message.author.id + "> _Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n\n>>> " + msgTxt)
   }
 
+  //Staff messaging system
   if (!message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
       const sendTo = client.channels.cache.get("730042612647723058") //bot-development
@@ -110,53 +124,45 @@ client.on("message", async message => {
         .setAuthor(globalStrings.outgoing)
         .setDescription(message.content)
         .setFooter(globalStrings.outgoingDisclaimer);
-      message.channel.send(embed)
-      return;
-    } else { return; }
+      return message.channel.send(embed)
+    } else return //Stop if not starting with prefix
   }
 
+  //Define command and stop if none is found
+  const args = message.content.slice(prefix.length).split(/ +/)
+  const commandName = args.shift().toLowerCase()
+  const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
+  if (!command) return
 
-  const args = message.content.slice(prefix.length).split(/ +/);
-  const commandName = args.shift().toLowerCase();
-  const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
-
-  if (!command) return;
-
-  if (command.allowDM) {
-    if (message.channel.type !== "dm") {
-      if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-      if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-      if (command.channelBlackList) { if (command.channelBlackList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-      if (command.categoryBlackList) { if (command.categoryBlackList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-    }
-  } else {
-    if (message.channel.type !== "dm") {
-      if (command.channelWhiteList) { if (!command.channelWhiteList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-      if (command.categoryWhiteList) { if (!command.categoryWhiteList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-      if (command.channelBlackList) { if (command.channelBlackList.includes(message.channel.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-      if (command.categoryBlackList) { if (command.categoryBlackList.includes(message.channel.parent.id) && !message.member.hasPermission("ADMINISTRATOR")) { message.react(notAllowed); return; } }
-    } else {
-      const embed = new Discord.MessageEmbed()
-        .setColor(errorColor)
-        .setAuthor(globalStrings.error)
-        .setTitle(globalStrings.dmError)
-        .setFooter(executedBy)
-      message.channel.send(embed)
-      return;
-    }
+  //Stop and error if command is not allowed in DMs and command is sent in DMs
+  if (!command.allowDM && message.channel.type === "dm") {
+    const embed = new Discord.MessageEmbed()
+      .setColor(errorColor)
+      .setAuthor(globalStrings.error)
+      .setTitle(globalStrings.dmError)
+      .setFooter(executedBy)
+    return message.channel.send(embed)
   }
 
+  //Blacklist and whitelist systems
+  const allowed = true
+  if (command.categoryBlackList && command.categoryBlackList.includes(message.channel.parent.id)) allowed = false
+  if (command.categoryWhiteList && !command.categoryWhiteList.includes(message.channel.parent.id)) allowed = false
+  else allowed = true
+  if (command.channelBlackList && command.channelBlackList.includes(message.channel.id)) allowed = false
+  if (command.channelWhiteList && !command.channelWhiteList.includes(message.channel.id)) allowed = false
+  else allowed = true
+  if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
+
+  //Cooldown system
   if (!cooldowns.has(command.name)) {
-    cooldowns.set(command.name, new Discord.Collection());
+    cooldowns.set(command.name, new Discord.Collection())
   }
-
   const now = Date.now();
-  const timestamps = cooldowns.get(command.name);
-  const cooldownAmount = (command.cooldown || 3) * 1000;
-
+  const timestamps = cooldowns.get(command.name)
+  const cooldownAmount = (command.cooldown || 3) * 1000
   if (timestamps.has(message.author.id)) {
-    const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
-
+    const expirationTime = timestamps.get(message.author.id) + cooldownAmount
     if (now < expirationTime) {
       setTimeout(() => {
         const timeLeft = (expirationTime - now) / 1000;
@@ -175,9 +181,11 @@ client.on("message", async message => {
     }
   }
 
+  //Remove cooldown if administrator
   if (message.member) if (message.member.hasPermission("ADMINISTRATOR")) timestamps.set(message.author.id, now);
   setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
+  //Get command strings
   var strings = require(("./strings/en/" + command.name + ".json"))
   oldFiMessages.forEach(async element => {
     oldMsg = element.content.split(" ")
@@ -185,10 +193,13 @@ client.on("message", async message => {
     strings = require(("./strings/" + oldMsg[0] + "/" + command.name + ".json"))
   })
   globalStrings.executedBy.replace("%%user%%", message.author.tag)
+
+  //Run command and handle errors
   setTimeout(() => {
-    try {
-      command.execute(strings, message, args) //execute the command
-    } catch (error) { //handle error
+    try { command.execute(strings, message, args) }
+    catch (error) {
+
+      //Handle errors
       console.log("Error incoming! Message:\n>>>" + message)
       console.error(error);
       timestamps.delete(message.author.id)
@@ -203,16 +214,23 @@ client.on("message", async message => {
         embed.addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" })
       }
       message.channel.send(embed)
-    } finally { //try sending a tip
+
+    } finally {
+
+      //Try sending a tip
       var d = Math.random(); var s = Math.round(Math.random())
       if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${globalStrings.tips[globalStrings.tips.length * Math.random() | 0].replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "(https://twitter.com/HTranslators)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#699367079241056347>")}`)
+
     }
   }, 50)
 });
 
 
+//Run when reaction is added
 client.on('messageReactionAdd', async (reaction, user) => {
   const channel = reaction.message.channel
+
+  //Delete message when channel name ends with review-strings
   if (channel.name.endsWith("review-strings")) {
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
       reaction.message.react("⏱")
@@ -221,20 +239,10 @@ client.on('messageReactionAdd', async (reaction, user) => {
         reaction.message.delete()
         console.log("String reviewed (saw reaction " + reaction.emoji.name + ")")
       }, 10000)
-      /* const log = new Discord.MessageEmbed()
-      .setColor("#ff470f") //should be errorColor but i can't get it working help
-      .setAuthor(user.tag, user.displayAvatarURL)
-      .setTitle("String successfully reviewed. Deleting now")
-      .addFields(
-        { name: "Message", value: reaction.message.content, inline:true },
-        { name: "Emoji", value: reaction.emoji, inline: true },
-        { name: "Author", value: `<@${reaction.message.author.id}>`, inline: true },
-        { name: "Channel", value: `<#${channel.id}>`, inline: true }
-      )
-      .setFooter("Deleted by " + user.tag)
-      reaction.message.guild.channels.cache.get("591280178873892901").send(log) //logs */
     }
   }
+
+  //Give role if reacted on reaction role message
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been added!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
@@ -257,11 +265,15 @@ client.on('messageReactionAdd', async (reaction, user) => {
             }, 5000)
           })
       })
+
   }
-});
+})
 
 
+//Run when reaction is removed
 client.on('messageReactionRemove', async (reaction, user) => {
+
+  //Take role if reaction removed from reaction role message
   if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been removed!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
@@ -284,7 +296,10 @@ client.on('messageReactionRemove', async (reaction, user) => {
             }, 5000)
           })
       })
-  }
-});
 
-client.login(process.env.TOKEN);
+  }
+})
+
+
+//Log in
+client.login(process.env.TOKEN)
