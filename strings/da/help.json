@@ -27,7 +27,7 @@
         "description": "Nævner en sprogrolle med en valgfri besked."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
+        "usage": "+context get|add|edit|link|help <argumenter>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
     },
     "issue": {
