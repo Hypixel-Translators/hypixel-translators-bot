@@ -134,16 +134,6 @@ client.on("message", async message => {
   const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
   if (!command) return
 
-  //Stop and error if command is not allowed in DMs and command is sent in DMs
-  if (!command.allowDM && message.channel.type === "dm") {
-    const embed = new Discord.MessageEmbed()
-      .setColor(errorColor)
-      .setAuthor(globalStrings.error)
-      .setTitle(globalStrings.dmError)
-      .setFooter(executedBy)
-    return message.channel.send(embed)
-  }
-
   //Blacklist and whitelist systems
   let allowed = true
   if (command.categoryBlackList && command.categoryBlackList.includes(message.channel.parent.id)) allowed = false
@@ -153,8 +143,18 @@ client.on("message", async message => {
   if (command.channelWhiteList && !command.channelWhiteList.includes(message.channel.id)) allowed = false
   else allowed = true
   if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
+  console.log(allowed)
   if (!allowed) return message.react(notAllowed)
 
+  //Stop and error if command is not allowed in DMs and command is sent in DMs
+  if (!command.allowDM && message.channel.type === "dm") {
+    const embed = new Discord.MessageEmbed()
+      .setColor(errorColor)
+      .setAuthor(globalStrings.error)
+      .setTitle(globalStrings.dmError)
+      .setFooter(executedBy)
+    return message.channel.send(embed)
+  }
   //Cooldown system
   if (!cooldowns.has(command.name)) {
     cooldowns.set(command.name, new Discord.Collection())
