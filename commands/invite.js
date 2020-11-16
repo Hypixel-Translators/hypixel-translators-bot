@@ -8,9 +8,14 @@ module.exports = {
   usage: "invite",
   cooldown: 120,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
-  execute(strings, message) {
+  execute(client, strings, message) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+    if (client.guilds.cache.get("549503328472530974").premiumTier >= "3") {
+      const inviteURL = "discord.gg/hypixeltranslators"
+    } else { const inviteURL = "https://discord.gg/rcT948A" }
     //message.delete();
-    message.channel.send(strings.invite.replace("%%invite%%", "https://discord.gg/rcT948A"))
+    console.log(inviteURL)
+    console.log(premiumTier)
+    message.channel.send(strings.invite.replace("%%invite%%", inviteURL))
   }
 };
