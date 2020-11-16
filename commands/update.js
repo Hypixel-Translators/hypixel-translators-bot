@@ -11,18 +11,20 @@ module.exports = {
 
         if (args[0] === "info") {
             info(message)
+            const successChannel = strings.success.replace("%%channel%%", strings.infoChannel)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor(strings.moduleName)
-                .setTitle(strings.success).replace("%%channel%%", strings.infoChannel)
+                .setTitle(successChannel)
                 .setFooter(executedBy)
         message.channel.send(successEmbed)
         } else if (args[0] === "verify") { 
             verify(message)
+            const successChannel = strings.success.replace("%%channel%%", strings.verifyChannel)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor(strings.moduleName)
-                .setTitle(strings.success).replace("%%channel%%", strings.verifyChannel)
+                .setTitle(successChannel)
                 .setFooter(executedBy)
             message.channel.send(successEmbed)
         } else throw "noChannel"
