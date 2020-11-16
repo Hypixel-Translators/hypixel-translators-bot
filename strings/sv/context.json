@@ -29,7 +29,7 @@
     "confirm": "Please confirm this change by reacting with %%voteYes%% within 10 seconds. To cancel, wait or react with %%voteNo%%.",
     "oldVal": "Old value for ",
     "newVal": "New value for ",
-    "stringId": "String ID",
+    "stringId": "ID",
     "bulgarian": "Bulgariska",
     "chineseS": "Kinesiska (förenklad)",
     "chineseT": "Kinesiska (traditionell)",
