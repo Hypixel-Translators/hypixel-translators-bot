@@ -11,7 +11,7 @@ module.exports = {
   execute(strings, message) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const client = new Discord.Client()
-    if (client.guilds.cache.get("549503328472530974").premiumTier >= "3") {
+    if (message.guild.premiumTier >= "3") {
       const inviteURL = "discord.gg/hypixeltranslators"
     } else { const inviteURL = "https://discord.gg/rcT948A" }
     //message.delete();
