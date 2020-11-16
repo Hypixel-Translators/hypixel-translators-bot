@@ -9,14 +9,20 @@ module.exports = {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         if (!message.member.roles.cache.has("620274909700161556")) return; //*
 
-        if (args[0] === "info") info(message)
-        if (args[0] === "verify") verify(message)
-
-        if (args[0]) {
+        if (args[0] === "info") {
+            info(message)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor(strings.moduleName)
-                .setTitle(strings.success)
+                .setTitle(strings.success).replace("%%channel%%", strings.infoChannel)
+                .setFooter(executedBy)
+        message.channel.send(successEmbed)
+        } else if (args[0] === "verify") { 
+            verify(message)
+            const successEmbed = new Discord.MessageEmbed()
+                .setColor(successColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.success).replace("%%channel%%", strings.verifyChannel)
                 .setFooter(executedBy)
             message.channel.send(successEmbed)
         } else throw "noChannel"
