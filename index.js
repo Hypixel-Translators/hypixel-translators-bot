@@ -145,7 +145,7 @@ client.on("message", async message => {
   }
 
   //Blacklist and whitelist systems
-  const allowed = true
+  let allowed = true
   if (command.categoryBlackList && command.categoryBlackList.includes(message.channel.parent.id)) allowed = false
   if (command.categoryWhiteList && !command.categoryWhiteList.includes(message.channel.parent.id)) allowed = false
   else allowed = true
@@ -153,6 +153,7 @@ client.on("message", async message => {
   if (command.channelWhiteList && !command.channelWhiteList.includes(message.channel.id)) allowed = false
   else allowed = true
   if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
+  if (!allowed) return message.react(notAllowed)
 
   //Cooldown system
   if (!cooldowns.has(command.name)) {

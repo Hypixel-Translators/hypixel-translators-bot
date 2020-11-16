@@ -1,3 +1,6 @@
+const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const Discord = require("discord.js");
+
 module.exports = {
   name: "bulksend",
   description: "Send messages in a channel, ready to be edited.",
