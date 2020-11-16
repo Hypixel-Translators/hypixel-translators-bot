@@ -1,7 +1,7 @@
 {
-    "moduleName": "Channel updater",
-    "success": "Updated the %%channel%% channel!",
-    "infoChannel": "information",
-    "verifyChannel": "verification",
+    "moduleName": "Kanavan päivitys",
+    "success": "%%channel%%kanava päivitetty!",
+    "infoChannel": "Info",
+    "verifyChannel": "Vahvistus",
     "executedBy": "Komennon suoritti %%user%%"
 }
