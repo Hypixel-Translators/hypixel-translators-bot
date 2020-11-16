@@ -10,13 +10,9 @@ module.exports = {
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
   execute(strings, message) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-    const client = new Discord.Client()
-    if (message.guild.premiumTier >= "3") {
-      const inviteURL = "discord.gg/hypixeltranslators"
-    } else { const inviteURL = "https://discord.gg/rcT948A" }
-    //message.delete();
-    console.log(inviteURL)
-    console.log(premiumTier)
+    let inviteURL = "https://discord.gg/rcT948A"
+    if (message.guild.premiumTier >= 3) inviteURL = "discord.gg/hypixeltranslators"
+
     message.channel.send(strings.invite.replace("%%invite%%", inviteURL))
   }
 };
