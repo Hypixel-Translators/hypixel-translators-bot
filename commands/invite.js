@@ -12,7 +12,6 @@ module.exports = {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     let inviteURL = "https://discord.gg/rcT948A"
     if (message.guild.premiumTier >= 3) inviteURL = "discord.gg/hypixeltranslators"
-
     message.channel.send(strings.invite.replace("%%invite%%", inviteURL))
   }
 };
