@@ -1,5 +1,7 @@
 {
-    "moduleName": "Mise à jour automatique des chaînes",
-    "success": "Chaîne mise à jour!",
+    "moduleName": "Channel updater",
+    "success": "Updated the %%channel%% channel!",
+    "infoChannel": "information",
+    "verifyChannel": "verification",
     "executedBy": "Exécuté par %%user%%"
 }
