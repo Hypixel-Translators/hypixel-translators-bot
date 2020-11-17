@@ -28,7 +28,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <argumenter>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
+        "description": "Får, tilføjer eller redigerer konteksten på den givne string-ID. `+context help` viser dig information om denne kommando. `+context link` giver dig et link til at anmode om adgang til kontekstregnearket."
     },
     "issue": {
         "usage": "+issue",
