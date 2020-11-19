@@ -5,13 +5,13 @@
     "madeBy": " | Bot made with lots of care by %%QkeleQ10%%",
     "commandInfo": "Kommandoinformation",
     "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
+    "commandNotExist": "Det kommandot finns inte!",
     "seconds": " sekunder",
-    "usageField": "Usage",
+    "usageField": "Användning",
     "cooldownField": "Cooldown",
     "aliasesField": "Aliases",
     "help": {
-        "usage": "+help [name of command]",
+        "usage": "+help [namn för kommando]",
         "description": "Shows you all available commands and other info about the bot."
     },
     "prefix": {
@@ -27,7 +27,7 @@
         "description": "Mentions a language role with an optional message."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
+        "usage": "+context get|add|edit|view|help <argument>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
     },
     "issue": {
