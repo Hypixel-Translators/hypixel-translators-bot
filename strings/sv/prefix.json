@@ -10,12 +10,12 @@
         "cancelled": "You cancelled the changing of your nickname, ",
         "alreadyThis": "You already have this nickname, ",
         "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "so your prefix wasn't saved."
+        "notSaved": "så ditt prefix sparades inte."
     },
     "react": "React with all flags you want to add to your prefix in order.",
     "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
     "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "Nickname preview",
+    "previewT": "Förhandsvisning av smeknamn",
     "newNickT": "Nytt smeknamn",
     "noChanges": "Inga förändringar",
     "saved": "Your prefix has been saved!",
