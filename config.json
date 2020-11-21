@@ -19,6 +19,7 @@
     {"name": "Danish", "emoji": "🇩🇰", "colour": "#e02222", "code": "da", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Dutch", "emoji": "🇳🇱", "colour": "#21de70", "code": "nl", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Emoji", "emoji": "😂", "code" : "em", "flag": "https://github.com/QkeleQ10/hypixel-translators-bot-discord/blob/master/flags/%code%.png?raw=true"},
+    {"name": "Estonian", "emoji": "🇪🇪", "code": "et", "flag": "https://crowdin.com/images/flags/%code%.png"},        
     {"name": "Filipino", "emoji": "🇵🇭", "code" : "fil", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Finnish", "emoji": "🇫🇮", "colour": "#e02222", "code": "fi", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "French", "emoji": "🇫🇷", "colour": "#21de70", "code": "fr", "flag": "https://crowdin.com/images/flags/%code%.png"},
