@@ -38,7 +38,7 @@ client.once("ready", async () => {
   client.user.setStatus("online").catch(console.error)
   client.user.setActivity("+help", { type: "WATCHING" })
 
-  //Change status and run events every 30 seconds
+  //Change status and run events every minute
   setInterval(() => {
     var pickedUser = randomUser[Math.floor(Math.random() * randomUser.length)]
     toPick = Math.random() >= 0.2;
@@ -46,19 +46,19 @@ client.once("ready", async () => {
     if (toPick) {
       var listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
       listenStatus = listenStatus.replace("RANDOM_USER", pickedUser)
-      client.user.setActivity(listenStatus, { type: "LISTENING" });
-      toPick = Math.random() >= 0.6;
+      client.user.setActivity(listenStatus, { type: "LISTENING" })
+      toPick = Math.random() >= 0.6
     } else {
       var watchStatus = watchStatuses[Math.floor(Math.random() * watchStatuses.length)]
       watchStatus = watchStatus.replace("RANDOM_USER", pickedUser)
-      client.user.setActivity(watchStatus, { type: "WATCHING" });
-      toPick = Math.random() >= 0.2;
+      client.user.setActivity(watchStatus, { type: "WATCHING" })
+      toPick = Math.random() >= 0.2
     }
 
     stats.execute(client, false)
     inactives.execute(client, false)
-  }, 30000);
-});
+  }, 60000)
+})
 
 
 //Run when message is received
