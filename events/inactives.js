@@ -30,7 +30,7 @@ async function check(client) {
                 .then(() => {
                     client.channels.cache.get("730042612647723058").send("Sent an alert to **<@" + member.id + ">** as they've been stood in the server for 7 days without verifying.")
                 })
-            console.log(member.user.tag + "was alerted")
+            console.log(member.user.tag + " was alerted")
         } else { console.log(member.user.tag + " wasn't alerted nor kicked") }
     })
 }

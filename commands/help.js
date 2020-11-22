@@ -12,9 +12,11 @@ module.exports = {
   async execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
-    const { commands } = message.client;
+
+    const { commands } = message.client
 
     if (!args.length) {
+
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
@@ -35,8 +37,7 @@ module.exports = {
 
     } else {
 
-      const name = args[0].toLowerCase();
-      const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
+      const command = commands.get(args[0].toLowerCase()) || commands.find(c => (c.aliases && c.aliases.includes(args[0].toLowerCase())) || c.name.includes(args[0].toLowerCase()))
 
       if (!command) {
         const embed = new Discord.MessageEmbed()
