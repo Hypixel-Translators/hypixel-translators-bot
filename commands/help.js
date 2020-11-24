@@ -29,7 +29,8 @@ module.exports = {
           { name: "`" + strings.quote.usage + "`", value: strings.quote.description, inline: false },
           { name: "`" + strings.mention.usage + "`", value: strings.mention.description, inline: false },
           { name: "`" + strings.context.usage + "`", value: strings.context.description, inline: false },
-          { name: "`" + strings.issue.usage + "`", value: strings.issue.description, inline: false }
+          { name: "`" + strings.issue.usage + "`", value: strings.issue.description, inline: false },
+          { name: "`" + strings.ping.usage + "`", value: strings.ping.description, inline: false }
         )
         .setFooter(executedBy + madeBy);
       message.channel.send(embed)
