@@ -1,4 +1,4 @@
 {
-    "pong": "Pong!",
+    "pong": "%%pingEmote%% Pong!",
     "message": "%%pingEmote%% Pong! Mijn ping is %%ping%%ms. De API-vertraging is %%latency%%ms."
 }
