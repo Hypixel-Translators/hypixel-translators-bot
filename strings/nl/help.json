@@ -38,6 +38,10 @@
         "usage": "+language [<nieuwe taal> | list]",
         "description": "Verandert je taal, toont je huidige taal of geeft een lijst met alle beschikbare talen."
     },
+    "ping": {
+        "usage": "+ping",
+        "description": "Gives you the bot's ping as well as Discord API's ping"
+    },
     "invite": {
         "usage": "+invite",
         "description": "Geeft je een uitnodigingslink voor deze server. Gebruik deze wanneer je iemand wilt uitnodigen."
