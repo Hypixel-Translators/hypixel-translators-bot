@@ -38,6 +38,10 @@
         "usage": "+language [<nuevo idioma> | list]",
         "description": "Cambia tu idioma, muestra tu idioma actual o muestra una lista de idiomas disponibles."
     },
+    "ping": {
+        "usage": "+ping",
+        "description": "Gives you the bot's ping as well as Discord API's ping"
+    },
     "invite": {
         "usage": "+invite",
         "description": "Te da una invitación al servidor - úsala cuando quieras invitar a alguien."
