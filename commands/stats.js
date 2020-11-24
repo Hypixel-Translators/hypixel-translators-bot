@@ -5,7 +5,7 @@ const stats = require('../events/stats.js')
 module.exports = {
     name: "stats",
     description: "Updates statistics channels and notifies members of new strings (if applicable).",
-    usage: "stats",
+    usage: "+stats",
     aliases: ["statistics", "progress"],
     allowDM: true,
     async execute(strings, message, args) {

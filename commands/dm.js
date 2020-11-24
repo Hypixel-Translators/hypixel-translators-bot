@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 module.exports = {
     name: "dm",
     description: "Sends the user a private message.",
-    usage: "dm <mention> <message>",
+    usage: "+dm <mention> <message>",
     aliases: ["message", "privatemessage"],
     allowDM: true,
     async execute(strings, message, args) {

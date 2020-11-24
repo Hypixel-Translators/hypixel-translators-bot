@@ -5,7 +5,7 @@ module.exports = {
   name: "prefix",
   description: "Gives the author the appropriate prefix for their language(s).",
   aliases: ["langprefix", "languageprefix"],
-  usage: "prefix",
+  usage: "+prefix",
   cooldown: 15,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
   async execute(strings, message) {

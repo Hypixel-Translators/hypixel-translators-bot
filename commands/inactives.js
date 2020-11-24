@@ -5,7 +5,7 @@ const inactives = require('../events/inactives.js')
 module.exports = {
     name: "inactives",
     description: "Checks for inactive unverified members (if applicable).",
-    usage: "inactives",
+    usage: "+inactives",
     aliases: ["updateinactives", "unverifieds", "inactive"],
     allowDM: true,
     async execute(strings, message, args) {
