@@ -8,13 +8,22 @@ module.exports = {
         try {
             var d = new Date()
             var n = d.getMinutes()
-            if (n == "0" || n == "20" || n == "40" || manual) {
+            if (n == "0" || n == "20" || n == "40") {
                 await hypixel(client)
                 await skyblockaddons(client)
+                console.log("Hypixel and SBA's stats have been automatically updated.")
             }
-            if (n == "10" || n == "30" || n == "50" || manual) {
+            if (n == "10" || n == "30" || n == "50") {
                 await quickplay(client)
                 await bot(client)
+                console.log("Quickplay and SBA's stats have been automatically updated.")
+            }
+            if (manual) {
+                await hypixel(client)
+                await skyblockaddons(client)
+                await quickplay(client)
+                await bot(client)
+                console.log("All stats have been manually updated.")
             }
         } catch (err) { throw err }
     }

@@ -143,7 +143,6 @@ client.on("message", async message => {
   if (command.channelWhiteList && !command.channelWhiteList.includes(message.channel.id)) allowed = false
   else allowed = true
   if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
-  console.log(allowed)
   if (!allowed) return message.react(notAllowed)
 
   //Stop and error if command is not allowed in DMs and command is sent in DMs
