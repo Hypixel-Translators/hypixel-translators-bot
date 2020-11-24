@@ -28,7 +28,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <argumentos>",
-        "description": "Obtiene, añade o edita contexto para la ID del string dada. `+context help` te muestra información sobre este comando. `+context link` te da un enlace para pedir acceso al Google Sheet de contexto."
+        "description": "Obtiene, agrega o edita contexto para la ID del string dada. `+context help` te muestra información sobre este comando. `+context link` le da un enlace para solicitar acceso a la hoja de cálculo de contextos."
     },
     "issue": {
         "usage": "+issue",
@@ -40,7 +40,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping as well as Discord API's ping"
+        "description": "Te da el ping del bot, así como el ping de la API de Discord"
     },
     "invite": {
         "usage": "+invite",
