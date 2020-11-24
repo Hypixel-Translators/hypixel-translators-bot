@@ -38,6 +38,10 @@
         "usage": "+language [<νέα γλώσσα> | list]",
         "description": "Αλλάζει την γλώσσα σου, δείχνει την τωρινή σου ή δείχνει μία λίστα με τις διαθέσιμες γλώσσες."
     },
+    "ping": {
+        "usage": "+ping",
+        "description": "Gives you the bot's ping as well as Discord API's ping"
+    },
     "invite": {
         "usage": "+invite",
         "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
