@@ -1,3 +1,4 @@
 {
-    "pong": "Pong!"
+    "pong": "Pong!",
+    "message": "%%pingEmote%% Pong! My ping is %%ping%%ms. The API latency is %%latency%%."
 }
