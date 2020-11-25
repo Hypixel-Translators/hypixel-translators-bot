@@ -18,6 +18,7 @@
     "cooldown": "Χρόνος Επαναφόρτωσης",
     "timeLeftT": "Παρακαλώ περίμενε ακόμα %%time%% δευτερόλεπτα για να χρησιμοποιήσεις το `+%%command%%` ξανά.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
+    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
     "tip": "Συμβουλή",
     "tips": {
         "0": "Δοκίμασες ποτέ την γλώσσα Inhale Banana; Άλλαξε την γλώσσα σου σε αυτό εκτελώντας `+lang ib`!",
