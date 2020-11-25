@@ -40,7 +40,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping as well as Discord API's ping"
+        "description": "Antaa botin viiveen ja Discordin ohjelmointirajapinnan (Discord API) viiveen"
     },
     "invite": {
         "usage": "+invite",
