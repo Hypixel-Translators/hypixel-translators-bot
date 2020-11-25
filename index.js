@@ -164,26 +164,24 @@ client.on("message", async message => {
   if (timestamps.has(message.author.id)) {
     const expirationTime = timestamps.get(message.author.id) + cooldownAmount
     if (now < expirationTime) {
-      setTimeout(() => {
-        const timeLeft = (expirationTime - now) / 1000;
-        var timeLeftS
-        if (Math.ceil(timeLeft) > 120) {
-          timeLeftS = (globalStrings.minsLeftT.replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", command.name))
-        } else {
-          timeLeftS = (globalStrings.timeLeftT.replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", command.name))
-        }
-        const embed = new Discord.MessageEmbed()
-          .setColor(errorColor)
-          .setAuthor(globalStrings.cooldown)
-          .setTitle(timeLeftS)
-          .setFooter(executedBy)
-      }, 100)
+      const timeLeft = (expirationTime - now) / 1000;
+      var timeLeftS
+      if (Math.ceil(timeLeft) > 120) {
+        timeLeftS = (globalStrings.minsLeftT.replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", command.name))
+      } else {
+        timeLeftS = (globalStrings.timeLeftT.replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", command.name))
+      }
+      const embed = new Discord.MessageEmbed()
+        .setColor(errorColor)
+        .setAuthor(globalStrings.cooldown)
+        .setTitle(timeLeftS)
+        .setFooter(executedBy)
     }
   }
 
   //Remove cooldown if administrator
-  if (message.member) if (message.member.hasPermission("ADMINISTRATOR")) timestamps.set(message.author.id, now);
-  setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+  if (message.member) if (message.member.hasPermission("ADMINISTRATOR")) timestamps.set(message.author.id, now)
+  setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
 
   //Get command strings
   var strings = require(("./strings/en/" + command.name + ".json"))
@@ -195,35 +193,35 @@ client.on("message", async message => {
   globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
   //Run command and handle errors
-  setTimeout(() => {
-    try { command.execute(strings, message, args) }
-    catch (error) {
+  //setTimeout(() => {
+  try { command.execute(strings, message, args) }
+  catch (error) {
 
-      //Handle errors
-      console.log("Error incoming! Message:\n>>>" + message)
-      console.error(error);
-      timestamps.delete(message.author.id)
-      const embed = new Discord.MessageEmbed()
-        .setColor(errorColor)
-        .setAuthor(globalStrings.error)
-        .setTitle(globalStrings[error] || error)
-        .setFooter(executedBy)
-      if (!helpStrings[command.name]) {
-        embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" })
-      } else {
-        embed.addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" })
-      }
-      message.channel.send(embed)
-
-    } finally {
-
-      //Try sending a tip
-      var d = Math.random(); var s = Math.round(Math.random())
-      if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${globalStrings.tips[globalStrings.tips.length * Math.random() | 0].replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "(https://twitter.com/HTranslators)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#699367079241056347>")}`)
-
+    //Handle errors
+    console.log("Error incoming! Message:\n>>>" + message)
+    console.error(error);
+    timestamps.delete(message.author.id)
+    const embed = new Discord.MessageEmbed()
+      .setColor(errorColor)
+      .setAuthor(globalStrings.error)
+      .setTitle(globalStrings[error] || error)
+      .setFooter(executedBy)
+    if (!helpStrings[command.name]) {
+      embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" })
+    } else {
+      embed.addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" })
     }
-  }, 50)
-});
+    message.channel.send(embed)
+
+  } finally {
+
+    //Try sending a tip
+    var d = Math.random(); var s = Math.round(Math.random())
+    if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${globalStrings.tips[globalStrings.tips.length * Math.random() | 0].replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "(https://twitter.com/HTranslators)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#699367079241056347>")}`)
+
+  }
+  //}, 50)
+})
 
 
 //Run when reaction is added
