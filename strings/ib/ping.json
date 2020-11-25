@@ -1,4 +1,6 @@
 {
-    "pong": "%%pingEmote%% Pong!",
-    "message": "%%pingEmote%% Pong! My ping is %%ping%%ms. The API latency is %%latency%%."
+    "pong": "%%pingEmote%% Pog!",
+    "moduleName": "Pig",
+    "message": "Me pig is %%ping%% meloskekunds. API latensi pig is %%latency%% meloskekunds.",
+    "executedBy": "Done by le %%user%%"
 }
