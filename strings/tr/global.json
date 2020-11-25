@@ -18,6 +18,7 @@
     "cooldown": "Bekleme Süresi",
     "timeLeftT": "'+%%command%%' komutunu kullanmak için lütfen %%time%% saniye bekle.",
     "minsLeftT": "`+%%command%%' tekrar kullanmak için lütfen %%time%% dakika daha bekleyin.",
+    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
     "tip": "İpucu",
     "tips": {
         "0": "Henüz Muz dilini denemedin mi? Dilini `+lang ib` komutu ile muz dili olarak güncelleyebilirsin!",
