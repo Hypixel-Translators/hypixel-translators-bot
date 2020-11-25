@@ -18,6 +18,7 @@
     "cooldown": "Nedkøling",
     "timeLeftT": "Vent venligst %%time%% sekunder for at bruge `+%%command%%` igen.",
     "minsLeftT": "Vent venligst %%time%% minutter med at bruge `+%%command%%` igen.",
+    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
     "tip": "Tip",
     "tips": {
         "0": "Har du prøvet Inhale Banana-sproget? Skift dit sprog til det ved at skrive `+lang ib`!",
