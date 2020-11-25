@@ -18,6 +18,7 @@
     "cooldown": "Afkoeltijd",
     "timeLeftT": "Wacht nog %%time%% seconden voor je `+%%command%%` weer gebruikt.",
     "minsLeftT": "Wacht nog %%time%% minuten voor je `+%%command%%` weer gebruikt.",
+    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
     "tip": "Tip",
     "tips": {
         "0": "Heb je de Inhale Banana-taal geprobeerd? Verander je taal ernaar met `+lang ib`!",
