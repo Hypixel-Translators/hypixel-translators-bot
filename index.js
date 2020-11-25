@@ -105,9 +105,7 @@ client.on("message", async message => {
   //Link correction system
   if (message.content.includes("/translate/") && message.content.includes("://")) if (message.channel.id === "730042612647723058" || message.channel.id === "624881429834366986") { // staff-bots and bot-dev
     var msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
-    if (message.content != msgTxt) message.react(notAllowed); message.channel.send("<@" + message.author.id + "> _Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n\n>>> " + msgTxt)
-    console.log("Replaced message: " + msgTxt)
-    console.log("Original message: " + message.content)
+    if (message.content !== msgTxt) message.react(notAllowed); message.channel.send("<@" + message.author.id + "> _Please change the link to the `crowdin.com/translate/.../.../en-en` format next time._\n\n>>> " + msgTxt)
   }
 
   //Staff messaging system
