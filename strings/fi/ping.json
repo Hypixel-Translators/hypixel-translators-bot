@@ -1,4 +1,4 @@
 {
     "pong": "%%pingEmote%% Pong!",
-    "message": "%%pingEmote%% Pong! My ping is %%ping%%ms. The API latency is %%latency%%."
+    "message": "%%pingEmote%% Pong! Viiveeni on %%ping%%ms. Discord APIn viive on %%latency%%."
 }
