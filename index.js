@@ -17,7 +17,7 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection()
 
 //Define assets
-const notAllowed = "<:vote_no:732298639736570007>" //vote_no emoji
+const notAllowed = "732298639736570007" //vote_no emoji
 
 //Import events
 const stats = require("./events/stats.js")
