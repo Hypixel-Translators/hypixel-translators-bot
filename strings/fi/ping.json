@@ -1,6 +1,6 @@
 {
     "pong": "%%pingEmote%% Pong!",
-    "moduleName": "Ping",
-    "message": "My ping is %%ping%%ms. The API latency is %%latency%%ms.",
+    "moduleName": "Viive",
+    "message": "Viiveeni on %%ping%%ms. Discord APIn viive on %%latency%%ms.",
     "executedBy": "Komennon suoritti %%user%%"
 }
