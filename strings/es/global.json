@@ -18,6 +18,7 @@
     "cooldown": "Enfriamiento",
     "timeLeftT": "Por favor, espera otros %%time%% segundos para usar `+%%command%%` de nuevo.",
     "minsLeftT": "Por favor, espera otros %%time%% minutos para usar `+%%command%%` de nuevo.",
+    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
     "tip": "Consejo",
     "tips": {
         "0": "¿Has probado el idioma Inhale Banana? ¡Cambia tu idioma usando `+lang ib`!",
