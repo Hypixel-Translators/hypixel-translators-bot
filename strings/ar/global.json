@@ -18,6 +18,7 @@
     "cooldown": "فترة الاستراحة",
     "timeLeftT": "الرجاء الانتظار %%time%% ثانية لاستخدام `+%%command%%` مرة أخرى.",
     "minsLeftT": "الرجاء الانتظار %%time%% دقيقة لاستخدام `+%%command%%` مرة أخرى.",
+    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
     "tip": "نصيحة",
     "tips": {
         "0": "هل قد جربت لغة Inhale Banana من قبل؟ غير لغتك لها عن طريق استخدام `+lang ib`!",
