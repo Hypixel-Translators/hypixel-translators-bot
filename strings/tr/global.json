@@ -7,7 +7,7 @@
     "noMessage": "Bir mesaj yazmadınız!",
     "noChannel": "Bir kanal sağlamadın!",
     "noUser": "Bir kullanıcı sağlamadın!",
-    "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
+    "noContext": "Bağlamı sağlamadın! Lütfen hem dize kimliğini hem de bunu açıklayan bağlamı ekleyin.",
     "noUserQuote": "Bir kullanıcı sağlamadın! Lütfen alıntıyı yazın ve ardından alıntı yapılan kullanıcıdan eğik çizgiyle ayırarak bahsedin.",
     "falseChannel": "Bu kanal bulunamadı!",
     "falseUser": "Bu kullanıcı bulunamadı!",
