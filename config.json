@@ -7,7 +7,7 @@
   "neutralColor": "#28dbde",
   "listenStatuses" : ["+help", "RANDOM_USER's commands", "RANDOM_USER", "wise words from RANDOM_USER", "QkeleQ10", "Stannya and Rodry"],
   "watchStatuses": ["your commands", "your messages", "meatdata", "their prayers", "nicknames and stuff", "RANDOM_USER's messages"],
-  "randomUser": ["Stannya", "Rodry", "Sol", "Wens", "Linewater", "Kiril", "TheComputer8423", "QkeleQ10", "Stannya", "Rodry", "airboot" , "Mr_Junior", "marzeq_"],
+  "randomUser": ["Stannya", "Rodry", "Sol", "Wens", "Linewater", "Kiril", "TheComputer8423", "QkeleQ10", "Stannya", "Rodry", "Mr_Junior", "marzeq_"],
   "langdb": [  
     {"name": "Arabic", "emoji": "🇵🇸", "code" : "ar", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Biscuitish", "emoji": "🍪", "code" : "bc", "flag": "https://github.com/BiscuitDevelopment/SkyblockAddons/blob/development/src/main/resources/assets/skyblockaddons/flags/%code%_bc.png?raw=true"},

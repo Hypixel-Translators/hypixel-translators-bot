@@ -37,7 +37,7 @@ async function hypixel(client) {
         .then(res => res.json())
         .then((json) => {
             json.reverse()
-            client.channels.cache.get("748538826003054643").messages.fetch() //hypixel-language-status
+            client.channels.cache.find("name", "hypixel-language-status").messages.fetch() //hypixel-language-status
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async (msg) => {
@@ -75,7 +75,7 @@ async function quickplay(client) {
         .then(res => res.json())
         .then((json) => {
             json.reverse()
-            client.channels.cache.get("748626115530326016").messages.fetch() //quickplay-language-status
+            client.channels.cache.find("name", "quickplay-language-status").messages.fetch() //quickplay-language-status
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async (msg) => {
@@ -122,7 +122,7 @@ async function bot(client) {
         .then(res => res.json())
         .then((json) => {
             json.reverse()
-            client.channels.cache.get("762661287749484614").messages.fetch() //bot-language-status
+            client.channels.cache.find("name", "bot-language-status").messages.fetch() //bot-language-status
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async (msg) => {
@@ -170,7 +170,7 @@ async function skyblockaddons(client) {
             .then(res => res.json())
             .then((json) => {
                 json.reverse()
-                client.channels.cache.get("759740668310192199").messages.fetch() //sba-language-status
+                client.channels.cache.find("name", "sba-language-status").messages.fetch() //sba-language-status
                     .then(messages => {
                         fiMessages = messages.filter(msg => msg.author.bot)
                         fiMessages.forEach(async (msg) => {
