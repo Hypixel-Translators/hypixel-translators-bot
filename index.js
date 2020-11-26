@@ -103,7 +103,7 @@ client.on("message", async message => {
   }
 
   //Link correction system
-  if (message.content.includes("/translate/") && message.content.includes("://")) if (message.channel.id === "730042612647723058" || message.channel.id === "644620638878695424") { // bot-dev and server-boosters
+  if (message.content.includes("/translate/") && message.content.includes("://")) if (message.channel.id === "549503328472530976" || message.channel.id === "627594632779399195") { // hypixel translators and proofreaders
     var msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
     if (message.content !== msgTxt) {
       message.react(notAllowed) 
