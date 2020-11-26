@@ -1,6 +1,6 @@
 {
     "moduleName": "Bulkversturen",
-    "success": "Gelukt! Bericht verzonden.",
+    "success": "Success! Messages sent.",
     "generalError": "Er is iets misgegaan.",
     "executedBy": "Uitgevoerd door %%user%%"
 }
