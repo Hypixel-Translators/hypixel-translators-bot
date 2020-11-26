@@ -27,8 +27,8 @@
         "description": "Nevner en språkrolle med en valgfri melding."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
+        "usage": "+context get|add|edit|view|help <argumenter>",
+        "description": "Henter, legger til eller redigerer konteksten for den angitte string-IDen. `+context help` viser informasjon om denne kommandoen."
     },
     "issue": {
         "usage": "+issue",
@@ -40,35 +40,35 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping as well as Discord API's ping"
+        "description": "Sender botens ping i tillegg til Discord APIs ping"
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Gir deg en invitasjonslenke til serveren. Vær snill å bruk den når du vil invitere noen."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Sender lenken til den offisielle tråden angående Hypixel-oversettelser."
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "Sender nyttig informasjon angående Hypixel-prosjektet."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Sender nyttig informasjon angående Quickplay-prosjektet."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "Sender nyttig informasjon angående SkyblockAddons-prosjektet."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Sender lenken til tråden som annonserer denne Discord-serveren."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Sender lenken til den offisielle Hypixel Translators Community Twitter-siden."
     },
     "executedBy": "Utført av %%user%%"
 }
