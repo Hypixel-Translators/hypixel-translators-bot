@@ -1,6 +1,6 @@
 {
-    "moduleName": "Inactive checker",
-    "started": "Please wait a minute or two for all inactive unverified members to be alerted...",
-    "done": "All inactive members have been notified!",
+    "moduleName": "İnaktif denetleyicl",
+    "started": "Tüm inaktif doğrulanmamış üyelerin uyarılması için lütfen bir veya iki dakika bekleyin...",
+    "done": "Tüm inaktif üyeler bilgilendirildi!",
     "executedBy": "%%user%% tarafından yürütüldü"
 }
