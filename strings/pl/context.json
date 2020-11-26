@@ -20,7 +20,7 @@
     "editedResult": "Edytowano ten wpis kontekstowy! Nowe dane znajdują się poniżej.\n\n**Kontekst**\n",
     "tryRunGet": "Nie mogliśmy znaleźć wynikowego wpisu. Spróbuj użyć `+context get <ID ciągu>`, aby zobaczyć wynik.",
     "editContextFor": "Edytuj kontekst dla ",
-    "willAdd": "Następujący wpis zostanie dodany. Proszę zareagować 📑, jeśli chcesz dodać więcej do wpisu lub zmienić istniejące pola (takie jak zrzut ekranu lub notatka językowa). Zareaguj %%voteYes%%, aby przesłać. Zostanie to anulowane w ciągu dwóch minut lub po zareagowaniu emotką %%voteNo%%.",
+    "willAdd": "The following entry will be added. Please react with 📑 if you'd like to add more to the entry or change existing fields (such as a screenshot or a language note). React with %%voteYes%% to submit. This will be cancelled in two minutes or when you hit %%voteNo%%.",
     "promptAddMore": "Wyślij wiadomość (bez przedrostka) zawierającą `<pole> <kontekst>`. <pole> może być to: `screenshot`, `id`, `context` lub kod językowy. <zawartość> musi być nową zawartością dla tego ciągu, taką jak link zrzutu ekranu.",
     "addedMore": "Dodano te informacje do wpisu kontekstowego. Ponownie dodaj reakcję 📑, aby dodać więcej informacji.",
     "added": "Dodano wpis kontekstowy! Wczytywanie rezultatu…",
