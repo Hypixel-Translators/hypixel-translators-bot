@@ -11,12 +11,12 @@ module.exports = {
             if (n == "0" || n == "20" || n == "40") {
                 await hypixel(client)
                 await skyblockaddons(client)
-                console.log("Hypixel and SBA's stats have been automatically updated.")
+                //console.log("Hypixel and SBA's stats have been automatically updated.")
             }
             if (n == "10" || n == "30" || n == "50") {
                 await quickplay(client)
                 await bot(client)
-                console.log("Quickplay and SBA's stats have been automatically updated.")
+                //console.log("Quickplay and SBA's stats have been automatically updated.")
             }
             if (manual) {
                 await hypixel(client)

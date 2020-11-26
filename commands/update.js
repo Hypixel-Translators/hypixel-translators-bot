@@ -83,7 +83,7 @@ function verify(message) {
     const channelsEmbed = new Discord.MessageEmbed()
         .setColor("#0055ff")
         .setAuthor("Welcome!")
-        .setTitle("Welcome to the unofficial Hypixel Translators Community!")
+        .setTitle("Welcome to the Unofficial Hypixel Translators Community!")
         .setDescription("Hi! We're glad to have you here. In order to keep our server spam-free, we ask all members to verify themselves.")
         .addFields(
             { name: "Not a translator", value: "yes".substring(0, 1024) }

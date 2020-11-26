@@ -27,7 +27,9 @@ module.exports = {
 
 function sendmsg(sendTo, times) {
   while (times > 0) {
-    sendTo.send("This is a sample message.")
-    times--
-  }
-}
+    return new Promise((resolve, reject) => {
+      sendTo.send("Language statistics will be here shortly!")
+      times--
+      resolve()
+    }
+ )}}
