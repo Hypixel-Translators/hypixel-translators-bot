@@ -18,6 +18,7 @@
     "cooldown": "Odotusaika",
     "timeLeftT": "Ole hyvä ja odota vielä %%time%% sekuntia ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
     "minsLeftT": "Ole hyvä ja odota vielä %%time%% minuuttia ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
+    "linkCorrection": "%%user%%, ole hyvä ja vaihda linkki ensi kerralla muotoon `crowdin.com/translate/.../.../en-en`.",
     "tip": "Vihje",
     "tips": {
         "0": "Oletko kokeillut Inhale Banana -kieltä? Vaihda kielesi komennolla `+lang ib`!",

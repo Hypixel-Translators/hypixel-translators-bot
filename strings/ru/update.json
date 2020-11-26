@@ -1,0 +1,7 @@
+{
+    "moduleName": "Channel updater",
+    "success": "Updated the %%channel%% channel!",
+    "infoChannel": "information",
+    "verifyChannel": "verification",
+    "executedBy": "Выполнено %%user%%"
+}

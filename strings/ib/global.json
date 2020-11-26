@@ -18,6 +18,7 @@
     "cooldown": "Time to get cold and not hot",
     "timeLeftT": "U quicc, but too quicc so pls wait %%time%% skakund befr do `+%%command%%`.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
+    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
     "tip": "Gun factory",
     "tips": {
         "0": "U spek inhale banana, but u know banana inhale actualy realy guud?",

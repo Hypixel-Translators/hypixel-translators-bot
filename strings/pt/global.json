@@ -18,6 +18,7 @@
     "cooldown": "Tempo de espera",
     "timeLeftT": "Espera mais %%time%% segundos para usares `+%%command%%` outra vez.",
     "minsLeftT": "Espera mais %%time%% minutos para usares `+%%command%%` outra vez.",
+    "linkCorrection": "%%user%% muda o link para o formato `crowdin.com/translate/.../.../en-en` da próxima vez.",
     "tip": "Dica",
     "tips": {
         "0": "Já experimentaste o idioma Inhale Banana? Muda o teu idioma usando `+lang ib` para experimentares!",

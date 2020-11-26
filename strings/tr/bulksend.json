@@ -1,6 +1,6 @@
 {
     "moduleName": "Toplu Gönder",
-    "success": "Başarılı! Mesaj gönderildi.",
+    "success": "Success! Messages sent.",
     "generalError": "Bir şeyler ters gitti.",
     "executedBy": "%%user%% tarafından yürütüldü"
 }

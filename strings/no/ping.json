@@ -1,0 +1,6 @@
+{
+    "pong": "%%pingEmote%% Pong!",
+    "moduleName": "Ping",
+    "message": "Min ping er %%ping%%ms. API-ventetiden er %%latency%%ms.",
+    "executedBy": "Utført av %%user%%"
+}

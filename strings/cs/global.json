@@ -18,6 +18,7 @@
     "cooldown": "Časové omezení",
     "timeLeftT": "Počkej prosím dalších %%time%% sekund/y pro použití příkazu `+%%command%%`.",
     "minsLeftT": "Počkej prosím ještě %%time%% minut/y, abys mohl znovu použít `+%%command%%`.",
+    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
     "tip": "Tip",
     "tips": {
         "0": "Už jsi vyzkoušel jazyk vdechnutého banánu? Nastav si ho pomocí `+lang ib`!",

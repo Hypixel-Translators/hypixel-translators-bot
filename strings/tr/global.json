@@ -7,7 +7,7 @@
     "noMessage": "Bir mesaj yazmadınız!",
     "noChannel": "Bir kanal sağlamadın!",
     "noUser": "Bir kullanıcı sağlamadın!",
-    "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
+    "noContext": "Bağlamı sağlamadın! Lütfen hem dize kimliğini hem de bunu açıklayan bağlamı ekleyin.",
     "noUserQuote": "Bir kullanıcı sağlamadın! Lütfen alıntıyı yazın ve ardından alıntı yapılan kullanıcıdan eğik çizgiyle ayırarak bahsedin.",
     "falseChannel": "Bu kanal bulunamadı!",
     "falseUser": "Bu kullanıcı bulunamadı!",
@@ -18,6 +18,7 @@
     "cooldown": "Bekleme Süresi",
     "timeLeftT": "'+%%command%%' komutunu kullanmak için lütfen %%time%% saniye bekle.",
     "minsLeftT": "`+%%command%%' tekrar kullanmak için lütfen %%time%% dakika daha bekleyin.",
+    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
     "tip": "İpucu",
     "tips": {
         "0": "Henüz Muz dilini denemedin mi? Dilini `+lang ib` komutu ile muz dili olarak güncelleyebilirsin!",

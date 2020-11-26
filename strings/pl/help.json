@@ -1,6 +1,6 @@
 {
     "moduleName": "Informacja",
-    "commandsListTitle": "Linki i polecenia",
+    "commandsListTitle": "Odnośniki i polecenia",
     "commandsListTooltip": "Ten bot został stworzony dla Społeczności Tłumaczy Hypixel przez %%QkeleQ10%%. Jest otwartym oprogramowaniem, nasze repozytorium GitHub może zostać znalezione [tutaj]%%github%%.\nMożesz pomóc w tłumaczeniu bota postępując zgodnie z instrukcjami w [tej wiadomości]%%translate%%.\n\nMożesz wykonać `+help <nazwa polecenia>`, aby dowiedzieć się więcej o danym poleceniu.\nTutaj jest lista wszystkich poleceń:\n ",
     "madeBy": " | Bot stworzony z ogromną starannością przez %%QkeleQ10%%",
     "commandInfo": "Informacje o poleceniu",
@@ -37,6 +37,10 @@
     "language": {
         "usage": "+language [<nowy język> | list]",
         "description": "Zmienia Twój język, pokazuje bieżący lub pokazuje listę dostępnych języków."
+    },
+    "ping": {
+        "usage": "+ping",
+        "description": "Gives you the bot's ping as well as Discord API's ping"
     },
     "invite": {
         "usage": "+invite",

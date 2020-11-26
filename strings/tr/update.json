@@ -1,0 +1,7 @@
+{
+    "moduleName": "Bilgi kanalı Güncelleyici",
+    "success": "%%channel%% kanalı güncellendi!",
+    "infoChannel": "bilgi",
+    "verifyChannel": "doğrulama",
+    "executedBy": "%%user%% tarafından yürütüldü"
+}

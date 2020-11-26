@@ -1,0 +1,6 @@
+{
+    "moduleName": "Epäaktiivisuuden tarkistus",
+    "started": "Odota hetki, kun lähetetään ilmoitus kaikille epäaktiivisille vahvistamattomille käyttäjille...",
+    "done": "Kaikille epäaktiivisille käyttäjille on lähetetty ilmoitus!",
+    "executedBy": "Komennon suoritti %%user%%"
+}

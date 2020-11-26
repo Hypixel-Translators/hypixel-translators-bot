@@ -27,8 +27,8 @@
         "description": "İsteğe bağlı bir mesajla bir dil rolünden bahseder."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
+        "usage": "+context get|add|edit|view|help <konu>",
+        "description": "Verilen string kimliği için bağlamı alır, ekler veya düzenler. `+context help` size bu komutla ilgili bilgileri gösterir."
     },
     "issue": {
         "usage": "+issue",
@@ -38,33 +38,37 @@
         "usage": "+language [<yeni dil> | liste]",
         "description": "Dilinizi değiştirir, mevcut dilinizi gösterir veya mevcut dillerin bir listesini gösterir."
     },
+    "ping": {
+        "usage": "+ping",
+        "description": "Gives you the bot's ping as well as Discord API's ping"
+    },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Sunucu için bir davet bağlantısı verir. Birini davet etmek istediğinde lütfen bu bağlantıyı kullan."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Hypixel çevirileri ile ilgili resmi konuya yönlendiren bir bağlantı verir."
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "Hypixel Crowdin projesi ile ilgili yararlı bilgiler verir."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Quickplay Crowdin projesi ile ilgili yararlı bilgiler verir."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "SkyblockAddons Crowdin projesi ile ilgili yararlı bilgiler verir."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Bu Discord sunucusunu açıklayan konu için bir bağlantı verir."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Hypixel Translators topluluğunun resmi Twitter sayfasına bir bağlantı verir."
     },
     "executedBy": "%%user%% tarafından yürütüldü"
 }

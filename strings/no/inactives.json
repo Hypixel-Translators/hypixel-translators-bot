@@ -1,0 +1,6 @@
+{
+    "moduleName": "Inaktivitetssjekker",
+    "started": "Vennligst vent et par minutter mens alle inaktive, uverifiserte medlemmer blir varslet...",
+    "done": "Alle inaktive medlemmer har blitt varslet!",
+    "executedBy": "Utført av %%user%%"
+}

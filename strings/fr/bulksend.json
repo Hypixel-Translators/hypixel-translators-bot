@@ -1,6 +1,6 @@
 {
     "moduleName": "Envoi En Masse",
-    "success": "Succès! Message envoyé.",
+    "success": "Success! Messages sent.",
     "generalError": "Une erreur s'est produite.",
     "executedBy": "Exécuté par %%user%%"
 }

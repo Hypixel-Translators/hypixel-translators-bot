@@ -1,6 +1,6 @@
 {
     "moduleName": "ارسال مجموعة",
-    "success": "نجحت! تم الإرسال.",
+    "success": "Success! Messages sent.",
     "generalError": "لقد حدث خطأ ما.",
     "executedBy": "نفذ من قبل %%user%%"
 }
