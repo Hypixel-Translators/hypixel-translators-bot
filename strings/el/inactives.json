@@ -1,6 +1,6 @@
 {
-    "moduleName": "Inactive checker",
-    "started": "Please wait a minute or two for all inactive unverified members to be alerted...",
-    "done": "All inactive members have been notified!",
+    "moduleName": "Ελεγκτής μη ενεργών μελών",
+    "started": "Περιμένετε ένα ή δύο λεπτά για να ειδοποιηθούν όλα τα ανενεργά μέλη που δεν έχουν επαληθευτεί...",
+    "done": "Όλα τα ανενεργά μέλη έχουν ειδοποιηθεί!",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
