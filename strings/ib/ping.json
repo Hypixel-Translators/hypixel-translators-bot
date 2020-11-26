@@ -1,0 +1,6 @@
+{
+    "pong": "%%pingEmote%% Pog!",
+    "moduleName": "Pig",
+    "message": "Me pig is %%ping%% meloskekunds. API latensi pig is %%latency%% meloskekunds.",
+    "executedBy": "Done by le %%user%%"
+}

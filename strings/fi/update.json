@@ -1,0 +1,7 @@
+{
+    "moduleName": "Kanavan päivitys",
+    "success": "%%channel%%kanava päivitetty!",
+    "infoChannel": "Info",
+    "verifyChannel": "Vahvistus",
+    "executedBy": "Komennon suoritti %%user%%"
+}

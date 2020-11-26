@@ -1,0 +1,6 @@
+{
+    "moduleName": "Comprobador inactivo",
+    "started": "Por favor, espere un minuto o dos para todos los miembros inactivos no verificados a ser alertados...",
+    "done": "¡Todos los miembros inactivos han sido notificados!",
+    "executedBy": "Ejecutado por %%user%%"
+}

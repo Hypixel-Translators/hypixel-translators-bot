@@ -18,6 +18,7 @@
     "cooldown": "Temps de recharge",
     "timeLeftT": "Attend encore %%time%% secondes pour utiliser `+%%command%%` à nouveau.",
     "minsLeftT": "Attend encore %%time%% minutes pour utiliser `+%%command%%` à nouveau.",
+    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
     "tip": "Conseil",
     "tips": {
         "0": "As-tu essayé la langue Inhale Banana? Change ta langue en utilisant `+lang ib`!",

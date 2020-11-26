@@ -1,0 +1,7 @@
+{
+    "moduleName": "Atualizador de canais",
+    "success": "O canal de %%channel%% foi atualizado!",
+    "infoChannel": "informações",
+    "verifyChannel": "verificação",
+    "executedBy": "Executado por %%user%%"
+}

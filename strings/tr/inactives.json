@@ -1,0 +1,6 @@
+{
+    "moduleName": "İnaktif denetleyicl",
+    "started": "Tüm inaktif doğrulanmamış üyelerin uyarılması için lütfen bir veya iki dakika bekleyin...",
+    "done": "Tüm inaktif üyeler bilgilendirildi!",
+    "executedBy": "%%user%% tarafından yürütüldü"
+}

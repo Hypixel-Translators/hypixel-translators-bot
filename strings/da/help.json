@@ -27,8 +27,8 @@
         "description": "Nævner en sprogrolle med en valgfri besked."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
+        "usage": "+context get|add|edit|link|help <argumenter>",
+        "description": "Får, tilføjer eller redigerer konteksten på den givne string-ID. `+context help` viser dig information om denne kommando. `+context link` giver dig et link til at anmode om adgang til kontekstregnearket."
     },
     "issue": {
         "usage": "+issue",
@@ -38,29 +38,33 @@
         "usage": "+language [<nyt sprog> | list]",
         "description": "Skifter dit sprog, viser din nuværende sprogindstilling eller viser en liste over tilgængelige sprog."
     },
+    "ping": {
+        "usage": "+ping",
+        "description": "Gives you the bot's ping as well as Discord API's ping"
+    },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Giver dig et invitationslink til serveren. Brug venligst dette link hver gang, du inviterer nogen."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Giver dig linket til den officielle tråd angående med Hypixel-oversættelser."
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "Giver dig noget brugbart information om Hypixel-projektet."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Giver dig noget brugbart information om Quickplay-projektet."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "Giver dig noget brugbart information om SkyblockAddons-projektet."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Giver dig linket til tråden, der annoncerer denne Discord-server."
     },
     "twitter": {
         "usage": "+twitter",

@@ -1,0 +1,7 @@
+{
+    "moduleName": "Kanaloppdaterer",
+    "success": "Oppdaterte %%channel%%-kanalen!",
+    "infoChannel": "informasjon",
+    "verifyChannel": "verifisering",
+    "executedBy": "Utført av %%user%%"
+}

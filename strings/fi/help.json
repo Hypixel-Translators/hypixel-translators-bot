@@ -38,6 +38,10 @@
         "usage": "+language [<kieli> | list]",
         "description": "Vaihtaa kielesi, näyttää käytössä olevan kielesi tai listaa kaikki saatavilla olevat kielet."
     },
+    "ping": {
+        "usage": "+ping",
+        "description": "Antaa botin viiveen ja Discordin ohjelmointirajapinnan (Discord API) viiveen"
+    },
     "invite": {
         "usage": "+invite",
         "description": "Antaa palvelimen kutsulinkin. Käytäthän aina tätä kutsuessasi jonkun."

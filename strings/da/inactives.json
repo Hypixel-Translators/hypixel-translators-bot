@@ -1,0 +1,6 @@
+{
+    "moduleName": "Inactive checker",
+    "started": "Please wait a minute or two for all inactive unverified members to be alerted...",
+    "done": "Alle inaktive medlemmer er blevet underrettet!",
+    "executedBy": "Udført af %%user%%"
+}

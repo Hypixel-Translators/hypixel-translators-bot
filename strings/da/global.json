@@ -18,6 +18,7 @@
     "cooldown": "Nedkøling",
     "timeLeftT": "Vent venligst %%time%% sekunder for at bruge `+%%command%%` igen.",
     "minsLeftT": "Vent venligst %%time%% minutter med at bruge `+%%command%%` igen.",
+    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
     "tip": "Tip",
     "tips": {
         "0": "Har du prøvet Inhale Banana-sproget? Skift dit sprog til det ved at skrive `+lang ib`!",
@@ -28,7 +29,7 @@
         "5": "Vi har brug for flere tips! Indsend dem ved at skrive `+feedback`.",
         "6": "Vidste du, at vi har en guide på hvordan man kommer godt i gang med Crowdin? Tjek den ud i %%gettingStarted%%. Den har nogle brugbare tips!",
         "7": "Følger du vores Twitter-konto? Tjek den ud [her]%%twitter%%!",
-        "8": "%%rules%% and %%serverInfo%% have all the info you need about this server!",
+        "8": "%%rules%% og %%serverInfo%% har al den info, du har brug for på denne server!",
         "9": "Har du fundet en fejl i en oversættelse? Kontakt sprogets korrekturlæser eller fortæl folk det i en oversættelseskanal.",
         "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!"
     },
