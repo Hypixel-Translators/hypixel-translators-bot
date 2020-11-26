@@ -14,7 +14,7 @@ module.exports = {
     const latency = Math.round(message.client.ws.ping)
 
     //Contributed by marzeq. Original idea by Rodry
-    let color;
+    let color
     if (ping <= 200) { //if ping is less than 200 the color is green
       color = successColor
     } else if (ping <= 400) { //if ping is between 200 and 400 the color is yellow
