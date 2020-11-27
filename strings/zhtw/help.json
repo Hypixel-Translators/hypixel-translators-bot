@@ -70,5 +70,5 @@
         "usage": "+twitter",
         "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "由 %%user%% 執行"
 }
