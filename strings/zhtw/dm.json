@@ -5,5 +5,5 @@
     "generalError": "Something has gone wrong.",
     "incoming": "Received message from staff",
     "incomingDisclaimer": "Any message you send here will get sent to staff.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "由 %%user%% 執行"
 }
