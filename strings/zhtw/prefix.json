@@ -19,5 +19,5 @@
     "newNickT": "新暱稱",
     "noChanges": "No changes",
     "saved": "Your prefix has been saved!",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "由 %%user%% 執行"
 }
