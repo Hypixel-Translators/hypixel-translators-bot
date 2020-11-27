@@ -27,8 +27,8 @@
         "description": "Oznacza rolę językową z opcjonalną wiadomością."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
+        "usage": "+context get|add|edit|link|help <argumenty>",
+        "description": "Pobiera, dodaje lub edytuje kontekst danego identyfikatora ciągu. `+context help` pokazuje informację o tym poleceniu. `+context link` podaje Tobie link, aby zażądać dostęp do arkusza kalkulacyjnego z kontekstem."
     },
     "issue": {
         "usage": "+issue",
