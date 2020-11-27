@@ -4,11 +4,11 @@
     "bot": "Bot",
     "list": "List of permissions",
     "uperms": "Permissions",
-    "uroles": "Roles",
+    "uroles": "Ρόλοι",
     "ujoined": "Joined at",
     "ucreated": "Account created at",
     "dateLocale": "gr-GR",
-    "timeZone": "Europe/London",
+    "timeZone": "Europe/Athens",
     "specific": "%%perm%% άδεια",
     "perms": {
         "ADMINISTRATOR": "Διαχειριστής",
