@@ -18,7 +18,7 @@
     "cooldown": "Czas odnawiania",
     "timeLeftT": "Poczekaj kolejne %%time%% sekund, aby ponownie użyć `+%%command%%`.",
     "minsLeftT": "Poczekaj kolejne %%time%% minut, aby ponownie użyć `+%%command%%`.",
-    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
+    "linkCorrection": "%%user%% Następnym razem zmień format odnośnika na „crowdin.com/translate/.../.../en-en”.",
     "tip": "Wskazówka",
     "tips": {
         "0": "Czy wypróbowałeś/aś język Inhale Banana? Zmień swój język, używając `+lang ib`!",
