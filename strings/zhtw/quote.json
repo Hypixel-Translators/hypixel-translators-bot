@@ -8,5 +8,5 @@
     "reqAdd": "Success! The following quote has been added:",
     "user": "User",
     "index": "Quote number",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "由 %%user%% 執行"
 }
