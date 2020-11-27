@@ -20,7 +20,7 @@
     "editedResult": "Edytowano ten wpis kontekstowy! Nowe dane znajdują się poniżej.\n\n**Kontekst**\n",
     "tryRunGet": "Nie mogliśmy znaleźć wynikowego wpisu. Spróbuj użyć `+context get <ID ciągu>`, aby zobaczyć wynik.",
     "editContextFor": "Edytuj kontekst dla ",
-    "willAdd": "The following entry will be added. Please react with 📑 if you'd like to add more to the entry or change existing fields (such as a screenshot or a language note). React with %%voteYes%% to submit. This will be cancelled in two minutes or when you hit %%voteNo%%.",
+    "willAdd": "Następujący wpis zostanie dodany. Proszę zareagować 📑, jeśli chcesz dodać więcej do wpisu lub zmienić istniejące pola (takie jak zrzut ekranu lub notatka językowa). Zareaguj %%voteYes%%, aby przesłać. Zostanie to anulowane w ciągu dwóch minut lub po zareagowaniu emotką %%voteNo%%.",
     "promptAddMore": "Wyślij wiadomość (bez przedrostka) zawierającą `<pole> <kontekst>`. <pole> może być to: `screenshot`, `id`, `context` lub kod językowy. <zawartość> musi być nową zawartością dla tego ciągu, taką jak link zrzutu ekranu.",
     "addedMore": "Dodano te informacje do wpisu kontekstowego. Ponownie dodaj reakcję 📑, aby dodać więcej informacji.",
     "added": "Dodano wpis kontekstowy! Wczytywanie rezultatu…",
@@ -61,12 +61,12 @@
         "get": "_Pobiera kontekst dla danego ciągu_\n`+context get <identyfikator ciągu>`\n\nZastąp <identyfikator ciągu> identyfikatorem ciągu, który możesz uzyskać kopiując adres URL ciągu. Jest to numer następujący po #.",
         "add": "_Dodaje wpis kontekstu_\n`+context add <ID ciągu> <kontekst>`\n\nZastąp <ID ciągu> identyfikatorem ciągu, znajdziesz go poprzez skopiowanie adresu URL ciągu. Jest to numer po #. Zastąp <kontekst> tekstem, który chcesz dodać. Po użyciu, możesz dodać więcej pól za pomocą reakcji.",
         "edit": "_Edytuje wpis kontekstu_\n`+context edit <ID ciągu> <pole> <nowa wartość>`\n\n\nZastąp <ID ciągu> identyfikatorem ciągu, znajdziesz go poprzez skopiowanie adresu URL ciągu. Jest to numer po #. Zastąp <pole> polem, które chcesz edytować, takim jak: `screenshot` or `enpt`. Zastąp <nową wartość> nową wartością dla tego pola.",
-        "link": "_Gives you a link to the Google Sheet containing context_\n`+context link`",
+        "link": "_Daje ci odnośnik do arkusza Google zawierającego kontekst_ `+context link`",
         "help": "_Pokazuje tę wiadomość!_\n`+context help`",
         "fields": "Pola",
         "sheetT": "Arkusz kontekstowy",
         "sheetD": "[Kliknij tutaj, aby otworzyć Google Sheet zawierający kontekst informacji.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nTylko konkretne osoby mogą otworzyć ten arkusz. Możesz poprosić o dostęp poprzez podany link. Proszę wypełnić go podając link do swojego profilu Crowdin (`.../profile/<nick>`) i dodając swój pseudonim Discord.\nPamiętaj, że Stannya, Rodry i QkeleQ10 mogą zobaczyć nazwę oraz adres e-mail twojego profilu Google.",
-        "sheetDel": " | Deleting message in 1 minute"
+        "sheetDel": " | Wiadomość zostanie usunięta po minucie"
     },
     "executedBy": "Wykonano przez %%user%%"
 }
