@@ -44,5 +44,5 @@
         "USE_VAD": "Use Voice Activity",
         "PRIORITY_SPEAKER": "Priority Speaker"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "由 %%user%% 執行"
 }

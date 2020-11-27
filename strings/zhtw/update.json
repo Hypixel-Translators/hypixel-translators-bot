@@ -3,5 +3,5 @@
     "success": "Updated the %%channel%% channel!",
     "infoChannel": "information",
     "verifyChannel": "verification",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "由 %%user%% 執行"
 }

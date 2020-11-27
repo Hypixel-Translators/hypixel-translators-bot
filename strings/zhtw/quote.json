@@ -6,7 +6,7 @@
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "reqSub": "Your quote request has been submitted, thanks!",
     "reqAdd": "Success! The following quote has been added:",
-    "user": "User",
+    "user": "用戶",
     "index": "Quote number",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "由 %%user%% 執行"
 }
