@@ -1,17 +1,22 @@
 {
     "moduleName": "Informacja",
-    "commandsListTitle": "Odnośniki i polecenia",
+    "page1Title": "Command Information",
     "commandsListTooltip": "Ten bot został stworzony dla Społeczności Tłumaczy Hypixel przez %%QkeleQ10%%. Jest otwartym oprogramowaniem, nasze repozytorium GitHub może zostać znalezione [tutaj]%%github%%.\nMożesz pomóc w tłumaczeniu bota postępując zgodnie z instrukcjami w [tej wiadomości]%%translate%%.\n\nMożesz wykonać `+help <nazwa polecenia>`, aby dowiedzieć się więcej o danym poleceniu.\nTutaj jest lista wszystkich poleceń:\n ",
-    "madeBy": " | Bot stworzony z ogromną starannością przez %%QkeleQ10%%",
+    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
+    "page": "Page %%number%%/%%total%%",
+    "pageNumber": "Page %%number%%",
+    "utilityHelp": "%%badge%% Tools & Utilities",
+    "infoHelp": "%%badge%% Information commands",
+    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
     "commandInfo": "Informacje o poleceniu",
     "commandInfoFor": "Informacje o poleceniu dla ",
     "commandNotExist": "To polecenie nie istnieje!",
-    "seconds": " sekund",
+    "seconds": "seconds",
     "usageField": "Użycie",
     "cooldownField": "Czas odnawiania",
     "aliasesField": "Aliasy",
     "help": {
-        "usage": "+help [nazwa polecenia]",
+        "usage": "+help [page | command name]",
         "description": "Pokazuje wszystkie dostępne polecenia i inne informacje o bocie."
     },
     "prefix": {
