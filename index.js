@@ -291,6 +291,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
             message.edit(embed)
             setInterval(() => {
               embed
+                .setTitle("Get notified of bot updates")
                 .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. \n_This gives you <@&732615152246980628>._")
                 .setFooter("Please check if you received the role after reacting. If not, please contact QkeleQ10#6046.")
                 .setColor(neutralColor)
