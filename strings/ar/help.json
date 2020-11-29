@@ -1,6 +1,6 @@
 {
     "moduleName": "معلومات",
-    "page1Title": "Command Information",
+    "page1Title": "Help page",
     "commandsListTooltip": "تم صنع هذا البوت لمجتمع مترجمين هايبكسل من قبل %%QkeleQ10%%. انه مصدر مفتوح و مشروع قيت هب يمكن العثور عليه [here]%%github%%.\nيمكنك مساعدتنا في ترجمة البوت من خلال اتباع التعليمات التاليه في [هذه الرسالة]%%translate%%.\n\nيمكنك تنفيذ `+help <اسم الأمر>` لمعرفة المزيد عن أمر معين.\nهنا قائمة الأوامر:\n ",
     "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
     "page": "Page %%number%%/%%total%%",
