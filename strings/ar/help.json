@@ -1,17 +1,22 @@
 {
     "moduleName": "معلومات",
-    "commandsListTitle": "روابط و أوامر",
+    "page1Title": "Help page",
     "commandsListTooltip": "تم صنع هذا البوت لمجتمع مترجمين هايبكسل من قبل %%QkeleQ10%%. انه مصدر مفتوح و مشروع قيت هب يمكن العثور عليه [here]%%github%%.\nيمكنك مساعدتنا في ترجمة البوت من خلال اتباع التعليمات التاليه في [هذه الرسالة]%%translate%%.\n\nيمكنك تنفيذ `+help <اسم الأمر>` لمعرفة المزيد عن أمر معين.\nهنا قائمة الأوامر:\n ",
-    "madeBy": " | بوت مصنوع مع الكثير من العناية من قبل %%QkeleQ10%%",
+    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
+    "page": "Page %%number%%/%%total%%",
+    "pageNumber": "Page %%number%%",
+    "utilityHelp": "%%badge%% Tools & Utilities",
+    "infoHelp": "%%badge%% Information commands",
+    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
     "commandInfo": "معلومات الأوامر",
     "commandInfoFor": "معلومات الأوامر لـ ",
     "commandNotExist": "هذا الأمر غير موجود!",
-    "seconds": " ثواني",
+    "seconds": "seconds",
     "usageField": "الإستخدام",
     "cooldownField": "فترة الاستراحة",
     "aliasesField": "الإسم البديل",
     "help": {
-        "usage": "+help [اسم الأمر]",
+        "usage": "+help [page | command name]",
         "description": "يظهر لك جميع الأوامر المتاحة ومعلومات أخرى عن البوت."
     },
     "prefix": {

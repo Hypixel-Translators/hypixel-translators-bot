@@ -1,17 +1,22 @@
 {
     "moduleName": "Πληροφορίες",
-    "commandsListTitle": "Σύνδεσμοι και εντολές",
+    "page1Title": "Help page",
     "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
-    "madeBy": " | Το Bot φτιάχτηκε με πολλή φροντίδα από τον %%QkeleQ10%%",
+    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
+    "page": "Page %%number%%/%%total%%",
+    "pageNumber": "Page %%number%%",
+    "utilityHelp": "%%badge%% Tools & Utilities",
+    "infoHelp": "%%badge%% Information commands",
+    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
     "commandInfo": "Πληροφορίες Εντολής",
     "commandInfoFor": "Πληροφορίες Εντολής για ",
     "commandNotExist": "Αυτή η εντολή δεν υπάρχει!",
-    "seconds": " δευτερόλεπτα",
+    "seconds": "seconds",
     "usageField": "Χρήση",
     "cooldownField": "Χρόνος Επαναφόρτωσης",
     "aliasesField": "Εναλλακτικές Ονομασίες",
     "help": {
-        "usage": "+help [όνομα εντολής]",
+        "usage": "+help [page | command name]",
         "description": "Σου δείχνει όλες τις διαθέσιμες εντολές και άλλες πληροφορίες σχετικά με το bot."
     },
     "prefix": {
@@ -27,7 +32,7 @@
         "description": "Αναφέρει έναν ρόλο γλώσσας με ένα προαιρετικό μήνυμα."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
+        "usage": "+context get|add|edit|view|help <επιχειρήματα>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
     },
     "issue": {
