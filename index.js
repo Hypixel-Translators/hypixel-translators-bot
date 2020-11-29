@@ -29,7 +29,7 @@ client.once("ready", async () => {
   console.log("Ready!")
 
   //Fetch channels
-  client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309") //bot-updates reaction role message
+  client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
   client.channels.cache.get("782635440054206504").messages.fetch() //language-database
   const reviewStringsChannels = await client.channels.cache.filter(c => c.name.endsWith("review-strings"))
   reviewStringsChannels.forEach(c => { c.messages.fetch() })
@@ -244,10 +244,10 @@ client.on('messageReactionAdd', async (reaction, user) => {
   }
 
   //Give role if reacted on reaction role message
-  if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
+  if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been added!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
-    client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309") //bot-updates reaction role message
+    client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
       .then(message => {
         reaction.message.guild.member(user).roles.add(role)
           .catch(err => {
@@ -275,10 +275,10 @@ client.on('messageReactionAdd', async (reaction, user) => {
 client.on('messageReactionRemove', async (reaction, user) => {
 
   //Take role if reaction removed from reaction role message
-  if (reaction.message.id === "733036798736990309" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
+  if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been removed!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
-    client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309") //bot-updates reaction role message
+    client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
       .then(message => {
         reaction.message.guild.member(user).roles.remove(role)
           .catch(err => {
