@@ -1,6 +1,6 @@
 {
     "moduleName": "Bilgi",
-    "page1Title": "Command Information",
+    "page1Title": "Help page",
     "commandsListTooltip": "Bu bot, Hypixel Translators Topluluğu için %%QkeleQ10%% tarafından oluşturuldu. Bu bot açık kaynak kodludur ve GitHub depomuza [here]%%github%% bu bağlantıdan erişebilirsin.\n[Bu mesajdaki]%%translate%%talimatları izleyerek botun çevirilmesine yardımcı olabilirsiniz.\nBelirli bir komut hakkında daha fazla bilgi edinmek için `+help <komutun adı>` komutunu çalıştırabilirsiniz.\nİşte tüm komutların bir listesi: ",
     "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
     "page": "Page %%number%%/%%total%%",
