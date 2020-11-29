@@ -16,11 +16,6 @@ module.exports = {
     let pages = ['1', '2', '3']
     let page = 1
 
-    let pageEmbed
-    if (page == 1) { pageEmbed = page1 }
-    if (page == 2) { pageEmbed = page2 }
-    if (page == 3) { pageEmbed = page3 }
-
     const page1 = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
@@ -61,6 +56,11 @@ module.exports = {
           { name: "`" + strings.twitter.usage + "`", value: strings.twitter.description, inline: false }
         )
         .setFooter(strings.page.replace("%%number%%", page).replace("%%total%%", pages.length) + " | " + executedBy)
+
+    let pageEmbed
+    if (page == 1) { pageEmbed = page1 }
+    if (page == 2) { pageEmbed = page2 }
+    if (page == 3) { pageEmbed = page3 }
 
     if (!args.length || args[0] === "1") {
       message.channel.send(page1).then(msg => {
