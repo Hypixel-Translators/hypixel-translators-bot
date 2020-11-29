@@ -51,7 +51,7 @@ module.exports = {
                 const path = './strings/' + args[1] + '/language.json'
                 fs.access(path, fs.F_OK, async (err) => {
                     if (!err) {
-                        const oldMessages = await message.client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
+                        const oldMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
                         const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
                         oldFiMessages.forEach(async element => {
                             console.log("Old old message: " + element.content)
@@ -59,9 +59,9 @@ module.exports = {
                             oldMsg = await element.content.split(" ")
                             await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
                             console.log("New old message: " + oldMsg)
-                            await message.client.channels.cache.get("775004037443223563").send(oldMsg.join(" ")) //htb-language
+                            await message.client.channels.cache.get("782635440054206504").send(oldMsg.join(" ")) //language-database
                         })
-                        const newMessages = await message.client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
+                        const newMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
                         const newFiMessages = await newMessages.filter(element => (element.content.split(" ")[0] === args[1]))
                         await newFiMessages.forEach(async element => {
                             exists = true
@@ -74,7 +74,7 @@ module.exports = {
                             console.log("New new message includes author id: " + newMsg.includes(message.author.id))
                             console.log("New new message: " + newMsg)
                             await element.delete()
-                            await message.client.channels.cache.get("775004037443223563").send(newMsg.join(" ")) //htb-language
+                            await message.client.channels.cache.get("782635440054206504").send(newMsg.join(" ")) //language-database
                             saved = true
                             const embed = new Discord.MessageEmbed()
                                 .setColor(successColor)
@@ -113,7 +113,7 @@ module.exports = {
                 })
             }
         } else {
-            const oldMessages = await message.client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
+            const oldMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
             const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
             oldFiMessages.forEach(async element => {
                 selected = true

@@ -30,7 +30,7 @@ client.once("ready", async () => {
 
   //Fetch channels
   client.channels.cache.get("732587569744838777").messages.fetch("733036798736990309") //bot-updates reaction role message
-  client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
+  client.channels.cache.get("782635440054206504").messages.fetch() //language-database
   const reviewStringsChannels = await client.channels.cache.filter(c => c.name.endsWith("review-strings"))
   reviewStringsChannels.forEach(c => { c.messages.fetch() })
 
@@ -82,7 +82,7 @@ client.on("message", async message => {
   //Get global strings
   var globalStrings = require(("./strings/en/global.json"))
   var helpStrings = require(("./strings/en/help.json"))
-  const oldMessages = await message.client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
+  const oldMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
   const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
   oldFiMessages.forEach(async element => {
     oldMsg = element.content.split(" ")
