@@ -13,15 +13,28 @@ module.exports = {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
 
-    const { commands } = message.client
+    let pages = ['1', '2', '3']
+    let page = 1
 
-    if (!args.length) {
+    let pageEmbed
+    if (page == 1) { pageEmbed = page1 }
+    if (page == 2) { pageEmbed = page2 }
+    if (page == 3) { pageEmbed = page3 }
 
-      const embed = new Discord.MessageEmbed()
+    const page1 = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
-        .setTitle(strings.commandsListTitle)
+        .setTitle(strings.page1Title)
         .setDescription(strings.commandsListTooltip.replace("%%QkeleQ10%%", "<@722738307477536778>").replace("%%github%%", "(https://github.com/QkeleQ10/hypixel-translators-bot-discord)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)"))
+        .addFields(
+          { name: strings.page.replace("%%number%%", "1").replace("%%total%%", pages.length), value: strings.utilityHelp.replace("%%badge%%", "🛠"), inline: false },
+          { name: strings.page.replace("%%number%%", "2").replace("%%total%%", pages.length), value: strings.infoHelp.replace("%%badge%%", "ℹ"), inline: false })
+        .setFooter(executedBy + " | " + madeBy);
+
+    const page2 = new Discord.MessageEmbed()
+        .setColor(neutralColor)
+        .setAuthor(strings.moduleName)
+        .setTitle(strings.page2Title)
         .addFields(
           { name: "`" + strings.help.usage + "`", value: strings.help.description, inline: false },
           { name: "`" + strings.language.usage + "`", value: strings.language.description, inline: false },
@@ -32,11 +45,76 @@ module.exports = {
           { name: "`" + strings.issue.usage + "`", value: strings.issue.description, inline: false },
           { name: "`" + strings.ping.usage + "`", value: strings.ping.description, inline: false }
         )
-        .setFooter(executedBy + madeBy);
-      message.channel.send(embed)
+        .setFooter(strings.page.replace("%%number%%", page).replace("%%total%%", pages.length) + " | " + executedBy)
 
+    const page3 = new Discord.MessageEmbed()
+        .setColor(neutralColor)
+        .setAuthor(strings.moduleName)
+        .setTitle(strings.page3Title)
+        .addFields(
+          { name: "`" + strings.invite.usage + "`", value: strings.invite.description, inline: false },
+          { name: "`" + strings.guidelines.usage + "`", value: strings.guidelines.description, inline: false },
+          { name: "`" + strings.hypixel.usage + "`", value: strings.hypixel.description, inline: false },
+          { name: "`" + strings.quickplay.usage + "`", value: strings.quickplay.description, inline: false },
+          { name: "`" + strings.skyblockaddons.usage + "`", value: strings.skyblockaddons.description, inline: false },
+          { name: "`" + strings.thread.usage + "`", value: strings.thread.description, inline: false },
+          { name: "`" + strings.twitter.usage + "`", value: strings.twitter.description, inline: false }
+        )
+        .setFooter(strings.page.replace("%%number%%", page).replace("%%total%%", pages.length) + " | " + executedBy)
 
+    if (!args.length || args[0] === "1") {
+      message.channel.send(page1).then(msg => {
+        msg.react("◀").then(r => {
+          msg.react("▶")
+
+          const backwardsFilter = (reaction, user) => reaction.emoji.name == "◀" && user.id === message.author.id
+          const forwardFilter = (reaction, user) => reaction.emoji.name == "▶" && user.id === message.author.id
+          const firstFilter = (reaction, user) => reaction.emoji.name == "⏮" && user.id === message.author.id
+          const skipFilter = (reaction, user) => reaction.emoji.name == "⏭" && user.id === message.author.id
+
+          const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000}) //1 minute to react
+          const forward = msg.createReactionCollector(forwardFilter, { time: 60000}) //1 minute to react
+          const first = msg.createReactionCollector(firstFilter, { time: 60000}) //1 minute to react
+          const skip = msg.createReactionCollector(skipFilter, { time: 60000}) //1 minute to react
+
+          backwards.on('collect', r => {
+            if (page === 1) return;
+            page--;
+            message.edit(pageEmbed)
+            r.users.remove(message.author.id)
+          })
+          backwards.on('end', r => {
+            msg.reactions.removeAll()
+            message.channel.send()
+          })
+          forward.on('collect', r => {
+            if (page === pages.length) return;
+            page++;
+            msg.edit(pageEmbed)
+            r.users.remove(message.author.id)
+          })
+          first.on('collect', r => {
+            page = 1
+            msg.edit(pageEmbed)
+            r.users.remove(message.author.id)
+          })
+          skip.on('collect', r => {
+            page = pages.length
+            msg.edit(pageEmbed)
+            r.user.remove(message.author.id)
+          })
+        })
+      })
+
+    } else if (args[0] === "2") {
+      message.channel.send(page2)
+
+    } else if (args[0] === "3") {
+      message.channel.send(page3)
+      
     } else {
+
+      const { commands } = message.client
 
       const command = commands.get(args[0].toLowerCase()) || commands.find(c => (c.aliases && c.aliases.includes(args[0].toLowerCase())) || c.name.includes(args[0].toLowerCase()))
 
@@ -50,7 +128,7 @@ module.exports = {
         return message.channel.send(embed);
       }
 
-      const cooldown = command.cooldown + strings.seconds;
+      const cooldown = command.cooldown + " " + strings.seconds;
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
