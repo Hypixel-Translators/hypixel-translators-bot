@@ -1,6 +1,7 @@
 const fetch = require("node-fetch")
 const Discord = require("discord.js")
 const client = new Discord.Client()
+const { inspect } = require('util');
 
 module.exports = {
   name: "eval",
