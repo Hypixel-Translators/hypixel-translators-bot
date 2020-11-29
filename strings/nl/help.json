@@ -1,17 +1,22 @@
 {
     "moduleName": "Informatie",
-    "commandsListTitle": "Links en commando's",
+    "page1Title": "Command Information",
     "commandsListTooltip": "Deze bot is gemaakt voor de Hypixel-vertalersgemeenschap door %%QkeleQ10%%. Het is open-source en onze GitHub-repository kan [hier]%%github%% worden gevonden.\nJe kunt de bot helpen te vertalen door de instructies in [dit bericht]%%translate%% te volgen.\n\nJe kunt `+help <commandonaam> ` uitvoeren om meer te weten te komen over een bepaald commando.\nHier is een lijst van alle commando's:\n ",
-    "madeBy": " | Bot met veel zorg gemaakt door %%QkeleQ10%%",
+    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
+    "page": "Page %%number%%/%%total%%",
+    "pageNumber": "Page %%number%%",
+    "utilityHelp": "%%badge%% Tools & Utilities",
+    "infoHelp": "%%badge%% Information commands",
+    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
     "commandInfo": "Commando-informatie",
     "commandInfoFor": "Commando-informatie voor ",
     "commandNotExist": "Dat commando bestaat niet!",
-    "seconds": " seconden",
+    "seconds": "seconds",
     "usageField": "Gebruik",
     "cooldownField": "Afkoeltijd",
     "aliasesField": "Aliassen",
     "help": {
-        "usage": "+help [commandonaam]",
+        "usage": "+help [page | command name]",
         "description": "Geeft alle commando's en andere informatie over de bot weer."
     },
     "prefix": {
