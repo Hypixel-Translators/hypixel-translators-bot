@@ -1,6 +1,6 @@
 {
     "moduleName": "Informação",
-    "page1Title": "Command Information",
+    "page1Title": "Help page",
     "commandsListTooltip": "Este bot foi feito para a Comunidade de Tradutores do Hypixel por %%QkeleQ10%%. É de código aberto e nosso GitHub pode ser encontrado [aqui]%%github%%.\nVocê pode ajudar a traduzir o bot seguindo as instruções [nesta mensagem]%%translate%%.\n\nVocê pode digitar `+help <nome do comando>` para saber mais sobre um comando específico.\nAqui está a lista de todos os comandos:\n ",
     "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
     "page": "Page %%number%%/%%total%%",
