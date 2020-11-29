@@ -5,6 +5,7 @@ const MongoClient = require('mongodb').MongoClient
 module.exports = {
     name: "note",
     description: "WIP",
+    aliases: [],
     usage: "+note []",
     channelWhiteList: ["730042612647723058"], // bot-development
     execute(strings, message, args) {

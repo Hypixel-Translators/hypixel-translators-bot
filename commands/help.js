@@ -57,11 +57,6 @@ module.exports = {
         )
         .setFooter(strings.page.replace("%%number%%", "3").replace("%%total%%", pages.length) + " | " + executedBy)
 
-    let pageEmbed
-    if (page == 1) { pageEmbed = page1 }
-    if (page == 2) { pageEmbed = page2 }
-    if (page == 3) { pageEmbed = page3 }
-
     if (!args.length || args[0] === "1") {
       message.channel.send(page1).then(msg => { msg.react("⏮").then(r => { msg.react("◀").then(r => { msg.react("▶").then(r => { msg.react("⏭")
 

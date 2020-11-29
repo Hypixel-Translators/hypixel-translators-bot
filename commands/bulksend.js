@@ -4,6 +4,7 @@ const Discord = require("discord.js");
 module.exports = {
   name: "bulksend",
   description: "Send messages in a channel, ready to be edited.",
+  aliases: [],
   usage: "+bulksend <channel mention> <number>",
   cooldown: 30,
   allowDM: true,

@@ -4,6 +4,7 @@ const Discord = require("discord.js");
 module.exports = {
     name: "update",
     description: "Updates the specified information channel.",
+    aliases: [],
     usage: "+update <info|verify>",
     execute(strings, message, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
