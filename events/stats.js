@@ -2,6 +2,7 @@ const { workingColor, errorColor, successColor, neutralColor, langdb } = require
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const ctoken = process.env.CTOKEN
+const caccount = process.env.CACCOUNT
 
 module.exports = {
     async execute(client, manual) {
@@ -30,7 +31,7 @@ module.exports = {
 }
 
 async function hypixel(client) {
-    let url = "https://api.crowdin.com/api/project/hypixel/status?login=qkeleq10&account-key=" + ctoken + "&json"
+    let url = "https://api.crowdin.com/api/project/hypixel/status?login=" + caccount + "&account-key=" + ctoken + "&json"
     let settings = { method: "Get" }
     var index = 0
     fetch(url, settings)
@@ -53,7 +54,7 @@ async function hypixel(client) {
                         index++
                     })
                 })
-            client.channels.cache.get("730042612647723058").messages.fetch("748584877921796146") //bot development Hypixel string count
+            client.channels.cache.get("730042612647723058").messages.fetch("782637177552240661") //bot development Hypixel string count
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
@@ -68,7 +69,7 @@ async function hypixel(client) {
 }
 
 async function quickplay(client) {
-    let url = "https://api.crowdin.com/api/project/quickplay/status?login=qkeleq10&account-key=" + ctoken + "&json"
+    let url = "https://api.crowdin.com/api/project/quickplay/status?login=" + caccount + "&account-key=" + ctoken + "&json"
     let settings = { method: "Get" }
     var index = 0
     fetch(url, settings)
@@ -100,7 +101,7 @@ async function quickplay(client) {
                         index++
                     })
                 })
-            client.channels.cache.get("730042612647723058").messages.fetch("748644636318236672") //bot-development Quickplay string count
+            client.channels.cache.get("730042612647723058").messages.fetch("782637234322931733") //bot-development Quickplay string count
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
@@ -115,7 +116,7 @@ async function quickplay(client) {
 }
 
 async function bot(client) {
-    let url = "https://api.crowdin.com/api/project/hypixel-translators-bot/status?login=qkeleq10&account-key=" + ctoken + "&json"
+    let url = "https://api.crowdin.com/api/project/hypixel-translators-bot/status?login=" + caccount + "&account-key=" + ctoken + "&json"
     let settings = { method: "Get" }
     var index = 0
     fetch(url, settings)
@@ -147,7 +148,7 @@ async function bot(client) {
                         index++
                     })
                 })
-            client.channels.cache.get("730042612647723058").messages.fetch("750161237106622634") //bot-development Bot string count
+            client.channels.cache.get("730042612647723058").messages.fetch("782637303427497994") //bot-development Bot string count
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
                         if (stringCount.content < json[0].phrases) {
@@ -163,7 +164,7 @@ async function bot(client) {
 
 async function skyblockaddons(client) {
     try {
-        let url = "https://api.crowdin.com/api/project/skyblockaddons/status?login=qkeleq10&account-key=" + ctoken + "&json"
+        let url = "https://api.crowdin.com/api/project/skyblockaddons/status?login=" + caccount + "&account-key=" + ctoken + "&json"
         let settings = { method: "Get" }
         var index = 0
         fetch(url, settings)
@@ -196,7 +197,7 @@ async function skyblockaddons(client) {
                         })
                     })
 
-                client.channels.cache.get("730042612647723058").messages.fetch("758819913577136190") //bot-development Sba string count
+                client.channels.cache.get("730042612647723058").messages.fetch("782637265230626836") //bot-development Sba string count
                     .then(stringCount => {
                         if (stringCount.content !== json[0].phrases) {
                             if (stringCount.content < json[0].phrases) {
