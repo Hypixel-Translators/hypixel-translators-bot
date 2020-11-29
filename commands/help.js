@@ -40,7 +40,6 @@ module.exports = {
           { name: "`" + strings.issue.usage + "`", value: strings.issue.description, inline: false },
           { name: "`" + strings.ping.usage + "`", value: strings.ping.description, inline: false }
         )
-        .setFooter(strings.page.replace("%%number%%", page).replace("%%total%%", pages.length) + " | " + executedBy)
 
     const page3 = new Discord.MessageEmbed()
         .setColor(neutralColor)
@@ -55,7 +54,6 @@ module.exports = {
           { name: "`" + strings.thread.usage + "`", value: strings.thread.description, inline: false },
           { name: "`" + strings.twitter.usage + "`", value: strings.twitter.description, inline: false }
         )
-        .setFooter(strings.page.replace("%%number%%", page).replace("%%total%%", pages.length) + " | " + executedBy)
 
     let pageEmbed
     if (page == 1) { pageEmbed = page1 }
@@ -65,56 +63,73 @@ module.exports = {
     if (!args.length || args[0] === "1") {
       message.channel.send(page1).then(msg => { msg.react("⏮").then(r => { msg.react("◀").then(r => { msg.react("▶").then(r => { msg.react("⏭")
 
-          const backwardsFilter = (reaction, user) => reaction.emoji.name == "◀" && user.id === message.author.id
-          const forwardFilter = (reaction, user) => reaction.emoji.name == "▶" && user.id === message.author.id
-          const firstFilter = (reaction, user) => reaction.emoji.name == "⏮" && user.id === message.author.id
-          const skipFilter = (reaction, user) => reaction.emoji.name == "⏭" && user.id === message.author.id
+      const userId = message.author.id
+
+          const backwardsFilter = (reaction, user) => reaction.emoji.name == "◀" && user.id === userId
+          const forwardFilter = (reaction, user) => reaction.emoji.name == "▶" && user.id === userId
+          const firstFilter = (reaction, user) => reaction.emoji.name == "⏮" && user.id === userId
+          const skipFilter = (reaction, user) => reaction.emoji.name == "⏭" && user.id === userId
 
           const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000}) //1 minute to react
           const forward = msg.createReactionCollector(forwardFilter, { time: 60000}) //1 minute to react
           const first = msg.createReactionCollector(firstFilter, { time: 60000}) //1 minute to react
           const skip = msg.createReactionCollector(skipFilter, { time: 60000}) //1 minute to react
 
+          backwards.on('end', r => {
+            msg.reactions.removeAll()
+            setTimeout(() => {
+              message.channel.send(strings.timeOut)
+            }, 10000); //10 seconds
+          })
+
           backwards.on('collect', r => {
             if (page === 1) {
-              r.users.remove(message.author.id)
+              clearReaction(msg)
               return;
             }
             page--;
             editPage(page)
           })
-          backwards.on('end', r => {
-            msg.reactions.removeAll()
-            message.channel.send(strings.timeOut)
-          })
+
           forward.on('collect', r => {
             if (page === pages.length) {
-              r.users.remove(message.author.id)
+              clearReaction(msg)
               return;
             }
             page++;
             editPage(page)
           })
+
           first.on('collect', r => {
             page = 1
             editPage(page)
           })
+
           skip.on('collect', r => {
             page = pages.length
             editPage(page)
           })
+
+          function clearReaction(message) {
+            const userReactions = message.reactions.cache.filter(reaction => reaction.users.cache.has(userId));
+            for (const reaction of userReactions.values())
+              reaction.users.remove(userId);
+          }
+          function editPage(page) {
+            let pageEmbed
+            if (page == 1) { pageEmbed = page1 }
+            if (page == 2) { pageEmbed = page2 }
+            if (page == 3) { pageEmbed = page3 }
+            page2.setFooter(strings.page.replace("%%number%%", page).replace("%%total%%", pages.length) + " | " + executedBy)
+            page3.setFooter(strings.page.replace("%%number%%", page).replace("%%total%%", pages.length) + " | " + executedBy)
+            msg.edit(pageEmbed)
+            clearReaction(msg)
+          }
         })
       })
     })
   })
-function editPage(page) {
-  let pageEmbed
-  if (page == 1) { pageEmbed = page1 }
-  if (page == 2) { pageEmbed = page2 }
-  if (page == 3) { pageEmbed = page3 }
-  msg.edit(pageEmbed)
-  r.users.remove(message.author.id)
-}
+
     } else if (args[0] === "2") {
       message.channel.send(page2)
 
