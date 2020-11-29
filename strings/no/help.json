@@ -1,17 +1,22 @@
 {
     "moduleName": "Informasjon",
-    "commandsListTitle": "Lenker og kommandoer",
+    "page1Title": "Command Information",
     "commandsListTooltip": "Denne boten ble laget for Hypixel Translators Community av %%QkeleQ10%%. Den har åpen kildekode og vår GitHub repository kan bli funnet [her]%%github%%.\nDu kan hjelpe til med å oversette boten ved å følge instruksjonene i [denne meldingen]%%translate%%.\n\nDu kan utføre `+help <kommandonavn>` for å lære mer om en spesifikk kommando.\nHer er en liste over alle kommandoer:\n ",
-    "madeBy": " | En bot laget med masse pleie av %%QkeleQ10%%",
+    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
+    "page": "Page %%number%%/%%total%%",
+    "pageNumber": "Page %%number%%",
+    "utilityHelp": "%%badge%% Tools & Utilities",
+    "infoHelp": "%%badge%% Information commands",
+    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
     "commandInfo": "Kommandoinformasjon",
     "commandInfoFor": "Kommandoinformasjon for ",
     "commandNotExist": "Den kommandoen finnes ikke!",
-    "seconds": " sekunder",
+    "seconds": "seconds",
     "usageField": "Bruk",
     "cooldownField": "Nedkjøling",
     "aliasesField": "Aliaser",
     "help": {
-        "usage": "+help [kommandonavn]",
+        "usage": "+help [page | command name]",
         "description": "Viser alle tilgjengelig kommandoer og annet info om boten."
     },
     "prefix": {
