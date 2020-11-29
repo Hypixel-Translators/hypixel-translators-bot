@@ -285,6 +285,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
             console.log(err)
             const receivedEmbed = message.embeds[0];
             const embed = new Discord.MessageEmbed(receivedEmbed)
+              .setTitle("Get notified of bot updates")
               .setFooter("An error occurred, please contact QkeleQ10#6046.")
               .setColor(errorColor)
             message.edit(embed)
@@ -293,7 +294,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
                 .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. \n_This gives you <@&732615152246980628>._")
                 .setFooter("Please check if you received the role after reacting. If not, please contact QkeleQ10#6046.")
                 .setColor(neutralColor)
-              message.edit(embed)
+              message.edit("", embed)
             }, 5000)
           })
       })
