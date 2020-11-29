@@ -7,7 +7,7 @@ module.exports = {
   aliases: ["evaluate"],
   cooldown: 60,
   channelWhiteList: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
-  execute(strings, message) {
+  async execute(strings, message) {
     if (!message.member.hasPermission("ADMINISTRATOR")) return
 
     const me = message.member
