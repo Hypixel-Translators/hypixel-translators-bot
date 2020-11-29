@@ -63,7 +63,7 @@ module.exports = {
     if (page == 3) { pageEmbed = page3 }
 
     if (!args.length || args[0] === "1") {
-      message.channel.send(page1).then(msg => { msg.react("⏮").then(r => { msg.react("◀").then(msg => { msg.react("▶").then(r => { msg.react("⏭")
+      message.channel.send(page1).then(msg => { msg.react("⏮").then(r => { msg.react("◀").then(r => { msg.react("▶").then(r => { msg.react("⏭")
 
           const backwardsFilter = (reaction, user) => reaction.emoji.name == "◀" && user.id === message.author.id
           const forwardFilter = (reaction, user) => reaction.emoji.name == "▶" && user.id === message.author.id
