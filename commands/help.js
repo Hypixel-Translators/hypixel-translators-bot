@@ -22,8 +22,8 @@ module.exports = {
         .setTitle(strings.page1Title)
         .setDescription(strings.commandsListTooltip.replace("%%QkeleQ10%%", "<@722738307477536778>").replace("%%github%%", "(https://github.com/stannya/hypixel-translators-bot-discord)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)"))
         .addFields(
-          { name: strings.pageNumber.replace("%%number%%", "1").replace("%%total%%", pages.length), value: strings.utilityHelp.replace("%%badge%%", "🛠"), inline: false },
-          { name: strings.pageNumber.replace("%%number%%", "2").replace("%%total%%", pages.length), value: strings.infoHelp.replace("%%badge%%", "ℹ"), inline: false })
+          { name: strings.pageNumber.replace("%%number%%", "2").replace("%%total%%", pages.length), value: strings.utilityHelp.replace("%%badge%%", "🛠"), inline: false },
+          { name: strings.pageNumber.replace("%%number%%", "3").replace("%%total%%", pages.length), value: strings.infoHelp.replace("%%badge%%", "ℹ"), inline: false })
         .setFooter(executedBy + " | " + madeBy);
 
     const page2 = new Discord.MessageEmbed()
@@ -40,6 +40,7 @@ module.exports = {
           { name: "`" + strings.issue.usage + "`", value: strings.issue.description, inline: false },
           { name: "`" + strings.ping.usage + "`", value: strings.ping.description, inline: false }
         )
+        .setFooter(strings.page.replace("%%number%%", "2").replace("%%total%%", pages.length) + " | " + executedBy)
 
     const page3 = new Discord.MessageEmbed()
         .setColor(neutralColor)
@@ -54,6 +55,7 @@ module.exports = {
           { name: "`" + strings.thread.usage + "`", value: strings.thread.description, inline: false },
           { name: "`" + strings.twitter.usage + "`", value: strings.twitter.description, inline: false }
         )
+        .setFooter(strings.page.replace("%%number%%", "3").replace("%%total%%", pages.length) + " | " + executedBy)
 
     let pageEmbed
     if (page == 1) { pageEmbed = page1 }
@@ -77,9 +79,7 @@ module.exports = {
 
           backwards.on('end', r => {
             msg.reactions.removeAll()
-            setTimeout(() => {
-              message.channel.send(strings.timeOut)
-            }, 10000); //10 seconds
+            msg.edit(strings.timeOut)
           })
 
           backwards.on('collect', r => {
