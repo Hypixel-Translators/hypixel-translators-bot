@@ -2,8 +2,13 @@
   "name": "hypixel-translators",
   "version": "5.1.57",
   "main": "index.js",
+  "license": "AGPL-3.0-only",
   "scripts": {
     "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stannya/hypixel-translators-bot-discord.git"
   },
   "dependencies": {
     "cross-env": "^7.0.2",
