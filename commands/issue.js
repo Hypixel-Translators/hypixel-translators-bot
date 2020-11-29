@@ -15,8 +15,8 @@ module.exports = {
             .setColor(successColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.bugT)
-            .setDescription(strings.bugD.replace("%%github%%", "(https://github.com/QkeleQ10/hypixel-translators-bot-discord/issues)"))
-            .addFields({ name: strings.urgentT, value: strings.urgentD.replace("%%QkeleQ10%%", "<@722738307477536778>") })
+            .setDescription(strings.bugD.replace("%%github%%", "(https://github.com/stannya/hypixel-translators-bot-discord/issues)"))
+            .addFields({ name: strings.urgentT, value: strings.urgentD.replace("%%QkeleQ10%%", "<@240875059953139714>") })
             .setFooter(executedBy);
         message.channel.send(embed)
     }
