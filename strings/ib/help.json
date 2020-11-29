@@ -1,17 +1,22 @@
 {
     "moduleName": "Informtonne",
-    "commandsListTitle": "Lonkz and acomands",
+    "page1Title": "Help page",
     "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
-    "madeBy": " | Bot maed by a lotof banans and alsso %%QkeleQ10%%",
+    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
+    "page": "Page %%number%%/%%total%%",
+    "pageNumber": "Page %%number%%",
+    "utilityHelp": "%%badge%% Tools & Utilities",
+    "infoHelp": "%%badge%% Information commands",
+    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
     "commandInfo": "Info abt acomand",
     "commandInfoFor": "Info abt acomand ",
     "commandNotExist": "Dat acomand existn't!",
-    "seconds": " sacondz",
+    "seconds": "seconds",
     "usageField": "Usache",
     "cooldownField": "Time to get cold and not hot",
     "aliasesField": "Other ways of doing dis",
     "help": {
-        "usage": "+help [naem acomand]",
+        "usage": "+help [page | command name]",
         "description": "Letz u look at al de acomcnadns and moar infoo abt the bot."
     },
     "prefix": {

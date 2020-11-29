@@ -1,17 +1,22 @@
 {
     "moduleName": "Tietoa",
-    "commandsListTitle": "Linkit ja komennot",
+    "page1Title": "Help page",
     "commandsListTooltip": "Tämän botin on tehnyt Hypixelin kääntäjien yhteisölle %%QkeleQ10%%. Sen avoin lähdekoodi on saatavilla GitHubista [täältä]%%github%%. Voit auttaa kääntämään bottia seuraamalla ohjeita, jotka löytyvät [tämän linkin]%%translate%% takaa.\n\nVoit suorittaa komennon `+help <komennon nimi>` saadaksesi tietää lisää valitusta komennosta.\nTässä lista kaikista komennoista:\n ",
-    "madeBy": " | Botin on huolellisesti kasannut %%QkeleQ10%%",
+    "madeBy": "| Botin on huolellisesti kasannut %%QkeleQ10%%",
+    "page": "Sivu %%number%%/%%total%%",
+    "pageNumber": "Sivu %%number%%",
+    "utilityHelp": "%%badge%% Työkalut",
+    "infoHelp": "%%badge%% Infokomennot",
+    "timeOut": "Tämä valikko on aikakatkaistu. Mikäli haluat käyttää sitä uudelleen, käytä komentoa `+help`.",
     "commandInfo": "Komennon tiedot",
     "commandInfoFor": "Tiedot komennolle ",
     "commandNotExist": "Tätä komentoa ei ole olemassa!",
-    "seconds": " sekuntia",
+    "seconds": "sekuntia",
     "usageField": "Käyttö",
     "cooldownField": "Odotusaika",
     "aliasesField": "Aliakset",
     "help": {
-        "usage": "+help [komennon nimi]",
+        "usage": "+help [sivu | komennon nimi]",
         "description": "Näyttää kaikki saatavilla olevat komennot ja muuta tietoa botista."
     },
     "prefix": {

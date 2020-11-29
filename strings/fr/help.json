@@ -1,17 +1,22 @@
 {
     "moduleName": "Information",
-    "commandsListTitle": "Liens et commandes",
+    "page1Title": "Help page",
     "commandsListTooltip": "Ce bot a été conçu pour la Communauté des Traducteurs Hypixel par %%q10%%. Il est open source et notre référentiel GitHub peut être trouvé [ici]%%link%%.\nTu peux aider à traduire le bot en suivant les instructions de [ce message]%%msgLink%%.\n\nTu peux exécuter `+help <nom de la commande>` pour en savoir plus sur une commande spécifique.\nVoici une liste de toutes les commandes:\n ",
-    "madeBy": " | Bot fait avec beaucoup d'amour par %%QkeleQ10%%",
+    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
+    "page": "Page %%number%%/%%total%%",
+    "pageNumber": "Page %%number%%",
+    "utilityHelp": "%%badge%% Tools & Utilities",
+    "infoHelp": "%%badge%% Information commands",
+    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
     "commandInfo": "Information sur la commande",
     "commandInfoFor": "Information de la commande ",
     "commandNotExist": "Cette commande n’existe pas!",
-    "seconds": " secondes",
+    "seconds": "seconds",
     "usageField": "Utilisation",
     "cooldownField": "Temps de recharge",
     "aliasesField": "Les Alias",
     "help": {
-        "usage": "+help [nom de la commande]",
+        "usage": "+help [page | command name]",
         "description": "Te montre toutes les commandes disponibles et les informations générales sur le bot."
     },
     "prefix": {
