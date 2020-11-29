@@ -1,4 +1,4 @@
-const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
     if (ping <= 200) { //if ping is less than 200 the color is green
       color = successColor
     } else if (ping <= 400) { //if ping is between 200 and 400 the color is yellow
-      color = workingColor
+      color = loadingColor
     } else if (ping < 0) {
       color = errorColor
       console.log("Something went terribly wrong and the ping is negative. Come pick me up I'm scared.")

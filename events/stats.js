@@ -1,4 +1,4 @@
-const { workingColor, errorColor, successColor, neutralColor, langdb } = require("../config.json");
+const { loadingColor, errorColor, successColor, neutralColor, langdb } = require("../config.json");
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const ctoken = process.env.CTOKEN
@@ -86,7 +86,7 @@ async function quickplay(client) {
                         if (r.approved_progress > 89) {
                             adapColour = successColor
                         } else if (r.approved_progress > 49) {
-                            adapColour = workingColor
+                            adapColour = loadingColor
                         } else {
                             adapColour = errorColor
                         }
@@ -133,7 +133,7 @@ async function bot(client) {
                         if (r.approved_progress > 89) {
                             adapColour = successColor
                         } else if (r.approved_progress > 49) {
-                            adapColour = workingColor
+                            adapColour = loadingColor
                         } else {
                             adapColour = errorColor
                         }
@@ -181,7 +181,7 @@ async function skyblockaddons(client) {
                             if (r.approved_progress > 89) {
                                 adapColour = successColor
                             } else if (r.approved_progress > 49) {
-                                adapColour = workingColor
+                                adapColour = loadingColor
                             } else {
                                 adapColour = errorColor
                             }

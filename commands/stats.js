@@ -1,4 +1,4 @@
-const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
 const stats = require('../events/stats.js')
 
@@ -11,7 +11,7 @@ module.exports = {
     async execute(strings, message, args) {
         if (!message.member.hasPermission("VIEW_AUDIT_LOG")) throw noAccess;
         const embed = new Discord.MessageEmbed()
-            .setColor(workingColor)
+            .setColor(loadingColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.started)
         message.channel.send(embed)

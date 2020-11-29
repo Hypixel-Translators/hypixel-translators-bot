@@ -1,4 +1,4 @@
-const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
 const fs = require("fs")
 
@@ -41,7 +41,7 @@ module.exports = {
                 return
             } else {
                 const embed = new Discord.MessageEmbed()
-                    .setColor(workingColor)
+                    .setColor(loadingColor)
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.loading)
                     .setDescription(strings.changing)

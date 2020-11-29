@@ -5,7 +5,7 @@ const Discord = require("discord.js")
 const client = new Discord.Client()
 
 //Import data, assets and commands
-const { prefix, workingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json")
+const { prefix, loadingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json")
 client.commands = new Discord.Collection()
 const commandFiles = fs
   .readdirSync("./commands")

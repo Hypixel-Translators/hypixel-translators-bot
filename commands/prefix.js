@@ -1,4 +1,4 @@
-const { workingColor, errorColor, successColor, neutralColor, langdb } = require("../config.json");
+const { loadingColor, errorColor, successColor, neutralColor, langdb } = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     //message.delete();
     const embed = new Discord.MessageEmbed()
-      .setColor(workingColor)
+      .setColor(loadingColor)
       .setAuthor(strings.moduleName)
       .setTitle(strings.loading)
       .setDescription(strings.loadingRoles)

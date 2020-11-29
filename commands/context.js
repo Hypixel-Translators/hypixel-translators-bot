@@ -1,4 +1,4 @@
-const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
 const { GoogleSpreadsheet } = require('google-spreadsheet')
 const creds = { "type": process.env.type, "project_id": process.env.project_id, "private_key_id": process.env.private_key_id, "private_key": process.env.private_key.replace(/\\n/gm, '\n'), "client_email": process.env.client_email, "client_id": process.env.client_id, "auth_uri": process.env.auth_uri, "token_uri": process.env.token_uri, "auth_provider_x509_cert_url": process.env.auth_provider_x509_cert_url, "client_x509_cert_url": process.env.client_x509_cert_url }
@@ -26,7 +26,7 @@ module.exports = {
 
 async function getFromSpreadsheet(executedBy, strings, message, args) {
     const embed = new Discord.MessageEmbed()
-        .setColor(workingColor)
+        .setColor(loadingColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.loading)
         .setDescription(strings.loadingModule)
@@ -93,7 +93,7 @@ async function getFromSpreadsheet(executedBy, strings, message, args) {
 
 async function addToSpreadsheet(executedBy, strings, message, args) { 
     const embed = new Discord.MessageEmbed()
-        .setColor(workingColor)
+        .setColor(loadingColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.loading)
         .setDescription(strings.loadingModule)
@@ -211,7 +211,7 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
                         msg.reactions.removeAll()
                         const result = await sheet.addRow(toAdd)
                         const embed = new Discord.MessageEmbed()
-                            .setColor(workingColor)
+                            .setColor(loadingColor)
                             .setAuthor(strings.moduleName)
                             .setTitle(strings.addContextFor + string)
                             .setDescription(strings.added)
@@ -296,7 +296,7 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
 
                 collector.on('end', () => {
                     const embed = new Discord.MessageEmbed()
-                        .setColor(workingColor)
+                        .setColor(loadingColor)
                         .setAuthor(strings.moduleName)
                         .setTitle(strings.addContextFor + string)
                         .setDescription(strings.errors.hitReaction.replace("%%voteNo%%", "<:vote_no:732298639736570007>") + strings.errors.cancelledPrompt + strings.loading)
@@ -319,7 +319,7 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
 
 async function editInSpreadsheet(executedBy, strings, message, args) {
     const embed = new Discord.MessageEmbed()
-        .setColor(workingColor)
+        .setColor(loadingColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.loading)
         .setDescription(strings.loadingModule)
@@ -489,7 +489,7 @@ async function editInSpreadsheet(executedBy, strings, message, args) {
 
 async function showInfo(executedBy, strings, message, args) {
     const embed = new Discord.MessageEmbed()
-        .setColor(workingColor)
+        .setColor(loadingColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.loading)
         .setDescription(strings.loadingModule)
@@ -517,7 +517,7 @@ async function showInfo(executedBy, strings, message, args) {
 
 async function sheetLink(executedBy, strings, message, args) {
     const embed = new Discord.MessageEmbed()
-        .setColor(workingColor)
+        .setColor(loadingColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.loading)
         .setDescription(strings.loadingModule)

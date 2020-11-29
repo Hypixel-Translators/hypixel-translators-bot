@@ -1,4 +1,4 @@
-const { workingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
 const inactives = require('../events/inactives.js')
 
@@ -11,7 +11,7 @@ module.exports = {
     async execute(strings, message, args) {
         if (!message.member.hasPermission("ADMINISTRATOR")) throw noAccess;
         const embed = new Discord.MessageEmbed()
-            .setColor(workingColor)
+            .setColor(loadingColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.started)
         message.channel.send(embed)
