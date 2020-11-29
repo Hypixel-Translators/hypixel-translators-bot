@@ -1,6 +1,0 @@
-{
-    "notOnline": "That user is currently %%presence%%, so you can't do this!",
-    "offline": "frånkopplad",
-    "dnd": "i stör ej-läge",
-    "idle": "inaktiv"
-}
