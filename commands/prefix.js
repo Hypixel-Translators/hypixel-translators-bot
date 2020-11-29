@@ -91,7 +91,7 @@ module.exports = {
             if (reaction.emoji.name === "✅") {
               msg.reactions.removeAll()
               if (prefixes.length > 0) {
-                message.member.setNickname("[" + prefixes + "] " + message.member.user.username, "Used the prefix command.")
+                message.member.setNickname("[" + prefixes + "] " + message.member.user.username, "Used the prefix command")
                   .then(() => {
                     const embed = new Discord.MessageEmbed()
                       .setColor(successColor)
@@ -150,7 +150,7 @@ module.exports = {
             if (prefixes === "n") { return; }
             if (prefixes.length > 0) {
               if (message.member.nickname === ("[" + prefixes + "] " + message.member.user.username)) {
-                message.member.setNickname("[" + prefixes + "] " + message.member.user.username, "Used the prefix command.")
+                message.member.setNickname("[" + prefixes + "] " + message.member.user.username, "Used the prefix command")
                   .then(() => {
                     const embed = new Discord.MessageEmbed()
                       .setColor(successColor)

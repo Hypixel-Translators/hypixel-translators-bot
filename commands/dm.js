@@ -18,7 +18,7 @@ module.exports = {
 
         const recipient = message.client.users.cache.get(userToSend)
         var rStrings = require(("../strings/en/dm.json"))
-        const oldMessages = await message.client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
+        const oldMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
         const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
         oldFiMessages.forEach(async element => {
             oldMsg = await element.content.split(" ")

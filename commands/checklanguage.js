@@ -14,7 +14,7 @@ module.exports = {
         const testFolder = './strings/';
         await fs.readdir(testFolder, async (err, files) => {
             files.forEach(f => {
-                const newMessages = await message.client.channels.cache.get("775004037443223563").messages.fetch() //htb-language
+                const newMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
                 const newFiMessages = await newMessages.filter(element => (element.content.split(" ")[0] === args[1]))
                 await newFiMessages.forEach(async element => {
                     
