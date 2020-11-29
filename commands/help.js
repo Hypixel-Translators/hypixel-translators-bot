@@ -20,16 +20,16 @@ module.exports = {
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.page1Title)
-        .setDescription(strings.commandsListTooltip.replace("%%QkeleQ10%%", "<@722738307477536778>").replace("%%github%%", "(https://github.com/QkeleQ10/hypixel-translators-bot-discord)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)"))
+        .setDescription(strings.commandsListTooltip.replace("%%QkeleQ10%%", "<@722738307477536778>").replace("%%github%%", "(https://github.com/stannya/hypixel-translators-bot-discord)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)"))
         .addFields(
-          { name: strings.page.replace("%%number%%", "1").replace("%%total%%", pages.length), value: strings.utilityHelp.replace("%%badge%%", "🛠"), inline: false },
-          { name: strings.page.replace("%%number%%", "2").replace("%%total%%", pages.length), value: strings.infoHelp.replace("%%badge%%", "ℹ"), inline: false })
+          { name: strings.pageNumber.replace("%%number%%", "1").replace("%%total%%", pages.length), value: strings.utilityHelp.replace("%%badge%%", "🛠"), inline: false },
+          { name: strings.pageNumber.replace("%%number%%", "2").replace("%%total%%", pages.length), value: strings.infoHelp.replace("%%badge%%", "ℹ"), inline: false })
         .setFooter(executedBy + " | " + madeBy);
 
     const page2 = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
-        .setTitle(strings.page2Title)
+        .setTitle(strings.utilityHelp.replace("%%badge%%", "🛠"))
         .addFields(
           { name: "`" + strings.help.usage + "`", value: strings.help.description, inline: false },
           { name: "`" + strings.language.usage + "`", value: strings.language.description, inline: false },
@@ -45,7 +45,7 @@ module.exports = {
     const page3 = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
-        .setTitle(strings.page3Title)
+        .setTitle(strings.infoHelp.replace("%%badge%%", "ℹ"))
         .addFields(
           { name: "`" + strings.invite.usage + "`", value: strings.invite.description, inline: false },
           { name: "`" + strings.guidelines.usage + "`", value: strings.guidelines.description, inline: false },
@@ -63,9 +63,7 @@ module.exports = {
     if (page == 3) { pageEmbed = page3 }
 
     if (!args.length || args[0] === "1") {
-      message.channel.send(page1).then(msg => {
-        msg.react("◀").then(r => {
-          msg.react("▶")
+      message.channel.send(page1).then(msg => { msg.react("⏮").then(r => { msg.react("◀").then(msg => { msg.react("▶").then(r => { msg.react("⏭")
 
           const backwardsFilter = (reaction, user) => reaction.emoji.name == "◀" && user.id === message.author.id
           const forwardFilter = (reaction, user) => reaction.emoji.name == "▶" && user.id === message.author.id
@@ -78,34 +76,45 @@ module.exports = {
           const skip = msg.createReactionCollector(skipFilter, { time: 60000}) //1 minute to react
 
           backwards.on('collect', r => {
-            if (page === 1) return;
+            if (page === 1) {
+              r.users.remove(message.author.id)
+              return;
+            }
             page--;
-            message.edit(pageEmbed)
-            r.users.remove(message.author.id)
+            editPage(page)
           })
           backwards.on('end', r => {
             msg.reactions.removeAll()
-            message.channel.send()
+            message.channel.send(strings.timeOut)
           })
           forward.on('collect', r => {
-            if (page === pages.length) return;
+            if (page === pages.length) {
+              r.users.remove(message.author.id)
+              return;
+            }
             page++;
-            msg.edit(pageEmbed)
-            r.users.remove(message.author.id)
+            editPage(page)
           })
           first.on('collect', r => {
             page = 1
-            msg.edit(pageEmbed)
-            r.users.remove(message.author.id)
+            editPage(page)
           })
           skip.on('collect', r => {
             page = pages.length
-            msg.edit(pageEmbed)
-            r.user.remove(message.author.id)
+            editPage(page)
           })
         })
       })
-
+    })
+  })
+function editPage(page) {
+  let pageEmbed
+  if (page == 1) { pageEmbed = page1 }
+  if (page == 2) { pageEmbed = page2 }
+  if (page == 3) { pageEmbed = page3 }
+  msg.edit(pageEmbed)
+  r.users.remove(message.author.id)
+}
     } else if (args[0] === "2") {
       message.channel.send(page2)
 
