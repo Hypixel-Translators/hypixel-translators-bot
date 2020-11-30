@@ -61,12 +61,13 @@
         "get": "_تجلب السياق للسترينج المعطى_\n`+context get <ايدي السترينج>`\n\nاستبدل <ايدي السترينج> بآيدي السترينج, يمكن ايجاده عن طريق نسخ URL السترينج. انه الرقم بعد الـ #.",
         "add": "_تضيف مدخل الإقتباس_\n`+context add <آيدي السترينج> <سياق>`\n\nبدّل <آيدي السترينج> مع ستينج الآيدي, توجد عن طريق نسخ URL السترينج. انه الرقم بعد #. بدّل <سياق> النص التي تريد اضافته. بعد القيام بالأمر, يمكنك اضافة المزيد من الحقول بإستعمال الرياكشن.",
         "edit": "_عدّل مدخل الإقتباس موجود_\n`+context edit <آيدي السترينج> <حقل> <قيمة جديدة>`\n\nبدّل <آيدي السترينج> مع ستينج الآيدي, توجد عن طريق نسخ URL السترينج. انه الرقم بعد #. بدّل <حقل> بحقل تريد تعديله, مثل `screenshot` أو `enpt`. بدّل <قيمة جديدة> بقيمة جديدة لذلك الحقل.",
-        "link": "_Gives you a link to the Google Sheet containing context_\n`+context link`",
+        "link": "_Gives you the link to the Google Sheet containing context_\n`+context link`",
         "help": "_تُظهر هذه الرسالة!_\n`+context help`",
         "fields": "حقول",
         "sheetT": "لائحة السياق",
-        "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
-        "sheetDel": " | Deleting message in 1 minute"
+        "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
+        "sheetDButton": "Click here to open the Google Sheet containing context information.",
+        "sheetDel": "Deleting message in 1 minute"
     },
     "executedBy": "نفذ من قبل %%user%%"
 }
