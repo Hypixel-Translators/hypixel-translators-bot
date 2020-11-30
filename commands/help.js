@@ -26,7 +26,7 @@ module.exports = {
       let page = 1
       if (args[0]) if (args[0].length = 1) page = args[0]
 
-      pageEmbed = fetchPage(page, pages, strings)
+      pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
         .catch(error => console.error(error))
 
       message.channel.send(pageEmbed).then(async msg => {
@@ -41,22 +41,22 @@ module.exports = {
         collector.on('collect', (reaction, user) => {
           if (reaction.emoji.name === "⏮") { //First
             page = 300
-            pageEmbed = fetchPage(page, pages, strings)
+            pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
           if (reaction.emoji.name === "◀") { //Previous
             page--
-            pageEmbed = fetchPage(page, pages, strings)
+            pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
           if (reaction.emoji.name === "▶") { //Next
             page++
-            pageEmbed = fetchPage(page, pages, strings)
+            pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
           if (reaction.emoji.name === "⏭") { //Last
             page = 0
-            pageEmbed = fetchPage(page, pages, strings)
+            pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
         })
@@ -109,7 +109,7 @@ module.exports = {
   }
 }
 
-async function fetchPage(page, pages, strings) {
+async function fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed) {
   if (page > pages.length) page = 1
   if (page < 1) page = pages.length
 
