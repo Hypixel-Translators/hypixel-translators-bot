@@ -8,7 +8,7 @@
     "utilityHelp": "%%badge%% Ferramentas e utilidades",
     "infoHelp": "%%badge%% Comandos de informação",
     "timeOut": "Este menu foi desativado. Se o quiseres usar outra vez, faz `+help`.",
-    "pageNotExist": "That page doesn't exist!",
+    "pageNotExist": "Essa página não existe!",
     "commandInfo": "Informação do comando",
     "commandInfoFor": "Informação para o comando ",
     "commandNotExist": "Esse comando não existe!",
@@ -34,7 +34,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <argumentos>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+        "description": "Mostra, adiciona ou edita o contexto de uma string. `+context help` dá-te mais informações sobre este comando. `+context link` dá-te um link onde podes pedir acesso ao documento com o contexto."
     },
     "issue": {
         "usage": "+issue",
