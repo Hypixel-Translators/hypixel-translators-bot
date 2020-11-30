@@ -56,7 +56,7 @@ module.exports = {
         collector.on('collect', (reaction, user) => {
           console.log(page)
           if (reaction.emoji.name === "⏮") { //First
-            page = 100
+            page = 3
             pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
@@ -71,12 +71,12 @@ module.exports = {
             msg.edit(pageEmbed)
           }
           if (reaction.emoji.name === "⏭") { //Last
-            page = -1
+            page = 1
             pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
           console.log(page)
-          reaction.remove()
+          reaction.users.remove(message.author.id)
         })
       })
 
