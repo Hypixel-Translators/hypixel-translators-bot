@@ -52,6 +52,7 @@ module.exports = {
         const collector = message.createReactionCollector(filter, { time: 60000 })
 
         collector.on('collect', (reaction, user) => {
+          console.log(page)
           if (reaction.emoji.name === "⏮") { //First
             page = 100
             pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
@@ -72,6 +73,7 @@ module.exports = {
             pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
+          console.log(page)
         })
       })
 
