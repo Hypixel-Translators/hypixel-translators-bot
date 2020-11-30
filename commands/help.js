@@ -123,11 +123,8 @@ module.exports = {
 }
 
 async function fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed) {
-  console.log(page)
-  if (page > pages.length) page = 0
-  if (page < 0) page = pages.length
-  console.log(page)
-  console.log(pages[page])
+  if (page > 2) page = 0
+  if (page < 0) page = 2
 
   if (pages[page]) {
     if (pages[page].e) {
