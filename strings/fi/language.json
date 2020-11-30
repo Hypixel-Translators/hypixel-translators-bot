@@ -5,7 +5,7 @@
     "changedToTitle": "Kieleksesi vaihdettiin suomi!",
     "errorTitle": "Tätä kieltä ei ole vielä lisätty!",
     "errorDescription": "Kieltäsi ei vaihdettu. Tällä hetkellä saatavilla olevat kielet (käännöstä ei välttämättä löydy):",
-    "suggestAdd": "Mikäli haluat tämän kielen lisättäväksi bottiin, ole hyvä ja ota yhteyttä käyttäjään %%QkeleQ10%% tai ehdota ominaisuutta komennolla `+feedback`.",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+feedback`.",
     "current": "Käytössäsi oleva kieli on suomi.",
     "listTitle": "Luettelo kielistä",
     "listElement": "`%%code%%` | **%%language%%**",
