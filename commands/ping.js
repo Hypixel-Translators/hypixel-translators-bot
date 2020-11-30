@@ -15,13 +15,13 @@ module.exports = {
 
     //Contributed by marzeq. Original idea by Rodry
     let color
-    if (ping <= 200) { //if ping is less than 200 the color is green
-      color = successColor
-    } else if (ping <= 400) { //if ping is between 200 and 400 the color is yellow
-      color = loadingColor
-    } else if (ping < 0) {
+    if (ping < 0) { //if ping is negative the color is red
       color = errorColor
       console.log("Something went terribly wrong and the ping is negative. Come pick me up I'm scared.")
+    } else if (ping <= 200) { //if ping is less than 200 the color is green
+      color = successColor
+    } else if (ping <= 400) { //if the ping is between 200 and 400 the color is yellow
+      color = loadingColor
     } else { //if ping is higher than 400 the color is red
       color = errorColor
     }
