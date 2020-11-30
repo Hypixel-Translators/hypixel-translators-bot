@@ -8,6 +8,7 @@
     "utilityHelp": "%%badge%% Tools & Utilities",
     "infoHelp": "%%badge%% Information commands",
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
+    "pageNotExist": "That page doesn't exist!",
     "commandInfo": "Informacje o poleceniu",
     "commandInfoFor": "Informacje o poleceniu dla ",
     "commandNotExist": "To polecenie nie istnieje!",
@@ -33,7 +34,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <argumenty>",
-        "description": "Pobiera, dodaje lub edytuje kontekst danego identyfikatora ciągu. `+context help` pokazuje informację o tym poleceniu. `+context link` podaje Tobie link, aby zażądać dostęp do arkusza kalkulacyjnego z kontekstem."
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
