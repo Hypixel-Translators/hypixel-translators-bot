@@ -45,7 +45,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Σας δίνει το ping του bot καθώς και το ping Discord API"
+        "description": "Gives you the bot's ping as well as Discord API's ping."
     },
     "invite": {
         "usage": "+invite",
