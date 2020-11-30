@@ -65,7 +65,7 @@
         "help": "_¡Muestra este mensaje!_\n`+context help`",
         "fields": "Parámetros",
         "sheetT": "Hoja de Contexto",
-        "sheetD": "[Haz clic aquí para abrir la Hoja de Cálculo de Google que contiene información del contexto.]\n(https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nSolo personas especificas pueden abrir esta hoja de cálculo. Puedes solicitar acceso en la página que ves cuando haces clic en el enlace. Por favor, introduce un enlace a tu perfil de Crowdin (`.../profile/<usuario>`) y tu usuario de Discord. \nTenga en cuenta que Stannya, Rodry y QkeleQ10 pueden ver tu perfil de Google y tu correo electrónico.",
+        "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
         "sheetDel": " | Borrando mensaje después de 1 minuto"
     },
     "executedBy": "Ejecutado por %%user%%"
