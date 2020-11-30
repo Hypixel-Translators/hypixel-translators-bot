@@ -1,6 +1,6 @@
 {
     "moduleName": "Tietoa",
-    "page1Title": "Help page",
+    "page1Title": "Apusivu",
     "commandsListTooltip": "Tämän botin on tehnyt Hypixelin kääntäjien yhteisölle %%QkeleQ10%%. Sen avoin lähdekoodi on saatavilla GitHubista [täältä]%%github%%. Voit auttaa kääntämään bottia seuraamalla ohjeita, jotka löytyvät [tämän linkin]%%translate%% takaa.\n\nVoit suorittaa komennon `+help <komennon nimi>` saadaksesi tietää lisää valitusta komennosta.\nTässä lista kaikista komennoista:\n ",
     "madeBy": "| Botin on huolellisesti kasannut %%QkeleQ10%%",
     "page": "Sivu %%number%%/%%total%%",
@@ -45,7 +45,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping as well as Discord API's ping."
+        "description": "Antaa botin viiveen ja Discordin ohjelmointirajapinnan (Discord API) viiveen."
     },
     "invite": {
         "usage": "+invite",
