@@ -1,7 +1,7 @@
 {
-    "moduleName": "Channel updater",
-    "success": "Updated the %%channel%% channel!",
-    "infoChannel": "information",
-    "verifyChannel": "verification",
+    "moduleName": "Chanelae for infromaton updatr",
+    "success": "Updatdt %%channel%% chanel!",
+    "infoChannel": "informtonne",
+    "verifyChannel": "verfaton",
     "executedBy": "Done by le %%user%%"
 }
