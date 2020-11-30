@@ -5,7 +5,7 @@
     "changedToTitle": "¡Tu idioma ha sido cambiado a Español!",
     "errorTitle": "¡Ese idioma aún no ha sido añadido!",
     "errorDescription": "Tu idioma no ha sido cambiado. Estos idiomas están disponibles (no significa que están traducidos):",
-    "suggestAdd": "Si quieres tener este idioma añadido al bot, por favor, contacta a %%QkeleQ10%% o haz una sugerencia usando `+feedback`.",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+feedback`.",
     "current": "Tu preferencia de idioma ha sido establecida en Español.",
     "listTitle": "Lista de idiomas",
     "listElement": "`%%code%%` | **%%language%%**",
