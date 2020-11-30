@@ -65,7 +65,7 @@
         "help": "_Geeft deze informatie weer!_\n`+context help`",
         "fields": "Velden",
         "sheetT": "Contextsheet",
-        "sheetD": "[Klik hier om de Google Sheet te openen met contextinformatie.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nAlleen specifieke personen kunnen deze Sheet openen. Je kunt toegang aanvragen op de pagina die je ziet als je de link volgt. Voer daar je Crowdin-profiellink (`.../profile/<gebruikersnaam>`) en je Discord-gebruikersnaam in.\nLet wel dat Stannya, Rodry en QkeleQ10 je Google-profielnaam en -e-mail kunnen zien.",
+        "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
         "sheetDel": " | Bericht wordt verwijderd in 1 minuut"
     },
     "executedBy": "Uitgevoerd door %%user%%"
