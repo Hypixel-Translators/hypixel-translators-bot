@@ -11,7 +11,6 @@ module.exports = {
   execute(strings, message) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const ping = Date.now() - message.createdTimestamp
-    const latency = Math.round(message.client.ws.ping)
 
     //Contributed by marzeq. Original idea by Rodry
     let color
@@ -29,7 +28,7 @@ module.exports = {
       .setColor(color)
       .setAuthor(strings.moduleName)
       .setTitle(strings.pong.replace("%%pingEmote%%", "<:ping:620954198493888512>"))
-      .setDescription(strings.message.replace("%%ping%%", ping).replace("%%latency%%", latency))
+      .setDescription(strings.message.replace("%%ping%%", ping))
       .setFooter(executedBy)
     message.channel.send(embed)
   }

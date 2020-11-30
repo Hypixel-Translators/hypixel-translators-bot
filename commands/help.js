@@ -1,5 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
-const { prefix } = require("../config.json");
+const { loadingColor, errorColor, successColor, neutralColor, prefix } = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -14,137 +13,94 @@ module.exports = {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
 
-    let pages = ['1', '2', '3']
-    let page = 1
+    if (args[0].includes(prefix)) args[0] = args[0].substring(1, args[0].length)
+    if (!args[0] || !isNaN(args[0])) {
 
-    const page1 = new Discord.MessageEmbed()
+      if (args[0] > 3 || args[0] < 1) {
+        const embed = new Discord.MessageEmbed()
+          .setColor(errorColor)
+          .setAuthor(strings.moduleName)
+          .setTitle(strings.page1Title)
+          .setDescription(strings.pageNotExist)
+          .setFooter(executedBy + " | " + madeBy)
+        return message.channel.send(embed)
+      }
+
+      //Define all pages and determine which page to use
+      const pages = [
+        { "n": 0 },
+        { "n": 1, "f": ["help", "language", "prefix", "quote", "mention", "context", "issue", "ping"], "b": "🛠", "t": "utilityHelp" },
+        { "n": 2, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "thread", "twitter"], "b": "ℹ", "t": "infoHelp" }
+      ]
+
+      const page1 = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.page1Title)
         .setDescription(strings.commandsListTooltip.replace("%%QkeleQ10%%", "<@722738307477536778>").replace("%%github%%", "(https://github.com/Hypixel-Translators/hypixel-translators-bot)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)"))
         .addFields(
-          { name: strings.pageNumber.replace("%%number%%", "2").replace("%%total%%", pages.length), value: strings.utilityHelp.replace("%%badge%%", "🛠"), inline: true },
-          { name: strings.pageNumber.replace("%%number%%", "3").replace("%%total%%", pages.length), value: strings.infoHelp.replace("%%badge%%", "ℹ"), inline: true })
-        .setFooter(executedBy + " | " + madeBy);
+          { name: strings.pageNumber.replace("%%number%%", "2").replace("%%total%%", pages.length), value: strings.utilityHelp.replace("%%badge%%", "🛠"), inline: false },
+          { name: strings.pageNumber.replace("%%number%%", "3").replace("%%total%%", pages.length), value: strings.infoHelp.replace("%%badge%%", "ℹ"), inline: false })
+        .setFooter(executedBy + " | " + madeBy)
 
-    const page2 = new Discord.MessageEmbed()
-        .setColor(neutralColor)
-        .setAuthor(strings.moduleName)
-        .setTitle(strings.utilityHelp.replace("%%badge%%", "🛠"))
-        .addFields(
-          { name: "`" + strings.help.usage + "`", value: strings.help.description, inline: false },
-          { name: "`" + strings.language.usage + "`", value: strings.language.description, inline: false },
-          { name: "`" + strings.prefix.usage + "`", value: strings.prefix.description, inline: false },
-          { name: "`" + strings.quote.usage + "`", value: strings.quote.description, inline: false },
-          { name: "`" + strings.mention.usage + "`", value: strings.mention.description, inline: false },
-          { name: "`" + strings.context.usage + "`", value: strings.context.description, inline: false },
-          { name: "`" + strings.issue.usage + "`", value: strings.issue.description, inline: false },
-          { name: "`" + strings.ping.usage + "`", value: strings.ping.description, inline: false }
-        )
-        .setFooter(strings.page.replace("%%number%%", "2").replace("%%total%%", pages.length) + " | " + executedBy)
+      pages[0].e = page1
 
-    const page3 = new Discord.MessageEmbed()
-        .setColor(neutralColor)
-        .setAuthor(strings.moduleName)
-        .setTitle(strings.infoHelp.replace("%%badge%%", "ℹ"))
-        .addFields(
-          { name: "`" + strings.invite.usage + "`", value: strings.invite.description, inline: false },
-          { name: "`" + strings.guidelines.usage + "`", value: strings.guidelines.description, inline: false },
-          { name: "`" + strings.hypixel.usage + "`", value: strings.hypixel.description, inline: false },
-          { name: "`" + strings.quickplay.usage + "`", value: strings.quickplay.description, inline: false },
-          { name: "`" + strings.skyblockaddons.usage + "`", value: strings.skyblockaddons.description, inline: false },
-          { name: "`" + strings.thread.usage + "`", value: strings.thread.description, inline: false },
-          { name: "`" + strings.twitter.usage + "`", value: strings.twitter.description, inline: false }
-        )
-        .setFooter(strings.page.replace("%%number%%", "3").replace("%%total%%", pages.length) + " | " + executedBy)
+      let page = 0
+      if (args[0]) if (args[0].length = 1) page = args[0] - 1
+      let pageEmbed
 
-    if (!args.length || args[0] === "1") {
-      message.channel.send(page1).then(msg => { msg.react("⏮").then(r => { msg.react("◀").then(r => { msg.react("▶").then(r => { msg.react("⏭")
+      pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
+        .catch(error => console.error(error))
 
-      const userId = message.author.id
+      await message.channel.send(pageEmbed).then(async msg => {
+        await msg.react("⏮"); await msg.react("◀"); await msg.react("▶"); await msg.react("⏭")
 
-          const backwardsFilter = (reaction, user) => reaction.emoji.name == "◀" && user.id === userId
-          const forwardFilter = (reaction, user) => reaction.emoji.name == "▶" && user.id === userId
-          const firstFilter = (reaction, user) => reaction.emoji.name == "⏮" && user.id === userId
-          const skipFilter = (reaction, user) => reaction.emoji.name == "⏭" && user.id === userId
+        const filter = (reaction, user) => {
+          return (reaction.emoji.name === '⏮' || reaction.emoji.name === '◀' || reaction.emoji.name === '▶' || reaction.emoji.name === '⏭') && user.id === message.author.id
+        }
 
-          const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000}) //1 minute to react
-          const forward = msg.createReactionCollector(forwardFilter, { time: 60000}) //1 minute to react
-          const first = msg.createReactionCollector(firstFilter, { time: 60000}) //1 minute to react
-          const skip = msg.createReactionCollector(skipFilter, { time: 60000}) //1 minute to react
+        const collector = msg.createReactionCollector(filter, { time: 60000 })
 
-          backwards.on('end', r => {
-            msg.reactions.removeAll()
-            msg.edit(strings.timeOut)
-          })
-
-          backwards.on('collect', r => {
-            if (page === 1) {
-              clearReaction(msg)
-              return;
-            }
-            page--;
-            editPage(page)
-          })
-
-          forward.on('collect', r => {
-            if (page === pages.length) {
-              clearReaction(msg)
-              return;
-            }
-            page++;
-            editPage(page)
-          })
-
-          first.on('collect', r => {
-            page = 1
-            editPage(page)
-          })
-
-          skip.on('collect', r => {
-            page = pages.length
-            editPage(page)
-          })
-
-          function clearReaction(message) {
-            const userReactions = message.reactions.cache.filter(reaction => reaction.users.cache.has(userId));
-            for (const reaction of userReactions.values())
-              reaction.users.remove(userId);
+        collector.on('collect', async (reaction, user) => {
+          if (reaction.emoji.name === "⏮") page = 0 //First
+          if (reaction.emoji.name === "⏭") page = 2 //Last
+          if (reaction.emoji.name === "◀") { //Previous
+            page--
+            if (page < 0) page = 0
           }
-          function editPage(page) {
-            let pageEmbed
-            if (page == 1) { pageEmbed = page1 }
-            if (page == 2) { pageEmbed = page2 }
-            if (page == 3) { pageEmbed = page3 }
-            page2.setFooter(strings.page.replace("%%number%%", page).replace("%%total%%", pages.length) + " | " + executedBy)
-            page3.setFooter(strings.page.replace("%%number%%", page).replace("%%total%%", pages.length) + " | " + executedBy)
-            msg.edit(pageEmbed)
-            clearReaction(msg)
+          if (reaction.emoji.name === "▶") { //Next
+            page++
+            if (page > 2) page = 2
           }
+          reaction.users.remove(message.author.id)
+          pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
+          msg.edit(pageEmbed)
+        })
+
+        collector.on('end', async () => {
+          msg.edit(strings.timeOut)
+          msg.reactions.removeAll()
         })
       })
-    })
-  })
 
-    } else if (args[0] === "2") {
-      message.channel.send(page2)
-
-    } else if (args[0] === "3") {
-      message.channel.send(page3)
-      
     } else {
 
       const { commands } = message.client
+      let command
 
-      const command = commands.get(args[0].toLowerCase()) || commands.find(c => (c.aliases && c.aliases.includes(args[0].toLowerCase())) || c.name.includes(args[0].toLowerCase()))
+      try {
+        command = commands.get(args[0].toLowerCase()) || commands.find(c => (c.aliases && c.aliases.includes(args[0].toLowerCase())) || c.name === args[0].toLowerCase())
+      } catch (error) {
+        console.error(error)
+      }
 
-      if (!command) {
+      if (!command || !command.name) {
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor)
           .setAuthor(strings.moduleName)
           .setTitle(strings.commandInfo)
           .setDescription(strings.commandNotExist)
-          .setFooter(executedBy + madeBy);
+          .setFooter(executedBy + " | " + madeBy);
         return message.channel.send(embed);
       }
 
@@ -161,14 +117,35 @@ module.exports = {
             inline: true
           }
         )
-        .setFooter(executedBy + madeBy);
+        .setFooter(executedBy + " | " + madeBy);
       if (command.cooldown) {
         embed.addFields({ name: strings.cooldownField, value: cooldown, inline: true })
       }
       if (command.aliases) {
         embed.addFields({ name: strings.aliasesField, value: "+" + command.aliases.join(", +"), inline: true })
       }
-      message.channel.send(embed);
+      message.channel.send(embed)
+
     }
   }
-};
+}
+
+async function fetchPage(page, pages, strings, executedBy, pageEmbed) {
+  if (page > 2) page = 2
+  if (page < 0) page = 0
+
+  if (pages[page]) {
+    if (pages[page].e) {
+      pageEmbed = pages[page].e
+    } else if (pages[page].f) {
+      pageEmbed = new Discord.MessageEmbed()
+        .setColor(neutralColor)
+        .setAuthor(strings.moduleName)
+        .setTitle(strings[pages[page].t].replace("%%badge%%", pages[page].b))
+        .setFooter(strings.page.replace("%%number%%", page + 1).replace("%%total%%", pages.length) + " | " + executedBy)
+      pages[page].f.forEach(f => pageEmbed.addFields({ name: `\`${strings[f].usage}\``, value: strings[f].description }))
+    } else return console.error("no embed details")
+  } else return console.error("no embed listing - internal error")
+
+  return pageEmbed
+}
