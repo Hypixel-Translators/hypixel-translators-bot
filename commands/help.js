@@ -92,7 +92,7 @@ module.exports = {
           .setAuthor(strings.moduleName)
           .setTitle(strings.commandInfo)
           .setDescription(strings.commandNotExist)
-          .setFooter(executedBy + madeBy);
+          .setFooter(executedBy + " | " + madeBy);
         return message.channel.send(embed);
       }
 
@@ -109,7 +109,7 @@ module.exports = {
             inline: true
           }
         )
-        .setFooter(executedBy + madeBy);
+        .setFooter(executedBy + " | " + madeBy);
       if (command.cooldown) {
         embed.addFields({ name: strings.cooldownField, value: cooldown, inline: true })
       }
