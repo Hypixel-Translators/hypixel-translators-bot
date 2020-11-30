@@ -76,6 +76,7 @@ module.exports = {
             msg.edit(pageEmbed)
           }
           console.log(page)
+          reaction.remove()
         })
       })
 
