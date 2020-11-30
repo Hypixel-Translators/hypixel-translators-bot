@@ -17,6 +17,12 @@ module.exports = {
     if (!args[0] || args[0].length == 1) {
 
       //Define all pages and determine which page to use
+      const pages = [
+        { "n": 1 },
+        { "n": 2, "f": ["help", "language", "prefix", "quote", "mention", "context", "issue", "ping"], "b": "🛠", "t": "utilityHelp" },
+        { "n": 3, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "thread", "twitter"], "b": "ℹ", "t": "infoHelp" }
+      ]
+
       const page1 = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
@@ -27,11 +33,7 @@ module.exports = {
           { name: strings.pageNumber.replace("%%number%%", "3").replace("%%total%%", pages.length), value: strings.infoHelp.replace("%%badge%%", "ℹ"), inline: false })
         .setFooter(executedBy + " | " + madeBy)
 
-      const pages = [
-        { "n": 1, "e": page1 },
-        { "n": 2, "f": ["help", "language", "prefix", "quote", "mention", "context", "issue", "ping"], "b": "🛠", "t": "utilityHelp" },
-        { "n": 3, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "thread", "twitter"], "b": "ℹ", "t": "infoHelp" }
-      ]
+      pages[1].e = page1
 
       let page = 1
       if (args[0]) if (args[0].length = 1) page = args[0]
@@ -121,8 +123,10 @@ module.exports = {
 }
 
 async function fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed) {
+  console.log(page)
   if (page > pages.length) page = 1
   if (page < 1) page = pages.length
+  console.log(page)
 
   if (pages[page]) if (pages[page].f) {
     pageEmbed = new Discord.MessageEmbed()
