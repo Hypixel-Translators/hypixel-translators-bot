@@ -61,12 +61,13 @@
         "get": "_Получить контекст для данной строки_\n`+context get <ID строки>`\n\nЗамените <ID строки> номером строки, которую вы можете найти, скопировав URL строки. Это число после #.",
         "add": "_Добавить контекст_\n`+context add <ID строки> <контекст>`\n\nЗамените <ID строки> номером строки, которую Вы можете найти, скопировав URL строки. Это число после #. Замените <контекст> текстом, который Вы хотите добавить. После того, как Вы пропишите команду, Вы можете добавить больше полей, используя реакции.",
         "edit": "_Редактировать существующий контекст_\n`+context edit <ID строки> <поле> <новое значение>`\n\nЗамените <ID строки> номером строки, которую Вы можете найти, скопировав URL строки. Это число после #. Замените <поле> тем полем, которое Вы хотите редактировать, например, `screenshot` или `enpt`. Замените <новое значение> новым значением для этого поля.",
-        "link": "_Gives you a link to the Google Sheet containing context_\n`+context link`",
+        "link": "_Gives you the link to the Google Sheet containing context_\n`+context link`",
         "help": "_Показать это сообщение!_\n`+context help`",
         "fields": "Поля",
         "sheetT": "Таблица контекста",
-        "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
-        "sheetDel": " | Deleting message in 1 minute"
+        "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
+        "sheetDButton": "Click here to open the Google Sheet containing context information.",
+        "sheetDel": "Deleting message in 1 minute"
     },
     "executedBy": "Выполнено %%user%%"
 }
