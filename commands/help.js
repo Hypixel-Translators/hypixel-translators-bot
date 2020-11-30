@@ -54,7 +54,6 @@ module.exports = {
         const collector = msg.createReactionCollector(filter, { time: 60000 })
 
         collector.on('collect', async (reaction, user) => {
-          console.log(page)
           if (reaction.emoji.name === "⏮") page = 0 //First
           if (reaction.emoji.name === "⏭") page = 2 //Last
           if (reaction.emoji.name === "◀") { //Previous
@@ -65,8 +64,6 @@ module.exports = {
             page++
             if (page > 2) page = 0
           }
-
-          console.log(page)
           reaction.users.remove(message.author.id)
           pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
           msg.edit(pageEmbed)
@@ -137,7 +134,7 @@ async function fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed) {
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings[pages[page].t].replace("%%badge%%", pages[page].b))
-        .setFooter(executedBy + " | " + page.replace("%%number%%", page + 1).replace("%%total%%", 3))
+        .setFooter(page.replace("%%number%%", page + 1).replace("%%total%%", 3) + " | " + executedBy)
       pages[page].f.forEach(f => pageEmbed.addFields({ name: `\`${strings[f].usage}\``, value: strings[f].description }))
     } else return console.error("no embed details")
   } else return console.error("no embed listing - internal error")
