@@ -33,7 +33,7 @@ module.exports = {
           { name: strings.pageNumber.replace("%%number%%", "3").replace("%%total%%", pages.length), value: strings.infoHelp.replace("%%badge%%", "ℹ"), inline: false })
         .setFooter(executedBy + " | " + madeBy)
 
-      pages[1].e = page1
+      pages[0].e = page1
 
       let page = 1
       if (args[0]) if (args[0].length = 1) page = args[0]
