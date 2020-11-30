@@ -5,7 +5,7 @@
     "changedToTitle": "Endret språket ditt til norsk!",
     "errorTitle": "Dette språket har ikke blitt lagt til enda!",
     "errorDescription": "Språket ditt har ikke blitt endret. Disse språkene er tilgjengelig for øyeblikket (det betyr ikke at de er fullstendig oversatt):",
-    "suggestAdd": "Hvis du ønsker å få dette språket lagt til i boten, vennligst kontakt %%QkeleQ10%% eller send inn et forslag ved å skrive `+bug`.",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+feedback`.",
     "current": "Språket du foretrekker har blitt satt til norsk.",
     "listTitle": "Liste over språk",
     "listElement": "`%%code%%` | **%%language%%**",
