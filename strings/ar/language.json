@@ -5,7 +5,7 @@
     "changedToTitle": "تم تغيير لغتك الى العربية!",
     "errorTitle": "لم يتم اضافة هذه اللغه بعد!",
     "errorDescription": "لم يتم تغيير لغتك. هذه اللغات المتوفرة حاليا (هذا لا يعني أنها مترجمة):",
-    "suggestAdd": "اذا كنت تود ان تتم اضافة هذه اللغه الى البوت, الرجاء التواصل مع %%QkeleQ10%% او القيام بعمل اقتراح باستعمال `+bug`.",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+feedback`.",
     "current": "تم تعيين تفضيلات اللغة الخاصة بك إلى العربية.",
     "listTitle": "قائمة اللغات",
     "listElement": "`%%code%%` | **%%language%%**",
