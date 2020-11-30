@@ -5,7 +5,7 @@
     "changedToTitle": "Skiftede dit sprog til Dansk!",
     "errorTitle": "Dette sprog er ikke blevet tilføjet endnu!",
     "errorDescription": "Dit sprog er ikke blevet ændret. Disse sprog er i øjeblikket tilgængelig (Det betyder ikke, at de er oversat):",
-    "suggestAdd": "Hvis du ønsker at have dette sprog tilføjet til botten, så kontakt venligst %%QkeleQ10%% eller lav et forslag ved at bruge `+feedback`.",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+feedback`.",
     "current": "Din sprogpræference er Dansk.",
     "listTitle": "Liste over sprog",
     "listElement": "`%%code%%` = **%%language%%**",
