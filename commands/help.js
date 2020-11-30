@@ -35,8 +35,8 @@ module.exports = {
 
       pages[1].e = page1
 
-      let page = 0
-      if (args[0]) if (args[0].length = 1) page = args[0] - 1
+      let page = 1
+      if (args[0]) if (args[0].length = 1) page = args[0]
       let pageEmbed
 
       pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
