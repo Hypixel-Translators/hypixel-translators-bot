@@ -8,6 +8,7 @@
     "utilityHelp": "%%badge%% Tools & Utilities",
     "infoHelp": "%%badge%% Information commands",
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
+    "pageNotExist": "That page doesn't exist!",
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "That command doesn't exist!",

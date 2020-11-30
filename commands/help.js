@@ -16,6 +16,16 @@ module.exports = {
 
     if (!args[0] || args[0].length == 1) {
 
+      if (args[0] > 3 || args[0] < 1) {
+        const embed = new Discord.MessageEmbed()
+          .setColor(errorColor)
+          .setAuthor(strings.moduleName)
+          .setTitle(strings.page1Title)
+          .setDescription(strings.pageNotExist)
+          .setFooter(executedBy + " | " + madeBy)
+        return message.channel.send(embed)
+      }
+
       //Define all pages and determine which page to use
       const pages = [
         { "n": 0 },
@@ -56,11 +66,11 @@ module.exports = {
           if (reaction.emoji.name === "⏭") page = 2 //Last
           if (reaction.emoji.name === "◀") { //Previous
             page--
-            if (page < 0) page = 2
+            if (page < 0) page = 0
           }
           if (reaction.emoji.name === "▶") { //Next
             page++
-            if (page > 2) page = 0
+            if (page > 2) page = 2
           }
           reaction.users.remove(message.author.id)
           pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
@@ -121,8 +131,8 @@ module.exports = {
 }
 
 async function fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed) {
-  if (page > 2) page = 0
-  if (page < 0) page = 2
+  if (page > 2) page = 2
+  if (page < 0) page = 0
 
   if (pages[page]) {
     if (pages[page].e) {
