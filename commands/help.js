@@ -14,7 +14,7 @@ module.exports = {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
 
-    if (!args[0] || args[0].length == 1) {
+    if (!args[0] || !isNaN(args[0])) {
 
       if (args[0] > 3 || args[0] < 1) {
         const embed = new Discord.MessageEmbed()
@@ -89,7 +89,7 @@ module.exports = {
       let command
 
       try {
-        command = commands.get(args[0].toLowerCase()) || commands.find(c => (c.aliases && c.aliases.includes(args[0].toLowerCase())) || c.name.includes(args[0].toLowerCase()))
+        command = commands.get(args[0].toLowerCase()) || commands.find(c => (c.aliases && c.aliases.includes(args[0].toLowerCase())) || c.name === args[0].toLowerCase())
       } catch (error) {
         console.error(error)
       }
@@ -130,7 +130,7 @@ module.exports = {
   }
 }
 
-async function fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed) {
+async function fetchPage(page, pages, strings, executedBy, pageEmbed) {
   if (page > 2) page = 2
   if (page < 0) page = 0
 
