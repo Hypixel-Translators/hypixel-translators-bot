@@ -65,7 +65,7 @@
         "help": "_Viser denne meldingen!_\n`+context help`",
         "fields": "Felt",
         "sheetT": "Kontekst-regneark",
-        "sheetD": "[Klikk her for å åpne Google-regnearket som inneholder kontekstinformasjon.]\n(https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nKun enkelte personer kan åpne dette dokumentet. Du kan be om å få tilgang på den siden du ser når du følger lenken. Vennligst fyll inn din Crowdin-profillenke (`.../profile/<brukernavn>`) og ditt Discord-brukernavn.\nLegg merke til at Stannya, Rodry og QkeleQ10 kan se ditt Google-profilnavn og e-postadresse.",
+        "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
         "sheetDel": " | Sletter melding om 2 minutter"
     },
     "executedBy": "Utført av %%user%%"
