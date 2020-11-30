@@ -65,7 +65,7 @@
         "help": "_Показать это сообщение!_\n`+context help`",
         "fields": "Поля",
         "sheetT": "Таблица контекста",
-        "sheetD": "[Нажмите здесь, чтобы открыть таблицу, содержащую информацию о контексте](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nТолько определённые люди могут открывать эту таблицу. Вы можете запросить доступ на странице, которую вы видите, когда переходите по ссылке. Пожалуйста, введите ссылку на свой профиль Crowdin (`.../profile/<имя пользователя>`) и ваш профиль Discord.\nОбратите внимание, что Stannya, Rodry и QkeleQ10 могут видеть имя вашего профиля Google и электронную почту.",
+        "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
         "sheetDel": " | Deleting message in 1 minute"
     },
     "executedBy": "Выполнено %%user%%"
