@@ -528,8 +528,8 @@ async function sheetLink(executedBy, strings, message, args) {
             const embed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setTitle(strings.info.sheetT)
-                .setDescription(strings.info.sheetD)
-                .setFooter(executedBy + strings.info.sheetDel);
+                .setDescription(`[${strings.info.sheetDButton}](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\n` + strings.info.sheetD)
+                .setFooter(executedBy + " | " + strings.info.sheetDel);
             msg.edit(embed)
                 .then(linkMsg => {
                     setTimeout(() => {
