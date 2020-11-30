@@ -2,7 +2,7 @@
   "name": "hypixel-translators",
   "version": "5.1.57",
   "main": "index.js",
-  "license": "AGPL-3.0-only",
+  "license": "MIT",
   "scripts": {
     "start": "node index.js"
   },
