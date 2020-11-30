@@ -18,9 +18,9 @@ module.exports = {
 
       //Define all pages and determine which page to use
       const pages = [
-        { "n": 1 },
-        { "n": 2, "f": ["help", "language", "prefix", "quote", "mention", "context", "issue", "ping"], "b": "🛠", "t": "utilityHelp" },
-        { "n": 3, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "thread", "twitter"], "b": "ℹ", "t": "infoHelp" }
+        { "n": 0 },
+        { "n": 1, "f": ["help", "language", "prefix", "quote", "mention", "context", "issue", "ping"], "b": "🛠", "t": "utilityHelp" },
+        { "n": 2, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "thread", "twitter"], "b": "ℹ", "t": "infoHelp" }
       ]
 
       const page1 = new Discord.MessageEmbed()
@@ -35,8 +35,8 @@ module.exports = {
 
       pages[1].e = page1
 
-      let page = 1
-      if (args[0]) if (args[0].length = 1) page = args[0]
+      let page = 0
+      if (args[0]) if (args[0].length = 1) page = args[0] - 1
       let pageEmbed
 
       pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
@@ -68,7 +68,7 @@ module.exports = {
             msg.edit(pageEmbed)
           }
           if (reaction.emoji.name === "⏭") { //Last
-            page = 0
+            page = -1
             pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
@@ -124,8 +124,8 @@ module.exports = {
 
 async function fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed) {
   console.log(page)
-  if (page > pages.length) page = 1
-  if (page < 1) page = pages.length
+  if (page > pages.length) page = 0
+  if (page < 0) page = pages.length
   console.log(page)
   console.log(pages[page])
 
