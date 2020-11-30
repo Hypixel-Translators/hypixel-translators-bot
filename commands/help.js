@@ -46,8 +46,6 @@ module.exports = {
         await msg.react("⏮"); await msg.react("◀"); await msg.react("▶"); await msg.react("⏭")
 
         const filter = (reaction, user) => {
-          console.log(user.tag)
-          console.log(reaction.emoji.name)
           return (reaction.emoji.name === '⏮' || reaction.emoji.name === '◀' || reaction.emoji.name === '▶' || reaction.emoji.name === '⏭') && user.id === message.author.id
         }
 
@@ -134,7 +132,7 @@ async function fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed) {
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings[pages[page].t].replace("%%badge%%", pages[page].b))
-        .setFooter(page.replace("%%number%%", page + 1).replace("%%total%%", 3) + " | " + executedBy)
+        .setFooter(strings.page.replace("%%number%%", page + 1).replace("%%total%%", pages.length) + " | " + executedBy)
       pages[page].f.forEach(f => pageEmbed.addFields({ name: `\`${strings[f].usage}\``, value: strings[f].description }))
     } else return console.error("no embed details")
   } else return console.error("no embed listing - internal error")
