@@ -8,6 +8,7 @@
     "utilityHelp": "%%badge%% Tools",
     "infoHelp": "%%badge%% Informatieve commando's",
     "timeOut": "Dit menu is verlopen. Als je het opnieuw wilt gebruiken, doe `+help`.",
+    "pageNotExist": "That page doesn't exist!",
     "commandInfo": "Commando-informatie",
     "commandInfoFor": "Commando-informatie voor ",
     "commandNotExist": "Dat commando bestaat niet!",
@@ -33,7 +34,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <argumenten>",
-        "description": "Geeft context voor het gegeven string-ID, voegt het toe of bewerkt het. `+context help` geeft je informatie over dit commando. `+context link` geeft je een link om toegang tot de spreadsheet aan te vragen."
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
