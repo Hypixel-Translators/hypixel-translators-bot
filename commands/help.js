@@ -17,8 +17,18 @@ module.exports = {
     if (!args[0] || args[0].length == 1) {
 
       //Define all pages and determine which page to use
+      const page1 = new Discord.MessageEmbed()
+        .setColor(neutralColor)
+        .setAuthor(strings.moduleName)
+        .setTitle(strings.page1Title)
+        .setDescription(strings.commandsListTooltip.replace("%%QkeleQ10%%", "<@722738307477536778>").replace("%%github%%", "(https://github.com/stannya/hypixel-translators-bot-discord)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)"))
+        .addFields(
+          { name: strings.pageNumber.replace("%%number%%", "2").replace("%%total%%", pages.length), value: strings.utilityHelp.replace("%%badge%%", "🛠"), inline: false },
+          { name: strings.pageNumber.replace("%%number%%", "3").replace("%%total%%", pages.length), value: strings.infoHelp.replace("%%badge%%", "ℹ"), inline: false })
+        .setFooter(executedBy + " | " + madeBy)
+
       const pages = [
-        { "n": 1 },
+        { "n": 1, "e": page1 },
         { "n": 2, "f": ["help", "language", "prefix", "quote", "mention", "context", "issue", "ping"], "b": "🛠", "t": "utilityHelp" },
         { "n": 3, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "thread", "twitter"], "b": "ℹ", "t": "infoHelp" }
       ]
@@ -37,11 +47,11 @@ module.exports = {
           return (reaction.emoji.name === '⏮' || reaction.emoji.name === '◀' || reaction.emoji.name === '▶' || reaction.emoji.name === '⏭') && user.id === message.author.id
         }
 
-        const collector = message.createReactionCollector(filter, { time: 15000 })
+        const collector = message.createReactionCollector(filter, { time: 60000 })
 
         collector.on('collect', (reaction, user) => {
           if (reaction.emoji.name === "⏮") { //First
-            page = 300
+            page = 100
             pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
@@ -114,16 +124,6 @@ async function fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed) {
   if (page > pages.length) page = 1
   if (page < 1) page = pages.length
 
-  const page1 = new Discord.MessageEmbed()
-    .setColor(neutralColor)
-    .setAuthor(strings.moduleName)
-    .setTitle(strings.page1Title)
-    .setDescription(strings.commandsListTooltip.replace("%%QkeleQ10%%", "<@722738307477536778>").replace("%%github%%", "(https://github.com/stannya/hypixel-translators-bot-discord)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)"))
-    .addFields(
-      { name: strings.pageNumber.replace("%%number%%", "2").replace("%%total%%", pages.length), value: strings.utilityHelp.replace("%%badge%%", "🛠"), inline: false },
-      { name: strings.pageNumber.replace("%%number%%", "3").replace("%%total%%", pages.length), value: strings.infoHelp.replace("%%badge%%", "ℹ"), inline: false })
-    .setFooter(executedBy + " | " + madeBy)
-
   if (pages[page]) if (pages[page].f) {
     pageEmbed = new Discord.MessageEmbed()
       .setColor(neutralColor)
@@ -131,7 +131,7 @@ async function fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed) {
       .setTitle(strings[pages[page].t].replace("%%badge%%", pages[page].b))
       .setFooter(executedBy + " | " + madeBy)
     pages[page].f.forEach(f => pageEmbed.addFields({ name: strings[f].usage, value: strings[f].description }))
-  } else pageEmbed = page1
+  } else pageEmbed = pages[page].e
 
   return pageEmbed
 }
