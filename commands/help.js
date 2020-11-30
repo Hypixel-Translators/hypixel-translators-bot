@@ -138,7 +138,7 @@ async function fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed) {
         .setAuthor(strings.moduleName)
         .setTitle(strings[pages[page].t].replace("%%badge%%", pages[page].b))
         .setFooter(executedBy + " | " + madeBy)
-      pages[page].f.forEach(f => pageEmbed.addFields({ name: strings[f].usage, value: strings[f].description }))
+      pages[page].f.forEach(f => pageEmbed.addFields({ name: `\`${strings[f].usage}\``, value: strings[f].description }))
     } else return console.error("no embed details")
   } else return console.error("no embed listing - internal error")
 
