@@ -8,6 +8,7 @@
     "utilityHelp": "%%badge%% Toæls & utotltoties",
     "infoHelp": "%%badge%% Infation acomands",
     "timeOut": "The menu has the time of the out. Want use? Typ `+help` agen, idot!",
+    "pageNotExist": "That page doesn't exist!",
     "commandInfo": "Info abt acomand",
     "commandInfoFor": "Info abt acomand ",
     "commandNotExist": "Dat acomand existn't!",
@@ -33,7 +34,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argargments>",
-        "description": "The get, the add, the edit for the context for given ID string. `+context help` makes u see informaton abt dis acomand. `+context link` give u link for request aces for context spredshet."
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
