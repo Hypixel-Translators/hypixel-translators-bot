@@ -45,7 +45,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Give u bot ping pong and Discord aPi ping pong."
+        "description": "Gives you the bot's ping as well as Discord API's ping."
     },
     "invite": {
         "usage": "+invite",
