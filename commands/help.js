@@ -53,26 +53,26 @@ module.exports = {
 
         const collector = msg.createReactionCollector(filter, { time: 60000 })
 
-        collector.on('collect', (reaction, user) => {
+        collector.on('collect', async (reaction, user) => {
           console.log(page)
           if (reaction.emoji.name === "⏮") { //First
-            page = 3
-            pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
+            page = 2
+            pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
           if (reaction.emoji.name === "◀") { //Previous
             page--
-            pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
+            pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
           if (reaction.emoji.name === "▶") { //Next
             page++
-            pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
+            pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
           if (reaction.emoji.name === "⏭") { //Last
-            page = 1
-            pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
+            page = 0
+            pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
           console.log(page)
