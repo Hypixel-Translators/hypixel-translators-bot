@@ -55,28 +55,21 @@ module.exports = {
 
         collector.on('collect', async (reaction, user) => {
           console.log(page)
-          if (reaction.emoji.name === "⏮") { //First
-            page = 2
-            pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
-            msg.edit(pageEmbed)
-          }
+          if (reaction.emoji.name === "⏮") page = 2 //First
+          if (reaction.emoji.name === "⏭") page = 0 //Last
           if (reaction.emoji.name === "◀") { //Previous
             page--
-            pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
-            msg.edit(pageEmbed)
+            if (page < 0) page = 2
           }
           if (reaction.emoji.name === "▶") { //Next
             page++
-            pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
-            msg.edit(pageEmbed)
+            if (page > 2) page = 0
           }
-          if (reaction.emoji.name === "⏭") { //Last
-            page = 0
-            pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
-            msg.edit(pageEmbed)
-          }
+
           console.log(page)
           reaction.users.remove(message.author.id)
+          pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
+          msg.edit(pageEmbed)
         })
       })
 
