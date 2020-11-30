@@ -32,7 +32,7 @@ module.exports = {
 
       const embed = new Discord.MessageEmbed()
         .setColor(successColor)
-        .setAuthor(strings.moduleName, user.user.displayAvatarURL)
+        .setAuthor(strings.moduleName, user.user.displayAvatarURL())
         .setTitle(user.user.tag)
         .setDescription("<@" + user.user.id + "> (ID: `" + user.user.id + "`)")
         .addFields(
