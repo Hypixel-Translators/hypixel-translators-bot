@@ -71,11 +71,11 @@ module.exports = {
           pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
           msg.edit(pageEmbed)
         })
-      })
 
-      collector.on('end', async () => {
-        msg.edit(strings.timeOut)
-        msg.reactions.removeAll()
+        collector.on('end', async () => {
+          msg.edit(strings.timeOut)
+          msg.reactions.removeAll()
+        })
       })
 
     } else {
