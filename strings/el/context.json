@@ -61,12 +61,13 @@
         "get": "_Δείχνει περιγραφή για το string που δόθηκε_\n`+context get <string ID>`\n\nΑντικατέστησε το <string ID> με το ID του string, που βρέθηκε αντιγράφοντας το URL του string. Είναι το νούμερο μετά το #.",
         "add": "_Προσθέτει μία εισαγωγή περιγραφής_\n`+context add <string ID> <περιγραφή>`\n\nΑντικατέστησε το <string ID> με το ID του string, που βρέθηκε αντιγράφοντας το URL του string. Είναι το νούμερο μετά το #. Αντικατέστησε το <περιεχόμενο> με το κείμενο που θέλεις να προσθέσεις. Αφού το τρέξεις, μπορείς να προσθέσεις περισσότερα πεδία χρησιμοποιώντας τις αντιδράσεις.",
         "edit": "_Επεξεργάζεται μία υπάρχουσα εισαγωγή περιγραφής_\n`+context edit <string ID> <πεδίο> <νέα τιμή>`\n\nΑντικατέστησε το <string ID> με το ID του string, που βρέθηκε αντιγράφοντας το URL του string. Είναι το νούμερο μετά το #. Αντικατέστησε το <πεδίο> με το πεδίο που θέλεις να επεξεργαστείς, όπως το `στιγμιότυπο` ή `enpt`. Αντικατέστησε την <νέα τιμή> με την νέα τιμή για αυτό το πεδίο.",
-        "link": "_Gives you a link to the Google Sheet containing context_\n`+context link`",
+        "link": "_Gives you the link to the Google Sheet containing context_\n`+context link`",
         "help": "_Δείχνει αυτό το μήνυμα!_\n`+context help`",
         "fields": "Πεδία",
         "sheetT": "Φύλλο Περιγραφών",
-        "sheetD": "[Click here to open the Google Sheet containing context information.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nOnly specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
-        "sheetDel": " | Deleting message in 1 minute"
+        "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
+        "sheetDButton": "Click here to open the Google Sheet containing context information.",
+        "sheetDel": "Deleting message in 1 minute"
     },
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
