@@ -7,7 +7,7 @@
     "pageNumber": "Página %%number%%",
     "utilityHelp": "%%badge%% Herramientas y Utilidades",
     "infoHelp": "%%badge%% Comandos de información",
-    "timeOut": "Este menú se ha agotado. Si desea volver a utilizarlo, ejecute +`ayuda`.",
+    "timeOut": "Este menú ha expirado. Si deseas usarlo de nuevo, ejecuta `+help`.",
     "commandInfo": "Información del comando",
     "commandInfoFor": "Información para el comando ",
     "commandNotExist": "¡Ese comando no existe!",
