@@ -5,7 +5,7 @@
     "changedToTitle": "A nyelved meg lett változtatva Magyarra!",
     "errorTitle": "That language hasn't been added yet!",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
-    "suggestAdd": "If you'd like to have this language added to the bot, please contact %%QkeleQ10%% or make a suggestion using `+feedback`.",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+feedback`.",
     "current": "Your language preference is set to English.",
     "listTitle": "List of languages",
     "listElement": "`%%code%%` | **%%language%%**",
