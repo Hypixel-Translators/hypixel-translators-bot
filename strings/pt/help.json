@@ -7,7 +7,7 @@
     "pageNumber": "Página %%number%%",
     "utilityHelp": "%%badge%% Ferramentas e utilidades",
     "infoHelp": "%%badge%% Comandos de informação",
-    "timeOut": "Este menu foi desativado. Se o quiseres usar outra vez, fez `+help`.",
+    "timeOut": "Este menu foi desativado. Se o quiseres usar outra vez, faz `+help`.",
     "commandInfo": "Informação do comando",
     "commandInfoFor": "Informação para o comando ",
     "commandNotExist": "Esse comando não existe!",
@@ -49,11 +49,11 @@
     },
     "invite": {
         "usage": "+invite",
-        "description": "Dá-te um link de convite para o servidor. Usa-o sempre que quiseres convidar alguém."
+        "description": "Dá-te o link de convite para o servidor. Usa-o sempre que quiseres convidar alguém."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Dá-te um link para o artigo oficial sobre as traduções no Hypixel."
+        "description": "Dá-te o link para o artigo oficial sobre as traduções no Hypixel."
     },
     "hypixel": {
         "usage": "+hypixel",
@@ -69,11 +69,11 @@
     },
     "thread": {
         "usage": "+thread",
-        "description": "Dá-te um link para o artigo onde foi anunciado este servidor de discord."
+        "description": "Dá-te o link para o artigo onde foi anunciado este servidor de discord."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Dá-te um link para a página oficial da comunidade de tradutores do Hypixel no twitter."
+        "description": "Dá-te o link para a página oficial da comunidade de tradutores do Hypixel no twitter."
     },
     "executedBy": "Executado por %%user%%"
 }
