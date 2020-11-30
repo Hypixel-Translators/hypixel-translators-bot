@@ -127,15 +127,20 @@ async function fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed) {
   if (page > pages.length) page = 1
   if (page < 1) page = pages.length
   console.log(page)
+  console.log(pages[page])
 
-  if (pages[page]) if (pages[page].f) {
-    pageEmbed = new Discord.MessageEmbed()
-      .setColor(neutralColor)
-      .setAuthor(strings.moduleName)
-      .setTitle(strings[pages[page].t].replace("%%badge%%", pages[page].b))
-      .setFooter(executedBy + " | " + madeBy)
-    pages[page].f.forEach(f => pageEmbed.addFields({ name: strings[f].usage, value: strings[f].description }))
-  } else pageEmbed = pages[page].e
+  if (pages[page]) {
+    if (pages[page].e) {
+      pageEmbed = pages[page].e
+    } else if (pages[page].f) {
+      pageEmbed = new Discord.MessageEmbed()
+        .setColor(neutralColor)
+        .setAuthor(strings.moduleName)
+        .setTitle(strings[pages[page].t].replace("%%badge%%", pages[page].b))
+        .setFooter(executedBy + " | " + madeBy)
+      pages[page].f.forEach(f => pageEmbed.addFields({ name: strings[f].usage, value: strings[f].description }))
+    } else return console.error("no embed details")
+  } else return console.error("no embed listing - internal error")
 
   return pageEmbed
 }
