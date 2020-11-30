@@ -45,7 +45,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Te da el ping del bot, así como el ping de la API de Discord"
+        "description": "Gives you the bot's ping as well as Discord API's ping."
     },
     "invite": {
         "usage": "+invite",
