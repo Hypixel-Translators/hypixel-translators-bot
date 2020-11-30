@@ -16,7 +16,7 @@ module.exports = {
             .setAuthor(strings.moduleName)
             .setTitle(strings.bugT)
             .setDescription(strings.bugD.replace("%%github%%", "(https://github.com/Hypixel-Translators/hypixel-translators-bot/issues)"))
-            .addFields({ name: strings.urgentT, value: strings.urgentD.replace("%%QkeleQ10%%", "<@240875059953139714>") })
+            .addFields({ name: strings.urgentT, value: strings.urgentD })
             .setFooter(executedBy);
         message.channel.send(embed)
     }

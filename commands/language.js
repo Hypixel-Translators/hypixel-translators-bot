@@ -104,7 +104,7 @@ module.exports = {
                                 .setColor(errorColor)
                                 .setAuthor(strings.moduleName)
                                 .setTitle(strings.errorTitle)
-                                .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n" + strings.suggestAdd.replace("%%QkeleQ10%%", "<@722738307477536778>"))
+                                .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n" + strings.suggestAdd)
                                 .setFooter(executedBy);
                             await msg.edit(embed)
                         });
