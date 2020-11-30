@@ -46,15 +46,12 @@ module.exports = {
         await msg.react("⏮"); await msg.react("◀"); await msg.react("▶"); await msg.react("⏭")
 
         const filter = (reaction, user) => {
-          console.log(user.tag)
-          console.log(reaction.emoji.name)
           return (reaction.emoji.name === '⏮' || reaction.emoji.name === '◀' || reaction.emoji.name === '▶' || reaction.emoji.name === '⏭') && user.id === message.author.id
         }
 
-        const collector = message.createReactionCollector(filter, { time: 60000 })
+        const collector = msg.createReactionCollector(filter, { time: 60000 })
 
         collector.on('collect', (reaction, user) => {
-          console.log(page)
           if (reaction.emoji.name === "⏮") { //First
             page = 100
             pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
@@ -75,7 +72,6 @@ module.exports = {
             pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
             msg.edit(pageEmbed)
           }
-          console.log(page)
         })
       })
 
