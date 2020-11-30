@@ -8,6 +8,7 @@
     "utilityHelp": "%%badge%% Tools & Utilities",
     "infoHelp": "%%badge%% Information commands",
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
+    "pageNotExist": "That page doesn't exist!",
     "commandInfo": "Kommando information",
     "commandInfoFor": "Kommando information om ",
     "commandNotExist": "Denne kommando findes ikke!",
@@ -33,7 +34,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <argumenter>",
-        "description": "Får, tilføjer eller redigerer konteksten på den givne string-ID. `+context help` viser dig information om denne kommando. `+context link` giver dig et link til at anmode om adgang til kontekstregnearket."
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
