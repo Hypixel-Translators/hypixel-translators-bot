@@ -3,6 +3,6 @@
     "bugT": "Ver y añadir bugs",
     "bugD": "[Haz clic aquí]%%github%% para ver o enviar sugerencias o reportes de bug.",
     "urgentT": "¿Es urgente?",
-    "urgentD": "Si estas reportado un bug crucial o el bot está desconectado por mucho tiempo sin que nos damos cuenta, por favor, menciona a %%QkeleQ10%% en un canal publico, explicando la situación.",
+    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention a staff member in a public channel, explaining the issue.",
     "executedBy": "Ejecutado por %%user%%"
 }
