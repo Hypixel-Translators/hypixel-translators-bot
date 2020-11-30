@@ -1,5 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
-const { prefix } = require("../config.json");
+const { loadingColor, errorColor, successColor, neutralColor, prefix } = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -14,6 +13,7 @@ module.exports = {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
 
+    if (args[0].includes(prefix)) args[0] = args[0].substring(1, args[0].length)
     if (!args[0] || !isNaN(args[0])) {
 
       if (args[0] > 3 || args[0] < 1) {
