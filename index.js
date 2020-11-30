@@ -254,13 +254,13 @@ client.on('messageReactionAdd', async (reaction, user) => {
             console.log(err)
             const receivedEmbed = message.embeds[0];
             const embed = new Discord.MessageEmbed(receivedEmbed)
-              .setFooter("An error occurred, please contact QkeleQ10#6046.")
+              .setFooter("An error occurred, please contact the staff team.")
               .setColor(errorColor)
             message.edit(embed)
             setInterval(() => {
               embed
                 .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. \n_This gives you <@&732615152246980628>._")
-                .setFooter("Please check if you received the role after reacting. If not, please contact QkeleQ10#6046.")
+                .setFooter("Please check if you received the role after reacting. If not, please contact the staff team.")
                 .setColor(neutralColor)
               message.edit(embed)
             }, 5000)
@@ -286,14 +286,14 @@ client.on('messageReactionRemove', async (reaction, user) => {
             const receivedEmbed = message.embeds[0];
             const embed = new Discord.MessageEmbed(receivedEmbed)
               .setTitle("Get notified of bot updates")
-              .setFooter("An error occurred, please contact QkeleQ10#6046.")
+              .setFooter("An error occurred, please contact the staff team.")
               .setColor(errorColor)
             message.edit(embed)
             setInterval(() => {
               embed
                 .setTitle("Get notified of bot updates")
                 .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. \n_This gives you <@&732615152246980628>._")
-                .setFooter("Please check if you received the role after reacting. If not, please contact QkeleQ10#6046.")
+                .setFooter("Please check if you received the role after reacting. If not, please contact the staff team.")
                 .setColor(neutralColor)
               message.edit("", embed)
             }, 5000)
