@@ -3,9 +3,9 @@
     "errorNoPingPr": "so u cant menton it.",
     "errorNoPingTr": "zo u cannoto menton tramslayor rol.",
     "errorNoPingAll": "zo u cannoto menton whol langag.",
-    "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to.",
+    "errorNoPingDisclaimer": "Contacc servar owner or admon if u really wants.",
     "errorNotFound": "The role you entered doesn't exist. You can enter the language name, or any of these: ",
     "errorNoArgs": "You forgot to specify a language! You can enter the language name (in English) or any of these: ",
-    "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
+    "errorNoArgs2": "U forgotz specciciy a rol typp! Zelect a of dese: ",
     "executedBy": "Done by le %%user%%"
 }
