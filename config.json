@@ -9,6 +9,7 @@
   "randomUser": ["Stannya", "Rodry", "Sol", "Wens", "Linewater", "Kiril", "TheComputer8423", "QkeleQ10", "Stannya", "Rodry", "Mr_Junior", "marzeq_"],
   "langdb": [  
     {"name": "Arabic", "emoji": "🇵🇸", "code" : "ar", "flag": "https://crowdin.com/images/flags/%code%.png"},
+    {"name": "Bavarian", "emoji": "<:flag_bar:783030897612029992>", "code": "bar", "flag": "https://github.com/Hypixel-Translators/hypixel-translators-bot/blob/master/flags/%code%.png?raw=true"},
     {"name": "Biscuitish", "emoji": "🍪", "code" : "bc", "flag": "https://github.com/BiscuitDevelopment/SkyblockAddons/blob/development/src/main/resources/assets/skyblockaddons/flags/%code%_bc.png?raw=true"},
     {"name": "Bulgarian", "emoji": "🇧🇬", "colour": "#e02222", "code" : "bg", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Chinese Simplified", "emoji": "🇨🇳", "colour": "#21de70", "code": "zhcn", "flag": "https://crowdin.com/images/flags/%code%.png"},
