@@ -5,7 +5,7 @@
     "changedToTitle": "Ваш язык был изменён на Русский!",
     "errorTitle": "That language hasn't been added yet!",
     "errorDescription": "Ваш язык не был изменён. На данный момент поддерживаются следующие языки (но это не значит, что они переведены):",
-    "suggestAdd": "If you'd like to have this language added to the bot, please contact %%QkeleQ10%% or make a suggestion using `+feedback`.",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+feedback`.",
     "current": "Вы выбрали Русский язык в качестве предпочитаемого языка.",
     "listTitle": "Список языков",
     "listElement": "`%%code%%` | **%%language%%**",
