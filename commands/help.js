@@ -27,10 +27,10 @@ module.exports = {
       if (args[0]) if (args[0].length = 1) page = args[0]
       let pageEmbed
 
-      pageEmbed = fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
+      pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
         .catch(error => console.error(error))
 
-      message.channel.send(pageEmbed).then(async msg => {
+      await message.channel.send(pageEmbed).then(async msg => {
         await msg.react("⏮"); await msg.react("◀"); await msg.react("▶"); await msg.react("⏭")
 
         const filter = (reaction, user) => {
