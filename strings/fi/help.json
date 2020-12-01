@@ -12,6 +12,7 @@
     "commandInfo": "Komennon tiedot",
     "commandInfoFor": "Tiedot komennolle ",
     "commandNotExist": "Tätä komentoa ei ole olemassa!",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
     "seconds": "sekuntia",
     "usageField": "Käyttö",
     "cooldownField": "Odotusaika",
