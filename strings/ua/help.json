@@ -12,6 +12,7 @@
     "commandInfo": "Інформація щодо команди",
     "commandInfoFor": "Інформація щодо команди ",
     "commandNotExist": "Ця команда не існує!",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
     "seconds": "seconds",
     "usageField": "Використання",
     "cooldownField": "Перезарядка",
