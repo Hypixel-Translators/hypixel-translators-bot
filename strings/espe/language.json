@@ -5,7 +5,7 @@
     "changedToTitle": "¡Tu idioma fue cambiado a Español (Perú)!",
     "errorTitle": "¡Ese idioma aún no ha sido añadido!",
     "errorDescription": "Tu idioma no fue cambiado. Estos idiomas están disponibles (no significa que están traducidos):",
-    "suggestAdd": "Si quieres tener este idioma añadido al bot, por favor, contacta a un miembro del staff o haz una sugerencia usando `+feedback`.",
+    "suggestAdd": "Si quieres tener este idioma añadido al bot, por favor, contacta al staff o haz una sugerencia usando `+feedback`.",
     "current": "Tu preferencia de idioma está establecida en Español (Perú).",
     "listTitle": "Lista de idiomas",
     "listElement": "`%%code%%` | **%%language%%**",
