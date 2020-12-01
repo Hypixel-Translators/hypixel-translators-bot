@@ -61,13 +61,13 @@
         "get": "_Obtiene contexto para un string dado_\n`+context get <ID del string>`\n\nReemplace <ID del string> con el ID del string, que se encuentra copiando la URL del string. Es el número que sigue al #.",
         "add": "_Agrega una entrada de contexto_\n`+context add <ID del string> <contexto>`\n\nReemplace <ID del string> con el ID del string, que se encuentra copiando la URL del string. Es el número que sigue al #. Reemplace <contexto> con el texto que desea agregar. Después de ejecutar, puede agregar más parámetros usando las reacciones.",
         "edit": "_Edita una entrada de contexto existente_\n`+context edit <ID del string> <parametro> <nueva informacion>`\n\nReemplace <ID del string> con el ID del string, que se encuentra copiando la URL del string. Es el número que sigue al #. Reemplace <parámetro> con el parámetro que desea editar, como `captura de pantalla` o` enpt`. Reemplace <nueva información> con la nueva para ese parámetro.",
-        "link": "_Te da el enlace a la Google Sheet que contiene el contexto_\n`+context link`",
+        "link": "_Le da el enlace a la Hoja de Calculo de Google que contiene el contexto_\n`+context link`",
         "help": "_¡Muestra este mensaje!_\n`+context help`",
         "fields": "Parámetros",
         "sheetT": "Hoja de Contexto",
-        "sheetD": "Solo personas especificas pueden abrir esta hoja de cálculo. Puedes solicitar acceso en la página que ves cuando haces clic en el enlace. Por favor, introduce un enlace a tu perfil de Crowdin (`.../profile/<usuario>`) y tu usuario de Discord. \nTenga en cuenta que Stannya y Rodry pueden ver tu perfil de Google y tu correo electrónico.",
-        "sheetDButton": "Haz clic aquí para abrir el Google Sheet que contiene información de contexto.",
-        "sheetDel": "Borrando mensaje después de 1 minuto"
+        "sheetD": "Solo personas específicas pueden abrir esta hoja de calculo. Puede solicitar acceso en la página que ve al seguir el enlace. Por favor, introduzca el enlace de su perfil de Crowdin (`.../profile/<nombre de usuario>`) y su nombre de usuario de Discord.\nTenga en cuenta que Stannya y Rodry pueden ver el nombre y el correo electrónico de su perfil de Google.",
+        "sheetDButton": "Haga clic aquí para abrir la Hoja de Calculo de Google que contiene información de contexto.",
+        "sheetDel": "Eliminando mensaje después de 1 minuto"
     },
     "executedBy": "Ejecutado por %%user%%"
 }
