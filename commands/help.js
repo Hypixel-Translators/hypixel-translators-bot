@@ -100,29 +100,32 @@ module.exports = {
           .setAuthor(strings.moduleName)
           .setTitle(strings.commandInfo)
           .setDescription(strings.commandNotExist)
-          .setFooter(executedBy + " | " + madeBy);
-        return message.channel.send(embed);
+          .setFooter(executedBy + " | " + madeBy)
+        return message.channel.send(embed)
       }
 
-      const cooldown = command.cooldown + " " + strings.seconds;
+      let cmd
+      if (strings[command.name]) cmd = strings[command.name]
+      else cmd = command
+
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.commandInfoFor + "`+" + command.name + "`")
-        .setDescription(strings[command.name].description || command.description)
+        .setDescription(cmd.description || "No description")
         .addFields(
           {
             name: strings.usageField,
-            value: "`" + (strings[command.name].usage || command.usage) + "`",
+            value: "`" + (cmd.usage || "+" + command.name || "No usage") + "`",
             inline: true
           }
         )
-        .setFooter(executedBy + " | " + madeBy);
+        .setFooter(executedBy + " | " + madeBy)
       if (command.cooldown) {
-        embed.addFields({ name: strings.cooldownField, value: cooldown, inline: true })
+        embed.addFields({ name: strings.cooldownField, value: command.cooldown + " " + strings.seconds, inline: true })
       }
       if (command.aliases) {
-        embed.addFields({ name: strings.aliasesField, value: "+" + command.aliases.join(", +"), inline: true })
+        embed.addFields({ name: strings.aliasesField, value: " +" + command.aliases.join("`, +`") + "`", inline: true })
       }
       message.channel.send(embed)
 
