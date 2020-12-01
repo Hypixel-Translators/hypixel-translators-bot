@@ -61,12 +61,12 @@
         "get": "_Hakee kontekstin valitulle stringille_\n`+context get <stringin ID>`\n\nKorvaa <stringin ID> stringin URL-osoitteesta löytyvällä numerolla, joka alkaa #-merkin jälkeen.",
         "add": "_Lisää kontekstin valitulle stringille_\n`+context add <stringin ID> <konteksti>`\n\nKorvaa <stringin ID> stringin URL-osoitteesta löytyvällä numerolla, joka alkaa #-merkin jälkeen.\nKorvaa <konteksti> haluamallasi tekstillä. Suoritettuasi komennon voit antaa lisätietoja reaktioilla.",
         "edit": "_Muokkaa olemassaolevaa kontekstia_\n`+context edit <stringin ID> <kenttä> <uudet tiedot>`\n\nKorvaa <stringin ID> stringin URL-osoitteesta löytyvällä numerolla, joka alkaa #-merkin jälkeen.\nKorvaa <kenttä> sen kentän nimellä, jota haluat muokata, kuten `screenshot` tai `enpt`. Korvaa <uudet tiedot> haluamillasi uusilla tiedoilla ko. kentälle.",
-        "link": "_Gives you the link to the Google Sheet containing context_\n`+context link`",
+        "link": "_Antaa sinulle linkin Google Sheetsiin, josta löytyvät kaikki kontekstit_\n`+context link`",
         "help": "_Näyttää tämän viestin!_\n`+context help`",
         "fields": "Kentät",
         "sheetT": "Kontekstitaulukko",
         "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
-        "sheetDButton": "Click here to open the Google Sheet containing context information.",
+        "sheetDButton": "Klikkaa tästä avataksesi kontekstitiedot sisältävän Google Sheets -dokumentin.",
         "sheetDel": "Deleting message in 1 minute"
     },
     "executedBy": "Komennon suoritti %%user%%"
