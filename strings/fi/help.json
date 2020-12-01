@@ -8,7 +8,7 @@
     "utilityHelp": "%%badge%% Työkalut",
     "infoHelp": "%%badge%% Infokomennot",
     "timeOut": "Tämä valikko on aikakatkaistu. Mikäli haluat käyttää sitä uudelleen, käytä komentoa `+help`.",
-    "pageNotExist": "That page doesn't exist!",
+    "pageNotExist": "Tätä sivua ei ole olemassa!",
     "commandInfo": "Komennon tiedot",
     "commandInfoFor": "Tiedot komennolle ",
     "commandNotExist": "Tätä komentoa ei ole olemassa!",
@@ -34,7 +34,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argumentit>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+        "description": "Näyttää, lisää tai muokkaa valitun stringin (ID) kontekstia. Komennnolla `+context help` näet tietoa tästä komennosta. Komennolla `+context link` saat linkin kontekstitaulukkokirjaan."
     },
     "issue": {
         "usage": "+issue",
