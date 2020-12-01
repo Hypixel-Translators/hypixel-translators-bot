@@ -13,10 +13,17 @@ module.exports = {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
 
+    //Define all pages
+    const pages = [
+      { "n": 0 },
+      { "n": 1, "f": ["help", "language", "prefix", "quote", "mention", "context", "issue", "ping"], "b": "🛠", "t": "utilityHelp" },
+      { "n": 2, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "thread", "twitter"], "b": "ℹ", "t": "infoHelp" }
+    ]
+
     if (args[0] && args[0].startsWith(prefix)) args[0] = args[0].slice(1)
     if (!args[0] || !isNaN(args[0])) {
 
-      if (args[0] > 3 || args[0] < 1) {
+      if (args[0] > pages.length || args[0] < 1) {
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor)
           .setAuthor(strings.moduleName)
@@ -26,12 +33,7 @@ module.exports = {
         return message.channel.send(embed)
       }
 
-      //Define all pages and determine which page to use
-      const pages = [
-        { "n": 0 },
-        { "n": 1, "f": ["help", "language", "prefix", "quote", "mention", "context", "issue", "ping"], "b": "🛠", "t": "utilityHelp" },
-        { "n": 2, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "thread", "twitter"], "b": "ℹ", "t": "infoHelp" }
-      ]
+      //Determine which page to use
 
       const page1 = new Discord.MessageEmbed()
         .setColor(neutralColor)
@@ -59,7 +61,7 @@ module.exports = {
           return (reaction.emoji.name === '⏮' || reaction.emoji.name === '◀' || reaction.emoji.name === '▶' || reaction.emoji.name === '⏭') && user.id === message.author.id
         }
 
-        const collector = msg.createReactionCollector(filter, { time: 60000 })
+        const collector = msg.createReactionCollector(filter, { time: 60000 }) //1 minute
 
         collector.on('collect', async (reaction, user) => {
           if (reaction.emoji.name === "⏮") page = 0 //First
