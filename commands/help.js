@@ -125,7 +125,7 @@ module.exports = {
         embed.addFields({ name: strings.cooldownField, value: command.cooldown + " " + strings.seconds, inline: true })
       }
       if (command.aliases) {
-        embed.addFields({ name: strings.aliasesField, value: " +" + command.aliases.join("`, +`") + "`", inline: true })
+        embed.addFields({ name: strings.aliasesField, value: "`+" + command.aliases.join("`, +`") + "`", inline: true })
       }
       message.channel.send(embed)
 
