@@ -12,6 +12,7 @@
     "commandInfo": "Info abt acomand",
     "commandInfoFor": "Info abt acomand ",
     "commandNotExist": "Dat acomand existn't!",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
     "seconds": "sacondz",
     "usageField": "Usache",
     "cooldownField": "Time to get cold and not hot",
