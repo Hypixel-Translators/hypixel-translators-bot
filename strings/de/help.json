@@ -12,6 +12,7 @@
     "commandInfo": "Befehlsinformationen",
     "commandInfoFor": "Befehlsinformationen für ",
     "commandNotExist": "Dieser Befehl existiert nicht!",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
     "seconds": "seconds",
     "usageField": "Verwendung",
     "cooldownField": "Abklingzeit",
