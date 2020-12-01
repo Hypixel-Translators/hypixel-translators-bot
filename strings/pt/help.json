@@ -12,7 +12,7 @@
     "commandInfo": "Informação do comando",
     "commandInfoFor": "Informação para o comando ",
     "commandNotExist": "Esse comando não existe!",
-    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
+    "noDesc": "Este comando está em desenvolvimento ou só está disponível para staff.\nEntra em contacto com um membro da staff se achas que isto é um erro.",
     "seconds": "segundos",
     "usageField": "Uso",
     "cooldownField": "Tempo de espera",
