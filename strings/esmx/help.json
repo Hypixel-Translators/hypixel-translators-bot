@@ -12,7 +12,7 @@
     "commandInfo": "Información del comando",
     "commandInfoFor": "Información para el comando ",
     "commandNotExist": "¡Ese comando no existe!",
-    "noDesc": "Este comando está en desarrollo o solo es disponible para staff.\nPor favor, contacta a un miembro del staff si crees que esto es un error.",
+    "noDesc": "Este comando está en desarrollo o solo está disponible para el staff.\nPor favor, comuníquese con un miembro del staff si cree que se trata de un error.",
     "seconds": "segundos",
     "usageField": "Uso",
     "cooldownField": "Enfriamiento",
@@ -35,7 +35,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <argumentos>",
-        "description": "Obtiene, añade o edita contexto para la ID del string dada. `+context help` te muestra información sobre este comando. `+context link` te da el enlace para pedir acceso al Google Sheet de contexto."
+        "description": "Obtiene, agrega o edita contexto para la ID del string dada. `+context help` te muestra información sobre este comando. `+context link` le da el enlace para solicitar acceso a la hoja de cálculo de contextos."
     },
     "issue": {
         "usage": "+issue",
