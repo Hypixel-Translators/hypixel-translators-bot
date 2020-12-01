@@ -1,7 +1,7 @@
 {
-    "moduleName": "Channel updater",
-    "success": "Updated the %%channel%% channel!",
-    "infoChannel": "information",
-    "verifyChannel": "verification",
+    "moduleName": "Csatorna frissítő",
+    "success": "%%channel%% csatorna frissítve lett!",
+    "infoChannel": "Az információs",
+    "verifyChannel": "A hitelesítő",
     "executedBy": "Executed by %%user%%"
 }
