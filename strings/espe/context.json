@@ -61,13 +61,13 @@
         "get": "_Obtiene contexto de un string_\n`+context get <ID del string>`\n\nReemplaza <ID del string> con el ID del string encontrado copiando el link del string. Es el número después del #.",
         "add": "_Añade una entrada de contexto_\n`+context add <ID del string> <contexto>`\n\nReemplaza <ID del string> con el ID del string encontrado copiando el link del string. Es el número después del #. Reemplaza <contexto> con el texto que quieres añadir. Después de ejecutarlo, puedes añadir más parámetros con reacciones.",
         "edit": "_Edita una entrada de contexto_\n`+context edit <ID del string> <parámetro> <nueva información>`\n\nReemplaza <ID del string> con el ID del string encontrado copiando el link del string. Es el número después del #. Reemplaza <parámetro> con el parámetro que quieres editar, como `screenshot` o `enpt`. Reemplaza <nueva información> con la nueva información para ese parámetro.",
-        "link": "_Gives you the link to the Google Sheet containing context_\n`+context link`",
+        "link": "_Te da el enlace a la Google Sheet que contiene el contexto_\n`+context link`",
         "help": "_¡Muestra este mensaje!_\n`+context help`",
         "fields": "Parámetros",
         "sheetT": "Hoja de Contexto",
-        "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
-        "sheetDButton": "Click here to open the Google Sheet containing context information.",
-        "sheetDel": "Deleting message in 1 minute"
+        "sheetD": "Solo personas especificas pueden abrir esta hoja de cálculo. Puedes solicitar acceso en la página que ves cuando haces clic en el enlace. Por favor, introduce un enlace a tu perfil de Crowdin (`.../profile/<usuario>`) y tu usuario de Discord. \nTenga en cuenta que Stannya y Rodry pueden ver tu perfil de Google y tu correo electrónico.",
+        "sheetDButton": "Haz clic aquí para abrir el Google Sheet que contiene información de contexto.",
+        "sheetDel": "Borrando mensaje después de 1 minuto"
     },
     "executedBy": "Ejecutado por %%user%%"
 }
