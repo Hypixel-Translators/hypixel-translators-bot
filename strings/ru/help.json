@@ -12,6 +12,7 @@
     "commandInfo": "Информация о команде",
     "commandInfoFor": "Информация про команду ",
     "commandNotExist": "Данная команда не существует!",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
     "seconds": "seconds",
     "usageField": "Использование",
     "cooldownField": "Перезарядка",
