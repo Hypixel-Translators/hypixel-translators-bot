@@ -8,7 +8,7 @@
     "utilityHelp": "%%badge%% Tools & Utilities",
     "infoHelp": "%%badge%% Information commands",
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
-    "pageNotExist": "That page doesn't exist!",
+    "pageNotExist": "Αυτή η σελίδα δεν υπάρχει!",
     "commandInfo": "Πληροφορίες Εντολής",
     "commandInfoFor": "Πληροφορίες Εντολής για ",
     "commandNotExist": "Αυτή η εντολή δεν υπάρχει!",
