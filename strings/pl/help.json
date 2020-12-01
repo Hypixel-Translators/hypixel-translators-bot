@@ -12,6 +12,7 @@
     "commandInfo": "Informacje o poleceniu",
     "commandInfoFor": "Informacje o poleceniu dla ",
     "commandNotExist": "To polecenie nie istnieje!",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
     "seconds": "seconds",
     "usageField": "Użycie",
     "cooldownField": "Czas odnawiania",
