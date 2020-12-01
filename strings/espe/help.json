@@ -7,7 +7,7 @@
     "pageNumber": "Página %%number%%",
     "utilityHelp": "%%badge%% Herramientas & Utilidades",
     "infoHelp": "%%badge%% Comandos de información",
-    "timeOut": "Este menú ha expirado. Si deseas usarlo de nuevo, ejecuta `+help`.",
+    "timeOut": "Este menú ha expirado. Si deseas reiniciarlo, ejecuta `+help`.",
     "pageNotExist": "¡Esa página no existe!",
     "commandInfo": "Información del comando",
     "commandInfoFor": "Información para el comando ",
@@ -35,7 +35,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <argumentos>",
-        "description": "Obtiene, añade o edita contexto para la ID del string dada. `+context help` te muestra información sobre este comando. `+context link` te da el enlace para pedir acceso al Google Sheet de contexto."
+        "description": "Obtiene, añade o edita contexto para la ID del string dada. `+context help` te muestra información sobre este comando. `+context link` te da el link para pedir acceso al Google Sheet de contexto."
     },
     "issue": {
         "usage": "+issue",
@@ -71,11 +71,11 @@
     },
     "thread": {
         "usage": "+thread",
-        "description": "Te de un enlace al anuncio de este servidor de Discord."
+        "description": "Te de un link al anuncio de este servidor de Discord."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Te da un enlace a la página oficial de Twitter de la cuenta de Hypixel Translators Community."
+        "description": "Te da un link a la página oficial de Twitter de la cuenta de Hypixel Translators Community."
     },
     "tip": {
         "usage": "+tip",
