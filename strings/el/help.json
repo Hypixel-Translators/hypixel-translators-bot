@@ -12,6 +12,7 @@
     "commandInfo": "Πληροφορίες Εντολής",
     "commandInfoFor": "Πληροφορίες Εντολής για ",
     "commandNotExist": "Αυτή η εντολή δεν υπάρχει!",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
     "seconds": "seconds",
     "usageField": "Χρήση",
     "cooldownField": "Χρόνος Επαναφόρτωσης",
