@@ -12,6 +12,7 @@
     "commandInfo": "Commando-informatie",
     "commandInfoFor": "Commando-informatie voor ",
     "commandNotExist": "Dat commando bestaat niet!",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
     "seconds": "seconden",
     "usageField": "Gebruik",
     "cooldownField": "Afkoeltijd",
