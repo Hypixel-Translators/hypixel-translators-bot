@@ -1,18 +1,18 @@
 {
     "moduleName": "Información",
     "page1Title": "Página de ayuda",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
+    "commandsListTooltip": "Este bot fue creado para la Comunidad de Traductores de Hypixel por %%QkeleQ10%%. Es de código abierto y nuestro repositorio de GitHub se puede encontrar [aquí]%%github%%.\nPuedes ayudar a traducir el bot siguiendo las instrucciones en [este mensaje]%%translate%%.\n\nPuedes ejecutar `+help <nombre del comando>` para aprender más sobre un comando especifico. Aquí hay una lista de todas las páginas disponibles. Usa las reacciones en este mensaje para alternarlas.",
     "madeBy": "Bot hecho con mucho amor por %%QkeleQ10%%",
     "page": "Página %%number%%/%%total%%",
     "pageNumber": "Página %%number%%",
     "utilityHelp": "%%badge%% Herramientas & Utilidades",
     "infoHelp": "%%badge%% Comandos de información",
     "timeOut": "Este menú ha expirado. Si deseas usarlo de nuevo, ejecuta `+help`.",
-    "pageNotExist": "That page doesn't exist!",
+    "pageNotExist": "¡Esa página no existe!",
     "commandInfo": "Información del comando",
     "commandInfoFor": "Información para el comando ",
     "commandNotExist": "¡Ese comando no existe!",
-    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
+    "noDesc": "Este comando está en desarrollo o solo es disponible para staff.\nPor favor, contacta a un miembro del staff si crees que esto es un error.",
     "seconds": "segundos",
     "usageField": "Uso",
     "cooldownField": "Enfriamiento",
@@ -35,7 +35,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <argumentos>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+        "description": "Obtiene, añade o edita contexto para la ID del string dada. `+context help` te muestra información sobre este comando. `+context link` te da el enlace para pedir acceso al Google Sheet de contexto."
     },
     "issue": {
         "usage": "+issue",
