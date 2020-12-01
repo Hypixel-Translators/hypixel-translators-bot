@@ -1,6 +1,6 @@
 {
-    "moduleName": "Statistics updater",
-    "started": "Please wait a minute or two for all statistics to update...",
-    "done": "All statistics have been updated!",
+    "moduleName": "Statisztika frissítő",
+    "started": "Kérlek várj egy percet a statisztikák frissítéséhez...",
+    "done": "Az összes statisztika frissítve lett!",
     "executedBy": "Executed by %%user%%"
 }

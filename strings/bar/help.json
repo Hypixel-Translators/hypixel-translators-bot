@@ -1,0 +1,85 @@
+{
+    "moduleName": "Information",
+    "page1Title": "Help page",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
+    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
+    "page": "Page %%number%%/%%total%%",
+    "pageNumber": "Page %%number%%",
+    "utilityHelp": "%%badge%% Tools & Utilities",
+    "infoHelp": "%%badge%% Information commands",
+    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
+    "pageNotExist": "That page doesn't exist!",
+    "commandInfo": "Befehlsinformationen",
+    "commandInfoFor": "Befehlsinformationen für ",
+    "commandNotExist": "Dieser Befehl existiert nicht!",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
+    "seconds": "seconds",
+    "usageField": "Verwendung",
+    "cooldownField": "Abklingzeit",
+    "aliasesField": "Aliase",
+    "help": {
+        "usage": "+help [page | command name]",
+        "description": "Zeigt alle verfügbaren Befehle und andere Informationen über den Bot."
+    },
+    "prefix": {
+        "usage": "+prefix",
+        "description": "Gibt dir den passenden Präfix für deine Sprache(n)."
+    },
+    "quote": {
+        "usage": "+quote [index] | +quote add <quote> / <user mention>",
+        "description": "Ruft (oder hinzufügt) ein lustiges / seltsames Zitat vom Server ab."
+    },
+    "mention": {
+        "usage": "+mention <Sprache> translator|proofreader|all [message]",
+        "description": "Erwähnt eine Sprachrolle mit einer optionalen Nachricht."
+    },
+    "context": {
+        "usage": "+context get|add|edit|link|help <arguments>",
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+    },
+    "issue": {
+        "usage": "+issue",
+        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
+    },
+    "language": {
+        "usage": "+language [<Neue Sprache> | list]",
+        "description": "Ändert deine Sprache, zeigt deine aktuelle Sprache oder eine Liste der verfügbaren Sprachen an."
+    },
+    "ping": {
+        "usage": "+ping",
+        "description": "Gives you the bot's ping as well as Discord API's ping."
+    },
+    "invite": {
+        "usage": "+invite",
+        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+    },
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "Gives you the link to the official thread regarding Hypixel translations."
+    },
+    "hypixel": {
+        "usage": "+hypixel",
+        "description": "Gives you useful information regarding the Hypixel project."
+    },
+    "quickplay": {
+        "usage": "+quickplay",
+        "description": "Gives you useful information regarding the Quickplay project."
+    },
+    "skyblockaddons": {
+        "usage": "+skyblockaddons",
+        "description": "Gives you useful information regarding the SkyblockAddons project."
+    },
+    "thread": {
+        "usage": "+thread",
+        "description": "Gives you the link to the thread announcing this Discord server."
+    },
+    "twitter": {
+        "usage": "+twitter",
+        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Gives you a random tip regarding the server."
+    },
+    "executedBy": "Asg'fuat vo %%user%%"
+}

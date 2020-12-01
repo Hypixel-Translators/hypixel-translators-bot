@@ -1,0 +1,6 @@
+{
+    "moduleName": "Massenversandt",
+    "success": "Success! Messages sent.",
+    "generalError": "Irgendetwas lief schief.",
+    "executedBy": "Asg'fuat vo %%user%%"
+}

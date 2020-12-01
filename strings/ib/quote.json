@@ -2,11 +2,11 @@
     "moduleName": "Funnysentence",
     "loading": "Wait, idot...",
     "loadingModule": "Modul not reddi yet...",
-    "invalidArg": "Invalid argument!",
+    "invalidArg": "Not gud argarment!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!",
-    "reqAdd": "Success! The following quote has been added:",
+    "reqSub": "Ur funnysentence sumiit has been, tank!",
+    "reqAdd": "Kukes! Dis funnysentence add been has:",
     "user": "Persn",
-    "index": "Quote number",
+    "index": "Number of funnysentence",
     "executedBy": "Done by le %%user%%"
 }

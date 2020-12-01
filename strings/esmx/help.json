@@ -1,16 +1,18 @@
 {
     "moduleName": "Información",
-    "page1Title": "Help page",
-    "commandsListTooltip": "Este bot fue creado para la Comunidad de Traductores de Hypixel por %%QkeleQ10%%. Es de código abierto y nuestro repositorio de GitHub se puede encontrar [aquí]%%github%%.\nPuede ayudar a traducir el bot siguiendo las instrucciones en [este mensaje]%%translate%%.\n\nPuede ejecutar `+help <nombre del comando>` para obtener más información sobre un comando específico.\nAquí hay una lista de todos los comandos:\n ",
-    "madeBy": "Bot hecho con mucho amor por %%QkeleQ10%%",
+    "page1Title": "Página de ayuda",
+    "commandsListTooltip": "Este bot fue creado para la Comunidad de Traductores de Hypixel por %%QkeleQ10%%. Es de código abierto y nuestro repositorio de GitHub se puede encontrar [aquí]%%github%%.\nPuede ayudar a traducir el bot siguiendo las instrucciones en [este mensaje]%%translate%%.\n\nPuede ejecutar `+help <nombre del comando>` para obtener más información sobre un comando específico.\nA continuación puede encontrar una lista de todas las páginas disponibles. Utilice las reacciones de este mensaje para recorrerlas.",
+    "madeBy": "Bot hecho con mucho cariño por %%QkeleQ10%%",
     "page": "Página %%number%%/%%total%%",
     "pageNumber": "Página %%number%%",
-    "utilityHelp": "%%badge%% Herramientas & Utilidades",
+    "utilityHelp": "%%badge%% Herramientas y Utilidades",
     "infoHelp": "%%badge%% Comandos de información",
-    "timeOut": "Este menú ha expirado. Si deseas usarlo de nuevo, ejecuta `+help`.",
+    "timeOut": "Este menú se ha agotado. Si desea volver a utilizarlo, ejecute +`help`.",
+    "pageNotExist": "¡Esa página no existe!",
     "commandInfo": "Información del comando",
     "commandInfoFor": "Información para el comando ",
     "commandNotExist": "¡Ese comando no existe!",
+    "noDesc": "Este comando está en desarrollo o solo está disponible para el staff.\nPor favor, comuníquese con un miembro del staff si cree que se trata de un error.",
     "seconds": "segundos",
     "usageField": "Uso",
     "cooldownField": "Enfriamiento",
@@ -33,7 +35,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <argumentos>",
-        "description": "Obtiene, agrega o edita contexto para la ID del string dada. `+context help` te muestra información sobre este comando. `+context link` le da un enlace para solicitar acceso a la hoja de cálculo de contextos."
+        "description": "Obtiene, agrega o edita contexto para la ID del string dada. `+context help` te muestra información sobre este comando. `+context link` le da el enlace para solicitar acceso a la hoja de cálculo de contextos."
     },
     "issue": {
         "usage": "+issue",
@@ -45,7 +47,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Te da el ping del bot, así como el ping de la API de Discord"
+        "description": "Te da el ping del bot, así como el ping de la API de Discord."
     },
     "invite": {
         "usage": "+invite",
@@ -74,6 +76,10 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Le da un enlace a la página oficial de Twitter de la Comunidad de Traductores de Hypixel."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Le da un consejo al azar sobre el servidor."
     },
     "executedBy": "Ejecutado por %%user%%"
 }

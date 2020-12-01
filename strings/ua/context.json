@@ -61,12 +61,13 @@
         "get": "_Відображає контекст для заданого string_\n`+context get <string ID>`\n\nЗаміните <string ID> ID рядком, який можливо знайти шляхом копіювання URL рядка. Це число після #.",
         "add": "_Додає контекстний запис_\n`+context add <string ID> <контекст>`\n\nЗаміните <string ID> ID рядком, який можливо знайти шляхом копіювання URL рядка. Це число після #. Заміните <контекст> текстом, який Ви бажаєте додати. Після запуску, Ви можете додати більше полів, використовуючи реакції.",
         "edit": "_Редагує контекстний запис, який вже існує_\n`+context edit <string ID> <поле> <нове значення>`\n\nЗаміните <string ID> ID рядком, який можливо знайти шляхом копіювання URL рядка. Це число після #. Заміните <поле> полем, яке Ви хочете редагувати, наприклад `screenshot` або `enpt`. Заміните <нове значення> новим значенням для цього поля.",
-        "link": "_Gives you a link to the Google Sheet containing context_\n`+context link`",
+        "link": "_Gives you the link to the Google Sheet containing context_\n`+context link`",
         "help": "_Відображає це повідомлення!_\n`+context help`",
         "fields": "Поля",
         "sheetT": "Контекстний аркуш",
-        "sheetD": "[Натисніть тут, щоб відкрити лист Google, що містить контекстну інформацію.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrr1H6STqyidcEwoL4a8ts)\n\nТільки особливі люди можуть відкрити цю таблицю. Ви можете надіслати запит на доступ на сторінки, яку Ви бачите після того, як перейдете за посиланням. Будь ласка, заповніть посилання профілю Crowdin (`.../profile/<username>`) і Ваше ім'я користувача Discord.\nМайте на увазі Stannya, Rodry та QkeleQ10 можуть побачити ім'я та адресу профілю Google.",
-        "sheetDel": " | Deleting message in 1 minute"
+        "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
+        "sheetDButton": "Click here to open the Google Sheet containing context information.",
+        "sheetDel": "Deleting message in 1 minute"
     },
     "executedBy": "Виконано користувачем %%user%%"
 }

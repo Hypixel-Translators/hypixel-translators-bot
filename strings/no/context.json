@@ -61,12 +61,13 @@
         "get": "_Viser kontekst for spesifiserte string_\n`+context get <string-ID>`\n\nErstatt <string-ID> med string-IDen, som kan bli funnet ved å kopiere string-URLen. Det er tallet etter #.",
         "add": "_Legger til en kontekstoppføring_\n`+context add <string-ID> <kontekst>`\n\nErstatt <string-ID> med string-IDen, som kan bli funnet ved å kopiere string-URLen. Det er tallet etter #. Erstatt <kontekst> med teksten du vil legge til. Etter at du har utført kommandoen, kan du legge til flere felt ved å bruke reaksjoner.",
         "edit": "_Redigerer en eksisterende kontekstoppføring_\n`+context edit <string-ID> <felt> <ny verdi>`\n\nErstatt <string-ID> med string-IDen, som kan bli funnet ved å kopiere string-URLen. Det er tallet etter #. Erstatt <felt> med det feltet du vil endre, som for eksempel `screenshot` eller `enpt`. Erstatt <ny verdi> med den nye verdien for det feltet.",
-        "link": "_Sender en lenke til Google Sheet-dokumentet som inneholder kontekst_\n`+context lenke`",
+        "link": "_Gives you the link to the Google Sheet containing context_\n`+context link`",
         "help": "_Viser denne meldingen!_\n`+context help`",
         "fields": "Felt",
         "sheetT": "Kontekst-regneark",
-        "sheetD": "[Klikk her for å åpne Google-regnearket som inneholder kontekstinformasjon.]\n(https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nKun enkelte personer kan åpne dette dokumentet. Du kan be om å få tilgang på den siden du ser når du følger lenken. Vennligst fyll inn din Crowdin-profillenke (`.../profile/<brukernavn>`) og ditt Discord-brukernavn.\nLegg merke til at Stannya, Rodry og QkeleQ10 kan se ditt Google-profilnavn og e-postadresse.",
-        "sheetDel": " | Sletter melding om 2 minutter"
+        "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
+        "sheetDButton": "Click here to open the Google Sheet containing context information.",
+        "sheetDel": "Deleting message in 1 minute"
     },
     "executedBy": "Utført av %%user%%"
 }

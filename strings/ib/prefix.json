@@ -1,23 +1,23 @@
 {
     "moduleName": "Prefuck",
     "loading": "Wait, idot...",
-    "loadingRoles": "Fetching your roles...",
+    "loadingRoles": "Geting ur rols...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
         "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
         "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
-        "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-        "cancelled": "You cancelled the changing of your nickname, ",
-        "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, ",
-        "notSaved": "so your prefix wasn't saved."
+        "confirmedNoFlags": "U konform butt u reakt not flagos, ",
+        "cancelled": "U kanekled de chang of ur niknam, ",
+        "alreadyThis": "U has alredi dat niknam, ",
+        "timeOut": "U react not with flagos, ",
+        "notSaved": "so ur prefuck save not."
     },
-    "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "You have 20 seconds. Hit ❎ to cancel.",
+    "react": "Reeeact wif al flagos u wantz add to ur prefucks in ordure.",
+    "reactTimer": "U hav twanty skundos. Clicc ❎ fur kankel.",
     "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
-    "previewT": "Nickname preview",
-    "newNickT": "New nickname",
-    "noChanges": "No changes",
+    "previewT": "Howshoudoterscalu presigt",
+    "newNickT": "New howshoudoterscalu",
+    "noChanges": "No tings diffrnt",
     "saved": "Ur prefuck have ben savd!",
     "executedBy": "Done by le %%user%%"
 }

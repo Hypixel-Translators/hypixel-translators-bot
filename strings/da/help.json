@@ -1,17 +1,19 @@
 {
     "moduleName": "Information",
     "page1Title": "Help page",
-    "commandsListTooltip": "Denne bot er blevet lavet til Hypixel Translators Community af %%QkeleQ10%%. Bottens kildekode er frit tilgængeligt for alle og vores GitHub-lager kan blive fundet [her]%%github%%.\nDu kan hjælpe med at oversætte denne bot ved at følge instruktionerne, som vist i [denne besked]%%translate%%.\n\nDu kan bruge `+help <kommandoens navn>` for at lære mere om en bestemt kommando.\nHer er en liste over alle kommandoer:\n ",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
     "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
     "page": "Page %%number%%/%%total%%",
     "pageNumber": "Page %%number%%",
     "utilityHelp": "%%badge%% Tools & Utilities",
     "infoHelp": "%%badge%% Information commands",
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
+    "pageNotExist": "That page doesn't exist!",
     "commandInfo": "Kommando information",
     "commandInfoFor": "Kommando information om ",
     "commandNotExist": "Denne kommando findes ikke!",
-    "seconds": "seconds",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
+    "seconds": "sekunder",
     "usageField": "Anvendelse",
     "cooldownField": "Nedkøling",
     "aliasesField": "Aliasser",
@@ -33,7 +35,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <argumenter>",
-        "description": "Får, tilføjer eller redigerer konteksten på den givne string-ID. `+context help` viser dig information om denne kommando. `+context link` giver dig et link til at anmode om adgang til kontekstregnearket."
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
@@ -45,7 +47,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping as well as Discord API's ping"
+        "description": "Gives you the bot's ping as well as Discord API's ping."
     },
     "invite": {
         "usage": "+invite",
@@ -74,6 +76,10 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Gives you a random tip regarding the server."
     },
     "executedBy": "Udført af %%user%%"
 }

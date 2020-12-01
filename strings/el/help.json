@@ -1,16 +1,18 @@
 {
     "moduleName": "Πληροφορίες",
-    "page1Title": "Help page",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nHere's a list of all commands:\n ",
+    "page1Title": "Σελίδα Βοήθειας",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
     "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
-    "page": "Page %%number%%/%%total%%",
-    "pageNumber": "Page %%number%%",
+    "page": "Σελίδα %%number%%/%%total%%",
+    "pageNumber": "Σελίδα %%number%%",
     "utilityHelp": "%%badge%% Tools & Utilities",
     "infoHelp": "%%badge%% Information commands",
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
+    "pageNotExist": "Αυτή η σελίδα δεν υπάρχει!",
     "commandInfo": "Πληροφορίες Εντολής",
     "commandInfoFor": "Πληροφορίες Εντολής για ",
     "commandNotExist": "Αυτή η εντολή δεν υπάρχει!",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
     "seconds": "seconds",
     "usageField": "Χρήση",
     "cooldownField": "Χρόνος Επαναφόρτωσης",
@@ -33,7 +35,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|view|help <επιχειρήματα>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you a link to request access to the context spreadsheet."
+        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
     },
     "issue": {
         "usage": "+issue",
@@ -45,7 +47,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Σας δίνει το ping του bot καθώς και το ping Discord API"
+        "description": "Gives you the bot's ping as well as Discord API's ping."
     },
     "invite": {
         "usage": "+invite",
@@ -74,6 +76,10 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Gives you a random tip regarding the server."
     },
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }

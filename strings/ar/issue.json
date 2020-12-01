@@ -3,6 +3,6 @@
     "bugT": "عرض و اضافة المشاكل",
     "bugD": "لعرض و عمل اقتراح او ابلاغ عن مشكلة, الرجاء [الضغط هنا]%%github%%.",
     "urgentT": "هل هو طارئ؟",
-    "urgentD": "اذا كنت تحاول ان تبلغنا عن خطأ فادح او ان البوت مطفأ لوقت طويل بدون ان يلاحظ احد, رجاءا قم بمنشن %%QkeleQ10%% في روم عامة, موضحا المشكلة.",
+    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention a staff member in a public channel, explaining the issue.",
     "executedBy": "نفذ من قبل %%user%%"
 }

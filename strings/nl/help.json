@@ -1,16 +1,18 @@
 {
     "moduleName": "Informatie",
-    "page1Title": "Help page",
-    "commandsListTooltip": "Deze bot is gemaakt voor de Hypixel-vertalersgemeenschap door %%QkeleQ10%%. Het is open-source en onze GitHub-repository kan [hier]%%github%% worden gevonden.\nJe kunt de bot helpen te vertalen door de instructies in [dit bericht]%%translate%% te volgen.\n\nJe kunt `+help <commandonaam> ` uitvoeren om meer te weten te komen over een bepaald commando.\nHier is een lijst van alle commando's:\n ",
+    "page1Title": "Hulppagina",
+    "commandsListTooltip": "Deze bot is gemaakt voor de Hypixel-vertalersgemeenschap door %%QkeleQ10%%. Het is open-source en onze GitHub-repository kan [hier]%%github%% worden gevonden.\nJe kunt de bot helpen te vertalen door de instructies in [dit bericht]%%translate%% te volgen.\n\nJe kunt `+help <commandonaam> ` uitvoeren om meer te lezen over een bepaald commando.\nHieronder staat een lijst met pagina's. Gebruik de reacties op dit bericht om te navigeren.",
     "madeBy": "Bot met veel zorg gemaakt door %%QkeleQ10%%",
     "page": "Pagina %%number%%/%%total%%",
     "pageNumber": "Pagina %%number%%",
     "utilityHelp": "%%badge%% Tools",
     "infoHelp": "%%badge%% Informatieve commando's",
     "timeOut": "Dit menu is verlopen. Als je het opnieuw wilt gebruiken, doe `+help`.",
+    "pageNotExist": "Die pagina bestaat niet!",
     "commandInfo": "Commando-informatie",
     "commandInfoFor": "Commando-informatie voor ",
     "commandNotExist": "Dat commando bestaat niet!",
+    "noDesc": "Dit commando is in ontwikkeling of alleen beschikbaar voor staff.\nNeem contact op met staff als je denkt dat dit een fout is.",
     "seconds": "seconden",
     "usageField": "Gebruik",
     "cooldownField": "Afkoeltijd",
@@ -33,7 +35,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <argumenten>",
-        "description": "Geeft context voor het gegeven string-ID, voegt het toe of bewerkt het. `+context help` geeft je informatie over dit commando. `+context link` geeft je een link om toegang tot de spreadsheet aan te vragen."
+        "description": "Geeft context voor het gegeven string-ID, voegt het toe of bewerkt het. `+context help` geeft je informatie over dit commando. `+context link` geeft je de link om toegang tot de spreadsheet aan te vragen."
     },
     "issue": {
         "usage": "+issue",
@@ -45,7 +47,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Laat de vertraging van de bot en de Discord API zien"
+        "description": "Laat de vertraging van de bot en de Discord API zien."
     },
     "invite": {
         "usage": "+invite",
@@ -74,6 +76,10 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Geeft je de link naar de officiële Hypixel-vertaalcommunity-Twitterpagina."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Geeft je een willekeurige servertip."
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }

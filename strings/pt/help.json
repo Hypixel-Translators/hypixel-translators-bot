@@ -1,16 +1,18 @@
 {
     "moduleName": "Informação",
-    "page1Title": "Help page",
-    "commandsListTooltip": "Este bot foi feito para a Comunidade de Tradutores do Hypixel por %%QkeleQ10%%. É de código aberto e o repositório do GitHub pode ser encontrado [aqui]%%github%%.\nPodes ajudar a traduzir o bot seguindo as instruções [nesta mensagem]%%translate%%.\n\nPodes fazer `+help <nome do comando>` para saberes mais sobre um comando específico.\nAqui tens uma lista com todos os comandos:\n ",
+    "page1Title": "Página de ajuda",
+    "commandsListTooltip": "Este bot foi feito para a Comunidade de Tradutores do Hypixel por %%QkeleQ10%%. É de código aberto e o repositório do GitHub pode ser encontrado [aqui]%%github%%.\nPodes ajudar a traduzir o bot seguindo as instruções [nesta mensagem]%%translate%%.\n\nPodes fazer `+help <nome do comando>` para saberes mais sobre um comando específico.\nAqui podes encontrar as páginas disponíveis neste momento. Usa as reações desta mensagem para veres cada uma.",
     "madeBy": "Bot desenvolvido por %%QkeleQ10%%",
     "page": "Página %%number%%/%%total%%",
     "pageNumber": "Página %%number%%",
     "utilityHelp": "%%badge%% Ferramentas e utilidades",
     "infoHelp": "%%badge%% Comandos de informação",
-    "timeOut": "Este menu foi desativado. Se o quiseres usar outra vez, fez `+help`.",
+    "timeOut": "Este menu foi desativado. Se o quiseres usar outra vez, faz `+help`.",
+    "pageNotExist": "Essa página não existe!",
     "commandInfo": "Informação do comando",
     "commandInfoFor": "Informação para o comando ",
     "commandNotExist": "Esse comando não existe!",
+    "noDesc": "Este comando está em desenvolvimento ou só está disponível para staff.\nEntra em contacto com um membro da staff se achas que isto é um erro.",
     "seconds": "segundos",
     "usageField": "Uso",
     "cooldownField": "Tempo de espera",
@@ -45,15 +47,15 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Dá-te o ping do bot bem como o ping da API do Discord"
+        "description": "Dá-te o ping do bot bem como o ping da API do Discord."
     },
     "invite": {
         "usage": "+invite",
-        "description": "Dá-te um link de convite para o servidor. Usa-o sempre que quiseres convidar alguém."
+        "description": "Dá-te o link de convite para o servidor. Usa-o sempre que quiseres convidar alguém."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Dá-te um link para o artigo oficial sobre as traduções no Hypixel."
+        "description": "Dá-te o link para o artigo oficial sobre as traduções no Hypixel."
     },
     "hypixel": {
         "usage": "+hypixel",
@@ -69,11 +71,15 @@
     },
     "thread": {
         "usage": "+thread",
-        "description": "Dá-te um link para o artigo onde foi anunciado este servidor de discord."
+        "description": "Dá-te o link para o artigo onde foi anunciado este servidor de discord."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Dá-te um link para a página oficial da comunidade de tradutores do Hypixel no twitter."
+        "description": "Dá-te o link para a página oficial da comunidade de tradutores do Hypixel no twitter."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Dá-te uma dica aleatória sobre o servidor."
     },
     "executedBy": "Executado por %%user%%"
 }

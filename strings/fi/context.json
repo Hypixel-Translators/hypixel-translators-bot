@@ -65,8 +65,9 @@
         "help": "_Näyttää tämän viestin!_\n`+context help`",
         "fields": "Kentät",
         "sheetT": "Kontekstitaulukko",
-        "sheetD": "[Klikkaa tästä avataksesi Google Sheetsin, josta löytyvät kaikki kontekstit.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nVain tietyt henkilöt voivat avata tämän taulukkoasiakirjan. Voit pyytää pääsyä linkin takaa löytyvältä sivulta. Syötäthän Crowdin-profiilisi linkin (`.../profile/<käyttäjänimi>`) sekä Discord-käyttäjänimesi. Huomaathan, että Stannya, Rodry ja QkeleQ10 voivat nähdä Google-käyttäjänimesi ja sähköpostisi.",
-        "sheetDel": " | Viesti poistetaan 1 minuutin kuluttua"
+        "sheetD": "Vain tietyt henkilöt voivat avata tämän taulukkoasiakirjan. Voit pyytää pääsyä linkin takaa löytyvältä sivulta. Syötäthän Crowdin-profiilisi linkin (`.../profile/<käyttäjänimi>`) sekä Discord-käyttäjänimesi. Huomaathan, että Stannya ja Rodry voivat nähdä Google-käyttäjänimesi ja sähköpostisi.",
+        "sheetDButton": "Klikkaa tästä avataksesi kontekstitiedot sisältävän Google Sheets -dokumentin.",
+        "sheetDel": "Viesti poistetaan 1 minuutin kuluttua"
     },
     "executedBy": "Komennon suoritti %%user%%"
 }

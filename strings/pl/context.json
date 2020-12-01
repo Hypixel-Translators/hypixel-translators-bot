@@ -61,12 +61,13 @@
         "get": "_Pobiera kontekst dla danego ciągu_\n`+context get <identyfikator ciągu>`\n\nZastąp <identyfikator ciągu> identyfikatorem ciągu, który możesz uzyskać kopiując adres URL ciągu. Jest to numer następujący po #.",
         "add": "_Dodaje wpis kontekstu_\n`+context add <ID ciągu> <kontekst>`\n\nZastąp <ID ciągu> identyfikatorem ciągu, znajdziesz go poprzez skopiowanie adresu URL ciągu. Jest to numer po #. Zastąp <kontekst> tekstem, który chcesz dodać. Po użyciu, możesz dodać więcej pól za pomocą reakcji.",
         "edit": "_Edytuje wpis kontekstu_\n`+context edit <ID ciągu> <pole> <nowa wartość>`\n\n\nZastąp <ID ciągu> identyfikatorem ciągu, znajdziesz go poprzez skopiowanie adresu URL ciągu. Jest to numer po #. Zastąp <pole> polem, które chcesz edytować, takim jak: `screenshot` or `enpt`. Zastąp <nową wartość> nową wartością dla tego pola.",
-        "link": "_Daje ci odnośnik do arkusza Google zawierającego kontekst_ `+context link`",
+        "link": "_Gives you the link to the Google Sheet containing context_\n`+context link`",
         "help": "_Pokazuje tę wiadomość!_\n`+context help`",
         "fields": "Pola",
         "sheetT": "Arkusz kontekstowy",
-        "sheetD": "[Kliknij tutaj, aby otworzyć Google Sheet zawierający kontekst informacji.](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nTylko konkretne osoby mogą otworzyć ten arkusz. Możesz poprosić o dostęp poprzez podany link. Proszę wypełnić go podając link do swojego profilu Crowdin (`.../profile/<nick>`) i dodając swój pseudonim Discord.\nPamiętaj, że Stannya, Rodry i QkeleQ10 mogą zobaczyć nazwę oraz adres e-mail twojego profilu Google.",
-        "sheetDel": " | Wiadomość zostanie usunięta po minucie"
+        "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
+        "sheetDButton": "Click here to open the Google Sheet containing context information.",
+        "sheetDel": "Deleting message in 1 minute"
     },
     "executedBy": "Wykonano przez %%user%%"
 }

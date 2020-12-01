@@ -3,6 +3,6 @@
     "bugT": "Przeglądanie i dodawanie problemów",
     "bugD": "Aby wyświetlać i zgłaszać sugestie lub błędy, proszę [kliknij tutaj]%%github%%.",
     "urgentT": "Czy jest to pilne?",
-    "urgentD": "Jeżeli próbujesz zgłosić błąd krytyczny lub bot jest wyłączony przez długi czas bez powiadomienia, proszę oznaczyć %%QkeleQ10%% na publicznym kanale, wyjaśniając problem.",
+    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention a staff member in a public channel, explaining the issue.",
     "executedBy": "Wykonano przez %%user%%"
 }

@@ -61,12 +61,13 @@
         "get": "_Zobrazí kontext pro daný string_\n`+context get <ID stringu>`\n\nNahraď <ID stringu> s ID stringu, které nalezneš kopírováním URL stringu. Je to to číslo po #.",
         "add": "_Přidá kontextový záznam_\n`+context add <ID stringu> <kontext>`\n\nNahraď <ID stringu> ID stringu, které nalezneš kopírováním URL stringu. To je to číslo za #. Nahraď <kontext> textem, který chceš přidat. Po spuštění můžeš přidat další pole pomocí reakcí.",
         "edit": "_Upraví existující kontextový záznam_\n`+context edit <ID stringu> <pole> <nová hodnota>`\n\nNahraď <ID stringu> ID stringu, který nalezneš kopírováním URL stringu. To je to číslo za #. Nahraď <pole> polem, které chceš upravit, jako například `screenshot` nebo `enpt`. Nahraď <nová hodnota> novou hodnotou pro toto pole.",
-        "link": "_Gives you a link to the Google Sheet containing context_\n`+context link`",
+        "link": "_Gives you the link to the Google Sheet containing context_\n`+context link`",
         "help": "_Zobrazí tuto zprávu!_\n`+context help`",
         "fields": "Pole",
         "sheetT": "Tabulka kontextů",
-        "sheetD": "[Klikni sem pro otevření Google Tabulky, která obsahuje informaci o kontextech.] (https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\nTuto tabulku mohou otevírat jen určití lidé. O přístup můžeš zažádat na stránce, kterou vidíš, když klikneš na odkaz. Prosím napiš tam odkaz na svůj Crowdin profil (`.../profile/<jméno>`) a své Discord jméno.\nMěj na paměti, že Stannya, Rodry a QkeleQ10 můžou vidět jméno tvého Google profilu a email.",
-        "sheetDel": " | Deleting message in 1 minute"
+        "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
+        "sheetDButton": "Click here to open the Google Sheet containing context information.",
+        "sheetDel": "Deleting message in 1 minute"
     },
     "executedBy": "Provedeno uživatelem %%user%%"
 }
