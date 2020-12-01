@@ -12,7 +12,7 @@
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "That command doesn't exist!",
-    "noDesc": "This command is either in development or not accessible to you at the moment. Please contact a staff member if you believe this is an error.",
+    "noDesc": "This command is either in development or not accessible to you at the moment.\nPlease contact a staff member if you believe this is an error.",
     "seconds": "seconds",
     "usageField": "Usage",
     "cooldownField": "Cooldown",

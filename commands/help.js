@@ -105,8 +105,8 @@ module.exports = {
       }
 
       if (strings[command.name]) {
-        if (strings[command.name].description) let cmdDesc = strings[command.name]
-        if (strings[command.name].usage) let cmdUsage = strings[command.name]
+        if (strings[command.name].description) var cmdDesc = strings[command.name].description
+        if (strings[command.name].usage) var cmdUsage = strings[command.name].usage
       }
 
       const embed = new Discord.MessageEmbed()
@@ -114,22 +114,17 @@ module.exports = {
         .setAuthor(strings.moduleName)
         .setTitle(strings.commandInfoFor + "`+" + command.name + "`")
         .setDescription(cmdDesc || strings.noDesc)
-        .addFields(
-          {
-            name: strings.usageField,
-            value: "`" + (cmdUsage || "+" + command.name) + "`",
-            inline: true
-          }
-        )
         .setFooter(executedBy + " | " + madeBy)
-      if (command.cooldown) {
-        embed.addFields({ name: strings.cooldownField, value: command.cooldown + " " + strings.seconds, inline: true })
+      if (cmdUsage) {
+        embed.addFields( { name: strings.usageField, value: "`" + cmdUsage + "`", inline: true })
+        if (command.cooldown) {
+          embed.addFields({ name: strings.cooldownField, value: command.cooldown + " " + strings.seconds, inline: true })
+        }
+        if (command.aliases) {
+          embed.addFields({ name: strings.aliasesField, value: "`+" + command.aliases.join("`, `+") + "`", inline: true })
+        }
       }
-      if (command.aliases) {
-        embed.addFields({ name: strings.aliasesField, value: "`+" + command.aliases.join("`, +`") + "`", inline: true })
-      }
-      message.channel.send(embed)
-
+      message.channel.send(embed) 
     }
   }
 }
