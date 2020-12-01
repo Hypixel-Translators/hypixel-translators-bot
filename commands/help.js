@@ -16,8 +16,8 @@ module.exports = {
     //Define all pages
     const pages = [
       { "n": 0 },
-      { "n": 1, "f": ["help", "language", "prefix", "quote", "mention", "context", "issue", "ping"], "b": "🛠", "t": "utilityHelp" },
-      { "n": 2, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "thread", "twitter"], "b": "ℹ", "t": "infoHelp" }
+      { "n": 1, "f": ["help", "language", "prefix", "quote", "mention", "context", "tip", "ping"], "b": "🛠", "t": "utilityHelp" },
+      { "n": 2, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "thread", "twitter", "issue"], "b": "ℹ", "t": "infoHelp" }
     ]
 
     if (args[0] && args[0].startsWith(prefix)) args[0] = args[0].slice(1)
