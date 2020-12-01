@@ -12,6 +12,7 @@
     "commandInfo": "Komut bilgisi",
     "commandInfoFor": "Komut bilgisi: ",
     "commandNotExist": "Böyle bir komut yok!",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
     "seconds": "seconds",
     "usageField": "Kullanım",
     "cooldownField": "Bekleme Süresi",
