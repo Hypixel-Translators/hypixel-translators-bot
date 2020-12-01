@@ -12,6 +12,7 @@
     "commandInfo": "Kommandoinformasjon",
     "commandInfoFor": "Kommandoinformasjon for ",
     "commandNotExist": "Den kommandoen finnes ikke!",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
     "seconds": "seconds",
     "usageField": "Bruk",
     "cooldownField": "Nedkjøling",
