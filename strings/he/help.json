@@ -12,6 +12,7 @@
     "commandInfo": "מידע לגבי הפקודה",
     "commandInfoFor": "מידע לגבי הפקודה ",
     "commandNotExist": "הפקודה הזו לא קיימת!",
+    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
     "seconds": "seconds",
     "usageField": "שימוש",
     "cooldownField": "טעינה מחדש",
