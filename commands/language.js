@@ -69,9 +69,7 @@ module.exports = {
                             executedBy = await strings.executedBy.replace("%%user%%", message.author.tag)
                             newMsg = await element.content.split(" ")
                             console.log("Old new message: " + element.content)
-                            console.log("Old new message included author id: " + element.content.includes(message.author.id))
                             if (!element.content.includes(message.author.id)) { await newMsg.push(message.author.id) }
-                            console.log("New new message includes author id: " + newMsg.includes(message.author.id))
                             console.log("New new message: " + newMsg)
                             await element.delete()
                             await message.client.channels.cache.get("782635440054206504").send(newMsg.join(" ")) //language-database
