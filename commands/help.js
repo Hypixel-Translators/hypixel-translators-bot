@@ -13,7 +13,7 @@ module.exports = {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
 
-    if (args[0].includes(prefix)) args[0] = args[0].slice(1)
+    if (args[0].startsWith(prefix)) args[0] = args[0].slice(1)
     if (!args[0] || !isNaN(args[0])) {
 
       if (args[0] > 3 || args[0] < 1) {
