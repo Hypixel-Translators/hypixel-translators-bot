@@ -61,13 +61,13 @@
         "get": "_Haalt context voor de gegeven string op_\n`+context get <string-ID>`\n\nVervang <string-ID> met het ID van de string, die je kunt vinden door de string-URL te kopiëren. Het is het getal na de #.",
         "add": "_Voegt een contextvermelding toe_\n`+context add <string-ID> <context>`\n\nVervang <string-ID> met het ID van de string, die je kunt vinden door de string-URL te kopiëren. Het is het getal na de #. Vervang <context> met de tekst die je wilt toevoegen. Na het uitvoeren kun je nog meer velden toevoegen met de reacties.",
         "edit": "_Bewerkt een bestaande contextvermelding_\n`+context edit <string-ID> <veld> <nieuwe waarde>`\n\nVervang <string-ID> met het ID van de string, die je kunt vinden door de string-URL te kopiëren. Het is het getal na de #. Vervang <veld> met het veld dat je wilt aanpassen, zoals `screenshot` of `nl`. Vervang <nieuwe waarde> met de nieuwe waarde voor dat veld.",
-        "link": "_Gives you the link to the Google Sheet containing context_\n`+context link`",
+        "link": "_Geeft je de link naar de Google Sheet met context_\n`+context link`",
         "help": "_Geeft deze informatie weer!_\n`+context help`",
         "fields": "Velden",
         "sheetT": "Contextsheet",
-        "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
-        "sheetDButton": "Click here to open the Google Sheet containing context information.",
-        "sheetDel": "Deleting message in 1 minute"
+        "sheetD": "Alleen specifieke personen kunnen deze Sheet openen. Je kunt toegang aanvragen op de pagina die je ziet als je de link volgt. Voer daar je Crowdin-profiellink (`.../profile/<gebruikersnaam>`) en je Discord-gebruikersnaam in.\nLet wel dat Stannya en Rodry je Google-profielnaam en -e-mail kunnen zien.",
+        "sheetDButton": "Klik hier om de Google Sheet met contextinformatie te openen.",
+        "sheetDel": "Bericht wordt verwijderd in 1 minuut"
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }
