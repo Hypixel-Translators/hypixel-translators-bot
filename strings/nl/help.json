@@ -79,7 +79,7 @@
     },
     "tip": {
         "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
+        "description": "Geeft je een willekeurige servertip."
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }
