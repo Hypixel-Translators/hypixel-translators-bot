@@ -7,7 +7,7 @@ module.exports = {
   aliases: ["commands", "cmds", "info", "botinfo"],
   usage: "+help [page | command name]",
   cooldown: 60,
-  channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
+  channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
   allowDM: true,
   async execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
@@ -63,14 +63,14 @@ module.exports = {
 
         collector.on('collect', async (reaction, user) => {
           if (reaction.emoji.name === "⏮") page = 0 //First
-          if (reaction.emoji.name === "⏭") page = 2 //Last
+          if (reaction.emoji.name === "⏭") page = pages.length - 1 //Last
           if (reaction.emoji.name === "◀") { //Previous
             page--
             if (page < 0) page = 0
           }
           if (reaction.emoji.name === "▶") { //Next
             page++
-            if (page > 2) page = 2
+            if (page > pages.length - 1) page = pages.length - 1
           }
           reaction.users.remove(message.author.id)
           pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
@@ -130,7 +130,7 @@ module.exports = {
 }
 
 async function fetchPage(page, pages, strings, executedBy, pageEmbed) {
-  if (page > 2) page = 2
+  if (page > pages.length - 1) page = pages.length - 1
   if (page < 0) page = 0
 
   if (pages[page]) {
