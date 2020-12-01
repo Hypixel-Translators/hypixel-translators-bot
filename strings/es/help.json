@@ -77,5 +77,9 @@
         "usage": "+twitter",
         "description": "Te da un enlace a la página oficial de Twitter de la cuenta de Hypixel Translators Community."
     },
+    "tip": {
+        "usage": "+tip",
+        "description": "Gives you a random tip regarding the server."
+    },
     "executedBy": "Ejecutado por %%user%%"
 }
