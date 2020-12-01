@@ -3,6 +3,7 @@ const fs = require("fs")
 const fetch = require("node-fetch")
 const Discord = require("discord.js")
 const client = new Discord.Client()
+require ('dotenv').config()
 
 //Import data, assets and commands
 const { prefix, loadingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json")

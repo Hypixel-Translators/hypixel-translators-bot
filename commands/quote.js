@@ -6,7 +6,6 @@ const creds = { "type": process.env.type, "project_id": process.env.project_id, 
 module.exports = {
     name: "quote",
     description: "Gets (or adds) a funny/weird/wise quote from the server.",
-    aliases: [],
     usage: "+quote [index] | quote add <quote> / <user mention>",
     cooldown: 5,
     allowDM: true,
