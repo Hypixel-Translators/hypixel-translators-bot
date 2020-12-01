@@ -24,7 +24,7 @@ module.exports = {
       console.log(inspect(evaled))
     } catch (error) {
       console.error(error)
-      message.channel.send('Something went wrong. Details can be found in the console.')
+      message.channel.send(strings.error)
     }
   }
 }

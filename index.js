@@ -90,7 +90,7 @@ client.on("message", async message => {
     globalStrings = require(("./strings/" + oldMsg[0] + "/global.json"))
     helpStrings = require(("./strings/" + oldMsg[0] + "/help.json"))
   })
-  var executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
+  const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
   //+tip command
   if (message.content === "+tip") {

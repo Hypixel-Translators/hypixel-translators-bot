@@ -1,5 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
-const { prefix } = require("../config.json");
+const { loadingColor, errorColor, successColor, neutralColor, prefix } = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -14,7 +13,8 @@ module.exports = {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
 
-    if (!args[0] || args[0].length == 1) {
+    if (args[0] && args[0].startsWith(prefix)) args[0] = args[0].slice(1)
+    if (!args[0] || !isNaN(args[0])) {
 
       if (args[0] > 3 || args[0] < 1) {
         const embed = new Discord.MessageEmbed()
@@ -133,7 +133,7 @@ module.exports = {
   }
 }
 
-async function fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed) {
+async function fetchPage(page, pages, strings, executedBy, pageEmbed) {
   if (page > 2) page = 2
   if (page < 0) page = 0
 
