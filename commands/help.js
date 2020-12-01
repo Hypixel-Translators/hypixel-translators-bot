@@ -104,19 +104,20 @@ module.exports = {
         return message.channel.send(embed)
       }
 
-      let cmd
-      if (strings[command.name]) cmd = strings[command.name]
-      else cmd = command
+      if (strings[command.name]) {
+        if (strings[command.name].description) let cmdDesc = strings[command.name]
+        if (strings[command.name].usage) let cmdUsage = strings[command.name]
+      }
 
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.commandInfoFor + "`+" + command.name + "`")
-        .setDescription(cmd.description || "No description")
+        .setDescription(cmdDesc || strings.noDesc)
         .addFields(
           {
             name: strings.usageField,
-            value: "`" + (cmd.usage || "+" + command.name || "No usage") + "`",
+            value: "`" + (cmdUsage || "+" + command.name) + "`",
             inline: true
           }
         )
