@@ -22,13 +22,13 @@
     "tip": "Tip",
     "tips": {
         "0": "Heb je de Inhale Banana-taal geprobeerd? Verander je taal ernaar met `+lang ib`!",
-        "1": "Ik heb vertalers nodig! Ontdek [hier]%%translate%% hoe je botvertaler wordt.",
+        "1": "I need translators! Find out how to become a bot translator at %%translate%%.",
         "2": "Heb je Emojitaal geprobeerd? Verander je taal ernaar met `+lang em`!",
         "3": "Verander je links naar en-en!",
         "4": "Wanneer je chat krijg je elke minuut een willekeurige hoeveelheid XP, waarmee je uiteindelijk meer levels krijgt.",
         "5": "We hebben meer tips nodig! Stuur ze door met `+feedback`.",
         "6": "Wist je dat we een gids hebben die uitlegt hoe je aan de slag gaat met Crowdin? Hij is beschikbaar voor vertalers in %%gettingStarted%%, het is best nuttig!",
-        "7": "Volg je ons al op Twitter? [Neem een kijkje]%%twitter%%!",
+        "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
         "8": "%%rules%% en %%serverInfo%% bevatten alle benodigde informatie over deze server!",
         "9": "Fout in een vertaling gevonden? Neem contact op met een proeflezer van je taal of laat het weten in een vertalingskanaal.",
         "10": "Wist je dat de meeste kanalen belangrijke info hebben in vastgezette berichten? Lees het eens als je een kanaal gebruikt!"
