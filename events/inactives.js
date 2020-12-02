@@ -23,14 +23,14 @@ async function check(client) {
         await client.guilds.cache.get("549503328472530974").members.fetch(member.user.id) //fetch the member
         if (member.joinedTimestamp <= alert) {
             member.send("Hey there!\nWe noticed you haven't verified yourself on our server. Are you having any trouble? Please message Rodry or Stannya or just ask any questions in the verify channel! Otherwise, please send your profile link like shown in the channel.\n\nThis message was sent to you because you have been on our server for too long, and you're in risk of getting kicked for inactivity soon.\nPlease do not reply to this bot.")
-                .catch(err => {
-                    client.channels.cache.get("730042612647723058").send("Tried to send an alert to **<@" + member.id + ">** as they've been stood in the server for 7 days without verifying, but they had private messages disabled from this server.")
-                    console.error(err)
-                })
-                .then(() => {
-                    client.channels.cache.get("730042612647723058").send("Sent an alert to **<@" + member.id + ">** as they've been stood in the server for 7 days without verifying.")
-                })
-            console.log(member.user.tag + " was alerted")
+            .then(() => {
+                client.channels.cache.get("730042612647723058").send("Sent an alert to **<@" + member.id + ">** as they've been stood in the server for 7 days without verifying.")
+                console.log(member.user.tag + " was alerted")
+            })
+            .catch(err => {
+                client.channels.cache.get("730042612647723058").send("Tried to send an alert to **<@" + member.id + ">** as they've been stood in the server for 7 days without verifying, but they had private messages disabled from this server.")
+                console.error("Tried to alert " + member.user.tag + " but they had DMs disabled.")
+            })
         } else { console.log(member.user.tag + " wasn't alerted nor kicked") }
     })
 }
