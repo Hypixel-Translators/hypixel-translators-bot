@@ -9,7 +9,7 @@ module.exports = {
     aliases: ["statistics", "progress"],
     allowDM: true,
     async execute(strings, message, args) {
-        if (!message.member.hasPermission("VIEW_AUDIT_LOG")) throw noAccess;
+        if (!message.member.hasPermission("ADMINISTRATOR")) throw noAccess;
         const embed = new Discord.MessageEmbed()
             .setColor(loadingColor)
             .setAuthor(strings.moduleName)
