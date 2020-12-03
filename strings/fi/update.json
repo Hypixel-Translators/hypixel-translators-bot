@@ -3,5 +3,6 @@
     "success": "%%channel%%kanava päivitetty!",
     "infoChannel": "Info",
     "verifyChannel": "Vahvistus",
+    "successAll": "All channels have been updated!",
     "executedBy": "Komennon suoritti %%user%%"
 }
