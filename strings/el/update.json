@@ -3,5 +3,6 @@
     "success": "Updated the %%channel%% channel!",
     "infoChannel": "πληροφορίες",
     "verifyChannel": "verification",
+    "successAll": "All channels have been updated!",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
