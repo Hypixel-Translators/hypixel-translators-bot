@@ -3,5 +3,6 @@
     "success": "Updatdt %%channel%% chanel!",
     "infoChannel": "informtonne",
     "verifyChannel": "verfaton",
+    "successAll": "All channels have been updated!",
     "executedBy": "Done by le %%user%%"
 }
