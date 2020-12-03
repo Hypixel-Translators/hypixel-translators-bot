@@ -11,20 +11,27 @@ module.exports = {
 
         if (args[0] === "info") {
             info(message)
-            const successChannel = strings.success.replace("%%channel%%", strings.infoChannel)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor(strings.moduleName)
-                .setTitle(successChannel)
+                .setTitle(strings.success.replace("%%channel%%", strings.infoChannel))
                 .setFooter(executedBy)
             message.channel.send(successEmbed)
         } else if (args[0] === "verify") {
             verify(message)
-            const successChannel = strings.success.replace("%%channel%%", strings.verifyChannel)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor(strings.moduleName)
-                .setTitle(successChannel)
+                .setTitle(strings.success.replace("%%channel%%", strings.verifyChannel))
+                .setFooter(executedBy)
+            message.channel.send(successEmbed)
+        } else if (args[0] === "all" || !args[0]) {
+            info(message)
+            verify(message)
+            const successEmbed = new Discord.MessageEmbed()
+                .setColor(successColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.successAll)
                 .setFooter(executedBy)
             message.channel.send(successEmbed)
         } else throw "noChannel"
@@ -44,7 +51,7 @@ function info(message) {
                 { name: "**Language-specific channels 🎏**", value: "We offer channels where translators and proofreaders (of the Hypixel and Quickplay projects) for specific languages can interact with one another! You can speak English here, but we encourage you to speak the language you're translating. Please keep in mind these channels are not actively moderated. In case anything happens, please get in touch with an administrator." })
         message.edit("", channelsEmbed)
     })
-    client.channels.cache.get("762341271611506708").messages.fetch("783125631823118357").then(message => { //server-info and roles message
+    message.client.channels.cache.get("762341271611506708").messages.fetch("783125631823118357").then(message => { //server-info and roles message
         const rolesEmbed = new Discord.MessageEmbed()
             .setColor("#0055ff")
             .setTitle("Roles")
@@ -65,7 +72,7 @@ function info(message) {
             )
         message.edit("", rolesEmbed)
     })
-    client.channels.cache.get("762341271611506708").messages.fetch("783125633101987930").then(message => { //server-info and bots message
+    message.client.channels.cache.get("762341271611506708").messages.fetch("783125633101987930").then(message => { //server-info and bots message
         const botsEmbed = new Discord.MessageEmbed()
             .setColor("#0077ff")
             .setTitle("Bots")
