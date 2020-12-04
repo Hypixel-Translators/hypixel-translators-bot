@@ -3,5 +3,6 @@
     "success": "Kanaal voor %%channel%% geüpdatet!",
     "infoChannel": "informatie",
     "verifyChannel": "verificatie",
+    "successAll": "Alle kanalen zijn bijgewerkt!",
     "executedBy": "Uitgevoerd door %%user%%"
 }

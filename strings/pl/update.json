@@ -3,5 +3,6 @@
     "success": "Zaktualizowano kanał %%channel%%!",
     "infoChannel": "informacja",
     "verifyChannel": "weryfikacja",
+    "successAll": "Wszystkie kanały zostały zaktualizowane!",
     "executedBy": "Wykonano przez %%user%%"
 }

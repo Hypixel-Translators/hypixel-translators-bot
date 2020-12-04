@@ -1,7 +1,7 @@
 {
     "moduleName": "Tietoa",
     "page1Title": "Apusivu",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
+    "commandsListTooltip": "Tämän botin on tehnyt Hypixelin kääntäjien yhteisölle %%QkeleQ10%%. Sen avoin lähdekoodi on saatavilla GitHubista [täältä]%%github%%. Voit auttaa kääntämään bottia seuraamalla ohjeita, jotka löytyvät [tämän linkin]%%translate%% takaa.\n\nVoit suorittaa komennon `+help <komennon nimi>` saadaksesi tietää lisää valitusta komennosta.\nAlta löydät listan kaikista saatavilla olevista sivuista. Käytä viestin reaktioita siirtyäksesi sivulta toiselle.",
     "madeBy": "| Botin on huolellisesti kasannut %%QkeleQ10%%",
     "page": "Sivu %%number%%/%%total%%",
     "pageNumber": "Sivu %%number%%",
@@ -12,7 +12,7 @@
     "commandInfo": "Komennon tiedot",
     "commandInfoFor": "Tiedot komennolle ",
     "commandNotExist": "Tätä komentoa ei ole olemassa!",
-    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
+    "noDesc": "Tämä komento on joko vasta kehitteillä tai saatavilla vain ylläpidon jäsenille.\nOtathan yhteyttä ylläpitoon, mikäli uskot tämän olevan virhe.",
     "seconds": "sekuntia",
     "usageField": "Käyttö",
     "cooldownField": "Odotusaika",
@@ -79,7 +79,7 @@
     },
     "tip": {
         "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
+        "description": "Antaa satunnaisen palvelinta koskevan vinkin."
     },
     "executedBy": "Komennon suoritti %%user%%"
 }

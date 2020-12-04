@@ -3,5 +3,6 @@
     "success": "%%channel%% csatorna frissítve lett!",
     "infoChannel": "Az információs",
     "verifyChannel": "A hitelesítő",
+    "successAll": "Az összes csatorna frissítve lett!",
     "executedBy": "Executed by %%user%%"
 }

@@ -3,5 +3,6 @@
     "success": "%%channel%% kanalı güncellendi!",
     "infoChannel": "bilgi",
     "verifyChannel": "doğrulama",
+    "successAll": "All channels have been updated!",
     "executedBy": "%%user%% tarafından yürütüldü"
 }

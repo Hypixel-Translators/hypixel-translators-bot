@@ -18,7 +18,7 @@
     "cooldownField": "Czas odnawiania",
     "aliasesField": "Aliasy",
     "help": {
-        "usage": "+help [page | command name]",
+        "usage": "+help [strona | nazwa polecenia]",
         "description": "Pokazuje wszystkie dostępne polecenia i inne informacje o bocie."
     },
     "prefix": {
