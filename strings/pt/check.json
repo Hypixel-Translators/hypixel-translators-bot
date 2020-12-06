@@ -9,7 +9,6 @@
     "ucreated": "Conta criada a",
     "dateLocale": "pt-PT",
     "timeZone": "Europe/Lisbon",
-    "specific": "Permissão %%perm%%",
     "perms": {
         "ADMINISTRATOR": "Administrador",
         "VIEW_AUDIT_LOG": "Ver o registo de atividade",
