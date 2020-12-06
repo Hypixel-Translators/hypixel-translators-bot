@@ -1,6 +1,5 @@
 {
     "moduleName": "Bulk Send",
     "success": "Success! Messages sent.",
-    "generalError": "Algo deu errado.",
     "executedBy": "Executado por %%user%%"
 }
