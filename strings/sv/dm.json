@@ -1,8 +1,5 @@
 {
     "outgoing": "Sent message to %%recipient%%",
-    "outgoingLoad": "Skickar meddelande till användaren",
-    "loading": "En sekund...",
-    "generalError": "Något gick fel.",
     "incoming": "Received message from staff",
     "incomingDisclaimer": "Any message you send here will get sent to staff.",
     "executedBy": "Executed by %%user%%"
