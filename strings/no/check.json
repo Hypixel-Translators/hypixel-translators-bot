@@ -9,7 +9,6 @@
     "ucreated": "Konto opprettet",
     "dateLocale": "no-NO",
     "timeZone": "Europa/London",
-    "specific": "%%perm%% tillatelse",
     "perms": {
         "ADMINISTRATOR": "Administrator",
         "VIEW_AUDIT_LOG": "Se revisjonslogg",
