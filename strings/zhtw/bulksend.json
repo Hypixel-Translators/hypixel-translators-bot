@@ -1,6 +1,5 @@
 {
     "moduleName": "Bulk Send",
     "success": "Success! Messages sent.",
-    "generalError": "Something has gone wrong.",
     "executedBy": "由 %%user%% 執行"
 }
