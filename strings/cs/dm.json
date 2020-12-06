@@ -1,8 +1,5 @@
 {
     "outgoing": "Odeslal jsi zprávu uživateli %%recipient%%",
-    "outgoingLoad": "Odesílá se zpráva uživateli",
-    "loading": "Dej mi sekundu...",
-    "generalError": "Něco se pokazilo.",
     "incoming": "Přišla ti zpráva od adminů",
     "incomingDisclaimer": "Jakákoli zpráva, kterou sem pošleš, bude odeslána adminům.",
     "executedBy": "Provedeno uživatelem %%user%%"
