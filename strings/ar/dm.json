@@ -1,8 +1,5 @@
 {
     "outgoing": "تم ارسال رسالة الى %%recipient%%",
-    "outgoingLoad": "يتم ارسال رسالة الى المستخدم",
-    "loading": "ثانية واحدة...",
-    "generalError": "لقد حدث خطأ ما.",
     "incoming": "تلقيت رسالة من الإدارة",
     "incomingDisclaimer": "سيتم إرسال أي رسالة ترسلها هنا إلى موظفين السيرفر.",
     "executedBy": "نفذ من قبل %%user%%"
