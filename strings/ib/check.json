@@ -9,7 +9,6 @@
     "ucreated": "Acont creatt at",
     "dateLocale": "en-GB",
     "timeZone": "Europe/London",
-    "specific": "%%perm%% permson",
     "perms": {
         "ADMINISTRATOR": "Admon",
         "VIEW_AUDIT_LOG": "Auditlgo view",
