@@ -9,7 +9,6 @@
     "ucreated": "Account created at",
     "dateLocale": "hu-HU",
     "timeZone": "Europe/London",
-    "specific": "%%perm%% permission",
     "perms": {
         "ADMINISTRATOR": "Administrator",
         "VIEW_AUDIT_LOG": "View Audit Log",
