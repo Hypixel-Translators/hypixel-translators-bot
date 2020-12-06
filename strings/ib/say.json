@@ -1,7 +1,5 @@
 {
     "moduleName": "Bericht sturen",
-    "loading": "Wait, idot...",
     "success": "Kukes! Mesgag sended.",
-    "invalidArg": "Not gud argarment!",
     "executedBy": "Done by le %%user%%"
 }
