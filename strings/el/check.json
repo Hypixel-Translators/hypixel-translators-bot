@@ -1,8 +1,5 @@
 {
     "moduleName": "User information",
-    "loading": "Ένα δευτερόλεπτο...",
-    "bot": "Bot",
-    "list": "List of permissions",
     "uperms": "Permissions",
     "uroles": "Ρόλοι",
     "ujoined": "Joined at",
