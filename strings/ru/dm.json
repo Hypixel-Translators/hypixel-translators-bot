@@ -1,8 +1,5 @@
 {
     "outgoing": "Sent message to %%recipient%%",
-    "outgoingLoad": "Sending message to user",
-    "loading": "Секундочку...",
-    "generalError": "Что-то пошло не так.",
     "incoming": "Received message from staff",
     "incomingDisclaimer": "Любое сообщение, которое Вы тут напишите, будет отправлено персоналу.",
     "executedBy": "Выполнено %%user%%"
