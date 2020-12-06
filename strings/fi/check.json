@@ -1,8 +1,5 @@
 {
     "moduleName": "Käyttäjän tiedot",
-    "loading": "Odota sekunti...",
-    "bot": "Botti",
-    "list": "Luettelo oikeuksista",
     "uperms": "Oikeudet",
     "uroles": "Roolit",
     "ujoined": "Liittyi palvelimelle",
