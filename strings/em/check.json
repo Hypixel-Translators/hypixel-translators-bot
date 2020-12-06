@@ -1,8 +1,5 @@
 {
     "moduleName": "User information",
-    "loading": "⏱...",
-    "bot": "Bot",
-    "list": "List of permissions",
     "uperms": "Permissions",
     "uroles": "Roles",
     "ujoined": "Joined at",
