@@ -1,5 +1,5 @@
 {
-    "moduleName": "Channel updater",
+    "moduleName": "Kanaluppdaterare",
     "success": "Uppdaterade %%channel%%skanalen!",
     "infoChannel": "information",
     "verifyChannel": "verifiering",
