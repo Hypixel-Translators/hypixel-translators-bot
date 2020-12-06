@@ -7,7 +7,7 @@
     "noMessage": "You haven't provided a message!",
     "noChannel": "You haven't provided a channel!",
     "noUser": "You haven't provided a user!",
-    "noContext":"You haven't provided the context! Please add both the string ID and the context explaining it.",
+    "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
     "noUserQuote": "You haven't provided a user! Please type the quote and then mention the quoted user, separated by a slash.",
     "falseChannel": "That channel couldn't be found!",
     "falseUser": "That user couldn't be found!",
