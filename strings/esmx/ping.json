@@ -1,6 +1,6 @@
 {
-    "pong": "%%pingEmote%% ¡Pong!",
     "moduleName": "Latencia",
+    "pong": "%%pingEmote%% ¡Pong!",
     "message": "Mi ping es de %%ping%%ms.",
     "executedBy": "Ejecutado por %%user%%"
 }
