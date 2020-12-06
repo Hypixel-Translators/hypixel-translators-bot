@@ -9,7 +9,6 @@
     "ucreated": "Account created at",
     "dateLocale": "gr-GR",
     "timeZone": "Europe/Athens",
-    "specific": "%%perm%% άδεια",
     "perms": {
         "ADMINISTRATOR": "Διαχειριστής",
         "VIEW_AUDIT_LOG": "View Audit Log",
