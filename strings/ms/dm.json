@@ -1,8 +1,5 @@
 {
     "outgoing": "Sent message to %%recipient%%",
-    "outgoingLoad": "Sending message to user",
-    "loading": "One second...",
-    "generalError": "Something has gone wrong.",
     "incoming": "Received message from staff",
     "incomingDisclaimer": "Sebarang pesan yang anda hantar di sini akan dihantar kepada kakitangan.",
     "executedBy": "Executed by %%user%%"
