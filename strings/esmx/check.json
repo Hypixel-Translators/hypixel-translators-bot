@@ -9,7 +9,6 @@
     "ucreated": "Cuenta creada en",
     "dateLocale": "es-MX",
     "timeZone": "America/Mexico_City",
-    "specific": "Permiso de %%perm%%",
     "perms": {
         "ADMINISTRATOR": "Administrador",
         "VIEW_AUDIT_LOG": "Ver Registro de Auditoría",
