@@ -1,6 +1,8 @@
 {
     "moduleName": "Statistikk oppdaterer",
     "started": "Vennligst vent et minutt eller to for at alle statistikkene skal oppdatere...",
-    "done": "Alle statistikkene har blitt oppdatert!",
+    "done": "All language statistics have been updated!",
+    "doneProject": "The %%project%% language statistics have been updated!",
+    "errorNoProject": "Couldn't find the project with the name %%name%%.",
     "executedBy": "Utført av %%user%%"
 }
