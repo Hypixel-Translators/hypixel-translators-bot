@@ -1,6 +1,8 @@
 {
     "moduleName": "محدث الإحصائيات",
     "started": "الرجاء انتظار دقيقة او اثنتين حتى يتم تحديث جميع الإحصائيات...",
-    "done": "تم تحديث جميع الإحصائيات!",
+    "done": "All language statistics have been updated!",
+    "doneProject": "The %%project%% language statistics have been updated!",
+    "errorNoProject": "Couldn't find the project with the name %%name%%.",
     "executedBy": "نفذ من قبل %%user%%"
 }
