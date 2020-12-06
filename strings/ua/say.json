@@ -1,7 +1,5 @@
 {
     "moduleName": "Message",
-    "loading": "Секундочку...",
     "success": "Success! Message sent.",
-    "invalidArg": "Недійсний аргумент!",
     "executedBy": "Виконано користувачем %%user%%"
 }
