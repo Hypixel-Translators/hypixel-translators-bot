@@ -1,8 +1,5 @@
 {
     "moduleName": "Användarinformation",
-    "loading": "En sekund...",
-    "bot": "Chattrobot",
-    "list": "Lista över behörigheter",
     "uperms": "Behörigheter",
     "uroles": "Roller",
     "ujoined": "Gick med den",
