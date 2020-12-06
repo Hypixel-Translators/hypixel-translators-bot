@@ -1,7 +1,5 @@
 {
     "moduleName": "Meddelande",
-    "loading": "En sekund...",
     "success": "Sucess! Meddelande skickat.",
-    "invalidArg": "Ogiltigt argument!",
     "executedBy": "Executed by %%user%%"
 }
