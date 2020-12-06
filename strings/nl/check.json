@@ -9,7 +9,6 @@
     "ucreated": "Account aangemaakt op",
     "dateLocale": "nl-NL",
     "timeZone": "Europe/Amsterdam",
-    "specific": "%%perm%%-permissie",
     "perms": {
         "ADMINISTRATOR": "Administrator",
         "VIEW_AUDIT_LOG": "Audit-logboek weergeven",
