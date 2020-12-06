@@ -1,8 +1,5 @@
 {
     "outgoing": "Sent message to %%recipient%%",
-    "outgoingLoad": "Sending message to user",
-    "loading": "Eine Sekunde …",
-    "generalError": "Irgendetwas lief schief.",
     "incoming": "Received message from staff",
     "incomingDisclaimer": "Any message you send here will get sent to staff.",
     "executedBy": "Asg'fuat vo %%user%%"
