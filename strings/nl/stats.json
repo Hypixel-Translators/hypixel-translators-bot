@@ -1,6 +1,8 @@
 {
     "moduleName": "Statistiekupdater",
     "started": "Wacht een minuut of twee tot de statistieken geüpdatet zijn...",
-    "done": "Alle statistieken zijn bijgewerkt!",
+    "done": "All language statistics have been updated!",
+    "doneProject": "De taalstatistieken voor %%project%% zijn geüpdatet!",
+    "errorNoProject": "Er is geen project %%name%%.",
     "executedBy": "Uitgevoerd door %%user%%"
 }
