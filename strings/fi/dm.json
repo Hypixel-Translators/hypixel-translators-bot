@@ -1,8 +1,5 @@
 {
     "outgoing": "Lähetettiin viesti käyttäjälle %%recipient%%",
-    "outgoingLoad": "Lähetetään viesti käyttäjälle",
-    "loading": "Odota sekunti...",
-    "generalError": "Jokin meni vikaan.",
     "incoming": "Vastaanotettu viesti ylläpidolta",
     "incomingDisclaimer": "Kaikki täällä lähettämäsi viestit lähetetään ylläpidolle.",
     "executedBy": "Komennon suoritti %%user%%"
