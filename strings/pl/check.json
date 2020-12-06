@@ -9,7 +9,6 @@
     "ucreated": "Konto utworzone:",
     "dateLocale": "pl-PL",
     "timeZone": "Europe/Warsaw",
-    "specific": "%%perm%% uprawnienie",
     "perms": {
         "ADMINISTRATOR": "Administrator",
         "VIEW_AUDIT_LOG": "Wyświetlanie dziennika zdarzeń",
