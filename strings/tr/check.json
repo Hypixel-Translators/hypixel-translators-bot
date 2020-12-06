@@ -1,8 +1,5 @@
 {
     "moduleName": "Kullanıcı bilgisi",
-    "loading": "Bir saniye...",
-    "bot": "Bot",
-    "list": "İzinlerin listesi",
     "uperms": "İzinler",
     "uroles": "Roller",
     "ujoined": "Katılma Tarihi",
