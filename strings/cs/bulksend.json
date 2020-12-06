@@ -1,6 +1,5 @@
 {
     "moduleName": "Hromadné odeslání",
     "success": "Success! Messages sent.",
-    "generalError": "Něco se pokazilo.",
     "executedBy": "Provedeno uživatelem %%user%%"
 }
