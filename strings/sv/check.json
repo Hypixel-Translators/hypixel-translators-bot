@@ -31,18 +31,18 @@
         "EMBED_LINKS": "Bädda in länkar",
         "ATTACH_FILES": "Bifoga filer",
         "READ_MESSAGE_HISTORY": "Läsa meddelandehistorik",
-        "MENTION_EVERYONE": "Mention \\@everyone, \\@here, and All Roles",
+        "MENTION_EVERYONE": "Nämna \\@everyone, \\@here, och alla roller",
         "USE_EXTERNAL_EMOJIS": "Använd externa emojier",
         "ADD_REACTIONS": "Lägg till reaktioner",
         "VIEW_CHANNEL": "Visa kanal",
         "CONNECT": "Anslut",
         "SPEAK": "Tala",
         "STREAM": "Video",
-        "MUTE_MEMBERS": "Mute Members",
-        "DEAFEN_MEMBERS": "Deafen Members",
-        "MOVE_MEMBERS": "Move Members",
-        "USE_VAD": "Use Voice Activity",
-        "PRIORITY_SPEAKER": "Priority Speaker"
+        "MUTE_MEMBERS": "Tysta medlemmar",
+        "DEAFEN_MEMBERS": "Ljud av för medlemmar",
+        "MOVE_MEMBERS": "Flytta medlemmar",
+        "USE_VAD": "Använda röstaktivering",
+        "PRIORITY_SPEAKER": "Prioriterad talare"
     },
     "executedBy": "Executed by %%user%%"
 }
