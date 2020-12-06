@@ -1,8 +1,5 @@
 {
     "outgoing": "Sendte melding til %%recipient%%",
-    "outgoingLoad": "Sender melding til bruker",
-    "loading": "Ett sekund...",
-    "generalError": "Noe har gått galt.",
     "incoming": "Mottok melding fra personalet",
     "incomingDisclaimer": "Meldinger som blir sendt her vil bli sendt til staben.",
     "executedBy": "Utført av %%user%%"
