@@ -1,7 +1,5 @@
 {
     "moduleName": "Message",
-    "loading": "Un second...",
     "success": "Succès! Message envoyé.",
-    "invalidArg": "Arguments invalides!",
     "executedBy": "Exécuté par %%user%%"
 }
