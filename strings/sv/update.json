@@ -3,6 +3,6 @@
     "success": "Uppdaterade %%channel%%skanalen!",
     "infoChannel": "information",
     "verifyChannel": "verifiering",
-    "successAll": "All channels have been updated!",
+    "successAll": "Alla kanaler har uppdaterats!",
     "executedBy": "Executed by %%user%%"
 }
