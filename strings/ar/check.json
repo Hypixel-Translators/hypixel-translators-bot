@@ -9,7 +9,6 @@
     "ucreated": "تم انشاء الحساب في",
     "dateLocale": "ar-SA",
     "timeZone": "Asia/Riyadh",
-    "specific": "%%perm%% صلاحية",
     "perms": {
         "ADMINISTRATOR": "آدمن",
         "VIEW_AUDIT_LOG": "عرض سجل العمليات",
