@@ -9,7 +9,6 @@
     "ucreated": "Kontot skapades den",
     "dateLocale": "sv-SE",
     "timeZone": "Europe/Stockholm",
-    "specific": "%%perm%% behörighet",
     "perms": {
         "ADMINISTRATOR": "Administratör",
         "VIEW_AUDIT_LOG": "Visa granskningslogg",
