@@ -1,8 +1,5 @@
 {
     "moduleName": "User information",
-    "loading": "Et sekund...",
-    "bot": "Bot",
-    "list": "Liste over tilladelser",
     "uperms": "Permissions",
     "uroles": "Roles",
     "ujoined": "Joined at",
