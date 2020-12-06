@@ -9,7 +9,6 @@
     "ucreated": "Hesabın oluşturulduğu tarih",
     "dateLocale": "tr-TR",
     "timeZone": "Europe/Istanbul",
-    "specific": "%%perm%% izin",
     "perms": {
         "ADMINISTRATOR": "Yönetici",
         "VIEW_AUDIT_LOG": "Denetim Kaydını Görüntüle",
