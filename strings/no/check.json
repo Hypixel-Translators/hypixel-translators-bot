@@ -1,8 +1,5 @@
 {
     "moduleName": "Brukerinformasjon",
-    "loading": "Ett sekund...",
-    "bot": "Bot",
-    "list": "Liste over tillatelser",
     "uperms": "Tillatelser",
     "uroles": "Roller",
     "ujoined": "Ble medlem",
