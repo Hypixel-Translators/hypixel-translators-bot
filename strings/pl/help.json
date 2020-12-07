@@ -1,19 +1,19 @@
 {
     "moduleName": "Informacja",
-    "page1Title": "Help page",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
-    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
-    "page": "Page %%number%%/%%total%%",
-    "pageNumber": "Page %%number%%",
-    "utilityHelp": "%%badge%% Tools & Utilities",
-    "infoHelp": "%%badge%% Information commands",
-    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
-    "pageNotExist": "That page doesn't exist!",
+    "page1Title": "Strona pomocy",
+    "commandsListTooltip": "Ten bot został stworzony dla Społeczności Tłumaczy Hypixel przez %%QkeleQ10%%. Jest otwartym oprogramowaniem, nasze repozytorium GitHub może zostać znalezione [tutaj]%%github%%.\nMożesz pomóc w tłumaczeniu bota postępując zgodnie z instrukcjami w [tej wiadomości]%%translate%%.\n\nMożesz wykonać `+help <nazwa polecenia>`, aby dowiedzieć się więcej o danym poleceniu.\nTutaj jest lista wszystkich stron. Używaj reakcji aby nawigować pomiędzy nimi.",
+    "madeBy": " | Bot stworzony z ogromną starannością przez %%QkeleQ10%%",
+    "page": "Strona %%number%%/%%total%%",
+    "pageNumber": "Strona %%number%%",
+    "utilityHelp": "%%badge%% Narzędzia",
+    "infoHelp": "%%badge%% Komendy informacyjne",
+    "timeOut": "To menu wygasło. Jeśli chcesz użyć go ponownie, wpisz `+help`.",
+    "pageNotExist": "Ta strona nie istnieje!",
     "commandInfo": "Informacje o poleceniu",
     "commandInfoFor": "Informacje o poleceniu dla ",
     "commandNotExist": "To polecenie nie istnieje!",
-    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
-    "seconds": "seconds",
+    "noDesc": "Ta komenda nie istnieje lub jest dostępna tylko dla administracji.\nJeśli uważasz że to błąd, skontaktuj się z członkiem administracji.",
+    "seconds": " sekund",
     "usageField": "Użycie",
     "cooldownField": "Czas odnawiania",
     "aliasesField": "Aliasy",
@@ -35,7 +35,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <argumenty>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+        "description": "Pobiera, dodaje lub edytuje kontekst danego identyfikatora ciągu. `+context help` pokazuje informację o tym poleceniu. `+context link` podaje Tobie link, aby zażądać dostęp do arkusza kalkulacyjnego z kontekstem."
     },
     "issue": {
         "usage": "+issue",
@@ -47,7 +47,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping as well as Discord API's ping."
+        "description": "Daje Ci informacje o pingu bota oraz pingu API Discorda"
     },
     "invite": {
         "usage": "+invite",
@@ -79,7 +79,7 @@
     },
     "tip": {
         "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
+        "description": "Podaje ci losową poradę na temat serwera."
     },
     "executedBy": "Wykonano przez %%user%%"
 }
