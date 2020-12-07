@@ -1,8 +1,8 @@
 {
     "moduleName": "Statistiikkojen päivitys",
     "started": "Odota hetki kun kaikki statistiikat päivittyvät...",
-    "done": "All language statistics have been updated!",
-    "doneProject": "The %%project%% language statistics have been updated!",
-    "errorNoProject": "Couldn't find the project with the name %%name%%.",
+    "done": "Kaikki kielten statistiikat on päivitetty!",
+    "doneProject": "Projektin %%project%% kielten statistiikat on päivitetty!",
+    "errorNoProject": "Ei löydetty projektia nimellä %%name%%.",
     "executedBy": "Komennon suoritti %%user%%"
 }
