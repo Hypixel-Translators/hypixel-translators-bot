@@ -1,15 +1,11 @@
 {
     "moduleName": "Gebuikersinformatie",
-    "loading": "Even geduld...",
-    "bot": "Bot",
-    "list": "Permissielijst",
     "uperms": "Rechten",
     "uroles": "Rollen",
     "ujoined": "Lid geworden op",
     "ucreated": "Account aangemaakt op",
     "dateLocale": "nl-NL",
     "timeZone": "Europe/Amsterdam",
-    "specific": "%%perm%%-permissie",
     "perms": {
         "ADMINISTRATOR": "Administrator",
         "VIEW_AUDIT_LOG": "Audit-logboek weergeven",

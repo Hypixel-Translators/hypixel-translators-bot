@@ -1,7 +1,5 @@
 {
     "moduleName": "Zpráva",
-    "loading": "Dej mi sekundu...",
     "success": "Úspěch! Zpráva se odeslala.",
-    "invalidArg": "Neplatný argument!",
     "executedBy": "Provedeno uživatelem %%user%%"
 }

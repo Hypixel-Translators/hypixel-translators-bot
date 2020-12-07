@@ -1,15 +1,11 @@
 {
     "moduleName": "Käyttäjän tiedot",
-    "loading": "Odota sekunti...",
-    "bot": "Botti",
-    "list": "Luettelo oikeuksista",
     "uperms": "Oikeudet",
     "uroles": "Roolit",
     "ujoined": "Liittyi palvelimelle",
     "ucreated": "Tili luotu",
     "dateLocale": "fi-FI",
     "timeZone": "Europe/Helsinki",
-    "specific": "Oikeus: %%perm%%",
     "perms": {
         "ADMINISTRATOR": "järjestelmänvalvoja",
         "VIEW_AUDIT_LOG": "valvontaloki",

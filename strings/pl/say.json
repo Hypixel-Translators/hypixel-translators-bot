@@ -1,7 +1,5 @@
 {
     "moduleName": "Wiadomość",
-    "loading": "Sekundkę…",
     "success": "Udało się! Wysłano wiadomość.",
-    "invalidArg": "Nieprawidłowy argument!",
     "executedBy": "Wykonano przez %%user%%"
 }

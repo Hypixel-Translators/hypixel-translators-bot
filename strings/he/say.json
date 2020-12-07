@@ -1,7 +1,5 @@
 {
     "moduleName": "Message",
-    "loading": "שנייה...",
     "success": "Success! Message sent.",
-    "invalidArg": "Invalid argument!",
     "executedBy": "Executed by %%user%%"
 }

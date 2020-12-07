@@ -1,15 +1,11 @@
 {
     "moduleName": "Información del usuario",
-    "loading": "Un segundo...",
-    "bot": "Bot",
-    "list": "Lista de permisos",
     "uperms": "Permisos",
     "uroles": "Roles",
     "ujoined": "Se unió el",
     "ucreated": "Cuenta creada el",
     "dateLocale": "es-ES",
     "timeZone": "Europe/Madrid",
-    "specific": "Permiso de %%perm%%",
     "perms": {
         "ADMINISTRATOR": "Administrador",
         "VIEW_AUDIT_LOG": "Ver el Registro de Auditoría",

@@ -1,7 +1,5 @@
 {
     "moduleName": "Message",
-    "loading": "One second...",
     "success": "成功！訊息已發送。",
-    "invalidArg": "Invalid argument!",
     "executedBy": "由 %%user%% 執行"
 }

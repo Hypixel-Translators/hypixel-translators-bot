@@ -1,15 +1,11 @@
 {
     "moduleName": "Brukerinformasjon",
-    "loading": "Ett sekund...",
-    "bot": "Bot",
-    "list": "Liste over tillatelser",
     "uperms": "Tillatelser",
     "uroles": "Roller",
     "ujoined": "Ble medlem",
     "ucreated": "Konto opprettet",
     "dateLocale": "no-NO",
     "timeZone": "Europa/London",
-    "specific": "%%perm%% tillatelse",
     "perms": {
         "ADMINISTRATOR": "Administrator",
         "VIEW_AUDIT_LOG": "Se revisjonslogg",

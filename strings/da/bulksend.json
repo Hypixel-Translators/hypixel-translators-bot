@@ -1,6 +1,5 @@
 {
     "moduleName": "Masseudsendelse",
     "success": "Success! Messages sent.",
-    "generalError": "Noget gik galt.",
     "executedBy": "Udført af %%user%%"
 }

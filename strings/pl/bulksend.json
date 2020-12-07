@@ -1,6 +1,5 @@
 {
     "moduleName": "Wysyłanie zbiorcze",
     "success": "Udało się! Wiadomości wysłane.",
-    "generalError": "Coś poszło nie tak.",
     "executedBy": "Wykonano przez %%user%%"
 }

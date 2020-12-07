@@ -1,6 +1,8 @@
 {
     "moduleName": "Asstsicstsic updat",
     "started": "Plz waite a minot or moar minotes fur all statstcistics to updat...",
-    "done": "Al statsicstcsic has updatdt!",
+    "done": "All language statistics have been updated!",
+    "doneProject": "The %%project%% language statistics have been updated!",
+    "errorNoProject": "Couldn't find the project with the name %%name%%.",
     "executedBy": "Done by le %%user%%"
 }

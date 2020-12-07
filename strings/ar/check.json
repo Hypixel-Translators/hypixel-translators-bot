@@ -1,15 +1,11 @@
 {
     "moduleName": "المتحقق من الصلاحيات",
-    "loading": "ثانية واحدة...",
-    "bot": "بوت",
-    "list": "قائمة الصلاحيات",
     "uperms": "صلاحيات",
     "uroles": "رتب",
     "ujoined": "دخل في",
     "ucreated": "تم انشاء الحساب في",
     "dateLocale": "ar-SA",
     "timeZone": "Asia/Riyadh",
-    "specific": "%%perm%% صلاحية",
     "perms": {
         "ADMINISTRATOR": "آدمن",
         "VIEW_AUDIT_LOG": "عرض سجل العمليات",

@@ -2,7 +2,7 @@
     "outgoing": "Bericht verzonden aan staff",
     "outgoingDisclaimer": "Als je hier een bericht stuurt, wordt het verzonden naar staff.",
     "error": "Fout",
-    "usage": "Verwacht commandogebruik",
+    "usage": "Commandosyntaxis",
     "dmError": "Sorry, maar je kunt dit commando niet uitvoeren in privéberichten.",
     "noMessage": "Je hebt geen bericht opgegeven!",
     "noChannel": "Je hebt geen kanaal opgegeven!",

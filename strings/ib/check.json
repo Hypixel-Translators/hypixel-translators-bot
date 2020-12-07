@@ -1,15 +1,11 @@
 {
     "moduleName": "Ctsjceck prerms",
-    "loading": "Wait, idot...",
-    "bot": "Bote",
-    "list": "List permson",
     "uperms": "Permsons",
     "uroles": "Rols",
     "ujoined": "Joint at",
     "ucreated": "Acont creatt at",
     "dateLocale": "en-GB",
     "timeZone": "Europe/London",
-    "specific": "%%perm%% permson",
     "perms": {
         "ADMINISTRATOR": "Admon",
         "VIEW_AUDIT_LOG": "Auditlgo view",

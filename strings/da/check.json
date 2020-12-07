@@ -1,15 +1,11 @@
 {
     "moduleName": "User information",
-    "loading": "Et sekund...",
-    "bot": "Bot",
-    "list": "Liste over tilladelser",
     "uperms": "Permissions",
     "uroles": "Roles",
     "ujoined": "Joined at",
     "ucreated": "Account created at",
     "dateLocale": "en-GB",
     "timeZone": "Europe/London",
-    "specific": "%%perm%% permission",
     "perms": {
         "ADMINISTRATOR": "Administrator",
         "VIEW_AUDIT_LOG": "View Audit Log",

@@ -1,6 +1,8 @@
 {
     "moduleName": "Statistics updater",
     "started": "Aguarde um ou dois minutos para que todas estatísticas sejam atualizadas...",
-    "done": "Todas estatísticas foram atualizadas!",
+    "done": "All language statistics have been updated!",
+    "doneProject": "The %%project%% language statistics have been updated!",
+    "errorNoProject": "Couldn't find the project with the name %%name%%.",
     "executedBy": "Executado por %%user%%"
 }
