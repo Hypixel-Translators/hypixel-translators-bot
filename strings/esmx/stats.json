@@ -1,8 +1,8 @@
 {
     "moduleName": "Actualizador de estadísticas",
     "started": "Por favor, espere uno o dos minutos para que se actualicen todas las estadísticas...",
-    "done": "All language statistics have been updated!",
-    "doneProject": "The %%project%% language statistics have been updated!",
-    "errorNoProject": "Couldn't find the project with the name %%name%%.",
+    "done": "¡Se han actualizado todas las estadísticas de idiomas!",
+    "doneProject": "¡Se han actualizado las estadísticas de %%project%%!",
+    "errorNoProject": "No se pudo encontrar el proyecto con el nombre de %%name%%.",
     "executedBy": "Ejecutado por %%user%%"
 }
