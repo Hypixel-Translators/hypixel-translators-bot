@@ -1,0 +1,17 @@
+{
+    "tip": "İpucu",
+    "tips": {
+        "0": "Henüz Muz dilini denemedin mi? Dilini `+lang ib` komutu ile muz dili olarak güncelleyebilirsin!",
+        "1": "I need translators! Find out how to become a bot translator at %%translate%%.",
+        "2": "Emoji dilini denedin mi? `+lang em` komutunu kullanarak dilini değiştir!",
+        "3": "Lütfen bağlantılarınızı en-en olarak değiştirin!",
+        "4": "Sohbet ederken her dakika rastgele miktarda XP elde edersiniz, bu da seviyenizi yükseltmenizi sağlar.",
+        "5": "Daha fazla tüyoya ihtiyacımız var! '+feedback' kullanarak bize geri bildirim gönderin.",
+        "6": "Tüm çevirmenler için Crowdin'i nasıl kullanacağınıza dair bir rehberimiz olduğunu biliyor muydunuz? %%gettingStarted%%, buradan kontrol edin, bazı yararlı ipuçları var!",
+        "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
+        "8": "%%rules%% ve %%serverInfo%% bu sunucu hakkında ihtiyacınız olan tüm bilgilere sahip!",
+        "9": "Çeviride bir hata mı buldun? Dilinin düzelticisine başvur veya çeviri kanalındaki insanlara bildir.",
+        "10": "Çoğu kanalın önemli bilgilere sahip olduğunu biliyor muydun? Bunlardan birini her ziyaret ettiğinde kontrol etmelisin!"
+    },
+    "executedBy": "%%user%% tarafından yürütüldü"
+}
