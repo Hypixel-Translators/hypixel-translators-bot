@@ -1,6 +1,6 @@
 {
     "moduleName": "Zalgo checker",
-    "started": "Please wait a minute or two for all zalgo nicknames to be changed...",
-    "done": "All zalgo nicknames have been changed!",
+    "started": "Kérlek várj egy percet az összes zalgo becenévnév megváltoztatásához...",
+    "done": "Az összes zalgo becenév meg lett változtatva!",
     "executedBy": "Executed by %%user%%"
 }
