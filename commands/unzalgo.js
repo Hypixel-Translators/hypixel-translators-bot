@@ -7,6 +7,7 @@ module.exports = {
     description: "Checks for zalgo characters in member's nicks and changes them",
     usage: "+unzalgo",
     aliases: ["zalgo", "zalgocheck"],
+    channelWhiteList: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
     allowDM: true,
     async execute(strings, message) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
