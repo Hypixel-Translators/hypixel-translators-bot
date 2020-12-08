@@ -1,5 +1,5 @@
 {
-    "moduleName": "Bulk Send",
-    "success": "Success! Messages sent.",
+    "moduleName": "Halmozott Küldés",
+    "success": "Siker! Üzenet elküldve.",
     "executedBy": "Executed by %%user%%"
 }
