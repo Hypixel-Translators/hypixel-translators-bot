@@ -3,7 +3,7 @@ const fs = require("fs")
 const fetch = require("node-fetch")
 const Discord = require("discord.js")
 const client = new Discord.Client()
-require ('dotenv').config()
+require('dotenv').config()
 
 //Import data, assets and commands
 const { prefix, loadingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json")
@@ -99,7 +99,7 @@ client.on("message", async message => {
   if (message.content.includes("/translate/") && message.content.includes("://")) if (message.channel.id === "549503328472530976" || message.channel.id === "627594632779399195") { // hypixel translators and proofreaders
     var msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
     if (message.content !== msgTxt) {
-      message.react(notAllowed) 
+      message.react(notAllowed)
       message.channel.send(globalStrings.linkCorrection.replace("%%user%%", "<@" + message.author.id + ">") + "\n\n>>> " + msgTxt)
     }
   }
@@ -229,10 +229,8 @@ client.on('messageReactionAdd', async (reaction, user) => {
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
       reaction.message.react("⏱")
       reaction.message.react(reaction.emoji)
-      setTimeout(() => {
-        reaction.message.delete()
-        console.log("String reviewed (saw reaction " + reaction.emoji.name + ")")
-      }, 10000)
+      reaction.message.delete({ timeout: 10000 })
+      console.log("String reviewed (saw reaction " + reaction.emoji.name + ")")
     }
   }
 
