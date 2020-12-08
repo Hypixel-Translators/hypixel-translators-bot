@@ -1,6 +1,6 @@
 {
     "outgoing": "Üzenet elküldve %%recipient%% felhasználónak",
     "incoming": "Új üzeneted érkezett",
-    "incomingDisclaimer": "Any message you send here will get sent to staff.",
+    "incomingDisclaimer": "Amit ide írsz, az el lesz küldve a staffoknak.",
     "executedBy": "Executed by %%user%%"
 }
