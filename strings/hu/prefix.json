@@ -10,7 +10,7 @@
         "cancelled": "Befejezted a neved változtatását, ",
         "alreadyThis": "Most is ez a beceneved, ",
         "timeOut": "Nem reagáltás egy zászlóval sem, ",
-        "notSaved": "so your prefix wasn't saved."
+        "notSaved": "így az előtagod nem lett elmentve."
     },
     "react": "Reagálj egy zászlóval, amit a nevedhez szeretnél adni.",
     "reactTimer": "20 másodperced van. Nyomj az ❎ ikonra a törléshez.",
@@ -18,6 +18,6 @@
     "previewT": "Becenév előnézet",
     "newNickT": "Új becenév",
     "noChanges": "Nincs változás",
-    "saved": "Your prefix has been saved!",
+    "saved": "Az előtagod el lett mentve!",
     "executedBy": "Executed by %%user%%"
 }
