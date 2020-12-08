@@ -1,6 +1,6 @@
 {
-    "moduleName": "Inactive checker",
-    "started": "Please wait a minute or two for all inactive unverified members to be alerted...",
+    "moduleName": "Inaktivitás érzékelő",
+    "started": "Kérlek várj egy percet az összes regisztrálatlan inaktív tag értesítéséhez...",
     "done": "Az összes inaktív ember értesítve lett!",
     "executedBy": "Executed by %%user%%"
 }
