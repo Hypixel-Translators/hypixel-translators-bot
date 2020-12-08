@@ -15,7 +15,7 @@ module.exports = {
                 .setColor(successColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.success.replace("%%channel%%", strings.infoChannel))
-                .setFooter(executedBy)
+                .setFooter(executedBy, message.author.displayAvatarURL)
             message.channel.send(successEmbed)
         } else if (args[0] === "verify") {
             verify(message)
@@ -23,7 +23,7 @@ module.exports = {
                 .setColor(successColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.success.replace("%%channel%%", strings.verifyChannel))
-                .setFooter(executedBy)
+                .setFooter(executedBy, message.author.displayAvatarURL)
             message.channel.send(successEmbed)
         } else if (args[0] === "all" || !args[0]) {
             info(message)
@@ -32,7 +32,7 @@ module.exports = {
                 .setColor(successColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.successAll)
-                .setFooter(executedBy)
+                .setFooter(executedBy, message.author.displayAvatarURL)
             message.channel.send(successEmbed)
         } else throw "noChannel"
     }

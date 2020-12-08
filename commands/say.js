@@ -32,7 +32,7 @@ module.exports = {
       .setAuthor(strings.moduleName)
       .setTitle(strings.success)
       .setDescription("<#" + sendTo.id + ">:\n" + msg.content)
-      .setFooter(executedBy)
+      .setFooter(executedBy, message.author.displayAvatarURL)
     message.channel.send(embed)
   }
 };

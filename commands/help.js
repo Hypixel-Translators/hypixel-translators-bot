@@ -143,7 +143,7 @@ async function fetchPage(page, pages, strings, executedBy, pageEmbed) {
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings[pages[page].t].replace("%%badge%%", pages[page].b))
-        .setFooter(strings.page.replace("%%number%%", page + 1).replace("%%total%%", pages.length) + " | " + executedBy)
+        .setFooter(strings.page.replace("%%number%%", page + 1).replace("%%total%%", pages.length) + " | " + executedBy, message.author.displayAvatarURL)
       pages[page].f.forEach(f => pageEmbed.addFields({ name: `\`${strings[f].usage}\``, value: strings[f].description }))
     } else return console.error("no embed details")
   } else return console.error("no embed listing - internal error")
