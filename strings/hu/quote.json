@@ -1,12 +1,12 @@
 {
     "moduleName": "Idézet",
-    "loading": "One second...",
+    "loading": "Egy pillanat...",
     "loadingModule": "Modul betöltése...",
     "invalidArg": "Invalid argument!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!",
-    "reqAdd": "Success! The following quote has been added:",
-    "user": "User",
-    "index": "Quote number",
+    "reqSub": "Az idézeted el lett küldve, köszönjük!",
+    "reqAdd": "Siker! A következő idézet lett hozzáadva:",
+    "user": "Felhasználó",
+    "index": "Idézet száma",
     "executedBy": "Executed by %%user%%"
 }
