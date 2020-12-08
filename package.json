@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/stannya/hypixel-translators-bot-discord.git"
+    "url": "git://github.com/Hypixel-Translators/hypixel-translators-bot.git"
   },
   "dependencies": {
     "discord.js": "^12.5.1",
