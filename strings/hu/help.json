@@ -55,7 +55,7 @@
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Linket ad a hivatalos Hypixel fordításáról szóló poszthoz."
     },
     "hypixel": {
         "usage": "+hypixel",
@@ -71,7 +71,7 @@
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Linket ad a Discordot bejelentő poszthoz."
     },
     "twitter": {
         "usage": "+twitter",
