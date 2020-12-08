@@ -12,20 +12,20 @@ module.exports = {
     if (!message.member.hasPermission("ADMINISTRATOR")) return;
     const sendTo = message.client.channels.cache.get(args[0].replace("<#", "").replace(">", ""))
     sendmsg(sendTo, args[1])
-        const embed = new Discord.MessageEmbed()
-          .setColor(successColor)
-          .setAuthor(strings.moduleName)
-          .setTitle(strings.success)
-          .setDescription("<#" + sendTo.id + ">")
-          .setFooter(executedBy)
-        message.channel.send(embed)
-        .catch(error => { throw error; })
+    const embed = new Discord.MessageEmbed()
+      .setColor(successColor)
+      .setAuthor(strings.moduleName)
+      .setTitle(strings.success)
+      .setDescription("<#" + sendTo.id + ">")
+      .setFooter(executedBy)
+    message.channel.send(embed)
+      .catch(error => { throw error; })
   }
 };
 
 function sendmsg(sendTo, times) {
   while (times > 0) {
-      sendTo.send("Language statistics will be here shortly!")
-      times--
-    }
- }
+    sendTo.send("Language statistics will be here shortly!")
+    times--
+  }
+}

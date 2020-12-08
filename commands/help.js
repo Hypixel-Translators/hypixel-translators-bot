@@ -118,7 +118,7 @@ module.exports = {
         .setDescription(cmdDesc || strings.noDesc)
         .setFooter(executedBy + " | " + madeBy)
       if (cmdUsage) {
-        embed.addFields( { name: strings.usageField, value: "`" + cmdUsage + "`", inline: true })
+        embed.addFields({ name: strings.usageField, value: "`" + cmdUsage + "`", inline: true })
         if (command.cooldown) {
           embed.addFields({ name: strings.cooldownField, value: command.cooldown + " " + strings.seconds, inline: true })
         }
@@ -126,7 +126,7 @@ module.exports = {
           embed.addFields({ name: strings.aliasesField, value: "`+" + command.aliases.join("`, `+") + "`", inline: true })
         }
       }
-      message.channel.send(embed) 
+      message.channel.send(embed)
     }
   }
 }

@@ -91,7 +91,7 @@ async function getFromSpreadsheet(executedBy, strings, message, args) {
         })
 }
 
-async function addToSpreadsheet(executedBy, strings, message, args) { 
+async function addToSpreadsheet(executedBy, strings, message, args) {
     const embed = new Discord.MessageEmbed()
         .setColor(loadingColor)
         .setAuthor(strings.moduleName)

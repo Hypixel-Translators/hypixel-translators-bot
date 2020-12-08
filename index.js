@@ -121,7 +121,7 @@ client.on("message", async message => {
         .setDescription(message.content)
         .setFooter(globalStrings.outgoingDisclaimer);
       return message.channel.send(embed)
-    } else return //Stop if not starting with prefix
+    } else return //Stop if it starts with prefix
   }
 
   //Define command and stop if none is found

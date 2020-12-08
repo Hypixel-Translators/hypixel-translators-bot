@@ -5,7 +5,7 @@ module.exports = {
   name: "say",
   description: "Says something in a specific channel.",
   usage: "+say <message>",
-  cooldown : 600,
+  cooldown: 600,
   aliases: ["parrot", "repeat", "send"],
   allowDM: true,
   async execute(strings, message, args) {
