@@ -36,7 +36,7 @@ async function check(client) {
             } return;
         }
         if (member.joinedTimestamp <= alert) {
-            member.send("Hey there!\nWe noticed you haven't verified yourself on our server. Are you having any trouble? Please message Rodry or Stannya or just ask any questions in the verify channel! Otherwise, please send your profile link like shown in the channel.\n\nThis message was sent to you because you have been on our server for too long, and you're in risk of getting kicked for inactivity soon.\nPlease do not reply to this bot.")
+            member.send("Hey there!\nWe noticed you haven't verified yourself on our server. Are you having any trouble? Please message Rodry or Stannya or just ask any questions in the <#569178590697095168> channel! Otherwise, please send your profile link like shown in the channel.\n\nThis message was sent to you because you have been on our server for too long, and you're in risk of getting kicked for inactivity soon.\nPlease do not reply to this bot.") //verify
                 .then(() => {
                     client.channels.cache.get("662660931838410754").send("Sent an alert to **<@" + member.id + ">** as they've been in the server for 7 days without verifying.")
                     console.log(member.user.tag + " was alerted for inactivity")

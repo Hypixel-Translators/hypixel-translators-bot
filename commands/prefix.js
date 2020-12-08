@@ -16,7 +16,7 @@ module.exports = {
       .setAuthor(strings.moduleName)
       .setTitle(strings.loading)
       .setDescription(strings.loadingRoles)
-      .setFooter(executedBy);
+      .setFooter(executedBy, message.author.displayAvatarURL());
     message.channel.send(embed)
       .then(async msg => {
         var userLangs = []
@@ -65,7 +65,7 @@ module.exports = {
               .setColor(errorColor)
               .setAuthor(strings.moduleName)
               .setTitle(strings.errors.noLanguages)
-              .setFooter(executedBy);
+              .setFooter(executedBy, message.author.displayAvatarURL());
             msg.edit(embed)
             return;
           }
@@ -77,7 +77,7 @@ module.exports = {
             .setTitle(strings.react)
             .setDescription(strings.reactTimer)
             .addFields({ name: strings.previewT, value: strings.noChanges })
-            .setFooter(executedBy);
+            .setFooter(executedBy, message.author.displayAvatarURL());
           msg.edit(embed)
 
           const filter = (reaction, reacter) => {
@@ -98,7 +98,7 @@ module.exports = {
                       .setAuthor(strings.moduleName)
                       .setTitle(strings.saved)
                       .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                      .setFooter(executedBy);
+                      .setFooter(executedBy, message.author.displayAvatarURL());
                     msg.edit(embed)
                   })
                   .catch(err => {
@@ -108,7 +108,7 @@ module.exports = {
                       .setTitle(strings.errors.error)
                       .setDescription(err)
                       .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                      .setFooter(executedBy);
+                      .setFooter(executedBy, message.author.displayAvatarURL());
                     msg.edit(embed)
                   })
               } else {
@@ -116,7 +116,7 @@ module.exports = {
                   .setColor(errorColor)
                   .setAuthor(strings.moduleName)
                   .setTitle(strings.errors.confirmedNoFlags + strings.errors.notSaved)
-                  .setFooter(executedBy);
+                  .setFooter(executedBy, message.author.displayAvatarURL());
                 msg.edit(embed)
               }
             } else if (reaction.emoji.name === "❎") {
@@ -127,7 +127,7 @@ module.exports = {
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.errors.cancelled + strings.errors.notSaved)
                 .addFields({ name: strings.newNickT, value: strings.noChanges })
-                .setFooter(executedBy);
+                .setFooter(executedBy, message.author.displayAvatarURL());
               msg.edit(embed)
             } else {
               const valueToRemove = reaction.emoji.name
@@ -140,7 +140,7 @@ module.exports = {
                 .setTitle(strings.react)
                 .setDescription(strings.reactTimer2)
                 .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                .setFooter(executedBy);
+                .setFooter(executedBy, message.author.displayAvatarURL());
               msg.edit(embed)
             }
           });
@@ -157,7 +157,7 @@ module.exports = {
                       .setAuthor(strings.moduleName)
                       .setTitle(strings.saved)
                       .addFields({ name: strings.newNickT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                      .setFooter(executedBy);
+                      .setFooter(executedBy, message.author.displayAvatarURL());
                     msg.edit(embed)
                   })
                   .catch(err => {
@@ -167,7 +167,7 @@ module.exports = {
                       .setTitle(strings.errors.error)
                       .setDescription(err)
                       .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                      .setFooter(executedBy);
+                      .setFooter(executedBy, message.author.displayAvatarURL());
                     msg.edit(embed)
                     console.log(err)
                   })
@@ -177,7 +177,7 @@ module.exports = {
                   .setAuthor(strings.moduleName)
                   .setTitle(strings.errors.alreadyThis + strings.errors.notSaved)
                   .addFields({ name: strings.newNickT, value: strings.noChanges })
-                  .setFooter(executedBy);
+                  .setFooter(executedBy, message.author.displayAvatarURL());
                 msg.edit(embed)
               }
             } else {
@@ -187,7 +187,7 @@ module.exports = {
                 .setTitle("Prefix")
                 .setDescription(strings.errors.timeOut + strings.errors.notSaved)
                 .addFields({ name: strings.newNickT, value: strings.noChanges })
-                .setFooter(executedBy);
+                .setFooter(executedBy, message.author.displayAvatarURL());
               msg.edit(embed)
             }
           })

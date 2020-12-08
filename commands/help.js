@@ -29,7 +29,7 @@ module.exports = {
           .setAuthor(strings.moduleName)
           .setTitle(strings.page1Title)
           .setDescription(strings.pageNotExist)
-          .setFooter(executedBy + " | " + madeBy)
+          .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
         return message.channel.send(embed)
       }
 
@@ -43,7 +43,7 @@ module.exports = {
         .addFields(
           { name: strings.pageNumber.replace("%%number%%", "2").replace("%%total%%", pages.length), value: strings.utilityHelp.replace("%%badge%%", "🛠"), inline: true },
           { name: strings.pageNumber.replace("%%number%%", "3").replace("%%total%%", pages.length), value: strings.infoHelp.replace("%%badge%%", "ℹ"), inline: true })
-        .setFooter(executedBy + " | " + madeBy)
+        .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
 
       pages[0].e = page1
 
@@ -51,7 +51,7 @@ module.exports = {
       if (args[0]) if (args[0].length = 1) page = args[0] - 1
       let pageEmbed
 
-      pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
+      pageEmbed = await fetchPage(page, pages, strings, executedBy, message, pageEmbed)
         .catch(error => console.error(error))
 
       await message.channel.send(pageEmbed).then(async msg => {
@@ -75,7 +75,7 @@ module.exports = {
             if (page > pages.length - 1) page = pages.length - 1
           }
           reaction.users.remove(message.author.id)
-          pageEmbed = await fetchPage(page, pages, strings, executedBy, madeBy, pageEmbed)
+          pageEmbed = await fetchPage(page, pages, strings, executedBy, message, pageEmbed)
           msg.edit(pageEmbed)
         })
 
@@ -131,7 +131,7 @@ module.exports = {
   }
 }
 
-async function fetchPage(page, pages, strings, executedBy, pageEmbed) {
+async function fetchPage(page, pages, strings, executedBy, message, pageEmbed) {
   if (page > pages.length - 1) page = pages.length - 1
   if (page < 0) page = 0
 
@@ -143,7 +143,7 @@ async function fetchPage(page, pages, strings, executedBy, pageEmbed) {
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings[pages[page].t].replace("%%badge%%", pages[page].b))
-        .setFooter(strings.page.replace("%%number%%", page + 1).replace("%%total%%", pages.length) + " | " + executedBy)
+        .setFooter(strings.page.replace("%%number%%", page + 1).replace("%%total%%", pages.length) + " | " + executedBy, message.author.displayAvatarURL())
       pages[page].f.forEach(f => pageEmbed.addFields({ name: `\`${strings[f].usage}\``, value: strings[f].description }))
     } else return console.error("no embed details")
   } else return console.error("no embed listing - internal error")

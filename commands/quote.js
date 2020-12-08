@@ -17,7 +17,7 @@ module.exports = {
             .setAuthor(strings.moduleName)
             .setTitle(strings.loading)
             .setDescription(strings.loadingModule)
-            .setFooter(executedBy);
+            .setFooter(executedBy, message.author.displayAvatarURL());
         message.channel.send(embed).then(msg => {
             if (args[0] === "add") {
                 allowed = false
@@ -39,7 +39,7 @@ module.exports = {
                         .setAuthor(strings.moduleName)
                         .setTitle(strings.reqSub)
                         .setDescription(toSend)
-                        .setFooter(executedBy);
+                        .setFooter(executedBy, message.author.displayAvatarURL());
                     msg.edit(embed)
                 } else {
                     args.splice(0, 1)
@@ -79,7 +79,7 @@ async function accessSpreadsheet(executedBy, strings, message, args, msg) {
             .setAuthor(strings.moduleName)
             .setTitle(strings.invalidArg)
             .setDescription(strings.indexArg.replace("%%arg%%", args[0]).replace("%%max%%", rows.length))
-            .setFooter(executedBy);
+            .setFooter(executedBy, message.author.displayAvatarURL());
         msg.edit(embed)
         return;
     }
@@ -88,7 +88,7 @@ async function accessSpreadsheet(executedBy, strings, message, args, msg) {
         .setAuthor(strings.moduleName)
         .setTitle(correctRow.quote)
         .setDescription("      - " + correctRow.user)
-        .setFooter(executedBy);
+        .setFooter(executedBy, message.author.displayAvatarURL());
     msg.edit(embed)
 }
 
@@ -115,7 +115,7 @@ async function addToSpreadsheet(executedBy, strings, message, toSend, msg) {
             .setAuthor(strings.moduleName)
             .setTitle(strings.invalidArg)
             .setDescription(strings.specUser)
-            .setFooter(executedBy);
+            .setFooter(executedBy, message.author.displayAvatarURL());
         msg.edit(embed)
         return;*/
     }
@@ -128,6 +128,6 @@ async function addToSpreadsheet(executedBy, strings, message, toSend, msg) {
         .setTitle(strings.reqAdd)
         .setDescription(result.quote)
         .addFields({ name: strings.user, value: result.user }, { name: strings.index, value: newLength })
-        .setFooter(executedBy);
+        .setFooter(executedBy, message.author.displayAvatarURL());
     msg.edit(embed)
 }

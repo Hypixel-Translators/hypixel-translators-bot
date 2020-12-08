@@ -42,7 +42,7 @@ module.exports = {
           { name: strings.uperms, value: userP.join(", ") }
         )
         .setThumbnail(user.user.displayAvatarURL())
-        .setFooter(executedBy)
+        .setFooter(executedBy, message.author.displayAvatarURL())
       message.channel.send(embed)
     } catch (err) { throw err }
   }

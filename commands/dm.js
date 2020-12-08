@@ -38,7 +38,7 @@ module.exports = {
                         .setColor(successColor)
                         .setAuthor(strings.outgoing.replace("%%recipient%%", recipient.tag))
                         .setDescription(toSend)
-                        .setFooter(executedBy)
+                        .setFooter(executedBy, message.author.displayAvatarURL())
                     message.channel.send(embed)
                 })
         }, 50)
