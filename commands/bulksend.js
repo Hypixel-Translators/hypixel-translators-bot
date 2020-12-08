@@ -17,7 +17,7 @@ module.exports = {
       .setAuthor(strings.moduleName)
       .setTitle(strings.success)
       .setDescription("<#" + sendTo.id + ">")
-      .setFooter(executedBy, message.author.displayAvatarURL)
+      .setFooter(executedBy)
     message.channel.send(embed)
       .catch(error => { throw error; })
   }

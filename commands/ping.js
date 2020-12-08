@@ -29,7 +29,7 @@ module.exports = {
       .setAuthor(strings.moduleName)
       .setTitle(strings.pong.replace("%%pingEmote%%", "<:ping:620954198493888512>"))
       .setDescription(strings.message.replace("%%ping%%", ping))
-      .setFooter(executedBy, message.author.displayAvatarURL)
+      .setFooter(executedBy)
     message.channel.send(embed)
   }
 };

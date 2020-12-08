@@ -147,7 +147,7 @@ client.on("message", async message => {
       .setColor(errorColor)
       .setAuthor(globalStrings.error)
       .setTitle(globalStrings.dmError)
-      .setFooter(executedBy, message.author.displayAvatarURL)
+      .setFooter(executedBy)
     return message.channel.send(embed)
   }
   //Cooldown system
@@ -171,7 +171,7 @@ client.on("message", async message => {
         .setColor(errorColor)
         .setAuthor(globalStrings.cooldown)
         .setTitle(timeLeftS)
-        .setFooter(executedBy, message.author.displayAvatarURL)
+        .setFooter(executedBy)
     }
   }
 
@@ -201,7 +201,7 @@ client.on("message", async message => {
       .setColor(errorColor)
       .setAuthor(globalStrings.error)
       .setTitle(globalStrings[error] || error)
-      .setFooter(executedBy, message.author.displayAvatarURL)
+      .setFooter(executedBy)
     if (!helpStrings[command.name]) {
       embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" })
     } else {

@@ -33,7 +33,7 @@ module.exports = {
                                 .setAuthor(strings.moduleName)
                                 .setTitle(strings.listTitle)
                                 .setDescription(listD)
-                                .setFooter(executedBy, message.author.displayAvatarURL)
+                                .setFooter(executedBy)
                             await message.channel.send(embed)
                         }
                     })
@@ -45,7 +45,7 @@ module.exports = {
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.loading)
                     .setDescription(strings.changing)
-                    .setFooter(executedBy, message.author.displayAvatarURL);
+                    .setFooter(executedBy);
                 const msg = await message.channel.send(embed)
 
                 const path = './strings/' + args[1] + '/language.json'
@@ -78,7 +78,7 @@ module.exports = {
                                 .setColor(successColor)
                                 .setAuthor(strings.moduleName)
                                 .setDescription(strings.credits)
-                                .setFooter(executedBy, message.author.displayAvatarURL);
+                                .setFooter(executedBy);
                             if (strings.changedToTitle === "Changed your language to English!") { embed.setTitle("Changed your language to " + strings[args[1]] + "!") } else { embed.setTitle(strings.changedToTitle) }
                             await msg.edit(embed)
                             return
@@ -103,7 +103,7 @@ module.exports = {
                                 .setAuthor(strings.moduleName)
                                 .setTitle(strings.errorTitle)
                                 .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n" + strings.suggestAdd)
-                                .setFooter(executedBy, message.author.displayAvatarURL);
+                                .setFooter(executedBy);
                             await msg.edit(embed)
                         });
                         return
@@ -122,7 +122,7 @@ module.exports = {
                         .setColor(neutralColor)
                         .setAuthor(strings.moduleName)
                         .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n\n" + strings.credits)
-                        .setFooter(executedBy, message.author.displayAvatarURL)
+                        .setFooter(executedBy)
                     if (strings.current === "Your language preference is set to English.") { embed.setTitle("Your language preference is set to " + strings[oldMsg[0]] + ".") } else { embed.setTitle(strings.current) }
                     await message.channel.send(embed)
                 })
@@ -135,7 +135,7 @@ module.exports = {
                         .setColor(neutralColor)
                         .setAuthor(strings.moduleName)
                         .setTitle("Your language preference is set to English.")
-                        .setFooter(executedBy, message.author.displayAvatarURL)
+                        .setFooter(executedBy)
                         .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n\nFound an issue? Report it using `+issue`.")
                     await message.channel.send(embed)
                 })

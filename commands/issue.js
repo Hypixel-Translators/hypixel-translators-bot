@@ -17,7 +17,7 @@ module.exports = {
             .setTitle(strings.bugT)
             .setDescription(strings.bugD.replace("%%github%%", "(https://github.com/Hypixel-Translators/hypixel-translators-bot/issues)"))
             .addFields({ name: strings.urgentT, value: strings.urgentD })
-            .setFooter(executedBy, message.author.displayAvatarURL);
+            .setFooter(executedBy);
         message.channel.send(embed)
     }
 };

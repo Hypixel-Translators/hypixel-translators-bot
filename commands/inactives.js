@@ -15,7 +15,7 @@ module.exports = {
             .setColor(loadingColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.started)
-            .setFooter(executedBy, message.author.displayAvatarURL)
+            .setFooter(executedBy)
         message.channel.send(embed)
             .then(async msg => {
                 try {
@@ -24,7 +24,7 @@ module.exports = {
                         .setColor(successColor)
                         .setAuthor(strings.moduleName)
                         .setTitle(strings.done)
-                        .setFooter(executedBy, message.author.displayAvatarURL)
+                        .setFooter(executedBy)
                     msg.edit(embed)
                 } catch (err) { throw err }
             })
