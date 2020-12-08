@@ -229,8 +229,10 @@ client.on('messageReactionAdd', async (reaction, user) => {
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
       reaction.message.react("⏱")
       reaction.message.react(reaction.emoji)
-      reaction.message.delete({ timeout: 10000 })
-      console.log("String reviewed (saw reaction " + reaction.emoji.name + ")")
+      setTimeout(() => {
+        if (!reaction.message.deleted) reaction.message.delete()
+        console.log("String reviewed (saw reaction " + reaction.emoji.name + ")")
+      }, 10000)
     }
   }
 

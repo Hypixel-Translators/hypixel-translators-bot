@@ -287,7 +287,9 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
                         extraReceiveds.forEach(function (item) {
                             item.delete()
                         })
-                        msg.delete({ timeout: 5000 })
+                        setTimeout(() => {
+                            if (!msg.deleted) msg.delete()
+                        }, 5000)
                     }
 
                 })
@@ -307,7 +309,9 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
                     extraReceiveds.forEach(function (item) {
                         item.delete()
                     })
-                    msg.delete({ timeout: 5000 })
+                    setTimeout(() => {
+                        if (!msg.deleted) msg.delete()
+                    }, 5000)
                 })
             })
         })
@@ -400,8 +404,10 @@ async function editInSpreadsheet(executedBy, strings, message, args) {
                         .setDescription(strings.errors.hitReaction.replace("%%voteNo%%", "<:vote_no:732298639736570007>") + strings.errors.cancelledPrompt)
                         .setFooter(executedBy, message.author.displayAvatarURL());
                     msg.edit(embed)
-                    message.delete({ timeout: 5000 })
-                    msg.delete({ timeout: 5000 })
+                    setTimeout(() => {
+                        if (!message.deleted) message.delete()
+                        if (!msg.deleted) msg.delete()
+                    }, 5000)
                     return;
                 }
                 if (reaction.emoji.name === "vote_yes") {
@@ -525,8 +531,10 @@ async function sheetLink(executedBy, strings, message) {
                 .setFooter(executedBy + " | " + strings.info.sheetDel);
             msg.edit(embed)
                 .then(linkMsg => {
-                    linkMsg.delete({ timeout: 60000 })
-                    message.delete({ timeout: 60000 })
+                    setTimeout(() => {
+                        if (!linkMsg.deleted) linkMsg.delete()
+                        if (!message.deleted) message.delete()
+                    }, 60000)
                 })
         })
 }
