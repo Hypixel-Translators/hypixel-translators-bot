@@ -55,10 +55,10 @@ module.exports = {
         .catch(error => console.error(error))
 
       await message.channel.send(pageEmbed).then(async msg => {
-        await msg.react("⏮"); await msg.react("◀"); await msg.react("▶"); await msg.react("⏭"); await msg.react("🗑️")
+        await msg.react("⏮"); await msg.react("◀"); await msg.react("▶"); await msg.react("⏭")
 
         const filter = (reaction, user) => {
-          return (reaction.emoji.name === '⏮' || reaction.emoji.name === '◀' || reaction.emoji.name === '▶' || reaction.emoji.name === '⏭' || reaction.emoji.name === "🗑️") && user.id === message.author.id
+          return (reaction.emoji.name === '⏮' || reaction.emoji.name === '◀' || reaction.emoji.name === '▶' || reaction.emoji.name === '⏭') && user.id === message.author.id
         }
 
         const collector = msg.createReactionCollector(filter, { time: 60000 }) //1 minute
@@ -66,7 +66,6 @@ module.exports = {
         collector.on('collect', async (reaction, user) => {
           if (reaction.emoji.name === "⏮") page = 0 //First
           if (reaction.emoji.name === "⏭") page = pages.length - 1 //Last
-          if (reaction.emoji.name === "🗑️") await msg.delete() // Delete the embed
           if (reaction.emoji.name === "◀") { //Previous
             page--
             if (page < 0) page = 0
@@ -83,6 +82,9 @@ module.exports = {
         collector.on('end', async () => {
           msg.edit(strings.timeOut)
           msg.reactions.removeAll()
+          setTimeout(() => {
+            msg.suppressEmbeds()
+          }, 10000);
         })
       })
 
