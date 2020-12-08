@@ -1,0 +1,17 @@
+{
+    "tip": "Tips",
+    "tips": {
+        "0": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
+        "1": "I need translators! Find out how to become a bot translator at %%translate%%.",
+        "2": "Have you tried Emoji language? Change your language to it using `+lang em`!",
+        "3": "Ändra dina länkar till typen \"en-en\"!",
+        "4": "You get random amounts of XP every minute when you're chatting, which will eventually make you level up.",
+        "5": "Vi behöver fler tips! Skicka in dem med hjälp av `+feedback`.",
+        "6": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%gettingStarted%%, it has some useful tips!",
+        "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
+        "8": "%%rules%% and %%serverInfo%% have all the info you need about this server!",
+        "9": "Hittade ett fel med en översättning? Kontakta en korrekturläsare för ditt språk eller prata med någon i översättningskanalen.",
+        "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!"
+    },
+    "executedBy": "Executed by %%user%%"
+}
