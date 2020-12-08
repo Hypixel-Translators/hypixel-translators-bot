@@ -1,5 +1,5 @@
 {
-    "moduleName": "Zalgo checker",
+    "moduleName": "Zalgo figyelő",
     "started": "Kérlek várj egy percet az összes zalgo becenévnév megváltoztatásához...",
     "done": "Az összes zalgo becenév meg lett változtatva!",
     "executedBy": "Executed by %%user%%"
