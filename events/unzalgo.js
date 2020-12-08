@@ -20,7 +20,7 @@ async function check(client) {
             members.forEach(member => {
                 if (isZalgo(member.displayName, 0.1)) {
                     member.setNickname("Unknown", "More than 90% of user's name was zalgo")
-                    member.send("Your nickname on the Hypixel Translators Community Discord was automatically set to Unknown because your name had Zalgo in it. If you believe this is an error, feel free to respond to this message saying so. Keep in mind anything sent in these DMs will be sent to staff. \n\nThis is an automated message.")
+                    member.send("Your nickname on the Hypixel Translators Community Discord was automatically set to Unknown because it had Zalgo in it (here's what it looked like before: " + member.displayName + "). If you believe this is an error, feel free to respond to this message saying so. Keep in mind anything sent in these DMs will be sent to staff and that this message was automated.")
                         .then(() => {
                             console.log("Changed the nick of " + member.user.tag + " to Unknown becase they had Zalgo in their name")
                         })
