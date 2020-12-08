@@ -82,6 +82,9 @@ module.exports = {
         collector.on('end', async () => {
           msg.edit(strings.timeOut)
           msg.reactions.removeAll()
+          setTimeout(() => {
+            msg.suppressEmbeds()
+          }, 10000);
         })
       })
 
