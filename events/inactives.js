@@ -7,7 +7,7 @@ module.exports = {
         var d = new Date()
         var h = d.getUTCHours()
         var m = d.getUTCMinutes()
-        if ((h == "4" && m == "00") || manual) {
+        if ((h == "2" && m == "00") || manual) {
             check(client)
         }
     }
@@ -28,7 +28,7 @@ async function check(client) {
                         client.channels.cache.get("662660931838410754").send("**" + member.user.tag + "** has been kicked for inactivity")
                         console.log("Kicked " + member.user.tag + " for inactivity")
                     })
-                    .catch(err => {
+                    .catch(() => {
                         client.channels.cache.get("662660931838410754").send("Kicked **" + member.user.tag + "** for inactivity but couldn't send them a DM with the reason.")
                         console.error("Kicked " + member.user.tag + " for inactivity but couldn't DM them")
                     })

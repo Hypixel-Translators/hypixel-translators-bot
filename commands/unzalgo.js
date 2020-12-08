@@ -1,15 +1,15 @@
 const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
-const inactives = require('../events/inactives.js')
+const unzalgo = require('../events/unzalgo.js')
 
 module.exports = {
-    name: "inactives",
-    description: "Checks for inactive unverified members (if applicable).",
-    usage: "+inactives",
-    aliases: ["updateinactives", "unverifieds", "inactive"],
+    name: "unzalgo",
+    description: "Checks for zalgo characters in member's nicks and changes them",
+    usage: "+unzalgo",
+    aliases: ["zalgo", "zalgocheck"],
     allowDM: true,
     async execute(strings, message) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) throw noAccess;
+        if (!message.member.hasPermission("VIEW_AUDIT_LOG")) throw noAccess;
         const embed = new Discord.MessageEmbed()
             .setColor(loadingColor)
             .setAuthor(strings.moduleName)
@@ -17,7 +17,7 @@ module.exports = {
         message.channel.send(embed)
             .then(async msg => {
                 try {
-                    await inactives.execute(message.client, true)
+                    await unzalgo.execute(message.client, true)
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
                         .setAuthor(strings.moduleName)

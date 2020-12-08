@@ -23,6 +23,7 @@ const notAllowed = "732298639736570007" //vote_no emoji
 //Import events
 const stats = require("./events/stats.js")
 const inactives = require("./events/inactives.js")
+const unzalgo = require("./events/unzalgo.js")
 
 
 //Run when bot is ready
@@ -58,6 +59,7 @@ client.once("ready", async () => {
 
     stats.execute(client, false)
     inactives.execute(client, false)
+    unzalgo.execute(client, false)
   }, 60000)
 })
 
