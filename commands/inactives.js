@@ -9,11 +9,13 @@ module.exports = {
     aliases: ["updateinactives", "unverifieds", "inactive"],
     allowDM: true,
     async execute(strings, message) {
+        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         if (!message.member.hasPermission("ADMINISTRATOR")) throw noAccess;
         const embed = new Discord.MessageEmbed()
             .setColor(loadingColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.started)
+            .setFooter(executedBy)
         message.channel.send(embed)
             .then(async msg => {
                 try {
@@ -22,6 +24,7 @@ module.exports = {
                         .setColor(successColor)
                         .setAuthor(strings.moduleName)
                         .setTitle(strings.done)
+                        .setFooter(executedBy)
                     msg.edit(embed)
                 } catch (err) { throw err }
             })
