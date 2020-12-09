@@ -93,7 +93,7 @@ client.on("message", async message => {
     globalStrings = require(("./strings/" + oldMsg[0] + "/global.json"))
     helpStrings = require(("./strings/" + oldMsg[0] + "/help.json"))
   })
-  const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
+  var executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
   //Link correction system
   if (message.content.includes("/translate/") && message.content.includes("://")) if (message.channel.id === "549503328472530976" || message.channel.id === "627594632779399195") { // hypixel translators and proofreaders

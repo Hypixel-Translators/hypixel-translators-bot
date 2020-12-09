@@ -105,7 +105,7 @@ module.exports = {
           .setAuthor(strings.moduleName)
           .setTitle(strings.commandInfo)
           .setDescription(strings.commandNotExist)
-          .setFooter(executedBy + " | " + madeBy)
+          .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
         return message.channel.send(embed)
       }
 
@@ -119,7 +119,7 @@ module.exports = {
         .setAuthor(strings.moduleName)
         .setTitle(strings.commandInfoFor + "`+" + command.name + "`")
         .setDescription(cmdDesc || strings.noDesc)
-        .setFooter(executedBy + " | " + madeBy)
+        .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
       if (cmdUsage) {
         embed.addFields({ name: strings.usageField, value: "`" + cmdUsage + "`", inline: true })
         if (command.cooldown) {

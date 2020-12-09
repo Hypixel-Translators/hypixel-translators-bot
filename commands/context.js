@@ -528,7 +528,7 @@ async function sheetLink(executedBy, strings, message) {
                 .setColor(successColor)
                 .setTitle(strings.info.sheetT)
                 .setDescription(`[${strings.info.sheetDButton}](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\n` + strings.info.sheetD)
-                .setFooter(executedBy + " | " + strings.info.sheetDel);
+                .setFooter(executedBy + " | " + strings.info.sheetDel, message.author.displayAvatarURL());
             msg.edit(embed)
                 .then(linkMsg => {
                     setTimeout(() => {
