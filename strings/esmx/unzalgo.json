@@ -1,6 +1,6 @@
 {
     "moduleName": "Comprobador de zalgo",
-    "started": "Por favor, espera un minuto o dos para que todos los apodos con zalgo sean cambiados...",
-    "done": "¡Todos los apodos con zalgo fueron cambiados!",
+    "started": "Por favor, espere un minuto o dos para que se cambien todos los apodos de zalgo...",
+    "done": "¡Todos los apodos de zalgo han sido cambiados!",
     "executedBy": "Ejecutado por %%user%%"
 }
