@@ -1,0 +1,6 @@
+{
+    "moduleName": "Procurador de zalgo",
+    "started": "Espera um ou dois minutos para que todas as alcunhas com zalgo sejam alteradas...",
+    "done": "Todas as alcunhas com zalgo foram alteradas!",
+    "executedBy": "Executado por %%user%%"
+}

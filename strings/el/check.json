@@ -1,5 +1,7 @@
 {
     "moduleName": "User information",
+    "userID": "%%user%% (ID: %%id%%)",
+    "userNotFound": "That user wasn't found!",
     "uperms": "Permissions",
     "uroles": "Ρόλοι",
     "ujoined": "Joined at",

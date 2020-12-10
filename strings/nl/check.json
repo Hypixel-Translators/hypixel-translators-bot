@@ -1,5 +1,7 @@
 {
     "moduleName": "Gebuikersinformatie",
+    "userID": "%%user%% (ID: %%id%%)",
+    "userNotFound": "Die gebruiker kon niet worden gevonden!",
     "uperms": "Rechten",
     "uroles": "Rollen",
     "ujoined": "Lid geworden op",

@@ -1,0 +1,6 @@
+{
+    "moduleName": "Zalgochecker",
+    "started": "Wacht een minuut of twee tot alle bijnamen met zalgo gewijzigd zijn...",
+    "done": "Alle bijnamen met zalgo zijn gewijzigd!",
+    "executedBy": "Uitgevoerd door %%user%%"
+}

@@ -1,0 +1,6 @@
+{
+    "moduleName": "Erikoismerkkisotkun tarkistus",
+    "started": "Odota hetki kun kaikkia erikoismerkkisotkunimiä vaihdetaan...",
+    "done": "Kaikki erikoismerkkisotkunimet on vaihdettu!",
+    "executedBy": "Komennon suoritti %%user%%"
+}

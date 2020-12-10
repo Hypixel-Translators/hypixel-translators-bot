@@ -1,5 +1,7 @@
 {
     "moduleName": "Información del usuario",
+    "userID": "%%user%% (ID: %%id%%)",
+    "userNotFound": "¡No se pudo encontrar ese usuario!",
     "uperms": "Permisos",
     "uroles": "Roles",
     "ujoined": "Se unió el",

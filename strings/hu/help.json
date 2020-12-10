@@ -1,37 +1,37 @@
 {
     "moduleName": "Információ",
-    "page1Title": "Help page",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
-    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
-    "page": "Page %%number%%/%%total%%",
-    "pageNumber": "Page %%number%%",
-    "utilityHelp": "%%badge%% Tools & Utilities",
-    "infoHelp": "%%badge%% Information commands",
-    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
-    "pageNotExist": "That page doesn't exist!",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
-    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
-    "seconds": "seconds",
-    "usageField": "Usage",
+    "page1Title": "Súgó oldal",
+    "commandsListTooltip": "Ezt a botot %%QkeleQ10%% készítette a Hypixel Translators Community számára. A bot nyílt forrású és a GitHub oldalát [itt]%%github%% találod.\n[Ennek]%%translate%% az üzenetnek a követésével segíthetsz a bot fordításában.\n\nHasználd a `+help <parancs>` parancsot hogy többet tudhass meg az adott parancsról.\nAlább találhatod az összes elérhető oldalt. Használd a reakciókat a köztük való lapozáshoz.",
+    "madeBy": "A botot %%QkeleQ10%% készítette sok szeretettel",
+    "page": "%%number%%. lap/%%total%%",
+    "pageNumber": "%%number%%. lap",
+    "utilityHelp": "%%badge%% Eszközök",
+    "infoHelp": "%%badge%% Információs parancsok",
+    "timeOut": "Időtúllépés. Ha újra használni akarod, használd a `+help` parancsot.",
+    "pageNotExist": "Ez az oldal nem létezik!",
+    "commandInfo": "Parancs információ",
+    "commandInfoFor": "Parancs információ ehhez: ",
+    "commandNotExist": "Ez a parancs nem létezik!",
+    "noDesc": "Ezt a parancsot csak adminok érhetik el vagy még dolgoznak rajta.\nKérlek írj egy staffnak ha úgy gondolod, hogy ez egy hiba.",
+    "seconds": "másodperc",
+    "usageField": "Használat",
     "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
+    "aliasesField": "Becenevek",
     "help": {
-        "usage": "+help [page | command name]",
-        "description": "Shows you all available commands and other info about the bot."
+        "usage": "+help [oldal | parancs neve]",
+        "description": "Megmutatja az összes elérhető parancsot és információkat ad a robotról."
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s)."
+        "description": "Megkapod a saját nyelve(i)d előjelét."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <user mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "usage": "+quote [szám] | +quote add <idézet>/<felhasználó említése>",
+        "description": "Szerez (vagy hozz létre) egy vicces/fura/bölcs idézetet a szerverből."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with an optional message."
+        "usage": "+mention <nyelv> translator|proofreader|all [message]",
+        "description": "Említs meg egy nyelvi csoportot egy választott üzenettel."
     },
     "context": {
         "usage": "+context get|add|edit|link|help <arguments>",
@@ -39,43 +39,43 @@
     },
     "issue": {
         "usage": "+issue",
-        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
+        "description": "Megnyitja a GitHub oldalunkat, ahol hibákat jelenthetsz és visszajelzést adhatsz."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or shows a list of available languages."
+        "usage": "+language [<új nyelv> | list]",
+        "description": "Megváltoztatja a nyelved, megmutatja a mostanit, vagy ad egy listát az elérhető nyelvekről."
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping as well as Discord API's ping."
+        "description": "Megadja a bot és a Discord API pingjét."
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Ad egy meghívót a szerverre. Kérlek ezt használd, ha meg szeretnél hívni valakit."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Linket ad a hivatalos Hypixel fordításáról szóló poszthoz."
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "Hasznos információt ad a Hypixel projektről."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Hasznos információt ad a Quickplay projektről."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "Hasznos információt ad a SkyblockAddons projektről."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Linket ad a Discordot bejelentő poszthoz."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Megadja a linket a hivatalos Hypixel Translators Community Twitter oldalához."
     },
     "tip": {
         "usage": "+tip",

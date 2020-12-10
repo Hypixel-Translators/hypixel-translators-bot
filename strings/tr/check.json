@@ -1,5 +1,7 @@
 {
     "moduleName": "Kullanıcı bilgisi",
+    "userID": "%%user%% (ID: %%id%%)",
+    "userNotFound": "That user wasn't found!",
     "uperms": "İzinler",
     "uroles": "Roller",
     "ujoined": "Katılma Tarihi",

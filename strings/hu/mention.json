@@ -1,11 +1,11 @@
 {
-    "errorNoPing": "You don't have that language's proofreader role, ",
-    "errorNoPingPr": "so you can't mention it.",
-    "errorNoPingTr": "so you can't mention its translator role.",
-    "errorNoPingAll": "so you can't mention the entire language.",
-    "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to.",
-    "errorNotFound": "The role you entered doesn't exist. You can enter the language name, or any of these: ",
-    "errorNoArgs": "You forgot to specify a language! You can enter the language name (in English) or any of these: ",
-    "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
+    "errorNoPing": "Nincs arra a nyelvre ellenőrző rangod, ",
+    "errorNoPingPr": "így nem tudod megemlíteni.",
+    "errorNoPingTr": "így nem tudod megemlíteni a fordítóit.",
+    "errorNoPingAll": "így nem említheted meg az egész nyelvet.",
+    "errorNoPingDisclaimer": "Üzenj a szerver tulajdonosának vagy egy adminisztrátornak ha nagyon fontos.",
+    "errorNotFound": "A rang amit beírtál nem létezik. Be tudod írni a nyelv nevét, vagy ezek közül valamelyiket: ",
+    "errorNoArgs": "Elfelejtettél megadni egy nyelvet! Írd be a nyelv nevét (angolul) vagy ezek közül valamelyiket: ",
+    "errorNoArgs2": "Elfelejtettél egy rangot megadni! Válassz ezek közül egyet: ",
     "executedBy": "Executed by %%user%%"
 }

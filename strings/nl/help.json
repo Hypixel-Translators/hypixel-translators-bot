@@ -14,7 +14,7 @@
     "commandNotExist": "Dat commando bestaat niet!",
     "noDesc": "Dit commando is in ontwikkeling of alleen beschikbaar voor staff.\nNeem contact op met staff als je denkt dat dit een fout is.",
     "seconds": "seconden",
-    "usageField": "Gebruik",
+    "usageField": "Syntaxis",
     "cooldownField": "Afkoeltijd",
     "aliasesField": "Aliassen",
     "help": {
