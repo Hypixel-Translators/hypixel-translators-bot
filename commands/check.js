@@ -17,7 +17,7 @@ module.exports = {
       var userRaw = args[0].replace("<@", "").replace(">", "")
       user = message.guild.members.cache.find(m => m.id === userRaw || m.user.tag === userRaw || m.user.username === userRaw || m.nickname === userRaw || m.user.tag.toLowerCase().includes(userRaw.toLowerCase()) || m.displayName.toLowerCase().includes(userRaw.toLowerCase()))
       if (!user) {
-        message.channel.send("That user hasn't been found!")
+        message.channel.send(strings.userNotFound)
         return;
         //throw "falseUser"
       }
@@ -30,11 +30,13 @@ module.exports = {
       const joinD = user.joinedAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
       const creaD = user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
 
-      const embed = new Discord.MessageEmbed()
+      
+      console.log(joinD + "\n" + creaD)
+        const embed = new Discord.MessageEmbed()
         .setColor(user.displayHexColor)
         .setAuthor(strings.moduleName, user.user.displayAvatarURL())
         .setTitle(user.user.tag)
-        .setDescription("<@" + user.user.id + "> (ID: `" + user.user.id + "`)")
+        .setDescription(strings.userID.replace("%%user%%", "<@" + user.user.id + ">").replace("%%id%%", user.user.id))
         .addFields(
           { name: strings.ujoined, value: joinD.charAt(0).toUpperCase() + joinD.slice(1), inline: true },
           { name: strings.ucreated, value: creaD.charAt(0).toUpperCase() + creaD.slice(1), inline: true },
