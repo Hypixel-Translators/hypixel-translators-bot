@@ -31,7 +31,7 @@ module.exports = {
       const creaD = user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
 
       const embed = new Discord.MessageEmbed()
-        .setColor(successColor)
+        .setColor(user.displayHexColor)
         .setAuthor(strings.moduleName, user.user.displayAvatarURL())
         .setTitle(user.user.tag)
         .setDescription("<@" + user.user.id + "> (ID: `" + user.user.id + "`)")
