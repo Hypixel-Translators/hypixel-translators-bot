@@ -31,6 +31,7 @@ client.once("ready", async () => {
   console.log("Ready!")
 
   //Fetch channels
+  client.guilds.cache.get("549503328472530974").members.fetch() //Guild members
   client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
   client.channels.cache.get("782635440054206504").messages.fetch() //language-database
   const reviewStringsChannels = await client.channels.cache.filter(c => c.name.endsWith("review-strings"))
