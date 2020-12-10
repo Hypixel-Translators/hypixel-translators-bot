@@ -1,5 +1,7 @@
 {
     "moduleName": "المتحقق من الصلاحيات",
+    "userID": "%%user%% (ID: %%id%%)",
+    "userNotFound": "That user wasn't found!",
     "uperms": "صلاحيات",
     "uroles": "رتب",
     "ujoined": "دخل في",
