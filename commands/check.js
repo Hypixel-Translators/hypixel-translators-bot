@@ -30,8 +30,6 @@ module.exports = {
       const joinD = user.joinedAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
       const creaD = user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
 
-      
-      console.log(joinD + "\n" + creaD)
         const embed = new Discord.MessageEmbed()
         .setColor(user.displayHexColor)
         .setAuthor(strings.moduleName, user.user.displayAvatarURL())
