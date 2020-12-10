@@ -1,7 +1,7 @@
 {
     "moduleName": "Käyttäjän tiedot",
     "userID": "%%user%% (ID: %%id%%)",
-    "userNotFound": "That user wasn't found!",
+    "userNotFound": "Tätä käyttäjää ei löytynyt!",
     "uperms": "Oikeudet",
     "uroles": "Roolit",
     "ujoined": "Liittyi palvelimelle",
