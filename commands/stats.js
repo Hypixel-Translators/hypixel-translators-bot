@@ -10,7 +10,7 @@ module.exports = {
     allowDM: true,
     async execute(strings, message, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        if (!message.member.hasPermission("ADMINISTRATOR")) throw noAccess;
+        if (!message.member.hasPermission("ADMINISTRATOR")) throw "noAccess";
         const embed = new Discord.MessageEmbed()
             .setColor(loadingColor)
             .setAuthor(strings.moduleName)
