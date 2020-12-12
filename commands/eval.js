@@ -1,3 +1,4 @@
+const { loadingColor, errorColor, successColor, neutralColor, langdb } = require("../config.json");
 const fetch = require("node-fetch")
 const Discord = require("discord.js")
 const client = new Discord.Client()
