@@ -226,7 +226,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
   const channel = reaction.message.channel
 
   //Delete message when channel name ends with review-strings
-  if (channel.name.endsWith("review-strings")) {
+  if (channel.name.endsWith("review-strings") && user.id !== "620364412649209864") {
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
       reaction.message.react("⏱")
       reaction.message.react(reaction.emoji)
@@ -237,7 +237,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
     }
   }
 
-  //Give role if reacted on reaction role message
+  //Give Bot Updates role if reacted on reaction role message
   if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been added!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
@@ -268,7 +268,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 //Run when reaction is removed
 client.on('messageReactionRemove', async (reaction, user) => {
 
-  //Take role if reaction removed from reaction role message
+  //Take Bot updates role if reaction removed from reaction role message
   if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been removed!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
