@@ -33,6 +33,7 @@ client.once("ready", async () => {
   //Fetch channels
   client.guilds.cache.get("549503328472530974").members.fetch() //Guild members
   client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
+  client.channels.cache.get("569178590697095168").messages.fetch("787366444970541056") //verify message
   client.channels.cache.get("782635440054206504").messages.fetch() //language-database
   const reviewStringsChannels = await client.channels.cache.filter(c => c.name.endsWith("review-strings"))
   reviewStringsChannels.forEach(c => { c.messages.fetch() })
@@ -226,7 +227,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
   const channel = reaction.message.channel
 
   //Delete message when channel name ends with review-strings
-  if (channel.name.endsWith("review-strings") && user.id !== "620364412649209864") {
+  if (channel.name.endsWith("review-strings") && !user.bot) {
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
       reaction.message.react("⏱")
       reaction.message.react(reaction.emoji)
@@ -261,6 +262,22 @@ client.on('messageReactionAdd', async (reaction, user) => {
           })
       })
 
+  }
+
+  //Give Verified role and take Unverified and Alerted roles when reacting on verify
+  if (reaction.message.id === "787366444970541056" && reaction.emoji.name === "✅") {
+    client.channels.cache.get("569178590697095168").messages.fetch("787366444970541056") //verify message
+      .then(() => {
+        console.log(user.tag + " manually verified themselves as a player!")
+        reaction.message.guild.member(user).roles.add("569194996964786178", "Manually verified with the reaction") //Verified
+        .then(() => reaction.message.guild.member(user).roles.remove(["739111904672481280", "756199836470214848"], "Manually verified with the reaction")) //Unverified and Alerted
+          .catch(err => {
+            console.log(user.user.tag + " tried to verify themselves as a player but the following error occured:\n" + err)
+            client.channels.cache.get("662660931838410754").send("An error occured while trying to manually verify " + user.user.tag + " as a player.") //verify-logs
+          })
+        client.channels.cache.get("662660931838410754").send("<@" + user.id + "> manually verified themselves as a player through the reaction.")//verify-logs
+        reaction.users.remove(user.id)
+      })
   }
 })
 
