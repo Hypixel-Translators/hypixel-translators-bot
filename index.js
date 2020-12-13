@@ -191,7 +191,6 @@ client.on("message", async message => {
   globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
   //Run command and handle errors
-  //setTimeout(() => {
   try { command.execute(strings, message, args) }
   catch (error) {
 
@@ -216,9 +215,7 @@ client.on("message", async message => {
     //Try sending a tip
     var d = Math.random(); var s = Math.round(Math.random())
     if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${globalStrings.tips[Math.floor(Math.random() * Object.keys(globalStrings.tips).length)].replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "(https://twitter.com/HTranslators)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#699367079241056347>")}`)
-
   }
-  //}, 50)
 })
 
 
@@ -239,7 +236,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
   }
 
   //Give Bot Updates role if reacted on reaction role message
-  if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
+  if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖" && !user.bot) { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been added!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
     client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
@@ -265,7 +262,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
   }
 
   //Give Verified role and take Unverified and Alerted roles when reacting on verify
-  if (reaction.message.id === "787366444970541056" && reaction.emoji.name === "✅") {
+  if (reaction.message.id === "787366444970541056" && reaction.emoji.name === "✅" && !user.bot) {
     client.channels.cache.get("569178590697095168").messages.fetch("787366444970541056") //verify message
       .then(() => {
         console.log(user.tag + " manually verified themselves as a player!")
@@ -286,7 +283,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 client.on('messageReactionRemove', async (reaction, user) => {
 
   //Take Bot updates role if reaction removed from reaction role message
-  if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
+  if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖" && !user.bot) { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been removed!")
     let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
     client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
