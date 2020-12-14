@@ -1,9 +1,11 @@
 {
-    "description": "Hypixel stats for %%username%%. Obtained from [here](https://api.slothpixel.me/api/players/%%username%%)",
-    "network_level": "Network level ✨",
-    "karma": "Karma 🍪",
-    "online": "Online 🟢",
-    "last_game": "Last game 🎮",
-    "language": "Language 🗣",
-    "uuid": "UUID 💻"
+    "moduleName": "Player stats",
+    "description": "Here are some Hypixel stats for %%username%%, obtained [here]%%link%%.",
+    "network_level": "Hypixel level",
+    "karma": "Karma",
+    "online": "Online",
+    "offline": "Offline",
+    "lastGame": "Last seen in %%game%%",
+    "language": "Language",
+    "uuid": "UUID"
 }
