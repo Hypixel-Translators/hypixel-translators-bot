@@ -32,7 +32,7 @@ module.exports = {
                 }
 
                 let rank // some ranks are just prefixes so this code accounts for that
-                if (json.prefix !== null) rank = json.prefix.replace(/&([1-9]|[a-z])/g, "")
+                if (json.prefix !== null) rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
                 else rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
                 username = json.username.replace("_", "\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
                 let language = json.language.toLowerCase().charAt(0).toUpperCase() + json.language.toLowerCase().slice(1) // make the language properly capitalised and not all caps
