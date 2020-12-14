@@ -21,24 +21,28 @@ module.exports = {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
         let username = args[0]
+
+        // make a response to the slothpixel api (hypixel api but we dont need an api key)
         fetch(`https://api.slothpixel.me/api/players/${username}`, {method: "Get"})
-            .then(res => (res.json()))
-            .then((json) => {
+            .then(res => (res.json())) // get the response json
+            .then((json) => { // here we do stuff with the json
                 if (json.error === "Player does not exist") {
                     throw strings.hypixelApiError
                 }
-                else if (json.error !== undefined) {
+                else if (json.error !== undefined) { // if other error we didn't plan for appeared
                     console.log(`Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n${json.error}`)
                 }
-                let rank
+                let rank // some ranks are just prefixes so this code accounts for that
                 if (json.prefix !== null) {
                     rank = json.prefix.replace(/&([1-9]|[a-z])/g, "")
                 }
                 else {
                     rank = json.rank_formatted.replace(/&([1-9]|[a-z])/g, "")
                 }
-                username = json.username.replace("_", "\\_")
-                let language = json.language.toLowerCase().charAt(0).toUpperCase() + json.language.toLowerCase().slice(1)
+                username = json.username.replace("_", "\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
+                let language = json.language.toLowerCase().charAt(0).toUpperCase() + json.language.toLowerCase().slice(1) // make the language properly capitalised and not all caps
+
+                // craft the embed and send it
                 const embed = new discord.MessageEmbed()
                     .setTitle(`${rank} ${json.username}`)
                     .setDescription(strings.description.replace(/%%username%%/g, username))
