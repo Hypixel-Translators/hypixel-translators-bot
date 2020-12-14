@@ -17,6 +17,13 @@ module.exports = {
     channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
     execute(strings, message, args) {
+        function parseColorCode(rank) {
+            let colorCode = rank.substring(1, 2)
+            let colorsJson = { "0": "#000000", "1": "#0000AA", "2": "#00AA00", "3": "#00AAAA", "4": "#AA0000", "5": "#AA00AA", "6": "#FFAA00", "7": "#AAAAAA", "8": "#555555", "9": "#5555FF", "a": "#55FF55", "b": "#55FFFF", "c": "#FF5555", "d": "#FF55FF", "e": "#FFFF55", "f": "#FFFFFF" }
+            return colorsJson[colorCode];
+        }
+
+
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         let username = args[0]
 
@@ -32,8 +39,15 @@ module.exports = {
                 }
 
                 let rank // some ranks are just prefixes so this code accounts for that
-                if (json.prefix !== null) rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
-                else rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
+                let color
+                if (json.prefix !== null) {
+                    color = parseColorCode(json.prefix)
+                    rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
+                }
+                else {
+                    color = parseColorCode(json.rank_formatted)
+                    rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
+                }
                 username = json.username.replace("_", "\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
                 let language = json.language.toLowerCase().charAt(0).toUpperCase() + json.language.toLowerCase().slice(1) // make the language properly capitalised and not all caps
                 let online
@@ -54,6 +68,7 @@ module.exports = {
                         { name: strings.uuid, value: json.uuid, inline: true }
 
                     )
+                    .setColor(color)
                     .setFooter(executedBy, message.author.displayAvatarURL())
                     .setThumbnail("https://crafatar.com/renders/body/" + json.uuid + "?overlay")
                 message.channel.send(embed)
