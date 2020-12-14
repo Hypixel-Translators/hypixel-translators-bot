@@ -14,7 +14,7 @@
     "disabled": "Bu komut geçici olarak devre dışı bırakıldı.",
     "noTrPr": "Bir çevirmen veya düzeltmen değilsin, yani bunu kullanamazsın!",
     "noAccess": "Bu komutu kullanmana izin verilmiyor!",
-    "noPermission": "You are not allowed to execute this command on this channel!",
+    "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "Lütfen ilk argüman olarak bir alt komut girin. Bu, `get`, `add`, `edit`,`link` veya `help` olabilir.\nBilgi için `+context help` komutunu çalıştırın.",
     "cooldown": "Bekleme Süresi",
     "timeLeftT": "'+%%command%%' komutunu kullanmak için lütfen %%time%% saniye bekle.",
