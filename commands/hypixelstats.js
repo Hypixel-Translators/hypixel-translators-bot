@@ -55,7 +55,7 @@ module.exports = {
 
                     )
                     .setFooter(executedBy, message.author.displayAvatarURL())
-                    .setThumbnail("https://crafatar.com/renders/body/" + json.uuid + "&overlay")
+                    .setThumbnail("https://crafatar.com/renders/body/" + json.uuid + "?overlay")
                 message.channel.send(embed)
             })
     }
