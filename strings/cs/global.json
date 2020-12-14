@@ -14,7 +14,7 @@
     "disabled": "Tento příkaz byl dočasně deaktivován.",
     "noTrPr": "Nejsi překladatel ani korektor, takže to nemůžeš použít!",
     "noAccess": "Nemáš povoleno používat tento příkaz!",
-    "noPermission": "You are not allowed to execute this command on this channel!",
+    "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
     "cooldown": "Časové omezení",
     "timeLeftT": "Počkej prosím dalších %%time%% sekund/y pro použití příkazu `+%%command%%`.",
