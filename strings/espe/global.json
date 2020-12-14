@@ -14,7 +14,7 @@
     "disabled": "Este comando ha sido temporalmente desactivado.",
     "noTrPr": "¡No eres traductor ni proofreader, así que no puedes usar esto!",
     "noAccess": "¡No puedes usar este comando!",
-    "noPermission": "You are not allowed to execute this command on this channel!",
+    "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "Por favor, da un subcomando como primer argumento. Puede ser `get`, `add`, `edit`, `link` o `help`.",
     "cooldown": "Enfriamiento",
     "timeLeftT": "Espera otros %%time%% segundos para usar `+%%command%%` otra vez.",
