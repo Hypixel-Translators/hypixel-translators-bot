@@ -269,7 +269,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
         reaction.message.guild.member(user).roles.set("569194996964786178", "Manually verified with the reaction") //Verified
           .catch(err => {
             console.log(user.tag + " tried to verify themselves as a player but the following error occured:\n" + err)
-            client.channels.cache.get("662660931838410754").send("An error occured while trying to manually verify " + user.user.tag + " as a player.") //verify-logs
+            client.channels.cache.get("662660931838410754").send("An error occured while trying to manually verify " + user.tag + " as a player.") //verify-logs
           })
         client.channels.cache.get("662660931838410754").send("<@" + user.id + "> manually verified themselves as a player through the reaction.")//verify-logs
         reaction.users.remove(user.id)
