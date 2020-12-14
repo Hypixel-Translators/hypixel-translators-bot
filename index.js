@@ -263,17 +263,16 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
   //Give Verified role and take Unverified and Alerted roles when reacting on verify
   if (reaction.message.id === "787366444970541056" && reaction.emoji.name === "✅" && !user.bot) {
-    client.channels.cache.get("569178590697095168").messages.fetch("787366444970541056") //verify message
+    reaction.message.guild.member(user).roles.add("569194996964786178", "Manually verified with the reaction").then(() => reaction.message.guild.member(user).roles.remove(["739111904672481280", "756199836470214848"], "Manually verified with the reaction")) //Verified, Unverified and Alerted
       .then(() => {
         console.log(user.tag + " manually verified themselves as a player!")
-          user.roles.set("569194996964786178", "Manually verified with the reaction") //Verified
-          .catch(err => {
-            console.log(user.tag + " tried to verify themselves as a player but the following error occured:\n" + err)
-            client.channels.cache.get("662660931838410754").send("An error occured while trying to manually verify " + user.tag + " as a player.") //verify-logs
-          })
         client.channels.cache.get("662660931838410754").send("<@" + user.id + "> manually verified themselves as a player through the reaction.")//verify-logs
-        reaction.users.remove(user.id)
       })
+      .catch(err => {
+        console.log(user.tag + " tried to verify themselves as a player but the following error occured:\n" + err)
+        client.channels.cache.get("662660931838410754").send("The following error occured while trying to manually verify " + user.tag + " as a player:\n" + err) //verify-logs
+      })
+    reaction.users.remove(user.id)
   }
 })
 
