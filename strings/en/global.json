@@ -15,6 +15,7 @@
     "noTrPr": "You're not a translator or proofreader, so you can't use this!",
     "noAccess": "You're not allowed to execute this command!",
     "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
+    "hypixelApiError": "This user doesn't exist!",
     "cooldown": "Cooldown",
     "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",

@@ -1,0 +1,9 @@
+{
+    "description": "Hypixel stats for %%username%%. Obtained from [here](https://api.slothpixel.me/api/players/%%username%%)",
+    "network_level": "Network level ✨",
+    "karma": "Karma 🍪",
+    "online": "Online 🟢",
+    "last_game": "Last game 🎮",
+    "language": "Language 🗣",
+    "uuid": "UUID 💻"
+}
