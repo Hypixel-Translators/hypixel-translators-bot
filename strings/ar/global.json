@@ -14,7 +14,7 @@
     "disabled": "هذا الأمر موقَّف بشكل مؤقت.",
     "noTrPr": "أنت لست مترجماً أو مدققاً مطبعياً، لذا لا يمكنك استخدام هذا!",
     "noAccess": "غير مسموح لك تنفيذ هذا الأمر!",
-    "noPermission": "You are not allowed to execute this command on this channel!",
+    "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "الرجاء إدخال أمر ثانوي. يمكن أن يكون هذا إما `get`, `add`, `edit`, `link` or `help`.\nللحصول على معلومات، قم بإستعمال `+context help`.",
     "cooldown": "فترة الاستراحة",
     "timeLeftT": "الرجاء الانتظار %%time%% ثانية لاستخدام `+%%command%%` مرة أخرى.",
