@@ -14,7 +14,7 @@
     "disabled": "To polecenie zostało tymczasowo wyłączone.",
     "noTrPr": "Nie jesteś tłumaczem, ani korektorem, więc nie możesz tego użyć!",
     "noAccess": "Nie możesz użyć tego polecenia!",
-    "noPermission": "You are not allowed to execute this command on this channel!",
+    "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "Wprowadź podpolecenie jako pierwszy argument. Może to być: `get`, `add`, `edit`, `link` lub `help`.\nAby uzyskać informacje, użyj `+context help`.",
     "cooldown": "Czas odnawiania",
     "timeLeftT": "Poczekaj kolejne %%time%% sekund, aby ponownie użyć `+%%command%%`.",
