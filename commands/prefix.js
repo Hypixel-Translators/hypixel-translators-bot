@@ -1,5 +1,6 @@
 const { loadingColor, errorColor, successColor, neutralColor, langdb } = require("../config.json");
 const Discord = require("discord.js");
+const { flag } = require("country-emoji")
 
 module.exports = {
   name: "prefix",
@@ -8,9 +9,14 @@ module.exports = {
   usage: "+prefix",
   cooldown: 15,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
-  async execute(strings, message) {
+  async execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-    //message.delete();
+
+    /*if (args[0]) {
+      flag = flag(args.join(" "))
+    }
+    Finishing this part tomorrow.*/
+
     const embed = new Discord.MessageEmbed()
       .setColor(loadingColor)
       .setAuthor(strings.moduleName)
@@ -32,44 +38,16 @@ module.exports = {
           }
         })
 
-
-        /*if (message.member.roles.cache.some(r => r.name.startsWith("Bulgarian"))) { userLangs.push("🇧🇬"); msg.react("🇧🇬") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Chinese"))) { userLangs.push("🇨🇳"); msg.react("🇨🇳"); userLangs.push("🇹🇼"); msg.react("🇹🇼"); userLangs.push("🇭🇰"); msg.react("🇭🇰") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Czech"))) { userLangs.push("🇨🇿"); msg.react("🇨🇿") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Danish"))) { userLangs.push("🇩🇰"); msg.react("🇩🇰") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Dutch"))) { userLangs.push("🇳🇱"); msg.react("🇳🇱") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Finnish"))) { userLangs.push("🇫🇮"); msg.react("🇫🇮") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("French"))) { userLangs.push("🇫🇷"); msg.react("🇫🇷") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("German"))) { userLangs.push("🇩🇪"); msg.react("🇩🇪") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Greek"))) { userLangs.push("🇬🇷"); msg.react("🇬🇷") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Italian"))) { userLangs.push("🇮🇹"); msg.react("🇮🇹") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Japanese"))) { userLangs.push("🇯🇵"); msg.react("🇯🇵") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Korean"))) { userLangs.push("🇰🇷"); msg.react("🇰🇷") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Norwegian"))) { userLangs.push("🇳🇴"); msg.react("🇳🇴") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Polish"))) { userLangs.push("🇵🇱"); msg.react("🇵🇱") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Portuguese"))) { userLangs.push("🇵🇹"); msg.react("🇵🇹") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Brazilian"))) { userLangs.push("🇧🇷"); msg.react("🇧🇷") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Russian"))) { userLangs.push("🇷🇺"); msg.react("🇷🇺") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Spanish"))) { userLangs.push("🇪🇸"); msg.react("🇪🇸") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Swedish"))) { userLangs.push("🇸🇪"); msg.react("🇸🇪") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Thai"))) { userLangs.push("🇹🇭"); msg.react("🇹🇭") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Turkish"))) { userLangs.push("🇹🇷"); msg.react("🇹🇷") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Ukrainian"))) { userLangs.push("🇺🇦"); msg.react("🇺🇦") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("Pirate"))) { userLangs.push("☠"); msg.react("☠") }
-        if (message.member.roles.cache.some(r => r.name.startsWith("LOLCAT"))) { userLangs.push("🐱"); msg.react("🐱") }*/
-
         setTimeout(() => {
-          msg.react("❎")
           if (userLangs.length < 1) {
             const embed = new Discord.MessageEmbed()
               .setColor(errorColor)
               .setAuthor(strings.moduleName)
               .setTitle(strings.errors.noLanguages)
               .setFooter(executedBy, message.author.displayAvatarURL());
-            msg.edit(embed)
-            return;
+            return msg.edit(embed)
           }
-
+          msg.react("❎")
 
           const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
