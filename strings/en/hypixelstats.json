@@ -1,11 +1,13 @@
 {
     "moduleName": "Player stats",
     "description": "Here are some Hypixel stats for %%username%%, obtained [here]%%link%%.",
-    "network_level": "Hypixel level",
+    "networkLevel": "Hypixel level",
     "karma": "Karma",
     "online": "Online",
     "offline": "Offline",
-    "lastGame": "Last seen in %%game%%",
+    "lastSeen": "Last seen in %%game%%",
+    "lastGame": "Last game",
     "language": "Language",
-    "uuid": "UUID"
+    "uuid": "UUID",
+    "executedBy": "Executed by %%user%%"
 }

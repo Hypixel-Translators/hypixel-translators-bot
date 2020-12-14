@@ -12,14 +12,12 @@ I CAN'T TEST IT HERE, AND I CAN ONLY TEST IT BY SETTING UP A NEW EMPTY PROJECT, 
 module.exports = {
     name: "hypixelstats",
     description: "Shows you basic Hypixel stats of the provided user.",
-    aliases: [],
     usage: "+hypixelstats <username>",
     cooldown: 60, // feel free to change it
     channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
     execute(strings, message, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
         let username = args[0]
 
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
@@ -35,7 +33,7 @@ module.exports = {
 
                 let rank // some ranks are just prefixes so this code accounts for that
                 if (json.prefix !== null) rank = json.prefix.replace(/&([1-9]|[a-z])/g, "")
-                else rank = json.rank_formatted.replace(/&([1-9]|[a-z])/g, "")
+                else rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
                 username = json.username.replace("_", "\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
                 let language = json.language.toLowerCase().charAt(0).toUpperCase() + json.language.toLowerCase().slice(1) // make the language properly capitalised and not all caps
                 let online
@@ -46,17 +44,17 @@ module.exports = {
                 const embed = new discord.MessageEmbed()
                     .setAuthor(strings.moduleName)
                     .setTitle(`${rank} ${json.username}`)
-                    .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", "(https://api.slothpixel.me/api/players/%%username%%)"))
+                    .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`))
                     .addFields(
-                        { name: strings.network_level, value: +Math.round(json.level), inline: true },
+                        { name: strings.networkLevel, value: +Math.round(json.level), inline: true },
                         { name: strings.karma, value: json.karma.toLocaleString(), inline: true },
-                        { name: online, value: strings.lastGame.replace("%%game%%", json.last_game), inline: true },
-                        { name: strings.last_game, value: json.last_game, inline: true },
+                        { name: online, value: strings.lastSeen.replace("%%game%%", json.last_game), inline: true },
+                        { name: strings.lastGame, value: json.last_game, inline: true },
                         { name: strings.language, value: language, inline: true },
                         { name: strings.uuid, value: json.uuid, inline: true }
 
                     )
-                    .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
+                    .setFooter(executedBy, message.author.displayAvatarURL())
                     .setThumbnail("https://crafatar.com/renders/body/" + json.uuid)
                 message.channel.send(embed)
             })
