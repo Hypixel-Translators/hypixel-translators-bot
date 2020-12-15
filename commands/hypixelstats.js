@@ -23,6 +23,14 @@ module.exports = {
         let username = args[0]
         if (!args[0]) throw "noUser"
 
+        const loadingEmbed = new discord.MessageEmbed()
+            .setColor(loadingColor)
+            .setAuthor(strings.moduleName)
+            .setTitle(strings.loading)
+            .setDescription(strings.loadingModule)
+            .setFooter(executedBy, message.author.displayAvatarURL())
+        message.channel.send(loadingEmbed)
+        .then(msg => {
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
         fetch(`https://api.slothpixel.me/api/players/${username}`, { method: "Get" })
             .then(res => (res.json())) // get the response json
@@ -75,7 +83,8 @@ module.exports = {
                     .setColor(color)
                     .setFooter(executedBy, message.author.displayAvatarURL())
                     .setThumbnail("https://crafatar.com/renders/body/" + json.uuid + "?overlay")
-                message.channel.send(embed)
+                msg.edit(embed)
             })
+        })
     }
 }
