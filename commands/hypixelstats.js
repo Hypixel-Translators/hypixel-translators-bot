@@ -2,18 +2,13 @@ const discord = require("discord.js");
 const fetch = require("node-fetch");
 const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json")
 
-
-/*
-PLEASE FOR THE LOVE OF GOD TEST THIS COMMAND.
-I CAN'T TEST IT HERE, AND I CAN ONLY TEST IT BY SETTING UP A NEW EMPTY PROJECT, SO PLEASE PLEASE PLEASE TEST IT
-*/
-
 //Credits to marzeq_
 module.exports = {
     name: "hypixelstats",
     description: "Shows you basic Hypixel stats of the provided user.",
     usage: "+hypixelstats <username>",
-    cooldown: 60, // feel free to change it
+    aliases: ["hstats"],
+    cooldown: 60,
     channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
     execute(strings, message, args) {
