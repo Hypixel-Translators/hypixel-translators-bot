@@ -21,6 +21,7 @@ module.exports = {
 
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         let username = args[0]
+        if (!args[0]) throw "noUser"
 
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
         fetch(`https://api.slothpixel.me/api/players/${username}`, { method: "Get" })
