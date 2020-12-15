@@ -48,7 +48,7 @@ module.exports = {
                     color = parseColorCode(json.rank_formatted)
                     rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
                 }
-                username = json.username.replace("_", "\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
+                username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
                 let language = json.language.toLowerCase().charAt(0).toUpperCase() + json.language.toLowerCase().slice(1) // make the language properly capitalised and not all caps
                 let online
                 if (json.online == true) online = strings.online
@@ -61,7 +61,7 @@ module.exports = {
                 // craft the embed and send it
                 const embed = new discord.MessageEmbed()
                     .setAuthor(strings.moduleName)
-                    .setTitle(`${rank} ${json.username}`)
+                    .setTitle(`${rank} ${username}`)
                     .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`))
                     .addFields(
                         { name: strings.networkLevel, value: +Math.round(json.level), inline: true },
