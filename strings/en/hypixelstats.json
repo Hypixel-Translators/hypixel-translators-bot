@@ -6,8 +6,8 @@
     "online": "Online",
     "offline": "Offline",
     "lastSeen": "Last seen in %%game%%",
-    "lastGame": "Last game",
     "language": "Language",
     "uuid": "UUID",
+    "discord": "Discord",
     "executedBy": "Executed by %%user%%"
 }

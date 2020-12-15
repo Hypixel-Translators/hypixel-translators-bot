@@ -54,6 +54,10 @@ module.exports = {
                 if (json.online == true) online = strings.online
                 else online = strings.offline
 
+                let linkDiscord
+                if (json.links.DISCORD === null) linkDiscord = "Not connected"
+                else linkDiscord = json.links.DISCORD
+
                 // craft the embed and send it
                 const embed = new discord.MessageEmbed()
                     .setAuthor(strings.moduleName)
@@ -63,8 +67,8 @@ module.exports = {
                         { name: strings.networkLevel, value: +Math.round(json.level), inline: true },
                         { name: strings.karma, value: json.karma.toLocaleString(), inline: true },
                         { name: online, value: strings.lastSeen.replace("%%game%%", json.last_game), inline: true },
-                        { name: strings.lastGame, value: json.last_game, inline: true },
                         { name: strings.language, value: language, inline: true },
+                        { name: strings.discord, value: linkDiscord, inline: true },
                         { name: strings.uuid, value: json.uuid, inline: true }
 
                     )
