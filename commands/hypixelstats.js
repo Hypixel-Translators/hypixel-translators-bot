@@ -63,7 +63,6 @@ module.exports = {
                         { name: strings.networkLevel, value: +Math.round(json.level), inline: true },
                         { name: strings.karma, value: json.karma.toLocaleString(), inline: true },
                         { name: online, value: strings.lastSeen.replace("%%game%%", json.last_game), inline: true },
-                        { name: strings.lastGame, value: json.last_game, inline: true },
                         { name: strings.language, value: language, inline: true },
                         { name: strings.uuid, value: json.uuid, inline: true }
 
