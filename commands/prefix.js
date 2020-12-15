@@ -12,10 +12,68 @@ module.exports = {
   async execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
 
-    /*if (args[0]) {
-      flag = flag(args.join(" "))
+    if (args[0]) {
+      let flag = flag(args.join(" "))
+      if (!flag) {
+        throw "falseLang"
+      }
+
+      msg.react("❎")
+      msg.react("✅")
+      const embed = new Discord.MessageEmbed()
+        .setColor(neutralColor)
+        .setAuthor(strings.moduleName)
+        .setTitle(strings.caution)
+        .setDescription(strings.warning)
+        .addFields({ name: strings.previewT, value: "[" + flag + "] " + message.member.user.username })
+        .setFooter(executedBy, message.author.displayAvatarURL());
+      message.channel.send(embed)
+        .then(msg => {
+
+          const filter = (reaction, reacter) => {
+            return (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id;
+          }
+          const collector = msg.createReactionCollector(filter, { time: 20000 })
+          collector.on('collect', (reaction, reacter) => {
+
+            if (reaction.emoji.name === "✅") {
+
+              msg.reactions.removeAll()
+              message.member.setNickname("[" + flag + "] " + message.member.user.username, "Used the prefix command")
+                .then(() => {
+                  const embed = new Discord.MessageEmbed()
+                    .setColor(successColor)
+                    .setAuthor(strings.moduleName)
+                    .setTitle(strings.saved)
+                    .addFields({ name: strings.newNickT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                    .setFooter(executedBy, message.author.displayAvatarURL());
+                  msg.edit(embed)
+                })
+                .catch(err => {
+                  const embed = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setAuthor(strings.moduleName)
+                    .setTitle(strings.errors.error)
+                    .setDescription(err)
+                    .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                    .setFooter(executedBy, message.author.displayAvatarURL());
+                  msg.edit(embed)
+                })
+
+            } else if (reaction.emoji.name === "❎") {
+              msg.reactions.removeAll()
+              const embed = new Discord.MessageEmbed()
+                .setColor(successColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.errors.cancelled + strings.errors.notSaved)
+                .addFields({ name: strings.newNickT, value: strings.noChanges })
+                .setFooter(executedBy, message.author.displayAvatarURL());
+              msg.edit(embed)
+            }
+
+          })
+        })
     }
-    Finishing this part tomorrow.*/
 
     const embed = new Discord.MessageEmbed()
       .setColor(loadingColor)
@@ -75,7 +133,7 @@ module.exports = {
                       .setColor(successColor)
                       .setAuthor(strings.moduleName)
                       .setTitle(strings.saved)
-                      .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
+                      .addFields({ name: strings.newNickT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
                       .setFooter(executedBy, message.author.displayAvatarURL());
                     msg.edit(embed)
                   })
