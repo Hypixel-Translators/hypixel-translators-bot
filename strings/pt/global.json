@@ -6,7 +6,7 @@
     "dmError": "Não podes executar este comando nas mensagens privadas.",
     "noMessage": "Não adicionaste uma mensagem!",
     "noChannel": "Não mencionaste um canal!",
-    "noUser": "Não mencionaste um utilizador!",
+    "noUser": "Não forneceste um utilizador!",
     "noContext": "Não forneceste contexto! Tens de incluir tanto o ID da string como o seu contexto.",
     "noUserQuote": "Não mencionaste um utilizador! Escreve a citação e menciona o utilizador citado, separados por uma barra.",
     "falseChannel": "Esse canal não foi encontrado!",
