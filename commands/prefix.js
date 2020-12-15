@@ -18,8 +18,7 @@ module.exports = {
         throw "falseLang"
       }
 
-      msg.react("❎")
-      msg.react("✅")
+      msg.react("✅").then(() => msg.react("❎"))
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
