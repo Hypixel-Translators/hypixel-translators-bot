@@ -9,5 +9,6 @@
     "language": "Language",
     "uuid": "UUID",
     "discord": "Discord",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Executed by %%user%%",
+    "unknown": "unknown"
 }

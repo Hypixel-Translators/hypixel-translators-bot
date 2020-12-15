@@ -58,6 +58,10 @@ module.exports = {
                 if (json.links.DISCORD === null) linkDiscord = "Not connected"
                 else linkDiscord = json.links.DISCORD
 
+                for (const [key, value] of Object.entries(json)) {
+                    if (value === null) json[key] = strings.unknown
+                }
+
                 // craft the embed and send it
                 const embed = new discord.MessageEmbed()
                     .setAuthor(strings.moduleName)
