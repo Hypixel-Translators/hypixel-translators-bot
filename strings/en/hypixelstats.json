@@ -13,5 +13,7 @@
     "discord": "Discord",
     "executedBy": "Executed by %%user%%",
     "unknown": "unknown",
+    "falseUser": "That user couldn't be found!",
+    "apiError": "Something went wrong while contacting the API!",
     "lastGameHidden": "Last game is hidden"
 }

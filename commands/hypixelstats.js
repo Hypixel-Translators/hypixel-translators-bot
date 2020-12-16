@@ -30,65 +30,76 @@ module.exports = {
             .setDescription(strings.loadingModule)
             .setFooter(executedBy, message.author.displayAvatarURL())
         message.channel.send(loadingEmbed)
-        .then(msg => {
-        // make a response to the slothpixel api (hypixel api but we dont need an api key)
-        fetch(`https://api.slothpixel.me/api/players/${username}`, { method: "Get" })
-            .then(res => (res.json())) // get the response json
-            .then((json) => { // here we do stuff with the json
+            .then(msg => {
+                // make a response to the slothpixel api (hypixel api but we dont need an api key)
+                fetch(`https://api.slothpixel.me/api/players/${username}`, { method: "Get" })
+                    .then(res => (res.json())) // get the response json
+                    .then((json) => { // here we do stuff with the json
 
-                if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
-                else if (json.error !== undefined) { // if other error we didn't plan for appeared
-                    console.log(`Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n${json.error}`)
-                    throw "apiError"
-                }
+                        if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
+                        else if (json.error !== undefined) { // if other error we didn't plan for appeared
+                            console.log(`Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n${json.error}`)
+                            throw "apiError"
+                        }
 
-                let rank // some ranks are just prefixes so this code accounts for that
-                let color
-                if (json.prefix !== null) {
-                    color = parseColorCode(json.prefix)
-                    rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
-                }
-                else {
-                    color = parseColorCode(json.rank_formatted)
-                    rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
-                }
-                username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
-                let language = json.language.toLowerCase().charAt(0).toUpperCase() + json.language.toLowerCase().slice(1) // make the language properly capitalised and not all caps
-                let online
-                if (json.online == true) online = strings.online
-                else online = strings.offline
+                        let rank // some ranks are just prefixes so this code accounts for that
+                        let color
+                        if (json.prefix !== null) {
+                            color = parseColorCode(json.prefix)
+                            rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
+                        }
+                        else {
+                            color = parseColorCode(json.rank_formatted)
+                            rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
+                        }
+                        username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
+                        let language = json.language.toLowerCase().charAt(0).toUpperCase() + json.language.toLowerCase().slice(1) // make the language properly capitalised and not all caps
+                        let online
+                        if (json.online == true) online = strings.online
+                        else online = strings.offline
 
-                let linkDiscord
-                if (json.links.DISCORD === null) linkDiscord = "Not connected"
-                else linkDiscord = json.links.DISCORD
+                        let linkDiscord
+                        if (json.links.DISCORD === null) linkDiscord = "Not connected"
+                        else linkDiscord = json.links.DISCORD
 
-                for (const [key, value] of Object.entries(json)) {
-                    if (value === null) json[key] = strings.unknown
-                }
+                        for (const [key, value] of Object.entries(json)) {
+                            if (value === null) json[key] = strings.unknown
+                        }
 
-                var last_seen
-                if (json.last_game === "unknown") last_seen = strings.lastGameHidden
-                else last_seen = strings.lastSeen.replace("%%game%%", json.last_game)
+                        var last_seen
+                        if (json.last_game === "unknown") last_seen = strings.lastGameHidden
+                        else last_seen = strings.lastSeen.replace("%%game%%", json.last_game)
 
-                // craft the embed and send it
-                const embed = new discord.MessageEmbed()
-                    .setAuthor(strings.moduleName)
-                    .setTitle(rank + ' ' + username)
-                    .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`))
-                    .addFields(
-                        { name: strings.networkLevel, value: Math.abs(json.level), inline: true },
-                        { name: strings.karma, value: json.karma.toLocaleString(), inline: true },
-                        { name: online, value: last_seen, inline: true },
-                        { name: strings.language, value: language, inline: true },
-                        { name: strings.discord, value: linkDiscord, inline: true },
-                        { name: strings.uuid, value: json.uuid, inline: true }
+                        // craft the embed and send it
+                        const embed = new discord.MessageEmbed()
+                            .setAuthor(strings.moduleName)
+                            .setTitle(rank + ' ' + username)
+                            .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`))
+                            .addFields(
+                                { name: strings.networkLevel, value: Math.abs(json.level), inline: true },
+                                { name: strings.karma, value: json.karma.toLocaleString(), inline: true },
+                                { name: online, value: last_seen, inline: true },
+                                { name: strings.language, value: language, inline: true },
+                                { name: strings.discord, value: linkDiscord, inline: true },
+                                { name: strings.uuid, value: json.uuid, inline: true }
 
-                    )
-                    .setColor(color)
-                    .setFooter(executedBy, message.author.displayAvatarURL())
-                    .setThumbnail("https://crafatar.com/renders/body/" + json.uuid + "?overlay")
-                msg.edit(embed)
+                            )
+                            .setColor(color)
+                            .setFooter(executedBy, message.author.displayAvatarURL())
+                            .setThumbnail("https://crafatar.com/renders/body/" + json.uuid + "?overlay")
+                        msg.edit(embed)
+                    })
+                    .catch((error) => {
+                        console.log("Error incoming! Message:\n>>>" + message)
+                        console.error(error);
+                        const embed = new Discord.MessageEmbed()
+                            .setColor(errorColor)
+                            .setAuthor(strings.error)
+                            .setTitle(strings[error] || error)
+                            .setFooter(executedBy, message.author.displayAvatarURL())
+
+                        message.channel.send(embed)
+                    })
             })
-        })
     }
 }
