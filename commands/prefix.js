@@ -86,7 +86,7 @@ module.exports = {
 
           const collector = msg.createReactionCollector(filter, { time: 20000 });
 
-          collector.on('collect', (reaction, reacter) => {
+          collector.on("collect", (reaction, reacter) => {
             msg.react("✅")
             if (reaction.emoji.name === "✅") {
               msg.reactions.removeAll()
@@ -145,7 +145,7 @@ module.exports = {
             }
           });
 
-          collector.on('end', collected => {
+          collector.on("end", collected => {
             msg.reactions.removeAll()
             if (prefixes === "n") { return; }
             if (prefixes.length > 0) {

@@ -3,7 +3,7 @@ const fs = require("fs")
 const fetch = require("node-fetch")
 const Discord = require("discord.js")
 const client = new Discord.Client()
-require('dotenv').config()
+require("dotenv").config()
 
 //Import data, assets and commands
 const { prefix, loadingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json")
@@ -81,7 +81,7 @@ client.on("message", async message => {
 
   //Publish message if sent in channel
   if (message.channel.id === "732587569744838777") { //bot-updates
-    return fetch(`https://discordapp.com/api/v8/channels/${message.channel.id}/messages/${message.id}/crosspost`, { method: 'Post', headers: { 'Authorization': `Bot ${process.env.TOKEN}` } })
+    return fetch(`https://discordapp.com/api/v8/channels/${message.channel.id}/messages/${message.id}/crosspost`, { method: "Post", headers: { "Authorization": `Bot ${process.env.TOKEN}` } })
   }
 
   //Get global strings
@@ -99,7 +99,7 @@ client.on("message", async message => {
 
   //Link correction system
   if (message.content.includes("/translate/") && message.content.includes("://")) if (message.channel.id === "549503328472530976" || message.channel.id === "627594632779399195") { // hypixel translators and proofreaders
-    var msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
+    var msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, "/en-en")
     if (message.content !== msgTxt) {
       message.react(notAllowed)
       message.channel.send(globalStrings.linkCorrection.replace("%%user%%", "<@" + message.author.id + ">") + "\n\n>>> " + msgTxt)
@@ -220,7 +220,7 @@ client.on("message", async message => {
 
 
 //Run when reaction is added
-client.on('messageReactionAdd', async (reaction, user) => {
+client.on("messageReactionAdd", async (reaction, user) => {
   const channel = reaction.message.channel
 
   //Delete message when channel name ends with review-strings
@@ -238,7 +238,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
   //Give Bot Updates role if reacted on reaction role message
   if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖" && !user.bot) { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been added!")
-    let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
+    let role = reaction.message.guild.roles.cache.find(role => role.name === "Bot Updates")
     client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
       .then(message => {
         reaction.message.guild.member(user).roles.add(role, "Added the reaction in bot-updates")
@@ -278,12 +278,12 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 
 //Run when reaction is removed
-client.on('messageReactionRemove', async (reaction, user) => {
+client.on("messageReactionRemove", async (reaction, user) => {
 
   //Take Bot updates role if reaction removed from reaction role message
   if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖" && !user.bot) { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been removed!")
-    let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
+    let role = reaction.message.guild.roles.cache.find(role => role.name === "Bot Updates")
     client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
       .then(message => {
         reaction.message.guild.member(user).roles.remove(role, "Removed the reaction in bot-updates")

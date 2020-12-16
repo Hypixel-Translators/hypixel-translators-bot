@@ -29,8 +29,8 @@ module.exports = {
 
       var color = user.displayHexColor
       if (color == "#000000") color = blurple
-      const joinD = user.joinedAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
-      const creaD = user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+      const joinD = user.joinedAt.toLocaleString(strings.dateLocale, { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+      const creaD = user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
       var userRoles = user.roles.cache
       userRoles.delete("549503328472530974")
 
@@ -42,7 +42,7 @@ module.exports = {
         .addFields(
           { name: strings.ujoined, value: joinD.charAt(0).toUpperCase() + joinD.slice(1), inline: true },
           { name: strings.ucreated, value: creaD.charAt(0).toUpperCase() + creaD.slice(1), inline: true },
-          { name: strings.uroles, value: userRoles.sort((a, b) => b.position - a.position).map(r => `${r}`).join(', ') },
+          { name: strings.uroles, value: userRoles.sort((a, b) => b.position - a.position).map(r => `${r}`).join(", ") },
           { name: strings.uperms, value: userP.join(", ") }
         )
         .setThumbnail(user.user.displayAvatarURL())
