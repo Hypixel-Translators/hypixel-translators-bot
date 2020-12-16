@@ -2,18 +2,13 @@ const discord = require("discord.js");
 const fetch = require("node-fetch");
 const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json")
 
-
-/*
-PLEASE FOR THE LOVE OF GOD TEST THIS COMMAND.
-I CAN'T TEST IT HERE, AND I CAN ONLY TEST IT BY SETTING UP A NEW EMPTY PROJECT, SO PLEASE PLEASE PLEASE TEST IT
-*/
-
 //Credits to marzeq_
 module.exports = {
     name: "hypixelstats",
     description: "Shows you basic Hypixel stats of the provided user.",
     usage: "+hypixelstats <username>",
-    cooldown: 60, // feel free to change it
+    aliases: ["hstats"],
+    cooldown: 60,
     channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
     execute(strings, message, args) {
@@ -26,7 +21,16 @@ module.exports = {
 
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         let username = args[0]
+        if (!args[0]) throw "noUser"
 
+        const loadingEmbed = new discord.MessageEmbed()
+            .setColor(loadingColor)
+            .setAuthor(strings.moduleName)
+            .setTitle(strings.loading)
+            .setDescription(strings.loadingModule)
+            .setFooter(executedBy, message.author.displayAvatarURL())
+        message.channel.send(loadingEmbed)
+        .then(msg => {
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
         fetch(`https://api.slothpixel.me/api/players/${username}`, { method: "Get" })
             .then(res => (res.json())) // get the response json
@@ -72,7 +76,7 @@ module.exports = {
                     .setTitle(rank + ' ' + username)
                     .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`))
                     .addFields(
-                        { name: strings.networkLevel, value: +Math.round(json.level), inline: true },
+                        { name: strings.networkLevel, value: Math.abs(json.level), inline: true },
                         { name: strings.karma, value: json.karma.toLocaleString(), inline: true },
                         { name: online, value: last_seen, inline: true },
                         { name: strings.language, value: language, inline: true },
@@ -83,7 +87,8 @@ module.exports = {
                     .setColor(color)
                     .setFooter(executedBy, message.author.displayAvatarURL())
                     .setThumbnail("https://crafatar.com/renders/body/" + json.uuid + "?overlay")
-                message.channel.send(embed)
+                msg.edit(embed)
             })
+        })
     }
 }
