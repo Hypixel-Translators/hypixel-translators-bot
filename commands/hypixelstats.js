@@ -38,7 +38,7 @@ module.exports = {
 
                 if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
                 else if (json.error !== undefined) { // if other error we didn't plan for appeared
-                    console.log(`Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n${json.error}`)
+                    console.log("Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n" + json.error)
                     throw "apiError"
                 }
 
@@ -73,7 +73,7 @@ module.exports = {
                 // craft the embed and send it
                 const embed = new discord.MessageEmbed()
                     .setAuthor(strings.moduleName)
-                    .setTitle(rank + ' ' + username)
+                    .setTitle(rank + " " + username)
                     .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`))
                     .addFields(
                         { name: strings.networkLevel, value: Math.abs(json.level), inline: true },
