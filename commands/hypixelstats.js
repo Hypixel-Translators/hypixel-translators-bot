@@ -36,7 +36,7 @@ module.exports = {
             .then(res => (res.json())) // get the response json
             .then((json) => { // here we do stuff with the json
 
-                if (json.error === "Player does not exist") throw "falseUser"
+                if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
                 else if (json.error !== undefined) { // if other error we didn't plan for appeared
                     console.log(`Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n${json.error}`)
                     throw "apiError"
