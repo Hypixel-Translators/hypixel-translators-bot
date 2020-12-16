@@ -10,5 +10,6 @@
     "uuid": "UUID",
     "discord": "Discord",
     "executedBy": "Executed by %%user%%",
-    "unknown": "unknown"
+    "unknown": "unknown",
+    "lastGameHidden": "Last game is hidden"
 }

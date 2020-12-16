@@ -62,15 +62,19 @@ module.exports = {
                     if (value === null) json[key] = strings.unknown
                 }
 
+                var last_seen
+                if (json.last_game === "unknown") last_seen = strings.lastGameHidden
+                else last_seen = strings.lastSeen.replace("%%game%%", json.last_game)
+
                 // craft the embed and send it
                 const embed = new discord.MessageEmbed()
                     .setAuthor(strings.moduleName)
-                    .setTitle(`${rank} ${username}`)
+                    .setTitle(rank + ' ' + username)
                     .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`))
                     .addFields(
                         { name: strings.networkLevel, value: +Math.round(json.level), inline: true },
                         { name: strings.karma, value: json.karma.toLocaleString(), inline: true },
-                        { name: online, value: strings.lastSeen.replace("%%game%%", json.last_game), inline: true },
+                        { name: online, value: last_seen, inline: true },
                         { name: strings.language, value: language, inline: true },
                         { name: strings.discord, value: linkDiscord, inline: true },
                         { name: strings.uuid, value: json.uuid, inline: true }
