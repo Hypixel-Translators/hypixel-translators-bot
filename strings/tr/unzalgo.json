@@ -1,6 +1,6 @@
 {
-    "moduleName": "Zalgo checker",
-    "started": "Please wait a minute or two for all zalgo nicknames to be changed...",
-    "done": "All zalgo nicknames have been changed!",
+    "moduleName": "Zalgo Denetleyicisi",
+    "started": "Lütfen tüm zalgo takma adlarının değiştirilmesi için bir veya iki dakika bekleyin...",
+    "done": "Tüm zalgo takma adları değiştirildi!",
     "executedBy": "%%user%% tarafından yürütüldü"
 }
