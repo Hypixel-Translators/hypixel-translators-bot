@@ -309,6 +309,15 @@ client.on("messageReactionRemove", async (reaction, user) => {
   }
 })
 
+//Run when someone leaves
+client.on("guildMemberRemove", member => {
+  //Run if the member who leaves had the Bot Translator/Proofreader/Manager roles
+  if (member.roles.cache.find(role => role.name.startsWith("Bot "))) {
+    if (member.roles.cache.has("732615152246980628")) return; //Bot Updates
+    client.channels.cache.get("768160446368186428").send(member.user.tag + " was on the Bot project and just left the server!") //managers
+    console.log(member.user.tag + " left and was part of the bot project")
+  }
+})
 
 //Log in
 client.login(process.env.TOKEN)
