@@ -38,7 +38,11 @@ module.exports = {
 
                         if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
                         else if (json.error !== undefined || json.username === null) { // if other error we didn't plan for appeared
-                            console.log("Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n" + json.error)
+                            let error
+                            if (json.error === undefined && json.username) error = "The user doesn't have a username for some reason"
+                            else if (json.error !== undefined) error = json.error
+                            else error = "Unidentified error"
+                            console.log("Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n" + error)
                             throw "apiError"
                         }
 
