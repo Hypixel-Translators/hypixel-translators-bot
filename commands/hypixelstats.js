@@ -23,7 +23,7 @@ module.exports = {
         let username = args[0]
         if (!args[0]) throw "noUser"
 
-        const loadingEmbed = new discord.MessageEmbed()
+        const loadingEmbed = new Discord.MessageEmbed()
             .setColor(loadingColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.loading)
@@ -71,7 +71,7 @@ module.exports = {
                         else last_seen = strings.lastSeen.replace("%%game%%", json.last_game)
 
                         // craft the embed and send it
-                        const embed = new discord.MessageEmbed()
+                        const embed = new Discord.MessageEmbed()
                             .setAuthor(strings.moduleName)
                             .setTitle(rank + " " + username)
                             .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`))
@@ -92,7 +92,7 @@ module.exports = {
                     .catch((error) => {
                         console.log("Error incoming! Message:\n>>>" + message)
                         console.error(error);
-                        const embed = new discord.MessageEmbed()
+                        const embed = new Discord.MessageEmbed()
                             .setColor(errorColor)
                             .setAuthor(strings.error)
                             .setTitle(strings[error] || error)
