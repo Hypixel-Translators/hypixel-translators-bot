@@ -191,7 +191,6 @@ client.on("message", async message => {
   globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
   //Run command and handle errors
-  //setTimeout(() => {
   try { command.execute(strings, message, args, globalStrings) }
   catch (error) {
 
@@ -210,6 +209,7 @@ client.on("message", async message => {
       embed.addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" })
     }
     message.channel.send(embed)
+    return
 
   } finally {
 
