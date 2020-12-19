@@ -191,7 +191,7 @@ client.on("message", async message => {
 
   //Run command and handle errors
   //setTimeout(() => {
-  try { command.execute(strings, message, args) }
+  try { command.execute(strings, message, args, globalStrings) }
   catch (error) {
 
     //Handle errors
