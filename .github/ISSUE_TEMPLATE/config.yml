@@ -2,7 +2,4 @@ blank_issues_enabled: false
 contact_links:
   - name: Hypixel Translators Discord
     url: https://discord.gg/rcT948A
-    about: Join the server to report any bugs with the bot.
-  - name: ImRodry (developer)
-    url: https://twitter.com/ImRodry_
-    about: Feel free to DM the developer with any questions you may have.
+    about: Join the server to test the bot and find bugs.
