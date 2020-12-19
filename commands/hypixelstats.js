@@ -1,4 +1,4 @@
-const discord = require("discord.js");
+const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json")
 
