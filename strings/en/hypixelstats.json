@@ -9,11 +9,14 @@
     "offline": "Offline",
     "lastSeen": "Last seen in %%game%%",
     "language": "Language",
-    "uuid": "UUID",
+    "lastLogin": "Last login",
     "discord": "Discord",
     "executedBy": "Executed by %%user%%",
     "unknown": "unknown",
     "falseUser": "That user couldn't be found!",
     "apiError": "Something went wrong while contacting the API!",
-    "lastGameHidden": "Last game is hidden"
+    "lastGameHidden": "Last game is hidden or couldn't be obtained!",
+    "lastLoginHidden": "Last login time is hidden or couldn't be obtained!",
+    "dateLocale": "en-GB",
+    "timeZone": "Europe/London"
 }

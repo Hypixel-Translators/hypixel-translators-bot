@@ -54,6 +54,7 @@ module.exports = {
                         }
                         username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
                         let language = json.language.toLowerCase().charAt(0).toUpperCase() + json.language.toLowerCase().slice(1) // make the language properly capitalised and not all caps
+                        language = language.replace("_", " ")
                         let online
                         if (json.online == true) online = strings.online
                         else online = strings.offline
@@ -62,13 +63,19 @@ module.exports = {
                         if (json.links.DISCORD === null) linkDiscord = "Not connected"
                         else linkDiscord = json.links.DISCORD
 
+                        var last_seen
+                        if (json.last_game === null) last_seen = strings.lastGameHidden
+                        else last_seen = strings.lastSeen.replace("%%game%%", json.last_game)
+
+                        let lastLogin
+
+                        if (json.last_login !== null) lastLogin = new Date(json.last_login).toLocaleString(strings.dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+                        else lastLogin = strings.lastLoginHidden
+
+
                         for (const [key, value] of Object.entries(json)) {
                             if (value === null) json[key] = strings.unknown
                         }
-
-                        var last_seen
-                        if (json.last_game === "unknown") last_seen = strings.lastGameHidden
-                        else last_seen = strings.lastSeen.replace("%%game%%", json.last_game)
 
                         // craft the embed and send it
                         const embed = new Discord.MessageEmbed()
@@ -81,7 +88,7 @@ module.exports = {
                                 { name: online, value: last_seen, inline: true },
                                 { name: strings.language, value: language, inline: true },
                                 { name: strings.discord, value: linkDiscord, inline: true },
-                                { name: strings.uuid, value: json.uuid, inline: true }
+                                { name: strings.lastLogin, value: lastLogin, inline: true }
 
                             )
                             .setColor(color)
