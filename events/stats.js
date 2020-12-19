@@ -31,7 +31,7 @@ module.exports = {
 }
 
 async function hypixel(client) {
-    let url = "https://api.crowdin.com/api/project/hypixel/status?login=" + caccount + "&account-key=" + ctoken + "&json"
+    let url = `https://api.crowdin.com/api/project/hypixel/status?login=${caccount}&account-key=${ctoken}&json`
     let settings = { method: "Get" }
     var index = 0
     fetch(url, settings)
@@ -48,7 +48,7 @@ async function hypixel(client) {
                             .setColor(langdbEntry.colour)
                             .setTitle(langdbEntry.emoji + " | " + r.name || "<:icon_question:756582065834688662>" + " | " + r.name)
                             .setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png")
-                            .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/hypixel/all/en-" + langdbEntry.code)
+                            .setDescription(`**${r.translated_progress}% translated (${r.translated}/${r.phrases} strings)**\n${r.approved_progress}% approved (${r.approved}/${r.phrases} strings)\n\nTranslate at https://crowdin.com/translate/hypixel/all/en-${langdbEntry.code}`)
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
@@ -57,10 +57,18 @@ async function hypixel(client) {
             client.channels.cache.get("730042612647723058").messages.fetch("782637177552240661") //bot development Hypixel string count
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
+                        var stringDiff = Number(Number(json[0].phrases) - Number(stringCount.content))
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Hypixel project.\n\nTranslate at <https://crowdin.com/translate/hypixel/all/en>") //hypixel-translators
+                            if (stringDiff = 1) {
+                                client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New String!**\n" + stringDiff + " string has been added to the Hypixel project.\n\nTranslate at <https://crowdin.com/translate/hypixel/all/en>") //hypixel-translators
+                            } else
+                                client.channels.cache.get("549503328472530976").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + stringDiff + " strings have been added to the Hypixel project.\n\nTranslate at <https://crowdin.com/translate/hypixel/all/en>") //hypixel-translators
                         } else {
-                            client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Hypixel project.") //hypixel-translators
+                            if (stringDiff = -1) {
+                                client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **String Removed**\n" + Math.abs(stringDiff) + " string has been removed from the Hypixel project.") //hypixel-translators
+                            } else {
+                                client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Math.abs(stringDiff) + " strings have been removed from the Hypixel project.") //hypixel-translators
+                            }
                         }
                         stringCount.edit(json[0].phrases)
                     }
@@ -69,7 +77,7 @@ async function hypixel(client) {
 }
 
 async function quickplay(client) {
-    let url = "https://api.crowdin.com/api/project/quickplay/status?login=" + caccount + "&account-key=" + ctoken + "&json"
+    let url = `https://api.crowdin.com/api/project/quickplay/status?login=${caccount}&account-key=${ctoken}&json`
     let settings = { method: "Get" }
     var index = 0
     fetch(url, settings)
@@ -95,7 +103,7 @@ async function quickplay(client) {
                             .setColor(adapColour)
                             .setTitle(langdbEntry.emoji + " | " + r.name || "<:icon_question:756582065834688662>" + " | " + r.name)
                             .setThumbnail("https://crowdin.com/images/flags/" + r.code + ".png")
-                            .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/quickplay/all/en-" + langdbEntry.code)
+                            .setDescription(`**${r.translated_progress}% translated (${r.translated}/${r.phrases} strings)**\n${r.approved_progress}% approved (${r.approved}/${r.phrases} strings)\n\nTranslate at https://crowdin.com/translate/quickplay/all/en-${langdbEntry.code}`)
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
@@ -104,10 +112,18 @@ async function quickplay(client) {
             client.channels.cache.get("730042612647723058").messages.fetch("782637234322931733") //bot-development Quickplay string count
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
+                        var stringDiff = Number(Number(json[0].phrases) - Number(stringCount.content))
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("646383292010070016").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Quickplay project.\n\nTranslate at <https://crowdin.com/translate/quickplay/all/en>") //quickplay-translators
+                            if (stringDiff = 1) {
+                                client.channels.cache.get("646383292010070016").send("> <a:coolparty:728990234930315344> **New String!**\n" + stringDiff + " string has been added to the Quickplay project.\n\nTranslate at <https://crowdin.com/translate/quickplay/all/en>") //quickplay-translators
+                            } else
+                                client.channels.cache.get("646383292010070016").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + stringDiff + " strings have been added to the Quickplay project.\n\nTranslate at <https://crowdin.com/translate/quickplay/all/en>") //quickplay-translators
                         } else {
-                            client.channels.cache.get("646383292010070016").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Quickplay project.") //quickplay-translators
+                            if (stringDiff = -1) {
+                                client.channels.cache.get("646383292010070016").send("> <:vote_no:732298639736570007> **String Removed**\n" + Math.abs(stringDiff) + " string has been removed from the Quickplay project.") //quickplay-translators
+                            } else {
+                                client.channels.cache.get("646383292010070016").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Math.abs(stringDiff) + " strings have been removed from the Quickplay project.") //quickplay-translators
+                            }
                         }
                         stringCount.edit(json[0].phrases)
                     }
@@ -116,7 +132,7 @@ async function quickplay(client) {
 }
 
 async function bot(client) {
-    let url = "https://api.crowdin.com/api/project/hypixel-translators-bot/status?login=" + caccount + "&account-key=" + ctoken + "&json"
+    let url = `https://api.crowdin.com/api/project/hypixel-translators-bot/status?login=${caccount}&account-key=${ctoken}&json`
     let settings = { method: "Get" }
     var index = 0
     fetch(url, settings)
@@ -142,7 +158,7 @@ async function bot(client) {
                             .setColor(adapColour)
                             .setTitle(langdbEntry.emoji + " | " + r.name || "<:icon_question:756582065834688662>" + " | " + r.name)
                             .setThumbnail((langdbEntry.flag).replace("%code%", r.code))
-                            .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/hypixel-translators-bot/all/en-" + langdbEntry.code)
+                            .setDescription(`**${r.translated_progress}% translated (${r.translated}/${r.phrases} strings)**\n${r.approved_progress}% approved (${r.approved}/${r.phrases} strings)\n\nTranslate at https://crowdin.com/translate/hypixel-translators-bot/all/en-${langdbEntry.code}`)
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
@@ -151,10 +167,18 @@ async function bot(client) {
             client.channels.cache.get("730042612647723058").messages.fetch("782637303427497994") //bot-development Bot string count
                 .then(stringCount => {
                     if (stringCount.content !== json[0].phrases) {
+                        var stringDiff = Number(Number(json[0].phrases) - Number(stringCount.content))
                         if (stringCount.content < json[0].phrases) {
-                            client.channels.cache.get("749391414600925335").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the Hypixel Translators Bot project.\n\nTranslate at <https://crowdin.com/translate/hypixel-translators-bot/all/en>") //bot-translators
+                            if (stringDiff = 1) {
+                                client.channels.cache.get("749391414600925335").send("> <a:coolparty:728990234930315344> **New String!**\n" + stringDiff + " string has been added to the Hypixel Translators Bot project.\n\nTranslate at <https://crowdin.com/translate/hypixel-translators-bot/all/en>") //bot-translators
+                            } else
+                                client.channels.cache.get("749391414600925335").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + stringDiff + " strings have been added to the Hypixel Translators Bot project.\n\nTranslate at <https://crowdin.com/translate/hypixel-translators-bot/all/en>") //bot-translators
                         } else {
-                            client.channels.cache.get("749391414600925335").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the Hypixel Translators Bot project.") //bot-translators
+                            if (stringDiff = -1) {
+                                client.channels.cache.get("749391414600925335").send("> <:vote_no:732298639736570007> **String Removed**\n" + Math.abs(stringDiff) + " string has been removed from the Hypixel Translators Bot project.") //bot-translators
+                            } else {
+                                client.channels.cache.get("749391414600925335").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Math.abs(stringDiff) + " strings have been removed from the Hypixel Translators Bot project.") //bot-translators
+                            }
                         }
                         stringCount.edit(json[0].phrases)
                     }
@@ -164,7 +188,7 @@ async function bot(client) {
 
 async function skyblockaddons(client) {
     try {
-        let url = "https://api.crowdin.com/api/project/skyblockaddons/status?login=" + caccount + "&account-key=" + ctoken + "&json"
+        let url = `https://api.crowdin.com/api/project/skyblockaddons/status?login=${caccount}&account-key=${ctoken}&json`
         let settings = { method: "Get" }
         var index = 0
         fetch(url, settings)
@@ -188,7 +212,7 @@ async function skyblockaddons(client) {
 
                             const embed = new Discord.MessageEmbed()
                                 .setColor(adapColour)
-                                .setDescription("**" + r.translated_progress + "% translated (" + r.translated + "/" + r.phrases + " strings)**\n" + r.approved_progress + "% approved (" + r.approved + "/" + r.phrases + " strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-" + langdbEntry.code)
+                                .setDescription(`**${r.translated_progress}% translated (${r.translated}/${r.phrases} strings)**\n${r.approved_progress}% approved (${r.approved}/${r.phrases} strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-${langdbEntry.code}`)
                                 .setThumbnail((langdbEntry.flag).replace("%code%", r.code))
                                 .setTimestamp()
                             if (langdbEntry) { embed.setTitle(langdbEntry.emoji + " | " + r.name) } else { embed.setTitle("<:icon_question:756582065834688662> | " + r.name) }
@@ -200,10 +224,18 @@ async function skyblockaddons(client) {
                 client.channels.cache.get("730042612647723058").messages.fetch("782637265230626836") //bot-development Sba string count
                     .then(stringCount => {
                         if (stringCount.content !== json[0].phrases) {
+                            var stringDiff = Number(Number(json[0].phrases) - Number(stringCount.content))
                             if (stringCount.content < json[0].phrases) {
-                                client.channels.cache.get("748594964476329994").send("> <a:coolparty:728990234930315344> **New String(s)!**\n" + Number(Number(json[0].phrases) - Number(stringCount.content)) + " string(s) have been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>") //sba-translators
+                                if (stringDiff = 1) {
+                                    client.channels.cache.get("748594964476329994").send("> <a:coolparty:728990234930315344> **New String!**\n" + stringDiff + " string has been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>") //sba-translators
+                                } else
+                                    client.channels.cache.get("748594964476329994").send("> <a:coolparty:728990234930315344> **New Strings!**\n" + stringDiff + " strings have been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>") //sba-translators
                             } else {
-                                client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **String(s) Removed**\n" + Math.abs(Number(Number(json[0].phrases) - Number(stringCount.content))) + " string(s) have been removed from the SkyblockAddons project.") //sba-translators
+                                if (stringDiff = -1) {
+                                    client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **String Removed**\n" + Math.abs(stringDiff) + " string has been removed from the SkyblockAddons project.") //sba-translators
+                                } else {
+                                    client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + Math.abs(stringDiff) + " strings have been removed from the SkyblockAddons project.") //sba-translators
+                                }
                             }
                             stringCount.edit(json[0].phrases)
                         }
