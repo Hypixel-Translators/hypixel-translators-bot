@@ -101,11 +101,11 @@ module.exports = {
                         console.error(error);
                         const embed = new Discord.MessageEmbed()
                             .setColor(errorColor)
-                            .setAuthor(strings.error)
+                            .setAuthor(error)
                             .setTitle(strings[error] || error)
                             .setFooter(executedBy, message.author.displayAvatarURL())
 
-                        message.channel.send(embed)
+                        msg.edit(embed)
                     })
             })
     }
