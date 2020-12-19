@@ -22,7 +22,7 @@ module.exports = {
     let evaled
     try {
       evaled = await eval(args.join(" "))
-      message.channel.send(inspect(evaled).substring(0, 2000))
+      message.channel.send(inspect(evaled).substring(0, 255))
       console.log(inspect(evaled))
     } catch (error) {
       console.error(error)
