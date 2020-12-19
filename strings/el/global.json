@@ -14,6 +14,7 @@
     "disabled": "Αυτή η εντολή έχει απενεργοποιηθεί προσωρινά.",
     "noTrPr": "You're not a translator or proofreader, so you can't use this!",
     "noAccess": "You're not allowed to execute this command!",
+    "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "Παρακαλώ εισήγαγε μία υπο-εντολή ως πρώτο επιχείρημα. Αυτό μπορεί να είναι είτε το `get`, `add`, `edit`, `link` ή `help`.\nΓια πληροφορίες, τρέξε `+context help`.",
     "cooldown": "Χρόνος Επαναφόρτωσης",
     "timeLeftT": "Παρακαλώ περίμενε ακόμα %%time%% δευτερόλεπτα για να χρησιμοποιήσεις το `+%%command%%` ξανά.",

@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { loadingColor, errorColor, successColor, neutralColor, blurple } = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -91,16 +91,19 @@ function info(message) {
 }
 
 function verify(message) {
-    message.client.channels.cache.get("777573995032870922").messages.fetch("783125659479179297").then(message => { //verify-prototype and verify embed
-        const channelsEmbed = new Discord.MessageEmbed()
-            .setColor("#0055ff")
+    message.client.channels.cache.get("569178590697095168").messages.fetch("787366444970541056").then(msg => { //verify-prototype and verify embed
+        const verifyEmbed = new Discord.MessageEmbed()
+            .setColor(blurple)
             .setAuthor("Welcome!")
-            .setTitle("Welcome to the Unofficial Hypixel Translators Community!")
-            .setDescription("Hi! We're glad to have you here. In order to keep our server spam-free, we ask all members to verify themselves.")
+            .setThumbnail(message.guild.iconURL())
+            .setTitle("The Hypixel Translators Community")
+            .setDescription("Hello there and welcome to the __**Unofficial**__ Hypixel Translators Server! In order to verify yourself to have access to other channels, please follow the instructions below. While you wait we also suggest you check out <#699367003135148063> to be more familiar with the server rules once you've joined.")
             .addFields(
-                { name: "Not a translator", value: "yes".substring(0, 1024) }
+                { name: "Translator/Proofreader", value: "If you are a translator or proofreader for either the **Hypixel**, **Quickplay** or **SkyblockAddons** projects, please send us the link to your Crowdin profile (e.g. <https://crowdin.com/profile/ImRodry> **and not** <https://crowdin.com/profile>) in **this channel** so that we can give you the appropriate roles. Keep in mind that in order to be verified, your profile must be **public** and you must include your Discord username and discriminator in your \"About\" section (eg: Rodry#4020). If anyone is caught sending someone else's profile, there will be punishments!"},
+                { name: "Not a translator", value: "If you're not a translator for either one of the projects mentioned above and just want to join the server for fun, feel free to react with ✅ to the message below and you will be automatically verified. **Please note that if you press it accidentally, you will have to contact an administrator in order to get your roles.**"},
+                { name: "Need help?", value: "Feel free to send a message on this channel, or DM either <@240875059953139714> or <@241926666400563203> with any questions you might have!"}
             )
-            .setFooter("okay | Bot made with lots of care by QkeleQ10#6163")
-        message.edit("", channelsEmbed) //verify-prototype
+            .setFooter("Have fun on our server!")
+        msg.edit("Please do not react before reading the entire message.", verifyEmbed) //verify-prototype
     })
 }

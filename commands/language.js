@@ -22,7 +22,7 @@ module.exports = {
 
         if (args[1]) {
             if (args[1] === "list") {
-                const testFolder = './strings/';
+                const testFolder = "./strings/";
                 await fs.readdir(testFolder, async (err, files) => {
                     var listD = ""
                     files.forEach(async (element, index, array) => {
@@ -48,7 +48,7 @@ module.exports = {
                     .setFooter(executedBy, message.author.displayAvatarURL());
                 const msg = await message.channel.send(embed)
 
-                const path = './strings/' + args[1] + '/language.json'
+                const path = "./strings/" + args[1] + "/language.json"
                 fs.access(path, fs.F_OK, async (err) => {
                     if (!err) {
                         const oldMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
@@ -96,7 +96,7 @@ module.exports = {
                             }
                         }, 1000)
                     } else {
-                        const testFolder = './strings/';
+                        const testFolder = "./strings/";
                         await fs.readdir(testFolder, async (err, files) => {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
@@ -116,7 +116,7 @@ module.exports = {
             oldFiMessages.forEach(async element => {
                 selected = true
                 oldMsg = await element.content.split(" ")
-                const testFolder = './strings/';
+                const testFolder = "./strings/";
                 await fs.readdir(testFolder, async (err, files) => {
                     const embed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
@@ -129,7 +129,7 @@ module.exports = {
                 return
             })
             if (!selected) {
-                const testFolder = './strings/';
+                const testFolder = "./strings/";
                 await fs.readdir(testFolder, async (err, files) => {
                     const embed = new Discord.MessageEmbed()
                         .setColor(neutralColor)

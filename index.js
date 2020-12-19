@@ -3,7 +3,7 @@ const fs = require("fs")
 const fetch = require("node-fetch")
 const Discord = require("discord.js")
 const client = new Discord.Client()
-require('dotenv').config()
+require("dotenv").config()
 
 //Import data, assets and commands
 const { prefix, loadingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json")
@@ -33,6 +33,7 @@ client.once("ready", async () => {
   //Fetch channels
   client.guilds.cache.get("549503328472530974").members.fetch() //Guild members
   client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
+  client.channels.cache.get("569178590697095168").messages.fetch("787366444970541056") //verify message
   client.channels.cache.get("782635440054206504").messages.fetch() //language-database
   const reviewStringsChannels = await client.channels.cache.filter(c => c.name.endsWith("review-strings"))
   reviewStringsChannels.forEach(c => { c.messages.fetch() })
@@ -80,7 +81,7 @@ client.on("message", async message => {
 
   //Publish message if sent in channel
   if (message.channel.id === "732587569744838777") { //bot-updates
-    return fetch(`https://discordapp.com/api/v8/channels/${message.channel.id}/messages/${message.id}/crosspost`, { method: 'Post', headers: { 'Authorization': `Bot ${process.env.TOKEN}` } })
+    return fetch(`https://discordapp.com/api/v8/channels/${message.channel.id}/messages/${message.id}/crosspost`, { method: "Post", headers: { "Authorization": `Bot ${process.env.TOKEN}` } })
   }
 
   //Get global strings
@@ -98,7 +99,7 @@ client.on("message", async message => {
 
   //Link correction system
   if (message.content.includes("/translate/") && message.content.includes("://")) if (message.channel.id === "549503328472530976" || message.channel.id === "627594632779399195") { // hypixel translators and proofreaders
-    var msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, '/en-en')
+    var msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, "/en-en")
     if (message.content !== msgTxt) {
       message.react(notAllowed)
       message.channel.send(globalStrings.linkCorrection.replace("%%user%%", "<@" + message.author.id + ">") + "\n\n>>> " + msgTxt)
@@ -214,19 +215,17 @@ client.on("message", async message => {
 
     //Try sending a tip
     var d = Math.random(); var s = Math.round(Math.random())
-    if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${globalStrings.tips[Math.floor(Math.random() * Object.keys(globalStrings.tips).length)].replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "(https://twitter.com/HTranslators)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#699367079241056347>")}`)
-
+    if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${globalStrings.tips[Math.floor(Math.random() * Object.keys(globalStrings.tips).length)].replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%translate%%", "<https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044>").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#699367079241056347>")}`)
   }
-  //}, 50)
 })
 
 
 //Run when reaction is added
-client.on('messageReactionAdd', async (reaction, user) => {
+client.on("messageReactionAdd", async (reaction, user) => {
   const channel = reaction.message.channel
 
   //Delete message when channel name ends with review-strings
-  if (channel.name.endsWith("review-strings") && user.id !== "620364412649209864") {
+  if (channel.name.endsWith("review-strings") && !user.bot) {
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
       reaction.message.react("⏱")
       reaction.message.react(reaction.emoji)
@@ -238,9 +237,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
   }
 
   //Give Bot Updates role if reacted on reaction role message
-  if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
+  if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖" && !user.bot) { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been added!")
-    let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
+    let role = reaction.message.guild.roles.cache.find(role => role.name === "Bot Updates")
     client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
       .then(message => {
         reaction.message.guild.member(user).roles.add(role, "Added the reaction in bot-updates")
@@ -262,16 +261,30 @@ client.on('messageReactionAdd', async (reaction, user) => {
       })
 
   }
+
+  //Give Verified role and take Unverified and Alerted roles when reacting on verify
+  if (reaction.message.id === "787366444970541056" && reaction.emoji.name === "✅" && !user.bot) {
+    reaction.message.guild.member(user).roles.add("569194996964786178", "Manually verified with the reaction").then(() => reaction.message.guild.member(user).roles.remove(["739111904672481280", "756199836470214848"], "Manually verified with the reaction")) //Verified, Unverified and Alerted
+      .then(() => {
+        console.log(user.tag + " manually verified themselves as a player!")
+        client.channels.cache.get("662660931838410754").send("<@" + user.id + "> manually verified themselves as a player through the reaction.")//verify-logs
+      })
+      .catch(err => {
+        console.log(user.tag + " tried to verify themselves as a player but the following error occured:\n" + err)
+        client.channels.cache.get("662660931838410754").send("The following error occured while trying to manually verify " + user.tag + " as a player:\n" + err) //verify-logs
+      })
+    reaction.users.remove(user.id)
+  }
 })
 
 
 //Run when reaction is removed
-client.on('messageReactionRemove', async (reaction, user) => {
+client.on("messageReactionRemove", async (reaction, user) => {
 
   //Take Bot updates role if reaction removed from reaction role message
-  if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖") { //bot-updates reaction role message
+  if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖" && !user.bot) { //bot-updates reaction role message
     console.log("The correct reaction for Bot Updates has been removed!")
-    let role = reaction.message.guild.roles.cache.find(role => role.name === 'Bot Updates')
+    let role = reaction.message.guild.roles.cache.find(role => role.name === "Bot Updates")
     client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
       .then(message => {
         reaction.message.guild.member(user).roles.remove(role, "Removed the reaction in bot-updates")
@@ -297,6 +310,15 @@ client.on('messageReactionRemove', async (reaction, user) => {
   }
 })
 
+//Run when someone leaves
+client.on("guildMemberRemove", member => {
+  //Run if the member who leaves had the Bot Translator/Proofreader/Manager roles
+  if (member.roles.cache.find(role => role.name.startsWith("Bot "))) {
+    if (member.roles.cache.has("732615152246980628")) return; //Bot Updates
+    client.channels.cache.get("768160446368186428").send(member.user.tag + " was on the Bot project and just left the server!") //managers
+    console.log(member.user.tag + " left and was part of the bot project")
+  }
+})
 
 //Log in
 client.login(process.env.TOKEN)

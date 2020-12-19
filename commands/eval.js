@@ -2,7 +2,7 @@ const { loadingColor, errorColor, successColor, neutralColor, langdb } = require
 const fetch = require("node-fetch")
 const Discord = require("discord.js")
 const client = new Discord.Client()
-const { inspect } = require('util');
+const { inspect } = require("util");
 const { clean, isZalgo } = require("unzalgo")
 
 module.exports = {
@@ -21,8 +21,8 @@ module.exports = {
 
     let evaled
     try {
-      evaled = await eval(args.join(' '))
-      message.channel.send(inspect(evaled))
+      evaled = await eval(args.join(" "))
+      message.channel.send(inspect(evaled).substring(0, 255))
       console.log(inspect(evaled))
     } catch (error) {
       console.error(error)

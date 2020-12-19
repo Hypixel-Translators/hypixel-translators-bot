@@ -14,6 +14,7 @@
     "disabled": "This command has been temporarily disabled.",
     "noTrPr": "You're not a translator or proofreader, so you can't use this!",
     "noAccess": "You're not allowed to execute this command!",
+    "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
     "cooldown": "Abklingzeit",
     "timeLeftT": "Bitte warte noch %%time%% Sekunden, um den Befehl `+%%command%%` erneut zu benutzen.",
