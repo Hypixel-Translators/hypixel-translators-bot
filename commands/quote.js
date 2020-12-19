@@ -25,14 +25,14 @@ module.exports = {
                 if (!allowed) {
                     args.splice(0, 1)
                     var toSend = args.join(" ")
-                    const sendTo = msg.client.channels.cache.get("730042612647723058") //bot-development
+                    const sendTo = msg.client.channels.cache.get("624881429834366986") //staff-bots
                     const report = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor("Quote")
                         .setTitle("A quote request has been submitted!")
                         .setDescription(toSend)
                         .addFields({ name: "To add it", value: "`+quote add " + toSend + "`" })
-                        .setFooter("Suggested by " + message.author.tag);
+                        .setFooter("Suggested by " + message.author.tag, message.author.displayAvatarURL());
                     sendTo.send(report)
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
