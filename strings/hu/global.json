@@ -14,6 +14,7 @@
     "disabled": "Ez a parancs ki lett kapcsolva egy időre.",
     "noTrPr": "Nem vagy fordító, sem ellenőrző, így ezt nem tudod végrehajtani!",
     "noAccess": "Nincs engedélyed használni ezt a parancsot!",
+    "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "Kérlek adj meg egy al-parancsot. Ez lehet `get`, `add`, `edit`, `link` vagy `help`.\nTöbb információért használd a `+context help` parancsot.",
     "cooldown": "Cooldown",
     "timeLeftT": "Kérlek várj %%time%% másodpercet hogy újra használd a `+%%command%%` parancsot.",

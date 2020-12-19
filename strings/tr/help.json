@@ -1,24 +1,24 @@
 {
     "moduleName": "Bilgi",
-    "page1Title": "Help page",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
+    "page1Title": "Yardım sayfası",
+    "commandsListTooltip": "Bu bot, Hypixel Translators Topluluğu için %%QkeleQ10%% tarafından oluşturuldu. Bu bot açık kaynak kodludur ve GitHub depomuza [buraya tıklayarak]%%github%% erişebilirsin.\n[Bu mesajdaki] %%translate%% talimatları izleyerek botun çevirilmesine yardımcı olabilirsiniz.\nBelirli bir komut hakkında daha fazla bilgi edinmek için `+help <komutun adı>` komutunu çalıştırabilirsiniz.\nİşte tüm komutların bir listesi: ",
     "madeBy": "Bot, %%QkeleQ10%% tarafından özenle yapıldı",
-    "page": "Page %%number%%/%%total%%",
-    "pageNumber": "Page %%number%%",
-    "utilityHelp": "%%badge%% Tools & Utilities",
-    "infoHelp": "%%badge%% Information commands",
-    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
-    "pageNotExist": "That page doesn't exist!",
+    "page": "Sayfa %%number%%/%%total%%",
+    "pageNumber": "Sayfa %%number%%",
+    "utilityHelp": "%%badge%% Araçlar & Yardımcı Programlar",
+    "infoHelp": "%%badge%% Bilgi komutları",
+    "timeOut": "Bu menü zaman aşımına uğradı. Tekrar kullanmak istersen, `+help ' komutunu kullan.",
+    "pageNotExist": "Böyle bir sayfa mevcut değil!",
     "commandInfo": "Komut bilgisi",
     "commandInfoFor": "Komut bilgisi: ",
     "commandNotExist": "Böyle bir komut yok!",
-    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
-    "seconds": "seconds",
+    "noDesc": "Bu komut ya geliştirme aşamasındadır ya da sadece yetkili tarafından kullanılabilir.\nBunun bir hata olduğunu düşünüyorsan lütfen yetkili biriyle iletişime geç.",
+    "seconds": " saniye",
     "usageField": "Kullanım",
     "cooldownField": "Bekleme Süresi",
     "aliasesField": "Takma adlar",
     "help": {
-        "usage": "+help [page | command name]",
+        "usage": "+help [komut ismi]",
         "description": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir."
     },
     "prefix": {
@@ -35,7 +35,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|view|help <konu>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+        "description": "Verilen string kimliği için bağlamı alır, ekler veya düzenler. `+context help` size bu komutla ilgili bilgileri gösterir."
     },
     "issue": {
         "usage": "+issue",
@@ -47,7 +47,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping as well as Discord API's ping."
+        "description": "Size botun ping'inin yanı sıra Discord API'sinin ping'ini gösterir"
     },
     "invite": {
         "usage": "+invite",
@@ -79,7 +79,7 @@
     },
     "tip": {
         "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
+        "description": "Sunucu ile ilgili rastgele bir ipucu verir."
     },
     "executedBy": "%%user%% tarafından yürütüldü"
 }
