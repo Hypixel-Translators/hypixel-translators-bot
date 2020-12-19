@@ -92,7 +92,7 @@ module.exports = {
                     .catch((error) => {
                         console.log("Error incoming! Message:\n>>>" + message)
                         console.error(error);
-                        const embed = new Discord.MessageEmbed()
+                        const embed = new discord.MessageEmbed()
                             .setColor(errorColor)
                             .setAuthor(strings.error)
                             .setTitle(strings[error] || error)
