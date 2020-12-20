@@ -6,32 +6,42 @@ module.exports = {
   name: "prefix",
   description: "Gives the author the appropriate prefix for their language(s).",
   aliases: ["langprefix", "languageprefix"],
-  usage: "+prefix",
+  usage: "prefix [flags]",
   cooldown: 15,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
-  async execute(strings, message, args) {
+  async execute(strings, message, args, globalStrings) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
 
     if (args[0]) {
       let flagEmojis = []
       args.forEach(emoji => {
         if (emoji.toLowerCase() === "lol" || emoji.toLowerCase() === "lolcat") flagEmojis.push("😹")
-        if (emoji.toLowerCase() === "enpt" || emoji.toLowerCase() === "pirate") flagEmojis.push("☠")
-        if (emoji.toLowerCase() === "ib" || emoji.toLowerCase() === "banana") flagEmojis.push("🍌")
-        if (emoji.toLowerCase() === "bc" || emoji.toLowerCase() === "biscuitish") flagEmojis.push("🍪")
-        flagEmojis.push(flag(emoji))
+        else if (emoji.toLowerCase() === "enpt" || emoji.toLowerCase() === "pirate") flagEmojis.push("☠")
+        else if (emoji.toLowerCase() === "ib" || emoji.toLowerCase() === "banana") flagEmojis.push("🍌")
+        else if (emoji.toLowerCase() === "bc" || emoji.toLowerCase() === "biscuitish") flagEmojis.push("🍪")
+        else if (emoji.toLowerCase() === "em" || emoji.toLowerCase() === "emoji") flagEmojis.push("😂")
+        else flagEmojis.push(flag(emoji))
       })
-      if (!flagEmojis) {
-        throw "falseLang"
+      console.log(flagEmojis)
+      if (!flagEmojis || flagEmojis.includes(undefined)) {
+        const errorEmbed = new Discord.MessageEmbed()
+          .setColor(errorColor)
+          .setAuthor(strings.moduleName)
+          .setTitle(globalStrings.error)
+          .setDescription(globalStrings.falseLang)
+          .addFields({ name: globalStrings.usage, value: "`" + strings.usage + "`" })
+          .setFooter(executedBy, message.author.displayAvatarURL())
+        message.channel.send(errorEmbed)
+        return
       }
 
-      const prefix = flagEmojis.join("-")
+      var prefix = flagEmojis.join("-")
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.caution)
-        .setDescription(strings.warning)
-        .addFields({ name: strings.previewT, value: "[" + prefix + "] " + message.member.user.username })
+        .setDescription(`${strings.warning}\n${strings.reactTimer}`)
+        .addFields({ name: strings.previewT, value: `[${prefix}] ${message.member.user.username}` })
         .setFooter(executedBy, message.author.displayAvatarURL());
       message.channel.send(embed)
         .then(msg => {
@@ -44,42 +54,100 @@ module.exports = {
           collector.on('collect', (reaction, reacter) => {
 
             if (reaction.emoji.name === "✅") {
-
               msg.reactions.removeAll()
-              message.member.setNickname("[" + prefix + "] " + message.member.user.username, "Used the prefix command")
-                .then(() => {
-                  const embed = new Discord.MessageEmbed()
-                    .setColor(successColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.saved)
-                    .addFields({ name: strings.newNickT, value: "\`[" + prefix + "] " + message.member.user.username + "\`" })
-                    .setFooter(executedBy, message.author.displayAvatarURL());
-                  msg.edit(embed)
-                  const staffAlert = new Discord.MessageEmbed()
-                    .setColor(loadingColor)
-                    .setAuthor("Prefix")
-                    .setTitle("A user manually changed their prefix")
-                    .setDescription(`<@${message.author.id}> manually changed their prefix to include the following flag: ${prefix}\nMake sure they have the appropriate roles for this prefix and, if not, follow the appropriate procedure`)
-                  message.client.channels.cache.get("624881429834366986").send(staffAlert)
-                })
-                .catch(err => {
-                  const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.errors.error)
-                    .setDescription(err)
-                    .addFields({ name: strings.previewT, value: "\`[" + prefix + "] " + message.member.user.username + "\`" })
-                    .setFooter(executedBy, message.author.displayAvatarURL());
-                  msg.edit(embed)
-                })
-
+              if (message.member.nickname !== ("[" + prefix + "] " + message.member.user.username)) {
+                message.member.setNickname("[" + prefix + "] " + message.member.user.username, "Used the prefix command")
+                  .then(() => {
+                    const embed = new Discord.MessageEmbed()
+                      .setColor(successColor)
+                      .setAuthor(strings.moduleName)
+                      .setTitle(strings.saved)
+                      .addFields({ name: strings.newNickT, value: "\`[" + prefix + "] " + message.member.user.username + "\`" })
+                      .setFooter(executedBy, message.author.displayAvatarURL());
+                    msg.edit(embed)
+                    const staffAlert = new Discord.MessageEmbed()
+                      .setColor(loadingColor)
+                      .setAuthor("Prefix")
+                      .setTitle("A user manually changed their prefix")
+                      .setDescription(`<@${message.author.id}> manually changed their prefix to include the following flag: ${prefix}\nMake sure they have the appropriate roles for this prefix and, if not, follow the appropriate procedure`)
+                      .setFooter(executedBy, message.author.displayAvatarURL())
+                    message.client.channels.cache.get("624881429834366986").send(staffAlert)
+                  })
+                  .catch(err => {
+                    const embed = new Discord.MessageEmbed()
+                      .setColor(errorColor)
+                      .setAuthor(strings.moduleName)
+                      .setTitle(strings.errors.error)
+                      .setDescription(err)
+                      .addFields({ name: strings.previewT, value: "\`[" + prefix + "] " + message.member.user.username + "\`" })
+                      .setFooter(executedBy, message.author.displayAvatarURL());
+                    msg.edit(embed)
+                  })
+              } else {
+                prefix = "n"
+                const embed = new Discord.MessageEmbed()
+                  .setColor(successColor)
+                  .setAuthor(strings.moduleName)
+                  .setTitle(strings.errors.alreadyThis + strings.errors.notSaved)
+                  .addFields({ name: strings.newNickT, value: strings.noChanges })
+                  .setFooter(executedBy, message.author.displayAvatarURL());
+                msg.edit(embed)
+              }
 
             } else if (reaction.emoji.name === "❎") {
               msg.reactions.removeAll()
+              prefix = "n"
               const embed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.errors.cancelled + strings.errors.notSaved)
+                .addFields({ name: strings.newNickT, value: strings.noChanges })
+                .setFooter(executedBy, message.author.displayAvatarURL());
+              msg.edit(embed)
+            }
+          })
+          collector.on('end', () => {
+            console.log("Collector end")
+            msg.reactions.removeAll()
+            if (prefix === "n") return;
+            if (prefix.length > 0) {
+              if (message.member.nickname !== ("[" + prefix + "] " + message.member.user.username)) {
+                message.member.setNickname("[" + prefix + "] " + message.member.user.username, "Used the prefix command")
+                  .then(() => {
+                    const embed = new Discord.MessageEmbed()
+                      .setColor(successColor)
+                      .setAuthor(strings.moduleName)
+                      .setTitle(strings.saved)
+                      .addFields({ name: strings.newNickT, value: "\`[" + prefix + "] " + message.member.user.username + "\`" })
+                      .setFooter(executedBy, message.author.displayAvatarURL());
+                    msg.edit(embed)
+                  })
+                  .catch(err => {
+                    const embed = new Discord.MessageEmbed()
+                      .setColor(errorColor)
+                      .setAuthor(strings.moduleName)
+                      .setTitle(strings.errors.error)
+                      .setDescription(err)
+                      .addFields({ name: strings.previewT, value: "\`[" + prefix + "] " + message.member.user.username + "\`" })
+                      .setFooter(executedBy, message.author.displayAvatarURL());
+                    msg.edit(embed)
+                    console.log(err)
+                  })
+              } else {
+                const embed = new Discord.MessageEmbed()
+                  .setColor(successColor)
+                  .setAuthor(strings.moduleName)
+                  .setTitle(strings.errors.alreadyThis + strings.errors.notSaved)
+                  .addFields({ name: strings.newNickT, value: strings.noChanges })
+                  .setFooter(executedBy, message.author.displayAvatarURL());
+                msg.edit(embed)
+              }
+            } else {
+              const embed = new Discord.MessageEmbed()
+                .setColor(errorColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.errors.timedOut)
+                .setDescription(strings.errors.timeOut + strings.errors.notSaved)
                 .addFields({ name: strings.newNickT, value: strings.noChanges })
                 .setFooter(executedBy, message.author.displayAvatarURL());
               msg.edit(embed)
@@ -111,12 +179,22 @@ module.exports = {
 
           setTimeout(() => {
             if (userLangs.length < 1) {
-              const embed = new Discord.MessageEmbed()
-                .setColor(errorColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.errors.noLanguages)
-                .setFooter(executedBy, message.author.displayAvatarURL());
-              return msg.edit(embed)
+              if (message.member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628") || message.member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))) {
+                const embed = new Discord.MessageEmbed()
+                  .setColor(errorColor)
+                  .setAuthor(strings.moduleName)
+                  .setTitle(strings.errors.trNoRoles)
+                  .setDescription(strings.customPrefix)
+                  .setFooter(executedBy, message.author.displayAvatarURL());
+                return msg.edit(embed)
+              } else {
+                const embed = new Discord.MessageEmbed()
+                  .setColor(errorColor)
+                  .setAuthor(strings.moduleName)
+                  .setTitle(strings.errors.noLanguages)
+                  .setFooter(executedBy, message.author.displayAvatarURL());
+                return msg.edit(embed)
+              }
             }
             msg.react("❎")
 
@@ -140,26 +218,37 @@ module.exports = {
               if (reaction.emoji.name === "✅") {
                 msg.reactions.removeAll()
                 if (prefixes.length > 0) {
-                  message.member.setNickname("[" + prefixes + "] " + message.member.user.username, "Used the prefix command")
-                    .then(() => {
-                      const embed = new Discord.MessageEmbed()
-                        .setColor(successColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.saved)
-                        .addFields({ name: strings.newNickT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                        .setFooter(executedBy, message.author.displayAvatarURL());
-                      msg.edit(embed)
-                    })
-                    .catch(err => {
-                      const embed = new Discord.MessageEmbed()
-                        .setColor(errorColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.errors.error)
-                        .setDescription(err)
-                        .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + message.member.user.username + "\`" })
-                        .setFooter(executedBy, message.author.displayAvatarURL());
-                      msg.edit(embed)
-                    })
+                  if (message.member.nickname !== ("[" + prefixes + "] " + message.member.user.username)) {
+                    message.member.setNickname("[" + prefixes + "] " + message.member.user.username, "Used the prefix command")
+                      .then(() => {
+                        const embed = new Discord.MessageEmbed()
+                          .setColor(successColor)
+                          .setAuthor(strings.moduleName)
+                          .setTitle(strings.saved)
+                          .addFields({ name: strings.newNickT, value: "`[" + prefixes + "] " + message.member.user.username + "`" })
+                          .setFooter(executedBy, message.author.displayAvatarURL());
+                        msg.edit(embed)
+                      })
+                      .catch(err => {
+                        const embed = new Discord.MessageEmbed()
+                          .setColor(errorColor)
+                          .setAuthor(strings.moduleName)
+                          .setTitle(strings.errors.error)
+                          .setDescription(err)
+                          .addFields({ name: strings.previewT, value: "`[" + prefixes + "] " + message.member.user.username + "`" })
+                          .setFooter(executedBy, message.author.displayAvatarURL());
+                        msg.edit(embed)
+                      })
+                  } else {
+                    prefixes = "n"
+                    const embed = new Discord.MessageEmbed()
+                      .setColor(successColor)
+                      .setAuthor(strings.moduleName)
+                      .setTitle(strings.errors.alreadyThis + strings.errors.notSaved)
+                      .addFields({ name: strings.newNickT, value: strings.noChanges })
+                      .setFooter(executedBy, message.author.displayAvatarURL());
+                    msg.edit(embed)
+                  }
                 } else {
                   const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
@@ -194,9 +283,9 @@ module.exports = {
               }
             });
 
-            collector.on('end', collected => {
+            collector.on('end', () => {
               msg.reactions.removeAll()
-              if (prefixes === "n") { return; }
+              if (prefixes === "n") return;
               if (prefixes.length > 0) {
                 if (message.member.nickname === ("[" + prefixes + "] " + message.member.user.username)) {
                   message.member.setNickname("[" + prefixes + "] " + message.member.user.username, "Used the prefix command")
