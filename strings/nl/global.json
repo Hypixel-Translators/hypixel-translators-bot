@@ -11,6 +11,7 @@
     "noUserQuote": "Je hebt geen gebruiker opgegeven! Typ het citaat, en vermeld dan de geciteerde gebruiker, gescheiden door een slash.",
     "falseChannel": "Dat kanaal kon niet worden gevonden!",
     "falseUser": "Die gebruiker kon niet worden gevonden!",
+    "falseLang": "That language couldn't be found!",
     "disabled": "Dit commando is tijdelijk uitgeschakeld.",
     "noTrPr": "Je bent geen vertaler of proeflezer, dus je kunt dit niet gebruiken!",
     "noAccess": "Je hebt geen toestemming om dat commando te gebruiken!",
