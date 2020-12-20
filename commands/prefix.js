@@ -6,7 +6,7 @@ module.exports = {
   name: "prefix",
   description: "Gives the author the appropriate prefix for their language(s).",
   aliases: ["langprefix", "languageprefix"],
-  usage: "prefix [flags]",
+  usage: "+prefix [flags]",
   cooldown: 15,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
   async execute(strings, message, args, globalStrings) {
@@ -179,7 +179,7 @@ module.exports = {
 
           setTimeout(() => {
             if (userLangs.length < 1) {
-              if (message.member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628") || message.member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))) {
+              if (message.member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628") || message.member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))) { //Bot updates
                 const embed = new Discord.MessageEmbed()
                   .setColor(errorColor)
                   .setAuthor(strings.moduleName)
