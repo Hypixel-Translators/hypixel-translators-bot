@@ -79,9 +79,11 @@ module.exports = {
                         if (json.last_game === null) last_seen = strings.lastGameHidden
                         else last_seen = strings.lastSeen.replace("%%game%%", json.last_game.replace(/([A-Z]+)/g, ' $1').trim())
 
+                        let lastLoginSelector
+                        if (json.online) { lastLoginSelector = "last_login" } else { lastLoginSelector = "last_logout" }
                         let lastLogin
 
-                        if (json.last_login !== null) lastLogin = new Date(json.last_login).toLocaleString(strings.dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+                        if (json[lastLoginSelector] !== null) lastLogin = new Date(json[lastLoginSelector]).toLocaleString(strings.dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
                         else lastLogin = strings.lastLoginHidden
 
 
@@ -100,7 +102,7 @@ module.exports = {
                                 { name: online, value: last_seen, inline: true },
                                 { name: strings.language, value: lang, inline: true },
                                 { name: strings.discord, value: linkDiscord, inline: true },
-                                { name: strings.lastLogin, value: lastLogin, inline: true }
+                                { name: strings[lastLoginSelector], value: lastLogin, inline: true }
 
                             )
                             .setColor(color)
