@@ -1,7 +1,7 @@
 {
     "moduleName": "Prefuck",
     "usage": "+prefix [flags]",
-    "loading": "Wait, idot...",
+    "loading": "Just a second...",
     "loadingRoles": "Geting ur rols...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
