@@ -5,7 +5,7 @@
     "loadingRoles": "Je rollen worden opgehaald...",
     "errors": {
         "noLanguages": "Je lijkt geen taalrollen te hebben! Neem contact op met de administrator of eigenaar als je denkt dat dit een fout is.",
-        "trNoRoles": "We noticed you're a translator but you don't have any roles.",
+        "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
         "error": "Kon bijnaam niet wijzigen. Je kunt de bijnaam wel kopiëren en hem zelf toepassen.",
         "confirmedNoFlags": "Je hebt bevestigd maar niet gereageerd met vlaggen, ",
         "cancelled": "Je hebt het wijzigen van je bijnaam geannuleerd, ",
