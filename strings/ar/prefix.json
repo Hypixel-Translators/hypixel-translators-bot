@@ -1,7 +1,7 @@
 {
     "moduleName": "البرفكس",
     "usage": "+prefix [flags]",
-    "loading": "ثانية واحدة...",
+    "loading": "Just a second...",
     "loadingRoles": "جاري جلب الرتب الخاصة بك...",
     "errors": {
         "noLanguages": "يبدو أنك لا تملك أي رتبة لغة! يرجى الاتصال اداري او مالك السيرفر إذا كنت تعتقد أن هذا خطأ.",
