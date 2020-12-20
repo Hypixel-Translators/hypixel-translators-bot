@@ -5,7 +5,7 @@ const { loadingColor, errorColor, successColor, neutralColor } = require("../con
 //Credits to marzeq_
 module.exports = {
     name: "hypixelstats",
-    description: "Shows you basic Hypixel stats of the provided user.",
+    description: "Shows you basic Hypixel stats for the provided user.",
     usage: "+hypixelstats <username>",
     aliases: ["hstats"],
     cooldown: 60,
