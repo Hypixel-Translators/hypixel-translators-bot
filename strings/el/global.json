@@ -11,6 +11,7 @@
     "noUserQuote": "You haven't provided a user! Please type the quote and then mention the quoted user, separated by a slash.",
     "falseChannel": "Δεν ήταν δυνατή η εύρεση αυτού του καναλιού!",
     "falseUser": "Δεν ήταν δυνατή η εύρεση αυτού του χρήστη!",
+    "falseLang": "That language couldn't be found!",
     "disabled": "Αυτή η εντολή έχει απενεργοποιηθεί προσωρινά.",
     "noTrPr": "You're not a translator or proofreader, so you can't use this!",
     "noAccess": "You're not allowed to execute this command!",
