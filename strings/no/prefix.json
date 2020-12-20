@@ -1,7 +1,7 @@
 {
     "moduleName": "Prefiks",
     "usage": "+prefix [flags]",
-    "loading": "Ett sekund...",
+    "loading": "Just a second...",
     "loadingRoles": "Henter dine roller...",
     "errors": {
         "noLanguages": "Det ser ikke ut som du har noen språkroller! Vennligst ta kontakt med en administrator eller eieren hvis du mener dette er en feil.",
