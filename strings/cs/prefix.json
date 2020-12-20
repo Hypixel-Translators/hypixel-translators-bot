@@ -1,7 +1,7 @@
 {
     "moduleName": "Prefix",
     "usage": "+prefix [flags]",
-    "loading": "Dej mi sekundu...",
+    "loading": "Just a second...",
     "loadingRoles": "Načítají se tvé role...",
     "errors": {
         "noLanguages": "Vypadá to, že nemáš žádnou roli jazyka! Pokud si myslíš, že je to chyba, kontaktuj prosím admina nebo majitele serveru.",
