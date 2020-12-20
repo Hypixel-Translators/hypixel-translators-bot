@@ -1,6 +1,6 @@
 {
     "moduleName": "Voorvoegsel",
-    "usage": "+prefix [flags]",
+    "usage": "+prefix [vlaggen]",
     "loading": "Even geduld...",
     "loadingRoles": "Je rollen worden opgehaald...",
     "errors": {
@@ -11,8 +11,8 @@
         "cancelled": "Je hebt het wijzigen van je bijnaam geannuleerd, ",
         "alreadyThis": "Je hebt deze bijnaam al, ",
         "timedOut": "Time-out",
-        "timeOut": "You didn't react with any flags, ",
-        "timeOutCustom": "You didn't confirm, ",
+        "timeOut": "Je hebt niet gereageerd met vlaggen, ",
+        "timeOutCustom": "Je hebt niet bevestigd, ",
         "notSaved": "dus is je voorvoegsel niet opgeslagen."
     },
     "customPrefix": "Schroom niet om `+prefix <vlaggen>` uit te voeren om je voorvoegsel te krijgen.",
