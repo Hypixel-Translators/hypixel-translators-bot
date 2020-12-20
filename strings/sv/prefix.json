@@ -1,7 +1,7 @@
 {
     "moduleName": "Prefix",
     "usage": "+prefix [flags]",
-    "loading": "En sekund...",
+    "loading": "Just a second...",
     "loadingRoles": "Fetching your roles...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
