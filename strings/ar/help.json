@@ -22,7 +22,7 @@
         "description": "يظهر لك جميع الأوامر المتاحة ومعلومات أخرى عن البوت."
     },
     "prefix": {
-        "usage": "+prefix",
+        "usage": "+prefix [flags]",
         "description": "يعطيك البرفكس المناسب للغه/لغات الخاصة بك."
     },
     "quote": {
