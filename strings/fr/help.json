@@ -22,7 +22,7 @@
         "description": "Te montre toutes les commandes disponibles et les informations générales sur le bot."
     },
     "prefix": {
-        "usage": "+prefix",
+        "usage": "+prefix [flags]",
         "description": "Te donne le préfixe approprié pour ta(es) langue(s)."
     },
     "quote": {
