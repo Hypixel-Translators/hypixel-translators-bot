@@ -1,7 +1,7 @@
 {
     "moduleName": "Präfix",
     "usage": "+prefix [flags]",
-    "loading": "Eine Sekunde …",
+    "loading": "Just a second...",
     "loadingRoles": "Rollen werden abgerufen …",
     "errors": {
         "noLanguages": "Du scheinst keine Sprachrollen zu haben! Bitte kontaktiere den Administrator oder Besitzer, wenn du denkst, dass dies ein Fehler ist.",
