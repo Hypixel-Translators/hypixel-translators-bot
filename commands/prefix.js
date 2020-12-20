@@ -40,7 +40,7 @@ module.exports = {
         .setAuthor(strings.moduleName)
         .setTitle(strings.caution)
         .setDescription(`${strings.warning}\n${strings.reactTimer}`)
-        .addFields({ name: strings.previewT, value: `[${prefix}] ${message.member.user.username}` })
+        .addFields({ name: strings.previewT, value: `\`[${prefix}] ${message.member.user.username}\`` })
         .setFooter(executedBy, message.author.displayAvatarURL());
       message.channel.send(embed)
         .then(msg => {
