@@ -1,7 +1,7 @@
 {
     "moduleName": "Ön ek",
     "usage": "+prefix [flags]",
-    "loading": "Bir saniye...",
+    "loading": "Just a second...",
     "loadingRoles": "Rollerin getiriliyor...",
     "errors": {
         "noLanguages": "Herhangi bir dil rolünüz yok gibi görünüyor! Bunun bir hata olduğunu düşünüyorsanız lütfen admin veya sunucu sahibiyle iletişime geçin.",
