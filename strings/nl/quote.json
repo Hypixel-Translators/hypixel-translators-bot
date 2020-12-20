@@ -1,6 +1,6 @@
 {
     "moduleName": "Citaten",
-    "loading": "Even geduld...",
+    "loading": "Just a second...",
     "loadingModule": "Module laden...",
     "invalidArg": "Ongeldig argument!",
     "indexArg": "Er bestaat geen citaat met index %%arg%%! Geef een nummer tussen 1 en %%max%%.",
