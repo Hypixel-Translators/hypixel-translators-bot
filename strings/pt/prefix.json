@@ -1,7 +1,7 @@
 {
     "moduleName": "Prefixo",
     "usage": "+prefix [bandeiras]",
-    "loading": "Só um segundo...",
+    "loading": "Just a second...",
     "loadingRoles": "A analisar os teus cargos...",
     "errors": {
         "noLanguages": "Parece que não tens nenhum cargo de idioma! Contacta o administrador ou o dono se pensas que isto é um erro.",
