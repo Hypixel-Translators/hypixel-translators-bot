@@ -22,7 +22,7 @@
         "description": "Pokazuje wszystkie dostępne polecenia i inne informacje o bocie."
     },
     "prefix": {
-        "usage": "+prefix",
+        "usage": "+prefix [flags]",
         "description": "Podaje przedrostek odpowiedni dla twojego języka/ów."
     },
     "quote": {
