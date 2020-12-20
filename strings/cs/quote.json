@@ -1,6 +1,6 @@
 {
     "moduleName": "Citát",
-    "loading": "Dej mi sekundu...",
+    "loading": "Just a second...",
     "loadingModule": "Načítá se modul...",
     "invalidArg": "Neplatný argument!",
     "indexArg": "Citát s číslem %%arg%% neexistuje! Prosím zadej číslo mezi 1 a %%max%%.",
