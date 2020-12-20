@@ -1,6 +1,6 @@
 {
     "outgoing": "Nachricht an %%recipient%% gesendet",
     "incoming": "Nachricht von einem Teammitglied erhalten",
-    "incomingDisclaimer": "Any message you send here will get sent to staff.",
+    "incomingDisclaimer": "Jede Nachricht, die du hier schreibst, wird an ein Teammitglied gesendet.",
     "executedBy": "Ausgeführt von %%user%%"
 }
