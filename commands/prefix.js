@@ -93,7 +93,7 @@ module.exports = {
                   .setFooter(executedBy, message.author.displayAvatarURL());
                 msg.edit(embed)
               }
-              prefix = "n"
+              return
             } else if (reaction.emoji.name === "❎") {
               msg.reactions.removeAll()
               prefix = "n"
