@@ -5,7 +5,7 @@
     "loadingRoles": "Получаю Ваши роли...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
-        "trNoRoles": "We noticed you're a translator but you don't have any roles.",
+        "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
         "error": "Не удалось изменить никнейм. Вы можете скопировать его ниже и установить его самостоятельно.",
         "confirmedNoFlags": "Вы подтвердили, но не поставили реакцию ни на одном флаге, ",
         "cancelled": "Вы отменили изменение вашего никнейма, ",
