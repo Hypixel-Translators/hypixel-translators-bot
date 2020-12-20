@@ -5,7 +5,7 @@
     "loadingRoles": "Rollerin getiriliyor...",
     "errors": {
         "noLanguages": "Herhangi bir dil rolünüz yok gibi görünüyor! Bunun bir hata olduğunu düşünüyorsanız lütfen admin veya sunucu sahibiyle iletişime geçin.",
-        "trNoRoles": "We noticed you're a translator but you don't have any roles.",
+        "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
         "error": "İsim değiştirilemedi. Aşağıdaki ismi kopyalayıp kendin uygulayabilirsin.",
         "confirmedNoFlags": "Onayladın ama hiçbir bayrağa tepki vermedin, ",
         "cancelled": "İsminin değiştirilmesini iptal ettin, ",
