@@ -22,7 +22,7 @@
         "description": "Geeft alle commando's en andere informatie over de bot weer."
     },
     "prefix": {
-        "usage": "+prefix [flags]",
+        "usage": "+prefix [vlaggen]",
         "description": "Geeft je het juiste voorvoegsel voor je taal/talen."
     },
     "quote": {
