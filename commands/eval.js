@@ -4,6 +4,7 @@ const Discord = require("discord.js")
 const client = new Discord.Client()
 const { inspect } = require("util");
 const { clean, isZalgo } = require("unzalgo")
+const { flag, code, name, countries } = require('country-emoji');
 
 module.exports = {
   name: "eval",
