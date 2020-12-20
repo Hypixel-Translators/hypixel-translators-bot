@@ -1,6 +1,6 @@
 {
     "moduleName": "Etuliite",
-    "usage": "+prefix [flags]",
+    "usage": "+prefix [liput]",
     "loading": "Odota sekunti...",
     "loadingRoles": "Haetaan roolejasi...",
     "errors": {
@@ -11,7 +11,7 @@
         "cancelled": "Peruutit nimimerkkisi vaihtamisen, ",
         "alreadyThis": "Sinulla on jo tämä nimimerkki, ",
         "timedOut": "Aikakatkaisu",
-        "timeOut": "You didn't react with any flags, ",
+        "timeOut": "Et reagoinut lipuilla, ",
         "timeOutCustom": "Et vahvistanut, ",
         "notSaved": "joten etuliitettäsi ei tallennettu."
     },
