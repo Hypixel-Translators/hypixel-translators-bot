@@ -1,7 +1,7 @@
 {
     "moduleName": "Előtag",
     "usage": "+prefix [flags]",
-    "loading": "Egy pillanat...",
+    "loading": "Just a second...",
     "loadingRoles": "Fetching your roles...",
     "errors": {
         "noLanguages": "Úgy látszik nincsen nyelvi rangod! Kérlek lépj kapcsolatba egy adminnal vagy a tulajjal ha úgy gondolod, hogy ez egy hiba.",
