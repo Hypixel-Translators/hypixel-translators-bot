@@ -11,7 +11,7 @@
     "noUserQuote": "Et syöttänyt käyttäjää! Ole hyvä ja kirjoita lainaus sekä mainitse lainattu käyttäjä, erotettuna vinoviivalla.",
     "falseChannel": "Tätä kanavaa ei löytynyt!",
     "falseUser": "Tätä käyttäjää ei löytynyt!",
-    "falseLang": "That language couldn't be found!",
+    "falseLang": "Tätä kieltä ei löytynyt!",
     "disabled": "Tämä komento on toistaiseksi pois käytöstä.",
     "noTrPr": "Et ole kääntäjä tai oikolukija, joten et voi käyttää tätä!",
     "noAccess": "Sinulla ei ole oikeuksia käyttää tuota komentoa!",
