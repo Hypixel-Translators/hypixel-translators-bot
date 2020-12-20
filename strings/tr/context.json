@@ -1,6 +1,6 @@
 {
     "moduleName": "Bağlam",
-    "loading": "Bir saniye...",
+    "loading": "Just a second...",
     "loadingModule": "Modül yükleniyor...",
     "errors": {
         "exists1": "İçin bir bağlam girişi ",
