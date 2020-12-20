@@ -11,7 +11,8 @@
         "cancelled": "Du avbrytet endringen av kallenavnet ditt, ",
         "alreadyThis": "Du har allerede dette kallenavnet, ",
         "timedOut": "Timed Out",
-        "timeOut": "You didn't reacted with any flags, ",
+        "timeOut": "You didn't react with any flags, ",
+        "timeOutCustom": "You didn't confirm, ",
         "notSaved": "så din prefiks ble ikke lagret."
     },
     "customPrefix": "Feel free to run `+prefix <flags>` to get your desired prefix.",
