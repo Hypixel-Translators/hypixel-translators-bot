@@ -7,7 +7,7 @@ module.exports = {
   description: "Gives the author the appropriate prefix for their language(s).",
   aliases: ["langprefix", "languageprefix"],
   usage: "+prefix [flags]",
-  cooldown: 15,
+  cooldown: 20,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
   async execute(strings, message, args, globalStrings) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
@@ -85,7 +85,6 @@ module.exports = {
                     msg.edit(embed)
                   })
               } else {
-                prefix = "n"
                 const embed = new Discord.MessageEmbed()
                   .setColor(successColor)
                   .setAuthor(strings.moduleName)
@@ -94,7 +93,7 @@ module.exports = {
                   .setFooter(executedBy, message.author.displayAvatarURL());
                 msg.edit(embed)
               }
-
+              prefix = "n"
             } else if (reaction.emoji.name === "❎") {
               msg.reactions.removeAll()
               prefix = "n"
