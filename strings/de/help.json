@@ -1,24 +1,24 @@
 {
     "moduleName": "Information",
-    "page1Title": "Help page",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
-    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
-    "page": "Page %%number%%/%%total%%",
-    "pageNumber": "Page %%number%%",
-    "utilityHelp": "%%badge%% Tools & Utilities",
-    "infoHelp": "%%badge%% Information commands",
-    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
-    "pageNotExist": "That page doesn't exist!",
+    "page1Title": "Hilfe-Seite",
+    "commandsListTooltip": "Dieser Bot wurde für die Hypixel Translators Community von %%QkeleQ10%% erstellt. Er ist Open Source und unser GitHub Repository kann [hier]%%github%% gefunden werden.\nDu kannst bei der Übersetzung des Bots helfen, indem du den Anweisungen in [dieser Nachricht]%%translate%% folgst.\n\nDu kannst `+help <Name des Befehls>` ausführen, um mehr über einen bestimmten Befehl zu erfahren.\nUnten findest du eine Liste mit allen verfügbaren Seiten. Benutze die Reaktionen auf diese Nachricht, um sie zu durchlaufen.",
+    "madeBy": " | Der Bot wurde mit großer Sorgfalt von %%QkeleQ10%% erstellt",
+    "page": "Seite %%number%%/%%total%%",
+    "pageNumber": "Seite %%number%%",
+    "utilityHelp": "%%badge%% Werkzeuge & Hilfsmittel",
+    "infoHelp": "%%badge%% Informationsbefehle",
+    "timeOut": "Dieses Menü hat eine Zeitüberschreitung. Wenn du es wieder benutzen willst, verwende `+help`.",
+    "pageNotExist": "Diese Seite existiert nicht!",
     "commandInfo": "Befehlsinformationen",
     "commandInfoFor": "Befehlsinformationen für ",
     "commandNotExist": "Dieser Befehl existiert nicht!",
-    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
-    "seconds": "seconds",
+    "noDesc": "Dieser Befehl ist entweder in der Entwicklung oder nur für Teammitglieder verfügbar.\nBitte kontaktiere ein Teammitglied, wenn du glaubst, dass dies ein Fehler ist.",
+    "seconds": " Sekunden",
     "usageField": "Verwendung",
     "cooldownField": "Abklingzeit",
     "aliasesField": "Aliase",
     "help": {
-        "usage": "+help [page | command name]",
+        "usage": "+help [Befehlsname]",
         "description": "Zeigt alle verfügbaren Befehle und andere Informationen über den Bot."
     },
     "prefix": {
@@ -26,7 +26,7 @@
         "description": "Gibt dir den passenden Präfix für deine Sprache(n)."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <user mention>",
+        "usage": "+quote [index] | +quote add <Zitat>/<Nutzer erwähnen>",
         "description": "Ruft (oder hinzufügt) ein lustiges / seltsames Zitat vom Server ab."
     },
     "mention": {
@@ -34,12 +34,12 @@
         "description": "Erwähnt eine Sprachrolle mit einer optionalen Nachricht."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+        "usage": "+context get|add|edit|view|help <Argument>",
+        "description": "Zeigt, fügt oder bearbeitet Kontext für die angegebene String ID. `+context help` zeigt dir Informationen über diesen Befehl."
     },
     "issue": {
         "usage": "+issue",
-        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
+        "description": "Öffnet unsere GitHub-Issues-Seite, wo du Probleme melden und Feedback senden kannst."
     },
     "language": {
         "usage": "+language [<Neue Sprache> | list]",
@@ -47,39 +47,39 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping as well as Discord API's ping."
+        "description": "Gibt dir den Ping des Bots sowie den Ping der Discord API."
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Gibt dir einen Einladungslink zum Server. Bitte benutze diesen, wenn du jemanden einladen möchtest."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Hier findest du den Link zum offiziellen Thread bezüglich der Hypixel-Übersetzungen."
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "Liefert dir nützliche Informationen über das Hypixel-Projekt."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Liefert dir nützliche Informationen über das Quickplay-Projekt."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "Liefert dir nützliche Informationen über das SkyblockAddons-Projekt."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Hier findest du den Link zu dem Thread, der diesen Discord-Server ankündigt."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Gibt dir den Link zur offiziellen Hypixel Translators Community Twitter-Seite."
     },
     "tip": {
         "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
+        "description": "Gibt dir einen zufälligen Tipp bezüglich des Servers."
     },
     "executedBy": "Ausgeführt von %%user%%"
 }
