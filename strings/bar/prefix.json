@@ -3,8 +3,8 @@
     "loading": "Eine Sekunde …",
     "loadingRoles": "Rollen werden abgerufen …",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
-        "sbaInfo": "As you're an SBA translator, you don't have any language roles. We're working on a way to let you choose a prefix as well. We'll keep you updated.",
+        "noLanguages": "Du scheinst keine Sprachrollen zu haben! Bitte kontaktiere den Administrator oder Besitzer, wenn du denkst, dass dies ein Fehler ist.",
+        "sbaInfo": "Da du ein SBA-Übersetzer bist, hast du keine Sprachrollen. Wir arbeiten daran, dass du auch ein Präfix wählen kannst. Wir halten dich auf dem Laufenden.",
         "error": "Spitzname konnte nicht geändert werden. Du kannst den Spitznamen unten kopieren und ihn selbst anwenden.",
         "confirmedNoFlags": "Du hast bestätigt, aber du hast auf keine Flagen reagiert, ",
         "cancelled": "Du hast die Änderung deines Spitznamens abgebrochen, ",
