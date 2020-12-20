@@ -1,7 +1,7 @@
 {
     "moduleName": "คำนำหน้า",
     "usage": "+prefix [flags]",
-    "loading": "One second...",
+    "loading": "Just a second...",
     "loadingRoles": "กำลังโหลดยศของคุณ",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
