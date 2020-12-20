@@ -68,7 +68,7 @@ module.exports = {
 
                         var last_seen
                         if (json.last_game === null) last_seen = strings.lastGameHidden
-                        else last_seen = strings.lastSeen.replace("%%game%%", json.last_game)
+                        else last_seen = strings.lastSeen.replace("%%game%%", json.last_game.replace(/([A-Z])/g, ' $1').trim)
 
                         let lastLogin
 
