@@ -1,6 +1,6 @@
 {
     "moduleName": "Citat",
-    "loading": "Et sekund...",
+    "loading": "Just a second...",
     "loadingModule": "Indlæser modulet...",
     "invalidArg": "Ugyldigt argument!",
     "indexArg": "Et citat med indekset %%arg%% findes ikke! Angiv venligst et tal mellem 1 og %%max%%.",
