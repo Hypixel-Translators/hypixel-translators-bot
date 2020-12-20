@@ -1,6 +1,6 @@
 {
     "moduleName": "Contexto",
-    "loading": "Un segundo...",
+    "loading": "Just a second...",
     "loadingModule": "Cargando módulo...",
     "errors": {
         "exists1": "Una entrada de contexto para ",
