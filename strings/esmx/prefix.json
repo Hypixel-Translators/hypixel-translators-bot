@@ -1,7 +1,7 @@
 {
     "moduleName": "Prefijo",
     "usage": "+prefix [banderas]",
-    "loading": "Un segundo...",
+    "loading": "Just a second...",
     "loadingRoles": "Obteniendo tus roles...",
     "errors": {
         "noLanguages": "¡No parece tener ningún rol de idioma! Por favor comuníquese con el administrador o el propietario si cree que se trata de un error.",
