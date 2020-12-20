@@ -1,7 +1,7 @@
 {
     "moduleName": "Kontext",
     "loading": "Eine Sekunde …",
-    "loadingModule": "Lade Module...",
+    "loadingModule": "Lade Module …",
     "errors": {
         "exists1": "Ein Kontexteintrag für ",
         "exists2": " existiert bereits, also wurde deiner nicht hinzugefügt. Verwende stattdessen `+context edit`.",
