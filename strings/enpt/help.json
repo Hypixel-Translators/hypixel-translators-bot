@@ -22,7 +22,7 @@
         "description": "Shows ye all available commands an' other info about the bot."
     },
     "prefix": {
-        "usage": "+prefix",
+        "usage": "+prefix [flags]",
         "description": "Gives ye the appropriate prefix fer yer language(s)."
     },
     "quote": {
