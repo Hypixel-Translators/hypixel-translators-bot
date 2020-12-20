@@ -11,7 +11,7 @@
     "noUserQuote": "¡No has especificado un usuario! Por favor, escribe la cita y menciona al usuario citado, separado por /.",
     "falseChannel": "¡No se pudo encontrar ese canal!",
     "falseUser": "¡Ese usuario no se pudo encontrar!",
-    "falseLang": "That language couldn't be found!",
+    "falseLang": "¡Ese idioma no pudo ser encontrado!",
     "disabled": "Este comando ha sido temporalmente desactivado.",
     "noTrPr": "¡No eres un traductor o revisor, así que no puedes usar esto!",
     "noAccess": "¡No tienes permiso para usar este comando!",
