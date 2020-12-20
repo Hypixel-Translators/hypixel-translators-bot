@@ -1,6 +1,6 @@
 {
     "moduleName": "Kontextus",
-    "loading": "Egy pillanat...",
+    "loading": "Just a second...",
     "loadingModule": "Modul betöltése...",
     "errors": {
         "exists1": "A ",
