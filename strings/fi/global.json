@@ -15,7 +15,7 @@
     "disabled": "Tämä komento on toistaiseksi pois käytöstä.",
     "noTrPr": "Et ole kääntäjä tai oikolukija, joten et voi käyttää tätä!",
     "noAccess": "Sinulla ei ole oikeuksia käyttää tuota komentoa!",
-    "noPermission": "You're not allowed to execute this command on this channel!",
+    "noPermission": "Sinulla ei ole oikeuksia käyttää tuota komentoa tällä kanavalla!",
     "contextSubArg": "Ole hyvä ja syötä alakomento ensimmäisenä argumenttina. Tämä voi olla `get`, `add`, `edit`, `link` tai `help`.\nSaadaksesi lisätietoa käytä komentoa `+context help`.",
     "cooldown": "Odotusaika",
     "timeLeftT": "Ole hyvä ja odota vielä %%time%% sekuntia ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
