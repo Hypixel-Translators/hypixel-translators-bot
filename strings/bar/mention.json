@@ -1,11 +1,11 @@
 {
-    "errorNoPing": "You don't have that language's proofreader role, ",
-    "errorNoPingPr": "so you can't mention it.",
-    "errorNoPingTr": "so you can't mention its translator role.",
-    "errorNoPingAll": "so you can't mention the entire language.",
+    "errorNoPing": "Du besitzt die Proofreader Rolle für diese Sprache nicht, ",
+    "errorNoPingPr": "du kannst es nicht erwähnen.",
+    "errorNoPingTr": "also kannst du seine Rolle als Übersetzer nicht erwähnen.",
+    "errorNoPingAll": "also kannst du nicht die gesamte Sprache erwähnen.",
     "errorNoPingDisclaimer": "Kontaktiere den Server Besitzer oder Administrator, falls du wirklich Hilfe benötigst.",
-    "errorNotFound": "The role you entered doesn't exist. You can enter the language name, or any of these: ",
-    "errorNoArgs": "You forgot to specify a language! You can enter the language name (in English) or any of these: ",
-    "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
+    "errorNotFound": "Die Rolle, die du eingegeben hast, existiert nicht. Du kannst den Namen der Sprache eingeben, oder eine von diesen: ",
+    "errorNoArgs": "Du hast vergessen, eine Sprache anzugeben! Du kannst den Namen der Sprache (in Englisch) oder eine der folgenden eingeben: ",
+    "errorNoArgs2": "Du hast vergessen, einen Rollentyp anzugeben! Wähle eine von diesen aus: ",
     "executedBy": "Asg'fuat vo %%user%%"
 }

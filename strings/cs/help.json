@@ -22,7 +22,7 @@
         "description": "Zobrazí ti všechny dostupné příkazy a další informace o botovi."
     },
     "prefix": {
-        "usage": "+prefix",
+        "usage": "+prefix [flags]",
         "description": "Dá ti odpovídající prefix pro tvůj/tvoje jazyk/y."
     },
     "quote": {

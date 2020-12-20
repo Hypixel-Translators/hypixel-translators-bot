@@ -11,6 +11,7 @@
     "noUserQuote": "Bir kullanıcı sağlamadın! Lütfen alıntıyı yazın ve ardından alıntı yapılan kullanıcıdan eğik çizgiyle ayırarak bahsedin.",
     "falseChannel": "Bu kanal bulunamadı!",
     "falseUser": "Bu kullanıcı bulunamadı!",
+    "falseLang": "That language couldn't be found!",
     "disabled": "Bu komut geçici olarak devre dışı bırakıldı.",
     "noTrPr": "Bir çevirmen veya düzeltmen değilsin, yani bunu kullanamazsın!",
     "noAccess": "Bu komutu kullanmana izin verilmiyor!",

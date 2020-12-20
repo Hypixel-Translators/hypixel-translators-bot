@@ -11,6 +11,7 @@
     "noUserQuote": "You haven't provided a user! Please type the quote and then mention the quoted user, separated by a slash.",
     "falseChannel": "Denne kanal kunne ikke blive fundet!",
     "falseUser": "Denne bruger kunne ikke blive fundet!",
+    "falseLang": "That language couldn't be found!",
     "disabled": "Denne kommando er midlertidigt deaktiveret.",
     "noTrPr": "Du er ikke en oversætter eller en korrekturlæser, så du kan ikke bruge det her!",
     "noAccess": "Du har ikke tilladelse til at udføre denne kommando!",

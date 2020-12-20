@@ -22,7 +22,7 @@
         "description": "Mostra-te todos os comandos disponíveis e outras informações sobre o bot."
     },
     "prefix": {
-        "usage": "+prefix",
+        "usage": "+prefix [bandeiras]",
         "description": "Dá-te o prefixo apropriado para o(s) teu(s) idioma(s)."
     },
     "quote": {

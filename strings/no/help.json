@@ -22,7 +22,7 @@
         "description": "Viser alle tilgjengelig kommandoer og annet info om boten."
     },
     "prefix": {
-        "usage": "+prefix",
+        "usage": "+prefix [flags]",
         "description": "Gir deg den riktige prefiksen for din(e) språk."
     },
     "quote": {

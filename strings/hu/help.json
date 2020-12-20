@@ -22,7 +22,7 @@
         "description": "Megmutatja az összes elérhető parancsot és információkat ad a robotról."
     },
     "prefix": {
-        "usage": "+prefix",
+        "usage": "+prefix [flags]",
         "description": "Megkapod a saját nyelve(i)d előjelét."
     },
     "quote": {

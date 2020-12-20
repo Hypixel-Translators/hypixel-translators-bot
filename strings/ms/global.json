@@ -11,6 +11,7 @@
     "noUserQuote": "Anda belum menyediakan pengguna! tolong tulis quote dan kemudian sebutkan pengguna yang dipetik, dipisahkan dengan garis miring.",
     "falseChannel": "Saluran itu tidak dapat ditemukan!",
     "falseUser": "Pengguna itu tidak dapat ditemukan!",
+    "falseLang": "That language couldn't be found!",
     "disabled": "This command has been temporarily disabled.",
     "noTrPr": "Anda adalah penerjermah bukan pembaca bukti, anda tidak dapat menggunakan ini!",
     "noAccess": "You're not allowed to execute this command!",

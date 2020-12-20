@@ -22,7 +22,7 @@
         "description": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir."
     },
     "prefix": {
-        "usage": "+prefix",
+        "usage": "+prefix [flags]",
         "description": "Dil(lerin) için uygun ön ekleri verir."
     },
     "quote": {
