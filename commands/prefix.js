@@ -147,7 +147,7 @@ module.exports = {
                 .setColor(errorColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.errors.timedOut)
-                .setDescription(strings.errors.timeOut + strings.errors.notSaved)
+                .setDescription(strings.errors.timeOutCustom + strings.errors.notSaved)
                 .addFields({ name: strings.newNickT, value: strings.noChanges })
                 .setFooter(executedBy, message.author.displayAvatarURL());
               msg.edit(embed)
