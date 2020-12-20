@@ -1,6 +1,6 @@
 const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
-const stats = require('../events/stats.js')
+const stats = require("../events/stats.js")
 
 module.exports = {
     name: "stats",

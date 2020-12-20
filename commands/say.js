@@ -10,10 +10,9 @@ module.exports = {
   allowDM: true,
   async execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-    const rawSendTo = args[0]
     args.splice(0, 1)
     const toSend = args.join(" ")
-    const sendTo = message.client.channels.cache.get(rawSendTo.replace("<#", "").replace(">", ""))
+      const sendTo = message.client.channels.cache.get(args[0].replace("<#", "").replace(">", ""))
     var msg
 
     var allowed = false
@@ -21,11 +20,12 @@ module.exports = {
     if (!allowed) throw "noAccess";
     if (!sendTo) throw "noChannel";
     if (!toSend) throw "noMessage";
+    if (!message.member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission";
 
     if (message.member) if (message.member.hasPermission("ADMINISTRATOR")) {
-      msg = await sendTo.send(toSend).catch(err => { throw "noChannel"; })
+      msg = await sendTo.send(toSend).catch(() => { throw "noChannel"; })
     } else {
-      msg = await sendTo.send(">>> " + toSend).catch(err => { throw "noChannel"; })
+      msg = await sendTo.send(">>> " + toSend).catch(() => { throw "noChannel"; })
     }
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)

@@ -1,7 +1,7 @@
 const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
 const Discord = require("discord.js");
-const { GoogleSpreadsheet } = require('google-spreadsheet')
-const creds = { "type": process.env.type, "project_id": process.env.project_id, "private_key_id": process.env.private_key_id, "private_key": process.env.private_key.replace(/\\n/gm, '\n'), "client_email": process.env.client_email, "client_id": process.env.client_id, "auth_uri": process.env.auth_uri, "token_uri": process.env.token_uri, "auth_provider_x509_cert_url": process.env.auth_provider_x509_cert_url, "client_x509_cert_url": process.env.client_x509_cert_url }
+const { GoogleSpreadsheet } = require("google-spreadsheet")
+const creds = { "type": process.env.type, "project_id": process.env.project_id, "private_key_id": process.env.private_key_id, "private_key": process.env.private_key.replace(/\\n/gm, "\n"), "client_email": process.env.client_email, "client_id": process.env.client_id, "auth_uri": process.env.auth_uri, "token_uri": process.env.token_uri, "auth_provider_x509_cert_url": process.env.auth_provider_x509_cert_url, "client_x509_cert_url": process.env.client_x509_cert_url }
 
 
 module.exports = {
@@ -33,7 +33,7 @@ async function getFromSpreadsheet(executedBy, strings, message, args) {
         .setFooter(executedBy, message.author.displayAvatarURL());
     message.channel.send(embed)
         .then(async msg => {
-            const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
+            const doc = new GoogleSpreadsheet("1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts")
             await doc.useServiceAccountAuth(creds)
 
             await doc.loadInfo()
@@ -118,7 +118,7 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
                 return;
             }
 
-            const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
+            const doc = new GoogleSpreadsheet("1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts")
             await doc.useServiceAccountAuth(creds)
 
             await doc.loadInfo()
@@ -126,8 +126,8 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
 
             const sheet = doc.sheetsByIndex[0]
             console.log(sheet.title)
-            const noEmoji = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_no');
-            const yesEmoji = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_yes');
+            const noEmoji = msg.client.emojis.cache.find(emoji => emoji.name === "vote_no");
+            const yesEmoji = msg.client.emojis.cache.find(emoji => emoji.name === "vote_yes");
 
             const rows = await sheet.getRows()
             const correctRow = rows.find(r => r.id === args[1])
@@ -164,7 +164,7 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
                 var extraMsgs = []
                 var extraReceiveds = []
 
-                collector.on('collect', async (reaction, reacter) => {
+                collector.on("collect", async (reaction, reacter) => {
                     console.log(reaction.emoji.name)
                     if (reaction.emoji.name === "📑") {
                         reaction.remove()
@@ -179,11 +179,11 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
 
                             extraMsgs.push(extraMsg)
 
-                            collectorB.on('collect', received => {
+                            collectorB.on("collect", received => {
                                 collectorB.stop()
                                 extraReceiveds.push(received)
                                 var key = received.toString().toLowerCase()
-                                key = key.replace(/ .*/, '')
+                                key = key.replace(/ .*/, "")
                                 var value = received.toString()
                                 value = value.substr(value.indexOf(" ") + 1)
                                 toAdd[key] = value
@@ -196,7 +196,7 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
                                 extraMsg.edit(extraEmbed)
                             })
 
-                            collectorB.on('end', function () {
+                            collectorB.on("end", function () {
                                 const extraEmbed = new Discord.MessageEmbed()
                                     .setColor(errorColor)
                                     .setAuthor(strings.moduleName)
@@ -294,7 +294,7 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
 
                 })
 
-                collector.on('end', () => {
+                collector.on("end", () => {
                     const embed = new Discord.MessageEmbed()
                         .setColor(loadingColor)
                         .setAuthor(strings.moduleName)
@@ -337,7 +337,7 @@ async function editInSpreadsheet(executedBy, strings, message, args) {
                 return;
             }
 
-            const doc = new GoogleSpreadsheet('1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts')
+            const doc = new GoogleSpreadsheet("1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts")
             await doc.useServiceAccountAuth(creds)
 
             await doc.loadInfo()
@@ -369,8 +369,8 @@ async function editInSpreadsheet(executedBy, strings, message, args) {
             arguments.splice(0, 3)
             var value = arguments.join(" ")
 
-            const noEmoji = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_no');
-            const yesEmoji = msg.client.emojis.cache.find(emoji => emoji.name === 'vote_yes');
+            const noEmoji = msg.client.emojis.cache.find(emoji => emoji.name === "vote_no");
+            const yesEmoji = msg.client.emojis.cache.find(emoji => emoji.name === "vote_yes");
 
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
@@ -393,7 +393,7 @@ async function editInSpreadsheet(executedBy, strings, message, args) {
 
             const collector = msg.createReactionCollector(filter, { time: 10000 });
 
-            collector.on('collect', async (reaction, reacter) => {
+            collector.on("collect", async (reaction, reacter) => {
                 if (reaction.emoji.name === "vote_no") {
                     msg.reactions.removeAll()
                     collector.stop()
@@ -470,7 +470,7 @@ async function editInSpreadsheet(executedBy, strings, message, args) {
                 }
             })
 
-            collector.on('end', async (collected) => {
+            collector.on("end", async (collected) => {
                 msg.reactions.removeAll()
                 var correctRow = rows.find(r => r.id === args[1])
                 if (correctRow[key] !== value) {

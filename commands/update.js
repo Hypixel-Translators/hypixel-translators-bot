@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { loadingColor, errorColor, successColor, neutralColor, blurple } = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -93,7 +93,7 @@ function info(message) {
 function verify(message) {
     message.client.channels.cache.get("569178590697095168").messages.fetch("787366444970541056").then(msg => { //verify-prototype and verify embed
         const verifyEmbed = new Discord.MessageEmbed()
-            .setColor("#7289DA") //blurple
+            .setColor(blurple)
             .setAuthor("Welcome!")
             .setThumbnail(message.guild.iconURL())
             .setTitle("The Hypixel Translators Community")

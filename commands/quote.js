@@ -1,7 +1,7 @@
 const { loadingColor, errorColor, successColor, neutralColor, quotes, names } = require("../config.json");
 const Discord = require("discord.js");
-const { GoogleSpreadsheet } = require('google-spreadsheet')
-const creds = { "type": process.env.type, "project_id": process.env.project_id, "private_key_id": process.env.private_key_id, "private_key": process.env.private_key.replace(/\\n/gm, '\n'), "client_email": process.env.client_email, "client_id": process.env.client_id, "auth_uri": process.env.auth_uri, "token_uri": process.env.token_uri, "auth_provider_x509_cert_url": process.env.auth_provider_x509_cert_url, "client_x509_cert_url": process.env.client_x509_cert_url }
+const { GoogleSpreadsheet } = require("google-spreadsheet")
+const creds = { "type": process.env.type, "project_id": process.env.project_id, "private_key_id": process.env.private_key_id, "private_key": process.env.private_key.replace(/\\n/gm, "\n"), "client_email": process.env.client_email, "client_id": process.env.client_id, "auth_uri": process.env.auth_uri, "token_uri": process.env.token_uri, "auth_provider_x509_cert_url": process.env.auth_provider_x509_cert_url, "client_x509_cert_url": process.env.client_x509_cert_url }
 
 module.exports = {
     name: "quote",
@@ -25,14 +25,14 @@ module.exports = {
                 if (!allowed) {
                     args.splice(0, 1)
                     var toSend = args.join(" ")
-                    const sendTo = msg.client.channels.cache.get("730042612647723058") //bot-development
+                    const sendTo = msg.client.channels.cache.get("624881429834366986") //staff-bots
                     const report = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor("Quote")
                         .setTitle("A quote request has been submitted!")
                         .setDescription(toSend)
                         .addFields({ name: "To add it", value: "`+quote add " + toSend + "`" })
-                        .setFooter("Suggested by " + message.author.tag);
+                        .setFooter("Suggested by " + message.author.tag, message.author.displayAvatarURL());
                     sendTo.send(report)
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
@@ -54,7 +54,7 @@ module.exports = {
 };
 
 async function accessSpreadsheet(executedBy, strings, message, args, msg) {
-    const doc = new GoogleSpreadsheet('16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8')
+    const doc = new GoogleSpreadsheet("16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8")
     await doc.useServiceAccountAuth(creds)
 
     await doc.loadInfo()
@@ -93,7 +93,7 @@ async function accessSpreadsheet(executedBy, strings, message, args, msg) {
 }
 
 async function addToSpreadsheet(executedBy, strings, message, toSend, msg) {
-    const doc = new GoogleSpreadsheet('16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8')
+    const doc = new GoogleSpreadsheet("16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8")
     await doc.useServiceAccountAuth(creds)
 
     await doc.loadInfo()

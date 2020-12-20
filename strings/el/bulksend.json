@@ -1,5 +1,5 @@
 {
-    "moduleName": "Bulk Send",
-    "success": "Success! Messages sent.",
+    "moduleName": "Μαζική αποστολή",
+    "success": "Επιτυχία! Το μήνυμα στάλθηκε.",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }

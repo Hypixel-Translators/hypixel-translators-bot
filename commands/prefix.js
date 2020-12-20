@@ -48,11 +48,13 @@ module.exports = {
           msg.react("✅").then(() => msg.react("❎"))
 
           const filter = (reaction, reacter) => {
-            return (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id;
-          }
-          const collector = msg.createReactionCollector(filter, { time: 20000 })
-          collector.on('collect', (reaction, reacter) => {
+            return (userLangs.includes(reaction.emoji.name) || reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id;
+          };
 
+          const collector = msg.createReactionCollector(filter, { time: 20000 });
+
+          collector.on("collect", (reaction, reacter) => {
+            msg.react("✅")
             if (reaction.emoji.name === "✅") {
               msg.reactions.removeAll()
               if (message.member.nickname !== ("[" + prefix + "] " + message.member.user.username)) {
@@ -107,7 +109,6 @@ module.exports = {
             }
           })
           collector.on('end', () => {
-            console.log("Collector end")
             msg.reactions.removeAll()
             if (prefix === "n") return;
             if (prefix.length > 0) {

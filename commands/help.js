@@ -58,12 +58,12 @@ module.exports = {
         await msg.react("⏮"); await msg.react("◀"); await msg.react("▶"); await msg.react("⏭")
 
         const filter = (reaction, user) => {
-          return (reaction.emoji.name === '⏮' || reaction.emoji.name === '◀' || reaction.emoji.name === '▶' || reaction.emoji.name === '⏭') && user.id === message.author.id
+          return (reaction.emoji.name === "⏮" || reaction.emoji.name === "◀" || reaction.emoji.name === "▶" || reaction.emoji.name === "⏭") && user.id === message.author.id
         }
 
         const collector = msg.createReactionCollector(filter, { time: 60000 }) //1 minute
 
-        collector.on('collect', async (reaction, user) => {
+        collector.on("collect", async (reaction, user) => {
           if (reaction.emoji.name === "⏮") page = 0 //First
           if (reaction.emoji.name === "⏭") page = pages.length - 1 //Last
           if (reaction.emoji.name === "◀") { //Previous
@@ -79,7 +79,7 @@ module.exports = {
           msg.edit(pageEmbed)
         })
 
-        collector.on('end', async () => {
+        collector.on("end", async () => {
           msg.edit(strings.timeOut)
           msg.reactions.removeAll()
           setTimeout(() => {
