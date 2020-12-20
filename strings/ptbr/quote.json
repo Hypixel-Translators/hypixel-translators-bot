@@ -1,6 +1,6 @@
 {
     "moduleName": "Quote",
-    "loading": "Um segundo...",
+    "loading": "Just a second...",
     "loadingModule": "Carregando módulo...",
     "invalidArg": "Argumento inválido!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
