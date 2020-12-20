@@ -22,7 +22,6 @@ module.exports = {
         else if (emoji.toLowerCase() === "em" || emoji.toLowerCase() === "emoji") flagEmojis.push("😂")
         else flagEmojis.push(flag(emoji))
       })
-      console.log(flagEmojis)
       if (!flagEmojis || flagEmojis.includes(undefined)) {
         const errorEmbed = new Discord.MessageEmbed()
           .setColor(errorColor)
@@ -48,7 +47,7 @@ module.exports = {
           msg.react("✅").then(() => msg.react("❎"))
 
           const filter = (reaction, reacter) => {
-            return (userLangs.includes(reaction.emoji.name) || reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id;
+            return (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id;
           };
 
           const collector = msg.createReactionCollector(filter, { time: 20000 });
