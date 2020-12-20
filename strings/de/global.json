@@ -11,6 +11,7 @@
     "noUserQuote": "Du hast keinen Benutzer angegeben! Bitte gebe das Zitat ein und erwähne dann den zitierten Benutzer, getrennt durch einen Schrägstrich.",
     "falseChannel": "Der Kanal wurde nicht gefunden!",
     "falseUser": "Der Benutzer wurde nicht gefunden!",
+    "falseLang": "That language couldn't be found!",
     "disabled": "Der Befehl ist vorübergehend deaktiviert.",
     "noTrPr": "Du bist kein Translator oder Proofreader, daher kannst du es nicht benutzen!",
     "noAccess": "Du darfst diesen Befehl nicht ausführen!",
