@@ -38,7 +38,7 @@
     {"name": "Lithuanian", "emoji": "🇱🇹", "code" : "lt", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Malay", "emoji": "🇲🇾", "colour": "#e02222", "code": "ms", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Norwegian", "emoji": "🇳🇴", "colour": "#e02222", "code": "no", "flag": "https://crowdin.com/images/flags/%code%.png"},
-    {"name": "Pirate English", "emoji": "🏴‍☠️", "colour": "#21de70", "code": "enpt", "flag": "https://crowdin.com/images/flags/%code%.png"},
+    {"name": "Pirate English", "emoji": "☠", "colour": "#21de70", "code": "enpt", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Polish", "emoji": "🇵🇱", "colour": "#21de70", "code": "pl", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Portuguese", "emoji": "🇵🇹", "colour": "#21de70", "code": "pt", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Portuguese, Brazilian", "emoji": "🇧🇷", "colour": "#21de70", "code": "ptbr", "flag": "https://crowdin.com/images/flags/%code%.png"},

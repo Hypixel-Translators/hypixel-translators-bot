@@ -9,7 +9,8 @@
         "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
         "cancelled": "You cancelled the changing of your nickname, ",
         "alreadyThis": "You already have this nickname, ",
-        "timeOut": "You haven't reacted with any flags, ",
+        "timedOut": "Timed Out",
+        "timeOut": "You didn't reacted with any flags, ",
         "notSaved": "so your prefix wasn't saved."
     },
     "caution": "Caution",
