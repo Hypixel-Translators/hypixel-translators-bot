@@ -1,6 +1,6 @@
 {
     "moduleName": "Язык",
-    "loading": "Секундочку...",
+    "loading": "Just a second...",
     "changing": "Changing your language... This may take a while.",
     "changedToTitle": "Ваш язык был изменён на Русский!",
     "errorTitle": "That language hasn't been added yet!",
