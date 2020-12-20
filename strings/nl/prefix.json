@@ -11,7 +11,8 @@
         "cancelled": "Je hebt het wijzigen van je bijnaam geannuleerd, ",
         "alreadyThis": "Je hebt deze bijnaam al, ",
         "timedOut": "Time-out",
-        "timeOut": "Je hebt niet gereageerd met vlaggen, ",
+        "timeOut": "You didn't react with any flags, ",
+        "timeOutCustom": "You didn't confirm, ",
         "notSaved": "dus is je voorvoegsel niet opgeslagen."
     },
     "customPrefix": "Schroom niet om `+prefix <vlaggen>` uit te voeren om je voorvoegsel te krijgen.",
