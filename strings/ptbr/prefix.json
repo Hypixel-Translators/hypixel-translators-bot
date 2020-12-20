@@ -1,7 +1,7 @@
 {
     "moduleName": "Prefixo",
     "usage": "+prefix [flags]",
-    "loading": "Um segundo...",
+    "loading": "Just a second...",
     "loadingRoles": "Buscando seus cargos...",
     "errors": {
         "noLanguages": "Parece que você não possui um cargo de idioma! Entre em contato com algum administrador ou dono se você acha que isso é um erro.",
