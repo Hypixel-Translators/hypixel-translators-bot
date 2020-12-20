@@ -11,7 +11,8 @@
         "cancelled": "Has cancelado el cambio de tu apodo, ",
         "alreadyThis": "Ya tienes este apodo, ",
         "timedOut": "Timed Out",
-        "timeOut": "You didn't reacted with any flags, ",
+        "timeOut": "You didn't react with any flags, ",
+        "timeOutCustom": "You didn't confirm, ",
         "notSaved": "entonces tu prefijo no fue guardado."
     },
     "customPrefix": "Feel free to run `+prefix <flags>` to get your desired prefix.",
