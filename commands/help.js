@@ -16,7 +16,7 @@ module.exports = {
     //Define all pages
     const pages = [
       { "n": 0 },
-      { "n": 1, "f": ["help", "language", "prefix", "quote", "mention", "context", "tip", "ping"], "b": "🛠", "t": "utilityHelp" },
+      { "n": 1, "f": ["help", "language", "prefix", "quote", "mention", "context", "hypixelstats", "tip", "ping"], "b": "🛠", "t": "utilityHelp" },
       { "n": 2, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "thread", "twitter", "issue"], "b": "ℹ", "t": "infoHelp" }
     ]
 
