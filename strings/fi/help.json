@@ -22,7 +22,7 @@
         "description": "Näyttää kaikki saatavilla olevat komennot ja muuta tietoa botista."
     },
     "prefix": {
-        "usage": "+prefix [flags]",
+        "usage": "+prefix [liput]",
         "description": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen."
     },
     "quote": {
