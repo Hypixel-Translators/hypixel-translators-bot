@@ -71,7 +71,7 @@ module.exports = {
                       .setAuthor("Prefix")
                       .setTitle("A user manually changed their prefix")
                       .setDescription(`<@${message.author.id}> manually changed their prefix to include the following flag: ${prefix}\nMake sure they have the appropriate roles for this prefix and, if not, follow the appropriate procedure`)
-                      .setFooter(executedBy, message.author.displayAvatarURL())
+                      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
                     message.client.channels.cache.get("624881429834366986").send(staffAlert)
                   })
                   .catch(err => {
