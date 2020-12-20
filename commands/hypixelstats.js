@@ -58,6 +58,15 @@ module.exports = {
                         username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
                         let language = json.language.toLowerCase().charAt(0).toUpperCase() + json.language.toLowerCase().slice(1) // make the language properly capitalised and not all caps
                         language = language.replace("_", " ")
+                        let lang = language
+                        const languageFormat = language.split(" ")
+                        if (languageFormat[1]) {
+                            let language2 = languageFormat[1].charAt(0).toUpperCase() + languageFormat[1].slice(1)
+                            if (languageFormat[1].length === 2) {
+                                language2 = languageFormat[1].toUpperCase()
+                            }
+                            lang = `${languageFormat[0]} ${language2}`
+                        }
                         let online
                         if (json.online == true) online = strings.online
                         else online = strings.offline
@@ -68,7 +77,7 @@ module.exports = {
 
                         var last_seen
                         if (json.last_game === null) last_seen = strings.lastGameHidden
-                        else last_seen = strings.lastSeen.replace("%%game%%", json.last_game.replace(/([A-Z])/g, ' $1').trim)
+                        else last_seen = strings.lastSeen.replace("%%game%%", json.last_game.replace(/([A-Z]+)/g, ' $1').trim())
 
                         let lastLogin
 
@@ -89,7 +98,7 @@ module.exports = {
                                 { name: strings.networkLevel, value: Math.abs(json.level), inline: true },
                                 { name: strings.karma, value: json.karma.toLocaleString(), inline: true },
                                 { name: online, value: last_seen, inline: true },
-                                { name: strings.language, value: language, inline: true },
+                                { name: strings.language, value: lang, inline: true },
                                 { name: strings.discord, value: linkDiscord, inline: true },
                                 { name: strings.lastLogin, value: lastLogin, inline: true }
 
