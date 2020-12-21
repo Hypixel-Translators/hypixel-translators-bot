@@ -1,6 +1,6 @@
 {
     "moduleName": "Kieli",
-    "loading": "Just a second...",
+    "loading": "Odota sekunti...",
     "changing": "Vaihdetaan kieltä... Tämä saattaa kestää hetken.",
     "changedToTitle": "Kieleksesi vaihdettiin suomi!",
     "errorTitle": "Tätä kieltä ei ole vielä lisätty!",
