@@ -19,9 +19,10 @@ async function check(client) {
     const kick = new Date().getTime() - (14 * 24 * 60 * 60 * 1000)
     //Get date 14 days ago                d    h    m    s     ms
 
-    client.guilds.cache.get("549503328472530974").roles.cache.get("739111904672481280").members.forEach(async member => { //guid ID and Unverified
+    client.guilds.cache.get("549503328472530974").roles.cache.get("549503328472530974").members.forEach(async member => { //guid ID and @everyone
+        if (member.roles.cache.has("569194996964786178") || member.user.bot) return //Verified
         await client.guilds.cache.get("549503328472530974").members.fetch(member.user.id) //fetch the member
-        if (member.roles.cache.has("756199836470214848")) {
+        if (member.roles.cache.has("756199836470214848")) { //Alerted
             if (member.joinedTimestamp <= kick) {
                 member.send("You stood in the verify channel for too long and, because of that, you were kicked for inactivity. If you wish to join back, feel free to do so at https://discord.gg/rcT948A")
                     .then(() => {
@@ -48,4 +49,5 @@ async function check(client) {
             member.roles.add("756199836470214848", "Stood on the server for 7 days without verifying")
         } else { console.log(member.user.tag + " wasn't alerted nor kicked") }
     })
+    console.log(unverified)
 }
