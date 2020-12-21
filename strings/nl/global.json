@@ -11,7 +11,7 @@
     "noUserQuote": "Je hebt geen gebruiker opgegeven! Typ het citaat, en vermeld dan de geciteerde gebruiker, gescheiden door een slash.",
     "falseChannel": "Dat kanaal kon niet worden gevonden!",
     "falseUser": "Die gebruiker kon niet worden gevonden!",
-    "falseFlag": "That flag couldn't be found!",
+    "falseFlag": "Die vlag kon niet worden gevonden!",
     "disabled": "Dit commando is tijdelijk uitgeschakeld.",
     "noTrPr": "Je bent geen vertaler of proeflezer, dus je kunt dit niet gebruiken!",
     "noAccess": "Je hebt geen toestemming om dat commando te gebruiken!",
@@ -35,7 +35,7 @@
         "8": "%%rules%% en %%serverInfo%% bevatten alle benodigde informatie over deze server!",
         "9": "Fout in een vertaling gevonden? Neem contact op met een proeflezer van je taal of laat het weten in een vertalingskanaal.",
         "10": "Wist je dat de meeste kanalen belangrijke info hebben in vastgezette berichten? Lees het eens als je een kanaal gebruikt!",
-        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
+        "11": "Je kunt informatie over een specifieke Hypixel-speler bekijken met `+hypixelstats <naam>`!"
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }
