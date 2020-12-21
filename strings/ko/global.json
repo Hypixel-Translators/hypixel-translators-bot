@@ -17,6 +17,7 @@
     "noAccess": "You're not allowed to execute this command!",
     "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
+    "apiError": "Something went wrong while contacting the API!",
     "cooldown": "Cooldown",
     "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
@@ -33,7 +34,8 @@
         "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
         "8": "%%rules%% and %%serverInfo%% have all the info you need about this server!",
         "9": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
-        "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!"
+        "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!",
+        "11": "You can view information about a specific player on Hypixel by running `+hypixelstats`!"
     },
     "executedBy": "Executed by %%user%%"
 }
