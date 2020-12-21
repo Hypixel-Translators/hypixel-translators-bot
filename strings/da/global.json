@@ -35,7 +35,7 @@
         "8": "%%rules%% og %%serverInfo%% har al den info, du har brug for på denne server!",
         "9": "Har du fundet en fejl i en oversættelse? Kontakt sprogets korrekturlæser eller fortæl folk det i en oversættelseskanal.",
         "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!",
-        "11": "You can view information about a specific player on Hypixel by running `+hypixelstats`!"
+        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
     "executedBy": "Udført af %%user%%"
 }
