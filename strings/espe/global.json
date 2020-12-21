@@ -17,6 +17,7 @@
     "noAccess": "¡No puedes usar este comando!",
     "noPermission": "¡No puedes ejecutar este comando en este canal!",
     "contextSubArg": "Por favor, da un subcomando como primer argumento. Puede ser `get`, `add`, `edit`, `link` o `help`.",
+    "apiError": "Something went wrong while contacting the API!",
     "cooldown": "Enfriamiento",
     "timeLeftT": "Espera otros %%time%% segundos para usar `+%%command%%` otra vez.",
     "minsLeftT": "Por favor, espera otros %%time%% minutos para usar `+%%command%%` de nuevo.",
@@ -33,7 +34,8 @@
         "7": "¿Has seguido nuestra cuenta de twitter? ¡Síguelo en aquí: %%twitter%%!",
         "8": "¡%%rules%% y %%serverInfo%% tienen toda la información que necesitas sobre este servidor!",
         "9": "¿Encontraste un error en una traducción? Ponte en contacto con un proofreader de tu idioma o haz que la gente lo sepa en un canal de traducción.",
-        "10": "¿Sabes que la mayoría de canales tienen información importante fijada? ¡Deberías verlas cada vez que visites uno!"
+        "10": "¿Sabes que la mayoría de canales tienen información importante fijada? ¡Deberías verlas cada vez que visites uno!",
+        "11": "You can view information about a specific player on Hypixel by running `+hypixelstats`!"
     },
     "executedBy": "Ejecutado por %%user%%"
 }
