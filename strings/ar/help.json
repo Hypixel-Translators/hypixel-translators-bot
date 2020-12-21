@@ -49,6 +49,14 @@
         "usage": "+ping",
         "description": "Gives you the bot's ping as well as Discord API's ping."
     },
+    "hypixelstats": {
+        "usage": "+hypixelstats <username>",
+        "description": "Shows you basic Hypixel stats for the provided user."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Gives you a random tip regarding the server."
+    },
     "invite": {
         "usage": "+invite",
         "description": "يعطيك رابط دعوة إلى السيرفر. يرجى استخدامه عندما ترغب في دعوة شخص ما."
@@ -76,10 +84,6 @@
     "twitter": {
         "usage": "+twitter",
         "description": "يعطيك الرابط إلى صفحة مجتمع مترجمين هايبكسل الرسمي على تويتر."
-    },
-    "tip": {
-        "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
     },
     "executedBy": "نفذ من قبل %%user%%"
 }
