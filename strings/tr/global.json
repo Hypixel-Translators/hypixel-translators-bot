@@ -17,6 +17,7 @@
     "noAccess": "Bu komutu kullanmana izin verilmiyor!",
     "noPermission": "Bu komutu bu kanalda kullanmana izin verilmiyor!",
     "contextSubArg": "Lütfen ilk argüman olarak bir alt komut girin. Bu, `get`, `add`, `edit`,`link` veya `help` olabilir.\nBilgi için `+context help` komutunu çalıştırın.",
+    "apiError": "Something went wrong while contacting the API!",
     "cooldown": "Bekleme Süresi",
     "timeLeftT": "'+%%command%%' komutunu kullanmak için lütfen %%time%% saniye bekle.",
     "minsLeftT": "`+%%command%%' tekrar kullanmak için lütfen %%time%% dakika daha bekleyin.",
@@ -33,7 +34,8 @@
         "7": "Twitter hesabımızı henüz takip etmedin mi? Buradan edebilirsin %%twitter%%!",
         "8": "%%rules%% ve %%serverInfo%% bu sunucu hakkında ihtiyacınız olan tüm bilgilere sahip!",
         "9": "Çeviride bir hata mı buldun? Dilinin düzelticisine başvur veya çeviri kanalındaki insanlara bildir.",
-        "10": "Çoğu kanalın önemli bilgilere sahip olduğunu biliyor muydun? Bunlardan birini her ziyaret ettiğinde kontrol etmelisin!"
+        "10": "Çoğu kanalın önemli bilgilere sahip olduğunu biliyor muydun? Bunlardan birini her ziyaret ettiğinde kontrol etmelisin!",
+        "11": "You can view information about a specific player on Hypixel by running `+hypixelstats`!"
     },
     "executedBy": "%%user%% tarafından yürütüldü"
 }
