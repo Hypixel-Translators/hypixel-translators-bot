@@ -49,6 +49,14 @@
         "usage": "+ping",
         "description": "Laat de vertraging van de bot en de Discord API zien."
     },
+    "hypixelstats": {
+        "usage": "+hypixelstats <username>",
+        "description": "Shows you basic Hypixel stats for the provided user."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Geeft je een willekeurige servertip."
+    },
     "invite": {
         "usage": "+invite",
         "description": "Geeft je een uitnodigingslink voor deze server. Gebruik deze wanneer je iemand wilt uitnodigen."
@@ -76,10 +84,6 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Geeft je de link naar de officiële Hypixel-vertaalcommunity-Twitterpagina."
-    },
-    "tip": {
-        "usage": "+tip",
-        "description": "Geeft je een willekeurige servertip."
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }
