@@ -35,7 +35,7 @@
         "8": "%%rules%% en %%serverInfo%% bevatten alle benodigde informatie over deze server!",
         "9": "Fout in een vertaling gevonden? Neem contact op met een proeflezer van je taal of laat het weten in een vertalingskanaal.",
         "10": "Wist je dat de meeste kanalen belangrijke info hebben in vastgezette berichten? Lees het eens als je een kanaal gebruikt!",
-        "11": "Je kunt informatie over een specifieke Hypixel-speler bekijken door `+hypixelstats`!"
+        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }
