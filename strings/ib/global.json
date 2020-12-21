@@ -35,7 +35,7 @@
         "8": "%%rules%% n %%serverInfo%% haz veri cool and many infoamatins bout dis sarvar!",
         "9": "Fount mistak in tramslayshun? Contacc prüfreder fur ur langag or let pepel knowo in a tramslayshun chanel.",
         "10": "Did u knowo a lotof chanels haz improtantr stuf in the pin menu thing? Is very kool so def checc out!",
-        "11": "You can view information about a specific player on Hypixel by running `+hypixelstats`!"
+        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
     "executedBy": "Done by le %%user%%"
 }
