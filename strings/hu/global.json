@@ -11,7 +11,7 @@
     "noUserQuote": "Nem adtál me felhasználót! Kérlek írd le az idézetet, majd írd le az idézett embert egy per jellel elválasztva.",
     "falseChannel": "Ez a csatorna nem található!",
     "falseUser": "A felhasználó nem található!",
-    "falseLang": "That language couldn't be found!",
+    "falseFlag": "That flag couldn't be found!",
     "disabled": "Ez a parancs ki lett kapcsolva egy időre.",
     "noTrPr": "Nem vagy fordító, sem ellenőrző, így ezt nem tudod végrehajtani!",
     "noAccess": "Nincs engedélyed használni ezt a parancsot!",
