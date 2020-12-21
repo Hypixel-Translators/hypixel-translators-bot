@@ -11,7 +11,7 @@
     "noUserQuote": "Et syöttänyt käyttäjää! Ole hyvä ja kirjoita lainaus sekä mainitse lainattu käyttäjä, erotettuna vinoviivalla.",
     "falseChannel": "Tätä kanavaa ei löytynyt!",
     "falseUser": "Tätä käyttäjää ei löytynyt!",
-    "falseFlag": "That flag couldn't be found!",
+    "falseFlag": "Tätä lippua ei löytynyt!",
     "disabled": "Tämä komento on toistaiseksi pois käytöstä.",
     "noTrPr": "Et ole kääntäjä tai oikolukija, joten et voi käyttää tätä!",
     "noAccess": "Sinulla ei ole oikeuksia käyttää tuota komentoa!",
@@ -35,7 +35,7 @@
         "8": "Kanavilta %%rules%% ja %%serverInfo%% löydät kaiken tarvitsemasi tiedon tästä palvelimesta!",
         "9": "Löysitkö käännösvirheen? Ota yhteyttä kielesi oikolukijaan tai kerro asiasta käännöskanavalla.",
         "10": "Tiestikö että useimpien kanavien kiinnitetyistä viesteistä löytyy tärkeää tietoa? Kannattaa kurkata niitä silloin tällöin!",
-        "11": "Voit tarkastella haluamasi pelaajan Hypixel-profiilin tietoja komennolla `+hypixelstats`!"
+        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
     "executedBy": "Komennon suoritti %%user%%"
 }
