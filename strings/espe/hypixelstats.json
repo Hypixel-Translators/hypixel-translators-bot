@@ -1,0 +1,21 @@
+{
+    "moduleName": "Player stats",
+    "loading": "Un segundo...",
+    "loadingModule": "Gathering player stats...",
+    "description": "Here are some Hypixel stats for %%username%%, obtained [here]%%link%%.",
+    "networkLevel": "Hypixel level",
+    "karma": "Karma",
+    "online": "Online",
+    "offline": "Offline",
+    "lastSeen": "Last seen in %%game%%",
+    "language": "Idioma",
+    "last_login": "Online since",
+    "last_logout": "Last seen",
+    "discord": "Discord",
+    "executedBy": "Ejecutado por %%user%%",
+    "unknown": "unknown",
+    "lastGameHidden": "Last game is hidden or couldn't be obtained!",
+    "lastLoginHidden": "Last seen time is hidden or couldn't be obtained!",
+    "dateLocale": "es-PE",
+    "timeZone": "America/Lima"
+}
