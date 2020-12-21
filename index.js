@@ -74,7 +74,7 @@ client.once("ready", async () => {
 //Run when message is received
 client.on("message", async message => {
 
-  //Return if user is a bot or unverified
+  //Return if user is a bot or not verified
   if (message.author.bot) return
   if (message.member) {
     if (!message.member.roles.cache.has("569194996964786178")) return //Verified
@@ -267,9 +267,9 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
   }
 
-  //Give Verified role and take Unverified and Alerted roles when reacting on verify
+  //Give Verified role and take Alerted role when reacting on verify
   if (reaction.message.id === "787366444970541056" && reaction.emoji.name === "✅" && !user.bot) {
-    reaction.message.guild.member(user).roles.add("569194996964786178", "Manually verified with the reaction").then(() => reaction.message.guild.member(user).roles.remove(["739111904672481280", "756199836470214848"], "Manually verified with the reaction")) //Verified, Unverified and Alerted
+    reaction.message.guild.member(user).roles.add("569194996964786178", "Manually verified with the reaction").then(() => reaction.message.guild.member(user).roles.remove("756199836470214848", "Manually verified with the reaction")) //Verified and Alerted
       .then(() => {
         console.log(user.tag + " manually verified themselves as a player!")
         client.channels.cache.get("662660931838410754").send("<@" + user.id + "> manually verified themselves as a player through the reaction.")//verify-logs

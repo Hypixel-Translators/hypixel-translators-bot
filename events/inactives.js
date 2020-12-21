@@ -49,5 +49,4 @@ async function check(client) {
             member.roles.add("756199836470214848", "Stood on the server for 7 days without verifying")
         } else { console.log(member.user.tag + " wasn't alerted nor kicked") }
     })
-    console.log(unverified)
 }
