@@ -49,6 +49,14 @@
         "usage": "+ping",
         "description": "Gives you the bot's ping as well as Discord API's ping."
     },
+    "hypixelstats": {
+        "usage": "+hypixelstats <username>",
+        "description": "Shows you basic Hypixel stats for the provided user."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Gives you a random tip regarding the server."
+    },
     "invite": {
         "usage": "+invite",
         "description": "Gir deg en invitasjonslenke til serveren. Vær snill å bruk den når du vil invitere noen."
@@ -76,10 +84,6 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Sender lenken til den offisielle Hypixel Translators Community Twitter-siden."
-    },
-    "tip": {
-        "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
     },
     "executedBy": "Utført av %%user%%"
 }
