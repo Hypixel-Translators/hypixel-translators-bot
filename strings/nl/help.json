@@ -7,7 +7,7 @@
     "pageNumber": "Pagina %%number%%",
     "utilityHelp": "%%badge%% Hulpmiddelen",
     "infoHelp": "%%badge%% Informatieve commando's",
-    "timeOut": "Dit menu is verlopen. Als je het opnieuw wilt gebruiken, doe dan `+help`.",
+    "timeOut": "Dit menu is verlopen. Om het opnieuw te gebruiken, kun je `+help` uitvoeren.",
     "pageNotExist": "Die pagina bestaat niet!",
     "commandInfo": "Commando-informatie",
     "commandInfoFor": "Commando-informatie voor ",
