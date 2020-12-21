@@ -19,7 +19,7 @@ async function check(client) {
     const kick = new Date().getTime() - (14 * 24 * 60 * 60 * 1000)
     //Get date 14 days ago                d    h    m    s     ms
 
-    client.guilds.cache.get("549503328472530974").roles.cache.get("549503328472530974").members.forEach(async member => { //guid ID and @everyone
+    guild.members.cache.forEach(async member => { //Get all members from the cache
         if (member.roles.cache.has("569194996964786178") || member.user.bot) return //Verified
         await client.guilds.cache.get("549503328472530974").members.fetch(member.user.id) //fetch the member
         if (member.roles.cache.has("756199836470214848")) { //Alerted
