@@ -11,7 +11,7 @@
     "noUserQuote": "Nezadal jsi jméno uživatele! Prosím napiš citát a následně označ citovaného uživatele, odděleného lomítkem.",
     "falseChannel": "Tento kanál se nepodařilo najít!",
     "falseUser": "Tohoto uživatele se nepodařilo najít!",
-    "falseLang": "That language couldn't be found!",
+    "falseFlag": "That flag couldn't be found!",
     "disabled": "Tento příkaz byl dočasně deaktivován.",
     "noTrPr": "Nejsi překladatel ani korektor, takže to nemůžeš použít!",
     "noAccess": "Nemáš povoleno používat tento příkaz!",
