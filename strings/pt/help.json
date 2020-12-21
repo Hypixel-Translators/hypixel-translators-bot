@@ -23,7 +23,7 @@
     },
     "prefix": {
         "usage": "+prefix [bandeiras]",
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or it's name. You can add as many flags as you wish, separated by a space."
+        "description": "Dá-te o prefixo apropriado para o(s) teu(s) idioma(s). Para obteres um prefixo personalizado, executa `+prefix <bandeiras>`, substituindo <bandeiras> com o código da bandeira do teu país ou o seu nome. Podes incluir tantas bandeiras quanto as que desejares, separadas por um espaço."
     },
     "quote": {
         "usage": "+quote [número] | +quote add <frase> / <autor identificado>",
@@ -51,7 +51,7 @@
     },
     "hypixelstats": {
         "usage": "+hypixelstats <jogador>",
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "description": "Mostra-te estatísticas básicas do Hypixel para o jogador requisitado."
     },
     "tip": {
         "usage": "+tip",
