@@ -49,6 +49,14 @@
         "usage": "+ping",
         "description": "Megadja a bot és a Discord API pingjét."
     },
+    "hypixelstats": {
+        "usage": "+hypixelstats <username>",
+        "description": "Shows you basic Hypixel stats for the provided user."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Egy random tippet ad a szerverrel kapcsolatban."
+    },
     "invite": {
         "usage": "+invite",
         "description": "Ad egy meghívót a szerverre. Kérlek ezt használd, ha meg szeretnél hívni valakit."
@@ -76,10 +84,6 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Megadja a linket a hivatalos Hypixel Translators Community Twitter oldalához."
-    },
-    "tip": {
-        "usage": "+tip",
-        "description": "Egy random tippet ad a szerverrel kapcsolatban."
     },
     "executedBy": "Executed by %%user%%"
 }
