@@ -49,6 +49,14 @@
         "usage": "+ping",
         "description": "Gibt dir den Ping des Bots sowie den Ping der Discord API."
     },
+    "hypixelstats": {
+        "usage": "+hypixelstats <username>",
+        "description": "Shows you basic Hypixel stats for the provided user."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Gibt dir einen zufälligen Tipp bezüglich des Servers."
+    },
     "invite": {
         "usage": "+invite",
         "description": "Gibt dir einen Einladungslink zum Server. Bitte benutze diesen, wenn du jemanden einladen möchtest."
@@ -76,10 +84,6 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Gibt dir den Link zur offiziellen Hypixel Translators Community Twitter-Seite."
-    },
-    "tip": {
-        "usage": "+tip",
-        "description": "Gibt dir einen zufälligen Tipp bezüglich des Servers."
     },
     "executedBy": "Asg'fuat vo %%user%%"
 }
