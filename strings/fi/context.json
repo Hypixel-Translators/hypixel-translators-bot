@@ -1,6 +1,6 @@
 {
     "moduleName": "Konteksti",
-    "loading": "Just a second...",
+    "loading": "Odota sekunti...",
     "loadingModule": "Ladataan moduulia...",
     "errors": {
         "exists1": "Konteksti stringille ",
