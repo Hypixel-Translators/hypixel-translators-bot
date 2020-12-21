@@ -23,7 +23,7 @@
     },
     "prefix": {
         "usage": "+prefix [banderas]",
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or it's name. You can add as many flags as you wish, separated by a space."
+        "description": "Te da el prefijo apropiado para tu(s) idioma(s). Para obtener un prefijo personalizado, usa `+prefix <banderas>` y reemplaza `<banderas>` con el código regional de tu país o su nombre. Puedes añadir tantas banderas como quieras, separadas con espacios."
     },
     "quote": {
         "usage": "+quote [número] | +quote add <cita> / <mención del citado>",
@@ -50,8 +50,8 @@
         "description": "Te da el ping del bot y también el de la API de Discord."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <username>",
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "usage": "+hypixelstats <judagor>",
+        "description": "Te muestra estadísticas simples de Hypixel de un jugador."
     },
     "tip": {
         "usage": "+tip",
