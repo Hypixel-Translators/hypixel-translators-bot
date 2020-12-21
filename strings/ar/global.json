@@ -17,6 +17,7 @@
     "noAccess": "غير مسموح لك تنفيذ هذا الأمر!",
     "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "الرجاء إدخال أمر ثانوي. يمكن أن يكون هذا إما `get`, `add`, `edit`, `link` or `help`.\nللحصول على معلومات، قم بإستعمال `+context help`.",
+    "apiError": "Something went wrong while contacting the API!",
     "cooldown": "فترة الاستراحة",
     "timeLeftT": "الرجاء الانتظار %%time%% ثانية لاستخدام `+%%command%%` مرة أخرى.",
     "minsLeftT": "الرجاء الانتظار %%time%% دقيقة لاستخدام `+%%command%%` مرة أخرى.",
@@ -33,7 +34,8 @@
         "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
         "8": "%%rules%% و %%serverInfo%% لديها جميع المعلومات التي قد تحتاجها عن السيرفر!",
         "9": "وجدت خطأ في ترجمة ما؟ تواصل مع مدقق مطبعي للغتك او اخبر الناس في روم الترجمة.",
-        "10": "هل كنت تعرف ان اغلب الرومات يوجد فيها معلومات هامة مثبته؟ تحتاج ان تلقي لها نظرة في كل مرة تزور واحدة!"
+        "10": "هل كنت تعرف ان اغلب الرومات يوجد فيها معلومات هامة مثبته؟ تحتاج ان تلقي لها نظرة في كل مرة تزور واحدة!",
+        "11": "You can view information about a specific player on Hypixel by running `+hypixelstats`!"
     },
     "executedBy": "نفذ من قبل %%user%%"
 }
