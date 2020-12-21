@@ -49,6 +49,14 @@
         "usage": "+ping",
         "description": "Gives you the bot's ping as well as Discord API's ping."
     },
+    "hypixelstats": {
+        "usage": "+hypixelstats <username>",
+        "description": "Shows you basic Hypixel stats for the provided user."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Gives you a random tip regarding the server."
+    },
     "invite": {
         "usage": "+invite",
         "description": "Give u invit link 2 dis servar. You's when u wants invites peoples to dis servar."
@@ -76,10 +84,6 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Give u lonk to ofical Hypickle Translazorss Comuntiti Twoter pag."
-    },
-    "tip": {
-        "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
     },
     "executedBy": "Done by le %%user%%"
 }
