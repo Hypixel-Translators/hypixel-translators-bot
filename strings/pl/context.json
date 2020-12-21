@@ -1,6 +1,6 @@
 {
     "moduleName": "Kontekst",
-    "loading": "Just a second...",
+    "loading": "Sekundkę…",
     "loadingModule": "Ładowanie modułu…",
     "errors": {
         "exists1": "Wpis kontekstowy ",
