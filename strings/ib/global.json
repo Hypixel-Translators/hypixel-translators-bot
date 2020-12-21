@@ -17,6 +17,7 @@
     "noAccess": "U r not alæoud to excut dis acomand!",
     "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "Oh pls entar sbusbacomand as 1nd gargarment. Dis scan be `get`, `add`, `edit`, `link` ore `help`.\nIf ur too dumb, do `+context help`.",
+    "apiError": "Something went wrong while contacting the API!",
     "cooldown": "Time to get cold and not hot",
     "timeLeftT": "U quicc, but too quicc so pls wait %%time%% skakund befr do `+%%command%%`.",
     "minsLeftT": "U quicc, but too quicc so pls wait %%time%% mininut befr do `+%%command%%`.",
@@ -33,7 +34,8 @@
         "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
         "8": "%%rules%% n %%serverInfo%% haz veri cool and many infoamatins bout dis sarvar!",
         "9": "Fount mistak in tramslayshun? Contacc prüfreder fur ur langag or let pepel knowo in a tramslayshun chanel.",
-        "10": "Did u knowo a lotof chanels haz improtantr stuf in the pin menu thing? Is very kool so def checc out!"
+        "10": "Did u knowo a lotof chanels haz improtantr stuf in the pin menu thing? Is very kool so def checc out!",
+        "11": "You can view information about a specific player on Hypixel by running `+hypixelstats`!"
     },
     "executedBy": "Done by le %%user%%"
 }
