@@ -17,6 +17,7 @@
     "noAccess": "Nincs engedélyed használni ezt a parancsot!",
     "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "Kérlek adj meg egy al-parancsot. Ez lehet `get`, `add`, `edit`, `link` vagy `help`.\nTöbb információért használd a `+context help` parancsot.",
+    "apiError": "Something went wrong while contacting the API!",
     "cooldown": "Cooldown",
     "timeLeftT": "Kérlek várj %%time%% másodpercet hogy újra használd a `+%%command%%` parancsot.",
     "minsLeftT": "Kérlek várj %%time%% percet hogy újra használd a `+%%command%%` parancsot.",
@@ -33,7 +34,8 @@
         "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
         "8": "A szerverről az összes információ megtalálható itt: %%rules%% és %%serverInfo%%!",
         "9": "Fordítási hibát találtál? Üzenj a nyelved egyik ellenőrzőjének vagy szólj egy fordító csatornában.",
-        "10": "Tudtad hogy a legtöbb csatornában fontos információk vannak kitűzve? Elolvashatnád, amikor betérsz oda!"
+        "10": "Tudtad hogy a legtöbb csatornában fontos információk vannak kitűzve? Elolvashatnád, amikor betérsz oda!",
+        "11": "You can view information about a specific player on Hypixel by running `+hypixelstats`!"
     },
     "executedBy": "%%user%% által küldve"
 }
