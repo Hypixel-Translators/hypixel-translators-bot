@@ -35,7 +35,7 @@
         "8": "%%rules%% and %%serverInfo%% have all the info you need about this server!",
         "9": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
         "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!",
-        "11": "You can view information about a specific player on Hypixel by running `+hypixelstats`!"
+        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
     "executedBy": "Provedeno uživatelem %%user%%"
 }
