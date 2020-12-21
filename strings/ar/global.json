@@ -35,7 +35,7 @@
         "8": "%%rules%% و %%serverInfo%% لديها جميع المعلومات التي قد تحتاجها عن السيرفر!",
         "9": "وجدت خطأ في ترجمة ما؟ تواصل مع مدقق مطبعي للغتك او اخبر الناس في روم الترجمة.",
         "10": "هل كنت تعرف ان اغلب الرومات يوجد فيها معلومات هامة مثبته؟ تحتاج ان تلقي لها نظرة في كل مرة تزور واحدة!",
-        "11": "You can view information about a specific player on Hypixel by running `+hypixelstats`!"
+        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
     "executedBy": "نفذ من قبل %%user%%"
 }
