@@ -10,9 +10,10 @@ module.exports = {
   allowDM: true,
   async execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+    if (!args[0]) return
+    const sendTo = message.client.channels.cache.get(args[0].replace("<#", "").replace(">", ""))
     args.splice(0, 1)
     const toSend = args.join(" ")
-      const sendTo = message.client.channels.cache.get(args[0].replace("<#", "").replace(">", ""))
     var msg
 
     var allowed = false
