@@ -35,7 +35,7 @@
         "8": "A szerverről az összes információ megtalálható itt: %%rules%% és %%serverInfo%%!",
         "9": "Fordítási hibát találtál? Üzenj a nyelved egyik ellenőrzőjének vagy szólj egy fordító csatornában.",
         "10": "Tudtad hogy a legtöbb csatornában fontos információk vannak kitűzve? Elolvashatnád, amikor betérsz oda!",
-        "11": "You can view information about a specific player on Hypixel by running `+hypixelstats`!"
+        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
     "executedBy": "%%user%% által küldve"
 }
