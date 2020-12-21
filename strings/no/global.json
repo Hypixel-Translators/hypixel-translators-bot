@@ -11,7 +11,7 @@
     "noUserQuote": "Du har ikke spesifisert en bruker! Vennligst skriv sitatet og deretter nevn den siterte brukeren, separert med en skråstrek.",
     "falseChannel": "Den kanalen kunne ikke bli funnet!",
     "falseUser": "Den brukeren kunne ikke bli funnet!",
-    "falseLang": "That language couldn't be found!",
+    "falseFlag": "That flag couldn't be found!",
     "disabled": "Denne kommandoen har blitt midlertidig deaktivert.",
     "noTrPr": "Du er ikke en oversetter eller en korrekturleser, så du kan ikke bruke denne!",
     "noAccess": "Du har ikke tillatelse til å bruke denne kommandoen!",
