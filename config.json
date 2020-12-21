@@ -5,9 +5,8 @@
   "successColor": "#21de70",
   "neutralColor": "#28dbde",
   "blurple": "#7289da",
-  "listenStatuses" : ["+help", "RANDOM_USER's commands", "RANDOM_USER", "wise words from RANDOM_USER", "Stannya and Rodry"],
+  "listenStatuses" : ["+help", "RANDOM_USER's commands", "RANDOM_USER", "wise words from RANDOM_USER", "Stannya and Rodry", "QkeleQ10"],
   "watchStatuses": ["your commands", "your messages", "meatdata", "their prayers", "nicknames and stuff", "RANDOM_USER's messages"],
-  "randomUser": ["Stannya", "Rodry", "Wens", "Kiril", "TheComputer8423", "QkeleQ10", "Stannya", "Rodry"],
   "langdb": [  
     {"name": "Arabic", "emoji": "🇵🇸", "code" : "ar", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Bavarian", "emoji": "<:flag_bar:783030897612029992>", "code": "bar", "flag": "https://github.com/Hypixel-Translators/hypixel-translators-bot/blob/master/flags/%code%.png?raw=true"},

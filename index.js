@@ -6,7 +6,7 @@ const client = new Discord.Client()
 require("dotenv").config()
 
 //Import data, assets and commands
-const { prefix, loadingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses, randomUser } = require("./config.json")
+const { prefix, loadingColor, errorColor, successColor, neutralColor, listenStatuses, watchStatuses } = require("./config.json")
 client.commands = new Discord.Collection()
 const commandFiles = fs
   .readdirSync("./commands")
@@ -38,13 +38,18 @@ client.once("ready", async () => {
   const reviewStringsChannels = await client.channels.cache.filter(c => c.name.endsWith("review-strings"))
   reviewStringsChannels.forEach(c => { c.messages.fetch() })
 
+  //Get server boosters and staff for the status
+  var boostersStaff = []
+  client.guilds.cache.get("549503328472530974").roles.cache.get("644450674796396576").members.forEach(member => { boostersStaff.push(member.user.username) })//Server Booster
+  client.guilds.cache.get("549503328472530974").roles.cache.get("768435276191891456").members.forEach(member => { boostersStaff.push(member.user.username) })//Discord Staff
+  
   //Set status
   client.user.setStatus("online").catch(console.error)
   client.user.setActivity("+help", { type: "WATCHING" })
 
   //Change status and run events every minute
   setInterval(() => {
-    var pickedUser = randomUser[Math.floor(Math.random() * randomUser.length)]
+    const pickedUser = boostersStaff[Math.floor(Math.random() * boostersStaff.length)]
     toPick = Math.random() >= 0.2;
 
     if (toPick) {
