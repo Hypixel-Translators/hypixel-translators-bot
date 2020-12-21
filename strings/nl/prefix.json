@@ -1,7 +1,7 @@
 {
     "moduleName": "Voorvoegsel",
     "usage": "+prefix [vlaggen]",
-    "loading": "Just a second...",
+    "loading": "Een momentje...",
     "loadingRoles": "Je rollen worden opgehaald...",
     "errors": {
         "noLanguages": "Je lijkt geen taalrollen te hebben! Neem contact op met de administrator of eigenaar als je denkt dat dit een fout is.",
@@ -19,8 +19,8 @@
     "caution": "Opgelet",
     "warning": "Als je voorvoegsel een taal bevat die je niet vertaalt, zul je een waarschuwing ontvangen. Wil je toch doorgaan?",
     "react": "Reageer met alle vlaggen die je aan je voorvoegsel wilt toevoegen, in de gewenste volgorde.",
-    "reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",
-    "reactTimer2": "You have less than %%cooldown%% seconds left. Hit ✅ to confirm or ❎ to cancel.",
+    "reactTimer": "Je hebt %%cooldown%% seconden. Klik op ❎ om te annuleren.",
+    "reactTimer2": "Je hebt minder dan %%cooldown%% seconden over. Klik op ✅ om te bevestigen of ❎ om te annuleren.",
     "previewT": "Voorbeeld bijnaam",
     "newNickT": "Nieuwe bijnaam",
     "noChanges": "Geen wijzigingen",
