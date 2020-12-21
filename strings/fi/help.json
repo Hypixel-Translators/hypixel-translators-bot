@@ -50,8 +50,8 @@
         "description": "Antaa botin viiveen ja Discordin ohjelmointirajapinnan (Discord API) viiveen."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <username>",
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "usage": "+hypixelstats <käyttäjänimi>",
+        "description": "Näyttää haluamasi käyttäjän Hypixel-profiilin perustiedot."
     },
     "tip": {
         "usage": "+tip",
