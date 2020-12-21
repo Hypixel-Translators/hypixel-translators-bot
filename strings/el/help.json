@@ -23,7 +23,7 @@
     },
     "prefix": {
         "usage": "+prefix [flags]",
-        "description": "Σου δίνει το κατάλληλο πρόθεμα για την γλώσσα/γλώσσες σου."
+        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags> and replace <flags> with the regional code of your country's flag or it's name. You can add as many flags as you wish, separated by a space.`"
     },
     "quote": {
         "usage": "+quote [index] | +quote add <παράθεμα> / <αναφορά χρήστη>",
