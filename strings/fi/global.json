@@ -17,6 +17,7 @@
     "noAccess": "Sinulla ei ole oikeuksia käyttää tuota komentoa!",
     "noPermission": "Sinulla ei ole oikeuksia käyttää tuota komentoa tällä kanavalla!",
     "contextSubArg": "Ole hyvä ja syötä alakomento ensimmäisenä argumenttina. Tämä voi olla `get`, `add`, `edit`, `link` tai `help`.\nSaadaksesi lisätietoa käytä komentoa `+context help`.",
+    "apiError": "Something went wrong while contacting the API!",
     "cooldown": "Odotusaika",
     "timeLeftT": "Ole hyvä ja odota vielä %%time%% sekuntia ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
     "minsLeftT": "Ole hyvä ja odota vielä %%time%% minuuttia ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
@@ -33,7 +34,8 @@
         "7": "Seuraatko twitter-tiliämme? Löydät sen osoitteesta %%twitter%%!",
         "8": "Kanavilta %%rules%% ja %%serverInfo%% löydät kaiken tarvitsemasi tiedon tästä palvelimesta!",
         "9": "Löysitkö käännösvirheen? Ota yhteyttä kielesi oikolukijaan tai kerro asiasta käännöskanavalla.",
-        "10": "Tiestikö että useimpien kanavien kiinnitetyistä viesteistä löytyy tärkeää tietoa? Kannattaa kurkata niitä silloin tällöin!"
+        "10": "Tiestikö että useimpien kanavien kiinnitetyistä viesteistä löytyy tärkeää tietoa? Kannattaa kurkata niitä silloin tällöin!",
+        "11": "You can view information about a specific player on Hypixel by running `+hypixelstats`!"
     },
     "executedBy": "Komennon suoritti %%user%%"
 }
