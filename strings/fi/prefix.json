@@ -1,7 +1,7 @@
 {
     "moduleName": "Etuliite",
     "usage": "+prefix [liput]",
-    "loading": "Just a second...",
+    "loading": "Odota sekunti...",
     "loadingRoles": "Haetaan roolejasi...",
     "errors": {
         "noLanguages": "Sinulla ei vaikuttaisi olevan kielirooleja! Ole hyvä ja ota yhteyttä ylläpitäjään tai omistajaan, mikäli luulet tämän olevan virhe.",
