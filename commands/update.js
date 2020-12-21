@@ -104,6 +104,6 @@ function verify(message) {
                 { name: "Need help?", value: "Feel free to send a message on this channel, or DM either <@240875059953139714> or <@241926666400563203> with any questions you might have!"}
             )
             .setFooter("Have fun on our server!")
-        msg.edit("Please do not react before reading the entire message.", verifyEmbed) //verify-prototype
+        msg.edit("**Please do not react before reading the entire message.**", verifyEmbed) //verify-prototype
     })
 }
