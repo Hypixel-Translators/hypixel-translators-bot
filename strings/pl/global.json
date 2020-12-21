@@ -11,7 +11,7 @@
     "noUserQuote": "Nie określono użytkownika! Wpisz cytat, a następnie oznacz cytowanego użytkownika, oddzielając oznaczenie ukośnikiem.",
     "falseChannel": "Ten kanał nie został odnaleziony!",
     "falseUser": "Użytkownik nie został odnaleziony!",
-    "falseLang": "Ten język nie został odnaleziony!",
+    "falseFlag": "That flag couldn't be found!",
     "disabled": "To polecenie zostało tymczasowo wyłączone.",
     "noTrPr": "Nie jesteś tłumaczem, ani korektorem, więc nie możesz tego użyć!",
     "noAccess": "Nie możesz użyć tego polecenia!",
