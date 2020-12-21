@@ -35,7 +35,7 @@
         "8": "¡%%rules%% y %%serverInfo%% tienen toda la información que necesitas sobre este servidor!",
         "9": "¿Encontraste un error en una traducción? Ponte en contacto con un proofreader de tu idioma o haz que la gente lo sepa en un canal de traducción.",
         "10": "¿Sabes que la mayoría de canales tienen información importante fijada? ¡Deberías verlas cada vez que visites uno!",
-        "11": "You can view information about a specific player on Hypixel by running `+hypixelstats`!"
+        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
     "executedBy": "Ejecutado por %%user%%"
 }
