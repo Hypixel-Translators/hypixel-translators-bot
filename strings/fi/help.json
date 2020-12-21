@@ -49,6 +49,14 @@
         "usage": "+ping",
         "description": "Antaa botin viiveen ja Discordin ohjelmointirajapinnan (Discord API) viiveen."
     },
+    "hypixelstats": {
+        "usage": "+hypixelstats <username>",
+        "description": "Shows you basic Hypixel stats for the provided user."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Antaa satunnaisen palvelinta koskevan vinkin."
+    },
     "invite": {
         "usage": "+invite",
         "description": "Antaa palvelimen kutsulinkin. Käytäthän aina tätä kutsuessasi jonkun."
@@ -76,10 +84,6 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Antaa linkin viralliselle Hypixel Translators Communityn Twitter-sivulle."
-    },
-    "tip": {
-        "usage": "+tip",
-        "description": "Antaa satunnaisen palvelinta koskevan vinkin."
     },
     "executedBy": "Komennon suoritti %%user%%"
 }
