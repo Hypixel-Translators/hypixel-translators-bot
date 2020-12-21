@@ -50,8 +50,8 @@
         "description": "Daje Ci informacje o pingu bota oraz pingu API Discorda"
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <username>",
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "usage": "+hypixelstats <nick gracza>",
+        "description": "Pokazuje ci podstawowe informacje danego gracza z Hypixela."
     },
     "tip": {
         "usage": "+tip",
