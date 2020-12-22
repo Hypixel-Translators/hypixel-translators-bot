@@ -105,7 +105,7 @@ module.exports = {
                             .setColor(errorColor)
                             .setAuthor(globalStrings.error)
                             .setTitle(globalStrings[error] || error)
-                            .setFooter(executedBy, message.author.displayAvatarURL())
+                            .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL())
 
                         msg.edit(embed)
                     })
