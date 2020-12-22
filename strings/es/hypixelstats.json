@@ -4,7 +4,7 @@
     "loadingModule": "Obteniendo estadísticas de jugador...",
     "description": "Aquí hay algunas estadísticas de Hypixel para %%username%%, obtenidas [aquí]%%link%%.",
     "networkLevel": "Nivel de Hypixel",
-    "ap": "Achievement Points",
+    "ap": "Puntos de Logros",
     "online": "En línea",
     "offline": "Desconectado",
     "lastSeen": "Visto por última vez en %%game%%",
@@ -43,6 +43,6 @@
     "THAI": "Tailandés",
     "TURKISH": "Turco",
     "UKRAINIAN": "Ucraniano",
-    "madeBy": "Command made by %%developer%%",
+    "madeBy": "Comando desarrollado por %%developer%%",
     "executedBy": "Ejecutado por %%user%%"
 }
