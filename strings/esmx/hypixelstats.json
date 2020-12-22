@@ -3,7 +3,7 @@
     "loading": "Un segundo...",
     "loadingModule": "Recopilando estadísticas de jugador...",
     "description": "Aquí hay algunas estadísticas de Hypixel para %%username%%, obtenidas [aquí]%%link%%.",
-    "updateNotice": "Note: Please take into account that the here information might take a few minutes to update after you've changed something",
+    "updateNotice": "Note: Please take into account that the information here might take a few minutes to update after you've changed something.",
     "networkLevel": "Nivel de Hypixel",
     "ap": "Puntos de Logros",
     "online": "En línea",
