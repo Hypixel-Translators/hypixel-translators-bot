@@ -11,7 +11,7 @@ module.exports = {
   allowDM: true,
   async execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-    const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
+    const madeBy = strings.madeBy.replace("%%QkeleQ10%%", message.guild.members.cache.get("722738307477536778").user.tag)
 
     //Define all pages
     const pages = [
