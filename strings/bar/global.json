@@ -11,13 +11,13 @@
     "noUserQuote": "Du hast keinen Benutzer angegeben! Bitte gebe das Zitat ein und erwähne dann den zitierten Benutzer, getrennt durch einen Schrägstrich.",
     "falseChannel": "Der Kanal wurde nicht gefunden!",
     "falseUser": "Der Benutzer wurde nicht gefunden!",
-    "falseFlag": "That flag couldn't be found!",
+    "falseFlag": "Diese Flagge konnte nicht gefunden werden!",
     "disabled": "Der Befehl ist vorübergehend deaktiviert.",
     "noTrPr": "Du bist kein Translator oder Proofreader, daher kannst du es nicht benutzen!",
     "noAccess": "Du darfst diesen Befehl nicht ausführen!",
     "noPermission": "Du darfst diesen Befehl in diesem Kanal nicht ausführen!",
     "contextSubArg": "Bitte gib einen Unterbefehl als erstes Argument an. Dies kann entweder `get`, `add`, `edit`, `link` oder `help` sein.\nFür Informationen, führe `+context help` aus.",
-    "apiError": "Something went wrong while contacting the API!",
+    "apiError": "Bei der Kontaktaufnahme mit der API ist etwas schief gelaufen!",
     "cooldown": "Abklingzeit",
     "timeLeftT": "Bitte warte noch %%time%% Sekunden, um den Befehl `+%%command%%` erneut zu benutzen.",
     "minsLeftT": "Bitte warte weitere %%time%% Minuten, um `+%%command%%` erneut zu verwenden.",
@@ -35,7 +35,7 @@
         "8": "%%rules%% und %%serverInfo%% haben alle Infos, die du über diesen Server brauchst!",
         "9": "Du hast einen Fehler in der Übersetzung gefunden? Dann kontaktiere einen Proofreader für die Sprache oder lasse es in dem Channel für Übersetzung wissen.",
         "10": "Wusstest du, dass die meisten Kanäle wichtige Informationen angeheftet haben? Du solltest sie dir jedes Mal ansehen, wenn du einen besuchst!",
-        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
+        "11": "Du kannst dir Informationen über einen bestimmten Spieler auf Hypixel ansehen, indem du `+hypixelstats` ausführst!"
     },
     "executedBy": "Asg'fuat vo %%user%%"
 }
