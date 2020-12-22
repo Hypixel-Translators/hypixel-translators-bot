@@ -87,7 +87,7 @@ module.exports = {
                             .setTitle(rank + " " + username)
                             .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`))
                             .addFields(
-                                { name: strings.networkLevel, value: Math.abs(json.level), inline: true },
+                                { name: strings.networkLevel, value: Math.abs(json.level).toLocaleString(strings.dateLocale), inline: true },
                                 { name: strings.ap, value: json.achievement_points.toLocaleString(strings.dateLocale), inline: true },
                                 { name: online, value: last_seen, inline: true },
                                 { name: strings.language, value: strings[json.language], inline: true },

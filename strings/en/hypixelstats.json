@@ -12,6 +12,7 @@
     "last_login": "Online since",
     "last_logout": "Last seen",
     "discord": "Discord",
+    "notConnected": "Not connected",
     "unknown": "unknown",
     "lastGameHidden": "Last game is hidden or couldn't be obtained!",
     "lastLoginHidden": "Last seen time is hidden or couldn't be obtained!",
