@@ -12,6 +12,7 @@
     "falseChannel": "Tätä kanavaa ei löytynyt!",
     "falseUser": "Tätä käyttäjää ei löytynyt!",
     "falseFlag": "Tätä lippua ei löytynyt!",
+    "noPlayer": "That player has never joined Hypixel!",
     "disabled": "Tämä komento on toistaiseksi pois käytöstä.",
     "noTrPr": "Et ole kääntäjä tai oikolukija, joten et voi käyttää tätä!",
     "noAccess": "Sinulla ei ole oikeuksia käyttää tuota komentoa!",
