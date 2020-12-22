@@ -8,7 +8,7 @@ module.exports = {
     description: "Shows you basic Hypixel stats for the provided user.",
     usage: "+hypixelstats <username>",
     aliases: ["hstats"],
-    cooldown: 60,
+    cooldown: 10,
     channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
     execute(strings, message, args, globalStrings) {
@@ -20,6 +20,7 @@ module.exports = {
 
 
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+        const madeBy = strings.madeBy.replace("%%developer%%", message.guild.members.cache.get("500669086947344384").user.tag)
         let username = args[0]
         if (!args[0]) throw "noUser"
 
@@ -56,17 +57,6 @@ module.exports = {
                             rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
                         }
                         username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
-                        let language = json.language.toLowerCase().charAt(0).toUpperCase() + json.language.toLowerCase().slice(1) // make the language properly capitalised and not all caps
-                        language = language.replace("_", " ")
-                        let lang = language
-                        const languageFormat = language.split(" ")
-                        if (languageFormat[1]) {
-                            let language2 = languageFormat[1].charAt(0).toUpperCase() + languageFormat[1].slice(1)
-                            if (languageFormat[1].length === 2) {
-                                language2 = languageFormat[1].toUpperCase()
-                            }
-                            lang = `${languageFormat[0]} ${language2}`
-                        }
                         let online
                         if (json.online == true) online = strings.online
                         else online = strings.offline
@@ -98,15 +88,15 @@ module.exports = {
                             .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`))
                             .addFields(
                                 { name: strings.networkLevel, value: Math.abs(json.level), inline: true },
-                                { name: strings.karma, value: json.karma.toLocaleString(), inline: true },
+                                { name: strings.ap, value: json.achievement_points.toLocaleString(strings.dateLocale), inline: true },
                                 { name: online, value: last_seen, inline: true },
-                                { name: strings.language, value: lang, inline: true },
+                                { name: strings.language, value: strings[json.language], inline: true },
                                 { name: strings.discord, value: linkDiscord, inline: true },
                                 { name: strings[lastLoginSelector], value: lastLogin, inline: true }
 
                             )
                             .setColor(color)
-                            .setFooter(executedBy, message.author.displayAvatarURL())
+                            .setFooter(`${executedBy} | ${madeBy}`, message.author.displayAvatarURL())
                             .setThumbnail("https://crafatar.com/renders/body/" + json.uuid + "?overlay")
                         msg.edit(embed)
                     })
