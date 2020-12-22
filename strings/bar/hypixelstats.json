@@ -3,7 +3,7 @@
     "loading": "Eine Sekunde …",
     "loadingModule": "Sammeln von Spieler-Statistiken …",
     "description": "Hier sind einige Hypixel-Statistiken für %%username%%, erhalten [hier]%%link%%.",
-    "updateNotice": "Note: Please take into account that the here information might take a few minutes to update after you've changed something",
+    "updateNotice": "Note: Please take into account that the information here might take a few minutes to update after you've changed something.",
     "networkLevel": "Hypixel-Level",
     "ap": "Errungenschaftspunkte",
     "online": "Online",
