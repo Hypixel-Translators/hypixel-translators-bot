@@ -4,7 +4,7 @@
     "loadingModule": "Haetaan pelaajan tilastoja...",
     "description": "Tässä joitain pelaajan %%username%% Hypixel-tilastoja, jotka on hankittu [täältä]%%link%%.",
     "networkLevel": "Hypixel level",
-    "ap": "Achievement Points",
+    "ap": "Saavutuspisteet",
     "online": "Paikalla",
     "offline": "Poissa",
     "lastSeen": "Viimeksi nähty pelissä %%game%%",
@@ -43,6 +43,6 @@
     "THAI": "thai",
     "TURKISH": "turkki",
     "UKRAINIAN": "ukraina",
-    "madeBy": "Command made by %%developer%%",
+    "madeBy": "Komennon tehnyt %%developer%%",
     "executedBy": "Komennon suoritti %%user%%"
 }
