@@ -12,6 +12,7 @@
     "falseChannel": "Ce canal n'a pas pu être trouvé!",
     "falseUser": "Cet utilisateur n'a pas pu être trouvé!",
     "falseFlag": "That flag couldn't be found!",
+    "noPlayer": "That player has never joined Hypixel!",
     "disabled": "Cette commande est temporairement désactivée.",
     "noTrPr": "Tu n'est pas un traducteur ou un proofreader, donc tu ne peux pas utiliser ceci!",
     "noAccess": "Tu ne peux pas utiliser cette commande!",
