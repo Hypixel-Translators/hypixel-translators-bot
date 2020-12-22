@@ -56,8 +56,8 @@ module.exports = {
 
 
     console.log("toLook: " + toLook)
-    console.log("toSend: " + toSend)
     console.log("type: " + type)
+    console.log("toSend: " + toSend)
     const role = message.guild.roles.cache.find(x => x.name == (toLook + " Proofreader"))
 
     if (!role) {

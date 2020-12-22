@@ -170,20 +170,22 @@ client.on("message", async message => {
       const timeLeft = (expirationTime - now) / 1000;
       var timeLeftS
       if (Math.ceil(timeLeft) > 120) {
-        timeLeftS = (globalStrings.minsLeftT.replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", command.name))
+        timeLeftS = (globalStrings.minsLeftT.replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", commandName))
       } else {
-        timeLeftS = (globalStrings.timeLeftT.replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", command.name))
+        timeLeftS = (globalStrings.timeLeftT.replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", commandName))
       }
       const embed = new Discord.MessageEmbed()
         .setColor(errorColor)
         .setAuthor(globalStrings.cooldown)
         .setTitle(timeLeftS)
         .setFooter(executedBy, message.author.displayAvatarURL())
+      message.channel.send(embed)
+      return
     }
   }
 
   //Remove cooldown if administrator
-  if (message.member) if (message.member.hasPermission("ADMINISTRATOR")) timestamps.set(message.author.id, now)
+  if (message.member && !message.member.hasPermission("ADMINISTRATOR")) timestamps.set(message.author.id, now)
   setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
 
   //Get command strings

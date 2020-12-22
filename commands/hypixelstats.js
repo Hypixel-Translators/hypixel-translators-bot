@@ -8,7 +8,7 @@ module.exports = {
     description: "Shows you basic Hypixel stats for the provided user.",
     usage: "+hypixelstats <username>",
     aliases: ["hstats"],
-    cooldown: 10,
+    cooldown: 45,
     channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
     execute(strings, message, args, globalStrings) {
@@ -20,7 +20,7 @@ module.exports = {
 
 
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        const madeBy = strings.madeBy.replace("%%developer%%", message.guild.members.cache.get("500669086947344384").user.tag)
+        const credits = strings.madeBy.replace("%%developer%%", message.guild.members.cache.get("500669086947344384").user.tag)
         let username = args[0]
         if (!args[0]) throw "noUser"
 
@@ -29,7 +29,7 @@ module.exports = {
             .setAuthor(strings.moduleName)
             .setTitle(strings.loading)
             .setDescription(strings.loadingModule)
-            .setFooter(executedBy, message.author.displayAvatarURL())
+            .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL())
         message.channel.send(loadingEmbed)
             .then(msg => {
                 // make a response to the slothpixel api (hypixel api but we dont need an api key)
@@ -96,7 +96,7 @@ module.exports = {
 
                             )
                             .setColor(color)
-                            .setFooter(`${executedBy} | ${madeBy}`, message.author.displayAvatarURL())
+                            .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL())
                             .setThumbnail("https://crafatar.com/renders/body/" + json.uuid + "?overlay")
                         msg.edit(embed)
                     })
