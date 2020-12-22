@@ -12,6 +12,7 @@
     "falseChannel": "Bu kanal bulunamadı!",
     "falseUser": "Bu kullanıcı bulunamadı!",
     "falseFlag": "That flag couldn't be found!",
+    "noPlayer": "That player has never joined Hypixel!",
     "disabled": "Bu komut geçici olarak devre dışı bırakıldı.",
     "noTrPr": "Bir çevirmen veya düzeltmen değilsin, yani bunu kullanamazsın!",
     "noAccess": "Bu komutu kullanmana izin verilmiyor!",
