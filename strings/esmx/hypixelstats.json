@@ -1,0 +1,21 @@
+{
+    "moduleName": "Estadísticas del jugador",
+    "loading": "Un segundo...",
+    "loadingModule": "Recopilando estadísticas de jugador...",
+    "description": "Aquí hay algunas estadísticas de Hypixel para %%username%%, obtenidas [aquí]%%link%%.",
+    "networkLevel": "Nivel de Hypixel",
+    "karma": "Karma",
+    "online": "En línea",
+    "offline": "Desconectado",
+    "lastSeen": "Visto por última vez en %%game%%",
+    "language": "Idioma",
+    "last_login": "En línea desde",
+    "last_logout": "Ultima vez visto",
+    "discord": "Discord",
+    "executedBy": "Ejecutado por %%user%%",
+    "unknown": "desconocido",
+    "lastGameHidden": "¡El último juego está oculto o no se pudo obtener!",
+    "lastLoginHidden": "¡La última vez que se vio está oculta o no se pudo obtener!",
+    "dateLocale": "es-MX",
+    "timeZone": "America/Mexico_City"
+}

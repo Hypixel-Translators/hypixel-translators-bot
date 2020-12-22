@@ -1,0 +1,21 @@
+{
+    "moduleName": "Spelerstatistieken",
+    "loading": "Een momentje...",
+    "loadingModule": "Spelerstatistieken ophalen...",
+    "description": "Hier zijn een aantal statistieken voor %%username%% van [deze site]%%link%%.",
+    "networkLevel": "Hypixellevel",
+    "karma": "Karma",
+    "online": "Online",
+    "offline": "Offline",
+    "lastSeen": "Laatst gezien in %%game%%",
+    "language": "Taal",
+    "last_login": "Online sinds",
+    "last_logout": "Laatst gezien",
+    "discord": "Discord",
+    "executedBy": "Uitgevoerd door %%user%%",
+    "unknown": "onbekend",
+    "lastGameHidden": "Laatste spel is verborgen of kon niet worden opgehaald!",
+    "lastLoginHidden": "Laatst gezien is verborgen of kon niet worden opgehaald!",
+    "dateLocale": "nl-NL",
+    "timeZone": "Europe/Amsterdam"
+}

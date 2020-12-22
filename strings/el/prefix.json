@@ -1,7 +1,7 @@
 {
     "moduleName": "Πρόθεμα",
     "usage": "+prefix [flags]",
-    "loading": "Ένα δευτερόλεπτο...",
+    "loading": "Just a second...",
     "loadingRoles": "Λαμβάνουμε τους ρόλους σου...",
     "errors": {
         "noLanguages": "Δεν φαίνεται να έχεις κάποιο ρόλο γλώσσας! Παρακαλώ επικοινώνησε με τον διαχειριστή ή με τον ιδιοκτήτη αν πιστεύεις ότι αυτό είναι ένα σφάλμα.",
@@ -19,8 +19,8 @@
     "caution": "Caution",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "Αντίδρασε με όλες τις σημαίες που θέλεις να προσθέσεις στο πρόθεμα σου σε σειρά.",
-    "reactTimer": "Έχεις 20 δευτερόλεπτα. Πάτησε ❎ για ακύρωση.",
-    "reactTimer2": "Σου έχουν απομείνει λιγότερα από 20 δευτερόλεπτα. Πάτησε ✅ για επιβεβαίωση ή ❎ για ακύρωση.",
+    "reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",
+    "reactTimer2": "You have less than %%cooldown%% seconds left. Hit ✅ to confirm or ❎ to cancel.",
     "previewT": "Προβολή ψευδωνύμου",
     "newNickT": "Νέο ψευδώνυμο",
     "noChanges": "Δεν έγιναν αλλαγές",

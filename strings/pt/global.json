@@ -11,12 +11,13 @@
     "noUserQuote": "Não mencionaste um utilizador! Escreve a citação e menciona o utilizador citado, separados por uma barra.",
     "falseChannel": "Esse canal não foi encontrado!",
     "falseUser": "Esse utilizador não foi encontrado!",
-    "falseLang": "Não foi possível encontrar esse idioma!",
+    "falseFlag": "Essa bandeira não foi encontrada!",
     "disabled": "Este comando foi temporariamente desativado.",
     "noTrPr": "Não és um tradutor nem um revisor, logo não podes usar isto!",
     "noAccess": "Não tens permissão para executar esse comando!",
     "noPermission": "Não tens permissão para executar esse comando neste canal!",
     "contextSubArg": "Tens de incluir um comando secundário como primeiro argumento. Este pode ser `get`, `add`, `edit`, `link` ou `help`. \nPara mais informações, faz `+context help`.",
+    "apiError": "Alguma coisa correu mal ao contactar a API!",
     "cooldown": "Tempo de espera",
     "timeLeftT": "Espera mais %%time%% segundos para usares `+%%command%%` outra vez.",
     "minsLeftT": "Espera mais %%time%% minutos para usares `+%%command%%` outra vez.",
@@ -33,7 +34,8 @@
         "7": "Já seguiste a nossa conta do Twitter? Podes fazê-lo em %%twitter%%!",
         "8": "%%rules%% e %%serverInfo%% têm toda a informação que precisas de saber sobre este servidor!",
         "9": "Encontraste um erro numa tradução? Entra em contacto com um revisor do teu idioma ou informa os tradutores no canal das traduções apropriado.",
-        "10": "Sabias que a maioria dos canais têm informação importante afixada? Devias ver as mensagens afixadas sempre que estás num!"
+        "10": "Sabias que a maioria dos canais têm informação importante afixada? Devias ver as mensagens afixadas sempre que estás num!",
+        "11": "Podes ver informações sobre um jogador específico no Hypixel usando `+hypixelstats <jogador>`!"
     },
     "executedBy": "Executado por %%user%%"
 }

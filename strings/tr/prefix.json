@@ -1,7 +1,7 @@
 {
     "moduleName": "Ön ek",
     "usage": "+prefix [flags]",
-    "loading": "Bir saniye...",
+    "loading": "Just a second...",
     "loadingRoles": "Rollerin getiriliyor...",
     "errors": {
         "noLanguages": "Herhangi bir dil rolünüz yok gibi görünüyor! Bunun bir hata olduğunu düşünüyorsanız lütfen admin veya sunucu sahibiyle iletişime geçin.",
@@ -19,8 +19,8 @@
     "caution": "Caution",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "Ön ekinize eklemek istediğiniz bayraklara sırayla tepki verin.",
-    "reactTimer": "20 saniyen var. İptal etmek için ❎'e bas.",
-    "reactTimer2": "20 saniyeden daha az vaktin kaldı. Onaylamak için ✅'e, iptal etmek için ❎'e bas.",
+    "reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",
+    "reactTimer2": "You have less than %%cooldown%% seconds left. Hit ✅ to confirm or ❎ to cancel.",
     "previewT": "Takma ad önizlemesi",
     "newNickT": "Yeni takma ad",
     "noChanges": "Değişiklik yok",

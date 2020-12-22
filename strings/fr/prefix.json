@@ -1,7 +1,7 @@
 {
     "moduleName": "Préfixe",
     "usage": "+prefix [flags]",
-    "loading": "Un second...",
+    "loading": "Just a second...",
     "loadingRoles": "J'obtiens tes rôles...",
     "errors": {
         "noLanguages": "Tu n'as pas de rôles de langue! Contacte l'administrateur ou le propriétaire si tu penses que c'est une erreur.",
@@ -19,8 +19,8 @@
     "caution": "Caution",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "Réagis avec tous les drapeaux que tu veux ajouter à ton préfixe dans l'ordre.",
-    "reactTimer": "Tu as 20 secondes. Appuie sur ❎ pour annuler.",
-    "reactTimer2": "Tu as moins de 20 secondes restantes. Appuie sur ✅ pour confirmer ou ❎ pour annuler.",
+    "reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",
+    "reactTimer2": "You have less than %%cooldown%% seconds left. Hit ✅ to confirm or ❎ to cancel.",
     "previewT": "Aperçu du pseudo",
     "newNickT": "Nouveau pseudo",
     "noChanges": "Aucun changement",

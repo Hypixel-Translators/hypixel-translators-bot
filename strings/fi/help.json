@@ -22,8 +22,8 @@
         "description": "Näyttää kaikki saatavilla olevat komennot ja muuta tietoa botista."
     },
     "prefix": {
-        "usage": "+prefix [flags]",
-        "description": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen."
+        "usage": "+prefix [liput]",
+        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
         "usage": "+quote [numero] | +quote add <lainaus> / <käyttäjä>",
@@ -48,6 +48,14 @@
     "ping": {
         "usage": "+ping",
         "description": "Antaa botin viiveen ja Discordin ohjelmointirajapinnan (Discord API) viiveen."
+    },
+    "hypixelstats": {
+        "usage": "+hypixelstats <käyttäjänimi>",
+        "description": "Näyttää haluamasi käyttäjän Hypixel-profiilin perustiedot."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Antaa satunnaisen palvelinta koskevan vinkin."
     },
     "invite": {
         "usage": "+invite",
@@ -76,10 +84,6 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Antaa linkin viralliselle Hypixel Translators Communityn Twitter-sivulle."
-    },
-    "tip": {
-        "usage": "+tip",
-        "description": "Antaa satunnaisen palvelinta koskevan vinkin."
     },
     "executedBy": "Komennon suoritti %%user%%"
 }

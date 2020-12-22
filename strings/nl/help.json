@@ -5,9 +5,9 @@
     "madeBy": "Bot met veel zorg gemaakt door %%QkeleQ10%%",
     "page": "Pagina %%number%%/%%total%%",
     "pageNumber": "Pagina %%number%%",
-    "utilityHelp": "%%badge%% Tools",
+    "utilityHelp": "%%badge%% Hulpmiddelen",
     "infoHelp": "%%badge%% Informatieve commando's",
-    "timeOut": "Dit menu is verlopen. Als je het opnieuw wilt gebruiken, doe `+help`.",
+    "timeOut": "Dit menu is verlopen. Om het opnieuw te gebruiken, kun je `+help` uitvoeren.",
     "pageNotExist": "Die pagina bestaat niet!",
     "commandInfo": "Commando-informatie",
     "commandInfoFor": "Commando-informatie voor ",
@@ -22,8 +22,8 @@
         "description": "Geeft alle commando's en andere informatie over de bot weer."
     },
     "prefix": {
-        "usage": "+prefix [flags]",
-        "description": "Geeft je het juiste voorvoegsel voor je taal/talen."
+        "usage": "+prefix [vlaggen]",
+        "description": "Geeft je het juiste voorvoegsel voor je taal/talen. Voor een aangepast voorvoegsel kun je `+prefix <vlaggen>` uitvoeren, waar `<vlaggen>` staat voor een landcode of -naam. Je kunt zo veel talen selecteren als je wilt, zolang je ze scheidt met een spatie."
     },
     "quote": {
         "usage": "+quote [nummer] | +quote add <citaat> / <gebruikersvermelding>",
@@ -48,6 +48,14 @@
     "ping": {
         "usage": "+ping",
         "description": "Laat de vertraging van de bot en de Discord API zien."
+    },
+    "hypixelstats": {
+        "usage": "+hypixelstats <gebruikersnaam>",
+        "description": "Geeft je simpele Hypixel-statistieken voor de opgegeven speler."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Geeft je een willekeurige servertip."
     },
     "invite": {
         "usage": "+invite",
@@ -76,10 +84,6 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Geeft je de link naar de officiële Hypixel-vertaalcommunity-Twitterpagina."
-    },
-    "tip": {
-        "usage": "+tip",
-        "description": "Geeft je een willekeurige servertip."
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }

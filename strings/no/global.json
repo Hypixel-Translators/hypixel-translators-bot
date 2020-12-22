@@ -11,12 +11,13 @@
     "noUserQuote": "Du har ikke spesifisert en bruker! Vennligst skriv sitatet og deretter nevn den siterte brukeren, separert med en skråstrek.",
     "falseChannel": "Den kanalen kunne ikke bli funnet!",
     "falseUser": "Den brukeren kunne ikke bli funnet!",
-    "falseLang": "That language couldn't be found!",
+    "falseFlag": "That flag couldn't be found!",
     "disabled": "Denne kommandoen har blitt midlertidig deaktivert.",
     "noTrPr": "Du er ikke en oversetter eller en korrekturleser, så du kan ikke bruke denne!",
     "noAccess": "Du har ikke tillatelse til å bruke denne kommandoen!",
     "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "Vennligst oppgi en underkommando som det første argumentet. Dette kan enten være `get`, `add`,`edit`,`link` eller `help`.\nFor informasjon, skriv `+context help`.",
+    "apiError": "Something went wrong while contacting the API!",
     "cooldown": "Nedkjøling",
     "timeLeftT": "Vennligst vent %%time%% sekunder før du utfører `+%%command%%` igjen.",
     "minsLeftT": "Vennligst vent %%time%% minutter for å bruke `+%%command%%` igjen.",
@@ -33,7 +34,8 @@
         "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
         "8": "%%rules%% og %%serverInfo%% har all infoen du trenger om denne serveren!",
         "9": "Fant en feil oversettelse? Kontakt en korrekturleser for ditt språk eller la andre folk vite i en oversettelses kanal.",
-        "10": "Visste du at flesteparten av kanalen har viktig informasjon pinned? Du bør sjekke de ut hver gang du er innom en!"
+        "10": "Visste du at flesteparten av kanalen har viktig informasjon pinned? Du bør sjekke de ut hver gang du er innom en!",
+        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
     "executedBy": "Utført av %%user%%"
 }

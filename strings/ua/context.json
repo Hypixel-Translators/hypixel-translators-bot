@@ -1,6 +1,6 @@
 {
     "moduleName": "Контекст",
-    "loading": "Секундочку...",
+    "loading": "Just a second...",
     "loadingModule": "Завантаження модуля...",
     "errors": {
         "exists1": "Контекстний запис для ",

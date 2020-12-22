@@ -11,12 +11,13 @@
     "noUserQuote": "Nie określono użytkownika! Wpisz cytat, a następnie oznacz cytowanego użytkownika, oddzielając oznaczenie ukośnikiem.",
     "falseChannel": "Ten kanał nie został odnaleziony!",
     "falseUser": "Użytkownik nie został odnaleziony!",
-    "falseLang": "That language couldn't be found!",
+    "falseFlag": "That flag couldn't be found!",
     "disabled": "To polecenie zostało tymczasowo wyłączone.",
     "noTrPr": "Nie jesteś tłumaczem, ani korektorem, więc nie możesz tego użyć!",
     "noAccess": "Nie możesz użyć tego polecenia!",
-    "noPermission": "You're not allowed to execute this command on this channel!",
+    "noPermission": "Nie możesz używać tej komendy na tym kanale!",
     "contextSubArg": "Wprowadź podpolecenie jako pierwszy argument. Może to być: `get`, `add`, `edit`, `link` lub `help`.\nAby uzyskać informacje, użyj `+context help`.",
+    "apiError": "Coś poszło nie tak podczas kontaktowania się z API!",
     "cooldown": "Czas odnawiania",
     "timeLeftT": "Poczekaj kolejne %%time%% sekund, aby ponownie użyć `+%%command%%`.",
     "minsLeftT": "Poczekaj kolejne %%time%% minut, aby ponownie użyć `+%%command%%`.",
@@ -33,7 +34,8 @@
         "7": "Czy zaobserwowałeś/aś już nasze konto na Twitterze? Sprawdź je na %%twitter%%!",
         "8": "%%rules%% i %%serverInfo%% mają wszystkie, potrzebne informacje o tym serwerze!",
         "9": "Znalazłeś/aś błąd w tłumaczeniu? Skontaktuj się z korektorem swojego języka lub poinformuj o tym innych na kanale tłumaczeniowym.",
-        "10": "Czy wiedziałeś/aś, że na większości kanałów najważniejsze informacje są przypięte? Należy je sprawdzać za każdym razem, jak odwiedzasz kanały!"
+        "10": "Czy wiedziałeś/aś, że na większości kanałów najważniejsze informacje są przypięte? Należy je sprawdzać za każdym razem, jak odwiedzasz kanały!",
+        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
     "executedBy": "Wykonano przez %%user%%"
 }

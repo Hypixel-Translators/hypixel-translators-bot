@@ -1,6 +1,6 @@
 {
     "moduleName": "Kontekst",
-    "loading": "Ett sekund...",
+    "loading": "Just a second...",
     "loadingModule": "Laster inn modul...",
     "errors": {
         "exists1": "En kontekstoppføring for ",

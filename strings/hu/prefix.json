@@ -1,7 +1,7 @@
 {
     "moduleName": "Előtag",
     "usage": "+prefix [flags]",
-    "loading": "Egy pillanat...",
+    "loading": "Just a second...",
     "loadingRoles": "Fetching your roles...",
     "errors": {
         "noLanguages": "Úgy látszik nincsen nyelvi rangod! Kérlek lépj kapcsolatba egy adminnal vagy a tulajjal ha úgy gondolod, hogy ez egy hiba.",
@@ -19,8 +19,8 @@
     "caution": "Caution",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "Reagálj egy zászlóval, amit a nevedhez szeretnél adni.",
-    "reactTimer": "20 másodperced van. Nyomj az ❎ ikonra a törléshez.",
-    "reactTimer2": "Kevesebb mint 20 másodperced van. Nyomj a ✅ ikonra a mentéshez vagy az ❎ ikonra a törléshez.",
+    "reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",
+    "reactTimer2": "You have less than %%cooldown%% seconds left. Hit ✅ to confirm or ❎ to cancel.",
     "previewT": "Becenév előnézet",
     "newNickT": "Új becenév",
     "noChanges": "Nincs változás",

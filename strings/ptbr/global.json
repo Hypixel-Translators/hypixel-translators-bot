@@ -11,12 +11,13 @@
     "noUserQuote": "You haven't provided a user! Please type the quote and then mention the quoted user, separated by a slash.",
     "falseChannel": "Este canal não foi encontrado!",
     "falseUser": "Este usuário não foi encontrado!",
-    "falseLang": "That language couldn't be found!",
+    "falseFlag": "That flag couldn't be found!",
     "disabled": "Este comando esta temporariamente desativado.",
     "noTrPr": "You're not a translator or proofreader, so you can't use this!",
     "noAccess": "You're not allowed to execute this command!",
     "noPermission": "You're not allowed to execute this command on this channel!",
     "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
+    "apiError": "Something went wrong while contacting the API!",
     "cooldown": "Cooldown",
     "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
@@ -33,7 +34,8 @@
         "7": "Have you followed our twitter account? Check it out at %%twitter%%!",
         "8": "%%rules%% e %%serverInfo%% possuem todas as informações que você precisa saber sobre este servidor!",
         "9": "Encontrou algum erro nas traduções? Entre em contato com um revisor do idioma ou chame-o no canal de traduções.",
-        "10": "Você sabia que a maioria dos canais possui informações fixadas? Vale a pena conferir sempre que visitar um canal!"
+        "10": "Você sabia que a maioria dos canais possui informações fixadas? Vale a pena conferir sempre que visitar um canal!",
+        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
     "executedBy": "Executado por %%user%%"
 }

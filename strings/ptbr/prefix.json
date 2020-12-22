@@ -1,7 +1,7 @@
 {
     "moduleName": "Prefixo",
     "usage": "+prefix [flags]",
-    "loading": "Um segundo...",
+    "loading": "Just a second...",
     "loadingRoles": "Buscando seus cargos...",
     "errors": {
         "noLanguages": "Parece que você não possui um cargo de idioma! Entre em contato com algum administrador ou dono se você acha que isso é um erro.",
@@ -19,8 +19,8 @@
     "caution": "Caution",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "React with all flags you want to add to your prefix in order.",
-    "reactTimer": "Você tem 20 segundos. Clique em ❎ para cancelar.",
-    "reactTimer2": "Você tem menos de 20 segundos restantes. Clique em ✅ para confirmar ou ❎ para cancelar.",
+    "reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",
+    "reactTimer2": "You have less than %%cooldown%% seconds left. Hit ✅ to confirm or ❎ to cancel.",
     "previewT": "Pré-visualização do apelido",
     "newNickT": "Novo apelido",
     "noChanges": "Nenhuma alteração",

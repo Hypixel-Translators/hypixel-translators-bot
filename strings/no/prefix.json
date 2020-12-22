@@ -1,7 +1,7 @@
 {
     "moduleName": "Prefiks",
     "usage": "+prefix [flags]",
-    "loading": "Ett sekund...",
+    "loading": "Just a second...",
     "loadingRoles": "Henter dine roller...",
     "errors": {
         "noLanguages": "Det ser ikke ut som du har noen språkroller! Vennligst ta kontakt med en administrator eller eieren hvis du mener dette er en feil.",
@@ -19,8 +19,8 @@
     "caution": "Caution",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "Reager med de flaggene du vil ha i prefiksen din i rekkefølge.",
-    "reactTimer": "Du har 20 sekunder. Trykk på ❎ for å avbryte.",
-    "reactTimer2": "Du har mindre enn 20 sekunder igjen. Trykk på ✅ for å bekrefte eller ❎ får å avbryte.",
+    "reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",
+    "reactTimer2": "You have less than %%cooldown%% seconds left. Hit ✅ to confirm or ❎ to cancel.",
     "previewT": "Forhåndsvisning av kallenavn",
     "newNickT": "Nytt kallenavn",
     "noChanges": "Ingen endringer",

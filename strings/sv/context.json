@@ -1,6 +1,6 @@
 {
     "moduleName": "Sammanhang",
-    "loading": "En sekund...",
+    "loading": "Just a second...",
     "loadingModule": "Läser in modul...",
     "errors": {
         "exists1": "A context entry for ",

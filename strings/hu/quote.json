@@ -1,6 +1,6 @@
 {
     "moduleName": "Idézet",
-    "loading": "Egy pillanat...",
+    "loading": "Just a second...",
     "loadingModule": "Modul betöltése...",
     "invalidArg": "Invalid argument!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",

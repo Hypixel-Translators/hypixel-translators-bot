@@ -1,6 +1,6 @@
 {
     "moduleName": "Kontext",
-    "loading": "Dej mi sekundu...",
+    "loading": "Just a second...",
     "loadingModule": "Načítá se modul...",
     "errors": {
         "exists1": "Kontextový záznam pro ",

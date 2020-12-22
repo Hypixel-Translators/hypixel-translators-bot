@@ -1,7 +1,7 @@
 {
     "moduleName": "Prefuck",
     "usage": "+prefix [flags]",
-    "loading": "Wait, idot...",
+    "loading": "Just a second...",
     "loadingRoles": "Geting ur rols...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
@@ -19,8 +19,8 @@
     "caution": "Caution",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "Reeeact wif al flagos u wantz add to ur prefucks in ordure.",
-    "reactTimer": "U hav twanty skundos. Clicc ❎ fur kankel.",
-    "reactTimer2": "You have less than 20 seconds left. Hit ✅ to confirm or ❎ to cancel.",
+    "reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",
+    "reactTimer2": "You have less than %%cooldown%% seconds left. Hit ✅ to confirm or ❎ to cancel.",
     "previewT": "Howshoudoterscalu presigt",
     "newNickT": "New howshoudoterscalu",
     "noChanges": "No tings diffrnt",

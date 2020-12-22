@@ -1,6 +1,6 @@
 {
     "moduleName": "Citation",
-    "loading": "Un second...",
+    "loading": "Just a second...",
     "loadingModule": "Chargement du module...",
     "invalidArg": "Arguments invalides!",
     "indexArg": "Une citation avec le nombre %%arg%% n'existe pas! Fournis un nombre entre 1 et %%max%%.",

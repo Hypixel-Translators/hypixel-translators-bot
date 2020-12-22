@@ -23,7 +23,7 @@
     },
     "prefix": {
         "usage": "+prefix [banderas]",
-        "description": "Te da el prefijo apropiado para tu(s) idioma(s)."
+        "description": "Te da el prefijo apropiado para tu(s) idioma(s). Para obtener un prefijo personalizado, usa `+prefix <banderas>` y reemplaza `<banderas>` con el código regional de tu país o su nombre. Puedes añadir tantas banderas como quieras, separadas con espacios."
     },
     "quote": {
         "usage": "+quote [número] | +quote add <cita> / <mención del citado>",
@@ -48,6 +48,14 @@
     "ping": {
         "usage": "+ping",
         "description": "Te da el ping del bot y también el de la API de Discord."
+    },
+    "hypixelstats": {
+        "usage": "+hypixelstats <judagor>",
+        "description": "Te muestra estadísticas simples de Hypixel de un jugador."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Te da un consejo al azar sobre el servidor."
     },
     "invite": {
         "usage": "+invite",
@@ -76,10 +84,6 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Te da un link a la página oficial de Twitter de la cuenta de Hypixel Translators Community."
-    },
-    "tip": {
-        "usage": "+tip",
-        "description": "Te da un consejo al azar sobre el servidor."
     },
     "executedBy": "Ejecutado por %%user%%"
 }

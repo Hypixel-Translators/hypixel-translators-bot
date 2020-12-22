@@ -1,6 +1,6 @@
 {
     "moduleName": "Kontekst",
-    "loading": "Et sekund...",
+    "loading": "Just a second...",
     "loadingModule": "Indlæser modulet...",
     "errors": {
         "exists1": "A context entry for ",

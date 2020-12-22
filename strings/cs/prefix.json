@@ -1,7 +1,7 @@
 {
     "moduleName": "Prefix",
     "usage": "+prefix [flags]",
-    "loading": "Dej mi sekundu...",
+    "loading": "Just a second...",
     "loadingRoles": "Načítají se tvé role...",
     "errors": {
         "noLanguages": "Vypadá to, že nemáš žádnou roli jazyka! Pokud si myslíš, že je to chyba, kontaktuj prosím admina nebo majitele serveru.",
@@ -19,8 +19,8 @@
     "caution": "Caution",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "Zareaguj vlajkami v takovém pořadí, v jakém je chceš přidat do prefixu.",
-    "reactTimer": "Máš 20 sekund. Pro zrušení klikni na ❎.",
-    "reactTimer2": "Máš méně než 20 sekund. Pro potvrzení klikni na ✅, pro zrušení na ❎.",
+    "reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",
+    "reactTimer2": "You have less than %%cooldown%% seconds left. Hit ✅ to confirm or ❎ to cancel.",
     "previewT": "Jak bude přezdívka vypadat",
     "newNickT": "Nová přezdívka",
     "noChanges": "Žádné změny",

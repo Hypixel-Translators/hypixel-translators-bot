@@ -1,6 +1,6 @@
 {
     "moduleName": "Context",
-    "loading": "Even geduld...",
+    "loading": "Een momentje...",
     "loadingModule": "Module laden...",
     "errors": {
         "exists1": "Een contextvermelding voor ",

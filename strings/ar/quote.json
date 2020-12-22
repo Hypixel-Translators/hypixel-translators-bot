@@ -1,6 +1,6 @@
 {
     "moduleName": "اقتباس",
-    "loading": "ثانية واحدة...",
+    "loading": "Just a second...",
     "loadingModule": "جاري تحميل الوحدة...",
     "invalidArg": "مُعطى غير صالح!",
     "indexArg": "اقتباس ذو سجل %%arg%% ليس موجود! الرجاء اعطاء رقم بين 1 و %%max%%.",

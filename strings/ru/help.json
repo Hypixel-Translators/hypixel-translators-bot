@@ -23,7 +23,7 @@
     },
     "prefix": {
         "usage": "+prefix [flags]",
-        "description": "Дает Вам соответствующий префикс для вашего(-их) языка(-ов)."
+        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote> / <user mention>",
@@ -48,6 +48,14 @@
     "ping": {
         "usage": "+ping",
         "description": "Gives you the bot's ping as well as Discord API's ping."
+    },
+    "hypixelstats": {
+        "usage": "+hypixelstats <username>",
+        "description": "Shows you basic Hypixel stats for the provided user."
+    },
+    "tip": {
+        "usage": "+tip",
+        "description": "Gives you a random tip regarding the server."
     },
     "invite": {
         "usage": "+invite",
@@ -76,10 +84,6 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
-    },
-    "tip": {
-        "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
     },
     "executedBy": "Выполнено %%user%%"
 }

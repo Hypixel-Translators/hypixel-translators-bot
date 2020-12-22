@@ -1,6 +1,6 @@
 {
     "moduleName": "Контекст",
-    "loading": "Секундочку...",
+    "loading": "Just a second...",
     "loadingModule": "Загрузка модуля...",
     "errors": {
         "exists1": "Контекст для строки ",

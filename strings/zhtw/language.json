@@ -1,6 +1,6 @@
 {
     "moduleName": "語言",
-    "loading": "One second...",
+    "loading": "Just a second...",
     "changing": "正在更改語言... 這需要一些時間。",
     "changedToTitle": "已經將你的語言更改為繁體中文！",
     "errorTitle": "That language hasn't been added yet!",

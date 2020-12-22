@@ -1,0 +1,21 @@
+{
+    "moduleName": "Pelaajan tilastot",
+    "loading": "Odota sekunti...",
+    "loadingModule": "Haetaan pelaajan tilastoja...",
+    "description": "Tässä joitain pelaajan %%username%% Hypixel-tilastoja, jotka on hankittu [täältä]%%link%%.",
+    "networkLevel": "Hypixel level",
+    "karma": "Karma",
+    "online": "Paikalla",
+    "offline": "Poissa",
+    "lastSeen": "Viimeksi nähty pelissä %%game%%",
+    "language": "Kieli",
+    "last_login": "Liittynyt viimeksi",
+    "last_logout": "Nähty viimeksi",
+    "discord": "Discord",
+    "executedBy": "Komennon suoritti %%user%%",
+    "unknown": "tuntematon",
+    "lastGameHidden": "Viimeisin peli on piilotettu tai sitä ei löytynyt!",
+    "lastLoginHidden": "Viimeisin paikallaoloaika on piilotettu tai sitä ei löytynyt!",
+    "dateLocale": "fi-FI",
+    "timeZone": "Europe/Helsinki"
+}
