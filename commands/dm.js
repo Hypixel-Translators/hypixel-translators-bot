@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { loadingColor, errorColor, successColor, neutralColor, blurple } = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -17,30 +17,46 @@ module.exports = {
         if (!allowed) return;
 
         const recipient = message.client.users.cache.get(userToSend)
-        var rStrings = require(("../strings/en/dm.json"))
+        /*var rStrings = require(("../strings/en/dm.json"))
         const oldMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
         const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
         oldFiMessages.forEach(async element => {
             oldMsg = await element.content.split(" ")
             await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
             rStrings = await require(("../strings/" + oldMsg[0] + "/dm.json"))
-        })
-        setTimeout(() => {
-            const report = new Discord.MessageEmbed()
-                .setColor(neutralColor)
-                .setAuthor(rStrings.incoming)
-                .setDescription(toSend)
-                .setFooter(rStrings.incomingDisclaimer);
-            recipient.send(report)
-                .catch(err => { throw err })
-                .then(() => {
-                    const embed = new Discord.MessageEmbed()
-                        .setColor(successColor)
-                        .setAuthor(strings.outgoing.replace("%%recipient%%", recipient.tag))
-                        .setDescription(toSend)
-                        .setFooter(executedBy, message.author.displayAvatarURL())
-                    message.channel.send(embed)
-                })
-        }, 50)
+        })*/
+        const loadingEmbed = new Discord.MessageEmbed()
+            .setColor(loadingColor)
+            .setAuthor(strings.moduleName)
+            .setTitle(strings.loading)
+            .setDescription(toSend)
+            .setFooter(executedBy, message.author.displayAvatarURL())
+        message.channel.send(loadingEmbed)
+            .then(msg => {
+                const dm = new Discord.MessageEmbed()
+                    .setColor(blurple)
+                    .setAuthor("Received message from staff")
+                    .setDescription(toSend)
+                    .setFooter("Any messages you send here will be sent to staff.");
+                recipient.send(dm)
+                    .then(() => {
+                        const embed = new Discord.MessageEmbed()
+                            .setColor(successColor)
+                            .setAuthor(strings.moduleName)
+                            .setTitle(strings.outgoing.replace("%%recipient%%", recipient.tag))
+                            .setDescription(toSend)
+                            .setFooter(executedBy, message.author.displayAvatarURL())
+                        msg.edit(embed)
+                    })
+                    .catch(error => {
+                        const errorEmbed = new Discord.MessageEmbed()
+                            .setColor(errorColor)
+                            .setAuthor(strings.moduleName)
+                            .setTitle(strings.error.replace("%%recipient%%", recipient.tag))
+                            .setDescription(error)
+                            .setFooter(executedBy, message.author.displayAvatarURL())
+                        msg.edit(errorEmbed)
+                    })
+            })
     }
 }
