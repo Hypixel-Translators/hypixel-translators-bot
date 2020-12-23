@@ -1,6 +1,9 @@
 {
+    "moduleName": "Direct Message",
+    "loading": "Sending message...",
     "outgoing": "Bericht verzonden aan %%recipient%%",
+    "error": "An error occured while trying to message %%recipient%%",
     "incoming": "Bericht ontvangen van staff",
-    "incomingDisclaimer": "Als je hier een bericht stuurt, wordt het verzonden naar staff.",
+    "incomingDisclaimer": "Any messages you send here will be sent to staff.",
     "executedBy": "Uitgevoerd door %%user%%"
 }
