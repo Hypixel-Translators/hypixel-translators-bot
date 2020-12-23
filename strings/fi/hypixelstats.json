@@ -3,7 +3,7 @@
     "loading": "Odota sekunti...",
     "loadingModule": "Haetaan pelaajan tilastoja...",
     "description": "Tässä joitain pelaajan %%username%% Hypixel-tilastoja, jotka on hankittu [täältä]%%link%%.",
-    "updateNotice": "Note: Please take into account that the information here might take a few minutes to update after you've changed something.",
+    "updateNotice": "Huomio: Tässä olevien tietojen päivittyminen saattaa viedä muutamia minuutteja tekemiesi muutosten jälkeen.",
     "networkLevel": "Hypixel level",
     "ap": "Saavutuspisteet",
     "online": "Paikalla",
