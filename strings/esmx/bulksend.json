@@ -1,5 +1,6 @@
 {
     "moduleName": "Envío Masivo",
     "success": "¡Éxito! Mensajes enviados.",
+    "success1": "¡Éxito! Mensaje enviado.",
     "executedBy": "Ejecutado por %%user%%"
 }
