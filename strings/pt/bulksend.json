@@ -1,5 +1,6 @@
 {
     "moduleName": "Envio em massa",
     "success": "Mensagens enviadas.",
+    "success1": "Mensagem enviada.",
     "executedBy": "Executado por %%user%%"
 }
