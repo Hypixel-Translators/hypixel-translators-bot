@@ -1,9 +1,9 @@
 {
-    "moduleName": "Direct Message",
-    "loading": "Sending message...",
+    "moduleName": "Mensagem privada",
+    "loading": "A enviar a mensagem...",
     "outgoing": "Mensagem enviada para %%recipient%%",
-    "error": "An error occured while trying to message %%recipient%%",
+    "error": "Ocorreu um erro ao tentar enviar uma mensagem a %%recipient%%",
     "incoming": "Recebeste uma mensagem da staff",
-    "incomingDisclaimer": "Any messages you send here will be sent to staff.",
+    "incomingDisclaimer": "Quaisquer mensagens enviadas enviadas aqui serão enviadas à staff.",
     "executedBy": "Executado por %%user%%"
 }
