@@ -1,9 +1,9 @@
 {
-    "moduleName": "Direct Message",
-    "loading": "Sending message...",
+    "moduleName": "Yksityisviesti",
+    "loading": "Lähetetään viestiä...",
     "outgoing": "Lähetettiin viesti käyttäjälle %%recipient%%",
-    "error": "An error occured while trying to message %%recipient%%",
+    "error": "Virhe ilmaantui yrittäessä lähettää viestiä käyttäjälle %%recipient%%",
     "incoming": "Vastaanotettu viesti ylläpidolta",
-    "incomingDisclaimer": "Any messages you send here will be sent to staff.",
+    "incomingDisclaimer": "Kaikki täällä lähettämäsi viestit lähetetään ylläpidolle.",
     "executedBy": "Komennon suoritti %%user%%"
 }
