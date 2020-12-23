@@ -6,7 +6,7 @@ module.exports = {
     description: "Opens the GitHub issues page.",
     usage: "+issue",
     aliases: ["issues", "bug", "feedback"],
-    cooldown: 320,
+    cooldown: 120,
     allowDM: true,
     channelBlackList: "621298919535804426",
     execute(strings, message) {

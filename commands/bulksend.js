@@ -5,7 +5,6 @@ module.exports = {
   name: "bulksend",
   description: "Send messages in a channel, ready to be edited.",
   usage: "+bulksend <channel> <amount>",
-  cooldown: 30,
   allowDM: true,
   execute(strings, message, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)

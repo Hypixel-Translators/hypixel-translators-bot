@@ -11,7 +11,6 @@ module.exports = {
   description: "Evals the specified code.",
   usage: "+eval <code>",
   aliases: ["evaluate", "ev"],
-  cooldown: 60,
   channelWhiteList: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
   async execute(strings, message, args) {
     if (!message.member.hasPermission("ADMINISTRATOR")) return
