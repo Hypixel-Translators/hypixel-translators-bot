@@ -1,6 +1,9 @@
 {
+    "moduleName": "Direct Message",
+    "loading": "Sending message...",
     "outgoing": "Lähetettiin viesti käyttäjälle %%recipient%%",
+    "error": "An error occured while trying to message %%recipient%%",
     "incoming": "Vastaanotettu viesti ylläpidolta",
-    "incomingDisclaimer": "Kaikki täällä lähettämäsi viestit lähetetään ylläpidolle.",
+    "incomingDisclaimer": "Any messages you send here will be sent to staff.",
     "executedBy": "Komennon suoritti %%user%%"
 }
