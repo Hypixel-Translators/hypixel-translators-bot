@@ -58,19 +58,16 @@ async function accessSpreadsheet(executedBy, strings, message, args, msg) {
     await doc.useServiceAccountAuth(creds)
 
     await doc.loadInfo()
-    console.log(doc.title)
 
     const sheet = doc.sheetsByIndex[0]
-    console.log(sheet.title)
 
     const rows = await sheet.getRows()
 
     var quoteNumCode = 0
     if (!args[0]) quoteNumCode = Math.floor(Math.random() * Math.floor(rows.length)) //generate random 0-base index number if no arg is given
     if (args[0]) quoteNumCode = Number(args[0]) - 1 //subtract 1 from argument in order to create 0-base index number
-    var quoteNumUser = quoteNumCode + 1
-    var quoteNumSheet = quoteNumCode - 1
-    console.log(`Quote #${quoteNumUser} has been requested (0-base number ${quoteNumCode}, sheet position ${quoteNumSheet})`)
+    var quoteNum = quoteNumCode + 1
+    var quoteNumSheet = quoteNumCode + 2
 
     const correctRow = rows[quoteNumCode]
     if (!correctRow) {
@@ -90,6 +87,7 @@ async function accessSpreadsheet(executedBy, strings, message, args, msg) {
         .setDescription("      - " + correctRow.user)
         .setFooter(executedBy, message.author.displayAvatarURL());
     msg.edit(embed)
+    console.log(`Quote #${quoteNum} has been requested (0-base number ${quoteNumCode}, sheet position ${quoteNumSheet})`)
 }
 
 async function addToSpreadsheet(executedBy, strings, message, toSend, msg) {
