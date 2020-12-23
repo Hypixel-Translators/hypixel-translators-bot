@@ -1,7 +1,7 @@
 {
-    "outgoing": "Sent message to staff",
-    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
-    "error": "Error",
+    "outgoing": "スタッフにメッセージを送信",
+    "outgoingDisclaimer": "ここに送信したメッセージはすべてスタッフに送信されます。",
+    "error": "エラー",
     "usage": "Expected command usage",
     "dmError": "Sorry, but you can't execute this command in private messages.",
     "noMessage": "You haven't provided a message!",
