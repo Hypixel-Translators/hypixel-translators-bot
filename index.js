@@ -45,7 +45,7 @@ client.once("ready", async () => {
   
   //Set status
   client.user.setStatus("online").catch(console.error)
-  client.user.setActivity("+help", { type: "WATCHING" })
+  client.user.setActivity("+help", { type: "LISTENING" })
 
   //Change status and run events every minute
   setInterval(() => {
