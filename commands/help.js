@@ -9,7 +9,7 @@ module.exports = {
   cooldown: 10,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
   allowDM: true,
-  async execute(strings, message, args) {
+  async execute(message, strings, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const madeBy = strings.madeBy.replace("%%QkeleQ10%%", message.guild.members.cache.get("722738307477536778").user.tag)
 

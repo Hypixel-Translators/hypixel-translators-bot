@@ -6,7 +6,7 @@ module.exports = {
     usage: "+verify [profile]",
     cooldown: 5,
     channelWhiteList: ["569178590697095168", "730042612647723058",], // verify bot-development
-    execute(strings, message, args) {
+    execute(message, strings, args) {
         message.delete()
         if (!args[0]) {
             message.member.roles.add("569194996964786178", "Manually verified through the command").then(() => message.member.roles.remove("756199836470214848", "Manually verified through the command")) //Remove Alerted and add Verified

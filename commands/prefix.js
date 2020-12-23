@@ -9,7 +9,7 @@ module.exports = {
   usage: "+prefix [flags]",
   cooldown: 30,
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
-  async execute(strings, message, args, globalStrings) {
+  async execute(message, strings, args, globalStrings) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const nickNoPrefix = message.member.displayName.replace(/\[[^\s]*\] /g, "")
 

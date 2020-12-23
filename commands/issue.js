@@ -9,7 +9,7 @@ module.exports = {
     cooldown: 120,
     allowDM: true,
     channelBlackList: "621298919535804426",
-    execute(strings, message) {
+    execute(message, strings) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)

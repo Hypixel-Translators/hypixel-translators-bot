@@ -8,7 +8,7 @@ module.exports = {
   usage: "+mention <language> <proofreader|translator|all> [message]",
   cooldown: 120,
   channelBlackList: ["621298919535804426", "619662798133133312", "712046319375482910", "644620638878695424", "550951034332381184", "549894938712866816", "713084081579098152"],
-  execute(strings, message, args) {
+  execute(message, strings, args) {
     if (!args[0]) {
       message.channel.send(strings.errorNoArgs + "\n`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.");
       return

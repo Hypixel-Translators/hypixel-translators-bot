@@ -10,21 +10,21 @@ module.exports = {
     usage: "+context get|add|edit|link|help <arguments>",
     channelBlackList: ["621298919535804426", "619662798133133312", "712046319375482910", "550951034332381184", "634101000340504576", "713084081579098152"],
     cooldown: 30,
-    execute(strings, message, args) {
+    execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         try {
             if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771")) throw "noTrPr" //Hypixel Translator and Hypixel Proofreader
-            if (args[0] === "add" || args[0] === "new") { addToSpreadsheet(executedBy, strings, message, args) }
-            else if (args[0] === "get" || args[0] === "show") { getFromSpreadsheet(executedBy, strings, message, args) }
-            else if (args[0] === "edit") { editInSpreadsheet(executedBy, strings, message, args) }
-            else if (args[0] === "help" || args[0] === "info") { showInfo(executedBy, strings, message, args) }
-            else if (args[0] === "link" || args[0] === "sheet" || args[0] === "list") { sheetLink(executedBy, strings, message, args) }
+            if (args[0] === "add" || args[0] === "new") { addToSpreadsheet(executedBy, message, strings, args) }
+            else if (args[0] === "get" || args[0] === "show") { getFromSpreadsheet(executedBy, message, strings, args) }
+            else if (args[0] === "edit") { editInSpreadsheet(executedBy, message, strings, args) }
+            else if (args[0] === "help" || args[0] === "info") { showInfo(executedBy, message, strings, args) }
+            else if (args[0] === "link" || args[0] === "sheet" || args[0] === "list") { sheetLink(executedBy, message, strings, args) }
             else throw "contextSubArg"
         } catch (err) { throw err.toString() }
     }
 }
 
-async function getFromSpreadsheet(executedBy, strings, message, args) {
+async function getFromSpreadsheet(executedBy, message, strings, args) {
     const embed = new Discord.MessageEmbed()
         .setColor(loadingColor)
         .setAuthor(strings.moduleName)
@@ -91,7 +91,7 @@ async function getFromSpreadsheet(executedBy, strings, message, args) {
         })
 }
 
-async function addToSpreadsheet(executedBy, strings, message, args) {
+async function addToSpreadsheet(executedBy, message, strings, args) {
     const embed = new Discord.MessageEmbed()
         .setColor(loadingColor)
         .setAuthor(strings.moduleName)
@@ -169,7 +169,7 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
                     if (reaction.emoji.name === "📑") {
                         reaction.remove()
                         msg.react("📑")
-                        const collectorB = new Discord.MessageCollector(strings, message.channel, m => m.author.id === message.author.id, { time: 120000 });
+                        const collectorB = new Discord.MessageCollector(message, strings.channel, m => m.author.id === message.author.id, { time: 120000 });
                         const extraEmbed = new Discord.MessageEmbed()
                             .setColor(neutralColor)
                             .setAuthor(strings.moduleName)
@@ -317,7 +317,7 @@ async function addToSpreadsheet(executedBy, strings, message, args) {
         })
 }
 
-async function editInSpreadsheet(executedBy, strings, message, args) {
+async function editInSpreadsheet(executedBy, message, strings, args) {
     const embed = new Discord.MessageEmbed()
         .setColor(loadingColor)
         .setAuthor(strings.moduleName)
@@ -487,7 +487,7 @@ async function editInSpreadsheet(executedBy, strings, message, args) {
         })
 }
 
-async function showInfo(executedBy, strings, message) {
+async function showInfo(executedBy, message, strings) {
     const embed = new Discord.MessageEmbed()
         .setColor(loadingColor)
         .setAuthor(strings.moduleName)
@@ -515,7 +515,7 @@ async function showInfo(executedBy, strings, message) {
         })
 }
 
-async function sheetLink(executedBy, strings, message) {
+async function sheetLink(executedBy, message, strings) {
     const embed = new Discord.MessageEmbed()
         .setColor(loadingColor)
         .setAuthor(strings.moduleName)

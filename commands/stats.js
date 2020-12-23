@@ -8,7 +8,7 @@ module.exports = {
     usage: "+stats",
     aliases: ["statistics", "progress"],
     allowDM: true,
-    execute(strings, message, args) {
+    execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const client = message.client
         if (!message.member.hasPermission("ADMINISTRATOR")) throw "noAccess";

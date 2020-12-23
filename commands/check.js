@@ -7,7 +7,7 @@ module.exports = {
   aliases: ["perm", "perms", "user", "userinfo", "permission", "permissions", "czech"],
   usage: "+check [user]",
   channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "768160446368186428"], // bots staff-bots bot-development managers
-  execute(strings, message, args) {
+  execute(message, strings, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
 
     if (!message.member.hasPermission("VIEW_AUDIT_LOG") && !message.member.roles.cache.has("551758391127834625") && !message.member.roles.cache.has("748269219619274893") && !message.member.roles.cache.has("645709877536096307") && !message.member.roles.cache.has("752541221980733571")) throw "noAccess"; //hypixel, sba, qp and bot managers

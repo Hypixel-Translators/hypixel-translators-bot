@@ -10,7 +10,7 @@ module.exports = {
     cooldown: 5,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "619662798133133312", "624881429834366986", "730042612647723058", "749391414600925335"], //bots memes staff-bots bot-development bot-translators
-    execute(strings, message, args) {
+    execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const embed = new Discord.MessageEmbed()
             .setColor(loadingColor)
@@ -44,16 +44,16 @@ module.exports = {
                 } else {
                     args.splice(0, 1)
                     var toSend = args.join(" ")
-                    addToSpreadsheet(executedBy, strings, message, toSend, msg)
+                    addToSpreadsheet(executedBy, message, strings, toSend, msg)
                 }
             } else {
-                accessSpreadsheet(executedBy, strings, message, args, msg)
+                accessSpreadsheet(executedBy, message, strings, args, msg)
             }
         })
     }
 };
 
-async function accessSpreadsheet(executedBy, strings, message, args, msg) {
+async function accessSpreadsheet(executedBy, message, strings, args, msg) {
     const doc = new GoogleSpreadsheet("16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8")
     await doc.useServiceAccountAuth(creds)
 
@@ -90,7 +90,7 @@ async function accessSpreadsheet(executedBy, strings, message, args, msg) {
     console.log(`Quote #${quoteNum} has been requested (0-base number ${quoteNumCode}, sheet position ${quoteNumSheet})`)
 }
 
-async function addToSpreadsheet(executedBy, strings, message, toSend, msg) {
+async function addToSpreadsheet(executedBy, message, strings, toSend, msg) {
     const doc = new GoogleSpreadsheet("16ZCwOE3Wsfd39-NcEB6QJJZXVyFPEWIWITg0aThcDZ8")
     await doc.useServiceAccountAuth(creds)
 

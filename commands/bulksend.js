@@ -6,7 +6,7 @@ module.exports = {
   description: "Send messages in a channel, ready to be edited.",
   usage: "+bulksend <channel> <amount>",
   allowDM: true,
-  execute(strings, message, args) {
+  execute(message, strings, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     if (!message.member.hasPermission("ADMINISTRATOR")) return;
     const sendTo = message.client.channels.cache.get(args[0].replace("<#", "").replace(">", ""))
@@ -14,9 +14,10 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
       .setAuthor(strings.moduleName)
-      .setTitle(strings.success)
       .setDescription("<#" + sendTo.id + ">")
       .setFooter(executedBy, message.author.displayAvatarURL())
+      if (args[1] == 1) embed.setTitle(strings.success1)
+      else embed.setTitle(strings.success)
     message.channel.send(embed)
       .catch(error => { throw error; })
   }

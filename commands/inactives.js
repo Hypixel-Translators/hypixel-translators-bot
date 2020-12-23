@@ -8,7 +8,7 @@ module.exports = {
     usage: "+inactives",
     aliases: ["updateinactives", "unverifieds", "inactive"],
     allowDM: true,
-    async execute(strings, message) {
+    async execute(message, strings) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         if (!message.member.hasPermission("ADMINISTRATOR")) throw "noAccess";
         const embed = new Discord.MessageEmbed()

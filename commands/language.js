@@ -9,14 +9,13 @@ module.exports = {
     usage: "+language [language code]",
     channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
     allowDM: true,
-    cooldown: 10,
-    async execute(strings, message) {
+    cooldown: 5,
+    async execute(message, strings) {
         var executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const msgL = String(message).toLowerCase()
         const args = msgL.split(" ")
         var oldMsg = {}
         var newMsg = {}
-        var exists = false
         var selected = false
         var saved = false
 
@@ -64,7 +63,6 @@ module.exports = {
                         const newMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
                         const newFiMessages = await newMessages.filter(element => (element.content.split(" ")[0] === args[1]))
                         await newFiMessages.forEach(async element => {
-                            exists = true
                             strings = await require(("../strings/" + args[1] + "/language.json"))
                             executedBy = await strings.executedBy.replace("%%user%%", message.author.tag)
                             newMsg = await element.content.split(" ")
