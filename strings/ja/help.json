@@ -50,7 +50,7 @@
         "description": "Gives you the bot's ping as well as Discord API's ping."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <username>",
+        "usage": "+hypixelstats <ユーザー名>",
         "description": "Shows you basic Hypixel stats for the provided user."
     },
     "tip": {
