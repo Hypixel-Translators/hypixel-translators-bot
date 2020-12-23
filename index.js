@@ -42,7 +42,7 @@ client.once("ready", async () => {
   var boostersStaff = []
   client.guilds.cache.get("549503328472530974").roles.cache.get("644450674796396576").members.forEach(member => { boostersStaff.push(member.user.username) })//Server Booster
   client.guilds.cache.get("549503328472530974").roles.cache.get("768435276191891456").members.forEach(member => { boostersStaff.push(member.user.username) })//Discord Staff
-  
+
   //Set status
   client.user.setStatus("online").catch(console.error)
   client.user.setActivity("+help", { type: "LISTENING" })
@@ -74,14 +74,19 @@ client.once("ready", async () => {
 //Run when message is received
 client.on("message", async message => {
 
+  //Define command and stop if none is found
+  const args = message.content.slice(prefix.length).split(/ +/)
+  const commandName = args.shift().toLowerCase()
+  const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
+  if (!command) return
+
   //Return if user is a bot or not verified
   if (message.author.bot) return
-  if (message.member) {
-    if (!message.member.roles.cache.has("569194996964786178")) return //Verified
-  } else {
+  if (message.member && !message.member.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
+  else {
     const server = message.client.guilds.cache.get("549503328472530974")
     const user = server.member(message.author)
-    if (!user.roles.cache.has("569194996964786178")) return //Verified
+    if (!user.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
   }
 
   //Publish message if sent in channel
@@ -130,12 +135,6 @@ client.on("message", async message => {
       return message.channel.send(embed)
     } else return //Stop if it starts with prefix
   }
-
-  //Define command and stop if none is found
-  const args = message.content.slice(prefix.length).split(/ +/)
-  const commandName = args.shift().toLowerCase()
-  const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
-  if (!command) return
 
   //Blacklist and whitelist systems
   let allowed = true
@@ -269,19 +268,6 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
   }
 
-  //Give Verified role and take Alerted role when reacting on verify
-  if (reaction.message.id === "787366444970541056" && reaction.emoji.name === "✅" && !user.bot) {
-    reaction.message.guild.member(user).roles.add("569194996964786178", "Manually verified with the reaction").then(() => reaction.message.guild.member(user).roles.remove("756199836470214848", "Manually verified with the reaction")) //Verified and Alerted
-      .then(() => {
-        console.log(user.tag + " manually verified themselves as a player!")
-        client.channels.cache.get("662660931838410754").send("<@" + user.id + "> manually verified themselves as a player through the reaction.")//verify-logs
-      })
-      .catch(err => {
-        console.log(user.tag + " tried to verify themselves as a player but the following error occured:\n" + err)
-        client.channels.cache.get("662660931838410754").send("The following error occured while trying to manually verify " + user.tag + " as a player:\n" + err) //verify-logs
-      })
-    reaction.users.remove(user.id)
-  }
 })
 
 
