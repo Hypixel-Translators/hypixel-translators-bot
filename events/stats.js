@@ -8,13 +8,13 @@ module.exports = {
     async execute(client, manual) {
         try {
             var d = new Date()
-            var n = d.getMinutes()
-            if (n == "0" || n == "20" || n == "40") {
+            var m = d.getMinutes()
+            if (m == "0" || m == "20" || m == "40") {
                 await hypixel(client)
                 await skyblockaddons(client)
                 //console.log("Hypixel and SBA's stats have been automatically updated.")
             }
-            if (n == "10" || n == "30" || n == "50") {
+            if (m == "10" || m == "30" || m == "50") {
                 await quickplay(client)
                 await bot(client)
                 //console.log("Quickplay and SBA's stats have been automatically updated.")
@@ -27,10 +27,14 @@ module.exports = {
                 console.log("All stats have been manually updated.")
             }
         } catch (err) { throw err }
-    }
+    },
+    hypixel,
+    quickplay,
+    skyblockaddons,
+    bot
 }
 
-async function hypixel(client) {
+function hypixel(client) {
     let url = `https://api.crowdin.com/api/project/hypixel/status?login=${caccount}&account-key=${ctoken}&json`
     let settings = { method: "Get" }
     var index = 0
@@ -41,7 +45,7 @@ async function hypixel(client) {
             client.channels.cache.find(channel => channel.name === "hypixel-language-status").messages.fetch() //hypixel-language-status
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
-                    fiMessages.forEach(async (msg) => {
+                    fiMessages.forEach(async msg => {
                         var r = json[index]
                         var langdbEntry = langdb.find(o => o.name === r.name)
                         const embed = new Discord.MessageEmbed()
@@ -76,7 +80,7 @@ async function hypixel(client) {
         })
 }
 
-async function quickplay(client) {
+function quickplay(client) {
     let url = `https://api.crowdin.com/api/project/quickplay/status?login=${caccount}&account-key=${ctoken}&json`
     let settings = { method: "Get" }
     var index = 0
@@ -87,7 +91,7 @@ async function quickplay(client) {
             client.channels.cache.find(channel => channel.name === "quickplay-language-status").messages.fetch() //quickplay-language-status
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
-                    fiMessages.forEach(async (msg) => {
+                    fiMessages.forEach(async msg => {
                         var r = json[index]
                         var langdbEntry = langdb.find(o => o.name === r.name)
 
@@ -131,7 +135,7 @@ async function quickplay(client) {
         })
 }
 
-async function bot(client) {
+function bot(client) {
     let url = `https://api.crowdin.com/api/project/hypixel-translators-bot/status?login=${caccount}&account-key=${ctoken}&json`
     let settings = { method: "Get" }
     var index = 0
@@ -142,7 +146,7 @@ async function bot(client) {
             client.channels.cache.find(channel => channel.name === "bot-language-status").messages.fetch() //bot-language-status
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
-                    fiMessages.forEach(async (msg) => {
+                    fiMessages.forEach(async msg => {
                         var r = json[index]
                         var langdbEntry = langdb.find(o => o.name === r.name)
 
@@ -186,7 +190,7 @@ async function bot(client) {
         })
 }
 
-async function skyblockaddons(client) {
+function skyblockaddons(client) {
     try {
         let url = `https://api.crowdin.com/api/project/skyblockaddons/status?login=${caccount}&account-key=${ctoken}&json`
         let settings = { method: "Get" }
@@ -198,7 +202,7 @@ async function skyblockaddons(client) {
                 client.channels.cache.find(channel => channel.name === "sba-language-status").messages.fetch() //sba-language-status
                     .then(messages => {
                         fiMessages = messages.filter(msg => msg.author.bot)
-                        fiMessages.forEach(async (msg) => {
+                        fiMessages.forEach(async msg => {
                             var r = json[index]
                             var langdbEntry = langdb.find(o => o.name === r.name)
 
