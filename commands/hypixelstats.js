@@ -62,7 +62,7 @@ module.exports = {
                         else online = strings.offline
 
                         let linkDiscord
-                        if (json.links.DISCORD === null) linkDiscord = "Not connected"
+                        if (json.links.DISCORD === null) linkDiscord = strings.notConnected
                         else linkDiscord = json.links.DISCORD
 
                         var last_seen
@@ -85,7 +85,7 @@ module.exports = {
                         const embed = new Discord.MessageEmbed()
                             .setAuthor(strings.moduleName)
                             .setTitle(rank + " " + username)
-                            .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`))
+                            .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`) + "\n" + strings.updateNotice)
                             .addFields(
                                 { name: strings.networkLevel, value: Math.abs(json.level).toLocaleString(strings.dateLocale), inline: true },
                                 { name: strings.ap, value: json.achievement_points.toLocaleString(strings.dateLocale), inline: true },
