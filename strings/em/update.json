@@ -1,8 +1,0 @@
-{
-    "moduleName": "Channel updater",
-    "success": "Updated the %%channel%% channel!",
-    "infoChannel": "information",
-    "verifyChannel": "verification",
-    "successAll": "All channels have been updated!",
-    "executedBy": "Executed by %%user%%"
-}
