@@ -1,6 +1,9 @@
 {
+    "moduleName": "Direct Message",
+    "loading": "Sending message...",
     "outgoing": "Sendte melding til %%recipient%%",
+    "error": "An error occured while trying to message %%recipient%%",
     "incoming": "Mottok melding fra personalet",
-    "incomingDisclaimer": "Meldinger som blir sendt her vil bli sendt til staben.",
+    "incomingDisclaimer": "Any messages you send here will be sent to staff.",
     "executedBy": "Utført av %%user%%"
 }
