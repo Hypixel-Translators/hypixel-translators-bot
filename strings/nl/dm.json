@@ -1,5 +1,8 @@
 {
+    "moduleName": "Privébericht",
+    "loading": "Bericht verzenden...",
     "outgoing": "Bericht verzonden aan %%recipient%%",
+    "error": "Er is een fout opgetreden bij het sturen van een bericht naar %%recipient%%",
     "incoming": "Bericht ontvangen van staff",
     "incomingDisclaimer": "Als je hier een bericht stuurt, wordt het verzonden naar staff.",
     "executedBy": "Uitgevoerd door %%user%%"
