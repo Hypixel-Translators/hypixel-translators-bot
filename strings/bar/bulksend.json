@@ -1,5 +1,6 @@
 {
     "moduleName": "Massenversandt",
     "success": "Erfolgreich! Nachricht gesendet.",
+    "success1": "Erfolgreich! Nachricht gesendet.",
     "executedBy": "Asg'fuat vo %%user%%"
 }
