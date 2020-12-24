@@ -1,6 +1,9 @@
 {
+    "moduleName": "Direct Message",
+    "loading": "Sending message...",
     "outgoing": "Sended mesgag 2 %%recipient%%",
+    "error": "An error occured while trying to message %%recipient%%",
     "incoming": "Got staf mesgag yay",
-    "incomingDisclaimer": "Al meagegs you sned ehere will gst sent to staf.",
+    "incomingDisclaimer": "Any messages you send here will be sent to staff.",
     "executedBy": "Done by le %%user%%"
 }
