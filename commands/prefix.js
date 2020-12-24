@@ -20,7 +20,6 @@ module.exports = {
         else if (emoji.toLowerCase() === "enpt" || emoji.toLowerCase() === "pirate") flagEmojis.push("☠")
         else if (emoji.toLowerCase() === "ib" || emoji.toLowerCase() === "banana") flagEmojis.push("🍌")
         else if (emoji.toLowerCase() === "bc" || emoji.toLowerCase() === "biscuitish") flagEmojis.push("🍪")
-        else if (emoji.toLowerCase() === "em" || emoji.toLowerCase() === "emoji") flagEmojis.push("😂")
         else flagEmojis.push(flag(emoji))
       })
       if (!flagEmojis || flagEmojis.includes(undefined)) {
