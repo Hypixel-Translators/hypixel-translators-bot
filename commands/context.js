@@ -2,7 +2,7 @@ const { loadingColor, errorColor, successColor, neutralColor } = require("../con
 const Discord = require("discord.js");
 const { GoogleSpreadsheet } = require("google-spreadsheet")
 const creds = { "type": process.env.type, "project_id": process.env.project_id, "private_key_id": process.env.private_key_id, "private_key": process.env.private_key.replace(/\\n/gm, "\n"), "client_email": process.env.client_email, "client_id": process.env.client_id, "auth_uri": process.env.auth_uri, "token_uri": process.env.token_uri, "auth_provider_x509_cert_url": process.env.auth_provider_x509_cert_url, "client_x509_cert_url": process.env.client_x509_cert_url }
-
+const contextSheet = process.env.context
 
 module.exports = {
     name: "context",
@@ -33,7 +33,7 @@ async function getFromSpreadsheet(executedBy, message, strings, args) {
         .setFooter(executedBy, message.author.displayAvatarURL());
     message.channel.send(embed)
         .then(async msg => {
-            const doc = new GoogleSpreadsheet("1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts")
+            const doc = new GoogleSpreadsheet(contextSheet)
             await doc.useServiceAccountAuth(creds)
 
             await doc.loadInfo()
@@ -118,7 +118,7 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                 return;
             }
 
-            const doc = new GoogleSpreadsheet("1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts")
+            const doc = new GoogleSpreadsheet(contextSheet)
             await doc.useServiceAccountAuth(creds)
 
             await doc.loadInfo()
@@ -337,7 +337,7 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
                 return;
             }
 
-            const doc = new GoogleSpreadsheet("1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts")
+            const doc = new GoogleSpreadsheet(contextSheet)
             await doc.useServiceAccountAuth(creds)
 
             await doc.loadInfo()
