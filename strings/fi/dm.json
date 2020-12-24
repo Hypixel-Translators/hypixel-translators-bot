@@ -1,5 +1,8 @@
 {
+    "moduleName": "Yksityisviesti",
+    "loading": "Lähetetään viestiä...",
     "outgoing": "Lähetettiin viesti käyttäjälle %%recipient%%",
+    "error": "Virhe ilmaantui yrittäessä lähettää viestiä käyttäjälle %%recipient%%",
     "incoming": "Vastaanotettu viesti ylläpidolta",
     "incomingDisclaimer": "Kaikki täällä lähettämäsi viestit lähetetään ylläpidolle.",
     "executedBy": "Komennon suoritti %%user%%"
