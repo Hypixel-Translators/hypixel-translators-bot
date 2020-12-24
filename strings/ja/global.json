@@ -1,7 +1,7 @@
 {
-    "outgoing": "Sent message to staff",
-    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
-    "error": "Error",
+    "outgoing": "スタッフにメッセージを送信",
+    "outgoingDisclaimer": "ここに送信したメッセージはすべてスタッフに送信されます。",
+    "error": "エラー",
     "usage": "Expected command usage",
     "dmError": "Sorry, but you can't execute this command in private messages.",
     "noMessage": "You haven't provided a message!",
@@ -12,6 +12,7 @@
     "falseChannel": "That channel couldn't be found!",
     "falseUser": "That user couldn't be found!",
     "falseFlag": "That flag couldn't be found!",
+    "noPlayer": "That player has never joined Hypixel!",
     "disabled": "This command has been temporarily disabled.",
     "noTrPr": "You're not a translator or proofreader, so you can't use this!",
     "noAccess": "You're not allowed to execute this command!",
