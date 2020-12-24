@@ -1,8 +1,8 @@
 {
     "moduleName": "Channel updater",
-    "success": "Updated the %%channel%% channel!",
-    "infoChannel": "information",
-    "verifyChannel": "verification",
-    "successAll": "All channels have been updated!",
+    "success": "%%channel%%チャンネルが更新されました！",
+    "infoChannel": "情報",
+    "verifyChannel": "承認",
+    "successAll": "すべてのチャンネルが更新されました！",
     "executedBy": "Executed by %%user%%"
 }
