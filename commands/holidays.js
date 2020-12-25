@@ -1,5 +1,6 @@
 const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
 const Discord = require("discord.js");
+const fetch = require("node-fetch")
 const fs = require('fs')
 const path = require('path')
 
@@ -26,7 +27,8 @@ module.exports = {
                 if (!holiday.includes(strings[holidayName])) holiday.push(strings[holidayName])
             })
             const announcement = holiday.join(" ")
-            message.client.channels.cache.get("730042612647723058").send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`)
+            message.client.channels.cache.get("549503985501995011").send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`) //announcements
+            .then(msg =>  fetch(`https://discordapp.com/api/v8/channels/549503985501995011/messages/${msg.id}/crosspost`, { method: "Post", headers: { "Authorization": `Bot ${process.env.TOKEN}`} }))
             message.channel.send(`${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement sent!`)
             console.log(`Sent the ${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement`)
         })
