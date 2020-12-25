@@ -74,7 +74,7 @@ function hypixel(client) {
                                 client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the Hypixel project.") //hypixel-translators
                             }
                         }
-                        stringCount.edit("Hypixel string count: " + json[0].phrases)
+                        stringCount.edit(json[0].phrases)
                     }
                 })
         })
@@ -129,7 +129,7 @@ function quickplay(client) {
                                 client.channels.cache.get("646383292010070016").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the Quickplay project.") //quickplay-translators
                             }
                         }
-                        stringCount.edit("Quickplay string count: " + json[0].phrases)
+                        stringCount.edit(json[0].phrases)
                     }
                 })
         })
@@ -184,7 +184,7 @@ function bot(client) {
                                 client.channels.cache.get("749391414600925335").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the Hypixel Translators Bot project.") //bot-translators
                             }
                         }
-                        stringCount.edit("Bot string count: " + json[0].phrases)
+                        stringCount.edit(json[0].phrases)
                     }
                 })
         })
@@ -241,7 +241,7 @@ function skyblockaddons(client) {
                                     client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the SkyblockAddons project.") //sba-translators
                                 }
                             }
-                            stringCount.edit("SkyblockAddons string count: " + json[0].phrases)
+                            stringCount.edit(json[0].phrases)
                         }
                     })
             })
