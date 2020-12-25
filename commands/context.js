@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
 const Discord = require("discord.js");
 const { GoogleSpreadsheet } = require("google-spreadsheet")
 const creds = { "type": process.env.type, "project_id": process.env.project_id, "private_key_id": process.env.private_key_id, "private_key": process.env.private_key.replace(/\\n/gm, "\n"), "client_email": process.env.client_email, "client_id": process.env.client_id, "auth_uri": process.env.auth_uri, "token_uri": process.env.token_uri, "auth_provider_x509_cert_url": process.env.auth_provider_x509_cert_url, "client_x509_cert_url": process.env.client_x509_cert_url }
@@ -144,7 +144,7 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
 
             var toAdd = { id: string, context: toSend }
             const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor)
+                .setColor(blurple)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.addContextFor + string)
                 .setDescription(strings.willAdd.replace("%%voteNo%%", "<:vote_no:732298639736570007>").replace("%%voteYes%%", "<:vote_yes:732298639749152769>"))
@@ -171,7 +171,7 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                         msg.react("📑")
                         const collectorB = new Discord.MessageCollector(message, strings.channel, m => m.author.id === message.author.id, { time: 120000 });
                         const extraEmbed = new Discord.MessageEmbed()
-                            .setColor(neutralColor)
+                            .setColor(blurple)
                             .setAuthor(strings.moduleName)
                             .setTitle(strings.addContextFor + string)
                             .setDescription(strings.promptAddMore)
@@ -373,7 +373,7 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
             const yesEmoji = msg.client.emojis.cache.find(emoji => emoji.name === "vote_yes");
 
             const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor)
+                .setColor(blurple)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.editContextFor + args[1])
                 .setDescription(strings.confirm.replace("%%voteNo%%", "<:vote_no:732298639736570007>").replace("%%voteYes%%", "<:vote_yes:732298639749152769>"))
@@ -497,7 +497,7 @@ async function showInfo(executedBy, message, strings) {
     message.channel.send(embed)
         .then(async msg => {
             const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor)
+                .setColor(blurple)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.info.title)
                 .setDescription(strings.info.description)

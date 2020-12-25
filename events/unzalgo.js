@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
 const Discord = require("discord.js");
 const { clean, isZalgo } = require("unzalgo");
 

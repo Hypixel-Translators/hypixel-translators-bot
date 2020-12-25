@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
 const Discord = require("discord.js");
 const fs = require("fs")
 
@@ -28,7 +28,7 @@ module.exports = {
                         listD = listD + "\n" + strings.listElement.replace("%%code%%", element).replace("%%language%%", strings[element] || "Unknown")
                         if (index === array.length - 1) {
                             const embed = new Discord.MessageEmbed()
-                                .setColor(neutralColor)
+                                .setColor(blurple)
                                 .setAuthor(strings.moduleName)
                                 .setTitle(strings.listTitle)
                                 .setDescription(listD)
@@ -117,7 +117,7 @@ module.exports = {
                 const testFolder = "./strings/";
                 await fs.readdir(testFolder, async (err, files) => {
                     const embed = new Discord.MessageEmbed()
-                        .setColor(neutralColor)
+                        .setColor(blurple)
                         .setAuthor(strings.moduleName)
                         .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n\n" + strings.credits)
                         .setFooter(executedBy, message.author.displayAvatarURL())
@@ -130,7 +130,7 @@ module.exports = {
                 const testFolder = "./strings/";
                 await fs.readdir(testFolder, async (err, files) => {
                     const embed = new Discord.MessageEmbed()
-                        .setColor(neutralColor)
+                        .setColor(blurple)
                         .setAuthor(strings.moduleName)
                         .setTitle("Your language preference is set to English.")
                         .setFooter(executedBy, message.author.displayAvatarURL())

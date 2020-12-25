@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor, prefix } = require("../config.json");
+const { loadingColor, errorColor, successColor, blurple, prefix } = require("../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -36,7 +36,7 @@ module.exports = {
       //Determine which page to use
 
       const page1 = new Discord.MessageEmbed()
-        .setColor(neutralColor)
+        .setColor(blurple)
         .setAuthor(strings.moduleName)
         .setTitle(strings.page1Title)
         .setDescription(strings.commandsListTooltip.replace("%%QkeleQ10%%", "<@722738307477536778>").replace("%%github%%", "(https://github.com/Hypixel-Translators/hypixel-translators-bot)").replace("%%translate%%", "(https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044)"))
@@ -115,7 +115,7 @@ module.exports = {
       }
 
       const embed = new Discord.MessageEmbed()
-        .setColor(neutralColor)
+        .setColor(blurple)
         .setAuthor(strings.moduleName)
         .setTitle(strings.commandInfoFor + "`+" + command.name + "`")
         .setDescription(cmdDesc || strings.noDesc)
@@ -143,7 +143,7 @@ async function fetchPage(page, pages, strings, executedBy, message, pageEmbed) {
       pageEmbed = pages[page].e
     } else if (pages[page].f) {
       pageEmbed = new Discord.MessageEmbed()
-        .setColor(neutralColor)
+        .setColor(blurple)
         .setAuthor(strings.moduleName)
         .setTitle(strings[pages[page].t].replace("%%badge%%", pages[page].b))
         .setFooter(strings.page.replace("%%number%%", page + 1).replace("%%total%%", pages.length) + " | " + executedBy, message.author.displayAvatarURL())

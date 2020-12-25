@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor, langdb } = require("../config.json");
+const { loadingColor, errorColor, successColor, blurple, langdb } = require("../config.json");
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 

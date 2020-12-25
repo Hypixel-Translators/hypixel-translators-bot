@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor, langdb } = require("../config.json");
+const { loadingColor, errorColor, successColor, blurple, langdb } = require("../config.json");
 const Discord = require("discord.js");
 const { flag } = require("country-emoji")
 
@@ -36,7 +36,7 @@ module.exports = {
 
       var prefix = flagEmojis.join("-")
       const embed = new Discord.MessageEmbed()
-        .setColor(neutralColor)
+        .setColor(blurple)
         .setAuthor(strings.moduleName)
         .setTitle(strings.caution)
         .setDescription(`${strings.warning}\n${strings.reactTimer.replace("%%cooldown%%", this.cooldown)}`)
@@ -198,7 +198,7 @@ module.exports = {
           msg.react("❎")
 
           const embed = new Discord.MessageEmbed()
-            .setColor(neutralColor)
+            .setColor(blurple)
             .setAuthor(strings.moduleName)
             .setTitle(strings.react)
             .setDescription(strings.reactTimer.replace("%%cooldown%%", this.cooldown))
@@ -273,7 +273,7 @@ module.exports = {
               if (prefixes.length > 0) { prefixes = (prefixes + "-") }
               prefixes = (prefixes + reaction.emoji.name)
               const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor)
+                .setColor(blurple)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.react)
                 .setDescription(strings.reactTimer2.replace("%%cooldown%%", this.cooldown))
