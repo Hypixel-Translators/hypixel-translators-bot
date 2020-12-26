@@ -74,6 +74,9 @@ client.once("ready", async () => {
 //Run when message is received
 client.on("message", async message => {
 
+  //Delete pinned message messages
+  if (message.type === "PINS_ADD") message.delete()
+
   //Define command and stop if none is found
   const args = message.content.slice(prefix.length).split(/ +/)
   const commandName = args.shift().toLowerCase()
