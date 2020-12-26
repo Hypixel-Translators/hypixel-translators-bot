@@ -1,5 +1,5 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
-const Discord = require("discord.js");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const Discord = require("discord.js")
 
 module.exports = {
   name: "check",
@@ -10,7 +10,7 @@ module.exports = {
   execute(message, strings, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
 
-    if (!message.member.hasPermission("VIEW_AUDIT_LOG") && !message.member.roles.cache.has("551758391127834625") && !message.member.roles.cache.has("748269219619274893") && !message.member.roles.cache.has("645709877536096307") && !message.member.roles.cache.has("752541221980733571")) throw "noAccess"; //hypixel, sba, qp and bot managers
+    if (!message.member.hasPermission("VIEW_AUDIT_LOG") && !message.member.roles.cache.has("551758391127834625") && !message.member.roles.cache.has("748269219619274893") && !message.member.roles.cache.has("645709877536096307") && !message.member.roles.cache.has("752541221980733571")) throw "noAccess" //hypixel, sba, qp and bot managers
 
     var user = message.member
     if (args[0]) {
@@ -18,7 +18,7 @@ module.exports = {
       user = message.guild.members.cache.find(m => m.id === userRaw || m.user.tag === userRaw || m.user.username === userRaw || m.nickname === userRaw || m.user.tag.toLowerCase().includes(userRaw.toLowerCase()) || m.displayName.toLowerCase().includes(userRaw.toLowerCase()))
       if (!user) {
         message.channel.send(strings.userNotFound)
-        return;
+        return
         //throw "falseUser"
       }
     }

@@ -1,6 +1,6 @@
-const { loadingColor, errorColor, successColor, blurple, langdb } = require("../config.json");
-const Discord = require("discord.js");
-const fetch = require("node-fetch");
+const { loadingColor, errorColor, successColor, blurple, langdb } = require("../config.json")
+const Discord = require("discord.js")
+const fetch = require("node-fetch")
 
 module.exports = {
     execute(client, manual) {
@@ -34,7 +34,7 @@ async function check(client) {
                         console.error("Kicked " + member.user.tag + " for inactivity but couldn't DM them")
                     })
                 member.kick("Stood on the server for 14 days without verifying")
-            } return;
+            } return
         }
         if (member.joinedTimestamp <= alert) {
             member.send("Hey there!\nWe noticed you haven't verified yourself on our server. Are you having any trouble? Please message Rodry or Stannya or just ask any questions in the <#569178590697095168> channel! Otherwise, please send your profile link like shown in the channel.\n\nThis message was sent to you because you have been on our server for too long, and you're in risk of getting kicked for inactivity soon.\nPlease do not reply to this bot.") //verify

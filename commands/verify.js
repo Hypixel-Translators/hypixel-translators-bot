@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
 
 module.exports = {
     name: "verify",
@@ -16,8 +16,8 @@ module.exports = {
             .then(msg => {
                 setTimeout(() => {
                     if (!msg.deleted) msg.delete()
-                }, 10000);
+                }, 10000)
             })
         }
     }
-};
+}

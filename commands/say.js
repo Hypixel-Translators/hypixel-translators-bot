@@ -1,5 +1,5 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
-const Discord = require("discord.js");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const Discord = require("discord.js")
 
 module.exports = {
   name: "say",
@@ -18,15 +18,15 @@ module.exports = {
 
     var allowed = false
     if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("768435276191891456")) { allowed = true } } // Discord Staff
-    if (!allowed) throw "noAccess";
-    if (!sendTo) throw "noChannel";
-    if (!toSend) throw "noMessage";
-    if (!message.member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission";
+    if (!allowed) throw "noAccess"
+    if (!sendTo) throw "noChannel"
+    if (!toSend) throw "noMessage"
+    if (!message.member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
 
     if (message.member) if (message.member.hasPermission("ADMINISTRATOR")) {
-      msg = await sendTo.send(toSend).catch(() => { throw "noChannel"; })
+      msg = await sendTo.send(toSend).catch(() => { throw "noChannel" })
     } else {
-      msg = await sendTo.send(">>> " + toSend).catch(() => { throw "noChannel"; })
+      msg = await sendTo.send(">>> " + toSend).catch(() => { throw "noChannel" })
     }
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
@@ -36,4 +36,4 @@ module.exports = {
       .setFooter(executedBy, message.author.displayAvatarURL())
     message.channel.send(embed)
   }
-};
+}

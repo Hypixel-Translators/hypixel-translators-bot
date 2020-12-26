@@ -1,5 +1,5 @@
-const { loadingColor, errorColor, successColor, blurple, prefix } = require("../config.json");
-const Discord = require("discord.js");
+const { loadingColor, errorColor, successColor, blurple, prefix } = require("../config.json")
+const Discord = require("discord.js")
 
 module.exports = {
   name: "help",
@@ -84,7 +84,7 @@ module.exports = {
           msg.reactions.removeAll()
           setTimeout(() => {
             msg.suppressEmbeds()
-          }, 10000);
+          }, 10000)
         })
       })
 

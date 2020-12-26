@@ -1,5 +1,5 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
-const Discord = require("discord.js");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const Discord = require("discord.js")
 
 module.exports = {
   name: "ping",
@@ -32,4 +32,4 @@ module.exports = {
       .setFooter(executedBy, message.author.displayAvatarURL())
     message.channel.send(embed)
   }
-};
+}

@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+const Discord = require("discord.js")
 const { langdb } = require("../config.json")
 
 module.exports = {
@@ -10,11 +10,11 @@ module.exports = {
   channelBlackList: ["621298919535804426", "619662798133133312", "712046319375482910", "644620638878695424", "550951034332381184", "549894938712866816", "713084081579098152"],
   execute(message, strings, args) {
     if (!args[0]) {
-      message.channel.send(strings.errorNoArgs + "\n`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.");
+      message.channel.send(strings.errorNoArgs + "\n`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.")
       return
     }
     if (!args[1]) {
-      message.channel.send(strings.errorNoArgs2 + "\n`proofreader`, `translator`, `all`.");
+      message.channel.send(strings.errorNoArgs2 + "\n`proofreader`, `translator`, `all`.")
       return
     }
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
@@ -61,38 +61,38 @@ module.exports = {
     const role = message.guild.roles.cache.find(x => x.name == (toLook + " Proofreader"))
 
     if (!role) {
-      message.channel.send(strings.errorNotFound + "\n`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.");
-      return;
+      message.channel.send(strings.errorNotFound + "\n`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.")
+      return
     }
     if (type === "pf" || type === "pr" || type === "proofreader" || type === "Proofreader") {
-      const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
-      const lowerRole = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
-      console.log(toPing + "\n" + lowerRole);
+      const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader")
+      const lowerRole = message.guild.roles.cache.find(role => role.name === toLook + " Translator")
+      console.log(toPing + "\n" + lowerRole)
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR"))) {
         message.delete()
-        message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> " + toSend);
+        message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> " + toSend)
       } else { message.channel.send(strings.errorNoPing + strings.errorNoPingPr + " " + strings.errorNoPingDisclaimer) }
     } else if (type === "tr" || type === "translator" || type === "Translator") {
-      const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
-      const higherRole = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
-      console.log(toPing + "\n" + higherRole);
+      const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator")
+      const higherRole = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader")
+      console.log(toPing + "\n" + higherRole)
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR"))
       ) {
         message.delete()
-        message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> " + toSend);
+        message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> " + toSend)
       } else { message.channel.send(strings.errorNoPing + strings.errorNoPingTr + " " + strings.errorNoPingDisclaimer) }
     } else if (type === "all" || type === "both") {
-      const translatorPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator");
-      const proofreaderPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader");
-      console.log(translatorPing + "\n" + proofreaderPing);
+      const translatorPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator")
+      const proofreaderPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader")
+      console.log(translatorPing + "\n" + proofreaderPing)
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR"))) {
         message.delete()
-        message.channel.send("**<@" + message.member.id + ">**: <@&" + translatorPing + "> <@&" + proofreaderPing + "> " + toSend);
+        message.channel.send("**<@" + message.member.id + ">**: <@&" + translatorPing + "> <@&" + proofreaderPing + "> " + toSend)
       } else { message.channel.send(strings.errorNoPing + strings.errorNoPingAll + " " + strings.errorNoPingDisclaimer) }
     }
   }
-};
+}
 
 function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  return string.charAt(0).toUpperCase() + string.slice(1)
 }

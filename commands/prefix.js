@@ -1,5 +1,5 @@
-const { loadingColor, errorColor, successColor, blurple, langdb } = require("../config.json");
-const Discord = require("discord.js");
+const { loadingColor, errorColor, successColor, blurple, langdb } = require("../config.json")
+const Discord = require("discord.js")
 const { flag } = require("country-emoji")
 
 module.exports = {
@@ -41,16 +41,16 @@ module.exports = {
         .setTitle(strings.caution)
         .setDescription(`${strings.warning}\n${strings.reactTimer.replace("%%cooldown%%", this.cooldown)}`)
         .addFields({ name: strings.previewT, value: `\`[${prefix}] ${nickNoPrefix}\`` })
-        .setFooter(executedBy, message.author.displayAvatarURL());
+        .setFooter(executedBy, message.author.displayAvatarURL())
       message.channel.send(embed)
         .then(msg => {
           msg.react("✅").then(() => msg.react("❎"))
 
           const filter = (reaction, reacter) => {
-            return (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id;
-          };
+            return (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id
+          }
 
-          const collector = msg.createReactionCollector(filter, { time: this.cooldown * 1000 });
+          const collector = msg.createReactionCollector(filter, { time: this.cooldown * 1000 })
 
           collector.on("collect", async (reaction, reacter) => {
             msg.react("✅")
@@ -64,7 +64,7 @@ module.exports = {
                       .setAuthor(strings.moduleName)
                       .setTitle(strings.saved)
                       .addFields({ name: strings.newNickT, value: "\`[" + prefix + "] " + nickNoPrefix + "\`" })
-                      .setFooter(executedBy, message.author.displayAvatarURL());
+                      .setFooter(executedBy, message.author.displayAvatarURL())
                     msg.edit(embed)
                     const staffAlert = new Discord.MessageEmbed()
                       .setColor(loadingColor)
@@ -81,7 +81,7 @@ module.exports = {
                       .setTitle(strings.errors.error)
                       .setDescription(err)
                       .addFields({ name: strings.previewT, value: "\`[" + prefix + "] " + nickNoPrefix + "\`" })
-                      .setFooter(executedBy, message.author.displayAvatarURL());
+                      .setFooter(executedBy, message.author.displayAvatarURL())
                     msg.edit(embed)
                   })
               } else {
@@ -90,7 +90,7 @@ module.exports = {
                   .setAuthor(strings.moduleName)
                   .setTitle(strings.errors.alreadyThis + strings.errors.notSaved)
                   .addFields({ name: strings.newNickT, value: strings.noChanges })
-                  .setFooter(executedBy, message.author.displayAvatarURL());
+                  .setFooter(executedBy, message.author.displayAvatarURL())
                 msg.edit(embed)
               }
               prefix = "n"
@@ -102,13 +102,13 @@ module.exports = {
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.errors.cancelled + strings.errors.notSaved)
                 .addFields({ name: strings.newNickT, value: strings.noChanges })
-                .setFooter(executedBy, message.author.displayAvatarURL());
+                .setFooter(executedBy, message.author.displayAvatarURL())
               msg.edit(embed)
             }
           })
           collector.on('end', () => {
             msg.reactions.removeAll()
-            if (prefix === "n") return;
+            if (prefix === "n") return
             if (prefix.length > 0) {
               if (message.member.nickname !== ("[" + prefix + "] " + nickNoPrefix)) {
                 message.member.setNickname("[" + prefix + "] " + nickNoPrefix, "Used the prefix command")
@@ -118,7 +118,7 @@ module.exports = {
                       .setAuthor(strings.moduleName)
                       .setTitle(strings.saved)
                       .addFields({ name: strings.newNickT, value: "\`[" + prefix + "] " + nickNoPrefix + "\`" })
-                      .setFooter(executedBy, message.author.displayAvatarURL());
+                      .setFooter(executedBy, message.author.displayAvatarURL())
                     msg.edit(embed)
                   })
                   .catch(err => {
@@ -128,7 +128,7 @@ module.exports = {
                       .setTitle(strings.errors.error)
                       .setDescription(err)
                       .addFields({ name: strings.previewT, value: "\`[" + prefix + "] " + nickNoPrefix + "\`" })
-                      .setFooter(executedBy, message.author.displayAvatarURL());
+                      .setFooter(executedBy, message.author.displayAvatarURL())
                     msg.edit(embed)
                     console.log(err)
                   })
@@ -138,7 +138,7 @@ module.exports = {
                   .setAuthor(strings.moduleName)
                   .setTitle(strings.errors.alreadyThis + strings.errors.notSaved)
                   .addFields({ name: strings.newNickT, value: strings.noChanges })
-                  .setFooter(executedBy, message.author.displayAvatarURL());
+                  .setFooter(executedBy, message.author.displayAvatarURL())
                 msg.edit(embed)
               }
             } else {
@@ -148,7 +148,7 @@ module.exports = {
                 .setTitle(strings.errors.timedOut)
                 .setDescription(strings.errors.timeOutCustom + strings.errors.notSaved)
                 .addFields({ name: strings.newNickT, value: strings.noChanges })
-                .setFooter(executedBy, message.author.displayAvatarURL());
+                .setFooter(executedBy, message.author.displayAvatarURL())
               msg.edit(embed)
             }
           })
@@ -160,7 +160,7 @@ module.exports = {
         .setAuthor(strings.moduleName)
         .setTitle(strings.loading)
         .setDescription(strings.loadingRoles)
-        .setFooter(executedBy, message.author.displayAvatarURL());
+        .setFooter(executedBy, message.author.displayAvatarURL())
       message.channel.send(embed)
         .then(async msg => {
           var userLangs = []
@@ -184,14 +184,14 @@ module.exports = {
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.errors.trNoRoles)
                 .setDescription(strings.customPrefix)
-                .setFooter(executedBy, message.author.displayAvatarURL());
+                .setFooter(executedBy, message.author.displayAvatarURL())
               return msg.edit(embed)
             } else {
               const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.errors.noLanguages)
-                .setFooter(executedBy, message.author.displayAvatarURL());
+                .setFooter(executedBy, message.author.displayAvatarURL())
               return msg.edit(embed)
             }
           }
@@ -203,14 +203,14 @@ module.exports = {
             .setTitle(strings.react)
             .setDescription(strings.reactTimer.replace("%%cooldown%%", this.cooldown))
             .addFields({ name: strings.previewT, value: strings.noChanges })
-            .setFooter(executedBy, message.author.displayAvatarURL());
+            .setFooter(executedBy, message.author.displayAvatarURL())
           msg.edit(embed)
 
           const filter = (reaction, reacter) => {
-            return (userLangs.includes(reaction.emoji.name) || reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id;
-          };
+            return (userLangs.includes(reaction.emoji.name) || reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id
+          }
 
-          const collector = msg.createReactionCollector(filter, { time: this.cooldown * 1000 });
+          const collector = msg.createReactionCollector(filter, { time: this.cooldown * 1000 })
 
           collector.on('collect', async (reaction, reacter) => {
             if (reaction.emoji.name !== "❎") msg.react("✅")
@@ -225,7 +225,7 @@ module.exports = {
                         .setAuthor(strings.moduleName)
                         .setTitle(strings.saved)
                         .addFields({ name: strings.newNickT, value: "`[" + prefixes + "] " + nickNoPrefix + "`" })
-                        .setFooter(executedBy, message.author.displayAvatarURL());
+                        .setFooter(executedBy, message.author.displayAvatarURL())
                       msg.edit(embed)
                     })
                     .catch(err => {
@@ -235,7 +235,7 @@ module.exports = {
                         .setTitle(strings.errors.error)
                         .setDescription(err)
                         .addFields({ name: strings.previewT, value: "`[" + prefixes + "] " + nickNoPrefix + "`" })
-                        .setFooter(executedBy, message.author.displayAvatarURL());
+                        .setFooter(executedBy, message.author.displayAvatarURL())
                       msg.edit(embed)
                     })
                     prefixes = "n"
@@ -246,7 +246,7 @@ module.exports = {
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.errors.alreadyThis + strings.errors.notSaved)
                     .addFields({ name: strings.newNickT, value: strings.noChanges })
-                    .setFooter(executedBy, message.author.displayAvatarURL());
+                    .setFooter(executedBy, message.author.displayAvatarURL())
                   msg.edit(embed)
                 }
               } else {
@@ -254,7 +254,7 @@ module.exports = {
                   .setColor(errorColor)
                   .setAuthor(strings.moduleName)
                   .setTitle(strings.errors.confirmedNoFlags + strings.errors.notSaved)
-                  .setFooter(executedBy, message.author.displayAvatarURL());
+                  .setFooter(executedBy, message.author.displayAvatarURL())
                 msg.edit(embed)
               }
             } else if (reaction.emoji.name === "❎") {
@@ -265,7 +265,7 @@ module.exports = {
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.errors.cancelled + strings.errors.notSaved)
                 .addFields({ name: strings.newNickT, value: strings.noChanges })
-                .setFooter(executedBy, message.author.displayAvatarURL());
+                .setFooter(executedBy, message.author.displayAvatarURL())
               msg.edit(embed)
             } else {
               const valueToRemove = reaction.emoji.name
@@ -278,14 +278,14 @@ module.exports = {
                 .setTitle(strings.react)
                 .setDescription(strings.reactTimer2.replace("%%cooldown%%", this.cooldown))
                 .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + nickNoPrefix + "\`" })
-                .setFooter(executedBy, message.author.displayAvatarURL());
+                .setFooter(executedBy, message.author.displayAvatarURL())
               msg.edit(embed)
             }
-          });
+          })
 
           collector.on('end', () => {
             msg.reactions.removeAll()
-            if (prefixes === "n") return;
+            if (prefixes === "n") return
             if (prefixes.length > 0) {
               if (message.member.nickname !== ("[" + prefixes + "] " + nickNoPrefix)) {
                 message.member.setNickname("[" + prefixes + "] " + nickNoPrefix, "Used the prefix command")
@@ -295,7 +295,7 @@ module.exports = {
                       .setAuthor(strings.moduleName)
                       .setTitle(strings.saved)
                       .addFields({ name: strings.newNickT, value: "\`[" + prefixes + "] " + nickNoPrefix + "\`" })
-                      .setFooter(executedBy, message.author.displayAvatarURL());
+                      .setFooter(executedBy, message.author.displayAvatarURL())
                     msg.edit(embed)
                   })
                   .catch(err => {
@@ -305,7 +305,7 @@ module.exports = {
                       .setTitle(strings.errors.error)
                       .setDescription(err)
                       .addFields({ name: strings.previewT, value: "\`[" + prefixes + "] " + nickNoPrefix + "\`" })
-                      .setFooter(executedBy, message.author.displayAvatarURL());
+                      .setFooter(executedBy, message.author.displayAvatarURL())
                     msg.edit(embed)
                     console.log(err)
                   })
@@ -315,7 +315,7 @@ module.exports = {
                   .setAuthor(strings.moduleName)
                   .setTitle(strings.errors.alreadyThis + strings.errors.notSaved)
                   .addFields({ name: strings.newNickT, value: strings.noChanges })
-                  .setFooter(executedBy, message.author.displayAvatarURL());
+                  .setFooter(executedBy, message.author.displayAvatarURL())
                 msg.edit(embed)
               }
             } else {
@@ -325,7 +325,7 @@ module.exports = {
                 .setTitle(strings.errors.timedOut)
                 .setDescription(strings.errors.timeOut + strings.errors.notSaved)
                 .addFields({ name: strings.newNickT, value: strings.noChanges })
-                .setFooter(executedBy, message.author.displayAvatarURL());
+                .setFooter(executedBy, message.author.displayAvatarURL())
               msg.edit(embed)
             }
           })

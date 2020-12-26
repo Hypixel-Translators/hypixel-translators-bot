@@ -1,6 +1,6 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
-const Discord = require("discord.js");
-const { clean, isZalgo } = require("unzalgo");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const Discord = require("discord.js")
+const { clean, isZalgo } = require("unzalgo")
 
 module.exports = {
     execute(client, manual) {

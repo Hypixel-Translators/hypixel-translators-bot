@@ -1,5 +1,5 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
-const Discord = require("discord.js");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const Discord = require("discord.js")
 const unzalgo = require("../events/unzalgo.js")
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     allowDM: true,
     async execute(message, strings) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        if (!message.member.hasPermission("VIEW_AUDIT_LOG")) throw "noAccess";
+        if (!message.member.hasPermission("VIEW_AUDIT_LOG")) throw "noAccess"
         const embed = new Discord.MessageEmbed()
             .setColor(loadingColor)
             .setAuthor(strings.moduleName)

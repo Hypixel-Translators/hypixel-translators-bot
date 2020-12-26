@@ -1,5 +1,5 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
-const Discord = require("discord.js");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const Discord = require("discord.js")
 const { execute, hypixel, quickplay, skyblockaddons, bot } = require("../events/stats.js")
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const client = message.client
-        if (!message.member.hasPermission("ADMINISTRATOR")) throw "noAccess";
+        if (!message.member.hasPermission("ADMINISTRATOR")) throw "noAccess"
         const loadingEmbed = new Discord.MessageEmbed()
             .setColor(loadingColor)
             .setAuthor(strings.moduleName)

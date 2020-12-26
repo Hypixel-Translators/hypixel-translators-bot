@@ -1,5 +1,5 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
-const Discord = require("discord.js");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const Discord = require("discord.js")
 const inactives = require("../events/inactives.js")
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
     allowDM: true,
     async execute(message, strings) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        if (!message.member.hasPermission("ADMINISTRATOR")) throw "noAccess";
+        if (!message.member.hasPermission("ADMINISTRATOR")) throw "noAccess"
         const embed = new Discord.MessageEmbed()
             .setColor(loadingColor)
             .setAuthor(strings.moduleName)

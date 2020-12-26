@@ -1,5 +1,5 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
-const Discord = require("discord.js");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const Discord = require("discord.js")
 const fs = require("fs")
 
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
 
         if (args[1]) {
             if (args[1] === "list") {
-                const testFolder = "./strings/";
+                const testFolder = "./strings/"
                 await fs.readdir(testFolder, async (err, files) => {
                     var listD = ""
                     files.forEach(async (element, index, array) => {
@@ -44,7 +44,7 @@ module.exports = {
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.loading)
                     .setDescription(strings.changing)
-                    .setFooter(executedBy, message.author.displayAvatarURL());
+                    .setFooter(executedBy, message.author.displayAvatarURL())
                 const msg = await message.channel.send(embed)
 
                 const path = "./strings/" + args[1] + "/language.json"
@@ -76,7 +76,7 @@ module.exports = {
                                 .setColor(successColor)
                                 .setAuthor(strings.moduleName)
                                 .setDescription(strings.credits)
-                                .setFooter(executedBy, message.author.displayAvatarURL());
+                                .setFooter(executedBy, message.author.displayAvatarURL())
                             if (strings.changedToTitle === "Changed your language to English!") { embed.setTitle("Changed your language to " + strings[args[1]] + "!") } else { embed.setTitle(strings.changedToTitle) }
                             await msg.edit(embed)
                             return
@@ -88,22 +88,22 @@ module.exports = {
                                     .setAuthor("Language")
                                     .setTitle("Reset your language to English!")
                                     .setDescription("This happened because you chose a language that already was your language preference.")
-                                    .setFooter("Executed by " + message.author.tag);
+                                    .setFooter("Executed by " + message.author.tag)
                                 await msg.edit(embed)
                                 return
                             }
                         }, 1000)
                     } else {
-                        const testFolder = "./strings/";
+                        const testFolder = "./strings/"
                         await fs.readdir(testFolder, async (err, files) => {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
                                 .setAuthor(strings.moduleName)
                                 .setTitle(strings.errorTitle)
                                 .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n" + strings.suggestAdd)
-                                .setFooter(executedBy, message.author.displayAvatarURL());
+                                .setFooter(executedBy, message.author.displayAvatarURL())
                             await msg.edit(embed)
-                        });
+                        })
                         return
                     }
                 })
@@ -114,7 +114,7 @@ module.exports = {
             oldFiMessages.forEach(async element => {
                 selected = true
                 oldMsg = await element.content.split(" ")
-                const testFolder = "./strings/";
+                const testFolder = "./strings/"
                 await fs.readdir(testFolder, async (err, files) => {
                     const embed = new Discord.MessageEmbed()
                         .setColor(blurple)
@@ -127,7 +127,7 @@ module.exports = {
                 return
             })
             if (!selected) {
-                const testFolder = "./strings/";
+                const testFolder = "./strings/"
                 await fs.readdir(testFolder, async (err, files) => {
                     const embed = new Discord.MessageEmbed()
                         .setColor(blurple)

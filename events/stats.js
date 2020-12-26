@@ -1,6 +1,6 @@
-const { loadingColor, errorColor, successColor, blurple, langdb } = require("../config.json");
-const Discord = require("discord.js");
-const fetch = require("node-fetch");
+const { loadingColor, errorColor, successColor, blurple, langdb } = require("../config.json")
+const Discord = require("discord.js")
+const fetch = require("node-fetch")
 const ctoken = process.env.CTOKEN
 const caccount = process.env.CACCOUNT
 

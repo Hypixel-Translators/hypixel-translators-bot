@@ -50,7 +50,7 @@ client.once("ready", async () => {
   //Change status and run events every minute
   setInterval(() => {
     const pickedUser = boostersStaff[Math.floor(Math.random() * boostersStaff.length)]
-    toPick = Math.random() >= 0.2;
+    toPick = Math.random() >= 0.2
 
     if (toPick) {
       var listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
@@ -131,7 +131,7 @@ client.on("message", async message => {
         .setColor(successColor)
         .setAuthor(globalStrings.outgoing)
         .setDescription(message.content)
-        .setFooter(globalStrings.outgoingDisclaimer);
+        .setFooter(globalStrings.outgoingDisclaimer)
       return message.channel.send(embed)
     } else return //Stop if it starts with prefix
   }
@@ -160,13 +160,13 @@ client.on("message", async message => {
   if (!cooldowns.has(command.name)) {
     cooldowns.set(command.name, new Discord.Collection())
   }
-  const now = Date.now();
+  const now = Date.now()
   const timestamps = cooldowns.get(command.name)
   const cooldownAmount = (command.cooldown || 3) * 1000
   if (timestamps.has(message.author.id)) {
     const expirationTime = timestamps.get(message.author.id) + cooldownAmount
     if (now < expirationTime) {
-      const timeLeft = (expirationTime - now) / 1000;
+      const timeLeft = (expirationTime - now) / 1000
       var timeLeftS
       if (Math.ceil(timeLeft) > 120) {
         timeLeftS = (globalStrings.minsLeftT.replace("%%time%%", Math.round(timeLeft / 60)).replace("%%command%%", commandName))
@@ -202,7 +202,7 @@ client.on("message", async message => {
 
     //Handle errors
     console.log("Error incoming! Message:\n>>>" + message)
-    console.error(error);
+    console.error(error)
     timestamps.delete(message.author.id)
     const embed = new Discord.MessageEmbed()
       .setColor(errorColor)
@@ -220,7 +220,7 @@ client.on("message", async message => {
   } finally {
 
     //Try sending a tip
-    var d = Math.random(); var s = Math.round(Math.random())
+    var d = Math.random()
     if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${globalStrings.tips[Math.floor(Math.random() * Object.keys(globalStrings.tips).length)].replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%translate%%", "<https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044>").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#699367079241056347>")}`)
   }
 })
@@ -251,7 +251,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
         reaction.message.guild.member(user).roles.add(role, "Added the reaction in bot-updates")
           .catch(err => {
             console.log(err)
-            const receivedEmbed = message.embeds[0];
+            const receivedEmbed = message.embeds[0]
             const embed = new Discord.MessageEmbed(receivedEmbed)
               .setFooter("An error occurred, please contact the staff team.")
               .setColor(errorColor)
@@ -283,7 +283,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
         reaction.message.guild.member(user).roles.remove(role, "Removed the reaction in bot-updates")
           .catch(err => {
             console.log(err)
-            const receivedEmbed = message.embeds[0];
+            const receivedEmbed = message.embeds[0]
             const embed = new Discord.MessageEmbed(receivedEmbed)
               .setTitle("Get notified of bot updates")
               .setFooter("An error occurred, please contact the staff team.")

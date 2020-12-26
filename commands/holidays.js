@@ -1,5 +1,5 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
-const Discord = require("discord.js");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const Discord = require("discord.js")
 const fetch = require("node-fetch")
 const fs = require('fs')
 const path = require('path')
@@ -21,7 +21,7 @@ module.exports = {
         holiday.push(strings[holidayName])
         fs.readdir(dirPath, function (err, files) {
             files.forEach(file => {
-                if (err) return console.error('Unable to scan directory: ' + err);
+                if (err) return console.error('Unable to scan directory: ' + err)
                 strings = require(`../strings/${file}/holidays.json`)
                 if (!strings[holidayName]) return message.channel.send("I have no idea what holiday that is sir.")
                 if (!holiday.includes(strings[holidayName])) holiday.push(strings[holidayName])
@@ -33,4 +33,4 @@ module.exports = {
             console.log(`Sent the ${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement`)
         })
     }
-};
+}

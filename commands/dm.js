@@ -1,5 +1,5 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json");
-const Discord = require("discord.js");
+const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const Discord = require("discord.js")
 
 module.exports = {
     name: "dm",
@@ -10,11 +10,11 @@ module.exports = {
     async execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         var allowed = false
-        var userToSend = args[0].replace(/[\\<>@#&!]/g, "");
+        var userToSend = args[0].replace(/[\\<>@#&!]/g, "")
         args.splice(0, 1)
         var toSend = args.join(" ")
         if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("768435276191891456")) { allowed = true } } // Discord Staff
-        if (!allowed) return;
+        if (!allowed) return
 
         const recipient = message.client.users.cache.get(userToSend)
         /*var rStrings = require(("../strings/en/dm.json"))
@@ -37,7 +37,7 @@ module.exports = {
                     .setColor(blurple)
                     .setAuthor("Received message from staff")
                     .setDescription(toSend)
-                    .setFooter("Any messages you send here will be sent to staff.");
+                    .setFooter("Any messages you send here will be sent to staff.")
                 recipient.send(dm)
                     .then(() => {
                         const embed = new Discord.MessageEmbed()
