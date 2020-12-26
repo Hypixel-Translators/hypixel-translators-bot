@@ -1,5 +1,5 @@
 {
     "moduleName": "Uudelleenkäynnistys",
-    "restarting": "Restarting...",
+    "restarting": "Käynnistetään uudelleen...",
     "executedBy": "Komennon suoritti %%user%%"
 }
