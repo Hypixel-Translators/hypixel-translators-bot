@@ -40,7 +40,7 @@ module.exports = {
                         if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
                         else if (json.error !== undefined || json.username === null) { // if other error we didn't plan for appeared
                             let error
-                            if (json.error === undefined && json.username === null) error = "The user doesn't have a username for some reason"
+                            if (json.error === undefined && json.username === null) throw "noPlayer"
                             else if (json.error !== undefined) error = json.error
                             console.log("Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n" + error)
                             throw "apiError"
@@ -62,7 +62,7 @@ module.exports = {
                         else online = strings.offline
 
                         let linkDiscord
-                        if (json.links.DISCORD === null) linkDiscord = "Not connected"
+                        if (json.links.DISCORD === null) linkDiscord = strings.notConnected
                         else linkDiscord = json.links.DISCORD
 
                         var last_seen
@@ -85,7 +85,7 @@ module.exports = {
                         const embed = new Discord.MessageEmbed()
                             .setAuthor(strings.moduleName)
                             .setTitle(rank + " " + username)
-                            .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`))
+                            .setDescription(strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`) + "\n" + strings.updateNotice)
                             .addFields(
                                 { name: strings.networkLevel, value: Math.abs(json.level).toLocaleString(strings.dateLocale), inline: true },
                                 { name: strings.ap, value: json.achievement_points.toLocaleString(strings.dateLocale), inline: true },

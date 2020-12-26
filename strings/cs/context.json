@@ -6,7 +6,7 @@
         "exists1": "Kontextový záznam pro ",
         "exists2": " už existuje, takže tvůj nebyl přidán. Místo toho použij `+context edit`.",
         "didntReply": "Neodpověděl jsi včas, ",
-        "hitReaction": "You reacted with %%voteNo%%, ",
+        "hitReaction": "Zareagoval jsi s %%voteNo%%, ",
         "cancelledPrompt": "takže tato akce byla zrušena. ",
         "readdTryAgain": "Znovu zareaguj s 📑, abys to zkusil znovu."
     },

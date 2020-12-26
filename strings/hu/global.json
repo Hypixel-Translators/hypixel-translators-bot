@@ -12,6 +12,7 @@
     "falseChannel": "Ez a csatorna nem található!",
     "falseUser": "A felhasználó nem található!",
     "falseFlag": "That flag couldn't be found!",
+    "noPlayer": "That player has never joined Hypixel!",
     "disabled": "Ez a parancs ki lett kapcsolva egy időre.",
     "noTrPr": "Nem vagy fordító, sem ellenőrző, így ezt nem tudod végrehajtani!",
     "noAccess": "Nincs engedélyed használni ezt a parancsot!",

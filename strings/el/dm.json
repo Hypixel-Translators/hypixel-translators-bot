@@ -1,6 +1,9 @@
 {
+    "moduleName": "Direct Message",
+    "loading": "Sending message...",
     "outgoing": "Στάλθηκε μήνυμα στον %%recipient%%",
+    "error": "An error occured while trying to message %%recipient%%",
     "incoming": "Λήφθηκε μήνυμα από το προσωπικό",
-    "incomingDisclaimer": "Οποιοδήποτε μήνυμα που θα στείλεις εδώ θα σταλεί στο προσωπικό.",
+    "incomingDisclaimer": "Any messages you send here will be sent to staff.",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }

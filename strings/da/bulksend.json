@@ -1,5 +1,6 @@
 {
     "moduleName": "Masseudsendelse",
     "success": "Success! Messages sent.",
+    "success1": "Succes! Beskeden blev sendt.",
     "executedBy": "Udført af %%user%%"
 }

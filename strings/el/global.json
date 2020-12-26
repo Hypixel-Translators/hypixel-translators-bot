@@ -12,6 +12,7 @@
     "falseChannel": "Δεν ήταν δυνατή η εύρεση αυτού του καναλιού!",
     "falseUser": "Δεν ήταν δυνατή η εύρεση αυτού του χρήστη!",
     "falseFlag": "That flag couldn't be found!",
+    "noPlayer": "That player has never joined Hypixel!",
     "disabled": "Αυτή η εντολή έχει απενεργοποιηθεί προσωρινά.",
     "noTrPr": "You're not a translator or proofreader, so you can't use this!",
     "noAccess": "You're not allowed to execute this command!",

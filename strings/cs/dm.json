@@ -1,6 +1,9 @@
 {
+    "moduleName": "Direct Message",
+    "loading": "Sending message...",
     "outgoing": "Odeslal jsi zprávu uživateli %%recipient%%",
+    "error": "An error occured while trying to message %%recipient%%",
     "incoming": "Přišla ti zpráva od adminů",
-    "incomingDisclaimer": "Jakákoli zpráva, kterou sem pošleš, bude odeslána adminům.",
+    "incomingDisclaimer": "Any messages you send here will be sent to staff.",
     "executedBy": "Provedeno uživatelem %%user%%"
 }

@@ -1,5 +1,6 @@
 {
     "moduleName": "Wysyłanie zbiorcze",
     "success": "Udało się! Wiadomości wysłane.",
+    "success1": "Udało się! Wysłano wiadomość.",
     "executedBy": "Wykonano przez %%user%%"
 }

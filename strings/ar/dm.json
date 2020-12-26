@@ -1,6 +1,9 @@
 {
+    "moduleName": "Direct Message",
+    "loading": "Sending message...",
     "outgoing": "تم ارسال رسالة الى %%recipient%%",
+    "error": "An error occured while trying to message %%recipient%%",
     "incoming": "تلقيت رسالة من الإدارة",
-    "incomingDisclaimer": "سيتم إرسال أي رسالة ترسلها هنا إلى موظفين السيرفر.",
+    "incomingDisclaimer": "Any messages you send here will be sent to staff.",
     "executedBy": "نفذ من قبل %%user%%"
 }

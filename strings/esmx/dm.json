@@ -1,6 +1,9 @@
 {
+    "moduleName": "Mensaje Directo",
+    "loading": "Enviando mensaje...",
     "outgoing": "Mensaje enviado a %%recipient%%",
+    "error": "Se produjo un error al intentar enviar un mensaje a %%recipient%%",
     "incoming": "Mensaje recibido del staff",
-    "incomingDisclaimer": "Cualquier mensaje que envíes aquí se enviará al staff.",
+    "incomingDisclaimer": "Cualquier mensaje que envíe aquí se enviará al staff.",
     "executedBy": "Ejecutado por %%user%%"
 }

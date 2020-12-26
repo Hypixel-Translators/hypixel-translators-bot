@@ -12,6 +12,7 @@
     "falseChannel": "Saluran itu tidak dapat ditemukan!",
     "falseUser": "Pengguna itu tidak dapat ditemukan!",
     "falseFlag": "That flag couldn't be found!",
+    "noPlayer": "That player has never joined Hypixel!",
     "disabled": "This command has been temporarily disabled.",
     "noTrPr": "Anda adalah penerjermah bukan pembaca bukti, anda tidak dapat menggunakan ini!",
     "noAccess": "You're not allowed to execute this command!",
