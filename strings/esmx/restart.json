@@ -1,5 +1,5 @@
 {
-    "moduleName": "Restart",
-    "restarting": "Restarting...",
+    "moduleName": "Reiniciar",
+    "restarting": "Reiniciando...",
     "executedBy": "Ejecutado por %%user%%"
 }
