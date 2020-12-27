@@ -42,8 +42,8 @@
         "description": "Megnyitja a GitHub oldalunkat, ahol hibákat jelenthetsz és visszajelzést adhatsz."
     },
     "language": {
-        "usage": "+language [<új nyelv> | list]",
-        "description": "Megváltoztatja a nyelved, megmutatja a mostanit, vagy ad egy listát az elérhető nyelvekről."
+        "usage": "+language [<new language> | list | add <language>]",
+        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`"
     },
     "ping": {
         "usage": "+ping",
