@@ -37,5 +37,5 @@
         "10": "Did you know most channels have important information pinned? You should check it out every time you visit one!",
         "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%%によって実行されました"
 }
