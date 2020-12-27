@@ -19,8 +19,8 @@ async function check(client) {
                 if (isZalgo(member.displayName, 0.3)) {
                     const newNick = clean(member.displayName)
                     if (isZalgo(newNick, 0.3)) {
-                        member.send(`Your nickname on the Hypixel Translators Community Discord was automatically set to \`Unknown\` because it had Zalgo in it, which we could not remove (here's what it looked like before: \`${member.displayName}\`). If you believe this is an error, feel free to respond to this message saying so. Keep in mind anything sent in these DMs will be sent to staff and that this message was automated, so mistakes might occur.")
-                    member.setNickname("Unknown", "More than 30% of user's name was zalgo and could not be changed`)
+                        member.send(`Your nickname on the Hypixel Translators Community Discord was automatically set to \`Unknown\` because it had Zalgo in it, which we could not remove (here's what it looked like before: \`${member.displayName}\`). If you believe this is an error, feel free to respond to this message saying so. Keep in mind anything sent in these DMs will be sent to staff and that this message was automated, so mistakes might occur.`)
+                        member.setNickname("Unknown", "More than 30% of user's name was zalgo and could not be changed")
                             .then(() => {
                                 console.log("Changed the nick of " + member.user.tag + " to Unknown because it had Zalgo in it")
                             })
