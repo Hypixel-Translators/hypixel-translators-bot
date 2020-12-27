@@ -1,5 +1,5 @@
 {
     "moduleName": "再起動",
-    "restarting": "Restarting...",
+    "restarting": "再起動中…",
     "executedBy": "Executed by %%user%%"
 }
