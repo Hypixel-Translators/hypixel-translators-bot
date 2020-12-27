@@ -1,6 +1,6 @@
 {
     "moduleName": "Direct Message",
-    "loading": "Sending message...",
+    "loading": "メッセージを送信中…",
     "outgoing": "Sent message to %%recipient%%",
     "error": "An error occured while trying to message %%recipient%%",
     "incoming": "Received message from staff",
