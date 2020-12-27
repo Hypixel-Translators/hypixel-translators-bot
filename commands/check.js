@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const { blurple } = require("../config.json")
 const Discord = require("discord.js")
 
 module.exports = {
@@ -34,7 +34,7 @@ module.exports = {
       var userRoles = user.roles.cache
       userRoles.delete("549503328472530974")
 
-        const embed = new Discord.MessageEmbed()
+      const embed = new Discord.MessageEmbed()
         .setColor(color)
         .setAuthor(strings.moduleName, user.user.displayAvatarURL())
         .setTitle(user.user.tag)

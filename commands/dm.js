@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json")
 const Discord = require("discord.js")
 
 module.exports = {
@@ -34,7 +34,7 @@ module.exports = {
         message.channel.send(loadingEmbed)
             .then(msg => {
                 const dm = new Discord.MessageEmbed()
-                    .setColor(blurple)
+                    .setColor(neutralColor)
                     .setAuthor("Received message from staff")
                     .setDescription(toSend)
                     .setFooter("Any messages you send here will be sent to staff.")

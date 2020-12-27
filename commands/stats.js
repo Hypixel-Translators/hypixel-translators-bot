@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const { loadingColor, errorColor, successColor } = require("../config.json")
 const Discord = require("discord.js")
 const { execute, hypixel, quickplay, skyblockaddons, bot } = require("../events/stats.js")
 

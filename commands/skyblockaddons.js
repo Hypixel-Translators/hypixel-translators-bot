@@ -1,6 +1,3 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
-const Discord = require("discord.js")
-
 module.exports = {
   name: "skyblockaddons",
   description: "Gives you useful information regarding the SkyblockAddons Crowdin project.",

@@ -6,7 +6,7 @@ const client = new Discord.Client()
 require("dotenv").config()
 
 //Import data, assets and commands
-const { prefix, loadingColor, errorColor, successColor, blurple, listenStatuses, watchStatuses } = require("./config.json")
+const { prefix, loadingColor, errorColor, successColor, neutralColor, blurple, listenStatuses, watchStatuses } = require("./config.json")
 client.commands = new Discord.Collection()
 const commandFiles = fs
   .readdirSync("./commands")
@@ -124,7 +124,7 @@ client.on("message", async message => {
     if (message.channel.type === "dm") {
       const sendTo = client.channels.cache.get("730042612647723058") //bot-development
       const report = new Discord.MessageEmbed()
-        .setColor(blurple)
+        .setColor(neutralColor)
         .setAuthor("Incoming message from " + message.author.tag)
         .setDescription(message.content)
         .addFields({ name: "To reply", value: "\`+dm " + message.author.id + " \`" })
@@ -267,7 +267,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
               embed
                 .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. \n_This gives you <@&732615152246980628>._")
                 .setFooter("Please check if you received the role after reacting. If not, please contact the staff team.")
-                .setColor(blurple)
+                .setColor(neutralColor)
               message.edit(embed)
             }, 5000)
           })
@@ -301,7 +301,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
                 .setTitle("Get notified of bot updates")
                 .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. \n_This gives you <@&732615152246980628>._")
                 .setFooter("Please check if you received the role after reacting. If not, please contact the staff team.")
-                .setColor(blurple)
+                .setColor(neutralColor)
               message.edit("", embed)
             }, 5000)
           })

@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 const fetch = require("node-fetch")
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const { loadingColor, errorColor } = require("../config.json")
 
 //Credits to marzeq_
 module.exports = {

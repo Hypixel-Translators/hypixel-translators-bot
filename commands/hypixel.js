@@ -1,6 +1,3 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
-const Discord = require("discord.js")
-
 module.exports = {
   name: "hypixel",
   description: "Gives you useful information regarding the Hypixel Crowdin project.",

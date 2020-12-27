@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const { successColor } = require("../config.json")
 const Discord = require("discord.js")
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
     aliases: ["issues", "bug", "feedback"],
     cooldown: 120,
     allowDM: true,
-    channelBlackList: "621298919535804426",
+    channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
     execute(message, strings) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const embed = new Discord.MessageEmbed()

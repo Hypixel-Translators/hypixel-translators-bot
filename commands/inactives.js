@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const { loadingColor, successColor } = require("../config.json")
 const Discord = require("discord.js")
 const inactives = require("../events/inactives.js")
 

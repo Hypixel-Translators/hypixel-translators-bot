@@ -1,6 +1,3 @@
-const Discord = require("discord.js")
-const { langdb } = require("../config.json")
-
 module.exports = {
   name: "mention",
   description: "Mentions a language role with a message.",
@@ -27,33 +24,32 @@ module.exports = {
       toSend = "<a:bongoping:614477510423478275>" + toSend
     }
 
-    if (toLook === "Chinesesimplified" || toLook === "Chinese-simplified" || toLook === "Zhcn") { toLook = "Chinese (Simplified)" }
-    if (toLook === "Chinesetraditional" || toLook === "Chinese-traditional" || toLook === "Zhtw") { toLook = "Chinese (Traditional)" }
-    if (toLook === "Lolcat" || toLook === "Lol") { toLook = "LOLCAT" }
-    if (toLook === "Bg") { toLook = "Bulgarian" }
-    if (toLook === "Cs") { toLook = "Czech" }
-    if (toLook === "Da") { toLook = "Danish" }
-    if (toLook === "Nl") { toLook = "Dutch" }
-    if (toLook === "Fi") { toLook = "Finnish" }
-    if (toLook === "Fr") { toLook = "French" }
-    if (toLook === "De") { toLook = "German" }
-    if (toLook === "El") { toLook = "Greek" }
-    if (toLook === "It") { toLook = "Italian" }
-    if (toLook === "Ja") { toLook = "Japanese" }
-    if (toLook === "Ko") { toLook = "Korean" }
-    if (toLook === "Ms") { toLook = "Malay" }
-    if (toLook === "No") { toLook = "Norwegian" }
-    if (toLook === "Pl") { toLook = "Polish" }
-    if (toLook === "Pt") { toLook = "Portuguese" }
-    if (toLook === "Ptbr") { toLook = "Brazilian" }
-    if (toLook === "Ru") { toLook = "Russian" }
-    if (toLook === "Es") { toLook = "Spanish" }
-    if (toLook === "Sv") { toLook = "Swedish" }
-    if (toLook === "Th") { toLook = "Thai" }
-    if (toLook === "Tr") { toLook = "Turkish" }
-    if (toLook === "Ua") { toLook = "Ukrainian" }
-    if (toLook === "Enpt") { toLook = "Pirate English" }
-
+    if (toLook === "Chinesesimplified" || toLook === "Chinese-simplified" || toLook === "Zhcn") toLook = "Chinese (Simplified)" 
+    else if (toLook === "Chinesetraditional" || toLook === "Chinese-traditional" || toLook === "Zhtw") toLook = "Chinese (Traditional)"
+    else if (toLook === "Lolcat" || toLook === "Lol") toLook = "LOLCAT"
+    else if (toLook === "Bg") toLook = "Bulgarian"
+    else if (toLook === "Cs") toLook = "Czech"
+    else if (toLook === "Da") toLook = "Danish"
+    else if (toLook === "Nl") toLook = "Dutch"
+    else if (toLook === "Fi") toLook = "Finnish"
+    else if (toLook === "Fr") toLook = "French"
+    else if (toLook === "De") toLook = "German"
+    else if (toLook === "El") toLook = "Greek"
+    else if (toLook === "It") toLook = "Italian"
+    else if (toLook === "Ja") toLook = "Japanese"
+    else if (toLook === "Ko") toLook = "Korean"
+    else if (toLook === "Ms") toLook = "Malay"
+    else if (toLook === "No") toLook = "Norwegian"
+    else if (toLook === "Pl") toLook = "Polish"
+    else if (toLook === "Pt") toLook = "Portuguese"
+    else if (toLook === "Ptbr") toLook = "Brazilian"
+    else if (toLook === "Ru") toLook = "Russian"
+    else if (toLook === "Es") toLook = "Spanish"
+    else if (toLook === "Sv") toLook = "Swedish"
+    else if (toLook === "Th") toLook = "Thai"
+    else if (toLook === "Tr") toLook = "Turkish"
+    else if (toLook === "Ua") toLook = "Ukrainian"
+    else if (toLook === "Enpt") toLook = "Pirate"
 
     console.log("toLook: " + toLook)
     console.log("type: " + type)

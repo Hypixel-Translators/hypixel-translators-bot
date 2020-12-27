@@ -1,5 +1,3 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
-const Discord = require("discord.js")
 const fetch = require("node-fetch")
 const fs = require('fs')
 const path = require('path')

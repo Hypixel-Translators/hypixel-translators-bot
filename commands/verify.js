@@ -1,5 +1,3 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
-
 module.exports = {
     name: "verify",
     description: "Verifies the user who executes the command",

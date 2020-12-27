@@ -1,7 +1,3 @@
-const { loadingColor, errorColor, successColor, blurple, langdb } = require("../config.json")
-const Discord = require("discord.js")
-const fetch = require("node-fetch")
-
 module.exports = {
     execute(client, manual) {
         var d = new Date()

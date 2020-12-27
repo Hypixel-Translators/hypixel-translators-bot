@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, blurple } = require("../config.json")
+const { successColor, blurple } = require("../config.json")
 const Discord = require("discord.js")
 
 module.exports = {
