@@ -42,8 +42,8 @@
         "description": "Herhangi bir hatayı bildirebileceğiniz GitHub sorunları sayfamızı açar."
     },
     "language": {
-        "usage": "+language [<yeni dil> | liste]",
-        "description": "Dilinizi değiştirir, mevcut dilinizi gösterir veya mevcut dillerin bir listesini gösterir."
+        "usage": "+language [<new language> | list | add <language>]",
+        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`"
     },
     "ping": {
         "usage": "+ping",
