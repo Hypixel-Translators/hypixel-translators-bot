@@ -42,8 +42,8 @@
         "description": "Opent onze GitHub-issuespagina, waar je problemen kunt melden en feedback kunt geven."
     },
     "language": {
-        "usage": "+language [<nieuwe taal> | list]",
-        "description": "Verandert je taal, toont je huidige taal of geeft een lijst met alle beschikbare talen."
+        "usage": "+language [<new language> | list | add <language>]",
+        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`"
     },
     "ping": {
         "usage": "+ping",
