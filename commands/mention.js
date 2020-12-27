@@ -23,33 +23,10 @@ module.exports = {
     if (toSend.length < 2) {
       toSend = "<a:bongoping:614477510423478275>" + toSend
     }
-
-    if (toLook === "Chinesesimplified" || toLook === "Chinese-simplified" || toLook === "Zhcn") toLook = "Chinese (Simplified)" 
-    else if (toLook === "Chinesetraditional" || toLook === "Chinese-traditional" || toLook === "Zhtw") toLook = "Chinese (Traditional)"
-    else if (toLook === "Lolcat" || toLook === "Lol") toLook = "LOLCAT"
-    else if (toLook === "Bg") toLook = "Bulgarian"
-    else if (toLook === "Cs") toLook = "Czech"
-    else if (toLook === "Da") toLook = "Danish"
-    else if (toLook === "Nl") toLook = "Dutch"
-    else if (toLook === "Fi") toLook = "Finnish"
-    else if (toLook === "Fr") toLook = "French"
-    else if (toLook === "De") toLook = "German"
-    else if (toLook === "El") toLook = "Greek"
-    else if (toLook === "It") toLook = "Italian"
-    else if (toLook === "Ja") toLook = "Japanese"
-    else if (toLook === "Ko") toLook = "Korean"
-    else if (toLook === "Ms") toLook = "Malay"
-    else if (toLook === "No") toLook = "Norwegian"
-    else if (toLook === "Pl") toLook = "Polish"
-    else if (toLook === "Pt") toLook = "Portuguese"
-    else if (toLook === "Ptbr") toLook = "Brazilian"
-    else if (toLook === "Ru") toLook = "Russian"
-    else if (toLook === "Es") toLook = "Spanish"
-    else if (toLook === "Sv") toLook = "Swedish"
-    else if (toLook === "Th") toLook = "Thai"
-    else if (toLook === "Tr") toLook = "Turkish"
-    else if (toLook === "Ua") toLook = "Ukrainian"
-    else if (toLook === "Enpt") toLook = "Pirate"
+    var langs = { "Chinesesimplified": "Chinese (Simplified)", "Chinese-simplified": "Chinese (Simplified)", "Zhcn": "Chinese (Simplified)", "Chinesetraditional": "Chinese (Traditional)", "Chinese-traditional": "Chinese (Traditional)", "Zhtw": "Chinese (Traditional)", "Lolcat": "LOLCAT", "Lol": "LOLCAT", "Bg": "Bulgarian", "Cs": "Czech", "Da": "Danish", "Nl": "Dutch", "Fi": "Finnish", "Fr": "French", "De": "German", "El": "Greek", "It": "Italian", "Ja": "Japanese", "Ko": "Korean", "Ms": "Malay", "No": "Norwegian", "Pl": "Polish", "Pt": "Portuguese", "Ptbr": "Brazilian", "Ru": "Russian", "Es": "Spanish", "Sv": "Swedish", "Th": "Thai", "Tr": "Turkish", "Ua": "Ukrainian", "Enpt": "Pirate" }
+    if (langs.hasOwnProperty(toLook)) {
+      toLook = langs[toLook]
+    }
 
     console.log("toLook: " + toLook)
     console.log("type: " + type)
