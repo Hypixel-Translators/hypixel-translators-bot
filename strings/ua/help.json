@@ -42,8 +42,8 @@
         "description": "Відкриває нашу сторінку проблем із GitHub, де ви можете повідомити про проблеми та надіслати відгук."
     },
     "language": {
-        "usage": "+language [<нова мова> | list]",
-        "description": "Змінює вашу мову, показує вашу поточну або показує список доступних мов."
+        "usage": "+language [<new language> | list | add <language>]",
+        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`"
     },
     "ping": {
         "usage": "+ping",
