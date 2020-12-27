@@ -42,8 +42,8 @@
         "description": "تفتح لك صفحة المشاكل الخاصة بنا في Github, المكان الذي تستطيع فيه إخبارنا عن المشاكل و ترسل تقييم."
     },
     "language": {
-        "usage": "+language [<لغة جديدة> | list]",
-        "description": "تغير لغتك, تظهر لك لغتك الحالية أو تظهر قائمة اللغات المتاحة حاليا."
+        "usage": "+language [<new language> | list | add <language>]",
+        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`"
     },
     "ping": {
         "usage": "+ping",
