@@ -14,7 +14,7 @@ module.exports = {
     execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         let allowed = false
-        if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("768435276191891456")) { allowed = true } } // Discord Staff
+        if (strings, message.channel.type !== "dm" && strings, message.member.roles.cache.has("768435276191891456"))  allowed = true // Discord Staff
         const embed = new Discord.MessageEmbed()
             .setColor(loadingColor)
             .setAuthor(strings.moduleName)
