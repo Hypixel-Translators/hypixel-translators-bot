@@ -42,8 +42,8 @@
         "description": "Abre nuestra página de errores de GitHub, donde puedes reportar bugs."
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
-        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
+        "usage": "+language [<nuevo idioma> | list | add <idioma>]",
+        "description": "Cambia tu idioma, muestra tu idioma actual o muestra una lista de idiomas disponibles. Si quieres pedir un nuevo idioma para el bot, usa `+language add <idioma>`."
     },
     "ping": {
         "usage": "+ping",
