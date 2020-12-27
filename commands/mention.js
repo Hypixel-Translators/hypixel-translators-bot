@@ -15,7 +15,7 @@ module.exports = {
       return
     }
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-    var type = args[1]
+    var type = args[1].toLowerCase()
     const lowerArg = args[0].toLowerCase()
     var toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
     args.splice(0, 2)
@@ -23,33 +23,10 @@ module.exports = {
     if (toSend.length < 2) {
       toSend = "<a:bongoping:614477510423478275>" + toSend
     }
-
-    if (toLook === "Chinesesimplified" || toLook === "Chinese-simplified" || toLook === "Zhcn") toLook = "Chinese (Simplified)" 
-    else if (toLook === "Chinesetraditional" || toLook === "Chinese-traditional" || toLook === "Zhtw") toLook = "Chinese (Traditional)"
-    else if (toLook === "Lolcat" || toLook === "Lol") toLook = "LOLCAT"
-    else if (toLook === "Bg") toLook = "Bulgarian"
-    else if (toLook === "Cs") toLook = "Czech"
-    else if (toLook === "Da") toLook = "Danish"
-    else if (toLook === "Nl") toLook = "Dutch"
-    else if (toLook === "Fi") toLook = "Finnish"
-    else if (toLook === "Fr") toLook = "French"
-    else if (toLook === "De") toLook = "German"
-    else if (toLook === "El") toLook = "Greek"
-    else if (toLook === "It") toLook = "Italian"
-    else if (toLook === "Ja") toLook = "Japanese"
-    else if (toLook === "Ko") toLook = "Korean"
-    else if (toLook === "Ms") toLook = "Malay"
-    else if (toLook === "No") toLook = "Norwegian"
-    else if (toLook === "Pl") toLook = "Polish"
-    else if (toLook === "Pt") toLook = "Portuguese"
-    else if (toLook === "Ptbr") toLook = "Brazilian"
-    else if (toLook === "Ru") toLook = "Russian"
-    else if (toLook === "Es") toLook = "Spanish"
-    else if (toLook === "Sv") toLook = "Swedish"
-    else if (toLook === "Th") toLook = "Thai"
-    else if (toLook === "Tr") toLook = "Turkish"
-    else if (toLook === "Ua") toLook = "Ukrainian"
-    else if (toLook === "Enpt") toLook = "Pirate"
+    const langs = { "Chinesesimplified": "Chinese (Simplified)", "Chinese-simplified": "Chinese (Simplified)", "Zhcn": "Chinese (Simplified)", "Chinesetraditional": "Chinese (Traditional)", "Chinese-traditional": "Chinese (Traditional)", "Zhtw": "Chinese (Traditional)", "Lolcat": "LOLCAT", "Lol": "LOLCAT", "Bg": "Bulgarian", "Cs": "Czech", "Da": "Danish", "Nl": "Dutch", "Fi": "Finnish", "Fr": "French", "De": "German", "El": "Greek", "It": "Italian", "Ja": "Japanese", "Ko": "Korean", "Ms": "Malay", "No": "Norwegian", "Pl": "Polish", "Pt": "Portuguese", "Ptbr": "Brazilian", "Ru": "Russian", "Es": "Spanish", "Sv": "Swedish", "Th": "Thai", "Tr": "Turkish", "Ua": "Ukrainian", "Enpt": "Pirate" }
+    if (langs.hasOwnProperty(toLook)) {
+      toLook = langs[toLook]
+    }
 
     console.log("toLook: " + toLook)
     console.log("type: " + type)
@@ -60,35 +37,30 @@ module.exports = {
       message.channel.send(strings.errorNotFound + "\n`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.")
       return
     }
-    if (type === "pf" || type === "pr" || type === "proofreader" || type === "Proofreader") {
+    if (type === "pf" || type === "pr" || type === "proofreader") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader")
       const lowerRole = message.guild.roles.cache.find(role => role.name === toLook + " Translator")
-      console.log(toPing + "\n" + lowerRole)
+      console.log(toPing + " " + lowerRole)
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR"))) {
         message.delete()
         message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> " + toSend)
       } else { message.channel.send(strings.errorNoPing + strings.errorNoPingPr + " " + strings.errorNoPingDisclaimer) }
-    } else if (type === "tr" || type === "translator" || type === "Translator") {
+    } else if (type === "tr" || type === "translator") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator")
       const higherRole = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader")
-      console.log(toPing + "\n" + higherRole)
-      if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR"))
-      ) {
+      console.log(toPing + " " + higherRole)
+      if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR"))) {
         message.delete()
         message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> " + toSend)
       } else { message.channel.send(strings.errorNoPing + strings.errorNoPingTr + " " + strings.errorNoPingDisclaimer) }
     } else if (type === "all" || type === "both") {
       const translatorPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator")
       const proofreaderPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader")
-      console.log(translatorPing + "\n" + proofreaderPing)
+      console.log(translatorPing + " " + proofreaderPing)
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR"))) {
         message.delete()
         message.channel.send("**<@" + message.member.id + ">**: <@&" + translatorPing + "> <@&" + proofreaderPing + "> " + toSend)
       } else { message.channel.send(strings.errorNoPing + strings.errorNoPingAll + " " + strings.errorNoPingDisclaimer) }
     }
   }
-}
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
 }
