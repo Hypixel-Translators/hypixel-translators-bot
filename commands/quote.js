@@ -7,7 +7,7 @@ const quotesSheet = process.env.quotes
 module.exports = {
     name: "quote",
     description: "Gets (or adds) a funny/weird/wise quote from the server.",
-    usage: "+quote [index] | quote add <quote> / <user mention>",
+    usage: "+quote [index] | quote add <quote> / <author mention>",
     cooldown: 5,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "619662798133133312", "624881429834366986", "730042612647723058", "749391414600925335"], //bots memes staff-bots bot-development bot-translators
@@ -27,14 +27,16 @@ module.exports = {
                 const toSend = args.join(" ")
                 const fullQuote = toSend.split(" / ")
                 const quote = fullQuote[0]
-                const user = fullQuote[1]
+                const author = fullQuote[1]
+                if (!quote) throw "noQuote"
+                if (!author) throw "noUserQuote"
                 if (!allowed) {
                     const sendTo = msg.client.channels.cache.get("624881429834366986") //staff-bots
                     const report = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor("Quote")
                         .setTitle("A quote request has been submitted!")
-                        .setDescription(quote + "\n       - " + user)
+                        .setDescription(quote + "\n       - " + author)
                         .addFields({ name: "To add it", value: "`+quote add " + toSend + "`" })
                         .setFooter("Suggested by " + message.author.tag, message.author.displayAvatarURL())
                     sendTo.send(report)
@@ -42,11 +44,11 @@ module.exports = {
                         .setColor(successColor)
                         .setAuthor(strings.moduleName)
                         .setTitle(strings.reqSub)
-                        .setDescription(quote + "\n       - " + user)
+                        .setDescription(quote + "\n       - " + author)
                         .setFooter(executedBy, message.author.displayAvatarURL())
                     msg.edit(embed)
                 } else {
-                    addToSpreadsheet(executedBy, message, strings, quote, user, msg)
+                    addToSpreadsheet(executedBy, message, strings, quote, author, msg)
                 }
             } else {
                 accessSpreadsheet(executedBy, message, strings, args, msg)
@@ -86,13 +88,13 @@ async function accessSpreadsheet(executedBy, message, strings, args, msg) {
         .setColor(successColor)
         .setAuthor(strings.moduleName)
         .setTitle(correctRow.quote)
-        .setDescription("      - " + correctRow.user)
+        .setDescription("      - " + correctRow.author)
         .setFooter(executedBy, message.author.displayAvatarURL())
     msg.edit(embed)
     console.log(`Quote #${quoteNum} has been requested (0-base number ${quoteNumCode}, sheet position ${quoteNumSheet})`)
 }
 
-async function addToSpreadsheet(executedBy, message, strings, quote, user, msg) {
+async function addToSpreadsheet(executedBy, message, strings, quote, author, msg) {
     const doc = new GoogleSpreadsheet(quotesSheet)
     await doc.useServiceAccountAuth(creds)
 
@@ -105,26 +107,14 @@ async function addToSpreadsheet(executedBy, message, strings, quote, user, msg) 
     const rows = await sheet.getRows()
     const newLength = Number(rows.length) + 1
 
-    if (!user) {
-        throw "noUserQuote"
-        /*const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
-            .setAuthor(strings.moduleName)
-            .setTitle(strings.invalidArg)
-            .setDescription(strings.specUser)
-            .setFooter(executedBy, message.author.displayAvatarURL())
-        msg.edit(embed)
-        return*/
-    }
-
-    const result = await sheet.addRow({ quote, user })
+    const result = await sheet.addRow({ quote, author })
 
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.reqAdd)
         .setDescription(result.quote)
-        .addFields({ name: strings.user, value: result.user }, { name: strings.index, value: newLength })
+        .addFields({ name: strings.user, value: result.author }, { name: strings.index, value: newLength })
         .setFooter(executedBy, message.author.displayAvatarURL())
     msg.edit(embed)
 }
