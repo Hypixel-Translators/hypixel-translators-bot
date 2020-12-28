@@ -8,6 +8,7 @@
     "noChannel": "Je hebt geen kanaal opgegeven!",
     "noUser": "Je hebt geen gebruiker opgegeven!",
     "noContext": "Je hebt de context niet opgegeven! Voeg het string-ID en de toelichtende context toe.",
+    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`",
     "noUserQuote": "Je hebt geen gebruiker opgegeven! Typ het citaat, en vermeld dan de geciteerde gebruiker, gescheiden door een slash.",
     "falseChannel": "Dat kanaal kon niet worden gevonden!",
     "falseUser": "Die gebruiker kon niet worden gevonden!",
