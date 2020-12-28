@@ -26,7 +26,7 @@
         "description": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen. Saadaksesi etuliitteen, käytä komentoa `+prefix <liput>`, ja korvaa `<liput>` oman maasi lipun koodilla tai nimellä. Voit lisätä niin monta lippua kuin haluat erottamalla ne välilyönneillä."
     },
     "quote": {
-        "usage": "+quote [numero] | +quote add <lainaus> / <käyttäjä>",
+        "usage": "+quote [index] | +quote add <quote> / <author mention>",
         "description": "Hakee (tai lisää) hauskan/oudon/viisaan lainauksen palvelimelta."
     },
     "mention": {
