@@ -1,5 +1,5 @@
 {
     "moduleName": "Neustart",
-    "restarting": "Restarting...",
+    "restarting": "Neustart …",
     "executedBy": "Ausgeführt von %%user%%"
 }
