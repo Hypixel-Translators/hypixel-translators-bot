@@ -8,6 +8,7 @@
     "noChannel": "Não mencionaste um canal!",
     "noUser": "Não forneceste um utilizador!",
     "noContext": "Não forneceste contexto! Tens de incluir tanto o ID da string como o seu contexto.",
+    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`",
     "noUserQuote": "Não mencionaste um utilizador! Escreve a citação e menciona o utilizador citado, separados por uma barra.",
     "falseChannel": "Esse canal não foi encontrado!",
     "falseUser": "Esse utilizador não foi encontrado!",
