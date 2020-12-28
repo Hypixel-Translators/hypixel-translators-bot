@@ -26,7 +26,7 @@
         "description": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen. Saadaksesi etuliitteen, käytä komentoa `+prefix <liput>`, ja korvaa `<liput>` oman maasi lipun koodilla tai nimellä. Voit lisätä niin monta lippua kuin haluat erottamalla ne välilyönneillä."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [numero] | +quote add <lainaus> / <käyttäjä>",
         "description": "Hakee (tai lisää) hauskan/oudon/viisaan lainauksen palvelimelta."
     },
     "mention": {
@@ -42,8 +42,8 @@
         "description": "Avaa GitHubin issues-sibun, jossa voit ilmiantaa botissa ilmeneviä ongelmia ja antaa palautetta."
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
-        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
+        "usage": "+language [<kieli> | list | add <kieli>]",
+        "description": "Vaihtaa kielesi, näyttää käytössä olevan kielesi tai listaa kaikki saatavilla olevat kielet. Jos haluat pyytää uuden kielen lisäämistä, käytä komentoa `+language add <kieli>`."
     },
     "ping": {
         "usage": "+ping",
