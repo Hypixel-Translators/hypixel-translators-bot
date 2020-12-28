@@ -26,7 +26,7 @@
         "description": "Te da el prefijo apropiado para tu(s) idioma(s). Para obtener un prefijo personalizado, usa `+prefix <banderas>` y reemplaza `<banderas>` con el código regional de tu país o su nombre. Puedes añadir tantas banderas como quieras, separadas con espacios."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [número] | +quote add <cita> / <mención del citado>",
         "description": "Obtiene (o añade) una cita chistosa/extraña/sabia del servidor."
     },
     "mention": {
