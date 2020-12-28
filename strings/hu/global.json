@@ -8,7 +8,7 @@
     "noChannel": "Meg kell adnod egy csatornát!",
     "noUser": "Meg kell adnod egy felhasználót!",
     "noContext": "Nem adtál meg kontextust! Kérlek add hozzá a szöveg azonosítóját és a kontextusát is.",
-    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`",
+    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`.",
     "noUserQuote": "Nem adtál me felhasználót! Kérlek írd le az idézetet, majd írd le az idézett embert egy per jellel elválasztva.",
     "falseChannel": "Ez a csatorna nem található!",
     "falseUser": "A felhasználó nem található!",
