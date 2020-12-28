@@ -18,7 +18,7 @@ module.exports = {
             .setTitle(strings.restarting)
             .setFooter(executedBy, message.author.displayAvatarURL())
         message.channel.send(embed)
-        msg.client.user.setStatus("invisible")
+        message.client.user.setStatus("invisible")
         setTimeout(() => { process.exit() }, 1000)
     }
 }
