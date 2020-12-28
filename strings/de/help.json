@@ -26,7 +26,7 @@
         "description": "Gibt dir den passenden Präfix für deine Sprache(n). Um einen benutzerdefiniertes Präfix zu erhalten, führe `+prefix <Flaggen>` aus und ersetze `<Flaggen>` durch den Regionalcode der Flagge deines Landes oder dessen Namen. Du kannst so viele Flaggen hinzufügen, die durch ein Leerzeichen getrennt sind."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [index] | +quote add <Zitat> / <Nutzer erwähnen>",
         "description": "Ruft (oder hinzufügt) ein lustiges / seltsames Zitat vom Server ab."
     },
     "mention": {
@@ -42,8 +42,8 @@
         "description": "Öffnet unsere GitHub-Issues-Seite, wo du Probleme melden und Feedback senden kannst."
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
-        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
+        "usage": "+language [<Neue Sprache> | list | add <Sprache>]",
+        "description": "Ändert deine Sprache, zeigt deine aktuelle Sprache oder eine Liste der verfügbaren Sprachen an. Wenn du eine neue Sprache anfordern möchtest, führe `+language add <Sprache>` aus."
     },
     "ping": {
         "usage": "+ping",
