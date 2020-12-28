@@ -26,7 +26,7 @@
         "description": "Gibt dir den passenden Präfix für deine Sprache(n). Um einen benutzerdefiniertes Präfix zu erhalten, führe `+prefix <Flaggen>` aus und ersetze `<Flaggen>` durch den Regionalcode der Flagge deines Landes oder dessen Namen. Du kannst so viele Flaggen hinzufügen, die durch ein Leerzeichen getrennt sind."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <Zitat>/<Nutzer erwähnen>",
+        "usage": "+quote [index] | +quote add <quote> / <author mention>",
         "description": "Ruft (oder hinzufügt) ein lustiges / seltsames Zitat vom Server ab."
     },
     "mention": {
