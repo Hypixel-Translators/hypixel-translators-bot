@@ -8,6 +8,7 @@
     "noChannel": "Et syöttänyt kanavaa!",
     "noUser": "Et syöttänyt käyttäjää!",
     "noContext": "Et syöttänyt kontekstia! Ole hyvä ja lisää stringin ID ja stringiä selittävä konteksti.",
+    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`",
     "noUserQuote": "Et syöttänyt käyttäjää! Ole hyvä ja kirjoita lainaus sekä mainitse lainattu käyttäjä, erotettuna vinoviivalla.",
     "falseChannel": "Tätä kanavaa ei löytynyt!",
     "falseUser": "Tätä käyttäjää ei löytynyt!",
