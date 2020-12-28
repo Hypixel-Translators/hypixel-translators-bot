@@ -8,7 +8,7 @@
     "noChannel": "Nezadal jsi název kanálu!",
     "noUser": "Nezadal jsi jméno uživatele!",
     "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
-    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`",
+    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`.",
     "noUserQuote": "Nezadal jsi jméno uživatele! Prosím napiš citát a následně označ citovaného uživatele, odděleného lomítkem.",
     "falseChannel": "Tento kanál se nepodařilo najít!",
     "falseUser": "Tohoto uživatele se nepodařilo najít!",
