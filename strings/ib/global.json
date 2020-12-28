@@ -8,7 +8,7 @@
     "noChannel": "Providd not chanel!",
     "noUser": "Providd not uzer!",
     "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
-    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`",
+    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`.",
     "noUserQuote": "Providd not uzer! Pls typ quot, den menton the quotd uzer, butt with slashs so it separatat.",
     "falseChannel": "Dat chanel found? NO!",
     "falseUser": "Dat uzer found? NO!",
