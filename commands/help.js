@@ -110,8 +110,8 @@ module.exports = {
       }
 
       if (strings[command.name]) {
-        if (strings[command.name].description) let cmdDesc = strings[command.name].description
-        if (strings[command.name].usage) let cmdUsage = strings[command.name].usage
+        if (strings[command.name].description) var cmdDesc = strings[command.name].description
+        if (strings[command.name].usage) var cmdUsage = strings[command.name].usage
       }
 
       const embed = new Discord.MessageEmbed()
