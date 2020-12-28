@@ -26,7 +26,7 @@
         "description": "Geeft je het juiste voorvoegsel voor je taal/talen. Voor een aangepast voorvoegsel kun je `+prefix <vlaggen>` uitvoeren, waar `<vlaggen>` staat voor een landcode of -naam. Je kunt zo veel talen selecteren als je wilt, zolang je ze scheidt met een spatie."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [nummer] | +quote add <citaat> / <vermelding auteur>",
         "description": "Geeft een grappig/raar/wijs citaat uit de server (of voegt er een toe)."
     },
     "mention": {
@@ -42,8 +42,8 @@
         "description": "Opent onze GitHub-issuespagina, waar je problemen kunt melden en feedback kunt geven."
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
-        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
+        "usage": "+language [<nieuwe taal> | list | add <taal>]",
+        "description": "Verandert je taal, toont je huidige taal of geeft een lijst met alle beschikbare talen. Als je een taal wilt verzoeken voor de bot, kun je `+language add <taal>` uitvoeren."
     },
     "ping": {
         "usage": "+ping",
