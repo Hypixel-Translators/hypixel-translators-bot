@@ -26,7 +26,7 @@
         "description": "Geeft je het juiste voorvoegsel voor je taal/talen. Voor een aangepast voorvoegsel kun je `+prefix <vlaggen>` uitvoeren, waar `<vlaggen>` staat voor een landcode of -naam. Je kunt zo veel talen selecteren als je wilt, zolang je ze scheidt met een spatie."
     },
     "quote": {
-        "usage": "+quote [nummer] | +quote add <citaat> / <gebruikersvermelding>",
+        "usage": "+quote [index] | +quote add <quote> / <author mention>",
         "description": "Geeft een grappig/raar/wijs citaat uit de server (of voegt er een toe)."
     },
     "mention": {
