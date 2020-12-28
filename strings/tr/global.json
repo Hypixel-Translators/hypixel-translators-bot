@@ -8,6 +8,7 @@
     "noChannel": "Bir kanal sağlamadın!",
     "noUser": "Bir kullanıcı sağlamadın!",
     "noContext": "Bağlamı sağlamadın! Lütfen hem dize kimliğini hem de bunu açıklayan bağlamı ekleyin.",
+    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`",
     "noUserQuote": "Bir kullanıcı sağlamadın! Lütfen alıntıyı yazın ve ardından alıntı yapılan kullanıcıdan eğik çizgiyle ayırarak bahsedin.",
     "falseChannel": "Bu kanal bulunamadı!",
     "falseUser": "Bu kullanıcı bulunamadı!",
