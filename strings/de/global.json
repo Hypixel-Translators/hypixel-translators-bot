@@ -8,7 +8,7 @@
     "noChannel": "Du hast keinen Kanal zur Auswahl gestellt!",
     "noUser": "Du hast keine Nachricht angegeben!",
     "noContext": "Du hast den Kontext nicht angegeben! Bitte füge sowohl die String-ID als auch den Kontext hinzu, der sie erklärt.",
-    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`",
+    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`.",
     "noUserQuote": "Du hast keinen Benutzer angegeben! Bitte gebe das Zitat ein und erwähne dann den zitierten Benutzer, getrennt durch einen Schrägstrich.",
     "falseChannel": "Der Kanal wurde nicht gefunden!",
     "falseUser": "Der Benutzer wurde nicht gefunden!",
