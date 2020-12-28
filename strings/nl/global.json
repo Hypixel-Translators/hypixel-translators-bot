@@ -8,6 +8,7 @@
     "noChannel": "Je hebt geen kanaal opgegeven!",
     "noUser": "Je hebt geen gebruiker opgegeven!",
     "noContext": "Je hebt de context niet opgegeven! Voeg het string-ID en de toelichtende context toe.",
+    "noQuote": "Je hebt geen citaat opgegeven! Om er een te verzoeken, kun je `+quote add <citaat> / <vermelding auteur>` uitvoeren.",
     "noUserQuote": "Je hebt geen gebruiker opgegeven! Typ het citaat, en vermeld dan de geciteerde gebruiker, gescheiden door een slash.",
     "falseChannel": "Dat kanaal kon niet worden gevonden!",
     "falseUser": "Die gebruiker kon niet worden gevonden!",
@@ -27,7 +28,6 @@
     "tips": {
         "0": "Heb je de Inhale Banana-taal geprobeerd? Verander je taal ernaar met `+lang ib`!",
         "1": "Ik heb vertalers nodig! Ontdek hoe je botvertaler wordt op %%translate%%.",
-        "2": "Heb je Emojitaal geprobeerd? Verander je taal ernaar met `+lang em`!",
         "3": "Verander je links naar en-en!",
         "4": "Wanneer je chat krijg je elke minuut een willekeurige hoeveelheid XP, waarmee je uiteindelijk meer levels krijgt.",
         "5": "We hebben meer tips nodig! Stuur ze door met `+feedback`.",

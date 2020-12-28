@@ -26,7 +26,7 @@
         "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
-        "usage": "+quote [indoxox] | +quote add <funnysentence> / <hooman menton>",
+        "usage": "+quote [index] | +quote add <quote> / <author mention>",
         "description": "Gett (orr addd) un funi/werd/kirilish funnysentence from servar."
     },
     "mention": {
@@ -42,8 +42,8 @@
         "description": "Open the GitHub ishshoe page, where report probems and fedbek send can."
     },
     "language": {
-        "usage": "+language [<new langag> | list]",
-        "description": "Chang ur langag, show curent 1 or show list of vaalabalble langages."
+        "usage": "+language [<new language> | list | add <language>]",
+        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
     },
     "ping": {
         "usage": "+ping",

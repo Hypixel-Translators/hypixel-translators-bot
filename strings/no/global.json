@@ -8,6 +8,7 @@
     "noChannel": "Du har ikke oppgitt en kanal!",
     "noUser": "Du har ikke oppgitt en bruker!",
     "noContext": "Du har ikke gitt noe kontekst! Vennligst legg til både string-ID og konteksten som forklarer det.",
+    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`.",
     "noUserQuote": "Du har ikke spesifisert en bruker! Vennligst skriv sitatet og deretter nevn den siterte brukeren, separert med en skråstrek.",
     "falseChannel": "Den kanalen kunne ikke bli funnet!",
     "falseUser": "Den brukeren kunne ikke bli funnet!",
@@ -27,7 +28,6 @@
     "tips": {
         "0": "Har du prøvd Inhalere Banan språket? Endre språket ditt til det med `+lang ib`!",
         "1": "I need translators! Find out how to become a bot translator at %%translate%%.",
-        "2": "Har du prøvd Emoji språket? Endre språket ditt til det med `+lang em`!",
         "3": "Vennligst endre linkene dine til en-en!",
         "4": "Du får et tilfeldig antall av XP hvert minutt når du chatter, noe som til slutt vil gjøre sånn at du leveler opp.",
         "5": "Vi trenger flere tips! Send dem inn med `+feedback`.",

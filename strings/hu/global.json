@@ -8,6 +8,7 @@
     "noChannel": "Meg kell adnod egy csatornát!",
     "noUser": "Meg kell adnod egy felhasználót!",
     "noContext": "Nem adtál meg kontextust! Kérlek add hozzá a szöveg azonosítóját és a kontextusát is.",
+    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`.",
     "noUserQuote": "Nem adtál me felhasználót! Kérlek írd le az idézetet, majd írd le az idézett embert egy per jellel elválasztva.",
     "falseChannel": "Ez a csatorna nem található!",
     "falseUser": "A felhasználó nem található!",
@@ -27,7 +28,6 @@
     "tips": {
         "0": "Kipróbáltad már a Beszívott Banán nyelvet? Így tudod kiválasztani a nyelvet: `+lang ib`!",
         "1": "Fordítókat keresek! Tudd meg hogyan lehetsz fordító itt: %%translate%%.",
-        "2": "Kipróbáltad már az Emoji nyelvet? Így tudod kiválasztani a nyelvet: `+lang em`!",
         "3": "Változtasd meg a linkjeidet en-en nyelvre!",
         "4": "Véretlen mennyiségű TP-t kapsz minden percben amikor beszélsz, amitől majd szintet is léphetsz.",
         "5": "Több tipp kéne! Írj nekünk a `+feedback` használatával.",

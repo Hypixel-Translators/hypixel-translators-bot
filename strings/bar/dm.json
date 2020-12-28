@@ -1,9 +1,9 @@
 {
-    "moduleName": "Direct Message",
-    "loading": "Sending message...",
+    "moduleName": "Direktnachricht",
+    "loading": "Nachricht wird gesendet …",
     "outgoing": "Nachricht an %%recipient%% gesendet",
-    "error": "An error occured while trying to message %%recipient%%",
+    "error": "Beim Versuch, %%recipient%% eine Nachricht zu senden, ist ein Fehler aufgetreten",
     "incoming": "Nachricht von einem Teammitglied erhalten",
-    "incomingDisclaimer": "Any messages you send here will be sent to staff.",
+    "incomingDisclaimer": "Jede Nachricht, die du hier schreibst, wird an ein Teammitglied gesendet.",
     "executedBy": "Asg'fuat vo %%user%%"
 }

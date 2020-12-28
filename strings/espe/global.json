@@ -8,6 +8,7 @@
     "noChannel": "¡No has dado ningún canal!",
     "noUser": "¡No has dado ningún usuario!",
     "noContext": "¡No has dado el contexto! Agrega el ID del string y el contexto explicándolo.",
+    "noQuote": "¡No has dado una cita! Para pedir que se agregue una, usa `+quote add <cita> / <mención del citado>`.",
     "noUserQuote": "¡No has dado ningún usuario! Por favor, escribe la cita y menciona al usuario citado, separado por /.",
     "falseChannel": "¡Ese canal no fue encontrado!",
     "falseUser": "¡Ese usuario no fue encontrado!",
@@ -27,7 +28,6 @@
     "tips": {
         "0": "¿Has probado el idioma Inhale Banana? ¡Cambia tu idioma usando `+lang ib`!",
         "1": "¡Necesito traductores! Aprende sobre como ser un traductor aquí: %%translate%%.",
-        "2": "¿Sabes del idioma de Emoji? ¡Cambia tu idioma usando `+lang em`!",
         "3": "¡Por favor, cambia tus links a en-en!",
         "4": "Obtienes cantidades aleatorias de XP cada minuto cuando estás chateando, lo que eventualmente te hará subir de nivel.",
         "5": "¡Necesitamos más consejos! Envíalos usando `+feedback`.",

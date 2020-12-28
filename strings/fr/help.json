@@ -26,7 +26,7 @@
         "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
-        "usage": "+quote [nombre] +quote add <citation> / <mention d'utilisateur>",
+        "usage": "+quote [index] | +quote add <quote> / <author mention>",
         "description": "Obtient (ou ajoute) une citation drôle/bizarre/sage du serveur."
     },
     "mention": {
@@ -42,8 +42,8 @@
         "description": "Ouvre notre page de problèmes GitHub, où tu peux signaler des bogues."
     },
     "language": {
-        "usage": "+language [nouvelle langue | list]",
-        "description": "Change tu langue, affiche ta langue actuelle ou affiche une liste de langues disponibles."
+        "usage": "+language [<new language> | list | add <language>]",
+        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
     },
     "ping": {
         "usage": "+ping",

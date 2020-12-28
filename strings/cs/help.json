@@ -26,7 +26,7 @@
         "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
-        "usage": "+quote [číslo] | +quote add <citát> / <označení uživatele>",
+        "usage": "+quote [index] | +quote add <quote> / <author mention>",
         "description": "Zobrazí (nebo přidá) vtipný/divný/moudrý citát ze serveru."
     },
     "mention": {
@@ -42,8 +42,8 @@
         "description": "Opens our GitHub issues page, where you can report problems and send feedback."
     },
     "language": {
-        "usage": "+language [<nový jazyk> | list]",
-        "description": "Změní tvůj jazyk, zobrazí tvůj aktuální jazyk nebo zobrazí seznam dostupných jazyků."
+        "usage": "+language [<new language> | list | add <language>]",
+        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
     },
     "ping": {
         "usage": "+ping",

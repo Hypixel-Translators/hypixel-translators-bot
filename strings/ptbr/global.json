@@ -8,6 +8,7 @@
     "noChannel": "Você não informou um canal!",
     "noUser": "Você não informou um usuário!",
     "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
+    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`.",
     "noUserQuote": "You haven't provided a user! Please type the quote and then mention the quoted user, separated by a slash.",
     "falseChannel": "Este canal não foi encontrado!",
     "falseUser": "Este usuário não foi encontrado!",
@@ -27,7 +28,6 @@
     "tips": {
         "0": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
         "1": "I need translators! Find out how to become a bot translator at %%translate%%.",
-        "2": "Você já viu o idioma Emoji? Altere seu idioma para ele usando `+lang em`!",
         "3": "Por favor, altere seus links para en-en!",
         "4": "Você recebe quantidades aleatórias de XP enquanto estiver enviando mensagens no bate-papo, fazendo você subir de nível.",
         "5": "Precisamos de mais dicas! Dê dicas usando o comando `+feedback`.",

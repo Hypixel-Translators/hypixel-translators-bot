@@ -8,6 +8,7 @@
     "noChannel": "Et syöttänyt kanavaa!",
     "noUser": "Et syöttänyt käyttäjää!",
     "noContext": "Et syöttänyt kontekstia! Ole hyvä ja lisää stringin ID ja stringiä selittävä konteksti.",
+    "noQuote": "Et syöttänyt lainausta! Lisätäksesi lainauksen käytä komentoa `+quote add <lainaus> / <käyttäjä>`.",
     "noUserQuote": "Et syöttänyt käyttäjää! Ole hyvä ja kirjoita lainaus sekä mainitse lainattu käyttäjä, erotettuna vinoviivalla.",
     "falseChannel": "Tätä kanavaa ei löytynyt!",
     "falseUser": "Tätä käyttäjää ei löytynyt!",
@@ -27,7 +28,6 @@
     "tips": {
         "0": "Oletko kokeillut Inhale Banana -kieltä? Vaihda kielesi komennolla `+lang ib`!",
         "1": "Tarvitsen kääntäjiä! Selvitä, miten voit päästä botin kääntäjäksi osoitteesta %%translate%%.",
-        "2": "Oletko kokeillut emojikieltä? Vaihda kielesi komennolla `+lang em`!",
         "3": "Vaihda linkkisi muotoon en-en!",
         "4": "Kirjoittamalla viestejä saat satunnaisen määrän pisteitä minuutissa, mikä lopulta nostaa sinut tasoissa ylöspäin.",
         "5": "Tarvitsemme lisää vihjeitä! Ehdota niitä komennolla `+feedback`.",

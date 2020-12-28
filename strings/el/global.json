@@ -8,6 +8,7 @@
     "noChannel": "You haven't provided a channel!",
     "noUser": "You haven't provided a user!",
     "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
+    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`.",
     "noUserQuote": "You haven't provided a user! Please type the quote and then mention the quoted user, separated by a slash.",
     "falseChannel": "Δεν ήταν δυνατή η εύρεση αυτού του καναλιού!",
     "falseUser": "Δεν ήταν δυνατή η εύρεση αυτού του χρήστη!",
@@ -27,7 +28,6 @@
     "tips": {
         "0": "Δοκίμασες ποτέ την γλώσσα Inhale Banana; Άλλαξε την γλώσσα σου σε αυτό εκτελώντας `+lang ib`!",
         "1": "Χρειάζομαι μεταφραστές! Βρες πως να γίνεις μεταφραστής στο %%translate%%.",
-        "2": "Έχεις δοκιμάσει την γλώσσα Emoji; Άλλαξε την γλώσσα σου σε αυτήν χρησιμοποιώντας το `+lang em`!",
         "3": "Please change your links to en-en!",
         "4": "Λαμβάνεις τυχαία ποσά XP κάθε λεπτό όταν γράφεις κάτι και σταδιακά ανεβαίνεις επίπεδο.",
         "5": "We need more tips! Submit them using `+feedback`.",
