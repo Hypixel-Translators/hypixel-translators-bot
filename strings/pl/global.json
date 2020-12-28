@@ -8,6 +8,7 @@
     "noChannel": "Nie określono kanału!",
     "noUser": "Nie określono użytkownika!",
     "noContext": "Nie dostarczyłeś kontekstu! Proszę dodać ID ciągu, oraz kontekst go wyjaśniający.",
+    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`",
     "noUserQuote": "Nie określono użytkownika! Wpisz cytat, a następnie oznacz cytowanego użytkownika, oddzielając oznaczenie ukośnikiem.",
     "falseChannel": "Ten kanał nie został odnaleziony!",
     "falseUser": "Użytkownik nie został odnaleziony!",
