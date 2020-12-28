@@ -14,9 +14,9 @@ module.exports = {
     const sendTo = message.client.channels.cache.get(args[0].replace("<#", "").replace(">", ""))
     args.splice(0, 1)
     const toSend = args.join(" ")
-    var msg
+    let msg
 
-    var allowed = false
+    let allowed = false
     if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("768435276191891456")) { allowed = true } } // Discord Staff
     if (!allowed) throw "noAccess"
     if (!sendTo) throw "noChannel"

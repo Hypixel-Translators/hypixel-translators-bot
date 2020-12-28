@@ -34,7 +34,7 @@ module.exports = {
         return
       }
 
-      var prefix = flagEmojis.join("-")
+      let prefix = flagEmojis.join("-")
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
@@ -163,12 +163,12 @@ module.exports = {
         .setFooter(executedBy, message.author.displayAvatarURL())
       message.channel.send(embed)
         .then(async msg => {
-          var userLangs = []
-          var prefixes = ""
+          let userLangs = []
+          let prefixes = ""
 
           await message.member.roles.cache.forEach(async r => {
             if (r.name.startsWith("Chinese")) { userLangs.push("🇨🇳"); msg.react("🇨🇳"); userLangs.push("🇹🇼"); msg.react("🇹🇼"); userLangs.push("🇭🇰"); msg.react("🇭🇰") } else {
-              var langdbEntry = langdb.find(l => l.name.includes(r.name.split(" ")[0]))
+              let langdbEntry = langdb.find(l => l.name.includes(r.name.split(" ")[0]))
               if (langdbEntry) {
                 userLangs.push(langdbEntry.emoji)
               }

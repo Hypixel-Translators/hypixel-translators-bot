@@ -65,11 +65,11 @@ async function accessSpreadsheet(executedBy, message, strings, args, msg) {
 
     const rows = await sheet.getRows()
 
-    var quoteNumCode = 0
+    let quoteNumCode = 0
     if (!args[0]) quoteNumCode = Math.floor(Math.random() * Math.floor(rows.length)) //generate random 0-base index number if no arg is given
     if (args[0]) quoteNumCode = Number(args[0]) - 1 //subtract 1 from argument in order to create 0-base index number
-    var quoteNum = quoteNumCode + 1
-    var quoteNumSheet = quoteNumCode + 2
+    let quoteNum = quoteNumCode + 1
+    let quoteNumSheet = quoteNumCode + 2
 
     const correctRow = rows[quoteNumCode]
     if (!correctRow) {

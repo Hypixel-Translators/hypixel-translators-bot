@@ -12,9 +12,9 @@ module.exports = {
 
     if (!message.member.hasPermission("VIEW_AUDIT_LOG") && !message.member.roles.cache.has("551758391127834625") && !message.member.roles.cache.has("748269219619274893") && !message.member.roles.cache.has("645709877536096307") && !message.member.roles.cache.has("752541221980733571")) throw "noAccess" //hypixel, sba, qp and bot managers
 
-    var user = message.member
+    let user = message.member
     if (args[0]) {
-      var userRaw = args[0].replace("<@", "").replace(">", "")
+      let userRaw = args[0].replace("<@", "").replace(">", "")
       user = message.guild.members.cache.find(m => m.id === userRaw || m.user.tag === userRaw || m.user.username === userRaw || m.nickname === userRaw || m.user.tag.toLowerCase().includes(userRaw.toLowerCase()) || m.displayName.toLowerCase().includes(userRaw.toLowerCase()))
       if (!user) {
         message.channel.send(strings.userNotFound)
@@ -24,14 +24,14 @@ module.exports = {
     }
 
     try {
-      var userP = []
+      let userP = []
       user.permissions.toArray().forEach(e => { userP.push(strings.perms[e] || e) })
 
-      var color = user.displayHexColor
+      let color = user.displayHexColor
       if (color == "#000000") color = blurple
       const joinD = user.joinedAt.toLocaleString(strings.dateLocale, { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
       const creaD = user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
-      var userRoles = user.roles.cache
+      let userRoles = user.roles.cache
       userRoles.delete("549503328472530974")
 
       const embed = new Discord.MessageEmbed()

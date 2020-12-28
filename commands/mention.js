@@ -15,11 +15,11 @@ module.exports = {
       return
     }
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-    var type = args[1].toLowerCase()
+    let type = args[1].toLowerCase()
     const lowerArg = args[0].toLowerCase()
-    var toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
+    let toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
     args.splice(0, 2)
-    var toSend = args.join(" ")
+    let toSend = args.join(" ")
     if (toSend.length < 2) {
       toSend = "<a:bongoping:614477510423478275>" + toSend
     }

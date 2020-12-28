@@ -39,7 +39,7 @@ client.once("ready", async () => {
   reviewStringsChannels.forEach(c => { c.messages.fetch() })
 
   //Get server boosters and staff for the status
-  var boostersStaff = []
+  let boostersStaff = []
   client.guilds.cache.get("549503328472530974").roles.cache.get("644450674796396576").members.forEach(member => { boostersStaff.push(member.user.username) })//Server Booster
   client.guilds.cache.get("549503328472530974").roles.cache.get("768435276191891456").members.forEach(member => { boostersStaff.push(member.user.username) })//Discord Staff
 
@@ -53,12 +53,12 @@ client.once("ready", async () => {
     toPick = Math.random() >= 0.2
 
     if (toPick) {
-      var listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
+      let listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
       listenStatus = listenStatus.replace("RANDOM_USER", pickedUser)
       client.user.setActivity(listenStatus, { type: "LISTENING" })
       toPick = Math.random() >= 0.6
     } else {
-      var watchStatus = watchStatuses[Math.floor(Math.random() * watchStatuses.length)]
+      let watchStatus = watchStatuses[Math.floor(Math.random() * watchStatuses.length)]
       watchStatus = watchStatus.replace("RANDOM_USER", pickedUser)
       client.user.setActivity(watchStatus, { type: "WATCHING" })
       toPick = Math.random() >= 0.2
@@ -98,8 +98,8 @@ client.on("message", async message => {
   }
 
   //Get global strings
-  var globalStrings = require(("./strings/en/global.json"))
-  var helpStrings = require(("./strings/en/help.json"))
+  let globalStrings = require(("./strings/en/global.json"))
+  let helpStrings = require(("./strings/en/help.json"))
   const oldMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
   const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
   oldFiMessages.forEach(async element => {
@@ -108,11 +108,11 @@ client.on("message", async message => {
     globalStrings = require(("./strings/" + oldMsg[0] + "/global.json"))
     helpStrings = require(("./strings/" + oldMsg[0] + "/help.json"))
   })
-  var executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
+  let executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
   //Link correction system
   if (message.content.includes("/translate/") && message.content.includes("://")) if (message.channel.id === "549503328472530976" || message.channel.id === "627594632779399195") { // hypixel translators and proofreaders
-    var msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, "/en-en")
+    let msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, "/en-en")
     if (message.content !== msgTxt) {
       message.react(notAllowed)
       message.channel.send(globalStrings.linkCorrection.replace("%%user%%", "<@" + message.author.id + ">") + "\n\n>>> " + msgTxt)
@@ -170,7 +170,7 @@ client.on("message", async message => {
     const expirationTime = timestamps.get(message.author.id) + cooldownAmount
     if (now < expirationTime) {
       const timeLeft = (expirationTime - now) / 1000
-      var timeLeftS
+      let timeLeftS
       if (Math.ceil(timeLeft) > 120) {
         timeLeftS = (globalStrings.minsLeftT.replace("%%time%%", Math.round(timeLeft / 60)).replace("%%command%%", commandName))
       } else {
@@ -191,7 +191,7 @@ client.on("message", async message => {
   setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
 
   //Get command strings
-  var strings = require(("./strings/en/" + command.name + ".json"))
+  let strings = require(("./strings/en/" + command.name + ".json"))
   oldFiMessages.forEach(async element => {
     oldMsg = element.content.split(" ")
     oldMsg.splice(oldMsg.indexOf(message.author.id), 1)

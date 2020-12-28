@@ -81,7 +81,7 @@ async function getFromSpreadsheet(executedBy, message, strings, args) {
             if (correctRow.tr) { if (correctRow.tr.length > 1) { embed.addFields({ name: strings.noteFor + strings.turkish, value: correctRow.tr, inline: true }) } }
             if (correctRow.uk) { if (correctRow.uk.length > 1) { embed.addFields({ name: strings.noteFor + strings.ukrainian, value: correctRow.uk, inline: true }) } }
             if (correctRow.screenshot) {
-                var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+                let regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
                 if (regexp.test(correctRow.screenshot)) {
                     embed.setImage(correctRow.screenshot)
                 }
@@ -101,7 +101,7 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
     message.channel.send(embed)
         .then(async msg => {
             const string = args[1]
-            var toSend = [...args]
+            let toSend = [...args]
             toSend.splice(0, 2)
             toSend = toSend.join(" ")
 
@@ -142,7 +142,7 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                 return
             }
 
-            var toAdd = { id: string, context: toSend }
+            let toAdd = { id: string, context: toSend }
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor(strings.moduleName)
@@ -161,8 +161,8 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
 
                 const collector = msg.createReactionCollector(filter, { time: 120000 })
 
-                var extraMsgs = []
-                var extraReceiveds = []
+                let extraMsgs = []
+                let extraReceiveds = []
 
                 collector.on("collect", async (reaction, reacter) => {
                     console.log(reaction.emoji.name)
@@ -182,9 +182,9 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                             collectorB.on("collect", received => {
                                 collectorB.stop()
                                 extraReceiveds.push(received)
-                                var key = received.toString().toLowerCase()
+                                let key = received.toString().toLowerCase()
                                 key = key.replace(/ .*/, "")
-                                var value = received.toString()
+                                let value = received.toString()
                                 value = value.substr(value.indexOf(" ") + 1)
                                 toAdd[key] = value
                                 const extraEmbed = new Discord.MessageEmbed()
@@ -256,7 +256,7 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                                 if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: strings.noteFor + strings.turkish, value: result.tr, inline: true }) } }
                                 if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: strings.noteFor + strings.ukrainian, value: result.uk, inline: true }) } }
                                 if (result.screenshot) {
-                                    var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+                                    let regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
                                     if (regexp.test(result.screenshot)) {
                                         embed.setImage(result.screenshot)
                                     }
@@ -347,7 +347,7 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
             console.log(sheet.title)
 
             const rows = await sheet.getRows()
-            var correctRow = rows.find(r => r.id === args[1])
+            let correctRow = rows.find(r => r.id === args[1])
 
             if (!correctRow) {
                 throw strings.notFound.replace("%%name%%", args[1])
@@ -364,10 +364,10 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
                 return
             }
 
-            var key = args[2].toLowerCase()
-            var arguments = [...args]
+            let key = args[2].toLowerCase()
+            let arguments = [...args]
             arguments.splice(0, 3)
-            var value = arguments.join(" ")
+            let value = arguments.join(" ")
 
             const noEmoji = msg.client.emojis.cache.find(emoji => emoji.name === "vote_no")
             const yesEmoji = msg.client.emojis.cache.find(emoji => emoji.name === "vote_yes")
@@ -460,7 +460,7 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
                     if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: strings.noteFor + strings.turkish, value: result.tr, inline: true }) } }
                     if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: strings.noteFor + strings.ukrainian, value: result.uk, inline: true }) } }
                     if (result.screenshot) {
-                        var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+                        let regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
                         if (regexp.test(result.screenshot)) {
                             embed.setImage(result.screenshot)
                         }
@@ -472,7 +472,7 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
 
             collector.on("end", async (collected) => {
                 msg.reactions.removeAll()
-                var correctRow = rows.find(r => r.id === args[1])
+                let correctRow = rows.find(r => r.id === args[1])
                 if (correctRow[key] !== value) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)

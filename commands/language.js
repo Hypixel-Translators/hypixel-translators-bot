@@ -12,10 +12,10 @@ module.exports = {
     allowDM: true,
     cooldown: 5,
     async execute(message, strings, args) {
-        var executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        var oldMsg = {}
-        var newMsg = {}
-        var selected = false
+        let executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+        let oldMsg = {}
+        let newMsg = {}
+        let selected = false
 
         if (args[0]) {
             if (args[0] === "add") {
@@ -59,7 +59,7 @@ module.exports = {
             } else if (args[0] === "list") {
                 const stringsFolder = "./strings/"
                 await fs.readdir(stringsFolder, async (err, files) => {
-                    var langList = ""
+                    let langList = ""
                     files.forEach(async (element, index, array) => {
                         langList = langList + "\n" + strings.listElement.replace("%%code%%", element).replace("%%language%%", strings[element] || "Unknown")
                         if (index === array.length - 1) {

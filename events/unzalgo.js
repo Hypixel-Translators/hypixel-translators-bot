@@ -2,9 +2,9 @@ const { clean, isZalgo } = require("unzalgo")
 
 module.exports = {
     execute(client, manual) {
-        var d = new Date()
-        var h = d.getUTCHours()
-        var m = d.getUTCMinutes()
+        let d = new Date()
+        let h = d.getUTCHours()
+        let m = d.getUTCMinutes()
         if ((h == "4" && m == "00") || manual) {
             check(client)
         }
