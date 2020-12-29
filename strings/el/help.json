@@ -6,7 +6,7 @@
     "page": "Σελίδα %%number%%/%%total%%",
     "pageNumber": "Σελίδα %%number%%",
     "utilityHelp": "%%badge%% Tools & Utilities",
-    "infoHelp": "%%badge%% Information commands",
+    "infoHelp": "%%badge%% Πληροφορίες",
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
     "pageNotExist": "Αυτή η σελίδα δεν υπάρχει!",
     "commandInfo": "Πληροφορίες Εντολής",
