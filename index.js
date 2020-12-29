@@ -173,6 +173,8 @@ client.on("message", async message => {
       let timeLeftS
       if (Math.ceil(timeLeft) > 120) {
         timeLeftS = (globalStrings.minsLeftT.replace("%%time%%", Math.round(timeLeft / 60)).replace("%%command%%", commandName))
+      } else if (Meth.ceil(timeLeft) = 1) {
+        timeLeftS = (globalStrings.secondLeft.replace("%%command%%", commandName))
       } else {
         timeLeftS = (globalStrings.timeLeftT.replace("%%time%%", Math.round(timeLeft)).replace("%%command%%", commandName))
       }
