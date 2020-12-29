@@ -21,6 +21,7 @@
     "contextSubArg": "Tens de incluir um comando secundário como primeiro argumento. Este pode ser `get`, `add`, `edit`, `link` ou `help`. \nPara mais informações, faz `+context help`.",
     "apiError": "Alguma coisa correu mal ao contactar a API!",
     "cooldown": "Tempo de espera",
+    "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "Espera mais %%time%% segundos para usares `+%%command%%` outra vez.",
     "minsLeftT": "Espera mais %%time%% minutos para usares `+%%command%%` outra vez.",
     "linkCorrection": "%%user%% muda o link para o formato `crowdin.com/translate/.../.../en-en` da próxima vez.",
