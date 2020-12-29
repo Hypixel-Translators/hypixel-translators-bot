@@ -21,6 +21,7 @@
     "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
     "apiError": "Something went wrong while contacting the API!",
     "cooldown": "Перезарядка",
+    "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "Будь ласка, зачекайте ще %%time%% секунд(у\\\\и), щоб використовувати `+%%command%%` знову.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
     "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
