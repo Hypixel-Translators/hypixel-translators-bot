@@ -21,6 +21,7 @@
     "contextSubArg": "Skriv venligst en sub-kommando som det første argument. Det kan enten være `get`, `add`, `edit`, `link` eller `help`. \nFor information, skriv `+context help`.",
     "apiError": "Something went wrong while contacting the API!",
     "cooldown": "Nedkøling",
+    "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "Vent venligst %%time%% sekunder for at bruge `+%%command%%` igen.",
     "minsLeftT": "Vent venligst %%time%% minutter med at bruge `+%%command%%` igen.",
     "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
