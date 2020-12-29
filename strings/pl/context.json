@@ -6,7 +6,7 @@
         "exists1": "Wpis kontekstowy ",
         "exists2": " już istnieje, więc Twój nie został dodany. Zamiast tego użyj `+context edit`.",
         "didntReply": "Nie odpowiedziałeś w porę, ",
-        "hitReaction": "Zareagowałeś z %%voteNo%%, ",
+        "hitReaction": "You reacted with %%voteNo%%, ",
         "cancelledPrompt": "więc zgłoszenie zostało anulowane. ",
         "readdTryAgain": "Dodaj reakcję 📑, aby spróbować ponownie."
     },
@@ -24,7 +24,7 @@
     "addedResult": "Dodano wpis kontekstowy! Jest on pokazany poniżej.\n\n**Kontekst**\n",
     "specifyFieldEdit": "Zapomniałeś/aś określić, które pole należy edytować!\nPostępuj zgodnie z tym formatem: `+context edit <identyfikator ciągu> <pole do zmiany> <nowa wartość>`.\nAby zobaczyć wszystkie dostępne pola, użyj `+context help`.",
     "confirm": "Potwierdź tę zmianę reagując %%voteYes%% w ciągu 10 sekund. Aby anulować, poczekaj lub zareaguj %%voteNo%%.",
-    "oldVal": "Stara wartość dla ",
+    "oldVal": "Old value for ",
     "newVal": "Nowa wartość dla ",
     "stringId": "Identyfikator ciągu",
     "bulgarian": "Bułgarski",
