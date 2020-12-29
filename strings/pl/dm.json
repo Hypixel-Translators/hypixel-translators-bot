@@ -1,6 +1,6 @@
 {
-    "moduleName": "Direct Message",
-    "loading": "Sending message...",
+    "moduleName": "Wiadomość prywatna",
+    "loading": "Wysyłanie wiadomości…",
     "outgoing": "Wysłano wiadomość do %%recipient%%",
     "error": "An error occured while trying to message %%recipient%%",
     "incoming": "Odebrano wiadomość od administracji",
