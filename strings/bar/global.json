@@ -21,6 +21,7 @@
     "contextSubArg": "Bitte gib einen Unterbefehl als erstes Argument an. Dies kann entweder `get`, `add`, `edit`, `link` oder `help` sein.\nFür Informationen, führe `+context help` aus.",
     "apiError": "Bei der Kontaktaufnahme mit der API ist etwas schief gelaufen!",
     "cooldown": "Abklingzeit",
+    "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "Bitte warte noch %%time%% Sekunden, um den Befehl `+%%command%%` erneut zu benutzen.",
     "minsLeftT": "Bitte warte weitere %%time%% Minuten, um `+%%command%%` erneut zu verwenden.",
     "linkCorrection": "%%user%% Bitte ändere das nächste Mal den Link auf das Format `crowdin.com/translate/.../.../en-en`.",
