@@ -21,7 +21,7 @@
     "contextSubArg": "Ole hyvä ja syötä alakomento ensimmäisenä argumenttina. Tämä voi olla `get`, `add`, `edit`, `link` tai `help`.\nSaadaksesi lisätietoa käytä komentoa `+context help`.",
     "apiError": "Jokin meni vikaan yhdistettäessä ohjelmointirajapintaan!",
     "cooldown": "Odotusaika",
-    "secondLeft": "Please wait another second to use `+%%command%%` again.",
+    "secondLeft": "Ole hyvä ja odota vielä sekunti ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
     "timeLeftT": "Ole hyvä ja odota vielä %%time%% sekuntia ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
     "minsLeftT": "Ole hyvä ja odota vielä %%time%% minuuttia ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
     "linkCorrection": "%%user%%, ole hyvä ja vaihda linkki ensi kerralla muotoon `crowdin.com/translate/.../.../en-en`.",
