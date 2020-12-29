@@ -21,7 +21,7 @@
     "contextSubArg": "Kérlek adj meg egy al-parancsot. Ez lehet `get`, `add`, `edit`, `link` vagy `help`.\nTöbb információért használd a `+context help` parancsot.",
     "apiError": "Something went wrong while contacting the API!",
     "cooldown": "Cooldown",
-    "secondLeft": "Please wait another second to use `+%%command%%` again.",
+    "secondLeft": "Kérlek várj egy másodpercet hogy újra használd a `+%%command%%` parancsot.",
     "timeLeftT": "Kérlek várj %%time%% másodpercet hogy újra használd a `+%%command%%` parancsot.",
     "minsLeftT": "Kérlek várj %%time%% percet hogy újra használd a `+%%command%%` parancsot.",
     "linkCorrection": "%%user%% Kérlek a következő alkalommal változtasd meg a linket ebbe `crowdin.com/translate/.../.../en-en` a formátumba.",
