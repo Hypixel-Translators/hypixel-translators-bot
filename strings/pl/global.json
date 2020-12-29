@@ -21,6 +21,7 @@
     "contextSubArg": "Wprowadź podpolecenie jako pierwszy argument. Może to być: `get`, `add`, `edit`, `link` lub `help`.\nAby uzyskać informacje, użyj `+context help`.",
     "apiError": "Coś poszło nie tak podczas kontaktowania się z API!",
     "cooldown": "Czas odnawiania",
+    "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "Poczekaj kolejne %%time%% sekund, aby ponownie użyć `+%%command%%`.",
     "minsLeftT": "Poczekaj kolejne %%time%% minut, aby ponownie użyć `+%%command%%`.",
     "linkCorrection": "%%user%% Następnym razem zmień format odnośnika na „crowdin.com/translate/.../.../en-en”.",
