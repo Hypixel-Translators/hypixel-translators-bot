@@ -21,6 +21,7 @@
     "contextSubArg": "الرجاء إدخال أمر ثانوي. يمكن أن يكون هذا إما `get`, `add`, `edit`, `link` or `help`.\nللحصول على معلومات، قم بإستعمال `+context help`.",
     "apiError": "Something went wrong while contacting the API!",
     "cooldown": "فترة الاستراحة",
+    "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "الرجاء الانتظار %%time%% ثانية لاستخدام `+%%command%%` مرة أخرى.",
     "minsLeftT": "الرجاء الانتظار %%time%% دقيقة لاستخدام `+%%command%%` مرة أخرى.",
     "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
