@@ -32,7 +32,7 @@ client.once("ready", async () => {
 
   //Fetch channels
   client.guilds.cache.get("549503328472530974").members.fetch() //Guild members
-  client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
+  client.channels.cache.get("762341271611506708").messages.fetch("783125633101987930") //server-info roles message
   client.channels.cache.get("569178590697095168").messages.fetch("787366444970541056") //verify message
   client.channels.cache.get("782635440054206504").messages.fetch() //language-database
   const reviewStringsChannels = await client.channels.cache.filter(c => c.name.endsWith("review-strings"))
@@ -228,7 +228,7 @@ client.on("message", async message => {
     if (command.name !== "verify") {
       let d = Math.random().toFixed(2)
       let keys = Object.keys(globalStrings.tips)
-      let tip = globalStrings.tips[keys[ keys.length * Math.random() << 0]]
+      let tip = globalStrings.tips[keys[keys.length * Math.random() << 0]]
       if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${tip.replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%translate%%", "<https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044>").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#699367079241056347>")}`)
     }
   }
@@ -252,29 +252,10 @@ client.on("messageReactionAdd", async (reaction, user) => {
   }
 
   //Give Bot Updates role if reacted on reaction role message
-  if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖" && !user.bot) { //bot-updates reaction role message
-    console.log("The correct reaction for Bot Updates has been added!")
-    let role = reaction.message.guild.roles.cache.find(role => role.name === "Bot Updates")
-    client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
-      .then(message => {
-        reaction.message.guild.member(user).roles.add(role, "Added the reaction in bot-updates")
-          .catch(err => {
-            console.log(err)
-            const receivedEmbed = message.embeds[0]
-            const embed = new Discord.MessageEmbed(receivedEmbed)
-              .setFooter("An error occurred, please contact the staff team.")
-              .setColor(errorColor)
-            message.edit(embed)
-            setInterval(() => {
-              embed
-                .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. \n_This gives you <@&732615152246980628>._")
-                .setFooter("Please check if you received the role after reacting. If not, please contact the staff team.")
-                .setColor(neutralColor)
-              message.edit(embed)
-            }, 5000)
-          })
-      })
-
+  if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
+    reaction.message.guild.member(user).roles.add("732615152246980628", "Removed the reaction in server-info")
+      .then(() => console.log("Gave the Bot Updates role to " + user.tag))
+      .catch(err => console.log("An error occured while trying to give the Bot Updates role to " + user.tag + ". Here's the error:\n" + err))
   }
 
 })
@@ -284,31 +265,10 @@ client.on("messageReactionAdd", async (reaction, user) => {
 client.on("messageReactionRemove", async (reaction, user) => {
 
   //Take Bot updates role if reaction removed from reaction role message
-  if (reaction.message.id === "782638406459064320" && reaction.emoji.name === "🤖" && !user.bot) { //bot-updates reaction role message
-    console.log("The correct reaction for Bot Updates has been removed!")
-    let role = reaction.message.guild.roles.cache.find(role => role.name === "Bot Updates")
-    client.channels.cache.get("732587569744838777").messages.fetch("782638406459064320") //bot-updates reaction role message
-      .then(message => {
-        reaction.message.guild.member(user).roles.remove(role, "Removed the reaction in bot-updates")
-          .catch(err => {
-            console.log(err)
-            const receivedEmbed = message.embeds[0]
-            const embed = new Discord.MessageEmbed(receivedEmbed)
-              .setTitle("Get notified of bot updates")
-              .setFooter("An error occurred, please contact the staff team.")
-              .setColor(errorColor)
-            message.edit(embed)
-            setInterval(() => {
-              embed
-                .setTitle("Get notified of bot updates")
-                .setDescription("React with 🤖 to get mentioned whenever a bot update comes out. \n_This gives you <@&732615152246980628>._")
-                .setFooter("Please check if you received the role after reacting. If not, please contact the staff team.")
-                .setColor(neutralColor)
-              message.edit("", embed)
-            }, 5000)
-          })
-      })
-
+  if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
+    reaction.message.guild.member(user).roles.remove("732615152246980628", "Removed the reaction in server-info")
+      .then(() => console.log("Took the Bot Updates role from " + user.tag))
+      .catch(err => console.log("An error occured while trying to take the Bot Updates role from " + user.tag + ". Here's the error:\n" + err))
   }
 })
 
