@@ -63,7 +63,7 @@ module.exports = {
 
                         let linkDiscord
                         if (json.links.DISCORD === null) linkDiscord = strings.notConnected
-                        else linkDiscord = json.links.DISCORD
+                        else linkDiscord = json.links.DISCORD.split("_").join("\\_")
 
                         let last_seen
                         if (json.last_game === null) last_seen = strings.lastGameHidden
