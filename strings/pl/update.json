@@ -4,5 +4,7 @@
     "infoChannel": "informacja",
     "verifyChannel": "weryfikacja",
     "successAll": "Wszystkie kanały zostały zaktualizowane!",
+    "checkOut1": "Check it out at %%channel%%!",
+    "checkOut2": "Check them out at %%info%% and %%verify%%!",
     "executedBy": "Wykonano przez %%user%%"
 }
