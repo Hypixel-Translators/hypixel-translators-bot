@@ -4,5 +4,7 @@
     "infoChannel": "Info",
     "verifyChannel": "Vahvistus",
     "successAll": "Kaikki kanavat on päivitetty!",
+    "checkOut1": "Check it out at %%channel%%!",
+    "checkOut2": "Check them out at %%info%% and %%verify%%!",
     "executedBy": "Komennon suoritti %%user%%"
 }
