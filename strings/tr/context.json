@@ -1,7 +1,7 @@
 {
     "moduleName": "Bağlam",
     "errors": {
-        "notFound": "The context entry %%name%% hasn't been found!",
+        "notFound": "That context entry wasn't found!",
         "exists1": "İçin bir bağlam girişi ",
         "exists2": " zaten var, bu nedenle sizinki eklenmedi. Bunun yerine '+context edit' komutunu kullanın.",
         "didntReply": "Zamanında yanıt vermedin, ",
