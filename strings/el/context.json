@@ -1,7 +1,7 @@
 {
     "moduleName": "Περιγραφή",
     "errors": {
-        "notFound": "The context entry %%name%% hasn't been found!",
+        "notFound": "That context entry wasn't found!",
         "exists1": "Μία εισαγωγή περιγραφής για ",
         "exists2": " υπάρχει ήδη, οπότε η δικιά σου δεν προστέθηκε. Αντί για αυτό, χρησιμοποίησε `+context edit`.",
         "didntReply": "Δεν απάντησες στην ώρα σου, ",
