@@ -1,7 +1,7 @@
 {
     "moduleName": "Konteksti",
     "errors": {
-        "notFound": "The context entry %%name%% hasn't been found!",
+        "notFound": "That context entry wasn't found!",
         "exists1": "Konteksti stringille ",
         "exists2": " on jo olemassa, joten ehdotustasi ei lisätty. Käytä komentoa `+context edit`.",
         "didntReply": "Et vastannut ajoissa, ",
