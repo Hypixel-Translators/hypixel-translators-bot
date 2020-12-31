@@ -1,7 +1,7 @@
 {
     "moduleName": "Контекст",
     "errors": {
-        "notFound": "The context entry %%name%% hasn't been found!",
+        "notFound": "That context entry wasn't found!",
         "exists1": "Контекстний запис для ",
         "exists2": " вже існує, тому Ваш не був доданий. Замість цього, використовуйте `+context edit`.",
         "didntReply": "Ви не відповіли вчасно, ",
