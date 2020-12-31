@@ -1,6 +1,5 @@
 {
     "moduleName": "Sprawdzanie nieaktywnych",
-    "started": "Odczekaj proszę minutę lub dwie, zawiadomimy wszystkich nieaktywnych, niezweryfikowanych użytkowników...",
     "done": "Wszyscy nieaktywni użytkownicy zostali powiadomieni!",
     "executedBy": "Wykonano przez %%user%%"
 }
