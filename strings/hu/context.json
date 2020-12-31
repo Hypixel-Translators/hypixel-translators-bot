@@ -1,7 +1,7 @@
 {
     "moduleName": "Kontextus",
     "errors": {
-        "notFound": "The context entry %%name%% hasn't been found!",
+        "notFound": "That context entry wasn't found!",
         "exists1": "A ",
         "exists2": " kontextus már létezik, így a tiéd nem lett hozzáadva. Ehelyett használd a `+context edit` parancsot.",
         "didntReply": "Nem reagáltál időben, ",
