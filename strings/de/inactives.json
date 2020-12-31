@@ -1,6 +1,5 @@
 {
     "moduleName": "Inaktivitätskontrolle",
-    "started": "Bitte warte ein oder zwei Minuten, damit alle inaktiven, nicht verifizierten Mitglieder benachrichtigt werden …",
     "done": "Alle inaktiven Mitglieder wurden benachrichtigt!",
     "executedBy": "Ausgeführt von %%user%%"
 }
