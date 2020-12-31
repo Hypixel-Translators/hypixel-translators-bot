@@ -1,7 +1,5 @@
 {
     "moduleName": "Cita",
-    "loading": "Un segundo...",
-    "loadingModule": "Cargando módulo...",
     "invalidArg": "¡Argumento no válido!",
     "indexArg": "¡Una cita con el número %%arg%% no existe! Por favor, introduzca un número entre 1 y %%max%%.",
     "reqSub": "¡Tu solicitud de cita ha sido enviada, gracias!",
