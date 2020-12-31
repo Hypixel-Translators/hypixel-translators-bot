@@ -1,7 +1,7 @@
 {
     "moduleName": "Centoxt",
     "errors": {
-        "notFound": "The context entry %%name%% hasn't been found!",
+        "notFound": "That context entry wasn't found!",
         "exists1": "A centoxt entri fer ",
         "exists2": " alreddi existz, so urs was addedn't. Use `+context edit` u dum dum.",
         "didntReply": "U were too slo to reactt, ",
