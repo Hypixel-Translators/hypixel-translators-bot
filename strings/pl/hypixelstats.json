@@ -1,7 +1,5 @@
 {
     "moduleName": "Statystyki gracza",
-    "loading": "Sekundkę…",
-    "loadingModule": "Zbieranie statystyk gracza...",
     "description": "Oto wybrane statystyki gracza %%username%% z Hypixela, otrzymane [tutaj]%%link%%.",
     "updateNotice": "Note: Please take into account that the information here might take a few minutes to update after you've changed something.",
     "networkLevel": "Poziom Hypixel",
