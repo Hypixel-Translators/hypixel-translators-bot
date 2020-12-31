@@ -40,8 +40,8 @@ client.once("ready", async () => {
 
   //Get server boosters and staff for the status
   let boostersStaff = []
-  client.guilds.cache.get("549503328472530974").roles.cache.get("644450674796396576").members.forEach(member => { boostersStaff.push(member.user.username) })//Server Booster
-  client.guilds.cache.get("549503328472530974").roles.cache.get("768435276191891456").members.forEach(member => { boostersStaff.push(member.user.username) })//Discord Staff
+  client.guilds.cache.get("549503328472530974").roles.cache.get("644450674796396576").members.forEach(member => boostersStaff.push(member.user.username))//Server Booster
+  client.guilds.cache.get("549503328472530974").roles.cache.get("768435276191891456").members.forEach(member => boostersStaff.push(member.user.username))//Discord Staff
 
   //Set status
   client.user.setStatus("online").catch(console.error)
@@ -229,7 +229,7 @@ client.on("message", async message => {
       let d = Math.random().toFixed(2)
       let keys = Object.keys(globalStrings.tips)
       let tip = globalStrings.tips[keys[keys.length * Math.random() << 0]]
-      if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${tip.replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%translate%%", "<https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044>").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#699367079241056347>")}`)
+      if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${tip.replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%translate%%", "<https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044>").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#762341271611506708>")}`)
     }
   }
 })
@@ -246,7 +246,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
       reaction.message.react(reaction.emoji)
       setTimeout(() => {
         if (!reaction.message.deleted) reaction.message.delete()
-        console.log("String reviewed (saw reaction " + reaction.emoji.name + ")")
+        console.log(`String reviewed in ${reaction.message.channel.name} (saw reaction ${reaction.emoji.name})`)
       }, 10000)
     }
   }
