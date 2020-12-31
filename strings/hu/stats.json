@@ -1,6 +1,5 @@
 {
     "moduleName": "Statisztika frissítő",
-    "started": "Kérlek várj egy percet a statisztikák frissítéséhez...",
     "done": "Az összes statisztika frissítve lett!",
     "doneProject": "A %%project%% nyelvi statisztikái frissültek!",
     "errorNoProject": "Nem találtunk %%name%% nevű projektet.",
