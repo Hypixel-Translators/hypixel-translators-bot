@@ -41,7 +41,7 @@ async function getFromSpreadsheet(executedBy, message, strings, args) {
 
     if (!correctRow) {
         message.channel.stopTyping()
-        throw strings.errors.notFound.replace("%%name%%", args[1])
+        throw strings.errors.notFound
     }
 
     const embed = new Discord.MessageEmbed()
@@ -215,7 +215,7 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                             if (!msg.deleted) msg.delete()
                             if (!result) {
                                 message.channel.stopTyping()
-                                throw strings.errors.notFound.replace(" %%name%%", "")
+                                throw strings.errors.notFound
                             }
 
                             embed
@@ -338,7 +338,7 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
 
     if (!correctRow) {
         message.channel.stopTyping()
-        throw strings.errors.notFound.replace("%%name%%", args[1])
+        throw strings.errors.notFound
     }
 
     if (!args[3]) {
