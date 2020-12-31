@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor } = require("../config.json")
+const { errorColor, successColor, neutralColor } = require("../config.json")
 const Discord = require("discord.js")
 const { GoogleSpreadsheet } = require("google-spreadsheet")
 const creds = { "type": process.env.type, "project_id": process.env.project_id, "private_key_id": process.env.private_key_id, "private_key": process.env.private_key.replace(/\\n/gm, "\n"), "client_email": process.env.client_email, "client_id": process.env.client_id, "auth_uri": process.env.auth_uri, "token_uri": process.env.token_uri, "auth_provider_x509_cert_url": process.env.auth_provider_x509_cert_url, "client_x509_cert_url": process.env.client_x509_cert_url }
@@ -14,50 +14,50 @@ module.exports = {
     execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         let allowed = false
-        if (strings, message.channel.type !== "dm" && strings, message.member.roles.cache.has("768435276191891456"))  allowed = true // Discord Staff
-        const embed = new Discord.MessageEmbed()
-            .setColor(loadingColor)
-            .setAuthor(strings.moduleName)
-            .setTitle(strings.loading)
-            .setDescription(strings.loadingModule)
-            .setFooter(executedBy, message.author.displayAvatarURL())
-        message.channel.send(embed).then(msg => {
-            if (args[0] === "add") {
-                args.splice(0, 1)
-                const toSend = args.join(" ")
-                const fullQuote = toSend.split(" / ")
-                const quote = fullQuote[0]
-                const author = fullQuote[1]
-                if (!quote) throw "noQuote"
-                if (!author) throw "noUserQuote"
-                if (!allowed) {
-                    const sendTo = msg.client.channels.cache.get("624881429834366986") //staff-bots
-                    const report = new Discord.MessageEmbed()
-                        .setColor(neutralColor)
-                        .setAuthor("Quote")
-                        .setTitle("A quote request has been submitted!")
-                        .setDescription(quote + "\n       - " + author)
-                        .addFields({ name: "To add it", value: "`+quote add " + toSend + "`" })
-                        .setFooter("Suggested by " + message.author.tag, message.author.displayAvatarURL())
-                    sendTo.send(report)
-                    const embed = new Discord.MessageEmbed()
-                        .setColor(successColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.reqSub)
-                        .setDescription(quote + "\n       - " + author)
-                        .setFooter(executedBy, message.author.displayAvatarURL())
-                    msg.edit(embed)
-                } else {
-                    addToSpreadsheet(executedBy, message, strings, quote, author, msg)
-                }
-            } else {
-                accessSpreadsheet(executedBy, message, strings, args, msg)
+        if (strings, message.channel.type !== "dm" && strings, message.member.roles.cache.has("768435276191891456")) allowed = true // Discord Staff
+        message.channel.startTyping()
+        if (args[0] === "add") {
+            args.splice(0, 1)
+            const toSend = args.join(" ")
+            const fullQuote = toSend.split(" / ")
+            const quote = fullQuote[0]
+            const author = fullQuote[1]
+            if (!quote) {
+                message.channel.stopTyping()
+                throw "noQuote"
             }
-        })
+            if (!author) {
+                message.channel.stopTyping()
+                throw "noUserQuote"
+            }
+            if (!allowed) {
+                const sendTo = message.client.channels.cache.get("624881429834366986") //staff-bots
+                const report = new Discord.MessageEmbed()
+                    .setColor(neutralColor)
+                    .setAuthor("Quote")
+                    .setTitle("A quote request has been submitted!")
+                    .setDescription(quote + "\n       - " + author)
+                    .addFields({ name: "To add it", value: "`+quote add " + toSend + "`" })
+                    .setFooter("Suggested by " + message.author.tag, message.author.displayAvatarURL())
+                sendTo.send(report)
+                const embed = new Discord.MessageEmbed()
+                    .setColor(successColor)
+                    .setAuthor(strings.moduleName)
+                    .setTitle(strings.reqSub)
+                    .setDescription(quote + "\n       - " + author)
+                    .setFooter(executedBy, message.author.displayAvatarURL())
+                message.channel.stopTyping()
+                message.channel.send(embed)
+            } else {
+                addToSpreadsheet(executedBy, message, strings, quote, author)
+            }
+        } else {
+            accessSpreadsheet(executedBy, message, strings, args)
+        }
     }
 }
 
-async function accessSpreadsheet(executedBy, message, strings, args, msg) {
+async function accessSpreadsheet(executedBy, message, strings, args) {
     const doc = new GoogleSpreadsheet(quotesSheet)
     await doc.useServiceAccountAuth(creds)
 
@@ -81,7 +81,8 @@ async function accessSpreadsheet(executedBy, message, strings, args, msg) {
             .setTitle(strings.invalidArg)
             .setDescription(strings.indexArg.replace("%%arg%%", args[0]).replace("%%max%%", rows.length))
             .setFooter(executedBy, message.author.displayAvatarURL())
-        msg.edit(embed)
+        message.channel.stopTyping()
+        message.channel.send(embed)
         return
     }
     const embed = new Discord.MessageEmbed()
@@ -90,11 +91,12 @@ async function accessSpreadsheet(executedBy, message, strings, args, msg) {
         .setTitle(correctRow.quote)
         .setDescription("      - " + correctRow.author)
         .setFooter(executedBy, message.author.displayAvatarURL())
-    msg.edit(embed)
+    message.channel.stopTyping()
+    message.channel.send(embed)
     console.log(`Quote #${quoteNum} has been requested (0-base number ${quoteNumCode}, sheet position ${quoteNumSheet})`)
 }
 
-async function addToSpreadsheet(executedBy, message, strings, quote, author, msg) {
+async function addToSpreadsheet(executedBy, message, strings, quote, author) {
     const doc = new GoogleSpreadsheet(quotesSheet)
     await doc.useServiceAccountAuth(creds)
 
@@ -116,5 +118,6 @@ async function addToSpreadsheet(executedBy, message, strings, quote, author, msg
         .setDescription(result.quote)
         .addFields({ name: strings.user, value: result.author }, { name: strings.index, value: newLength })
         .setFooter(executedBy, message.author.displayAvatarURL())
-    msg.edit(embed)
+    message.channel.stopTyping()
+    message.channel.send(embed)
 }

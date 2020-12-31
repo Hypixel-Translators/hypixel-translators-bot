@@ -1,4 +1,4 @@
-const { loadingColor, successColor } = require("../config.json")
+const { successColor } = require("../config.json")
 const Discord = require("discord.js")
 const unzalgo = require("../events/unzalgo.js")
 
@@ -12,22 +12,16 @@ module.exports = {
     async execute(message, strings) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         if (!message.member.hasPermission("VIEW_AUDIT_LOG")) throw "noAccess"
-        const embed = new Discord.MessageEmbed()
-            .setColor(loadingColor)
-            .setAuthor(strings.moduleName)
-            .setTitle(strings.started)
-            .setFooter(executedBy, message.author.displayAvatarURL())
-        message.channel.send(embed)
-            .then(async msg => {
-                try {
-                    await unzalgo.execute(message.client, true)
-                    const embed = new Discord.MessageEmbed()
-                        .setColor(successColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.done)
-                        .setFooter(executedBy, message.author.displayAvatarURL())
-                    msg.edit(embed)
-                } catch (err) { throw err }
-            })
+        message.channel.startTyping()
+        try {
+            await unzalgo.execute(message.client, true)
+            const embed = new Discord.MessageEmbed()
+                .setColor(successColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.done)
+                .setFooter(executedBy, message.author.displayAvatarURL())
+            message.channel.stopTyping()
+            message.channel.send(embed)
+        } catch (err) { throw err }
     }
 }
