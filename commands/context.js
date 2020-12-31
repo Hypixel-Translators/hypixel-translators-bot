@@ -12,13 +12,14 @@ module.exports = {
     cooldown: 30,
     execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+        const subCmd = args[0].toLowerCase()
         try {
-            if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771")) throw "noTrPr" //Hypixel Translator and Hypixel Proofreader
-            if (args[0] === "add" || args[0] === "new") { addToSpreadsheet(executedBy, message, strings, args) }
-            else if (args[0] === "get" || args[0] === "show") { getFromSpreadsheet(executedBy, message, strings, args) }
-            else if (args[0] === "edit") { editInSpreadsheet(executedBy, message, strings, args) }
-            else if (args[0] === "help" || args[0] === "info") { showInfo(executedBy, message, strings, args) }
-            else if (args[0] === "link" || args[0] === "sheet" || args[0] === "list") { sheetLink(executedBy, message, strings, args) }
+            if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771") && !message.member.hasPermission("ADMINISTRATOR")) throw "noTrPr" //Hypixel Translator and Hypixel Proofreader
+            if (subCmd === "add" || subCmd === "new") addToSpreadsheet(executedBy, message, strings, args)
+            else if (subCmd === "get" || subCmd === "show") getFromSpreadsheet(executedBy, message, strings, args, globalStrings)
+            else if (subCmd === "edit") editInSpreadsheet(executedBy, message, strings, args)
+            else if (subCmd === "help" || subCmd === "info") showInfo(executedBy, message, strings, args)
+            else if (subCmd === "link" || subCmd === "sheet" || subCmd === "list") sheetLink(executedBy, message, strings, args)
             else throw "contextSubArg"
         } catch (err) { throw err.toString() }
     }
