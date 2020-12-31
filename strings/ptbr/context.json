@@ -1,7 +1,7 @@
 {
     "moduleName": "Contexto",
     "errors": {
-        "notFound": "The context entry %%name%% hasn't been found!",
+        "notFound": "That context entry wasn't found!",
         "exists1": "A context entry for ",
         "exists2": " already exists, so yours wasn't added. Instead, use `+context edit`.",
         "didntReply": "Você não reagiu a tempo, ",
