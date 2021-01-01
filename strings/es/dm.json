@@ -2,7 +2,7 @@
     "moduleName": "Mensaje Directo",
     "outgoing": "Mensaje enviado a %%recipient%%",
     "error": "Algo salió mal al enviar un mensaje a %%recipient%%",
-    "noMsg": "You need to specify what message you want to send to this person!",
+    "noMsg": "¡Tienes que especificar que mensaje quieres mandar a esta persona!",
     "incoming": "Mensaje recibido del staff",
     "incomingDisclaimer": "Cualquier mensaje que envías aquí se enviará al staff.",
     "executedBy": "Ejecutado por %%user%%"
