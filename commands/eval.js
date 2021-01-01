@@ -1,7 +1,6 @@
 const { loadingColor, errorColor, successColor, neutralColor, blurple, langdb, listenStatuses, watchStatuses } = require("../config.json")
 const fetch = require("node-fetch")
 const Discord = require("discord.js")
-const client = new Discord.Client()
 const { inspect } = require("util")
 const { clean, isZalgo } = require("unzalgo")
 const { flag, code, name, countries } = require('country-emoji')
