@@ -4,5 +4,7 @@
     "infoChannel": "informtonne",
     "verifyChannel": "verfaton",
     "successAll": "All channels have been updated!",
+    "checkOut1": "Check it out at %%channel%%!",
+    "checkOut2": "Check them out at %%info%% and %%verify%%!",
     "executedBy": "Done by le %%user%%"
 }

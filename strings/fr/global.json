@@ -21,6 +21,7 @@
     "contextSubArg": "Entre une sous-commande comme premier argument. Cela peut être soit `get`, `add`, `edit`, `link` ou `help`.\nPour plus d'information, exécute `+context help`.",
     "apiError": "Something went wrong while contacting the API!",
     "cooldown": "Temps de recharge",
+    "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "Attend encore %%time%% secondes pour utiliser `+%%command%%` à nouveau.",
     "minsLeftT": "Attend encore %%time%% minutes pour utiliser `+%%command%%` à nouveau.",
     "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",

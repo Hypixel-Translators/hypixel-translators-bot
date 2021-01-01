@@ -1,8 +1,7 @@
 {
     "moduleName": "Kontekst",
-    "loading": "Just a second...",
-    "loadingModule": "Laster inn modul...",
     "errors": {
+        "notFound": "That context entry wasn't found!",
         "exists1": "En kontekstoppføring for ",
         "exists2": " eksisterer allerede, så din ble ikke lagt til. Bruk `+context edit` i stedet.",
         "didntReply": "Du svarte ikke i tide, ",
@@ -15,7 +14,9 @@
     "noteFor": "Merknad for ",
     "screenshot": "Skjermdump",
     "addContextFor": "Legg til kontekst for ",
+    "edited": "Edited this context entry! ",
     "editedResult": "Redigerte denne konteksten! Den nye dataen vises nedenfor\n\n**Context**\n",
+    "tryRunGet": "We couldn't find the resulting entry. Try to run `+context get <string ID>` to see the result instead.",
     "editContextFor": "Rediger kontekst for ",
     "willAdd": "Denne oppføringen vil bli lagt til. Vennligst reager med 📑 hvis du har lyst til å legge til flere oppføringer eller endre eksisterende felt (som for eksempel et skjermdump eller en merknad). Reager med %%voteYes%% for å utføre. Dette vil bli avbrutt om to minutter eller når du trykker %%voteNo%%.",
     "promptAddMore": "Send en melding (uten prefiksen) som inneholder `<felt> <innhold>`. <felt> kan være for eksempel `screenshot`, `id`, `context` eller en språkkode. <innhold> må være det nye innholdet for den stringen, som for eksempel en skjermdump-lenke.",
@@ -60,6 +61,7 @@
         "edit": "_Redigerer en eksisterende kontekstoppføring_\n`+context edit <string-ID> <felt> <ny verdi>`\n\nErstatt <string-ID> med string-IDen, som kan bli funnet ved å kopiere string-URLen. Det er tallet etter #. Erstatt <felt> med det feltet du vil endre, som for eksempel `screenshot` eller `enpt`. Erstatt <ny verdi> med den nye verdien for det feltet.",
         "link": "_Gives you the link to the Google Sheet containing context_\n`+context link`",
         "help": "_Viser denne meldingen!_\n`+context help`",
+        "fields": "Fields",
         "sheetT": "Kontekst-regneark",
         "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
         "sheetDButton": "Click here to open the Google Sheet containing context information.",

@@ -1,6 +1,5 @@
 {
     "moduleName": "Zalgokontrolle",
-    "started": "Bitte warte ein oder zwei Minuten, bis alle Zalgo-Benutzernamen geändert sind …",
     "done": "Alle Zalgo-Benutzernamen wurden geändert!",
     "executedBy": "Ausgeführt von %%user%%"
 }

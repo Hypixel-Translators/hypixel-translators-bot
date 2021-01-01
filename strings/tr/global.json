@@ -21,6 +21,7 @@
     "contextSubArg": "Lütfen ilk argüman olarak bir alt komut girin. Bu, `get`, `add`, `edit`,`link` veya `help` olabilir.\nBilgi için `+context help` komutunu çalıştırın.",
     "apiError": "Something went wrong while contacting the API!",
     "cooldown": "Bekleme Süresi",
+    "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "'+%%command%%' komutunu kullanmak için lütfen %%time%% saniye bekle.",
     "minsLeftT": "`+%%command%%' tekrar kullanmak için lütfen %%time%% dakika daha bekleyin.",
     "linkCorrection": "%%user%% Lütfen bağlantıyı bir dahaki sefere 'crowdin.com/translate/.../.../en-en' olarak değiştir.",

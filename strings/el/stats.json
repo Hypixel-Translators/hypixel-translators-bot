@@ -1,6 +1,5 @@
 {
     "moduleName": "Ενημέρωση στατιστικών",
-    "started": "Περιμένετε ένα με δύο λεπτά για να ενημερωθούν όλα τα στατιστικά...",
     "done": "All language statistics have been updated!",
     "doneProject": "The %%project%% language statistics have been updated!",
     "errorNoProject": "Couldn't find the project with the name %%name%%.",

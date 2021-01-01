@@ -1,11 +1,11 @@
 {
-    "errorNoPing": "You don't have that language's proofreader role, ",
-    "errorNoPingPr": "so you can't mention it.",
-    "errorNoPingTr": "so you can't mention its translator role.",
-    "errorNoPingAll": "so you can't mention the entire language.",
-    "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to.",
-    "errorNotFound": "The role you entered doesn't exist. You can enter the language name, or any of these: ",
-    "errorNoArgs": "You forgot to specify a language! You can enter the language name (in English) or any of these: ",
-    "errorNoArgs2": "You forgot to specify a role type! Select one of these: ",
+    "errorNoPing": "คุณไม่มียศผู้พิสูจน์อักษรของภาษานั้น, ",
+    "errorNoPingPr": "ดังนั้นคุณจึงไม่สามารถกล่าวถึงได้",
+    "errorNoPingTr": "คุณจึงไม่สามารถพูดถึงยศนักแปลได้",
+    "errorNoPingAll": "คุณจึงไม่สามารถพูดถึงภาษาทั้งหมดได้",
+    "errorNoPingDisclaimer": "ติดต่อเจ้าของเซิร์ฟเวอร์หรือผู้ดูแลระบบหากคุณต้องการจริงๆ",
+    "errorNotFound": "ไม่มียศที่คุณป้อน คุณสามารถป้อนชื่อภาษาหรือสิ่งเหล่านี้: ",
+    "errorNoArgs": "คุณลืมระบุภาษา! คุณสามารถป้อนชื่อภาษา (เป็นภาษาอังกฤษ) หรือสิ่งเหล่านี้: ",
+    "errorNoArgs2": "คุณลืมระบุประเภทยศ! เลือกอย่างใดอย่างหนึ่งต่อไปนี้: ",
     "executedBy": "Executed by %%user%%"
 }

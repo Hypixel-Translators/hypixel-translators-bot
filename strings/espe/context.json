@@ -1,8 +1,7 @@
 {
     "moduleName": "Contexto",
-    "loading": "Un segundo...",
-    "loadingModule": "Cargando módulo...",
     "errors": {
+        "notFound": "That context entry wasn't found!",
         "exists1": "Una entrada de contexto para ",
         "exists2": " ya existe, entonces la tuya no fue añadida. En vez, usa `+context edit`.",
         "didntReply": "No respondiste en tiempo, ",
@@ -15,7 +14,9 @@
     "noteFor": "Nota para ",
     "screenshot": "Screenshot",
     "addContextFor": "Añadir contexto para ",
+    "edited": "Edited this context entry! ",
     "editedResult": "¡La entrada de contexto fue editada! Los nuevos datos:\n\n**Contexto**\n",
+    "tryRunGet": "We couldn't find the resulting entry. Try to run `+context get <string ID>` to see the result instead.",
     "editContextFor": "Editar contexto para ",
     "willAdd": "La siguiente entrada será añadida. Por favor, reacciona con 📑 si quieres añadir más a la entrada o cambiar el texto (como screenshot o una nota para un idioma). Reacciona con %%voteYes%% para enviar. Esto será cancelado en dos minutos o cuando reaccionas con %%voteNo%%.",
     "promptAddMore": "Envía un mensaje (sin el prefijo) que contiene `<parámetro> <contenido>`. <parámetro> puede ser `screenshot`, `id`, `context`, o un código de idioma. <contenido> necesita ser el nuevo contenido de ese string, como un link de screenshot.",
@@ -60,6 +61,7 @@
         "edit": "_Edita una entrada de contexto_\n`+context edit <ID del string> <parámetro> <nueva información>`\n\nReemplaza <ID del string> con el ID del string encontrado copiando el link del string. Es el número después del #. Reemplaza <parámetro> con el parámetro que quieres editar, como `screenshot` o `enpt`. Reemplaza <nueva información> con la nueva información para ese parámetro.",
         "link": "_Te da el link a la Google Sheet que contiene el contexto_\n`+context link`",
         "help": "_¡Muestra este mensaje!_\n`+context help`",
+        "fields": "Fields",
         "sheetT": "Hoja de Contexto",
         "sheetD": "Solo personas especificas pueden abrir esta página. Puedes pedir acceso en la página que ves cuando haces clic en el link.\nPor favor, da un link a tu perfil de Crowdin (`../profile/<usuario>`) y tu usuario de Discord.\nAcuérdate que Stannya y Rodry pueden ver tu perfil de Google y tu correo electrónico.",
         "sheetDButton": "Haz clic aquí para abrir el Google Sheet que contiene información de contexto.",

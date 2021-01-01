@@ -4,5 +4,7 @@
     "infoChannel": "bilgi",
     "verifyChannel": "doğrulama",
     "successAll": "Tüm kanallar güncellendi!",
+    "checkOut1": "Check it out at %%channel%%!",
+    "checkOut2": "Check them out at %%info%% and %%verify%%!",
     "executedBy": "%%user%% tarafından yürütüldü"
 }

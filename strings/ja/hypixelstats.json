@@ -1,7 +1,5 @@
 {
     "moduleName": "プレイヤーの統計",
-    "loading": "Just a second...",
-    "loadingModule": "プレイヤーの統計を収集中…",
     "description": "%%username%%のHypixelの統計はこちらです。[こちら]%%link%% から取得しています。",
     "updateNotice": "注意：ここにある情報は、変更してから更新されるまで数分かかる場合があることをご了承ください。",
     "networkLevel": "Hypixelレベル",

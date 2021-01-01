@@ -1,6 +1,5 @@
 {
     "moduleName": "Zalgo Denetleyicisi",
-    "started": "Lütfen tüm zalgo takma adlarının değiştirilmesi için bir veya iki dakika bekleyin...",
     "done": "Tüm zalgo takma adları değiştirildi!",
     "executedBy": "%%user%% tarafından yürütüldü"
 }

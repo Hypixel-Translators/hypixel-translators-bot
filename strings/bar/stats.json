@@ -1,6 +1,5 @@
 {
     "moduleName": "Statistiken Aktualisierung",
-    "started": "Bitte warte ein oder zwei Minuten, bis alle Statistiken aktualisiert sind …",
     "done": "Alle Statistiken wurden aktualisiert!",
     "doneProject": "Die %%project%%-Sprachstatistik wurde aktualisiert!",
     "errorNoProject": "Das Projekt mit dem Namen %%name%% konnte nicht gefunden werden.",

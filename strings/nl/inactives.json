@@ -1,6 +1,5 @@
 {
     "moduleName": "Inactiviteitscontrole",
-    "started": "Wacht een minuut of twee tot alle ongeverifieerde leden op de hoogte gesteld zijn...",
     "done": "Alle inactive leden hebben bericht ontvangen!",
     "executedBy": "Uitgevoerd door %%user%%"
 }

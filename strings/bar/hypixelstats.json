@@ -1,7 +1,5 @@
 {
     "moduleName": "Spielerstatistiken",
-    "loading": "Eine Sekunde …",
-    "loadingModule": "Sammeln von Spieler-Statistiken …",
     "description": "Hier sind einige Hypixel-Statistiken für %%username%%, erhalten [hier]%%link%%.",
     "updateNotice": "Hinweis: Bitte beachte, dass es ein paar Minuten dauern kann, bis die Informationen hier aktualisiert werden, nachdem du etwas geändert hast.",
     "networkLevel": "Hypixel-Level",
