@@ -7,7 +7,7 @@ module.exports = {
     description: "Sends an announcement wishing everyone a happy (holiday) in each language.",
     usage: "+holidays <holiday>",
     aliases: ["holiday"],
-    channelWhiteList: ["730042612647723058", "551693960913879071"], // bot-development admin-bots
+    channelWhitelist: ["730042612647723058", "551693960913879071"], // bot-development admin-bots
     execute(message, strings, args) {
         if (!message.member.hasPermission("ADMINISTRATOR")) return "noAccess"
         if (!args[0]) return message.channel.send("You absolute buffoon you need to tell me what holiday to look for.")

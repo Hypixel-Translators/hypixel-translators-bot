@@ -18,6 +18,7 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection()
 
 //Define assets
+const approved = "732298639749152769"
 const notAllowed = "732298639736570007" //vote_no emoji
 
 //Import events
@@ -76,6 +77,9 @@ client.on("message", async message => {
 
   //Delete pinned message messages
   if (message.type === "PINS_ADD") message.delete()
+
+  //React to messages in review-strings
+  if (message.channel.name.endsWith("review-strings") && !message.author.bot) message.react(approved)
 
   //Define command and stop if none is found
   const args = message.content.slice(prefix.length).split(/ +/)
@@ -140,12 +144,11 @@ client.on("message", async message => {
   }
 
   //Blacklist and whitelist systems
-  let allowed = true
-  if (command.categoryBlackList && command.categoryBlackList.includes(message.channel.parent.id)) allowed = false
-  if (command.categoryWhiteList && !command.categoryWhiteList.includes(message.channel.parent.id)) allowed = false
-  else allowed = true
-  if (command.channelBlackList && command.channelBlackList.includes(message.channel.id)) allowed = false
-  if (command.channelWhiteList && !command.channelWhiteList.includes(message.channel.id)) allowed = false
+  let allowed
+  if (command.categoryBlacklist && command.categoryBlacklist.includes(message.channel.parent.id)) allowed = false
+  else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
+  else if (command.categoryWhitelist && command.categoryWhitelist.includes(message.channel.parent.id)) allowed = true
+  else if (command.channelWhitelist && command.channelWhitelist.includes(message.channel.id)) allowed = true
   else allowed = true
   if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
   if (!allowed) return message.react(notAllowed)
@@ -225,7 +228,7 @@ client.on("message", async message => {
   } finally {
 
     //Try sending a tip
-    if (command.name !== "verify") {
+    if (command.name !== "verify" && command.name !== "mention") {
       let d = Math.random().toFixed(2)
       let keys = Object.keys(globalStrings.tips)
       let tip = globalStrings.tips[keys[keys.length * Math.random() << 0]]
@@ -243,7 +246,6 @@ client.on("messageReactionAdd", async (reaction, user) => {
   if (channel.name.endsWith("review-strings") && !user.bot) {
     if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
       reaction.message.react("⏱")
-      reaction.message.react(reaction.emoji)
       setTimeout(() => {
         if (!reaction.message.deleted) reaction.message.delete()
         console.log(`String reviewed in ${reaction.message.channel.name} (saw reaction ${reaction.emoji.name})`)

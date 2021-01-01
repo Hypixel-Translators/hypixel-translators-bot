@@ -8,7 +8,7 @@ module.exports = {
     description: "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`.",
     aliases: ["lang"],
     usage: "+language [<new language> | list | add <language>]",
-    channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
     cooldown: 5,
     async execute(message, strings, args) {
