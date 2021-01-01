@@ -16,7 +16,7 @@ module.exports = {
         try {
             if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771") && !message.member.hasPermission("ADMINISTRATOR")) throw "noTrPr" //Hypixel Translator and Hypixel Proofreader
             if (subCmd === "add" || subCmd === "new") addToSpreadsheet(executedBy, message, strings, args)
-            else if (subCmd === "get" || subCmd === "show") getFromSpreadsheet(executedBy, message, strings, args, globalStrings)
+            else if (subCmd === "get" || subCmd === "show") getFromSpreadsheet(executedBy, message, strings, args)
             else if (subCmd === "edit") editInSpreadsheet(executedBy, message, strings, args)
             else if (subCmd === "help" || subCmd === "info") showInfo(executedBy, message, strings, args)
             else if (subCmd === "link" || subCmd === "sheet" || subCmd === "list") sheetLink(executedBy, message, strings, args)
@@ -479,7 +479,6 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
 }
 
 async function showInfo(executedBy, message, strings) {
-    message.channel.startTyping()
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
@@ -491,22 +490,19 @@ async function showInfo(executedBy, message, strings) {
             { name: "Edit", value: strings.info.edit },
             { name: "Link", value: strings.info.link },
             { name: "Help", value: strings.info.help },
-            { name: strings.fields, value: "id, context, screenshot, bg, zhcn, zhtw, cs, da, nl, fi, fr, de, el, it, ja, ko, ms, no, enpt, pl, pt, ptbr, ru, es, sv, th, tr, uk" }
+            { name: strings.info.fields, value: "id, context, screenshot, bg, zhcn, zhtw, cs, da, nl, fi, fr, de, el, it, ja, ko, ms, no, enpt, pl, pt, ptbr, ru, es, sv, th, tr, uk" }
         )
         .setFooter(executedBy, message.author.displayAvatarURL())
-    message.channel.stopTyping()
     message.channel.send(embed)
     return
 }
 
 async function sheetLink(executedBy, message, strings) {
-    message.channel.startTyping()
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle(strings.info.sheetT)
         .setDescription(`[${strings.info.sheetDButton}](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\n` + strings.info.sheetD)
         .setFooter(executedBy + " | " + strings.info.sheetDel, message.author.displayAvatarURL())
-    message.channel.stopTyping()
     message.channel.send(embed)
         .then(linkMsg => {
             setTimeout(() => {
