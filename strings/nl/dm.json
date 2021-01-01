@@ -2,7 +2,7 @@
     "moduleName": "Privébericht",
     "outgoing": "Bericht verzonden aan %%recipient%%",
     "error": "Er is een fout opgetreden bij het sturen van een bericht naar %%recipient%%",
-    "noMsg": "You need to specify what message you want to send to this person!",
+    "noMsg": "Je moet het bericht om naar deze persoon te verzenden opgeven!",
     "incoming": "Bericht ontvangen van staff",
     "incomingDisclaimer": "Als je hier een bericht stuurt, wordt het verzonden naar staff.",
     "executedBy": "Uitgevoerd door %%user%%"
