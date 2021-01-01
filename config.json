@@ -13,7 +13,7 @@
     {"name": "Biscuitish", "emoji": "🍪", "code": "bc", "flag": "https://github.com/BiscuitDevelopment/SkyblockAddons/blob/development/src/main/resources/assets/skyblockaddons/flags/%code%_bc.png?raw=true"},
     {"name": "Bulgarian", "emoji": "🇧🇬", "colour": "#e02222", "code": "bg", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Chinese Simplified", "emoji": "🇨🇳", "colour": "#21de70", "code": "zhcn", "id": "zh-CN", "flag": "https://crowdin.com/images/flags/%code%.png"},
-    {"name": "Chinese Traditional", "emoji": "🇭🇰", "colour": "#21de70", "code": "zhtw", "id": "zh-TW", "flag": "https://crowdin.com/images/flags/%code%.png"},
+    {"name": "Chinese Traditional", "emoji": "🇹🇼", "colour": "#21de70", "code": "zhtw", "id": "zh-TW", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Croatian", "emoji": "🇭🇷", "code": "hr", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Czech", "emoji": "🇨🇿", "colour": "#e02222", "code": "cs", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Danish", "emoji": "🇩🇰", "colour": "#e02222", "code": "da", "flag": "https://crowdin.com/images/flags/%code%.png"},
