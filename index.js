@@ -243,6 +243,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if (channel.name.endsWith("review-strings") && !user.bot) {
       if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
         reaction.message.react("⏱")
+        reaction.message.react(reaction.emoji)
         setTimeout(() => {
           if (!reaction.message.deleted) reaction.message.delete()
           console.log(`String reviewed in ${reaction.message.channel.name} (saw reaction ${reaction.emoji.name})`)
