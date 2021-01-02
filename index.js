@@ -147,8 +147,8 @@ client.on("message", async message => {
   let allowed
   if (command.categoryBlacklist && command.categoryBlacklist.includes(message.channel.parent.id)) allowed = false
   else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
-  else if (command.categoryWhitelist && command.categoryWhitelist.includes(message.channel.parent.id)) allowed = true
-  else if (command.channelWhitelist && command.channelWhitelist.includes(message.channel.id)) allowed = true
+  else if (command.categoryWhitelist && !command.categoryWhitelist.includes(message.channel.parent.id)) allowed = false
+  else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
   else allowed = true
   if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
   if (!allowed) return message.react(notAllowed)
