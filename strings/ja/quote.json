@@ -1,10 +1,10 @@
 {
-    "moduleName": "Quote",
-    "invalidArg": "Invalid argument!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!",
-    "reqAdd": "Success! The following quote has been added:",
-    "user": "User",
-    "index": "Quote number",
+    "moduleName": "引用",
+    "invalidArg": "無効な引数です！",
+    "indexArg": "インデックス %%arg%% の引用は存在しません！ 1から%%max%%の間の数字を入力してください。",
+    "reqSub": "引用リクエストが送信されました。ありがとうございます！",
+    "reqAdd": "成功！ 以下の引用が追加されました：",
+    "user": "ユーザー",
+    "index": "引用番号",
     "executedBy": "Executed by %%user%%"
 }
