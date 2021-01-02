@@ -102,10 +102,8 @@ async function addToSpreadsheet(executedBy, message, strings, quote, author) {
     await doc.useServiceAccountAuth(creds)
 
     await doc.loadInfo()
-    console.log(doc.title)
 
     const sheet = doc.sheetsByIndex[0]
-    console.log(sheet.title)
 
     const rows = await sheet.getRows()
     const newLength = Number(rows.length) + 1

@@ -27,17 +27,16 @@ module.exports = {
 
 async function getFromSpreadsheet(executedBy, message, strings, args) {
     message.channel.startTyping()
+    const string = args[1]
     const doc = new GoogleSpreadsheet(contextSheet)
     await doc.useServiceAccountAuth(creds)
 
     await doc.loadInfo()
-    console.log(doc.title)
 
     const sheet = doc.sheetsByIndex[0]
-    console.log(sheet.title)
 
     const rows = await sheet.getRows()
-    const correctRow = rows.find(r => r.id === args[1])
+    const correctRow = rows.find(r => r.id === string)
 
     if (!correctRow) {
         message.channel.stopTyping()
@@ -47,7 +46,7 @@ async function getFromSpreadsheet(executedBy, message, strings, args) {
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setAuthor(strings.moduleName)
-        .setTitle(strings.contextFor + args[1])
+        .setTitle(strings.contextFor + string)
         .setDescription(correctRow.context)
         .setFooter(executedBy, message.author.displayAvatarURL())
     if (correctRow.bg) { if (correctRow.bg.length > 1) { embed.addFields({ name: strings.noteFor + strings.bulgarian, value: correctRow.bg, inline: true }) } }
@@ -114,15 +113,13 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
     await doc.useServiceAccountAuth(creds)
 
     await doc.loadInfo()
-    console.log(doc.title)
 
     const sheet = doc.sheetsByIndex[0]
-    console.log(sheet.title)
     const noEmoji = message.client.emojis.cache.find(emoji => emoji.name === "vote_no")
     const yesEmoji = message.client.emojis.cache.find(emoji => emoji.name === "vote_yes")
 
     const rows = await sheet.getRows()
-    const correctRow = rows.find(r => r.id === args[1])
+    const correctRow = rows.find(r => r.id === string)
     if (correctRow) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
@@ -160,7 +157,6 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
             let extraReceiveds = []
 
             collector.on("collect", async (reaction, reacter) => {
-                console.log(reaction.emoji.name)
                 if (reaction.emoji.name === "📑") {
                     reaction.users.remove(message.author.id)
                     const collectorB = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 120000 })
@@ -263,6 +259,7 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                             extraReceiveds.forEach(item => {
                                 if (!item.deleted) item.delete()
                             })
+                            console.log("Added a context entry for string " + string)
                         })
                 }
                 if (reaction.emoji.name === "vote_no") {
@@ -307,11 +304,12 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
 
 async function editInSpreadsheet(executedBy, message, strings, args) {
     message.channel.startTyping()
+    const string = args[1]
     if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) { //Hypixel Proofreader
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(strings.moduleName)
-            .setTitle(strings.editContextFor + args[1])
+            .setTitle(strings.editContextFor + string)
             .setDescription(strings.notProofreader)
             .setFooter(executedBy, message.author.displayAvatarURL())
         message.channel.stopTyping()
@@ -323,13 +321,11 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
     await doc.useServiceAccountAuth(creds)
 
     await doc.loadInfo()
-    console.log(doc.title)
 
     const sheet = doc.sheetsByIndex[0]
-    console.log(sheet.title)
 
     const rows = await sheet.getRows()
-    let correctRow = rows.find(r => r.id === args[1])
+    let correctRow = rows.find(r => r.id === string)
 
     if (!correctRow) {
         message.channel.stopTyping()
@@ -340,7 +336,7 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(strings.moduleName)
-            .setTitle(strings.editContextFor + args[1])
+            .setTitle(strings.editContextFor + string)
             .setDescription(strings.specifyFieldEdit)
             .setFooter(executedBy, message.author.displayAvatarURL())
         message.channel.stopTyping()
@@ -359,7 +355,7 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
-        .setTitle(strings.editContextFor + args[1])
+        .setTitle(strings.editContextFor + string)
         .setDescription(strings.confirm.replace("%%voteNo%%", "<:vote_no:732298639736570007>").replace("%%voteYes%%", "<:vote_yes:732298639749152769>"))
         .setFooter(executedBy, message.author.displayAvatarURL())
     if (correctRow[key]) {
@@ -386,7 +382,7 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setAuthor(strings.moduleName)
-                        .setTitle(strings.editContextFor + args[1])
+                        .setTitle(strings.editContextFor + string)
                         .setDescription(strings.errors.hitReaction.replace("%%voteNo%%", "<:vote_no:732298639736570007>") + strings.errors.cancelledPrompt)
                         .setFooter(executedBy, message.author.displayAvatarURL())
                     msg.edit(embed)
@@ -397,13 +393,13 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
                     collector.stop()
                     correctRow[key] = value
                     const save = await correctRow.save()
-                    const result = rows.find(r => r.id === args[1])
+                    const result = rows.find(r => r.id === string)
 
                     if (!result) {
                         const embed = new Discord.MessageEmbed()
                             .setColor(errorColor)
                             .setAuthor(strings.moduleName)
-                            .setTitle(strings.editContextFor + args[1])
+                            .setTitle(strings.editContextFor + string)
                             .setDescription(string.edited + string.tryRunGet)
                             .setFooter(executedBy, message.author.displayAvatarURL())
                         msg.edit(embed)
@@ -413,7 +409,7 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
                         .setAuthor(strings.moduleName)
-                        .setTitle(strings.editContextFor + args[1])
+                        .setTitle(strings.editContextFor + string)
                         .setDescription(strings.editedResult + result.context)
                         .setFooter(executedBy, message.author.displayAvatarURL())
                     if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: strings.noteFor + strings.bulgarian, value: result.bg, inline: true }) } }
@@ -449,17 +445,18 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
                         embed.addFields({ name: strings.screenshot, value: result.screenshot })
                     }
                     msg.edit(embed)
+                    console.log("Edited the context entry for string " + string)
                 }
             })
 
             collector.on("end", async (collected) => {
                 msg.reactions.removeAll()
-                let correctRow = rows.find(r => r.id === args[1])
+                let correctRow = rows.find(r => r.id === string)
                 if (correctRow[key] !== value) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setAuthor(strings.moduleName)
-                        .setTitle(strings.editContextFor + args[1])
+                        .setTitle(strings.editContextFor + string)
                         .setDescription(strings.errors.didntReply + strings.errors.cancelledPrompt)
                         .setFooter(executedBy, message.author.displayAvatarURL())
                     msg.edit(embed)

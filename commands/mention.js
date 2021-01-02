@@ -39,16 +39,12 @@ module.exports = {
     }
     if (type === "pf" || type === "pr" || type === "proofreader") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader")
-      const lowerRole = message.guild.roles.cache.find(role => role.name === toLook + " Translator")
-      console.log(toPing + " " + lowerRole)
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR"))) {
         message.delete()
         message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> " + toSend)
       } else { message.channel.send(strings.errorNoPing + strings.errorNoPingPr + " " + strings.errorNoPingDisclaimer) }
     } else if (type === "tr" || type === "translator") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator")
-      const higherRole = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader")
-      console.log(toPing + " " + higherRole)
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR"))) {
         message.delete()
         message.channel.send("**<@" + message.member.id + ">**: <@&" + toPing + "> " + toSend)
@@ -56,7 +52,6 @@ module.exports = {
     } else if (type === "all" || type === "both") {
       const translatorPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator")
       const proofreaderPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader")
-      console.log(translatorPing + " " + proofreaderPing)
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("ADMINISTRATOR"))) {
         message.delete()
         message.channel.send("**<@" + message.member.id + ">**: <@&" + translatorPing + "> <@&" + proofreaderPing + "> " + toSend)

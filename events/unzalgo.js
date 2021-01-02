@@ -12,7 +12,6 @@ module.exports = {
 }
 
 async function check(client) {
-    console.log("Checking zalgo nicks now!")
     await client.guilds.cache.get("549503328472530974").members.fetch()
         .then(members => {
             members.forEach(member => {
