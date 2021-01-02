@@ -257,10 +257,10 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                                 embed.addFields({ name: strings.screenshot, value: result.screenshot })
                             }
                             finalMsg.edit(embed)
-                            extraMsgs.forEach(function (item) {
+                            extraMsgs.forEach(item => {
                                 if (!item.deleted) item.delete()
                             })
-                            extraReceiveds.forEach(function (item) {
+                            extraReceiveds.forEach(item => {
                                 if (!item.deleted) item.delete()
                             })
                         })
@@ -274,16 +274,12 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                         .setDescription(strings.errors.hitReaction.replace("%%voteNo%%", "<:vote_no:732298639736570007>") + strings.errors.cancelledPrompt)
                         .setFooter(executedBy, message.author.displayAvatarURL())
                     msg.edit(embed)
-                    if (!message.deleted) message.delete()
-                    extraMsgs.forEach(function (item) {
+                    extraMsgs.forEach(item => {
                         if (!item.deleted) item.delete()
                     })
-                    extraReceiveds.forEach(function (item) {
+                    extraReceiveds.forEach(item => {
                         if (!item.deleted) item.delete()
                     })
-                    setTimeout(() => {
-                        if (!msg.deleted) msg.delete()
-                    }, 5000)
                 }
 
             })
@@ -296,11 +292,10 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                     .setDescription(strings.errors.hitReaction.replace("%%voteNo%%", "<:vote_no:732298639736570007>") + strings.errors.cancelledPrompt)
                     .setFooter(executedBy, message.author.displayAvatarURL())
                 msg.edit(embed)
-                if (!message.deleted) message.delete()
-                extraMsgs.forEach(function (item) {
+                extraMsgs.forEach(item => {
                     if (!item.deleted) item.delete()
                 })
-                extraReceiveds.forEach(function (item) {
+                extraReceiveds.forEach(item => {
                     if (!item.deleted) item.delete()
                 })
                 setTimeout(() => {
@@ -395,10 +390,6 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
                         .setDescription(strings.errors.hitReaction.replace("%%voteNo%%", "<:vote_no:732298639736570007>") + strings.errors.cancelledPrompt)
                         .setFooter(executedBy, message.author.displayAvatarURL())
                     msg.edit(embed)
-                    setTimeout(() => {
-                        if (!message.deleted) message.delete()
-                        if (!msg.deleted) msg.delete()
-                    }, 5000)
                     return
                 }
                 if (reaction.emoji.name === "vote_yes") {
