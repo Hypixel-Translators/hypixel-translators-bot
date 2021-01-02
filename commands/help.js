@@ -1,4 +1,4 @@
-const {  errorColor, neutralColor, prefix } = require("../config.json")
+const { errorColor, neutralColor, prefix } = require("../config.json")
 const Discord = require("discord.js")
 
 module.exports = {
@@ -74,14 +74,14 @@ module.exports = {
             page++
             if (page > pages.length - 1) page = pages.length - 1
           }
-          reaction.users.remove(message.author.id)
+          if (message.channel.type !== "dm") reaction.users.remove(message.author.id)
           pageEmbed = await fetchPage(page, pages, strings, executedBy, message, pageEmbed)
           msg.edit(pageEmbed)
         })
 
         collector.on("end", async () => {
           msg.edit(strings.timeOut)
-          msg.reactions.removeAll()
+          if (message.channel.type !== "dm") msg.reactions.removeAll()
           setTimeout(() => {
             msg.suppressEmbeds()
           }, 10000)

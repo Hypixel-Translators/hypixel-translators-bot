@@ -21,7 +21,9 @@ module.exports = {
             if (args[0] === "add") {
                 args.splice(0, 1)
                 const newLang = args.join(" ")
-                if (!message.member.hasPermission("ADMINISTRATOR")) {
+                if (message.channel.type === "dm" || !message.member.hasPermission("ADMINISTRATOR")) {
+                    let requester = message.author.username
+                    if (message.channel.type !== "dm") requester = message.member.displayName
                     if (name(newLang) || code(newLang)) {
                         const result = new Discord.MessageEmbed()
                             .setColor(neutralColor)
@@ -33,8 +35,8 @@ module.exports = {
                         const request = new Discord.MessageEmbed()
                             .setColor(neutralColor)
                             .setAuthor("Language")
-                            .setTitle(`${message.member.displayName} wants the following language to be added to the Bot:`)
-                            .setDescription(newLang)
+                            .setTitle(`${requester} wants the following language to be added to the Bot:`)
+                            .setDescription(`${name(newLang) || code(newLang)} (user input: ${newLang})`)
                             .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
                         message.client.channels.cache.get("569595073055162378").send("<@241926666400563203> and <@240875059953139714>", request) //admin tagging Stannya and Rodry
                     } else {

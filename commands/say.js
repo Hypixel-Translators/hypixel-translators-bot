@@ -7,7 +7,7 @@ module.exports = {
   usage: "+say <message>",
   cooldown: 600,
   aliases: ["parrot", "repeat", "send"],
-  allowDM: true,
+  roleWhitelist: ["768435276191891456"], //Discord Staff
   async execute(message, strings, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     if (!args[0]) return

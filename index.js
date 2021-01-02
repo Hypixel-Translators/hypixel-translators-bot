@@ -95,7 +95,7 @@ client.on("message", async message => {
 
   //Publish message if sent in channel
   if (message.channel.id === "732587569744838777") { //bot-updates
-    return fetch(`https://discordapp.com/api/v8/channels/${message.channel.id}/messages/${message.id}/crosspost`, { method: "Post", headers: { "Authorization": `Bot ${process.env.TOKEN}` } })
+    message.crosspost()
   }
 
   //Get global strings
@@ -140,14 +140,41 @@ client.on("message", async message => {
     } else return //Stop if it starts with prefix
   }
 
-  //Blacklist and whitelist systems
+  //Role Blacklist and Whitelist system
   let allowed = true
-  if (command.categoryBlacklist && command.categoryBlacklist.includes(message.channel.parent.id)) allowed = false
-  else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
-  else if (command.categoryWhitelist && !command.categoryWhitelist.includes(message.channel.parent.id)) allowed = false
-  else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
-  if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
-  if (!allowed) return message.react(notAllowed)
+  if (message.guild.id === "549503328472530974") {
+    if (command.roleBlacklist) {
+      allowed = true
+      if (allowed) {
+        command.roleBlacklist.forEach(role => {
+          if (message.member.roles.cache.has(role)) allowed = false
+        })
+      }
+    }
+    if (command.roleWhitelist) {
+      allowed = false
+      if (!allowed) {
+        command.roleWhitelist.forEach(role => {
+          if (message.member.roles.cache.has(role)) allowed = true
+        })
+      }
+    }
+
+    //Channel Blacklist and whitelist systems
+    if (command.categoryBlacklist && command.categoryBlacklist.includes(message.channel.parent.id)) allowed = false
+    else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
+    else if (command.categoryWhitelist && !command.categoryWhitelist.includes(message.channel.parent.id)) allowed = false
+    else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
+    //Give perm to admins and return if not allowed
+    if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
+  }
+  if (!allowed) {
+    message.react(notAllowed)
+    setTimeout(() => {
+      if (!message.deleted) message.delete()
+    }, 5000);
+    return
+  }
 
   //Stop and error if command is not allowed in DMs and command is sent in DMs
   if (!command.allowDM && message.channel.type === "dm") {

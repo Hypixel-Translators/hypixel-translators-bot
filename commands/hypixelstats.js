@@ -19,7 +19,7 @@ module.exports = {
         }
 
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        const credits = strings.madeBy.replace("%%developer%%", message.guild.members.cache.get("500669086947344384").user.tag)
+        const credits = strings.madeBy.replace("%%developer%%", message.client.guilds.cache.get("549503328472530974").members.cache.get("500669086947344384").user.tag)
         let username = args[0]
         if (!args[0]) throw "noUser"
 

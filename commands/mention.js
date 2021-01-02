@@ -4,6 +4,7 @@ module.exports = {
   aliases: ["langping", "languageping"],
   usage: "+mention <language> <proofreader|translator|all> [message]",
   cooldown: 120,
+  roleWhitelist: ["569839580971401236"], //Hypixel Proofreader
   channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "644620638878695424", "550951034332381184", "549894938712866816", "713084081579098152"],
   execute(message, strings, args) {
     if (!args[0]) {
@@ -14,7 +15,6 @@ module.exports = {
       message.channel.send(strings.errorNoArgs2 + "\n`proofreader`, `translator`, `all`.")
       return
     }
-    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     let type = args[1].toLowerCase()
     const lowerArg = args[0].toLowerCase()
     let toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)

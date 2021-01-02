@@ -7,6 +7,7 @@ module.exports = {
     description: "Sends an announcement wishing everyone a happy (holiday) in each language.",
     usage: "+holidays <holiday>",
     aliases: ["holiday"],
+    roleWhitelist: ["620274909700161556"], //*
     channelWhitelist: ["730042612647723058", "551693960913879071"], // bot-development admin-bots
     execute(message, strings, args) {
         if (!message.member.hasPermission("ADMINISTRATOR")) return "noAccess"
@@ -31,7 +32,7 @@ module.exports = {
             const announcement = holiday.join(" ")
             if (announcement) {
                 message.client.channels.cache.get("549503985501995011").send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`) //announcements
-                    .then(msg => fetch(`https://discordapp.com/api/v8/channels/549503985501995011/messages/${msg.id}/crosspost`, { method: "Post", headers: { "Authorization": `Bot ${process.env.TOKEN}` } }))
+                    .then(msg => msg.crosspost())
                 message.channel.send(`${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement sent! Here's each language's translation:\n${log.join("\n")}`)
                 console.log(log)
                 console.log(`Sent the ${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement`)
