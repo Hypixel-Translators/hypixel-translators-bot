@@ -241,7 +241,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
   if (channel.type !== "dm") {
     //Delete message when channel name ends with review-strings
     if (channel.name.endsWith("review-strings") && !user.bot) {
-      if (reaction.emoji.name === "vote_yes") {
+      if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
         reaction.message.react("⏱")
         setTimeout(() => {
           if (!reaction.message.deleted) reaction.message.delete()
