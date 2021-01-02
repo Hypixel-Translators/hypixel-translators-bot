@@ -20,7 +20,8 @@ module.exports = {
             args.splice(0, 1)
             const toSend = args.join(" ")
             const fullQuote = toSend.split(" / ")
-            const quote = fullQuote[0]
+            let quote = fullQuote[0]
+            if (quote.startsWith("+")) quote.replace("+", "\\+")
             const author = fullQuote[1]
             if (!quote) {
                 message.channel.stopTyping()
