@@ -78,9 +78,6 @@ client.on("message", async message => {
   //Delete pinned message messages
   if (message.type === "PINS_ADD") message.delete()
 
-  //React to messages in review-strings
-  if (message.channel.name.endsWith("review-strings") && !message.author.bot) message.react(approved)
-
   //Define command and stop if none is found
   const args = message.content.slice(prefix.length).split(/ +/)
   const commandName = args.shift().toLowerCase()
@@ -241,50 +238,53 @@ client.on("message", async message => {
 //Run when reaction is added
 client.on("messageReactionAdd", async (reaction, user) => {
   const channel = reaction.message.channel
+  if (channel.type !== "dm") {
+    //Delete message when channel name ends with review-strings
+    if (channel.name.endsWith("review-strings") && !user.bot) {
+      if (reaction.emoji.name === "vote_yes") {
+        reaction.message.react("⏱")
+        setTimeout(() => {
+          if (!reaction.message.deleted) reaction.message.delete()
+          console.log(`String reviewed in ${reaction.message.channel.name} (saw reaction ${reaction.emoji.name})`)
+        }, 10000)
+      }
+    }
 
-  //Delete message when channel name ends with review-strings
-  if (channel.name.endsWith("review-strings") && !user.bot) {
-    if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
-      reaction.message.react("⏱")
-      setTimeout(() => {
-        if (!reaction.message.deleted) reaction.message.delete()
-        console.log(`String reviewed in ${reaction.message.channel.name} (saw reaction ${reaction.emoji.name})`)
-      }, 10000)
+    //Give Polls role if reacted on reaction role message
+    if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "📊" && !user.bot) { //server-info roles message
+      reaction.message.guild.member(user).roles.add("646098170794868757", "Removed the reaction in server-info")
+        .then(() => console.log("Gave the Polls role to " + user.tag))
+        .catch(err => console.log("An error occured while trying to give the Polls role to " + user.tag + ". Here's the error:\n" + err))
+    }
+
+    //Give Bot Updates role if reacted on reaction role message
+    if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
+      reaction.message.guild.member(user).roles.add("732615152246980628", "Removed the reaction in server-info")
+        .then(() => console.log("Gave the Bot Updates role to " + user.tag))
+        .catch(err => console.log("An error occured while trying to give the Bot Updates role to " + user.tag + ". Here's the error:\n" + err))
     }
   }
-
-  //Give Polls role if reacted on reaction role message
-  if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "📊" && !user.bot) { //server-info roles message
-    reaction.message.guild.member(user).roles.add("646098170794868757", "Removed the reaction in server-info")
-      .then(() => console.log("Gave the Polls role to " + user.tag))
-      .catch(err => console.log("An error occured while trying to give the Polls role to " + user.tag + ". Here's the error:\n" + err))
-  }
-
-  //Give Bot Updates role if reacted on reaction role message
-  if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
-    reaction.message.guild.member(user).roles.add("732615152246980628", "Removed the reaction in server-info")
-      .then(() => console.log("Gave the Bot Updates role to " + user.tag))
-      .catch(err => console.log("An error occured while trying to give the Bot Updates role to " + user.tag + ". Here's the error:\n" + err))
-  }
-
 })
 
 
 //Run when reaction is removed
 client.on("messageReactionRemove", async (reaction, user) => {
 
-  //Take Polls role if reaction removed from reaction role message
-  if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "📊" && !user.bot) { //server-info roles message
-    reaction.message.guild.member(user).roles.remove("646098170794868757", "Removed the reaction in server-info")
-      .then(() => console.log("Took the Polls role from " + user.tag))
-      .catch(err => console.log("An error occured while trying to take the Polls role from " + user.tag + ". Here's the error:\n" + err))
-  }
+  const channel = reaction.message.channel
+  if (channel.type !== "dm") {
+    //Take Polls role if reaction removed from reaction role message
+    if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "📊" && !user.bot) { //server-info roles message
+      reaction.message.guild.member(user).roles.remove("646098170794868757", "Removed the reaction in server-info")
+        .then(() => console.log("Took the Polls role from " + user.tag))
+        .catch(err => console.log("An error occured while trying to take the Polls role from " + user.tag + ". Here's the error:\n" + err))
+    }
 
-  //Take Bot updates role if reaction removed from reaction role message
-  if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
-    reaction.message.guild.member(user).roles.remove("732615152246980628", "Removed the reaction in server-info")
-      .then(() => console.log("Took the Bot Updates role from " + user.tag))
-      .catch(err => console.log("An error occured while trying to take the Bot Updates role from " + user.tag + ". Here's the error:\n" + err))
+    //Take Bot updates role if reaction removed from reaction role message
+    if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
+      reaction.message.guild.member(user).roles.remove("732615152246980628", "Removed the reaction in server-info")
+        .then(() => console.log("Took the Bot Updates role from " + user.tag))
+        .catch(err => console.log("An error occured while trying to take the Bot Updates role from " + user.tag + ". Here's the error:\n" + err))
+    }
   }
 })
 
