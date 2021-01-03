@@ -12,11 +12,11 @@
     "commandInfo": "Komennon tiedot",
     "commandInfoFor": "Tiedot komennolle ",
     "commandNotExist": "Tätä komentoa ei ole olemassa!",
-    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-    "inDev": "This command is currently in development and will be available at a later date!",
+    "staffOnly": "Tämä komento on vain ylläpidon käytössä ja sen tiedot on siksi piilotettu.\nOtathan yhteyttä ylläpitäjään, mikäli uskot tämän olevan virhe.",
+    "inDev": "Tämä komento on vasta kehitteillä ja tulee käyttöön myöhemmin!",
     "seconds": "sekuntia",
-    "second": "second",
-    "minutes": "minutes",
+    "second": "sekunti",
+    "minutes": "minuuttia",
     "usageField": "Käyttö",
     "cooldownField": "Odotusaika",
     "aliasesField": "Aliakset",
@@ -82,7 +82,7 @@
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "Antaa sinulle hyödyllistä tietoa Botin kääntämisestä."
     },
     "thread": {
         "usage": "+thread",
