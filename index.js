@@ -76,13 +76,16 @@ client.once("ready", async () => {
 client.on("message", async message => {
 
   //Delete pinned message messages
-  if (message.type === "PINS_ADD") message.delete()
+  if (message.type === "PINS_ADD" && message.channel.type !== "dm") message.delete()
 
   //Define command and stop if none is found
   const args = message.content.slice(prefix.length).split(/ +/)
   const commandName = args.shift().toLowerCase()
   const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
   if (!command) return
+
+  //Log if command is ran in DMs
+  if (message.channel.type === "dm") console.log(message.author.tag + " used command " + commandName + " in DMs")
 
   //Return if user is a bot or not verified
   if (message.author.bot) return
@@ -93,7 +96,7 @@ client.on("message", async message => {
     if (!user.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
   }
 
-  //Publish message if sent in channel
+  //Publish message if sent in bot-updates
   if (message.channel.id === "732587569744838777") { //bot-updates
     message.crosspost()
   }
