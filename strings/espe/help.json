@@ -12,11 +12,11 @@
     "commandInfo": "Información del comando",
     "commandInfoFor": "Información para el comando ",
     "commandNotExist": "¡Ese comando no existe!",
-    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
+    "staffOnly": "Este comando solo está disponible para staff, entonces su información fue ocultada.\nPor favor, contacta a un staff si crees que esto es un error.",
     "inDev": "¡Este comando está actualmente en desarrollo y estará disponible en el futuro!",
     "seconds": "segundos",
-    "second": "second",
-    "minutes": "minutes",
+    "second": "segundo",
+    "minutes": "minutos",
     "usageField": "Uso",
     "cooldownField": "Enfriamiento",
     "aliasesField": "Otros Nombres",
@@ -82,7 +82,7 @@
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "Te da información útil sobre como traducir al Bot."
     },
     "thread": {
         "usage": "+thread",
