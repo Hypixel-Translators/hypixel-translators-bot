@@ -12,8 +12,11 @@
     "commandInfo": "Информация о команде",
     "commandInfoFor": "Информация про команду ",
     "commandNotExist": "Данная команда не существует!",
-    "noDesc": "Эта команда либо находится в разработке, либо доступна только персоналу.\nПожалуйста, свяжитесь с персоналом, если вы считаете, что это ошибка.",
+    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
+    "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": " секунды",
+    "second": "second",
+    "minutes": "minutes",
     "usageField": "Использование",
     "cooldownField": "Перезарядка",
     "aliasesField": "Альтернативы",
@@ -76,6 +79,10 @@
     "skyblockaddons": {
         "usage": "+skyblockaddons",
         "description": "Gives you useful information regarding the SkyblockAddons project."
+    },
+    "translate": {
+        "usage": "+translate",
+        "description": "Gives you useful information on how to translate the Bot."
     },
     "thread": {
         "usage": "+thread",
