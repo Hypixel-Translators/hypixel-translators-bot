@@ -165,6 +165,10 @@ client.on("message", async message => {
     else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
     else if (command.categoryWhitelist && !command.categoryWhitelist.includes(message.channel.parent.id)) allowed = false
     else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
+
+    //Prevent users from running commands in development
+    if (command.dev && !message.member.roles.cache.has("768435276191891456")) allowed = false
+
     //Give perm to admins and return if not allowed
     if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
   }
@@ -197,7 +201,7 @@ client.on("message", async message => {
     if (now < expirationTime) {
       const timeLeft = (expirationTime - now) / 1000
       let timeLeftS
-      if (Math.ceil(timeLeft) > 120) {
+      if (Math.ceil(timeLeft) >= 120) {
         timeLeftS = (globalStrings.minsLeftT.replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", commandName))
       } else if (Math.ceil(timeLeft) === 1) {
         timeLeftS = (globalStrings.secondLeft.replace("%%command%%", commandName))

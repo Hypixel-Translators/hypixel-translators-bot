@@ -17,7 +17,7 @@ module.exports = {
     const pages = [
       { "n": 0 },
       { "n": 1, "f": ["help", "language", "prefix", "quote", "mention", "context", "hypixelstats", "tip", "ping"], "b": "🛠", "t": "utilityHelp" },
-      { "n": 2, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "thread", "twitter", "issue"], "b": "ℹ", "t": "infoHelp" }
+      { "n": 2, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "translate", "thread", "twitter", "issue"], "b": "ℹ", "t": "infoHelp" }
     ]
 
     if (args[0] && args[0].startsWith(prefix)) args[0] = args[0].slice(1)
@@ -114,16 +114,20 @@ module.exports = {
         if (strings[command.name].usage) var cmdUsage = strings[command.name].usage
       }
 
+      if (command.dev) cmdDesc = strings.inDev
+
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.commandInfoFor + "`+" + command.name + "`")
-        .setDescription(cmdDesc || strings.noDesc)
+        .setDescription(cmdDesc || strings.staffOnly)
         .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
-      if (cmdUsage) {
+      if (cmdUsage && cmdDesc !== strings.inDev) {
         embed.addFields({ name: strings.usageField, value: "`" + cmdUsage + "`", inline: true })
         if (command.cooldown) {
-          embed.addFields({ name: strings.cooldownField, value: command.cooldown + " " + strings.seconds, inline: true })
+          if (command.cooldown >= 120) embed.addFields({ name: strings.cooldownField, value: `${command.cooldown / 60} ${strings.minutes}`, inline: true })
+          else if (command.cooldown === 1) embed.addFields({ name: strings.cooldownField, value: `${command.cooldown} ${strings.second}`, inline: true })
+          else embed.addFields({ name: strings.cooldownField, value: `${command.cooldown} ${strings.seconds}`, inline: true })
         }
         if (command.aliases) {
           embed.addFields({ name: strings.aliasesField, value: "`+" + command.aliases.join("`, `+") + "`", inline: true })
