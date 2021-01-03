@@ -17,21 +17,21 @@ module.exports = {
         if (!allowed) return
 
         const recipient = message.client.users.cache.get(userToSend)
-        /*let rStrings = require(("../strings/en/dm.json"))
+        let rStrings = require("../strings/en/dm.json")
         const oldMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
-        const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
-        oldFiMessages.forEach(async element => {
-            oldMsg = await element.content.split(" ")
-            await oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
-            rStrings = await require(("../strings/" + oldMsg[0] + "/dm.json"))
-        })*/
+        const oldFiMessages = oldMessages.filter(element => element.content.includes(recipient.id))
+        oldFiMessages.forEach(element => {
+            let oldMsg = element.content.split(" ")
+            oldMsg.splice(oldMsg.indexOf(recipient.id), 1)
+            rStrings = require(`../strings/${oldMsg[0]}/dm.json`)
+        })
         message.channel.startTyping()
         if (toSend.length > 0) {
             const dm = new Discord.MessageEmbed()
                 .setColor(neutralColor)
-                .setAuthor("Received message from staff")
+                .setAuthor(rStrings.incoming)
                 .setDescription(toSend)
-                .setFooter("Any messages you send here will be sent to staff.")
+                .setFooter(rStrings.incomingDisclaimer)
             recipient.send(dm)
                 .then(() => {
                     const embed = new Discord.MessageEmbed()
@@ -55,13 +55,13 @@ module.exports = {
                 })
         } else {
             const errorEmbed = new Discord.MessageEmbed()
-            .setColor(errorColor)
-            .setAuthor(strings.moduleName)
-            .setTitle(strings.error.replace("%%recipient%%", recipient.tag))
-            .setDescription(strings.noMsg)
-            .setFooter(executedBy, message.author.displayAvatarURL())
-        message.channel.stopTyping()
-        message.channel.send(errorEmbed)
+                .setColor(errorColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.error.replace("%%recipient%%", recipient.tag))
+                .setDescription(strings.noMsg)
+                .setFooter(executedBy, message.author.displayAvatarURL())
+            message.channel.stopTyping()
+            message.channel.send(errorEmbed)
         }
     }
 }
