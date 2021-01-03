@@ -13,7 +13,7 @@
     "commandInfoFor": "Información para el comando ",
     "commandNotExist": "¡Ese comando no existe!",
     "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-    "inDev": "This command is currently in development and will be available at a later date!",
+    "inDev": "¡Este comando está actualmente en desarrollo y estará disponible en el futuro!",
     "seconds": "segundos",
     "second": "second",
     "minutes": "minutes",
