@@ -12,8 +12,11 @@
     "commandInfo": "Komut bilgisi",
     "commandInfoFor": "Komut bilgisi: ",
     "commandNotExist": "Böyle bir komut yok!",
-    "noDesc": "Bu komut ya geliştirme aşamasındadır ya da sadece yetkili tarafından kullanılabilir.\nBunun bir hata olduğunu düşünüyorsan lütfen yetkili biriyle iletişime geç.",
+    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
+    "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": " saniye",
+    "second": "second",
+    "minutes": "minutes",
     "usageField": "Kullanım",
     "cooldownField": "Bekleme Süresi",
     "aliasesField": "Takma adlar",
@@ -76,6 +79,10 @@
     "skyblockaddons": {
         "usage": "+skyblockaddons",
         "description": "SkyblockAddons Crowdin projesi ile ilgili yararlı bilgiler verir."
+    },
+    "translate": {
+        "usage": "+translate",
+        "description": "Gives you useful information on how to translate the Bot."
     },
     "thread": {
         "usage": "+thread",
