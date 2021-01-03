@@ -12,8 +12,11 @@
     "commandInfo": "Commando-informatie",
     "commandInfoFor": "Commando-informatie voor ",
     "commandNotExist": "Dat commando bestaat niet!",
-    "noDesc": "Dit commando is in ontwikkeling of alleen beschikbaar voor staff.\nNeem contact op met staff als je denkt dat dit een fout is.",
+    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
+    "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": "seconden",
+    "second": "second",
+    "minutes": "minutes",
     "usageField": "Syntaxis",
     "cooldownField": "Afkoeltijd",
     "aliasesField": "Aliassen",
@@ -76,6 +79,10 @@
     "skyblockaddons": {
         "usage": "+skyblockaddons",
         "description": "Geeft je nuttige informatie omtrent het SkyblockAddons-project."
+    },
+    "translate": {
+        "usage": "+translate",
+        "description": "Gives you useful information on how to translate the Bot."
     },
     "thread": {
         "usage": "+thread",
