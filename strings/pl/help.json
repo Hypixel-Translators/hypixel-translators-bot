@@ -12,8 +12,11 @@
     "commandInfo": "Informacje o poleceniu",
     "commandInfoFor": "Informacje o poleceniu dla ",
     "commandNotExist": "To polecenie nie istnieje!",
-    "noDesc": "Ta komenda nie istnieje lub jest dostępna tylko dla administracji.\nJeśli uważasz że to błąd, skontaktuj się z członkiem administracji.",
+    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
+    "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": " sekund",
+    "second": "second",
+    "minutes": "minutes",
     "usageField": "Użycie",
     "cooldownField": "Czas odnawiania",
     "aliasesField": "Aliasy",
@@ -76,6 +79,10 @@
     "skyblockaddons": {
         "usage": "+skyblockaddons",
         "description": "Zawiera przydatne informacje dotyczące projektu SkyblockAddons."
+    },
+    "translate": {
+        "usage": "+translate",
+        "description": "Gives you useful information on how to translate the Bot."
     },
     "thread": {
         "usage": "+thread",
