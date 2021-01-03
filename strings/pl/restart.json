@@ -1,5 +1,5 @@
 {
     "moduleName": "Restart",
-    "restarting": "Restarting...",
+    "restarting": "Ponowne uruchamianie…",
     "executedBy": "Wykonano przez %%user%%"
 }
