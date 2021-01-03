@@ -3,7 +3,8 @@ module.exports = {
     description: "Verifies the user who executes the command",
     usage: "+verify [profile]",
     cooldown: 5,
-    channelWhiteList: ["569178590697095168", "730042612647723058",], // verify bot-development
+    roleBlacklist: ["569194996964786178"],
+    channelWhitelist: ["569178590697095168", "730042612647723058",], // verify bot-development
     async execute(message, strings, args) {
         await message.delete()
         if (!args[0]) {

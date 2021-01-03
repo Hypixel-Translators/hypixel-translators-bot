@@ -6,7 +6,7 @@ module.exports = {
     description: "Sends the user a private message.",
     usage: "+dm <mention> <message>",
     aliases: ["message", "privatemessage"],
-    allowDM: true,
+    roleWhitelist: ["768435276191891456"], //Discord Staff
     async execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         let allowed = false

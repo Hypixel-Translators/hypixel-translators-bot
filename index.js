@@ -18,6 +18,7 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection()
 
 //Define assets
+const approved = "732298639749152769"
 const notAllowed = "732298639736570007" //vote_no emoji
 
 //Import events
@@ -94,7 +95,7 @@ client.on("message", async message => {
 
   //Publish message if sent in channel
   if (message.channel.id === "732587569744838777") { //bot-updates
-    return fetch(`https://discordapp.com/api/v8/channels/${message.channel.id}/messages/${message.id}/crosspost`, { method: "Post", headers: { "Authorization": `Bot ${process.env.TOKEN}` } })
+    message.crosspost()
   }
 
   //Get global strings
@@ -139,16 +140,45 @@ client.on("message", async message => {
     } else return //Stop if it starts with prefix
   }
 
-  //Blacklist and whitelist systems
+  //Role Blacklist and Whitelist system
   let allowed = true
-  if (command.categoryBlackList && command.categoryBlackList.includes(message.channel.parent.id)) allowed = false
-  if (command.categoryWhiteList && !command.categoryWhiteList.includes(message.channel.parent.id)) allowed = false
-  else allowed = true
-  if (command.channelBlackList && command.channelBlackList.includes(message.channel.id)) allowed = false
-  if (command.channelWhiteList && !command.channelWhiteList.includes(message.channel.id)) allowed = false
-  else allowed = true
-  if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
-  if (!allowed) return message.react(notAllowed)
+  if (message.guild.id === "549503328472530974") {
+    if (command.roleBlacklist) {
+      allowed = true
+      if (allowed) {
+        command.roleBlacklist.forEach(role => {
+          if (message.member.roles.cache.has(role)) allowed = false
+        })
+      }
+    }
+    if (command.roleWhitelist) {
+      allowed = false
+      if (!allowed) {
+        command.roleWhitelist.forEach(role => {
+          if (message.member.roles.cache.has(role)) allowed = true
+        })
+      }
+    }
+
+    //Channel Blacklist and whitelist systems
+    if (command.categoryBlacklist && command.categoryBlacklist.includes(message.channel.parent.id)) allowed = false
+    else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
+    else if (command.categoryWhitelist && !command.categoryWhitelist.includes(message.channel.parent.id)) allowed = false
+    else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
+
+    //Prevent users from running commands in development
+    if (command.dev && !message.member.roles.cache.has("768435276191891456")) allowed = false
+
+    //Give perm to admins and return if not allowed
+    if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
+  }
+  if (!allowed) {
+    message.react(notAllowed)
+    setTimeout(() => {
+      if (!message.deleted) message.delete()
+    }, 5000);
+    return
+  }
 
   //Stop and error if command is not allowed in DMs and command is sent in DMs
   if (!command.allowDM && message.channel.type === "dm") {
@@ -171,7 +201,7 @@ client.on("message", async message => {
     if (now < expirationTime) {
       const timeLeft = (expirationTime - now) / 1000
       let timeLeftS
-      if (Math.ceil(timeLeft) > 120) {
+      if (Math.ceil(timeLeft) >= 120) {
         timeLeftS = (globalStrings.minsLeftT.replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", commandName))
       } else if (Math.ceil(timeLeft) === 1) {
         timeLeftS = (globalStrings.secondLeft.replace("%%command%%", commandName))
@@ -225,7 +255,7 @@ client.on("message", async message => {
   } finally {
 
     //Try sending a tip
-    if (command.name !== "verify") {
+    if (command.name !== "verify" && command.name !== "mention") {
       let d = Math.random().toFixed(2)
       let keys = Object.keys(globalStrings.tips)
       let tip = globalStrings.tips[keys[keys.length * Math.random() << 0]]
@@ -238,51 +268,54 @@ client.on("message", async message => {
 //Run when reaction is added
 client.on("messageReactionAdd", async (reaction, user) => {
   const channel = reaction.message.channel
+  if (channel.type !== "dm") {
+    //Delete message when channel name ends with review-strings
+    if (channel.name.endsWith("review-strings") && !user.bot) {
+      if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
+        reaction.message.react("⏱")
+        reaction.message.react(reaction.emoji)
+        setTimeout(() => {
+          if (!reaction.message.deleted) reaction.message.delete()
+          console.log(`String reviewed in ${reaction.message.channel.name} (saw reaction ${reaction.emoji.name})`)
+        }, 10000)
+      }
+    }
 
-  //Delete message when channel name ends with review-strings
-  if (channel.name.endsWith("review-strings") && !user.bot) {
-    if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
-      reaction.message.react("⏱")
-      reaction.message.react(reaction.emoji)
-      setTimeout(() => {
-        if (!reaction.message.deleted) reaction.message.delete()
-        console.log(`String reviewed in ${reaction.message.channel.name} (saw reaction ${reaction.emoji.name})`)
-      }, 10000)
+    //Give Polls role if reacted on reaction role message
+    if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "📊" && !user.bot) { //server-info roles message
+      reaction.message.guild.member(user).roles.add("646098170794868757", "Removed the reaction in server-info")
+        .then(() => console.log("Gave the Polls role to " + user.tag))
+        .catch(err => console.log("An error occured while trying to give the Polls role to " + user.tag + ". Here's the error:\n" + err))
+    }
+
+    //Give Bot Updates role if reacted on reaction role message
+    if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
+      reaction.message.guild.member(user).roles.add("732615152246980628", "Removed the reaction in server-info")
+        .then(() => console.log("Gave the Bot Updates role to " + user.tag))
+        .catch(err => console.log("An error occured while trying to give the Bot Updates role to " + user.tag + ". Here's the error:\n" + err))
     }
   }
-
-  //Give Polls role if reacted on reaction role message
-  if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "📊" && !user.bot) { //server-info roles message
-    reaction.message.guild.member(user).roles.add("646098170794868757", "Removed the reaction in server-info")
-      .then(() => console.log("Gave the Polls role to " + user.tag))
-      .catch(err => console.log("An error occured while trying to give the Polls role to " + user.tag + ". Here's the error:\n" + err))
-  }
-
-  //Give Bot Updates role if reacted on reaction role message
-  if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
-    reaction.message.guild.member(user).roles.add("732615152246980628", "Removed the reaction in server-info")
-      .then(() => console.log("Gave the Bot Updates role to " + user.tag))
-      .catch(err => console.log("An error occured while trying to give the Bot Updates role to " + user.tag + ". Here's the error:\n" + err))
-  }
-
 })
 
 
 //Run when reaction is removed
 client.on("messageReactionRemove", async (reaction, user) => {
 
-  //Take Polls role if reaction removed from reaction role message
-  if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "📊" && !user.bot) { //server-info roles message
-    reaction.message.guild.member(user).roles.remove("646098170794868757", "Removed the reaction in server-info")
-      .then(() => console.log("Took the Polls role from " + user.tag))
-      .catch(err => console.log("An error occured while trying to take the Polls role from " + user.tag + ". Here's the error:\n" + err))
-  }
+  const channel = reaction.message.channel
+  if (channel.type !== "dm") {
+    //Take Polls role if reaction removed from reaction role message
+    if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "📊" && !user.bot) { //server-info roles message
+      reaction.message.guild.member(user).roles.remove("646098170794868757", "Removed the reaction in server-info")
+        .then(() => console.log("Took the Polls role from " + user.tag))
+        .catch(err => console.log("An error occured while trying to take the Polls role from " + user.tag + ". Here's the error:\n" + err))
+    }
 
-  //Take Bot updates role if reaction removed from reaction role message
-  if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
-    reaction.message.guild.member(user).roles.remove("732615152246980628", "Removed the reaction in server-info")
-      .then(() => console.log("Took the Bot Updates role from " + user.tag))
-      .catch(err => console.log("An error occured while trying to take the Bot Updates role from " + user.tag + ". Here's the error:\n" + err))
+    //Take Bot updates role if reaction removed from reaction role message
+    if (reaction.message.id === "783125633101987930" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
+      reaction.message.guild.member(user).roles.remove("732615152246980628", "Removed the reaction in server-info")
+        .then(() => console.log("Took the Bot Updates role from " + user.tag))
+        .catch(err => console.log("An error occured while trying to take the Bot Updates role from " + user.tag + ". Here's the error:\n" + err))
+    }
   }
 })
 

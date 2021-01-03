@@ -9,7 +9,7 @@ module.exports = {
     usage: "+hypixelstats <username>",
     aliases: ["hstats"],
     cooldown: 45,
-    channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
     execute(message, strings, args, globalStrings) {
         function parseColorCode(rank) {
@@ -19,7 +19,7 @@ module.exports = {
         }
 
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        const credits = strings.madeBy.replace("%%developer%%", message.guild.members.cache.get("500669086947344384").user.tag)
+        const credits = strings.madeBy.replace("%%developer%%", message.client.guilds.cache.get("549503328472530974").members.cache.get("500669086947344384").user.tag)
         let username = args[0]
         if (!args[0]) throw "noUser"
 

@@ -1,7 +1,6 @@
 const { loadingColor, errorColor, successColor, neutralColor, blurple, langdb, listenStatuses, watchStatuses } = require("../config.json")
 const fetch = require("node-fetch")
 const Discord = require("discord.js")
-const client = new Discord.Client()
 const { inspect } = require("util")
 const { clean, isZalgo } = require("unzalgo")
 const { flag, code, name, countries } = require('country-emoji')
@@ -12,7 +11,8 @@ module.exports = {
   description: "Evals the specified code.",
   usage: "+eval <code>",
   aliases: ["evaluate", "ev"],
-  channelWhiteList: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
+  roleWhitelist: ["620274909700161556"], //*
+  channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
   async execute(message, strings, args) {
     if (!message.member.hasPermission("ADMINISTRATOR")) return
 

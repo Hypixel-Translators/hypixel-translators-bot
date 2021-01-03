@@ -1,4 +1,4 @@
-const {  errorColor, neutralColor, prefix } = require("../config.json")
+const { errorColor, neutralColor, prefix } = require("../config.json")
 const Discord = require("discord.js")
 
 module.exports = {
@@ -7,7 +7,7 @@ module.exports = {
   aliases: ["commands", "cmds", "info", "botinfo"],
   usage: "+help [page | command name]",
   cooldown: 5,
-  channelWhiteList: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
+  channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
   allowDM: true,
   async execute(message, strings, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
@@ -17,7 +17,7 @@ module.exports = {
     const pages = [
       { "n": 0 },
       { "n": 1, "f": ["help", "language", "prefix", "quote", "mention", "context", "hypixelstats", "tip", "ping"], "b": "🛠", "t": "utilityHelp" },
-      { "n": 2, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "thread", "twitter", "issue"], "b": "ℹ", "t": "infoHelp" }
+      { "n": 2, "f": ["invite", "guidelines", "hypixel", "quickplay", "skyblockaddons", "translate", "thread", "twitter", "issue"], "b": "ℹ", "t": "infoHelp" }
     ]
 
     if (args[0] && args[0].startsWith(prefix)) args[0] = args[0].slice(1)
@@ -74,14 +74,14 @@ module.exports = {
             page++
             if (page > pages.length - 1) page = pages.length - 1
           }
-          reaction.users.remove(message.author.id)
+          if (message.channel.type !== "dm") reaction.users.remove(message.author.id)
           pageEmbed = await fetchPage(page, pages, strings, executedBy, message, pageEmbed)
           msg.edit(pageEmbed)
         })
 
         collector.on("end", async () => {
           msg.edit(strings.timeOut)
-          msg.reactions.removeAll()
+          if (message.channel.type !== "dm") msg.reactions.removeAll()
           setTimeout(() => {
             msg.suppressEmbeds()
           }, 10000)
@@ -114,16 +114,20 @@ module.exports = {
         if (strings[command.name].usage) var cmdUsage = strings[command.name].usage
       }
 
+      if (command.dev) cmdDesc = strings.inDev
+
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.commandInfoFor + "`+" + command.name + "`")
-        .setDescription(cmdDesc || strings.noDesc)
+        .setDescription(cmdDesc || strings.staffOnly)
         .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
-      if (cmdUsage) {
+      if (cmdUsage && cmdDesc !== strings.inDev) {
         embed.addFields({ name: strings.usageField, value: "`" + cmdUsage + "`", inline: true })
         if (command.cooldown) {
-          embed.addFields({ name: strings.cooldownField, value: command.cooldown + " " + strings.seconds, inline: true })
+          if (command.cooldown >= 120) embed.addFields({ name: strings.cooldownField, value: `${command.cooldown / 60} ${strings.minutes}`, inline: true })
+          else if (command.cooldown === 1) embed.addFields({ name: strings.cooldownField, value: `${command.cooldown} ${strings.second}`, inline: true })
+          else embed.addFields({ name: strings.cooldownField, value: `${command.cooldown} ${strings.seconds}`, inline: true })
         }
         if (command.aliases) {
           embed.addFields({ name: strings.aliasesField, value: "`+" + command.aliases.join("`, `+") + "`", inline: true })
