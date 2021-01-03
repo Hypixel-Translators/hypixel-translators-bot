@@ -12,11 +12,11 @@
     "commandInfo": "Informacje o poleceniu",
     "commandInfoFor": "Informacje o poleceniu dla ",
     "commandNotExist": "To polecenie nie istnieje!",
-    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-    "inDev": "This command is currently in development and will be available at a later date!",
+    "staffOnly": "Ta komenda jest dostępna tylko dla administracji, a zatem jej informacje jest ukryte.\nJeżeli uważasz że to błąd, skontaktuj się z członkiem administracji.",
+    "inDev": "Ta komenda jest chwilowo w fazie rozwoju i będzie dostępna w późniejszym terminie!",
     "seconds": " sekund",
-    "second": "second",
-    "minutes": "minutes",
+    "second": "sekunda",
+    "minutes": "minuty",
     "usageField": "Użycie",
     "cooldownField": "Czas odnawiania",
     "aliasesField": "Aliasy",
@@ -26,10 +26,10 @@
     },
     "prefix": {
         "usage": "+prefix [flags]",
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
+        "description": "Daje ci przedrostek odpowiedni dla twojego języka/ów. Aby go otrzymać, wpisz `+prefix <flagi>`, gdzie `<flagi>` to kod flagi lub jej nazwa. Możesz dodać tyle flag, ile chcesz, oddzielając je spacją."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [index] | +quote add <cytat> / <wzmianka użytkownika>",
         "description": "Pobiera (lub dodaje) śmieszny/dziwny/mądry cytat z serwera."
     },
     "mention": {
@@ -45,8 +45,8 @@
         "description": "Otwórz naszą stronę GitHub z problemami, tam możesz zgłosić błędy i wysłać opinię."
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
-        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
+        "usage": "+language [<nowy język> | list | add <język>]",
+        "description": "Zmienia Twój język, pokazuje bieżący lub pokazuje listę dostępnych języków. Jeżeli chcesz, aby nowy język został dodany do bota, to wykonaj `+language add <język>`."
     },
     "ping": {
         "usage": "+ping",
@@ -82,7 +82,7 @@
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "Podaje ci przydatne informacje o tym jak tłumaczyć Bota."
     },
     "thread": {
         "usage": "+thread",
