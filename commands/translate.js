@@ -33,7 +33,8 @@ module.exports = {
                 .addFields(
                     { name: strings.openProject, value: strings.howOpen.replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot") },
                     { name: strings.clickLanguage, value: strings.requestJoin },
-                    { name: strings.lastThing, value: strings.requestInfo }
+                    { name: strings.lastThing, value: strings.requestInfo },
+                    { name: strings.noLanguage, value: strings.langRequest }
                 )
                 .setFooter(executedBy, message.author.displayAvatarURL())
             message.channel.send(embed)
