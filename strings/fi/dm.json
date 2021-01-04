@@ -2,7 +2,7 @@
     "moduleName": "Yksityisviesti",
     "outgoing": "Lähetettiin viesti käyttäjälle %%recipient%%",
     "error": "Virhe ilmaantui yrittäessä lähettää viestiä käyttäjälle %%recipient%%",
-    "noMsg": "You need to specify what message you want to send to this person!",
+    "noMsg": "Sinun tulee määritellä, minkä viestin haluat lähettää tälle henkilölle!",
     "incoming": "Vastaanotettu viesti ylläpidolta",
     "incomingDisclaimer": "Kaikki täällä lähettämäsi viestit lähetetään ylläpidolle.",
     "executedBy": "Komennon suoritti %%user%%"

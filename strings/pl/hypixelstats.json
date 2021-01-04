@@ -1,7 +1,7 @@
 {
     "moduleName": "Statystyki gracza",
     "description": "Oto wybrane statystyki gracza %%username%% z Hypixela, otrzymane [tutaj]%%link%%.",
-    "updateNotice": "Note: Please take into account that the information here might take a few minutes to update after you've changed something.",
+    "updateNotice": "Uwaga: Proszę wziąć pod uwagę to, że informacje zawarte tutaj mogą zaktualizować się dopiero po kilku minutach od czasu zmiany.",
     "networkLevel": "Poziom Hypixel",
     "ap": "Punkty osiągnięć",
     "online": "Online",
@@ -11,7 +11,7 @@
     "last_login": "Online od",
     "last_logout": "Ostatnio widziany",
     "discord": "Discord",
-    "notConnected": "Not connected",
+    "notConnected": "Brak przypisanego konta",
     "unknown": "nieznany",
     "lastGameHidden": "Ostatnia gra jest ukryta lub nie może zostać znaleziona!",
     "lastLoginHidden": "Ostatni czas kiedy gracz był widziany, jest ukryty lub nie może zostać znaleziony!",
@@ -43,6 +43,6 @@
     "THAI": "Tajski",
     "TURKISH": "Turecki",
     "UKRAINIAN": "Ukraiński",
-    "madeBy": "Command made by %%developer%%",
+    "madeBy": "Komenda stworzona przez %%developer%%",
     "executedBy": "Wykonano przez %%user%%"
 }

@@ -4,7 +4,7 @@
     "infoChannel": "informatie",
     "verifyChannel": "verificatie",
     "successAll": "Alle kanalen zijn bijgewerkt!",
-    "checkOut1": "Check it out at %%channel%%!",
-    "checkOut2": "Check them out at %%info%% and %%verify%%!",
+    "checkOut1": "Neem een kijkje in %%channel%%!",
+    "checkOut2": "Neem een kijkje in %%info%% en %%verify%%!",
     "executedBy": "Uitgevoerd door %%user%%"
 }

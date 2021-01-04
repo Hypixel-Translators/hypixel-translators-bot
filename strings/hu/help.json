@@ -12,8 +12,11 @@
     "commandInfo": "Parancs információ",
     "commandInfoFor": "Parancs információ ehhez: ",
     "commandNotExist": "Ez a parancs nem létezik!",
-    "noDesc": "Ezt a parancsot csak adminok érhetik el vagy még dolgoznak rajta.\nKérlek írj egy staffnak ha úgy gondolod, hogy ez egy hiba.",
+    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
+    "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": "másodperc",
+    "second": "second",
+    "minutes": "minutes",
     "usageField": "Használat",
     "cooldownField": "Cooldown",
     "aliasesField": "Becenevek",
@@ -76,6 +79,10 @@
     "skyblockaddons": {
         "usage": "+skyblockaddons",
         "description": "Hasznos információt ad a SkyblockAddons projektről."
+    },
+    "translate": {
+        "usage": "+translate",
+        "description": "Gives you useful information on how to translate the Bot."
     },
     "thread": {
         "usage": "+thread",

@@ -2,7 +2,7 @@
     "moduleName": "Prefix",
     "usage": "+prefix [flags]",
     "loading": "Just a second...",
-    "loadingRoles": "Fetching your roles...",
+    "loadingRoles": "あなたのロールを取得中…",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
         "trNoRoles": "We noticed you're a translator but you don't have any language roles.",

@@ -1,0 +1,20 @@
+{
+    "moduleName": "Przetłumacz bota",
+    "alreadyTranslator": "Widzę że już jesteś tłumaczem. Tutaj jest to czego mogłeś szukać:",
+    "projectLink": "Możesz odnaleźć odnośnik do projektu [here](%%link%%).",
+    "question": "Masz pytanie?",
+    "askTranslators": "Nie krępuj się zapytać się czegokolwiek na temat projektu na kanale %%botTranslators%%. Nie zapomnij wysłać linku do tłumaczenia do którego się odnosisz!",
+    "newCrowdin": "Jesteś nowy na Crowdin?",
+    "checkGuide": "Zobacz nasz przewodnik z masą przydatnych narzędzi i wskazówek do Crowdin, aby zacząć! Możesz znaleźć go na kanale %%gettingStarted%%.",
+    "newTranslator": "Czy chciałbyś przetłumaczyć naszego bota na Twój język?",
+    "join": "Bardzo chcielibyśmy mieć Ciebie w naszym projekcie! Tutaj znajdziesz, jak możesz do nas dołączyć:",
+    "openProject": "Po pierwsze, otwórz projekt na stronie Crowdin",
+    "howOpen": "Może to być zrobione poprzez [here](%%link%%) link.",
+    "clickLanguage": "Teraz, kliknij na język który chciałbyś przetłumaczyć",
+    "requestJoin": "Aby dołączyć do tego języka, kliknij \"Join\" i napisz krótką wiadomość dlaczego chciałbyś dołączyć do projektu.",
+    "lastThing": "Just one last thing",
+    "requestInfo": "When submitting your request, please make sure to include either your tag (e.g. Hypixel Translators#3348) or your ID (e.g. 620224469738323978).\n**If you do not include at least one of these, you will be rejected!**",
+    "noLanguage": "Can't find your language?",
+    "langRequest": "It is possible that we don't support your language yet. If that's the case, execute `+language add <language>`. This will send a message to the admins letting them know that you want this language to be added.",
+    "executedBy": "Wykonano przez %%user%%"
+}

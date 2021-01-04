@@ -12,8 +12,11 @@
     "commandInfo": "コマンド情報",
     "commandInfoFor": "コマンド情報：",
     "commandNotExist": "このコマンドは存在しません！",
-    "noDesc": "This command is either in development or only available to staff.\nPlease contact a staff member if you believe this is an error.",
+    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
+    "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": "seconds",
+    "second": "second",
+    "minutes": "minutes",
     "usageField": "使用法",
     "cooldownField": "クールダウン",
     "aliasesField": "Aliases",
@@ -76,6 +79,10 @@
     "skyblockaddons": {
         "usage": "+skyblockaddons",
         "description": "SkyblockAddonsプロジェクトに関する便利な情報を表示します。"
+    },
+    "translate": {
+        "usage": "+translate",
+        "description": "Gives you useful information on how to translate the Bot."
     },
     "thread": {
         "usage": "+thread",

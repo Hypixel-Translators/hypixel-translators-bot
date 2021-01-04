@@ -12,8 +12,11 @@
     "commandInfo": "Komennon tiedot",
     "commandInfoFor": "Tiedot komennolle ",
     "commandNotExist": "Tätä komentoa ei ole olemassa!",
-    "noDesc": "Tämä komento on joko vasta kehitteillä tai saatavilla vain ylläpidon jäsenille.\nOtathan yhteyttä ylläpitoon, mikäli uskot tämän olevan virhe.",
+    "staffOnly": "Tämä komento on vain ylläpidon käytössä ja sen tiedot on siksi piilotettu.\nOtathan yhteyttä ylläpitäjään, mikäli uskot tämän olevan virhe.",
+    "inDev": "Tämä komento on vasta kehitteillä ja tulee käyttöön myöhemmin!",
     "seconds": "sekuntia",
+    "second": "sekunti",
+    "minutes": "minuuttia",
     "usageField": "Käyttö",
     "cooldownField": "Odotusaika",
     "aliasesField": "Aliakset",
@@ -76,6 +79,10 @@
     "skyblockaddons": {
         "usage": "+skyblockaddons",
         "description": "Antaa hyödyllistä tietoa SkyblockAddons-projektista."
+    },
+    "translate": {
+        "usage": "+translate",
+        "description": "Antaa sinulle hyödyllistä tietoa Botin kääntämisestä."
     },
     "thread": {
         "usage": "+thread",

@@ -12,8 +12,11 @@
     "commandInfo": "Información del comando",
     "commandInfoFor": "Información para el comando ",
     "commandNotExist": "¡Ese comando no existe!",
-    "noDesc": "Este comando está en desarrollo o solo es disponible para staff.\nPor favor, contacta a un miembro del staff si crees que esto es un error.",
+    "staffOnly": "Este comando solo está disponible para staff, entonces su información fue ocultada.\nPor favor, contacta a un staff si crees que esto es un error.",
+    "inDev": "¡Este comando está actualmente en desarrollo y estará disponible en el futuro!",
     "seconds": "segundos",
+    "second": "segundo",
+    "minutes": "minutos",
     "usageField": "Uso",
     "cooldownField": "Enfriamiento",
     "aliasesField": "Otros Nombres",
@@ -76,6 +79,10 @@
     "skyblockaddons": {
         "usage": "+skyblockaddons",
         "description": "Te da información útil sobre el proyecto de Crowdin de SkyblockAddons."
+    },
+    "translate": {
+        "usage": "+translate",
+        "description": "Te da información útil sobre como traducir al Bot."
     },
     "thread": {
         "usage": "+thread",

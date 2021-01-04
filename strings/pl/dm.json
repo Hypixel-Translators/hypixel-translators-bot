@@ -1,9 +1,9 @@
 {
     "moduleName": "Wiadomość prywatna",
     "outgoing": "Wysłano wiadomość do %%recipient%%",
-    "error": "An error occured while trying to message %%recipient%%",
-    "noMsg": "You need to specify what message you want to send to this person!",
+    "error": "Wystąpił błąd podczas wysyłania wiadomości do %%recipient%%",
+    "noMsg": "Musisz sprecyzować jaką wiadomość chcesz wysłać do tej osoby!",
     "incoming": "Odebrano wiadomość od administracji",
-    "incomingDisclaimer": "Any messages you send here will be sent to staff.",
+    "incomingDisclaimer": "Każda wiadomość wysłana w tym miejscu, zostanie przekazana administracji.",
     "executedBy": "Wykonano przez %%user%%"
 }
