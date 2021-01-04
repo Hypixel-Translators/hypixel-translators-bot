@@ -1,6 +1,6 @@
 {
     "moduleName": "Prefix",
-    "usage": "+prefix [flags]",
+    "usage": "+prefix [旗]",
     "loading": "Just a second...",
     "loadingRoles": "あなたのロールを取得中…",
     "errors": {
