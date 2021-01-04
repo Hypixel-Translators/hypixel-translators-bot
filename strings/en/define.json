@@ -1,0 +1,19 @@
+{
+    "moduleName": "Definition",
+    "noun": "noun",
+    "verb": "verb",
+    "adjective": "adjective",
+    "adverb": "adverb",
+    "pronoun": "pronoun",
+    "definite article": "definite article",
+    "indefinite article": "indefinitie article",
+    "preposition": "preposition",
+    "combining form": "combining form",
+    "geographical name": "name",
+    "biographical name": "name",
+    "symbol": "symbol",
+    "abbreviation": "abbreviation",
+    "idiom": "idiom",
+    "incomplete": "That word is not in the Merriam-Webster dictionary (yet).",
+    "executedBy": "Executed by %%user%%"
+}
