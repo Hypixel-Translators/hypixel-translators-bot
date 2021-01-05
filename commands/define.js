@@ -1,5 +1,6 @@
 const { errorColor, successColor } = require("../config.json")
 const Discord = require("discord.js")
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
 
 module.exports = {
     name: "define",
@@ -7,22 +8,28 @@ module.exports = {
     usage: "+define <query>",
     cooldown: 10,
     allowDM: true,
+    dev: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335", "551693960913879071"], // bots staff-bots bot-development bot-translators admin-bots
     execute(message, strings, args) {
         message.channel.startTyping()
 
-        var arg = args.join(' ')
-        var xmlhttp = new XMLHttpRequest()
-        var url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${arg}?key=${process.env.WEBSTER_COLLEGIATE_KEY}`
+        try {
+            var arg = args.join(' ')
+            var xmlhttp = new XMLHttpRequest()
+            var url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${arg}?key=${process.env.WEBSTER_COLLEGIATE_KEY}`
 
-        xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var res = JSON.parse(this.responseText)
-                done(res, message, strings)
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var res = JSON.parse(this.responseText)
+                    done(res, message, strings)
+                }
             }
+            xmlhttp.open("GET", url, true)
+            xmlhttp.send()
+        } catch (err) {
+            message.channel.stopTyping()
+            throw err
         }
-        xmlhttp.open("GET", url, true)
-        xmlhttp.send()
     }
 }
 
