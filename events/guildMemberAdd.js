@@ -1,3 +1,4 @@
+const Discord = require("discord.js")
 const { registerFont, createCanvas, loadImage } = require("canvas")
 
 module.exports = {
@@ -57,7 +58,8 @@ module.exports = {
 
 
                 //OUTPUT
-                member.guild.channels.cache.get("730042612647723058").send(`<@${member.user.id}> just joined! Welcome! 🎉!`, { file: canvas.toDataURL() }) //join-leave
+                const attachment = new MessageAttachment(canvas.toDataURL())
+                member.guild.channels.cache.get("730042612647723058").send(`<@${member.user.id}> just joined! Welcome! 🎉!`, attachment) //join-leave
             })
         })
     }
