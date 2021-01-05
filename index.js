@@ -25,6 +25,7 @@ const notAllowed = "732298639736570007" //vote_no emoji
 const stats = require("./events/stats.js")
 const inactives = require("./events/inactives.js")
 const unzalgo = require("./events/unzalgo.js")
+const guildMemberAdd = require("./events/guildMemberAdd.js")
 
 
 //Run when bot is ready
@@ -321,6 +322,9 @@ client.on("messageReactionRemove", async (reaction, user) => {
     }
   }
 })
+
+//Run when someone joins
+client.on("guildMemberAdd", member => guildMemberAdd.execute(member))
 
 //Run when someone leaves
 client.on("guildMemberRemove", member => {
