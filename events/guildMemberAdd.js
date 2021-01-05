@@ -1,7 +1,9 @@
-const { createCanvas, loadImage } = require("canvas")
+const { registerFont, createCanvas, loadImage } = require("canvas")
 
 module.exports = {
     execute(member) {
+        registerFont('./assets/Bitter-Regular.ttf', { family: 'Bitter' })
+        registerFont('./assets/Bitter-Bold.ttf', { family: 'Bitter-Bold' })
         const canvas = createCanvas(800, 200)
         const ctx = canvas.getContext("2d")
 
@@ -22,7 +24,7 @@ module.exports = {
             //Measure text widths
             ctx.font = "37.5px Bitter"
             let welcome = ctx.measureText("Welcome ")
-            ctx.font = "bold 37.5px Bitter"
+            ctx.font = "37.5px Bitter-Bold"
             let name = ctx.measureText(userName)
             if (name.width > (550 - welcome.width)) nameWidth = (550 - welcome.width)
             else nameWidth = name.width
@@ -33,7 +35,7 @@ module.exports = {
             ctx.fillText("!", (200 + welcome.width + nameWidth), 92.5)
 
             //Draw username
-            ctx.font = "bold 37.5px Bitter"
+            ctx.font = "37.5px Bitter-Bold"
             ctx.fillText(userName, (200 + welcome.width), 92.5, (550 - welcome.width))
 
             //Draw member count
