@@ -8,7 +8,7 @@ module.exports = {
         const ctx = canvas.getContext("2d")
 
         let userName = member.user.username
-        let userAvatar = member.user.displayAvatarURL()
+        let userAvatar = member.user.displayAvatarURL({ format: "png" })
         let memberCount = `${member.guild.memberCount}`
 
         loadImage("./assets/joinBackground.png").then((bg) => {
