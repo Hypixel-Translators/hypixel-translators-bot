@@ -384,7 +384,7 @@ client.on("guildMemberAdd", member => {
       ctx.restore()
 
       //OUTPUT
-      const attachment = new Discord.MessageAttachment(canvas.toBuffer(), "join.png")
+      const attachment = new Discord.MessageAttachment(canvas.toBuffer())
       member.guild.channels.cache.get("549882021934137354").send(`<@${member.user.id}> just joined! Welcome! 🎉!`, attachment) //join-leave
     })
   })
