@@ -58,7 +58,7 @@ module.exports = {
 
 
                 //OUTPUT
-                const attachment = new MessageAttachment(canvas.toDataURL(), "Join message")
+                const attachment = new Discord.MessageAttachment(canvas.toDataURL(), "Join message")
                 member.guild.channels.cache.get("730042612647723058").send(`<@${member.user.id}> just joined! Welcome! 🎉!`, attachment) //join-leave
             })
         })
