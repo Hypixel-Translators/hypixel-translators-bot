@@ -329,7 +329,7 @@ client.on("guildMemberAdd", member => guildMemberAdd.execute(member))
 //Run when someone leaves
 client.on("guildMemberRemove", member => {
   //Leave message
-  member.guild.channels.cache.get("549882021934137354").send(`**${member.user.tag}** left the server...`, { file: canvas.toDataURL() })
+  member.guild.channels.cache.get("549882021934137354").send(`**${member.user.tag}** left the server...`)
 
   //Run if the member who leaves had the Bot Translator/Proofreader/Manager roles
   const botRole = member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628")
