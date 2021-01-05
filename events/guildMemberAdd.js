@@ -9,7 +9,7 @@ module.exports = {
         let userAvatar = member.user.displayAvatarURL()
         let memberCount = `${member.guild.memberCount}`
 
-        loadImage("../joinBackground.png").then((bg) => {
+        loadImage("./assets/joinBackground.png").then((bg) => {
             let nameWidth
 
             //GENERAL
@@ -55,7 +55,7 @@ module.exports = {
 
 
                 //OUTPUT
-                member.guild.channels.cache.get("549882021934137354").send(`<@${member.user.id}> joined!`, { file: canvas.toDataURL() })
+                member.guild.channels.cache.get("730042612647723058").send(`<@${member.user.id}> just joined! Welcome! 🎉!`, { file: canvas.toDataURL() }) //join-leave
             })
         })
     }
