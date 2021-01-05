@@ -1,6 +1,6 @@
 const { errorColor, successColor } = require("../config.json")
 const Discord = require("discord.js")
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
 
 module.exports = {
     name: "define",
@@ -14,13 +14,13 @@ module.exports = {
         message.channel.startTyping()
 
         try {
-            var arg = args.join(' ')
-            var xmlhttp = new XMLHttpRequest()
-            var url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${arg}?key=${process.env.WEBSTER_COLLEGIATE_KEY}`
+            const arg = args.join(' ')
+            const xmlhttp = new XMLHttpRequest()
+            const url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${arg}?key=${process.env.WEBSTER_COLLEGIATE_KEY}`
 
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    var res = JSON.parse(this.responseText)
+                    const res = JSON.parse(this.responseText)
                     done(res, message, strings)
                 }
             }
@@ -43,19 +43,20 @@ function done(res, message, strings) {
 
     if (res[0]) {
         if (res[0].meta) {
-            var word = res[0].meta.id || arg
-            var fl = strings[res[0].fl] || res[0].fl || "?"
-            var hw = (res[0].hwi.prs.mw || "?").replace("-", "∙")
-            var stems = (res[0].meta.stems || "?").join(", ")
-            var def = (res[0].shortdef || "?").join(",\n**or** ")
+            const word = res[0].meta.id || arg
+            const fl = strings[res[0].fl] || res[0].fl || "?"
+            const stems = (res[0].meta.stems || "?").join(", ")
+            const def = (res[0].shortdef || "?").join(",\n**or** ")
 
             embed
                 .setColor(successColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(word + " (" + fl + ")")
-                .setDescription(`_${hw}_\n${stems}`)
                 .addField(strings.moduleName, def)
                 .setFooter(executedBy, message.author.displayAvatarURL())
+
+            if (res[0].hwi.prs.mw) embed.setDescription(`_${res[0].hwi.prs.mw.replace("-", "∙")}_\n${stems}`)
+            else embed.setDescription(stems)
         }
     }
 
