@@ -9,7 +9,7 @@
   "watchStatuses": ["your commands", "your messages", "meatdata", "their prayers", "nicknames and stuff", "RANDOM_USER's messages", "project statistics"],
   "langdb": [  
     {"name": "Arabic", "emoji": "🇵🇸", "code": "ar", "flag": "https://crowdin.com/images/flags/%code%.png"},
-    {"name": "Bavarian", "emoji": "<:flag_bar:783030897612029992>", "code": "bar", "flag": "https://github.com/Hypixel-Translators/hypixel-translators-bot/blob/master/flags/%code%.png?raw=true"},
+    {"name": "Bavarian", "emoji": "<:flag_bar:783030897612029992>", "code": "bar", "flag": "https://github.com/Hypixel-Translators/hypixel-translators-bot/blob/master/assets/flags/%code%.png?raw=true"},
     {"name": "Biscuitish", "emoji": "🍪", "code": "bc", "flag": "https://github.com/BiscuitDevelopment/SkyblockAddons/blob/development/src/main/resources/assets/skyblockaddons/flags/%code%_bc.png?raw=true"},
     {"name": "Bulgarian", "emoji": "🇧🇬", "colour": "#e02222", "code": "bg", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Chinese Simplified", "emoji": "🇨🇳", "colour": "#21de70", "code": "zhcn", "id": "zh-CN", "flag": "https://crowdin.com/images/flags/%code%.png"},
@@ -29,7 +29,7 @@
     {"name": "Hungarian", "emoji": "🇭🇺", "code": "hu", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Indonesian", "emoji": "🇮🇩", "code": "id", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Irish", "emoji": "🇮🇪", "code": "gaie", "id": "ga-IE", "flag": "https://crowdin.com/images/flags/%code%.png"},
-    {"name": "Inhale Banana", "emoji": "🍌", "code": "ib", "flag": "https://github.com/Hypixel-Translators/hypixel-translators-bot/blob/master/flags/%code%.png?raw=true"},
+    {"name": "Inhale Banana", "emoji": "🍌", "code": "ib", "flag": "https://github.com/Hypixel-Translators/hypixel-translators-bot/blob/master/assets/flags/%code%.png?raw=true"},
     {"name": "Italian", "emoji": "🇮🇹", "colour": "#21de70", "code": "it", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Japanese", "emoji": "🇯🇵", "colour": "#21de70", "code": "ja", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Korean", "emoji": "🇰🇷", "colour": "#21de70", "code": "ko", "flag": "https://crowdin.com/images/flags/%code%.png"},
