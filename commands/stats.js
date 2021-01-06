@@ -12,7 +12,6 @@ module.exports = {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const client = message.client
         if (!message.member.hasPermission("ADMINISTRATOR")) throw "noAccess"
-        message.channel.startTyping()
         if (!args[0] || args[0].toLowerCase() === "all") {
             await execute(client, true)
                 .then(() => {
@@ -49,7 +48,6 @@ module.exports = {
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.errorNoProject.replace("%%name%%", args[0]))
                     .setFooter(executedBy, message.author.displayAvatarURL())
-                message.channel.stopTyping()
                 message.channel.send(errorEmbed)
                 return
             }
@@ -58,7 +56,6 @@ module.exports = {
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.doneProject.replace("%%project%%", project))
                 .setFooter(executedBy, message.author.displayAvatarURL())
-            message.channel.stopTyping()
             message.channel.send(projectEmbed)
             console.log(`Manually updated the ${project} language statistics.`)
         }
