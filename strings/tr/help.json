@@ -50,7 +50,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Size botun ping'inin yanı sıra Discord API'sinin ping'ini gösterir."
+        "description": "Gives you the bot's ping."
     },
     "hypixelstats": {
         "usage": "+hypixelstats <username>",
