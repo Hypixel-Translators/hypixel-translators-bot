@@ -384,8 +384,8 @@ client.on("guildMemberAdd", member => {
       ctx.restore()
 
       //OUTPUT
-      const attachment = new Discord.MessageAttachment(canvas.toBuffer())
-      member.guild.channels.cache.get("549882021934137354").send(`<@${member.user.id}> just joined! Welcome! 🎉!`, attachment) //join-leave
+      const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `${member.user.username} join.png`)
+      member.guild.channels.cache.get("549882021934137354").send(`<@${member.user.id}> just joined! Welcome! 🎉`, attachment) //join-leave
     })
   })
   member.send(`Hey there and thanks for joining **${member.guild.name}**! If you're a translator, be sure to check out <#699275092026458122> as this channel includes useful information for new and current translators. We hope you have fun on our server!`).catch(() => { console.log(`Couldn't DM user ${member.user.tag}, probably because they have DMs off`) }) //getting started
