@@ -1,7 +1,5 @@
 {
     "moduleName": "語言",
-    "loading": "Just a second...",
-    "changing": "正在更改語言... 這需要一些時間。",
     "changedToTitle": "已經將你的語言更改為繁體中文！",
     "didntChange": "Your language didn't change",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
