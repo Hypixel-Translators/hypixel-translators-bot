@@ -1,7 +1,5 @@
 {
     "moduleName": "Idioma",
-    "loading": "Un segundo...",
-    "changing": "Cambiando de idioma... Esto puede tardar un poco.",
     "changedToTitle": "¡Tu idioma ha sido cambiado a Español (México)!",
     "didntChange": "Tu idioma no cambió",
     "alreadyThis": "Esto sucedió porque eligió un idioma que ya era su preferencia de idioma.",
