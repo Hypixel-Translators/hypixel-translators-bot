@@ -10,7 +10,7 @@ module.exports = {
     usage: "+quote [index] | quote add <quote> / <author mention>",
     cooldown: 5,
     allowDM: true,
-    channelWhitelist: ["549894938712866816", "619662798133133312", "624881429834366986", "730042612647723058", "749391414600925335"], //bots memes staff-bots bot-development bot-translators
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-development bot-translators
     execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         let allowed = false
