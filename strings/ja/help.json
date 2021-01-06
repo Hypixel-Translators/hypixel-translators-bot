@@ -50,7 +50,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "ボットとDiscord APIのPing値を表示します。"
+        "description": "Gives you the bot's ping."
     },
     "hypixelstats": {
         "usage": "+hypixelstats <ユーザー名>",
