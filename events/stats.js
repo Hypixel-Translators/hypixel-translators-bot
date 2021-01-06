@@ -60,7 +60,7 @@ function hypixel(client) {
                 })
             client.channels.cache.get("730042612647723058").messages.fetch("782637177552240661") //bot development Hypixel string count
                 .then(stringCount => {
-                    if (Number(stringCount.content) !== langStatus[0].data.phrases.total) {
+                    if (stringCount.content != langStatus[0].data.phrases.total) {
                         const stringDiff = Math.abs(Number(Number(langStatus[0].data.phrases.total) - Number(stringCount.content)))
                         if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
                             if (stringDiff == 1) client.channels.cache.get("549503328472530976").send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the Hypixel project.\n\nTranslate at <https://crowdin.com/translate/hypixel/all/en>") //hypixel-translators
@@ -111,7 +111,7 @@ function quickplay(client) {
                 })
             client.channels.cache.get("730042612647723058").messages.fetch("782637234322931733") //bot-development Quickplay string count
                 .then(stringCount => {
-                    if (Number(stringCount.content) !== langStatus[0].data.phrases.total) {
+                    if (stringCount.content != langStatus[0].data.phrases.total) {
                         const stringDiff = Math.abs(Number(Number(langStatus[0].data.phrases.total) - Number(stringCount.content)))
                         if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
                             if (stringDiff == 1) client.channels.cache.get("646383292010070016").send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the Quickplay project.\n\nTranslate at <https://crowdin.com/translate/quickplay/all/en>") //quickplay-translators
@@ -162,7 +162,7 @@ function bot(client) {
                 })
             client.channels.cache.get("730042612647723058").messages.fetch("782637303427497994") //bot-development Bot string count
                 .then(stringCount => {
-                    if (Number(stringCount.content) !== langStatus[0].data.phrases.total) {
+                    if (stringCount.content != langStatus[0].data.phrases.total) {
                         const stringDiff = Math.abs(Number(Number(langStatus[0].data.phrases.total) - Number(stringCount.content)))
                         if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
                             if (stringDiff == 1) client.channels.cache.get("749391414600925335").send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the Hypixel Translators Bot project.\n\nTranslate at <https://crowdin.com/translate/hypixel-translators-bot/all/en>") //bot-translators
@@ -215,7 +215,7 @@ function skyblockaddons(client) {
 
                 client.channels.cache.get("730042612647723058").messages.fetch("782637265230626836") //bot-development Sba string count
                     .then(stringCount => {
-                        if (Number(stringCount.content) !== langStatus[0].data.phrases.total) {
+                        if (stringCount.content != langStatus[0].data.phrases.total) {
                             const stringDiff = Math.abs(Number(Number(langStatus[0].data.phrases.total) - Number(stringCount.content)))
                             if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
                                 if (stringDiff == 1) client.channels.cache.get("748594964476329994").send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>") //sba-translators
