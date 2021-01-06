@@ -77,14 +77,7 @@ module.exports = {
                 })
                 return
             } else {
-                const embed = new Discord.MessageEmbed()
-                    .setColor(loadingColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.loading)
-                    .setDescription(strings.changing)
-                    .setFooter(executedBy, message.author.displayAvatarURL())
-                const msg = await message.channel.send(embed)
-
+                message.channel.startTyping()
                 let newLang = args[0].toLowerCase()
                 const langdbEntry = langdb.find(l => l.name.toLowerCase() === newLang)
                 if (langdbEntry) newLang = langdbEntry.code
@@ -118,7 +111,8 @@ module.exports = {
                                     .setTitle(strings.didntChange)
                                     .setDescription(strings.alreadyThis)
                                     .setFooter(executedBy, message.author.displayAvatarURL())
-                                msg.edit(embed)
+                                message.channel.stopTyping()
+                                message.channel.send(embed)
                             } else {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor)
@@ -126,7 +120,8 @@ module.exports = {
                                     .setDescription(strings.credits)
                                     .setFooter(executedBy, message.author.displayAvatarURL())
                                 if (strings.changedToTitle === "Changed your language to English!") { embed.setTitle("Changed your language to " + strings[newLang] + "!") } else { embed.setTitle(strings.changedToTitle) }
-                                await msg.edit(embed)
+                                message.channel.stopTyping()
+                                message.channel.send(embed)
                                 return
                             }
                         })
@@ -139,7 +134,8 @@ module.exports = {
                                 .setTitle(strings.errorTitle)
                                 .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n" + strings.suggestAdd)
                                 .setFooter(executedBy, message.author.displayAvatarURL())
-                            await msg.edit(embed)
+                            message.channel.stopTyping()
+                            message.channel.send(embed)
                         })
                         return
                     }
