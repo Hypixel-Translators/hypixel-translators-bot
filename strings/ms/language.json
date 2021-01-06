@@ -1,7 +1,5 @@
 {
     "moduleName": "Bahasa",
-    "loading": "Just a second...",
-    "changing": "Mengganti bahasa anda... Ini mungkin akan ambil masa sebentar.",
     "changedToTitle": "Changed your language to English!",
     "didntChange": "Your language didn't change",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
