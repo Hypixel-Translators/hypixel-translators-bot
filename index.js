@@ -337,7 +337,7 @@ client.on("guildMemberAdd", member => {
 
   //Select appropriate font based on used characters
   let usernameFont
-  if (/(^[A-Za-z0-9 $-/:-?{-~!"^_`\[\]])\w+/gi.test(userName)) usernameFont = "37.5px Bitter-Bold"
+  if (/(^[A-zÀ-ÿ0-9 $-/:-?{-~!"^_`\[\]])\w+/gi.test(userName)) usernameFont = "37.5px Bitter-Bold"
   else usernameFont = "37.5px sans-serif"
 
   loadImage("./assets/joinBackground.png").then(bg => {
