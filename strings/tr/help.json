@@ -33,7 +33,7 @@
         "description": "Sunucudan komik/garip/bilge bir alıntı alır (veya ekler)."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [mesaj]",
+        "usage": "+mention <dil> translator|proofreader|all [mesaj]",
         "description": "İsteğe bağlı bir mesajla bir dil rolünden bahseder."
     },
     "context": {
@@ -50,7 +50,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Size botun ping'inin yanı sıra Discord API'sinin ping'ini gösterir"
+        "description": "Size botun ping'inin yanı sıra Discord API'sinin ping'ini gösterir."
     },
     "hypixelstats": {
         "usage": "+hypixelstats <username>",
