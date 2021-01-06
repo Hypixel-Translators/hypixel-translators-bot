@@ -20,7 +20,6 @@ module.exports = {
                         .setAuthor(strings.moduleName)
                         .setTitle(strings.done)
                         .setFooter(executedBy, message.author.displayAvatarURL())
-                    message.channel.stopTyping()
                     message.channel.send(allEmbed)
                 })
                 .catch(err => { throw err })
