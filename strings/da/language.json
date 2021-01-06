@@ -1,7 +1,5 @@
 {
     "moduleName": "Sprog",
-    "loading": "Just a second...",
-    "changing": "Skifter dit sprog... Det kan tage et stykke tid.",
     "changedToTitle": "Skiftede dit sprog til Dansk!",
     "didntChange": "Your language didn't change",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
