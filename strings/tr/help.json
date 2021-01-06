@@ -1,13 +1,13 @@
 {
     "moduleName": "Bilgi",
     "page1Title": "Yardım sayfası",
-    "commandsListTooltip": "Bu bot, Hypixel Translators Topluluğu için %%QkeleQ10%% tarafından oluşturuldu. Bu bot açık kaynak kodludur ve GitHub depomuza [buraya tıklayarak]%%github%% erişebilirsin.\n[Bu mesajdaki] %%translate%% talimatları izleyerek botun çevirilmesine yardımcı olabilirsiniz.\nBelirli bir komut hakkında daha fazla bilgi edinmek için `+help <komutun adı>` komutunu çalıştırabilirsiniz.\nİşte tüm komutların bir listesi: ",
+    "commandsListTooltip": "Bu bot, Hypixel Translators Topluluğu için %%QkeleQ10%% tarafından oluşturuldu. Bu bot açık kaynak kodludur ve GitHub depomuza [buraya tıklayarak]%%github%% erişebilirsin.\n[Bu mesajdaki]%%translate%% talimatları izleyerek botun çevirilmesine yardımcı olabilirsiniz.\nBelirli bir komut hakkında daha fazla bilgi edinmek için `+help <komutun adı>` komutunu çalıştırabilirsiniz.\nİşte tüm komutların bir listesi: ",
     "madeBy": "Bot, %%QkeleQ10%% tarafından özenle yapıldı",
     "page": "Sayfa %%number%%/%%total%%",
     "pageNumber": "Sayfa %%number%%",
     "utilityHelp": "%%badge%% Araçlar & Yardımcı Programlar",
     "infoHelp": "%%badge%% Bilgi komutları",
-    "timeOut": "Bu menü zaman aşımına uğradı. Tekrar kullanmak istersen, `+help ' komutunu kullan.",
+    "timeOut": "Bu menü zaman aşımına uğradı. Tekrar kullanmak istersen, `+help` komutunu kullan.",
     "pageNotExist": "Böyle bir sayfa mevcut değil!",
     "commandInfo": "Komut bilgisi",
     "commandInfoFor": "Komut bilgisi: ",
@@ -21,7 +21,7 @@
     "cooldownField": "Bekleme Süresi",
     "aliasesField": "Takma adlar",
     "help": {
-        "usage": "+help [komut ismi]",
+        "usage": "+help [page | command name]",
         "description": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir."
     },
     "prefix": {
