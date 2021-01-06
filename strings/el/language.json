@@ -1,7 +1,5 @@
 {
     "moduleName": "Γλώσσα",
-    "loading": "Just a second...",
-    "changing": "Αλλαγή γλώσσας.. Αυτό μπορεί να πάρει λίγα λεπτά.",
     "changedToTitle": "Η γλώσσα σου άλλαξε στα Ελληνικά!",
     "didntChange": "Your language didn't change",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
