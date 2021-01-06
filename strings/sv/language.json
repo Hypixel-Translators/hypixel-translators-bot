@@ -1,7 +1,5 @@
 {
     "moduleName": "Språk",
-    "loading": "Just a second...",
-    "changing": "Changing your language... This may take a while.",
     "changedToTitle": "Ändrade ditt språk till svenska!",
     "didntChange": "Your language didn't change",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
