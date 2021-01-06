@@ -15,7 +15,7 @@
     "errorRequestDesc": "We could not find the language you wanted to request. If you believe this is an error, please DM the bot with your request.",
     "listTitle": "Dil listesi",
     "listElement": "`%%code%%` | **%%language%%**",
-    "credits": "Bir hata mı buldun? `+bug <mesaj>` komutunu kullanarak raporla.",
+    "credits": "Bir hata mı buldun? `+issue` komutunu kullanarak raporla.",
     "ar": "Arapça",
     "bar": "Bavyeraca",
     "bg": "Bulgarca",
