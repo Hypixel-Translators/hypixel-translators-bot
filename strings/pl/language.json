@@ -1,7 +1,5 @@
 {
     "moduleName": "Język",
-    "loading": "Sekundkę…",
-    "changing": "Zmiana języka... To może chwilę potrwać.",
     "changedToTitle": "Zmieniono Twój język na polski!",
     "didntChange": "Twój język nie został zmieniony",
     "alreadyThis": "Stało się, gdyż język, który wybrałeś jest już przez Ciebie używany.",
