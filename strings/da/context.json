@@ -7,7 +7,8 @@
         "didntReply": "Du svarede ikke i tide, ",
         "hitReaction": "Du reagerede med %%voteNo%%, ",
         "cancelledPrompt": "så denne prompt blev annulleret. ",
-        "readdTryAgain": "Reager igen med 📑for at prøve igen."
+        "readdTryAgain": "Reager igen med 📑for at prøve igen.",
+        "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it."
     },
     "notProofreader": "You're not a proofreader, so you can't use this! We're working on a way to let you suggest context too.",
     "contextFor": "Kontekst for ",
