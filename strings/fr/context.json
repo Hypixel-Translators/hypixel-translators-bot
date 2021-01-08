@@ -7,7 +7,8 @@
         "didntReply": "Tu n'as pas répondu à temps, ",
         "hitReaction": "Tu as réagi avec %%voteNo%%, ",
         "cancelledPrompt": "donc cette action a été annulée. ",
-        "readdTryAgain": "Réagis avec 📑 pour réessayer."
+        "readdTryAgain": "Réagis avec 📑 pour réessayer.",
+        "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it."
     },
     "notProofreader": "Tu n'est pas un proofreader, tu ne peux pas utiliser cette commande! Nous travaillons sur un moyen de tu laisser suggérer un contexte.",
     "contextFor": "Contexte pour ",
