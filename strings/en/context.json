@@ -7,7 +7,9 @@
         "didntReply": "You didn't reply in time, ",
         "hitReaction": "You reacted with %%voteNo%%, ",
         "cancelledPrompt": "so this prompt has been cancelled. ",
-        "readdTryAgain": "Re-react with 📑 to try again."
+        "readdTryAgain": "Re-react with 📑 to try again.",
+        "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it."
+
     },
     "notProofreader": "You're not a proofreader, so you can't use this! We're working on a way to let you suggest context too.",
     "contextFor": "Context for ",

@@ -40,10 +40,12 @@ async function getFromSpreadsheet(executedBy, message, strings, args) {
 
     if (!correctRow) {
         message.channel.stopTyping()
-        throw strings.errors.notFound
+        message.channel.send(strings.errors.notFound).then(msg => setTimeout(() => {
+            if (!msg.deleted) msg.delete()
+        }, 5000))
+        return
     }
-
-    const embed = new Discord.MessageEmbed()
+        const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setAuthor(strings.moduleName)
         .setTitle(strings.contextFor + string)
@@ -94,7 +96,10 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
 
     if (!toSend || !string) {
         message.channel.stopTyping()
-        throw "noContext"
+        message.channel.send(strings.errors.noContext).then(msg => setTimeout(() => {
+            if (!msg.deleted) msg.delete()
+        }, 5000))
+        return
     }
 
     if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) { //Hypixel Proofreader
@@ -211,7 +216,10 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                             if (!msg.deleted) msg.delete()
                             if (!result) {
                                 message.channel.stopTyping()
-                                throw strings.errors.notFound
+                                message.channel.send(strings.errors.notFound).then(msg => setTimeout(() => {
+                                    if (!msg.deleted) msg.delete()
+                                }, 5000))
+                                return
                             }
 
                             embed
@@ -329,7 +337,10 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
 
     if (!correctRow) {
         message.channel.stopTyping()
-        throw strings.errors.notFound
+        message.channel.send(strings.errors.notFound).then(msg => setTimeout(() => {
+            if (!msg.deleted) msg.delete()
+        }, 5000))
+        return
     }
 
     if (!args[3]) {
