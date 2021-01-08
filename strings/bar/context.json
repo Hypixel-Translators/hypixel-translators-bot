@@ -7,7 +7,8 @@
         "didntReply": "Du hast nicht rechtzeitig geantwortet, ",
         "hitReaction": "Du hast mit %%voteNo%% reagiert, ",
         "cancelledPrompt": "also wurde diese Eingabeaufforderung abgebrochen. ",
-        "readdTryAgain": "Reagiere erneut mit 📑 um es erneut zu versuchen."
+        "readdTryAgain": "Reagiere erneut mit 📑 um es erneut zu versuchen.",
+        "noContext": "Du hast den Kontext nicht angegeben! Bitte füge sowohl die String-ID als auch den Kontext hinzu, der sie erklärt."
     },
     "notProofreader": "Du bist kein Proofreader, daher kannst du dies nicht verwenden! Wir arbeiten an einer Möglichkeit, dir das Vorschlagen von Kontext zu ermöglichen.",
     "contextFor": "Kontext für ",
