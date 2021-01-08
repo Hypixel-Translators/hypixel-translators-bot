@@ -7,7 +7,8 @@
         "didntReply": "Zamanında yanıt vermedin, ",
         "hitReaction": "%%voteNo%%, ile tepki verdin ",
         "cancelledPrompt": "yani bu istem iptal edildi. ",
-        "readdTryAgain": "Tekrar denemek için 📑 ile yeniden tepki ver."
+        "readdTryAgain": "Tekrar denemek için 📑 ile yeniden tepki ver.",
+        "noContext": "Bağlamı sağlamadın! Lütfen hem dize kimliğini hem de bunu açıklayan bağlamı ekleyin."
     },
     "notProofreader": "Bir düzeltmen değilsin, yani bunu kullanamazsın! Bağlam önermenize izin verecek bir yol üzerinde çalışıyoruz.",
     "contextFor": "İçin bağlam ",
