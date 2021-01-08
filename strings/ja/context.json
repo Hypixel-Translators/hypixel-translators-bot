@@ -7,7 +7,8 @@
         "didntReply": "You didn't reply in time, ",
         "hitReaction": "%%voteNo%%で回答したため、",
         "cancelledPrompt": "so this prompt has been cancelled. ",
-        "readdTryAgain": "📑で回答してもう一度実行できます。"
+        "readdTryAgain": "📑で回答してもう一度実行できます。",
+        "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it."
     },
     "notProofreader": "You're not a proofreader, so you can't use this! We're working on a way to let you suggest context too.",
     "contextFor": "Context for ",
