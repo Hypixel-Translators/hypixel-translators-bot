@@ -7,7 +7,8 @@
         "didntReply": "Et vastannut ajoissa, ",
         "hitReaction": "Reagoit emojilla %%voteNo%%, ",
         "cancelledPrompt": "joten pyyntösi peruttiin. ",
-        "readdTryAgain": "Reagoi uudelleen emojilla 📑 yrittääksesi uudelleen."
+        "readdTryAgain": "Reagoi uudelleen emojilla 📑 yrittääksesi uudelleen.",
+        "noContext": "Et syöttänyt kontekstia! Ole hyvä ja lisää stringin ID ja stringiä selittävä konteksti."
     },
     "notProofreader": "Et ole oikolukija, joten et voi käyttää tätä ominaisuutta! Työstämme tapaa antaa myös sinulle mahdollisuuden ehdottaa kontekstia.",
     "contextFor": "Konteksti stringille ",
