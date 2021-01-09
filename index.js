@@ -405,4 +405,4 @@ client.on("guildMemberRemove", member => {
 })
 
 //Log in
-client.login(process.env.TOKEN)
+client.login(process.env.DISCORD_TOKEN)
