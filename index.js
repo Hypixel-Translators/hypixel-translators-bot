@@ -7,7 +7,7 @@ const { registerFont, createCanvas, loadImage } = require("canvas")
 require("dotenv").config()
 
 //Import data, assets and commands
-const { prefix, loadingColor, errorColor, successColor, neutralColor, blurple, listenStatuses, watchStatuses } = require("./config.json")
+const { prefix, loadingColor, errorColor, successColor, neutralColor, blurple, listeningStatuses, watchingStatuses, playingStatuses } = require("./config.json")
 client.commands = new Discord.Collection()
 const commandFiles = fs
   .readdirSync("./commands")
@@ -52,19 +52,21 @@ client.once("ready", async () => {
   //Change status and run events every minute
   setInterval(() => {
     const pickedUser = boostersStaff[Math.floor(Math.random() * boostersStaff.length)]
-    toPick = Math.random() >= 0.2
+    const toPick = Math.round(Math.random() * 100) //get percentage
 
-    if (toPick) {
-      let listenStatus = listenStatuses[Math.floor(Math.random() * listenStatuses.length)]
-      listenStatus = listenStatus.replace("RANDOM_USER", pickedUser)
-      client.user.setActivity(listenStatus, { type: "LISTENING" })
-      toPick = Math.random() >= 0.6
-    } else {
-      let watchStatus = watchStatuses[Math.floor(Math.random() * watchStatuses.length)]
+    if (toPick > 66) { //Higher than 66%
+      let playingStatus = playingStatuses[Math.floor(Math.random() * playingStatuses.length)]
+      playingStatus = playingStatus.replace("RANDOM_USER", pickedUser)
+      client.user.setActivity(playingStatus, { type: "PLAYING" })
+    } else if (toPick <= 66 && toPick > 33) { //Between 33% and 66% (inclusive)
+      let watchStatus = watchingStatuses[Math.floor(Math.random() * watchingStatuses.length)]
       watchStatus = watchStatus.replace("RANDOM_USER", pickedUser)
       client.user.setActivity(watchStatus, { type: "WATCHING" })
-      toPick = Math.random() >= 0.2
-    }
+    } else if (toPick <= 33 && toPick > 0) { //Between 0% and 33% (inclusive)
+      let listenStatus = listeningStatuses[Math.floor(Math.random() * listeningStatuses.length)]
+      listenStatus = listenStatus.replace("RANDOM_USER", pickedUser)
+      client.user.setActivity(listenStatus, { type: "LISTENING" })
+    } else console.error("Couldn't set the status because the percentage is a weird number: " + toPick)
 
     stats.execute(client, false)
     inactives.execute(client, false)
