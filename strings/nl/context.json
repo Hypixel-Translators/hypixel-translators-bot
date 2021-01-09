@@ -7,7 +7,8 @@
         "didntReply": "Je hebt niet op tijd gereageerd, ",
         "hitReaction": "Je hebt gereageerd met %%voteNo%%, ",
         "cancelledPrompt": "dus dit prompt is geannuleerd. ",
-        "readdTryAgain": "Reageer met 📑 om het opnieuw te proberen."
+        "readdTryAgain": "Reageer met 📑 om het opnieuw te proberen.",
+        "noContext": "Je hebt de context niet opgegeven! Voeg het string-ID en de toelichtende context toe."
     },
     "notProofreader": "Je bent geen proeflezer, dus je kunt dit niet gebruiken! We werken aan een manier om jou óók context te laten suggereren.",
     "contextFor": "Context voor ",

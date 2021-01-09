@@ -1,7 +1,5 @@
 {
     "moduleName": "Jazyk",
-    "loading": "Just a second...",
-    "changing": "Changing your language... This may take a while.",
     "changedToTitle": "Tvůj jazyk byl změněn na češtinu!",
     "didntChange": "Your language didn't change",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",

@@ -50,7 +50,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Dá-te o ping do bot bem como o ping da API do Discord."
+        "description": "Dá-te o ping do bot."
     },
     "hypixelstats": {
         "usage": "+hypixelstats <jogador>",

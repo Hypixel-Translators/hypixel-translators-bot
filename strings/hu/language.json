@@ -1,7 +1,5 @@
 {
     "moduleName": "Nyelv",
-    "loading": "Just a second...",
-    "changing": "Nyelvváltoztatás... Ez eltarthat egy ideig.",
     "changedToTitle": "A nyelved meg lett változtatva Magyarra!",
     "didntChange": "Your language didn't change",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",

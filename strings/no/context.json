@@ -7,7 +7,8 @@
         "didntReply": "Du svarte ikke i tide, ",
         "hitReaction": "Du reagerte med %%voteNo%%, ",
         "cancelledPrompt": "så denne spørringen har blitt avbrutt. ",
-        "readdTryAgain": "Reager igjen med 📑 for å prøve på nytt."
+        "readdTryAgain": "Reager igjen med 📑 for å prøve på nytt.",
+        "noContext": "Du har ikke gitt noe kontekst! Vennligst legg til både string-ID og konteksten som forklarer det."
     },
     "notProofreader": "Du er ikke en korrekturleser, så du kan ikke bruke denne! Vi jobber med en løsning som lar deg foreslå kontekst også.",
     "contextFor": "Kontekst for ",

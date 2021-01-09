@@ -1,7 +1,5 @@
 {
     "moduleName": "اللغة",
-    "loading": "Just a second...",
-    "changing": "يتم تغيير لغتك... قد تأخذ بعض الوقت.",
     "changedToTitle": "تم تغيير لغتك الى العربية!",
     "didntChange": "Your language didn't change",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",

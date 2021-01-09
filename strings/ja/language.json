@@ -1,7 +1,5 @@
 {
     "moduleName": "言語",
-    "loading": "Just a second...",
-    "changing": "言語を変更しています… これには時間がかかる場合があります。",
     "changedToTitle": "言語を日本語に変更しました！",
     "didntChange": "言語が変更されませんでした",
     "alreadyThis": "既に設定している言語を選択したためです。",

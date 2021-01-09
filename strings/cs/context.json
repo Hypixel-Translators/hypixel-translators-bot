@@ -7,7 +7,8 @@
         "didntReply": "Neodpověděl jsi včas, ",
         "hitReaction": "Zareagoval jsi s %%voteNo%%, ",
         "cancelledPrompt": "takže tato akce byla zrušena. ",
-        "readdTryAgain": "Znovu zareaguj s 📑, abys to zkusil znovu."
+        "readdTryAgain": "Znovu zareaguj s 📑, abys to zkusil znovu.",
+        "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it."
     },
     "notProofreader": "Nejsi korektor, takže to nemůžeš použít! Pracujeme na způsobu, jakým bys mohl taky navrhovat kontext.",
     "contextFor": "Kontext pro ",

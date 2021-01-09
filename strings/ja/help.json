@@ -2,31 +2,31 @@
     "moduleName": "情報",
     "page1Title": "ヘルプページ",
     "commandsListTooltip": "このボットはHypixel翻訳コミュニティのために %%QkeleQ10%% によって作成されました。オープンソースであり、GitHubのレポジトリは [こちら]%%github%% で確認できます。\n[このメッセージ]%%translate%% にある手順に従って、このボットを翻訳できます。\n\n`+help <コマンド名>` を実行すると、指定したコマンドの詳細を確認できます。\n以下がコマンド一覧の利用可能なページです。このメッセージのリアクションを使ってページを切り替えられます。",
-    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
+    "madeBy": "ボットは%%QkeleQ10%%が多大な注意を払って作成しました",
     "page": "ページ %%number%%/%%total%%",
     "pageNumber": "%%number%% ページ目",
     "utilityHelp": "%%badge%% ツール＆ユーティリティ",
     "infoHelp": "%%badge%% 情報コマンド",
     "timeOut": "このメニューはタイムアウトしました。もう一度使用する場合は `+help` を実行してください。",
-    "pageNotExist": "That page doesn't exist!",
+    "pageNotExist": "このページは存在しません！",
     "commandInfo": "コマンド情報",
     "commandInfoFor": "コマンド情報：",
     "commandNotExist": "このコマンドは存在しません！",
-    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-    "inDev": "This command is currently in development and will be available at a later date!",
-    "seconds": "seconds",
-    "second": "second",
-    "minutes": "minutes",
+    "staffOnly": "このコマンドはスタッフ専用のため、詳細は表示されません。\nこれがエラーと思われる場合は、スタッフにご連絡ください。",
+    "inDev": "このコマンドは現在開発中で、後日利用可能になります！",
+    "seconds": "秒",
+    "second": "秒",
+    "minutes": "分",
     "usageField": "使用法",
     "cooldownField": "クールダウン",
-    "aliasesField": "Aliases",
+    "aliasesField": "別の使用法",
     "help": {
         "usage": "+help [ページ番号 | コマンド名]",
-        "description": "Shows you all available commands and other info about the bot."
+        "description": "利用可能なすべてのコマンドやボットに関するその他の情報を表示します。"
     },
     "prefix": {
-        "usage": "+prefix [flags]",
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
+        "usage": "+prefix [旗]",
+        "description": "あなたの言語に対して適切な接頭辞を設定します。カスタムな接頭辞を取得するには `+prefix <旗>` の `<旗>` を国旗または国名の地域コードに置き換えてください。スラッシュで区切ることで複数個追加できます。"
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote> / <author mention>",
@@ -50,7 +50,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "ボットとDiscord APIのPing値を表示します。"
+        "description": "Gives you the bot's ping."
     },
     "hypixelstats": {
         "usage": "+hypixelstats <ユーザー名>",
@@ -58,7 +58,7 @@
     },
     "tip": {
         "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
+        "description": "サーバーに関するランダムなヒントを表示します。"
     },
     "invite": {
         "usage": "+invite",

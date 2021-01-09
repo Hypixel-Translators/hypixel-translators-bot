@@ -7,7 +7,8 @@
         "didntReply": "Nem reagáltál időben, ",
         "hitReaction": "A %%voteNo%% val reagáltál, ",
         "cancelledPrompt": "így ez az az ajánlat el lett távolítva. ",
-        "readdTryAgain": "Reagálj újra ezzel 📑 az újrapróbálkozáshoz."
+        "readdTryAgain": "Reagálj újra ezzel 📑 az újrapróbálkozáshoz.",
+        "noContext": "Nem adtál meg kontextust! Kérlek add hozzá a szöveg azonosítóját és a kontextusát is."
     },
     "notProofreader": "Nem vagy ellenőrző, így ezt nem tudod megtenni! Azon dolgozunk, hogy te is tudj kontextust ajánlani.",
     "contextFor": "Kontextus ehhez: ",
@@ -19,7 +20,7 @@
     "tryRunGet": "We couldn't find the resulting entry. Try to run `+context get <string ID>` to see the result instead.",
     "editContextFor": "Kontextus szerkesztése ehhez: ",
     "willAdd": "The following entry will be added. Please react with 📑 if you'd like to add more to the entry or change existing fields (such as a screenshot or a language note). React with %%voteYes%% to submit. This will be cancelled in two minutes or when you hit %%voteNo%%.",
-    "promptAddMore": "Send a message (without the prefix) containing `<field> <content>`. <field> can be `screenshot`, `id`, `context` or a language code. <content> needs to be the new content for that string, such as the screenshot link.",
+    "promptAddMore": "Küldj egy üzenetet (előjel nélkül), ilyen módon `<terület> <tartalom>`. A <terület> lehet `screenshot`, `id`, `context` vagy egy nyelvi kód. A <tartalom>-nak a szöveg új tartalmának kell lennie, mint egy képernyökép vagy egy link.",
     "addedMore": "Az információ hozzá lett adva a kontextus bejegyzéshez. Újra reagálj a 📑 emojival hogy többet adj hozzá.",
     "added": "Kontextus bejegyzés hozzáadva! Eredmények betöltése...",
     "addedResult": "A kontextus hozzá lett adva! Ezt alább láthatod.\n\n**Kontextus**\n",

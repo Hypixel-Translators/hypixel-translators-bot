@@ -1,5 +1,5 @@
 {
-    "moduleName": "Message",
-    "success": "Success! Message sent.",
+    "moduleName": "メッセージ",
+    "success": "成功！ メッセージを送信しました。",
     "executedBy": "Executed by %%user%%"
 }

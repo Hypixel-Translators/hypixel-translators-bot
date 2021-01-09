@@ -7,7 +7,8 @@
         "didntReply": "No respondiste en tiempo, ",
         "hitReaction": "Reaccionaste con %%voteNo%%, ",
         "cancelledPrompt": "entonces este acción fue cancelado. ",
-        "readdTryAgain": "Reacciona con 📑 para intentar de nuevo."
+        "readdTryAgain": "Reacciona con 📑 para intentar de nuevo.",
+        "noContext": "¡No has dado el contexto! Agrega el ID del string y el contexto explicándolo."
     },
     "notProofreader": "¡No eres un proofreader, entonces no puedes usar esto! Estamos trabajando en una manera de permitirte sugerir contextos.",
     "contextFor": "Contexto para ",

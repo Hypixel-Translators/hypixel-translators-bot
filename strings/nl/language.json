@@ -1,7 +1,5 @@
 {
     "moduleName": "Taal",
-    "loading": "Een momentje...",
-    "changing": "Je taal wordt veranderd... Dit kan even duren.",
     "changedToTitle": "Taal is veranderd naar het Nederlands!",
     "didntChange": "Je taal is niet veranderd",
     "alreadyThis": "Dit is gebeurd omdat je je huidige voorkeurstaal selecteerde.",
