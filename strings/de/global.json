@@ -24,7 +24,8 @@
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "Bitte warte noch %%time%% Sekunden, um den Befehl `+%%command%%` erneut zu benutzen.",
     "minsLeftT": "Bitte warte weitere %%time%% Minuten, um `+%%command%%` erneut zu verwenden.",
-    "linkCorrection": "%%user%% Bitte ändere das nächste Mal den Link auf das Format `crowdin.com/translate/.../.../en-en`.",
+    "linkCorrectionName": "Wrong format!",
+    "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
     "tip": "Tipp",
     "tips": {
         "0": "Hast du schon die Inhale Banana-Sprache ausprobiert? Ändere deine Sprache mit `+lang ib`!",
