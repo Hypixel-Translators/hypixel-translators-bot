@@ -52,7 +52,7 @@ client.once("ready", async () => {
   //Change status and run events every minute
   setInterval(() => {
     const pickedUser = boostersStaff[Math.floor(Math.random() * boostersStaff.length)]
-    const toPick = Math.round(Math.random() * 100) //get percentage
+    const toPick = Math.ceil(Math.random() * 100) //get percentage
 
     if (toPick > 66) { //Higher than 66%
       let playingStatus = playingStatuses[Math.floor(Math.random() * playingStatuses.length)]
@@ -73,7 +73,6 @@ client.once("ready", async () => {
     unzalgo.execute(client, false)
   }, 60000)
 })
-
 
 //Run when message is received
 client.on("message", async message => {
