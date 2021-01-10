@@ -24,8 +24,8 @@
     "secondLeft": "Por favor, espere otro segundo para volver a utilizar `+ %%command%%`.",
     "timeLeftT": "Por favor, espere otros %%time%% segundos para volver a utilizar `+%%command%%`.",
     "minsLeftT": "Por favor, espere otros %%time%% minutos para volver a utilizar `+%%command%%`.",
-    "linkCorrectionName": "Wrong format!",
-    "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
+    "linkCorrectionName": "¡Formato incorrecto!",
+    "linkCorrectionDesc": "Cambia tu enlace al formato de %%format%% para la próxima vez.",
     "tip": "Consejo",
     "tips": {
         "0": "¿Has probado el idioma Inhale Banana? ¡Cambie su idioma usando `+lang ib`!",
