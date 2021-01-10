@@ -24,7 +24,8 @@
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "U quicc, but too quicc so pls wait %%time%% skakund befr do `+%%command%%`.",
     "minsLeftT": "U quicc, but too quicc so pls wait %%time%% mininut befr do `+%%command%%`.",
-    "linkCorrection": "%%user%% Smh u idiot\nMæk link `crowdin.com/translate/.../.../en-en` nexxt time!",
+    "linkCorrectionName": "Wrong format!",
+    "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
     "tip": "Tip",
     "tips": {
         "0": "U spek inhale banana, but u know banana inhale actualy realy guud?",
