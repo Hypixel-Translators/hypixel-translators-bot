@@ -42,7 +42,8 @@ async function getFromSpreadsheet(executedBy, message, strings, args) {
         message.channel.stopTyping()
         message.channel.send(strings.errors.notFound).then(msg => setTimeout(() => {
             if (!msg.deleted) msg.delete()
-        }, 5000))
+            if (!message.deleted) message.delete()
+        }, 10000))
         return
     }
         const embed = new Discord.MessageEmbed()
@@ -98,7 +99,8 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
         message.channel.stopTyping()
         message.channel.send(strings.errors.noContext).then(msg => setTimeout(() => {
             if (!msg.deleted) msg.delete()
-        }, 5000))
+            if (!message.deleted) message.delete()
+        }, 10000))
         return
     }
 
@@ -218,7 +220,8 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                                 message.channel.stopTyping()
                                 message.channel.send(strings.errors.notFound).then(msg => setTimeout(() => {
                                     if (!msg.deleted) msg.delete()
-                                }, 5000))
+                                    if (!message.deleted) message.delete()
+                                }, 10000))
                                 return
                             }
 
@@ -305,7 +308,7 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                 })
                 setTimeout(() => {
                     if (!msg.deleted) msg.delete()
-                }, 5000)
+                }, 10000)
             })
         })
 }
@@ -339,7 +342,8 @@ async function editInSpreadsheet(executedBy, message, strings, args) {
         message.channel.stopTyping()
         message.channel.send(strings.errors.notFound).then(msg => setTimeout(() => {
             if (!msg.deleted) msg.delete()
-        }, 5000))
+            if (!message.deleted) message.delete()
+        }, 10000))
         return
     }
 
