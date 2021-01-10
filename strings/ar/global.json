@@ -24,7 +24,8 @@
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "الرجاء الانتظار %%time%% ثانية لاستخدام `+%%command%%` مرة أخرى.",
     "minsLeftT": "الرجاء الانتظار %%time%% دقيقة لاستخدام `+%%command%%` مرة أخرى.",
-    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
+    "linkCorrectionName": "Wrong format!",
+    "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
     "tip": "نصيحة",
     "tips": {
         "0": "هل قد جربت لغة Inhale Banana من قبل؟ غير لغتك لها عن طريق استخدام `+lang ib`!",

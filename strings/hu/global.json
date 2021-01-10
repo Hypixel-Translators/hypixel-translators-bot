@@ -24,7 +24,8 @@
     "secondLeft": "Kérlek várj egy másodpercet hogy újra használd a `+%%command%%` parancsot.",
     "timeLeftT": "Kérlek várj %%time%% másodpercet hogy újra használd a `+%%command%%` parancsot.",
     "minsLeftT": "Kérlek várj %%time%% percet hogy újra használd a `+%%command%%` parancsot.",
-    "linkCorrection": "%%user%% Kérlek a következő alkalommal változtasd meg a linket ebbe `crowdin.com/translate/.../.../en-en` a formátumba.",
+    "linkCorrectionName": "Wrong format!",
+    "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
     "tip": "Tipp",
     "tips": {
         "0": "Kipróbáltad már a Beszívott Banán nyelvet? Így tudod kiválasztani a nyelvet: `+lang ib`!",

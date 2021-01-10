@@ -24,7 +24,8 @@
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "`+%%command%%` komutunu kullanmak için lütfen %%time%% saniye bekle.",
     "minsLeftT": "`+%%command%%` tekrar kullanmak için lütfen %%time%% dakika daha bekleyin.",
-    "linkCorrection": "%%user%% Lütfen bağlantıyı bir dahaki sefere `crowdin.com/translate/.../.../en-en` olarak değiştir.",
+    "linkCorrectionName": "Wrong format!",
+    "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
     "tip": "İpucu",
     "tips": {
         "0": "Henüz Muz dilini denemedin mi? Dilini `+lang ib` komutu ile muz dili olarak güncelleyebilirsin!",

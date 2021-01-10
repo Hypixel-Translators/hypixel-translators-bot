@@ -24,7 +24,8 @@
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "Počkej prosím dalších %%time%% sekund/y pro použití příkazu `+%%command%%`.",
     "minsLeftT": "Počkej prosím ještě %%time%% minut/y, abys mohl znovu použít `+%%command%%`.",
-    "linkCorrection": "%%user%% Please change the link to the `crowdin.com/translate/.../.../en-en` format next time.",
+    "linkCorrectionName": "Wrong format!",
+    "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
     "tip": "Tip",
     "tips": {
         "0": "Už jsi vyzkoušel jazyk vdechnutého banánu? Nastav si ho pomocí `+lang ib`!",

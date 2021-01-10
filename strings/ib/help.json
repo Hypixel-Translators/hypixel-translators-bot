@@ -50,7 +50,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "Hehe ping go brr."
     },
     "hypixelstats": {
         "usage": "+hypixelstats <username>",
