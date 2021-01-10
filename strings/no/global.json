@@ -24,7 +24,8 @@
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "Vennligst vent %%time%% sekunder før du utfører `+%%command%%` igjen.",
     "minsLeftT": "Vennligst vent %%time%% minutter for å bruke `+%%command%%` igjen.",
-    "linkCorrection": "%%user%% Vennligst endre lenken til `crowdin.com/translate/.../.../en-en`-formatet neste gang.",
+    "linkCorrectionName": "Wrong format!",
+    "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
     "tip": "Tips",
     "tips": {
         "0": "Har du prøvd Inhalere Banan språket? Endre språket ditt til det med `+lang ib`!",
