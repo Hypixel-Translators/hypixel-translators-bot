@@ -53,6 +53,7 @@ client.once("ready", async () => {
   setInterval(() => {
     const pickedUser = boostersStaff[Math.floor(Math.random() * boostersStaff.length)]
     const toPick = Math.ceil(Math.random() * 100) //get percentage
+    const statusType = client.user.presence.activities[0].type
 
     if (toPick > 66) { //Higher than 66%
       let playingStatus = playingStatuses[Math.floor(Math.random() * playingStatuses.length)]
@@ -80,24 +81,6 @@ client.on("message", async message => {
   //Delete pinned message messages
   if (message.type === "PINS_ADD" && message.channel.type !== "dm") message.delete()
 
-  //Define command and stop if none is found
-  const args = message.content.slice(prefix.length).split(/ +/)
-  const commandName = args.shift().toLowerCase()
-  const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
-  if (!command) return
-
-  //Log if command is ran in DMs
-  if (message.channel.type === "dm") console.log(message.author.tag + " used command " + commandName + " in DMs")
-
-  //Return if user is a bot or not verified
-  if (message.author.bot) return
-  if (message.member && !message.member.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
-  else {
-    const server = message.client.guilds.cache.get("549503328472530974")
-    const user = server.member(message.author)
-    if (!user.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
-  }
-
   //Publish message if sent in bot-updates
   if (message.channel.id === "732587569744838777") { //bot-updates
     message.crosspost()
@@ -117,11 +100,16 @@ client.on("message", async message => {
   let executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
   //Link correction system
-  if (message.content.includes("/translate/") && message.content.includes("://")) if (message.channel.id === "549503328472530976" || message.channel.id === "627594632779399195") { // hypixel translators and proofreaders
-    let msgTxt = (" " + message.content).slice(1).replace(/translate\.hypixel\.net/g, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/g, "/en-en")
+  if (message.content.toLowerCase().includes("/translate/hypixel/") && message.content.includes("://")) if (message.channel.id === "549503328472530976" || message.channel.id === "730042612647723058") { // hypixel translators and proofreaders
+    const msgTxt = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/gi, "/en-en")
     if (message.content !== msgTxt) {
       message.react(notAllowed)
-      message.channel.send(globalStrings.linkCorrection.replace("%%user%%", "<@" + message.author.id + ">") + "\n\n>>> " + msgTxt)
+      const embed = new Discord.MessageEmbed()
+      .setColor(errorColor)
+      .setAuthor(globalStrings.linkCorrectionName)
+      .setTitle(globalStrings.linkCorrectionDesc.replace("%%format%%", "`crowdin.com/translate/.../.../en-en`"))
+      .setDescription(msgTxt)
+      message.channel.send(`<@${message.author.id}>`, embed)
     }
   }
 
@@ -142,7 +130,25 @@ client.on("message", async message => {
         .setDescription(message.content)
         .setFooter(globalStrings.outgoingDisclaimer)
       return message.channel.send(embed)
-    } else return //Stop if it starts with prefix
+    }
+  }
+
+  //Define command and stop if none is found
+  const args = message.content.slice(prefix.length).split(/ +/)
+  const commandName = args.shift().toLowerCase()
+  const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
+  if (!command) return
+
+  //Log if command is ran in DMs
+  if (message.channel.type === "dm") console.log(message.author.tag + " used command " + commandName + " in DMs")
+
+  //Return if user is a bot or not verified
+  if (message.author.bot) return
+  if (message.member && !message.member.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
+  else {
+    const server = message.client.guilds.cache.get("549503328472530974")
+    const user = server.member(message.author)
+    if (!user.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
   }
 
   //Role Blacklist and Whitelist system
