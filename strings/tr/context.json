@@ -57,7 +57,7 @@
     "info": {
         "title": "`+context` için yardım",
         "description": "Aşağıda, bu komut için tüm alt komutların ve açıklamalarının bir listesi bulunmaktadır. **Alanlar** mevcut tüm alanları gösterir.",
-        "get": "_Verilen dize için _gets bağlamı_\n`+context get <string ID>`\n\nDize URL'sini kopyalayarak bulunan dizenin kimliği ile <string ID> değiştirin. #'Dan sonraki numara.",
+        "get": "_Verilen dize için gets bağlamı_\n`+context get <string ID>`\n\nDize URL'sini kopyalayarak bulunan dizenin kimliği ile <string ID> değiştirin. #'Dan sonraki numara.",
         "add": "_ Bir bağlam girişi ekler_\n`+context add <string ID> <context>`\n\nDize URL'sini kopyalayarak bulunan dizenin kimliği ile <string ID> değiştirin. #'Dan sonraki numara. Eklemek istediğiniz metinle <context> değiştirin. Çalıştırdıktan sonra, reaksiyonları kullanarak daha fazla alan ekleyebilirsiniz.",
         "edit": "_Varolan bir bağlam girişini düzenler_\n`+context edit <string kimliği> <field> <yeni değer>`\n\nDize URL'sini kopyalayarak bulunan dizenin kimliği ile <string ID> değiştirin. #'Dan sonraki numara. `screenshot` veya `enpt`gibi düzenlemek istediğiniz alanla <field> değiştirin. <new value> bu alan için yeni bir değerle değiştirin.",
         "link": "_Size bağlam içeren bir Google Sheet bağlantısı verir_\n`+context link`",
