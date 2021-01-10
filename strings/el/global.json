@@ -24,7 +24,8 @@
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "Παρακαλώ περίμενε ακόμα %%time%% δευτερόλεπτα για να χρησιμοποιήσεις το `+%%command%%` ξανά.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
-    "linkCorrection": "%%user%% Αλλάξτε τον σύνδεσμο στη μορφή `crowdin.com/translate /.../.../ en-en` την επόμενη φορά.",
+    "linkCorrectionName": "Wrong format!",
+    "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
     "tip": "Συμβουλή",
     "tips": {
         "0": "Δοκίμασες ποτέ την γλώσσα Inhale Banana; Άλλαξε την γλώσσα σου σε αυτό εκτελώντας `+lang ib`!",
