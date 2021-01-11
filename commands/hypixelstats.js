@@ -92,15 +92,15 @@ module.exports = {
                     .setThumbnail("https://crafatar.com/renders/body/" + json.uuid + "?overlay")
                 message.channel.stopTyping()
                 message.channel.send(embed)
-                    .catch(error => {
-                        const embed = new Discord.MessageEmbed()
-                            .setColor(errorColor)
-                            .setAuthor(globalStrings.error)
-                            .setTitle(globalStrings[error] || error)
-                            .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL())
-                        message.channel.stopTyping()
-                        message.channel.send(embed)
-                    })
+            })
+            .catch(error => {
+                const embed = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setAuthor(globalStrings.error)
+                    .setTitle(globalStrings[error] || error)
+                    .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL())
+                message.channel.stopTyping()
+                message.channel.send(embed)
             })
     }
 }
