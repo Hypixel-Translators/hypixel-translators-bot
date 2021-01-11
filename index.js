@@ -105,33 +105,34 @@ client.on("message", async message => {
     if (message.content !== msgTxt) {
       message.react(notAllowed)
       const embed = new Discord.MessageEmbed()
-      .setColor(errorColor)
-      .setAuthor(globalStrings.linkCorrectionName)
-      .setTitle(globalStrings.linkCorrectionDesc.replace("%%format%%", "`crowdin.com/translate/.../.../en-en`"))
-      .setDescription(msgTxt)
+        .setColor(errorColor)
+        .setAuthor(globalStrings.linkCorrectionName)
+        .setTitle(globalStrings.linkCorrectionDesc.replace("%%format%%", "`crowdin.com/translate/.../.../en-en`"))
+        .setDescription(msgTxt)
       message.channel.send(`<@${message.author.id}>`, embed)
     }
   }
 
   //Staff messaging system
-  if (!message.content.startsWith(prefix)) {
-    if (message.channel.type === "dm") {
-      const sendTo = client.channels.cache.get("730042612647723058") //bot-development
-      const report = new Discord.MessageEmbed()
-        .setColor(neutralColor)
-        .setAuthor("Incoming message from " + message.author.tag)
-        .setDescription(message.content)
-        .addFields({ name: "To reply", value: "\`+dm " + message.author.id + " \`" })
-      sendTo.send(report)
+  if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm") {
+    const sendTo = client.channels.cache.get("730042612647723058") //bot-development
+    const report = new Discord.MessageEmbed()
+      .setColor(neutralColor)
+      .setAuthor("Incoming message from " + message.author.tag)
+      .setDescription(message.content)
+      .addFields({ name: "To reply", value: "\`+dm " + message.author.id + " \`" })
+    sendTo.send(report)
 
-      const embed = new Discord.MessageEmbed()
-        .setColor(successColor)
-        .setAuthor(globalStrings.outgoing)
-        .setDescription(message.content)
-        .setFooter(globalStrings.outgoingDisclaimer)
-      return message.channel.send(embed)
-    }
+    const embed = new Discord.MessageEmbed()
+      .setColor(successColor)
+      .setAuthor(globalStrings.outgoing)
+      .setDescription(message.content)
+      .setFooter(globalStrings.outgoingDisclaimer)
+    return message.channel.send(embed)
   }
+
+  //Stop if the message is not a command
+  if (!message.content.startsWith(prefix)) return
 
   //Define command and stop if none is found
   const args = message.content.slice(prefix.length).split(/ +/)
