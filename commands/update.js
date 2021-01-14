@@ -45,7 +45,7 @@ module.exports = {
 }
 
 function info(message) {
-    message.client.channels.cache.get("762341271611506708").messages.fetch("783125631487574026").then(msg => { //server-info and channels message
+    message.client.channels.cache.get("762341271611506708").messages.fetch("799388020369260564").then(msg => { //server-info and channels message
         const channelsEmbed = new Discord.MessageEmbed()
             .setColor("#0022ff")
             .setTitle("Channels")
@@ -57,9 +57,9 @@ function info(message) {
                 { name: "**Language-specific channels 🎏**", value: "We offer channels where translators and proofreaders (of the Hypixel and Quickplay projects) for specific languages can interact with one another! You can speak in English there, but we encourage you to speak the language you're translating. Please keep in mind these channels are not actively moderated. In case you need to report something that occured in these channels, please contact an administrator." })
         msg.edit("", channelsEmbed)
     })
-    message.client.channels.cache.get("762341271611506708").messages.fetch("783125631823118357").then(msg => { //server-info and roles message
+    message.client.channels.cache.get("762341271611506708").messages.fetch("799388022113173545").then(msg => { //server-info and roles message
         const botsEmbed = new Discord.MessageEmbed()
-            .setColor("#0077ff")
+            .setColor("#0055ff")
             .setTitle("Bots")
             .setDescription("Information about all bots on this server can be found here. The character inside the [] in their nickname indicates their prefix. Use [prefix]help in <#549894938712866816> to know more about them.")
             .addFields(
@@ -68,10 +68,10 @@ function info(message) {
             )
         msg.edit("", botsEmbed)
     })
-    message.client.channels.cache.get("762341271611506708").messages.fetch("783125633101987930").then(msg => { //server-info and bots message
+    message.client.channels.cache.get("762341271611506708").messages.fetch("799388024219762699").then(msg => { //server-info and bots message
 
         const rolesEmbed = new Discord.MessageEmbed()
-            .setColor("#0055ff")
+            .setColor("#0077ff")
             .setTitle("Roles")
             .setDescription("Every role has a meaning behind it. Find out what they all are below!")
             .addFields(
