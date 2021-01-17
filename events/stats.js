@@ -65,7 +65,7 @@ function hypixel(client) {
                         if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
                             if (stringDiff == 1) client.channels.cache.get("549503328472530976").send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the Hypixel project.\n\nTranslate at <https://crowdin.com/translate/hypixel/all/en>") //hypixel-translators
                             else client.channels.cache.get("549503328472530976").send("> <a:partyBlob:769679132317057064> **New Strings!**\n" + stringDiff + " strings have been added to the Hypixel project.\n\nTranslate at <https://crowdin.com/translate/hypixel/all/en>") //hypixel-translators
-                        } else if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
+                        } else if (Number(stringCount.content) > langStatus[0].data.phrases.total) {
                             if (stringDiff == 1) client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the Hypixel project.") //hypixel-translators
                             else client.channels.cache.get("549503328472530976").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the Hypixel project.") //hypixel-translators
                         }
@@ -116,7 +116,7 @@ function quickplay(client) {
                         if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
                             if (stringDiff == 1) client.channels.cache.get("646383292010070016").send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the Quickplay project.\n\nTranslate at <https://crowdin.com/translate/quickplay/all/en>") //quickplay-translators
                             else client.channels.cache.get("646383292010070016").send("> <a:partyBlob:769679132317057064> **New Strings!**\n" + stringDiff + " strings have been added to the Quickplay project.\n\nTranslate at <https://crowdin.com/translate/quickplay/all/en>") //quickplay-translators
-                        } else if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
+                        } else if (Number(stringCount.content) > langStatus[0].data.phrases.total) {
                             if (stringDiff == 1) client.channels.cache.get("646383292010070016").send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the Quickplay project.") //quickplay-translators
                             else client.channels.cache.get("646383292010070016").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the Quickplay project.") //quickplay-translators
                         }
@@ -167,7 +167,7 @@ function bot(client) {
                         if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
                             if (stringDiff == 1) client.channels.cache.get("749391414600925335").send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the Hypixel Translators Bot project.\n\nTranslate at <https://crowdin.com/translate/hypixel-translators-bot/all/en>") //bot-translators
                             else client.channels.cache.get("749391414600925335").send("> <a:partyBlob:769679132317057064> **New Strings!**\n" + stringDiff + " strings have been added to the Hypixel Translators Bot project.\n\nTranslate at <https://crowdin.com/translate/hypixel-translators-bot/all/en>") //bot-translators
-                        } else if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
+                        } else if (Number(stringCount.content) > langStatus[0].data.phrases.total) {
                             if (stringDiff == 1) client.channels.cache.get("749391414600925335").send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the Hypixel Translators Bot project.") //bot-translators
                             else client.channels.cache.get("749391414600925335").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the Hypixel Translators Bot project.") //bot-translators
                         }
@@ -221,7 +221,7 @@ function skyblockaddons(client) {
                                 if (stringDiff == 1) client.channels.cache.get("748594964476329994").send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>") //sba-translators
                                 else
                                     client.channels.cache.get("748594964476329994").send("> <a:partyBlob:769679132317057064> **New Strings!**\n" + stringDiff + " strings have been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>") //sba-translators
-                            } else if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
+                            } else if (Number(stringCount.content) > langStatus[0].data.phrases.total) {
                                 if (stringDiff == 1) client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the SkyblockAddons project.") //sba-translators
                                 else client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the SkyblockAddons project.") //sba-translators
                             }
