@@ -5,6 +5,7 @@ const { inspect } = require("util")
 const { clean, isZalgo } = require("unzalgo")
 const { flag, code, name, countries } = require('country-emoji')
 const fs = require("fs")
+const country = require('countryjs');
 
 module.exports = {
   name: "eval",
