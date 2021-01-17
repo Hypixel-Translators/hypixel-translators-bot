@@ -34,7 +34,7 @@ client.once("ready", async () => {
 
   //Fetch channels
   client.guilds.cache.get("549503328472530974").members.fetch() //Guild members
-  client.channels.cache.get("762341271611506708").messages.fetch("799388024219762699") //server-info roles message
+  client.channels.cache.get("762341271611506708").messages.fetch("800415711864029204") //server-info roles message
   client.channels.cache.get("569178590697095168").messages.fetch("787366444970541056") //verify message
   client.channels.cache.get("782635440054206504").messages.fetch() //language-database
   const reviewStringsChannels = await client.channels.cache.filter(c => c.name.endsWith("review-strings"))
@@ -294,14 +294,14 @@ client.on("messageReactionAdd", async (reaction, user) => {
     }
 
     //Give Polls role if reacted on reaction role message
-    if (reaction.message.id === "799388024219762699" && reaction.emoji.name === "📊" && !user.bot) { //server-info roles message
+    if (reaction.message.id === "800415711864029204" && reaction.emoji.name === "📊" && !user.bot) { //server-info roles message
       reaction.message.guild.member(user).roles.add("646098170794868757", "Added the reaction in server-info")
         .then(() => console.log("Gave the Polls role to " + user.tag))
         .catch(err => console.log("An error occured while trying to give the Polls role to " + user.tag + ". Here's the error:\n" + err))
     }
 
     //Give Bot Updates role if reacted on reaction role message
-    if (reaction.message.id === "799388024219762699" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
+    if (reaction.message.id === "800415711864029204" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
       reaction.message.guild.member(user).roles.add("732615152246980628", "Added the reaction in server-info")
         .then(() => console.log("Gave the Bot Updates role to " + user.tag))
         .catch(err => console.log("An error occured while trying to give the Bot Updates role to " + user.tag + ". Here's the error:\n" + err))
@@ -316,14 +316,14 @@ client.on("messageReactionRemove", async (reaction, user) => {
   const channel = reaction.message.channel
   if (channel.type !== "dm") {
     //Take Polls role if reaction removed from reaction role message
-    if (reaction.message.id === "799388024219762699" && reaction.emoji.name === "📊" && !user.bot) { //server-info roles message
+    if (reaction.message.id === "800415711864029204" && reaction.emoji.name === "📊" && !user.bot) { //server-info roles message
       reaction.message.guild.member(user).roles.remove("646098170794868757", "Removed the reaction in server-info")
         .then(() => console.log("Took the Polls role from " + user.tag))
         .catch(err => console.log("An error occured while trying to take the Polls role from " + user.tag + ". Here's the error:\n" + err))
     }
 
     //Take Bot updates role if reaction removed from reaction role message
-    if (reaction.message.id === "799388024219762699" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
+    if (reaction.message.id === "800415711864029204" && reaction.emoji.name === "🤖" && !user.bot) { //server-info roles message
       reaction.message.guild.member(user).roles.remove("732615152246980628", "Removed the reaction in server-info")
         .then(() => console.log("Took the Bot Updates role from " + user.tag))
         .catch(err => console.log("An error occured while trying to take the Bot Updates role from " + user.tag + ". Here's the error:\n" + err))

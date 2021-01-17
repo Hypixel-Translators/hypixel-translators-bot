@@ -21,6 +21,15 @@ module.exports = {
                 .setDescription(strings.checkOut1.replace("%%channel%%", "<#762341271611506708>")) //server-info
                 .setFooter(executedBy, message.author.displayAvatarURL())
             message.channel.send(successEmbed)
+        } else if (args[0] === "rules") {
+            rules(message)
+            const successEmbed = new Discord.MessageEmbed()
+                .setColor(successColor)
+                .setAuthor(strings.moduleName)
+                .setTitle(strings.success.replace("%%channel%%", strings.rulesChannel))
+                .setDescription(strings.checkOut1.replace("%%channel%%", "<#796159719617986610>")) //rules-prototype
+                .setFooter(executedBy, message.author.displayAvatarURL())
+            message.channel.send(successEmbed)
         } else if (args[0] === "verify") {
             verify(message)
             const successEmbed = new Discord.MessageEmbed()
@@ -33,11 +42,12 @@ module.exports = {
         } else if (args[0] === "all" || !args[0]) {
             info(message)
             verify(message)
+            rules(message)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.successAll)
-                .setDescription(strings.checkOut2.replace("%%info%%", "<#762341271611506708>").replace("%%verify%%", "<#569178590697095168>")) //server-info and verify
+                .setDescription(strings.checkOut2.replace("%%info%%", "<#762341271611506708>").replace("%%rules%%", "<#796159719617986610>").replace("%%verify%%", "<#569178590697095168>")) //server-info, rules and verify
                 .setFooter(executedBy, message.author.displayAvatarURL())
             message.channel.send(successEmbed)
         } else throw "noChannel"
@@ -45,19 +55,19 @@ module.exports = {
 }
 
 function info(message) {
-    message.client.channels.cache.get("762341271611506708").messages.fetch("799388020369260564").then(msg => { //server-info and channels message
+    message.client.channels.cache.get("762341271611506708").messages.fetch("800415708851732491").then(msg => { //server-info and channels message
         const channelsEmbed = new Discord.MessageEmbed()
             .setColor("#0022ff")
             .setTitle("Channels")
             .setDescription("Each channel has important information pinned in it. We highly recommend checking it out.")
             .addFields(
-                { name: "**Important ❕**", value: "<#549503985501995011> - Important messages from the server's admins.\n<#787050912005881876> - The channel where giveaways are hosted.\n<#732587569744838777> - Here, updates to <@620364412649209864> will be posted every now and then.\n<#646096405252800512> - In this channel we will post polls that you will be able to vote on in order to influence certain changes on the server.\n<#618909521741348874> - The feed of our [@HTranslators](https://twitter.com/HTranslators) Twitter page.\n<#758314105328762912> - Updates from our bot's [GitHub repository](https://github.com/Hypixel-Translators/hypixel-translators-bot).\n<#699367003135148063> - All rules are listed here. Follow them, or there'll be consequences.\n<#762341271611506708> - This channel has an overview of the server to help you understand how it works.\n<#699275092026458122> - A full guide on Crowdin available to all translators! Here you'll find basic and advanced tools to help you translate.\n<#549882021934137354> - Displays members who join and leave the server." },
+                { name: "**Important ❕**", value: "<#549503985501995011> - Important messages from the server's admins.\n<#787050912005881876> - The channel where giveaways are hosted.\n<#732587569744838777> - Here, updates to <@620364412649209864> will be posted every now and then.\n<#646096405252800512> - In this channel we will post polls that you will be able to vote on in order to influence certain changes on the server.\n<#618909521741348874> - The feed of our [@HTranslators](https://twitter.com/HTranslators) Twitter page.\n<#758314105328762912> - Updates from our bot's [GitHub repository](https://github.com/Hypixel-Translators/hypixel-translators-bot).\n<#796159719617986610> - All rules are listed here. Follow them, or there'll be consequences.\n<#762341271611506708> - This channel has an overview of the server to help you understand how it works.\n<#699275092026458122> - A full guide on Crowdin available to all translators! Here you'll find basic and advanced tools to help you translate.\n<#549882021934137354> - Displays members who join and leave the server." },
                 { name: "**Main Channels 💬**", value: "<#621298919535804426> - You can use this channel to talk about anything you want really.\n<#619662798133133312> - A text channel where you can post your favorite memes.\n<#712046319375482910> - Post pics of your or someone else's cute pets here.\n<#644620638878695424> - A special channel for special people that have boosted our server. Thank you!\n<#550951034332381184> - A text channel where you can suggest things you would like to see on this Discord server.\n<#549894938712866816> -  A channel for you to use bot commands in.\n<#782267779008823326> - A channel for you to use music commands in.\n<#713084081579098152> - A text channel you can use when you can't speak in a voice chat." },
                 { name: "**Translation Channels 🔠**", value: "We offer channels for each one of the currently supported projects: **Hypixel**, **SkyblockAddons**, **Quickplay** and our **Bot**.\nEach category has 3 text channels: one for translators, one for proofreaders and one with the project's language status that gets updated every 20 minutes. They also have 2 voice channels: one for translators and one for proofreaders. If you have any questions related to your project, they should be sent here!" },
                 { name: "**Language-specific channels 🎏**", value: "We offer channels where translators and proofreaders (of the Hypixel and Quickplay projects) for specific languages can interact with one another! You can speak in English there, but we encourage you to speak the language you're translating. Please keep in mind these channels are not actively moderated. In case you need to report something that occured in these channels, please contact an administrator." })
         msg.edit("", channelsEmbed)
     })
-    message.client.channels.cache.get("762341271611506708").messages.fetch("799388022113173545").then(msg => { //server-info and roles message
+    message.client.channels.cache.get("762341271611506708").messages.fetch("800415710508744744").then(msg => { //server-info and roles message
         const botsEmbed = new Discord.MessageEmbed()
             .setColor("#0055ff")
             .setTitle("Bots")
@@ -68,7 +78,7 @@ function info(message) {
             )
         msg.edit("", botsEmbed)
     })
-    message.client.channels.cache.get("762341271611506708").messages.fetch("799388024219762699").then(msg => { //server-info and bots message
+    message.client.channels.cache.get("762341271611506708").messages.fetch("800415711864029204").then(msg => { //server-info and bots message
 
         const rolesEmbed = new Discord.MessageEmbed()
             .setColor("#0077ff")
@@ -79,10 +89,32 @@ function info(message) {
                 { name: "**Official Hypixel staff members**", value: "They do not moderate the Discord but they can be helpful when it comes to asking things regarding translation or the server. (Please refer to rule 5)\n<@&624880339722174464> - Official Hypixel Administrators.\n<@&551758392021090304> - Official Hypixel Moderators.\n<@&551758392339857418> - Official Hypixel Helpers." },
                 { name: "**Translators**", value: "Each of the following roles applies to all 4 projects we support: **Hypixel**, **SkyblockAddons**, **Quickplay** and our **Bot**.\n**Managers** - The managers of each project are the ones responsible for new strings, proofreader promotions, amongst other things. Please avoid tagging people with these roles (refer to rule 5).\n**Proofreaders** - The proofreaders of each language are the ones responsible for reviewing and approving strings. If you notice any mistakes, these are the people you should message.\n**Translators** - A translator's job is to suggest and vote on translations, which helps the proofreaders' job a lot." },
                 { name: "**Miscellaneous**", value: "<@&549894155174674432> - A role given to all bots in the Discord.\n<@&732586582787358781> - A role given to the current developer(s) of our bot.\n<@&618502156638617640> - A role given to people who have helped create art for this server.\n<@&766339653615484930> - A role given to the person who won the Trick'cord Treat contest in October 2020, <@435546264432803840>\n<@&719263346909773864> - A role given to <@291635552678313985> who gave away 3 MVP+ ranks during an event!\n<@&557090185670557716> - A role given to all users that joined in the first 6 months of this server (August 28, 2019)." },
-                { name: "**Reaction Roles**", value: `You can react to this message to receive the roles below, here's what they do:\n<@&646098170794868757> - React with 📊 to be notified whenever a new poll is posted on <#646096405252800512>\n<@&732615152246980628> - React with 🤖 to be notified whenever a new major update to <@${msg.client.user.id}> is posted on <#732587569744838777>` }
+                { name: "**Reaction Roles**", value: `You can react to this message to receive the roles below, here's what they do:\n<@&646098170794868757> - React with 📊 to be notified whenever a new poll is posted on <#646096405252800512>\n<@&732615152246980628> - React with 🤖 to be notified whenever a new major update to <@${message.client.user.id}> is posted on <#732587569744838777>` }
             )
             .setFooter("Need help? Ask your questions in #off-topic | Bot made with lots of care by QkeleQ10#6163")
         msg.edit("", rolesEmbed)
+    })
+}
+
+function rules(message) {
+    message.client.channels.cache.get("796159719617986610").messages.fetch("800412977220026398").then(msg => {
+
+        const rulesEmbed = new Discord.MessageEmbed()
+            .setColor(blurple)
+            .setTitle("Server Rules")
+            .setDescription("Welcome  to the rules channel! In this channel, you will find every rule on this discord server. Please do not break any of the rules listed below or there will be consequences.")
+            .addFields(
+                { name: "1 - Do not say anything that might be offensive to someone else.", value: "This includes racial slurs and sexist terms, etc." },
+                { name: "2 - Do not impersonate anyone.", value: "This is currently mentioned specifically when you first join the discord but it also applies to other situations after you've been verified so please refrain from doing it." },
+                { name: "3 - Do not encourage self-harm or even threaten to kill anybody.", value: "These offenses will result in a permanent ban from the discord and a report to Discord's ToS team." },
+                { name: "4 - Nicks", value: "Your nickname must not contain zalgo or a prefix for a language you do not translate (e.g. `[PT]` or `[🇵🇹]`). It should also obey the remaining rules." },
+                { name: "5 - Do not excessively tag Discord and Hypixel Staff members/project managers.", value: "You are allowed to tag staff but please keep it to a minimum and only do so if you need an important question answered. Otherwise, please refrain from doing it. Please do not tag project managers unless they allow you to." },
+                { name: "6 - Always try to speak in English.", value: "If you make a reference in another language on a public channel, please explain to the people who don't speak that language what it means." },
+                { name: "7 - All hypixel rules apply here.", value: "If you are not familiar with those, check them out at https://hypixel.net/rules." },
+                { name: "And most importantly have fun!", value: "If you see something against the rules or something that makes you feel unsafe, please let staff know. We want this server to be a welcoming space for everyone!" }
+            )
+            .setFooter("Have any questions? Ask any staff member, they're here to help!")
+        msg.edit("", rulesEmbed)
     })
 }
 
