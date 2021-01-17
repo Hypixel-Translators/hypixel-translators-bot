@@ -45,16 +45,16 @@
         "description": "GitHubのIssueページを開きます。こちらで問題の報告とフィードバックの送信ができます。"
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
+        "usage": "+language [<設定する言語> | list | add <言語>]",
         "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "ボットのPing値を表示します。"
     },
     "hypixelstats": {
         "usage": "+hypixelstats <ユーザー名>",
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "description": "指定したユーザーのHypixelの基本統計を表示します。"
     },
     "tip": {
         "usage": "+tip",
@@ -82,7 +82,7 @@
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "ボットを翻訳する方法の便利な情報を表示します。"
     },
     "thread": {
         "usage": "+thread",
