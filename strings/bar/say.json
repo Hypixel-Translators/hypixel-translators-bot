@@ -1,5 +1,5 @@
 {
-    "moduleName": "Nachricht",
+    "moduleName": "Message",
     "success": "Erfolgreich! Nachricht gesendet.",
-    "executedBy": "Asg'fuat vo %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
