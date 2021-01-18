@@ -33,8 +33,8 @@
         "description": "Ruft (oder hinzufügt) ein lustiges / seltsames Zitat vom Server ab."
     },
     "mention": {
-        "usage": "+mention <Sprache> translator|proofreader|all [message]",
-        "description": "Erwähnt eine Sprachrolle mit einer optionalen Nachricht."
+        "usage": "+mention <language> translator|proofreader|all [message]",
+        "description": "Mentions a language role with an optional message."
     },
     "context": {
         "usage": "+context get|add|edit|view|help <Argument>",
@@ -64,13 +64,17 @@
         "usage": "+invite",
         "description": "Gibt dir einen Einladungslink zum Server. Bitte benutze diesen, wenn du jemanden einladen möchtest."
     },
-    "guidelines": {
-        "usage": "+guidelines",
-        "description": "Hier findest du den Link zum offiziellen Thread bezüglich der Hypixel-Übersetzungen."
+    "projects": {
+        "usage": "+projects",
+        "description": "Gives you links and information about all the translation projects we support on the server."
     },
     "hypixel": {
         "usage": "+hypixel",
         "description": "Liefert dir nützliche Informationen über das Hypixel-Projekt."
+    },
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "Hier findest du den Link zum offiziellen Thread bezüglich der Hypixel-Übersetzungen."
     },
     "quickplay": {
         "usage": "+quickplay",
@@ -92,5 +96,5 @@
         "usage": "+twitter",
         "description": "Gibt dir den Link zur offiziellen Hypixel Translators Community Twitter-Seite."
     },
-    "executedBy": "Asg'fuat vo %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
