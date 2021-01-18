@@ -42,5 +42,5 @@
         "USE_VAD": "Sprachaktivität verwenden",
         "PRIORITY_SPEAKER": "Priorität Lautsprecher"
     },
-    "executedBy": "Ausgeführt von %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
