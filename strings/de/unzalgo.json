@@ -1,5 +1,5 @@
 {
     "moduleName": "Zalgokontrolle",
     "done": "Alle Zalgo-Benutzernamen wurden geändert!",
-    "executedBy": "Ausgeführt von %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
