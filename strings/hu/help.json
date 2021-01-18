@@ -64,13 +64,17 @@
         "usage": "+invite",
         "description": "Ad egy meghívót a szerverre. Kérlek ezt használd, ha meg szeretnél hívni valakit."
     },
-    "guidelines": {
-        "usage": "+guidelines",
-        "description": "Linket ad a hivatalos Hypixel fordításáról szóló poszthoz."
+    "projects": {
+        "usage": "+projects",
+        "description": "Gives you links and information about all the translation projects we support on the server."
     },
     "hypixel": {
         "usage": "+hypixel",
         "description": "Hasznos információt ad a Hypixel projektről."
+    },
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "Linket ad a hivatalos Hypixel fordításáról szóló poszthoz."
     },
     "quickplay": {
         "usage": "+quickplay",
