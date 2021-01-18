@@ -64,13 +64,17 @@
         "usage": "+invite",
         "description": "Give u invit link 2 dis servar. You's when u wants invites peoples to dis servar."
     },
-    "guidelines": {
-        "usage": "+guidelines",
-        "description": "Give u lonk to ofical thred for Hypixel translalalatons."
+    "projects": {
+        "usage": "+projects",
+        "description": "Gives you links and information about all the translation projects we support on the server."
     },
     "hypixel": {
         "usage": "+hypixel",
         "description": "Give u you's full informaton for Hypickle project."
+    },
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "Give u lonk to ofical thred for Hypixel translalalatons."
     },
     "quickplay": {
         "usage": "+quickplay",
