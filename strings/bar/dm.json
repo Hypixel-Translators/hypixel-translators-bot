@@ -5,5 +5,5 @@
     "noMsg": "You need to specify what message you want to send to this person!",
     "incoming": "Nachricht von einem Teammitglied erhalten",
     "incomingDisclaimer": "Jede Nachricht, die du hier schreibst, wird an ein Teammitglied gesendet.",
-    "executedBy": "Asg'fuat vo %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
