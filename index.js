@@ -241,7 +241,8 @@ client.on("message", async message => {
   oldFiMessages.forEach(async element => {
     oldMsg = element.content.split(" ")
     oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
-    strings = require(("./strings/" + oldMsg[0] + "/" + command.name + ".json"))
+    try { strings = require(("./strings/" + oldMsg[0] + "/" + command.name + ".json")) }
+    catch { console.error(`Couldn't get command strings for the command ${command.name} on the language ${oldMsg[0]}. The file does not exist yet.`) }
   })
   globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
