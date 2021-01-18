@@ -30,10 +30,10 @@ module.exports = {
                     .setTitle(strings.allProjects)
                     .setDescription(strings.description)
                     .addFields(
-                        { name: "Hypixel", value: `${strings.hypixel.replace("%%link%%", "https://crowdin.com/project/hypixel")}\n${joinedHypixel}` },
-                        { name: "Quickplay", value: `${strings.quickplay.replace("%%link%%", "https://crowdin.com/project/quickplay")}\n${joinedQuickplay}` },
-                        { name: "SkyblockAddons", value: `${strings.sba.replace("%%link%%", "https://crowdin.com/project/skyblockaddons")}\n${joinedSba}` },
-                        { name: "Hypixel Translators Bot", value: `${strings.bot.replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot")}\n${joinedBot}` }
+                        { name: "Hypixel", value: `${strings.projectInfo.replace("%%project%%", "Hypixel").replace("%%link%%", "https://crowdin.com/project/hypixel").replace("%%command%%", "`+hypixel`")}\n${joinedHypixel}` },
+                        { name: "Quickplay", value: `${strings.projectInfo.replace("%%project%%", "Quickplay").replace("%%link%%", "https://crowdin.com/project/quickplay").replace("%%command%%", "`+quickplay`")}\n${joinedQuickplay}` },
+                        { name: "SkyblockAddons", value: `${strings.projectInfo.replace("%%project%%", "SkyblockAddons").replace("%%link%%", "https://crowdin.com/project/skyblockaddons").replace("%%command%%", "`+skyblockaddons`")}\n${joinedSba}` },
+                        { name: "Hypixel Translators Bot", value: `${strings.projectInfo.replace("%%project%%", "Hypixel Translators Bot").replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot").replace("%%command%%", "`+bot`")}\n${joinedBot}` }
                     )
                     .setFooter(executedBy, message.author.displayAvatarURL())
                 message.channel.send(embed)
