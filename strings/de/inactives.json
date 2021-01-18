@@ -1,5 +1,5 @@
 {
     "moduleName": "Inaktivitätskontrolle",
     "done": "Alle inaktiven Mitglieder wurden benachrichtigt!",
-    "executedBy": "Ausgeführt von %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
