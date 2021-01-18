@@ -30,6 +30,7 @@
     "tips": {
         "0": "هل قد جربت لغة Inhale Banana من قبل؟ غير لغتك لها عن طريق استخدام `+lang ib`!",
         "1": "I need translators! Find out how to become a bot translator at %%translate%%.",
+        "2": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "3": "الرجاء غير رابطك الى en-en!",
         "4": "عندما تدردش تحصل على كمية عشوائية من الإكس بي كل دقيقة, و بذلك سيجعلك هذا تزيد مستواك.",
         "5": "نحتاج المزيد من النصائح! قدمهم بإستعمال `+feedback`.",
