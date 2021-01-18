@@ -127,7 +127,7 @@ function quickplay(client) {
 }
 
 function bot(client) {
-    const url = `https://api.crowdin.com/api/v2/projects/418174/languages/progress?limit=50`
+    const url = `https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=50`
     const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
     let index = 0
     fetch(url, settings)
