@@ -2,9 +2,10 @@
     "moduleName": "Kanaalupdater",
     "success": "Kanaal voor %%channel%% geüpdatet!",
     "infoChannel": "informatie",
+    "rulesChannel": "regels",
     "verifyChannel": "verificatie",
     "successAll": "Alle kanalen zijn bijgewerkt!",
     "checkOut1": "Neem een kijkje in %%channel%%!",
-    "checkOut2": "Neem een kijkje in %%info%% en %%verify%%!",
+    "checkOut2": "Check them out at %%info%%, %%rules%% and %%verify%%!",
     "executedBy": "Uitgevoerd door %%user%%"
 }
