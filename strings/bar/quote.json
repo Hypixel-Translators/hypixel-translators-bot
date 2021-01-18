@@ -1,10 +1,10 @@
 {
     "moduleName": "Zitieren",
     "invalidArg": "Ungültiges Argument!",
-    "indexArg": "Ein Zitat mit Index %%arg%% existiert nicht! Bitte gebe eine Zahl zwischen 1 und %%max%% an.",
+    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "reqSub": "Deine Anfrage wurde abgeschickt, danke!",
     "reqAdd": "Erfolgreich! Das folgende Zitat wurde hinzugefügt:",
-    "user": "Benutzer",
+    "user": "User",
     "index": "Zitat Nummer",
-    "executedBy": "Asg'fuat vo %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
