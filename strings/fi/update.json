@@ -2,9 +2,10 @@
     "moduleName": "Kanavan päivitys",
     "success": "%%channel%%kanava päivitetty!",
     "infoChannel": "Info",
+    "rulesChannel": "rules",
     "verifyChannel": "Vahvistus",
     "successAll": "Kaikki kanavat on päivitetty!",
     "checkOut1": "Kurkkaa se kanavalta %%channel%%!",
-    "checkOut2": "Kurkkaa ne kanavilta %%info%% ja %%verify%%!",
+    "checkOut2": "Check them out at %%info%%, %%rules%% and %%verify%%!",
     "executedBy": "Komennon suoritti %%user%%"
 }
