@@ -30,6 +30,7 @@
     "tips": {
         "0": "¿Has probado el idioma Inhale Banana? ¡Cambia tu idioma usando `+lang ib`!",
         "1": "¡Necesito traductores! Aprende sobre como ser un traductor aquí: %%translate%%.",
+        "2": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "3": "¡Por favor, cambia tus enlaces a en-en!",
         "4": "Obtienes cantidades aleatorias de XP cada minuto cuando estás chateando, lo que eventualmente te hará subir de nivel.",
         "5": "¡Necesitamos más consejos! Envíalos usando `+feedback`.",
