@@ -154,35 +154,37 @@ client.on("message", async message => {
 
   //Role Blacklist and Whitelist system
   let allowed = true
-  if (message.guild.id === "549503328472530974") {
-    if (command.roleBlacklist) {
-      allowed = true
-      if (allowed) {
-        command.roleBlacklist.forEach(role => {
-          if (message.member.roles.cache.has(role)) allowed = false
-        })
+  if (message.channel.type !== "dm") {
+    if (message.guild.id === "549503328472530974") {
+      if (command.roleBlacklist) {
+        allowed = true
+        if (allowed) {
+          command.roleBlacklist.forEach(role => {
+            if (message.member.roles.cache.has(role)) allowed = false
+          })
+        }
       }
-    }
-    if (command.roleWhitelist) {
-      allowed = false
-      if (!allowed) {
-        command.roleWhitelist.forEach(role => {
-          if (message.member.roles.cache.has(role)) allowed = true
-        })
+      if (command.roleWhitelist) {
+        allowed = false
+        if (!allowed) {
+          command.roleWhitelist.forEach(role => {
+            if (message.member.roles.cache.has(role)) allowed = true
+          })
+        }
       }
-    }
 
-    //Channel Blacklist and whitelist systems
-    if (command.categoryBlacklist && command.categoryBlacklist.includes(message.channel.parent.id)) allowed = false
-    else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
-    else if (command.categoryWhitelist && !command.categoryWhitelist.includes(message.channel.parent.id)) allowed = false
-    else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
+      //Channel Blacklist and whitelist systems
+      if (command.categoryBlacklist && command.categoryBlacklist.includes(message.channel.parent.id)) allowed = false
+      else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
+      else if (command.categoryWhitelist && !command.categoryWhitelist.includes(message.channel.parent.id)) allowed = false
+      else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
 
-    //Prevent users from running commands in development
-    if (command.dev && !message.member.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
+      //Prevent users from running commands in development
+      if (command.dev && !message.member.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
 
-    //Give perm to admins and return if not allowed
-    if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
+      //Give perm to admins and return if not allowed
+      if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
+    } else allowed = false
   }
   if (!allowed) {
     message.react(notAllowed)
@@ -396,7 +398,7 @@ client.on("guildMemberAdd", member => {
       member.guild.channels.cache.get("549882021934137354").send(`<@${member.user.id}> just joined! Welcome! 🎉`, attachment) //join-leave
     })
   })
-  member.send(`Hey there and thanks for joining **${member.guild.name}**! If you're a translator, be sure to check out <#699275092026458122> as this channel includes useful information for new and current translators. We hope you have fun on our server!`).catch(() => { console.log(`Couldn't DM user ${member.user.tag}, probably because they have DMs off`) }) //getting started
+  member.send(`Hey there and thanks for joining **${member.guild.name}**! If you're a translator, be sure to check out <#699275092026458122> as this channel includes useful information for new and current translators. If you're looking to translate other projects, check out the ones we currently support by executing \`+projects\` here! We hope you have fun on our server!`).catch(() => console.log(`Couldn't DM user ${member.user.tag}, probably because they have DMs off`)) //getting started
 })
 
 //Run when someone leaves
