@@ -167,11 +167,9 @@ module.exports = {
           let prefixes = ""
 
           await message.member.roles.cache.forEach(async r => {
-            if (r.name.startsWith("Chinese")) { userLangs.push("🇨🇳"); msg.react("🇨🇳"); userLangs.push("🇹🇼"); msg.react("🇹🇼"); userLangs.push("🇭🇰"); msg.react("🇭🇰") } else {
-              let langdbEntry = langdb.find(l => l.name.includes(r.name.split(" ")[0]))
-              if (langdbEntry) {
-                userLangs.push(langdbEntry.emoji)
-              }
+            let langdbEntry = langdb.find(l => l.name.includes(r.name.split(" ")[0]))
+            if (langdbEntry) {
+              userLangs.push(langdbEntry.emoji)
             }
           })
           userLangs = userLangs.reverse()
@@ -238,7 +236,7 @@ module.exports = {
                         .setFooter(executedBy, message.author.displayAvatarURL())
                       msg.edit(embed)
                     })
-                    prefixes = "n"
+                  prefixes = "n"
                 } else {
                   prefixes = "n"
                   const embed = new Discord.MessageEmbed()
