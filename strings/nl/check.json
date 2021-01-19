@@ -6,7 +6,7 @@
     "uroles": "Rollen",
     "ujoined": "Lid geworden op",
     "ucreated": "Account aangemaakt op",
-    "timeAgo": "%%time%% %%unit%% ago",
+    "timeAgo": "%%time%% %%unit%% geleden",
     "time": {
         "second": "seconde",
         "seconds": "seconden",
