@@ -89,7 +89,7 @@ module.exports = {
                     )
                     .setColor(color)
                     .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL())
-                    .setThumbnail("https://crafatar.com/renders/body/" + json.uuid + "?overlay")
+                    .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
                 message.channel.stopTyping()
                 message.channel.send(embed)
             })
