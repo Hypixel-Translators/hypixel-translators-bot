@@ -7,7 +7,7 @@
   "blurple": "#7289da",
   "listeningStatuses": ["+help", "RANDOM_USER's commands", "RANDOM_USER", "wise words from RANDOM_USER", "Stannya and Rodry", "QkeleQ10"],
   "watchingStatuses": ["your commands", "your messages", "meatdata", "their prayers", "nicknames and stuff", "RANDOM_USER's messages", "project statistics"],
-  "playingStatuses": ["with commands", "with RANDOM_USER", "Crowdin"],
+  "playingStatuses": ["with commands", "with RANDOM_USER", "Crowdin", "Hypixel", "Quickplay", "SkyblockAddons"],
   "langdb": [  
     {"name": "Arabic", "emoji": "🇵🇸", "code": "ar", "flag": "https://crowdin.com/images/flags/%code%.png"},
     {"name": "Bavarian", "emoji": "<:flag_bar:783030897612029992>", "code": "bar", "flag": "https://github.com/Hypixel-Translators/hypixel-translators-bot/blob/master/assets/flags/%code%.png?raw=true"},
