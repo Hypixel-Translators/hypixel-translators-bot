@@ -309,6 +309,12 @@ client.on("messageReactionAdd", async (reaction, user) => {
         .then(() => console.log("Gave the Bot Updates role to " + user.tag))
         .catch(err => console.log("An error occured while trying to give the Bot Updates role to " + user.tag + ". Here's the error:\n" + err))
     }
+    //Give Giveaway pings role if reacted on reaction role message
+    if (reaction.message.id === "800415711864029204" && reaction.emoji.name === "🎉" && !user.bot) { //server-info roles message
+      reaction.message.guild.member(user).roles.add("801052623745974272", "Added the reaction in server-info")
+        .then(() => console.log("Gave the Giveaway pings role to " + user.tag))
+        .catch(err => console.log("An error occured while trying to give the Giveaway pings role to " + user.tag + ". Here's the error:\n" + err))
+    }
   }
 })
 
@@ -330,6 +336,12 @@ client.on("messageReactionRemove", async (reaction, user) => {
       reaction.message.guild.member(user).roles.remove("732615152246980628", "Removed the reaction in server-info")
         .then(() => console.log("Took the Bot Updates role from " + user.tag))
         .catch(err => console.log("An error occured while trying to take the Bot Updates role from " + user.tag + ". Here's the error:\n" + err))
+    }
+    //Take Giveaway pings role if reaction removed from reaction role message
+    if (reaction.message.id === "800415711864029204" && reaction.emoji.name === "🎉" && !user.bot) { //server-info roles message
+      reaction.message.guild.member(user).roles.remove("801052623745974272", "Removed the reaction in server-info")
+        .then(() => console.log("Took the Giveaway pings role from " + user.tag))
+        .catch(err => console.log("An error occured while trying to take the Giveaway pings role from " + user.tag + ". Here's the error:\n" + err))
     }
   }
 })
