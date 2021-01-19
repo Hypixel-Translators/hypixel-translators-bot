@@ -12,24 +12,29 @@ module.exports = {
 async function check(client) {
     const alert = new Date().getTime() - (7 * 24 * 60 * 60 * 1000)
     //Get date 7 days ago                 d    h    m    s     ms
-    const kick = new Date().getTime() - (14 * 24 * 60 * 60 * 1000)
-    //Get date 14 days ago                d    h    m    s     ms
+    const verify = new Date().getTime() - (14 * 24 * 60 * 60 * 1000)
+    //Get date 14 days ago                  d    h    m    s     ms
 
     client.guilds.cache.get("549503328472530974").roles.cache.get("549503328472530974").members.forEach(async member => { //Get all members from the cache
         if (member.roles.cache.has("569194996964786178") || member.user.bot) return //Verified
         await client.guilds.cache.get("549503328472530974").members.fetch(member.user.id) //fetch the member
         if (member.roles.cache.has("756199836470214848")) { //Alerted
-            if (member.joinedTimestamp <= kick) {
-                member.send("You stood in the verify channel for too long and, because of that, you were kicked for inactivity. If you wish to join back, feel free to do so at https://discord.gg/rcT948A")
+            if (member.joinedTimestamp <= verify) {
+                //member.send("You stood in the verify channel for too long and, because of that, you were kicked for inactivity. If you wish to join back, feel free to do so at https://discord.gg/rcT948A")
+                member.send("You stood in the verify channel for too long and, because of that, you have been automatically verified as a player. If you're a translator and wish to receive your roles, please ping an administrator with your Corwdin profile URL or send it on this chat!")
                     .then(() => {
-                        client.channels.cache.get("662660931838410754").send("**" + member.user.tag + "** has been kicked for inactivity")
-                        console.log("Kicked " + member.user.tag + " for inactivity")
+                        //client.channels.cache.get("662660931838410754").send("**" + member.user.tag + "** has been kicked for inactivity.")
+                        //console.log("Kicked " + member.user.tag + " for inactivity")
+                        client.channels.cache.get("662660931838410754").send("**" + member.user.tag + "** has been automatically verified after staying on the server for 2 weeks.")
+                        console.log("Automatically verified " + member.user.tag + " after 2 weeks")
                     })
                     .catch(() => {
-                        client.channels.cache.get("662660931838410754").send("Kicked **" + member.user.tag + "** for inactivity but couldn't send them a DM with the reason.")
-                        console.error("Kicked " + member.user.tag + " for inactivity but couldn't DM them")
+                        client.channels.cache.get("662660931838410754").send("Automatically verified **" + member.user.tag + "** after 2 weeks but couldn't send them a DM with the reason.")
+                        console.error("Automatically verified " + member.user.tag + " after 2 weeks but couldn't DM them")
                     })
-                member.kick("Stood on the server for 14 days without verifying")
+                //member.kick("Stood on the server for 14 days without verifying")
+                message.member.roles.add("569194996964786178", "Automatically verified after 2 weeks").then(() => message.member.roles.remove("756199836470214848", "Automatically verified after 2 weeks")) //Remove Alerted and add Verified
+
             } return
         }
         if (member.joinedTimestamp <= alert) {
