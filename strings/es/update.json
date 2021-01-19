@@ -2,7 +2,7 @@
     "moduleName": "Actualizador de canales",
     "success": "¡Canal de %%channel%% actualizado!",
     "infoChannel": "información",
-    "rulesChannel": "rules",
+    "rulesChannel": "reglas",
     "verifyChannel": "verificación",
     "successAll": "¡Todos los canales han sido actualizados!",
     "checkOut1": "¡Échale un vistazo en %%channel%%!",
