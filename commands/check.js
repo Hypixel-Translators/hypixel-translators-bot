@@ -25,13 +25,20 @@ module.exports = {
     }
 
     try {
-      let userP = []
-      user.permissions.toArray().forEach(e => { userP.push(strings.perms[e] || e) })
+      let note
+      if (user.user.id === message.guild.ownerID) note = strings.owner
+      else if (user.roles.cache.find(r => r.name === "Discord Owner")) note = strings.coOwner
+      else if (user.roles.cache.find(r => r.name === "Discord Administrator")) note = strings.admin
+      else if (user.roles.cache.find(r => r.name === "Discord Moderator")) note = strings.mod
+      else if (user.roles.cache.find(r => r.name === "Discord Helper")) note = strings.helper
+      else if (user.roles.cache.find(r => r.name.endsWith(" Manager"))) note = strings.manager
 
       let color = user.displayHexColor
       if (color == "#000000") color = blurple
-      const joinD = user.joinedAt.toLocaleString(strings.dateLocale, { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
-      const creaD = user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+      const joined = user.joinedAt.toLocaleString(strings.dateLocale, { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+      const created = user.user.createdAt.toLocaleString(strings.dateLocale, { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+      let joinAgo = Math.round((new Date().getTime() - user.joinedAt) / 1000)
+      let createAgo = Math.round((new Date().getTime() - user.user.createdAt) / 1000)
       let userRoles = user.roles.cache
       if (userRoles.size !== 1) userRoles.delete("549503328472530974")
 
@@ -41,14 +48,29 @@ module.exports = {
         .setTitle(user.user.tag)
         .setDescription(strings.userID.replace("%%user%%", "<@" + user.user.id + ">").replace("%%id%%", user.user.id))
         .addFields(
-          { name: strings.ujoined, value: joinD.charAt(0).toUpperCase() + joinD.slice(1), inline: true },
-          { name: strings.ucreated, value: creaD.charAt(0).toUpperCase() + creaD.slice(1), inline: true },
+          { name: strings.ujoined, value: joined.charAt(0).toUpperCase() + joined.slice(1) + timeAgo(joinAgo), inline: true },
+          { name: strings.ucreated, value: created.charAt(0).toUpperCase() + created.slice(1) + timeAgo(createAgo), inline: true },
           { name: strings.uroles, value: userRoles.sort((a, b) => b.position - a.position).map(r => `${r}`).join(", ") },
-          { name: strings.uperms, value: userP.join(", ") }
+          { name: strings.notes, value: note }
         )
         .setThumbnail(user.user.displayAvatarURL())
         .setFooter(executedBy, message.author.displayAvatarURL())
       message.channel.send(embed)
     } catch (err) { throw err }
+    function timeAgo(time) {
+      if (time == 1) time = ` (${strings.timeAgo.replace("%%time%%", time).replace("%%unit%%", strings.time.second)})`
+      else if (time < 60) time = ` (${strings.timeAgo.replace("%%time%%", time).replace("%%unit%%", strings.time.seconds)})`
+      else if (time == 60) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / 60)).replace("%%unit%%", strings.time.minute)})`
+      else if (time < (60 * 60)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / 60)).replace("%%unit%%", strings.time.minutes)})`
+      else if (time == (60 * 60)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60))).replace("%%unit%%", strings.time.hour)})`
+      else if (time < (60 * 60 * 24)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60))).replace("%%unit%%", strings.time.hours)})`
+      else if (time == (60 * 60 * 24)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24))).replace("%%unit%%", strings.time.day)})`
+      else if (time < (60 * 60 * 24 * 30)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24))).replace("%%unit%%", strings.time.days)})`
+      else if (time == (60 * 60 * 24 * 30)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24 * 30))).replace("%%unit%%", strings.time.month)})`
+      else if (time < (60 * 60 * 24 * 365 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24 * 30))).replace("%%unit%%", strings.time.months)})`
+      else if (time == (60 * 60 * 24 * 365 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24 * 365))).replace("%%unit%%", strings.time.year)})`
+      else time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24 * 365))).replace("%%unit%%", strings.time.years)})`
+      return time
+    }
   }
 }
