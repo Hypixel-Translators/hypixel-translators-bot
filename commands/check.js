@@ -51,10 +51,10 @@ module.exports = {
           { name: strings.ujoined, value: joined.charAt(0).toUpperCase() + joined.slice(1) + timeAgo(joinAgo), inline: true },
           { name: strings.ucreated, value: created.charAt(0).toUpperCase() + created.slice(1) + timeAgo(createAgo), inline: true },
           { name: strings.uroles, value: userRoles.sort((a, b) => b.position - a.position).map(r => `${r}`).join(", ") },
-          { name: strings.notes, value: note }
         )
         .setThumbnail(user.user.displayAvatarURL())
         .setFooter(executedBy, message.author.displayAvatarURL())
+      if (note) embed.addField({ name: strings.notes, value: note })
       message.channel.send(embed)
     } catch (err) { throw err }
     function timeAgo(time) {
