@@ -66,7 +66,7 @@
     },
     "projects": {
         "usage": "+projects",
-        "description": "Te da enlaces e información sobre todos los proyectos de traducción que tenemos en el servidor."
+        "description": "Le brinda enlaces e información sobre todos los proyectos de traducción que apoyamos en el servidor."
     },
     "hypixel": {
         "usage": "+hypixel",
