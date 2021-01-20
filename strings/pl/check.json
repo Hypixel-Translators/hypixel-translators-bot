@@ -2,7 +2,6 @@
     "moduleName": "Informacje o użytkowniku",
     "userID": "%%user%% (ID: %%id%%)",
     "userNotFound": "Użytkownik nie został odnaleziony!",
-    "uperms": "Uprawnienia",
     "uroles": "Role",
     "ujoined": "Dołączono:",
     "ucreated": "Konto utworzone:",
