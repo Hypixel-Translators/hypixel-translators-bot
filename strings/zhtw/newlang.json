@@ -2,9 +2,9 @@
     "moduleName": "Channel creator",
     "langTitle": "Successfully created the new %%country%% category, channels and roles!",
     "warnings": "Make sure their names were set correctly, put them in their correct positions, check the role colors and don't forget to translate the channel topic!",
-    "textChannels": "Text Channels",
-    "voiceChannels": "Voice Channels",
+    "textChannels": "文字頻道",
+    "voiceChannels": "語音頻道",
     "roles": "Roles",
-    "newItems": "%%newItem%% and %%newItem2%%",
+    "newItems": "%%newItem%% 和 %%newItem2%%",
     "executedBy": "由 %%user%% 執行"
 }
