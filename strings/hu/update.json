@@ -6,6 +6,6 @@
     "verifyChannel": "A hitelesítő",
     "successAll": "Az összes csatorna frissítve lett!",
     "checkOut1": "Check it out at %%channel%%!",
-    "checkOut2": "Check them out at %%info%%, %%rules%% and %%verify%%!",
+    "checkOut2": "Check them out at %%info%% and %%verify%%!",
     "executedBy": "Executed by %%user%%"
 }
