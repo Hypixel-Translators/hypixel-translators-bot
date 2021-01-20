@@ -1,6 +1,6 @@
 {
-    "moduleName": "Bulk Send",
-    "success": "Success! Messages sent.",
+    "moduleName": "批量傳送",
+    "success": "成功！訊息已發送。",
     "success1": "成功！訊息已發送。",
     "executedBy": "由 %%user%% 執行"
 }
