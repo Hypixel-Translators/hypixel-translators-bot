@@ -39,7 +39,19 @@
         "8": "%%rules%% og %%serverInfo%% har all infoen du trenger om denne serveren!",
         "9": "Fant en feil oversettelse? Kontakt en korrekturleser for ditt språk eller la andre folk vite i en oversettelses kanal.",
         "10": "Visste du at flesteparten av kanalen har viktig informasjon pinned? Du bør sjekke de ut hver gang du er innom en!",
-        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
+        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!",
+        "ib": "Har du prøvd Inhalere Banan språket? Endre språket ditt til det med `+lang ib`!",
+        "translators": "I need translators! Find out how to become a bot translator at %%translate%%.",
+        "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
+        "enen": "Vennligst endre linkene dine til en-en!",
+        "xp": "Du får et tilfeldig antall av XP hvert minutt når du chatter, noe som til slutt vil gjøre sånn at du leveler opp.",
+        "moreTips": "Vi trenger flere tips! Send dem inn med `+feedback`.",
+        "guide": "Visste du at vi har en guide til hvordan du kan komme i gang med Crowdin, og som er tilgjengelig for alle oversettere? Sjekk den ut ved %%gettingStarted%%, den har noen nyttige tips!",
+        "twitter": "Have you followed our twitter account? Check it out at %%twitter%%!",
+        "rulesInfo": "%%rules%% og %%serverInfo%% har all infoen du trenger om denne serveren!",
+        "fixTranslation": "Fant en feil oversettelse? Kontakt en korrekturleser for ditt språk eller la andre folk vite i en oversettelses kanal.",
+        "pinnedInfo": "Visste du at flesteparten av kanalen har viktig informasjon pinned? Du bør sjekke de ut hver gang du er innom en!",
+        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
     "executedBy": "Utført av %%user%%"
 }
