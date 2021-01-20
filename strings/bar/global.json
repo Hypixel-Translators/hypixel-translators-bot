@@ -22,7 +22,7 @@
     "apiError": "Bei der Kontaktaufnahme mit der API ist etwas schief gelaufen!",
     "cooldown": "Abklingzeit",
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
-    "timeLeftT": "Bitte warte noch %%time%% Sekunden, um den Befehl `+%%command%%` erneut zu benutzen.",
+    "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
     "minsLeftT": "Bitte warte weitere %%time%% Minuten, um `+%%command%%` erneut zu verwenden.",
     "linkCorrectionName": "Wrong format!",
     "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
@@ -41,5 +41,5 @@
         "10": "Wusstest du, dass die meisten Kanäle wichtige Informationen angeheftet haben? Du solltest sie dir jedes Mal ansehen, wenn du einen besuchst!",
         "11": "Du kannst dir Informationen über einen bestimmten Spieler auf Hypixel ansehen, indem du `+hypixelstats` ausführst!"
     },
-    "executedBy": "Asg'fuat vo %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
