@@ -28,6 +28,7 @@
     "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
     "tip": "Vihje",
     "tips": {
+        "ib": "Oletko kokeillut Inhale Banana -kieltä? Vaihda kielesi komennolla `+lang ib`!",
         "translators": "Tarvitsen kääntäjiä! Selvitä, miten voit päästä botin kääntäjäksi osoitteesta %%translate%%.",
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "Vaihda linkkisi muotoon en-en!",
