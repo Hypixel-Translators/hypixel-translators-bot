@@ -54,7 +54,7 @@ module.exports = {
         )
         .setThumbnail(user.user.displayAvatarURL())
         .setFooter(executedBy, message.author.displayAvatarURL())
-      if (note) embed.addField({ name: strings.notes, value: note })
+      if (note) embed.addField(strings.notes, note)
       message.channel.send(embed)
     } catch (err) { throw err }
     function timeAgo(time) {
