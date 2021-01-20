@@ -39,7 +39,19 @@
         "8": "%%rules%% et %%serverInfo%% ont toutes les infos dont tu as besoin à propos de ce serveur!",
         "9": "Tu as trouvé une erreur dans une traduction? Contacte un proofreader de ta langue ou faites-le savoir dans un canal de traduction.",
         "10": "Sais-tu que les canals contiennent des informations importantes épinglées? Trouve-le lorsque tu visites un canal!",
-        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
+        "11": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!",
+        "ib": "As-tu essayé la langue Inhale Banana? Change ta langue en utilisant `+lang ib`!",
+        "translators": "I need translators! Find out how to become a bot translator at %%translate%%.",
+        "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
+        "enen": "Change tes liens à en-en!",
+        "xp": "Tu obtiens des quantités d'XP aléatoires chaque minute lorsque tu discutes, ce qui tu fera monter de niveau.",
+        "moreTips": "Nous avons besoin de plus de conseils! Envoie-les en utilisant `+feedback`.",
+        "guide": "Sais-tu que nous avons un guide sur la façon de commencer avec Crowdin, disponible pour tous les traducteurs? Regarde-le à %%gettingStarted%%, il a quelques conseils utiles!",
+        "twitter": "Have you followed our twitter account? Check it out at %%twitter%%!",
+        "rulesInfo": "%%rules%% et %%serverInfo%% ont toutes les infos dont tu as besoin à propos de ce serveur!",
+        "fixTranslation": "Tu as trouvé une erreur dans une traduction? Contacte un proofreader de ta langue ou faites-le savoir dans un canal de traduction.",
+        "pinnedInfo": "Sais-tu que les canals contiennent des informations importantes épinglées? Trouve-le lorsque tu visites un canal!",
+        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
     },
     "executedBy": "Exécuté par %%user%%"
 }
