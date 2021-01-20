@@ -28,6 +28,7 @@
     "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
     "tip": "نصيحة",
     "tips": {
+        "ib": "هل قد جربت لغة Inhale Banana من قبل؟ غير لغتك لها عن طريق استخدام `+lang ib`!",
         "translators": "I need translators! Find out how to become a bot translator at %%translate%%.",
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "الرجاء غير رابطك الى en-en!",
