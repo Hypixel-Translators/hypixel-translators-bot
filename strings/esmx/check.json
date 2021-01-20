@@ -6,7 +6,7 @@
     "uroles": "Roles",
     "ujoined": "Se unió en",
     "ucreated": "Cuenta creada en",
-    "timeAgo": "Hace %%time%% %%unit%%",
+    "timeAgo": "hace %%time%% %%unit%%",
     "time": {
         "second": "segundo",
         "seconds": "segundos",
