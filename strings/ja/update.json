@@ -6,6 +6,6 @@
     "verifyChannel": "承認",
     "successAll": "すべてのチャンネルが更新されました！",
     "checkOut1": "Check it out at %%channel%%!",
-    "checkOut2": "Check them out at %%info%% and %%verify%%!",
+    "checkOut2": "Check them out at %%info%%, %%rules%% and %%verify%%!",
     "executedBy": "Executed by %%user%%"
 }
