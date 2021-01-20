@@ -28,6 +28,7 @@
     "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
     "tip": "Tipp",
     "tips": {
+        "ib": "Kipróbáltad már a Beszívott Banán nyelvet? Így tudod kiválasztani a nyelvet: `+lang ib`!",
         "translators": "Fordítókat keresek! Tudd meg hogyan lehetsz fordító itt: %%translate%%.",
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "Változtasd meg a linkjeidet en-en nyelvre!",
