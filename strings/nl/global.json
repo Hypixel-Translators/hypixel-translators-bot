@@ -39,7 +39,19 @@
         "8": "%%rules%% en %%serverInfo%% bevatten alle benodigde informatie over deze server!",
         "9": "Fout in een vertaling gevonden? Neem contact op met een proeflezer van je taal of laat het weten in een vertalingskanaal.",
         "10": "Wist je dat de meeste kanalen belangrijke info hebben in vastgezette berichten? Lees het eens als je een kanaal gebruikt!",
-        "11": "Je kunt informatie over een specifieke Hypixel-speler bekijken met `+hypixelstats <naam>`!"
+        "11": "Je kunt informatie over een specifieke Hypixel-speler bekijken met `+hypixelstats <naam>`!",
+        "ib": "Heb je de Inhale Banana-taal geprobeerd? Verander je taal ernaar met `+lang ib`!",
+        "translators": "Ik heb vertalers nodig! Ontdek hoe je botvertaler wordt op %%translate%%.",
+        "prefix": "Wil je een cool voorvoegsel in je naam hebben? Voer `+prefix` uit in %%bots%% en volg de aanwijzingen! Beschikbaar voor alle vertalers van Hypixel en Quickplay.",
+        "enen": "Verander je links naar en-en!",
+        "xp": "Wanneer je chat krijg je elke minuut een willekeurige hoeveelheid XP, waarmee je uiteindelijk meer levels krijgt.",
+        "moreTips": "We hebben meer tips nodig! Stuur ze door met `+feedback`.",
+        "guide": "Wist je dat we een gids hebben die uitlegt hoe je aan de slag gaat met Crowdin? Hij is beschikbaar voor vertalers in %%gettingStarted%%, het is best nuttig!",
+        "twitter": "Volg je ons al op Twitter? Neem een kijkje op %%twitter%%!",
+        "rulesInfo": "%%rules%% en %%serverInfo%% bevatten alle benodigde informatie over deze server!",
+        "fixTranslation": "Fout in een vertaling gevonden? Neem contact op met een proeflezer van je taal of laat het weten in een vertalingskanaal.",
+        "pinnedInfo": "Wist je dat de meeste kanalen belangrijke info hebben in vastgezette berichten? Lees het eens als je een kanaal gebruikt!",
+        "hypixelStats": "Je kunt informatie over een specifieke Hypixel-speler bekijken met `+hypixelstats <naam>`!"
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }
