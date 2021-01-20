@@ -6,6 +6,6 @@
     "verifyChannel": "verificación",
     "successAll": "¡Todos los canales han sido actualizados!",
     "checkOut1": "¡Échale un vistazo en %%channel%%!",
-    "checkOut2": "¡Échales un vistazo en %%info%%, %%rules%% y %%verify%%!",
+    "checkOut2": "¡Échales un vistazo en %%info%% y %%verify%%!",
     "executedBy": "Ejecutado por %%user%%"
 }
