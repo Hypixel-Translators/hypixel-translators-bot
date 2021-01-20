@@ -2,7 +2,6 @@
     "moduleName": "Informação do utilizador",
     "userID": "%%user%% (ID: %%id%%)",
     "userNotFound": "Não foi possível encontrar esse utilizador!",
-    "uperms": "Permissões",
     "uroles": "Cargos",
     "ujoined": "Entrou a",
     "ucreated": "Conta criada a",
