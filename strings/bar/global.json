@@ -22,7 +22,7 @@
     "apiError": "Bei der Kontaktaufnahme mit der API ist etwas schief gelaufen!",
     "cooldown": "Abklingzeit",
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
-    "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
+    "timeLeftT": "Bitte warte noch %%time%% Sekunden, um den Befehl `+%%command%%` erneut zu benutzen.",
     "minsLeftT": "Bitte warte weitere %%time%% Minuten, um `+%%command%%` erneut zu verwenden.",
     "linkCorrectionName": "Wrong format!",
     "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
