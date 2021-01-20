@@ -39,7 +39,19 @@
         "8": "%%rules%% und %%serverInfo%% haben alle Infos, die du über diesen Server brauchst!",
         "9": "Du hast einen Fehler in der Übersetzung gefunden? Dann kontaktiere einen Proofreader für die Sprache oder lasse es in dem Channel für Übersetzung wissen.",
         "10": "Wusstest du, dass die meisten Kanäle wichtige Informationen angeheftet haben? Du solltest sie dir jedes Mal ansehen, wenn du einen besuchst!",
-        "11": "Du kannst dir Informationen über einen bestimmten Spieler auf Hypixel ansehen, indem du `+hypixelstats` ausführst!"
+        "11": "Du kannst dir Informationen über einen bestimmten Spieler auf Hypixel ansehen, indem du `+hypixelstats` ausführst!",
+        "ib": "Hast du schon die Inhale Banana-Sprache ausprobiert? Ändere deine Sprache mit `+lang ib`!",
+        "translators": "Ich brauche Übersetzer! Finde heraus wie du ein Bot-Übersetzer werden kannst bei %%translate%%.",
+        "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
+        "enen": "Bitte ändere deine Links auf en-en!",
+        "xp": "Du bekommst eine zufällige XP-Anzahl wenn du schreibst, wodurch du ein Level aufsteigst.",
+        "moreTips": "Wir benötigen mehr Tipps! Sende sie mit ‘+feedback’ ein.",
+        "guide": "Wusstest du, dass wir einen Leitfaden für den Einstieg in Crowdin haben, der für alle Übersetzer verfügbar ist? Sieh ihn dir unter %%gettingStarted%% an, er enthält einige nützliche Tipps!",
+        "twitter": "Folgst du unserem Twitter-Account? Schau mal bei %%twitter%% vorbei!",
+        "rulesInfo": "%%rules%% und %%serverInfo%% haben alle Infos, die du über diesen Server brauchst!",
+        "fixTranslation": "Du hast einen Fehler in der Übersetzung gefunden? Dann kontaktiere einen Proofreader für die Sprache oder lasse es in dem Channel für Übersetzung wissen.",
+        "pinnedInfo": "Wusstest du, dass die meisten Kanäle wichtige Informationen angeheftet haben? Du solltest sie dir jedes Mal ansehen, wenn du einen besuchst!",
+        "hypixelStats": "Du kannst dir Informationen über einen bestimmten Spieler auf Hypixel ansehen, indem du `+hypixelstats` ausführst!"
     },
     "executedBy": "Asg'fuat vo %%user%%"
 }
