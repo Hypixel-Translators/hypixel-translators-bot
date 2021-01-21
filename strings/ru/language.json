@@ -1,7 +1,7 @@
 {
     "moduleName": "Язык",
-    "changedToTitle": "Ваш язык был изменён на Русский!",
-    "didntChange": "Your language didn't change",
+    "changedToTitle": "Ваш язык был изменен на русский!",
+    "didntChange": "Ваш язык не изменился",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
     "errorTitle": "That language hasn't been added yet!",
     "errorDescription": "Ваш язык не был изменён. На данный момент поддерживаются следующие языки (но это не значит, что они переведены):",
