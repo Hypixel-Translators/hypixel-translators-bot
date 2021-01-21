@@ -1,0 +1,10 @@
+{
+    "moduleName": "Criador de canais",
+    "langTitle": "A categoria %%country%%, bem como os seus canais e cargos, foram criados com sucesso!",
+    "warnings": "Certifica-te de que os nomes foram postos corretamente, coloca-os nas suas posições, verifica a cor dos cargos e não te esqueças de traduzir o tópico do canal!",
+    "textChannels": "Canais de texto",
+    "voiceChannels": "Canais de voz",
+    "roles": "Cargos",
+    "newItems": "%%newItem%% e %%newItem2%%",
+    "executedBy": "Executado por %%user%%"
+}

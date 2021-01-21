@@ -2,7 +2,7 @@
     "moduleName": "Information",
     "page1Title": "Hilfe-Seite",
     "commandsListTooltip": "Dieser Bot wurde für die Hypixel Translators Community von %%QkeleQ10%% erstellt. Er ist Open Source und unser GitHub Repository kann [hier]%%github%% gefunden werden.\nDu kannst bei der Übersetzung des Bots helfen, indem du den Anweisungen in [dieser Nachricht]%%translate%% folgst.\n\nDu kannst `+help <Name des Befehls>` ausführen, um mehr über einen bestimmten Befehl zu erfahren.\nUnten findest du eine Liste mit allen verfügbaren Seiten. Benutze die Reaktionen auf diese Nachricht, um sie zu durchlaufen.",
-    "madeBy": " | Der Bot wurde mit großer Sorgfalt von %%QkeleQ10%% erstellt",
+    "madeBy": "Der Bot wurde mit großer Sorgfalt von %%QkeleQ10%% erstellt",
     "page": "Seite %%number%%/%%total%%",
     "pageNumber": "Seite %%number%%",
     "utilityHelp": "%%badge%% Werkzeuge & Hilfsmittel",
@@ -64,13 +64,17 @@
         "usage": "+invite",
         "description": "Gibt dir einen Einladungslink zum Server. Bitte benutze diesen, wenn du jemanden einladen möchtest."
     },
-    "guidelines": {
-        "usage": "+guidelines",
-        "description": "Hier findest du den Link zum offiziellen Thread bezüglich der Hypixel-Übersetzungen."
+    "projects": {
+        "usage": "+projects",
+        "description": "Gives you links and information about all the translation projects we support on the server."
     },
     "hypixel": {
         "usage": "+hypixel",
         "description": "Liefert dir nützliche Informationen über das Hypixel-Projekt."
+    },
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "Hier findest du den Link zum offiziellen Thread bezüglich der Hypixel-Übersetzungen."
     },
     "quickplay": {
         "usage": "+quickplay",
@@ -92,5 +96,5 @@
         "usage": "+twitter",
         "description": "Gibt dir den Link zur offiziellen Hypixel Translators Community Twitter-Seite."
     },
-    "executedBy": "Asg'fuat vo %%user%%"
+    "executedBy": "Executed by %%user%%"
 }

@@ -64,13 +64,17 @@
         "usage": "+invite",
         "description": "Sunucu için bir davet bağlantısı verir. Birini davet etmek istediğinde lütfen bu bağlantıyı kullan."
     },
-    "guidelines": {
-        "usage": "+guidelines",
-        "description": "Hypixel çevirileri ile ilgili resmi konuya yönlendiren bir bağlantı verir."
+    "projects": {
+        "usage": "+projects",
+        "description": "Gives you links and information about all the translation projects we support on the server."
     },
     "hypixel": {
         "usage": "+hypixel",
         "description": "Hypixel Crowdin projesi ile ilgili yararlı bilgiler verir."
+    },
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "Hypixel çevirileri ile ilgili resmi konuya yönlendiren bir bağlantı verir."
     },
     "quickplay": {
         "usage": "+quickplay",

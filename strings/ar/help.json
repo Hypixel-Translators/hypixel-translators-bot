@@ -64,13 +64,17 @@
         "usage": "+invite",
         "description": "يعطيك رابط دعوة إلى السيرفر. يرجى استخدامه عندما ترغب في دعوة شخص ما."
     },
-    "guidelines": {
-        "usage": "+guidelines",
-        "description": "يعطيك الرابط إلى الـthread الرسمي فيما يتعلق بترجمات هايبكسل."
+    "projects": {
+        "usage": "+projects",
+        "description": "Gives you links and information about all the translation projects we support on the server."
     },
     "hypixel": {
         "usage": "+hypixel",
         "description": "Gives you useful information regarding the Hypixel project."
+    },
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "يعطيك الرابط إلى الـthread الرسمي فيما يتعلق بترجمات هايبكسل."
     },
     "quickplay": {
         "usage": "+quickplay",

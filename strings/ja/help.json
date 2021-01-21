@@ -64,13 +64,17 @@
         "usage": "+invite",
         "description": "サーバーへの招待リンクを表示します。誰かを招待したい時に使用してください。"
     },
-    "guidelines": {
-        "usage": "+guidelines",
-        "description": "Hypixel翻訳に関する公式スレッドへのリンクを表示します。"
+    "projects": {
+        "usage": "+projects",
+        "description": "Gives you links and information about all the translation projects we support on the server."
     },
     "hypixel": {
         "usage": "+hypixel",
         "description": "Hypixelプロジェクトに関する便利な情報を表示します。"
+    },
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "Hypixel翻訳に関する公式スレッドへのリンクを表示します。"
     },
     "quickplay": {
         "usage": "+quickplay",

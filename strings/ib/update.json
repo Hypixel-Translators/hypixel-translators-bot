@@ -2,9 +2,10 @@
     "moduleName": "Chanelae for infromaton updatr",
     "success": "Updatdt %%channel%% chanel!",
     "infoChannel": "informtonne",
+    "rulesChannel": "rules",
     "verifyChannel": "verfaton",
     "successAll": "All channels have been updated!",
     "checkOut1": "Check it out at %%channel%%!",
-    "checkOut2": "Check them out at %%info%% and %%verify%%!",
+    "checkOut2": "Check them out at %%info%%, %%rules%% and %%verify%%!",
     "executedBy": "Done by le %%user%%"
 }

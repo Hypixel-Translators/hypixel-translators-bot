@@ -2,6 +2,7 @@
     "moduleName": "Channel updater",
     "success": "Updated the %%channel%% channel!",
     "infoChannel": "information",
+    "rulesChannel": "rules",
     "verifyChannel": "verification",
     "successAll": "All channels have been updated!",
     "checkOut1": "Check it out at %%channel%%!",

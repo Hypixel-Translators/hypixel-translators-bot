@@ -7,5 +7,5 @@
     "errorNotFound": "Die Rolle, die du eingegeben hast, existiert nicht. Du kannst den Namen der Sprache eingeben, oder eine von diesen: ",
     "errorNoArgs": "Du hast vergessen, eine Sprache anzugeben! Du kannst den Namen der Sprache (in Englisch) oder eine der folgenden eingeben: ",
     "errorNoArgs2": "Du hast vergessen, einen Rollentyp anzugeben! Wähle eine von diesen aus: ",
-    "executedBy": "Asg'fuat vo %%user%%"
+    "executedBy": "Executed by %%user%%"
 }

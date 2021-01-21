@@ -64,13 +64,17 @@
         "usage": "+invite",
         "description": "Gir deg en invitasjonslenke til serveren. Vær snill å bruk den når du vil invitere noen."
     },
-    "guidelines": {
-        "usage": "+guidelines",
-        "description": "Sender lenken til den offisielle tråden angående Hypixel-oversettelser."
+    "projects": {
+        "usage": "+projects",
+        "description": "Gives you links and information about all the translation projects we support on the server."
     },
     "hypixel": {
         "usage": "+hypixel",
         "description": "Sender nyttig informasjon angående Hypixel-prosjektet."
+    },
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "Sender lenken til den offisielle tråden angående Hypixel-oversettelser."
     },
     "quickplay": {
         "usage": "+quickplay",

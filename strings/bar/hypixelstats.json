@@ -44,5 +44,5 @@
     "TURKISH": "Türkisch",
     "UKRAINIAN": "Ukrainisch",
     "madeBy": "Befehl erstellt von %%developer%%",
-    "executedBy": "Asg'fuat vo %%user%%"
+    "executedBy": "Executed by %%user%%"
 }

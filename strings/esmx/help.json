@@ -64,13 +64,17 @@
         "usage": "+invite",
         "description": "Te da un enlace de invitación al servidor - por favor, utilízalo cuando quieras invitar a un amigo."
     },
-    "guidelines": {
-        "usage": "+guidelines",
-        "description": "Da un enlace al hilo oficial sobre las traducciones de Hypixel."
+    "projects": {
+        "usage": "+projects",
+        "description": "Le brinda enlaces e información sobre todos los proyectos de traducción que apoyamos en el servidor."
     },
     "hypixel": {
         "usage": "+hypixel",
         "description": "Le brinda información útil sobre el proyecto de Hypixel Crowdin."
+    },
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "Da un enlace al hilo oficial sobre las traducciones de Hypixel."
     },
     "quickplay": {
         "usage": "+quickplay",

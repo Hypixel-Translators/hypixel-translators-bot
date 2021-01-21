@@ -64,13 +64,17 @@
         "usage": "+invite",
         "description": "Antaa palvelimen kutsulinkin. Käytäthän aina tätä kutsuessasi jonkun."
     },
-    "guidelines": {
-        "usage": "+guidelines",
-        "description": "Antaa linkin viralliselle palstalle, jossa kerrotaan Hypixelin kääntämisestä."
+    "projects": {
+        "usage": "+projects",
+        "description": "Gives you links and information about all the translation projects we support on the server."
     },
     "hypixel": {
         "usage": "+hypixel",
         "description": "Antaa hyödyllistä tietoa Hypixelin Crowdin-projektista."
+    },
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "Antaa linkin viralliselle palstalle, jossa kerrotaan Hypixelin kääntämisestä."
     },
     "quickplay": {
         "usage": "+quickplay",

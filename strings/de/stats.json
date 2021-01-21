@@ -3,5 +3,5 @@
     "done": "Alle Statistiken wurden aktualisiert!",
     "doneProject": "Die %%project%%-Sprachstatistik wurde aktualisiert!",
     "errorNoProject": "Das Projekt mit dem Namen %%name%% konnte nicht gefunden werden.",
-    "executedBy": "Ausgeführt von %%user%%"
+    "executedBy": "Executed by %%user%%"
 }

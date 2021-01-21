@@ -64,13 +64,17 @@
         "usage": "+invite",
         "description": "Geeft je een uitnodigingslink voor deze server. Gebruik deze wanneer je iemand wilt uitnodigen."
     },
-    "guidelines": {
-        "usage": "+guidelines",
-        "description": "Geeft je de link naar de officiële thread omtrent Hypixel-vertalingen."
+    "projects": {
+        "usage": "+projects",
+        "description": "Geeft je links en informatie over alle vertalingsprojecten die we hier ondersteunen."
     },
     "hypixel": {
         "usage": "+hypixel",
         "description": "Geeft je nuttige informatie omtrent het Hypixel-project."
+    },
+    "guidelines": {
+        "usage": "+guidelines",
+        "description": "Geeft je de link naar de officiële thread omtrent Hypixel-vertalingen."
     },
     "quickplay": {
         "usage": "+quickplay",
