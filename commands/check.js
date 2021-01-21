@@ -61,12 +61,12 @@ module.exports = {
       if (time == 1) time = ` (${strings.timeAgo.replace("%%time%%", time).replace("%%unit%%", strings.time.second)})`
       else if (time < 60) time = ` (${strings.timeAgo.replace("%%time%%", time).replace("%%unit%%", strings.time.seconds)})`
       else if (time == 60) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / 60)).replace("%%unit%%", strings.time.minute)})`
-      else if (time < (60 * 60)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / 60)).replace("%%unit%%", strings.time.minutes)})`
-      else if (time == (60 * 60)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60))).replace("%%unit%%", strings.time.hour)})`
-      else if (time < (60 * 60 * 24)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60))).replace("%%unit%%", strings.time.hours)})`
-      else if (time == (60 * 60 * 24)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24))).replace("%%unit%%", strings.time.day)})`
-      else if (time < (60 * 60 * 24 * 30)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24))).replace("%%unit%%", strings.time.days)})`
-      else if (time == (60 * 60 * 24 * 30)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24 * 30))).replace("%%unit%%", strings.time.month)})`
+      else if (time < (60 * 60 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / 60)).replace("%%unit%%", strings.time.minutes)})`
+      else if (time == (60 * 60 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60))).replace("%%unit%%", strings.time.hour)})`
+      else if (time < (60 * 60 * 24 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60))).replace("%%unit%%", strings.time.hours)})`
+      else if (time == (60 * 60 * 24 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24))).replace("%%unit%%", strings.time.day)})`
+      else if (time < (60 * 60 * 24 * 30 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24))).replace("%%unit%%", strings.time.days)})`
+      else if (time == (60 * 60 * 24 * 30 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24 * 30))).replace("%%unit%%", strings.time.month)})`
       else if (time < (60 * 60 * 24 * 365 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24 * 30))).replace("%%unit%%", strings.time.months)})`
       else if (time == (60 * 60 * 24 * 365 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24 * 365))).replace("%%unit%%", strings.time.year)})`
       else time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24 * 365))).replace("%%unit%%", strings.time.years)})`
