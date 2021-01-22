@@ -42,7 +42,7 @@
         "rulesInfo": "%%rules%% en %%serverInfo%% bevatten alle benodigde informatie over deze server!",
         "fixTranslation": "Fout in een vertaling gevonden? Neem contact op met een proeflezer van je taal of laat het weten in een vertalingskanaal.",
         "pinnedInfo": "Wist je dat de meeste kanalen belangrijke info hebben in vastgezette berichten? Lees het eens als je een kanaal gebruikt!",
-        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!"
+        "hypixelStats": "Je kunt informatie over een specifieke Hypixel-speler bekijken met `+hypixelstats <naam> [social]`!"
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }
