@@ -21,19 +21,19 @@
         "noPermission": "Du darfst diesen Befehl in diesem Kanal nicht ausführen!",
         "contextSubArg": "Bitte gib einen Unterbefehl als erstes Argument an. Dies kann entweder `get`, `add`, `edit`, `link` oder `help` sein.\nFür Informationen, führe `+context help` aus.",
         "apiError": "Bei der Kontaktaufnahme mit der API ist etwas schief gelaufen!",
-        "noSubCommand": "That sub-command couldn't be found!"
+        "noSubCommand": "Der Unterbefehl konnte nicht gefunden werden!"
     },
     "cooldown": "Abklingzeit",
-    "secondLeft": "Please wait another second to use `+%%command%%` again.",
+    "secondLeft": "Bitte warte noch eine Sekunde, um `+%%command%%` erneut zu benutzen.",
     "timeLeftT": "Bitte warte noch %%time%% Sekunden, um den Befehl `+%%command%%` erneut zu benutzen.",
     "minsLeftT": "Bitte warte weitere %%time%% Minuten, um `+%%command%%` erneut zu verwenden.",
-    "linkCorrectionName": "Wrong format!",
-    "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
+    "linkCorrectionName": "Falsches Format!",
+    "linkCorrectionDesc": "Bitte ändere deinen Link nächstes Mal zum %%format%%-Format.",
     "tip": "Tipp",
     "tips": {
         "ib": "Hast du schon die Inhale Banana-Sprache ausprobiert? Ändere deine Sprache mit `+lang ib`!",
         "translators": "Ich brauche Übersetzer! Finde heraus wie du ein Bot-Übersetzer werden kannst bei %%translate%%.",
-        "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
+        "prefix": "Möchtest du einen coolen Präfix vor deinem Benutzernamen haben? Führe `+prefix` in %%bots%% aus und folge den Anweisungen! Verfügbar für alle Hypixel- und Quickplay-Übersetzer.",
         "enen": "Bitte ändere deine Links auf en-en!",
         "xp": "Du bekommst eine zufällige XP-Anzahl wenn du schreibst, wodurch du ein Level aufsteigst.",
         "moreTips": "Wir benötigen mehr Tipps! Sende sie mit ‘+feedback’ ein.",
@@ -42,7 +42,7 @@
         "rulesInfo": "%%rules%% und %%serverInfo%% haben alle Infos, die du über diesen Server brauchst!",
         "fixTranslation": "Du hast einen Fehler in der Übersetzung gefunden? Dann kontaktiere einen Proofreader für die Sprache oder lasse es in dem Channel für Übersetzung wissen.",
         "pinnedInfo": "Wusstest du, dass die meisten Kanäle wichtige Informationen angeheftet haben? Du solltest sie dir jedes Mal ansehen, wenn du einen besuchst!",
-        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!"
+        "hypixelStats": "Du kannst dir Informationen über einen bestimmten Spieler auf Hypixel ansehen, indem du `+hypixelstats` ausführst!"
     },
     "executedBy": "Asg'fuat vo %%user%%"
 }
