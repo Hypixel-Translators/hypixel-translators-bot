@@ -2,7 +2,7 @@
     "moduleName": "Estadísticas del jugador",
     "description": "Aquí hay algunas estadísticas de Hypixel para %%username%%, obtenidas [aquí]%%link%%.",
     "socialMedia": "Aquí están las redes sociales de %%username%%, obtenidos [aquí]%%link%%.",
-    "updateNotice": "Nota: Ten en cuenta que la información aquí puede tomar unos minutos para actualizarse después de que hayas cambiado algo.",
+    "updateNotice": "Nota: Por favor, tenga en cuenta que la información aquí puede tardar unos minutos en actualizarse después de que haya cambiado algo.",
     "mediaTip": "Para ver sus redes sociales, usa %%command%%",
     "networkLevel": "Nivel de Hypixel",
     "ap": "Puntos de Logro",
