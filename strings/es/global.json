@@ -3,23 +3,6 @@
     "outgoingDisclaimer": "Cualquier mensaje que envías aquí se enviará al staff.",
     "error": "Error",
     "usage": "Uso esperado del comando",
-    "dmError": "Lo sentimos, pero no puedes ejecutar este comando en mensajes privados.",
-    "noMessage": "¡No has introducido ningún mensaje!",
-    "noChannel": "¡No has introducido ningún canal!",
-    "noUser": "¡No has introducido ningún usuario!",
-    "noContext": "¡No has introducido el contexto! Añade el ID del string y el contexto explicándolo.",
-    "noQuote": "¡No has proporcionado una cita! Para solicitar que se añade una, usa `+quote add <cita> / <mención del citado>`.",
-    "noUserQuote": "¡No has especificado un usuario! Por favor, escribe la cita y menciona al usuario citado, separado por /.",
-    "falseChannel": "¡No se pudo encontrar ese canal!",
-    "falseUser": "¡Ese usuario no se pudo encontrar!",
-    "falseFlag": "¡Esa bandera no se pudo encontrar!",
-    "noPlayer": "¡Ese jugador nunca se ha unido a Hypixel!",
-    "disabled": "Este comando ha sido temporalmente desactivado.",
-    "noTrPr": "¡No eres un traductor o revisor, así que no puedes usar esto!",
-    "noAccess": "¡No tienes permiso para usar este comando!",
-    "noPermission": "¡No puedes ejecutar este comando en este canal!",
-    "contextSubArg": "Por favor, introduce un subcomando como primer argumento. Puede ser `get`, `add`, `edit`, `link` o `help`.\nPara obtener información, ejecuta `+context help`.",
-    "apiError": "¡Algo salió mal al comunicarse con la API!",
     "errors": {
         "dmError": "Lo sentimos, pero no puedes ejecutar este comando en mensajes privados.",
         "noMessage": "¡No has introducido ningún mensaje!",
@@ -59,7 +42,7 @@
         "rulesInfo": "¡%%rules%% y %%serverInfo%% tienen toda la información que necesitas sobre este servidor!",
         "fixTranslation": "¿Has encontrado un error en una traducción? Ponte en contacto con un revisor de tu idioma o haz que la gente lo sepa en un canal de traducción.",
         "pinnedInfo": "¿Sabes que la mayoría de canales tienen información importante fijada? ¡Deberías echarles un vistazo cada vez que visites uno!",
-        "hypixelStats": "¡Puedes ver información sobre un jugador en Hypixel usando `+hypixelstats <jugador>`!"
+        "hypixelStats": "¡Puedes ver información sobre un jugador en Hypixel usando `+hypixelstats <jugador> [social]`!"
     },
     "executedBy": "Ejecutado por %%user%%"
 }
