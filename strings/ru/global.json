@@ -29,7 +29,7 @@
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
     "linkCorrectionName": "Wrong format!",
     "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
-    "tip": "Tip",
+    "tip": "Совет",
     "tips": {
         "ib": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
         "translators": "I need translators! Find out how to become a bot translator at %%translate%%.",
