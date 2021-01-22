@@ -1,5 +1,5 @@
 {
     "moduleName": "Message",
-    "success": "Success! Message sent.",
+    "success": "Сообщение отправлено!",
     "executedBy": "Выполнено %%user%%"
 }
