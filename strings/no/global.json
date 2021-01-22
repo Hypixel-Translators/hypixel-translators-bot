@@ -3,23 +3,6 @@
     "outgoingDisclaimer": "Meldinger som blir sendt her vil bli sendt til staben.",
     "error": "Feil",
     "usage": "Forventet kommando bruk",
-    "dmError": "Beklager, men du kan ikke utføre denne kommandoen i private meldinger.",
-    "noMessage": "Du har ikke oppgitt en melding!",
-    "noChannel": "Du har ikke oppgitt en kanal!",
-    "noUser": "Du har ikke oppgitt en bruker!",
-    "noContext": "Du har ikke gitt noe kontekst! Vennligst legg til både string-ID og konteksten som forklarer det.",
-    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`.",
-    "noUserQuote": "Du har ikke spesifisert en bruker! Vennligst skriv sitatet og deretter nevn den siterte brukeren, separert med en skråstrek.",
-    "falseChannel": "Den kanalen kunne ikke bli funnet!",
-    "falseUser": "Den brukeren kunne ikke bli funnet!",
-    "falseFlag": "That flag couldn't be found!",
-    "noPlayer": "That player has never joined Hypixel!",
-    "disabled": "Denne kommandoen har blitt midlertidig deaktivert.",
-    "noTrPr": "Du er ikke en oversetter eller en korrekturleser, så du kan ikke bruke denne!",
-    "noAccess": "Du har ikke tillatelse til å bruke denne kommandoen!",
-    "noPermission": "You're not allowed to execute this command on this channel!",
-    "contextSubArg": "Vennligst oppgi en underkommando som det første argumentet. Dette kan enten være `get`, `add`,`edit`,`link` eller `help`.\nFor informasjon, skriv `+context help`.",
-    "apiError": "Something went wrong while contacting the API!",
     "errors": {
         "dmError": "Beklager, men du kan ikke utføre denne kommandoen i private meldinger.",
         "noMessage": "Du har ikke oppgitt en melding!",
@@ -59,7 +42,7 @@
         "rulesInfo": "%%rules%% og %%serverInfo%% har all infoen du trenger om denne serveren!",
         "fixTranslation": "Fant en feil oversettelse? Kontakt en korrekturleser for ditt språk eller la andre folk vite i en oversettelses kanal.",
         "pinnedInfo": "Visste du at flesteparten av kanalen har viktig informasjon pinned? Du bør sjekke de ut hver gang du er innom en!",
-        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
+        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!"
     },
     "executedBy": "Utført av %%user%%"
 }
