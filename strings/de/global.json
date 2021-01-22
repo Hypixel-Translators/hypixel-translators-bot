@@ -3,23 +3,6 @@
     "outgoingDisclaimer": "Jede Nachricht, die du hier schreibst, wird an ein Teammitglied gesendet.",
     "error": "Fehler",
     "usage": "Erwartet Befehl Eingabe",
-    "dmError": "Entschuldigung, du kannst diesen Befehl nicht in private Nachrichten ausführen.",
-    "noMessage": "Du hast keine Nachricht angegeben!",
-    "noChannel": "Du hast keinen Kanal zur Auswahl gestellt!",
-    "noUser": "Du hast keine Nachricht angegeben!",
-    "noContext": "Du hast den Kontext nicht angegeben! Bitte füge sowohl die String-ID als auch den Kontext hinzu, der sie erklärt.",
-    "noQuote": "Du hast kein Zitat angegeben! Um ein solches hinzuzufügen, führe `+quote add <Zitat> / <Autorennennung>` aus.",
-    "noUserQuote": "Du hast keinen Benutzer angegeben! Bitte gebe das Zitat ein und erwähne dann den zitierten Benutzer, getrennt durch einen Schrägstrich.",
-    "falseChannel": "Der Kanal wurde nicht gefunden!",
-    "falseUser": "Der Benutzer wurde nicht gefunden!",
-    "falseFlag": "Diese Flagge konnte nicht gefunden werden!",
-    "noPlayer": "Dieser Spieler ist Hypixel nie beigetreten!",
-    "disabled": "Der Befehl ist vorübergehend deaktiviert.",
-    "noTrPr": "Du bist kein Translator oder Proofreader, daher kannst du es nicht benutzen!",
-    "noAccess": "Du darfst diesen Befehl nicht ausführen!",
-    "noPermission": "Du darfst diesen Befehl in diesem Kanal nicht ausführen!",
-    "contextSubArg": "Bitte gib einen Unterbefehl als erstes Argument an. Dies kann entweder `get`, `add`, `edit`, `link` oder `help` sein.\nFür Informationen, führe `+context help` aus.",
-    "apiError": "Bei der Kontaktaufnahme mit der API ist etwas schief gelaufen!",
     "errors": {
         "dmError": "Entschuldigung, du kannst diesen Befehl nicht in private Nachrichten ausführen.",
         "noMessage": "Du hast keine Nachricht angegeben!",
@@ -59,7 +42,7 @@
         "rulesInfo": "%%rules%% und %%serverInfo%% haben alle Infos, die du über diesen Server brauchst!",
         "fixTranslation": "Du hast einen Fehler in der Übersetzung gefunden? Dann kontaktiere einen Proofreader für die Sprache oder lasse es in dem Channel für Übersetzung wissen.",
         "pinnedInfo": "Wusstest du, dass die meisten Kanäle wichtige Informationen angeheftet haben? Du solltest sie dir jedes Mal ansehen, wenn du einen besuchst!",
-        "hypixelStats": "Du kannst dir Informationen über einen bestimmten Spieler auf Hypixel ansehen, indem du `+hypixelstats` ausführst!"
+        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!"
     },
     "executedBy": "Ausgeführt von %%user%%"
 }
