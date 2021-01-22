@@ -199,7 +199,7 @@ client.on("message", async message => {
     const embed = new Discord.MessageEmbed()
       .setColor(errorColor)
       .setAuthor(globalStrings.error)
-      .setTitle(globalStrings.dmError)
+      .setTitle(globalStrings.errors.dmError)
       .setFooter(executedBy, message.author.displayAvatarURL())
     return message.channel.send(embed)
   }
@@ -257,7 +257,7 @@ client.on("message", async message => {
     const embed = new Discord.MessageEmbed()
       .setColor(errorColor)
       .setAuthor(globalStrings.error)
-      .setTitle(globalStrings[error] || error)
+      .setTitle(globalStrings.errors[error] || error)
       .setFooter(executedBy, message.author.displayAvatarURL())
     if (!helpStrings[command.name]) {
       embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" })
