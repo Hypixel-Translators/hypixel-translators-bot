@@ -7,7 +7,7 @@ module.exports = {
   name: "newlang",
   description: "Creates a new language category with the appropriate channels and roles.",
   usage: "+newlang <lang code> [HEX color]",
-  roleWhitelist: ["620274909700161556"], //*
+  roleWhitelist: ["764442984119795732"], //Discord Administrator
   async execute(message, strings, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     message.channel.startTyping()

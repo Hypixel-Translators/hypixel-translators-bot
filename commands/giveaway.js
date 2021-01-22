@@ -3,7 +3,7 @@ module.exports = {
     description: "Gives you the winners of a giveaway.",
     aliases: ["reroll", "g", "greroll", "giveaways"],
     usage: "+giveaway <messageID> [winners]",
-    roleWhitelist: ["620274909700161556"], //*
+    roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(message, strings, args) {
             if (!args[0]) return message.channel.send("You forgot to specify a message to look for! Use the message ID")
             const giveawayMsg = await message.channel.messages.fetch(args[0])

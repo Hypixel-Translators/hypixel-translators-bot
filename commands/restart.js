@@ -6,7 +6,7 @@ module.exports = {
     description: "Refresh the bot to apply changes and to fix errors.",
     aliases: ["refresh", "reload", "stop"],
     usage: "restart",
-    roleWhitelist: ["620274909700161556"], //*
+    roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-dev admin-bots
     execute(message, strings) {
         if (!message.member.hasPermission("ADMINISTRATOR")) throw "noAccess"

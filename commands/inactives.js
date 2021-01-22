@@ -7,7 +7,7 @@ module.exports = {
     description: "Checks for inactive unverified members (if applicable).",
     usage: "+inactives",
     aliases: ["updateinactives", "unverifieds", "inactive"],
-    roleWhitelist: ["620274909700161556"], //*
+    roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(message, strings) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         if (!message.member.hasPermission("ADMINISTRATOR")) throw "noAccess"

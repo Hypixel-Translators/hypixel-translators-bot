@@ -7,7 +7,7 @@ module.exports = {
     description: "Sends an announcement wishing everyone a happy (holiday) in each language.",
     usage: "+holidays <holiday>",
     aliases: ["holiday"],
-    roleWhitelist: ["620274909700161556"], //*
+    roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["730042612647723058", "551693960913879071"], // bot-development admin-bots
     execute(message, strings, args) {
         if (!message.member.hasPermission("ADMINISTRATOR")) return "noAccess"
