@@ -20,8 +20,8 @@
         "year": "year",
         "years": "years"
     },
-    "dateLocale": "en-GB",
-    "timeZone": "Europe/London",
+    "dateLocale": "ru-RU",
+    "timeZone": "Europe/Moscow",
     "notes": "Notes",
     "owner": "Discord Owner",
     "coOwner": "Discord Co-Owner",
