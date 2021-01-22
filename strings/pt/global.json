@@ -38,7 +38,7 @@
         "noPermission": "Não tens permissão para executar esse comando neste canal!",
         "contextSubArg": "Tens de incluir um comando secundário como primeiro argumento. Este pode ser `get`, `add`, `edit`, `link` ou `help`. \nPara mais informações, faz `+context help`.",
         "apiError": "Alguma coisa correu mal ao contactar a API!",
-        "noSubCommand": "That sub-command couldn't be found!"
+        "noSubCommand": "Esse subcomando não foi encontrado!"
     },
     "cooldown": "Tempo de espera",
     "secondLeft": "Espera mais 1 segundo para usares `+%%command%%` outra vez.",
