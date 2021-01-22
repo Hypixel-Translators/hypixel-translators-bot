@@ -1,5 +1,5 @@
 {
-    "moduleName": "Restart",
-    "restarting": "Restarting...",
+    "moduleName": "Перезапуск",
+    "restarting": "Перезапуск...",
     "executedBy": "Выполнено %%user%%"
 }
