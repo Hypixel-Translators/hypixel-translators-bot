@@ -3,23 +3,6 @@
     "outgoingDisclaimer": "Tout message que tu envoie ici sera envoyé au personnel.",
     "error": "Erreur",
     "usage": "Utilisation de la commande attendue",
-    "dmError": "Désolé, tu ne peux pas exécuter cette commande dans des messages privés.",
-    "noMessage": "Tu n'as pas fournir un message!",
-    "noChannel": "Tu n'as pas fournir un canal!",
-    "noUser": "Tu n'as pas fournir un utilisateur!",
-    "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it.",
-    "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`.",
-    "noUserQuote": "Tu n'as pas fournir un utilisateur! Tape la citation puis mentionne l'utilisateur cité, séparés par un /.",
-    "falseChannel": "Ce canal n'a pas pu être trouvé!",
-    "falseUser": "Cet utilisateur n'a pas pu être trouvé!",
-    "falseFlag": "That flag couldn't be found!",
-    "noPlayer": "That player has never joined Hypixel!",
-    "disabled": "Cette commande est temporairement désactivée.",
-    "noTrPr": "Tu n'est pas un traducteur ou un proofreader, donc tu ne peux pas utiliser ceci!",
-    "noAccess": "Tu ne peux pas utiliser cette commande!",
-    "noPermission": "You're not allowed to execute this command on this channel!",
-    "contextSubArg": "Entre une sous-commande comme premier argument. Cela peut être soit `get`, `add`, `edit`, `link` ou `help`.\nPour plus d'information, exécute `+context help`.",
-    "apiError": "Something went wrong while contacting the API!",
     "errors": {
         "dmError": "Désolé, tu ne peux pas exécuter cette commande dans des messages privés.",
         "noMessage": "Tu n'as pas fournir un message!",
@@ -59,7 +42,7 @@
         "rulesInfo": "%%rules%% et %%serverInfo%% ont toutes les infos dont tu as besoin à propos de ce serveur!",
         "fixTranslation": "Tu as trouvé une erreur dans une traduction? Contacte un proofreader de ta langue ou faites-le savoir dans un canal de traduction.",
         "pinnedInfo": "Sais-tu que les canals contiennent des informations importantes épinglées? Trouve-le lorsque tu visites un canal!",
-        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
+        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!"
     },
     "executedBy": "Exécuté par %%user%%"
 }
