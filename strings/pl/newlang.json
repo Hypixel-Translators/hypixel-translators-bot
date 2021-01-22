@@ -1,9 +1,9 @@
 {
-    "moduleName": "Channel creator",
+    "moduleName": "Kreator kanałów",
     "langTitle": "Pomyślnie utworzono nową kategorię %%country%%, kanały i role!",
     "warnings": "Upewnij się, że ich nazwy zostały poprawnie ustawione, umieść je w odpowiednich miejscach, sprawdź kolory ich ról i nie zapomnij przetłumaczyć tematu kanału!",
-    "textChannels": "Text Channels",
-    "voiceChannels": "Voice Channels",
+    "textChannels": "Kanały Tekstowe",
+    "voiceChannels": "Kanały Głosowe",
     "roles": "Role",
     "newItems": "%%newItem%% i %%newItem2%%",
     "executedBy": "Wykonano przez %%user%%"
