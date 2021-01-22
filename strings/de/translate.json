@@ -10,11 +10,11 @@
     "join": "Wir würden uns freuen, dich bei dem Projekt dabei zu haben! Hier erfährst du, wie du dich uns anschließen kannst:",
     "openProject": "Zuerst öffne bitte das Projekt auf Crowdin",
     "howOpen": "Dies kannst du über den Link [hier](%%link%%) tun.",
-    "clickLanguage": "Now, click on the language you want to translate",
-    "requestJoin": "In order to join that language, you must hit \"Join\" and write a simple message on why you want to join the project.",
-    "lastThing": "Just one last thing",
-    "requestInfo": "When submitting your request, please make sure to include either your tag (e.g. Hypixel Translators#3348) or your ID (e.g. 620224469738323978).\n**If you do not include at least one of these, you will be rejected!**",
-    "noLanguage": "Can't find your language?",
-    "langRequest": "It is possible that we don't support your language yet. If that's the case, execute `+language add <language>`. This will send a message to the admins letting them know that you want this language to be added.",
+    "clickLanguage": "Klicke nun auf die Sprache, die du übersetzen möchtest",
+    "requestJoin": "Um dieser Sprache beizutreten, musst du auf \"Join\" klicken und eine einfache Nachricht schreiben, warum du dem Projekt beitreten möchtest.",
+    "lastThing": "Nur noch eine Sache",
+    "requestInfo": "Wenn du deine Anfrage einreichst, achte bitte darauf, entweder deinen Tag (z.B. Hypixel Translators#3348) oder deine ID (z.B. 620224469738323978) anzugeben.\n**Wenn du nicht mindestens eines davon angibst, wirst du abgelehnt!**",
+    "noLanguage": "Du kannst deine Sprache nicht finden?",
+    "langRequest": "Es ist möglich, dass wir deine Sprache noch nicht unterstützen. Wenn das der Fall ist, führe `+language add <Sprache>` aus. Dies sendet eine Nachricht an die Admins, um sie wissen zu lassen, dass du diese Sprache hinzufügen möchtest.",
     "executedBy": "Executed by %%user%%"
 }
