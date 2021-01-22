@@ -42,7 +42,7 @@
         "rulesInfo": "%%rules%% and %%serverInfo%% have all the info you need about this server!",
         "fixTranslation": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
         "pinnedInfo": "Did you know most channels have important information pinned? You should check it out every time you visit one!",
-        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username>`!"
+        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!"
     },
     "executedBy": "Executed by %%user%%"
 }
