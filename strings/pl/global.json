@@ -21,7 +21,7 @@
         "noPermission": "Nie możesz używać tej komendy na tym kanale!",
         "contextSubArg": "Wprowadź podpolecenie jako pierwszy argument. Może to być: `get`, `add`, `edit`, `link` lub `help`.\nAby uzyskać informacje, użyj `+context help`.",
         "apiError": "Coś poszło nie tak podczas kontaktowania się z API!",
-        "noSubCommand": "That sub-command couldn't be found!"
+        "noSubCommand": "Ta podkomenda nie została znaleziona!"
     },
     "cooldown": "Czas odnawiania",
     "secondLeft": "Poczekaj sekundę, aby ponownie użyć `+%%command%%`.",
@@ -33,7 +33,7 @@
     "tips": {
         "ib": "Czy wypróbowałeś/aś język Inhale Banana? Zmień swój język, używając `+lang ib`!",
         "translators": "Potrzebuję tłumaczy! Dowiedz się, jak zostać tłumaczem bota na %%translate%%.",
-        "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
+        "prefix": "Czy chcesz mieć fajny prefiks w swoim nicku? Wpisz `+prefix` na %%bots%% i postępuj zgodnie z instrukcjami! Dostępne dla wszystkich tłumaczy Hypixel i Quickplay.",
         "enen": "Proszę zmienić swoje linki na en-en!",
         "xp": "Otrzymujesz losową ilość PD za każdą minutę rozmowy, co ostatecznie sprawi, że osiągniesz wyższy poziom.",
         "moreTips": "Potrzebujemy więcej wskazówek! Prześlij je używając `+feedback`.",
@@ -42,7 +42,7 @@
         "rulesInfo": "%%rules%% i %%serverInfo%% mają wszystkie, potrzebne informacje o tym serwerze!",
         "fixTranslation": "Znalazłeś/aś błąd w tłumaczeniu? Skontaktuj się z korektorem swojego języka lub poinformuj o tym innych na kanale tłumaczeniowym.",
         "pinnedInfo": "Czy wiedziałeś/aś, że na większości kanałów najważniejsze informacje są przypięte? Należy je sprawdzać za każdym razem, jak odwiedzasz kanały!",
-        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!"
+        "hypixelStats": "Możesz sprawdzić statystyki gracza z Hypixela wpisując `+hypixelstats <nazwa gracza> [social]`!"
     },
     "executedBy": "Wykonano przez %%user%%"
 }
