@@ -183,7 +183,7 @@ client.on("message", async message => {
       if (command.dev && !message.member.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
 
       //Give perm to admins and return if not allowed
-      if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
+      if (message.member.hasPermission("MANAGE_ROLES")) allowed = true
     } else allowed = false
   }
   if (!allowed) {
@@ -233,7 +233,7 @@ client.on("message", async message => {
   }
 
   //Remove cooldown if administrator
-  if (message.member && !message.member.hasPermission("ADMINISTRATOR")) timestamps.set(message.author.id, now)
+  if (message.member && !message.member.hasPermission("MANAGE_ROLES")) timestamps.set(message.author.id, now)
   setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
 
   //Get command strings

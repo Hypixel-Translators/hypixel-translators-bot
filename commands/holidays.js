@@ -10,7 +10,6 @@ module.exports = {
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["730042612647723058", "551693960913879071"], // bot-development admin-bots
     execute(message, strings, args) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return "noAccess"
         if (!args[0]) return message.channel.send("You absolute buffoon you need to tell me what holiday to look for.")
         let holidayName = args[0].toLowerCase()
         if (holidayName === "newyear" || args.join("").toLowerCase() === "newyear") holidayName = "newYear"

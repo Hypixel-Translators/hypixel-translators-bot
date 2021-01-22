@@ -23,7 +23,7 @@ module.exports = {
     if (!toSend) throw "noMessage"
     if (!message.member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
 
-    if (message.member) if (message.member.hasPermission("ADMINISTRATOR")) {
+    if (message.member) if (message.member.hasPermission("MANAGE_ROLES")) {
       msg = await sendTo.send(toSend).catch(() => { throw "noChannel" })
     } else {
       msg = await sendTo.send(">>> " + toSend).catch(() => { throw "noChannel" })

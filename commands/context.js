@@ -14,7 +14,7 @@ module.exports = {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const subCmd = args[0].toLowerCase()
         try {
-            if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771") && !message.member.hasPermission("ADMINISTRATOR")) throw "noTrPr" //Hypixel Translator and Hypixel Proofreader
+            if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771") && !message.member.hasPermission("MANAGE_ROLES")) throw "noTrPr" //Hypixel Translator and Hypixel Proofreader
             if (subCmd === "add" || subCmd === "new") addToSpreadsheet(executedBy, message, strings, args)
             else if (subCmd === "get" || subCmd === "show") getFromSpreadsheet(executedBy, message, strings, args)
             else if (subCmd === "edit") editInSpreadsheet(executedBy, message, strings, args)
@@ -104,7 +104,7 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
         return
     }
 
-    if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) { //Hypixel Proofreader
+    if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("MANAGE_ROLES")) { //Hypixel Proofreader
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(strings.moduleName)
@@ -316,7 +316,7 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
 async function editInSpreadsheet(executedBy, message, strings, args) {
     message.channel.startTyping()
     const string = args[1]
-    if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("ADMINISTRATOR")) { //Hypixel Proofreader
+    if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("MANAGE_ROLES")) { //Hypixel Proofreader
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(strings.moduleName)

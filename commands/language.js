@@ -21,7 +21,7 @@ module.exports = {
             if (args[0] === "add") {
                 args.splice(0, 1)
                 const newLang = args.join(" ")
-                if (message.channel.type === "dm" || !message.member.hasPermission("ADMINISTRATOR")) {
+                if (message.channel.type === "dm" || !message.member.hasPermission("MANAGE_ROLES")) {
                     let requester = message.author.username
                     if (message.channel.type !== "dm") requester = message.member.displayName
                     if (name(newLang) || code(newLang)) {
