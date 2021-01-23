@@ -8,7 +8,7 @@
     "timeAgo": "%%time%% %%unit%% ago",
     "time": {
         "second": "second",
-        "seconds": "seconds",
+        "seconds": " ثواني",
         "minute": "minute",
         "minutes": "minutes",
         "hour": "hour",
