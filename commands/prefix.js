@@ -27,7 +27,7 @@ module.exports = {
           .setColor(errorColor)
           .setAuthor(strings.moduleName)
           .setTitle(globalStrings.error)
-          .setDescription(globalStrings.falseFlag)
+          .setDescription(globalStrings.errors.falseFlag)
           .addFields({ name: globalStrings.usage, value: "`" + strings.usage + "`" })
           .setFooter(executedBy, message.author.displayAvatarURL())
         message.channel.send(errorEmbed)

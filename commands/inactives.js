@@ -10,7 +10,6 @@ module.exports = {
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(message, strings) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        if (!message.member.hasPermission("ADMINISTRATOR")) throw "noAccess"
         message.channel.startTyping()
         try {
             await inactives.execute(message.client, true)

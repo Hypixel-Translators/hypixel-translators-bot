@@ -183,7 +183,7 @@ client.on("message", async message => {
       if (command.dev && !message.member.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
 
       //Give perm to admins and return if not allowed
-      if (message.member.hasPermission("ADMINISTRATOR")) allowed = true
+      if (message.member.hasPermission("MANAGE_ROLES")) allowed = true
     } else allowed = false
   }
   if (!allowed) {
@@ -199,7 +199,7 @@ client.on("message", async message => {
     const embed = new Discord.MessageEmbed()
       .setColor(errorColor)
       .setAuthor(globalStrings.error)
-      .setTitle(globalStrings.dmError)
+      .setTitle(globalStrings.errors.dmError)
       .setFooter(executedBy, message.author.displayAvatarURL())
     return message.channel.send(embed)
   }
@@ -233,7 +233,7 @@ client.on("message", async message => {
   }
 
   //Remove cooldown if administrator
-  if (message.member && !message.member.hasPermission("ADMINISTRATOR")) timestamps.set(message.author.id, now)
+  if (message.member && !message.member.hasPermission("MANAGE_ROLES")) timestamps.set(message.author.id, now)
   setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
 
   //Get command strings
@@ -257,7 +257,7 @@ client.on("message", async message => {
     const embed = new Discord.MessageEmbed()
       .setColor(errorColor)
       .setAuthor(globalStrings.error)
-      .setTitle(globalStrings[error] || error)
+      .setTitle(globalStrings.errors[error] || error)
       .setFooter(executedBy, message.author.displayAvatarURL())
     if (!helpStrings[command.name]) {
       embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" })

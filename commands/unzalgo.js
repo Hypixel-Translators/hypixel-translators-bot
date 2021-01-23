@@ -11,7 +11,6 @@ module.exports = {
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
     async execute(message, strings) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        if (!message.member.hasPermission("VIEW_AUDIT_LOG")) throw "noAccess"
         message.channel.startTyping()
         try {
             await unzalgo.execute(message.client, true)

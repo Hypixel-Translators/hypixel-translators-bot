@@ -11,7 +11,6 @@ module.exports = {
     async execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const client = message.client
-        if (!message.member.hasPermission("ADMINISTRATOR")) throw "noAccess"
         if (!args[0] || args[0].toLowerCase() === "all") {
             await execute(client, true)
                 .then(() => {
