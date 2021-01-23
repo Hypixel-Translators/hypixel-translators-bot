@@ -11,14 +11,11 @@ module.exports = {
   async execute(message, strings, args) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     if (!args[0]) return
-    const sendTo = message.client.channels.cache.get(args[0].replace("<#", "").replace(">", ""))
+    const sendTo = message.client.channels.cache.get(args[0].replace(/[\\<>@#&!]/g, ""))
     args.splice(0, 1)
     const toSend = args.join(" ")
     let msg
 
-    let allowed = false
-    if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("768435276191891456")) { allowed = true } } // Discord Staff
-    if (!allowed) throw "noAccess"
     if (!sendTo) throw "noChannel"
     if (!toSend) throw "noMessage"
     if (!message.member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
