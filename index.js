@@ -115,13 +115,12 @@ client.on("message", async message => {
 
   //Staff messaging system
   if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm") {
-    const sendTo = client.channels.cache.get("730042612647723058") //bot-development
-    const report = new Discord.MessageEmbed()
+    const staffMsg = new Discord.MessageEmbed()
       .setColor(neutralColor)
       .setAuthor("Incoming message from " + message.author.tag)
       .setDescription(message.content)
       .addFields({ name: "To reply", value: "\`+dm " + message.author.id + " \`" })
-    sendTo.send(report)
+    client.channels.cache.get("624881429834366986").send(staffMsg) //staff-bots
 
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
