@@ -21,19 +21,19 @@
         "noPermission": "Sinulla ei ole oikeuksia käyttää tuota komentoa tällä kanavalla!",
         "contextSubArg": "Ole hyvä ja syötä alakomento ensimmäisenä argumenttina. Tämä voi olla `get`, `add`, `edit`, `link` tai `help`.\nSaadaksesi lisätietoa käytä komentoa `+context help`.",
         "apiError": "Jokin meni vikaan yhdistettäessä ohjelmointirajapintaan!",
-        "noSubCommand": "That sub-command couldn't be found!"
+        "noSubCommand": "Tätä alakomentoa ei löytynyt!"
     },
     "cooldown": "Odotusaika",
     "secondLeft": "Ole hyvä ja odota vielä sekunti ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
     "timeLeftT": "Ole hyvä ja odota vielä %%time%% sekuntia ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
     "minsLeftT": "Ole hyvä ja odota vielä %%time%% minuuttia ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
-    "linkCorrectionName": "Wrong format!",
-    "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
+    "linkCorrectionName": "Väärä muoto!",
+    "linkCorrectionDesc": "Vaihdathan osoitteen ensi kerralla muotoon %%format%%.",
     "tip": "Vihje",
     "tips": {
         "ib": "Oletko kokeillut Inhale Banana -kieltä? Vaihda kielesi komennolla `+lang ib`!",
         "translators": "Tarvitsen kääntäjiä! Selvitä, miten voit päästä botin kääntäjäksi osoitteesta %%translate%%.",
-        "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
+        "prefix": "Haluatko siistin etuliitteen nimimerkillesi? Käytä komentoa `+prefix` %%bots%%-kanavalla ja seuraa ohjeita! Saatavilla Hypixelin ja Quickplayn kääntäjille.",
         "enen": "Vaihda linkkisi muotoon en-en!",
         "xp": "Kirjoittamalla viestejä saat satunnaisen määrän pisteitä minuutissa, mikä lopulta nostaa sinut tasoissa ylöspäin.",
         "moreTips": "Tarvitsemme lisää vihjeitä! Ehdota niitä komennolla `+feedback`.",
@@ -42,7 +42,7 @@
         "rulesInfo": "Kanavilta %%rules%% ja %%serverInfo%% löydät kaiken tarvitsemasi tiedon tästä palvelimesta!",
         "fixTranslation": "Löysitkö käännösvirheen? Ota yhteyttä kielesi oikolukijaan tai kerro asiasta käännöskanavalla.",
         "pinnedInfo": "Tiestikö että useimpien kanavien kiinnitetyistä viesteistä löytyy tärkeää tietoa? Kannattaa kurkata niitä silloin tällöin!",
-        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!"
+        "hypixelStats": "Voit tarkastella haluamasi pelaajan Hypixel-profiilin tietoja komennolla `+hypixelstats <käyttäjänimi> [social]`!"
     },
     "executedBy": "Komennon suoritti %%user%%"
 }
