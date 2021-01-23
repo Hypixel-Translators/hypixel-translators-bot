@@ -4,7 +4,7 @@
     "warnings": "Make sure their names were set correctly, put them in their correct positions, check the role colors and don't forget to translate the channel topic!",
     "textChannels": "Text Channels",
     "voiceChannels": "Voice Channels",
-    "roles": "Roles",
+    "roles": "Роли",
     "newItems": "%%newItem%% and %%newItem2%%",
     "executedBy": "Выполнено %%user%%"
 }

@@ -53,7 +53,7 @@
         "description": "ボットのPing値を表示します。"
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <ユーザー名>",
+        "usage": "+hypixelstats <username> [social]",
         "description": "指定したユーザーのHypixelの基本統計を表示します。"
     },
     "tip": {

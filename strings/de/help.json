@@ -12,11 +12,11 @@
     "commandInfo": "Befehlsinformationen",
     "commandInfoFor": "Befehlsinformationen für ",
     "commandNotExist": "Dieser Befehl existiert nicht!",
-    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-    "inDev": "This command is currently in development and will be available at a later date!",
+    "staffOnly": "Dieser Befehl ist nur für Teammitglieder verfügbar und seine Informationen sind daher versteckt.\nBitte kontaktiere ein Teammitglied, wenn du glaubst, dass dies ein Fehler ist.",
+    "inDev": "Dieser Befehl ist derzeit in der Entwicklung und wird zu einem späteren Zeitpunkt verfügbar sein!",
     "seconds": " Sekunden",
-    "second": "second",
-    "minutes": "minutes",
+    "second": "Sekunde",
+    "minutes": "Minuten",
     "usageField": "Verwendung",
     "cooldownField": "Abklingzeit",
     "aliasesField": "Aliase",
@@ -50,7 +50,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "Gibt dir den Ping des Bots sowie den Ping der Discord API."
     },
     "hypixelstats": {
         "usage": "+hypixelstats <Spitzname>",
@@ -66,7 +66,7 @@
     },
     "projects": {
         "usage": "+projects",
-        "description": "Gives you links and information about all the translation projects we support on the server."
+        "description": "Gibt dir Links und Informationen zu allen Übersetzungsprojekten, die wir auf dem Server unterstützen."
     },
     "hypixel": {
         "usage": "+hypixel",
@@ -86,7 +86,7 @@
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "Gibt dir nützliche Informationen, wie du den Bot übersetzen kannst."
     },
     "thread": {
         "usage": "+thread",

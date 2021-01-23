@@ -53,7 +53,7 @@
         "description": "Te da el ping del bot."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <jugador>",
+        "usage": "+hypixelstats <jugador> [social]",
         "description": "Te muestra estadísticas simples de Hypixel de un jugador."
     },
     "tip": {

@@ -1,10 +1,10 @@
 {
-    "moduleName": "Channel creator",
-    "langTitle": "Successfully created the new %%country%% category, channels and roles!",
-    "warnings": "Make sure their names were set correctly, put them in their correct positions, check the role colors and don't forget to translate the channel topic!",
-    "textChannels": "Text Channels",
-    "voiceChannels": "Voice Channels",
+    "moduleName": "Kreator kanałów",
+    "langTitle": "Pomyślnie utworzono nową kategorię %%country%%, kanały i role!",
+    "warnings": "Upewnij się, że ich nazwy zostały poprawnie ustawione, umieść je w odpowiednich miejscach, sprawdź kolory ich ról i nie zapomnij przetłumaczyć tematu kanału!",
+    "textChannels": "Kanały Tekstowe",
+    "voiceChannels": "Kanały Głosowe",
     "roles": "Role",
-    "newItems": "%%newItem%% and %%newItem2%%",
+    "newItems": "%%newItem%% i %%newItem2%%",
     "executedBy": "Wykonano przez %%user%%"
 }

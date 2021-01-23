@@ -10,7 +10,7 @@
         "confirmedNoFlags": "Вы подтвердили, но не поставили реакцию ни на одном флаге, ",
         "cancelled": "Вы отменили изменение вашего никнейма, ",
         "alreadyThis": "У вас уже стоит данный никнейм, ",
-        "timedOut": "Timed Out",
+        "timedOut": "Время вышло",
         "timeOut": "You didn't react with any flags, ",
         "timeOutCustom": "You didn't confirm, ",
         "notSaved": "поэтому Ваш префикс не был сохранен."

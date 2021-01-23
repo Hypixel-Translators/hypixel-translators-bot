@@ -2,10 +2,10 @@
     "moduleName": "Kanal-Updater",
     "success": "Aktualisierte den Kanal %%channel%%!",
     "infoChannel": "information",
-    "rulesChannel": "rules",
+    "rulesChannel": "Regeln",
     "verifyChannel": "Verifizierung",
     "successAll": "Alle Kanäle wurden aktualisiert!",
-    "checkOut1": "Check it out at %%channel%%!",
-    "checkOut2": "Check them out at %%info%%, %%rules%% and %%verify%%!",
+    "checkOut1": "Schau es dir bei %%channel%% an!",
+    "checkOut2": "Schau sie dir an unter %%info%% und %%verify%%!",
     "executedBy": "Executed by %%user%%"
 }

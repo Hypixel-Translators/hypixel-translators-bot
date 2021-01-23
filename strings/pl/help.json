@@ -53,7 +53,7 @@
         "description": "Daje Ci informacje o pingu bota."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <nick gracza>",
+        "usage": "+hypixelstats <nick gracza> [social]",
         "description": "Pokazuje ci podstawowe informacje danego gracza z Hypixela."
     },
     "tip": {
@@ -66,7 +66,7 @@
     },
     "projects": {
         "usage": "+projects",
-        "description": "Gives you links and information about all the translation projects we support on the server."
+        "description": "Daje ci odnośniki i informacje o wszystkich projektach tłumaczeniowych, które wspieramy na serwerze."
     },
     "hypixel": {
         "usage": "+hypixel",

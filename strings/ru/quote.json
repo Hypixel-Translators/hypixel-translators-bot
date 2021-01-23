@@ -5,6 +5,6 @@
     "reqSub": "Your quote request has been submitted, thanks!",
     "reqAdd": "Success! The following quote has been added:",
     "user": "User",
-    "index": "Quote number",
+    "index": "Номер цитаты",
     "executedBy": "Выполнено %%user%%"
 }

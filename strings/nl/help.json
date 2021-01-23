@@ -53,7 +53,7 @@
         "description": "Laat de vertraging van de bot zien."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <gebruikersnaam>",
+        "usage": "+hypixelstats <gebruikersnaam> [social]",
         "description": "Geeft je simpele Hypixel-statistieken voor de opgegeven speler."
     },
     "tip": {
