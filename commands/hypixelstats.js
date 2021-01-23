@@ -27,7 +27,7 @@ module.exports = {
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
         fetch(`https://api.slothpixel.me/api/players/${username}`, { method: "Get" })
             .then(res => (res.json())) // get the response json
-            .then((json) => { // here we do stuff with the json
+            .then(async json => { // here we do stuff with the json
 
                 //Handle errors
                 if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
@@ -100,32 +100,51 @@ module.exports = {
                     const socialMedia = json.links
 
                     let twitter
-                    if (socialMedia.TWITTER) twitter = `[${strings.link}](${socialMedia.TWITTER})`
-                    else twitter = strings.notConnected
+                    if (socialMedia.TWITTER) {
+                        if (!socialMedia.TWITTER.startsWith("https://")) twitter = `[${strings.link}](https://${socialMedia.TWITTER})`
+                        else twitter = `[${strings.link}](${socialMedia.TWITTER})`
+                    } else twitter = strings.notConnected
                     let youtube
-                    if (socialMedia.YOUTUBE) youtube = `[${strings.link}](${socialMedia.YOUTUBE})`
-                    else youtube = strings.notConnected
+                    if (socialMedia.YOUTUBE) {
+                        if (!socialMedia.YOUTUBE.startsWith("https://")) youtube = `[${strings.link}](https://${socialMedia.YOUTUBE})`
+                        else youtube = `[${strings.link}](${socialMedia.YOUTUBE})`
+                    } else youtube = strings.notConnected
                     let instagram
-                    if (socialMedia.INSTAGRAM) instagram = `[${strings.link}](${socialMedia.INSTAGRAM}})`
-                    else instagram = strings.notConnected
+                    if (socialMedia.INSTAGRAM) {
+                        if (!socialMedia.INSTAGRAM.startsWith("https://")) instagram = `[${strings.link}](https://${socialMedia.INSTAGRAM})`
+                        else instagram = `[${strings.link}](${socialMedia.INSTAGRAM})`
+                    } else instagram = strings.notConnected
                     let twitch
-                    if (socialMedia.TWITCH) twitch = `[${strings.link}](${socialMedia.TWITCH}})`
-                    else twitch = strings.notConnected
+                    if (socialMedia.TWITCH) {
+                        if (!socialMedia.TWITCH.startsWith("https://")) twitch = `[${strings.link}](https://${socialMedia.TWITCH})`
+                        else twitch = `[${strings.link}](${socialMedia.TWITCH})`
+                    } else twitch = strings.notConnected
 
-                    const allowedLinks = ["https://discord.gg/rcT948A", "https://discord.gg/hypixeltranslators", "https://discord.gg/hypixel", "https://discord.gg/biscuit", "https://discord.gg/373EGB4"] //Our server, Hypixel, Biscuit's Bakery and Quickplay Discord
-                    let discord
+                    const allowedGuildIDs = ["489529070913060867", "549503328472530974", "418938033325211649", "450878205294018560"] //Hypixel, our server, Quickplay Discord and Biscuit's Bakery
+                    let discord = null
                     if (socialMedia.DISCORD) {
                         if (!socialMedia.DISCORD.includes("discord.gg")) discord = socialMedia.DISCORD.split("_").join("\\_")
-                        else if (allowedLinks.includes(socialMedia.DISCORD)) discord = `[${strings.link}](${socialMedia.DISCORD}})`
                         else {
-                            discord = strings.blocked
-                            console.log(`Blocked the following Discord link in ${json.username}\'s Hypixel profile: ${socialMedia.DISCORD}`)
+                            await message.client.fetchInvite(socialMedia.DISCORD)
+                                .then(invite => {
+                                    if (allowedGuildIDs.includes(invite.channel.guild.id)) discord = `[${strings.link}](${invite.url})` //invite.channel.guild is used here because invite.guild is not guaranteed according to the docs
+                                    else {
+                                        discord = strings.blocked
+                                        console.log(`Blocked the following Discord invite link in ${json.username}\'s Hypixel profile: ${socialMedia.DISCORD} (led to ${invite.channel.guild.name})`)
+                                    }
+                                })
+                                .catch(() => {
+                                    discord = strings.notConnected
+                                    console.log(`The following Discord invite link in ${json.username}\` profile was invalid: ${socialMedia.DISCORD}`)
+                                })
                         }
                     } else discord = strings.notConnected
 
                     let forums
-                    if (socialMedia.HYPIXEL) forums = `[${strings.link}](${socialMedia.HYPIXEL})`
-                    else forums = strings.notConnected
+                    if (socialMedia.HYPIXEL) {
+                        if (!socialMedia.HYPIXEL.startsWith("https://")) forums = `[${strings.link}](https://${socialMedia.HYPIXEL})`
+                        else forums = `[${strings.link}](${socialMedia.HYPIXEL})`
+                    } else forums = strings.notConnected
                     const socialEmbed = new Discord.MessageEmbed()
                         .setColor(color)
                         .setAuthor(strings.moduleName)
@@ -137,7 +156,7 @@ module.exports = {
                             { name: "YouTube", value: youtube, inline: true },
                             { name: "Instagram", value: instagram, inline: true },
                             { name: "Twitch", value: twitch, inline: true },
-                            { name: "Discord", value: discord || strings.notConnected, inline: true },
+                            { name: "Discord", value: discord, inline: true },
                             { name: "Forums", value: forums, inline: true }
                         )
                         .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL())
