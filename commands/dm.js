@@ -9,14 +9,12 @@ module.exports = {
     roleWhitelist: ["768435276191891456"], //Discord Staff
     async execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        let allowed = false
         let userToSend = args[0].replace(/[\\<>@#&!]/g, "")
         args.splice(0, 1)
         let toSend = args.join(" ")
-        if (strings, message.channel.type !== "dm") { if (strings, message.member.roles.cache.has("768435276191891456")) { allowed = true } } // Discord Staff
-        if (!allowed) return
-
         const recipient = message.client.users.cache.get(userToSend)
+        if (!recipient) return
+        
         let rStrings = require("../strings/en/dm.json")
         const oldMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
         const oldFiMessages = oldMessages.filter(element => element.content.includes(recipient.id))
@@ -26,7 +24,7 @@ module.exports = {
             rStrings = require(`../strings/${oldMsg[0]}/dm.json`)
         })
         message.channel.startTyping()
-        if (toSend.length > 0) {
+        if (toSend) {
             const dm = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor(rStrings.incoming)
