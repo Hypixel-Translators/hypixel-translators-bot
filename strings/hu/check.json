@@ -1,7 +1,6 @@
 {
     "moduleName": "Felhasználói információk",
     "userID": "%%user%% (ID: %%id%%)",
-    "userNotFound": "That user wasn't found!",
     "uroles": "Rangok",
     "ujoined": "Csatlakozott: ",
     "ucreated": "Fiók létrehozva ekkor: ",
