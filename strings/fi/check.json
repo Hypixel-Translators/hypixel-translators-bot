@@ -1,7 +1,6 @@
 {
     "moduleName": "Käyttäjän tiedot",
     "userID": "%%user%% (ID: %%id%%)",
-    "userNotFound": "Tätä käyttäjää ei löytynyt!",
     "uroles": "Roolit",
     "ujoined": "Liittyi palvelimelle",
     "ucreated": "Tili luotu",
