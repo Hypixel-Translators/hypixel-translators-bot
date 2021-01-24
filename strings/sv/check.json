@@ -1,7 +1,6 @@
 {
     "moduleName": "Användarinformation",
     "userID": "%%user%% (ID: %%id%%)",
-    "userNotFound": "That user wasn't found!",
     "uroles": "Roller",
     "ujoined": "Gick med den",
     "ucreated": "Kontot skapades den",
