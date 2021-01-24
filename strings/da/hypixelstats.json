@@ -19,8 +19,8 @@
     "unknown": "unknown",
     "lastGameHidden": "Last game is hidden or couldn't be obtained!",
     "lastLoginHidden": "Last seen time is hidden or couldn't be obtained!",
-    "dateLocale": "en-GB",
-    "timeZone": "Europe/London",
+    "dateLocale": "da-DK",
+    "timeZone": "Europe/Copenhagen",
     "ENGLISH": "Engelsk",
     "GERMAN": "Tysk",
     "FRENCH": "Fransk",
@@ -47,6 +47,6 @@
     "THAI": "Thai",
     "TURKISH": "Tyrkisk",
     "UKRAINIAN": "Ukrainsk",
-    "madeBy": "Command made by %%developer%%",
+    "madeBy": "Kommando lavet af %%developer%%",
     "executedBy": "Udført af %%user%%"
 }
