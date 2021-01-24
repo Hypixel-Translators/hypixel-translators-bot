@@ -1,7 +1,6 @@
 {
     "moduleName": "Kullanıcı bilgisi",
     "userID": "%%user%% (ID: %%id%%)",
-    "userNotFound": "Bu kullanıcı bulunamadı!",
     "uroles": "Roller",
     "ujoined": "Katılma Tarihi",
     "ucreated": "Hesabın oluşturulduğu tarih",
