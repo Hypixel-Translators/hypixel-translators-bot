@@ -25,11 +25,11 @@ async function check(client) {
                     .then(() => {
                         //client.channels.cache.get("662660931838410754").send("**" + member.user.tag + "** has been kicked for inactivity.")
                         //console.log("Kicked " + member.user.tag + " for inactivity")
-                        client.channels.cache.get("662660931838410754").send("**" + member.user.tag + "** has been automatically verified after staying on the server for 2 weeks.")
+                        client.channels.cache.get("662660931838410754").send("<@" + member.user.id + "> has been automatically verified after staying on the server for 2 weeks.")
                         console.log("Automatically verified " + member.user.tag + " after 2 weeks")
                     })
                     .catch(() => {
-                        client.channels.cache.get("662660931838410754").send("Automatically verified **" + member.user.tag + "** after 2 weeks but couldn't send them a DM with the reason.")
+                        client.channels.cache.get("662660931838410754").send("Automatically verified <@" + member.user.id + "> after 2 weeks but couldn't send them a DM with the reason.")
                         console.error("Automatically verified " + member.user.tag + " after 2 weeks but couldn't DM them")
                     })
                 //member.kick("Stood on the server for 14 days without verifying")
