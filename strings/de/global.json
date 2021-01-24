@@ -42,7 +42,7 @@
         "rulesInfo": "%%rules%% und %%serverInfo%% haben alle Infos, die du über diesen Server brauchst!",
         "fixTranslation": "Du hast einen Fehler in der Übersetzung gefunden? Dann kontaktiere einen Proofreader für die Sprache oder lasse es in dem Channel für Übersetzung wissen.",
         "pinnedInfo": "Wusstest du, dass die meisten Kanäle wichtige Informationen angeheftet haben? Du solltest sie dir jedes Mal ansehen, wenn du einen besuchst!",
-        "hypixelStats": "Du kannst dir Informationen über einen bestimmten Spieler auf Hypixel ansehen, indem du `+hypixelstats` ausführst!"
+        "hypixelStats": "Du kannst dir Informationen über einen bestimmten Spieler auf Hypixel ansehen, indem du `+hypixelstats <Spitzname> [social]` ausführst!"
     },
     "executedBy": "Ausgeführt von %%user%%"
 }
