@@ -14,11 +14,7 @@ module.exports = {
     if (args[0]) {
       let userRaw = args[0].replace("<@", "").replace(">", "")
       user = message.guild.members.cache.find(m => m.id === userRaw || m.user.tag === userRaw || m.user.username === userRaw || m.nickname === userRaw || m.user.tag.toLowerCase().includes(userRaw.toLowerCase()) || m.displayName.toLowerCase().includes(userRaw.toLowerCase()))
-      if (!user) {
-        message.channel.send(strings.userNotFound)
-        return
-        //throw "falseUser"
-      }
+      if (!user) throw "falseUser"
     }
 
     try {

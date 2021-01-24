@@ -119,7 +119,7 @@ client.on("message", async message => {
       .setColor(neutralColor)
       .setAuthor("Incoming message from " + message.author.tag)
       .setDescription(message.content)
-      .addFields({ name: "To reply", value: "\`+dm " + message.author.id + " \`" })
+      .addFields({ name: "To reply", value: `\`+dm ${message.author.id} \`` })
     client.channels.cache.get("624881429834366986").send(staffMsg) //staff-bots
 
     const embed = new Discord.MessageEmbed()
