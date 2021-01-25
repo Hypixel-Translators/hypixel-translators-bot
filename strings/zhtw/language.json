@@ -1,7 +1,7 @@
 {
     "moduleName": "語言",
     "changedToTitle": "已經將你的語言更改為繁體中文！",
-    "didntChange": "Your language didn't change",
+    "didntChange": "你沒有更改語言",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
     "errorTitle": "這個語言目前尚未加入！",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
