@@ -101,7 +101,7 @@ client.on("message", async message => {
 
   //Link correction system
   if (message.content.toLowerCase().includes("/translate/hypixel/") && message.content.includes("://")) if (message.channel.id === "549503328472530976" || message.channel.id === "627594632779399195") { // hypixel translators and proofreaders
-    const msgTxt = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en)[a-z]{2,4}/gi, "/en-en")
+    const msgTxt = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
     if (message.content !== msgTxt) {
       message.react(notAllowed)
       const embed = new Discord.MessageEmbed()
