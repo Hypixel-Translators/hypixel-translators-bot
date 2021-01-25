@@ -1,7 +1,7 @@
 {
     "moduleName": "Префикс",
     "usage": "+prefix",
-    "loading": "Just a second...",
+    "loading": "Секундочку...",
     "loadingRoles": "Получаю Ваши роли...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
