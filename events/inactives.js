@@ -33,7 +33,7 @@ async function check(client) {
                         console.error("Automatically verified " + member.user.tag + " after 2 weeks but couldn't DM them")
                     })
                 //member.kick("Stood on the server for 14 days without verifying")
-                message.member.roles.add("569194996964786178", "Automatically verified after 2 weeks").then(() => message.member.roles.remove("756199836470214848", "Automatically verified after 2 weeks")) //Remove Alerted and add Verified
+                member.roles.add("569194996964786178", "Automatically verified after 2 weeks").then(() => member.roles.remove("756199836470214848", "Automatically verified after 2 weeks")) //Remove Alerted and add Verified
 
             } return
         }
