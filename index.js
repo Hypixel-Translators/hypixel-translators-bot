@@ -250,8 +250,7 @@ client.on("message", async message => {
   catch (error) {
 
     //Handle errors
-    console.log("Error incoming! Message:\n>>>" + message)
-    console.error(error)
+    console.error(`Error with command ${commandName} on channel ${message.channel.name} executed by ${message.author.tag}. Here's the error: ${error}`)
     timestamps.delete(message.author.id)
     const embed = new Discord.MessageEmbed()
       .setColor(errorColor)
@@ -273,7 +272,7 @@ client.on("message", async message => {
       let d = Math.random().toFixed(2)
       let keys = Object.keys(globalStrings.tips)
       let tip = globalStrings.tips[keys[keys.length * Math.random() << 0]]
-      if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${tip.replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%translate%%", "<https://discordapp.com/channels/549503328472530974/732587569744838777/754410226601427044>").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#762341271611506708>").replace("%%bots%%", "<#549894938712866816>")}`)
+      if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${tip.replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#762341271611506708>").replace("%%bots%%", "<#549894938712866816>")}`)
     }
   }
 })
