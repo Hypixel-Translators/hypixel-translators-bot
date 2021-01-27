@@ -152,26 +152,13 @@ module.exports = {
                     const embed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor(strings.moduleName)
+                        .setTitle(strings.current)
                         .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n\n" + strings.credits)
                         .setFooter(executedBy, message.author.displayAvatarURL())
-                    if (strings.current === "Your language preference is set to English.") { embed.setTitle("Your language preference is set to " + strings[oldMsg[0]] + ".") } else { embed.setTitle(strings.current) }
                     await message.channel.send(embed)
                 })
                 return
             })
-            if (!selected) {
-                const stringsFolder = "./strings/"
-                await fs.readdir(stringsFolder, async (err, files) => {
-                    const embed = new Discord.MessageEmbed()
-                        .setColor(neutralColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle("Your language preference is set to English.")
-                        .setFooter(executedBy, message.author.displayAvatarURL())
-                        .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n\nFound an issue? Report it using `+issue`.")
-                    await message.channel.send(embed)
-                })
-                return
-            }
         }
     }
 }
