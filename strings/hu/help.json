@@ -1,7 +1,7 @@
 {
     "moduleName": "Információ",
     "page1Title": "Súgó oldal",
-    "commandsListTooltip": "Ezt a botot %%QkeleQ10%% készítette a Hypixel Translators Community számára. A bot nyílt forrású és a GitHub oldalát [itt]%%github%% találod.\n[Ennek]%%translate%% az üzenetnek a követésével segíthetsz a bot fordításában.\n\nHasználd a `+help <parancs>` parancsot hogy többet tudhass meg az adott parancsról.\nAlább találhatod az összes elérhető oldalt. Használd a reakciókat a köztük való lapozáshoz.",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `+translate` command.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
     "madeBy": "A botot %%QkeleQ10%% készítette sok szeretettel",
     "page": "%%number%%. lap/%%total%%",
     "pageNumber": "%%number%%. lap",
@@ -39,6 +39,10 @@
     "context": {
         "usage": "+context get|add|edit|link|help <arguments>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+    },
+    "languagestats": {
+        "usage": "+languagestats <language>",
+        "description": "Shows you the progress of a language on the all projects we currently support."
     },
     "issue": {
         "usage": "+issue",
