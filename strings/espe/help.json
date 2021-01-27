@@ -1,7 +1,7 @@
 {
     "moduleName": "Información",
     "page1Title": "Página de ayuda",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `+translate` command.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
+    "commandsListTooltip": "Este bot fue creado para la Comunidad de Traductores de Hypixel por %%developer%%. Es de código abierto y nuestro repositorio de GitHub se puede encontrar [aquí]%%github%%.\nPuedes ayudar a traducir el bot siguiendo las instrucciones en `+translate`.\n\nPuedes ejecutar `+help <nombre del comando>` para aprender más sobre un comando especifico. Aquí hay una lista de todas las páginas disponibles. Usa las reacciones en este mensaje para alternarlas.",
     "madeBy": "Bot hecho con mucho amor por %%QkeleQ10%%",
     "page": "Página %%number%%/%%total%%",
     "pageNumber": "Página %%number%%",
@@ -41,8 +41,8 @@
         "description": "Obtiene, añade o edita contexto para la ID del string dada. `+context help` te muestra información sobre este comando. `+context link` te da el link para pedir acceso al Google Sheet de contexto."
     },
     "languagestats": {
-        "usage": "+languagestats <language>",
-        "description": "Shows you the progress of a language on the all projects we currently support."
+        "usage": "+languagestats <idioma>",
+        "description": "Te muestra el progreso de un idioma en todos los proyectos disponibles."
     },
     "issue": {
         "usage": "+issue",
