@@ -1,7 +1,7 @@
 {
     "moduleName": "معلومات",
     "page1Title": "صفحة المساعدة",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%QkeleQ10%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions in [this message]%%translate%%.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `+translate` command.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
     "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
     "page": "الصفحة %%number%%/%%total%%",
     "pageNumber": "الصفحة %%number%%",
@@ -39,6 +39,10 @@
     "context": {
         "usage": "+context get|add|edit|link|help <arguments>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+    },
+    "languagestats": {
+        "usage": "+languagestats <language>",
+        "description": "Shows you the progress of a language on the all projects we currently support."
     },
     "issue": {
         "usage": "+issue",
