@@ -8,12 +8,14 @@
         "noMessage": "¡No has introducido ningún mensaje!",
         "noChannel": "¡No has introducido ningún canal!",
         "noUser": "¡No has introducido ningún usuario!",
+        "noLang": "You haven't provided a language!",
         "noContext": "¡No has introducido el contexto! Añade el ID del string y el contexto explicándolo.",
         "noQuote": "¡No has proporcionado una cita! Para solicitar que se añade una, usa `+quote add <cita> / <mención del citado>`.",
         "noUserQuote": "¡No has especificado un usuario! Por favor, escribe la cita y menciona al usuario citado, separado por /.",
         "falseChannel": "¡No se pudo encontrar ese canal!",
         "falseUser": "¡Ese usuario no se pudo encontrar!",
         "falseFlag": "¡Esa bandera no se pudo encontrar!",
+        "falseLang": "That language couldn't be found!",
         "noPlayer": "¡Ese jugador nunca se ha unido a Hypixel!",
         "disabled": "Este comando ha sido temporalmente desactivado.",
         "noTrPr": "¡No eres un traductor o revisor, así que no puedes usar esto!",
@@ -32,7 +34,7 @@
     "tip": "Consejo",
     "tips": {
         "ib": "¿Has probado el idioma Inhale Banana? ¡Cambia tu idioma usando `+lang ib`!",
-        "translators": "¡Necesito traductores! Aprende sobre como ser un traductor aquí: %%translate%%.",
+        "translators": "I need translators! Find out how to become a bot translator by executing `+translate`.",
         "prefix": "¿Quieres tener un prefijo genial en tu apodo? ¡Ejecuta `+prefix` en %%bots%% y sigue las instrucciones! Disponible para todos los traductores de Hypixel y Quickplay.",
         "enen": "¡Por favor, cambia tus enlaces a en-en!",
         "xp": "Obtienes cantidades aleatorias de XP cada minuto cuando estás chateando, lo que eventualmente te hará subir de nivel.",
@@ -42,7 +44,8 @@
         "rulesInfo": "¡%%rules%% y %%serverInfo%% tienen toda la información que necesitas sobre este servidor!",
         "fixTranslation": "¿Has encontrado un error en una traducción? Ponte en contacto con un revisor de tu idioma o haz que la gente lo sepa en un canal de traducción.",
         "pinnedInfo": "¿Sabes que la mayoría de canales tienen información importante fijada? ¡Deberías echarles un vistazo cada vez que visites uno!",
-        "hypixelStats": "¡Puedes ver información sobre un jugador en Hypixel usando `+hypixelstats <jugador> [social]`!"
+        "hypixelStats": "¡Puedes ver información sobre un jugador en Hypixel usando `+hypixelstats <jugador> [social]`!",
+        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!"
     },
     "executedBy": "Ejecutado por %%user%%"
 }
