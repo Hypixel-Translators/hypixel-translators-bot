@@ -339,9 +339,9 @@ client.on("guildMemberAdd", member => {
   const memberCount = `${member.guild.memberCount}`
 
   //Select appropriate font based on used characters
-  let usernameFont
+  /*let usernameFont
   if (/(^[A-zÀ-ÿ0-9 $-/:-?{-~!"^_`\[\]])\w+/gi.test(userName)) usernameFont = "37.5px Bitter-Bold"
-  else usernameFont = "37.5px sans-serif"
+  else usernameFont = "37.5px sans-serif"*/
 
   loadImage("./assets/joinBackground.png").then(bg => {
     let nameWidth
@@ -356,7 +356,7 @@ client.on("guildMemberAdd", member => {
     //Measure text widths
     ctx.font = "37.5px Bitter"
     let welcome = ctx.measureText("Welcome ")
-    ctx.font = usernameFont
+    ctx.font = "37.5px sans-serif"
     let name = ctx.measureText(userName)
     if (name.width > (550 - welcome.width)) nameWidth = (550 - welcome.width)
     else nameWidth = name.width
@@ -367,7 +367,7 @@ client.on("guildMemberAdd", member => {
     ctx.fillText("!", (200 + welcome.width + nameWidth), 92.5)
 
     //Draw username
-    ctx.font = usernameFont
+    ctx.font = "37.5px sans-serif"
     ctx.fillText(userName, (200 + welcome.width), 92.5, (550 - welcome.width))
 
     //Draw member count
