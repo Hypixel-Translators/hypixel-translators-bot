@@ -55,10 +55,6 @@ module.exports = {
                 if (json.online == true) online = strings.online
                 else online = strings.offline
 
-                let linkDiscord
-                if (json.links.DISCORD === null) linkDiscord = strings.notConnected
-                else linkDiscord = json.links.DISCORD.split("_").join("\\_")
-
                 let last_seen
                 if (json.last_game === null) last_seen = strings.lastGameHidden
                 else last_seen = strings.lastSeen.replace("%%game%%", json.last_game.replace(/([A-Z]+)/g, ' $1').trim())
