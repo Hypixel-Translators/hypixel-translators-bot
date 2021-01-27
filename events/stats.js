@@ -34,12 +34,12 @@ module.exports = {
 }
 
 function hypixel(client) {
-    const url = `https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=50`
+    const url = `https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500`
     const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
     let index = 0
     fetch(url, settings)
         .then(res => res.json())
-        .then((json) => {
+        .then(json => {
             const langStatus = json.data
             const reversed = Array.from(langStatus).reverse()
             client.channels.cache.find(channel => channel.name === "hypixel-language-status").messages.fetch() //hypixel-language-status
@@ -76,12 +76,12 @@ function hypixel(client) {
 }
 
 function quickplay(client) {
-    const url = `https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=50`
+    const url = `https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500`
     const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
     let index = 0
     fetch(url, settings)
         .then(res => res.json())
-        .then((json) => {
+        .then(json => {
             const langStatus = json.data
             const reversed = Array.from(langStatus).reverse()
             client.channels.cache.find(channel => channel.name === "quickplay-language-status").messages.fetch() //quickplay-language-status
@@ -127,12 +127,12 @@ function quickplay(client) {
 }
 
 function bot(client) {
-    const url = `https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=50`
+    const url = `https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500`
     const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
     let index = 0
     fetch(url, settings)
         .then(res => res.json())
-        .then((json) => {
+        .then(json => {
             const langStatus = json.data
             const reversed = Array.from(langStatus).reverse()
             client.channels.cache.find(channel => channel.name === "bot-language-status").messages.fetch() //bot-language-status
@@ -153,7 +153,7 @@ function bot(client) {
                         const embed = new Discord.MessageEmbed()
                             .setColor(adapColour)
                             .setTitle(langdbEntry.emoji + " | " + langdbEntry.name || "<:icon_question:756582065834688662>" + " | " + langdbEntry.name)
-                            .setThumbnail((langdbEntry.flag).replace("%code%", r.languageId))
+                            .setThumbnail((langdbEntry.flag))
                             .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel-translators-bot/all/en-${langdbEntry.code}`)
                             .setTimestamp()
                         msg.edit("", embed)
@@ -179,12 +179,12 @@ function bot(client) {
 
 function skyblockaddons(client) {
     try {
-        const url = `https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=50`
+        const url = `https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500`
         const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
         let index = 0
         fetch(url, settings)
             .then(res => res.json())
-            .then((json) => {
+            .then(json => {
                 const langStatus = json.data
                 const reversed = Array.from(langStatus).reverse()
                 client.channels.cache.find(channel => channel.name === "sba-language-status").messages.fetch() //sba-language-status
@@ -205,7 +205,7 @@ function skyblockaddons(client) {
                             const embed = new Discord.MessageEmbed()
                                 .setColor(adapColour)
                                 .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-${langdbEntry.code}`)
-                                .setThumbnail((langdbEntry.flag).replace("%code%", r.languageId))
+                                .setThumbnail((langdbEntry.flag))
                                 .setTimestamp()
                             if (langdbEntry) { embed.setTitle(langdbEntry.emoji + " | " + langdbEntry.name) } else { embed.setTitle("<:icon_question:756582065834688662> | " + langdbEntry.name) }
                             msg.edit("", embed)
