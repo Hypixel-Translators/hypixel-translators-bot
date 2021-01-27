@@ -45,7 +45,7 @@
         "fixTranslation": "¿Encontraste un error en una traducción? Ponte en contacto con un proofreader de tu idioma o haz que la gente lo sepa en un canal de traducción.",
         "pinnedInfo": "¿Sabes que la mayoría de canales tienen información importante fijada? ¡Deberías verlas cada vez que visites uno!",
         "hypixelStats": "¡Puedes ver información sobre un jugador en Hypixel usando `+hypixelstats <jugador> [social]`!",
-        "languageStats": "¿Sabías que puedes ver estadísticas por cualquier idioma en todos de nuestros proyectos? ¡Usa `+languagestats <idioma>`!"
+        "languageStats": "¿Sabías que puedes ver estadísticas de cualquier idioma en todos de nuestros proyectos? ¡Usa `+languagestats <idioma>`!"
     },
     "executedBy": "Ejecutado por %%user%%"
 }
