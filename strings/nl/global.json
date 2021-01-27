@@ -8,12 +8,14 @@
         "noMessage": "Je hebt geen bericht opgegeven!",
         "noChannel": "Je hebt geen kanaal opgegeven!",
         "noUser": "Je hebt geen gebruiker opgegeven!",
+        "noLang": "You haven't provided a language!",
         "noContext": "Je hebt de context niet opgegeven! Voeg het string-ID en de toelichtende context toe.",
         "noQuote": "Je hebt geen citaat opgegeven! Om er een te verzoeken, kun je `+quote add <citaat> / <vermelding auteur>` uitvoeren.",
         "noUserQuote": "Je hebt geen gebruiker opgegeven! Typ het citaat, en vermeld dan de geciteerde gebruiker, gescheiden door een slash.",
         "falseChannel": "Dat kanaal kon niet worden gevonden!",
         "falseUser": "Die gebruiker kon niet worden gevonden!",
         "falseFlag": "Die vlag kon niet worden gevonden!",
+        "falseLang": "That language couldn't be found!",
         "noPlayer": "Die speler heeft Hypixel nooit toegetreden!",
         "disabled": "Dit commando is tijdelijk uitgeschakeld.",
         "noTrPr": "Je bent geen vertaler of proeflezer, dus je kunt dit niet gebruiken!",
@@ -32,7 +34,7 @@
     "tip": "Tip",
     "tips": {
         "ib": "Heb je de Inhale Banana-taal geprobeerd? Verander je taal ernaar met `+lang ib`!",
-        "translators": "Ik heb vertalers nodig! Ontdek hoe je botvertaler wordt op %%translate%%.",
+        "translators": "I need translators! Find out how to become a bot translator by executing `+translate`.",
         "prefix": "Wil je een cool voorvoegsel in je naam hebben? Voer `+prefix` uit in %%bots%% en volg de aanwijzingen! Beschikbaar voor alle vertalers van Hypixel en Quickplay.",
         "enen": "Verander je links naar en-en!",
         "xp": "Wanneer je chat krijg je elke minuut een willekeurige hoeveelheid XP, waarmee je uiteindelijk meer levels krijgt.",
@@ -42,7 +44,8 @@
         "rulesInfo": "%%rules%% en %%serverInfo%% bevatten alle benodigde informatie over deze server!",
         "fixTranslation": "Fout in een vertaling gevonden? Neem contact op met een proeflezer van je taal of laat het weten in een vertalingskanaal.",
         "pinnedInfo": "Wist je dat de meeste kanalen belangrijke info hebben in vastgezette berichten? Lees het eens als je een kanaal gebruikt!",
-        "hypixelStats": "Je kunt informatie over een specifieke Hypixel-speler bekijken met `+hypixelstats <naam> [social]`!"
+        "hypixelStats": "Je kunt informatie over een specifieke Hypixel-speler bekijken met `+hypixelstats <naam> [social]`!",
+        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!"
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }
