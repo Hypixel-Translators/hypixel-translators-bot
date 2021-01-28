@@ -2,6 +2,8 @@
     "moduleName": "Statisztika frissítő",
     "done": "Az összes statisztika frissítve lett!",
     "doneProject": "A %%project%% nyelvi statisztikái frissültek!",
+    "checkOutOne": "Check it out at %%channel%%!",
+    "checkOutAll": "Check them out at %%channel%%, %%channel%%, %%channel%% and %%channel%%!",
     "errorNoProject": "Nem találtunk %%name%% nevű projektet.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% által küldve"
 }

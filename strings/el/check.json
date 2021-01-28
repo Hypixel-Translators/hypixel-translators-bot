@@ -1,7 +1,6 @@
 {
     "moduleName": "Πληροφορίες Χρήστη",
     "userID": "%%user%% (ID: %%id%%)",
-    "userNotFound": "That user wasn't found!",
     "uroles": "Ρόλοι",
     "ujoined": "Εγγράφηκε στις",
     "ucreated": "Ο λογαριασμός δημιουργήθηκε στις",

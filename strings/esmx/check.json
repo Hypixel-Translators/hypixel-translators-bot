@@ -1,7 +1,6 @@
 {
     "moduleName": "Información del usuario",
     "userID": "%%user%% (ID: %%id%%)",
-    "userNotFound": "¡Ese usuario no fue encontrado!",
     "uroles": "Roles",
     "ujoined": "Se unió en",
     "ucreated": "Cuenta creada en",

@@ -2,7 +2,7 @@
     "moduleName": "Kanavan päivitys",
     "success": "%%channel%%kanava päivitetty!",
     "infoChannel": "Info",
-    "rulesChannel": "rules",
+    "rulesChannel": "Sääntö",
     "verifyChannel": "Vahvistus",
     "successAll": "Kaikki kanavat on päivitetty!",
     "checkOut1": "Kurkkaa se kanavalta %%channel%%!",

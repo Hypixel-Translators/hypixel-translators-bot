@@ -6,5 +6,5 @@
     "reqAdd": "Success! The following quote has been added:",
     "user": "User",
     "index": "Quote number",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Eseguito da %%user%%"
 }

@@ -8,12 +8,14 @@
         "noMessage": "Du har ikke oppgitt en melding!",
         "noChannel": "Du har ikke oppgitt en kanal!",
         "noUser": "Du har ikke oppgitt en bruker!",
+        "noLang": "You haven't provided a language!",
         "noContext": "Du har ikke gitt noe kontekst! Vennligst legg til både string-ID og konteksten som forklarer det.",
         "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`.",
         "noUserQuote": "Du har ikke spesifisert en bruker! Vennligst skriv sitatet og deretter nevn den siterte brukeren, separert med en skråstrek.",
         "falseChannel": "Den kanalen kunne ikke bli funnet!",
         "falseUser": "Den brukeren kunne ikke bli funnet!",
         "falseFlag": "That flag couldn't be found!",
+        "falseLang": "That language couldn't be found!",
         "noPlayer": "That player has never joined Hypixel!",
         "disabled": "Denne kommandoen har blitt midlertidig deaktivert.",
         "noTrPr": "Du er ikke en oversetter eller en korrekturleser, så du kan ikke bruke denne!",
@@ -32,7 +34,7 @@
     "tip": "Tips",
     "tips": {
         "ib": "Har du prøvd Inhalere Banan språket? Endre språket ditt til det med `+lang ib`!",
-        "translators": "I need translators! Find out how to become a bot translator at %%translate%%.",
+        "translators": "I need translators! Find out how to become a bot translator by executing `+translate`.",
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "Vennligst endre linkene dine til en-en!",
         "xp": "Du får et tilfeldig antall av XP hvert minutt når du chatter, noe som til slutt vil gjøre sånn at du leveler opp.",
@@ -42,7 +44,8 @@
         "rulesInfo": "%%rules%% og %%serverInfo%% har all infoen du trenger om denne serveren!",
         "fixTranslation": "Fant en feil oversettelse? Kontakt en korrekturleser for ditt språk eller la andre folk vite i en oversettelses kanal.",
         "pinnedInfo": "Visste du at flesteparten av kanalen har viktig informasjon pinned? Du bør sjekke de ut hver gang du er innom en!",
-        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!"
+        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!",
+        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!"
     },
     "executedBy": "Utført av %%user%%"
 }

@@ -8,12 +8,14 @@
         "noMessage": "Je hebt geen bericht opgegeven!",
         "noChannel": "Je hebt geen kanaal opgegeven!",
         "noUser": "Je hebt geen gebruiker opgegeven!",
+        "noLang": "Je hebt geen taal opgegeven!",
         "noContext": "Je hebt de context niet opgegeven! Voeg het string-ID en de toelichtende context toe.",
         "noQuote": "Je hebt geen citaat opgegeven! Om er een te verzoeken, kun je `+quote add <citaat> / <vermelding auteur>` uitvoeren.",
         "noUserQuote": "Je hebt geen gebruiker opgegeven! Typ het citaat, en vermeld dan de geciteerde gebruiker, gescheiden door een slash.",
         "falseChannel": "Dat kanaal kon niet worden gevonden!",
         "falseUser": "Die gebruiker kon niet worden gevonden!",
         "falseFlag": "Die vlag kon niet worden gevonden!",
+        "falseLang": "Die taal kon niet worden gevonden!",
         "noPlayer": "Die speler heeft Hypixel nooit toegetreden!",
         "disabled": "Dit commando is tijdelijk uitgeschakeld.",
         "noTrPr": "Je bent geen vertaler of proeflezer, dus je kunt dit niet gebruiken!",
@@ -42,7 +44,8 @@
         "rulesInfo": "%%rules%% en %%serverInfo%% bevatten alle benodigde informatie over deze server!",
         "fixTranslation": "Fout in een vertaling gevonden? Neem contact op met een proeflezer van je taal of laat het weten in een vertalingskanaal.",
         "pinnedInfo": "Wist je dat de meeste kanalen belangrijke info hebben in vastgezette berichten? Lees het eens als je een kanaal gebruikt!",
-        "hypixelStats": "Je kunt informatie over een specifieke Hypixel-speler bekijken met `+hypixelstats <naam> [social]`!"
+        "hypixelStats": "Je kunt informatie over een specifieke Hypixel-speler bekijken met `+hypixelstats <naam> [social]`!",
+        "languageStats": "Wist je dat je voortgang in een taal kunt bekijken over al onze ondersteunde projecten? Probeer `+languagestats <taal>`!"
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }

@@ -6,5 +6,5 @@
     "voiceChannels": "Sprachkanäle",
     "roles": "Rollen",
     "newItems": "%%newItem%% und %%newItem2%%",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Ausgeführt von %%user%%"
 }

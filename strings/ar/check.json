@@ -1,14 +1,13 @@
 {
     "moduleName": "المتحقق من الصلاحيات",
     "userID": "%%user%% (ID: %%id%%)",
-    "userNotFound": "That user wasn't found!",
     "uroles": "رتب",
     "ujoined": "دخل في",
     "ucreated": "تم انشاء الحساب في",
     "timeAgo": "%%time%% %%unit%% ago",
     "time": {
         "second": "second",
-        "seconds": "seconds",
+        "seconds": " ثواني",
         "minute": "minute",
         "minutes": "minutes",
         "hour": "hour",

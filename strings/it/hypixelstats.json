@@ -27,9 +27,9 @@
     "DUTCH": "Dutch",
     "SPANISH": "Spanish",
     "ITALIAN": "Italian",
-    "CHINESE_SIMPLIFIED": "Chinese (Simplified)",
-    "CHINESE_TRADITIONAL": "Chinese (Traditional)",
-    "PORTUGUESE_BR": "Portuguese (Brazil)",
+    "CHINESE_SIMPLIFIED": "Chinese Simplified",
+    "CHINESE_TRADITIONAL": "Chinese Traditional",
+    "PORTUGUESE_BR": "Portuguese, Brazilian",
     "RUSSIAN": "Russian",
     "KOREAN": "Korean",
     "POLISH": "Polish",
@@ -48,5 +48,5 @@
     "TURKISH": "Turkish",
     "UKRAINIAN": "Ukrainian",
     "madeBy": "Command made by %%developer%%",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Eseguito da %%user%%"
 }

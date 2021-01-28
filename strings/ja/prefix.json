@@ -25,5 +25,5 @@
     "newNickT": "新しいニックネーム",
     "noChanges": "変更なし",
     "saved": "接頭辞が保存されました！",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% によって実行されました"
 }

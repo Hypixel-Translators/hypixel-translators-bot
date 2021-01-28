@@ -30,8 +30,8 @@
     "newVal": "Новое значение для ",
     "stringId": "ID строки",
     "bulgarian": "Болгарский",
-    "chineseS": "Китайский (Упрощенный)",
-    "chineseT": "Китайский (Традиционный)",
+    "chineseS": "Chinese Simplified",
+    "chineseT": "Chinese Traditional",
     "czech": "Чешский",
     "danish": "Датский",
     "dutch": "Голландский",
@@ -47,7 +47,7 @@
     "pirate": "Пиратский Английский",
     "polish": "Польский",
     "portuguese": "Португальский",
-    "portugueseBr": "Португальский (Бразилия)",
+    "portugueseBr": "Portuguese, Brazilian",
     "russian": "Русский",
     "spanish": "Испанский",
     "swedish": "Шведский",
@@ -65,8 +65,8 @@
         "fields": "Поля",
         "sheetT": "Таблица контекста",
         "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
-        "sheetDButton": "Click here to open the Google Sheet containing context information.",
-        "sheetDel": "Deleting message in 1 minute"
+        "sheetDButton": "Нажмите здесь, чтобы открыть Google Таблицы, содержащий контекстную информацию.",
+        "sheetDel": "Сообщение будет удалено через 1 минуту"
     },
     "executedBy": "Выполнено %%user%%"
 }

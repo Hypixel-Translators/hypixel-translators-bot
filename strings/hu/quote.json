@@ -6,5 +6,5 @@
     "reqAdd": "Siker! A következő idézet lett hozzáadva:",
     "user": "Felhasználó",
     "index": "Idézet száma",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% által küldve"
 }

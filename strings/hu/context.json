@@ -30,8 +30,8 @@
     "newVal": "Új érték ehhez: ",
     "stringId": "Szöveg azonosító",
     "bulgarian": "Bolgár",
-    "chineseS": "Kínai (Egyszerűsített)",
-    "chineseT": "Kínai (Hagyományos)",
+    "chineseS": "Chinese Simplified",
+    "chineseT": "Chinese Traditional",
     "czech": "Cseh",
     "danish": "Dán",
     "dutch": "Holland",
@@ -47,7 +47,7 @@
     "pirate": "Kalóz Angol",
     "polish": "Lengyel",
     "portuguese": "Portugál",
-    "portugueseBr": "Portugál (Brazil)",
+    "portugueseBr": "Portuguese, Brazilian",
     "russian": "Orosz",
     "spanish": "Spanyol",
     "swedish": "Svéd",
@@ -68,5 +68,5 @@
         "sheetDButton": "Kattints ide a kontextusokat tartalmazó Google Sheet-ért.",
         "sheetDel": "Üzenetek törlése 1 perc múlva"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% által küldve"
 }

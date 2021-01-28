@@ -40,6 +40,10 @@
         "usage": "+context get|add|edit|view|help <Argument>",
         "description": "Zeigt, fügt oder bearbeitet Kontext für die angegebene String ID. `+context help` zeigt dir Informationen über diesen Befehl."
     },
+    "languagestats": {
+        "usage": "+languagestats <Sprache>",
+        "description": "Zeigt dir den Fortschritt einer Sprache über alle Projekte, die wir derzeit unterstützen."
+    },
     "issue": {
         "usage": "+issue",
         "description": "Öffnet unsere GitHub-Issues-Seite, wo du Probleme melden und Feedback senden kannst."
@@ -96,5 +100,5 @@
         "usage": "+twitter",
         "description": "Gibt dir den Link zur offiziellen Hypixel Translators Community Twitter-Seite."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Asg'fuat vo %%user%%"
 }

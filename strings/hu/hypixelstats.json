@@ -15,7 +15,7 @@
     "last_logout": "Last seen",
     "link": "Link",
     "notConnected": "Not connected",
-    "blocked": "Blocked server link",
+    "blocked": "Tiltott meghívó",
     "unknown": "ismeretlen",
     "lastGameHidden": "Last game is hidden or couldn't be obtained!",
     "lastLoginHidden": "Last seen time is hidden or couldn't be obtained!",
@@ -27,9 +27,9 @@
     "DUTCH": "Holland",
     "SPANISH": "Spanyol",
     "ITALIAN": "Olasz",
-    "CHINESE_SIMPLIFIED": "Kínai (Egyszerűsített)",
-    "CHINESE_TRADITIONAL": "Kínai (Hagyományos)",
-    "PORTUGUESE_BR": "Portugál (Brazil)",
+    "CHINESE_SIMPLIFIED": "Chinese Simplified",
+    "CHINESE_TRADITIONAL": "Chinese Traditional",
+    "PORTUGUESE_BR": "Portuguese, Brazilian",
     "RUSSIAN": "Orosz",
     "KOREAN": "Kóreai",
     "POLISH": "Lengyel",
@@ -48,5 +48,5 @@
     "TURKISH": "Török",
     "UKRAINIAN": "Ukrán",
     "madeBy": "Command made by %%developer%%",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% által küldve"
 }

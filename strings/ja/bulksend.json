@@ -2,5 +2,5 @@
     "moduleName": "Bulk Send",
     "success": "Success! Messages sent.",
     "success1": "成功！ メッセージを送信しました。",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% によって実行されました"
 }

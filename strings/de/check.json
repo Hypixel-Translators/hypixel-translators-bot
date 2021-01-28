@@ -1,7 +1,6 @@
 {
     "moduleName": "Nutzerinformation",
     "userID": "%%user%% (ID: %%id%%)",
-    "userNotFound": "Der Nutzer wurde nicht gefunden!",
     "uroles": "Rollen",
     "ujoined": "Beigetreten am",
     "ucreated": "Konto erstellt am",
@@ -29,5 +28,5 @@
     "mod": "Discord Moderator",
     "helper": "Discord Helfer",
     "manager": "Projektmanager",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Ausgeführt von %%user%%"
 }

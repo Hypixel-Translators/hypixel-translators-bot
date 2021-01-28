@@ -2,6 +2,8 @@
     "moduleName": "İstatistik Güncelleyici",
     "done": "Tüm istatistikler güncellendi!",
     "doneProject": "%%project%% dil istatistikleri güncellendi!",
+    "checkOutOne": "Check it out at %%channel%%!",
+    "checkOutAll": "Check them out at %%channel%%, %%channel%%, %%channel%% and %%channel%%!",
     "errorNoProject": "%%name%% adında proje bulunamadı.",
     "executedBy": "%%user%% tarafından yürütüldü"
 }

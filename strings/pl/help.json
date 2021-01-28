@@ -1,8 +1,8 @@
 {
     "moduleName": "Informacja",
     "page1Title": "Strona pomocy",
-    "commandsListTooltip": "Ten bot został stworzony dla Społeczności Tłumaczy Hypixel przez %%QkeleQ10%%. Jest otwartym oprogramowaniem, nasze repozytorium GitHub może zostać znalezione [tutaj]%%github%%.\nMożesz pomóc w tłumaczeniu bota postępując zgodnie z instrukcjami w [tej wiadomości]%%translate%%.\n\nMożesz wykonać `+help <nazwa polecenia>`, aby dowiedzieć się więcej o danym poleceniu.\nTutaj jest lista wszystkich stron. Używaj reakcji aby nawigować pomiędzy nimi.",
-    "madeBy": " | Bot stworzony z ogromną starannością przez %%QkeleQ10%%",
+    "commandsListTooltip": "Ten bot został stworzony dla Społeczności Tłumaczy Hypixel przez %%developer%%. Jest otwartym oprogramowaniem, nasze repozytorium GitHub może zostać znalezione [tutaj]%%github%%.\nMożesz pomóc w tłumaczeniu bota postępując zgodnie z instrukcjami w poleceniu `+translate`.\n\nMożesz wykonać `+help <nazwa polecenia>`, aby dowiedzieć się więcej o danym poleceniu.\nTutaj jest lista wszystkich stron. Używaj reakcji, aby nawigować pomiędzy nimi.",
+    "madeBy": "Bot stworzony z ogromną starannością przez %%QkeleQ10%%",
     "page": "Strona %%number%%/%%total%%",
     "pageNumber": "Strona %%number%%",
     "utilityHelp": "%%badge%% Narzędzia",
@@ -39,6 +39,10 @@
     "context": {
         "usage": "+context get|add|edit|link|help <argumenty>",
         "description": "Pobiera, dodaje lub edytuje kontekst danego identyfikatora ciągu. `+context help` pokazuje informację o tym poleceniu. `+context link` podaje Tobie link, aby zażądać dostęp do arkusza kalkulacyjnego z kontekstem."
+    },
+    "languagestats": {
+        "usage": "+languagestats <język>",
+        "description": "Wyświetla postęp języka we wszystkich projektach, które wspieramy."
     },
     "issue": {
         "usage": "+issue",

@@ -27,9 +27,9 @@
     "DUTCH": "オランダ語",
     "SPANISH": "スペイン語",
     "ITALIAN": "イタリア語",
-    "CHINESE_SIMPLIFIED": "中国語（簡体）",
-    "CHINESE_TRADITIONAL": "中国語（繁体）",
-    "PORTUGUESE_BR": "ポルトガル語（ブラジル）",
+    "CHINESE_SIMPLIFIED": "Chinese Simplified",
+    "CHINESE_TRADITIONAL": "Chinese Traditional",
+    "PORTUGUESE_BR": "Portuguese, Brazilian",
     "RUSSIAN": "ロシア語",
     "KOREAN": "韓国語",
     "POLISH": "ポーランド語",
@@ -48,5 +48,5 @@
     "TURKISH": "トルコ語",
     "UKRAINIAN": "ウクライナ語",
     "madeBy": "コマンドは%%developer%%によって作成されました",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% によって実行されました"
 }
