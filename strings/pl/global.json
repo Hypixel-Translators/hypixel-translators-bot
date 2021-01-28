@@ -34,7 +34,7 @@
     "tip": "Wskazówka",
     "tips": {
         "ib": "Czy wypróbowałeś/aś język Inhale Banana? Zmień swój język, używając `+lang ib`!",
-        "translators": "I need translators! Find out how to become a bot translator by executing `+translate`.",
+        "translators": "Potrzebuję tłumaczy! Dowiedz się, jak zostać tłumaczem bota wykonując `+translate`.",
         "prefix": "Czy chcesz mieć fajny prefiks w swoim nicku? Wpisz `+prefix` na %%bots%% i postępuj zgodnie z instrukcjami! Dostępne dla wszystkich tłumaczy Hypixel i Quickplay.",
         "enen": "Proszę zmienić swoje linki na en-en!",
         "xp": "Otrzymujesz losową ilość PD za każdą minutę rozmowy, co ostatecznie sprawi, że osiągniesz wyższy poziom.",
