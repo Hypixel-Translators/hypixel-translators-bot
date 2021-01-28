@@ -82,14 +82,18 @@ function quickplay(client) {
     fetch(url, settings)
         .then(res => res.json())
         .then(json => {
-            const langStatus = json.data
-            const reversed = Array.from(langStatus).reverse()
+            const langStatus = json.data.map(status => {
+                status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
+                return status
+            })
+            const reversed = Array.from(langStatus).sort((currentStatus, nextStatus) => {
+                return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
+            })
             client.channels.cache.find(channel => channel.name === "quickplay-language-status").messages.fetch() //quickplay-language-status
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async msg => {
                         let r = reversed[index].data
-                        let langdbEntry = langdb.find(l => l.code === r.languageId || l.id === r.languageId)
 
                         if (r.approvalProgress > 89) {
                             adapColour = successColor
@@ -101,7 +105,7 @@ function quickplay(client) {
 
                         const embed = new Discord.MessageEmbed()
                             .setColor(adapColour)
-                            .setTitle(langdbEntry.emoji + " | " + langdbEntry.name || "<:icon_question:756582065834688662>" + " | " + langdbEntry.name)
+                            .setTitle(r.language.emoji + " | " + r.language.name || "<:icon_question:756582065834688662>" + " | " + r.language.name)
                             .setThumbnail("https://crowdin.com/images/flags/" + r.languageId + ".png")
                             .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/quickplay/all/en-${langdbEntry.code}`)
                             .setTimestamp()
