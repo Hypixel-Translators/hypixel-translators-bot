@@ -100,5 +100,5 @@
         "usage": "+twitter",
         "description": "Megadja a linket a hivatalos Hypixel Translators Community Twitter oldalához."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% által küldve"
 }
