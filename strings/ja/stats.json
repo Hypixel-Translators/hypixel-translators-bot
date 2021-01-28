@@ -5,5 +5,5 @@
     "checkOutOne": "Check it out at %%channel%%!",
     "checkOutAll": "Check them out at %%channel%%, %%channel%%, %%channel%% and %%channel%%!",
     "errorNoProject": "Couldn't find the project with the name %%name%%.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% によって実行されました"
 }
