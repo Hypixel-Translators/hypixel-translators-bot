@@ -141,8 +141,13 @@ function bot(client) {
     fetch(url, settings)
         .then(res => res.json())
         .then(json => {
-            const langStatus = json.data
-            const reversed = Array.from(langStatus).reverse()
+            const langStatus = json.data.map(status => {
+                status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
+                return status
+            })
+            const reversed = Array.from(langStatus).sort((currentStatus, nextStatus) => {
+                return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
+            })
             client.channels.cache.find(channel => channel.name === "bot-language-status").messages.fetch() //bot-language-status
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
@@ -192,8 +197,13 @@ function skyblockaddons(client) {
         fetch(url, settings)
             .then(res => res.json())
             .then(json => {
-                const langStatus = json.data
-                const reversed = Array.from(langStatus).reverse()
+                const langStatus = json.data.map(status => {
+                    status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
+                    return status
+                })
+                const reversed = Array.from(langStatus).sort((currentStatus, nextStatus) => {
+                    return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
+                })
                 client.channels.cache.find(channel => channel.name === "sba-language-status").messages.fetch() //sba-language-status
                     .then(messages => {
                         fiMessages = messages.filter(msg => msg.author.bot)
