@@ -7,5 +7,5 @@
     "successAll": "All channels have been updated!",
     "checkOut1": "Check it out at %%channel%%!",
     "checkOut2": "Check them out at %%info%%, %%rules%% and %%verify%%!",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "This be executed by %%user%%"
 }
