@@ -40,19 +40,23 @@ function hypixel(client) {
     fetch(url, settings)
         .then(res => res.json())
         .then(json => {
-            const langStatus = json.data
-            const reversed = Array.from(langStatus).reverse()
+            const langStatus = json.data.map(status => {
+                status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
+                return status
+            })
+            const reversed = Array.from(langStatus).sort((currentStatus, nextStatus) => {
+                return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
+            })
             client.channels.cache.find(channel => channel.name === "hypixel-language-status").messages.fetch() //hypixel-language-status
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async msg => {
                         let r = reversed[index].data
-                        let langdbEntry = langdb.find(l => l.code === r.languageId || l.id === r.languageId)
                         const embed = new Discord.MessageEmbed()
-                            .setColor(langdbEntry.colour)
-                            .setTitle(langdbEntry.emoji + " | " + langdbEntry.name || "<:icon_question:756582065834688662>" + " | " + langdbEntry.name)
+                            .setColor(r.language.colour)
+                            .setTitle(r.language.emoji + " | " + r.language.name || "<:icon_question:756582065834688662>" + " | " + r.language.name)
                             .setThumbnail("https://crowdin.com/images/flags/" + r.languageId + ".png")
-                            .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel/all/en-${langdbEntry.code}`)
+                            .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel/all/en-${r.language.code}`)
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
@@ -107,7 +111,7 @@ function quickplay(client) {
                             .setColor(adapColour)
                             .setTitle(r.language.emoji + " | " + r.language.name || "<:icon_question:756582065834688662>" + " | " + r.language.name)
                             .setThumbnail("https://crowdin.com/images/flags/" + r.languageId + ".png")
-                            .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/quickplay/all/en-${langdbEntry.code}`)
+                            .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/quickplay/all/en-${r.language.code}`)
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
@@ -144,7 +148,6 @@ function bot(client) {
                     fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async msg => {
                         let r = reversed[index].data
-                        let langdbEntry = langdb.find(l => l.code === r.languageId || l.id === r.languageId)
 
                         if (r.approvalProgress > 89) {
                             adapColour = successColor
@@ -156,9 +159,9 @@ function bot(client) {
 
                         const embed = new Discord.MessageEmbed()
                             .setColor(adapColour)
-                            .setTitle(langdbEntry.emoji + " | " + langdbEntry.name || "<:icon_question:756582065834688662>" + " | " + langdbEntry.name)
-                            .setThumbnail((langdbEntry.flag))
-                            .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel-translators-bot/all/en-${langdbEntry.code}`)
+                            .setTitle(r.language.emoji + " | " + r.language.name || "<:icon_question:756582065834688662>" + " | " + r.language.name)
+                            .setThumbnail((r.language.flag))
+                            .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel-translators-bot/all/en-${r.language.code}`)
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
@@ -196,7 +199,6 @@ function skyblockaddons(client) {
                         fiMessages = messages.filter(msg => msg.author.bot)
                         fiMessages.forEach(async msg => {
                             let r = reversed[index].data
-                            let langdbEntry = langdb.find(l => l.code === r.languageId || l.id === r.languageId)
 
                             if (r.approvalProgress > 89) {
                                 adapColour = successColor
@@ -208,10 +210,10 @@ function skyblockaddons(client) {
 
                             const embed = new Discord.MessageEmbed()
                                 .setColor(adapColour)
-                                .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-${langdbEntry.code}`)
-                                .setThumbnail((langdbEntry.flag))
+                                .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-${r.language.code}`)
+                                .setThumbnail((r.language.flag))
                                 .setTimestamp()
-                            if (langdbEntry) { embed.setTitle(langdbEntry.emoji + " | " + langdbEntry.name) } else { embed.setTitle("<:icon_question:756582065834688662> | " + langdbEntry.name) }
+                            if (r.language) { embed.setTitle(r.language.emoji + " | " + r.language.name) } else { embed.setTitle("<:icon_question:756582065834688662> | " + r.language.name) }
                             msg.edit("", embed)
                             index++
                         })
