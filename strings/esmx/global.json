@@ -8,7 +8,7 @@
         "noMessage": "¡No has introducido ningún mensaje!",
         "noChannel": "¡No has proporcionado un canal!",
         "noUser": "¡No has proporcionado un usuario!",
-        "noLang": "¡No proporcionaste un idioma!",
+        "noLang": "¡No has proporcionado un idioma!",
         "noContext": "¡No ha proporcionado el contexto! Por favor, agregue tanto el ID del string como el contexto que lo explica.",
         "noQuote": "¡No ha proporcionado una cita! Para solicitar que se agregue una, ejecute `+quote add <cita> / <mención del citado>`.",
         "noUserQuote": "¡No ha proporcionado un usuario! Por favor escriba la cita y luego mencione el usuario citado, separado por una barra.",
@@ -34,7 +34,7 @@
     "tip": "Consejo",
     "tips": {
         "ib": "¿Has probado el idioma Inhale Banana? ¡Cambie su idioma usando `+lang ib`!",
-        "translators": "¡Necesito traductores! Aprende sobre como ser un traductor usando `+translate`.",
+        "translators": "¡Necesito traductores! Descubra cómo convertirse en un traductor del bot, ejecutando `+translate`.",
         "prefix": "¿Quieres tener un prefijo genial en tu apodo? ¡Ejecute `+prefix` en %%bots%% y siga las instrucciones! Disponible para todos los traductores de Hypixel y Quickplay.",
         "enen": "¡Por favor, cambie sus enlaces a en-en!",
         "xp": "Obtienes cantidades aleatorias de XP cada minuto cuando estás chateando, lo que eventualmente te hará subir de nivel.",
@@ -45,7 +45,7 @@
         "fixTranslation": "¿Encontró un error en una traducción? Póngase en contacto con un corrector de pruebas de su idioma o avísele a la gente en un canal de traducción.",
         "pinnedInfo": "¿Sabías que la mayoría de los canales tienen información importante fijada? ¡Debería comprobarlo cada vez que visite uno!",
         "hypixelStats": "¡Puedes ver información sobre un jugador específico en Hypixel ejecutando `+hypixelstats <nombre de usuario> [social]`!",
-        "languageStats": "¿Sabías que puedes ver estadísticas de cualquier idioma en todos de nuestros proyectos? ¡Usa `+languagestats <idioma>`!"
+        "languageStats": "¿Sabía que puede ver estadísticas para cualquier idioma en todos nuestros proyectos? ¡Simplemente ejecute `+languagestats <idioma>`!"
     },
     "executedBy": "Ejecutado por %%user%%"
 }
