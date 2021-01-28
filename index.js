@@ -109,7 +109,7 @@ client.on("message", async message => {
         .setAuthor(globalStrings.linkCorrectionName)
         .setTitle(globalStrings.linkCorrectionDesc.replace("%%format%%", "`crowdin.com/translate/.../.../en-en`"))
         .setDescription(msgTxt)
-      message.channel.send(`<@${message.author.id}>`, embed)
+      message.channel.send(message.author, embed)
     }
   }
 
@@ -388,7 +388,7 @@ client.on("guildMemberAdd", member => {
 
       //OUTPUT
       const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `${member.user.username} join.png`)
-      member.guild.channels.cache.get("549882021934137354").send(`<@${member.user.id}> just joined! Welcome! 🎉`, attachment) //join-leave
+      member.guild.channels.cache.get("549882021934137354").send(`${member.user} just joined! Welcome! 🎉`, attachment) //join-leave
     })
   })
   member.send(`Hey there and thanks for joining **${member.guild.name}**! If you're a translator, be sure to check out <#699275092026458122> as this channel includes useful information for new and current translators. If you're looking to translate other projects, check out the ones we currently support by executing \`+projects\` here! We hope you have fun on our server!`).catch(() => console.log(`Couldn't DM user ${member.user.tag}, probably because they have DMs off`)) //getting started
@@ -402,7 +402,7 @@ client.on("guildMemberRemove", member => {
   //Run if the member who leaves had the Bot Translator/Proofreader/Manager roles
   const botRole = member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628")
   if (botRole) { //bot updates
-    client.channels.cache.get("768160446368186428").send(`${member.user.tag} had the <@&${botRole.id}> role and just left the server!`) //managers
+    client.channels.cache.get("768160446368186428").send(`${member.user.tag} had the ${botRole} role and just left the server!`) //managers
     console.log(`${member.user.tag} left and had the ${botRole.name} role`)
   }
 })

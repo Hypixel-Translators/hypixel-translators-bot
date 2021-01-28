@@ -113,9 +113,9 @@ module.exports = {
       .setTitle(strings.langTitle.replace("%%country%%", country.name(code)))
       .setDescription(strings.warnings)
       .addFields(
-        { name: strings.textChannels, value: strings.newItems.replace("%%newItem%%", `<#${translatorsChannel.id}>`).replace("%%newItem2%%", `<#${proofreadersChannel.id}>`) },
-        { name: strings.voiceChannels, value: strings.newItems.replace("%%newItem%%", `<#${translatorsVoice.id}>`).replace("%%newItem2%%", `<#${proofreadersVoice.id}>`) },
-        { name: strings.roles, value: strings.newItems.replace("%%newItem%%", `<@&${translatorRole.id}>`).replace("%%newItem2%%", `<@&${proofreaderRole.id}>`) }
+        { name: strings.textChannels, value: strings.newItems.replace("%%newItem%%", translatorsChannel).replace("%%newItem2%%", proofreadersChannel) },
+        { name: strings.voiceChannels, value: strings.newItems.replace("%%newItem%%", translatorsVoice).replace("%%newItem2%%", proofreadersVoice) },
+        { name: strings.roles, value: strings.newItems.replace("%%newItem%%", translatorRole).replace("%%newItem2%%", proofreaderRole) }
       )
       .setFooter(executedBy, message.author.displayAvatarURL())
     message.channel.stopTyping()

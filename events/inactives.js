@@ -25,12 +25,12 @@ async function check(client) {
                     .then(() => {
                         //client.channels.cache.get("662660931838410754").send("**" + member.user.tag + "** has been kicked for inactivity.")
                         //console.log("Kicked " + member.user.tag + " for inactivity")
-                        client.channels.cache.get("662660931838410754").send("<@" + member.user.id + "> has been automatically verified after staying on the server for 2 weeks.")
-                        console.log("Automatically verified " + member.user.tag + " after 2 weeks")
+                        client.channels.cache.get("662660931838410754").send(`${member} has been automatically verified after staying on the server for 2 weeks.`)
+                        console.log(`Automatically verified ${member.user.tag} after 2 weeks`)
                     })
                     .catch(() => {
-                        client.channels.cache.get("662660931838410754").send("Automatically verified <@" + member.user.id + "> after 2 weeks but couldn't send them a DM with the reason.")
-                        console.error("Automatically verified " + member.user.tag + " after 2 weeks but couldn't DM them")
+                        client.channels.cache.get("662660931838410754").send(`Automatically verified ${member} after 2 weeks but couldn't send them a DM with the reason.`)
+                        console.error(`Automatically verified ${member.user.tag} after 2 weeks but couldn't DM them`)
                     })
                 //member.kick("Stood on the server for 14 days without verifying")
                 member.roles.add("569194996964786178", "Automatically verified after 2 weeks").then(() => member.roles.remove("756199836470214848", "Automatically verified after 2 weeks")) //Remove Alerted and add Verified
@@ -40,14 +40,14 @@ async function check(client) {
         if (member.joinedTimestamp <= alert) {
             member.send("Hey there!\nWe noticed you haven't verified yourself on our server. Are you having any trouble? Please message Rodry or Stannya or just ask any questions in the <#569178590697095168> channel! Otherwise, please send your profile link like shown in the channel.\n\nThis message was sent to you because you have been on our server for too long, and you're in risk of getting kicked for inactivity soon.\nPlease do not reply to this bot.") //verify
                 .then(() => {
-                    client.channels.cache.get("662660931838410754").send("Sent an alert to **<@" + member.id + ">** as they've been in the server for 7 days without verifying.")
-                    console.log(member.user.tag + " was alerted for inactivity")
+                    client.channels.cache.get("662660931838410754").send(`Sent an alert to ${member} as they've been in the server for 7 days without verifying.`)
+                    console.log(`Alerted ${member.user.tag} for inactivity`)
                 })
                 .catch(() => {
-                    client.channels.cache.get("662660931838410754").send("Tried to send an alert to **<@" + member.id + ">** as they've been stood in the server for 7 days without verifying, but they had private messages disabled from this server.")
-                    console.error("Tried to alert " + member.user.tag + " but they had DMs disabled.")
+                    client.channels.cache.get("662660931838410754").send(`Tried to send an alert to ${member} as they've been stood in the server for 7 days without verifying, but they had private messages disabled from this server.`)
+                    console.error(`Tried to alert ${member.user.tag} but they had DMs disabled.`)
                 })
             member.roles.add("756199836470214848", "Stood on the server for 7 days without verifying")
-        } else { console.log(member.user.tag + " wasn't alerted nor kicked") }
+        }
     })
 }
