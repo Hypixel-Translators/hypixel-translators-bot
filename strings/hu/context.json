@@ -68,5 +68,5 @@
         "sheetDButton": "Kattints ide a kontextusokat tartalmazó Google Sheet-ért.",
         "sheetDel": "Üzenetek törlése 1 perc múlva"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% által küldve"
 }
