@@ -2,6 +2,8 @@
     "moduleName": "Statistiken Aktualisierung",
     "done": "Alle Statistiken wurden aktualisiert!",
     "doneProject": "Die %%project%%-Sprachstatistik wurde aktualisiert!",
+    "checkOutOne": "Schau es dir bei %%channel%% an!",
+    "checkOutAll": "Check them out at %%channel%%, %%channel%%, %%channel%% and %%channel%%!",
     "errorNoProject": "Das Projekt mit dem Namen %%name%% konnte nicht gefunden werden.",
     "executedBy": "Executed by %%user%%"
 }
