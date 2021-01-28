@@ -1,5 +1,5 @@
 {
     "moduleName": "Zalgo figyelő",
     "done": "Az összes zalgo becenév meg lett változtatva!",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% által küldve"
 }
