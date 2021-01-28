@@ -1,7 +1,7 @@
 {
     "moduleName": "Language",
     "changedToTitle": "Changed your language to English!",
-    "didntChange": "Your language didn't change",
+    "didntChange": "Yer language didn't change",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
     "errorTitle": "That language hasn't been added yet!",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
@@ -49,5 +49,5 @@
     "th": "Thai",
     "tr": "Turkish",
     "ua": "Ukrainian",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "This be executed by %%user%%"
 }
