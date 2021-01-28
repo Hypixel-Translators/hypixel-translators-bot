@@ -48,5 +48,5 @@
     "TURKISH": "Török",
     "UKRAINIAN": "Ukrán",
     "madeBy": "Command made by %%developer%%",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% által küldve"
 }
