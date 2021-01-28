@@ -28,5 +28,5 @@
     "mod": "Discord Moderator",
     "helper": "Discord Helper",
     "manager": "Project Manager",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "This be executed by %%user%%"
 }
