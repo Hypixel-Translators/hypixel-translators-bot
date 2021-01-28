@@ -3,7 +3,7 @@
     "done": "¡Se han actualizado todas las estadísticas de idiomas!",
     "doneProject": "¡Se han actualizado las estadísticas de %%project%%!",
     "checkOutOne": "¡Echa un vistazo a %%channel%%!",
-    "checkOutAll": "Check them out at %%channel%%, %%channel%%, %%channel%% and %%channel%%!",
+    "checkOutAll": "¡Échales un vistazo en %%channel%%, %%channel%%, %%channel%% y %%channel%%!",
     "errorNoProject": "No se pudo encontrar el proyecto con el nombre de %%name%%.",
     "executedBy": "Ejecutado por %%user%%"
 }
