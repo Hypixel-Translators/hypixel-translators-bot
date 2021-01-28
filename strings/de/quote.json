@@ -6,5 +6,5 @@
     "reqAdd": "Erfolgreich! Das folgende Zitat wurde hinzugefügt:",
     "user": "Benutzer",
     "index": "Zitat Nummer",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Ausgeführt von %%user%%"
 }
