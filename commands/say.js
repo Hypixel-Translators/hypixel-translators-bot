@@ -29,7 +29,7 @@ module.exports = {
       .setColor(successColor)
       .setAuthor(strings.moduleName)
       .setTitle(strings.success)
-      .setDescription("<#" + sendTo.id + ">:\n" + msg.content)
+      .setDescription(`${sendTo}:\n${message.content}`)
       .setFooter(executedBy, message.author.displayAvatarURL())
     message.channel.send(embed)
   }
