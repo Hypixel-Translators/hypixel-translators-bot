@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 const fetch = require("node-fetch")
 const ctokenV2 = process.env.CTOKEN_API_V2
-const { successColor, loadingColor, errorColor, langdb } = require("../config.json")
+const { successColor, loadingColor, errorColor, neutralColor, langdb } = require("../config.json")
 
 module.exports = {
     name: "languagestats",
@@ -57,7 +57,7 @@ module.exports = {
                                         })
 
                                         const embed = new Discord.MessageEmbed()
-                                            .setColor(successColor)
+                                            .setColor(neutralColor)
                                             .setThumbnail(lang.flag)
                                             .setAuthor(strings.moduleName)
                                             .setTitle(`${lang.emoji} | ${strings.languages[lang.code]}`)
