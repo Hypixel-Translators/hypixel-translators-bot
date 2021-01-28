@@ -1,7 +1,7 @@
 {
     "moduleName": "Información",
     "page1Title": "Página de ayuda",
-    "commandsListTooltip": "Este bot fue creado para la Comunidad de Traductores de Hypixel por %%developer%%. Es de código abierto y nuestro repositorio de GitHub se puede encontrar [aquí]%%github%%.\nPuedes ayudar a traducir el bot siguiendo las instrucciones en el comando `+translate`\n\nPuedes ejecutar `+help <nombre del comando>` para aprender más sobre un comando especifico. Aquí hay una lista de todas las páginas disponibles. Usa las reacciones en este mensaje para alternarlas.",
+    "commandsListTooltip": "Este bot fue creado para la Comunidad de Traductores de Hypixel por %%developer%%. Es de código abierto y nuestro repositorio de GitHub se puede encontrar [aquí]%%github%%.\nPuede ayudar a traducir el bot siguiendo las instrucciones del comando `+translate`. \n\nPuede ejecutar `+help <nombre del comando>` para obtener más información sobre un comando específico.\nA continuación puede encontrar una lista de todas las páginas disponibles. Utilice las reacciones de este mensaje para recorrerlas.",
     "madeBy": "Bot hecho con mucho cariño por %%QkeleQ10%%",
     "page": "Página %%number%%/%%total%%",
     "pageNumber": "Página %%number%%",
@@ -42,7 +42,7 @@
     },
     "languagestats": {
         "usage": "+languagestats <idioma>",
-        "description": "Te muestra el progreso de un idioma en todos los proyectos disponibles."
+        "description": "Muestra el progreso de un idioma en todos los proyectos que apoyamos actualmente."
     },
     "issue": {
         "usage": "+issue",
