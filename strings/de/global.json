@@ -8,14 +8,14 @@
         "noMessage": "Du hast keine Nachricht angegeben!",
         "noChannel": "Du hast keinen Kanal zur Auswahl gestellt!",
         "noUser": "Du hast keine Nachricht angegeben!",
-        "noLang": "You haven't provided a language!",
+        "noLang": "Du hast keine Sprache angegeben!",
         "noContext": "Du hast den Kontext nicht angegeben! Bitte füge sowohl die String-ID als auch den Kontext hinzu, der sie erklärt.",
         "noQuote": "Du hast kein Zitat angegeben! Um ein solches hinzuzufügen, führe `+quote add <Zitat> / <Autorennennung>` aus.",
         "noUserQuote": "Du hast keinen Benutzer angegeben! Bitte gebe das Zitat ein und erwähne dann den zitierten Benutzer, getrennt durch einen Schrägstrich.",
         "falseChannel": "Der Kanal wurde nicht gefunden!",
         "falseUser": "Der Benutzer wurde nicht gefunden!",
         "falseFlag": "Diese Flagge konnte nicht gefunden werden!",
-        "falseLang": "That language couldn't be found!",
+        "falseLang": "Diese Sprache konnte nicht gefunden werden!",
         "noPlayer": "Dieser Spieler ist Hypixel nie beigetreten!",
         "disabled": "Der Befehl ist vorübergehend deaktiviert.",
         "noTrPr": "Du bist kein Translator oder Proofreader, daher kannst du es nicht benutzen!",
@@ -34,7 +34,7 @@
     "tip": "Tipp",
     "tips": {
         "ib": "Hast du schon die Inhale Banana-Sprache ausprobiert? Ändere deine Sprache mit `+lang ib`!",
-        "translators": "I need translators! Find out how to become a bot translator by executing `+translate`.",
+        "translators": "Ich brauche Übersetzer! Finde heraus wie du ein Bot-Übersetzer werden kannst bei %%translate%%.",
         "prefix": "Möchtest du einen coolen Präfix vor deinem Benutzernamen haben? Führe `+prefix` in %%bots%% aus und folge den Anweisungen! Verfügbar für alle Hypixel- und Quickplay-Übersetzer.",
         "enen": "Bitte ändere deine Links auf en-en!",
         "xp": "Du bekommst eine zufällige XP-Anzahl wenn du schreibst, wodurch du ein Level aufsteigst.",
@@ -45,7 +45,7 @@
         "fixTranslation": "Du hast einen Fehler in der Übersetzung gefunden? Dann kontaktiere einen Proofreader für die Sprache oder lasse es in dem Channel für Übersetzung wissen.",
         "pinnedInfo": "Wusstest du, dass die meisten Kanäle wichtige Informationen angeheftet haben? Du solltest sie dir jedes Mal ansehen, wenn du einen besuchst!",
         "hypixelStats": "Du kannst dir Informationen über einen bestimmten Spieler auf Hypixel ansehen, indem du `+hypixelstats <Spitzname> [social]` ausführst!",
-        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!"
+        "languageStats": "Wusstest du, dass du Statistiken für jede Sprache in allen unseren Projekten sehen kannst? Führe einfach `+languagestats <Sprache>` aus!"
     },
     "executedBy": "Ausgeführt von %%user%%"
 }
