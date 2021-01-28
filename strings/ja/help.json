@@ -100,5 +100,5 @@
         "usage": "+twitter",
         "description": "公式のHypixel翻訳者コミュニティTwitterページへのリンクを表示します。"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% によって実行されました"
 }
