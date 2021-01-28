@@ -1,5 +1,5 @@
 {
     "moduleName": "Üzenet",
     "success": "Siker! Üzenet elküldve.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% által küldve"
 }
