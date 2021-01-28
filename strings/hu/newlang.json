@@ -6,5 +6,5 @@
     "voiceChannels": "Voice Channels",
     "roles": "Rangok",
     "newItems": "%%newItem%% and %%newItem2%%",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "%%user%% által küldve"
 }
