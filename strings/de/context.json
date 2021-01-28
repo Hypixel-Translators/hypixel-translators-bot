@@ -30,8 +30,8 @@
     "newVal": "Neuer Wert für ",
     "stringId": "String ID",
     "bulgarian": "Bulgarisch",
-    "chineseS": "Chinese Simplified",
-    "chineseT": "Chinese Traditional",
+    "chineseS": "Vereinfachtes Chinesisch",
+    "chineseT": "Traditionelles Chinesisch",
     "czech": "Tschechisch",
     "danish": "Dänisch",
     "dutch": "Niederländisch",
@@ -47,7 +47,7 @@
     "pirate": "Piratensprache",
     "polish": "Polnisch",
     "portuguese": "Portugiesisch",
-    "portugueseBr": "Portuguese, Brazilian",
+    "portugueseBr": "Portugiesisch, Brasilien",
     "russian": "Russisch",
     "spanish": "Spanisch",
     "swedish": "Schwedisch",
@@ -68,5 +68,5 @@
         "sheetDButton": "Klicke hier, um das Google-Sheet mit den Kontextinformationen zu öffnen.",
         "sheetDel": "Lösche Nachricht nach 2 Minuten"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Ausgeführt von %%user%%"
 }
