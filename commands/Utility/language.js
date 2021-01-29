@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor, langdb } = require("../config.json")
+const { loadingColor, errorColor, successColor, neutralColor, langdb } = require("../../config.json")
 const Discord = require("discord.js")
 const fs = require("fs")
 const { name, code } = require('country-emoji')
@@ -98,7 +98,7 @@ module.exports = {
                         const newFiMessage = await newMessages.filter(element => (element.content.split(" ")[0] === newLang))
                         await newFiMessage.forEach(async element => {
                             const oldNewMsg = element.content
-                            strings = await require(("../strings/" + newLang + "/language.json"))
+                            strings = await require("../../strings/" + newLang + "/language.json")
                             executedBy = await strings.executedBy.replace("%%user%%", message.author.tag)
                             newMsg = await oldNewMsg.split(" ")
                             console.log("Old new message: " + oldNewMsg)

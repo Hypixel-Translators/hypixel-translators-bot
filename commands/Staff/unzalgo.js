@@ -1,6 +1,6 @@
-const { successColor } = require("../config.json")
+const { successColor } = require("../../config.json")
 const Discord = require("discord.js")
-const unzalgo = require("../actions/unzalgo.js")
+const unzalgo = require("../../actions/unzalgo.js")
 
 module.exports = {
     name: "unzalgo",
@@ -9,18 +9,14 @@ module.exports = {
     aliases: ["zalgo", "zalgocheck"],
     roleWhitelist: ["768435276191891456"], //Discord Staff
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
-    async execute(message, strings) {
+    execute(message, strings) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        message.channel.startTyping()
-        try {
-            await unzalgo.execute(message.client, true)
+            unzalgo.execute(message.client, true)
             const embed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.done)
                 .setFooter(executedBy, message.author.displayAvatarURL())
-            message.channel.stopTyping()
             message.channel.send(embed)
-        } catch (err) { throw err }
     }
 }

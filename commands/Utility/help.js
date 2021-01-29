@@ -1,5 +1,6 @@
-const { errorColor, neutralColor, prefix } = require("../config.json")
+const { errorColor, neutralColor, prefix } = require("../../config.json")
 const Discord = require("discord.js")
+const fs = require("fs")
 
 module.exports = {
   name: "help",
@@ -13,11 +14,17 @@ module.exports = {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
 
+    //Define command categories
+    const utilityCmds = []
+    fs.readdirSync("./commands/Utility/").forEach(command => utilityCmds.push(command.split(".").shift()))
+    const infoCmds = []
+    fs.readdirSync("./commands/Info/").forEach(command => infoCmds.push(command.split(".").shift()))
+
     //Define all pages
     const pages = [
       { "n": 0 },
-      { "n": 1, "f": ["help", "language", "prefix", "quote", "mention", "context", "languagestats", "hypixelstats", "tip", "ping"], "b": "🛠", "t": "utilityHelp" },
-      { "n": 2, "f": ["invite", "projects", "hypixel", "guidelines", "quickplay", "skyblockaddons", "translate", "thread", "twitter", "issue"], "b": "ℹ", "t": "infoHelp" }
+      { "n": 1, "f": utilityCmds, "b": "🛠", "t": "utilityHelp" },
+      { "n": 2, "f": infoCmds, "b": "ℹ", "t": "infoHelp" }
     ]
 
     if (args[0] && args[0].startsWith(prefix)) args[0] = args[0].slice(1)

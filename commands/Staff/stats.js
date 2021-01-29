@@ -1,6 +1,6 @@
-const { errorColor, successColor } = require("../config.json")
+const { errorColor, successColor } = require("../../config.json")
 const Discord = require("discord.js")
-const { execute, hypixel, quickplay, skyblockaddons, bot } = require("../actions/stats.js")
+const { execute, hypixel, quickplay, skyblockaddons, bot } = require("../../actions/stats.js")
 
 module.exports = {
     name: "stats",

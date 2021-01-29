@@ -14,15 +14,15 @@ module.exports = {
         let holidayName = args[0].toLowerCase()
         if (holidayName === "newyear" || args.join("").toLowerCase() === "newyear") holidayName = "newYear"
         if (!strings[holidayName]) return message.channel.send("I have no idea what holiday that is sir.")
-        strings = require(`../strings/en/holidays.json`)
-        const dirPath = path.join(__dirname, "../strings")
+        strings = require(`../../strings/en/holidays.json`)
+        const dirPath = path.join(__dirname, "../../strings")
         let holiday = []
         let log = []
         holiday.push(strings[holidayName])
         fs.readdir(dirPath, function (err, files) {
             files.forEach(file => {
                 if (err) return console.error('Unable to scan directory: ' + err)
-                strings = require(`../strings/${file}/holidays.json`)
+                strings = require(`../../strings/${file}/holidays.json`)
                 if (!holiday.includes(strings[holidayName])) {
                     holiday.push(strings[holidayName])
                     log.push(`${file}: ${strings[holidayName]}`)

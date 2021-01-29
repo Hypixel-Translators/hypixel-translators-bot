@@ -1,6 +1,6 @@
-const { successColor } = require("../config.json")
+const { successColor } = require("../../config.json")
 const Discord = require("discord.js")
-const inactives = require("../actions/inactives.js")
+const inactives = require("../../actions/inactives.js")
 
 module.exports = {
     name: "inactives",

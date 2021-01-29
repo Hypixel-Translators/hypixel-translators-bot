@@ -1,4 +1,4 @@
-const { errorColor, successColor, neutralColor } = require("../config.json")
+const { errorColor, successColor, neutralColor } = require("../../config.json")
 const Discord = require("discord.js")
 
 module.exports = {
@@ -15,13 +15,13 @@ module.exports = {
         const recipient = message.client.users.cache.get(userToSend)
         if (!recipient) return
         
-        let rStrings = require("../strings/en/dm.json")
+        let rStrings = require("../../strings/en/dm.json")
         const oldMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
         const oldFiMessages = oldMessages.filter(element => element.content.includes(recipient.id))
         oldFiMessages.forEach(element => {
             let oldMsg = element.content.split(" ")
             oldMsg.splice(oldMsg.indexOf(recipient.id), 1)
-            rStrings = require(`../strings/${oldMsg[0]}/dm.json`)
+            rStrings = require(`../../strings/${oldMsg[0]}/dm.json`)
         })
         message.channel.startTyping()
         if (toSend) {

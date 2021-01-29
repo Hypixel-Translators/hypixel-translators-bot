@@ -1,4 +1,4 @@
-const { successColor, langdb } = require("../config.json")
+const { successColor, langdb } = require("../../config.json")
 const Discord = require("discord.js")
 const country = require("countryjs")
 const { flag } = require("country-emoji")

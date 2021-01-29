@@ -1,4 +1,4 @@
-const { successColor } = require("../config.json")
+const { successColor } = require("../../config.json")
 const Discord = require("discord.js")
 
 module.exports = {
@@ -29,7 +29,7 @@ module.exports = {
       .setColor(successColor)
       .setAuthor(strings.moduleName)
       .setTitle(strings.success)
-      .setDescription(`${sendTo}:\n${message.content}`)
+      .setDescription(`${sendTo}:\n${toSend}`)
       .setFooter(executedBy, message.author.displayAvatarURL())
     message.channel.send(embed)
   }
