@@ -107,7 +107,7 @@ client.on("message", async message => {
             if (command.dev && !message.member.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
 
             //Give perm to admins and return if not allowed
-            if (message.member.hasPermission("MANAGE_ROLES")) allowed = true
+            if (message.member.hasPermission("MANAGE_ROLES") && command.name !== "eval") allowed = true
         } else allowed = false
     }
     if (!allowed) {
