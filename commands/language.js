@@ -79,6 +79,7 @@ module.exports = {
             } else {
                 message.channel.startTyping()
                 let newLang = args[0].toLowerCase()
+                if (newLang === "se") newLang === "sv"
                 const langdbEntry = langdb.find(l => l.name.toLowerCase() === newLang)
                 if (langdbEntry) newLang = langdbEntry.code
                 const path = `./strings/${newLang}/language.json`
