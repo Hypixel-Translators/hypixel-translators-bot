@@ -25,5 +25,5 @@
     "newNickT": "New nickname",
     "noChanges": "No changes",
     "saved": "Your prefix has been saved!",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "触发者：%%user%%"
 }
