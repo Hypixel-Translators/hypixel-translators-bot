@@ -11,12 +11,12 @@
     "lastSeen": "Last seen in %%game%%",
     "language": "Språk",
     "first_login": "First Login",
-    "last_login": "Online since",
+    "last_login": "Online sedan",
     "last_logout": "Last seen",
-    "link": "Link",
-    "notConnected": "Not connected",
+    "link": "Länk",
+    "notConnected": "Inte ansluten",
     "blocked": "Blocked server link",
-    "unknown": "unknown",
+    "unknown": "okänd",
     "lastGameHidden": "Last game is hidden or couldn't be obtained!",
     "lastLoginHidden": "Last seen time is hidden or couldn't be obtained!",
     "dateLocale": "sv-SE",
@@ -48,5 +48,5 @@
     "TURKISH": "Turkiska",
     "UKRAINIAN": "Ukrainska",
     "madeBy": "Command made by %%developer%%",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Utfördes av %%user%%"
 }
