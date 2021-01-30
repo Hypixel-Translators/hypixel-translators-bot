@@ -1,5 +1,5 @@
 {
-    "moduleName": "Direct Message",
+    "moduleName": "Mensagem Direta",
     "outgoing": "Mensagem enviada para %%recipient%%",
     "error": "An error occured while trying to message %%recipient%%",
     "noMsg": "You need to specify what message you want to send to this person!",
