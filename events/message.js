@@ -172,7 +172,7 @@ client.on("message", async message => {
     globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
     //Run command and handle errors
-    try { command.execute(message, strings, args, globalStrings) }
+    try { await command.execute(message, strings, args, globalStrings) }
     catch (error) {
 
         //Handle errors

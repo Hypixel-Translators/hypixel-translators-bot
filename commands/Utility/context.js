@@ -12,6 +12,7 @@ module.exports = {
     cooldown: 30,
     execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+        if (!args[0]) throw "contextSubArg"
         const subCmd = args[0].toLowerCase()
         try {
             if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771") && !message.member.hasPermission("MANAGE_ROLES")) throw "noTrPr" //Hypixel Translator and Hypixel Proofreader

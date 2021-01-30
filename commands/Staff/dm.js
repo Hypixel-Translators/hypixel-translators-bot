@@ -13,7 +13,7 @@ module.exports = {
         args.splice(0, 1)
         let toSend = args.join(" ")
         const recipient = message.client.users.cache.get(userToSend)
-        if (!recipient) return
+        if (!recipient) throw "falseUser"
         
         let rStrings = require("../../strings/en/dm.json")
         const oldMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
