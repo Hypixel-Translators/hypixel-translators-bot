@@ -1,5 +1,5 @@
 {
     "moduleName": "Inactive checker",
     "done": "Alla inaktiva medlemmar har meddelats!",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Utfördes av %%user%%"
 }
