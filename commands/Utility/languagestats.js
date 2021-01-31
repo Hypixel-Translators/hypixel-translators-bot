@@ -56,12 +56,17 @@ module.exports = {
                                             if (language.data.languageId === lang.id) botData = language.data
                                         })
 
+                                        if (hypixelData?.approvalProgress > 89 || quickplayData?.approvalProgress > 89 || sbaData?.approvalProgress > 89 || botData?.approvalProgress > 89) adapColour = successColor
+                                        else if (hypixelData?.approvalProgress > 49 || quickplayData?.approvalProgress > 49 || sbaData?.approvalProgress > 49 || botData?.approvalProgress > 49) adapColour = loadingColor
+                                        else adapColour = errorColor
+
+
                                         const embed = new Discord.MessageEmbed()
-                                            .setColor(neutralColor)
+                                            .setColor(adapColour)
                                             .setThumbnail(lang.flag)
                                             .setAuthor(strings.moduleName)
                                             .setTitle(`${lang.emoji} | ${strings.languages[lang.code]}`)
-                                            .setDescription(`${strings.statsAll.replace("%%language%%", lang.name)}`)
+                                            .setDescription(`${strings.statsAll.replace("%%language%%", strings.languages[lang.code])}`)
                                             .setFooter(executedBy, message.author.displayAvatarURL())
                                         if (hypixelData) embed.addField("Hypixel", `${strings.translated.replace("%%percentage%%", hypixelData.translationProgress).replace("%%translated%%", hypixelData.phrases.translated).replace("%%total%%", hypixelData.phrases.total)}\n${strings.approved.replace("%%percentage%%", hypixelData.approvalProgress).replace("%%approved%%", hypixelData.phrases.approved).replace("%%total%%", hypixelData.phrases.total)}`)
                                         if (quickplayData) embed.addField("Quickplay", `${strings.translated.replace("%%percentage%%", quickplayData.translationProgress).replace("%%translated%%", quickplayData.phrases.translated).replace("%%total%%", quickplayData.phrases.total)}\n${strings.approved.replace("%%percentage%%", quickplayData.approvalProgress).replace("%%approved%%", quickplayData.phrases.approved).replace("%%total%%", quickplayData.phrases.total)}`)
