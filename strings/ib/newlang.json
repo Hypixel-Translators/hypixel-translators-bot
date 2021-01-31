@@ -1,10 +1,10 @@
 {
-    "moduleName": "Channel creator",
-    "langTitle": "Successfully created the new %%country%% category, channels and roles!",
-    "warnings": "Make sure their names were set correctly, put them in their correct positions, check the role colors and don't forget to translate the channel topic!",
-    "textChannels": "Text Channels",
-    "voiceChannels": "Voice Channels",
+    "moduleName": "Chanelae creatur",
+    "langTitle": "Creats new %%country%% catregor, chanles and röls suces!",
+    "warnings": "Maks sur their nams are corecc, put in corecc posishon, checc rol colrol thingy and no forgot translat chanle topics, dumbo!",
+    "textChannels": "Teks Chanles",
+    "voiceChannels": "Vois Chanles",
     "roles": "Rols",
-    "newItems": "%%newItem%% and %%newItem2%%",
+    "newItems": "%%newItem%% ands %%newItem2%%",
     "executedBy": "Done by le %%user%%"
 }
