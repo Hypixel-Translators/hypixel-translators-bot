@@ -1,9 +1,9 @@
 {
     "moduleName": "Kanaluppdaterare",
-    "success": "Updated the %%channel%% channel!",
-    "infoChannel": "information",
-    "rulesChannel": "regler",
-    "verifyChannel": "verifiering",
+    "success": "Uppdaterade %%channel%%kanalen!",
+    "infoChannel": "informations",
+    "rulesChannel": "regel",
+    "verifyChannel": "verifierings",
     "successAll": "Alla kanaler har uppdaterats!",
     "checkOut1": "Check it out at %%channel%%!",
     "checkOut2": "Check them out at %%info%%, %%rules%% and %%verify%%!",
