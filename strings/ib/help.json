@@ -41,7 +41,7 @@
         "description": "The get, the add, the edit for the context for given ID string. `+context help` makes u see informaton abt dis acomand. `+context link` give u link for request aces for context spredshet."
     },
     "languagestats": {
-        "usage": "+languagestats <language>",
+        "usage": "+languagestats <langag>",
         "description": "Shows you the progress of a language on the all projects we currently support."
     },
     "issue": {
