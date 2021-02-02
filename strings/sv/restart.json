@@ -1,5 +1,5 @@
 {
-    "moduleName": "Restart",
-    "restarting": "Restarting...",
+    "moduleName": "Starta om",
+    "restarting": "Startar om...",
     "executedBy": "Utfördes av %%user%%"
 }
