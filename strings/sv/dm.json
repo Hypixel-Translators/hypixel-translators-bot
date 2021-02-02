@@ -1,6 +1,6 @@
 {
-    "moduleName": "Direct Message",
-    "outgoing": "Sent message to %%recipient%%",
+    "moduleName": "Direktmeddelande",
+    "outgoing": "Meddelandet skickades till %%recipient%%",
     "error": "An error occured while trying to message %%recipient%%",
     "noMsg": "You need to specify what message you want to send to this person!",
     "incoming": "Received message from staff",
