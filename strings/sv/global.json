@@ -38,7 +38,7 @@
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "Ändra dina länkar till typen \"en-en\"!",
         "xp": "You get random amounts of XP every minute when you're chatting, which will eventually make you level up.",
-        "moreTips": "Vi behöver fler tips! Skicka in dem med hjälp av `+feedback`.",
+        "moreTips": "Vi behöver fler tips! Skicka in dem med `+feedback`.",
         "guide": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%gettingStarted%%, it has some useful tips!",
         "twitter": "Have you followed our twitter account? Check it out at %%twitter%%!",
         "rulesInfo": "%%rules%% and %%serverInfo%% have all the info you need about this server!",
