@@ -33,7 +33,7 @@
     "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
     "tip": "Tips",
     "tips": {
-        "ib": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
+        "ib": "Har du provat Inhale Banana-språket? Ändra språk med `+lang ib`!",
         "translators": "I need translators! Find out how to become a bot translator by executing `+translate`.",
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "Ändra dina länkar till typen \"en-en\"!",
