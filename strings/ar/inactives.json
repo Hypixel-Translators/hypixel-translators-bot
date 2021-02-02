@@ -1,5 +1,5 @@
 {
-    "moduleName": "Inactive checker",
-    "done": "All inactive members have been notified!",
+    "moduleName": "المدقق غير نشط",
+    "done": "تم إشعار جميع الأعضاء!",
     "executedBy": "نفذ من قبل %%user%%"
 }
