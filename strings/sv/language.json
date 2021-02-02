@@ -1,6 +1,6 @@
 {
     "moduleName": "Språk",
-    "changedToTitle": "Ändrade ditt språk till svenska!",
+    "changedToTitle": "Ditt språk har ändrats till svenska!",
     "didntChange": "Ditt språk ändrades inte",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
     "errorTitle": "That language hasn't been added yet!",
@@ -13,7 +13,7 @@
     "errorRequestDesc": "We could not find the language you wanted to request. If you believe this is an error, please DM the bot with your request.",
     "listTitle": "Lista över språk",
     "listElement": "`%%code%%` | **%%language%%**",
-    "credits": "Found an issue? Report it using `+issue`.",
+    "credits": "Hittat ett fel? Rapportera det med `+issue`.",
     "ar": "Arabiska",
     "bar": "Bayerska",
     "bg": "Bulgariska",
