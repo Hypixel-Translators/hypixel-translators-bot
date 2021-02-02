@@ -27,6 +27,6 @@
     "admin": "Discord Administrator",
     "mod": "Discord Moderator",
     "helper": "Discord Helper",
-    "manager": "Project Manager",
+    "manager": "مُدير المشروع",
     "executedBy": "نفذ من قبل %%user%%"
 }
