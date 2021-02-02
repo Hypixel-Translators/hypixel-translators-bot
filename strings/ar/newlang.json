@@ -1,6 +1,6 @@
 {
-    "moduleName": "Channel creator",
-    "langTitle": "Successfully created the new %%country%% category, channels and roles!",
+    "moduleName": "روم منشئ محتوى",
+    "langTitle": "تم إنشاء فئة %%country%%، روم و رتب بنجاح!",
     "warnings": "Make sure their names were set correctly, put them in their correct positions, check the role colors and don't forget to translate the channel topic!",
     "textChannels": "Text Channels",
     "voiceChannels": "Voice Channels",
