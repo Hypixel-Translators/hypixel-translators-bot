@@ -1,6 +1,6 @@
 {
     "moduleName": "Prefix",
-    "usage": "+prefix [flags]",
+    "usage": "+prefix [flaggor]",
     "loading": "Just a second...",
     "loadingRoles": "Fetching your roles...",
     "errors": {
