@@ -1,7 +1,7 @@
 {
     "moduleName": "Språk",
     "changedToTitle": "Ändrade ditt språk till svenska!",
-    "didntChange": "Your language didn't change",
+    "didntChange": "Ditt språk ändrades inte",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
     "errorTitle": "That language hasn't been added yet!",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
