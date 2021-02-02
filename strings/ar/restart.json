@@ -1,5 +1,5 @@
 {
-    "moduleName": "Restart",
-    "restarting": "Restarting...",
+    "moduleName": "إعاده تشغيل",
+    "restarting": "جار إعادة التشغيل...",
     "executedBy": "نفذ من قبل %%user%%"
 }
