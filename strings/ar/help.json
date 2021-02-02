@@ -13,10 +13,10 @@
     "commandInfoFor": "معلومات الأوامر لـ ",
     "commandNotExist": "هذا الأمر غير موجود!",
     "staffOnly": ". هذا الأمر متاح فقط للموظفين وبالتالي هذه المعلومات غير مرئية.\nفضلاً تواصل مع موظف اذا كنت تعتقد ان هناك خطأ.",
-    "inDev": "This command is currently in development and will be available at a later date!",
+    "inDev": "هذا الأمر قيد التطوير حاليا وسوف يكون متاح في وقت لاحق!",
     "seconds": " ثواني",
-    "second": "second",
-    "minutes": "minutes",
+    "second": "ثانية",
+    "minutes": "دقيقة",
     "usageField": "الإستخدام",
     "cooldownField": "فترة الاستراحة",
     "aliasesField": "الإسم البديل",
@@ -25,11 +25,11 @@
         "description": "يظهر لك جميع الأوامر المتاحة ومعلومات أخرى عن البوت."
     },
     "prefix": {
-        "usage": "+prefix [flags]",
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
+        "usage": "+prefix [أعلام]",
+        "description": "يعطيك البادئة المناسبة للغة (اللغات). للحصول على برفكس مخصص، قم بتنفيذ `+prefix <أعلام>` واستبدل `<أعلام>` بالكود الإقليمي لعلم بلدك أو اسمه. يمكنك إضافة أكبر عدد من الأعلام كما تريد، مفصولة بمسافة."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [سجل] | +quote add <اقتباس> / <منشن مستخدم>",
         "description": "يحضر (أو يضيف) اقتباس مضحك / غريب/حكيم من السيرفر."
     },
     "mention": {
@@ -37,32 +37,32 @@
         "description": "منشن رتبة اللغه مع رسالة اختيارية."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+        "usage": "+context get|add|edit|view|help <مُعطى>",
+        "description": "يحصل على أو يضيف أو يعدل السياق لمعرف السترينغ المحدد. `+context help` يظهر لك معلومات حول هذا الأمر. `+context link` يمنحك الرابط لطلب الوصول إلى جدول بيانات السياق."
     },
     "languagestats": {
-        "usage": "+languagestats <language>",
-        "description": "Shows you the progress of a language on the all projects we currently support."
+        "usage": "+languagestats <لغة>",
+        "description": "يظهر لك مدى تقدم اللغة في جميع المشاريع التي ندعمها."
     },
     "issue": {
         "usage": "+issue",
         "description": "تفتح لك صفحة المشاكل الخاصة بنا في Github, المكان الذي تستطيع فيه إخبارنا عن المشاكل و ترسل تقييم."
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
-        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
+        "usage": "+language [<لغة جديدة> | list | add <لغة>]",
+        "description": "تغيير لغتك، تظهر لغتك الحالية أو قائمة اللغات المتاحة. إذا كنت ترغب في طلب لغة جديدة للبوت، قم بتنفيذ `+language add <لغة>`."
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "يعطيك ping البوت."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <username> [social]",
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "usage": "+hypixelstats <الاسم> [social]",
+        "description": "يظهر لك الإحصائيات الأساسية للمستخدم المتوفرة في هايبكسل."
     },
     "tip": {
         "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
+        "description": "يعطيك نصيحة عشوائية بخصوص السيرفر."
     },
     "invite": {
         "usage": "+invite",
@@ -70,11 +70,11 @@
     },
     "projects": {
         "usage": "+projects",
-        "description": "Gives you links and information about all the translation projects we support on the server."
+        "description": "يعطيك معلومات وروابط عن جميع مشاريع الترجمة التي يدعمها السيرفر."
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "يعطيك معلومات مفيدة بخصوص مشروع هايبكسل."
     },
     "guidelines": {
         "usage": "+guidelines",
@@ -82,15 +82,15 @@
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "يعطيك معلومات مفيدة بخصوص مشروع الـQuickplay على Crowdin."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "يعطيك معلومات مفيدة بخصوص مشروع الـSkyblockAddons على Crowdin."
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "يعطيك معلومة مفيدة حول كيفيه ترجمة البوت."
     },
     "thread": {
         "usage": "+thread",
