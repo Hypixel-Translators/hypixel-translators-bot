@@ -1,11 +1,11 @@
 {
-    "moduleName": "Channel updater",
-    "success": "Updated the %%channel%% channel!",
-    "infoChannel": "information",
-    "rulesChannel": "rules",
-    "verifyChannel": "verification",
-    "successAll": "All channels have been updated!",
-    "checkOut1": "Check it out at %%channel%%!",
+    "moduleName": "محدث الروم",
+    "success": "تم تحديث روم الـ%%channel%%!",
+    "infoChannel": "معلومات",
+    "rulesChannel": "قوانين",
+    "verifyChannel": "تأكيد",
+    "successAll": "تم تحديث جميع الرومات!",
+    "checkOut1": "تحقق من ذلك في %%channel%%!",
     "checkOut2": "Check them out at %%info%% and %%verify%%!",
     "executedBy": "نفذ من قبل %%user%%"
 }
