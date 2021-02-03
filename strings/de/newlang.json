@@ -1,10 +1,1 @@
-{
-    "moduleName": "Kanalersteller",
-    "langTitle": "Die neue %%country%%-Kategorie, Kanäle und Rollen wurden erfolgreich erstellt!",
-    "warnings": "Stelle sicher, dass deine Namen korrekt eingestellt wurden, setze sie in die richtigen Positionen, überprüfe die Rollenfarben und vergiss nicht, das Kanalthema zu übersetzen!",
-    "textChannels": "Textkanäle",
-    "voiceChannels": "Sprachkanäle",
-    "roles": "Rollen",
-    "newItems": "%%newItem%% und %%newItem2%%",
-    "executedBy": "Ausgeführt von %%user%%"
-}
+{}
