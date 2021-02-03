@@ -1,9 +1,4 @@
 {
-    "moduleName": "Direct Message",
-    "outgoing": "Sent message to %%recipient%%",
-    "error": "An error occured while trying to message %%recipient%%",
-    "noMsg": "You need to specify what message you want to send to this person!",
     "incoming": "Received message from staff",
-    "incomingDisclaimer": "Any messages you send here will be sent to staff.",
-    "executedBy": "Eseguito da %%user%%"
+    "incomingDisclaimer": "Any messages you send here will be sent to staff."
 }
