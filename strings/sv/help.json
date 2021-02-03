@@ -38,7 +38,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argument>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+        "description": "Visar, lägger till eller redigerar ett string-ID. `+context help` för mer information om detta kommando."
     },
     "languagestats": {
         "usage": "+languagestats <språk>",
@@ -54,7 +54,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Bottens ping."
+        "description": "Visar bottens ping."
     },
     "hypixelstats": {
         "usage": "+hypixelstats <användarnamn> [social]",
