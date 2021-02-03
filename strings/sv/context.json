@@ -68,5 +68,5 @@
         "sheetDButton": "Klicka här för att öppna google-dokumentet med information om kontexter.",
         "sheetDel": "Meddelandet raderas automatiskt efter en minut"
     },
-    "executedBy": "Utfördes av %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
