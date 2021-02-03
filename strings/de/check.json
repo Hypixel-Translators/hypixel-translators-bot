@@ -1,32 +1,3 @@
 {
-    "moduleName": "Nutzerinformation",
-    "userID": "%%user%% (ID: %%id%%)",
-    "uroles": "Rollen",
-    "ujoined": "Beigetreten am",
-    "ucreated": "Konto erstellt am",
-    "timeAgo": "vor %%time%% %%unit%%",
-    "time": {
-        "second": "Sekunde",
-        "seconds": " Sekunden",
-        "minute": "Minute",
-        "minutes": "Minuten",
-        "hour": "Stunde",
-        "hours": "Stunden",
-        "day": "Tag",
-        "days": "Tagen",
-        "month": "Monat",
-        "months": "Monaten",
-        "year": "Jahr",
-        "years": "Jahren"
-    },
-    "dateLocale": "de-DE",
-    "timeZone": "Europe/Berlin",
-    "notes": "Kommentare",
-    "owner": "Discord Besitzer",
-    "coOwner": "Discord Co-Besitzer",
-    "admin": "Discord Administrator",
-    "mod": "Discord Moderator",
-    "helper": "Discord Helfer",
-    "manager": "Projektmanager",
-    "executedBy": "Ausgeführt von %%user%%"
+    "timeZone": "Europe/Berlin"
 }
