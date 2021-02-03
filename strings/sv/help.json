@@ -8,7 +8,7 @@
     "utilityHelp": "%%badge%% Verktyg och hjälpmedel",
     "infoHelp": "%%badge%% Informationskommandon",
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
-    "pageNotExist": "That page doesn't exist!",
+    "pageNotExist": "Den sidan finns inte!",
     "commandInfo": "Kommandoinformation",
     "commandInfoFor": "Command information for ",
     "commandNotExist": "Det kommandot finns inte!",
