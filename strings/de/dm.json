@@ -1,9 +1,4 @@
 {
-    "moduleName": "Direktnachricht",
-    "outgoing": "Nachricht an %%recipient%% gesendet",
-    "error": "Beim Versuch, %%recipient%% eine Nachricht zu senden, ist ein Fehler aufgetreten",
-    "noMsg": "Du musst angeben, welche Nachricht du an diese Person senden möchtest!",
     "incoming": "Nachricht von einem Teammitglied erhalten",
-    "incomingDisclaimer": "Jede Nachricht, die du hier schreibst, wird an ein Teammitglied gesendet.",
-    "executedBy": "Ausgeführt von %%user%%"
+    "incomingDisclaimer": "Jede Nachricht, die du hier schreibst, wird an ein Teammitglied gesendet."
 }
