@@ -48,5 +48,5 @@
     "TURKISH": "Turkiska",
     "UKRAINIAN": "Ukrainska",
     "madeBy": "Kommando skapat av %%developer%%",
-    "executedBy": "Utfördes av %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
