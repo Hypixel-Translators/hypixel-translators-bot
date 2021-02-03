@@ -1,5 +1,5 @@
 {
     "moduleName": "Meddelande",
-    "success": "Sucess! Meddelande skickat.",
+    "success": "Success! Message sent.",
     "executedBy": "Utfördes av %%user%%"
 }
