@@ -1,11 +1,1 @@
-{
-    "moduleName": "Kanal-Updater",
-    "success": "Aktualisierte den Kanal %%channel%%!",
-    "infoChannel": "information",
-    "rulesChannel": "Regeln",
-    "verifyChannel": "Verifizierung",
-    "successAll": "Alle Kanäle wurden aktualisiert!",
-    "checkOut1": "Schau es dir bei %%channel%% an!",
-    "checkOut2": "Schau sie dir an unter %%info%% und %%verify%%!",
-    "executedBy": "Asg'fuat vo %%user%%"
-}
+{}
