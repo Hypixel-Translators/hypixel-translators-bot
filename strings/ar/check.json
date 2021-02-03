@@ -1,32 +1,3 @@
 {
-    "moduleName": "المتحقق من الصلاحيات",
-    "userID": "%%user%% (ID: %%id%%)",
-    "uroles": "رتب",
-    "ujoined": "دخل في",
-    "ucreated": "تم انشاء الحساب في",
-    "timeAgo": "منذ %%time%% %%unit%%",
-    "time": {
-        "second": "ثانية",
-        "seconds": " ثواني",
-        "minute": "دقيقة",
-        "minutes": "دقيقة",
-        "hour": "ساعة",
-        "hours": "ساعات",
-        "day": "يوم",
-        "days": "أيام",
-        "month": "شهر",
-        "months": "شهور",
-        "year": "سنة",
-        "years": "سنوات"
-    },
-    "dateLocale": "ar-SA",
-    "timeZone": "Asia/Riyadh",
-    "notes": "ملاحظات",
-    "owner": "مالك ديسكورد",
-    "coOwner": "مساعد مالك الديسكورد",
-    "admin": "مدير الديسكورد",
-    "mod": "مشرف ديسكورد",
-    "helper": "مساعد ديسكورد",
-    "manager": "مُدير المشروع",
-    "executedBy": "نفذ من قبل %%user%%"
+    "timeZone": "Asia/Riyadh"
 }
