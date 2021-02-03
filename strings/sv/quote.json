@@ -1,7 +1,7 @@
 {
     "moduleName": "Citat",
     "invalidArg": "Ogiltigt argument!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
+    "indexArg": "Ett citat med indexet %%arg%% finns inte! Ange ett nummer mellan 1 och %%max%%.",
     "reqSub": "Your quote request has been submitted, thanks!",
     "reqAdd": "Sucess! Följande citat har lagts till:",
     "user": "Användare",
