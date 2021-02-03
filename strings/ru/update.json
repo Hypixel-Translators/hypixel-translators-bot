@@ -1,11 +1,1 @@
-{
-    "moduleName": "Обновление канала",
-    "success": "Канал %%channel%% обновлен!",
-    "infoChannel": "информации",
-    "rulesChannel": "правил",
-    "verifyChannel": "верификации",
-    "successAll": "Все каналы были обновлены!",
-    "checkOut1": "Проверьте в %%channel%%!",
-    "checkOut2": "Проверьте их в %%info%% и %%verify%%!",
-    "executedBy": "Выполнено %%user%%"
-}
+{}
