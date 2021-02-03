@@ -18,7 +18,7 @@
     "second": "second",
     "minutes": "minutes",
     "usageField": "Usage",
-    "cooldownField": "Cooldown",
+    "cooldownField": "冷却时间",
     "aliasesField": "Aliases",
     "help": {
         "usage": "+help [page | command name]",
