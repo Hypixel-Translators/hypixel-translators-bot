@@ -1,9 +1,1 @@
-{
-    "moduleName": "محدث الإحصائيات",
-    "done": "تم تحديث جميع إحصائيات اللغات!",
-    "doneProject": "تم تحديث إحصاءات اللغة %%project%%!",
-    "checkOutOne": "تحقق من ذلك في %%channel%%!",
-    "checkOutAll": "تحقق منهم في %%channel%% و %%channel%% و %%channel%% و %%channel%%!",
-    "errorNoProject": "تعذر العثور على المشروع بإسم %%name%%.",
-    "executedBy": "نفذ من قبل %%user%%"
-}
+{}
