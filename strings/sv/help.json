@@ -1,8 +1,8 @@
 {
     "moduleName": "Information",
     "page1Title": "Hjälpsida",
-    "commandsListTooltip": "Denna bot skapades för Hypixel Translators Community av %%developer%%. Den öppna källkoden och vårt GitHub-arkiv finner du [här] %%github%%.\nDu kan hjälpa till att översätta botten genom att följa instruktionerna i kommandot: `+ översätt`.\n\nAnvänd `+ hjälp <kommandonamn>` för att lära dig mer om ett specifikt kommando.\nDe tillgängliga sidorna är listade nedan. Använd meddelandets reaktionerna för att växla mellan sidorna.",
-    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
+    "commandsListTooltip": "Denna bot skapades för Hypixel Translators Community av %%developer%%. Den öppna källkoden och vårt GitHub-arkiv finner du [här]%%github%%.\nDu kan hjälpa till att översätta botten genom att följa instruktionerna i kommandot: `+translate`.\n\nAnvänd `+help <kommandonamn>` för att lära dig mer om ett specifikt kommando.\nDe tillgängliga sidorna är listade nedan. Använd meddelandets reaktionerna för att växla mellan sidorna.",
+    "madeBy": "Bot skapad av %%QkeleQ10%%",
     "page": "Sida %%number%%/%%total%%",
     "pageNumber": "Sida %%number%%",
     "utilityHelp": "%%badge%% Verktyg och hjälpmedel",
@@ -21,7 +21,7 @@
     "cooldownField": "Cooldown",
     "aliasesField": "Aliases",
     "help": {
-        "usage": "+help [page | command name]",
+        "usage": "+help [sidnummer | kommandonamn]",
         "description": "Shows you all available commands and other info about the bot."
     },
     "prefix": {
@@ -29,7 +29,7 @@
         "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [index] | +quote add <citat> / <författarens namn>",
         "description": "Gets (or adds) a funny/weird/wise quote from the server."
     },
     "mention": {
@@ -54,7 +54,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "Bottens ping."
     },
     "hypixelstats": {
         "usage": "+hypixelstats <användarnamn> [social]",
