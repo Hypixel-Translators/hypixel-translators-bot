@@ -19,6 +19,7 @@
     {"name": "Czech", "emoji": "🇨🇿", "colour": "#e02222", "code": "cs", "id": "cs", "flag": "https://crowdin.com/images/flags/cs.png"},
     {"name": "Danish", "emoji": "🇩🇰", "colour": "#e02222", "code": "da", "id": "da", "flag": "https://crowdin.com/images/flags/da.png"},
     {"name": "Dutch", "emoji": "🇳🇱", "colour": "#21de70", "code": "nl", "id": "nl", "flag": "https://crowdin.com/images/flags/nl.png"},
+    {"name": "English", "emoji": "🇺🇸","code": "en", "id": "en"},
     {"name": "Estonian", "emoji": "🇪🇪", "code": "et", "id": "et", "flag": "https://crowdin.com/images/flags/et.png"},        
     {"name": "Filipino", "emoji": "🇵🇭", "code": "fil", "id": "fil", "flag": "https://crowdin.com/images/flags/fil.png"},
     {"name": "Finnish", "emoji": "🇫🇮", "colour": "#e02222", "code": "fi", "id": "fi", "flag": "https://crowdin.com/images/flags/fi.png"},

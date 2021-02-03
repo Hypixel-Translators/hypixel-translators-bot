@@ -123,7 +123,7 @@ module.exports = {
                         else {
                             await message.client.fetchInvite(socialMedia.DISCORD)
                                 .then(invite => {
-                                    if (allowedGuildIDs.includes(invite.channel.guild.id)) discord = `[${strings.link}](${invite.url})` //invite.channel.guild is used here because invite.guild is not guaranteed according to the docs
+                                    if (allowedGuildIDs.includes(invite.channel.guild?.id)) discord = `[${strings.link}](${invite.url})` //invite.channel.guild is used here because invite.guild is not guaranteed according to the docs
                                     else {
                                         discord = strings.blocked
                                         console.log(`Blocked the following Discord invite link in ${json.username}\'s Hypixel profile: ${socialMedia.DISCORD} (led to ${invite.channel.guild.name})`)

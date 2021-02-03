@@ -5,11 +5,10 @@ const { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } 
 client.on("message", async message => {
 
     //Delete pinned message messages
-    if (message.type === "PINS_ADD" && message.channel.type !== "dm") message.delete()
+    if (message.type === "PINS_ADD" && message.channel.type !== "dm") return message.delete()
 
     //Publish message if sent in bot-updates
     if (message.channel.id === "732587569744838777") message.crosspost() //bot-updates
-
 
     //Get global strings
     let globalStrings = require("../strings/en/global.json")
