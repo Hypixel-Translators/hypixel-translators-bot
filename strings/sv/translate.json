@@ -16,5 +16,5 @@
     "requestInfo": "When submitting your request, please make sure to include either your tag (e.g. Hypixel Translators#3348) or your ID (e.g. 620224469738323978).\n**If you do not include at least one of these, you will be rejected!**",
     "noLanguage": "Hittar du inte ditt språk?",
     "langRequest": "It is possible that we don't support your language yet. If that's the case, execute `+language add <language>`. This will send a message to the admins letting them know that you want this language to be added.",
-    "executedBy": "Utfördes av %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
