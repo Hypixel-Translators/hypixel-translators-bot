@@ -1,11 +1,12 @@
-const { loadingColor, errorColor, successColor, neutralColor, blurple, langdb, listenStatuses, watchStatuses } = require("../../config.json")
+const { loadingColor, errorColor, successColor, neutralColor, blurple, langdb, listeningStatuses, watchingStatuses, playingStatuses } = require("../../config.json")
 const fetch = require("node-fetch")
 const Discord = require("discord.js")
 const { inspect } = require("util")
 const { clean, isZalgo } = require("unzalgo")
 const { flag, code, name, countries } = require('country-emoji')
 const fs = require("fs")
-const country = require('countryjs');
+const country = require('countryjs')
+const { getDb, init, mClient } = require("../../lib/mongodb.js")
 
 module.exports = {
   name: "eval",

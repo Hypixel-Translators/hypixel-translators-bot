@@ -1,12 +1,15 @@
 //Import dependencies and define client
-const fs = require("fs")
 const Discord = require("discord.js")
 const client = new Discord.Client()
 require("dotenv").config()
 
-//Require libraries
-const lib = require("./lib/imports.js")
-lib.setup(client)
+//Import commands and events
+const imports = require("./lib/imports")
+imports.setup(client)
+
+//Start MongoDB
+client.mongodb = require('./lib/mongodb')
+client.mongodb.init()
 
 //Export the client
 module.exports.client = client
