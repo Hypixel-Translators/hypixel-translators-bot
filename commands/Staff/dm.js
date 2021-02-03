@@ -8,7 +8,6 @@ module.exports = {
     aliases: ["message", "privatemessage", "pm"],
     roleWhitelist: ["768435276191891456"], //Discord Staff
     async execute(message, strings, args) {
-        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         let userToSend = args[0].replace(/[\\<>@#&!]/g, "")
         args.splice(0, 1)
         let toSend = args.join(" ")
@@ -34,30 +33,30 @@ module.exports = {
                 .then(() => {
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.outgoing.replace("%%recipient%%", recipient.tag))
+                        .setAuthor("Direct Message")
+                        .setTitle(`Sent message to ${recipient.tag}`)
                         .setDescription(toSend)
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
                     message.channel.stopTyping()
                     message.channel.send(embed)
                 })
                 .catch(error => {
                     const errorEmbed = new Discord.MessageEmbed()
                         .setColor(errorColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.error.replace("%%recipient%%", recipient.tag))
+                        .setAuthor("Direct Message")
+                        .setTitle(`An error occured while trying to message ${recipient.tag}`)
                         .setDescription(error)
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
                     message.channel.stopTyping()
                     message.channel.send(errorEmbed)
                 })
         } else {
             const errorEmbed = new Discord.MessageEmbed()
                 .setColor(errorColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.error.replace("%%recipient%%", recipient.tag))
-                .setDescription(strings.noMsg)
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setAuthor("Direct Message")
+                .setTitle(`An error occured while trying to message ${recipient.tag}`)
+                .setDescription("You need to specify what message you want to send to this person!")
+                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
             message.channel.stopTyping()
             message.channel.send(errorEmbed)
         }

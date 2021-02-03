@@ -9,17 +9,16 @@ module.exports = {
     aliases: ["statistics", "progress"],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(message, strings, args) {
-        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const client = message.client
         if (!args[0] || args[0].toLowerCase() === "all") {
             await execute(client, true)
                 .then(() => {
                     const allEmbed = new Discord.MessageEmbed()
                         .setColor(successColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.done)
-                        .setDescription(strings.checkOutAll.replace("%%channel%%", message.guild.channels.cache.find(c => c.name === "hypixel-language-status")).replace("%%channel%%", message.guild.channels.cache.find(c => c.name === "sba-language-status")).replace("%%channel%%", message.guild.channels.cache.find(c => c.name === "bot-language-status")).replace("%%channel%%", message.guild.channels.cache.find(c => c.name === "quickplay-language-status")))
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setAuthor("Statistics updater")
+                        .setTitle("All language statistics have been updated!")
+                        .setDescription(`Check them out at ${message.guild.channels.cache.find(c => c.name === "hypixel-language-status")}, ${message.guild.channels.cache.find(c => c.name === "sba-language-status")}, ${message.guild.channels.cache.find(c => c.name === "bot-language-status")} and ${message.guild.channels.cache.find(c => c.name === "quickplay-language-status")}`)
+                        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
                     message.channel.send(allEmbed)
                 })
                 .catch(err => { throw err })
@@ -49,18 +48,18 @@ module.exports = {
             else {
                 const errorEmbed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.errorNoProject.replace("%%name%%", args[0]))
-                    .setFooter(executedBy, message.author.displayAvatarURL())
+                    .setAuthor("Statistics updater")
+                    .setTitle(`Couldn't find the project with the name ${args[0]}.`)
+                    .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
                 message.channel.send(errorEmbed)
                 return
             }
             const projectEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.doneProject.replace("%%project%%", project))
-                .setDescription(strings.checkOutOne.replace("%%channel%%", message.guild.channels.cache.find(c => c.name === `${channel}-language-status`)))
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setAuthor("Statistics updater")
+                .setTitle(`The ${project} language statistics have been updated!`)
+                .setDescription(`Check it out at ${message.guild.channels.cache.find(c => c.name === `${channel}-language-status`)}!`)
+                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
             message.channel.send(projectEmbed)
             console.log(`Manually updated the ${project} language statistics.`)
         }

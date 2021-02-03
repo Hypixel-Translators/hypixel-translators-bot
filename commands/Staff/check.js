@@ -9,7 +9,6 @@ module.exports = {
   roleWhitelist: ["768435276191891456", "551758391127834625", "748269219619274893", "645709877536096307", "752541221980733571"], //Discord Staff and Hypixel, SBA, QP and Bot managers
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "768160446368186428"], // bots staff-bots bot-development managers
   execute(message, strings, args) {
-    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     let member = message.member
     if (args[0]) {
       let userRaw = args[0].replace(/[\\<>@#&!]/g, "")
@@ -19,50 +18,52 @@ module.exports = {
 
     try {
       let note
-      if (member.user.id === message.guild.ownerID) note = strings.owner
-      else if (member.roles.cache.find(r => r.name === "Discord Owner")) note = strings.coOwner
-      else if (member.roles.cache.find(r => r.name === "Discord Administrator")) note = strings.admin
-      else if (member.roles.cache.find(r => r.name === "Discord Moderator")) note = strings.mod
-      else if (member.roles.cache.find(r => r.name === "Discord Helper")) note = strings.helper
-      else if (member.roles.cache.find(r => r.name.endsWith(" Manager"))) note = strings.manager
+      if (member.user.id === message.guild.ownerID) note = "Discord Owner"
+      else if (member.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"
+      else if (member.roles.cache.find(r => r.name === "Discord Administrator")) note = "Discord Administrator"
+      else if (member.roles.cache.find(r => r.name === "Discord Moderator")) note = "Discord Moderator"
+      else if (member.roles.cache.find(r => r.name === "Discord Helper")) note = "Discord Helper"
+      else if (member.roles.cache.find(r => r.name.endsWith(" Manager"))) note = "Project Manager"
+      else if (member.roles.cache.find(r => r.name === "Hypixel Staff")) note = "Hypixel Staff Member"
 
       let color = member.displayHexColor
       if (color == "#000000") color = blurple
-      const joined = member.joinedAt.toLocaleString(strings.dateLocale, { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
-      const created = member.user.createdAt.toLocaleString(strings.dateLocale, { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+      const joined = member.joinedAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+      const created = member.user.createdAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
       let joinAgo = Math.round((new Date().getTime() - member.joinedAt) / 1000)
       let createAgo = Math.round((new Date().getTime() - member.user.createdAt) / 1000)
       let userRoles = member.roles.cache
       if (userRoles.size !== 1) userRoles.delete("549503328472530974")
+      else userRoles = "No roles yet!"
 
       const embed = new Discord.MessageEmbed()
         .setColor(color)
-        .setAuthor(strings.moduleName, member.user.displayAvatarURL())
+        .setAuthor("User information", member.user.displayAvatarURL())
         .setTitle(member.user.tag)
-        .setDescription(strings.userID.replace("%%user%%", member).replace("%%id%%", member.user.id))
+        .setDescription(`${member} (ID: ${member.user.id})`)
         .addFields(
-          { name: strings.ujoined, value: joined.charAt(0).toUpperCase() + joined.slice(1) + timeAgo(joinAgo), inline: true },
-          { name: strings.ucreated, value: created.charAt(0).toUpperCase() + created.slice(1) + timeAgo(createAgo), inline: true },
-          { name: strings.uroles, value: userRoles.sort((a, b) => b.position - a.position).map(r => `${r}`).join(", ") },
+          { name: "Joined on", value: joined.charAt(0).toUpperCase() + joined.slice(1) + timeAgo(joinAgo), inline: true },
+          { name: "Account created on", value: created.charAt(0).toUpperCase() + created.slice(1) + timeAgo(createAgo), inline: true },
+          { name: "Roles", value: userRoles.sort((a, b) => b.position - a.position).map(r => `${r}`).join(", ") },
         )
         .setThumbnail(member.user.displayAvatarURL())
-        .setFooter(executedBy, message.author.displayAvatarURL())
-      if (note) embed.addField(strings.notes, note)
+        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+      if (note) embed.addField("Notes", note)
       message.channel.send(embed)
     } catch (err) { throw err }
     function timeAgo(time) {
-      if (time == 1) time = ` (${strings.timeAgo.replace("%%time%%", time).replace("%%unit%%", strings.time.second)})`
-      else if (time < 60) time = ` (${strings.timeAgo.replace("%%time%%", time).replace("%%unit%%", strings.time.seconds)})`
-      else if (time == 60) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / 60)).replace("%%unit%%", strings.time.minute)})`
-      else if (time < (60 * 60 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / 60)).replace("%%unit%%", strings.time.minutes)})`
-      else if (time == (60 * 60 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60))).replace("%%unit%%", strings.time.hour)})`
-      else if (time < (60 * 60 * 24 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60))).replace("%%unit%%", strings.time.hours)})`
-      else if (time == (60 * 60 * 24 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24))).replace("%%unit%%", strings.time.day)})`
-      else if (time < (60 * 60 * 24 * 30 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24))).replace("%%unit%%", strings.time.days)})`
-      else if (time == (60 * 60 * 24 * 30 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24 * 30))).replace("%%unit%%", strings.time.month)})`
-      else if (time < (60 * 60 * 24 * 365 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24 * 30))).replace("%%unit%%", strings.time.months)})`
-      else if (time == (60 * 60 * 24 * 365 * 1.5)) time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24 * 365))).replace("%%unit%%", strings.time.year)})`
-      else time = ` (${strings.timeAgo.replace("%%time%%", Math.round(time / (60 * 60 * 24 * 365))).replace("%%unit%%", strings.time.years)})`
+      if (time == 1) time = ` (${time} second ago)`
+      else if (time < 60) time = ` (${time} seconds ago)`
+      else if (time == 60) time = ` (${Math.round(time / 60)} minute ago)`
+      else if (time < (60 * 60 * 1.5)) time = ` (${Math.round(time / 60)} minutes ago})`
+      else if (time == (60 * 60 * 1.5)) time = ` (${Math.round(time / (60 * 60))} hour ago)`
+      else if (time < (60 * 60 * 24 * 1.5)) time = ` (${Math.round(time / (60 * 60))} hours ago)`
+      else if (time == (60 * 60 * 24 * 1.5)) time = ` (${Math.round(time / (60 * 60 * 24))} day ago)`
+      else if (time < (60 * 60 * 24 * 30 * 1.5)) time = ` (${Math.round(time / (60 * 60 * 24))} days ago)`
+      else if (time == (60 * 60 * 24 * 30 * 1.5)) time = ` (${Math.round(time / (60 * 60 * 24 * 30))} month ago)`
+      else if (time < (60 * 60 * 24 * 365 * 1.5)) time = ` (${Math.round(time / (60 * 60 * 24 * 30))} months ago)`
+      else if (time == (60 * 60 * 24 * 365 * 1.5)) time = ` (${Math.round(time / (60 * 60 * 24 * 365))} year ago)`
+      else time = `(${Math.round(time / (60 * 60 * 24 * 365))} years ago)`
       return time
     }
   }

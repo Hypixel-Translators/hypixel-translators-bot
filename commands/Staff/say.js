@@ -9,7 +9,6 @@ module.exports = {
   aliases: ["parrot", "repeat", "send"],
   roleWhitelist: ["768435276191891456"], //Discord Staff
   async execute(message, strings, args) {
-    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     if (!args[0]) return
     const sendTo = message.client.channels.cache.get(args[0].replace(/[\\<>@#&!]/g, ""))
     args.splice(0, 1)
@@ -20,17 +19,14 @@ module.exports = {
     if (!toSend) throw "noMessage"
     if (!message.member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
 
-    if (message.member) if (message.member.hasPermission("MANAGE_ROLES")) {
-      msg = await sendTo.send(toSend).catch(() => { throw "noChannel" })
-    } else {
-      msg = await sendTo.send(">>> " + toSend).catch(() => { throw "noChannel" })
-    }
+    if (message.member) if (message.member.hasPermission("MANAGE_ROLES")) msg = await sendTo.send(toSend).catch(() => { throw "noChannel" })
+    else msg = await sendTo.send(">>> " + toSend).catch(() => { throw "noChannel" })
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
-      .setAuthor(strings.moduleName)
-      .setTitle(strings.success)
+      .setAuthor("Message")
+      .setTitle("Success! Message sent.")
       .setDescription(`${sendTo}:\n${toSend}`)
-      .setFooter(executedBy, message.author.displayAvatarURL())
+      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
     message.channel.send(embed)
   }
 }

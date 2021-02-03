@@ -9,34 +9,32 @@ module.exports = {
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
     execute(message, strings, args) {
-        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-
         if (args[0] === "info") {
             info(message)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.success.replace("%%channel%%", strings.infoChannel))
-                .setDescription(strings.checkOut1.replace("%%channel%%", "<#762341271611506708>")) //server-info
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setAuthor("Channel updater")
+                .setTitle("Updated the information channel!")
+                .setDescription(`Check it out at <#762341271611506708>!`) //server-info
+                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
             message.channel.send(successEmbed)
         } else if (args[0] === "rules") {
             rules(message)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.success.replace("%%channel%%", strings.rulesChannel))
-                .setDescription(strings.checkOut1.replace("%%channel%%", "<#796159719617986610>")) //rules-prototype
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setAuthor("Channel updater")
+                .setTitle("Updated the rules channel!")
+                .setDescription(`Check it out at <#796159719617986610>!`) //rules
+                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
             message.channel.send(successEmbed)
         } else if (args[0] === "verify") {
             verify(message)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.success.replace("%%channel%%", strings.verifyChannel))
-                .setDescription(strings.checkOut1.replace("%%channel%%", "<#569178590697095168>")) //verify
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setAuthor("Channel updater")
+                .setTitle("Updated the verification channel!")
+                .setDescription(`Check it out at <#569178590697095168>!`) //verify
+                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
             message.channel.send(successEmbed)
         } else if (args[0] === "all" || !args[0]) {
             info(message)
@@ -44,10 +42,10 @@ module.exports = {
             rules(message)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.successAll)
-                .setDescription(strings.checkOut2.replace("%%info%%", "<#762341271611506708>").replace("%%rules%%", "<#796159719617986610>").replace("%%verify%%", "<#569178590697095168>")) //server-info, rules and verify
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setAuthor("Channel updater")
+                .setTitle("All channels have been updated!")
+                .setDescription(`Check them out at <#762341271611506708>, <#796159719617986610> and <#569178590697095168>!`) //server-info, rules and verify
+                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
             message.channel.send(successEmbed)
         } else throw "noChannel"
     }

@@ -9,7 +9,6 @@ module.exports = {
   usage: "+newlang <lang code> [HEX color]",
   roleWhitelist: ["764442984119795732"], //Discord Administrator
   async execute(message, strings, args) {
-    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     message.channel.startTyping()
     const lang = args[0].toLowerCase()
     const code = args[0].toUpperCase()
@@ -109,15 +108,15 @@ module.exports = {
     })
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
-      .setAuthor(strings.moduleName)
-      .setTitle(strings.langTitle.replace("%%country%%", country.name(code)))
-      .setDescription(strings.warnings)
+      .setAuthor("Channel creator")
+      .setTitle(`Successfully created the new ${country.name(code)} category, channels and roles!`)
+      .setDescription("Make sure their names were set correctly, put them in their correct positions, check the role colors and don't forget to translate the channel topic!")
       .addFields(
-        { name: strings.textChannels, value: strings.newItems.replace("%%newItem%%", translatorsChannel).replace("%%newItem2%%", proofreadersChannel) },
-        { name: strings.voiceChannels, value: strings.newItems.replace("%%newItem%%", translatorsVoice).replace("%%newItem2%%", proofreadersVoice) },
-        { name: strings.roles, value: strings.newItems.replace("%%newItem%%", translatorRole).replace("%%newItem2%%", proofreaderRole) }
+        { name: "Text Channels", value: `${translatorsChannel} and ${proofreadersChannel}` },
+        { name: "Voice Channels", value: `${translatorsVoice} and ${proofreadersVoice}` },
+        { name: "Roles", value: `${translatorRole} and ${proofreaderRole}` }
       )
-      .setFooter(executedBy, message.author.displayAvatarURL())
+      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
     message.channel.stopTyping()
     message.channel.send(embed)
   }

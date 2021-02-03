@@ -15,7 +15,7 @@ module.exports = {
   aliases: ["evaluate", "ev"],
   roleWhitelist: ["620274909700161556"], //*
   channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
-  async execute(message, strings, args) {
+  async execute(message, strings, args, globalStrings) {
     const me = message.member
     const guild = message.guild
     const client = message.client
@@ -27,7 +27,7 @@ module.exports = {
       console.log(inspect(evaled))
     } catch (error) {
       console.error(error)
-      message.channel.send(strings.error + "\n" + error)
+      message.channel.send(`Something went wrong. Here is the error:\n${error}`)
     }
   }
 }

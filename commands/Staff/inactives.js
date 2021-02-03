@@ -8,18 +8,13 @@ module.exports = {
     usage: "+inactives",
     aliases: ["updateinactives", "unverifieds", "inactive"],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
-    async execute(message, strings) {
-        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        message.channel.startTyping()
-        try {
-            await inactives.execute(message.client, true)
+    execute(message, strings) {
+            inactives.execute(message.client, true)
             const embed = new Discord.MessageEmbed()
                 .setColor(successColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.done)
-                .setFooter(executedBy, message.author.displayAvatarURL())
-            message.channel.stopTyping()
+                .setAuthor("Inactive checker")
+                .setTitle("All inactive members have been notified!")
+                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
             message.channel.send(embed)
-        } catch (err) { throw err }
     }
 }
