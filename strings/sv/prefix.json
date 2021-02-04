@@ -16,7 +16,7 @@
         "notSaved": "so your prefix wasn't saved."
     },
     "customPrefix": "Köra `+prefix <flaggor>` för att ändra ditt prefix.",
-    "caution": "Caution",
+    "caution": "Varning",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "React with all flags you want to add to your prefix in order.",
     "reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",
@@ -25,5 +25,5 @@
     "newNickT": "Nytt smeknamn",
     "noChanges": "Inga ändringar",
     "saved": "Ditt prefix har sparats!",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Utfördes av %%user%%"
 }
