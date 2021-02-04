@@ -1,32 +1,3 @@
 {
-    "moduleName": "Informações do usuário",
-    "userID": "%%user%% (ID: %%id%%)",
-    "uroles": "Cargos",
-    "ujoined": "Joined at",
-    "ucreated": "Account created at",
-    "timeAgo": "%%time%% %%unit%% atrás",
-    "time": {
-        "second": "segundo",
-        "seconds": "segundos",
-        "minute": "minuto",
-        "minutes": "minutos",
-        "hour": "hora",
-        "hours": "horas",
-        "day": "dia",
-        "days": "dias",
-        "month": "mês",
-        "months": "meses",
-        "year": "ano",
-        "years": "anos"
-    },
-    "dateLocale": "pt-BR",
-    "timeZone": "Europe/London",
-    "notes": "Notas",
-    "owner": "Discord Owner",
-    "coOwner": "Discord Co-Owner",
-    "admin": "Administrador do Discord",
-    "mod": "Moderador do Discord",
-    "helper": "Ajudante do Discord",
-    "manager": "Gerente de Projetos",
-    "executedBy": "Executado por %%user%%"
+    "timeZone": "Europe/London"
 }
