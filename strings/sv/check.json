@@ -1,32 +1,3 @@
 {
-    "moduleName": "Användarinformation",
-    "userID": "%%user%% (ID: %%id%%)",
-    "uroles": "Roller",
-    "ujoined": "Gick med den",
-    "ucreated": "Kontot skapades den",
-    "timeAgo": "%%time%% %%unit%% ago",
-    "time": {
-        "second": "sekund",
-        "seconds": " sekunder",
-        "minute": "minute",
-        "minutes": "minuter",
-        "hour": "hour",
-        "hours": "hours",
-        "day": "dag",
-        "days": "dagar",
-        "month": "månad",
-        "months": "månader",
-        "year": "år",
-        "years": "år"
-    },
-    "dateLocale": "sv-SE",
-    "timeZone": "Europe/Stockholm",
-    "notes": "Notes",
-    "owner": "Serverägare",
-    "coOwner": "Delägare",
-    "admin": "Administratör",
-    "mod": "Moderator",
-    "helper": "Hjälpare",
-    "manager": "Project Manager",
-    "executedBy": "Utfördes av %%user%%"
+    "timeZone": "Europe/Stockholm"
 }
