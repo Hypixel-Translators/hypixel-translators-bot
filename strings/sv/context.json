@@ -1,14 +1,12 @@
 {
     "moduleName": "Kontext",
     "errors": {
-        "notFound": "That context entry wasn't found!",
         "exists1": "A context entry for ",
         "exists2": " already exists, so yours wasn't added. Instead, use `+context edit`.",
         "didntReply": "You didn't reply in time, ",
         "hitReaction": "You reacted with %%voteNo%%, ",
         "cancelledPrompt": "so this prompt has been cancelled. ",
-        "readdTryAgain": "Re-react with 📑 to try again.",
-        "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it."
+        "readdTryAgain": "Re-react with 📑 to try again."
     },
     "notProofreader": "You're not a proofreader, so you can't use this! We're working on a way to let you suggest context too.",
     "contextFor": "Kontext för ",
@@ -62,11 +60,11 @@
         "edit": "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enpt`. Replace <new value> with the new value for that field.",
         "link": "_Gives you the link to the Google Sheet containing context_\n`+context link`",
         "help": "_Visar detta meddelande!_\n`+context help`",
-        "fields": "Fields",
+        "fields": "Parametrar",
         "sheetT": "Dokument för kontexter",
         "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
         "sheetDButton": "Klicka här för att öppna google-dokumentet med information om kontexter.",
         "sheetDel": "Meddelandet raderas automatiskt efter en minut"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Utfördes av %%user%%"
 }
