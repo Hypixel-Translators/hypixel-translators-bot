@@ -3,29 +3,29 @@
     "page1Title": "Страница помощи",
     "commandsListTooltip": "Этот бот был сделан для сообщества переводчиков Hypixel пользователем %%developer%%. Бот с открытым исходным кодом и наш репозиторий GitHub можно найти [здесь]%%github%%.\nВы можете помочь перевести бота следуя инструкциям команды `+translate`.\n\nВы можете выполнить `+help <название команды>`, чтобы узнать больше о конкретной команде.\nНиже вы можете найти список всех доступных страниц. Используйте реакции на этом сообщение, чтобы пролистать их.",
     "madeBy": "Бот сделан с большой заботой пользователем %%QkeleQ10%%",
-    "page": "Страница %%number%%/%%total%%",
+    "page": "Страница %%number%% из %%total%%",
     "pageNumber": "Страница %%number%%",
-    "utilityHelp": "%%badge%% Инструменты и Утилиты",
-    "infoHelp": "%%badge%% Информационные команды",
-    "timeOut": "Время действия этого меню истекло. Если вы хотите использовать его снова, напишите `+help`.",
+    "utilityHelp": "%%badge%% Инструменты и утилиты",
+    "infoHelp": "%%badge%% Команды информации",
+    "timeOut": "Время действия этого меню истекло. Если вы хотите воспользоваться им снова, выполните `+help`.",
     "pageNotExist": "Эта страница не существует!",
     "commandInfo": "Информация о команде",
     "commandInfoFor": "Информация про команду ",
     "commandNotExist": "Данная команда не существует!",
     "staffOnly": "Эта команда доступна только персоналу, и поэтому ее информация скрыта.\nПожалуйста, свяжитесь с персоналом, если вы считаете, что это ошибка.",
     "inDev": "Эта команда в настоящее время находится в разработке и будет доступна позже!",
-    "seconds": " секунды",
+    "seconds": "сек.",
     "second": "сек.",
     "minutes": "мин.",
     "usageField": "Использование",
     "cooldownField": "Перезарядка",
     "aliasesField": "Альтернативы",
     "help": {
-        "usage": "+help [команда]",
+        "usage": "+help [страница | название команды]",
         "description": "Показывает все доступные команды и другую информацию про бота."
     },
     "prefix": {
-        "usage": "+prefix",
+        "usage": "+prefix [флаги]",
         "description": "Дает вам соответствующий префикс для вашего(их) языка(ов). Чтобы получить пользовательский префикс, выполните команду `+prefix <флаги>` и замените `<флаги>` региональным кодом флага вашей страны или ее названием. Вы можете добавить столько флагов, разделенных пробелом, сколько хотите."
     },
     "quote": {
@@ -41,12 +41,12 @@
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
     },
     "languagestats": {
-        "usage": "+languagestats <language>",
-        "description": "Shows you the progress of a language on the all projects we currently support."
+        "usage": "+languagestats <язык>",
+        "description": "Показывает вам прогресс завершенности языка из всех проектов, которые в настоящее время мы поддерживаем."
     },
     "issue": {
         "usage": "+issue",
-        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
+        "description": "Открывает нашу страницу проблем на GitHub, где вы можете сообщать о проблемах и оставить отзыв."
     },
     "language": {
         "usage": "+language [<new language> | list | add <language>]",
