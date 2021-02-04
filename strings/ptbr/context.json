@@ -61,7 +61,7 @@
         "add": "_Adds a context entry_\n`+context add <string ID> <context>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <context> with the text you want to add. After running, you can add more fields using the reactions.",
         "edit": "_Edits an existing context entry_\n`+context edit <string ID> <field> <new value>`\n\nReplace <string ID> with the ID of the string, found by copying the string URL. It's the number after the #. Replace <field> with the field you want to edit, such as `screenshot` or `enpt`. Replace <new value> with the new value for that field.",
         "link": "_Gives you the link to the Google Sheet containing context_\n`+context link`",
-        "help": "_Exibe esta mensagem!_\n`+context help`",
+        "help": "_Mostra esta mensagem!_\n`+context help`",
         "fields": "Fields",
         "sheetT": "Tabela de contextos",
         "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
