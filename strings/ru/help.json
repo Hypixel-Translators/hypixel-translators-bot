@@ -49,36 +49,36 @@
         "description": "Открывает нашу страницу проблем на GitHub, где вы можете сообщать о проблемах и оставить отзыв."
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
-        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
+        "usage": "+language [<новый язык> | list | add <язык>]",
+        "description": "Изменяет ваш язык, показывает ваш текущий или список доступных языков. Если вы хотите запросить новый язык для бота, выполните команду `+language add <язык>`."
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "Дает вам пинг бота."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <username> [social]",
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "usage": "+hypixelstats <имя пользователя> [social]",
+        "description": "Показывает вам базовую статистику Hypixel для указанного пользователя."
     },
     "tip": {
         "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
+        "description": "Дает вам случайный совет касательно сервера."
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Выдает вам ссылку-приглашение на сервер. Пожалуйста, используйте его каждый раз, когда вы хотите кого-то пригласить."
     },
     "projects": {
         "usage": "+projects",
-        "description": "Gives you links and information about all the translation projects we support on the server."
+        "description": "Дает вам ссылки и информацию обо всех проектах переводов, которые мы поддерживаем на сервере."
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "Дает вам полезную информацию о проекте Hypixel."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Дает вам ссылку на официальную тему, касающийся переводов Hypixel."
     },
     "quickplay": {
         "usage": "+quickplay",
