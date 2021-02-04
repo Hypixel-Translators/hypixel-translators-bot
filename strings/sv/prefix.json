@@ -25,5 +25,5 @@
     "newNickT": "Nytt smeknamn",
     "noChanges": "Inga förändringar",
     "saved": "Your prefix has been saved!",
-    "executedBy": "Utfördes av %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
