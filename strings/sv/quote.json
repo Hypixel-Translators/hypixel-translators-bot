@@ -6,5 +6,5 @@
     "reqAdd": "Sucess! Följande citat har lagts till:",
     "user": "Användare",
     "index": "Citatnummer",
-    "executedBy": "Utfördes av %%user%%"
+    "executedBy": "Executed by %%user%%"
 }
