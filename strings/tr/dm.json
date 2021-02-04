@@ -1,9 +1,4 @@
 {
-    "moduleName": "Direct Message",
-    "outgoing": "Mesaj, %%recipient%%'e gönderildi",
-    "error": "An error occured while trying to message %%recipient%%",
-    "noMsg": "You need to specify what message you want to send to this person!",
     "incoming": "Yetkiliden mesaj alındı",
-    "incomingDisclaimer": "Any messages you send here will be sent to staff.",
-    "executedBy": "%%user%% tarafından yürütüldü"
+    "incomingDisclaimer": "Any messages you send here will be sent to staff."
 }

@@ -1,10 +1,1 @@
-{
-    "moduleName": "Kanavan luoja",
-    "langTitle": "Loit onnistuneesti kategorian, kanavat ja roolit kielelle %%country%%!",
-    "warnings": "Varmistathan, että nimet asetettiin oikein ja oikeille paikoille, ja että roolin värit ovat oikeat ja kanavan aihe käännetty!",
-    "textChannels": "Tekstikanavat",
-    "voiceChannels": "Äänikanavat",
-    "roles": "Roolit",
-    "newItems": "%%newItem%% ja %%newItem2%%",
-    "executedBy": "Komennon suoritti %%user%%"
-}
+{}

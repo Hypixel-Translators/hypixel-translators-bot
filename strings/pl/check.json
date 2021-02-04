@@ -1,32 +1,3 @@
 {
-    "moduleName": "Informacje o użytkowniku",
-    "userID": "%%user%% (ID: %%id%%)",
-    "uroles": "Role",
-    "ujoined": "Dołączono:",
-    "ucreated": "Konto utworzone:",
-    "timeAgo": "%%time%% %%unit%% temu",
-    "time": {
-        "second": "sekunda",
-        "seconds": " sekund",
-        "minute": "minuta",
-        "minutes": "minuty",
-        "hour": "godzina",
-        "hours": "godzin",
-        "day": "dzień",
-        "days": "dni",
-        "month": "miesiąc",
-        "months": "miesięcy",
-        "year": "rok",
-        "years": "lat"
-    },
-    "dateLocale": "pl-PL",
-    "timeZone": "Europe/Warsaw",
-    "notes": "Uwagi",
-    "owner": "Właściciel Discorda",
-    "coOwner": "Współwłaściciel Discorda",
-    "admin": "Administrator Discorda",
-    "mod": "Moderator Discorda",
-    "helper": "Pomocnik Discorda",
-    "manager": "Menadżer Projektu",
-    "executedBy": "Wykonano przez %%user%%"
+    "timeZone": "Europe/Warsaw"
 }

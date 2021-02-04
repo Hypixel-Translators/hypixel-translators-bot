@@ -1,9 +1,1 @@
-{
-    "moduleName": "Statistiikkojen päivitys",
-    "done": "Kaikki kielten statistiikat on päivitetty!",
-    "doneProject": "Projektin %%project%% kielten statistiikat on päivitetty!",
-    "checkOutOne": "Kurkkaa se kanavalta %%channel%%!",
-    "checkOutAll": "Check them out at %%channel%%, %%channel%%, %%channel%% and %%channel%%!",
-    "errorNoProject": "Ei löydetty projektia nimellä %%name%%.",
-    "executedBy": "Komennon suoritti %%user%%"
-}
+{}

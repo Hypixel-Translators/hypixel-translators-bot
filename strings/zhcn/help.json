@@ -18,7 +18,7 @@
     "second": "second",
     "minutes": "minutes",
     "usageField": "Usage",
-    "cooldownField": "Cooldown",
+    "cooldownField": "冷却时间",
     "aliasesField": "Aliases",
     "help": {
         "usage": "+help [page | command name]",
@@ -100,5 +100,5 @@
         "usage": "+twitter",
         "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "触发者：%%user%%"
 }

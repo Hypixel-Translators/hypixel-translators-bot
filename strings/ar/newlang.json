@@ -1,10 +1,1 @@
-{
-    "moduleName": "Channel creator",
-    "langTitle": "Successfully created the new %%country%% category, channels and roles!",
-    "warnings": "Make sure their names were set correctly, put them in their correct positions, check the role colors and don't forget to translate the channel topic!",
-    "textChannels": "Text Channels",
-    "voiceChannels": "Voice Channels",
-    "roles": "رتب",
-    "newItems": "%%newItem%% and %%newItem2%%",
-    "executedBy": "نفذ من قبل %%user%%"
-}
+{}

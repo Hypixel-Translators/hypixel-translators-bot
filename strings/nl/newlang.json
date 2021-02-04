@@ -1,10 +1,1 @@
-{
-    "moduleName": "Kanaalmaker",
-    "langTitle": "Categorie, kanalen en rollen voor %%country%% aangemaakt!",
-    "warnings": "Controleer of namen correct zijn ingesteld, zet ze op de juiste plek, controleer de rolkleuren en vergeet het kanaalonderwerp niet te vertalen!",
-    "textChannels": "Tekstkanalen",
-    "voiceChannels": "Spraakkanalen",
-    "roles": "Rollen",
-    "newItems": "%%newItem%% en %%newItem2%%",
-    "executedBy": "Uitgevoerd door %%user%%"
-}
+{}

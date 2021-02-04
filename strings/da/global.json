@@ -37,7 +37,7 @@
         "translators": "I need translators! Find out how to become a bot translator by executing `+translate`.",
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "Skift venligst dine links til en-en!",
-        "xp": "Du får tilfældigt antal XP hvert minut, hvis du chatter, der eventuelt kan få dig op i niveau.",
+        "xp": "Du får tilfældigt antal XP hvert minut, når du skriver i chatten, der eventuelt kan få dig op i niveau.",
         "moreTips": "Vi har brug for flere tips! Indsend dem ved at skrive `+feedback`.",
         "guide": "Vidste du, at vi har en guide på hvordan man kommer godt i gang med Crowdin? Tjek den ud i %%gettingStarted%%. Den har nogle brugbare tips!",
         "twitter": "Have you followed our twitter account? Check it out at %%twitter%%!",

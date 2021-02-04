@@ -1,7 +1,7 @@
 {
     "moduleName": "Informtonne",
     "page1Title": "Hewp pag",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `+translate` command.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
+    "commandsListTooltip": "Dis bot made fur Hypickle Translazon Comonty by le %%developer%%. Is open snorce and GitHub repositostrory is found at [dis websit]%%github%%.\nU cans hewp translat de bot by follows instruccons on da `+translate` acomand.\n\nU cans excut `+help <næm of acomand>` fur lern more abt a specifuck acomand.\nHere are list of all avalibel pægs. Us reashone on dis mesgag too cicel thru dem.",
     "madeBy": "Bot maed by a lotof banans and alsso %%QkeleQ10%%",
     "page": "Pag %%number%%/%%total%%",
     "pageNumber": "Pag %%number%%",
@@ -15,8 +15,8 @@
     "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
     "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": "sacondz",
-    "second": "second",
-    "minutes": "minutes",
+    "second": "sacond",
+    "minutes": "minutz",
     "usageField": "Usache",
     "cooldownField": "Time to get cold and not hot",
     "aliasesField": "Other ways of doing dis",
@@ -25,11 +25,11 @@
         "description": "Letz u look at al de acomcnadns and moar infoo abt the bot."
     },
     "prefix": {
-        "usage": "+prefix [flags]",
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
+        "usage": "+prefix [flagz]",
+        "description": "Gib u aprorprate prefucks fur ur langag(agags). Fur custúm prefucks excut `+prefix <flagz>` and replac `<flagz>` withs region cods of cuntry flæg or næm. U cans ad as manys flagz as wants, spearated by spæce."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [indoxox] | +quote add <funnysentence> / <hooman menton>",
         "description": "Gett (orr addd) un funi/werd/kirilish funnysentence from servar."
     },
     "mention": {
@@ -38,10 +38,10 @@
     },
     "context": {
         "usage": "+context get|add|edit|view|help <argargments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+        "description": "The get, the add, the edit for the context for given ID string. `+context help` makes u see informaton abt dis acomand. `+context link` give u link for request aces for context spredshet."
     },
     "languagestats": {
-        "usage": "+languagestats <language>",
+        "usage": "+languagestats <langag>",
         "description": "Shows you the progress of a language on the all projects we currently support."
     },
     "issue": {
@@ -49,15 +49,15 @@
         "description": "Open the GitHub ishshoe page, where report probems and fedbek send can."
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
-        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
+        "usage": "+language [<new langag> | list | add <langag>]",
+        "description": "Chang ur langag, show curent 1 or show list of vaalabalble langages. If wants new langag fur the böt excut `+language add <new langag>`."
     },
     "ping": {
         "usage": "+ping",
         "description": "Hehe ping go brr."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <username> [social]",
+        "usage": "+hypixelstats <usrnam> [social]",
         "description": "Shows you basic Hypixel stats for the provided user."
     },
     "tip": {

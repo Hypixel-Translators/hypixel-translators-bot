@@ -1,9 +1,4 @@
 {
-    "moduleName": "Mensagem privada",
-    "outgoing": "Mensagem enviada para %%recipient%%",
-    "error": "Ocorreu um erro ao tentar enviar uma mensagem a %%recipient%%",
-    "noMsg": "Precisas de escrever uma mensagem para ser enviada a esta pessoa!",
     "incoming": "Recebeste uma mensagem da staff",
-    "incomingDisclaimer": "Quaisquer mensagens enviadas enviadas aqui serão enviadas à staff.",
-    "executedBy": "Executado por %%user%%"
+    "incomingDisclaimer": "Quaisquer mensagens enviadas enviadas aqui serão enviadas à staff."
 }

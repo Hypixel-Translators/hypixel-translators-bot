@@ -51,5 +51,5 @@
         "vi": "Vietnamese",
         "ow": "OwO"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "触发者：%%user%%"
 }

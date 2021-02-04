@@ -1,32 +1,3 @@
 {
-    "moduleName": "Användarinformation",
-    "userID": "%%user%% (ID: %%id%%)",
-    "uroles": "Roller",
-    "ujoined": "Gick med den",
-    "ucreated": "Kontot skapades den",
-    "timeAgo": "%%time%% %%unit%% ago",
-    "time": {
-        "second": "second",
-        "seconds": " sekunder",
-        "minute": "minute",
-        "minutes": "minutes",
-        "hour": "hour",
-        "hours": "hours",
-        "day": "day",
-        "days": "days",
-        "month": "month",
-        "months": "months",
-        "year": "year",
-        "years": "years"
-    },
-    "dateLocale": "sv-SE",
-    "timeZone": "Europe/Stockholm",
-    "notes": "Notes",
-    "owner": "Discord Owner",
-    "coOwner": "Discord Co-Owner",
-    "admin": "Discord Administrator",
-    "mod": "Discord Moderator",
-    "helper": "Discord Helper",
-    "manager": "Project Manager",
-    "executedBy": "Executed by %%user%%"
+    "timeZone": "Europe/Stockholm"
 }

@@ -46,7 +46,7 @@
     },
     "issue": {
         "usage": "+issue",
-        "description": "Abre a nossa página se issues no GitHub, onde podes reportar problemas e enviar feedback."
+        "description": "Abre a nossa página de issues no GitHub, onde podes reportar problemas e enviar feedback."
     },
     "language": {
         "usage": "+language [<novo idioma> | list | add <idioma>]",

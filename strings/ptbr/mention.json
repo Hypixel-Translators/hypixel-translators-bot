@@ -1,7 +1,7 @@
 {
     "errorNoPing": "You don't have that language's proofreader role, ",
-    "errorNoPingPr": "so you can't mention it.",
-    "errorNoPingTr": "so you can't mention its translator role.",
+    "errorNoPingPr": "então você não pode mencioná-lo.",
+    "errorNoPingTr": "então você não pode mencionar o cargo tradutor.",
     "errorNoPingAll": "so you can't mention the entire language.",
     "errorNoPingDisclaimer": "Entre em contato com o dono ou administrador do servidor se você realmente precisar.",
     "errorNotFound": "Este cargo não existe. Você precisa inserir o nome do idioma ou algum destes: ",

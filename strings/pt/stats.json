@@ -1,9 +1,1 @@
-{
-    "moduleName": "Atualizador de estatísticas",
-    "done": "Todas as estatísticas dos idiomas foram atualizadas!",
-    "doneProject": "As estatísticas dos idiomas do projeto do %%project%% foram atualizadas!",
-    "checkOutOne": "Vê como ficou em %%channel%%!",
-    "checkOutAll": "Vê como ficaram em %%channel%%, %%channel%%, %%channel%% e %%channel%%!",
-    "errorNoProject": "Não foi possível encontrar o projeto com o nome %%name%%.",
-    "executedBy": "Executado por %%user%%"
-}
+{}

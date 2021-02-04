@@ -6,5 +6,5 @@
     "alreadyJoined": "You've already joined this project!",
     "notJoined": "You haven't joined this project yet!",
     "dmError": "We couldn't check whether you're already on these projects or not. In order to do this, you must execute the command on The Hypixel Translators Community Discord.",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "触发者：%%user%%"
 }

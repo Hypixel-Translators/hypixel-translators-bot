@@ -1,31 +1,31 @@
 {
     "moduleName": "Informação",
-    "page1Title": "Help page",
+    "page1Title": "Página de ajuda",
     "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `+translate` command.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
-    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
-    "page": "Page %%number%%/%%total%%",
-    "pageNumber": "Page %%number%%",
-    "utilityHelp": "%%badge%% Tools & Utilities",
+    "madeBy": "Bot feito com muito carinho por %%QkeleQ10%%",
+    "page": "Página %%number%%/%%total%%",
+    "pageNumber": "Página %%number%%",
+    "utilityHelp": "%%badge%% Ferramentas e Utilidades",
     "infoHelp": "%%badge%% Information commands",
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
-    "pageNotExist": "That page doesn't exist!",
+    "pageNotExist": "Essa página não existe!",
     "commandInfo": "Informações do comando",
     "commandInfoFor": "Informação para o comando ",
-    "commandNotExist": "Este comando não existe!",
+    "commandNotExist": "Esse comando não existe!",
     "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
     "inDev": "This command is currently in development and will be available at a later date!",
-    "seconds": "seconds",
-    "second": "second",
-    "minutes": "minutes",
+    "seconds": "segundos",
+    "second": "segundo",
+    "minutes": "minutos",
     "usageField": "Uso",
-    "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
+    "cooldownField": "Tempo de recarga",
+    "aliasesField": "Atalhos",
     "help": {
-        "usage": "+help [page | command name]",
+        "usage": "+help [página | nome do comando]",
         "description": "Mostra todos os comandos disponíveis e outras informações sobre o bot."
     },
     "prefix": {
-        "usage": "+prefix [flags]",
+        "usage": "+prefix [bandeiras]",
         "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
@@ -37,11 +37,11 @@
         "description": "Menciona os usuários com o cargo do idioma informado. Você também pode adicionar uma mensagem na notificação."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
+        "usage": "+context get|add|edit|link|help <argumentos>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
     },
     "languagestats": {
-        "usage": "+languagestats <language>",
+        "usage": "+languagestats <idioma>",
         "description": "Shows you the progress of a language on the all projects we currently support."
     },
     "issue": {
@@ -49,7 +49,7 @@
         "description": "Opens our GitHub issues page, where you can report problems and send feedback."
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
+        "usage": "+language [<novo idioma> | list | add <idioma>]",
         "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
     },
     "ping": {
@@ -94,11 +94,11 @@
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Te dá o link para o tópico de anúncio deste servidor de Discord."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Te dá o link para a página oficial do Twitter da Comunidade de Tradutores do Hypixel."
     },
     "executedBy": "Executado por %%user%%"
 }
