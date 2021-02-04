@@ -16,6 +16,7 @@
         "falseUser": "Tohoto uživatele se nepodařilo najít!",
         "falseFlag": "That flag couldn't be found!",
         "falseLang": "That language couldn't be found!",
+        "falseContext": "That context entry couldn't be found!",
         "noPlayer": "That player has never joined Hypixel!",
         "disabled": "Tento příkaz byl dočasně deaktivován.",
         "noTrPr": "Nejsi překladatel ani korektor, takže to nemůžeš použít!",
