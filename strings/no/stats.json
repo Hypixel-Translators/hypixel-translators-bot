@@ -1,9 +1,1 @@
-{
-    "moduleName": "Statistikk oppdaterer",
-    "done": "All language statistics have been updated!",
-    "doneProject": "The %%project%% language statistics have been updated!",
-    "checkOutOne": "Check it out at %%channel%%!",
-    "checkOutAll": "Check them out at %%channel%%, %%channel%%, %%channel%% and %%channel%%!",
-    "errorNoProject": "Couldn't find the project with the name %%name%%.",
-    "executedBy": "Utført av %%user%%"
-}
+{}
