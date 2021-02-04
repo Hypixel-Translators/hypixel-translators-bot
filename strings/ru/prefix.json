@@ -1,6 +1,6 @@
 {
     "moduleName": "Префикс",
-    "usage": "+prefix",
+    "usage": "+prefix [флаги]",
     "loading": "Секундочку...",
     "loadingRoles": "Получаю Ваши роли...",
     "errors": {
