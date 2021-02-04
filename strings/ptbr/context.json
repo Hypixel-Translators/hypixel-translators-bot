@@ -16,7 +16,7 @@
     "screenshot": "Screenshot",
     "addContextFor": "Adicionar contexto para ",
     "edited": "Edited this context entry! ",
-    "editedResult": "Edited this context entry! The new data is shown below.\n\n**Context**\n",
+    "editedResult": "O contexto foi editado! Confira a seguir.\n\n**Contexto**\n",
     "tryRunGet": "Não foi possível encontrar algo com sua mensagem. Use `+context get <ID da string>` para tentar novamente.",
     "editContextFor": "Editar contexto de ",
     "willAdd": "The following entry will be added. Please react with 📑 if you'd like to add more to the entry or change existing fields (such as a screenshot or a language note). React with %%voteYes%% to submit. This will be cancelled in two minutes or when you hit %%voteNo%%.",
