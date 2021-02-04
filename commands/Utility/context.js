@@ -97,12 +97,7 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
     toSend = toSend.join(" ")
 
     if (!toSend || !string) {
-        message.channel.stopTyping()
-        message.channel.send(strings.errors.noContext).then(msg => setTimeout(() => {
-            if (!msg.deleted) msg.delete()
-            if (!message.deleted) message.delete()
-        }, 10000))
-        return
+        throw "noContext"
     }
 
     if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("MANAGE_ROLES")) { //Hypixel Proofreader
@@ -218,12 +213,7 @@ async function addToSpreadsheet(executedBy, message, strings, args) {
                         .then(finalMsg => {
                             if (!msg.deleted) msg.delete()
                             if (!result) {
-                                message.channel.stopTyping()
-                                message.channel.send(strings.errors.notFound).then(msg => setTimeout(() => {
-                                    if (!msg.deleted) msg.delete()
-                                    if (!message.deleted) message.delete()
-                                }, 10000))
-                                return
+                                throw "falseContext"
                             }
 
                             embed
