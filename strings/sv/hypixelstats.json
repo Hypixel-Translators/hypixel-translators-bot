@@ -10,9 +10,9 @@
     "offline": "Offline",
     "lastSeen": "Last seen in %%game%%",
     "language": "Språk",
-    "first_login": "First Login",
+    "first_login": "Första inloggningen",
     "last_login": "Online sedan",
-    "last_logout": "Last seen",
+    "last_logout": "Senast sedd",
     "link": "Länk",
     "notConnected": "Inte ansluten",
     "blocked": "Serverlänk blockerad",
@@ -27,8 +27,8 @@
     "DUTCH": "Nederländska",
     "SPANISH": "Spanska",
     "ITALIAN": "Italienska",
-    "CHINESE_SIMPLIFIED": "Chinese Simplified",
-    "CHINESE_TRADITIONAL": "Chinese Traditional",
+    "CHINESE_SIMPLIFIED": "Kinesiska (förenklad)",
+    "CHINESE_TRADITIONAL": "Kinesiska (traditionell)",
     "PORTUGUESE_BR": "Portugisiska (brasiliansk)",
     "RUSSIAN": "Ryska",
     "KOREAN": "Koreanska",
@@ -48,5 +48,5 @@
     "TURKISH": "Turkiska",
     "UKRAINIAN": "Ukrainska",
     "madeBy": "Kommando skapat av %%developer%%",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Utfördes av %%user%%"
 }
