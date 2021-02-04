@@ -16,6 +16,7 @@
         "falseUser": "Bu kullanıcı bulunamadı!",
         "falseFlag": "That flag couldn't be found!",
         "falseLang": "That language couldn't be found!",
+        "falseContext": "That context entry couldn't be found!",
         "noPlayer": "That player has never joined Hypixel!",
         "disabled": "Bu komut geçici olarak devre dışı bırakıldı.",
         "noTrPr": "Bir çevirmen veya düzeltmen değilsin, yani bunu kullanamazsın!",
