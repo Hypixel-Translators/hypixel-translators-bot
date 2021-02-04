@@ -17,8 +17,8 @@
     "ar": "Arabiska",
     "bar": "Bayerska",
     "bg": "Bulgariska",
-    "zhcn": "Chinese Simplified",
-    "zhtw": "Chinese Traditional",
+    "zhcn": "Kinesiska (förenklad)",
+    "zhtw": "Kinesiska (traditionell)",
     "cs": "Tjeckiska",
     "da": "Danska",
     "nl": "Nederländska",
@@ -42,12 +42,12 @@
     "ptbr": "Portugisiska (brasiliansk)",
     "ru": "Ryska",
     "es": "Spanska",
-    "esmx": "Spanish, Mexico",
-    "espe": "Spanish, Peru",
+    "esmx": "Spanska (mexikansk)",
+    "espe": "Spanska (peruansk)",
     "he": "Hebreiska",
     "sv": "Svenska",
     "th": "Thailändska",
     "tr": "Turkiska",
     "ua": "Ukrainska",
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Utfördes av %%user%%"
 }
