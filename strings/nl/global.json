@@ -16,7 +16,7 @@
         "falseUser": "Die gebruiker kon niet worden gevonden!",
         "falseFlag": "Die vlag kon niet worden gevonden!",
         "falseLang": "Die taal kon niet worden gevonden!",
-        "falseContext": "That context entry couldn't be found!",
+        "falseContext": "Die contextvermelding is niet gevonden!",
         "noPlayer": "Die speler heeft Hypixel nooit toegetreden!",
         "disabled": "Dit commando is tijdelijk uitgeschakeld.",
         "noTrPr": "Je bent geen vertaler of proeflezer, dus je kunt dit niet gebruiken!",
