@@ -13,7 +13,7 @@
         "noQuote": "You haven't provided a quote! In order to request one to be added, execute `+quote add <quote> / <author mention>`.",
         "noUserQuote": "You haven't provided a user! Please type the quote and then mention the quoted user, separated by a slash.",
         "falseChannel": "Kanalen hittades inte!",
-        "falseUser": "That user couldn't be found!",
+        "falseUser": "Användaren hittas inte!",
         "falseFlag": "That flag couldn't be found!",
         "falseLang": "That language couldn't be found!",
         "noPlayer": "That player has never joined Hypixel!",
