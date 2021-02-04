@@ -1,0 +1,11 @@
+{
+    "errorNoPing": "crwdns392:0crwdne392:0",
+    "errorNoPingPr": "crwdns394:0crwdne394:0",
+    "errorNoPingTr": "crwdns396:0crwdne396:0",
+    "errorNoPingAll": "crwdns398:0crwdne398:0",
+    "errorNoPingDisclaimer": "crwdns400:0crwdne400:0",
+    "errorNotFound": "crwdns402:0crwdne402:0",
+    "errorNoArgs": "crwdns404:0crwdne404:0",
+    "errorNoArgs2": "crwdns406:0crwdne406:0",
+    "executedBy": "crwdns408:0%%user%%crwdne408:0"
+}
