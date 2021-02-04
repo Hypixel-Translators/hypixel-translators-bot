@@ -1,6 +1,6 @@
 {
     "moduleName": "Estatísticas do idioma",
-    "statsAll": "Here are the statistics for the %%language%% language on all the projects we currently support.",
+    "statsAll": "Aqui estão as estatísticas do idioma %%language%% em todos os projetos que suportamos no momento.",
     "translated": "%%percentage%%% traduzidos (%%translated%%/%%total%% linhas)",
     "approved": "%%percentage%%% aprovados (%%approved%%/%%total%% linhas)",
     "languages": {
