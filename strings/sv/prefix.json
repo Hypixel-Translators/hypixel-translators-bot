@@ -13,7 +13,7 @@
         "timedOut": "Timed Out",
         "timeOut": "You didn't react with any flags, ",
         "timeOutCustom": "You didn't confirm, ",
-        "notSaved": "."
+        "notSaved": "so your prefix wasn't saved."
     },
     "customPrefix": "Köra `+prefix <flaggor>` för att ändra ditt prefix.",
     "caution": "Caution",
