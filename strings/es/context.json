@@ -1,14 +1,12 @@
 {
     "moduleName": "Contexto",
     "errors": {
-        "notFound": "¡Esa entrada no fue encontrada!",
         "exists1": "Una entrada de contexto para ",
         "exists2": " ya existe, así que la tuya no ha sido añadida. En vez, usa `+context edit`.",
         "didntReply": "No respondiste a tiempo, ",
         "hitReaction": "Reaccionaste con %%voteNo%%, ",
         "cancelledPrompt": "así que esta acción fue cancelada. ",
-        "readdTryAgain": "Reacciona con 📑 para intentar de nuevo.",
-        "noContext": "¡No has introducido el contexto! Añade el ID del string y el contexto explicándolo."
+        "readdTryAgain": "Reacciona con 📑 para intentar de nuevo."
     },
     "notProofreader": "No eres un revisor, ¡así que no puedes usar esto! Estamos trabajando en una manera de permitirte sugerir contextos.",
     "contextFor": "Contexto para ",
