@@ -1,7 +1,7 @@
 {
     "moduleName": "Prefix",
     "usage": "+prefix [flaggor]",
-    "loading": "Just a second...",
+    "loading": "Läser in...",
     "loadingRoles": "Hämtar roller...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
@@ -13,9 +13,9 @@
         "timedOut": "Timed Out",
         "timeOut": "You didn't react with any flags, ",
         "timeOutCustom": "You didn't confirm, ",
-        "notSaved": "så ditt prefix sparades inte."
+        "notSaved": "."
     },
-    "customPrefix": "Feel free to run `+prefix <flags>` to get your desired prefix.",
+    "customPrefix": "Köra `+prefix <flaggor>` för att ändra ditt prefix.",
     "caution": "Caution",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "React with all flags you want to add to your prefix in order.",
@@ -24,6 +24,6 @@
     "previewT": "Förhandsvisning av smeknamn",
     "newNickT": "Nytt smeknamn",
     "noChanges": "Inga ändringar",
-    "saved": "Your prefix has been saved!",
+    "saved": "Ditt prefix har sparats!",
     "executedBy": "Executed by %%user%%"
 }
