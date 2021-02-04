@@ -1,32 +1,3 @@
 {
-    "moduleName": "Gebuikersinformatie",
-    "userID": "%%user%% (ID: %%id%%)",
-    "uroles": "Rollen",
-    "ujoined": "Lid geworden op",
-    "ucreated": "Account aangemaakt op",
-    "timeAgo": "%%time%% %%unit%% geleden",
-    "time": {
-        "second": "seconde",
-        "seconds": "seconden",
-        "minute": "minuut",
-        "minutes": "minuten",
-        "hour": "uur",
-        "hours": "uur",
-        "day": "dag",
-        "days": "dagen",
-        "month": "maand",
-        "months": "maanden",
-        "year": "jaar",
-        "years": "jaar"
-    },
-    "dateLocale": "nl-NL",
-    "timeZone": "Europe/Amsterdam",
-    "notes": "Notities",
-    "owner": "Discord-eigenaar",
-    "coOwner": "Discord-mede-eigenaar",
-    "admin": "Discord-administrator",
-    "mod": "Discord-moderator",
-    "helper": "Discord-helper",
-    "manager": "Projectbeheerder",
-    "executedBy": "Uitgevoerd door %%user%%"
+    "timeZone": "Europe/Amsterdam"
 }
