@@ -1,32 +1,3 @@
 {
-    "moduleName": "Informação do utilizador",
-    "userID": "%%user%% (ID: %%id%%)",
-    "uroles": "Cargos",
-    "ujoined": "Entrou a",
-    "ucreated": "Conta criada a",
-    "timeAgo": "há %%time%% %%unit%%",
-    "time": {
-        "second": "segundo",
-        "seconds": "segundos",
-        "minute": "minuto",
-        "minutes": "minutos",
-        "hour": "hora",
-        "hours": "horas",
-        "day": "dia",
-        "days": "dias",
-        "month": "mês",
-        "months": "meses",
-        "year": "ano",
-        "years": "anos"
-    },
-    "dateLocale": "pt-PT",
-    "timeZone": "Europe/Lisbon",
-    "notes": "Notas",
-    "owner": "Dono do servidor",
-    "coOwner": "Co-dono do servidor",
-    "admin": "Administrador do servidor",
-    "mod": "Moderador do servidor",
-    "helper": "Ajudante do servidor",
-    "manager": "Gestor de um projeto",
-    "executedBy": "Executado por %%user%%"
+    "timeZone": "Europe/Lisbon"
 }
