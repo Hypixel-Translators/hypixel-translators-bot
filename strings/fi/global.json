@@ -16,6 +16,7 @@
         "falseUser": "Tätä käyttäjää ei löytynyt!",
         "falseFlag": "Tätä lippua ei löytynyt!",
         "falseLang": "That language couldn't be found!",
+        "falseContext": "That context entry couldn't be found!",
         "noPlayer": "Tämä pelaaja ei ole koskaan käynyt Hypixelissä!",
         "disabled": "Tämä komento on toistaiseksi pois käytöstä.",
         "noTrPr": "Et ole kääntäjä tai oikolukija, joten et voi käyttää tätä!",
