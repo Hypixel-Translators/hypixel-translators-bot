@@ -10,7 +10,7 @@
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
     "pageNotExist": "Den sidan finns inte!",
     "commandInfo": "Kommandoinformation",
-    "commandInfoFor": "Command information for ",
+    "commandInfoFor": "Kommandoinformation för ",
     "commandNotExist": "Det kommandot finns inte!",
     "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
     "inDev": "This command is currently in development and will be available at a later date!",
@@ -100,5 +100,5 @@
         "usage": "+twitter",
         "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Utfördes av %%user%%"
 }
