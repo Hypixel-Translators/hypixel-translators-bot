@@ -16,6 +16,7 @@
         "falseUser": "Den brukeren kunne ikke bli funnet!",
         "falseFlag": "That flag couldn't be found!",
         "falseLang": "That language couldn't be found!",
+        "falseContext": "That context entry couldn't be found!",
         "noPlayer": "That player has never joined Hypixel!",
         "disabled": "Denne kommandoen har blitt midlertidig deaktivert.",
         "noTrPr": "Du er ikke en oversetter eller en korrekturleser, så du kan ikke bruke denne!",
