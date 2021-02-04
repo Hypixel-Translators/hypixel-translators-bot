@@ -1,14 +1,12 @@
 {
     "moduleName": "Contexte",
     "errors": {
-        "notFound": "That context entry wasn't found!",
         "exists1": "Une entrée pour ",
         "exists2": " existe déjà, donc ta entrée n'a pas été ajoutée.",
         "didntReply": "Tu n'as pas répondu à temps, ",
         "hitReaction": "Tu as réagi avec %%voteNo%%, ",
         "cancelledPrompt": "donc cette action a été annulée. ",
-        "readdTryAgain": "Réagis avec 📑 pour réessayer.",
-        "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it."
+        "readdTryAgain": "Réagis avec 📑 pour réessayer."
     },
     "notProofreader": "Tu n'est pas un proofreader, tu ne peux pas utiliser cette commande! Nous travaillons sur un moyen de tu laisser suggérer un contexte.",
     "contextFor": "Contexte pour ",
