@@ -1,7 +1,7 @@
 {
     "moduleName": "Информация",
     "page1Title": "Страница помощи",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `+translate` command.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
+    "commandsListTooltip": "Этот бот был сделан для сообщества переводчиков Hypixel пользователем %%developer%%. Бот с открытым исходным кодом и наш репозиторий GitHub можно найти [здесь]%%github%%.\nВы можете помочь перевести бота следуя инструкциям команды `+translate`.\n\nВы можете выполнить `+help <название команды>`, чтобы узнать больше о конкретной команде.\nНиже вы можете найти список всех доступных страниц. Используйте реакции на этом сообщение, чтобы пролистать их.",
     "madeBy": "Бот сделан с большой заботой пользователем %%QkeleQ10%%",
     "page": "Страница %%number%%/%%total%%",
     "pageNumber": "Страница %%number%%",
@@ -12,11 +12,11 @@
     "commandInfo": "Информация о команде",
     "commandInfoFor": "Информация про команду ",
     "commandNotExist": "Данная команда не существует!",
-    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-    "inDev": "This command is currently in development and will be available at a later date!",
+    "staffOnly": "Эта команда доступна только персоналу, и поэтому ее информация скрыта.\nПожалуйста, свяжитесь с персоналом, если вы считаете, что это ошибка.",
+    "inDev": "Эта команда в настоящее время находится в разработке и будет доступна позже!",
     "seconds": " секунды",
-    "second": "second",
-    "minutes": "minutes",
+    "second": "сек.",
+    "minutes": "мин.",
     "usageField": "Использование",
     "cooldownField": "Перезарядка",
     "aliasesField": "Альтернативы",
@@ -26,10 +26,10 @@
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
+        "description": "Дает вам соответствующий префикс для вашего(их) языка(ов). Чтобы получить пользовательский префикс, выполните команду `+prefix <флаги>` и замените `<флаги>` региональным кодом флага вашей страны или ее названием. Вы можете добавить столько флагов, разделенных пробелом, сколько хотите."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [индекс] | +quote add <цитата> / <упоминание автора>",
         "description": "Дает (или добавляет) смешную/странную/мудрую цитату с сервера."
     },
     "mention": {
@@ -37,7 +37,7 @@
         "description": "Упоминает языковую роль вместе с сообщением."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
+        "usage": "+context get|add|edit|link|help <аргументы>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
     },
     "languagestats": {
