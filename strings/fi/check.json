@@ -1,32 +1,3 @@
 {
-    "moduleName": "Käyttäjän tiedot",
-    "userID": "%%user%% (ID: %%id%%)",
-    "uroles": "Roolit",
-    "ujoined": "Liittyi palvelimelle",
-    "ucreated": "Tili luotu",
-    "timeAgo": "%%time%% %%unit%% sitten",
-    "time": {
-        "second": "sekunti",
-        "seconds": "sekuntia",
-        "minute": "minuutti",
-        "minutes": "minuuttia",
-        "hour": "tunti",
-        "hours": "tuntia",
-        "day": "päivä",
-        "days": "päivää",
-        "month": "kuukausi",
-        "months": "kuukautta",
-        "year": "vuosi",
-        "years": "vuotta"
-    },
-    "dateLocale": "fi-FI",
-    "timeZone": "Europe/Helsinki",
-    "notes": "Muistiinpanot",
-    "owner": "Palvelimen omistaja",
-    "coOwner": "Palvelimen osaomistaja",
-    "admin": "Palvelimen ylläpitäjä",
-    "mod": "Palvelimen moderaattori",
-    "helper": "Palvelimen apuri",
-    "manager": "Projektipäällikkö",
-    "executedBy": "Komennon suoritti %%user%%"
+    "timeZone": "Europe/Helsinki"
 }
