@@ -1,32 +1,3 @@
 {
-    "moduleName": "User information",
-    "userID": "%%user%% (ID: %%id%%)",
-    "uroles": "身分組",
-    "ujoined": "Joined at",
-    "ucreated": "Account created at",
-    "timeAgo": "%%time%% %%unit%%前",
-    "time": {
-        "second": "秒",
-        "seconds": "seconds",
-        "minute": "分鐘",
-        "minutes": "分鐘",
-        "hour": "小時",
-        "hours": "小時",
-        "day": "天",
-        "days": "天",
-        "month": "個月",
-        "months": "個月",
-        "year": "年",
-        "years": "年"
-    },
-    "dateLocale": "zh-TW",
-    "timeZone": "Europe/London",
-    "notes": "Notes",
-    "owner": "Discord Owner",
-    "coOwner": "Discord Co-Owner",
-    "admin": "Discord Administrator",
-    "mod": "Discord Moderator",
-    "helper": "Discord Helper",
-    "manager": "Project Manager",
-    "executedBy": "由 %%user%% 執行"
+    "timeZone": "Europe/London"
 }
