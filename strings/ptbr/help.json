@@ -7,7 +7,7 @@
     "pageNumber": "Página %%number%%",
     "utilityHelp": "%%badge%% Ferramentas e Utilidades",
     "infoHelp": "%%badge%% Information commands",
-    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
+    "timeOut": "Este menu expirou. Se você deseja usá-lo novamente, use `+help`.",
     "pageNotExist": "Essa página não existe!",
     "commandInfo": "Informações do comando",
     "commandInfoFor": "Informação para o comando ",
