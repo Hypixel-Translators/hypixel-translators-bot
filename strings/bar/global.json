@@ -16,6 +16,7 @@
         "falseUser": "Der Benutzer wurde nicht gefunden!",
         "falseFlag": "Diese Flagge konnte nicht gefunden werden!",
         "falseLang": "Diese Sprache konnte nicht gefunden werden!",
+        "falseContext": "That context entry couldn't be found!",
         "noPlayer": "Dieser Spieler ist Hypixel nie beigetreten!",
         "disabled": "Der Befehl ist vorübergehend deaktiviert.",
         "noTrPr": "Du bist kein Translator oder Proofreader, daher kannst du es nicht benutzen!",
