@@ -5,6 +5,9 @@ const { getDb } = require("../lib/mongodb")
 
 client.on("message", async message => {
 
+    //Stop if user is a bot
+    if (message.author.bot) return
+
     //Delete pinned message messages
     if (message.type === "PINS_ADD" && message.channel.type !== "dm") return message.delete()
 
