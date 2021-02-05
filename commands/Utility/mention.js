@@ -7,14 +7,8 @@ module.exports = {
   roleWhitelist: ["569839580971401236", "764442984119795732"], //Hypixel Proofreader and Discord Administrator
   channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "644620638878695424", "550951034332381184", "549894938712866816", "713084081579098152"],
   execute(message, strings, args) {
-    if (!args[0]) {
-      message.channel.send(strings.errorNoArgs + "\n`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.")
-      return
-    }
-    if (!args[1]) {
-      message.channel.send(strings.errorNoArgs2 + "\n`proofreader`, `translator`, `all`.")
-      return
-    }
+    if (!args[0]) throw "noLang"
+    if (!args[1]) throw "noRole"
     let type = args[1].toLowerCase()
     const lowerArg = args[0].toLowerCase()
     let toLook = lowerArg.charAt(0).toUpperCase() + lowerArg.slice(1)
@@ -31,10 +25,7 @@ module.exports = {
     console.log("toSend: " + toSend)
     const role = message.guild.roles.cache.find(x => x.name == (toLook + " Proofreader"))
 
-    if (!role) {
-      message.channel.send(strings.errorNotFound + "\n`bg`, `cs`, `da`, `de`, `el`, `enpt`, `es`, `fi`, `fr`, `it`, `ja`, `ko`, `lol`, `ms`, `nl`, `no`, `pl`, `pt`, `ptbr`, `ru`, `sv`, `th`, `tr`, `ua`, `zhcn`, `zhtw`.")
-      return
-    }
+    if (!role) throw "falseRole"
     if (type === "pf" || type === "pr" || type === "proofreader") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader")
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("MANAGE_ROLES"))) {

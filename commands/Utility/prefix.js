@@ -240,10 +240,9 @@ module.exports = {
                 } else {
                   prefixes = "n"
                   const embed = new Discord.MessageEmbed()
-                    .setColor(successColor)
+                    .setColor(errorColor)
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.errors.alreadyThis + strings.errors.notSaved)
-                    .addFields({ name: strings.newNickT, value: strings.noChanges })
                     .setFooter(executedBy, message.author.displayAvatarURL())
                   msg.edit(embed)
                 }
@@ -259,10 +258,9 @@ module.exports = {
               msg.reactions.removeAll()
               prefixes = "n"
               const embed = new Discord.MessageEmbed()
-                .setColor(successColor)
+                .setColor(errorColor)
                 .setAuthor(strings.moduleName)
                 .setTitle(strings.errors.cancelled + strings.errors.notSaved)
-                .addFields({ name: strings.newNickT, value: strings.noChanges })
                 .setFooter(executedBy, message.author.displayAvatarURL())
               msg.edit(embed)
             } else {
