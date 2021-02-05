@@ -1,12 +1,14 @@
 {
     "moduleName": "Centoxt",
     "errors": {
+        "notFound": "That context entry wasn't found!",
         "exists1": "A centoxt entri fer ",
         "exists2": " alreddi existz, so urs was addedn't. Use `+context edit` u dum dum.",
         "didntReply": "U were too slo to reactt, ",
         "hitReaction": "U react wif %%voteNo%%, ",
         "cancelledPrompt": "so dis prropt has ben canseled. ",
-        "readdTryAgain": "Reakt agen with 📑 to do agen but then gud."
+        "readdTryAgain": "Reakt agen with 📑 to do agen but then gud.",
+        "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it."
     },
     "notProofreader": "Ur not proofreder, and only kewl proofreder kan do dis! But we donut wanto exclude u so we workin on a wæ to let u sugest centoxt too.",
     "contextFor": "Centoxt fer ",
