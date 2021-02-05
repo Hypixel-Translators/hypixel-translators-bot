@@ -2,3 +2,6 @@ files:
   - source: /strings/en/*.json
     translation: /strings/%osx_locale%/%original_file_name%
     update_option: update_as_unapproved
+    languages_mapping:
+      osx_locale:
+        "en-UD": "empty"
