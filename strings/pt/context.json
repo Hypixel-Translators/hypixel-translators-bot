@@ -1,12 +1,14 @@
 {
     "moduleName": "Contexto",
     "errors": {
+        "notFound": "That context entry wasn't found!",
         "exists1": "Já temos contexto para ",
         "exists2": ", logo o teu não foi adicionado. Usa `+context edit` em vez disso.",
         "didntReply": "Não respondeste a tempo, ",
         "hitReaction": "Reagiste com %%voteNo%%, ",
         "cancelledPrompt": "logo esta ação foi cancelada. ",
-        "readdTryAgain": "Reage outra vez com 📑 para tentares outra vez."
+        "readdTryAgain": "Reage outra vez com 📑 para tentares outra vez.",
+        "noContext": "Não forneceste contexto! Tens de incluir tanto o ID da string como o seu contexto."
     },
     "notProofreader": "Não és um revisor, logo não podes fazer isto! Apesar disso, estamos a trabalhar numa forma de permitir sugestões de contexto.",
     "contextFor": "Contexto para ",
