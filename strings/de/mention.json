@@ -4,8 +4,5 @@
     "errorNoPingTr": "also kannst du seine Rolle als Übersetzer nicht erwähnen.",
     "errorNoPingAll": "also kannst du nicht die gesamte Sprache erwähnen.",
     "errorNoPingDisclaimer": "Kontaktiere den Server Besitzer oder Administrator, falls du wirklich Hilfe benötigst.",
-    "errorNotFound": "Die Rolle, die du eingegeben hast, existiert nicht. Du kannst den Namen der Sprache eingeben, oder eine von diesen: ",
-    "errorNoArgs": "Du hast vergessen, eine Sprache anzugeben! Du kannst den Namen der Sprache (in Englisch) oder eine der folgenden eingeben: ",
-    "errorNoArgs2": "Du hast vergessen, einen Rollentyp anzugeben! Wähle eine von diesen aus: ",
     "executedBy": "Ausgeführt von %%user%%"
 }
