@@ -7,7 +7,6 @@
     "errorDescription": "Deine Sprache wurde nicht geändert. Diese Sprachen sind derzeit verfügbar (dies bedeutet nicht, dass sie übersetzt wurden):",
     "suggestAdd": "Wenn du möchtest, dass diese Sprache zum Bot hinzugefügt wird, kontaktiere bitte das Team oder mache einen Vorschlag mit `+Feedback`.",
     "current": "Deine Sprache wurde auf Deutsch gesetzt.",
-    "add": "Die folgende Sprache wurde hinzugefügt:",
     "request": "Erfolgreich die folgende Sprache angefordert:",
     "errorRequest": "Beim Versuch, diese Sprache anzufordern, ist ein Fehler aufgetreten",
     "errorRequestDesc": "Wir konnten die Sprache, die du anfragen wolltest, nicht finden. Wenn du glaubst, dass dies ein Fehler ist, schicke dem Bot bitte eine PN mit deiner Anfrage.",
