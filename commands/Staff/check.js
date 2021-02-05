@@ -16,41 +16,40 @@ module.exports = {
       if (!member) throw "falseUser"
     }
 
-    try {
-      let note
-      if (member.user.id === message.guild.ownerID) note = "Discord Owner"
-      else if (member.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"
-      else if (member.roles.cache.find(r => r.name === "Discord Administrator")) note = "Discord Administrator"
-      else if (member.roles.cache.find(r => r.name === "Discord Moderator")) note = "Discord Moderator"
-      else if (member.roles.cache.find(r => r.name === "Discord Helper")) note = "Discord Helper"
-      else if (member.roles.cache.find(r => r.name.endsWith(" Manager"))) note = "Project Manager"
-      else if (member.roles.cache.find(r => r.name === "Hypixel Staff")) note = "Hypixel Staff Member"
+    let note
+    if (member.user.id === message.guild.ownerID) note = "Discord Owner"
+    else if (member.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"
+    else if (member.roles.cache.find(r => r.name === "Discord Administrator")) note = "Discord Administrator"
+    else if (member.roles.cache.find(r => r.name === "Discord Moderator")) note = "Discord Moderator"
+    else if (member.roles.cache.find(r => r.name === "Discord Helper")) note = "Discord Helper"
+    else if (member.roles.cache.find(r => r.name.endsWith(" Manager"))) note = "Project Manager"
+    else if (member.roles.cache.find(r => r.name === "Hypixel Staff")) note = "Hypixel Staff Member"
 
-      let color = member.displayHexColor
-      if (color == "#000000") color = blurple
-      const joined = member.joinedAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
-      const created = member.user.createdAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
-      let joinAgo = Math.round((new Date().getTime() - member.joinedAt) / 1000)
-      let createAgo = Math.round((new Date().getTime() - member.user.createdAt) / 1000)
-      let userRoles = member.roles.cache
-      if (userRoles.size !== 1) userRoles.delete("549503328472530974")
-      else userRoles = "No roles yet!"
+    let color = member.displayHexColor
+    if (color == "#000000") color = blurple
+    if (strings.timeZone.startsWith("crwdns")) strings.timeZone = "Europe/London"
+    const joined = member.joinedAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+    const created = member.user.createdAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+    let joinAgo = Math.round((new Date().getTime() - member.joinedAt) / 1000)
+    let createAgo = Math.round((new Date().getTime() - member.user.createdAt) / 1000)
+    let userRoles = member.roles.cache
+    if (userRoles.size !== 1) userRoles.delete("549503328472530974")
+    else userRoles = "No roles yet!"
 
-      const embed = new Discord.MessageEmbed()
-        .setColor(color)
-        .setAuthor("User information", member.user.displayAvatarURL())
-        .setTitle(member.user.tag)
-        .setDescription(`${member} (ID: ${member.user.id})`)
-        .addFields(
-          { name: "Joined on", value: joined.charAt(0).toUpperCase() + joined.slice(1) + timeAgo(joinAgo), inline: true },
-          { name: "Account created on", value: created.charAt(0).toUpperCase() + created.slice(1) + timeAgo(createAgo), inline: true },
-          { name: "Roles", value: userRoles.sort((a, b) => b.position - a.position).map(r => `${r}`).join(", ") },
-        )
-        .setThumbnail(member.user.displayAvatarURL())
-        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
-      if (note) embed.addField("Notes", note)
-      message.channel.send(embed)
-    } catch (err) { throw err }
+    const embed = new Discord.MessageEmbed()
+      .setColor(color)
+      .setAuthor("User information", member.user.displayAvatarURL())
+      .setTitle(member.user.tag)
+      .setDescription(`${member} (ID: ${member.user.id})`)
+      .addFields(
+        { name: "Joined on", value: joined.charAt(0).toUpperCase() + joined.slice(1) + timeAgo(joinAgo), inline: true },
+        { name: "Account created on", value: created.charAt(0).toUpperCase() + created.slice(1) + timeAgo(createAgo), inline: true },
+        { name: "Roles", value: userRoles.sort((a, b) => b.position - a.position).map(r => `${r}`).join(", ") },
+      )
+      .setThumbnail(member.user.displayAvatarURL())
+      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+    if (note) embed.addField("Notes", note)
+    message.channel.send(embed)
     function timeAgo(time) {
       if (time == 1) time = ` (${time} second ago)`
       else if (time < 60) time = ` (${time} seconds ago)`
@@ -63,7 +62,7 @@ module.exports = {
       else if (time == (60 * 60 * 24 * 30 * 1.5)) time = ` (${Math.round(time / (60 * 60 * 24 * 30))} month ago)`
       else if (time < (60 * 60 * 24 * 365 * 1.5)) time = ` (${Math.round(time / (60 * 60 * 24 * 30))} months ago)`
       else if (time == (60 * 60 * 24 * 365 * 1.5)) time = ` (${Math.round(time / (60 * 60 * 24 * 365))} year ago)`
-      else time = `(${Math.round(time / (60 * 60 * 24 * 365))} years ago)`
+      else time = ` (${Math.round(time / (60 * 60 * 24 * 365))} years ago)`
       return time
     }
   }

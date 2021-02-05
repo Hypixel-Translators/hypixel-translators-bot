@@ -15,7 +15,6 @@ module.exports = {
         let executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         let oldMsg = {}
         let newMsg = {}
-        let selected = false
 
         if (args[0]) {
             if (args[0] === "add") {
@@ -63,6 +62,8 @@ module.exports = {
                 await fs.readdir(stringsFolder, async (err, files) => {
                     let langList = ""
                     files.forEach(async (element, index, array) => {
+                        if (element === "empty" && !message.member.roles.cache.has("764442984119795732")) return //Discord Administrator
+                        if (element === "empty") strings[element] = "Empty"
                         langList = langList + "\n" + strings.listElement.replace("%%code%%", element).replace("%%language%%", strings[element] || "Unknown")
                         if (index === array.length - 1) {
                             const embed = new Discord.MessageEmbed()
@@ -82,6 +83,7 @@ module.exports = {
                 if (newLang === "se") newLang = "sv"
                 const langdbEntry = langdb.find(l => l.name.toLowerCase() === newLang)
                 if (langdbEntry) newLang = langdbEntry.code
+                if (newLang === "empty" && !message.member.roles.cache.has("764442984119795732")) newLang = "denied" //Discord Administrator
                 const path = `./strings/${newLang}/language.json`
                 fs.access(path, fs.F_OK, async (err) => {
                     if (!err) {
@@ -129,6 +131,8 @@ module.exports = {
                     } else {
                         const stringsFolder = "./strings/"
                         await fs.readdir(stringsFolder, async (err, files) => {
+                            const emptyIndex = files.indexOf("empty")
+                            if (emptyIndex > -1 && !message.member.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
                             const embed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
                                 .setAuthor(strings.moduleName)
@@ -146,10 +150,11 @@ module.exports = {
             const oldMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
             const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
             oldFiMessages.forEach(async element => {
-                selected = true
                 oldMsg = await element.content.split(" ")
                 const stringsFolder = "./strings/"
                 await fs.readdir(stringsFolder, async (err, files) => {
+                    const emptyIndex = files.indexOf("empty")
+                    if (emptyIndex > -1 && !message.member.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
                     const embed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor(strings.moduleName)

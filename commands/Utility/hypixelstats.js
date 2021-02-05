@@ -63,6 +63,7 @@ module.exports = {
                 if (json.online) lastLoginSelector = "last_login"
                 else lastLoginSelector = "last_logout"
 
+                if (strings.timeZone.startsWith("crwdns")) strings.timeZone = "Europe/London"
                 let lastLogin
                 if (json[lastLoginSelector] !== null) lastLogin = new Date(json[lastLoginSelector]).toLocaleString(strings.dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
                 else lastLogin = strings.lastLoginHidden
