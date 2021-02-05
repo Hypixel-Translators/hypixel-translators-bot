@@ -66,5 +66,5 @@
         "sheetDButton": "Click here to open the Google Sheet containing context information.",
         "sheetDel": "Deleting message in 1 minute"
     },
-    "executedBy": "%%user%% によって実行されました"
+    "executedBy": "%%user%%によって実行されました"
 }
