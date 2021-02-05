@@ -14,7 +14,7 @@ module.exports = {
     execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         let allowed = false
-        if (strings, message.channel.type !== "dm" && strings, message.member.roles.cache.has("768435276191891456")) allowed = true // Discord Staff
+        if (message.channel.type !== "dm" && message.member?.hasPermission("VIEW_AUDIT_LOG")) allowed = true // Discord Staff
         message.channel.startTyping()
         if (args[0] === "add") {
             args.splice(0, 1)
