@@ -12,9 +12,9 @@ client.on("message", async message => {
     if (message.channel.id === "732587569744838777") message.crosspost() //bot-updates
 
     //Get global strings
-    const lang = getDb().collection("players").findOne({ id: message.author.id }).lang
-    const globalStrings = require(`../strings/${lang}/global.json`)
-    const helpStrings = require(`../strings/${lang}/help.json`)
+    const author = await getDb().collection("players").findOne({ id: message.author.id })
+    const globalStrings = require(`../strings/${author.lang}/global.json`)
+    const helpStrings = require(`../strings/${author.lang}/help.json`)
     const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
     //Link correction system
@@ -156,8 +156,8 @@ client.on("message", async message => {
 
     //Get command strings
     let strings = require(`../strings/en/${command.name}.json`)
-    try { strings = require(`../strings/${lang}/${command.name}.json`) }
-    catch { console.error(`Couldn't get command strings for the command ${command.name} on the language ${lang}. The file does not exist yet.`) }
+    try { strings = require(`../strings/${author.lang}/${command.name}.json`) }
+    catch { console.error(`Couldn't get command strings for the command ${command.name} on the language ${author.lang}. The file does not exist yet.`) }
 
     //Run command and handle errors
     try { await command.execute(message, strings, args, globalStrings) }
