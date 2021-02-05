@@ -187,6 +187,7 @@ client.on("message", async message => {
         } else {
             embed.addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" })
         }
+        message.channel.stopTyping()
         message.channel.send(embed)
         return
 

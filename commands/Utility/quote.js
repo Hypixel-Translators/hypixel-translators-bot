@@ -24,11 +24,9 @@ module.exports = {
             if (quote.startsWith("+")) quote = quote.replace("+", "\\+")
             const author = fullQuote[1]
             if (!quote) {
-                message.channel.stopTyping()
                 throw "noQuote"
             }
             if (!author) {
-                message.channel.stopTyping()
                 throw "noUserQuote"
             }
             if (!allowed) {
