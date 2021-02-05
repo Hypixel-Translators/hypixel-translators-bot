@@ -12,7 +12,11 @@ client.on("message", async message => {
     if (message.channel.id === "732587569744838777") message.crosspost() //bot-updates
 
     //Get global strings
-    const author = await getDb().collection("players").findOne({ id: message.author.id })
+    let author = await getDb().collection("players").findOne({ id: message.author.id })
+    if (!author) {
+        await getDb().collection("players").insertOne({ id: message.author.id, lang: "en", profile: "", uuid: "" })
+        author = await getDb().collection("players").findOne({ id: message.author.id })
+    }
     const globalStrings = require(`../strings/${author.lang}/global.json`)
     const helpStrings = require(`../strings/${author.lang}/help.json`)
     const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
