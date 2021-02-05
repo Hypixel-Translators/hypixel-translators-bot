@@ -7,7 +7,6 @@
     "errorDescription": "Kieltäsi ei vaihdettu. Tällä hetkellä saatavilla olevat kielet (käännöstä ei välttämättä löydy):",
     "suggestAdd": "Mikäli haluat tämän kielen lisättäväksi bottiin, ole hyvä ja ota yhteyttä ylläpitotiimiin tai ehdota ominaisuutta komennolla `+feedback`.",
     "current": "Käytössäsi oleva kieli on suomi.",
-    "add": "Seuraava kieli on lisätty:",
     "request": "Pyydettiin seuraavan kielen lisäämistä:",
     "errorRequest": "Virhe ilmaantui yrittäessä pyytää tämän kielen lisäämistä",
     "errorRequestDesc": "Emme löytäneet pyytämääsi kieltä. Mikäli uskot tämän olevan virhe, laitathan pyynnön botille yksityisviestillä.",
