@@ -1,12 +1,14 @@
 {
     "moduleName": "Context",
     "errors": {
+        "notFound": "That context entry wasn't found!",
         "exists1": "A context entry fer ",
         "exists2": " already exists, so yers wasn't added. Instead, use `+context edit`.",
         "didntReply": "Ye didn't reply in time, ",
         "hitReaction": "You reacted with %%voteNo%%, ",
         "cancelledPrompt": "so this here prompt be cancelled. ",
-        "readdTryAgain": "Re-react with 📑 to try again."
+        "readdTryAgain": "Re-react with 📑 to try again.",
+        "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it."
     },
     "notProofreader": "Ye be not a proofreader, so ye can't use this here! we be workin' on a way to let ye suggest context too.",
     "contextFor": "Context fer ",
