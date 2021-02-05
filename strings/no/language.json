@@ -7,7 +7,6 @@
     "errorDescription": "Språket ditt har ikke blitt endret. Disse språkene er tilgjengelig for øyeblikket (det betyr ikke at de er fullstendig oversatt):",
     "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+feedback`.",
     "current": "Språket du foretrekker har blitt satt til norsk.",
-    "add": "The following language has been added:",
     "request": "Successfully requested the following language:",
     "errorRequest": "An error occured while trying to request this language",
     "errorRequestDesc": "We could not find the language you wanted to request. If you believe this is an error, please DM the bot with your request.",
