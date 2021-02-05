@@ -11,7 +11,6 @@ client.once("ready", async () => {
     client.guilds.cache.get("549503328472530974").members.fetch() //Guild members
     client.channels.cache.get("762341271611506708").messages.fetch("800415711864029204") //server-info roles message
     client.channels.cache.get("569178590697095168").messages.fetch("787366444970541056") //verify message
-    client.channels.cache.get("782635440054206504").messages.fetch() //language-database
     const reviewStringsChannels = await client.channels.cache.filter(c => c.name.endsWith("review-strings"))
     reviewStringsChannels.forEach(c => { c.messages.fetch() })
 

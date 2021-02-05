@@ -1,6 +1,7 @@
 const { client } = require("../index.js")
 const Discord = require("discord.js")
 const { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } = require("../config.json")
+const { getDb } = require("../lib/mongodb")
 
 client.on("message", async message => {
 
@@ -11,17 +12,10 @@ client.on("message", async message => {
     if (message.channel.id === "732587569744838777") message.crosspost() //bot-updates
 
     //Get global strings
-    let globalStrings = require("../strings/en/global.json")
-    let helpStrings = require("../strings/en/help.json")
-    const oldMessages = await message.client.channels.cache.get("782635440054206504").messages.fetch() //language-database
-    const oldFiMessages = await oldMessages.filter(element => element.content.includes(message.author.id))
-    oldFiMessages.forEach(async element => {
-        oldMsg = element.content.split(" ")
-        oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
-        globalStrings = require("../strings/" + oldMsg[0] + "/global.json")
-        helpStrings = require("../strings/" + oldMsg[0] + "/help.json")
-    })
-    let executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
+    const lang = getDb().collection("players").findOne({ id: message.author.id }).lang
+    const globalStrings = require(`../strings/${lang}/global.json`)
+    const helpStrings = require(`../strings/${lang}/help.json`)
+    const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
     //Link correction system
     if (message.content.toLowerCase().includes("/translate/hypixel/") && message.content.includes("://")) if (message.channel.id === "549503328472530976" || message.channel.id === "627594632779399195") { // hypixel translators and proofreaders
@@ -161,14 +155,9 @@ client.on("message", async message => {
     setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
 
     //Get command strings
-    let strings = require("../strings/en/" + command.name + ".json")
-    oldFiMessages.forEach(async element => {
-        oldMsg = element.content.split(" ")
-        oldMsg.splice(oldMsg.indexOf(message.author.id), 1)
-        try { strings = require("../strings/" + oldMsg[0] + "/" + command.name + ".json") }
-        catch { console.error(`Couldn't get command strings for the command ${command.name} on the language ${oldMsg[0]}. The file does not exist yet.`) }
-    })
-    globalStrings.executedBy.replace("%%user%%", message.author.tag)
+    let strings = require(`../strings/en/${command.name}.json`)
+    try { strings = require(`../strings/${lang}/${command.name}.json`) }
+    catch { console.error(`Couldn't get command strings for the command ${command.name} on the language ${lang}. The file does not exist yet.`) }
 
     //Run command and handle errors
     try { await command.execute(message, strings, args, globalStrings) }
