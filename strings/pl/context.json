@@ -1,12 +1,14 @@
 {
     "moduleName": "Kontekst",
     "errors": {
+        "notFound": "That context entry wasn't found!",
         "exists1": "Wpis kontekstowy ",
         "exists2": " już istnieje, więc Twój nie został dodany. Zamiast tego użyj `+context edit`.",
         "didntReply": "Nie odpowiedziałeś w porę, ",
         "hitReaction": "Zareagowałeś z %%voteNo%%, ",
         "cancelledPrompt": "więc zgłoszenie zostało anulowane. ",
-        "readdTryAgain": "Dodaj reakcję 📑, aby spróbować ponownie."
+        "readdTryAgain": "Dodaj reakcję 📑, aby spróbować ponownie.",
+        "noContext": "Nie dostarczyłeś kontekstu! Proszę dodać ID ciągu, oraz kontekst go wyjaśniający."
     },
     "notProofreader": "Nie jesteś korektorem, więc nie możesz tego użyć! Pracujemy nad sposobem, by również wam umożliwić dodawanie kontekstu.",
     "contextFor": "Kontekst dla ",
