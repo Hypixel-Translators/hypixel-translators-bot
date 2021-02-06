@@ -8,7 +8,7 @@
     "utilityHelp": "%%badge%% Toæls & utotltoties",
     "infoHelp": "%%badge%% Infation acomands",
     "timeOut": "The menu has the time of the out. Want use? Typ `+help` agen, idot!",
-    "pageNotExist": "That page doesn't exist!",
+    "pageNotExist": "Dat pagag existn't!",
     "commandInfo": "Info abt acomand",
     "commandInfoFor": "Info abt acomand ",
     "commandNotExist": "Dat acomand existn't!",
@@ -62,7 +62,7 @@
     },
     "tip": {
         "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
+        "description": "Givz u a randmo tip regadrin the servar."
     },
     "invite": {
         "usage": "+invite",
