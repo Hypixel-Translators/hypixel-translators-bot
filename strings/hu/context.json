@@ -1,14 +1,12 @@
 {
     "moduleName": "Kontextus",
     "errors": {
-        "notFound": "That context entry wasn't found!",
         "exists1": "A ",
         "exists2": " kontextus már létezik, így a tiéd nem lett hozzáadva. Ehelyett használd a `+context edit` parancsot.",
         "didntReply": "Nem reagáltál időben, ",
         "hitReaction": "A %%voteNo%% val reagáltál, ",
         "cancelledPrompt": "így ez az az ajánlat el lett távolítva. ",
-        "readdTryAgain": "Reagálj újra ezzel 📑 az újrapróbálkozáshoz.",
-        "noContext": "Nem adtál meg kontextust! Kérlek add hozzá a szöveg azonosítóját és a kontextusát is."
+        "readdTryAgain": "Reagálj újra ezzel 📑 az újrapróbálkozáshoz."
     },
     "notProofreader": "Nem vagy ellenőrző, így ezt nem tudod megtenni! Azon dolgozunk, hogy te is tudj kontextust ajánlani.",
     "contextFor": "Kontextus ehhez: ",

@@ -1,14 +1,12 @@
 {
     "moduleName": "Konteksti",
     "errors": {
-        "notFound": "Tätä kontekstia ei löytynyt!",
         "exists1": "Konteksti stringille ",
         "exists2": " on jo olemassa, joten ehdotustasi ei lisätty. Käytä komentoa `+context edit`.",
         "didntReply": "Et vastannut ajoissa, ",
         "hitReaction": "Reagoit emojilla %%voteNo%%, ",
         "cancelledPrompt": "joten pyyntösi peruttiin. ",
-        "readdTryAgain": "Reagoi uudelleen emojilla 📑 yrittääksesi uudelleen.",
-        "noContext": "Et syöttänyt kontekstia! Ole hyvä ja lisää stringin ID ja stringiä selittävä konteksti."
+        "readdTryAgain": "Reagoi uudelleen emojilla 📑 yrittääksesi uudelleen."
     },
     "notProofreader": "Et ole oikolukija, joten et voi käyttää tätä ominaisuutta! Työstämme tapaa antaa myös sinulle mahdollisuuden ehdottaa kontekstia.",
     "contextFor": "Konteksti stringille ",

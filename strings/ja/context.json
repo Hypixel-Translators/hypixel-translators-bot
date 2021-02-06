@@ -1,14 +1,12 @@
 {
     "moduleName": "Context",
     "errors": {
-        "notFound": "That context entry wasn't found!",
         "exists1": "A context entry for ",
         "exists2": " already exists, so yours wasn't added. Instead, use `+context edit`.",
         "didntReply": "You didn't reply in time, ",
         "hitReaction": "%%voteNo%%で回答したため、",
         "cancelledPrompt": "so this prompt has been cancelled. ",
-        "readdTryAgain": "📑で回答してもう一度実行できます。",
-        "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it."
+        "readdTryAgain": "📑で回答してもう一度実行できます。"
     },
     "notProofreader": "You're not a proofreader, so you can't use this! We're working on a way to let you suggest context too.",
     "contextFor": "Context for ",
@@ -68,5 +66,5 @@
         "sheetDButton": "Click here to open the Google Sheet containing context information.",
         "sheetDel": "Deleting message in 1 minute"
     },
-    "executedBy": "%%user%% によって実行されました"
+    "executedBy": "%%user%%によって実行されました"
 }

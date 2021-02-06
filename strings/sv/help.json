@@ -8,10 +8,10 @@
     "utilityHelp": "%%badge%% Verktyg och hjälpmedel",
     "infoHelp": "%%badge%% Informationskommandon",
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
-    "pageNotExist": "Den sidan finns inte!",
+    "pageNotExist": "Denna sida finns inte!",
     "commandInfo": "Kommandoinformation",
-    "commandInfoFor": "Command information for ",
-    "commandNotExist": "Det kommandot finns inte!",
+    "commandInfoFor": "Kommandoinformation för ",
+    "commandNotExist": "Detta kommando finns inte!",
     "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
     "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": " sekunder",
@@ -19,7 +19,7 @@
     "minutes": "minuter",
     "usageField": "Användning",
     "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
+    "aliasesField": "Alternativt",
     "help": {
         "usage": "+help [sidnummer | kommandonamn]",
         "description": "Shows you all available commands and other info about the bot."
@@ -30,10 +30,10 @@
     },
     "quote": {
         "usage": "+quote [index] | +quote add <citat> / <författarens namn>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "description": "Genererar ett roligt/konstigt/klokt citat från servern."
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
+        "usage": "+mention <språk> translator|proofreader|all [meddelande]",
         "description": "Mentions a language role with an optional message."
     },
     "context": {
@@ -50,7 +50,7 @@
     },
     "language": {
         "usage": "+language [<nytt språk> | list | add <språk>]",
-        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
+        "description": "Ändrar språk, visar ditt aktuella språk eller en lista över tillgängliga språk. Om du vill begära ett nytt språk, kör \"+ språk lägg till <språk>\"."
     },
     "ping": {
         "usage": "+ping",
@@ -74,7 +74,7 @@
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "Ger dig användbar information om Hypixel-projektet."
     },
     "guidelines": {
         "usage": "+guidelines",
@@ -82,15 +82,15 @@
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Ger dig användbar information om Quickplay-projektet."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "Ger dig användbar information om SkyblockAddons-projektet."
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "Ger dig användbar information om hur du översätter botten."
     },
     "thread": {
         "usage": "+thread",
@@ -100,5 +100,5 @@
         "usage": "+twitter",
         "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Utfördes av %%user%%"
 }

@@ -7,7 +7,6 @@
     "errorDescription": "Tu idioma no ha sido cambiado. Estos idiomas están disponibles (no significa que están traducidos):",
     "suggestAdd": "Si quieres tener este idioma añadido al bot, por favor, contacta a un miembro del staff o haz una sugerencia usando `+feedback`.",
     "current": "Tu preferencia de idioma ha sido establecida en Español.",
-    "add": "El siguiente idioma ha sido añadido:",
     "request": "El siguiente idioma fue solicitado con éxito:",
     "errorRequest": "Ocurrió un error al solicitar este idioma",
     "errorRequestDesc": "No pudimos encontrar el idioma que querías solicitar. Si crees que esto es en error, por favor manda un mensaje al bot con tu solicitación.",

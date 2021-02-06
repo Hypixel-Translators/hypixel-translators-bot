@@ -4,8 +4,5 @@
     "errorNoPingTr": "yani onun çevirmen rolünden bahsedemezsin.",
     "errorNoPingAll": "yani bütün dilden bahsedemezsin.",
     "errorNoPingDisclaimer": "Gerçekten gerekiyorsa sunucu sahibi veya yöneticisiyle iletişime geç.",
-    "errorNotFound": "Girdiğin rol yok. Bir dil ismi veya bunlardan birini girebilirsin: ",
-    "errorNoArgs": "Bir dil belirtmeyi unuttun! Bir dil ismi(İngilizcede) veya bunlardan birini girebilirsin: ",
-    "errorNoArgs2": "Bir rol türü belirtmeyi unuttunuz! Bunlardan birini seçin: ",
     "executedBy": "%%user%% tarafından yürütüldü"
 }

@@ -7,7 +7,6 @@
     "errorDescription": "ภาษาของคุณยังไม่ถูกเปลี่ยน. ข้างล่างคือภาษาที่คุณสามารถเลือกได้ (นี่ไม่ได้แปลว่าพวกมันถูกแปลแล้ว)",
     "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+feedback`.",
     "current": "Your language preference is set to English.",
-    "add": "The following language has been added:",
     "request": "Successfully requested the following language:",
     "errorRequest": "An error occured while trying to request this language",
     "errorRequestDesc": "We could not find the language you wanted to request. If you believe this is an error, please DM the bot with your request.",

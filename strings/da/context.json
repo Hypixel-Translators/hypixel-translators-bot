@@ -1,14 +1,12 @@
 {
     "moduleName": "Kontekst",
     "errors": {
-        "notFound": "That context entry wasn't found!",
         "exists1": "A context entry for ",
         "exists2": " findes allerede, så din kontekst blev ikke tilføjet. Brug `+context edit` i stedet.",
         "didntReply": "Du svarede ikke i tide, ",
         "hitReaction": "Du reagerede med %%voteNo%%, ",
         "cancelledPrompt": "så denne prompt blev annulleret. ",
-        "readdTryAgain": "Reager igen med 📑for at prøve igen.",
-        "noContext": "You haven't provided the context! Please add both the string ID and the context explaining it."
+        "readdTryAgain": "Reager igen med 📑for at prøve igen."
     },
     "notProofreader": "You're not a proofreader, so you can't use this! We're working on a way to let you suggest context too.",
     "contextFor": "Kontekst for ",

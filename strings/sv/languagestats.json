@@ -1,5 +1,5 @@
 {
-    "moduleName": "Language statistics",
+    "moduleName": "Språkstatistik",
     "statsAll": "Here are the statistics for the %%language%% language on all the projects we currently support.",
     "translated": "%%percentage%%% translated (%%translated%%/%%total%% strings)",
     "approved": "%%percentage%%% approved (%%approved%%/%%total%% strings)",
@@ -8,8 +8,8 @@
         "bar": "Bayerska",
         "bc": "Biscuitish",
         "bg": "Bulgariska",
-        "zhcn": "Chinese Simplified",
-        "zhtw": "Chinese Traditional",
+        "zhcn": "Kinesiska (förenklad)",
+        "zhtw": "Kinesiska (traditionell)",
         "hr": "Kroatiska",
         "cs": "Tjeckiska",
         "da": "Danska",
@@ -42,8 +42,8 @@
         "srcs": "Serbiska (latinsk)",
         "sl": "Slovenska",
         "es": "Spanska",
-        "esmx": "Spanish, Mexico",
-        "espe": "Spanish, Peru",
+        "esmx": "Spanska (mexikansk)",
+        "espe": "Spanska (peruansk)",
         "sv": "Svenska",
         "th": "Thailändska",
         "tr": "Turkiska",
@@ -51,5 +51,5 @@
         "vi": "Vietnamesiska",
         "ow": "OwO"
     },
-    "executedBy": "Executed by %%user%%"
+    "executedBy": "Utfördes av %%user%%"
 }
