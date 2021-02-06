@@ -12,8 +12,8 @@
     "commandInfo": "Info abt acomand",
     "commandInfoFor": "Info abt acomand ",
     "commandNotExist": "Dat acomand existn't!",
-    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-    "inDev": "This command is currently in development and will be available at a later date!",
+    "staffOnly": "Dis commnad is olny avalibel to staff people and why is hiden.\nPles contact staff person if thinks error.",
+    "inDev": "Dis comnad is developpe and avalibel latr, idot!",
     "seconds": "sacondz",
     "second": "sacond",
     "minutes": "minutz",
@@ -42,7 +42,7 @@
     },
     "languagestats": {
         "usage": "+languagestats <langag>",
-        "description": "Shows you the progress of a language on the all projects we currently support."
+        "description": "Givz u progresse of langag on al projgets wee suprot."
     },
     "issue": {
         "usage": "+issue",
@@ -58,7 +58,7 @@
     },
     "hypixelstats": {
         "usage": "+hypixelstats <usrnam> [social]",
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "description": "Givs Hypickle statz for giv usr."
     },
     "tip": {
         "usage": "+tip",
@@ -70,7 +70,7 @@
     },
     "projects": {
         "usage": "+projects",
-        "description": "Gives you links and information about all the translation projects we support on the server."
+        "description": "Givz u lonks and informashon abut al the translat projgets we supor on the servar."
     },
     "hypixel": {
         "usage": "+hypixel",
@@ -90,7 +90,7 @@
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "Givz u usful informashon to how translat Bot."
     },
     "thread": {
         "usage": "+thread",
