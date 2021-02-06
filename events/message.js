@@ -1,7 +1,7 @@
 const { client } = require("../index.js")
 const Discord = require("discord.js")
 const { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } = require("../config.json")
-const { getDb } = require("../lib/mongodb")
+const { getUser } = require("../lib/mongodb")
 
 client.on("message", async message => {
 
@@ -15,11 +15,7 @@ client.on("message", async message => {
     if (message.channel.id === "732587569744838777") message.crosspost() //bot-updates
 
     //Get global strings
-    let author = await getDb().collection("players").findOne({ id: message.author.id })
-    if (!author) {
-        await getDb().collection("players").insertOne({ id: message.author.id, lang: "en", profile: "", uuid: "" })
-        author = await getDb().collection("players").findOne({ id: message.author.id })
-    }
+    const author = await getUser(message.author.id)
     const globalStrings = require(`../strings/${author.lang}/global.json`)
     const helpStrings = require(`../strings/${author.lang}/help.json`)
     const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)

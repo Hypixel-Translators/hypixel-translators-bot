@@ -6,7 +6,7 @@ const { clean, isZalgo } = require("unzalgo")
 const { flag, code, name, countries } = require('country-emoji')
 const fs = require("fs")
 const country = require('countryjs')
-const { getDb, init, mClient } = require("../../lib/mongodb.js")
+const { init, getDb, getUser, mClient } = require("../../lib/mongodb.js")
 
 module.exports = {
   name: "eval",

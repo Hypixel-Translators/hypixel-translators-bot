@@ -67,7 +67,7 @@ module.exports = {
                 return
             } else {
                 message.channel.startTyping()
-                const collection = getDb().collection("players")
+                const collection = getDb().collection("users")
                 let newLang = args[0].toLowerCase()
                 if (newLang === "se") newLang = "sv"
                 const langdbEntry = langdb.find(l => l.name.toLowerCase() === newLang)

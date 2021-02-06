@@ -1,6 +1,6 @@
 const { errorColor, successColor, neutralColor } = require("../../config.json")
 const Discord = require("discord.js")
-const { getDb } = require("../../lib/mongodb")
+const { getUser } = require("../../lib/mongodb")
 
 module.exports = {
     name: "dm",
@@ -15,8 +15,8 @@ module.exports = {
         const recipient = message.client.users.cache.get(userToSend)
         if (!recipient) throw "falseUser"
 
-        rLang = getDb().collection("players").findOne({ id: recipient.id }).lang
-        const rStrings = require(`../../strings/${rLang}/dm.json`)
+        const recipientDb = getUser(recipient.id)
+        const rStrings = require(`../../strings/${recipientDb.lang}/dm.json`)
         message.channel.startTyping()
         if (toSend) {
             const dm = new Discord.MessageEmbed()

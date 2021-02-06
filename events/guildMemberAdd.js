@@ -1,7 +1,7 @@
 const { client } = require("../index.js")
 const Discord = require("discord.js")
 const { registerFont, createCanvas, loadImage } = require("canvas")
-const { getDb } = require("../lib/mongodb")
+const { getDb, getUser } = require("../lib/mongodb")
 
 client.on("guildMemberAdd", member => {
 
@@ -69,6 +69,6 @@ client.on("guildMemberAdd", member => {
     })
     if (!member.user.bot) {
         member.send(`Hey there and thanks for joining **${member.guild.name}**! If you're a translator, be sure to check out <#699275092026458122> as this channel includes useful information for new and current translators. If you're looking to translate other projects, check out the ones we currently support by executing \`+projects\` here! We hope you have fun on our server!`).catch(() => console.log(`Couldn't DM user ${member.user.tag}, probably because they have DMs off`)) //getting started
-        if (!getDb().collection("players").findOne({ id: member.user.id })) getDb().collection("players").insertOne({ id: member.user.id, lang: "en", profile: "", uuid: "" })
+        if (!getUser(member.user.id)) getDb().collection("users").insertOne({ id: member.user.id, lang: "en", profile: "", uuid: "" })
     }
 })
