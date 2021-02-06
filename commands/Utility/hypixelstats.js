@@ -11,7 +11,7 @@ module.exports = {
     cooldown: 45,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
-    execute(message, strings, args, globalStrings) {
+    async execute(message, strings, args) {
         function parseColorCode(rank) {
             const colorCode = rank.substring(1, 2)
             const colorsJson = { "0": "#000000", "1": "#0000AA", "2": "#00AA00", "3": "#00AAAA", "4": "#AA0000", "5": "#AA00AA", "6": "#FFAA00", "7": "#AAAAAA", "8": "#555555", "9": "#5555FF", "a": "#55FF55", "b": "#55FFFF", "c": "#FF5555", "d": "#FF55FF", "e": "#FFFF55", "f": "#FFFFFF" }
@@ -25,7 +25,7 @@ module.exports = {
 
         message.channel.startTyping()
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
-        fetch(`https://api.slothpixel.me/api/players/${username}`, { method: "Get" })
+        await fetch(`https://api.slothpixel.me/api/players/${username}`, { method: "Get" })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
 
@@ -160,15 +160,6 @@ module.exports = {
                     message.channel.stopTyping()
                     message.channel.send(socialEmbed)
                 } else throw "noSubCommand"
-            })
-            .catch(error => {
-                const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
-                    .setAuthor(globalStrings.error)
-                    .setTitle(globalStrings.errors[error] || error)
-                    .setFooter(executedBy, message.author.displayAvatarURL())
-                message.channel.stopTyping()
-                message.channel.send(embed)
             })
     }
 }
