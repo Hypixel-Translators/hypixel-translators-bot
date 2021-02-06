@@ -67,8 +67,7 @@ client.on("message", async message => {
     //Log if command is ran in DMs
     if (message.channel.type === "dm") console.log(message.author.tag + " used command " + commandName + " in DMs")
 
-    //Return if user is a bot or not verified
-    if (message.author.bot) return
+    //Return if user is not verified
     if (message.member && !message.member.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
     else {
         const server = message.client.guilds.cache.get("549503328472530974")
