@@ -9,7 +9,7 @@
         "noChannel": "Du hast keinen Kanal zur Auswahl gestellt!",
         "noUser": "Du hast keine Nachricht angegeben!",
         "noLang": "Du hast keine Sprache angegeben!",
-        "noRole": "You haven't provided a role!",
+        "noRole": "You didn't provide a role!",
         "noContext": "Du hast den Kontext nicht angegeben! Bitte füge sowohl die String-ID als auch den Kontext hinzu, der sie erklärt.",
         "noQuote": "Du hast kein Zitat angegeben! Um ein solches hinzuzufügen, führe `+quote add <Zitat> / <Autorennennung>` aus.",
         "noUserQuote": "Du hast keinen Benutzer angegeben! Bitte gebe das Zitat ein und erwähne dann den zitierten Benutzer, getrennt durch einen Schrägstrich.",
