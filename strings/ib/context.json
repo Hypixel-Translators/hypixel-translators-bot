@@ -63,7 +63,7 @@
         "fields": "Fiælds",
         "sheetT": "Centoxt shit",
         "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
-        "sheetDButton": "Click here to open the Google Sheet containing context information.",
+        "sheetDButton": "Smash hier too opne Gogel Shet contains contxtet informashone.",
         "sheetDel": "Mesgag wil go poof in 1 mintsut"
     },
     "executedBy": "Done by le %%user%%"
