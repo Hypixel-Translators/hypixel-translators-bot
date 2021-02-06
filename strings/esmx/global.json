@@ -9,7 +9,7 @@
         "noChannel": "¡No has proporcionado un canal!",
         "noUser": "¡No has proporcionado un usuario!",
         "noLang": "¡No has proporcionado un idioma!",
-        "noRole": "¡No has introducido ningún rol!",
+        "noRole": "¡No has proporcionado un rol!",
         "noContext": "¡No ha proporcionado el contexto! Por favor, agregue tanto el ID del string como el contexto que lo explica.",
         "noQuote": "¡No ha proporcionado una cita! Para solicitar que se agregue una, ejecute `+quote add <cita> / <mención del citado>`.",
         "noUserQuote": "¡No ha proporcionado un usuario! Por favor escriba la cita y luego mencione el usuario citado, separado por una barra.",
