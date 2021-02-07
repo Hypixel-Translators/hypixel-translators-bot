@@ -59,6 +59,7 @@ async function findQuote(executedBy, message, strings, args, collection) {
     let quoteId
     if (!args[0]) quoteId = Math.ceil(Math.random() * Math.floor(all.length)) //generate random id if no arg is given
     else quoteId = Number(args[0])
+    console.log(`Quote with ID ${quoteId} was requested`)
 
     const quote = await collection.findOne({ id: quoteId })
     if (!quote) {
