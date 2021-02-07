@@ -3,6 +3,7 @@ const Discord = require("discord.js")
 const { GoogleSpreadsheet } = require("google-spreadsheet")
 const creds = { "type": process.env.type, "project_id": process.env.project_id, "private_key_id": process.env.private_key_id, "private_key": process.env.private_key.replace(/\\n/gm, "\n"), "client_email": process.env.client_email, "client_id": process.env.client_id, "auth_uri": process.env.auth_uri, "token_uri": process.env.token_uri, "auth_provider_x509_cert_url": process.env.auth_provider_x509_cert_url, "client_x509_cert_url": process.env.client_x509_cert_url }
 const quotesSheet = process.env.quotes
+const { getDb } = require("../../lib/mongodb")
 
 module.exports = {
     name: "quote",
@@ -13,6 +14,7 @@ module.exports = {
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-development bot-translators
     execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+        const collection = getDb().collection("quotes")
         let allowed = false
         if (message.channel.type !== "dm" && message.member?.hasPermission("VIEW_AUDIT_LOG")) allowed = true // Discord Staff
         message.channel.startTyping()
@@ -21,7 +23,6 @@ module.exports = {
             const toSend = args.join(" ")
             const fullQuote = toSend.split(" / ")
             let quote = fullQuote[0]
-            if (quote.startsWith("+")) quote = quote.replace("+", "\\+")
             const author = fullQuote[1]
             if (!quote) {
                 throw "noQuote"
@@ -47,73 +48,96 @@ module.exports = {
                     .setFooter(executedBy, message.author.displayAvatarURL())
                 message.channel.stopTyping()
                 message.channel.send(embed)
-            } else {
-                addToSpreadsheet(executedBy, message, strings, quote, author)
-            }
-        } else {
-            accessSpreadsheet(executedBy, message, strings, args)
-        }
+            } else addQuote(executedBy, message, strings, quote, author, collection)
+        } else if (args[0] === "edit") editQuote(executedBy, message, strings, args, collection)
+        else if (args[0] === "delete") deleteQuote(executedBy, message, strings, args, collection)
+        else findQuote(executedBy, message, strings, args, collection)
     }
 }
 
-async function accessSpreadsheet(executedBy, message, strings, args) {
-    const doc = new GoogleSpreadsheet(quotesSheet)
-    await doc.useServiceAccountAuth(creds)
+async function findQuote(executedBy, message, strings, args, collection) {
 
-    await doc.loadInfo()
+    const all = collection.find({}).toArray()
 
-    const sheet = doc.sheetsByIndex[0]
+    let quoteId
+    if (!args[0]) quoteId = Math.floor(Math.random() * Math.floor(all.length)) //generate random 0-base index number if no arg is given
+    else quoteId = args[0] //subtract 1 from argument in order to create 0-base index number
 
-    const rows = await sheet.getRows()
-
-    let quoteNumCode = 0
-    if (!args[0]) quoteNumCode = Math.floor(Math.random() * Math.floor(rows.length)) //generate random 0-base index number if no arg is given
-    if (args[0]) quoteNumCode = Number(args[0]) - 1 //subtract 1 from argument in order to create 0-base index number
-    let quoteNum = quoteNumCode + 1
-    let quoteNumSheet = quoteNumCode + 2
-
-    const correctRow = rows[quoteNumCode]
-    if (!correctRow) {
+    const quote = await collection.findOne({ id: quoteId })
+    if (!quote) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(strings.moduleName)
             .setTitle(strings.invalidArg)
-            .setDescription(strings.indexArg.replace("%%arg%%", args[0]).replace("%%max%%", rows.length))
+            .setDescription(strings.indexArg.replace("%%arg%%", args[0]).replace("%%max%%", all.length))
             .setFooter(executedBy, message.author.displayAvatarURL())
         message.channel.stopTyping()
-        message.channel.send(embed)
-        return
+        return message.channel.send(embed)
     }
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setAuthor(strings.moduleName)
-        .setTitle(correctRow.quote)
-        .setDescription("      - " + correctRow.author)
+        .setTitle(quote.quote)
+        .setDescription("      - " + quote.author)
         .setFooter(executedBy, message.author.displayAvatarURL())
     message.channel.stopTyping()
-    message.channel.send(embed)
-    console.log(`Quote #${quoteNum} has been requested (0-base number ${quoteNumCode}, sheet position ${quoteNumSheet})`)
+    return message.channel.send(embed)
 }
 
-async function addToSpreadsheet(executedBy, message, strings, quote, author) {
-    const doc = new GoogleSpreadsheet(quotesSheet)
-    await doc.useServiceAccountAuth(creds)
+async function addQuote(executedBy, message, strings, quote, author, collection) {
 
-    await doc.loadInfo()
+    const all = collection.find({}).toArray()
+    const quoteId = all.length + 1
 
-    const sheet = doc.sheetsByIndex[0]
+    collection.insertOne({ id: quoteId, quote: quote, author: author, addedBy: message.author.id }).then(result => {
+        const embed = new Discord.MessageEmbed()
+            .setColor(successColor)
+            .setAuthor(strings.moduleName)
+            .setTitle("Success! The following quote has been added:")
+            .setDescription(result.quote)
+            .addFields(
+                { name: "User", value: result.author },
+                { name: "Quote number", value: quoteId }
+            )
+            .setFooter(executedBy, message.author.displayAvatarURL())
+        message.channel.stopTyping()
+        message.channel.send(embed)
+    })
+}
 
-    const rows = await sheet.getRows()
-    const newLength = Number(rows.length) + 1
+async function editQuote(executedBy, message, strings, args, collection) {
 
-    const result = await sheet.addRow({ quote, author })
-
+    const quoteId = args[1]
+    args.splice(0, 2)
+    const newQuote = args.join(" ")
+    const oldQuote = collection.findOne({ id: quoteId })
+    collection.updateOne({ id: quoteId }, { $set: { quote: newQuote } })
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setAuthor(strings.moduleName)
-        .setTitle(strings.reqAdd)
-        .setDescription(result.quote)
-        .addFields({ name: strings.user, value: result.author }, { name: strings.index, value: newLength })
+        .setTitle(`Successfully edited quote #${quoteId}`)
+        .addFields(
+            { name: "Old quote", value: oldQuote.quote },
+            { name: "New quote", value: newQuote }
+        )
+        .setFooter(executedBy, message.author.displayAvatarURL())
+    message.channel.stopTyping()
+    message.channel.send(embed)
+}
+
+async function deleteQuote(executedBy, message, strings, args, collection) {
+
+    const quoteId = args[1]
+    const oldQuote = collection.findOne({ id: quoteId })
+    collection.deleteOne({ id: quoteId }, { quote: newQuote })
+    const embed = new Discord.MessageEmbed()
+        .setColor(successColor)
+        .setAuthor(strings.moduleName)
+        .setTitle(`Successfully deleted quote #${quoteId}`)
+        .addFields(
+            { name: "User", value: oldQuote.author },
+            { name: "Quote", value: oldQuote.quote }
+        )
         .setFooter(executedBy, message.author.displayAvatarURL())
     message.channel.stopTyping()
     message.channel.send(embed)
