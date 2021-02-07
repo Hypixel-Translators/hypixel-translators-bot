@@ -1,6 +1,6 @@
 {
     "moduleName": "Ping",
     "pong": "%%pingEmote%% Pong!",
-    "message": "Mein Ping ist %%ping%%ms.",
+    "message": "My ping is %%ping%%ms.",
     "executedBy": "Asg'fuat vo %%user%%"
 }
