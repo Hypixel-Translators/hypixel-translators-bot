@@ -8,7 +8,7 @@ module.exports = {
     name: "context",
     description: "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command.",
     usage: "+context get|add|edit|link|help <arguments>",
-    channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "550951034332381184", "634101000340504576", "713084081579098152"],
+    channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "801904400826105876", "550951034332381184", "713084081579098152"], //off-topic memes pets food suggestions no-mic
     cooldown: 30,
     execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
