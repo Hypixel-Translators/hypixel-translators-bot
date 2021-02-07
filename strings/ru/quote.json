@@ -3,8 +3,5 @@
     "invalidArg": "Неверный аргумент!",
     "indexArg": "Цитата с индексом %%arg%% не существует! Пожалуйста, укажите число между 1 и %%max%%.",
     "reqSub": "Your quote request has been submitted, thanks!",
-    "reqAdd": "Добавлена следующая цитата:",
-    "user": "Пользователь",
-    "index": "Номер цитаты",
     "executedBy": "Выполнено %%user%%"
 }
