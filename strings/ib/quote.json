@@ -3,8 +3,5 @@
     "invalidArg": "Not gud argarment!",
     "indexArg": "Quots withs indx %%arg%% exist? NO! Giv numbre betwin 1 and %%max%%, idot!",
     "reqSub": "Ur funnysentence sumiit has been, tank!",
-    "reqAdd": "Kukes! Dis funnysentence add been has:",
-    "user": "Persn",
-    "index": "Number of funnysentence",
     "executedBy": "Done by le %%user%%"
 }
