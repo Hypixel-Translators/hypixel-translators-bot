@@ -11,5 +11,5 @@ client.on("guildMemberRemove", member => {
         client.channels.cache.get("768160446368186428").send(`${member.user.tag} had the ${botRole} role and just left the server!`) //managers
         console.log(`${member.user.tag} left and had the ${botRole.name} role`)
     }
-    getDb().collection("users").deleteOne({id: member.user.id})
+    if (!member.user.bot) getDb().collection("users").deleteOne({ id: member.user.id })
 })
