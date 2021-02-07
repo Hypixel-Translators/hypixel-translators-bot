@@ -89,7 +89,7 @@ async function addQuote(executedBy, message, strings, quote, author, collection)
     const all = collection.find({}).toArray()
     const quoteId = all.length + 1
 
-    collection.insertOne({ id: quoteId, quote: quote, author: author, addedBy: message.author.id }).then(result => {
+    collection.insertOne({ id: quoteId, quote: quote, author: author }).then(result => {
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor(strings.moduleName)
