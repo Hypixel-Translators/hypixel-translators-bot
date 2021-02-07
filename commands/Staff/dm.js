@@ -15,7 +15,7 @@ module.exports = {
         const recipient = message.client.users.cache.get(userToSend)
         if (!recipient) throw "falseUser"
 
-        const recipientDb = getUser(recipient.id)
+        const recipientDb = await getUser(recipient.id)
         const rStrings = require(`../../strings/${recipientDb.lang}/dm.json`)
         message.channel.startTyping()
         if (toSend) {
