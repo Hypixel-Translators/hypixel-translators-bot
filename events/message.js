@@ -21,7 +21,7 @@ client.on("message", async message => {
     const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
     //Link correction system
-    if (message.content.toLowerCase().includes("/translate/hypixel/") && message.content.includes("://")) if (message.channel.id === "549503328472530976" || message.channel.id === "730042612647723058") { // hypixel translators and proofreaders
+    if (message.content.toLowerCase().includes("/translate/hypixel/") && message.content.includes("://")) if (message.channel.id === "549503328472530976" || message.channel.id === "627594632779399195") { // hypixel translators and proofreaders
         const langFix = message.content.replace(/translate\.hypixel\.net/gim, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gim, "/en-en")
         if (/\/en(-?[a-z]{2,4})?[^#-]/gim.test(message.content)) {
             message.react("732298639736570007")
