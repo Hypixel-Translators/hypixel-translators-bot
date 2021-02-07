@@ -19,6 +19,12 @@ module.exports = {
     fs.readdirSync("./commands/Utility/").forEach(command => utilityCmds.push(command.split(".").shift()))
     const infoCmds = []
     fs.readdirSync("./commands/Info/").forEach(command => infoCmds.push(command.split(".").shift()))
+    utilityCmds.forEach(cmd => {
+      if (client.commands.get(cmd).dev) utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
+    })
+    infoCmds.forEach(cmd => {
+      if (client.commands.get(cmd).dev) infoCmds.splice(infoCmds.indexOf(cmd), 1)
+    })
 
     //Define all pages
     const pages = [
