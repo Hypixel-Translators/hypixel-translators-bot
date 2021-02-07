@@ -177,7 +177,7 @@ client.on("message", async message => {
     catch (error) {
 
         //Handle errors
-        console.error(`Error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error: ${error}`)
+        if (!globalStrings.errors[error]) console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error: ${error}`)
         timestamps.delete(message.author.id)
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
