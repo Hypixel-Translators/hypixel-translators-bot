@@ -3,8 +3,5 @@
     "invalidArg": "Invalid argument!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
     "reqSub": "Az idézeted el lett küldve, köszönjük!",
-    "reqAdd": "Siker! A következő idézet lett hozzáadva:",
-    "user": "Felhasználó",
-    "index": "Idézet száma",
     "executedBy": "%%user%% által küldve"
 }

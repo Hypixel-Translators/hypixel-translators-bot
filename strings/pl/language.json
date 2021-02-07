@@ -2,7 +2,7 @@
     "moduleName": "Język",
     "changedToTitle": "Zmieniono Twój język na polski!",
     "didntChange": "Twój język nie został zmieniony",
-    "alreadyThis": "Stało się, gdyż język, który wybrałeś jest już przez Ciebie używany.",
+    "alreadyThis": "Stało się to, gdyż język, który wybrałeś jest już przez Ciebie używany.",
     "errorTitle": "Ten język nie został jeszcze dodany!",
     "errorDescription": "Twój język nie został zmieniony. Obecnie dostępne są te języki (nie oznacza to jednak, że zostały przetłumaczone):",
     "suggestAdd": "Jeśli chcesz, aby ten język został dodany do bota, skontaktuj się z członkiem administracji lub złóż sugestię za pomocą `+feedback`.",

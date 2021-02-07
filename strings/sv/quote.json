@@ -3,8 +3,5 @@
     "invalidArg": "Ogiltigt argument!",
     "indexArg": "Ett citat med indexet %%arg%% finns inte! Ange ett nummer mellan 1 och %%max%%.",
     "reqSub": "Your quote request has been submitted, thanks!",
-    "reqAdd": "Sucess! Följande citat har lagts till:",
-    "user": "Användare",
-    "index": "Citatnummer",
     "executedBy": "Utfördes av %%user%%"
 }
