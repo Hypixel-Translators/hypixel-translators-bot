@@ -78,7 +78,7 @@ async function findQuote(executedBy, message, strings, args, collection) {
         .setColor(successColor)
         .setAuthor(strings.moduleName)
         .setTitle(quote.quote)
-        .setDescription("      - " + quote.author)
+        .setDescription(`      - <@!${quote.author}>`)
         .setFooter(executedBy, message.author.displayAvatarURL())
     message.channel.stopTyping()
     return message.channel.send(embed)
