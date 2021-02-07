@@ -98,7 +98,7 @@
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Zawiera link do oficjalnej strony Społeczności Tłumaczy Hypixel na Twitterze."
+        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
     },
     "executedBy": "Wykonano przez %%user%%"
 }
