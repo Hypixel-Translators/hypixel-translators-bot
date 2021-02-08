@@ -5,7 +5,7 @@
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
     "errorTitle": "這個語言目前尚未加入！",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
-    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+feedback`.",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+language add <language>`.",
     "current": "你目前的語言設定為繁體中文。",
     "request": "Successfully requested the following language:",
     "errorRequest": "An error occured while trying to request this language",
