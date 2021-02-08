@@ -177,12 +177,12 @@ client.on("message", async message => {
     catch (error) {
 
         //Handle errors
-        if (!globalStrings.errors[error]) console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error: ${error}`)
+        if (!globalStrings.errors[error]) console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error}`)
         timestamps.delete(message.author.id)
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(globalStrings.error)
-            .setTitle(globalStrings.errors[error] || error)
+            .setTitle(globalStrings.errors[error] || error.message)
             .setFooter(executedBy, message.author.displayAvatarURL())
         if (!helpStrings[command.name]) {
             embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" })
