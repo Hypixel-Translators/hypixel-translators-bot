@@ -110,7 +110,7 @@ client.on("message", async message => {
             else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
 
             //Prevent users from running commands in development
-            if (command.dev && !message.member.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
+            if (command.dev && !message.member.roles.cache.has("764442984119795732")) allowed = false //Discord Administrato
 
             //Give perm to admins and return if not allowed
             if (message.member.hasPermission("MANAGE_ROLES") && command.name !== "eval") allowed = true
