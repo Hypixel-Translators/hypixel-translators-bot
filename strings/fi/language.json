@@ -5,7 +5,7 @@
     "alreadyThis": "Tämä tapahtui, koska valitsit kielen, joka oli jo käytössäsi.",
     "errorTitle": "Tätä kieltä ei ole vielä lisätty!",
     "errorDescription": "Kieltäsi ei vaihdettu. Tällä hetkellä saatavilla olevat kielet (käännöstä ei välttämättä löydy):",
-    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+language add <language>`.",
+    "suggestAdd": "Mikäli haluat tämän kielen lisättäväksi bottiin, ole hyvä ja ota yhteyttä ylläpitotiimiin tai ehdota ominaisuutta komennolla `+language add <kieli>`.",
     "current": "Käytössäsi oleva kieli on suomi.",
     "request": "Pyydettiin seuraavan kielen lisäämistä:",
     "errorRequest": "Virhe ilmaantui yrittäessä pyytää tämän kielen lisäämistä",
