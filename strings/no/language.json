@@ -5,7 +5,7 @@
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
     "errorTitle": "Dette språket har ikke blitt lagt til enda!",
     "errorDescription": "Språket ditt har ikke blitt endret. Disse språkene er tilgjengelig for øyeblikket (det betyr ikke at de er fullstendig oversatt):",
-    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+feedback`.",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+language add <language>`.",
     "current": "Språket du foretrekker har blitt satt til norsk.",
     "request": "Successfully requested the following language:",
     "errorRequest": "An error occured while trying to request this language",
