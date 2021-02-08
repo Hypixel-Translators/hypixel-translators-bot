@@ -18,7 +18,7 @@
     "tryRunGet": "Nie mogliśmy znaleźć wynikowego wpisu. Spróbuj użyć `+context get <ID ciągu>`, aby zobaczyć wynik.",
     "editContextFor": "Edytuj kontekst dla ",
     "willAdd": "Następujący wpis zostanie dodany. Proszę zareagować 📑, jeśli chcesz dodać więcej do wpisu lub zmienić istniejące pola (takie jak zrzut ekranu lub notatka językowa). Zareaguj %%voteYes%%, aby przesłać. Zostanie to anulowane w ciągu dwóch minut lub po zareagowaniu emotką %%voteNo%%.",
-    "promptAddMore": "Send a message (without the prefix) containing `<field> <content>`. <field> can be `screenshot`, `id`, `context` or a language code. <content> needs to be the new content for that string, such as the screenshot link.",
+    "promptAddMore": "Wyślij wiadomość (bez przedrostka) zawierającą `<pole> <kontekst>`. <pole> może być to: `screenshot`, `id`, `context` lub kod językowy. <zawartość> musi być nową zawartością dla tego ciągu, taką jak link zrzutu ekranu.",
     "addedMore": "Dodano te informacje do wpisu kontekstowego. Ponownie dodaj reakcję 📑, aby dodać więcej informacji.",
     "added": "Dodano wpis kontekstowy! Wczytywanie rezultatu…",
     "addedResult": "Dodano wpis kontekstowy! Jest on pokazany poniżej.\n\n**Kontekst**\n",
@@ -62,7 +62,7 @@
         "help": "_Pokazuje tę wiadomość!_\n`+context help`",
         "fields": "Pola",
         "sheetT": "Arkusz kontekstowy",
-        "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
+        "sheetD": "Tylko konkretne osoby mogą otworzyć ten arkusz. Możesz poprosić o dostęp poprzez podany link. Proszę wypełnić go podając link do swojego profilu Crowdin (`.../profile/<nick>`) i dodając swój pseudonim Discord.\nPamiętaj, że Stannya i Rodry mogą zobaczyć nazwę oraz adres e-mail twojego profilu Google.",
         "sheetDButton": "Kliknij tutaj, aby otworzyć Google Sheet zawierający informacje na temat kontekstu.",
         "sheetDel": "Wiadomość zostanie usunięta za minutę"
     },
