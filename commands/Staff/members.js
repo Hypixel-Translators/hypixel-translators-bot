@@ -11,7 +11,8 @@ module.exports = {
     execute(message, strings, args) {
         let role = args.join(" ").replace(/[\\<>@#&!]/g, "").toLowerCase()
         if (!role) throw "noRole"
-        role = message.guild.roles.cache.find(r => r.id === role || r.name.toLowerCase() === role || r.name.toLowerCase().includes(role))
+        role = message.guild.roles.cache.find(r => r.id === role || r.name.toLowerCase() === role)
+        if (!role) role = message.guild.roles.cache.find(r.name.toLowerCase().includes(role))
         if (!role) throw "falseRole"
 
         let tags = []
