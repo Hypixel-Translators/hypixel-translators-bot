@@ -5,7 +5,7 @@
     "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
     "page": "Σελίδα %%number%%/%%total%%",
     "pageNumber": "Σελίδα %%number%%",
-    "utilityHelp": "%%badge%% Tools & Utilities",
+    "utilityHelp": "%%badge%% Εργαλεία",
     "infoHelp": "%%badge%% Πληροφορίες",
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
     "pageNotExist": "Αυτή η σελίδα δεν υπάρχει!",
@@ -15,8 +15,8 @@
     "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
     "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": " δευτερόλεπτα",
-    "second": "second",
-    "minutes": "minutes",
+    "second": "δευτερόλεπτο",
+    "minutes": "λεπτά",
     "usageField": "Χρήση",
     "cooldownField": "Χρόνος Επαναφόρτωσης",
     "aliasesField": "Εναλλακτικές Ονομασίες",
@@ -29,7 +29,7 @@
         "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [index] | +quote add <παράθεμα> / <αναφορά χρήστη>",
         "description": "Παίρνει (ή προσθέτει) ένα αστείο/περίεργο/σοφό παράθεμα από τον διακομιστή."
     },
     "mention": {
@@ -41,15 +41,15 @@
         "description": "Παίρνει, προσθέτει ή επεξεργάζεται την περιγραφή για το string ID που δόθηκε. Το `+context help` σου δείχνει πληροφορίες σχετικά με αυτή την εντολή."
     },
     "languagestats": {
-        "usage": "+languagestats <language>",
+        "usage": "+languagestats <γλώσσα>",
         "description": "Shows you the progress of a language on the all projects we currently support."
     },
     "issue": {
         "usage": "+issue",
-        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
+        "description": "Ανοίγει τη σελίδα ζητημάτων GitHub, όπου μπορείς να αναφέρεις προβλήματα και να στείλεις σχόλια."
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
+        "usage": "+language [<νέα γλώσσα> | list | add <γλώσσα>]",
         "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
     },
     "ping": {
@@ -57,7 +57,7 @@
         "description": "Gives you the bot's ping."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <username> [social]",
+        "usage": "+hypixelstats <όνομα> [social]",
         "description": "Shows you basic Hypixel stats for the provided user."
     },
     "tip": {
@@ -66,7 +66,7 @@
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Σας δίνει έναν σύνδεσμο πρόσκλησης στον διακομιστή. Χρησιμοποιήστε αυτό όποτε θέλετε να προσκαλέσετε κάποιον."
     },
     "projects": {
         "usage": "+projects",
@@ -90,7 +90,7 @@
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "Σου δίνει χρήσιμες πληροφορίες για το πώς να μεταφράσεις το Bot."
     },
     "thread": {
         "usage": "+thread",
