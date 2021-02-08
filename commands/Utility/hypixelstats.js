@@ -1,6 +1,7 @@
 const Discord = require("discord.js")
 const fetch = require("node-fetch")
-const { errorColor } = require("../../config.json")
+const { getUser } = require("../../lib/mongodb")
+const { updateRoles } = require("./hypixelverify")
 
 //Credits to marzeq_
 module.exports = {
@@ -20,8 +21,10 @@ module.exports = {
 
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const credits = strings.madeBy.replace("%%developer%%", message.guild.members.cache.get("500669086947344384").user.tag)
-        let username = args[0]
-        if (!args[0]) throw "noUser"
+        const authorDb = await getUser(message.author.id)
+        let username = authorDb.uuid
+        if (args[0]) username = args[0]
+        if (!username) throw "noUser"
 
         message.channel.startTyping()
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
@@ -38,6 +41,9 @@ module.exports = {
                     console.log("Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n" + error)
                     throw "apiError"
                 }
+
+                //Update user's roles if they're verified
+                if (json.uuid === authorDb.uuid) updateRoles(message, json)
 
                 //Define each value
                 let rank // some ranks are just prefixes so this code accounts for that
@@ -80,7 +86,7 @@ module.exports = {
                         .setAuthor(strings.moduleName)
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${json.username})`)}\n${strings.updateNotice}\n${strings.mediaTip.replace("%%command%%", `\`+hypixelstats ${json.username} social\``)}`)
+                        .setDescription(`${strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${json.username})`)}\n${strings.updateNotice}\n${strings.mediaTip.replace("%%command%%", `\`+hypixelstats ${args[0]} social\``)}`)
                         .addFields(
                             { name: strings.networkLevel, value: Math.abs(json.level).toLocaleString(strings.dateLocale), inline: true },
                             { name: strings.ap, value: json.achievement_points.toLocaleString(strings.dateLocale), inline: true },
