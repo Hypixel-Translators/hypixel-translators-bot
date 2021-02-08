@@ -5,7 +5,7 @@
     "alreadyThis": "Dies geschah, weil du eine Sprache gewählt hast, die bereits deine Sprachpräferenz war.",
     "errorTitle": "Diese Sprache wurde noch nicht hinzugefügt!",
     "errorDescription": "Deine Sprache wurde nicht geändert. Diese Sprachen sind derzeit verfügbar (dies bedeutet nicht, dass sie übersetzt wurden):",
-    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+language add <language>`.",
+    "suggestAdd": "Wenn du möchtest, dass diese Sprache zum Bot hinzugefügt wird, kontaktiere bitte das Team oder mache einen Vorschlag mit `+language add <Sprache>`.",
     "current": "Deine Sprache wurde auf Deutsch gesetzt.",
     "request": "Erfolgreich die folgende Sprache angefordert:",
     "errorRequest": "Beim Versuch, diese Sprache anzufordern, ist ein Fehler aufgetreten",
