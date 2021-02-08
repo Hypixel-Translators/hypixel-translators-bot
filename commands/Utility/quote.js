@@ -84,40 +84,41 @@ async function findQuote(executedBy, message, strings, args, collection) {
 
 async function addQuote(executedBy, message, quote, author, collection) {
 
-    const all = collection.find({}).toArray()
+    const all = await collection.find({}).toArray()
     const quoteId = all.length + 1
 
-    collection.insertOne({ id: quoteId, quote: quote, author: author }).then(result => {
-        const embed = new Discord.MessageEmbed()
-            .setColor(successColor)
-            .setAuthor("Quote")
-            .setTitle("Success! The following quote has been added:")
-            .setDescription(result.quote)
-            .addFields(
-                { name: "User", value: result.author },
-                { name: "Quote number", value: quoteId }
-            )
-            .setFooter(executedBy, message.author.displayAvatarURL())
-        message.channel.stopTyping()
-        message.channel.send(embed)
-    })
+    await collection.insertOne({ id: quoteId, quote: quote, author: author })
+    const embed = new Discord.MessageEmbed()
+        .setColor(successColor)
+        .setAuthor("Quote")
+        .setTitle("Success! The following quote has been added:")
+        .setDescription(quote)
+        .addFields(
+            { name: "User", value: author },
+            { name: "Quote number", value: quoteId }
+        )
+        .setFooter(executedBy, message.author.displayAvatarURL())
+    message.channel.stopTyping()
+    message.channel.send(embed)
 }
 
 async function editQuote(executedBy, message, args, collection) {
 
-    const quoteId = args[1]
+    const quoteId = Number(args[1])
+    if (isNaN(quoteId)) throw "noQuote"
     args.splice(0, 2)
     const newQuote = args.join(" ")
     if (!quoteId || !newQuote) throw "noQuote"
-    const oldQuote = collection.findOne({ id: quoteId })
-    collection.updateOne({ id: quoteId }, { $set: { quote: newQuote } })
+    const oldQuote = await collection.findOne({ id: quoteId })
+    await collection.updateOne({ id: quoteId }, { $set: { quote: newQuote } })
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setAuthor("Quote")
         .setTitle(`Successfully edited quote #${quoteId}`)
         .addFields(
             { name: "Old quote", value: oldQuote.quote },
-            { name: "New quote", value: newQuote }
+            { name: "New quote", value: newQuote },
+            { name: "Author", value: oldQuote.author }
         )
         .setFooter(executedBy, message.author.displayAvatarURL())
     message.channel.stopTyping()
@@ -126,10 +127,10 @@ async function editQuote(executedBy, message, args, collection) {
 
 async function deleteQuote(executedBy, message, args, collection) {
 
-    const quoteId = args[1]
+    const quoteId = Number(args[1])
     if (!quoteId) throw "noQuote"
-    const oldQuote = collection.findOne({ id: quoteId })
-    collection.deleteOne({ id: quoteId }, { quote: newQuote })
+    const oldQuote = await collection.findOne({ id: quoteId })
+    await collection.deleteOne({ id: quoteId })
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setAuthor("Quote")
