@@ -5,7 +5,7 @@
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
     "errorTitle": "Cette langue n'a pas encore été ajoutée!",
     "errorDescription": "Ta langue n'a pas été changée. Ces langues sont actuellement disponibles (ne signifie pas qu'elles sont traduites):",
-    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+feedback`.",
+    "suggestAdd": "If you'd like to have this language added to the bot, please contact the staff team or make a suggestion using `+language add <language>`.",
     "current": "Ta préférence de langue est définie à Français.",
     "request": "Successfully requested the following language:",
     "errorRequest": "An error occured while trying to request this language",
