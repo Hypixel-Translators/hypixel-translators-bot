@@ -1,14 +1,14 @@
 {
-    "moduleName": "Hypixel Verification",
-    "success": "You successfully verified yourself as %%player%%!",
+    "moduleName": "Подтверждение профиля Hypixel",
+    "success": "Вы подтвердили себя как %%player%%!",
     "role": "Вам была выдана роль %%role%%, потому что вы имеете этот ранг на сервере.",
     "noRoles": "Вам не была выдана ни одна роль, потому что у вас нет ранга на Hypixel, или мы просто не смогли найти его! Обратитесь к администратору, если вы считаете, что это ошибка.",
-    "alreadyVerified": "You are already verified!",
-    "nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
-    "error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
-    "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this.",
-    "unverified": "You were successfully unverified!",
-    "notUnverified": "Couldn't unverify you!",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `+hypixelverify <username>`.",
+    "alreadyVerified": "Вы уже подтверждены!",
+    "nameChangeDisclaimer": "Имейте в виду, что вам не нужно будет подтверждать себя снова, если вы измените свое имя!",
+    "error": "Мы не смогли подтвердить вас, потому что вы неправильно настроили свой Discord на Hypixel!",
+    "tutorial": "Чтобы подтвердить профиль, вы должны установить свой Discord на Hypixel на %%tag%% и подождать около 10 минут, чтобы выполнить команду снова. Следуйте инструкциям в видео ниже, если вы не знаете, как это сделать.",
+    "unverified": "Вы отменили подтверждение!",
+    "notUnverified": "Невозможно отменить подтверждение!",
+    "whyNotUnverified": "Это произошло потому, что вы еще не подтвердили свой профиль! Для того, чтобы сделать это, выполните `+hypixelverify <имя пользователя>`.",
     "executedBy": "Выполнено %%user%%"
 }
