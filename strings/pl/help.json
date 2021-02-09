@@ -57,7 +57,7 @@
         "description": "Daje Ci informacje o pingu bota."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [username] [social]",
+        "usage": "+hypixelstats [nick gracza] [social]",
         "description": "Pokazuje ci podstawowe informacje danego gracza z Hypixela."
     },
     "hypixelverify": {
