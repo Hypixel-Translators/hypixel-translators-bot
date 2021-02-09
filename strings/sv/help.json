@@ -57,7 +57,7 @@
         "description": "Visar bottens ping."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [username] [social]",
+        "usage": "+hypixelstats [användarnamn] [social]",
         "description": "Shows you basic Hypixel stats for the provided user."
     },
     "hypixelverify": {
