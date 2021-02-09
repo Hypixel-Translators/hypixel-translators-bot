@@ -19,6 +19,7 @@
     "unknown": "Unbekannt",
     "lastGameHidden": "Letztes Spiel ist ausgeblendet oder konnte nicht ermittelt werden!",
     "lastLoginHidden": "Zuletzt gesehene Zeit ist ausgeblendet oder konnte nicht ermittelt werden!",
+    "firstLoginHidden": "First login time is hidden or couldn't be obtained!",
     "dateLocale": "de-DE",
     "timeZone": "Europe/Berlin",
     "ENGLISH": "Englisch",
