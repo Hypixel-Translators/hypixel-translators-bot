@@ -19,6 +19,7 @@
     "unknown": "unknown",
     "lastGameHidden": "Last game is hidden or couldn't be obtained!",
     "lastLoginHidden": "Last seen time is hidden or couldn't be obtained!",
+    "firstLoginHidden": "First login time is hidden or couldn't be obtained!",
     "dateLocale": "zh-TW",
     "timeZone": "Europe/London",
     "ENGLISH": "英語",
