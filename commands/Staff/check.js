@@ -33,8 +33,10 @@ module.exports = {
     let joinAgo = Math.round((new Date().getTime() - member.joinedAt) / 1000)
     let createAgo = Math.round((new Date().getTime() - member.user.createdAt) / 1000)
     let userRoles = member.roles.cache
-    if (userRoles.size !== 1) userRoles.delete("549503328472530974")
-    else userRoles = "No roles yet!"
+    if (userRoles.size !== 1) {
+      userRoles.delete("549503328472530974")
+      userRoles = userRoles.sort((a, b) => b.position - a.position).map(r => `${r}`).join(", ")
+    } else userRoles = "No roles yet!"
 
     const embed = new Discord.MessageEmbed()
       .setColor(color)
@@ -44,7 +46,7 @@ module.exports = {
       .addFields(
         { name: "Joined on", value: joined.charAt(0).toUpperCase() + joined.slice(1) + timeAgo(joinAgo), inline: true },
         { name: "Account created on", value: created.charAt(0).toUpperCase() + created.slice(1) + timeAgo(createAgo), inline: true },
-        { name: "Roles", value: userRoles.sort((a, b) => b.position - a.position).map(r => `${r}`).join(", ") },
+        { name: "Roles", value: userRoles },
       )
       .setThumbnail(member.user.displayAvatarURL())
       .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())

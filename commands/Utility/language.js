@@ -77,7 +77,7 @@ module.exports = {
                 fs.access(path, fs.F_OK, async (err) => {
                     if (!err) {
                         collection.updateOne({ id: message.author.id }, { $set: { lang: newLang } }).then(result => {
-                            if (!!result.result.nModified) {
+                            if (result.result.nModified) {
                                 strings = require(`../../strings/${newLang}/language.json`)
                                 executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
                                 const embed = new Discord.MessageEmbed()

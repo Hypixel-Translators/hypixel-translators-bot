@@ -1,6 +1,7 @@
 const Discord = require("discord.js")
 const fetch = require("node-fetch")
-const { errorColor } = require("../../config.json")
+const { getUser } = require("../../lib/mongodb")
+const { updateRoles } = require("./hypixelverify")
 
 //Credits to marzeq_
 module.exports = {
@@ -20,8 +21,10 @@ module.exports = {
 
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const credits = strings.madeBy.replace("%%developer%%", message.guild.members.cache.get("500669086947344384").user.tag)
-        let username = args[0]
-        if (!args[0]) throw "noUser"
+        const authorDb = await getUser(message.author.id)
+        let username = authorDb.uuid
+        if (args[0]) username = args[0]
+        if (!username) throw "noUser"
 
         message.channel.startTyping()
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
@@ -31,18 +34,21 @@ module.exports = {
 
                 //Handle errors
                 if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
-                else if (json.error !== undefined || json.username === null) { // if other error we didn't plan for appeared
+                else if (json.error || !json.username) { // if other error we didn't plan for appeared
                     let error
-                    if (json.error === undefined && json.username === null) throw "noPlayer"
-                    else if (json.error !== undefined) error = json.error
+                    if (!json.error && !json.username) throw "noPlayer"
+                    else if (json.error) error = json.error
                     console.log("Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n" + error)
                     throw "apiError"
                 }
 
+                //Update user's roles if they're verified
+                if (json.uuid === authorDb.uuid) updateRoles(message, json)
+
                 //Define each value
                 let rank // some ranks are just prefixes so this code accounts for that
                 let color
-                if (json.prefix !== null) {
+                if (json.prefix) {
                     color = parseColorCode(json.prefix)
                     rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
                 }
@@ -52,11 +58,11 @@ module.exports = {
                 }
                 username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
                 let online
-                if (json.online == true) online = strings.online
+                if (json.online) online = strings.online
                 else online = strings.offline
 
                 let last_seen
-                if (json.last_game === null) last_seen = strings.lastGameHidden
+                if (!json.last_game) last_seen = strings.lastGameHidden
                 else last_seen = strings.lastSeen.replace("%%game%%", json.last_game.replace(/([A-Z]+)/g, ' $1').trim())
 
                 let lastLoginSelector
@@ -65,13 +71,15 @@ module.exports = {
 
                 if (strings.timeZone.startsWith("crwdns")) strings.timeZone = "Europe/London"
                 let lastLogin
-                if (json[lastLoginSelector] !== null) lastLogin = new Date(json[lastLoginSelector]).toLocaleString(strings.dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+                if (json[lastLoginSelector]) lastLogin = new Date(json[lastLoginSelector]).toLocaleString(strings.dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
                 else lastLogin = strings.lastLoginHidden
 
-                const firstLogin = new Date(json.first_login).toLocaleString(strings.dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+                let firstLogin
+                if (json.first_login) firstLogin = new Date(json.first_login).toLocaleString(strings.dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: strings.timeZone, timeZoneName: "short" })
+                else firstLogin = strings.firstLoginHidden
 
                 for (const [key, value] of Object.entries(json)) {
-                    if (value === null) json[key] = strings.unknown
+                    if (!value) json[key] = strings.unknown
                 }
 
                 if (!args[1] || args[1] === "stats") {
@@ -80,7 +88,7 @@ module.exports = {
                         .setAuthor(strings.moduleName)
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${json.username})`)}\n${strings.updateNotice}\n${strings.mediaTip.replace("%%command%%", `\`+hypixelstats ${json.username} social\``)}`)
+                        .setDescription(`${strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${json.username})`)}\n${strings.updateNotice}\n${strings.mediaTip.replace("%%command%%", `\`+hypixelstats ${args[0]} social\``)}`)
                         .addFields(
                             { name: strings.networkLevel, value: Math.abs(json.level).toLocaleString(strings.dateLocale), inline: true },
                             { name: strings.ap, value: json.achievement_points.toLocaleString(strings.dateLocale), inline: true },

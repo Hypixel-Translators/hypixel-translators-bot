@@ -110,7 +110,7 @@ client.on("message", async message => {
             else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
 
             //Prevent users from running commands in development
-            if (command.dev && !message.member.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
+            if (command.dev && !message.member.roles.cache.has("764442984119795732")) allowed = false //Discord Administrato
 
             //Give perm to admins and return if not allowed
             if (message.member.hasPermission("MANAGE_ROLES") && command.name !== "eval") allowed = true
@@ -177,12 +177,12 @@ client.on("message", async message => {
     catch (error) {
 
         //Handle errors
-        console.error(`Error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error: ${error}`)
+        if (!globalStrings.errors[error]) console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error}`)
         timestamps.delete(message.author.id)
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(globalStrings.error)
-            .setTitle(globalStrings.errors[error] || error)
+            .setTitle(globalStrings.errors[error] || error.message)
             .setFooter(executedBy, message.author.displayAvatarURL())
         if (!helpStrings[command.name]) {
             embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" })
@@ -200,7 +200,7 @@ client.on("message", async message => {
             let d = Math.random().toFixed(2)
             let keys = Object.keys(globalStrings.tips)
             let tip = globalStrings.tips[keys[keys.length * Math.random() << 0]]
-            if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${tip.replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%rules%%", "<#699367003135148063>").replace("%%serverInfo%%", "<#762341271611506708>").replace("%%bots%%", "<#549894938712866816>")}`)
+            if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${tip.replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%rules%%", "<#796159719617986610>").replace("%%serverInfo%%", "<#762341271611506708>").replace("%%bots%%", "<#549894938712866816>")}`)
         }
     }
 })
