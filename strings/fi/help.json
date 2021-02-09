@@ -57,12 +57,12 @@
         "description": "Antaa botin viiveen."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [username] [social]",
+        "usage": "+hypixelstats [käyttäjänimi] [social]",
         "description": "Näyttää haluamasi käyttäjän Hypixel-profiilin perustiedot."
     },
     "hypixelverify": {
-        "usage": "+hypixelverify <username> | +hypixelunverify",
-        "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
+        "usage": "+hypixelverify <käyttäjänimi> | +hypixelunverify",
+        "description": "Linkittää Discord-tilisi Hypixel-profiilisi kanssa. Suorita komento `+hypixelunverify` poistaaksesi linkityksen."
     },
     "tip": {
         "usage": "+tip",
