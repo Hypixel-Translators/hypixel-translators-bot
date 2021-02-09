@@ -57,8 +57,12 @@
         "description": "ボットのPing値を表示します。"
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <username> [social]",
+        "usage": "+hypixelstats [username] [social]",
         "description": "指定したユーザーのHypixelの基本統計を表示します。"
+    },
+    "hypixelverify": {
+        "usage": "+hypixelverify <username> | +hypixelunverify",
+        "description": "Links your Discord account with your Hypixel account. Execute `+hypixelunverify` to unverify yourself."
     },
     "tip": {
         "usage": "+tip",
