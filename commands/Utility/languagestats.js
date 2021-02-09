@@ -16,8 +16,8 @@ module.exports = {
         let rawLang
         const authorDb = await getUser(message.author.id)
         if (authorDb.lang !== "en" && !args[0]) rawLang = authorDb.lang
+        if (args[0]) rawLang = args.join(" ").toLowerCase()
         if (!rawLang) throw "noLang"
-        rawLang = args.join(" ").toLowerCase()
         let lang = langdb.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)
         if (!lang) lang = langdb.find(l => l.name.toLowerCase().includes(rawLang))
         if (lang.code === "en") lang = undefined
