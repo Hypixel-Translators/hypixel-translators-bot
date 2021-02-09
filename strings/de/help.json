@@ -62,7 +62,7 @@
     },
     "hypixelverify": {
         "usage": "+hypixelverify <username> | +hypixelunverify",
-        "description": "Links your Discord account with your Hypixel account. Execute `+hypixelunverify` to unverify yourself."
+        "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
     },
     "tip": {
         "usage": "+tip",
