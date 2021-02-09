@@ -57,7 +57,7 @@
         "description": "Дает вам пинг бота."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [username] [social]",
+        "usage": "+hypixelstats [имя пользователя] [social]",
         "description": "Показывает вам базовую статистику Hypixel для указанного пользователя."
     },
     "hypixelverify": {
