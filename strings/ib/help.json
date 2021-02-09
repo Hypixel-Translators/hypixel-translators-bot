@@ -57,8 +57,12 @@
         "description": "Hehe ping go brr."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <usrnam> [social]",
+        "usage": "+hypixelstats [username] [social]",
         "description": "Givs Hypickle statz for giv usr."
+    },
+    "hypixelverify": {
+        "usage": "+hypixelverify <username> | +hypixelunverify",
+        "description": "Links your Discord account with your Hypixel account. Execute `+hypixelunverify` to unverify yourself."
     },
     "tip": {
         "usage": "+tip",
