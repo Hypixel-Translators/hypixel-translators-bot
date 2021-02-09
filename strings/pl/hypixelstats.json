@@ -19,6 +19,7 @@
     "unknown": "nieznany",
     "lastGameHidden": "Ostatnia gra jest ukryta lub nie może zostać znaleziona!",
     "lastLoginHidden": "Ostatni czas kiedy gracz był widziany, jest ukryty lub nie może zostać znaleziony!",
+    "firstLoginHidden": "First login time is hidden or couldn't be obtained!",
     "dateLocale": "pl-PL",
     "timeZone": "Europe/Warsaw",
     "ENGLISH": "Angielski",
