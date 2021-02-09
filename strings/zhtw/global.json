@@ -24,7 +24,7 @@
         "noTrPr": "你不是翻譯者或校對員，因此無法使用！",
         "noAccess": "你沒有權限執行這個指令！",
         "noPermission": "你沒有權限在本頻道執行這個指令！",
-        "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
+        "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, execute`+context help`.",
         "apiError": "Something went wrong while contacting the API!",
         "noSubCommand": "That sub-command couldn't be found!"
     },
