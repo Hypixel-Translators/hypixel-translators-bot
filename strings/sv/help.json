@@ -57,8 +57,12 @@
         "description": "Visar bottens ping."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <användarnamn> [social]",
+        "usage": "+hypixelstats [username] [social]",
         "description": "Shows you basic Hypixel stats for the provided user."
+    },
+    "hypixelverify": {
+        "usage": "+hypixelverify <username> | +hypixelunverify",
+        "description": "Links your Discord account with your Hypixel account. Execute `+hypixelunverify` to unverify yourself."
     },
     "tip": {
         "usage": "+tip",
