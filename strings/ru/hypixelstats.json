@@ -19,6 +19,7 @@
     "unknown": "неизвестна",
     "lastGameHidden": "Последняя игра скрыта или не может быть получена!",
     "lastLoginHidden": "Последняя активность скрыта или не может быть получена!",
+    "firstLoginHidden": "First login time is hidden or couldn't be obtained!",
     "dateLocale": "ru-RU",
     "timeZone": "Europe/Moscow",
     "ENGLISH": "Английский",
