@@ -2,6 +2,7 @@ const Discord = require("discord.js")
 const fetch = require("node-fetch")
 const ctokenV2 = process.env.CTOKEN_API_V2
 const { successColor, loadingColor, errorColor, neutralColor, langdb } = require("../../config.json")
+const { getUser } = require("../../lib/mongodb")
 
 module.exports = {
     name: "languagestats",
@@ -10,12 +11,16 @@ module.exports = {
     aliases: ["langstats", "lstats"],
     cooldown: 30,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335", "551693960913879071"], // bots staff-bots bot-development bot-translators admin-bots
-    execute(message, strings, args) {
+    async execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        if (!args[0]) throw "noLang"
-        let rawLang = args.join(" ").toLowerCase()
+        let rawLang
+        const authorDb = await getUser(message.author.id)
+        if (authorDb.lang !== "en" && !args[0]) rawLang = authorDb.lang
+        if (!rawLang) throw "noLang"
+        rawLang = args.join(" ").toLowerCase()
         let lang = langdb.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)
         if (!lang) lang = langdb.find(l => l.name.toLowerCase().includes(rawLang))
+        if (lang.code === "en") lang = undefined
         if (!lang) throw "falseLang"
 
         message.channel.startTyping()
