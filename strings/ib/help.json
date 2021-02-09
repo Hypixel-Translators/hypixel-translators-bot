@@ -57,7 +57,7 @@
         "description": "Hehe ping go brr."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [username] [social]",
+        "usage": "+hypixelstats [usrnam] [social]",
         "description": "Givs Hypickle statz for giv usr."
     },
     "hypixelverify": {
