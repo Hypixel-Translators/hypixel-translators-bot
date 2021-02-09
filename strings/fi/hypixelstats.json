@@ -19,6 +19,7 @@
     "unknown": "tuntematon",
     "lastGameHidden": "Viimeisin peli on piilotettu tai sitä ei löytynyt!",
     "lastLoginHidden": "Viimeisin paikallaoloaika on piilotettu tai sitä ei löytynyt!",
+    "firstLoginHidden": "First login time is hidden or couldn't be obtained!",
     "dateLocale": "fi-FI",
     "timeZone": "Europe/Helsinki",
     "ENGLISH": "englanti",
