@@ -9,11 +9,11 @@ module.exports = {
     cooldown: 5,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-development bot-translators
-    execute(message, strings, args) {
+    async execute(message, strings, args) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         const collection = getDb().collection("quotes")
         let allowed = false
-        if (message.channel.type !== "dm" && message.member?.hasPermission("VIEW_AUDIT_LOG")) allowed = true // Discord Staff
+        if (message.member?.hasPermission("VIEW_AUDIT_LOG")) allowed = true
         message.channel.startTyping()
         if (args[0] === "add") {
             args.splice(0, 1)
@@ -45,10 +45,10 @@ module.exports = {
                     .setFooter(executedBy, message.author.displayAvatarURL())
                 message.channel.stopTyping()
                 message.channel.send(embed)
-            } else addQuote(executedBy, message, quote, author, collection)
-        } else if (args[0] === "edit") editQuote(executedBy, message, args, collection)
-        else if (args[0] === "delete") deleteQuote(executedBy, message, args, collection)
-        else findQuote(executedBy, message, strings, args, collection)
+            } else await addQuote(executedBy, message, quote, author, collection)
+        } else if (args[0] === "edit" && allowed) await editQuote(executedBy, message, args, collection)
+        else if (args[0] === "delete" && allowed) await deleteQuote(executedBy, message, args, collection)
+        else await findQuote(executedBy, message, strings, args, collection)
     }
 }
 
