@@ -1,5 +1,5 @@
 {
-    "moduleName": "Hypivel Verification",
+    "moduleName": "Hypixel Verification",
     "success": "You successfully verified yourself as %%player%%!",
     "role": "You were given the %%role%% role due to your rank on the server.",
     "noRoles": "You were not given any roles because you don't have a rank on Hypixel or we couldn't find it! Contact an administrator if you believe this is an error.",
