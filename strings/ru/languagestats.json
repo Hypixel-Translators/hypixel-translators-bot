@@ -2,7 +2,7 @@
     "moduleName": "Статистика языка",
     "statsAll": "Вот статистика для %%language%% языка из всех проектов, которые в настоящее время мы поддерживаем.",
     "translated": "%%percentage%%% переведено (%%translated%% из %%total%% строк)",
-    "approved": "%%percentage%%% утверждено (%%approved%% из %%total%% strings)",
+    "approved": "%%percentage%%% утверждено (%%approved%% из %%total%% строк)",
     "languages": {
         "ar": "Арабский",
         "bar": "Баварский",
