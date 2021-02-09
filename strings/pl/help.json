@@ -57,8 +57,12 @@
         "description": "Daje Ci informacje o pingu bota."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <nick gracza> [social]",
+        "usage": "+hypixelstats [username] [social]",
         "description": "Pokazuje ci podstawowe informacje danego gracza z Hypixela."
+    },
+    "hypixelverify": {
+        "usage": "+hypixelverify <username> | +hypixelunverify",
+        "description": "Links your Discord account with your Hypixel account. Execute `+hypixelunverify` to unverify yourself."
     },
     "tip": {
         "usage": "+tip",
