@@ -57,7 +57,7 @@
         "description": "Gibt dir den Ping des Bots sowie den Ping der Discord API."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [username] [social]",
+        "usage": "+hypixelstats [Spitzname] [social]",
         "description": "Zeigt dir grundlegende Hypixel-Statistiken für den angegebenen Benutzer."
     },
     "hypixelverify": {
