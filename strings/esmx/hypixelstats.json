@@ -19,6 +19,7 @@
     "unknown": "desconocido",
     "lastGameHidden": "¡El último juego está oculto o no se pudo obtener!",
     "lastLoginHidden": "¡La última vez que se vio está oculta o no se pudo obtener!",
+    "firstLoginHidden": "First login time is hidden or couldn't be obtained!",
     "dateLocale": "es-MX",
     "timeZone": "America/Mexico_City",
     "ENGLISH": "Inglés",
