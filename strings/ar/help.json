@@ -57,7 +57,7 @@
         "description": "يعطيك ping البوت."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [username] [social]",
+        "usage": "+hypixelstats [الاسم] [social]",
         "description": "يظهر لك الإحصائيات الأساسية للمستخدم المتوفرة في هايبكسل."
     },
     "hypixelverify": {
