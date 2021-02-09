@@ -57,8 +57,12 @@
         "description": "Dá-te o ping do bot."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <jogador> [social]",
+        "usage": "+hypixelstats [jogador] [social]",
         "description": "Mostra-te estatísticas básicas do Hypixel para o jogador requisitado."
+    },
+    "hypixelverify": {
+        "usage": "+hypixelverify <username> | +hypixelunverify",
+        "description": "Links your Discord account with your Hypixel account. Execute `+hypixelunverify` to unverify yourself."
     },
     "tip": {
         "usage": "+tip",
