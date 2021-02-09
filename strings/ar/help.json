@@ -57,8 +57,12 @@
         "description": "يعطيك ping البوت."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <الاسم> [social]",
+        "usage": "+hypixelstats [الاسم] [social]",
         "description": "يظهر لك الإحصائيات الأساسية للمستخدم المتوفرة في هايبكسل."
+    },
+    "hypixelverify": {
+        "usage": "+hypixelverify <username> | +hypixelunverify",
+        "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
     },
     "tip": {
         "usage": "+tip",

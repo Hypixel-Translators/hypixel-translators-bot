@@ -19,6 +19,7 @@
     "unknown": "不明",
     "lastGameHidden": "最後に遊んだゲームが非公開または取得できませんでした！",
     "lastLoginHidden": "最後に接続した時間が非公開または取得できませんでした！",
+    "firstLoginHidden": "First login time is hidden or couldn't be obtained!",
     "dateLocale": "ja-JP",
     "timeZone": "Asia/Tokyo",
     "ENGLISH": "英語",

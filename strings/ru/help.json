@@ -57,8 +57,12 @@
         "description": "Дает вам пинг бота."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <имя пользователя> [social]",
+        "usage": "+hypixelstats [имя пользователя] [social]",
         "description": "Показывает вам базовую статистику Hypixel для указанного пользователя."
+    },
+    "hypixelverify": {
+        "usage": "+hypixelverify <имя пользователя> | +hypixelunverify",
+        "description": "Связывает вашу учетную запись Discord с вашим профилем Hypixel. Выполните `+hypixelunverify`, чтобы отвязать их."
     },
     "tip": {
         "usage": "+tip",

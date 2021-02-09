@@ -5,7 +5,7 @@
     "alreadyThis": "Dit is gebeurd omdat je je huidige voorkeurstaal selecteerde.",
     "errorTitle": "Die taal is nog niet toegevoegd!",
     "errorDescription": "Je taal is niet veranderd. Deze talen zijn momenteel beschikbaar (dit betekent niet dat ze vertaald zijn):",
-    "suggestAdd": "Als je deze taal in de bot wilt zien, neem dan contact op met staff of maak een suggestie met `+feedback`.",
+    "suggestAdd": "Als je deze taal in de bot wilt zien, neem dan contact op met staff of maak een suggestie met `+language add <taal>`.",
     "current": "Je taalvoorkeur is Nederlands.",
     "request": "De volgende taal is succesvol verzocht:",
     "errorRequest": "Er is een fout opgetreden bij het verzoeken van deze taal",

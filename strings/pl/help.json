@@ -57,8 +57,12 @@
         "description": "Daje Ci informacje o pingu bota."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <nick gracza> [social]",
+        "usage": "+hypixelstats [nick gracza] [social]",
         "description": "Pokazuje ci podstawowe informacje danego gracza z Hypixela."
+    },
+    "hypixelverify": {
+        "usage": "+hypixelverify <nick> | +hypixelunverify",
+        "description": "Łączy Twoje konto Discord z Twoim profilem Hypixel. Wpisz `+hypixelunverify` aby się odweryfikować."
     },
     "tip": {
         "usage": "+tip",
@@ -98,7 +102,7 @@
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Zawiera link do oficjalnej strony Społeczności Tłumaczy Hypixel na Twitterze."
+        "description": "Podaje odnośnik do oficjalnej strony Hypixel Translators Community na Twitterze."
     },
     "executedBy": "Wykonano przez %%user%%"
 }

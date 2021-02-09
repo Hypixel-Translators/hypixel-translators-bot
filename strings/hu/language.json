@@ -5,7 +5,7 @@
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
     "errorTitle": "Ez a nyelv még nem lett hozzáadva!",
     "errorDescription": "A nyelved nem lett megváltoztatva. Ezek a nyelvek érhetőek el (ez nem azt jelenti hogy le vannak fordítva):",
-    "suggestAdd": "Ha szeretnéd ezt a nyelvet hozzáadni a bothoz, kérlek értesits egy staffot vagy tégy ajánlatot a `+feedback` paranccsal.",
+    "suggestAdd": "Ha szeretnéd ezt a nyelvet hozzáadni a bothoz, kérlek értesits egy staffot vagy tégy ajánlatot a `+language add <nyelv>` paranccsal.",
     "current": "A nyelved be lett állítva Magyarra.",
     "request": "Successfully requested the following language:",
     "errorRequest": "An error occured while trying to request this language",

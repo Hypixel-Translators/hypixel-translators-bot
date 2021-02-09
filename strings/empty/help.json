@@ -57,8 +57,12 @@
         "description": "crwdns616:0crwdne616:0"
     },
     "hypixelstats": {
-        "usage": "crwdns618:0[social]crwdne618:0",
+        "usage": "crwdns618:0[username]crwdnd618:0[social]crwdne618:0",
         "description": "crwdns620:0crwdne620:0"
+    },
+    "hypixelverify": {
+        "usage": "crwdns1182:0crwdne1182:0",
+        "description": "crwdns1184:0crwdne1184:0"
     },
     "tip": {
         "usage": "crwdns622:0crwdne622:0",

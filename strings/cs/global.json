@@ -24,7 +24,7 @@
         "noTrPr": "Nejsi překladatel ani korektor, takže to nemůžeš použít!",
         "noAccess": "Nemáš povoleno používat tento příkaz!",
         "noPermission": "You're not allowed to execute this command on this channel!",
-        "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, run `+context help`.",
+        "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, execute`+context help`.",
         "apiError": "Something went wrong while contacting the API!",
         "noSubCommand": "That sub-command couldn't be found!"
     },

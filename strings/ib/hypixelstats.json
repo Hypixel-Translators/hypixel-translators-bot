@@ -19,6 +19,7 @@
     "unknown": "uknowns!",
     "lastGameHidden": "Last gæm is hide or no be can obtain!",
     "lastLoginHidden": "Last seen tims is hide or no be can obtain!",
+    "firstLoginHidden": "First login time is hidden or couldn't be obtained!",
     "dateLocale": "en-GB",
     "timeZone": "Europe/London",
     "ENGLISH": "Englisch",

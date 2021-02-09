@@ -57,8 +57,12 @@
         "description": "Laat de vertraging van de bot zien."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <gebruikersnaam> [social]",
+        "usage": "+hypixelstats [gebruikersnaam] [social]",
         "description": "Geeft je simpele Hypixel-statistieken voor de opgegeven speler."
+    },
+    "hypixelverify": {
+        "usage": "+hypixelverify <username> | +hypixelunverify",
+        "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
     },
     "tip": {
         "usage": "+tip",

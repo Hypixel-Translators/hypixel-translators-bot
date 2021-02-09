@@ -1,7 +1,7 @@
 {
     "moduleName": "Tietoa",
     "page1Title": "Apusivu",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `+translate` command.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
+    "commandsListTooltip": "Tämän botin on tehnyt Hypixelin kääntäjien yhteisölle %%developer%%. Sen avoin lähdekoodi on saatavilla GitHubista [täältä]%%github%%. Voit auttaa kääntämään bottia seuraamalla ohjeita, jotka saat komennolla `+translate`.\n\nVoit suorittaa komennon `+help <komennon nimi>` saadaksesi tietää lisää valitusta komennosta.\nAlta löydät listan kaikista saatavilla olevista sivuista. Käytä viestin reaktioita siirtyäksesi sivulta toiselle.",
     "madeBy": "Botin on huolellisesti kasannut %%QkeleQ10%%",
     "page": "Sivu %%number%%/%%total%%",
     "pageNumber": "Sivu %%number%%",
@@ -41,8 +41,8 @@
         "description": "Näyttää, lisää tai muokkaa valitun stringin (ID) kontekstia. Komennnolla `+context help` näet tietoa tästä komennosta. Komennolla `+context link` saat linkin kontekstitaulukkokirjaan."
     },
     "languagestats": {
-        "usage": "+languagestats <language>",
-        "description": "Shows you the progress of a language on the all projects we currently support."
+        "usage": "+languagestats <kieli>",
+        "description": "Näyttää projektin tukemien kielten käännöstyön edistymisen."
     },
     "issue": {
         "usage": "+issue",
@@ -57,8 +57,12 @@
         "description": "Antaa botin viiveen."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats <käyttäjänimi> [social]",
+        "usage": "+hypixelstats [käyttäjänimi] [social]",
         "description": "Näyttää haluamasi käyttäjän Hypixel-profiilin perustiedot."
+    },
+    "hypixelverify": {
+        "usage": "+hypixelverify <käyttäjänimi> | +hypixelunverify",
+        "description": "Linkittää Discord-tilisi Hypixel-profiilisi kanssa. Suorita komento `+hypixelunverify` poistaaksesi linkityksen."
     },
     "tip": {
         "usage": "+tip",

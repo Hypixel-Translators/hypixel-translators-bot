@@ -5,7 +5,7 @@
     "alreadyThis": "Stało się to, gdyż język, który wybrałeś jest już przez Ciebie używany.",
     "errorTitle": "Ten język nie został jeszcze dodany!",
     "errorDescription": "Twój język nie został zmieniony. Obecnie dostępne są te języki (nie oznacza to jednak, że zostały przetłumaczone):",
-    "suggestAdd": "Jeśli chcesz, aby ten język został dodany do bota, skontaktuj się z członkiem administracji lub złóż sugestię za pomocą `+feedback`.",
+    "suggestAdd": "Jeśli chcesz, aby ten język został dodany do bota, skontaktuj się z członkiem administracji lub złóż sugestię za pomocą `+language add <język>`.",
     "current": "Twoje preferencje językowe zostały ustawione na język polski.",
     "request": "Pomyślnie poproszono o zmianę języka:",
     "errorRequest": "Wystąpił błąd podczas próby poproszenia o ten język",
