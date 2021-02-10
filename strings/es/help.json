@@ -61,8 +61,8 @@
         "description": "Te muestra estadísticas simples de Hypixel de un jugador."
     },
     "hypixelverify": {
-        "usage": "+hypixelverify <username> | +hypixelunverify",
-        "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
+        "usage": "+hypixelverify <usuario> | +hypixelunverify",
+        "description": "Vincula tu cuenta de Discord con tu pefil de Hypixel. Usa `+hypixelunverify` para desverificarte."
     },
     "tip": {
         "usage": "+tip",
