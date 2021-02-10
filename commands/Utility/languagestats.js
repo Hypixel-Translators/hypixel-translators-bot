@@ -15,7 +15,7 @@ module.exports = {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         let rawLang
         const authorDb = await getUser(message.author.id)
-        if (authorDb.lang !== "en" && !args[0]) rawLang = authorDb.lang
+        if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !args[0]) rawLang = authorDb.lang
         if (args[0]) rawLang = args.join(" ").toLowerCase()
         if (!rawLang) throw "noLang"
         let lang = langdb.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)

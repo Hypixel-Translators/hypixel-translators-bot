@@ -14,6 +14,8 @@ module.exports = {
     cooldown: 5,
     async execute(message, strings, args) {
         let executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+        const collection = getDb().collection("users")
+        const stringsFolder = "./strings/"
 
         if (args[0]) {
             if (args[0] === "add") {
@@ -46,28 +48,37 @@ module.exports = {
                     message.channel.send(errorRequest)
                 }
             } else if (args[0] === "list") {
-                const stringsFolder = "./strings/"
-                await fs.readdir(stringsFolder, async (err, files) => {
-                    let langList = ""
-                    files.forEach(async (element, index, array) => {
-                        if (element === "empty" && !message.member.roles.cache.has("764442984119795732")) return //Discord Administrator
-                        if (element === "empty") strings[element] = "Empty"
-                        langList = langList + "\n" + strings.listElement.replace("%%code%%", element).replace("%%language%%", strings[element] || "Unknown")
-                        if (index === array.length - 1) {
-                            const embed = new Discord.MessageEmbed()
-                                .setColor(neutralColor)
-                                .setAuthor(strings.moduleName)
-                                .setTitle(strings.listTitle)
-                                .setDescription(langList)
-                                .setFooter(executedBy, message.author.displayAvatarURL())
-                            await message.channel.send(embed)
-                        }
-                    })
+                const files = fs.readdirSync(stringsFolder)
+                let langList = ""
+                files.forEach(async (element, index, array) => {
+                    if (element === "empty" && !message.member.roles.cache.has("764442984119795732")) return //Discord Administrator
+                    if (element === "empty") strings[element] = "Empty"
+                    langList = langList + "\n" + strings.listElement.replace("%%code%%", element).replace("%%language%%", strings[element] || "Unknown")
+                    if (index === array.length - 1) {
+                        const embed = new Discord.MessageEmbed()
+                            .setColor(neutralColor)
+                            .setAuthor(strings.moduleName)
+                            .setTitle(strings.listTitle)
+                            .setDescription(langList)
+                            .setFooter(executedBy, message.author.displayAvatarURL())
+                        await message.channel.send(embed)
+                    }
                 })
                 return
+            } else if (args[0] === "stats" && message.member.roles.cache.has("764442984119795732")) { //Discord Administrator
+                if (!args[1]) throw "noLang"
+                const files = fs.readdirSync(stringsFolder)
+                if (!files.includes(args[1])) throw "falseLang"
+                const langUsers = await collection.find({ lang: args[1] }).toArray()
+                const embed = new Discord.MessageEmbed()
+                    .setColor(neutralColor)
+                    .setAuthor("Language")
+                    .setFooter(`Executed By ${message.author.tag}`, message.author.displayAvatarURL())
+                if (langUsers.length === 1) embed.setTitle(`There is ${langUsers.length} user using that language at the moment.`)
+                else embed.setTitle(`There are ${langUsers.length} users using that language at the moment.`)
+                message.channel.send(embed)
             } else {
                 message.channel.startTyping()
-                const collection = getDb().collection("users")
                 let newLang = args[0].toLowerCase()
                 if (newLang === "se") newLang = "sv"
                 const langdbEntry = langdb.find(l => l.name.toLowerCase() === newLang)
@@ -100,7 +111,6 @@ module.exports = {
                             }
                         })
                     } else {
-                        const stringsFolder = "./strings/"
                         await fs.readdir(stringsFolder, async (err, files) => {
                             const emptyIndex = files.indexOf("empty")
                             if (emptyIndex > -1 && !message.member.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
@@ -118,7 +128,7 @@ module.exports = {
                 })
             }
         } else {
-            await fs.readdir("./strings/", async (err, files) => {
+            await fs.readdir(stringsFolder, async (err, files) => {
                 const emptyIndex = files.indexOf("empty")
                 if (emptyIndex > -1 && !message.member.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
                 const embed = new Discord.MessageEmbed()
