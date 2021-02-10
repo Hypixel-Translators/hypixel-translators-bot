@@ -38,7 +38,7 @@
     },
     "context": {
         "usage": "+context get|add|edit|link|help <аргументы>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+        "description": "Возвращает, добавляет или редактирует контекст для данного ID строки. `+context help` покажет вам информацию об этой команде. `+context link` даст вам ссылку для запроса доступа к контекстной электронной таблице."
     },
     "languagestats": {
         "usage": "+languagestats <язык>",
@@ -86,23 +86,23 @@
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Дает вам полезную информацию о проекте Quickplay."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "Дает вам полезную информацию о проекте SkyblockAddons."
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "Дает вам полезную информацию о том, как перевести бота."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Дает вам ссылку на тему, объявляющий об этом Discord сервере."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Дает вам ссылку на официальную страницу сообщества переводчиков Hypixel в Twitter."
     },
     "executedBy": "Выполнено %%user%%"
 }
