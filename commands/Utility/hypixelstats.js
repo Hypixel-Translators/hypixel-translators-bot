@@ -88,7 +88,7 @@ module.exports = {
                         .setAuthor(strings.moduleName)
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${json.username})`)}\n${strings.updateNotice}\n${strings.mediaTip.replace("%%command%%", `\`+hypixelstats ${args[0]} social\``)}`)
+                        .setDescription(`${strings.description.replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${json.username})`)}\n${strings.updateNotice}\n${strings.mediaTip.replace("%%command%%", `\`+hypixelstats ${args[0] || username} social\``)}`)
                         .addFields(
                             { name: strings.networkLevel, value: Math.abs(json.level).toLocaleString(strings.dateLocale), inline: true },
                             { name: strings.ap, value: json.achievement_points.toLocaleString(strings.dateLocale), inline: true },
