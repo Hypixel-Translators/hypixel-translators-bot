@@ -2,6 +2,7 @@ const { client } = require("../index.js")
 const Discord = require("discord.js")
 const { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } = require("../config.json")
 const { getUser } = require("../lib/mongodb")
+const cooldowns = new Discord.Collection()
 
 client.on("message", async message => {
 
@@ -134,7 +135,6 @@ client.on("message", async message => {
         return message.channel.send(embed)
     }
     //Cooldown system
-    const cooldowns = new Discord.Collection()
     if (!cooldowns.has(command.name)) {
         cooldowns.set(command.name, new Discord.Collection())
     }
