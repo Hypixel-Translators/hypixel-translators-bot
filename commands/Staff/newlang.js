@@ -1,7 +1,8 @@
-const { successColor, langdb } = require("../../config.json")
+const { successColor } = require("../../config.json")
 const Discord = require("discord.js")
 const country = require("countryjs")
 const { flag } = require("country-emoji")
+const { getDb } = require("../../lib/mongodb")
 
 module.exports = {
   name: "newlang",
@@ -12,7 +13,7 @@ module.exports = {
     message.channel.startTyping()
     const lang = args[0].toLowerCase()
     const code = args[0].toUpperCase()
-    const langdbEntry = langdb.find(entry => entry.code === lang)
+    const langdbEntry = await getDb().collection("langdb").find({ code: lang })
     let nationality = country.demonym(code)
     let emoji = flag(lang)
     if (langdbEntry) {

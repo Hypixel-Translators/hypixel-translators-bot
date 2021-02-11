@@ -1,6 +1,7 @@
-const { loadingColor, errorColor, successColor, neutralColor, langdb } = require("../../config.json")
+const { loadingColor, errorColor, successColor, neutralColor } = require("../../config.json")
 const Discord = require("discord.js")
 const { flag } = require("country-emoji")
+const { getDb } = require("../../lib/mongodb")
 
 module.exports = {
   name: "prefix",
@@ -12,6 +13,7 @@ module.exports = {
   async execute(message, strings, args, globalStrings) {
     const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
     const nickNoPrefix = message.member.displayName.replace(/\[[^\s]*\] /g, "")
+    const langdb = await getDb().collection("langdb").find().toArray()
 
     if (args[0]) {
       let flagEmojis = []

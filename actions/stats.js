@@ -1,28 +1,28 @@
-const { loadingColor, errorColor, successColor, langdb } = require("../config.json")
+const { loadingColor, errorColor, successColor } = require("../config.json")
 const Discord = require("discord.js")
 const fetch = require("node-fetch")
 const ctokenV2 = process.env.CTOKEN_API_V2
+const { getDb } = require("../lib/mongodb")
 
 module.exports = {
     async execute(client, manual) {
         try {
             const d = new Date()
             const m = d.getMinutes()
+            const langdb = await getDb().collection("langdb").find().toArray()
             if (m == "0" || m == "20" || m == "40") {
-                await hypixel(client)
-                await skyblockaddons(client)
-                //console.log("Hypixel and SBA's stats have been automatically updated.")
+                await hypixel(client, langdb)
+                await skyblockaddons(client, langdb)
             }
             if (m == "10" || m == "30" || m == "50") {
-                await quickplay(client)
-                await bot(client)
-                //console.log("Quickplay and SBA's stats have been automatically updated.")
+                await quickplay(client, langdb)
+                await bot(client, langdb)
             }
             if (manual) {
-                await hypixel(client)
-                await skyblockaddons(client)
-                await quickplay(client)
-                await bot(client)
+                await hypixel(client, langdb)
+                await skyblockaddons(client, langdb)
+                await quickplay(client, langdb)
+                await bot(client, langdb)
                 console.log("All stats have been manually updated.")
             }
         } catch (err) { throw err }
@@ -33,7 +33,7 @@ module.exports = {
     bot
 }
 
-function hypixel(client) {
+function hypixel(client, langdb) {
     const url = `https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500`
     const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
     let index = 0
@@ -79,7 +79,7 @@ function hypixel(client) {
         })
 }
 
-function quickplay(client) {
+function quickplay(client, langdb) {
     const url = `https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500`
     const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
     let index = 0
@@ -134,7 +134,7 @@ function quickplay(client) {
         })
 }
 
-function bot(client) {
+function bot(client, langdb) {
     const url = `https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500`
     const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
     let index = 0
@@ -189,7 +189,7 @@ function bot(client) {
         })
 }
 
-function skyblockaddons(client) {
+function skyblockaddons(client, langdb) {
     try {
         const url = `https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500`
         const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }

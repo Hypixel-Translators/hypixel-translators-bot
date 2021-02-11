@@ -1,8 +1,8 @@
 const Discord = require("discord.js")
 const fetch = require("node-fetch")
 const ctokenV2 = process.env.CTOKEN_API_V2
-const { successColor, loadingColor, errorColor, neutralColor, langdb } = require("../../config.json")
-const { getUser } = require("../../lib/mongodb")
+const { successColor, loadingColor, errorColor, neutralColor } = require("../../config.json")
+const { getUser, getDb } = require("../../lib/mongodb")
 
 module.exports = {
     name: "languagestats",
@@ -18,6 +18,7 @@ module.exports = {
         if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !args[0]) rawLang = authorDb.lang
         if (args[0]) rawLang = args.join(" ").toLowerCase()
         if (!rawLang) throw "noLang"
+        const langdb = await getDb().collection("langdb").find().toArray()
         let lang = langdb.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)
         if (!lang) lang = langdb.find(l => l.name.toLowerCase().includes(rawLang))
         if (lang.code === "en") lang = undefined

@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor, langdb } = require("../../config.json")
+const { loadingColor, errorColor, successColor, neutralColor } = require("../../config.json")
 const Discord = require("discord.js")
 const fs = require("fs")
 const { name, code } = require('country-emoji')
@@ -81,6 +81,7 @@ module.exports = {
                 message.channel.startTyping()
                 let newLang = args[0].toLowerCase()
                 if (newLang === "se") newLang = "sv"
+                const langdb = await getDb().collection("langdb").find().toArray()
                 const langdbEntry = langdb.find(l => l.name.toLowerCase() === newLang)
                 if (langdbEntry) newLang = langdbEntry.code
                 if (newLang === "empty" && !message.member.roles.cache.has("764442984119795732")) newLang = "denied" //Discord Administrator
