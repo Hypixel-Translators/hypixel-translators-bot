@@ -1,7 +1,7 @@
 const { client } = require("../index.js")
-const stats = require("../actions/stats.js")
-const inactives = require("../actions/inactives.js")
-const unzalgo = require("../actions/unzalgo.js")
+const stats = require("../events/stats.js")
+const inactives = require("../events/inactives.js")
+const unzalgo = require("../events/unzalgo.js")
 const { listeningStatuses, watchingStatuses, playingStatuses } = require("../config.json")
 
 client.once("ready", async () => {

@@ -1,6 +1,6 @@
 const { successColor } = require("../../config.json")
 const Discord = require("discord.js")
-const unzalgo = require("../../actions/unzalgo.js")
+const unzalgo = require("../../events/unzalgo.js")
 
 module.exports = {
     name: "unzalgo",
