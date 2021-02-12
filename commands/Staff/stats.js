@@ -1,7 +1,6 @@
 const { errorColor, successColor } = require("../../config.json")
 const Discord = require("discord.js")
 const { execute, hypixel, quickplay, skyblockaddons, bot } = require("../../events/stats.js")
-const { getDb } = require("../../lib/mongodb")
 
 module.exports = {
     name: "stats",
@@ -11,7 +10,6 @@ module.exports = {
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(message, strings, args) {
         const client = message.client
-        const langdb = await getDb().collection("langdb").find().toArray()
         if (!args[0] || args[0].toLowerCase() === "all") {
             await execute(client, true)
                 .then(() => {
@@ -28,22 +26,22 @@ module.exports = {
             let project = args[0].toLowerCase()
             let channel
             if (project === "hypixel" || project === "hp") {
-                await hypixel(client, langdb)
+                await hypixel(client)
                 project = "Hypixel"
                 channel = "hypixel"
             }
             else if (project === "quickplay" || project === "qp") {
-                await quickplay(client, langdb)
+                await quickplay(client)
                 project = "Quickplay"
                 channel = "quickplay"
             }
             else if (project === "skyblockaddons" || project === "sba") {
-                await skyblockaddons(client, langdb)
+                await skyblockaddons(client)
                 project = "SkyblockAddons"
                 channel = "sba"
             }
             else if (project === "bot") {
-                await bot(client, langdb)
+                await bot(client)
                 project = "Bot"
                 channel = "bot"
             }

@@ -9,20 +9,19 @@ module.exports = {
         try {
             const d = new Date()
             const m = d.getMinutes()
-            const langdb = await getDb().collection("langdb").find().toArray()
             if (m == "0" || m == "20" || m == "40") {
-                await hypixel(client, langdb)
-                await skyblockaddons(client, langdb)
+                await hypixel(client)
+                await skyblockaddons(client)
             }
             if (m == "10" || m == "30" || m == "50") {
-                await quickplay(client, langdb)
-                await bot(client, langdb)
+                await quickplay(client)
+                await bot(client)
             }
             if (manual) {
-                await hypixel(client, langdb)
-                await skyblockaddons(client, langdb)
-                await quickplay(client, langdb)
-                await bot(client, langdb)
+                await hypixel(client)
+                await skyblockaddons(client)
+                await quickplay(client)
+                await bot(client)
                 console.log("All stats have been manually updated.")
             }
         } catch (err) { throw err }
@@ -33,7 +32,8 @@ module.exports = {
     bot
 }
 
-function hypixel(client, langdb) {
+async function hypixel(client) {
+    const langdb = await getDb().collection("langdb").find().toArray()
     const url = `https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500`
     const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
     let index = 0
@@ -79,7 +79,8 @@ function hypixel(client, langdb) {
         })
 }
 
-function quickplay(client, langdb) {
+async function quickplay(client) {
+    const langdb = await getDb().collection("langdb").find().toArray()
     const url = `https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500`
     const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
     let index = 0
@@ -134,7 +135,8 @@ function quickplay(client, langdb) {
         })
 }
 
-function bot(client, langdb) {
+async function bot(client) {
+    const langdb = await getDb().collection("langdb").find().toArray()
     const url = `https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500`
     const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
     let index = 0
@@ -189,61 +191,60 @@ function bot(client, langdb) {
         })
 }
 
-function skyblockaddons(client, langdb) {
-    try {
-        const url = `https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500`
-        const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
-        let index = 0
-        fetch(url, settings)
-            .then(res => res.json())
-            .then(json => {
-                const langStatus = json.data.map(status => {
-                    status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
-                    return status
-                })
-                const reversed = Array.from(langStatus).sort((currentStatus, nextStatus) => {
-                    return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
-                })
-                client.channels.cache.find(channel => channel.name === "sba-language-status").messages.fetch() //sba-language-status
-                    .then(messages => {
-                        fiMessages = messages.filter(msg => msg.author.bot)
-                        fiMessages.forEach(async msg => {
-                            let r = reversed[index].data
-
-                            if (r.approvalProgress > 89) {
-                                adapColour = successColor
-                            } else if (r.approvalProgress > 49) {
-                                adapColour = loadingColor
-                            } else {
-                                adapColour = errorColor
-                            }
-
-                            const embed = new Discord.MessageEmbed()
-                                .setColor(adapColour)
-                                .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-${r.language.code}`)
-                                .setThumbnail((r.language.flag))
-                                .setTimestamp()
-                            if (r.language) { embed.setTitle(r.language.emoji + " | " + r.language.name) } else { embed.setTitle("<:icon_question:756582065834688662> | " + r.language.name) }
-                            msg.edit("", embed)
-                            index++
-                        })
-                    })
-
-                client.channels.cache.get("730042612647723058").messages.fetch("782637265230626836") //bot-development Sba string count
-                    .then(stringCount => {
-                        if (stringCount.content != langStatus[0].data.phrases.total) {
-                            const stringDiff = Math.abs(Number(Number(langStatus[0].data.phrases.total) - Number(stringCount.content)))
-                            if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
-                                if (stringDiff == 1) client.channels.cache.get("748594964476329994").send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>") //sba-translators
-                                else
-                                    client.channels.cache.get("748594964476329994").send("> <a:partyBlob:769679132317057064> **New Strings!**\n" + stringDiff + " strings have been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>") //sba-translators
-                            } else if (Number(stringCount.content) > langStatus[0].data.phrases.total) {
-                                if (stringDiff == 1) client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the SkyblockAddons project.") //sba-translators
-                                else client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the SkyblockAddons project.") //sba-translators
-                            }
-                            stringCount.edit(langStatus[0].data.phrases.total)
-                        }
-                    })
+async function skyblockaddons(client) {
+    const langdb = await getDb().collection("langdb").find().toArray()
+    const url = `https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500`
+    const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
+    let index = 0
+    fetch(url, settings)
+        .then(res => res.json())
+        .then(json => {
+            const langStatus = json.data.map(status => {
+                status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
+                return status
             })
-    } catch (error) { throw error }
+            const reversed = Array.from(langStatus).sort((currentStatus, nextStatus) => {
+                return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
+            })
+            client.channels.cache.find(channel => channel.name === "sba-language-status").messages.fetch() //sba-language-status
+                .then(messages => {
+                    fiMessages = messages.filter(msg => msg.author.bot)
+                    fiMessages.forEach(async msg => {
+                        let r = reversed[index].data
+
+                        if (r.approvalProgress > 89) {
+                            adapColour = successColor
+                        } else if (r.approvalProgress > 49) {
+                            adapColour = loadingColor
+                        } else {
+                            adapColour = errorColor
+                        }
+
+                        const embed = new Discord.MessageEmbed()
+                            .setColor(adapColour)
+                            .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-${r.language.code}`)
+                            .setThumbnail((r.language.flag))
+                            .setTimestamp()
+                        if (r.language) { embed.setTitle(r.language.emoji + " | " + r.language.name) } else { embed.setTitle("<:icon_question:756582065834688662> | " + r.language.name) }
+                        msg.edit("", embed)
+                        index++
+                    })
+                })
+
+            client.channels.cache.get("730042612647723058").messages.fetch("782637265230626836") //bot-development Sba string count
+                .then(stringCount => {
+                    if (stringCount.content != langStatus[0].data.phrases.total) {
+                        const stringDiff = Math.abs(Number(Number(langStatus[0].data.phrases.total) - Number(stringCount.content)))
+                        if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
+                            if (stringDiff == 1) client.channels.cache.get("748594964476329994").send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>") //sba-translators
+                            else
+                                client.channels.cache.get("748594964476329994").send("> <a:partyBlob:769679132317057064> **New Strings!**\n" + stringDiff + " strings have been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>") //sba-translators
+                        } else if (Number(stringCount.content) > langStatus[0].data.phrases.total) {
+                            if (stringDiff == 1) client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the SkyblockAddons project.") //sba-translators
+                            else client.channels.cache.get("748594964476329994").send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the SkyblockAddons project.") //sba-translators
+                        }
+                        stringCount.edit(langStatus[0].data.phrases.total)
+                    }
+                })
+        })
 }
