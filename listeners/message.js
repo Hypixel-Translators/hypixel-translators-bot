@@ -173,7 +173,7 @@ client.on("message", async message => {
     catch { console.error(`Couldn't get command strings for the command ${command.name} on the language ${author.lang}. The file does not exist yet.`) }
 
     //Run command and handle errors
-    try { await command.execute(message, strings, args, globalStrings) }
+    try { await command.execute(message, args, strings, globalStrings) }
     catch (error) {
 
         //Handle errors

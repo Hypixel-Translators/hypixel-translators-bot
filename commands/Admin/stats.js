@@ -8,7 +8,7 @@ module.exports = {
     usage: "+stats",
     aliases: ["statistics", "progress"],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
-    async execute(message, strings, args) {
+    async execute(message, args) {
         const client = message.client
         if (!args[0] || args[0].toLowerCase() === "all") {
             await execute(client, true)

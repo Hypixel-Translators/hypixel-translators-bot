@@ -11,7 +11,7 @@ module.exports = {
     aliases: ["langstats", "lstats"],
     cooldown: 30,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335", "551693960913879071"], // bots staff-bots bot-development bot-translators admin-bots
-    async execute(message, strings, args) {
+    async execute(message, args, strings) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         let rawLang
         const authorDb = await getUser(message.author.id)

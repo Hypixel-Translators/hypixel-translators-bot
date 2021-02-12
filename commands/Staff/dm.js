@@ -8,7 +8,7 @@ module.exports = {
     usage: "+dm <mention> <message>",
     aliases: ["message", "privatemessage", "pm"],
     roleWhitelist: ["768435276191891456"], //Discord Staff
-    async execute(message, strings, args) {
+    async execute(message, args) {
         let userToSend = args[0].replace(/[\\<>@#&!]/g, "")
         args.splice(0, 1)
         let toSend = args.join(" ")

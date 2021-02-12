@@ -15,7 +15,7 @@ module.exports = {
   aliases: ["evaluate", "ev"],
   roleWhitelist: ["620274909700161556"], //*
   channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
-  async execute(message, strings, args, globalStrings) {
+  async execute(message, args, strings, globalStrings) {
     const me = message.member
     const guild = message.guild
     const client = message.client

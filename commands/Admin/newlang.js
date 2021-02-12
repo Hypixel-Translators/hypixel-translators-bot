@@ -9,7 +9,7 @@ module.exports = {
   description: "Creates a new language category with the appropriate channels and roles.",
   usage: "+newlang <lang code> [HEX color]",
   roleWhitelist: ["764442984119795732"], //Discord Administrator
-  async execute(message, strings, args) {
+  async execute(message, args) {
     message.channel.startTyping()
     const lang = args[0].toLowerCase()
     const code = args[0].toUpperCase()

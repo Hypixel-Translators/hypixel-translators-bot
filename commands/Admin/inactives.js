@@ -8,7 +8,7 @@ module.exports = {
     usage: "+inactives",
     aliases: ["updateinactives", "unverifieds", "inactive"],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
-    execute(message, strings) {
+    execute(message) {
         inactives.execute(message.client, true)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)

@@ -8,7 +8,7 @@ module.exports = {
   cooldown: 10,
   allowDM: true,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335", "551693960913879071"], // bots staff-bots bot-development bot-translators admin-bots
-  execute(message, strings, args, globalStrings) {
+  execute(message, args, strings, globalStrings) {
     const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
     let keys = Object.keys(globalStrings.tips)
     let tip = globalStrings.tips[keys[keys.length * Math.random() << 0]]

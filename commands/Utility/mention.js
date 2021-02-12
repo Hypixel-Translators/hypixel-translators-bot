@@ -6,7 +6,7 @@ module.exports = {
   cooldown: 120,
   roleWhitelist: ["569839580971401236", "764442984119795732"], //Hypixel Proofreader and Discord Administrator
   channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "644620638878695424", "550951034332381184", "549894938712866816", "713084081579098152"],
-  execute(message, strings, args) {
+  execute(message, args, strings) {
     if (!args[0]) throw "noLang"
     if (!args[1]) throw "noRole"
     let type = args[1].toLowerCase()

@@ -8,7 +8,7 @@ module.exports = {
     cooldown: 120,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335", "551693960913879071"], // bots staff-bots bot-development bot-translators admin-bots
-    execute(message, strings) {
+    execute(message, args, strings) {
         const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
         if (message.channel.type !== "dm") {
             if (message.guild.id === "549503328472530974") {

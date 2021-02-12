@@ -12,9 +12,9 @@ module.exports = {
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
     cooldown: 5,
-    async execute(message, strings, args) {
+    async execute(message, args, strings) {
         let executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        const collection = getDb().collection("users")
+        const collection = await getDb().collection("users")
         const stringsFolder = "./strings/"
 
         if (args[0]) {

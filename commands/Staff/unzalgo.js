@@ -9,7 +9,7 @@ module.exports = {
     aliases: ["zalgo", "zalgocheck"],
     roleWhitelist: ["768435276191891456"], //Discord Staff
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
-    execute(message, strings) {
+    execute(message) {
         unzalgo.execute(message.client, true)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)

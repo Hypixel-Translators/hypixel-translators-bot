@@ -8,7 +8,7 @@ module.exports = {
     usage: "+members <role>",
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-development admin-bots
-    execute(message, strings, args) {
+    execute(message, args) {
         let role = args.join(" ").replace(/[\\<>@#&!]/g, "").toLowerCase()
         if (!role) throw "noRole"
         role = message.guild.roles.cache.find(r => r.id === role || r.name.toLowerCase() === role)

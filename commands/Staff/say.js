@@ -8,7 +8,7 @@ module.exports = {
   cooldown: 600,
   aliases: ["parrot", "repeat", "send"],
   roleWhitelist: ["768435276191891456"], //Discord Staff
-  async execute(message, strings, args) {
+  async execute(message, args) {
     if (!args[0]) return
     const sendTo = message.client.channels.cache.get(args[0].replace(/[\\<>@#&!]/g, ""))
     args.splice(0, 1)
