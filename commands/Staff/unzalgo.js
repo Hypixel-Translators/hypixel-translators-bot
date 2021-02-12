@@ -10,12 +10,12 @@ module.exports = {
     roleWhitelist: ["768435276191891456"], //Discord Staff
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
     execute(message, strings) {
-            unzalgo.execute(message.client, true)
-            const embed = new Discord.MessageEmbed()
-                .setColor(successColor)
-                .setAuthor("Zalgo checker")
-                .setTitle("All zalgo nicknames have been changed!")
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
-            message.channel.send(embed)
+        unzalgo.execute(message.client, true)
+        const embed = new Discord.MessageEmbed()
+            .setColor(successColor)
+            .setAuthor("Zalgo checker")
+            .setTitle("All zalgo nicknames have been changed!")
+            .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+        message.channel.send(embed)
     }
 }

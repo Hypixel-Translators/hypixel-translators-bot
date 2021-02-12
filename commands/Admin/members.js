@@ -24,7 +24,7 @@ module.exports = {
             arr.push(tags.slice(p, p += 85)) //89 is max for now
         }
 
-        if (role.hexColor === "#000000") role.color = blurple 
+        if (role.hexColor === "#000000") role.color = blurple
         const embed = new Discord.MessageEmbed()
             .setColor(role.color)
             .setAuthor("Members list")
