@@ -177,7 +177,6 @@ client.on("message", async message => {
     catch (error) {
 
         //Handle errors
-        if (!globalStrings.errors[error]) console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error}`)
         timestamps.delete(message.author.id)
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
@@ -191,6 +190,15 @@ client.on("message", async message => {
         }
         message.channel.stopTyping()
         message.channel.send(embed)
+            .then(msg => {
+                if (!globalStrings.errors[error]) console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error}`)
+                else {
+                    setTimeout(() => {
+                        if (!message.deleted) message.delete()
+                        if (!msg.deleted) msg.delete()
+                    }, 10000);
+                }
+            })
         return
 
     } finally {
