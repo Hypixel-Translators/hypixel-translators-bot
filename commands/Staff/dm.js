@@ -9,11 +9,11 @@ module.exports = {
     aliases: ["message", "privatemessage", "pm"],
     roleWhitelist: ["768435276191891456"], //Discord Staff
     async execute(message, args) {
-        let userToSend = args[0].replace(/[\\<>@#&!]/g, "")
-        args.splice(0, 1)
-        let toSend = args.join(" ")
+        const userToSend = args[0].replace(/[\\<>@#&!]/g, "")
         const recipient = message.client.users.cache.get(userToSend)
         if (!recipient) throw "falseUser"
+        args.splice(0, 1)
+        let toSend = args.join(" ")
 
         const recipientDb = await getUser(recipient.id)
         const rStrings = require(`../../strings/${recipientDb.lang}/dm.json`)
