@@ -204,7 +204,7 @@ client.on("message", async message => {
     } finally {
 
         //Try sending a tip
-        if (command.name !== "verify" && command.name !== "mention") {
+        if (command.allowTip !== false) {
             let d = Math.random().toFixed(2)
             let keys = Object.keys(globalStrings.tips)
             let tip = globalStrings.tips[keys[keys.length * Math.random() << 0]]
