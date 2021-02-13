@@ -1,5 +1,6 @@
 const { blurple } = require("../../config.json")
 const Discord = require("discord.js")
+const { getDb } = require("../../lib/mongodb")
 
 module.exports = {
   name: "check",
@@ -8,7 +9,7 @@ module.exports = {
   usage: "+check [user]",
   roleWhitelist: ["768435276191891456", "551758391127834625", "748269219619274893", "645709877536096307", "752541221980733571"], //Discord Staff and Hypixel, SBA, QP and Bot managers
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "768160446368186428"], // bots staff-bots bot-development managers
-  execute(message, args, strings) {
+  async execute(message, args, strings) {
     let member = message.member
     if (args[0]) {
       let userRaw = args[0].replace(/[\\<>@#&!]/g, "")
@@ -16,6 +17,7 @@ module.exports = {
       if (!member) throw "falseUser"
     }
 
+    const userDb = await getDb().collection("users").findOne({id: member.user.id})
     let note
     if (member.user.id === message.guild.ownerID) note = "Discord Owner"
     else if (member.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"
@@ -24,6 +26,7 @@ module.exports = {
     else if (member.roles.cache.find(r => r.name === "Discord Helper")) note = "Discord Helper"
     else if (member.roles.cache.find(r => r.name.endsWith(" Manager"))) note = "Project Manager"
     else if (member.roles.cache.find(r => r.name === "Hypixel Staff")) note = "Hypixel Staff Member"
+    else if (userDb.profile) note = userDb.profile
 
     let color = member.displayHexColor
     if (color == "#000000") color = blurple
@@ -50,7 +53,7 @@ module.exports = {
       )
       .setThumbnail(member.user.displayAvatarURL())
       .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
-    if (note) embed.addField("Notes", note)
+    if (note) embed.addField("Note", note)
     message.channel.send(embed)
     function timeAgo(time) {
       if (time == 1) time = ` (${time} second ago)`
