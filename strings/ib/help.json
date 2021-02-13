@@ -61,8 +61,8 @@
         "description": "Givs Hypickle statz for giv usr."
     },
     "hypixelverify": {
-        "usage": "+hypixelverify <username> | +hypixelunverify",
-        "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
+        "usage": "+hypixelverify <usernam> | +hypixelunverify",
+        "description": "Lonks ur Dishcord aconts with ur Hypickle profil. Excut `+hypixelunverify` too unverifs."
     },
     "tip": {
         "usage": "+tip",
