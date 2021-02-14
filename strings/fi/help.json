@@ -42,7 +42,7 @@
     },
     "languagestats": {
         "usage": "+languagestats <kieli>",
-        "description": "Näyttää projektin tukemien kielten käännöstyön edistymisen."
+        "description": "Näyttää kielen käännöstyön edistymisen kaikissa tukemissamme projekteissa."
     },
     "issue": {
         "usage": "+issue",
