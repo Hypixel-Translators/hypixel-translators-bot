@@ -59,7 +59,7 @@ module.exports = {
       if (time == 1) time = ` (${time} second ago)`
       else if (time < 60) time = ` (${time} seconds ago)`
       else if (time == 60) time = ` (${Math.round(time / 60)} minute ago)`
-      else if (time < (60 * 60 * 1.5)) time = ` (${Math.round(time / 60)} minutes ago})`
+      else if (time < (60 * 60 * 1.5)) time = ` (${Math.round(time / 60)} minutes ago)`
       else if (time == (60 * 60 * 1.5)) time = ` (${Math.round(time / (60 * 60))} hour ago)`
       else if (time < (60 * 60 * 24 * 1.5)) time = ` (${Math.round(time / (60 * 60))} hours ago)`
       else if (time == (60 * 60 * 24 * 1.5)) time = ` (${Math.round(time / (60 * 60 * 24))} day ago)`
