@@ -30,7 +30,7 @@ module.exports = {
             }
         } else {
             const userId = args[0].replace(/[\\<>@#&!]/g, "")
-            const member = message.guild.members.cache.find(m => m.id === userId)
+            const member = message.guild.members.cache.find(m => m.id === userId || m.user.tag === args[0])
             const command = message.content.slice(prefix.length).split(" ")[0].toLowerCase()
             if (command === "unverify") {
                 member.roles.remove("569194996964786178", "Unverified")
