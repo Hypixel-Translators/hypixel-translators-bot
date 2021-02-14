@@ -12,13 +12,14 @@ module.exports = {
         if (!args[2]) return
         const userId = args[0].replace(/[\\<>@#&!]/g, "")
         const member = message.guild.members.cache.find(m => m.id === userId)
+        if(!member) throw "falseUser"
         const langdb = await getDb().collection("langdb").find().toArray()
         const project = args[1].toLowerCase()
         if (project === "hp" || project === "hypixel") await hypixel(message, member, args, langdb)
         else if (project === "qp" || project === "quickplay") await quickplay(message, member, args, langdb)
         else if (project === "sba" || project === "skyblockaddons") await sba(message, member, args)
         else if (project === "bot") await bot(message, member, args)
-        else throw "falseRole"
+        else throw "noRole"
         message.channel.messages.fetch()
             .then(messages => {
                 const authorMessages = messages.filter(msgs => msgs.author === message.author)
@@ -38,6 +39,7 @@ async function hypixel(message, member, args, langdb) {
     const newLangRole = await message.guild.roles.cache.find(r => r.name === `${lang.name} Proofreader`)
     const oldProjectRole = await message.guild.roles.cache.find(r => r.name === `Hypixel Translator`)
     const newProjectRole = await message.guild.roles.cache.find(r => r.name === `Hypixel Proofreader`)
+    if (!oldLangRole || !newLangRole || !oldProjectRole || !newProjectRole) throw "falseRole"
     await member.roles.remove([oldLangRole.id, oldProjectRole.id], "Verified")
     await member.roles.add(["569194996964786178", newLangRole.id, newProjectRole.id], "Verified") //Verified
     await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[3] } })
@@ -53,6 +55,7 @@ async function quickplay(message, member, args, langdb) {
     const newLangRole = await message.guild.roles.cache.find(r => r.name === `${lang.name} Proofreader`)
     const oldProjectRole = await message.guild.roles.cache.find(r => r.name === `Quickplay Translator`)
     const newProjectRole = await message.guild.roles.cache.find(r => r.name === `Quickplay Proofreader`)
+    if (!oldLangRole || !newLangRole || !oldProjectRole || !newProjectRole) throw "falseRole"
     await member.roles.remove([oldLangRole.id, oldProjectRole.id], "Verified")
     await member.roles.add(["569194996964786178", newLangRole.id, newProjectRole.id], "Verified") //Verified
     await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[3] } })
@@ -66,7 +69,7 @@ async function sba(message, member, args) {
     const newProjectRole = await message.guild.roles.cache.find(r => r.name === `SkyblockAddons Proofreader`)
     await member.roles.remove(oldProjectRole.id, "Verified")
     await member.roles.add(["569194996964786178", newProjectRole.id], "Verified") //Verified
-    await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[3] } })
+    await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[2] } })
     message.client.channels.cache.get("662660931838410754").send(`${member}'s role was updated to ${newProjectRole.name} by ${message.author.tag}! Here's their Crowdin profile: ${args[2]}`)
 }
 
@@ -77,6 +80,6 @@ async function bot(message, member, args) {
     const newProjectRole = await message.guild.roles.cache.find(r => r.name === `Bot Proofreader`)
     await member.roles.remove(oldProjectRole.id, "Verified")
     await member.roles.add(["569194996964786178", newProjectRole.id], "Verified") //Verified
-    await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[3] } })
+    await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[2] } })
     message.client.channels.cache.get("662660931838410754").send(`${member}'s role was updated to ${newProjectRole.name} by ${message.author.tag}! Here's their Crowdin profile: ${args[2]}`)
 }

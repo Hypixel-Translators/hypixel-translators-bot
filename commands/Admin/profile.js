@@ -6,7 +6,6 @@ module.exports = {
     name: "profile",
     description: "Gets the profile of a user",
     usage: "+profile [user]",
-    aliases: ["unverify"],
     allowTip: false,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["569178590697095168"], // verify

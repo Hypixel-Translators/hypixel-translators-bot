@@ -31,9 +31,12 @@ module.exports = {
         } else {
             const userId = args[0].replace(/[\\<>@#&!]/g, "")
             const member = message.guild.members.cache.find(m => m.id === userId || m.user.tag === args[0])
+            if (!member) throw "falseUser"
             const command = message.content.slice(prefix.length).split(" ")[0].toLowerCase()
             if (command === "unverify") {
+                const userDb = await getDb().collection("users").findOne({ id: member.id })
                 member.roles.remove("569194996964786178", "Unverified")
+                if (userDb.profile) message.client.channels.cache.get("551693960913879071").send(`${message.author}, ${member}'s profile is ${userDb.profile}`)
                 message.channel.send(`${member} has been unverified!`)
                     .then(msg => {
                         setTimeout(() => {
@@ -49,7 +52,7 @@ module.exports = {
             else if (project === "qp" || project === "quickplay") await quickplay(message, member, args, langdb)
             else if (project === "sba" || project === "skyblockaddons") await sba(message, member, args)
             else if (project === "bot") await bot(message, member, args)
-            else throw "falseRole"
+            else throw "noRole"
             message.channel.messages.fetch()
                 .then(messages => {
                     const authorMessages = messages.filter(msgs => msgs.author === message.author)
@@ -74,7 +77,7 @@ async function hypixel(message, member, args, langdb) {
     const projectRole = await message.guild.roles.cache.find(r => r.name === `Hypixel ${role}`)
     await member.roles.remove("756199836470214848", "Verified") //Alerted
     await member.roles.add(["569194996964786178", langRole.id, projectRole.id], "Verified") //Verified
-    await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[3] } })
+    await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[4] } })
     message.client.channels.cache.get("662660931838410754").send(`${member} was verified as a ${lang.name} ${projectRole.name} by ${message.author.tag}! Here's their Crowdin profile: ${args[4]}`)
 }
 
@@ -91,7 +94,7 @@ async function quickplay(message, member, args, langdb) {
     const projectRole = await message.guild.roles.cache.find(r => r.name === `Quickplay ${role}`)
     await member.roles.remove("756199836470214848", "Verified") //Alerted
     await member.roles.add(["569194996964786178", langRole.id, projectRole.id], "Verified") //Verified
-    await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[3] } })
+    await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[4] } })
     message.client.channels.cache.get("662660931838410754").send(`${member} was verified as a ${lang.name} ${projectRole.name} by ${message.author.tag}! Here's their Crowdin profile: ${args[4]}`)
 }
 
