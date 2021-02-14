@@ -38,11 +38,11 @@ module.exports = {
         }
         if (!args[0]) throw "noUser"
 
-        message.channel.startTyping()
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
         await fetch(`https://api.slothpixel.me/api/players/${args[0]}`, { method: "Get" })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
+                message.channel.startTyping()
 
                 //Handle errors
                 if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
@@ -88,6 +88,12 @@ module.exports = {
                     message.channel.stopTyping()
                     message.channel.send(errorEmbed)
                 }
+            })
+            .catch(e => {
+                if (e instanceof fetch.FetchError) {
+                    console.error("slothpixel is down, sending error.")
+                    throw "apiError"
+                } else throw e
             })
     },
     async updateRoles(message, json) {
