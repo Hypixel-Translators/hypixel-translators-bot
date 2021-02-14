@@ -37,7 +37,7 @@ module.exports = {
             }
         } else {
             if (/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[1])) {
-                await getDb().collection("users").findOne({ id: user.id }, { $set: { profile: args[1] } })
+                await getDb().collection("users").updateOne({ id: user.id }, { $set: { profile: args[1] } })
                     .then(r => {
                         if (r.result.nModified) {
                             const embed = new Discord.MessageEmbed()

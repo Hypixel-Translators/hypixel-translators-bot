@@ -22,27 +22,29 @@ client.on("message", async message => {
     const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
 
     //Link correction system
-    if (message.content.toLowerCase().includes("/translate/hypixel/") && message.content.includes("://")) if (message.channel.id === "549503328472530976" || message.channel.id === "627594632779399195") { // hypixel translators and proofreaders
-        const langFix = message.content.replace(/translate\.hypixel\.net/gim, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gim, "/en-en")
-        if (/\/en(-?[a-z]{2,4})?[^#-]/gim.test(message.content)) {
-            message.react("732298639736570007")
-            const embed = new Discord.MessageEmbed()
-                .setColor(errorColor)
-                .setAuthor(globalStrings.wrongLink)
-                .setTitle(globalStrings.wrongStringURL)
-                .setDescription(globalStrings.example.replace("%%url%%", "https://crowdin.com/translate/hypixel/286/en-en#106644"))
-                .setImage("https://i.imgur.com/eDZ8u9f.png")
-            if (message.content !== langFix) embed.setDescription(`${globalStrings.example.replace("%%url%%", "<https://crowdin.com/translate/hypixel/286/en-en#106644>")}\n${globalStrings.reminderLang.replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`")}`)
-            return message.channel.send(message.author, embed)
-        }
-        if (message.content !== langFix) {
-            message.react("732298639736570007")
-            const embed = new Discord.MessageEmbed()
-                .setColor(errorColor)
-                .setAuthor(globalStrings.wrongLink)
-                .setTitle(globalStrings.linkCorrectionDesc.replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`"))
-                .setDescription(langFix)
-            return message.channel.send(message.author, embed)
+    if (message.content.toLowerCase().includes("/translate/hypixel/") && message.content.includes("://")) {
+        if (message.channel.parent.id === "549503328472530977" || message.channel.parent.id === "748585307825242322" || message.channel.parent.id === "763131996163407902" || message.channel.parent.id === "646083561769926668") { //Hypixel, SkyblockAddons, Bot and Quickplay Translations
+            const langFix = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
+            if (/\/en(-?[a-z]{2,4})?[^#-]/gi.test(message.content)) {
+                message.react("732298639736570007")
+                const embed = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setAuthor(globalStrings.wrongLink)
+                    .setTitle(globalStrings.wrongStringURL)
+                    .setDescription(globalStrings.example.replace("%%url%%", "https://crowdin.com/translate/hypixel/286/en-en#106644"))
+                    .setImage("https://i.imgur.com/eDZ8u9f.png")
+                if (message.content !== langFix && message.channel.parent.id === "549503328472530977") embed.setDescription(`${globalStrings.example.replace("%%url%%", "<https://crowdin.com/translate/hypixel/286/en-en#106644>")}\n${globalStrings.reminderLang.replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`")}`)
+                return message.channel.send(message.author, embed)
+            }
+            if (message.content !== langFix && message.channel.parent.id === "549503328472530977") {
+                message.react("732298639736570007")
+                const embed = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setAuthor(globalStrings.wrongLink)
+                    .setTitle(globalStrings.linkCorrectionDesc.replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`"))
+                    .setDescription(langFix)
+                return message.channel.send(message.author, embed)
+            }
         }
     }
 
