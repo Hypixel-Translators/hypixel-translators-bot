@@ -42,7 +42,7 @@
     },
     "languagestats": {
         "usage": "+languagestats <språk>",
-        "description": "Shows you the progress of a language on the all projects we currently support."
+        "description": "Shows you the progress of a language on all the projects we currently support."
     },
     "issue": {
         "usage": "+issue",
