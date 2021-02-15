@@ -13,7 +13,7 @@
     "clickLanguage": "الآن، اضغط على اللغة التي تريد ترجمتها",
     "requestJoin": "من أجل الانضمام إلى هذه اللغة، يجب عليك الضغط على \"الانضمام\" وكتابة رسالة بسيطة عن سبب رغبتك في الانضمام إلى المشروع.",
     "lastThing": "شيء واحد أخير",
-    "requestInfo": "When submitting your request, please make sure to include either your tag (%%tag%%) or your ID (%%id%%).\n**If you do not include at least one of these, you will be rejected!**",
+    "requestInfo": "عند تقديم طلبك، يرجى التأكد من إدراج الهاشتاق الخاص بك (%%tag%%) أو رقم التعريف الخاص بك (%%id%%).\n**إذا لم تقم بإدراج واحد على الأقل من هذه ، سيتم رفضك!**",
     "noLanguage": "لا يمكنك العثور على لغتك؟",
     "langRequest": "من المحتمل أننا لا ندعم لغتك حتى الآن. إذا كان الأمر كذلك، قم بتنفيذ `+language add <لغة>`. هذا سوف يرسل رسالة إلى المشرفين ليعرفوا أنك تريد إضافة هذه اللغة.",
     "executedBy": "نفذ من قبل %%user%%"
