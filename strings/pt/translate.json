@@ -13,7 +13,7 @@
     "clickLanguage": "Agora, clica no idioma que desejas traduzir",
     "requestJoin": "Para entrares no projeto desse idioma, clica em \"Participar\" e escreve uma mensagem simples com o porquê de quereres entrar no projeto.",
     "lastThing": "Só mais uma coisa",
-    "requestInfo": "When submitting your request, please make sure to include either your tag (%%tag%%) or your ID (%%id%%).\n**If you do not include at least one of these, you will be rejected!**",
+    "requestInfo": "Ao submeteres o teu pedido, não te esqueças de incluir a tua tag (%%tag%%) ou o teu ID (%%id%%).\n**Se não incluíres no mínimo um destes, o teu pedido será rejeitado!**",
     "noLanguage": "Não consegues encontrar o teu idioma?",
     "langRequest": "É possível que não tenhamos adicionado o teu idioma ainda. Se é este o caso, executa `+language add <idioma>`. Isto irá enviar uma mensagem aos admins, dizendo-lhes que queres que este idioma seja adicionado.",
     "executedBy": "Executado por %%user%%"
