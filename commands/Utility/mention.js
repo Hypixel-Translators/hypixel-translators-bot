@@ -18,12 +18,8 @@ module.exports = {
     if (toSend.length < 2) {
       toSend = "<a:bongoping:614477510423478275>" + toSend
     }
-    const langs = { "Chinesesimplified": "Chinese (Simplified)", "Chinese-simplified": "Chinese (Simplified)", "Zhcn": "Chinese (Simplified)", "Chinesetraditional": "Chinese (Traditional)", "Chinese-traditional": "Chinese (Traditional)", "Zhtw": "Chinese (Traditional)", "Lolcat": "LOLCAT", "Lol": "LOLCAT", "Bg": "Bulgarian", "Cs": "Czech", "Da": "Danish", "Nl": "Dutch", "Fi": "Finnish", "Fr": "French", "De": "German", "El": "Greek", "It": "Italian", "Ja": "Japanese", "Ko": "Korean", "Ms": "Malay", "No": "Norwegian", "Pl": "Polish", "Pt": "Portuguese", "Ptbr": "Brazilian", "Ru": "Russian", "Es": "Spanish", "Sv": "Swedish", "Se": "Swedish", "Th": "Thai", "Tr": "Turkish", "Ua": "Ukrainian", "Enpt": "Pirate" }
+    const langs = { "Chinesesimplified": "Chinese Simplified", "Chinese-simplified": "Chinese Simplified", "Zhcn": "Chinese Simplified", "Chinesetraditional": "Chinese Traditional", "Chinese-traditional": "Chinese Traditional", "Zhtw": "Chinese Traditional", "Lolcat": "LOLCAT", "Lol": "LOLCAT", "Bg": "Bulgarian", "Cs": "Czech", "Da": "Danish", "Nl": "Dutch", "Fi": "Finnish", "Fr": "French", "De": "German", "El": "Greek", "It": "Italian", "Ja": "Japanese", "Ko": "Korean", "Ms": "Malay", "No": "Norwegian", "Pl": "Polish", "Pt": "Portuguese", "Ptbr": "Portuguese Brazilian", "Brazilian": "Portuguese Brazilian", "Ru": "Russian", "Es": "Spanish", "Sv": "Swedish", "Se": "Swedish", "Th": "Thai", "Tr": "Turkish", "Ua": "Ukrainian", "Enpt": "Pirate English", "Pirate": "Pirate English" }
     if (langs.hasOwnProperty(toLook)) toLook = langs[toLook]
-
-    console.log("toLook: " + toLook)
-    console.log("type: " + type)
-    console.log("toSend: " + toSend)
     const role = message.guild.roles.cache.find(x => x.name == (toLook + " Proofreader"))
 
     if (!role) throw "falseRole"

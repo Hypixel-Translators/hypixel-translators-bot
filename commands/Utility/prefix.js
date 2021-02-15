@@ -169,7 +169,10 @@ module.exports = {
           let prefixes = ""
 
           await message.member.roles.cache.forEach(async r => {
-            let langdbEntry = langdb.find(l => l.name.includes(r.name.split(" ")[0]))
+            const roleName = r.name.split(" ")
+            await roleName.splice(roleName.length - 1, 1)
+            const role = roleName.join(" ")
+            let langdbEntry = langdb.find(l => l.name === role)
             if (langdbEntry) {
               userLangs.push(langdbEntry.emoji)
             }
