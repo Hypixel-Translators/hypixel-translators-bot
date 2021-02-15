@@ -169,11 +169,6 @@ client.on("message", async message => {
     if (message.member && !message.member.hasPermission("MANAGE_ROLES")) timestamps.set(message.author.id, now)
     setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
 
-    //Get command strings
-    let strings = require(`../strings/en/${command.name}.json`)
-    try { strings = require(`../strings/${author.lang}/${command.name}.json`) }
-    catch { console.error(`Couldn't get command strings for the command ${command.name} on the language ${author.lang}. The file does not exist yet.`) }
-
     function getString(path, cmd, lang) {
         let enStrings = require(`../strings/en/${cmd || command.name}.json`)
         try { strings = require(`../strings/${lang || author.lang}/${cmd || command.name}.json`) }
