@@ -30,8 +30,8 @@ module.exports = {
 
     let color = member.displayHexColor
     if (color == "#000000") color = blurple
-    let timeZone = getString("timeZone")
-    if (timeZone.startsWith("crwdns")) timeZone = getString("timeZone", this.name, "en")
+    let timeZone = getString("timeZone", "hypixelstats")
+    if (timeZone.startsWith("crwdns")) timeZone = getString("timeZone", "hypixelstats", "en")
     const joined = member.joinedAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
     const created = member.user.createdAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
     let joinAgo = Math.round((new Date().getTime() - member.joinedAt) / 1000)
