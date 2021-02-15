@@ -45,6 +45,10 @@ module.exports = {
                 .setImage("https://i.imgur.com/BM2bJ4W.png")
             verifyLogs.send(`${recipient} forgot to add their Discord to their profile. Let's hope they fix that with the message I just sent them.`)
         } else return
-        return recipient.send(embed)
+        recipient.send(embed)
+            .catch(e => {
+                message.channel.send(`${recipient}`, embed)
+                console.log(`Couldn't send an alert to ${recipient}, here's the error: ${e}`)
+            })
     }
 }
