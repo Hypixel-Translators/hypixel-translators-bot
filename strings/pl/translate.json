@@ -13,7 +13,7 @@
     "clickLanguage": "Teraz, kliknij na język który chciałbyś przetłumaczyć",
     "requestJoin": "Aby dołączyć do tego języka, kliknij \"Join\" i napisz krótką wiadomość dlaczego chciałbyś dołączyć do projektu.",
     "lastThing": "Jeszcze jedna rzecz",
-    "requestInfo": "Kiedy zatwierdzasz swoją prośbę, proszę zawrzeć swój tag (np. Hypixel Translators#3348) lub swoje ID (np. 62022446973832978).\n**Jeżeli nie zawrzesz przynajmniej jednej z tych rzeczy, będziesz odrzucony/a!**",
+    "requestInfo": "When submitting your request, please make sure to include either your tag (%%tag%%) or your ID (%%id%%).\n**If you do not include at least one of these, you will be rejected!**",
     "noLanguage": "Nie możesz znaleźć swojego języka?",
     "langRequest": "Jest szansa, że jeszcze nie obsługujemy twojego języka. W takim wypadku wykonaj `+language add <język>`. Ta komenda wyśle wiadomość do administracji, która powiadomi ich o tym, że chciał(a)byś, aby ten język został dodany.",
     "executedBy": "Wykonano przez %%user%%"
