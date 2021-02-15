@@ -13,7 +13,7 @@
     "clickLanguage": "Seuraavaksi klikkaa haluamaasi kieltä",
     "requestJoin": "Voidaksesi liittyä haluamasi kielen kääntäjäksi, klikkaa \"Join\"-nappia ja kirjoita yksinkertainen viesti, jossa kerrot miksi juuri sinä sopisit projektin kääntäjäksi.",
     "lastThing": "Vielä kuitenkin yksi juttu",
-    "requestInfo": "Ilmoittautuessasi mukaan liitäthän myös joko Discord-tagisi (esim. Hypixel Translators#3348) tai ID:si (esim. 620224469738323978).\n**Jos et syötä jompaakumpaa näistä, hakemuksesi hylätään!**",
+    "requestInfo": "Ilmoittautuessasi mukaan liitäthän myös joko Discord-tagisi (%%tag%%) tai ID:si (%%id%%).\n**Jos et syötä jompaakumpaa näistä, hakemuksesi hylätään!**",
     "noLanguage": "Etkö löydä kieltäsi?",
     "langRequest": "Emme ehkä tuo kieltäsi vielä. Mikäli näin on, komennolla `+language add <kieli>` voit lähettää ylläpitäjille pyynnön lisätä kielesi projektiin.",
     "executedBy": "Komennon suoritti %%user%%"

@@ -42,7 +42,7 @@
     },
     "languagestats": {
         "usage": "+languagestats <language>",
-        "description": "Shows you the progress of a language on the all projects we currently support."
+        "description": "Shows you the progress of a language on all the projects we currently support."
     },
     "issue": {
         "usage": "+issue",
@@ -61,7 +61,7 @@
         "description": "指定したユーザーのHypixelの基本統計を表示します。"
     },
     "hypixelverify": {
-        "usage": "+hypixelverify <username> | +hypixelunverify",
+        "usage": "+hypixelverify <ユーザー名> | +hypixelunverify",
         "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
     },
     "tip": {

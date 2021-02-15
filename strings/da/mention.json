@@ -3,6 +3,5 @@
     "errorNoPingPr": "so you can't mention it.",
     "errorNoPingTr": "so you can't mention its translator role.",
     "errorNoPingAll": "so you can't mention the entire language.",
-    "errorNoPingDisclaimer": "Kontakt serverejeren eller en administrator, hvis du virkelig har brug for det.",
-    "executedBy": "Udført af %%user%%"
+    "errorNoPingDisclaimer": "Kontakt serverejeren eller en administrator, hvis du virkelig har brug for det."
 }
