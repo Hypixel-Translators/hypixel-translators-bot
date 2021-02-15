@@ -13,7 +13,7 @@
     "clickLanguage": "Klik vervolgens op de taal waarnaar je wilt vertalen",
     "requestJoin": "Om te helpen, klik je gewoon op \"Join\" en schrijf je een simpel bericht waarin je uitlegt waarom je wilt helpen.",
     "lastThing": "Nog een ding",
-    "requestInfo": "Als je je verzoek indient, moet je je tag (bijv. Hypixel Translators#3348) of je ID (bijv. 620224469738323978) opgeven in je bericht. \n**Als je dit niet doet, wordt je verzoek geweigerd!**",
+    "requestInfo": "When submitting your request, please make sure to include either your tag (%%tag%%) or your ID (%%id%%).\n**If you do not include at least one of these, you will be rejected!**",
     "noLanguage": "Staat je taal er niet bij?",
     "langRequest": "Misschien ondersteunen we je taal nog niet. Als dit zo is, kun je `+language add <taal>` gebruiken. Administratoren zullen een melding krijgen zodat ze weten dat je deze taal graag ziet in het project.",
     "executedBy": "Uitgevoerd door %%user%%"
