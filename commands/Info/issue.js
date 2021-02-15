@@ -9,14 +9,14 @@ module.exports = {
     cooldown: 120,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
-    execute(message, args, strings) {
-        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+    execute(message, args, getString) {
+        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)
-            .setAuthor(strings.moduleName)
-            .setTitle(strings.bugT)
-            .setDescription(strings.bugD.replace("%%github%%", "(https://github.com/Hypixel-Translators/hypixel-translators-bot/issues)"))
-            .addFields({ name: strings.urgentT, value: strings.urgentD })
+            .setAuthor(getString("moduleName"))
+            .setTitle(getString("bugT"))
+            .setDescription(getString("bugD").replace("%%github%%", "(https://github.com/Hypixel-Translators/hypixel-translators-bot/issues)"))
+            .addFields({ name: getString("urgentT"), value: getString("urgentD") })
             .setFooter(executedBy, message.author.displayAvatarURL())
         message.channel.send(embed)
     }

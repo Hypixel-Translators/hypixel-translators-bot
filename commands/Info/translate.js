@@ -9,33 +9,31 @@ module.exports = {
     cooldown: 120,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335", "551693960913879071"], // bots staff-bots bot-development bot-translators admin-bots
-    execute(message, args, strings) {
-        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        if (message.channel.type !== "dm") {
-            if (message.guild.id === "549503328472530974" && message.member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628")) {
-                const embed = new Discord.MessageEmbed()
-                    .setColor(neutralColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.alreadyTranslator)
-                    .setDescription(strings.projectLink.replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot"))
-                    .addFields(
-                        { name: strings.question, value: strings.askTranslators.replace("%%botTranslators%%", "<#749391414600925335>") },
-                        { name: strings.newCrowdin, value: strings.checkGuide.replace("%%gettingStarted%%", "<#699275092026458122>") }
-                    )
-                    .setFooter(executedBy, message.author.displayAvatarURL())
-                message.channel.send(embed)
-            }
+    execute(message, args, getString) {
+        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
+        if (message.guild?.id === "549503328472530974" && message.member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628")) {
+            const embed = new Discord.MessageEmbed()
+                .setColor(neutralColor)
+                .setAuthor(getString("moduleName"))
+                .setTitle(getString("alreadyTranslator"))
+                .setDescription(getString("projectLink").replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot"))
+                .addFields(
+                    { name: getString("question"), value: getString("askTranslators").replace("%%botTranslators%%", "<#749391414600925335>") },
+                    { name: getString("newCrowdin"), value: getString("checkGuide").replace("%%gettingStarted%%", "<#699275092026458122>") }
+                )
+                .setFooter(executedBy, message.author.displayAvatarURL())
+            message.channel.send(embed)
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.newTranslator)
-                .setDescription(strings.join)
+                .setAuthor(getString("moduleName"))
+                .setTitle(getString("newTranslator"))
+                .setDescription(getString("join"))
                 .addFields(
-                    { name: strings.openProject, value: strings.howOpen.replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot") },
-                    { name: strings.clickLanguage, value: strings.requestJoin },
-                    { name: strings.lastThing, value: strings.requestInfo },
-                    { name: strings.noLanguage, value: strings.langRequest }
+                    { name: getString("openProject"), value: getString("howOpen").replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot") },
+                    { name: getString("clickLanguage"), value: getString("requestJoin") },
+                    { name: getString("lastThing"), value: getString("requestInfo").replace("%%tag%%", message.author.tag).replace("%%id%%", message.author.id) },
+                    { name: getString("noLanguage"), value: getString("langRequest") }
                 )
                 .setFooter(executedBy, message.author.displayAvatarURL())
             message.channel.send(embed)

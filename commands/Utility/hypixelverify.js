@@ -10,8 +10,8 @@ module.exports = {
     aliases: ["hverify", "hypixellink", "hlink", "hypixelunverify", "hunverify"],
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
-    async execute(message, args, strings) {
-        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+    async execute(message, args, getString) {
+        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
 
         const command = message.content.slice(prefix.length).split(" ")[0].toLowerCase()
         if (command === "hypixelunverify" || command === "hunverify") {
@@ -20,16 +20,16 @@ module.exports = {
                 if (r.result.nModified) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.unverified)
+                        .setAuthor(getString("moduleName"))
+                        .setTitle(getString("unverified"))
                         .setFooter(executedBy, message.author.displayAvatarURL())
                     message.channel.send(embed)
                 } else {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.notUnverified)
-                        .setDescription(strings.whyNotUnverified)
+                        .setAuthor(getString("moduleName"))
+                        .setTitle(getString("notUnverified"))
+                        .setDescription(getString("whyNotUnverified"))
                         .setFooter(executedBy, message.author.displayAvatarURL())
                     message.channel.send(embed)
                 }
@@ -59,19 +59,19 @@ module.exports = {
                         if (r.result.nModified) {
                             const successEmbed = new Discord.MessageEmbed()
                                 .setColor(successColor)
-                                .setAuthor(strings.moduleName)
-                                .setTitle(strings.success.replace("%%player%%", json.username))
+                                .setAuthor(getString("moduleName"))
+                                .setTitle(getString("success").replace("%%player%%", json.username))
                                 .setFooter(executedBy, message.author.displayAvatarURL())
-                            if (role) successEmbed.setDescription(strings.role.replace("%%role%%", role))
-                            else successEmbed.setDescription(strings.noRoles)
+                            if (role) successEmbed.setDescription(getString("role").replace("%%role%%", role))
+                            else successEmbed.setDescription(getString("noRoles"))
                             message.channel.stopTyping()
                             return message.channel.send(successEmbed)
                         } else {
                             const notChanged = new Discord.MessageEmbed()
                                 .setColor(errorColor)
-                                .setAuthor(strings.moduleName)
-                                .setTitle(strings.alreadyVerified)
-                                .setDescription(strings.nameChangeDisclaimer)
+                                .setAuthor(getString("moduleName"))
+                                .setTitle(getString("alreadyVerified"))
+                                .setDescription(getString("nameChangeDisclaimer"))
                                 .setFooter(executedBy, message.author.displayAvatarURL())
                             message.channel.stopTyping()
                             return message.channel.send(notChanged)
@@ -80,9 +80,9 @@ module.exports = {
                 } else {
                     const errorEmbed = new Discord.MessageEmbed()
                         .setColor(errorColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.error)
-                        .setDescription(strings.tutorial.replace("%%tag%%", message.author.tag))
+                        .setAuthor(getString("moduleName"))
+                        .setTitle(getString("error"))
+                        .setDescription(getString("tutorial").replace("%%tag%%", message.author.tag))
                         .setImage("https://i.imgur.com/JSeAHdG.gif")
                         .setFooter(executedBy, message.author.displayAvatarURL())
                     message.channel.stopTyping()

@@ -12,8 +12,8 @@ module.exports = {
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
     cooldown: 5,
-    async execute(message, args, strings) {
-        let executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+    async execute(message, args, getString) {
+        let executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         const collection = await getDb().collection("users")
         const stringsFolder = "./strings/"
 
@@ -26,8 +26,8 @@ module.exports = {
                 if (name(newLang) || code(newLang)) {
                     const result = new Discord.MessageEmbed()
                         .setColor(neutralColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.request)
+                        .setAuthor(getString("moduleName"))
+                        .setTitle(getString("request"))
                         .setDescription(`\`${newLang}\``)
                         .setFooter(executedBy, message.author.displayAvatarURL())
                     message.channel.send(result)
@@ -41,9 +41,9 @@ module.exports = {
                 } else {
                     const errorRequest = new Discord.MessageEmbed()
                         .setColor(errorColor)
-                        .setAuthor(strings.moduleName)
-                        .setTitle(strings.errorRequest)
-                        .setDescription(strings.errorRequestDesc)
+                        .setAuthor(getString("moduleName"))
+                        .setTitle(getString("errorRequest"))
+                        .setDescription(getString("request"))
                         .setFooter(executedBy, message.author.displayAvatarURL())
                     message.channel.send(errorRequest)
                 }
@@ -52,13 +52,15 @@ module.exports = {
                 let langList = ""
                 files.forEach(async (element, index, array) => {
                     if (element === "empty" && !message.member.roles.cache.has("764442984119795732")) return //Discord Administrator
-                    if (element === "empty") strings[element] = "Empty"
-                    langList = langList + "\n" + strings.listElement.replace("%%code%%", element).replace("%%language%%", strings[element] || "Unknown")
+                    let languageString
+                    if (element === "empty") languageString = "Empty"
+                    else languageString = getString(element)
+                    langList = langList + "\n" + getString("listElement").replace("%%code%%", element).replace("%%language%%", languageString || "Unknown")
                     if (index === array.length - 1) {
                         const embed = new Discord.MessageEmbed()
                             .setColor(neutralColor)
-                            .setAuthor(strings.moduleName)
-                            .setTitle(strings.listTitle)
+                            .setAuthor(getString("moduleName"))
+                            .setTitle(getString("listTitle"))
                             .setDescription(langList)
                             .setFooter(executedBy, message.author.displayAvatarURL())
                         await message.channel.send(embed)
@@ -91,21 +93,21 @@ module.exports = {
                         collection.updateOne({ id: message.author.id }, { $set: { lang: newLang } }).then(result => {
                             if (result.result.nModified) {
                                 strings = require(`../../strings/${newLang}/language.json`)
-                                executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+                                executedBy = getString("executedBy", this.name, newLang).replace("%%user%%", message.author.tag)
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor)
-                                    .setAuthor(strings.moduleName)
-                                    .setTitle(strings.changedToTitle)
-                                    .setDescription(strings.credits)
+                                    .setAuthor(getString("moduleName", this.name, newLang))
+                                    .setTitle(getString("changedToTitle", this.name, newLang))
+                                    .setDescription(getString("credits", this.name, newLang))
                                     .setFooter(executedBy, message.author.displayAvatarURL())
                                 message.channel.stopTyping()
                                 return message.channel.send(embed)
                             } else {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(errorColor)
-                                    .setAuthor(strings.moduleName)
-                                    .setTitle(strings.didntChange)
-                                    .setDescription(strings.alreadyThis)
+                                    .setAuthor(getString("moduleName", this.name, newLang))
+                                    .setTitle(getString("didntChange", this.name, newLang))
+                                    .setDescription(getString("alreadyThis", this.name, newLang))
                                     .setFooter(executedBy, message.author.displayAvatarURL())
                                 message.channel.stopTyping()
                                 return message.channel.send(embed)
@@ -117,9 +119,9 @@ module.exports = {
                             if (emptyIndex > -1 && !message.member.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
                             const embed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
-                                .setAuthor(strings.moduleName)
-                                .setTitle(strings.errorTitle)
-                                .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n" + strings.suggestAdd)
+                                .setAuthor(getString("moduleName"))
+                                .setTitle(getString("errorTitle"))
+                                .setDescription(getString("errorDescription") + "\n`" + files.join("`, `") + "`\n" + getString("suggestAdd"))
                                 .setFooter(executedBy, message.author.displayAvatarURL())
                             message.channel.stopTyping()
                             message.channel.send(embed)
@@ -134,9 +136,9 @@ module.exports = {
                 if (emptyIndex > -1 && !message.member.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
                 const embed = new Discord.MessageEmbed()
                     .setColor(neutralColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.current)
-                    .setDescription(strings.errorDescription + "\n`" + files.join("`, `") + "`\n\n" + strings.credits)
+                    .setAuthor(getString("moduleName"))
+                    .setTitle(getString("current"))
+                    .setDescription(getString("errorDescription") + "\n`" + files.join("`, `") + "`\n\n" + getString("credits"))
                     .setFooter(executedBy, message.author.displayAvatarURL())
                 await message.channel.send(embed)
             })

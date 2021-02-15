@@ -8,47 +8,45 @@ module.exports = {
     cooldown: 120,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335", "551693960913879071"], // bots staff-bots bot-development bot-translators admin-bots
-    execute(message, args, strings) {
-        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-        if (message.channel.type !== "dm") {
-            if (message.guild.id === "549503328472530974") {
-                let joinedHypixel
-                let joinedQuickplay
-                let joinedSba
-                let joinedBot
-                if (message.member.roles.cache.find(role => role.name === "Hypixel Translator" || role.name === "Hypixel Proofreader" || role.name === "Hypixel Manager")) joinedHypixel = `<:vote_yes:732298639749152769> **${strings.alreadyJoined}**`
-                else joinedHypixel = `<:vote_no:732298639736570007> **${strings.notJoined}**`
-                if (message.member.roles.cache.find(role => role.name === "Quickplay Translator" || role.name === "Quickplay Proofreader" || role.name === "Quickplay Manager")) joinedQuickplay = `<:vote_yes:732298639749152769> **${strings.alreadyJoined}**`
-                else joinedQuickplay = `<:vote_no:732298639736570007> **${strings.notJoined}**`
-                if (message.member.roles.cache.find(role => role.name === "SkyblockAddons Translator" || role.name === "SkyblockAddons Proofreader" || role.name === "SkyblockAddons Manager")) joinedSba = `<:vote_yes:732298639749152769> **${strings.alreadyJoined}**`
-                else joinedSba = `<:vote_no:732298639736570007> **${strings.notJoined}**`
-                if (message.member.roles.cache.find(role => role.name === "Bot Translator" || role.name === "Bot Proofreader" || role.name === "Bot Manager")) joinedBot = `<:vote_yes:732298639749152769> **${strings.alreadyJoined}**`
-                else joinedBot = `<:vote_no:732298639736570007> **${strings.notJoined}**`
-                const embed = new Discord.MessageEmbed()
-                    .setColor(neutralColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.allProjects)
-                    .setDescription(strings.description)
-                    .addFields(
-                        { name: "Hypixel", value: `${strings.projectInfo.replace("%%project%%", "**Hypixel**").replace("%%link%%", "https://crowdin.com/project/hypixel").replace("%%command%%", "`+hypixel`")}\n${joinedHypixel}` },
-                        { name: "Quickplay", value: `${strings.projectInfo.replace("%%project%%", "**Quickplay**").replace("%%link%%", "https://crowdin.com/project/quickplay").replace("%%command%%", "`+quickplay`")}\n${joinedQuickplay}` },
-                        { name: "SkyblockAddons", value: `${strings.projectInfo.replace("%%project%%", "**SkyblockAddons**").replace("%%link%%", "https://crowdin.com/project/skyblockaddons").replace("%%command%%", "`+skyblockaddons`")}\n${joinedSba}` },
-                        { name: "Hypixel Translators Bot", value: `${strings.projectInfo.replace("%%project%%", "**Hypixel Translators Bot**").replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot").replace("%%command%%", "`+bot`")}\n${joinedBot}` }
-                    )
-                    .setFooter(executedBy, message.author.displayAvatarURL())
-                message.channel.send(embed)
-            }
+    execute(message, args, getString) {
+        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
+        if (message.guild?.id === "549503328472530974") {
+            let joinedHypixel
+            let joinedQuickplay
+            let joinedSba
+            let joinedBot
+            if (message.member.roles.cache.find(role => role.name === "Hypixel Translator" || role.name === "Hypixel Proofreader" || role.name === "Hypixel Manager")) joinedHypixel = `<:vote_yes:732298639749152769> **${getString("alreadyJoined")}**`
+            else joinedHypixel = `<:vote_no:732298639736570007> **${getString("notJoined")}**`
+            if (message.member.roles.cache.find(role => role.name === "Quickplay Translator" || role.name === "Quickplay Proofreader" || role.name === "Quickplay Manager")) joinedQuickplay = `<:vote_yes:732298639749152769> **${getString("alreadyJoined")}**`
+            else joinedQuickplay = `<:vote_no:732298639736570007> **${getString("notJoined")}**`
+            if (message.member.roles.cache.find(role => role.name === "SkyblockAddons Translator" || role.name === "SkyblockAddons Proofreader" || role.name === "SkyblockAddons Manager")) joinedSba = `<:vote_yes:732298639749152769> **${getString("alreadyJoined")}**`
+            else joinedSba = `<:vote_no:732298639736570007> **${getString("notJoined")}**`
+            if (message.member.roles.cache.find(role => role.name === "Bot Translator" || role.name === "Bot Proofreader" || role.name === "Bot Manager")) joinedBot = `<:vote_yes:732298639749152769> **${getString("alreadyJoined")}**`
+            else joinedBot = `<:vote_no:732298639736570007> **${getString("notJoined")}**`
+            const embed = new Discord.MessageEmbed()
+                .setColor(neutralColor)
+                .setAuthor(getString("moduleName"))
+                .setTitle(getString("allProjects"))
+                .setDescription(getString("description"))
+                .addFields(
+                    { name: "Hypixel", value: `${getString("projectInfo").replace("%%project%%", "**Hypixel**").replace("%%link%%", "https://crowdin.com/project/hypixel").replace("%%command%%", "`+hypixel`")}\n${joinedHypixel}` },
+                    { name: "Quickplay", value: `${getString("projectInfo").replace("%%project%%", "**Quickplay**").replace("%%link%%", "https://crowdin.com/project/quickplay").replace("%%command%%", "`+quickplay`")}\n${joinedQuickplay}` },
+                    { name: "SkyblockAddons", value: `${getString("projectInfo").replace("%%project%%", "**SkyblockAddons**").replace("%%link%%", "https://crowdin.com/project/skyblockaddons").replace("%%command%%", "`+skyblockaddons`")}\n${joinedSba}` },
+                    { name: "Hypixel Translators Bot", value: `${getString("projectInfo").replace("%%project%%", "**Hypixel Translators Bot**").replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot").replace("%%command%%", "`+bot`")}\n${joinedBot}` }
+                )
+                .setFooter(executedBy, message.author.displayAvatarURL())
+            message.channel.send(embed)
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
-                .setAuthor(strings.moduleName)
-                .setTitle(strings.allProjects)
-                .setDescription(`${strings.description}\n${strings.dmError}`)
+                .setAuthor(getString("moduleName"))
+                .setTitle(getString("allProjects"))
+                .setDescription(`${getString("description")}\n${getString("dmError")}`)
                 .addFields(
-                    { name: "Hypixel", value: `${strings.projectInfo.replace("%%project%%", "**Hypixel**").replace("%%link%%", "https://crowdin.com/project/hypixel").replace("%%command%%", "`+hypixel`")}` },
-                    { name: "Quickplay", value: `${strings.projectInfo.replace("%%project%%", "**Quickplay**").replace("%%link%%", "https://crowdin.com/project/quickplay").replace("%%command%%", "`+quickplay`")}` },
-                    { name: "SkyblockAddons", value: `${strings.projectInfo.replace("%%project%%", "**SkyblockAddons**").replace("%%link%%", "https://crowdin.com/project/skyblockaddons").replace("%%command%%", "`+skyblockaddons`")}` },
-                    { name: "Hypixel Translators Bot", value: `${strings.projectInfo.replace("%%project%%", "**Hypixel Translators Bot**").replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot").replace("%%command%%", "`+bot`")}` }
+                    { name: "Hypixel", value: `${getString("projectInfo").replace("%%project%%", "**Hypixel**").replace("%%link%%", "https://crowdin.com/project/hypixel").replace("%%command%%", "`+hypixel`")}` },
+                    { name: "Quickplay", value: `${getString("projectInfo").replace("%%project%%", "**Quickplay**").replace("%%link%%", "https://crowdin.com/project/quickplay").replace("%%command%%", "`+quickplay`")}` },
+                    { name: "SkyblockAddons", value: `${getString("projectInfo").replace("%%project%%", "**SkyblockAddons**").replace("%%link%%", "https://crowdin.com/project/skyblockaddons").replace("%%command%%", "`+skyblockaddons`")}` },
+                    { name: "Hypixel Translators Bot", value: `${getString("projectInfo").replace("%%project%%", "**Hypixel Translators Bot**").replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot").replace("%%command%%", "`+bot`")}` }
                 )
                 .setFooter(executedBy, message.author.displayAvatarURL())
             message.channel.send(embed)

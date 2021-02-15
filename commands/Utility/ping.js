@@ -5,12 +5,12 @@ module.exports = {
   name: "ping",
   description: "Gives you the bot's ping",
   usage: "+ping",
-  aliases: ["latency"],
+  aliases: ["latency", "pong"],
   cooldown: 20,
   allowDM: true,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335", "551693960913879071"], // bots staff-bots bot-development bot-translators admin-bots
-  execute(message, args, strings) {
-    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+  execute(message, args, getString) {
+    const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
     const ping = Date.now() - message.createdTimestamp
 
     //Contributed by marzeq. Original idea by Rodry
@@ -27,9 +27,9 @@ module.exports = {
     }
     const embed = new Discord.MessageEmbed()
       .setColor(color)
-      .setAuthor(strings.moduleName)
-      .setTitle(strings.pong.replace("%%pingEmote%%", "<:ping:620954198493888512>"))
-      .setDescription(strings.message.replace("%%ping%%", ping))
+      .setAuthor(getString("moduleName"))
+      .setTitle(getString("pong").replace("%%pingEmote%%", "<:ping:620954198493888512>"))
+      .setDescription(getString("message").replace("%%ping%%", ping))
       .setFooter(executedBy, message.author.displayAvatarURL())
     message.channel.send(embed)
   }

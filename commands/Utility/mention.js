@@ -7,7 +7,7 @@ module.exports = {
   allowTip: false,
   roleWhitelist: ["569839580971401236", "764442984119795732"], //Hypixel Proofreader and Discord Administrator
   channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "644620638878695424", "550951034332381184", "549894938712866816", "713084081579098152"],
-  execute(message, args, strings) {
+  execute(message, args, getString) {
     if (!args[0]) throw "noLang"
     if (!args[1]) throw "noRole"
     let type = args[1].toLowerCase()
@@ -28,20 +28,38 @@ module.exports = {
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("MANAGE_ROLES"))) {
         message.delete()
         message.channel.send(`**${message.author}**: ${toPing} ${toSend}`)
-      } else { message.channel.send(strings.errorNoPing + strings.errorNoPingPr + " " + strings.errorNoPingDisclaimer) }
+      } else {
+        message.channel.send(`${getString("errorNoPing")}${getString("errorNoPingPr")} ${getString("errorNoPingDisclaimer")}`)
+          .then(msg => {
+            if (!message.deleted) message.delete()
+            if (!msg.deleted) msg.delete()
+          })
+      }
     } else if (type === "tr" || type === "translator") {
       const toPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator")
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("MANAGE_ROLES"))) {
         message.delete()
         message.channel.send(`**${message.author}**: ${toPing} ${toSend}`)
-      } else { message.channel.send(strings.errorNoPing + strings.errorNoPingTr + " " + strings.errorNoPingDisclaimer) }
+      } else {
+        message.channel.send(`${getString("errorNoPing")}${getString("errorNoPingTr")} ${getString("errorNoPingDisclaimer")}`)
+          .then(msg => {
+            if (!message.deleted) message.delete()
+            if (!msg.deleted) msg.delete()
+          })
+      }
     } else if (type === "all" || type === "both") {
       const translatorPing = message.guild.roles.cache.find(role => role.name === toLook + " Translator")
       const proofreaderPing = message.guild.roles.cache.find(role => role.name === toLook + " Proofreader")
       if (message.member.roles.cache.find(role => role.name === toLook + " Proofreader" || message.member.hasPermission("MANAGE_ROLES"))) {
         message.delete()
         message.channel.send(`**${message.author}**: ${translatorPing} ${proofreaderPing} ${toSend}`)
-      } else { message.channel.send(strings.errorNoPing + strings.errorNoPingAll + " " + strings.errorNoPingDisclaimer) }
+      } else {
+        message.channel.send(`${getString("errorNoPing")}${getString("errorNoPingAll")} ${getString("errorNoPingDisclaimer")}`)
+          .then(msg => {
+            if (!message.deleted) message.delete()
+            if (!msg.deleted) msg.delete()
+          })
+      }
     }
   }
 }

@@ -9,8 +9,8 @@ module.exports = {
     cooldown: 5,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-development bot-translators
-    async execute(message, args, strings) {
-        const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
+    async execute(message, args, getString) {
+        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         const collection = getDb().collection("quotes")
         let allowed = false
         if (message.member?.hasPermission("VIEW_AUDIT_LOG")) allowed = true
@@ -39,8 +39,8 @@ module.exports = {
                 sendTo.send(report)
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.reqSub)
+                    .setAuthor(getString("moduleName"))
+                    .setTitle(getString("reqSub"))
                     .setDescription(quote + "\n       - " + author)
                     .setFooter(executedBy, message.author.displayAvatarURL())
                 message.channel.stopTyping()
@@ -48,11 +48,11 @@ module.exports = {
             } else await addQuote(executedBy, message, quote, author, collection)
         } else if (args[0] === "edit" && allowed) await editQuote(executedBy, message, args, collection)
         else if (args[0] === "delete" && allowed) await deleteQuote(executedBy, message, args, collection)
-        else await findQuote(executedBy, message, strings, args, collection)
+        else await findQuote(executedBy, message, getString, args, collection)
     }
 }
 
-async function findQuote(executedBy, message, strings, args, collection) {
+async function findQuote(executedBy, message, getString, args, collection) {
 
     const all = await collection.find({}).toArray()
 
@@ -64,9 +64,9 @@ async function findQuote(executedBy, message, strings, args, collection) {
     if (!quote) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
-            .setAuthor(strings.moduleName)
-            .setTitle(strings.invalidArg)
-            .setDescription(strings.indexArg.replace("%%arg%%", args[0]).replace("%%max%%", all.length))
+            .setAuthor(getString("moduleName"))
+            .setTitle(getString("invalidArg"))
+            .setDescription(getString("indexArg").replace("%%arg%%", args[0]).replace("%%max%%", all.length))
             .setFooter(executedBy, message.author.displayAvatarURL())
         message.channel.stopTyping()
         return message.channel.send(embed)
@@ -74,7 +74,7 @@ async function findQuote(executedBy, message, strings, args, collection) {
     console.log(`Quote with ID ${quoteId} was requested`)
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
-        .setAuthor(strings.moduleName)
+        .setAuthor(getString("moduleName"))
         .setTitle(quote.quote)
         .setDescription(`      - ${quote.author}`)
         .setFooter(executedBy, message.author.displayAvatarURL())

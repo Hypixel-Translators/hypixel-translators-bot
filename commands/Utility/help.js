@@ -10,9 +10,9 @@ module.exports = {
   cooldown: 5,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
   allowDM: true,
-  async execute(message, args, strings) {
-    const executedBy = strings.executedBy.replace("%%user%%", message.author.tag)
-    const madeBy = strings.madeBy.replace("%%QkeleQ10%%", "QkeleQ10#6046")
+  async execute(message, args, getString) {
+    const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
+    const madeBy = getString("madeBy").replace("%%QkeleQ10%%", "QkeleQ10#6046")
 
     //Define command categories
     const utilityCmds = []
@@ -39,9 +39,9 @@ module.exports = {
       if (args[0] > pages.length || args[0] < 1) {
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor)
-          .setAuthor(strings.moduleName)
-          .setTitle(strings.page1Title)
-          .setDescription(strings.pageNotExist)
+          .setAuthor(getString("moduleName"))
+          .setTitle(getString("page1Title"))
+          .setDescription(getString("pageNotExist"))
           .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
         return message.channel.send(embed)
       }
@@ -50,12 +50,12 @@ module.exports = {
 
       const page1 = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setAuthor(strings.moduleName)
-        .setTitle(strings.page1Title)
-        .setDescription(strings.commandsListTooltip.replace("%%developer%%", "<@722738307477536778>").replace("%%github%%", "(https://github.com/Hypixel-Translators/hypixel-translators-bot)"))
+        .setAuthor(getString("moduleName"))
+        .setTitle(getString("page1Title"))
+        .setDescription(getString("commandsListTooltip").replace("%%developer%%", "<@722738307477536778>").replace("%%github%%", "(https://github.com/Hypixel-Translators/hypixel-translators-bot)"))
         .addFields(
-          { name: strings.pageNumber.replace("%%number%%", "2").replace("%%total%%", pages.length), value: strings.utilityHelp.replace("%%badge%%", "🛠"), inline: true },
-          { name: strings.pageNumber.replace("%%number%%", "3").replace("%%total%%", pages.length), value: strings.infoHelp.replace("%%badge%%", "ℹ"), inline: true })
+          { name: getString("pageNumber").replace("%%number%%", "2").replace("%%total%%", pages.length), value: getString("utilityHelp").replace("%%badge%%", "🛠"), inline: true },
+          { name: getString("pageNumber").replace("%%number%%", "3").replace("%%total%%", pages.length), value: getString("infoHelp").replace("%%badge%%", "ℹ"), inline: true })
         .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
 
       pages[0].e = page1
@@ -64,7 +64,7 @@ module.exports = {
       if (args[0]) if (args[0].length = 1) page = args[0] - 1
       let pageEmbed
 
-      pageEmbed = await fetchPage(page, pages, strings, executedBy, message, pageEmbed)
+      pageEmbed = await fetchPage(page, pages, getString, executedBy, message, pageEmbed)
         .catch(error => console.error(error))
 
       await message.channel.send(pageEmbed).then(async msg => {
@@ -88,12 +88,12 @@ module.exports = {
             if (page > pages.length - 1) page = pages.length - 1
           }
           if (message.channel.type !== "dm") reaction.users.remove(message.author.id)
-          pageEmbed = await fetchPage(page, pages, strings, executedBy, message, pageEmbed)
+          pageEmbed = await fetchPage(page, pages, getString, executedBy, message, pageEmbed)
           msg.edit(pageEmbed)
         })
 
         collector.on("end", async () => {
-          msg.edit(strings.timeOut)
+          msg.edit(getString("timeOut"))
           if (message.channel.type !== "dm") msg.reactions.removeAll()
           setTimeout(() => {
             msg.suppressEmbeds()
@@ -115,35 +115,35 @@ module.exports = {
       if (!command || !command.name) {
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor)
-          .setAuthor(strings.moduleName)
-          .setTitle(strings.commandInfo)
-          .setDescription(strings.commandNotExist)
+          .setAuthor(getString("moduleName"))
+          .setTitle(getString("commandInfo"))
+          .setDescription(getString("commandNotExist"))
           .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
         return message.channel.send(embed)
       }
 
-      if (strings[command.name]) {
-        if (strings[command.name].description) var cmdDesc = strings[command.name].description
-        if (strings[command.name].usage) var cmdUsage = strings[command.name].usage
+      if (getString(command.name)) {
+        if (getString(`${command.name}.description`)) var cmdDesc = getString(`${command.name}.description`)
+        if (getString(`${command.name}.usage`)) var cmdUsage = getString(`${command.name}.usage`)
       }
 
-      if (command.dev) cmdDesc = strings.inDev
+      if (command.dev) cmdDesc = getString("inDev")
 
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setAuthor(strings.moduleName)
-        .setTitle(strings.commandInfoFor + "`+" + command.name + "`")
-        .setDescription(cmdDesc || strings.staffOnly)
+        .setAuthor(getString("moduleName"))
+        .setTitle(getString("commandInfoFor") + "`+" + command.name + "`")
+        .setDescription(cmdDesc || getString("staffOnly"))
         .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
-      if (cmdUsage && cmdDesc !== strings.inDev) {
-        embed.addFields({ name: strings.usageField, value: "`" + cmdUsage + "`", inline: true })
+      if (cmdUsage && cmdDesc !== getString("inDev")) {
+        embed.addFields({ name: getString("usageField"), value: "`" + cmdUsage + "`", inline: true })
         if (command.cooldown) {
-          if (command.cooldown >= 120) embed.addFields({ name: strings.cooldownField, value: `${command.cooldown / 60} ${strings.minutes}`, inline: true })
-          else if (command.cooldown === 1) embed.addFields({ name: strings.cooldownField, value: `${command.cooldown} ${strings.second}`, inline: true })
-          else embed.addFields({ name: strings.cooldownField, value: `${command.cooldown} ${strings.seconds}`, inline: true })
+          if (command.cooldown >= 120) embed.addFields({ name: getString("cooldownField"), value: `${command.cooldown / 60} ${getString("minutes")}`, inline: true })
+          else if (command.cooldown === 1) embed.addFields({ name: getString("cooldownField"), value: `${command.cooldown} ${getString("second")}`, inline: true })
+          else embed.addFields({ name: getString("cooldownField"), value: `${command.cooldown} ${getString("seconds")}`, inline: true })
         }
         if (command.aliases) {
-          embed.addFields({ name: strings.aliasesField, value: "`+" + command.aliases.join("`, `+") + "`", inline: true })
+          embed.addFields({ name: getString("aliasesField"), value: "`+" + command.aliases.join("`, `+") + "`", inline: true })
         }
       }
       message.channel.send(embed)
@@ -151,7 +151,7 @@ module.exports = {
   }
 }
 
-async function fetchPage(page, pages, strings, executedBy, message, pageEmbed) {
+async function fetchPage(page, pages, getString, executedBy, message, pageEmbed) {
   if (page > pages.length - 1) page = pages.length - 1
   if (page < 0) page = 0
 
@@ -161,10 +161,10 @@ async function fetchPage(page, pages, strings, executedBy, message, pageEmbed) {
     } else if (pages[page].f) {
       pageEmbed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setAuthor(strings.moduleName)
-        .setTitle(strings[pages[page].t].replace("%%badge%%", pages[page].b))
-        .setFooter(strings.page.replace("%%number%%", page + 1).replace("%%total%%", pages.length) + " | " + executedBy, message.author.displayAvatarURL())
-      pages[page].f.forEach(f => pageEmbed.addFields({ name: `\`${strings[f].usage}\``, value: strings[f].description }))
+        .setAuthor(getString("moduleName"))
+        .setTitle(getString(pages[page].t).replace("%%badge%%", pages[page].b))
+        .setFooter(getString("page").replace("%%number%%", page + 1).replace("%%total%%", pages.length) + " | " + executedBy, message.author.displayAvatarURL())
+      pages[page].f.forEach(f => pageEmbed.addFields({ name: `\`${getString(`${f}.usage`)}\``, value: getString(`${f}.description`) }))
     } else return console.error("no embed details")
   } else return console.error("no embed listing - internal error")
 

@@ -9,19 +9,19 @@ module.exports = {
     aliases: ["holiday"],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["730042612647723058", "551693960913879071"], // bot-development admin-bots
-    execute(message, args, strings) {
+    execute(message, args, getString) {
         if (!args[0]) return message.channel.send("You absolute buffoon you need to tell me what holiday to look for.")
         let holidayName = args[0].toLowerCase()
         if (holidayName === "newyear" || args.join("").toLowerCase() === "newyear") holidayName = "newYear"
-        if (!strings[holidayName]) return message.channel.send("I have no idea what holiday that is sir.")
-        strings = require(`../../strings/en/holidays.json`)
+        if (getString(holidayName) === holidayName) return message.channel.send("I have no idea what holiday that is sir.")
+        let strings = require(`../../strings/en/holidays.json`)
         const dirPath = path.join(__dirname, "../../strings")
         let holiday = []
         let log = []
         holiday.push(strings[holidayName])
         fs.readdir(dirPath, function (err, files) {
             files.forEach(file => {
-                if (err) return console.error('Unable to scan directory: ' + err)
+                if (err) return console.error(`Unable to scan directory: ${err}`)
                 strings = require(`../../strings/${file}/holidays.json`)
                 if (!holiday.includes(strings[holidayName])) {
                     holiday.push(strings[holidayName])
