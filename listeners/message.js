@@ -2,6 +2,7 @@ const { client } = require("../index.js")
 const Discord = require("discord.js")
 const { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } = require("../config.json")
 const { getUser } = require("../lib/mongodb")
+const { crowdinVerify } = require("../lib/crowdinverify.js")
 const cooldowns = new Discord.Collection()
 
 client.on("message", async message => {
@@ -46,6 +47,12 @@ client.on("message", async message => {
                 return message.channel.send(message.author, embed)
             }
         }
+    }
+
+    //Crowdin verification system
+    if (/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi.test(message.content)) {
+        message.content = message.content.replace(/\/\/(?!www)[a-z]{2,4}\./gi, "//www.") //Change the URL to english
+        crowdinVerify(message)
     }
 
     //Staff messaging system
@@ -179,7 +186,7 @@ client.on("message", async message => {
             if (pathPart) {
                 let jsonElement = strings[pathPart]
 
-                if (typeof jsonElement === "object" && pathSplit.indexOf(pathPart) !== pathSplit.length -1) { //check if the string isn't an object nor the end of the path
+                if (typeof jsonElement === "object" && pathSplit.indexOf(pathPart) !== pathSplit.length - 1) { //check if the string isn't an object nor the end of the path
                     strings = strings[pathPart]
                     enStrings = enStrings[pathPart]
                     return

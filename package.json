@@ -20,7 +20,9 @@
     "google-spreadsheet": "^3.1.15",
     "mongodb": "^3.6.2",
     "node-fetch": "^2.6.1",
-    "unzalgo": "^2.1.2"
+    "puppeteer": "^7.1.0",
+    "unzalgo": "^2.1.2",
+    "uuid": "^8.3.2"
   },
   "engines": {
     "node": "14.x"
