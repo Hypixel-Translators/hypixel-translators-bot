@@ -39,7 +39,7 @@ module.exports = {
                     .setFooter("")
             })
         } else embed.setDescription(arr[0].join(", "))
-        embed.setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+        embed.setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.send(embed)
     }
 }

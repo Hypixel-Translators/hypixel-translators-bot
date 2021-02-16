@@ -35,14 +35,14 @@ module.exports = {
                     .setTitle("A quote request has been submitted!")
                     .setDescription(quote + "\n       - " + author)
                     .addFields({ name: "To add it", value: "`+quote add " + toSend + "`" })
-                    .setFooter("Suggested by " + message.author.tag, message.author.displayAvatarURL())
+                    .setFooter("Suggested by " + message.author.tag, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 sendTo.send(report)
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("reqSub"))
                     .setDescription(quote + "\n       - " + author)
-                    .setFooter(executedBy, message.author.displayAvatarURL())
+                    .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 message.channel.stopTyping()
                 message.channel.send(embed)
             } else await addQuote(executedBy, message, quote, author, collection)
@@ -67,7 +67,7 @@ async function findQuote(executedBy, message, getString, args, collection) {
             .setAuthor(getString("moduleName"))
             .setTitle(getString("invalidArg"))
             .setDescription(getString("indexArg").replace("%%arg%%", args[0]).replace("%%max%%", all.length))
-            .setFooter(executedBy, message.author.displayAvatarURL())
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.stopTyping()
         return message.channel.send(embed)
     }
@@ -77,7 +77,7 @@ async function findQuote(executedBy, message, getString, args, collection) {
         .setAuthor(getString("moduleName"))
         .setTitle(quote.quote)
         .setDescription(`      - ${quote.author}`)
-        .setFooter(executedBy, message.author.displayAvatarURL())
+        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.stopTyping()
     return message.channel.send(embed)
 }
@@ -97,7 +97,7 @@ async function addQuote(executedBy, message, quote, author, collection) {
             { name: "User", value: author },
             { name: "Quote number", value: quoteId }
         )
-        .setFooter(executedBy, message.author.displayAvatarURL())
+        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.stopTyping()
     message.channel.send(embed)
 }
@@ -120,7 +120,7 @@ async function editQuote(executedBy, message, args, collection) {
             { name: "New quote", value: newQuote },
             { name: "Author", value: oldQuote.author }
         )
-        .setFooter(executedBy, message.author.displayAvatarURL())
+        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.stopTyping()
     message.channel.send(embed)
 }
@@ -139,7 +139,7 @@ async function deleteQuote(executedBy, message, args, collection) {
             { name: "User", value: oldQuote.author },
             { name: "Quote", value: oldQuote.quote }
         )
-        .setFooter(executedBy, message.author.displayAvatarURL())
+        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.stopTyping()
     message.channel.send(embed)
 }

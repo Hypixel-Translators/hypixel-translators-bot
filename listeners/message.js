@@ -133,7 +133,7 @@ client.on("message", async message => {
             .setColor(errorColor)
             .setAuthor(globalStrings.error)
             .setTitle(globalStrings.errors.dmError)
-            .setFooter(executedBy, message.author.displayAvatarURL())
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         return message.channel.send(embed)
     }
     //Cooldown system
@@ -159,7 +159,7 @@ client.on("message", async message => {
                 .setColor(errorColor)
                 .setAuthor(globalStrings.cooldown)
                 .setTitle(timeLeftS)
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(embed)
             return
         }
@@ -179,7 +179,7 @@ client.on("message", async message => {
             if (pathPart) {
                 let jsonElement = strings[pathPart]
 
-                if (typeof jsonElement === "object" && pathSplit.indexOf(pathPart) !== pathSplit.length -1) { //check if the string isn't an object nor the end of the path
+                if (typeof jsonElement === "object" && pathSplit.indexOf(pathPart) !== pathSplit.length - 1) { //check if the string isn't an object nor the end of the path
                     strings = strings[pathPart]
                     enStrings = enStrings[pathPart]
                     return
@@ -210,7 +210,7 @@ client.on("message", async message => {
             .setColor(errorColor)
             .setAuthor(globalStrings.error)
             .setTitle(globalStrings.errors[error] || error.message)
-            .setFooter(executedBy, message.author.displayAvatarURL())
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         if (!helpStrings[command.name]) {
             embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" })
         } else {

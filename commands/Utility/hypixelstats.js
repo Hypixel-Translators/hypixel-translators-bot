@@ -101,7 +101,7 @@ module.exports = {
                             { name: getString(lastLoginSelector), value: lastLogin, inline: true }
 
                         )
-                        .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL())
+                        .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     message.channel.stopTyping()
                     message.channel.send(embed)
                 } else if (args[1] === "social") {
@@ -167,7 +167,7 @@ module.exports = {
                             { name: "Discord", value: discord, inline: true },
                             { name: "Forums", value: forums, inline: true }
                         )
-                        .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL())
+                        .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     message.channel.stopTyping()
                     message.channel.send(socialEmbed)
                 } else throw "noSubCommand"

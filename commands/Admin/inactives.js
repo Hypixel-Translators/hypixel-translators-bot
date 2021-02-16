@@ -14,7 +14,7 @@ module.exports = {
             .setColor(successColor)
             .setAuthor("Inactive checker")
             .setTitle("All inactive members have been notified!")
-            .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+            .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.send(embed)
     }
 }

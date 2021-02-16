@@ -13,7 +13,7 @@ module.exports = {
       .setColor(successColor)
       .setAuthor("Bulk Send")
       .setDescription(sendTo)
-      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     if (args[1] == 1) embed.setTitle("Success! Message sent.")
     else embed.setTitle("Success! Messages sent.")
     message.channel.send(embed)

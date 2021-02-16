@@ -16,7 +16,7 @@ module.exports = {
                 .setAuthor("Channel updater")
                 .setTitle("Updated the information channel!")
                 .setDescription(`Check it out at <#762341271611506708>!`) //server-info
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(successEmbed)
         } else if (args[0] === "rules") {
             rules(message)
@@ -25,7 +25,7 @@ module.exports = {
                 .setAuthor("Channel updater")
                 .setTitle("Updated the rules channel!")
                 .setDescription(`Check it out at <#796159719617986610>!`) //rules
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(successEmbed)
         } else if (args[0] === "verify") {
             verify(message)
@@ -34,7 +34,7 @@ module.exports = {
                 .setAuthor("Channel updater")
                 .setTitle("Updated the verification channel!")
                 .setDescription(`Check it out at <#569178590697095168>!`) //verify
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(successEmbed)
         } else if (args[0] === "all" || !args[0]) {
             info(message)
@@ -45,7 +45,7 @@ module.exports = {
                 .setAuthor("Channel updater")
                 .setTitle("All channels have been updated!")
                 .setDescription(`Check them out at <#762341271611506708>, <#796159719617986610> and <#569178590697095168>!`) //server-info, rules and verify
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(successEmbed)
         } else throw "noChannel"
     }

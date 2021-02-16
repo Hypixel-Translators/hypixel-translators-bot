@@ -52,7 +52,7 @@ async function getFromSpreadsheet(executedBy, message, getString, args) {
         .setAuthor(getString("moduleName"))
         .setTitle(getString("contextFor") + string)
         .setDescription(correctRow.context)
-        .setFooter(executedBy, message.author.displayAvatarURL())
+        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     if (correctRow.bg) { if (correctRow.bg.length > 1) { embed.addFields({ name: getString("noteFor") + getString("bulgarian"), value: correctRow.bg, inline: true }) } }
     if (correctRow.zhcn) { if (correctRow.zhcn.length > 1) { embed.addFields({ name: getString("noteFor") + getString("chineseS"), value: correctRow.zhcn, inline: true }) } }
     if (correctRow.zhtw) { if (correctRow.zhtw.length > 1) { embed.addFields({ name: getString("noteFor") + getString("chineseT"), value: correctRow.zhtw, inline: true }) } }
@@ -103,7 +103,7 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
             .setAuthor(getString("moduleName"))
             .setTitle(getString("addContextFor") + string)
             .setDescription(getString("notProofreader"))
-            .setFooter(executedBy, message.author.displayAvatarURL())
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.stopTyping()
         message.channel.send(embed)
         return
@@ -126,7 +126,7 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
             .setAuthor(getString("moduleName"))
             .setTitle(getString("addContextFor") + string)
             .setDescription(getString("errors.exists1") + string + getString("errors.exists2"))
-            .setFooter(executedBy, message.author.displayAvatarURL())
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.stopTyping()
         message.channel.send(embed)
         return
@@ -142,7 +142,7 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
             { name: getString("stringId"), value: string },
             { name: getString("moduleName"), value: toSend }
         )
-        .setFooter(executedBy, message.author.displayAvatarURL())
+        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.stopTyping()
     message.channel.send(embed)
         .then(async msg => {
@@ -205,7 +205,7 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("addContextFor") + string)
                         .setDescription(getString("added"))
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.channel.send(embed)
                         .then(finalMsg => {
                             if (!msg.deleted) msg.delete()
@@ -218,7 +218,7 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
                                 .setAuthor(getString("moduleName"))
                                 .setTitle(getString("addContextFor") + string)
                                 .setDescription(getString("addedResult") + result.context)
-                                .setFooter(executedBy, message.author.displayAvatarURL())
+                                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                             if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: getString("noteFor") + getString("bulgarian"), value: result.bg, inline: true }) } }
                             if (result.zhcn) { if (result.zhcn.length > 1) { embed.addFields({ name: getString("noteFor") + getString("chineseS"), value: result.zhcn, inline: true }) } }
                             if (result.zhtw) { if (result.zhtw.length > 1) { embed.addFields({ name: getString("noteFor") + getString("chineseT"), value: result.zhtw, inline: true }) } }
@@ -265,7 +265,7 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("addContextFor") + string)
                         .setDescription(getString("errors.hitReaction").replace("%%voteNo%%", "<:vote_no:732298639736570007>") + getString("errors.cancelledPrompt"))
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                     extraMsgs.forEach(item => {
                         if (!item.deleted) item.delete()
@@ -283,7 +283,7 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("addContextFor") + string)
                     .setDescription(getString("errors.hitReaction").replace("%%voteNo%%", "<:vote_no:732298639736570007>") + getString("errors.cancelledPrompt"))
-                    .setFooter(executedBy, message.author.displayAvatarURL())
+                    .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 msg.edit(embed)
                 extraMsgs.forEach(item => {
                     if (!item.deleted) item.delete()
@@ -307,7 +307,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
             .setAuthor(getString("moduleName"))
             .setTitle(getString("editContextFor") + string)
             .setDescription(getString("notProofreader"))
-            .setFooter(executedBy, message.author.displayAvatarURL())
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.stopTyping()
         message.channel.send(embed)
         return
@@ -338,7 +338,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
             .setAuthor(getString("moduleName"))
             .setTitle(getString("editContextFor") + string)
             .setDescription(getString("specifyFieldEdit"))
-            .setFooter(executedBy, message.author.displayAvatarURL())
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.stopTyping()
         message.channel.send(embed)
         return
@@ -357,7 +357,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
         .setAuthor(getString("moduleName"))
         .setTitle(getString("editContextFor") + string)
         .setDescription(getString("confirm").replace("%%voteNo%%", "<:vote_no:732298639736570007>").replace("%%voteYes%%", "<:vote_yes:732298639749152769>"))
-        .setFooter(executedBy, message.author.displayAvatarURL())
+        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     if (correctRow[key]) {
         if (correctRow[key].length > 1) {
             embed.addFields({ name: getString("oldVal") + key, value: correctRow[key] })
@@ -384,7 +384,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("editContextFor") + string)
                         .setDescription(getString("errors.hitReaction").replace("%%voteNo%%", "<:vote_no:732298639736570007>") + getString("errors.cancelledPrompt"))
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                     return
                 }
@@ -401,7 +401,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
                             .setAuthor(getString("moduleName"))
                             .setTitle(getString("editContextFor") + string)
                             .setDescription(string.edited + string.tryRunGet)
-                            .setFooter(executedBy, message.author.displayAvatarURL())
+                            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                         msg.edit(embed)
                         return
                     }
@@ -411,7 +411,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("editContextFor") + string)
                         .setDescription(getString("editedResult") + result.context)
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: getString("noteFor") + getString("bulgarian"), value: result.bg, inline: true }) } }
                     if (result.zhcn) { if (result.zhcn.length > 1) { embed.addFields({ name: getString("noteFor") + getString("chineseS"), value: result.zhcn, inline: true }) } }
                     if (result.zhtw) { if (result.zhtw.length > 1) { embed.addFields({ name: getString("noteFor") + getString("chineseT"), value: result.zhtw, inline: true }) } }
@@ -455,7 +455,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("editContextFor") + string)
                         .setDescription(getString("errors.didntReply") + getString("errors.cancelledPrompt"))
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                 }
                 return
@@ -477,7 +477,7 @@ async function showInfo(executedBy, message, getString) {
             { name: "Help", value: getString("info.help") },
             { name: getString("info.fields"), value: "id, context, screenshot, bg, zhcn, zhtw, cs, da, nl, fi, fr, de, el, it, ja, ko, ms, no, enpt, pl, pt, ptbr, ru, es, sv, th, tr, uk" }
         )
-        .setFooter(executedBy, message.author.displayAvatarURL())
+        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.send(embed)
     return
 }
@@ -487,7 +487,7 @@ async function sheetLink(executedBy, message, getString) {
         .setColor(successColor)
         .setTitle(getString("info.sheetT"))
         .setDescription(`[${getString("info.sheetDButton")}](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\n` + getString("info.sheetD"))
-        .setFooter(executedBy + " | " + getString("info.sheetDel"), message.author.displayAvatarURL())
+        .setFooter(executedBy + " | " + getString("info.sheetDel"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.send(embed)
         .then(linkMsg => {
             setTimeout(() => {

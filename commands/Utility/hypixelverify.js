@@ -22,7 +22,7 @@ module.exports = {
                         .setColor(successColor)
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("unverified"))
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     message.channel.send(embed)
                 } else {
                     const embed = new Discord.MessageEmbed()
@@ -30,7 +30,7 @@ module.exports = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("notUnverified"))
                         .setDescription(getString("whyNotUnverified"))
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     message.channel.send(embed)
                 }
             })
@@ -61,7 +61,7 @@ module.exports = {
                                 .setColor(successColor)
                                 .setAuthor(getString("moduleName"))
                                 .setTitle(getString("success").replace("%%player%%", json.username))
-                                .setFooter(executedBy, message.author.displayAvatarURL())
+                                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                             if (role) successEmbed.setDescription(getString("role").replace("%%role%%", role))
                             else successEmbed.setDescription(getString("noRoles"))
                             message.channel.stopTyping()
@@ -72,7 +72,7 @@ module.exports = {
                                 .setAuthor(getString("moduleName"))
                                 .setTitle(getString("alreadyVerified"))
                                 .setDescription(getString("nameChangeDisclaimer"))
-                                .setFooter(executedBy, message.author.displayAvatarURL())
+                                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                             message.channel.stopTyping()
                             return message.channel.send(notChanged)
                         }
@@ -84,7 +84,7 @@ module.exports = {
                         .setTitle(getString("error"))
                         .setDescription(getString("tutorial").replace("%%tag%%", message.author.tag))
                         .setImage("https://i.imgur.com/JSeAHdG.gif")
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     message.channel.stopTyping()
                     message.channel.send(errorEmbed)
                 }

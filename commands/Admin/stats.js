@@ -18,7 +18,7 @@ module.exports = {
                         .setAuthor("Statistics updater")
                         .setTitle("All language statistics have been updated!")
                         .setDescription(`Check them out at ${message.guild.channels.cache.find(c => c.name === "hypixel-language-status")}, ${message.guild.channels.cache.find(c => c.name === "sba-language-status")}, ${message.guild.channels.cache.find(c => c.name === "bot-language-status")} and ${message.guild.channels.cache.find(c => c.name === "quickplay-language-status")}`)
-                        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+                        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     message.channel.send(allEmbed)
                 })
                 .catch(err => { throw err })
@@ -50,7 +50,7 @@ module.exports = {
                     .setColor(errorColor)
                     .setAuthor("Statistics updater")
                     .setTitle(`Couldn't find the project with the name ${args[0]}.`)
-                    .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+                    .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 message.channel.send(errorEmbed)
                 return
             }
@@ -59,7 +59,7 @@ module.exports = {
                 .setAuthor("Statistics updater")
                 .setTitle(`The ${project} language statistics have been updated!`)
                 .setDescription(`Check it out at ${message.guild.channels.cache.find(c => c.name === `${channel}-language-status`)}!`)
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(projectEmbed)
             console.log(`Manually updated the ${project} language statistics.`)
         }

@@ -44,7 +44,7 @@ module.exports = {
 
     const embed = new Discord.MessageEmbed()
       .setColor(color)
-      .setAuthor("User information", member.user.displayAvatarURL())
+      .setAuthor("User information", member.user.displayAvatarURL({ format: "png", dynamic: true }))
       .setTitle(member.user.tag)
       .setDescription(`${member} (ID: ${member.user.id})`)
       .addFields(
@@ -52,8 +52,8 @@ module.exports = {
         { name: "Account created on", value: created.charAt(0).toUpperCase() + created.slice(1) + timeAgo(createAgo), inline: true },
         { name: "Roles", value: userRoles },
       )
-      .setThumbnail(member.user.displayAvatarURL())
-      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+      .setThumbnail(member.user.displayAvatarURL({ format: "png", dynamic: true }))
+      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     if (note) embed.addField("Note", note)
     message.channel.send(embed)
     function timeAgo(time) {

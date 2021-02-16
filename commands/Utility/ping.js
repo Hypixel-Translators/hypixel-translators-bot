@@ -30,7 +30,7 @@ module.exports = {
       .setAuthor(getString("moduleName"))
       .setTitle(getString("pong").replace("%%pingEmote%%", "<:ping:620954198493888512>"))
       .setDescription(getString("message").replace("%%ping%%", ping))
-      .setFooter(executedBy, message.author.displayAvatarURL())
+      .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.send(embed)
   }
 }

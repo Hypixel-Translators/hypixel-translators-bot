@@ -26,7 +26,7 @@ module.exports = {
       .setAuthor("Message")
       .setTitle("Success! Message sent.")
       .setDescription(`${sendTo}:\n${toSend}`)
-      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.send(embed)
   }
 }

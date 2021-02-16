@@ -29,14 +29,14 @@ module.exports = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("request"))
                         .setDescription(`\`${newLang}\``)
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     message.channel.send(result)
                     const request = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor("Language")
                         .setTitle(`${requester} wants the following language to be added to the Bot:`)
                         .setDescription(`${name(newLang) || code(newLang)} (user input: ${newLang})`)
-                        .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
+                        .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     message.client.channels.cache.get("569595073055162378").send("<@241926666400563203> and <@240875059953139714>", request) //admin tagging Stannya and Rodry
                 } else {
                     const errorRequest = new Discord.MessageEmbed()
@@ -44,7 +44,7 @@ module.exports = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("errorRequest"))
                         .setDescription(getString("request"))
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     message.channel.send(errorRequest)
                 }
             } else if (args[0] === "list") {
@@ -62,7 +62,7 @@ module.exports = {
                             .setAuthor(getString("moduleName"))
                             .setTitle(getString("listTitle"))
                             .setDescription(langList)
-                            .setFooter(executedBy, message.author.displayAvatarURL())
+                            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                         await message.channel.send(embed)
                     }
                 })
@@ -75,7 +75,7 @@ module.exports = {
                 const embed = new Discord.MessageEmbed()
                     .setColor(neutralColor)
                     .setAuthor("Language")
-                    .setFooter(`Executed By ${message.author.tag}`, message.author.displayAvatarURL())
+                    .setFooter(`Executed By ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 if (langUsers.length === 1) embed.setTitle(`There is ${langUsers.length} user using that language at the moment.`)
                 else embed.setTitle(`There are ${langUsers.length} users using that language at the moment.`)
                 message.channel.send(embed)
@@ -99,7 +99,7 @@ module.exports = {
                                     .setAuthor(getString("moduleName", this.name, newLang))
                                     .setTitle(getString("changedToTitle", this.name, newLang))
                                     .setDescription(getString("credits", this.name, newLang))
-                                    .setFooter(executedBy, message.author.displayAvatarURL())
+                                    .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                                 message.channel.stopTyping()
                                 return message.channel.send(embed)
                             } else {
@@ -108,7 +108,7 @@ module.exports = {
                                     .setAuthor(getString("moduleName", this.name, newLang))
                                     .setTitle(getString("didntChange", this.name, newLang))
                                     .setDescription(getString("alreadyThis", this.name, newLang))
-                                    .setFooter(executedBy, message.author.displayAvatarURL())
+                                    .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                                 message.channel.stopTyping()
                                 return message.channel.send(embed)
                             }
@@ -122,7 +122,7 @@ module.exports = {
                                 .setAuthor(getString("moduleName"))
                                 .setTitle(getString("errorTitle"))
                                 .setDescription(getString("errorDescription") + "\n`" + files.join("`, `") + "`\n" + getString("suggestAdd"))
-                                .setFooter(executedBy, message.author.displayAvatarURL())
+                                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                             message.channel.stopTyping()
                             message.channel.send(embed)
                         })
@@ -139,7 +139,7 @@ module.exports = {
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("current"))
                     .setDescription(getString("errorDescription") + "\n`" + files.join("`, `") + "`\n\n" + getString("credits"))
-                    .setFooter(executedBy, message.author.displayAvatarURL())
+                    .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 await message.channel.send(embed)
             })
         }

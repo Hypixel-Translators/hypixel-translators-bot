@@ -24,14 +24,14 @@ module.exports = {
                     .setAuthor("User Profile")
                     .setTitle(`Here's ${user.tag}'s Crowdin profile`)
                     .setDescription(userDb.profile)
-                    .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+                    .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 return message.channel.send(embed)
             } else {
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor("User Profile")
                     .setTitle(`Couldn't find ${user.tag}'s Crowdin profile on the database!`)
-                    .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+                    .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 return message.channel.send(embed)
             }
         } else {
@@ -44,7 +44,7 @@ module.exports = {
                                 .setAuthor("User Profile")
                                 .setTitle(`Successfully updated ${user.tag}'s Crowdin profile!`)
                                 .setDescription(`New profile: ${args[1]}`)
-                                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+                                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                             return message.channel.send(embed)
                         } else {
                             const embed = new Discord.MessageEmbed()
@@ -52,7 +52,7 @@ module.exports = {
                                 .setAuthor("User Profile")
                                 .setTitle(`Couldn't update ${user.tag}'s Crowdin profile!`)
                                 .setDescription(`Their current profile is the same as the one you tried to add.`)
-                                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+                                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                             return message.channel.send(embed)
                         }
                     })
@@ -62,7 +62,7 @@ module.exports = {
                     .setAuthor("User Profile")
                     .setTitle(`Couldn't update ${user.tag}'s Crowdin profile!`)
                     .setDescription(`Their profile you tried to add is not a valid Crowdin profile URL.`)
-                    .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+                    .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 return message.channel.send(embed)
             }
         }

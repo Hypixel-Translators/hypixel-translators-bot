@@ -34,7 +34,7 @@ module.exports = {
                     { name: "SkyblockAddons", value: `${getString("projectInfo").replace("%%project%%", "**SkyblockAddons**").replace("%%link%%", "https://crowdin.com/project/skyblockaddons").replace("%%command%%", "`+skyblockaddons`")}\n${joinedSba}` },
                     { name: "Hypixel Translators Bot", value: `${getString("projectInfo").replace("%%project%%", "**Hypixel Translators Bot**").replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot").replace("%%command%%", "`+bot`")}\n${joinedBot}` }
                 )
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(embed)
         } else {
             const embed = new Discord.MessageEmbed()
@@ -48,7 +48,7 @@ module.exports = {
                     { name: "SkyblockAddons", value: `${getString("projectInfo").replace("%%project%%", "**SkyblockAddons**").replace("%%link%%", "https://crowdin.com/project/skyblockaddons").replace("%%command%%", "`+skyblockaddons`")}` },
                     { name: "Hypixel Translators Bot", value: `${getString("projectInfo").replace("%%project%%", "**Hypixel Translators Bot**").replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot").replace("%%command%%", "`+bot`")}` }
                 )
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(embed)
         }
     }

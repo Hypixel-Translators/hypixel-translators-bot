@@ -21,7 +21,7 @@ module.exports = {
                     { name: getString("question"), value: getString("askTranslators").replace("%%botTranslators%%", "<#749391414600925335>") },
                     { name: getString("newCrowdin"), value: getString("checkGuide").replace("%%gettingStarted%%", "<#699275092026458122>") }
                 )
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(embed)
         } else {
             const embed = new Discord.MessageEmbed()
@@ -35,7 +35,7 @@ module.exports = {
                     { name: getString("lastThing"), value: getString("requestInfo").replace("%%tag%%", message.author.tag).replace("%%id%%", message.author.id) },
                     { name: getString("noLanguage"), value: getString("langRequest") }
                 )
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(embed)
         }
     }
