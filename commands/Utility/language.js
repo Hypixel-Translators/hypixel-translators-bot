@@ -72,12 +72,15 @@ module.exports = {
                 const files = fs.readdirSync(stringsFolder)
                 if (!files.includes(args[1])) throw "falseLang"
                 const langUsers = await collection.find({ lang: args[1] }).toArray()
+                const users = []
+                langUsers.forEach(u => users.push(`<@!${u.id}>`))
                 const embed = new Discord.MessageEmbed()
                     .setColor(neutralColor)
                     .setAuthor("Language")
                     .setFooter(`Executed By ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 if (langUsers.length === 1) embed.setTitle(`There is ${langUsers.length} user using that language at the moment.`)
                 else embed.setTitle(`There are ${langUsers.length} users using that language at the moment.`)
+                if (args[1] !== "en") embed.setDescription(users.join(", "))
                 message.channel.send(embed)
             } else {
                 message.channel.startTyping()
