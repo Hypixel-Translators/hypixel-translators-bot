@@ -23,7 +23,12 @@ module.exports = {
         const credits = getString("madeBy").replace("%%developer%%", message.guild.members.cache.get("500669086947344384").user.tag)
         const authorDb = await getUser(message.author.id)
         let username = authorDb.uuid
-        if (args[0]) username = args[0]
+        if (args[0]) username = args[0].replace(/[\\<>@#&!]/g, "")
+        if (message.guild.members.cache.get(username)) {
+            const userDb = await getUser(username)
+            if (userDb.uuid) username = userDb.uuid
+            else throw "notVerified"
+        }
         if (!username) throw "noUser"
 
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
@@ -45,53 +50,57 @@ module.exports = {
                 //Update user's roles if they're verified
                 if (json.uuid === authorDb.uuid) updateRoles(message, json)
 
-                //Define each value
-                let rank // some ranks are just prefixes so this code accounts for that
-                let color
-                if (json.prefix) {
-                    color = parseColorCode(json.prefix)
-                    rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
-                }
-                else {
-                    color = parseColorCode(json.rank_formatted)
-                    rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
-                }
-                username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
-                let online
-                if (json.online) online = getString("online")
-                else online = getString("offline")
-
-                let last_seen
-                if (!json.last_game) last_seen = getString("lastGameHidden")
-                else last_seen = getString("lastSeen").replace("%%game%%", json.last_game.replace(/([A-Z]+)/g, ' $1').trim())
-
-                let lastLoginSelector
-                if (json.online) lastLoginSelector = "last_login"
-                else lastLoginSelector = "last_logout"
-
-                let timeZone = getString("timeZone")
-                if (timeZone.startsWith("crwdns")) timeZone = getString("timeZone", this.name, "en")
-                let dateLocale = getString("dateLocale")
-                if (dateLocale.startsWith("crwdns")) dateLocale = getString("dateLocale", this.name, "en")
-                let lastLogin
-                if (json[lastLoginSelector]) lastLogin = new Date(json[lastLoginSelector]).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
-                else lastLogin = getString("lastLoginHidden")
-
-                let firstLogin
-                if (json.first_login) firstLogin = new Date(json.first_login).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
-                else firstLogin = getString("firstLoginHidden")
-
-                for (const [key, value] of Object.entries(json)) {
-                    if (!value) json[key] = getString("unknown")
-                }
-
                 if (!args[1] || args[1] === "stats") {
+
+                    //Define each value
+                    let rank // some ranks are just prefixes so this code accounts for that
+                    let color
+                    if (json.prefix) {
+                        color = parseColorCode(json.prefix)
+                        rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
+                    }
+                    else {
+                        color = parseColorCode(json.rank_formatted)
+                        rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
+                    }
+                    username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
+                    let online
+                    if (json.online) online = getString("online")
+                    else online = getString("offline")
+
+                    let last_seen
+                    if (!json.last_game) last_seen = getString("lastGameHidden")
+                    else last_seen = getString("lastSeen").replace("%%game%%", json.last_game.replace(/([A-Z]+)/g, ' $1').trim())
+
+                    let lastLoginSelector
+                    if (json.online) lastLoginSelector = "last_login"
+                    else lastLoginSelector = "last_logout"
+
+                    let timeZone = getString("timeZone")
+                    if (timeZone.startsWith("crwdns")) timeZone = getString("timeZone", this.name, "en")
+                    let dateLocale = getString("dateLocale")
+                    if (dateLocale.startsWith("crwdns")) dateLocale = getString("dateLocale", this.name, "en")
+                    let lastLogin
+                    if (json[lastLoginSelector]) lastLogin = new Date(json[lastLoginSelector]).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
+                    else lastLogin = getString("lastLoginHidden")
+
+                    let firstLogin
+                    if (json.first_login) firstLogin = new Date(json.first_login).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
+                    else firstLogin = getString("firstLoginHidden")
+
+                    for (const [key, value] of Object.entries(json)) {
+                        if (!value) json[key] = getString("unknown")
+                    }
+
+                    //Get user's current name to suggest for the other command
+                    const currentName = await getCurrentName(json.uuid)
+
                     const embed = new Discord.MessageEmbed()
                         .setColor(color)
                         .setAuthor(getString("moduleName"))
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${getString("description").replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${json.username})`)}\n${getString("updateNotice")}\n${getString("mediaTip").replace("%%command%%", `\`+hypixelstats ${args[0] || username} social\``)}`)
+                        .setDescription(`${getString("description").replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${json.username})`)}\n${getString("updateNotice")}\n${getString("mediaTip").replace("%%command%%", `\`+hypixelstats ${currentName} social\``)}`)
                         .addFields(
                             { name: getString("networkLevel"), value: Math.abs(json.level).toLocaleString(dateLocale), inline: true },
                             { name: getString("ap"), value: json.achievement_points.toLocaleString(dateLocale), inline: true },
@@ -179,4 +188,14 @@ module.exports = {
                 } else throw e
             })
     }
+}
+
+async function getCurrentName(uuid) {
+    let name
+    await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`)
+        .then(res => (res.json()))
+        .then(async json => {
+            name = json.pop().name
+        })
+    return name
 }
