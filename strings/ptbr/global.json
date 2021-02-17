@@ -20,6 +20,7 @@
         "falseRole": "That role couldn't be found!",
         "falseContext": "That context entry couldn't be found!",
         "noPlayer": "Esse jogador nunca entrou no Hypixel!",
+        "notVerified": "That user hasn't linked their Hypixel account yet!",
         "disabled": "Este comando está temporariamente desativado.",
         "noTrPr": "Você não é um tradutor ou revisor, então você não pode usar isto!",
         "noAccess": "Você não possui permissão para usar este comando!",
