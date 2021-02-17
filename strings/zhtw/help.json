@@ -1,12 +1,12 @@
 {
     "moduleName": "Information",
     "page1Title": "Help page",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `+translate` command.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
-    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
+    "commandsListTooltip": "這個機器人由 %%developer%% 為 Hypixel 翻譯人員社群而開發。這個機器人是完全開源的，其 GitHub 儲存庫可以在[這裡]%%github%%找到。\n你可以使用 `+translate` 指令，並跟隨該指令的指示來協助翻譯機器人。\n\n你可以執行 `+help <指令名稱>` 來了解特定指令的用法。\n你可以在下面找到所有可用頁面的列表。請按下本訊息下方的反應來切換頁面。",
+    "madeBy": "機器人由 %%QkeleQ10%% 開發和維護",
     "page": "Page %%number%%/%%total%%",
     "pageNumber": "Page %%number%%",
-    "utilityHelp": "%%badge%% Tools & Utilities",
-    "infoHelp": "%%badge%% Information commands",
+    "utilityHelp": "%%badge%% 實用工具",
+    "infoHelp": "%%badge%% 訊息指令",
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
     "pageNotExist": "That page doesn't exist!",
     "commandInfo": "Command information",
@@ -37,7 +37,7 @@
         "description": "Mentions a language role with an optional message."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
+        "usage": "+context get|add|edit|view|help <參數>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
     },
     "languagestats": {
@@ -54,7 +54,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "顯示機器人目前的 Ping。"
     },
     "hypixelstats": {
         "usage": "+hypixelstats [username] [social]",
