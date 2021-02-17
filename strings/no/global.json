@@ -20,6 +20,7 @@
         "falseRole": "That role couldn't be found!",
         "falseContext": "That context entry couldn't be found!",
         "noPlayer": "That player has never joined Hypixel!",
+        "notVerified": "That user hasn't linked their Hypixel account yet!",
         "disabled": "Denne kommandoen har blitt midlertidig deaktivert.",
         "noTrPr": "Du er ikke en oversetter eller en korrekturleser, så du kan ikke bruke denne!",
         "noAccess": "Du har ikke tillatelse til å bruke denne kommandoen!",
