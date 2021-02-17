@@ -17,9 +17,7 @@ client.on("message", async message => {
 
     //Get global strings
     const author = await getUser(message.author.id)
-    const globalStrings = require(`../strings/${author.lang}/global.json`)
-    const helpStrings = require(`../strings/${author.lang}/help.json`)
-    const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
+    const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
 
     //Link correction system
     if (message.content.toLowerCase().includes("/translate/hypixel/") && message.content.includes("://")) {
@@ -29,19 +27,19 @@ client.on("message", async message => {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(globalStrings.wrongLink)
-                    .setTitle(globalStrings.wrongStringURL)
-                    .setDescription(globalStrings.example.replace("%%url%%", "https://crowdin.com/translate/hypixel/286/en-en#106644"))
+                    .setAuthor(getString("wrongLink", "global"))
+                    .setTitle(getString("wrongStringURL", "global"))
+                    .setDescription(getString("example", "global").replace("%%url%%", "https://crowdin.com/translate/hypixel/286/en-en#106644"))
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
-                if (message.content !== langFix && message.channel.parent.id === "549503328472530977") embed.setDescription(`${globalStrings.example.replace("%%url%%", "<https://crowdin.com/translate/hypixel/286/en-en#106644>")}\n${globalStrings.reminderLang.replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`")}`)
+                if (message.content !== langFix && message.channel.parent.id === "549503328472530977") embed.setDescription(`${getString("example", "global").replace("%%url%%", "<https://crowdin.com/translate/hypixel/286/en-en#106644>")}\n${getString("reminderLang", "global").replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`")}`)
                 return message.channel.send(message.author, embed)
             }
             if (message.content !== langFix && message.channel.parent.id === "549503328472530977") {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(globalStrings.wrongLink)
-                    .setTitle(globalStrings.linkCorrectionDesc.replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`"))
+                    .setAuthor(getString("wrongLink", "global"))
+                    .setTitle(getString("linkCorrectionDesc", "global").replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`"))
                     .setDescription(langFix)
                 return message.channel.send(message.author, embed)
             }
@@ -59,9 +57,9 @@ client.on("message", async message => {
 
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)
-            .setAuthor(globalStrings.outgoing)
+            .setAuthor(getString("outgoing", "global"))
             .setDescription(message.content)
-            .setFooter(globalStrings.outgoingDisclaimer)
+            .setFooter(getString("outgoingDisclaimer", "global"))
         return message.channel.send(embed)
     }
 
@@ -131,8 +129,8 @@ client.on("message", async message => {
     if (!command.allowDM && message.channel.type === "dm") {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
-            .setAuthor(globalStrings.error)
-            .setTitle(globalStrings.errors.dmError)
+            .setAuthor(getString("error", "global"))
+            .setTitle(getString("errors.dmError", "global"))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         return message.channel.send(embed)
     }
@@ -149,15 +147,15 @@ client.on("message", async message => {
             const timeLeft = (expirationTime - now) / 1000
             let timeLeftS
             if (Math.ceil(timeLeft) >= 120) {
-                timeLeftS = (globalStrings.minsLeftT.replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", commandName))
+                timeLeftS = (getString("minsLeftT", "global").replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", commandName))
             } else if (Math.ceil(timeLeft) === 1) {
-                timeLeftS = (globalStrings.secondLeft.replace("%%command%%", commandName))
+                timeLeftS = (getString("secondLeft", "global").replace("%%command%%", commandName))
             } else {
-                timeLeftS = (globalStrings.timeLeftT.replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", commandName))
+                timeLeftS = (getString("timeLeftT", "global").replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", commandName))
             }
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
-                .setAuthor(globalStrings.cooldown)
+                .setAuthor(getString("cooldown", "global"))
                 .setTitle(timeLeftS)
                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(embed)
@@ -208,18 +206,15 @@ client.on("message", async message => {
         timestamps.delete(message.author.id)
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
-            .setAuthor(globalStrings.error)
-            .setTitle(globalStrings.errors[error] || error.message)
+            .setAuthor(getString("error", "global"))
+            .setTitle(getString(`errors.${error}`, "global") || error.message)
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        if (!helpStrings[command.name]) {
-            embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" })
-        } else {
-            embed.addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" })
-        }
+        if (!getString(command.name, "help")) embed.addFields({ name: getString("usage", "global"), value: `\`${command.usage}\`` })
+        else embed.addFields({ name: getString("usage", "global"), value: `\`${getString(`${command.name}.usage`, "help")}\`` })
         message.channel.stopTyping()
         message.channel.send(embed)
             .then(msg => {
-                if (!globalStrings.errors[error]) console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error}`)
+                if (!getString(`errors.${error}`), "global") console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
                 else {
                     setTimeout(() => {
                         if (!message.deleted) message.delete()
@@ -232,11 +227,11 @@ client.on("message", async message => {
     } finally {
 
         //Try sending a tip
-        if (command.allowTip !== false) {
-            let d = Math.random().toFixed(2)
-            let keys = Object.keys(globalStrings.tips)
-            let tip = globalStrings.tips[keys[keys.length * Math.random() << 0]]
-            if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${tip.replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%rules%%", "<#796159719617986610>").replace("%%serverInfo%%", "<#762341271611506708>").replace("%%bots%%", "<#549894938712866816>")}`)
+        const d = Math.random().toFixed(2)
+        if (command.allowTip !== false && d < 0.05) {
+            const keys = Object.keys(getString("tips", "global"))
+            const tip = getString(`tips.${keys[keys.length * Math.random() << 0]}`, "global")
+            message.channel.send(`**${getString("tip", "global").toUpperCase()}:** ${tip.replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%rules%%", "<#796159719617986610>").replace("%%serverInfo%%", "<#762341271611506708>").replace("%%bots%%", "<#549894938712866816>")}`)
         }
     }
 })
