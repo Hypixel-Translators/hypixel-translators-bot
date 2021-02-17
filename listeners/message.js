@@ -167,6 +167,7 @@ client.on("message", async message => {
     if (message.member && !message.member.hasPermission("MANAGE_ROLES")) timestamps.set(message.author.id, now)
     setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
 
+    //Function to get strings
     function getString(path, cmd, lang) {
         let enStrings = require(`../strings/en/${cmd || command.name}.json`)
         try { strings = require(`../strings/${lang || author.lang}/${cmd || command.name}.json`) }
@@ -183,14 +184,14 @@ client.on("message", async message => {
                     return
                 } else {
                     string = jsonElement
-                }
-                if (!string) {
-                    string = enStrings[pathPart] //if the string hasn't been added yet
-                    console.error(`Couldn't get string ${path} in ${lang || author.lang} for ${cmd || command.name}, defaulting to English`)
-                }
-                if (!string) {
-                    string = `strings.${path}` //in case of fire
-                    console.error(`Couldn't get string ${path} in English for ${cmd || command.name}, please fix this`)
+                    if (!string) {
+                        string = enStrings[pathPart] //if the string hasn't been added yet
+                        console.error(`Couldn't get string ${path} in ${lang || author.lang} for ${cmd || command.name}, defaulting to English`)
+                    }
+                    if (!string) {
+                        string = `strings.${path}` //in case of fire
+                        console.error(`Couldn't get string ${path} in English for ${cmd || command.name}, please fix this`)
+                    }
                 }
             } else if (strings) string = strings
             else string = enStrings
@@ -201,20 +202,21 @@ client.on("message", async message => {
     //Run command and handle errors
     try { await command.execute(message, args, getString) }
     catch (error) {
+        if (!error.stack) error = getString(`errors.${error}`, "global")
 
         //Handle errors
         timestamps.delete(message.author.id)
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(getString("error", "global"))
-            .setTitle(getString(`errors.${error}`, "global") || error.message)
+            .setTitle(error || error.message)
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         if (!getString(command.name, "help")) embed.addFields({ name: getString("usage", "global"), value: `\`${command.usage}\`` })
         else embed.addFields({ name: getString("usage", "global"), value: `\`${getString(`${command.name}.usage`, "help")}\`` })
         message.channel.stopTyping()
         message.channel.send(embed)
             .then(msg => {
-                if (!getString(`errors.${error}`), "global") console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
+                if (!error) console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
                 else {
                     setTimeout(() => {
                         if (!message.deleted) message.delete()
