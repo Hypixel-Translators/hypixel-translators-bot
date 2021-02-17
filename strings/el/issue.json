@@ -1,8 +1,8 @@
 {
     "moduleName": "Προβλήματα και σχόλια",
     "bugT": "Προβολή και προσθήκη ζητημάτων",
-    "bugD": "To show and make suggestions or bug reports, please [click here]%%github%%.",
+    "bugD": "Για εμφάνιση και υποβολή προτάσεων ή αναφορών σφαλμάτων, [κάνε κλικ εδώ]%%github%%.",
     "urgentT": "Είναι επείγον;",
-    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention a staff member in a public channel, explaining the issue.",
+    "urgentD": "Εάν προσπαθείτε να αναφέρετε ένα σοβαρό σφάλμα ή το bot έχει παραμείνει εκτός λειτουργίας για πολύ καιρό χωρίς ειδοποίηση, κάντε αναφορά σε κάποιο μέλος του προσωπικού σε ένα δημόσιο κανάλι, εξηγώντας το ζήτημα.",
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
