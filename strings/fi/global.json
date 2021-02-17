@@ -20,6 +20,7 @@
         "falseRole": "Tätä roolia ei löytynyt!",
         "falseContext": "Tätä kontekstia ei löytynyt!",
         "noPlayer": "Tämä pelaaja ei ole koskaan käynyt Hypixelissä!",
+        "notVerified": "That user hasn't linked their Hypixel account yet!",
         "disabled": "Tämä komento on toistaiseksi pois käytöstä.",
         "noTrPr": "Et ole kääntäjä tai oikolukija, joten et voi käyttää tätä!",
         "noAccess": "Sinulla ei ole oikeuksia käyttää tuota komentoa!",
