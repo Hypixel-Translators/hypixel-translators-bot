@@ -27,7 +27,8 @@
         "noPermission": "crwdns994:0crwdne994:0",
         "contextSubArg": "crwdns996:0crwdne996:0",
         "apiError": "crwdns998:0crwdne998:0",
-        "noSubCommand": "crwdns1000:0crwdne1000:0"
+        "noSubCommand": "crwdns1000:0crwdne1000:0",
+        "wrongLink": "crwdns1190:0crwdne1190:0"
     },
     "cooldown": "crwdns504:0crwdne504:0",
     "secondLeft": "crwdns506:0%%command%%crwdne506:0",
