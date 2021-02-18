@@ -23,7 +23,7 @@ module.exports = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("unverified"))
                         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    message.channel.send(embed)
+                    return message.channel.send(embed)
                 } else {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
@@ -31,10 +31,9 @@ module.exports = {
                         .setTitle(getString("notUnverified"))
                         .setDescription(getString("whyNotUnverified"))
                         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    message.channel.send(embed)
+                    return message.channel.send(embed)
                 }
             })
-            return
         }
         if (!args[0]) throw "noUser"
 

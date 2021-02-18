@@ -10,19 +10,19 @@ module.exports = {
     usage: "+context get|add|edit|link|help <arguments>",
     channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "801904400826105876", "550951034332381184", "713084081579098152"], //off-topic memes pets food suggestions no-mic
     cooldown: 30,
-    execute(message, args, getString) {
+    async execute(message, args, getString) {
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         if (!args[0]) throw "contextSubArg"
         const subCmd = args[0].toLowerCase()
         try {
             if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771") && !message.member.hasPermission("MANAGE_ROLES")) throw "noTrPr" //Hypixel Translator and Hypixel Proofreader
-            if (subCmd === "add" || subCmd === "new") addToSpreadsheet(executedBy, message, getString, args)
-            else if (subCmd === "get" || subCmd === "show") getFromSpreadsheet(executedBy, message, getString, args)
-            else if (subCmd === "edit") editInSpreadsheet(executedBy, message, getString, args)
-            else if (subCmd === "help" || subCmd === "info") showInfo(executedBy, message, getString, args)
-            else if (subCmd === "link" || subCmd === "sheet" || subCmd === "list") sheetLink(executedBy, message, getString, args)
+            if (subCmd === "add" || subCmd === "new") await addToSpreadsheet(executedBy, message, getString, args)
+            else if (subCmd === "get" || subCmd === "show") await getFromSpreadsheet(executedBy, message, getString, args)
+            else if (subCmd === "edit") await editInSpreadsheet(executedBy, message, getString, args)
+            else if (subCmd === "help" || subCmd === "info") await showInfo(executedBy, message, getString, args)
+            else if (subCmd === "link" || subCmd === "sheet" || subCmd === "list") await sheetLink(executedBy, message, getString, args)
             else throw "contextSubArg"
-        } catch (err) { throw err.toString() }
+        } catch (err) { throw err }
     }
 }
 
@@ -41,11 +41,11 @@ async function getFromSpreadsheet(executedBy, message, getString, args) {
 
     if (!correctRow) {
         message.channel.stopTyping()
-        message.channel.send(getString("errors.notFound")).then(msg => setTimeout(() => {
-            if (!msg.deleted) msg.delete()
-            if (!message.deleted) message.delete()
-        }, 10000))
-        return
+        return message.channel.send(getString("errors.notFound"))
+            .then(msg => setTimeout(() => {
+                if (!msg.deleted) msg.delete()
+                if (!message.deleted) message.delete()
+            }, 10000))
     }
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
@@ -105,8 +105,7 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
             .setDescription(getString("notProofreader"))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.stopTyping()
-        message.channel.send(embed)
-        return
+        return message.channel.send(embed)
     }
 
     const doc = new GoogleSpreadsheet(contextSheet)
@@ -128,8 +127,7 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
             .setDescription(getString("errors.exists1") + string + getString("errors.exists2"))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.stopTyping()
-        message.channel.send(embed)
-        return
+        return message.channel.send(embed)
     }
 
     let toAdd = { id: string, context: toSend }
@@ -309,8 +307,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
             .setDescription(getString("notProofreader"))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.stopTyping()
-        message.channel.send(embed)
-        return
+        return message.channel.send(embed)
     }
 
     const doc = new GoogleSpreadsheet(contextSheet)
@@ -325,11 +322,12 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
 
     if (!correctRow) {
         message.channel.stopTyping()
-        message.channel.send(getString("errors.notFound")).then(msg => setTimeout(() => {
-            if (!msg.deleted) msg.delete()
-            if (!message.deleted) message.delete()
-        }, 10000))
-        return
+        return message.channel.send(getString("errors.notFound"))
+            .then(msg => setTimeout(() => {
+                if (!msg.deleted) msg.delete()
+                if (!message.deleted) message.delete()
+            }, 10000))
+
     }
 
     if (!args[3]) {
@@ -340,8 +338,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
             .setDescription(getString("specifyFieldEdit"))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.stopTyping()
-        message.channel.send(embed)
-        return
+        return message.channel.send(embed)
     }
 
     let key = args[2].toLowerCase()
@@ -385,8 +382,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
                         .setTitle(getString("editContextFor") + string)
                         .setDescription(getString("errors.hitReaction").replace("%%voteNo%%", "<:vote_no:732298639736570007>") + getString("errors.cancelledPrompt"))
                         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    msg.edit(embed)
-                    return
+                    return msg.edit(embed)
                 }
                 if (reaction.emoji.name === "vote_yes") {
                     msg.reactions.removeAll()
@@ -402,8 +398,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
                             .setTitle(getString("editContextFor") + string)
                             .setDescription(string.edited + string.tryRunGet)
                             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                        msg.edit(embed)
-                        return
+                        return msg.edit(embed)
                     }
 
                     const embed = new Discord.MessageEmbed()
@@ -458,7 +453,6 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
                         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                 }
-                return
             })
         })
 }
@@ -479,7 +473,6 @@ async function showInfo(executedBy, message, getString) {
         )
         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.send(embed)
-    return
 }
 
 async function sheetLink(executedBy, message, getString) {

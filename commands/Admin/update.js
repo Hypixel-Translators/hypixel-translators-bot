@@ -9,7 +9,7 @@ module.exports = {
     channelWhitelist: ["569178590697095168"], // verify
     async execute(message, args) {
         await message.delete()
-        if (!args[2]) return
+        if (!args[2]) throw "noLanguage"
         const userId = args[0].replace(/[\\<>@#&!]/g, "")
         const member = message.guild.members.cache.find(m => m.id === userId)
         if(!member) throw "falseUser"
@@ -31,8 +31,7 @@ module.exports = {
 }
 
 async function hypixel(message, member, args, langdb) {
-    if (!args[3]) return
-    if (!/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[3])) return
+    if (!args[3] || !/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[3])) throw "wrongLink"
     const lang = langdb.find(l => l.name.toLowerCase() === args[2].toLowerCase() || l.code === args[2])
     if (!lang) throw "falseLang"
     const oldLangRole = await message.guild.roles.cache.find(r => r.name === `${lang.name} Translator`)
@@ -47,8 +46,7 @@ async function hypixel(message, member, args, langdb) {
 }
 
 async function quickplay(message, member, args, langdb) {
-    if (!args[3]) return
-    if (!/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[3])) return
+    if (!args[3] || !/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[3])) throw "wrongLink"
     const lang = langdb.find(l => l.name.toLowerCase() === args[2].toLowerCase() || l.code === args[2])
     if (!lang) throw "falseLang"
     const oldLangRole = await message.guild.roles.cache.find(r => r.name === `${lang.name} Translator`)
@@ -63,8 +61,7 @@ async function quickplay(message, member, args, langdb) {
 }
 
 async function sba(message, member, args) {
-    if (!args[2]) return
-    if (!/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[2])) return
+    if (!args[2] || !/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[2])) throw "wrongLink"
     const oldProjectRole = await message.guild.roles.cache.find(r => r.name === `SkyblockAddons Translator`)
     const newProjectRole = await message.guild.roles.cache.find(r => r.name === `SkyblockAddons Proofreader`)
     await member.roles.remove(oldProjectRole.id, "Verified")
@@ -74,8 +71,7 @@ async function sba(message, member, args) {
 }
 
 async function bot(message, member, args) {
-    if (!args[2]) return
-    if (!/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[2])) return
+    if (!args[2] || !/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[2])) throw "wrongLink"
     const oldProjectRole = await message.guild.roles.cache.find(r => r.name === `Bot Translator`)
     const newProjectRole = await message.guild.roles.cache.find(r => r.name === `Bot Proofreader`)
     await member.roles.remove(oldProjectRole.id, "Verified")

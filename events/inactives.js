@@ -35,9 +35,8 @@ async function check(client) {
                 //member.kick("Stood on the server for 14 days without verifying")
                 member.roles.add("569194996964786178", "Automatically verified after 2 weeks").then(() => member.roles.remove("756199836470214848", "Automatically verified after 2 weeks")) //Remove Alerted and add Verified
 
-            } return
-        }
-        if (member.joinedTimestamp <= alert) {
+            }
+        } else if (member.joinedTimestamp <= alert) {
             member.send("Hey there!\nWe noticed you haven't verified yourself on our server. Are you having any trouble? Please message Rodry or Stannya or just ask any questions in the <#569178590697095168> channel! Otherwise, please send your profile link like shown in the channel.\n\nThis message was sent to you because you have been on our server for too long, and you're in risk of getting kicked for inactivity soon.\nPlease do not reply to this bot.") //verify
                 .then(() => {
                     client.channels.cache.get("662660931838410754").send(`Sent an alert to ${member} as they've been in the server for 7 days without verifying.`)

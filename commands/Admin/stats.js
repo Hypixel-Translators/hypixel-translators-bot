@@ -44,15 +44,13 @@ module.exports = {
                 await bot(client)
                 project = "Bot"
                 channel = "bot"
-            }
-            else {
+            } else {
                 const errorEmbed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor("Statistics updater")
                     .setTitle(`Couldn't find the project with the name ${args[0]}.`)
                     .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                message.channel.send(errorEmbed)
-                return
+                return message.channel.send(errorEmbed)
             }
             const projectEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)

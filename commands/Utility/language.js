@@ -66,7 +66,6 @@ module.exports = {
                         await message.channel.send(embed)
                     }
                 })
-                return
             } else if (args[0] === "stats" && message.member.roles.cache.has("764442984119795732")) { //Discord Administrator
                 if (!args[1]) throw "noLang"
                 const files = fs.readdirSync(stringsFolder)
@@ -129,7 +128,6 @@ module.exports = {
                             message.channel.stopTyping()
                             message.channel.send(embed)
                         })
-                        return
                     }
                 })
             }

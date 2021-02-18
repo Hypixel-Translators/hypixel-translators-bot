@@ -27,7 +27,7 @@ client.on("message", async message => {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(getString("wrongLink", "global"))
+                    .setAuthor(getString("errors.wrongLink", "global"))
                     .setTitle(getString("wrongStringURL", "global"))
                     .setDescription(getString("example", "global").replace("%%url%%", "https://crowdin.com/translate/hypixel/286/en-en#106644"))
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
@@ -38,7 +38,7 @@ client.on("message", async message => {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(getString("wrongLink", "global"))
+                    .setAuthor(getString("errors.wrongLink", "global"))
                     .setTitle(getString("linkCorrectionDesc", "global").replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`"))
                     .setDescription(langFix)
                 return message.channel.send(message.author, embed)
@@ -119,10 +119,9 @@ client.on("message", async message => {
     }
     if (!allowed) {
         message.react("732298639736570007")
-        setTimeout(() => {
+        return setTimeout(() => {
             if (!message.deleted) message.delete()
         }, 5000);
-        return
     }
 
     //Stop and error if command is not allowed in DMs and command is sent in DMs
@@ -158,8 +157,7 @@ client.on("message", async message => {
                 .setAuthor(getString("cooldown", "global"))
                 .setTitle(timeLeftS)
                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            message.channel.send(embed)
-            return
+            return message.channel.send(embed)
         }
     }
 
@@ -211,21 +209,27 @@ client.on("message", async message => {
             .setAuthor(getString("error", "global"))
             .setTitle(error || error.message)
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        if (!getString(command.name, "help")) embed.addFields({ name: getString("usage", "global"), value: `\`${command.usage}\`` })
+        if (getString(command.name, "help") === "strings.dm.usage") embed.addFields({ name: getString("usage", "global"), value: `\`${command.usage}\`` })
         else embed.addFields({ name: getString("usage", "global"), value: `\`${getString(`${command.name}.usage`, "help")}\`` })
         message.channel.stopTyping()
-        message.channel.send(embed)
+        return message.channel.send(embed)
             .then(msg => {
-                if (!error) console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
-                else {
+                if (error.stack) {
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(errorColor)
+                        .setAuthor("Unexpected error!")
+                        .setTitle(error)
+                        .setDescription(`\`\`\`${error.stack}\`\`\``)
+                        .setFooter("Check the console for more details")
+                    message.guild.channels.cache.get("730042612647723058").send("ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
+                    console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
+                } else {
                     setTimeout(() => {
                         if (!message.deleted) message.delete()
                         if (!msg.deleted) msg.delete()
                     }, 10000);
                 }
             })
-        return
-
     } finally {
 
         //Try sending a tip
