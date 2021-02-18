@@ -1,5 +1,5 @@
 {
-    "sbaCrowdin": "Her er SkyblockAddons Crowdin-prosjektet: %%crowdin%%",
-    "sbaThread": "Her er tråden som viser frem modifikasjonen: %%thread%%",
+    "sbaCrowdin": "Here's the SkyblockAddons Crowdin project: %%crowdin%%.",
+    "sbaThread": "Here’s the thread showcasing the mod: %%thread%%.",
     "sbaDiscord": "Dette prosjektet er eid av Biscuit! Bli med i serveren: %%discord%%"
 }
