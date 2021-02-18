@@ -34,10 +34,9 @@
     "secondLeft": "Espera mais 1 segundo para usares `+%%command%%` outra vez.",
     "timeLeftT": "Espera mais %%time%% segundos para usares `+%%command%%` outra vez.",
     "minsLeftT": "Espera mais %%time%% minutos para usares `+%%command%%` outra vez.",
-    "wrongLink": "Link errado!",
     "linkCorrectionDesc": "Da próxima vez, muda o teu link para o formato %%format%%.",
     "wrongStringURL": "O link que enviaste é um link para o editor e não para a string em si!",
-    "example": "Clica no botão mostrado na imagem abaixo para obteres o link para a string correto. Ele deve ser parecido com isto: %%url%%",
+    "example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
     "reminderLang": "Não te esqueças de também alterar o teu link para o formato %%format%%.",
     "tip": "Dica",
     "tips": {
