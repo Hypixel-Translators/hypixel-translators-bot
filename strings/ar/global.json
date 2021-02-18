@@ -34,7 +34,6 @@
     "secondLeft": "فضلاً انتظر ثانية لإستعمال `+%%command%%` مرة أخرى.",
     "timeLeftT": "الرجاء الانتظار %%time%% ثانية لاستخدام `+%%command%%` مرة أخرى.",
     "minsLeftT": "الرجاء الانتظار %%time%% دقيقة لاستخدام `+%%command%%` مرة أخرى.",
-    "wrongLink": "Wrong link!",
     "linkCorrectionDesc": "الرجاء تغيير الرابط الخاص بك إلى تنسيق %%format%% في المرة القادمة.",
     "wrongStringURL": "The link you sent is a link to the editor and not the string itself!",
     "example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
