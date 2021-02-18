@@ -1,5 +1,5 @@
 {
-    "quickplayCrowdin": "QuickplayのCrowdinプロジェクトはこちら： %%crowdin%%",
-    "quickplayThread": "Modの紹介ページはこちら：%%thread%%",
-    "quickplayDiscord": "QuickplayのDiscordサーバーはこちら：%%discord%%"
+    "quickplayCrowdin": "Here's the Quickplay Crowdin project: %%crowdin%%.",
+    "quickplayThread": "Here’s the thread showcasing the mod: %%thread%%.",
+    "quickplayDiscord": "Here's the Quickplay Discord server: %%discord%%."
 }

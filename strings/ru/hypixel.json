@@ -1,5 +1,5 @@
 {
-    "hypixelCrowdin": "Вот проект Hypixel на Crowdin: %%crowdin%%.",
+    "hypixelCrowdin": "Here's the Hypixel Crowdin project: %%crowdin%%.",
     "hypixelGuide": "Если вы хотите ознакомиться с правилами проекта, выполните `+guide`.",
     "hypixelDiscord": "Discord сервер Hypixel можно найти здесь: %%discord%% (полезно для корректоров)."
 }
