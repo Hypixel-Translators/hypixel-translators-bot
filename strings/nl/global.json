@@ -27,7 +27,8 @@
         "noPermission": "Je hebt geen toestemming om dit commando in dit kanaal te gebruiken!",
         "contextSubArg": "Voer een subcommando in als eerste argument. Dit kan `get`, `add`, `edit`, `link` of `help` zijn.\nVoor meer informatie kun je `+context help` uitvoeren.",
         "apiError": "Er is iets misgegaan bij het uitwisselen van data met de API!",
-        "noSubCommand": "Dit subcommando kon niet worden gevonden!"
+        "noSubCommand": "Dit subcommando kon niet worden gevonden!",
+        "wrongLink": "Verkeerde link!"
     },
     "cooldown": "Afkoeltijd",
     "secondLeft": "Wacht nog een seconde voor je `+%%command%%` weer gebruikt.",
