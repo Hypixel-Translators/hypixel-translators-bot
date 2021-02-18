@@ -27,7 +27,8 @@
         "noPermission": "Bu komutu bu kanalda kullanmana izin verilmiyor!",
         "contextSubArg": "Lütfen ilk argüman olarak bir alt komut girin. Bu, `get`, `add`, `edit`, `link` veya `help` olabilir.\nBilgi için `+context help` komutunu çalıştırın.",
         "apiError": "Something went wrong while contacting the API!",
-        "noSubCommand": "That sub-command couldn't be found!"
+        "noSubCommand": "That sub-command couldn't be found!",
+        "wrongLink": "Wrong link!"
     },
     "cooldown": "Bekleme Süresi",
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
