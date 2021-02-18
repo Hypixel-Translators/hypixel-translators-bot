@@ -36,7 +36,7 @@
     "minsLeftT": "Por favor, espera otros %%time%% minutos para usar `+%%command%%` de nuevo.",
     "linkCorrectionDesc": "Cambia tu enlace al formato de %%format%% para la próxima vez.",
     "wrongStringURL": "¡El enlace que has enviado es un enlace al editor y no al string!",
-    "example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
+    "example": "Haz clic en el botón que muestra la imagen de abajo para obtener la URL del string correcta. Debería verse así: %%url%%",
     "reminderLang": "No olvides también cambiar tu enlace al formato %%format%%.",
     "tip": "Consejo",
     "tips": {
