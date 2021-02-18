@@ -34,7 +34,6 @@
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
     "timeLeftT": "Будь ласка, зачекайте ще %%time%% секунд(у\\\\и), щоб використовувати `+%%command%%` знову.",
     "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
-    "wrongLink": "Wrong link!",
     "linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
     "wrongStringURL": "The link you sent is a link to the editor and not the string itself!",
     "example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
