@@ -27,7 +27,8 @@
         "noPermission": "Você não possui permissão para usar este comando neste canal!",
         "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, execute`+context help`.",
         "apiError": "Something went wrong while contacting the API!",
-        "noSubCommand": "That sub-command couldn't be found!"
+        "noSubCommand": "That sub-command couldn't be found!",
+        "wrongLink": "Wrong link!"
     },
     "cooldown": "Tempo de recarga",
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
