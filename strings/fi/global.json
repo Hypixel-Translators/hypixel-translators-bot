@@ -27,7 +27,8 @@
         "noPermission": "Sinulla ei ole oikeuksia käyttää tuota komentoa tällä kanavalla!",
         "contextSubArg": "Ole hyvä ja syötä alakomento ensimmäisenä argumenttina. Tämä voi olla `get`, `add`, `edit`, `link` tai `help`.\nSaadaksesi lisätietoa käytä komentoa `+context help`.",
         "apiError": "Jokin meni vikaan yhdistettäessä ohjelmointirajapintaan!",
-        "noSubCommand": "Tätä alakomentoa ei löytynyt!"
+        "noSubCommand": "Tätä alakomentoa ei löytynyt!",
+        "wrongLink": "Väärä linkki!"
     },
     "cooldown": "Odotusaika",
     "secondLeft": "Ole hyvä ja odota vielä sekunti ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
