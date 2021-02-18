@@ -1,5 +1,5 @@
 {
-    "sbaCrowdin": "Tässä SkyblockAddonsin Crowdin-projekti: %%crowdin%%",
-    "sbaThread": "Tässä viestiketjussa esitellään modi: %%thread%%",
+    "sbaCrowdin": "Here's the SkyblockAddons Crowdin project: %%crowdin%%.",
+    "sbaThread": "Here’s the thread showcasing the mod: %%thread%%.",
     "sbaDiscord": "Tämän projektin omistaa Biscuit! Liity hänen palvelimelleen osoitteessa %%discord%%"
 }
