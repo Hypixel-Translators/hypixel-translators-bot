@@ -1,5 +1,5 @@
 {
-    "sbaCrowdin": "Вот проект SkyblockAddons на Crowdin: %%crowdin%%.",
-    "sbaThread": "Вот тема, демонстрирующий мод: %%thread%%.",
-    "sbaDiscord": "Этот проект принадлежит Biscuit! Присоединяйтесь к его серверу: %%discord%%."
+    "sbaCrowdin": "Here's the SkyblockAddons Crowdin project: %%crowdin%%.",
+    "sbaThread": "Here’s the thread showcasing the mod: %%thread%%.",
+    "sbaDiscord": "Этот проект принадлежит Biscuit! Присоединяйтесь к его серверу: %%discord%%"
 }

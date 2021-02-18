@@ -1,5 +1,5 @@
 {
-    "hypixelCrowdin": "Aquí está el proyecto Hypixel Crowdin: %%crowdin%%.",
+    "hypixelCrowdin": "Here's the Hypixel Crowdin project: %%crowdin%%.",
     "hypixelGuide": "Si desea consultar las reglas del proyecto, haga `+guide`.",
-    "hypixelDiscord": "El discord de Hypixel se puede encontrar en %%discord%%. (útil para correctores de pruebas)."
+    "hypixelDiscord": "El discord de Hypixel se puede encontrar en %%discord%% (útil para correctores de pruebas)."
 }

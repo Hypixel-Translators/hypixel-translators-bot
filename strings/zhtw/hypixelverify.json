@@ -1,14 +1,14 @@
 {
-    "moduleName": "Hypixel Verification",
-    "success": "You successfully verified yourself as %%player%%!",
+    "moduleName": "Hypixel 驗證",
+    "success": "你已成功驗證為 %%player%%！",
     "role": "You were given the %%role%% role due to your rank on the server.",
     "noRoles": "You were not given any roles because you don't have a rank on Hypixel or we couldn't find it! Contact an administrator if you believe this is an error.",
-    "alreadyVerified": "You are already verified!",
-    "nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
-    "error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
+    "alreadyVerified": "你已經驗證過了！",
+    "nameChangeDisclaimer": "請注意︰如果你更改了名稱，則無需再次進行驗證！",
+    "error": "我們無法驗證你的身份，因為你在 Hypixel 的 Discord 帳號設定不正確！",
     "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this.",
-    "unverified": "You were successfully unverified!",
-    "notUnverified": "Couldn't unverify you!",
+    "unverified": "你已成功解除驗證！",
+    "notUnverified": "無法將你解除驗證！",
     "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `+hypixelverify <username>`.",
     "executedBy": "由 %%user%% 執行"
 }
