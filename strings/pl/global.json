@@ -34,10 +34,9 @@
     "secondLeft": "Poczekaj sekundę, aby ponownie użyć `+%%command%%`.",
     "timeLeftT": "Poczekaj kolejne %%time%% sekund, aby ponownie użyć `+%%command%%`.",
     "minsLeftT": "Poczekaj kolejne %%time%% minut, aby ponownie użyć `+%%command%%`.",
-    "wrongLink": "Zły odnośnik!",
     "linkCorrectionDesc": "Następnym razem zmień odnośnik na format %%format%%.",
     "wrongStringURL": "Wysłany link jest linkiem do edytora, a nie do samego ciągu!",
-    "example": "Kliknij przycisk pokazany na obrazku poniżej, aby uzyskać poprawny link ciągu. Powinien wyglądać on tak: %%url%%",
+    "example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
     "reminderLang": "Nie zapomnij również zmienić odnośnika na format %%format%%.",
     "tip": "Wskazówka",
     "tips": {
