@@ -27,7 +27,8 @@
         "noPermission": "Nie możesz używać tej komendy na tym kanale!",
         "contextSubArg": "Wprowadź podpolecenie jako pierwszy argument. Może to być: `get`, `add`, `edit`, `link` lub `help`.\nAby uzyskać informacje, użyj `+context help`.",
         "apiError": "Coś poszło nie tak podczas kontaktowania się z API!",
-        "noSubCommand": "Ta podkomenda nie została znaleziona!"
+        "noSubCommand": "Ta podkomenda nie została znaleziona!",
+        "wrongLink": "Zły odnośnik!"
     },
     "cooldown": "Czas odnawiania",
     "secondLeft": "Poczekaj sekundę, aby ponownie użyć `+%%command%%`.",
