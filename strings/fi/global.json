@@ -36,7 +36,7 @@
     "wrongLink": "Väärä linkki!",
     "linkCorrectionDesc": "Vaihdathan osoitteen ensi kerralla muotoon %%format%%.",
     "wrongStringURL": "Lähettämäsi linkki ohjaa muokkaajaan eikä itse käännettävään tekstiin!",
-    "example": "Klikkaa kuvan mukaista painiketta muokkaajassa saadaksesi oikean linkin. Sen tulisi näyttää tältä: %%url%%.",
+    "example": "Klikkaa kuvan mukaista painiketta muokkaajassa saadaksesi oikean linkin. Sen tulisi näyttää tältä: %%url%%",
     "reminderLang": "Älä unohda vaihtaa linkkiäsi muotoon %%format%%.",
     "tip": "Vihje",
     "tips": {
