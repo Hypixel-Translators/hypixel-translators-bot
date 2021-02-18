@@ -27,7 +27,8 @@
         "noPermission": "You're not allowed to execute this command on this channel!",
         "contextSubArg": "Kérlek adj meg egy al-parancsot. Ez lehet `get`, `add`, `edit`, `link` vagy `help`.\nTöbb információért használd a `+context help` parancsot.",
         "apiError": "Something went wrong while contacting the API!",
-        "noSubCommand": "Ez az al-parancs nem található!"
+        "noSubCommand": "Ez az al-parancs nem található!",
+        "wrongLink": "Nem megfelelő link!"
     },
     "cooldown": "Cooldown",
     "secondLeft": "Kérlek várj egy másodpercet hogy újra használd a `+%%command%%` parancsot.",
