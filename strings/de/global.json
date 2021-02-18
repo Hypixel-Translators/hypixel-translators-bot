@@ -27,7 +27,8 @@
         "noPermission": "Du darfst diesen Befehl in diesem Kanal nicht ausführen!",
         "contextSubArg": "Bitte gib einen Unterbefehl als erstes Argument an. Dies kann entweder `get`, `add`, `edit`, `link` oder `help` sein.\nFür Informationen, führe `+context help` aus.",
         "apiError": "Bei der Kontaktaufnahme mit der API ist etwas schief gelaufen!",
-        "noSubCommand": "Der Unterbefehl konnte nicht gefunden werden!"
+        "noSubCommand": "Der Unterbefehl konnte nicht gefunden werden!",
+        "wrongLink": "Wrong link!"
     },
     "cooldown": "Abklingzeit",
     "secondLeft": "Bitte warte noch eine Sekunde, um `+%%command%%` erneut zu benutzen.",
