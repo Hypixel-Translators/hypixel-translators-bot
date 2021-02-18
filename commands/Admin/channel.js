@@ -107,7 +107,8 @@ function rules(message) {
                 { name: "4 - Nicks", value: "Your nickname must not contain zalgo or a prefix for a language you do not translate (e.g. `[PT]` or `[🇵🇹]`). It should also obey the remaining rules." },
                 { name: "5 - Do not excessively tag Discord and Hypixel Staff members/project managers.", value: "You are allowed to tag staff but please keep it to a minimum and only do so if you need an important question answered. Otherwise, please refrain from doing it. Please do not tag project managers unless they allow you to." },
                 { name: "6 - Always try to speak in English.", value: "If you make a reference in another language on a public channel, please explain to the people who don't speak that language what it means." },
-                { name: "7 - All hypixel rules apply here.", value: "If you are not familiar with those, check them out at https://hypixel.net/rules." },
+                { name: "7 - Follow all Hypixel rules.", value: "If you are not familiar with those, check them out [here](https://hypixel.net/rules)." },
+                { name: "8- Follow Discord's ToS and Community Guidelines", value: "This includes not using modified Discord clients, self bots and more. Click [here](https://discord.com/terms) to read the ToS, or [here](https://discord.com/guidelines) to read the Community Guidelines" },
                 { name: "And most importantly have fun!", value: "If you see something against the rules or something that makes you feel unsafe, please let staff know. We want this server to be a welcoming space for everyone!" }
             )
             .setFooter("Have any questions? Ask any staff member, they're here to help!")
