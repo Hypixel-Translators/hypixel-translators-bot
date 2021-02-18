@@ -36,7 +36,7 @@
     "wrongLink": "Verkeerde link!",
     "linkCorrectionDesc": "Verander je link de volgende keer naar de indeling %%format%%.",
     "wrongStringURL": "Je hebt een link naar de editor gestuurd en niet naar de tekenreeks zelf!",
-    "example": "Klik op de knop op de afbeelding hieronder om de juiste URL te krijgen. Deze moet eruitzien als: %%url%%.",
+    "example": "Klik op de knop op de afbeelding hieronder om de juiste URL te krijgen. Deze moet eruitzien als: %%url%%",
     "reminderLang": "Vergeet ook niet je link te veranderen naar het formaat %%format%%.",
     "tip": "Tip",
     "tips": {
