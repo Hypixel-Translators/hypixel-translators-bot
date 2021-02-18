@@ -61,8 +61,8 @@
         "description": "Geeft je simpele Hypixel-statistieken voor de opgegeven speler."
     },
     "hypixelverify": {
-        "usage": "+hypixelverify <username> | +hypixelunverify",
-        "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
+        "usage": "+hypixelverify <gebruikersnaam> | +hypixelunverify",
+        "description": "Koppelt je Discord-account aan je Hypixel-account. Voer `+hypixelunverify` uit om dit ongedaan te maken."
     },
     "tip": {
         "usage": "+tip",
