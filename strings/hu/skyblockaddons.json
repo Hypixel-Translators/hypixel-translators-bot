@@ -1,5 +1,5 @@
 {
-    "sbaCrowdin": "SkyblockAddons Crowdin projekt: %%crowdin%%",
-    "sbaThread": "Itt a modot bemutató poszt: %%thread%%",
+    "sbaCrowdin": "Here's the SkyblockAddons Crowdin project: %%crowdin%%.",
+    "sbaThread": "Here’s the thread showcasing the mod: %%thread%%.",
     "sbaDiscord": "A projekt tulajdonosa Biscuit! Itt csatlakozhatsz a szerverére %%discord%%"
 }
