@@ -27,7 +27,8 @@
         "noPermission": "你沒有權限在本頻道執行這個指令！",
         "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, execute`+context help`.",
         "apiError": "Something went wrong while contacting the API!",
-        "noSubCommand": "That sub-command couldn't be found!"
+        "noSubCommand": "That sub-command couldn't be found!",
+        "wrongLink": "Wrong link!"
     },
     "cooldown": "Cooldown",
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
