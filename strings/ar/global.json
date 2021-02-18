@@ -27,7 +27,8 @@
         "noPermission": "غير مسموح لك استعمال هذا الأمر في هذا الروم!",
         "contextSubArg": "الرجاء إدخال أمر ثانوي. يمكن أن يكون هذا إما `get`, `add`, `edit`, `link` or `help`.\nللحصول على معلومات، قم بإستعمال `+context help`.",
         "apiError": "حدث خطأ ما أثناء الاتصال بالـAPI!",
-        "noSubCommand": "لم يتم العثور علي هذا الأمر!"
+        "noSubCommand": "لم يتم العثور علي هذا الأمر!",
+        "wrongLink": "Wrong link!"
     },
     "cooldown": "فترة الاستراحة",
     "secondLeft": "فضلاً انتظر ثانية لإستعمال `+%%command%%` مرة أخرى.",
