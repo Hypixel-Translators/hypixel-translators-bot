@@ -1,5 +1,5 @@
 {
-    "hypixelCrowdin": "Here's the Hypixel Crowdin project: %%crowdin%%.",
+    "hypixelCrowdin": "هنا رابط مشروع هايبكسل على Crowdin: %%crowdin%%",
     "hypixelGuide": "إذا كنت تود رؤية توجيهات لترجمة هايبكسل، قم بتنفيذ `+guide`.",
     "hypixelDiscord": "يمكن العثور على سيرفر الديسكورد لهايبكسل في %%discord%% (مفيد للمدققين)."
 }
