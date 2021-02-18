@@ -27,7 +27,8 @@
         "noPermission": "You're not allowed to execute this command on this channel!",
         "contextSubArg": "Παρακαλώ εισήγαγε μία υπο-εντολή ως πρώτο επιχείρημα. Αυτό μπορεί να είναι είτε το `get`, `add`, `edit`, `link` ή `help`.\nΓια πληροφορίες, τρέξε `+context help`.",
         "apiError": "Something went wrong while contacting the API!",
-        "noSubCommand": "That sub-command couldn't be found!"
+        "noSubCommand": "That sub-command couldn't be found!",
+        "wrongLink": "Wrong link!"
     },
     "cooldown": "Χρόνος Επαναφόρτωσης",
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
