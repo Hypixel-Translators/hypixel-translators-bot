@@ -34,10 +34,9 @@
     "secondLeft": "Ole hyvä ja odota vielä sekunti ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
     "timeLeftT": "Ole hyvä ja odota vielä %%time%% sekuntia ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
     "minsLeftT": "Ole hyvä ja odota vielä %%time%% minuuttia ennen kuin voit käyttää komentoa `+%%command%%` uudelleen.",
-    "wrongLink": "Väärä linkki!",
     "linkCorrectionDesc": "Vaihdathan osoitteen ensi kerralla muotoon %%format%%.",
     "wrongStringURL": "Lähettämäsi linkki ohjaa muokkaajaan eikä itse käännettävään tekstiin!",
-    "example": "Klikkaa kuvan mukaista painiketta muokkaajassa saadaksesi oikean linkin. Sen tulisi näyttää tältä: %%url%%",
+    "example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
     "reminderLang": "Älä unohda vaihtaa linkkiäsi muotoon %%format%%.",
     "tip": "Vihje",
     "tips": {
