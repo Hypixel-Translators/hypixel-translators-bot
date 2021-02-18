@@ -34,7 +34,6 @@
     "secondLeft": "Bitte warte noch eine Sekunde, um `+%%command%%` erneut zu benutzen.",
     "timeLeftT": "Bitte warte noch %%time%% Sekunden, um den Befehl `+%%command%%` erneut zu benutzen.",
     "minsLeftT": "Bitte warte weitere %%time%% Minuten, um `+%%command%%` erneut zu verwenden.",
-    "wrongLink": "Wrong link!",
     "linkCorrectionDesc": "Bitte ändere deinen Link nächstes Mal zum %%format%%-Format.",
     "wrongStringURL": "The link you sent is a link to the editor and not the string itself!",
     "example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
