@@ -7,7 +7,7 @@ const { updateRoles } = require("./hypixelverify")
 module.exports = {
     name: "hypixelstats",
     description: "Shows you basic Hypixel stats for the provided user.",
-    usage: "+hypixelstats <username> [social]",
+    usage: "+hypixelstats [username] [social]",
     aliases: ["hstats"],
     cooldown: 45,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
@@ -50,20 +50,22 @@ module.exports = {
                 //Update user's roles if they're verified
                 if (json.uuid === authorDb.uuid) updateRoles(message, json)
 
+                //Define values used in both subcommands
+                let rank // some ranks are just prefixes so this code accounts for that
+                let color
+                if (json.prefix) {
+                    color = parseColorCode(json.prefix)
+                    rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
+                }
+                else {
+                    color = parseColorCode(json.rank_formatted)
+                    rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
+                }
+                username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
+
                 if (!args[1] || args[1] === "stats") {
 
                     //Define each value
-                    let rank // some ranks are just prefixes so this code accounts for that
-                    let color
-                    if (json.prefix) {
-                        color = parseColorCode(json.prefix)
-                        rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
-                    }
-                    else {
-                        color = parseColorCode(json.rank_formatted)
-                        rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
-                    }
-                    username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
                     let online
                     if (json.online) online = getString("online")
                     else online = getString("offline")
