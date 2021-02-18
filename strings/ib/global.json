@@ -27,7 +27,8 @@
         "noPermission": "U r not alæoud to excut dis acomand on dis chanle!",
         "contextSubArg": "Oh pls entar sbusbacomand as 1nd gargarment. Dis scan be `get`, `add`, `edit`, `link` ore `help`.\nIf ur too dumb, do `+context help`.",
         "apiError": "Eror with talk too API computer stuff!",
-        "noSubCommand": "Dat sub commnad found? NO!"
+        "noSubCommand": "Dat sub commnad found? NO!",
+        "wrongLink": "Good link? NO, idot!"
     },
     "cooldown": "Time to get cold and not hot",
     "secondLeft": "U quicc, but too quicc so pls wait on skakund befr do `+%%command%%`.",
