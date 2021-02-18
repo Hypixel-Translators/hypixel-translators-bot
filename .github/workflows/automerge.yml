@@ -29,6 +29,5 @@ jobs:
           MERGE_LABELS: ""
           MERGE_METHOD: "squash"
           UPDATE_LABELS: ""
-          MERGE_COMMIT_MESSAGE: "New Translations"
           MERGE_FORKS: false
           MERGE_DELETE_BRANCH: true
