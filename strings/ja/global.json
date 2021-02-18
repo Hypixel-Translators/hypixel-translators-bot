@@ -34,7 +34,6 @@
     "secondLeft": "再度 `+%%command%%` を使用するには数秒お待ちください。",
     "timeLeftT": "もう一度 `+%%command%%` を使用するにはあと%%time%%秒お待ちください。",
     "minsLeftT": "もう一度 `+%%command%%` を使用するにはあと%%time%%分お待ちください。",
-    "wrongLink": "リンクが間違っています！",
     "linkCorrectionDesc": "次回はリンクの型を%%format%%に変更してください。",
     "wrongStringURL": "The link you sent is a link to the editor and not the string itself!",
     "example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
