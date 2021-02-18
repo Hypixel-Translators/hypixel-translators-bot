@@ -10,7 +10,7 @@ module.exports = {
     usage: "+languagestats <language>",
     aliases: ["langstats", "lstats"],
     cooldown: 30,
-    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335", "551693960913879071"], // bots staff-bots bot-development bot-translators admin-bots
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
     async execute(message, args, getString) {
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         let rawLang

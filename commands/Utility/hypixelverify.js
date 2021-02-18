@@ -9,7 +9,7 @@ module.exports = {
     usage: "+hypixelverify <username>",
     aliases: ["hverify", "hypixellink", "hlink", "hypixelunverify", "hunverify"],
     cooldown: 60,
-    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
     async execute(message, args, getString) {
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
 

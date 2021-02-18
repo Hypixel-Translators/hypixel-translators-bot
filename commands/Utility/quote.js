@@ -8,7 +8,7 @@ module.exports = {
     usage: "+quote [index] | quote add <quote> / <author mention>",
     cooldown: 5,
     allowDM: true,
-    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-development bot-translators
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development bot-translators
     async execute(message, args, getString) {
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         const collection = getDb().collection("quotes")

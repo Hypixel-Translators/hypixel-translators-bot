@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["commands", "cmds", "info", "botinfo"],
   usage: "+help [page | command name]",
   cooldown: 5,
-  channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
+  channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
   allowDM: true,
   async execute(message, args, getString) {
     const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)

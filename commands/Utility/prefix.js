@@ -9,7 +9,7 @@ module.exports = {
   aliases: ["langprefix", "languageprefix"],
   usage: "+prefix [flags]",
   cooldown: 30,
-  channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
+  channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
   async execute(message, args, getString) {
     const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
     const nickNoPrefix = message.member.displayName.replace(/\[[^\s]*\] /g, "")

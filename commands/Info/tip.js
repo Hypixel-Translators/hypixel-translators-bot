@@ -8,7 +8,7 @@ module.exports = {
   cooldown: 10,
   allowDM: true,
   allowTip: false,
-  channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335", "551693960913879071"], // bots staff-bots bot-development bot-translators admin-bots
+  channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
   execute(message, args, getString) {
     const keys = Object.keys(getString("tips", "global"))
     const tip = getString(`tips.${keys[keys.length * Math.random() << 0]}`, "global")
