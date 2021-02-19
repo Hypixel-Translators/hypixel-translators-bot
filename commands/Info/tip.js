@@ -1,6 +1,3 @@
-const { neutralColor } = require("../../config.json")
-const Discord = require("discord.js")
-
 module.exports = {
   name: "tip",
   description: "Gives you a random tip.",

@@ -8,6 +8,7 @@ module.exports = {
     name: "context",
     description: "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command.",
     usage: "+context get|add|edit|link|help <arguments>",
+    roleWhitelist: ["569839580971401236", "569839517444341771"],
     channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "801904400826105876", "550951034332381184", "713084081579098152"], //off-topic memes pets food suggestions no-mic
     cooldown: 30,
     async execute(message, args, getString) {
@@ -15,7 +16,6 @@ module.exports = {
         if (!args[0]) throw "contextSubArg"
         const subCmd = args[0].toLowerCase()
         try {
-            if (!message.member.roles.cache.has("569839580971401236") && !message.member.roles.cache.has("569839517444341771") && !message.member.hasPermission("MANAGE_ROLES")) throw "noTrPr" //Hypixel Translator and Hypixel Proofreader
             if (subCmd === "add" || subCmd === "new") await addToSpreadsheet(executedBy, message, getString, args)
             else if (subCmd === "get" || subCmd === "show") await getFromSpreadsheet(executedBy, message, getString, args)
             else if (subCmd === "edit") await editInSpreadsheet(executedBy, message, getString, args)
