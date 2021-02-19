@@ -22,7 +22,6 @@
         "noPlayer": "That player has never joined Hypixel!",
         "notVerified": "That user hasn't linked their Hypixel account yet!",
         "disabled": "Bu komut geçici olarak devre dışı bırakıldı.",
-        "noTrPr": "Bir çevirmen veya düzeltmen değilsin, yani bunu kullanamazsın!",
         "noAccess": "Bu komutu kullanmana izin verilmiyor!",
         "noPermission": "Bu komutu bu kanalda kullanmana izin verilmiyor!",
         "contextSubArg": "Lütfen ilk argüman olarak bir alt komut girin. Bu, `get`, `add`, `edit`, `link` veya `help` olabilir.\nBilgi için `+context help` komutunu çalıştırın.",
