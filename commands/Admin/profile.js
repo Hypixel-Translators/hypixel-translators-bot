@@ -16,8 +16,9 @@ module.exports = {
             user = message.client.users.cache.find(m => m.id === userRaw || m.tag === userRaw || m.username === userRaw || m.tag.toLowerCase().includes(userRaw.toLowerCase()))
             if (!user) throw "falseUser"
         }
+        const collection = getDb().collection("users")
         if (!args[1]) {
-            const userDb = await getDb().collection("users").findOne({ id: user.id })
+            const userDb = await collection.findOne({ id: user.id })
             if (userDb.profile) {
                 const embed = new Discord.MessageEmbed()
                     .setColor(neutralColor)
@@ -36,7 +37,7 @@ module.exports = {
             }
         } else {
             if (/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[1])) {
-                await getDb().collection("users").updateOne({ id: user.id }, { $set: { profile: args[1] } })
+                await collection.updateOne({ id: user.id }, { $set: { profile: args[1] } })
                     .then(r => {
                         if (r.result.nModified) {
                             const embed = new Discord.MessageEmbed()
@@ -56,15 +57,7 @@ module.exports = {
                             return message.channel.send(embed)
                         }
                     })
-            } else {
-                const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
-                    .setAuthor("User Profile")
-                    .setTitle(`Couldn't update ${user.tag}'s Crowdin profile!`)
-                    .setDescription(`Their profile you tried to add is not a valid Crowdin profile URL.`)
-                    .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                return message.channel.send(embed)
-            }
+            } else throw "wrongLink"
         }
     }
 }
