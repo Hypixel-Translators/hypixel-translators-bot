@@ -22,7 +22,6 @@
         "noPlayer": "Tämä pelaaja ei ole koskaan käynyt Hypixelissä!",
         "notVerified": "That user hasn't linked their Hypixel account yet!",
         "disabled": "Tämä komento on toistaiseksi pois käytöstä.",
-        "noTrPr": "Et ole kääntäjä tai oikolukija, joten et voi käyttää tätä!",
         "noAccess": "Sinulla ei ole oikeuksia käyttää tuota komentoa!",
         "noPermission": "Sinulla ei ole oikeuksia käyttää tuota komentoa tällä kanavalla!",
         "contextSubArg": "Ole hyvä ja syötä alakomento ensimmäisenä argumenttina. Tämä voi olla `get`, `add`, `edit`, `link` tai `help`.\nSaadaksesi lisätietoa käytä komentoa `+context help`.",
