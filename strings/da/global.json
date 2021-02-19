@@ -22,7 +22,6 @@
         "noPlayer": "That player has never joined Hypixel!",
         "notVerified": "That user hasn't linked their Hypixel account yet!",
         "disabled": "Denne kommando er midlertidigt deaktiveret.",
-        "noTrPr": "Du er ikke en oversætter eller en korrekturlæser, så du kan ikke bruge det her!",
         "noAccess": "Du har ikke tilladelse til at udføre denne kommando!",
         "noPermission": "You're not allowed to execute this command on this channel!",
         "contextSubArg": "Skriv venligst en sub-kommando som det første argument. Det kan enten være `get`, `add`, `edit`, `link` eller `help`. \nFor information, skriv `+context help`.",
