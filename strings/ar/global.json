@@ -22,7 +22,6 @@
         "noPlayer": "هذا الاعب لم يدخل هايبكسل ابدا!",
         "notVerified": "That user hasn't linked their Hypixel account yet!",
         "disabled": "هذا الأمر موقَّف بشكل مؤقت.",
-        "noTrPr": "أنت لست مترجماً أو مدققاً مطبعياً، لذا لا يمكنك استخدام هذا!",
         "noAccess": "غير مسموح لك تنفيذ هذا الأمر!",
         "noPermission": "غير مسموح لك استعمال هذا الأمر في هذا الروم!",
         "contextSubArg": "الرجاء إدخال أمر ثانوي. يمكن أن يكون هذا إما `get`, `add`, `edit`, `link` or `help`.\nللحصول على معلومات، قم بإستعمال `+context help`.",
