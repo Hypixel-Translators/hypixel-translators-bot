@@ -1,6 +1,6 @@
 {
     "moduleName": "Prefix",
-    "usage": "+prefix [flags]",
+    "usage": "+prefix [旗幟]",
     "loading": "Just a second...",
     "loadingRoles": "正在取得你的身份組...",
     "errors": {
@@ -16,7 +16,7 @@
         "notSaved": "so your prefix wasn't saved."
     },
     "customPrefix": "Feel free to run `+prefix <flags>` to get your desired prefix.",
-    "caution": "Caution",
+    "caution": "注意",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "React with all flags you want to add to your prefix in order.",
     "reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",
