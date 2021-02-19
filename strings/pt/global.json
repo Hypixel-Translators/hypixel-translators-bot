@@ -22,7 +22,6 @@
         "noPlayer": "Esse jogador nunca entrou no Hypixel!",
         "notVerified": "Esse utilizador ainda não conectou a sua conta no Hypixel!",
         "disabled": "Este comando foi temporariamente desativado.",
-        "noTrPr": "Não és um tradutor nem um revisor, logo não podes usar isto!",
         "noAccess": "Não tens permissão para executar esse comando!",
         "noPermission": "Não tens permissão para executar esse comando neste canal!",
         "contextSubArg": "Tens de incluir um comando secundário como primeiro argumento. Este pode ser `get`, `add`, `edit`, `link` ou `help`. \nPara mais informações, faz `+context help`.",
