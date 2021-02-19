@@ -22,7 +22,6 @@
         "noPlayer": "Die speler heeft Hypixel nooit toegetreden!",
         "notVerified": "Die gebruiker heeft nog geen Hypixel-account gekoppeld!",
         "disabled": "Dit commando is tijdelijk uitgeschakeld.",
-        "noTrPr": "Je bent geen vertaler of proeflezer, dus je kunt dit niet gebruiken!",
         "noAccess": "Je hebt geen toestemming om dat commando te gebruiken!",
         "noPermission": "Je hebt geen toestemming om dit commando in dit kanaal te gebruiken!",
         "contextSubArg": "Voer een subcommando in als eerste argument. Dit kan `get`, `add`, `edit`, `link` of `help` zijn.\nVoor meer informatie kun je `+context help` uitvoeren.",

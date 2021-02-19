@@ -1,5 +1,5 @@
 {
-    "moduleName": "Player stats",
+    "moduleName": "玩家統計數據",
     "description": "Here are some Hypixel stats for %%username%%, obtained [here]%%link%%.",
     "socialMedia": "Here are the linked social media for %%username%%, obtained [here]%%link%%.",
     "updateNotice": "Note: Information shown here might take a few minutes to update after you've changed something.",
@@ -14,7 +14,7 @@
     "last_login": "Online since",
     "last_logout": "Last seen",
     "link": "Link",
-    "notConnected": "Not connected",
+    "notConnected": "未連結",
     "blocked": "Blocked server link",
     "unknown": "unknown",
     "lastGameHidden": "Last game is hidden or couldn't be obtained!",

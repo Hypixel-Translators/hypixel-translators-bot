@@ -22,7 +22,6 @@
         "noPlayer": "Dieser Spieler ist Hypixel nie beigetreten!",
         "notVerified": "That user hasn't linked their Hypixel account yet!",
         "disabled": "Der Befehl ist vorübergehend deaktiviert.",
-        "noTrPr": "Du bist kein Translator oder Proofreader, daher kannst du es nicht benutzen!",
         "noAccess": "Du darfst diesen Befehl nicht ausführen!",
         "noPermission": "Du darfst diesen Befehl in diesem Kanal nicht ausführen!",
         "contextSubArg": "Bitte gib einen Unterbefehl als erstes Argument an. Dies kann entweder `get`, `add`, `edit`, `link` oder `help` sein.\nFür Informationen, führe `+context help` aus.",

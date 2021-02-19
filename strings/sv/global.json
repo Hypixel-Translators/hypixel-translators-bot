@@ -22,7 +22,6 @@
         "noPlayer": "Denna spelare har aldrig anslutit sig till Hypixel!",
         "notVerified": "That user hasn't linked their Hypixel account yet!",
         "disabled": "Denna funktion har tillfälligt inaktiverats.",
-        "noTrPr": "You're not a translator or proofreader, so you can't use this!",
         "noAccess": "Du har inte behörighet att utföra detta kommado!",
         "noPermission": "You're not allowed to execute this command on this channel!",
         "contextSubArg": "Ange ett underkommando som första argument. Detta kan vara `get`, `add`, `edit`, `link` eller `help`.\nFör mer information, kör `+context help`.",

@@ -4,7 +4,7 @@
         "exists1": "Wpis kontekstowy ",
         "exists2": " już istnieje, więc Twój nie został dodany. Zamiast tego użyj `+context edit`.",
         "didntReply": "Nie odpowiedziałeś w porę, ",
-        "hitReaction": "Zareagowałeś z %%voteNo%%, ",
+        "hitReaction": "Zareagowano %%voteNo%%, ",
         "cancelledPrompt": "więc zgłoszenie zostało anulowane. ",
         "readdTryAgain": "Dodaj reakcję 📑, aby spróbować ponownie."
     },
