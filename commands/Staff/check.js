@@ -16,7 +16,6 @@ module.exports = {
       member = message.guild.members.cache.find(m => m.id === userRaw || m.user.tag === userRaw || m.user.username === userRaw || m.nickname === userRaw || m.user.tag.toLowerCase().includes(userRaw.toLowerCase()) || m.displayName.toLowerCase().includes(userRaw.toLowerCase()))
       if (!member) throw "falseUser"
     }
-    await member.fetch()
 
     const userDb = await getDb().collection("users").findOne({id: member.user.id})
     let note
