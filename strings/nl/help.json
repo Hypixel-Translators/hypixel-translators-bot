@@ -64,6 +64,10 @@
         "usage": "+hypixelverify <gebruikersnaam> | +hypixelunverify",
         "description": "Koppelt je Discord-account aan je Hypixel-account. Voer `+hypixelunverify` uit om dit ongedaan te maken."
     },
+    "8ball": {
+        "usage": "+8ball <question>",
+        "description": "The Magic 8 Ball that will answer all your questions."
+    },
     "tip": {
         "usage": "+tip",
         "description": "Geeft je een willekeurige servertip."
