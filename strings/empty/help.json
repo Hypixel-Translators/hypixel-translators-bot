@@ -64,6 +64,10 @@
         "usage": "crwdns1182:0crwdne1182:0",
         "description": "crwdns1184:0crwdne1184:0"
     },
+    "8ball": {
+        "usage": "crwdns1238:0crwdne1238:0",
+        "description": "crwdns1240:0crwdne1240:0"
+    },
     "tip": {
         "usage": "crwdns622:0crwdne622:0",
         "description": "crwdns624:0crwdne624:0"
