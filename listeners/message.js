@@ -169,26 +169,27 @@ client.on("message", async message => {
     function getString(path, cmd, lang) {
         let enStrings = require(`../strings/en/${cmd || command.name}.json`)
         try { strings = require(`../strings/${lang || author.lang}/${cmd || command.name}.json`) }
-        catch { console.error(`Couldn't get command strings for the command ${cmd || command.name} on the language ${lang || author.lang}. The file does not exist yet.`) }
+        catch { strings = require(`../strings/en/${cmd || command.name}.json`) }
         const pathSplit = path.split(".")
         let string
         pathSplit.forEach(pathPart => {
             if (pathPart) {
-                let jsonElement = strings[pathPart]
+                let jsonElement
+                if (strings[pathPart]) jsonElement = strings[pathPart]
+                else jsonElement = enStrings[pathPart]
 
                 if (typeof jsonElement === "object" && pathSplit.indexOf(pathPart) !== pathSplit.length - 1) { //check if the string isn't an object nor the end of the path
-                    strings = strings[pathPart]
+                    if (strings[pathPart]) strings = strings[pathPart]
                     enStrings = enStrings[pathPart]
                     return
                 } else {
-                    string = jsonElement
+                    string = strings[pathPart]
                     if (!string) {
                         string = enStrings[pathPart] //if the string hasn't been added yet
-                        console.error(`Couldn't get string ${path} in ${lang || author.lang} for ${cmd || command.name}, defaulting to English`)
-                    }
-                    if (!string) {
-                        string = `strings.${path}` //in case of fire
-                        console.error(`Couldn't get string ${path} in English for ${cmd || command.name}, please fix this`)
+                        if (!string) {
+                            string = `strings.${path}` //in case of fire
+                            console.error(`Couldn't get string ${path} in English for ${cmd || command.name}, please fix this`)
+                        }
                     }
                 }
             } else if (strings) string = strings
@@ -214,7 +215,7 @@ client.on("message", async message => {
         message.channel.stopTyping()
         return message.channel.send(embed)
             .then(msg => {
-                if (error.stack) {
+                if (error.stack && process.env.NODE_ENV === "production") {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setAuthor("Unexpected error!")
