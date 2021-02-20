@@ -64,6 +64,10 @@
         "usage": "+hypixelverify <ユーザー名> | +hypixelunverify",
         "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
     },
+    "8ball": {
+        "usage": "+8ball <question>",
+        "description": "The Magic 8 Ball that will answer all your questions."
+    },
     "tip": {
         "usage": "+tip",
         "description": "サーバーに関するランダムなヒントを表示します。"
