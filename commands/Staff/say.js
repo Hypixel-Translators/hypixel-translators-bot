@@ -9,7 +9,7 @@ module.exports = {
   aliases: ["parrot", "repeat", "send"],
   roleWhitelist: ["768435276191891456"], //Discord Staff
   async execute(message, args) {
-    if (!args[0]) return
+    if (!args[0]) throw "noMessage"
     const sendTo = message.client.channels.cache.get(args[0].replace(/[\\<>@#&!]/g, ""))
     args.splice(0, 1)
     const toSend = args.join(" ")
@@ -26,7 +26,7 @@ module.exports = {
       .setAuthor("Message")
       .setTitle("Success! Message sent.")
       .setDescription(`${sendTo}:\n${toSend}`)
-      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.send(embed)
   }
 }

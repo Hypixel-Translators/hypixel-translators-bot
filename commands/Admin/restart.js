@@ -13,7 +13,7 @@ module.exports = {
             .setColor(successColor)
             .setAuthor("Restart")
             .setTitle("Restarting...")
-            .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+            .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.send(embed)
         message.client.user.setStatus("invisible")
         setTimeout(() => { process.exit() }, 1000)

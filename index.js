@@ -7,16 +7,17 @@ require("dotenv").config()
 module.exports.client = client
 
 async function start() {
-    //Import commands and events
-    const imports = require("./lib/imports")
-    imports.setup(client)
 
     //Start MongoDB
     client.mongodb = require('./lib/mongodb')
     await client.mongodb.init()
+
+    //Import commands and events
+    const imports = require("./lib/imports")
+    imports.setup(client)
 }
+
+start()
 
 //Log in
 client.login(process.env.DISCORD_TOKEN)
-
-start()

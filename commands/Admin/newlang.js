@@ -117,7 +117,7 @@ module.exports = {
         { name: "Voice Channels", value: `${translatorsVoice} and ${proofreadersVoice}` },
         { name: "Roles", value: `${translatorRole} and ${proofreaderRole}` }
       )
-      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.stopTyping()
     message.channel.send(embed)
   }

@@ -19,7 +19,7 @@ module.exports = {
                 const userMessages = messages.filter(msgs => msgs.author.id === userToSend)
                 message.channel.bulkDelete(userMessages)
             })
-        if (!args[1]) return
+        if (!args[1]) throw "noMessage"
         if (!recipient) throw "falseUser"
         const verifyLogs = message.client.channels.cache.get("662660931838410754") //verify-logs
         const embed = new Discord.MessageEmbed()
@@ -44,7 +44,7 @@ module.exports = {
                 .setDescription(`Hey there! We noticed you sent us your Crowdin profile, however, you forgot to add your Discord tag to it! Just add ${recipient.tag} to your about section like shown in the image below. Once you've done so, send us the profile link again.\n\nIf you have any questions, be sure to send them here or in the <#569178590697095168> channel!`) //verify
                 .setImage("https://i.imgur.com/BM2bJ4W.png")
             verifyLogs.send(`${recipient} forgot to add their Discord to their profile. Let's hope they fix that with the message I just sent them.`)
-        } else return
+        } else throw "noMessage"
         recipient.send(embed)
             .catch(e => {
                 message.channel.send(`${recipient}`, embed)

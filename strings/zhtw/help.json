@@ -1,12 +1,12 @@
 {
     "moduleName": "Information",
     "page1Title": "Help page",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `+translate` command.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
-    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
-    "page": "Page %%number%%/%%total%%",
-    "pageNumber": "Page %%number%%",
-    "utilityHelp": "%%badge%% Tools & Utilities",
-    "infoHelp": "%%badge%% Information commands",
+    "commandsListTooltip": "這個機器人由 %%developer%% 為 Hypixel 翻譯人員社群而開發。這個機器人是完全開源的，其 GitHub 儲存庫可以在[這裡]%%github%%找到。\n你可以使用 `+translate` 指令，並跟隨該指令的指示來協助翻譯機器人。\n\n你可以執行 `+help <指令名稱>` 來了解特定指令的用法。\n你可以在下面找到所有可用頁面的列表。請按下本訊息下方的反應來切換頁面。",
+    "madeBy": "機器人由 %%QkeleQ10%% 開發和維護",
+    "page": "第 %%number%%/%%total%% 頁",
+    "pageNumber": "第 %%number%% 頁",
+    "utilityHelp": "%%badge%% 實用工具",
+    "infoHelp": "%%badge%% 訊息指令",
     "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
     "pageNotExist": "That page doesn't exist!",
     "commandInfo": "Command information",
@@ -21,11 +21,11 @@
     "cooldownField": "Cooldown",
     "aliasesField": "Aliases",
     "help": {
-        "usage": "+help [page | command name]",
-        "description": "Shows you all available commands and other info about the bot."
+        "usage": "+help [頁數 | 指令名稱]",
+        "description": "顯示所有你可使用的指令及關於機器人的其他訊息。"
     },
     "prefix": {
-        "usage": "+prefix [flags]",
+        "usage": "+prefix [旗幟]",
         "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
@@ -37,7 +37,7 @@
         "description": "Mentions a language role with an optional message."
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
+        "usage": "+context get|add|edit|view|help <參數>",
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
     },
     "languagestats": {
@@ -46,7 +46,7 @@
     },
     "issue": {
         "usage": "+issue",
-        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
+        "description": "開啟我們的 GitHub 議題頁面，你可以在那裡回報問題和發送回饋。"
     },
     "language": {
         "usage": "+language [<new language> | list | add <language>]",
@@ -54,15 +54,19 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "顯示機器人目前的 Ping。"
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [username] [social]",
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "usage": "+hypixelstats [使用者名稱] [social]",
+        "description": "顯示該使用者的 Hypixel 統計數據。"
     },
     "hypixelverify": {
-        "usage": "+hypixelverify <username> | +hypixelunverify",
+        "usage": "+hypixelverify <使用者名稱> | +hypixelunverify",
         "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
+    },
+    "8ball": {
+        "usage": "+8ball <question>",
+        "description": "The Magic 8 Ball that will answer all your questions."
     },
     "tip": {
         "usage": "+tip",
@@ -70,7 +74,7 @@
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "給予你一個伺服器邀請連結。請在你想要邀請他人時使用此連結。"
     },
     "projects": {
         "usage": "+projects",
@@ -78,7 +82,7 @@
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "給予你有關 Hypixel 項目的實用訊息。"
     },
     "guidelines": {
         "usage": "+guidelines",
@@ -86,11 +90,11 @@
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "給予你有關 Quickplay 項目的實用訊息。"
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "給予你有關 SkyblockAddons 項目的實用訊息。"
     },
     "translate": {
         "usage": "+translate",

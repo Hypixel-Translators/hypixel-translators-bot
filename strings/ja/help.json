@@ -41,7 +41,7 @@
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
     },
     "languagestats": {
-        "usage": "+languagestats <language>",
+        "usage": "+languagestats <言語>",
         "description": "Shows you the progress of a language on all the projects we currently support."
     },
     "issue": {
@@ -63,6 +63,10 @@
     "hypixelverify": {
         "usage": "+hypixelverify <ユーザー名> | +hypixelunverify",
         "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
+    },
+    "8ball": {
+        "usage": "+8ball <question>",
+        "description": "The Magic 8 Ball that will answer all your questions."
     },
     "tip": {
         "usage": "+tip",

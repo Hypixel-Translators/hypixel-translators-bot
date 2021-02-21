@@ -24,9 +24,10 @@ module.exports = {
             arr.push(tags.slice(p, p += 85)) //89 is max for now
         }
 
-        if (role.hexColor === "#000000") role.color = blurple
+        let color = role.hexColor
+        if (color === "#000000") color = blurple
         const embed = new Discord.MessageEmbed()
-            .setColor(role.color)
+            .setColor(color)
             .setAuthor("Members list")
             .setTitle(`Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`)
         if (arr.length > 1) {
@@ -39,7 +40,7 @@ module.exports = {
                     .setFooter("")
             })
         } else embed.setDescription(arr[0].join(", "))
-        embed.setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+        embed.setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.send(embed)
     }
 }

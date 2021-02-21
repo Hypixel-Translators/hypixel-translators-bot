@@ -64,6 +64,10 @@
         "usage": "+hypixelverify <имя пользователя> | +hypixelunverify",
         "description": "Связывает вашу учетную запись Discord с вашим профилем Hypixel. Выполните `+hypixelunverify`, чтобы отвязать их."
     },
+    "8ball": {
+        "usage": "+8ball <вопрос>",
+        "description": "Шар судьбы, который ответит на все ваши вопросы."
+    },
     "tip": {
         "usage": "+tip",
         "description": "Дает вам случайный совет касательно сервера."

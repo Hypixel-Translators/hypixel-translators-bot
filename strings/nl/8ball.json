@@ -1,0 +1,33 @@
+{
+    "moduleName": "Glazen bol",
+    "question": "Vraag",
+    "answers": {
+        "positive": [
+            "Dat is zeker.",
+            "Dat is beslist zo.",
+            "Zonder twijfel.",
+            "Ja, zeker weten.",
+            "Je kunt erop rekenen.",
+            "Volgens mij wel.",
+            "Hoogstwaarschijnlijk.",
+            "Het vooruitzicht is goed.",
+            "Ja",
+            "Tekenen wijzen op ja."
+        ],
+        "inconclusive": [
+            "Wazig antwoord, probeer het nog eens.",
+            "Vraag het later nog eens.",
+            "Dat kan ik je nu beter niet vertellen.",
+            "Dat kan ik nu niet voorspellen.",
+            "Concentreer je en vraag het opnieuw."
+        ],
+        "negative": [
+            "Reken er maar niet op.",
+            "Mijn antwoord is nee.",
+            "Mijn bronnen zeggen van niet.",
+            "Het ziet er niet heel goed uit.",
+            "Onwaarschijnlijk."
+        ]
+    },
+    "executedBy": "Uitgevoerd door %%user%%"
+}

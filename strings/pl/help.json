@@ -64,6 +64,10 @@
         "usage": "+hypixelverify <nick> | +hypixelunverify",
         "description": "Łączy Twoje konto Discord z Twoim profilem Hypixel. Wpisz `+hypixelunverify` aby się odweryfikować."
     },
+    "8ball": {
+        "usage": "+8ball <question>",
+        "description": "The Magic 8 Ball that will answer all your questions."
+    },
     "tip": {
         "usage": "+tip",
         "description": "Podaje ci losową poradę na temat serwera."

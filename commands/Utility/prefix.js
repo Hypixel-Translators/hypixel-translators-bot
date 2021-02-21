@@ -9,7 +9,7 @@ module.exports = {
   aliases: ["langprefix", "languageprefix"],
   usage: "+prefix [flags]",
   cooldown: 30,
-  channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"],
+  channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
   async execute(message, args, getString) {
     const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
     const nickNoPrefix = message.member.displayName.replace(/\[[^\s]*\] /g, "")
@@ -33,7 +33,7 @@ module.exports = {
         .setTitle(getString("caution"))
         .setDescription(`${getString("warning")}\n${getString("reactTimer").replace("%%cooldown%%", this.cooldown)}`)
         .addFields({ name: getString("previewT"), value: `\`[${prefix}] ${nickNoPrefix}\`` })
-        .setFooter(executedBy, message.author.displayAvatarURL())
+        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
       message.channel.send(embed)
         .then(msg => {
           msg.react("✅").then(() => msg.react("❎"))
@@ -56,14 +56,14 @@ module.exports = {
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("saved"))
                       .addFields({ name: getString("newNickT"), value: "\`[" + prefix + "] " + nickNoPrefix + "\`" })
-                      .setFooter(executedBy, message.author.displayAvatarURL())
+                      .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                     const staffAlert = new Discord.MessageEmbed()
                       .setColor(loadingColor)
                       .setAuthor("Prefix")
                       .setTitle("A user manually changed their prefix")
                       .setDescription(`${message.author} manually changed their prefix to include the following flag: ${prefix}\nMake sure they have the appropriate roles for this prefix and, if not, follow the appropriate procedure`)
-                      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+                      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     message.client.channels.cache.get("624881429834366986").send(staffAlert)
                   })
                   .catch(err => {
@@ -73,7 +73,7 @@ module.exports = {
                       .setTitle(getString("errors.error"))
                       .setDescription(err)
                       .addFields({ name: getString("previewT"), value: "\`[" + prefix + "] " + nickNoPrefix + "\`" })
-                      .setFooter(executedBy, message.author.displayAvatarURL())
+                      .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                   })
               } else {
@@ -82,7 +82,7 @@ module.exports = {
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
                   .addFields({ name: getString("newNickT"), value: getString("noChanges") })
-                  .setFooter(executedBy, message.author.displayAvatarURL())
+                  .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 msg.edit(embed)
               }
               prefix = "n"
@@ -94,7 +94,7 @@ module.exports = {
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
                 .addFields({ name: getString("newNickT"), value: getString("noChanges") })
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
               msg.edit(embed)
             }
           })
@@ -110,7 +110,7 @@ module.exports = {
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("saved"))
                       .addFields({ name: getString("newNickT"), value: "\`[" + prefix + "] " + nickNoPrefix + "\`" })
-                      .setFooter(executedBy, message.author.displayAvatarURL())
+                      .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                   })
                   .catch(err => {
@@ -120,7 +120,7 @@ module.exports = {
                       .setTitle(getString("errors.error"))
                       .setDescription(err)
                       .addFields({ name: getString("previewT"), value: "\`[" + prefix + "] " + nickNoPrefix + "\`" })
-                      .setFooter(executedBy, message.author.displayAvatarURL())
+                      .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                     console.log(err)
                   })
@@ -130,7 +130,7 @@ module.exports = {
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
                   .addFields({ name: getString("newNickT"), value: getString("noChanges") })
-                  .setFooter(executedBy, message.author.displayAvatarURL())
+                  .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 msg.edit(embed)
               }
             } else {
@@ -140,7 +140,7 @@ module.exports = {
                 .setTitle(getString("errors.timedOut"))
                 .setDescription(getString("errors.timeOutCustom") + getString("errors.notSaved"))
                 .addFields({ name: getString("newNickT"), value: getString("noChanges") })
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
               msg.edit(embed)
             }
           })
@@ -152,7 +152,7 @@ module.exports = {
         .setAuthor(getString("moduleName"))
         .setTitle(getString("loading"))
         .setDescription(getString("loadingRoles"))
-        .setFooter(executedBy, message.author.displayAvatarURL())
+        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
       message.channel.send(embed)
         .then(async msg => {
           let userLangs = []
@@ -177,14 +177,14 @@ module.exports = {
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("errors.trNoRoles"))
                 .setDescription(getString("customPrefix"))
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
               return msg.edit(embed)
             } else {
               const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("errors.noLanguages"))
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
               return msg.edit(embed)
             }
           }
@@ -196,7 +196,7 @@ module.exports = {
             .setTitle(getString("react"))
             .setDescription(getString("reactTimer").replace("%%cooldown%%", this.cooldown))
             .addFields({ name: getString("previewT"), value: getString("noChanges") })
-            .setFooter(executedBy, message.author.displayAvatarURL())
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
           msg.edit(embed)
 
           const filter = (reaction, reacter) => {
@@ -218,7 +218,7 @@ module.exports = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("saved"))
                         .addFields({ name: getString("newNickT"), value: "`[" + prefixes + "] " + nickNoPrefix + "`" })
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                       msg.edit(embed)
                     })
                     .catch(err => {
@@ -228,7 +228,7 @@ module.exports = {
                         .setTitle(getString("errors.error"))
                         .setDescription(err)
                         .addFields({ name: getString("previewT"), value: "`[" + prefixes + "] " + nickNoPrefix + "`" })
-                        .setFooter(executedBy, message.author.displayAvatarURL())
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                       msg.edit(embed)
                     })
                   prefixes = "n"
@@ -238,7 +238,7 @@ module.exports = {
                     .setColor(errorColor)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
-                    .setFooter(executedBy, message.author.displayAvatarURL())
+                    .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                   msg.edit(embed)
                 }
               } else {
@@ -246,7 +246,7 @@ module.exports = {
                   .setColor(errorColor)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("errors.confirmedNoFlags") + getString("errors.notSaved"))
-                  .setFooter(executedBy, message.author.displayAvatarURL())
+                  .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 msg.edit(embed)
               }
             } else if (reaction.emoji.name === "❎") {
@@ -256,7 +256,7 @@ module.exports = {
                 .setColor(errorColor)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
               msg.edit(embed)
             } else {
               const valueToRemove = reaction.emoji.name
@@ -269,7 +269,7 @@ module.exports = {
                 .setTitle(getString("react"))
                 .setDescription(getString("reactTimer2").replace("%%cooldown%%", this.cooldown))
                 .addFields({ name: getString("previewT"), value: "\`[" + prefixes + "] " + nickNoPrefix + "\`" })
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
               msg.edit(embed)
             }
           })
@@ -286,7 +286,7 @@ module.exports = {
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("saved"))
                       .addFields({ name: getString("newNickT"), value: "\`[" + prefixes + "] " + nickNoPrefix + "\`" })
-                      .setFooter(executedBy, message.author.displayAvatarURL())
+                      .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                   })
                   .catch(err => {
@@ -296,7 +296,7 @@ module.exports = {
                       .setTitle(getString("errors.error"))
                       .setDescription(err)
                       .addFields({ name: getString("previewT"), value: "\`[" + prefixes + "] " + nickNoPrefix + "\`" })
-                      .setFooter(executedBy, message.author.displayAvatarURL())
+                      .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                     console.log(err)
                   })
@@ -306,7 +306,7 @@ module.exports = {
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
                   .addFields({ name: getString("newNickT"), value: getString("noChanges") })
-                  .setFooter(executedBy, message.author.displayAvatarURL())
+                  .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 msg.edit(embed)
               }
             } else {
@@ -316,7 +316,7 @@ module.exports = {
                 .setTitle(getString("errors.timedOut"))
                 .setDescription(getString("errors.timeOut") + getString("errors.notSaved"))
                 .addFields({ name: getString("newNickT"), value: getString("noChanges") })
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
               msg.edit(embed)
             }
           })

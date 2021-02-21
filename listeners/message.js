@@ -18,9 +18,7 @@ client.on("message", async message => {
 
     //Get global strings
     const author = await getUser(message.author.id)
-    const globalStrings = require(`../strings/${author.lang}/global.json`)
-    const helpStrings = require(`../strings/${author.lang}/help.json`)
-    const executedBy = globalStrings.executedBy.replace("%%user%%", message.author.tag)
+    const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
 
     //Link correction system
     if (message.content.toLowerCase().includes("/translate/hypixel/") && message.content.includes("://")) {
@@ -30,19 +28,19 @@ client.on("message", async message => {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(globalStrings.wrongLink)
-                    .setTitle(globalStrings.wrongStringURL)
-                    .setDescription(globalStrings.example.replace("%%url%%", "https://crowdin.com/translate/hypixel/286/en-en#106644"))
+                    .setAuthor(getString("errors.wrongLink", "global"))
+                    .setTitle(getString("wrongStringURL", "global"))
+                    .setDescription(getString("example", "global").replace("%%url%%", "https://crowdin.com/translate/hypixel/286/en-en#106644"))
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
-                if (message.content !== langFix && message.channel.parent.id === "549503328472530977") embed.setDescription(`${globalStrings.example.replace("%%url%%", "<https://crowdin.com/translate/hypixel/286/en-en#106644>")}\n${globalStrings.reminderLang.replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`")}`)
+                if (message.content !== langFix && message.channel.parent.id === "549503328472530977") embed.setDescription(`${getString("example", "global").replace("%%url%%", "<https://crowdin.com/translate/hypixel/286/en-en#106644>")}\n${getString("reminderLang", "global").replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`")}`)
                 return message.channel.send(message.author, embed)
             }
             if (message.content !== langFix && message.channel.parent.id === "549503328472530977") {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(globalStrings.wrongLink)
-                    .setTitle(globalStrings.linkCorrectionDesc.replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`"))
+                    .setAuthor(getString("errors.wrongLink", "global"))
+                    .setTitle(getString("linkCorrectionDesc", "global").replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`"))
                     .setDescription(langFix)
                 return message.channel.send(message.author, embed)
             }
@@ -66,9 +64,9 @@ client.on("message", async message => {
 
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)
-            .setAuthor(globalStrings.outgoing)
+            .setAuthor(getString("outgoing", "global"))
             .setDescription(message.content)
-            .setFooter(globalStrings.outgoingDisclaimer)
+            .setFooter(getString("outgoingDisclaimer", "global"))
         return message.channel.send(embed)
     }
 
@@ -128,19 +126,18 @@ client.on("message", async message => {
     }
     if (!allowed) {
         message.react("732298639736570007")
-        setTimeout(() => {
+        return setTimeout(() => {
             if (!message.deleted) message.delete()
         }, 5000);
-        return
     }
 
     //Stop and error if command is not allowed in DMs and command is sent in DMs
     if (!command.allowDM && message.channel.type === "dm") {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
-            .setAuthor(globalStrings.error)
-            .setTitle(globalStrings.errors.dmError)
-            .setFooter(executedBy, message.author.displayAvatarURL())
+            .setAuthor(getString("error", "global"))
+            .setTitle(getString("errors.dmError", "global"))
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         return message.channel.send(embed)
     }
     //Cooldown system
@@ -156,19 +153,18 @@ client.on("message", async message => {
             const timeLeft = (expirationTime - now) / 1000
             let timeLeftS
             if (Math.ceil(timeLeft) >= 120) {
-                timeLeftS = (globalStrings.minsLeftT.replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", commandName))
+                timeLeftS = (getString("minsLeftT", "global").replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", commandName))
             } else if (Math.ceil(timeLeft) === 1) {
-                timeLeftS = (globalStrings.secondLeft.replace("%%command%%", commandName))
+                timeLeftS = (getString("secondLeft", "global").replace("%%command%%", commandName))
             } else {
-                timeLeftS = (globalStrings.timeLeftT.replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", commandName))
+                timeLeftS = (getString("timeLeftT", "global").replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", commandName))
             }
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
-                .setAuthor(globalStrings.cooldown)
+                .setAuthor(getString("cooldown", "global"))
                 .setTitle(timeLeftS)
-                .setFooter(executedBy, message.author.displayAvatarURL())
-            message.channel.send(embed)
-            return
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+            return message.channel.send(embed)
         }
     }
 
@@ -176,30 +172,32 @@ client.on("message", async message => {
     if (message.member && !message.member.hasPermission("MANAGE_ROLES")) timestamps.set(message.author.id, now)
     setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
 
+    //Function to get strings
     function getString(path, cmd, lang) {
         let enStrings = require(`../strings/en/${cmd || command.name}.json`)
         try { strings = require(`../strings/${lang || author.lang}/${cmd || command.name}.json`) }
-        catch { console.error(`Couldn't get command strings for the command ${cmd || command.name} on the language ${lang || author.lang}. The file does not exist yet.`) }
+        catch { strings = require(`../strings/en/${cmd || command.name}.json`) }
         const pathSplit = path.split(".")
         let string
         pathSplit.forEach(pathPart => {
             if (pathPart) {
-                let jsonElement = strings[pathPart]
+                let jsonElement
+                if (strings[pathPart]) jsonElement = strings[pathPart]
+                else jsonElement = enStrings[pathPart]
 
                 if (typeof jsonElement === "object" && pathSplit.indexOf(pathPart) !== pathSplit.length - 1) { //check if the string isn't an object nor the end of the path
-                    strings = strings[pathPart]
+                    if (strings[pathPart]) strings = strings[pathPart]
                     enStrings = enStrings[pathPart]
                     return
                 } else {
-                    string = jsonElement
-                }
-                if (!string) {
-                    string = enStrings[pathPart] //if the string hasn't been added yet
-                    console.error(`Couldn't get string ${path} in ${lang || author.lang} for ${cmd || command.name}, defaulting to English`)
-                }
-                if (!string) {
-                    string = `strings.${path}` //in case of fire
-                    console.error(`Couldn't get string ${path} in English for ${cmd || command.name}, please fix this`)
+                    string = strings[pathPart]
+                    if (!string) {
+                        string = enStrings[pathPart] //if the string hasn't been added yet
+                        if (!string) {
+                            string = `strings.${path}` //in case of fire
+                            console.error(`Couldn't get string ${path} in English for ${cmd || command.name}, please fix this`)
+                        }
+                    }
                 }
             } else if (strings) string = strings
             else string = enStrings
@@ -210,40 +208,44 @@ client.on("message", async message => {
     //Run command and handle errors
     try { await command.execute(message, args, getString) }
     catch (error) {
+        if (!error.stack) error = getString(`errors.${error}`, "global")
 
         //Handle errors
         timestamps.delete(message.author.id)
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
-            .setAuthor(globalStrings.error)
-            .setTitle(globalStrings.errors[error] || error.message)
-            .setFooter(executedBy, message.author.displayAvatarURL())
-        if (!helpStrings[command.name]) {
-            embed.addFields({ name: globalStrings.usage, value: "`" + command.usage + "`" })
-        } else {
-            embed.addFields({ name: globalStrings.usage, value: "`" + helpStrings[command.name].usage + "`" })
-        }
+            .setAuthor(getString("error", "global"))
+            .setTitle(error || error.message)
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+        if (getString(command.name, "help") === "strings.dm.usage") embed.addFields({ name: getString("usage", "global"), value: `\`${command.usage}\`` })
+        else embed.addFields({ name: getString("usage", "global"), value: `\`${getString(`${command.name}.usage`, "help")}\`` })
         message.channel.stopTyping()
-        message.channel.send(embed)
+        return message.channel.send(embed)
             .then(msg => {
-                if (!globalStrings.errors[error]) console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error}`)
-                else {
+                if (error.stack && process.env.NODE_ENV === "production") {
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(errorColor)
+                        .setAuthor("Unexpected error!")
+                        .setTitle(error)
+                        .setDescription(`\`\`\`${error.stack}\`\`\``)
+                        .setFooter("Check the console for more details")
+                    message.guild.channels.cache.get("730042612647723058").send("ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
+                    console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
+                } else {
                     setTimeout(() => {
                         if (!message.deleted) message.delete()
                         if (!msg.deleted) msg.delete()
                     }, 10000);
                 }
             })
-        return
-
     } finally {
 
         //Try sending a tip
-        if (command.allowTip !== false) {
-            let d = Math.random().toFixed(2)
-            let keys = Object.keys(globalStrings.tips)
-            let tip = globalStrings.tips[keys[keys.length * Math.random() << 0]]
-            if (d < 0.05) message.channel.send(`**${globalStrings.tip.toUpperCase()}:** ${tip.replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%rules%%", "<#796159719617986610>").replace("%%serverInfo%%", "<#762341271611506708>").replace("%%bots%%", "<#549894938712866816>")}`)
+        const d = Math.random().toFixed(2)
+        if (command.allowTip !== false && d < 0.05) {
+            const keys = Object.keys(getString("tips", "global"))
+            const tip = getString(`tips.${keys[keys.length * Math.random() << 0]}`, "global")
+            message.channel.send(`**${getString("tip", "global").toUpperCase()}:** ${tip.replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%rules%%", "<#796159719617986610>").replace("%%serverInfo%%", "<#762341271611506708>").replace("%%bots%%", "<#549894938712866816>")}`)
         }
     }
 })

@@ -8,7 +8,7 @@ module.exports = {
     usage: "+quote [index] | quote add <quote> / <author mention>",
     cooldown: 5,
     allowDM: true,
-    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-development bot-translators
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development bot-translators
     async execute(message, args, getString) {
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         const collection = getDb().collection("quotes")
@@ -35,14 +35,14 @@ module.exports = {
                     .setTitle("A quote request has been submitted!")
                     .setDescription(quote + "\n       - " + author)
                     .addFields({ name: "To add it", value: "`+quote add " + toSend + "`" })
-                    .setFooter("Suggested by " + message.author.tag, message.author.displayAvatarURL())
+                    .setFooter("Suggested by " + message.author.tag, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 sendTo.send(report)
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("reqSub"))
                     .setDescription(quote + "\n       - " + author)
-                    .setFooter(executedBy, message.author.displayAvatarURL())
+                    .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 message.channel.stopTyping()
                 message.channel.send(embed)
             } else await addQuote(executedBy, message, quote, author, collection)
@@ -67,7 +67,7 @@ async function findQuote(executedBy, message, getString, args, collection) {
             .setAuthor(getString("moduleName"))
             .setTitle(getString("invalidArg"))
             .setDescription(getString("indexArg").replace("%%arg%%", args[0]).replace("%%max%%", all.length))
-            .setFooter(executedBy, message.author.displayAvatarURL())
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.stopTyping()
         return message.channel.send(embed)
     }
@@ -77,7 +77,7 @@ async function findQuote(executedBy, message, getString, args, collection) {
         .setAuthor(getString("moduleName"))
         .setTitle(quote.quote)
         .setDescription(`      - ${quote.author}`)
-        .setFooter(executedBy, message.author.displayAvatarURL())
+        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.stopTyping()
     return message.channel.send(embed)
 }
@@ -97,7 +97,7 @@ async function addQuote(executedBy, message, quote, author, collection) {
             { name: "User", value: author },
             { name: "Quote number", value: quoteId }
         )
-        .setFooter(executedBy, message.author.displayAvatarURL())
+        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.stopTyping()
     message.channel.send(embed)
 }
@@ -109,37 +109,37 @@ async function editQuote(executedBy, message, args, collection) {
     args.splice(0, 2)
     const newQuote = args.join(" ")
     if (!quoteId || !newQuote) throw "noQuote"
-    const oldQuote = await collection.findOne({ id: quoteId })
-    await collection.updateOne({ id: quoteId }, { $set: { quote: newQuote } })
-    const embed = new Discord.MessageEmbed()
-        .setColor(successColor)
-        .setAuthor("Quote")
-        .setTitle(`Successfully edited quote #${quoteId}`)
-        .addFields(
-            { name: "Old quote", value: oldQuote.quote },
-            { name: "New quote", value: newQuote },
-            { name: "Author", value: oldQuote.author }
-        )
-        .setFooter(executedBy, message.author.displayAvatarURL())
-    message.channel.stopTyping()
-    message.channel.send(embed)
+    await collection.findOneAndUpdate({ id: quoteId }, { $set: { quote: newQuote } }).then(r => {
+        const embed = new Discord.MessageEmbed()
+            .setColor(successColor)
+            .setAuthor("Quote")
+            .setTitle(`Successfully edited quote #${quoteId}`)
+            .addFields(
+                { name: "Old quote", value: r.value.quote },
+                { name: "New quote", value: newQuote },
+                { name: "Author", value: r.value.author }
+            )
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+        message.channel.stopTyping()
+        message.channel.send(embed)
+    })
 }
 
 async function deleteQuote(executedBy, message, args, collection) {
 
     const quoteId = Number(args[1])
     if (!quoteId) throw "noQuote"
-    const oldQuote = await collection.findOne({ id: quoteId })
-    await collection.deleteOne({ id: quoteId })
-    const embed = new Discord.MessageEmbed()
-        .setColor(successColor)
-        .setAuthor("Quote")
-        .setTitle(`Successfully deleted quote #${quoteId}`)
-        .addFields(
-            { name: "User", value: oldQuote.author },
-            { name: "Quote", value: oldQuote.quote }
-        )
-        .setFooter(executedBy, message.author.displayAvatarURL())
-    message.channel.stopTyping()
-    message.channel.send(embed)
+    await collection.findOneAndDelete({ id: quoteId }).then(r => {
+        const embed = new Discord.MessageEmbed()
+            .setColor(successColor)
+            .setAuthor("Quote")
+            .setTitle(`Successfully deleted quote #${quoteId}`)
+            .addFields(
+                { name: "User", value: r.value.author },
+                { name: "Quote", value: r.value.quote }
+            )
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+        message.channel.stopTyping()
+        message.channel.send(embed)
+    })
 }

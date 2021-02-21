@@ -15,7 +15,7 @@ module.exports = {
             .setColor(successColor)
             .setAuthor("Zalgo checker")
             .setTitle("All zalgo nicknames have been changed!")
-            .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL())
+            .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.send(embed)
     }
 }

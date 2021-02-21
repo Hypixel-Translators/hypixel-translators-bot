@@ -1,10 +1,10 @@
 {
     "moduleName": "Prefix",
-    "usage": "+prefix [flags]",
+    "usage": "+prefix [旗幟]",
     "loading": "Just a second...",
     "loadingRoles": "正在取得你的身份組...",
     "errors": {
-        "noLanguages": "你似乎沒有任何語言身份組！如果你認為這是一個錯誤，請向伺服器擁有者或管理員聯繫。",
+        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
         "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
         "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
         "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
@@ -16,7 +16,7 @@
         "notSaved": "so your prefix wasn't saved."
     },
     "customPrefix": "Feel free to run `+prefix <flags>` to get your desired prefix.",
-    "caution": "Caution",
+    "caution": "注意",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "React with all flags you want to add to your prefix in order.",
     "reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",

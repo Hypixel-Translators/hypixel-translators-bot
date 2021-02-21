@@ -7,7 +7,7 @@ module.exports = {
     usage: "+projects",
     cooldown: 120,
     allowDM: true,
-    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335", "551693960913879071"], // bots staff-bots bot-development bot-translators admin-bots
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
     execute(message, args, getString) {
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         if (message.guild?.id === "549503328472530974") {
@@ -34,7 +34,7 @@ module.exports = {
                     { name: "SkyblockAddons", value: `${getString("projectInfo").replace("%%project%%", "**SkyblockAddons**").replace("%%link%%", "https://crowdin.com/project/skyblockaddons").replace("%%command%%", "`+skyblockaddons`")}\n${joinedSba}` },
                     { name: "Hypixel Translators Bot", value: `${getString("projectInfo").replace("%%project%%", "**Hypixel Translators Bot**").replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot").replace("%%command%%", "`+bot`")}\n${joinedBot}` }
                 )
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(embed)
         } else {
             const embed = new Discord.MessageEmbed()
@@ -48,7 +48,7 @@ module.exports = {
                     { name: "SkyblockAddons", value: `${getString("projectInfo").replace("%%project%%", "**SkyblockAddons**").replace("%%link%%", "https://crowdin.com/project/skyblockaddons").replace("%%command%%", "`+skyblockaddons`")}` },
                     { name: "Hypixel Translators Bot", value: `${getString("projectInfo").replace("%%project%%", "**Hypixel Translators Bot**").replace("%%link%%", "https://crowdin.com/project/hypixel-translators-bot").replace("%%command%%", "`+bot`")}` }
                 )
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(embed)
         }
     }

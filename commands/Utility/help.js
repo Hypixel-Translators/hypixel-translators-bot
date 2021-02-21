@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["commands", "cmds", "info", "botinfo"],
   usage: "+help [page | command name]",
   cooldown: 5,
-  channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335"], //bots staff-bots bot-dev bot-translators
+  channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
   allowDM: true,
   async execute(message, args, getString) {
     const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
@@ -42,7 +42,7 @@ module.exports = {
           .setAuthor(getString("moduleName"))
           .setTitle(getString("page1Title"))
           .setDescription(getString("pageNotExist"))
-          .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
+          .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         return message.channel.send(embed)
       }
 
@@ -56,7 +56,7 @@ module.exports = {
         .addFields(
           { name: getString("pageNumber").replace("%%number%%", "2").replace("%%total%%", pages.length), value: getString("utilityHelp").replace("%%badge%%", "🛠"), inline: true },
           { name: getString("pageNumber").replace("%%number%%", "3").replace("%%total%%", pages.length), value: getString("infoHelp").replace("%%badge%%", "ℹ"), inline: true })
-        .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
+        .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
 
       pages[0].e = page1
 
@@ -118,7 +118,7 @@ module.exports = {
           .setAuthor(getString("moduleName"))
           .setTitle(getString("commandInfo"))
           .setDescription(getString("commandNotExist"))
-          .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
+          .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         return message.channel.send(embed)
       }
 
@@ -134,7 +134,7 @@ module.exports = {
         .setAuthor(getString("moduleName"))
         .setTitle(getString("commandInfoFor") + "`+" + command.name + "`")
         .setDescription(cmdDesc || getString("staffOnly"))
-        .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL())
+        .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
       if (cmdUsage && cmdDesc !== getString("inDev")) {
         embed.addFields({ name: getString("usageField"), value: "`" + cmdUsage + "`", inline: true })
         if (command.cooldown) {
@@ -163,7 +163,7 @@ async function fetchPage(page, pages, getString, executedBy, message, pageEmbed)
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
         .setTitle(getString(pages[page].t).replace("%%badge%%", pages[page].b))
-        .setFooter(getString("page").replace("%%number%%", page + 1).replace("%%total%%", pages.length) + " | " + executedBy, message.author.displayAvatarURL())
+        .setFooter(getString("page").replace("%%number%%", page + 1).replace("%%total%%", pages.length) + " | " + executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
       pages[page].f.forEach(f => pageEmbed.addFields({ name: `\`${getString(`${f}.usage`)}\``, value: getString(`${f}.description`) }))
     } else return console.error("no embed details")
   } else return console.error("no embed listing - internal error")

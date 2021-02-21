@@ -37,21 +37,21 @@ module.exports = {
                 const userDb = await getDb().collection("users").findOne({ id: member.id })
                 member.roles.remove("569194996964786178", "Unverified")
                 if (userDb.profile) message.client.channels.cache.get("551693960913879071").send(`${message.author}, ${member}'s profile is ${userDb.profile}`)
-                message.channel.send(`${member} has been unverified!`)
+                return message.channel.send(`${member} has been unverified!`)
                     .then(msg => {
                         setTimeout(() => {
                             if (!msg.deleted) msg.delete()
                         }, 5000)
                     })
-                return
             }
-            if (!args[3]) return
+            if (!args[3]) throw "noRole"
             const langdb = await getDb().collection("langdb").find().toArray()
+            const collection = getDb().collection("users")
             const project = args[1].toLowerCase()
-            if (project === "hp" || project === "hypixel") await hypixel(message, member, args, langdb)
-            else if (project === "qp" || project === "quickplay") await quickplay(message, member, args, langdb)
-            else if (project === "sba" || project === "skyblockaddons") await sba(message, member, args)
-            else if (project === "bot") await bot(message, member, args)
+            if (project === "hp" || project === "hypixel") await hypixel(message, member, args, langdb, collection)
+            else if (project === "qp" || project === "quickplay") await quickplay(message, member, args, langdb, collection)
+            else if (project === "sba" || project === "skyblockaddons") await sba(message, member, args, collection)
+            else if (project === "bot") await bot(message, member, args, collection)
             else throw "noRole"
             message.channel.messages.fetch()
                 .then(messages => {
@@ -64,9 +64,8 @@ module.exports = {
     }
 }
 
-async function hypixel(message, member, args, langdb) {
-    if (!args[4]) return
-    if (!/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[4])) return
+async function hypixel(message, member, args, langdb, collection) {
+    if (!args[4] || !/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[4])) throw "wrongLink"
     const lang = langdb.find(l => l.name.toLowerCase() === args[2].toLowerCase() || l.code === args[2])
     if (!lang) throw "falseLang"
     let role
@@ -77,13 +76,12 @@ async function hypixel(message, member, args, langdb) {
     const projectRole = await message.guild.roles.cache.find(r => r.name === `Hypixel ${role}`)
     await member.roles.remove("756199836470214848", "Verified") //Alerted
     await member.roles.add(["569194996964786178", langRole.id, projectRole.id], "Verified") //Verified
-    await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[4] } })
+    await collection.updateOne({ id: member.user.id }, { $set: { profile: args[4] } })
     message.client.channels.cache.get("662660931838410754").send(`${member} was verified as a ${lang.name} ${projectRole.name} by ${message.author.tag}! Here's their Crowdin profile: ${args[4]}`)
 }
 
-async function quickplay(message, member, args, langdb) {
-    if (!args[4]) return
-    if (!/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[4])) return
+async function quickplay(message, member, args, langdb, collection) {
+    if (!args[4] || !/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[4])) throw "wrongLink"
     const lang = langdb.find(l => l.name.toLowerCase() === args[2].toLowerCase() || l.code === args[2])
     if (!lang) throw "falseLang"
     let role
@@ -94,13 +92,12 @@ async function quickplay(message, member, args, langdb) {
     const projectRole = await message.guild.roles.cache.find(r => r.name === `Quickplay ${role}`)
     await member.roles.remove("756199836470214848", "Verified") //Alerted
     await member.roles.add(["569194996964786178", langRole.id, projectRole.id], "Verified") //Verified
-    await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[4] } })
+    await collection.updateOne({ id: member.user.id }, { $set: { profile: args[4] } })
     message.client.channels.cache.get("662660931838410754").send(`${member} was verified as a ${lang.name} ${projectRole.name} by ${message.author.tag}! Here's their Crowdin profile: ${args[4]}`)
 }
 
-async function sba(message, member, args) {
-    if (!args[3]) return
-    if (!/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[3])) return
+async function sba(message, member, args, collection) {
+    if (!args[3] || !/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[3])) throw "wrongLink"
     let role
     if (args[2].toLowerCase() === "tr" || args[2].toLowerCase() === "translator") role = "Translator"
     else if (args[2].toLowerCase() === "pf" || args[2].toLowerCase() === "pr" || args[2].toLowerCase() === "proofreader") role = "Proofreader"
@@ -108,13 +105,12 @@ async function sba(message, member, args) {
     const projectRole = await message.guild.roles.cache.find(r => r.name === `SkyblockAddons ${role}`)
     await member.roles.remove("756199836470214848", "Verified") //Alerted
     await member.roles.add(["569194996964786178", projectRole.id], "Verified") //Verified
-    await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[3] } })
+    await collection.updateOne({ id: member.user.id }, { $set: { profile: args[3] } })
     message.client.channels.cache.get("662660931838410754").send(`${member} was verified as a ${projectRole.name} by ${message.author.tag}! Here's their Crowdin profile: ${args[3]}`)
 }
 
-async function bot(message, member, args) {
-    if (!args[3]) return
-    if (!/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[3])) return
+async function bot(message, member, args, collection) {
+    if (!args[3] || !/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[3])) throw "wrongLink"
     let role
     if (args[2].toLowerCase() === "tr" || args[2].toLowerCase() === "translator") role = "Translator"
     else if (args[2].toLowerCase() === "pf" || args[2].toLowerCase() === "pr" || args[2].toLowerCase() === "proofreader") role = "Proofreader"
@@ -122,6 +118,6 @@ async function bot(message, member, args) {
     const projectRole = await message.guild.roles.cache.find(r => r.name === `Bot ${role}`)
     await member.roles.remove("756199836470214848", "Verified") //Alerted
     await member.roles.add(["569194996964786178", projectRole.id], "Verified") //Verified
-    await getDb().collection("users").updateOne({ id: member.user.id }, { $set: { profile: args[3] } })
+    await collection.updateOne({ id: member.user.id }, { $set: { profile: args[3] } })
     message.client.channels.cache.get("662660931838410754").send(`${member} was verified as a ${projectRole.name} by ${message.author.tag}! Here's their Crowdin profile: ${args[3]}`)
 }

@@ -10,7 +10,7 @@ module.exports = {
     usage: "+languagestats <language>",
     aliases: ["langstats", "lstats"],
     cooldown: 30,
-    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335", "551693960913879071"], // bots staff-bots bot-development bot-translators admin-bots
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
     async execute(message, args, getString) {
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         let rawLang
@@ -73,7 +73,7 @@ module.exports = {
                                             .setAuthor(getString("moduleName"))
                                             .setTitle(`${lang.emoji} | ${getString(`languages.${lang.code}`)}`)
                                             .setDescription(`${getString("statsAll").replace("%%language%%", getString(`languages.${lang.code}`))}`)
-                                            .setFooter(executedBy, message.author.displayAvatarURL())
+                                            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                                         if (hypixelData) embed.addField("Hypixel", `${getString("translated").replace("%%percentage%%", hypixelData.translationProgress).replace("%%translated%%", hypixelData.phrases.translated).replace("%%total%%", hypixelData.phrases.total)}\n${getString("approved").replace("%%percentage%%", hypixelData.approvalProgress).replace("%%approved%%", hypixelData.phrases.approved).replace("%%total%%", hypixelData.phrases.total)}`)
                                         if (quickplayData) embed.addField("Quickplay", `${getString("translated").replace("%%percentage%%", quickplayData.translationProgress).replace("%%translated%%", quickplayData.phrases.translated).replace("%%total%%", quickplayData.phrases.total)}\n${getString("approved").replace("%%percentage%%", quickplayData.approvalProgress).replace("%%approved%%", quickplayData.phrases.approved).replace("%%total%%", quickplayData.phrases.total)}`)
                                         if (sbaData) embed.addField("SkyblockAddons", `${getString("translated").replace("%%percentage%%", sbaData.translationProgress).replace("%%translated%%", sbaData.phrases.translated).replace("%%total%%", sbaData.phrases.total)}\n${getString("approved").replace("%%percentage%%", sbaData.approvalProgress).replace("%%approved%%", sbaData.phrases.approved).replace("%%total%%", sbaData.phrases.total)}`)

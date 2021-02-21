@@ -8,7 +8,7 @@ module.exports = {
     aliases: ["botproject", "translatebot", "bot"],
     cooldown: 120,
     allowDM: true,
-    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "749391414600925335", "551693960913879071"], // bots staff-bots bot-development bot-translators admin-bots
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
     execute(message, args, getString) {
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         if (message.guild?.id === "549503328472530974" && message.member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628")) {
@@ -21,7 +21,7 @@ module.exports = {
                     { name: getString("question"), value: getString("askTranslators").replace("%%botTranslators%%", "<#749391414600925335>") },
                     { name: getString("newCrowdin"), value: getString("checkGuide").replace("%%gettingStarted%%", "<#699275092026458122>") }
                 )
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(embed)
         } else {
             const embed = new Discord.MessageEmbed()
@@ -35,7 +35,7 @@ module.exports = {
                     { name: getString("lastThing"), value: getString("requestInfo").replace("%%tag%%", message.author.tag).replace("%%id%%", message.author.id) },
                     { name: getString("noLanguage"), value: getString("langRequest") }
                 )
-                .setFooter(executedBy, message.author.displayAvatarURL())
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(embed)
         }
     }

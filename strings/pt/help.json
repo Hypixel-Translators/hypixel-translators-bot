@@ -64,6 +64,10 @@
         "usage": "+hypixelverify <jogador> | +hypixelunverify",
         "description": "Liga a tua conta do Discord ao teu perfil no Hypixel. Executa `+hypixelunverify` para te desligares da tua conta."
     },
+    "8ball": {
+        "usage": "+8ball <pergunta>",
+        "description": "A bola mágica que irá responder a todas as tuas perguntas."
+    },
     "tip": {
         "usage": "+tip",
         "description": "Dá-te uma dica aleatória sobre o servidor."
