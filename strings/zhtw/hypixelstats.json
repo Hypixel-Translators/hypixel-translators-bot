@@ -1,9 +1,9 @@
 {
     "moduleName": "玩家統計數據",
-    "description": "Here are some Hypixel stats for %%username%%, obtained [here]%%link%%.",
-    "socialMedia": "Here are the linked social media for %%username%%, obtained [here]%%link%%.",
+    "description": "這是 %%username%% 的 Hypixel 統計數據，資料從[這裡]%%link%%獲取 。",
+    "socialMedia": "這是 %%username%% 已連結的社群媒體，資料從[這裡]%%link%%獲取 。",
     "updateNotice": "Note: Information shown here might take a few minutes to update after you've changed something.",
-    "mediaTip": "To see their linked social media, execute %%command%%",
+    "mediaTip": "要查看他們所連結的社群媒體，請輸入 %%command%%",
     "networkLevel": "Hypixel 等級",
     "ap": "成就點數",
     "online": "Online",
@@ -48,6 +48,6 @@
     "THAI": "泰語",
     "TURKISH": "土耳其語",
     "UKRAINIAN": "烏克蘭語",
-    "madeBy": "Command made by %%developer%%",
+    "madeBy": "指令由 %%developer%% 開發",
     "executedBy": "由 %%user%% 執行"
 }
