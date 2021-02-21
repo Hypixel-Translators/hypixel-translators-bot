@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 const fetch = require("node-fetch")
-const { getUser } = require("../../lib/mongodb")
+const { getUser, getDb } = require("../../lib/mongodb")
 const { updateRoles } = require("./hypixelverify")
 
 //Credits to marzeq_
@@ -48,7 +48,11 @@ module.exports = {
                 }
 
                 //Update user's roles if they're verified
-                if (json.uuid === authorDb.uuid) updateRoles(message, json)
+                if (json.uuid === authorDb.uuid) updateRoles(message.member, json)
+                else {
+                    const userDb = await getDb().collection("users").findOne({ uuid: json.uuid })
+                    if (userDb) updateRoles(message.guild.members.cache.get(userDb.id), json)
+                }
 
                 //Define values used in both subcommands
                 let rank // some ranks are just prefixes so this code accounts for that
