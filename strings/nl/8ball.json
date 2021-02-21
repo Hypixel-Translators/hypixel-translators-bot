@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magic 8 ball",
-    "question": "Question",
+    "moduleName": "Glazen bol",
+    "question": "Vraag",
     "answers": {
         "positive": [
-            "It is certain.",
-            "It is decidedly so.",
-            "Without a doubt.",
-            "Yes – definitely.",
-            "You may rely on it.",
-            "As I see it, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Yes",
-            "Signs point to yes."
+            "Dat is zeker.",
+            "Dat is beslist zo.",
+            "Zonder twijfel.",
+            "Ja, zeker weten.",
+            "Je kunt erop rekenen.",
+            "Volgens mij wel.",
+            "Hoogstwaarschijnlijk.",
+            "Het vooruitzicht is goed.",
+            "Ja",
+            "Tekenen wijzen op ja."
         ],
         "inconclusive": [
-            "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again."
+            "Wazig antwoord, probeer het nog eens.",
+            "Vraag het later nog eens.",
+            "Dat kan ik je nu beter niet vertellen.",
+            "Dat kan ik nu niet voorspellen.",
+            "Concentreer je en vraag het opnieuw."
         ],
         "negative": [
-            "Don't count on it.",
-            "My reply is no.",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful."
+            "Reken er maar niet op.",
+            "Mijn antwoord is nee.",
+            "Mijn bronnen zeggen van niet.",
+            "Het ziet er niet heel goed uit.",
+            "Onwaarschijnlijk."
         ]
     },
     "executedBy": "Uitgevoerd door %%user%%"
