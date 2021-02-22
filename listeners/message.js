@@ -92,42 +92,34 @@ client.on("message", async message => {
 
     //Role Blacklist and Whitelist system
     let allowed = true
-    if (message.channel.type !== "dm") {
-        if (message.guild.id === "549503328472530974") {
-            if (command.roleBlacklist) {
-                allowed = true
-                if (allowed) {
-                    command.roleBlacklist.forEach(role => {
-                        if (message.member.roles.cache.has(role)) allowed = false
-                    })
-                }
-            }
-            if (command.roleWhitelist) {
-                allowed = false
-                if (!allowed) {
-                    command.roleWhitelist.forEach(role => {
-                        if (message.member.roles.cache.has(role)) allowed = true
-                    })
-                }
-            }
+    if (message.guild?.id === "549503328472530974") {
+        if (command.roleBlacklist) {
+            command.roleBlacklist.forEach(role => {
+                if (message.member.roles.cache.has(role)) allowed = false
+            })
+        }
+        if (command.roleWhitelist) {
+            command.roleWhitelist.forEach(role => {
+                if (message.member.roles.cache.has(role)) allowed = true
+            })
+        }
 
-            //Channel Blacklist and whitelist systems
-            if (command.categoryBlacklist && command.categoryBlacklist.includes(message.channel.parent.id)) allowed = false
-            else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
-            else if (command.categoryWhitelist && !command.categoryWhitelist.includes(message.channel.parent.id)) allowed = false
-            else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
+        //Channel Blacklist and whitelist systems
+        if (command.categoryBlacklist && command.categoryBlacklist.includes(message.channel.parent.id)) allowed = false
+        else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
+        else if (command.categoryWhitelist && !command.categoryWhitelist.includes(message.channel.parent.id)) allowed = false
+        else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
 
-            //Prevent users from running commands in development
-            if (command.dev && !message.member.roles.cache.has("764442984119795732")) allowed = false //Discord Administrato
+        //Prevent users from running commands in development
+        if (command.dev && !message.member.roles.cache.has("764442984119795732")) allowed = false //Discord Administrato
 
-            //Give perm to admins and return if not allowed
-            if (message.member.hasPermission("MANAGE_ROLES") && command.name !== "eval") allowed = true
-        } else allowed = false
-    }
+        //Give perm to admins and return if not allowed
+        if (message.member.hasPermission("MANAGE_ROLES") && command.name !== "eval") allowed = true
+    } else allowed = false
     if (!allowed) {
         message.react("732298639736570007")
         return setTimeout(() => {
-            if (!message.deleted) message.delete()
+            if (!message.deleted && message.channel.type !== "dm") message.delete()
         }, 5000);
     }
 
@@ -233,8 +225,8 @@ client.on("message", async message => {
                     console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
                 } else {
                     setTimeout(() => {
-                        if (!message.deleted) message.delete()
-                        if (!msg.deleted) msg.delete()
+                        if (!message.deleted && message.channel.type !== "dm") message.delete()
+                        if (!msg.deleted && message.channel.type !== "dm") msg.delete()
                     }, 10000);
                 }
             })
