@@ -1,7 +1,7 @@
 {
     "moduleName": "情報",
     "page1Title": "ヘルプページ",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `+translate` command.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
+    "commandsListTooltip": "このボットはHypixel翻訳コミュニティのために %%developer%% によって作成されました。オープンソースであり、GitHubのレポジトリは [こちら]%%github%% で確認できます。\n`+translate`コマンドにある手順に従って、このボットを翻訳できます。\n\n`+help <コマンド名>` を実行すると、指定したコマンドの詳細を確認できます。\n以下がコマンド一覧の利用可能なページです。このメッセージのリアクションを使ってページを切り替えられます。",
     "madeBy": "ボットは%%QkeleQ10%%が多大な注意を払って作成しました",
     "page": "ページ %%number%%/%%total%%",
     "pageNumber": "%%number%% ページ目",
@@ -29,16 +29,16 @@
         "description": "あなたの言語に対して適切な接頭辞を設定します。カスタムな接頭辞を取得するには `+prefix <旗>` の `<旗>` を国旗または国名の地域コードに置き換えてください。スラッシュで区切ることで複数個追加できます。"
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "usage": "+quote [引用番号] | +quote add <引用> / <ユーザーメンション>",
+        "description": "サーバーから面白い/奇妙な/賢い引用を取得（または追加）します。"
     },
     "mention": {
-        "usage": "+mention <language> translator|proofreader|all [message]",
-        "description": "Mentions a language role with an optional message."
+        "usage": "+mention <言語> translator|proofreader|all [メッセージ]",
+        "description": "任意のメッセージを、言語のロールにメンションします。"
     },
     "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
+        "usage": "+context get|add|edit|view|help <引数>",
+        "description": "入力したIDの説明文を取得、追加、編集します。`+context help`でこのコマンドの詳細を確認できます。`+context link`で説明文のスプレッドシートへのアクセス権をリクエストできるリンクを表示します。"
     },
     "languagestats": {
         "usage": "+languagestats <言語>",
@@ -50,14 +50,14 @@
     },
     "language": {
         "usage": "+language [<設定する言語> | list | add <言語>]",
-        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
+        "description": "言語の変更、現在の言語の表示、利用可能な言語の一覧を表示します。ボットに新しい言語をリクエストする場合は`+language add <言語>`を実行してください。"
     },
     "ping": {
         "usage": "+ping",
         "description": "ボットのPing値を表示します。"
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [username] [social]",
+        "usage": "+hypixelstats [ユーザー名] [social]",
         "description": "指定したユーザーのHypixelの基本統計を表示します。"
     },
     "hypixelverify": {
@@ -65,7 +65,7 @@
         "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
     },
     "8ball": {
-        "usage": "+8ball <question>",
+        "usage": "+8ball <質問>",
         "description": "The Magic 8 Ball that will answer all your questions."
     },
     "tip": {

@@ -1,6 +1,6 @@
 {
     "moduleName": "Magic 8 ball",
-    "question": "Question",
+    "question": "質問",
     "answers": {
         "positive": [
             "It is certain.",
