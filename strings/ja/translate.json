@@ -1,5 +1,5 @@
 {
-    "moduleName": "Translate the Bot",
+    "moduleName": "ボットを翻訳",
     "alreadyTranslator": "I see you're already a translator. Here's what you may be looking for:",
     "projectLink": "You can find the link to the project [here](%%link%%).",
     "question": "Have a question?",
