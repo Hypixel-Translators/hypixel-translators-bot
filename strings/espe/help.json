@@ -68,6 +68,10 @@
         "usage": "+8ball <pregunta>",
         "description": "La Bola 8 Mágica que responderá a todas tus preguntas."
     },
+    "verify": {
+        "usage": "+verify",
+        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you will be asked to send your profile again. Make sure you have DMs enabled from this server so that the bot can send you a message."
+    },
     "tip": {
         "usage": "+tip",
         "description": "Te da un consejo al azar sobre el servidor."
