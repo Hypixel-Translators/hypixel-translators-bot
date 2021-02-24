@@ -37,7 +37,7 @@ module.exports = {
                         .setTitle(`${requester} wants the following language to be added to the Bot:`)
                         .setDescription(`${name(newLang) || code(newLang)} (user input: ${newLang})`)
                         .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    message.client.channels.cache.get("569595073055162378").send("<@241926666400563203> and <@240875059953139714>", request) //admin tagging Stannya and Rodry
+                    message.client.channels.cache.get("801024098116435988").send("<@&764442984119795732>", request) //admin tagging Discord Administrator
                 } else {
                     const errorRequest = new Discord.MessageEmbed()
                         .setColor(errorColor)
