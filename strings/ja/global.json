@@ -44,14 +44,16 @@
         "prefix": "ニックネームにカッコイイ接頭辞を付けませんか？ %%bots%% にて`+prefix`を実行し手順に従ってください！ すべてのHypixelとQuickplay翻訳者が利用できます。",
         "enen": "リンクをen-enに変更してください！",
         "xp": "チャットをする度ランダムな経験値が得られ、レベルアップすることができます。",
-        "moreTips": "更なるヒントを求めています！ `+feedback`を使用して投稿してください。",
         "guide": "すべての翻訳者が利用できる、Crowdinの始め方ガイドがあるのを知っていますか？ %%gettingStarted%% でチェックしましょう。便利なヒントがたくさんあります！",
         "twitter": "私たちのTwitterアカウントはフォローしていますか？ [こちら]%%twitter%% からチェックしましょう！",
         "rulesInfo": "%%rules%% と %%serverInfo%% にこのサーバーに関する必要な情報がすべて載っています！",
         "fixTranslation": "翻訳にミスを発見しましたか？ 自身の言語の校正者に連絡するか、翻訳チャンネルでお知らせしましょう。",
         "pinnedInfo": "多くのチャンネルのピン留めには重要な情報があることを知っていますか？ チャンネルを見る度に確認することをお勧めします！",
         "hypixelStats": "特定のプレイヤーの情報を閲覧したい場合は、`+hypixelstats <ユーザー名> [social]`を実行してください！",
-        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!"
+        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!",
+        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
+        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "moreTips": "更なるヒントを求めています！ `+feedback`を使用して投稿してください。"
     },
     "executedBy": "%%user%%によって実行されました"
 }
