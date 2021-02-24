@@ -1,0 +1,8 @@
+{
+  "trailingComma": "none",
+  "tabWidth": 4,
+  "useTabs": false,
+  "semi": false,
+  "endOfLine": "lf",
+  "proseWrap": "always"
+}

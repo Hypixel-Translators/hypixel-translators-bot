@@ -2,6 +2,7 @@ const { client } = require("../index.js")
 const Discord = require("discord.js")
 const { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } = require("../config.json")
 const { getUser } = require("../lib/mongodb")
+const { crowdinVerify } = require("../lib/crowdinverify.js")
 const cooldowns = new Discord.Collection()
 
 client.on("message", async message => {
@@ -45,6 +46,9 @@ client.on("message", async message => {
             }
         }
     }
+
+    //Crowdin verification system
+    if (/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi.test(message.content) && message.channel.id === "569178590697095168") return crowdinVerify(message)
 
     //Staff messaging system
     if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm") {
