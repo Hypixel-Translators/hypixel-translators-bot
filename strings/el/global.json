@@ -44,14 +44,16 @@
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "Please change your links to en-en!",
         "xp": "Λαμβάνεις τυχαία ποσά XP κάθε λεπτό όταν γράφεις κάτι και σταδιακά ανεβαίνεις επίπεδο.",
-        "moreTips": "We need more tips! Submit them using `+feedback`.",
         "guide": "Γνωρίζατε ότι έχουμε έναν οδηγό για το πώς να ξεκινήσετε με το Crowdin, διαθέσιμο για όλους τους μεταφραστές; Ρίξτε μια ματιά στο %%gettingStarted%%, έχει μερικές χρήσιμες συμβουλές!",
         "twitter": "Έχεις ακολουθήσει τον λογαριασμό μας στο twitter; Ρίξε του μια ματιά %%twitter%%!",
         "rulesInfo": "%%rules%% and %%serverInfo%% have all the info you need about this server!",
         "fixTranslation": "Βρήκες λάθος σε μια μετάφραση; Επικοινώνησε με έναν διορθωτή για τη γλώσσα σου ή ενημέρωσε μας σε ένα μεταφραστικό κανάλι.",
         "pinnedInfo": "Did you know most channels have important information pinned? You should check it out every time you visit one!",
         "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!",
-        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!"
+        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!",
+        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
+        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "moreTips": "We need more tips! Submit them using `+feedback`."
     },
     "executedBy": "Εκτελέστηκε από τον %%user%%"
 }
