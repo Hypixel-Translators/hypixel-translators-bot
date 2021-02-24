@@ -70,7 +70,7 @@
     },
     "verify": {
         "usage": "+verify",
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you will be asked to send your profile again. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "description": "Controleert automatisch op wijzigingen in je Crowdin-profiel en geeft je de bijbehorende rollen. Als je profiel niet in onze database is opgeslagen, word je gevraagd om je profiel opnieuw te versturen. Zorg ervoor dat je privéberichten hebt ingeschakeld voor deze server zodat de bot je een bericht kan sturen."
     },
     "tip": {
         "usage": "+tip",
