@@ -44,14 +44,16 @@
         "prefix": "¿Quieres tener un prefijo genial en tu apodo? ¡Ejecuta `+prefix` en %%bots%% y sigue las instrucciones! Disponible para todos los traductores de Hypixel y Quickplay.",
         "enen": "¡Por favor, cambia tus enlaces a en-en!",
         "xp": "Obtienes cantidades aleatorias de XP cada minuto cuando estás chateando, lo que eventualmente te hará subir de nivel.",
-        "moreTips": "¡Necesitamos más consejos! Envíalos usando `+feedback`.",
         "guide": "¿Sabías que tenemos una guía para empezar con Crowdin, disponible para todos los traductores? ¡Échale un vistazo a %%gettingStarted%% tiene algunos consejos útiles!",
         "twitter": "¿Has seguido nuestra cuenta de twitter? ¡Échale un vistazo aquí: %%twitter%%!",
         "rulesInfo": "¡%%rules%% y %%serverInfo%% tienen toda la información que necesitas sobre este servidor!",
         "fixTranslation": "¿Has encontrado un error en una traducción? Ponte en contacto con un revisor de tu idioma o haz que la gente lo sepa en un canal de traducción.",
         "pinnedInfo": "¿Sabes que la mayoría de canales tienen información importante fijada? ¡Deberías echarles un vistazo cada vez que visites uno!",
         "hypixelStats": "¡Puedes ver información sobre un jugador en Hypixel usando `+hypixelstats <jugador> [social]`!",
-        "languageStats": "¿Sabías que puedes ver estadísticas de cualquier idioma en todos de nuestros proyectos? ¡Usa `+languagestats <idioma>`!"
+        "languageStats": "¿Sabías que puedes ver estadísticas de cualquier idioma en todos de nuestros proyectos? ¡Usa `+languagestats <idioma>`!",
+        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
+        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "moreTips": "¡Necesitamos más consejos! Envíalos usando `+feedback`."
     },
     "executedBy": "Ejecutado por %%user%%"
 }
