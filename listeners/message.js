@@ -204,7 +204,7 @@ client.on("message", async message => {
             .setAuthor(getString("error", "global"))
             .setTitle(error || error.message)
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        if (getString(command.name, "help") === "strings.dm.usage") embed.addFields({ name: getString("usage", "global"), value: `\`${command.usage}\`` })
+        if (getString(`${command.name}.usage`, "help") === `strings.${command.name}.usage`) embed.addFields({ name: getString("usage", "global"), value: `\`${command.usage}\`` })
         else embed.addFields({ name: getString("usage", "global"), value: `\`${getString(`${command.name}.usage`, "help")}\`` })
         message.channel.stopTyping()
         return message.channel.send(embed)
