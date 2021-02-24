@@ -10,7 +10,6 @@ module.exports = {
     aliases: ["unverify", "reverify"],
     cooldown: 3600,
     allowTip: false,
-    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development bot-translators
     async execute(message, args, getString) {
         if (!message.member.roles.cache.has("569194996964786178")) { //Verified
             await message.delete()
