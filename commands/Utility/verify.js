@@ -32,11 +32,11 @@ module.exports = {
             }
         } else {
             const userDb = await getDb().collection("users").findOne({ id: message.author.id })
-            message.member.roles.remove("569194996964786178", "Unverified") //verified
             if (userDb.profile) {
-                message.client.channels.cache.get("662660931838410754").send(`${message.author} was unverified.`)
+                message.client.channels.cache.get("662660931838410754").send(`${message.author} was unverified.`) //verify-logs
                 return crowdinVerify(message)
             } else {
+                await message.member.roles.remove("569194996964786178", "Unverified") //verified
                 if (!message.deleted) message.delete()
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
@@ -45,6 +45,19 @@ module.exports = {
                     .setDescription(`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us on the <#569178590697095168> channel. Please make sure your profile is public and that you have your Discord tag (${message.author.tag}) in your "About me" section.`)
                     .setFooter("Any messages you send here will be sent to staff.")
                 message.author.send(embed)
+                    .then(() => message.client.channels.cache.get("662660931838410754").send(`${message.author} was unverified.`)) //verify-logs
+                    .catch(() => {
+                        embed
+                            .setDescription(`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us here. Please make sure your profile is public and that you have your Discord tag (${message.author.tag}) in your "About me" section.`)
+                            .setFooter("")
+                        message.client.channels.cache.get("569178590697095168").send(`${message.author} you had DMs disabled, so here's our message,`, embed) //verify
+                            .then(msg => {
+                                setTimeout(() => {
+                                    if (!msg.deleted) msg.delete()
+                                }, 30000)
+                            })
+                        message.client.channels.cache.get("662660931838410754").send(`${message.author} was unverified and had DMs off.`) //verify-logs
+                    })
             }
         }
     }

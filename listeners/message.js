@@ -48,7 +48,7 @@ client.on("message", async message => {
     }
 
     //Crowdin verification system
-    if (/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi.test(message.content) && message.channel.id === "730042612647723058") return crowdinVerify(message)
+    if (/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi.test(message.content) && message.channel.id === "569178590697095168") return crowdinVerify(message)
 
     //Staff messaging system
     if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm") {
