@@ -51,8 +51,8 @@
         "pinnedInfo": "¿Sabes que la mayoría de canales tienen información importante fijada? ¡Deberías echarles un vistazo cada vez que visites uno!",
         "hypixelStats": "¡Puedes ver información sobre un jugador en Hypixel usando `+hypixelstats <jugador> [social]`!",
         "languageStats": "¿Sabías que puedes ver estadísticas de cualquier idioma en todos de nuestros proyectos? ¡Usa `+languagestats <idioma>`!",
-        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
-        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "rolesChange": "¿Obtuviste recientemente nuevos roles en Crowdin o te uniste a uno de los proyectos que apoyamos? ¡Usa `+reverify` para actualizar tus roles!",
+        "botTranslated": "¿Sabías que nuestro bot está disponible en varios idiomas? ¡Intenta usar `+language list` para ver una lista de todos los idiomas que tenemos actualmente y puedes encontrar el tuyo!",
         "moreTips": "¡Necesitamos más consejos! Envíalos usando `+feedback`."
     },
     "executedBy": "Ejecutado por %%user%%"
