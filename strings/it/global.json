@@ -44,14 +44,16 @@
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "Please change your links to en-en!",
         "xp": "You get random amounts of XP every minute when you're chatting, which will eventually make you level up.",
-        "moreTips": "We need more tips! Submit them using `+feedback`.",
         "guide": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%gettingStarted%%, it has some useful tips!",
         "twitter": "Have you followed our twitter account? Check it out at %%twitter%%!",
         "rulesInfo": "%%rules%% and %%serverInfo%% have all the info you need about this server!",
         "fixTranslation": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
         "pinnedInfo": "Did you know most channels have important information pinned? You should check it out every time you visit one!",
         "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!",
-        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!"
+        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!",
+        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
+        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "moreTips": "We need more tips! Submit them using `+feedback`."
     },
     "executedBy": "Eseguito da %%user%%"
 }
