@@ -39,6 +39,7 @@ async function crowdinVerify(message: Discord.Message) {
         url = userDb.profile
         if (!url) {
             //if user runs +reverify and the profile is not stored on our DB
+            //#region return message
             errorEmbed
                 .setDescription(
                     "Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!"
@@ -77,6 +78,7 @@ async function crowdinVerify(message: Discord.Message) {
                         `${message.author} sent the wrong profile link. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`
                     )
                 })
+            //#endregion
         }
     }
     const browser = await getBrowser(),
@@ -93,6 +95,7 @@ async function crowdinVerify(message: Discord.Message) {
         closeConnection(browser.uuid)
         if (!evaluation) {
             //if profile leads to a 404 page
+            //#region return message
             errorEmbed
                 .setDescription(
                     "Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!"
@@ -131,8 +134,10 @@ async function crowdinVerify(message: Discord.Message) {
                         `${message.author} sent the wrong profile link. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`
                     )
                 })
+            //#endregion
         } else {
             //if the profile is private
+            //#region return message
             errorEmbed
                 .setDescription(
                     `Hey there! We noticed you sent us your Crowdin profile, however, it was private so we couldn't check it. Please make it public, at least until you get verified, and send us your profile again on the channel. If you don't know how to, then go to your Crowdin profile settings (found [here](https://crowdin.com/settings#account)) and make sure the "Private Profile" setting is turned off (see the image below)\n\nIf you have any questions, be sure to send them to us!`
@@ -171,6 +176,7 @@ async function crowdinVerify(message: Discord.Message) {
                         `${message.author}'s profile was private, I let them know about that in <#${UsefulIDs.verifyChannel}> since they had DMs off.`
                     )
                 })
+            //#endregion
         }
     }
     const evalReturn: CrowdinProjects[] | null = await page.evaluate(
@@ -190,6 +196,7 @@ async function crowdinVerify(message: Discord.Message) {
     closeConnection(browser.uuid)
 
     if (!evalReturn) {
+        //#region return message
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor("Received message from staff")
@@ -227,6 +234,7 @@ async function crowdinVerify(message: Discord.Message) {
                     `${message.author} forgot to add their Discord to their profile. Let's hope they fix that with the message I just sent them.`
                 )
             })
+        //#endregion
     }
 
     let highestLangRoles: {
@@ -339,6 +347,7 @@ async function crowdinVerify(message: Discord.Message) {
         }
     }
 
+    //#region return message
     const dmEmbed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor("Received message from staff")
@@ -366,6 +375,7 @@ async function crowdinVerify(message: Discord.Message) {
             logMessage.send(logEmbed)
         })
     if (!message.deleted) message.delete()
+    //#endregion
 }
 
 module.exports = { crowdinVerify }
