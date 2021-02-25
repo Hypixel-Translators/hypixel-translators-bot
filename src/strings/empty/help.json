@@ -68,6 +68,10 @@
         "usage": "crwdns1238:0crwdne1238:0",
         "description": "crwdns1240:0crwdne1240:0"
     },
+    "verify": {
+        "usage": "crwdns1242:0crwdne1242:0",
+        "description": "crwdns1244:0crwdne1244:0"
+    },
     "tip": {
         "usage": "crwdns622:0crwdne622:0",
         "description": "crwdns624:0crwdne624:0"

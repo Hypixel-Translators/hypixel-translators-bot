@@ -44,14 +44,16 @@
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "Lütfen bağlantılarınızı en-en olarak değiştirin!",
         "xp": "Sohbet ederken her dakika rastgele miktarda XP elde edersiniz, bu da seviyenizi yükseltmenizi sağlar.",
-        "moreTips": "Daha fazla tüyoya ihtiyacımız var! `+feedback` kullanarak bize geri bildirim gönderin.",
         "guide": "Tüm çevirmenler için Crowdin'i nasıl kullanacağınıza dair bir rehberimiz olduğunu biliyor muydunuz? %%gettingStarted%%, buradan kontrol edin, bazı yararlı ipuçları var!",
         "twitter": "Twitter hesabımızı henüz takip etmedin mi? Buradan edebilirsin %%twitter%%!",
         "rulesInfo": "%%rules%% ve %%serverInfo%% bu sunucu hakkında ihtiyacınız olan tüm bilgilere sahip!",
         "fixTranslation": "Çeviride bir hata mı buldun? Dilinin düzelticisine başvur veya çeviri kanalındaki insanlara bildir.",
         "pinnedInfo": "Çoğu kanalın önemli bilgilere sahip olduğunu biliyor muydun? Bunlardan birini her ziyaret ettiğinde kontrol etmelisin!",
         "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!",
-        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!"
+        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!",
+        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
+        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "moreTips": "Daha fazla tüyoya ihtiyacımız var! `+feedback` kullanarak bize geri bildirim gönderin."
     },
     "executedBy": "%%user%% tarafından yürütüldü"
 }

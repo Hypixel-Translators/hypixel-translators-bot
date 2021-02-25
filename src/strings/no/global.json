@@ -44,14 +44,16 @@
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "Vennligst endre linkene dine til en-en!",
         "xp": "Du får et tilfeldig antall av XP hvert minutt når du chatter, noe som til slutt vil gjøre sånn at du leveler opp.",
-        "moreTips": "Vi trenger flere tips! Send dem inn med `+feedback`.",
         "guide": "Visste du at vi har en guide til hvordan du kan komme i gang med Crowdin, og som er tilgjengelig for alle oversettere? Sjekk den ut ved %%gettingStarted%%, den har noen nyttige tips!",
         "twitter": "Have you followed our twitter account? Check it out at %%twitter%%!",
         "rulesInfo": "%%rules%% og %%serverInfo%% har all infoen du trenger om denne serveren!",
         "fixTranslation": "Fant en feil oversettelse? Kontakt en korrekturleser for ditt språk eller la andre folk vite i en oversettelses kanal.",
         "pinnedInfo": "Visste du at flesteparten av kanalen har viktig informasjon pinned? Du bør sjekke de ut hver gang du er innom en!",
         "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!",
-        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!"
+        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!",
+        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
+        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "moreTips": "Vi trenger flere tips! Send dem inn med `+feedback`."
     },
     "executedBy": "Utført av %%user%%"
 }

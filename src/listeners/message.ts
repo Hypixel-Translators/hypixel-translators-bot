@@ -1,7 +1,6 @@
-import { DiscordAPIError } from "discord.js"
-
 import { client } from "../index.js"
 import Discord from "discord.js"
+import { crowdinVerify } from "./../lib/crowdinverify"
 import { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } from "../config.json"
 const cooldowns: Discord.Collection<string, Discord.Collection<string, number>> = new Discord.Collection()
 
@@ -49,6 +48,12 @@ client.on("message", async (message: Discord.Message) => {
         }
     }
 
+    //Crowdin verification system
+    if (/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel?.id === "569178590697095168") { //verify
+        message.react("798339571531382874") //icon_working
+        return crowdinVerify(message)
+    }
+
     //Staff messaging system
     if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm") {
         const staffMsg = new Discord.MessageEmbed()
@@ -91,13 +96,15 @@ client.on("message", async (message: Discord.Message) => {
     let allowed = true
     if (message.guild?.id === "549503328472530974") {
         if (command.roleBlacklist) {
+            allowed = true
             command.roleBlacklist.forEach(role => {
-                if (message.member!.roles.cache.has(role)) allowed = false
+                if (message.member?.roles.cache.has(role)) allowed = false
             })
         }
         if (command.roleWhitelist) {
+            allowed = false
             command.roleWhitelist.forEach(role => {
-                if (message.member!.roles.cache.has(role)) allowed = true
+                if (message.member?.roles.cache.has(role)) allowed = true
             })
         }
 
@@ -108,10 +115,10 @@ client.on("message", async (message: Discord.Message) => {
         else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
 
         //Prevent users from running commands in development
-        if (command.dev && message.member!.roles.cache.has("764442984119795732")) allowed = false //Discord Administrato
+        if (command.dev && !message.member?.roles.cache.has("764442984119795732")) allowed = false //Discord Administrator
 
         //Give perm to admins and return if not allowed
-        if (message.member!.hasPermission("MANAGE_ROLES") && command.name !== "eval") allowed = true
+        if (message.member?.hasPermission("MANAGE_ROLES") && command.name !== "eval") allowed = true
     } else allowed = false
     if (!allowed) {
         message.react("732298639736570007")
@@ -205,9 +212,9 @@ client.on("message", async (message: Discord.Message) => {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(getString("error", "global"))
-            .setTitle(error || error.message)
+            .setTitle(error.message?.substring(0, 255) || error.substring(0, 255))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        if (getString(command.name, "help") === "strings.dm.usage") embed.addFields({ name: getString("usage", "global"), value: `\`${command.usage}\`` })
+        if (getString(`${command.name}.usage`, "help") === `strings.${command.name}.usage`) embed.addFields({ name: getString("usage", "global"), value: `\`${command.usage}\`` })
         else embed.addFields({ name: getString("usage", "global"), value: `\`${getString(`${command.name}.usage`, "help")}\`` })
         message.channel.stopTyping()
         return message.channel.send(embed)
@@ -216,8 +223,8 @@ client.on("message", async (message: Discord.Message) => {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setAuthor("Unexpected error!")
-                        .setTitle(error)
-                        .setDescription(`\`\`\`${error.stack}\`\`\``)
+                        .setTitle(error.substring(0, 255))
+                        .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
                         .setFooter("Check the console for more details")
                     const botdevchannel = message.guild!.channels.cache.get("730042612647723058") as Discord.TextChannel
                     botdevchannel.send("ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development

@@ -44,14 +44,16 @@
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "Változtasd meg a linkjeidet en-en nyelvre!",
         "xp": "Véretlen mennyiségű TP-t kapsz minden percben amikor beszélsz, amitől majd szintet is léphetsz.",
-        "moreTips": "Több tipp kéne! Írj nekünk a `+feedback` használatával.",
         "guide": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%gettingStarted%%, it has some useful tips!",
         "twitter": "Have you followed our twitter account? Check it out at %%twitter%%!",
         "rulesInfo": "A szerverről az összes információ megtalálható itt: %%rules%% és %%serverInfo%%!",
         "fixTranslation": "Fordítási hibát találtál? Üzenj a nyelved egyik ellenőrzőjének vagy szólj egy fordító csatornában.",
         "pinnedInfo": "Tudtad hogy a legtöbb csatornában fontos információk vannak kitűzve? Elolvashatnád, amikor betérsz oda!",
         "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!",
-        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!"
+        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!",
+        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
+        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "moreTips": "Több tipp kéne! Írj nekünk a `+feedback` használatával."
     },
     "executedBy": "%%user%% által küldve"
 }

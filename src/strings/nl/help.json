@@ -68,6 +68,10 @@
         "usage": "+8ball <vraag>",
         "description": "De glazen bol die al je vragen zal beantwoorden."
     },
+    "verify": {
+        "usage": "+verify",
+        "description": "Controleert automatisch op wijzigingen in je Crowdin-profiel en geeft je de bijbehorende rollen. Als je profiel niet in onze database is opgeslagen, word je gevraagd om je profiel opnieuw te versturen. Zorg ervoor dat je privéberichten hebt ingeschakeld voor deze server zodat de bot je een bericht kan sturen."
+    },
     "tip": {
         "usage": "+tip",
         "description": "Geeft je een willekeurige servertip."

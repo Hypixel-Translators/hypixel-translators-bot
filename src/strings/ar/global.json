@@ -44,14 +44,16 @@
         "prefix": "هل تريد أن يكون لديك برفكس رائعة على اسمك المستعار ؟ قم بتشغيل `+prefix` في %%bots%% واتبع التعليمات! متوفر لجميع مترجمي هايبكسل و Quickplay.",
         "enen": "الرجاء غير رابطك الى en-en!",
         "xp": "عندما تدردش تحصل على كمية عشوائية من الإكس بي كل دقيقة, و بذلك سيجعلك هذا تزيد مستواك.",
-        "moreTips": "نحتاج المزيد من النصائح! قدمهم بإستعمال `+feedback`.",
         "guide": "هل كت تعرف ان لدينا إرشاد عن كيفية البدء في Crowdin, متوافر لكل الترجمين؟ يمكنك ايجاده في %%gettingStarted%%, يوجد فيه نصائح مفيدة!",
         "twitter": "هل قمت بعمل فولو لنا على حسابنا في تويتر؟ تفقده [هنا]%%twitter%%!",
         "rulesInfo": "%%rules%% و %%serverInfo%% لديها جميع المعلومات التي قد تحتاجها عن السيرفر!",
         "fixTranslation": "وجدت خطأ في ترجمة ما؟ تواصل مع مدقق مطبعي للغتك او اخبر الناس في روم الترجمة.",
         "pinnedInfo": "هل كنت تعرف ان اغلب الرومات يوجد فيها معلومات هامة مثبته؟ تحتاج ان تلقي لها نظرة في كل مرة تزور واحدة!",
         "hypixelStats": "يمكنك عرض معلومات حول لاعب معين في هايبكسلl عن طريق تنفيذ `+hypixelstats <الاسم> [social]`!",
-        "languageStats": "هل تعلم أنه يمكنك عرض إحصائيات لأي لغة في جميع مشاريعنا؟ فقط تنفيذ `+languagestats <لغة>`!"
+        "languageStats": "هل تعلم أنه يمكنك عرض إحصائيات لأي لغة في جميع مشاريعنا؟ فقط تنفيذ `+languagestats <لغة>`!",
+        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
+        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "moreTips": "نحتاج المزيد من النصائح! قدمهم بإستعمال `+feedback`."
     },
     "executedBy": "نفذ من قبل %%user%%"
 }

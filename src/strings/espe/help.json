@@ -65,8 +65,12 @@
         "description": "Vincula tu cuenta de Discord con tu pefil de Hypixel. Usa `+hypixelunverify` para desverificarte."
     },
     "8ball": {
-        "usage": "+8ball <question>",
-        "description": "The Magic 8 Ball that will answer all your questions."
+        "usage": "+8ball <pregunta>",
+        "description": "La Bola 8 Mágica que responderá a todas tus preguntas."
+    },
+    "verify": {
+        "usage": "+verify",
+        "description": "Comprueba automáticamente los cambios en tu perfil de Crowdin y te da los roles adecuados. Si tu perfil no está almacenado en nuestra base de datos, se te pedirá que envíes tu perfil de nuevo. Asegúrate de tener DMs habilitados desde este servidor para que el bot pueda enviarte un mensaje."
     },
     "tip": {
         "usage": "+tip",

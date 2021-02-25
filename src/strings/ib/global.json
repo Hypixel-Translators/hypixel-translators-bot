@@ -44,14 +44,16 @@
         "prefix": "U wants has cool prefixsxsxs on ur nicknams? Doo `+prefix` in %%bots%% and folow da instrushone! Avalibel too all Hypickle and Quickpla translat.",
         "enen": "Idot! Chang lonks to en-en!",
         "xp": "U get rendem amont expee every chat minut. Evæntuælly, u will laval up and there wil be big partis and ballons and moar.",
-        "moreTips": "We ned moar tips! Sbubmit wif `+feedback`.",
         "guide": "Hey idot, did u knowo we haz specal howtogetstartedwifcrowdin guide, fur al tramslayers? Checc at %%gettingStarted%% bc haz very cool tips!",
         "twitter": "Hav u folåwd our acocæount on Twooter? Checc @ her %%twitter%%!1",
         "rulesInfo": "%%rules%% n %%serverInfo%% haz veri cool and many infoamatins bout dis sarvar!",
         "fixTranslation": "Fount mistak in tramslayshun? Contacc prüfreder fur ur langag or let pepel knowo in a tramslayshun chanel.",
         "pinnedInfo": "Did u knowo a lotof chanels haz improtantr stuf in the pin menu thing? Is very kool so def checc out!",
         "hypixelStats": "U can has view informashone abuut playr on Hypickle by excut +hypixelstats <usernam> [social]`!",
-        "languageStats": "U know can has see statistticic for ani langag on al of our projgets? Jus excut `+languagestats <langag>`!"
+        "languageStats": "U know can has see statistticic for ani langag on al of our projgets? Jus excut `+languagestats <langag>`!",
+        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
+        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "moreTips": "We ned moar tips! Sbubmit wif `+feedback`."
     },
     "executedBy": "Done by le %%user%%"
 }

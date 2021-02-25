@@ -44,14 +44,16 @@
         "prefix": "crwdns946:0%%bots%%crwdne946:0",
         "enen": "crwdns948:0crwdne948:0",
         "xp": "crwdns950:0crwdne950:0",
-        "moreTips": "crwdns952:0crwdne952:0",
         "guide": "crwdns954:0%%gettingStarted%%crwdne954:0",
         "twitter": "crwdns956:0%%twitter%%crwdne956:0",
         "rulesInfo": "crwdns958:0%%rules%%crwdnd958:0%%serverInfo%%crwdne958:0",
         "fixTranslation": "crwdns960:0crwdne960:0",
         "pinnedInfo": "crwdns962:0crwdne962:0",
         "hypixelStats": "crwdns964:0[social]crwdne964:0",
-        "languageStats": "crwdns1118:0crwdne1118:0"
+        "languageStats": "crwdns1118:0crwdne1118:0",
+        "rolesChange": "crwdns1246:0crwdne1246:0",
+        "botTranslated": "crwdns1248:0crwdne1248:0",
+        "moreTips": "crwdns952:0crwdne952:0"
     },
     "executedBy": "crwdns540:0%%user%%crwdne540:0"
 }

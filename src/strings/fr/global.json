@@ -44,14 +44,16 @@
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "Change tes liens à en-en!",
         "xp": "Tu obtiens des quantités d'XP aléatoires chaque minute lorsque tu discutes, ce qui tu fera monter de niveau.",
-        "moreTips": "Nous avons besoin de plus de conseils! Envoie-les en utilisant `+feedback`.",
         "guide": "Sais-tu que nous avons un guide sur la façon de commencer avec Crowdin, disponible pour tous les traducteurs? Regarde-le à %%gettingStarted%%, il a quelques conseils utiles!",
         "twitter": "Have you followed our twitter account? Check it out at %%twitter%%!",
         "rulesInfo": "%%rules%% et %%serverInfo%% ont toutes les infos dont tu as besoin à propos de ce serveur!",
         "fixTranslation": "Tu as trouvé une erreur dans une traduction? Contacte un proofreader de ta langue ou faites-le savoir dans un canal de traduction.",
         "pinnedInfo": "Sais-tu que les canals contiennent des informations importantes épinglées? Trouve-le lorsque tu visites un canal!",
         "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!",
-        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!"
+        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!",
+        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
+        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "moreTips": "Nous avons besoin de plus de conseils! Envoie-les en utilisant `+feedback`."
     },
     "executedBy": "Exécuté par %%user%%"
 }

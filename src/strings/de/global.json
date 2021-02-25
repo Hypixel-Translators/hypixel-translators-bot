@@ -44,14 +44,16 @@
         "prefix": "Möchtest du einen coolen Präfix vor deinem Benutzernamen haben? Führe `+prefix` in %%bots%% aus und folge den Anweisungen! Verfügbar für alle Hypixel- und Quickplay-Übersetzer.",
         "enen": "Bitte ändere deine Links auf en-en!",
         "xp": "Du bekommst eine zufällige XP-Anzahl wenn du schreibst, wodurch du ein Level aufsteigst.",
-        "moreTips": "Wir benötigen mehr Tipps! Sende sie mit ‘+feedback’ ein.",
         "guide": "Wusstest du, dass wir einen Leitfaden für den Einstieg in Crowdin haben, der für alle Übersetzer verfügbar ist? Sieh ihn dir unter %%gettingStarted%% an, er enthält einige nützliche Tipps!",
         "twitter": "Folgst du unserem Twitter-Account? Schau mal bei %%twitter%% vorbei!",
         "rulesInfo": "%%rules%% und %%serverInfo%% haben alle Infos, die du über diesen Server brauchst!",
         "fixTranslation": "Du hast einen Fehler in der Übersetzung gefunden? Dann kontaktiere einen Proofreader für die Sprache oder lasse es in dem Channel für Übersetzung wissen.",
         "pinnedInfo": "Wusstest du, dass die meisten Kanäle wichtige Informationen angeheftet haben? Du solltest sie dir jedes Mal ansehen, wenn du einen besuchst!",
         "hypixelStats": "Du kannst dir Informationen über einen bestimmten Spieler auf Hypixel ansehen, indem du `+hypixelstats <Spitzname> [social]` ausführst!",
-        "languageStats": "Wusstest du, dass du Statistiken für jede Sprache in allen unseren Projekten sehen kannst? Führe einfach `+languagestats <Sprache>` aus!"
+        "languageStats": "Wusstest du, dass du Statistiken für jede Sprache in allen unseren Projekten sehen kannst? Führe einfach `+languagestats <Sprache>` aus!",
+        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
+        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "moreTips": "Wir benötigen mehr Tipps! Sende sie mit ‘+feedback’ ein."
     },
     "executedBy": "Ausgeführt von %%user%%"
 }
