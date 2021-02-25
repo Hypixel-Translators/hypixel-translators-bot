@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magic 8 ball",
-    "question": "Question",
+    "moduleName": "Taikapallo",
+    "question": "Kysymys",
     "answers": {
         "positive": [
-            "It is certain.",
-            "It is decidedly so.",
-            "Without a doubt.",
-            "Yes – definitely.",
-            "You may rely on it.",
-            "As I see it, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Yes",
-            "Signs point to yes."
+            "Varmasti.",
+            "Niin se selvästikin on.",
+            "Ilman pienintäkään epäilystä.",
+            "Kyllä – ehdottoman varmasti.",
+            "Voit luottaa siihen.",
+            "Minun mielestäni, kyllä.",
+            "Mitä todennäköisimmin.",
+            "Hyvältä näyttää.",
+            "Kyllä",
+            "Kaikkien merkkien mukaan kyllä."
         ],
         "inconclusive": [
-            "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again."
+            "Vastaus epäselvä, yritä uudelleen.",
+            "Kysy myöhemmin uudelleen.",
+            "Parempi, jos en kerro juuri nyt.",
+            "En voi ennustaa nyt.",
+            "Keskity enemmän ja kysy uudelleen."
         ],
         "negative": [
-            "Don't count on it.",
-            "My reply is no.",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful."
+            "En luottaisi siihen.",
+            "Vastaukseni on ei.",
+            "Lähteeni sanovat ei.",
+            "Ei näytä niin hyvältä.",
+            "Todella epävarmaa."
         ]
     },
     "executedBy": "Komennon suoritti %%user%%"
