@@ -1,19 +1,19 @@
-const { loadingColor, errorColor, successColor } = require("../config.json")
-const Discord = require("discord.js")
-const fetch = require("node-fetch")
+import { loadingColor, errorColor, successColor } from "../config.json"
+import Discord from "discord.js"
+import fetch from "node-fetch"
 const ctokenV2 = process.env.CTOKEN_API_V2
-const { getDb } = require("../lib/mongodb")
+import { HTBClient } from "../lib/dbclient"
 
 module.exports = {
-    async execute(client, manual) {
+    async execute(client: HTBClient, manual: boolean) {
         try {
             const d = new Date()
             const m = d.getMinutes()
-            if (m == "0" || m == "20" || m == "40") {
+            if (m == 0 || m == 20 || m == 40) {
                 await hypixel(client)
                 await skyblockaddons(client)
             }
-            if (m == "10" || m == "30" || m == "50") {
+            if (m == 10 || m == 30 || m == 50) {
                 await quickplay(client)
                 await bot(client)
             }
@@ -32,8 +32,8 @@ module.exports = {
     bot
 }
 
-async function hypixel(client) {
-    const langdb = await getDb().collection("langdb").find().toArray()
+async function hypixel(client: HTBClient) {
+    const langdb = await client.db.collection("langdb").find().toArray()
     const url = `https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500`
     const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
     let index = 0
@@ -79,8 +79,8 @@ async function hypixel(client) {
         })
 }
 
-async function quickplay(client) {
-    const langdb = await getDb().collection("langdb").find().toArray()
+async function quickplay(client: HTBClient) {
+    const langdb = await client.db.collection("langdb").find().toArray()
     const url = `https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500`
     const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
     let index = 0
@@ -94,7 +94,7 @@ async function quickplay(client) {
             const reversed = Array.from(langStatus).sort((currentStatus, nextStatus) => {
                 return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
             })
-            client.channels.cache.find(channel => channel.name === "quickplay-language-status").messages.fetch() //quickplay-language-status
+            client.channels!.cache!.find(channel => channel.name === "quickplay-language-status")!.messages.fetch() //quickplay-language-status
                 .then(messages => {
                     fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async msg => {

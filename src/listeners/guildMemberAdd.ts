@@ -1,9 +1,8 @@
-const { client } = require("../index.js")
-const Discord = require("discord.js")
-const { registerFont, createCanvas, loadImage } = require("canvas")
-const { getDb } = require("../lib/mongodb")
+import { client } from "../index.js"
+import Discord from "discord.js"
+import { registerFont, createCanvas, loadImage } from "canvas"
 
-client.on("guildMemberAdd", member => {
+client.on("guildMemberAdd", (member: Discord.GuildMember) => {
 
     //Define assets and create canvas
     registerFont("./assets/Bitter-Regular.ttf", { family: "Bitter" })
@@ -64,11 +63,12 @@ client.on("guildMemberAdd", member => {
 
             //OUTPUT
             const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `${member.user.username} join.png`)
-            member.guild.channels.cache.get("549882021934137354").send(`${member.user} just joined! Welcome! 🎉`, attachment) //join-leave
+            const channel = member.guild.channels.cache.get("549882021934137354") as Discord.TextChannel
+            channel.send(`${member.user} just joined! Welcome! 🎉`, attachment) //join-leave
         })
     })
     if (!member.user.bot) {
         member.send(`Hey there and thanks for joining **${member.guild.name}**! If you're a translator, be sure to check out <#699275092026458122> as this channel includes useful information for new and current translators. If you're looking to translate other projects, check out the ones we currently support by executing \`+projects\` here! We hope you have fun on our server!`).catch(() => console.log(`Couldn't DM user ${member.user.tag}, probably because they have DMs off`)) //getting started
-        getDb().collection("users").insertOne({ id: member.user.id, lang: "en", profile: "", uuid: "" })
+        client.db.collection("users").insertOne({ id: member.user.id, lang: "en", profile: "", uuid: "" })
     }
 })

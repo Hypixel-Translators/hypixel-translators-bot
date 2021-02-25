@@ -1,10 +1,13 @@
-const fs = require("fs")
-const path = require("path")
-const Discord = require("discord.js")
+import fs from "fs"
+import path from "path"
+import Discord from "discord.js"
+import { HTBClient, Command } from "./dbclient"
+import { CommandCursor } from "mongodb"
 
-function findCommands(dir, pattern) {
 
-    let results = []
+function findCommands(dir: string, pattern: string) {
+
+    let results: string[] = []
 
     fs.readdirSync(dir).forEach(innerPath => {
 
@@ -18,15 +21,15 @@ function findCommands(dir, pattern) {
     return results
 }
 
-const cmdFiles = findCommands("./commands/", ".js")
+const cmdFiles = findCommands("./commands/", ".ts")
 
-module.exports.setup = (client) => {
+export function setup(client: HTBClient) {
 
     //Set commands
     client.commands = new Discord.Collection()
     if (cmdFiles.length <= 0) return console.log("There are no commands to load...")
     cmdFiles.forEach(file => {
-        const command = require(file)
+        const command: Command = require(file)
         client.commands.set(command.name, command)
     })
     console.log(`Loaded ${cmdFiles.length} commands.`)
@@ -34,7 +37,7 @@ module.exports.setup = (client) => {
     //Setup events
     fs.readdir("./listeners/", (err, files) => {
         if (err) console.error(err)
-        let jsfiles = files.filter(f => f.endsWith(".js"))
+        let jsfiles = files.filter(f => f.endsWith(".ts"))
         if (jsfiles.length <= 0) return console.log("There are no events to load...")
         jsfiles.forEach((f, i) => require(`../listeners/${f}`))
         console.log(`Loaded ${jsfiles.length} events.`)
