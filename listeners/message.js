@@ -1,4 +1,4 @@
-const { client } = require("../index.js")
+const { client } = require("..")
 const Discord = require("discord.js")
 const { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } = require("../config.json")
 const { getUser } = require("../lib/mongodb")
@@ -107,10 +107,10 @@ client.on("message", async message => {
         }
 
         //Channel Blacklist and whitelist systems
-        if (command.categoryBlacklist && command.categoryBlacklist.includes(message.channel.parent.id)) allowed = false
-        else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
-        else if (command.categoryWhitelist && !command.categoryWhitelist.includes(message.channel.parent.id)) allowed = false
-        else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
+        if (command.categoryBlacklist?.includes(message.channel.parent.id)) allowed = false
+        else if (command.channelBlacklist?.includes(message.channel.id)) allowed = false
+        else if (!command.categoryWhitelist?.includes(message.channel.parent.id)) allowed = false
+        else if (!command.channelWhitelist?.includes(message.channel.id)) allowed = false
 
         //Prevent users from running commands in development
         if (command.dev && !message.member.roles.cache.has("764442984119795732")) allowed = false //Discord Administrator
@@ -135,9 +135,7 @@ client.on("message", async message => {
         return message.channel.send(embed)
     }
     //Cooldown system
-    if (!cooldowns.has(command.name)) {
-        cooldowns.set(command.name, new Discord.Collection())
-    }
+    if (!cooldowns.has(command.name)) cooldowns.set(command.name, new Discord.Collection())
     const now = Date.now()
     const timestamps = cooldowns.get(command.name)
     const cooldownAmount = (command.cooldown || 3) * 1000
@@ -146,13 +144,10 @@ client.on("message", async message => {
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000
             let timeLeftS
-            if (Math.ceil(timeLeft) >= 120) {
-                timeLeftS = (getString("minsLeftT", "global").replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", commandName))
-            } else if (Math.ceil(timeLeft) === 1) {
-                timeLeftS = (getString("secondLeft", "global").replace("%%command%%", commandName))
-            } else {
-                timeLeftS = (getString("timeLeftT", "global").replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", commandName))
-            }
+            if (Math.ceil(timeLeft) >= 120) timeLeftS = (getString("minsLeftT", "global").replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", commandName))
+            else if (Math.ceil(timeLeft) === 1) timeLeftS = (getString("secondLeft", "global").replace("%%command%%", commandName))
+            else timeLeftS = (getString("timeLeftT", "global").replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", commandName))
+
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor(getString("cooldown", "global"))

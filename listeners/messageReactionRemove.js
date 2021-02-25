@@ -1,4 +1,4 @@
-const { client } = require("../index.js")
+const { client } = require("..")
 
 client.on("messageReactionRemove", async (reaction, user) => {
     if (reaction.message.channel.type !== "dm") {

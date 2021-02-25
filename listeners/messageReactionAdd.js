@@ -1,4 +1,4 @@
-const { client } = require("../index.js")
+const { client } = require("..")
 
 client.on("messageReactionAdd", async (reaction, user) => {
     const channel = reaction.message.channel
@@ -22,7 +22,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             else if (reaction.emoji.name === "🤖") roleId = "732615152246980628" //Bot Updates
             else if (reaction.emoji.name === "🎉") roleId = "801052623745974272" //Giveaway pings
             else return
-            reaction.message.guild.member(user).roles.add(roleId, "Removed the reaction in server-info")
+            reaction.message.guild.member(user).roles.add(roleId, "Added the reaction in server-info")
                 .then(() => console.log(`Gave the ${reaction.message.guild.roles.cache.get(roleId).name} role to ${user.tag}`))
                 .catch(err => console.error(`An error occured while trying to give the ${reaction.message.guild.roles.cache.get(roleId).name} role to ${user.tag}. Here's the error:\n${err}`))
         }

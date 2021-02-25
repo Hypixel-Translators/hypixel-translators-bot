@@ -1,4 +1,4 @@
-const { client } = require("../index.js")
+const { client } = require("..")
 const stats = require("../events/stats.js")
 const inactives = require("../events/inactives.js")
 const unzalgo = require("../events/unzalgo.js")
