@@ -65,8 +65,8 @@
         "description": "Linkittää Discord-tilisi Hypixel-profiilisi kanssa. Suorita komento `+hypixelunverify` poistaaksesi linkityksen."
     },
     "8ball": {
-        "usage": "+8ball <question>",
-        "description": "The Magic 8 Ball that will answer all your questions."
+        "usage": "+8ball <kysymys>",
+        "description": "Taikapallo, joka vastaa kaikkiin kysymyksiisi."
     },
     "verify": {
         "usage": "+verify",
