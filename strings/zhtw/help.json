@@ -7,11 +7,11 @@
     "pageNumber": "第 %%number%% 頁",
     "utilityHelp": "%%badge%% 實用工具",
     "infoHelp": "%%badge%% 訊息指令",
-    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
+    "timeOut": "這個選單已逾時。如果你要繼續使用它，請再次輸入 `+help`。",
     "pageNotExist": "That page doesn't exist!",
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
-    "commandNotExist": "That command doesn't exist!",
+    "commandNotExist": "這個指令不存在！",
     "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
     "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": "seconds",
@@ -49,7 +49,7 @@
         "description": "開啟我們的 GitHub 議題頁面，你可以在那裡回報問題和發送回饋。"
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
+        "usage": "+language [<新語言> | list | add <語言>]",
         "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
     },
     "ping": {
@@ -65,7 +65,7 @@
         "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
     },
     "8ball": {
-        "usage": "+8ball <question>",
+        "usage": "+8ball <問題>",
         "description": "The Magic 8 Ball that will answer all your questions."
     },
     "verify": {

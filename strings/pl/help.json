@@ -65,7 +65,7 @@
         "description": "Łączy Twoje konto Discord z Twoim profilem Hypixel. Wpisz `+hypixelunverify` aby się odweryfikować."
     },
     "8ball": {
-        "usage": "+8ball <question>",
+        "usage": "+8ball <pytanie>",
         "description": "The Magic 8 Ball that will answer all your questions."
     },
     "verify": {
