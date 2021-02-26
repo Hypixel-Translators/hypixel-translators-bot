@@ -34,6 +34,7 @@ module.exports = {
                     return message.channel.send(embed)
                 }
             })
+            message.client.cooldowns.get(this.name).delete(message.author.id)
             return
         }
         if (!args[0]) throw "noUser"

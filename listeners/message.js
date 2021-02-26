@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 const { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } = require("../config.json")
 const { getUser } = require("../lib/mongodb")
 const { crowdinVerify } = require("../lib/crowdinverify.js")
-const cooldowns = new Discord.Collection()
+client.cooldowns = new Discord.Collection()
 
 client.on("message", async message => {
 
@@ -135,9 +135,9 @@ client.on("message", async message => {
         return message.channel.send(embed)
     }
     //Cooldown system
-    if (!cooldowns.has(command.name)) cooldowns.set(command.name, new Discord.Collection())
+    if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Discord.Collection())
     const now = Date.now()
-    const timestamps = cooldowns.get(command.name)
+    const timestamps = client.cooldowns.get(command.name)
     const cooldownAmount = (command.cooldown || 3) * 1000
     if (timestamps.has(message.author.id)) {
         const expirationTime = timestamps.get(message.author.id) + cooldownAmount
