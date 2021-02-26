@@ -24,6 +24,7 @@ module.exports = {
         } else {
             const userDb = await getDb().collection("users").findOne({ id: message.author.id })
             if (userDb.profile) {
+                message.react("798339571531382874") //icon_working
                 message.client.channels.cache.get("662660931838410754").send(`${message.author} was unverified.`) //verify-logs
                 return crowdinVerify(message)
             } else {
