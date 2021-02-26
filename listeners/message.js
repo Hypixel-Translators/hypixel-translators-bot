@@ -34,8 +34,7 @@ client.on("message", async message => {
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
                 if (message.content !== langFix && message.channel.parent.id === "549503328472530977") embed.setDescription(`${getString("example", "global").replace("%%url%%", "<https://crowdin.com/translate/hypixel/286/en-en#106644>")}\n${getString("reminderLang", "global").replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`")}`)
                 return message.channel.send(message.author, embed)
-            }
-            if (message.content !== langFix && message.channel.parent.id === "549503328472530977") {
+            } else if (message.content !== langFix && message.channel.parent.id === "549503328472530977") {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
