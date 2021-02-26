@@ -1,4 +1,4 @@
-const { client } = require("..")
+const { client } = require("../index")
 const Discord = require("discord.js")
 const { registerFont, createCanvas, loadImage } = require("canvas")
 const { getDb } = require("../lib/mongodb")

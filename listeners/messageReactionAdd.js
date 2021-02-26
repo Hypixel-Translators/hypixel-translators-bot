@@ -1,4 +1,4 @@
-const { client } = require("..")
+const { client } = require("../index")
 
 client.on("messageReactionAdd", async (reaction, user) => {
     const channel = reaction.message.channel

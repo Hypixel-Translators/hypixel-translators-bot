@@ -1,4 +1,4 @@
-const { client } = require("..")
+const { client } = require("../index")
 const { getDb } = require("../lib/mongodb")
 
 client.on("guildMemberRemove", async member => {

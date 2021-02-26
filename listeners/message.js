@@ -1,4 +1,4 @@
-const { client } = require("..")
+const { client } = require("../index")
 const Discord = require("discord.js")
 const { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } = require("../config.json")
 const { getUser } = require("../lib/mongodb")
