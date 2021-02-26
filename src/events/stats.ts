@@ -1,8 +1,9 @@
 import { loadingColor, errorColor, successColor } from "../config.json"
 import Discord from "discord.js"
 import fetch from "node-fetch"
-const ctokenV2 = process.env.CTOKEN_API_V2
 import { HTBClient } from "../lib/dbclient"
+import { ObjectId } from "mongodb"
+const ctokenV2 = process.env.CTOKEN_API_V2
 
 module.exports = {
     async execute(client: HTBClient, manual: boolean) {
@@ -40,16 +41,16 @@ async function hypixel(client: HTBClient) {
     fetch(url, settings)
         .then(res => res.json())
         .then(json => {
-            const langStatus = json.data.map(status => {
+            const langStatus = json.data.map((status: languageStatus) => {
                 status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
             })
             const reversed = Array.from(langStatus).sort((currentStatus, nextStatus) => {
                 return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
             })
-            client.channels.cache.find(channel => channel.name === "hypixel-language-status").messages.fetch() //hypixel-language-status
+            client.channels.cache.find((channel: Discord.TextChannel) => channel.name === "hypixel-language-status")!.messages.fetch() //hypixel-language-status
                 .then(messages => {
-                    fiMessages = messages.filter(msg => msg.author.bot)
+                    const fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async msg => {
                         let r = reversed[index].data
                         const embed = new Discord.MessageEmbed()
@@ -79,7 +80,7 @@ async function hypixel(client: HTBClient) {
         })
 }
 
-async function quickplay(client: HTBClient) {
+async function quickplay(client: HTBClient) {
     const langdb = await client.db.collection("langdb").find().toArray()
     const url = `https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500`
     const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
@@ -87,19 +88,20 @@ async function quickplay(client: HTBClient) {
     fetch(url, settings)
         .then(res => res.json())
         .then(json => {
-            const langStatus = json.data.map(status => {
+            const langStatus = json.data.map((status: languageStatus) => {
                 status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
             })
             const reversed = Array.from(langStatus).sort((currentStatus, nextStatus) => {
                 return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
             })
-            client.channels!.cache!.find(channel => channel.name === "quickplay-language-status")!.messages.fetch() //quickplay-language-status
-                .then(messages => {
-                    fiMessages = messages.filter(msg => msg.author.bot)
-                    fiMessages.forEach(async msg => {
+            client.channels.cache.find((channel: Discord.TextChannel) => channel.name === "quickplay-language-status")!.messages.fetch() //quickplay-language-status
+                .then((messages: Discord.Message) => {
+                    const fiMessages = messages.filter((msg: Discord.Message) => msg.author.bot)
+                    fiMessages.forEach(async (msg: Discord.Message) => {
                         let r = reversed[index].data
 
+                        let adapColour: string
                         if (r.approvalProgress > 89) {
                             adapColour = successColor
                         } else if (r.approvalProgress > 49) {
@@ -143,7 +145,7 @@ async function bot(client) {
     fetch(url, settings)
         .then(res => res.json())
         .then(json => {
-            const langStatus = json.data.map(status => {
+            const langStatus = json.data.map((status: languageStatus) => {
                 status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
             })
@@ -152,7 +154,7 @@ async function bot(client) {
             })
             client.channels.cache.find(channel => channel.name === "bot-language-status").messages.fetch() //bot-language-status
                 .then(messages => {
-                    fiMessages = messages.filter(msg => msg.author.bot)
+                    const fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async msg => {
                         let r = reversed[index].data
 
@@ -199,7 +201,7 @@ async function skyblockaddons(client) {
     fetch(url, settings)
         .then(res => res.json())
         .then(json => {
-            const langStatus = json.data.map(status => {
+            const langStatus = json.data.map((status: languageStatus) => {
                 status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
             })
@@ -208,7 +210,7 @@ async function skyblockaddons(client) {
             })
             client.channels.cache.find(channel => channel.name === "sba-language-status").messages.fetch() //sba-language-status
                 .then(messages => {
-                    fiMessages = messages.filter(msg => msg.author.bot)
+                    const fiMessages = messages.filter(msg => msg.author.bot)
                     fiMessages.forEach(async msg => {
                         let r = reversed[index].data
 
@@ -247,4 +249,31 @@ async function skyblockaddons(client) {
                     }
                 })
         })
+}
+
+interface languageStatus {
+    data: {
+        languageId: string,
+        words: {
+            total: number,
+            translated: number,
+            approved: number
+        },
+        phrases: {
+            total: number,
+            translated: number,
+            approved: number
+        },
+        translationProgress: number,
+        approvalProgress: number
+        language: {
+            _id: ObjectId,
+            name: string,
+            emoji: string,
+            colour?: string,
+            code: string,
+            id: string
+            flag: string
+        }
+    },
 }
