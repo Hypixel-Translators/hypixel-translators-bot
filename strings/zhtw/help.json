@@ -18,7 +18,7 @@
     "second": "秒",
     "minutes": "分鐘",
     "usageField": "Usage",
-    "cooldownField": "Cooldown",
+    "cooldownField": "冷卻時間",
     "aliasesField": "Aliases",
     "help": {
         "usage": "+help [頁數 | 指令名稱]",
@@ -41,7 +41,7 @@
         "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
     },
     "languagestats": {
-        "usage": "+languagestats <language>",
+        "usage": "+languagestats <語言>",
         "description": "Shows you the progress of a language on all the projects we currently support."
     },
     "issue": {
@@ -50,7 +50,7 @@
     },
     "language": {
         "usage": "+language [<新語言> | list | add <語言>]",
-        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
+        "description": "更改語言、顯示你目前使用的語言或顯示可用的語言列表。如果你想為機器人請求一個新的語言，請使用 `+language add <新語言>`。"
     },
     "ping": {
         "usage": "+ping",
@@ -82,7 +82,7 @@
     },
     "projects": {
         "usage": "+projects",
-        "description": "Gives you links and information about all the translation projects we support on the server."
+        "description": "給予你在伺服器上支援的所有翻譯項目之連結及相關訊息。"
     },
     "hypixel": {
         "usage": "+hypixel",
@@ -102,7 +102,7 @@
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "給予你有關 Hypixel Translators Bot 項目的實用訊息。"
     },
     "thread": {
         "usage": "+thread",
@@ -110,7 +110,7 @@
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "給予你 Hypixel Translators Community 的 Twitter 頁面連結。"
     },
     "executedBy": "由 %%user%% 執行"
 }

@@ -1,16 +1,16 @@
 {
     "moduleName": "Prefix",
     "usage": "+prefix [旗幟]",
-    "loading": "Just a second...",
+    "loading": "請稍候...",
     "loadingRoles": "正在取得你的身份組...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
         "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
-        "error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
+        "error": "更改暱稱失敗。你可以複製下列暱稱並自行更改。",
         "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
         "cancelled": "You cancelled the changing of your nickname, ",
         "alreadyThis": "You already have this nickname, ",
-        "timedOut": "Timed Out",
+        "timedOut": "已逾時",
         "timeOut": "You didn't react with any flags, ",
         "timeOutCustom": "You didn't confirm, ",
         "notSaved": "so your prefix wasn't saved."
