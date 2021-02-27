@@ -107,6 +107,9 @@ client.on("message", async message => {
     else if (command.categoryWhitelist && !command.categoryWhitelist?.includes(message.channel.parent?.id)) allowed = false
     else if (command.channelWhitelist && !command.channelWhitelist?.includes(message.channel.id)) allowed = false
 
+    //Enable commands in DMs
+    if (command.allowDM && message.channel.type === "dm") allowed = true
+    
     //Prevent users from running commands in development
     if (command.dev && !message.member?.roles.cache.has("764442984119795732")) allowed = false //Discord Administrator
 
