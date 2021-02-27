@@ -1,6 +1,6 @@
 {
     "outgoing": "Sent message to staff",
-    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
+    "outgoingDisclaimer": "在這裡發送的訊息會傳送至工作人員。",
     "error": "錯誤",
     "usage": "Expected command usage",
     "errors": {
@@ -21,7 +21,7 @@
         "falseContext": "That context entry couldn't be found!",
         "noPlayer": "That player has never joined Hypixel!",
         "notVerified": "That user hasn't linked their Hypixel account yet!",
-        "disabled": "This command has been temporarily disabled.",
+        "disabled": "這個指令已暫時停用。",
         "noAccess": "你沒有權限執行這個指令！",
         "noPermission": "你沒有權限在本頻道執行這個指令！",
         "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, execute`+context help`.",
@@ -29,10 +29,10 @@
         "noSubCommand": "找不到該子指令！",
         "wrongLink": "錯誤的連結！"
     },
-    "cooldown": "Cooldown",
+    "cooldown": "冷卻時間",
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
-    "timeLeftT": "Please wait another %%time%% seconds to use `+%%command%%` again.",
-    "minsLeftT": "Please wait another %%time%% minutes to use `+%%command%%` again.",
+    "timeLeftT": "請等待 %%time%% 秒後才再次使用 `+%%command%%` 指令。",
+    "minsLeftT": "請等待 %%time%% 分鐘後才再次使用 `+%%command%%` 指令。",
     "linkCorrectionDesc": "請你在下次發送連結前將其更改為 %%format%% 格式。",
     "wrongStringURL": "The link you sent is a link to the editor and not the string itself!",
     "example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
