@@ -16,9 +16,6 @@ client.on("message", async message => {
     //Publish message if sent in bot-updates
     if (message.channel.id === "732587569744838777") return message.crosspost() //bot-updates
 
-    //Get global strings
-    const author = await getUser(message.author.id)
-    const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
 
     //Link correction system
     if (message.content.toLowerCase().includes("/translate/hypixel/") && message.content.includes("://")) {
@@ -91,38 +88,40 @@ client.on("message", async message => {
 
     //Role Blacklist and Whitelist system
     let allowed = true
-    if (message.guild?.id === "549503328472530974") {
-        if (command.roleBlacklist) {
-            allowed = true
-            command.roleBlacklist.forEach(role => {
-                if (message.member.roles.cache.has(role)) allowed = false
-            })
-        }
-        if (command.roleWhitelist) {
-            allowed = false
-            command.roleWhitelist.forEach(role => {
-                if (message.member.roles.cache.has(role)) allowed = true
-            })
-        }
+    if (command.roleBlacklist) {
+        allowed = true
+        command.roleBlacklist.forEach(role => {
+            if (message.member?.roles.cache.has(role)) allowed = false
+        })
+    }
+    if (command.roleWhitelist) {
+        allowed = false
+        command.roleWhitelist.forEach(role => {
+            if (message.member?.roles.cache.has(role)) allowed = true
+        })
+    }
 
-        //Channel Blacklist and whitelist systems
-        if (command.categoryBlacklist?.includes(message.channel.parent.id)) allowed = false
-        else if (command.channelBlacklist?.includes(message.channel.id)) allowed = false
-        else if (command.categoryWhitelist && !command.categoryWhitelist?.includes(message.channel.parent.id)) allowed = false
-        else if (command.channelWhitelist && !command.channelWhitelist?.includes(message.channel.id)) allowed = false
+    //Channel Blacklist and whitelist systems
+    if (command.categoryBlacklist && command.categoryBlacklist?.includes(message.channel.parent?.id)) allowed = false
+    else if (command.channelBlacklist && command.channelBlacklist?.includes(message.channel.id)) allowed = false
+    else if (command.categoryWhitelist && !command.categoryWhitelist?.includes(message.channel.parent?.id)) allowed = false
+    else if (command.channelWhitelist && !command.channelWhitelist?.includes(message.channel.id)) allowed = false
 
-        //Prevent users from running commands in development
-        if (command.dev && !message.member.roles.cache.has("764442984119795732")) allowed = false //Discord Administrator
+    //Prevent users from running commands in development
+    if (command.dev && !message.member?.roles.cache.has("764442984119795732")) allowed = false //Discord Administrator
 
-        //Give perm to admins and return if not allowed
-        if (message.member.hasPermission("MANAGE_ROLES") && command.name !== "eval") allowed = true
-    } else allowed = false
+    //Give perm to admins and return if not allowed
+    if (message.member?.hasPermission("MANAGE_ROLES") && command.name !== "eval") allowed = true
     if (!allowed) {
         message.react("732298639736570007")
         return setTimeout(() => {
             if (!message.deleted && message.channel.type !== "dm") message.delete()
         }, 5000);
     }
+
+    //Get the author from the database
+    const author = await getUser(message.author.id)
+    const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
 
     //Stop and error if command is not allowed in DMs and command is sent in DMs
     if (!command.allowDM && message.channel.type === "dm") {
