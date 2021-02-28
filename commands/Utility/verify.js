@@ -21,7 +21,7 @@ module.exports = {
             await message.member.roles.add("569194996964786178", "Manually verified through the command")
                 .then(async () => await message.member.roles.remove("756199836470214848", "Manually verified through the command")) //Add Verified and remove Alerted
             message.guild.channels.cache.get("662660931838410754").send(`${message.author} manually verified themselves through the command`) //verify-logs
-        } else if (!message.member.roles.cache.has("764442984119795732") || !args[0]) { //Discord Administrator
+        } else if (!message.member.roles.cache.has("764442984119795732") || /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(args[0])) { //Discord Administrator
             const userDb = await getDb().collection("users").findOne({ id: message.author.id })
             if (userDb.profile) {
                 message.react("798339571531382874") //icon_working
