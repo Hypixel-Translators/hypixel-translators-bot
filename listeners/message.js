@@ -213,14 +213,16 @@ client.on("message", async message => {
         message.channel.stopTyping()
         return message.channel.send(embed)
             .then(msg => {
-                if (error.stack && process.env.NODE_ENV === "production") {
-                    const embed = new Discord.MessageEmbed()
-                        .setColor(errorColor)
-                        .setAuthor("Unexpected error!")
-                        .setTitle(error.substring(0, 255))
-                        .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
-                        .setFooter("Check the console for more details")
-                    message.guild.channels.cache.get("730042612647723058").send("ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
+                if (error.stack) {
+                    if (process.env.NODE_ENV === "production") {
+                        const embed = new Discord.MessageEmbed()
+                            .setColor(errorColor)
+                            .setAuthor("Unexpected error!")
+                            .setTitle(error.substring(0, 255))
+                            .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
+                            .setFooter("Check the console for more details")
+                        message.guild.channels.cache.get("730042612647723058").send("ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
+                    } 
                     console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
                 } else {
                     setTimeout(() => {
