@@ -41,11 +41,11 @@ async function hypixel(client: HTBClient) {
     fetch(url, settings)
         .then(res => res.json())
         .then(json => {
-            const langStatus = json.data.map((status: languageStatus) => {
+            const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
             })
-            const reversed = Array.from(langStatus).sort((currentStatus: languageStatus, nextStatus: languageStatus) => {
+            const reversed = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) => {
                 return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
             })
             const channel = client.channels.cache.find(channel => (channel as Discord.TextChannel).name === "hypixel-language-status") as Discord.TextChannel
@@ -56,7 +56,7 @@ async function hypixel(client: HTBClient) {
                         let r = reversed[index].data
 
                         const embed = new Discord.MessageEmbed()
-                            .setColor(r.language.colour)
+                            .setColor(r.language.colour!)
                             .setTitle(r.language.emoji + " | " + r.language.name || "<:icon_question:756582065834688662>" + " | " + r.language.name)
                             .setThumbnail("https://crowdin.com/images/flags/" + r.languageId + ".png")
                             .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel/all/en-${r.language.code}`)
@@ -92,11 +92,11 @@ async function quickplay(client: HTBClient) {
     fetch(url, settings)
         .then(res => res.json())
         .then(json => {
-            const langStatus = json.data.map((status: languageStatus) => {
-                status.data.language = langdb.find((l: langDbEntry) => l.code === status.data.languageId || l.id === status.data.languageId)
+            const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
+                status.data.language = langdb.find((l: LangDbEntry) => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
             })
-            const reversed = Array.from(langStatus).sort((currentStatus: languageStatus, nextStatus: languageStatus) => {
+            const reversed = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) => {
                 return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
             })
             const channel = client.channels.cache.find(channel => (channel as Discord.TextChannel).name === "quickplay-language-status") as Discord.TextChannel
@@ -148,11 +148,11 @@ async function bot(client: HTBClient) {
     fetch(url, settings)
         .then(res => res.json())
         .then(json => {
-            const langStatus = json.data.map((status: languageStatus) => {
+            const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
             })
-            const reversed = Array.from(langStatus).sort((currentStatus: languageStatus, nextStatus: languageStatus) => {
+            const reversed = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) => {
                 return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
             })
             const channel = client.channels.cache.find(channel => (channel as Discord.TextChannel).name === "bot-language-status") as Discord.TextChannel
@@ -204,11 +204,11 @@ async function skyblockaddons(client: HTBClient) {
     fetch(url, settings)
         .then(res => res.json())
         .then(json => {
-            const langStatus = json.data.map((status: languageStatus) => {
-                status.data.language = langdb.find((l: langDbEntry) => l.code === status.data.languageId || l.id === status.data.languageId)
+            const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
+                status.data.language = langdb.find((l: LangDbEntry) => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
             })
-            const reversed = Array.from(langStatus).sort((currentStatus: languageStatus, nextStatus: languageStatus) => {
+            const reversed = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) => {
                 return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
             })
             const channel = client.channels.cache.find(channel => (channel as Discord.TextChannel).name === "sba-language-status") as Discord.TextChannel
@@ -228,7 +228,7 @@ async function skyblockaddons(client: HTBClient) {
                             .setDescription(`**${r.translationProgress}% translated (${r.phrases.translated}/${r.phrases.total} strings)**\n${r.approvalProgress}% approved (${r.phrases.approved}/${r.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-${r.language.code}`)
                             .setThumbnail((r.language.flag))
                             .setTimestamp()
-                        if (r.language) { embed.setTitle(r.language.emoji + " | " + r.language.name) } else { embed.setTitle("<:icon_question:756582065834688662> | " + r.language.name) }
+                        if (r.language) { embed.setTitle(r.language.emoji + " | " + r.language.name) } else { embed.setTitle("<:icon_question:756582065834688662> | " + r.language!.name) }
                         msg.edit("", embed)
                         index++
                     })
@@ -252,7 +252,7 @@ async function skyblockaddons(client: HTBClient) {
         })
 }
 
-interface languageStatus {
+interface LanguageStatus {
     data: {
         languageId: string,
         words: {
@@ -279,7 +279,7 @@ interface languageStatus {
     },
 }
 
-interface langDbEntry {
+interface LangDbEntry {
     _id: ObjectId,
     name: string,
     emoji: string,
