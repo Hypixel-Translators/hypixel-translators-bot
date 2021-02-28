@@ -49,7 +49,6 @@ module.exports = {
       }
 
       //Determine which page to use
-
       const page1 = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
@@ -76,7 +75,7 @@ module.exports = {
           return (reaction.emoji.name === "⏮" || reaction.emoji.name === "◀" || reaction.emoji.name === "▶" || reaction.emoji.name === "⏭") && user.id === message.author.id
         }
 
-        const collector = msg.createReactionCollector(filter, { time: 5000 }) //1 minute
+        const collector = msg.createReactionCollector(filter, { time: 60000 }) //1 minute
 
         collector.on("collect", async reaction => {
           if (reaction.emoji.name === "⏮") page = 0 //First
