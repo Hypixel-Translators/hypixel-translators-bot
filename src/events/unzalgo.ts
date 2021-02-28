@@ -1,18 +1,19 @@
-const { clean, isZalgo } = require("unzalgo")
+import { clean, isZalgo } from "unzalgo"
+import { HTBClient } from "../lib/dbclient"
 
 module.exports = {
-    execute(client, manual) {
+    execute(client: HTBClient, manual: boolean) {
         let d = new Date()
         let h = d.getUTCHours()
         let m = d.getUTCMinutes()
-        if ((h == "4" && m == "00") || manual) {
+        if ((h == 4 && m == 0) || manual) {
             check(client)
         }
     }
 }
 
-async function check(client) {
-    await client.guilds.cache.get("549503328472530974").members.fetch()
+async function check(client: HTBClient) {
+    await client.guilds.cache.get("549503328472530974")!.members.fetch()
         .then(members => {
             members.forEach(member => {
                 if (isZalgo(member.displayName, 0.3)) {
