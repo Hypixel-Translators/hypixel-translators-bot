@@ -12,7 +12,7 @@ module.exports = {
     cooldown: 30,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
     async execute(message, args, getString) {
-        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
+        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
         let rawLang
         const authorDb = await getUser(message.author.id)
         if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !args[0]) rawLang = authorDb.lang

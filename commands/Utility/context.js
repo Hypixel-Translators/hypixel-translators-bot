@@ -12,7 +12,7 @@ module.exports = {
     channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "801904400826105876", "550951034332381184", "713084081579098152"], //off-topic memes pets food suggestions no-mic
     cooldown: 30,
     async execute(message, args, getString) {
-        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
+        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
         if (!args[0]) throw "contextSubArg"
         const subCmd = args[0].toLowerCase()
         try {

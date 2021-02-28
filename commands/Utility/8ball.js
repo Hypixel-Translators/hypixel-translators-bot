@@ -11,7 +11,7 @@ module.exports = {
     allowDM: true,
     async execute(message, args, getString) {
         if (!args[0]) throw "noMessage"
-        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
+        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
         const keys = Object.keys(getString("answers"))
         const answerType = keys[keys.length * Math.random() << 0]
         const answers = getString(`answers.${answerType}`)

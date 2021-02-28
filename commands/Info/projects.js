@@ -9,7 +9,7 @@ module.exports = {
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
     execute(message, args, getString) {
-        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
+        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
         if (message.guild?.id === "549503328472530974") {
             let joinedHypixel
             let joinedQuickplay

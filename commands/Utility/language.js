@@ -13,7 +13,7 @@ module.exports = {
     allowDM: true,
     cooldown: 5,
     async execute(message, args, getString) {
-        let executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
+        let executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
         const collection = await getDb().collection("users")
         const stringsFolder = "./strings/"
 
@@ -95,7 +95,7 @@ module.exports = {
                         collection.updateOne({ id: message.author.id }, { $set: { lang: newLang } }).then(result => {
                             if (result.result.nModified) {
                                 strings = require(`../../strings/${newLang}/language.json`)
-                                executedBy = getString("executedBy", this.name, newLang).replace("%%user%%", message.author.tag)
+                                executedBy = getString("executedBy", "global", newLang).replace("%%user%%", message.author.tag)
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor)
                                     .setAuthor(getString("moduleName", this.name, newLang))

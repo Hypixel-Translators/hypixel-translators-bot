@@ -19,7 +19,7 @@ module.exports = {
             return colorsJson[colorCode]
         }
 
-        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
+        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
         const credits = getString("madeBy").replace("%%developer%%", message.guild.members.cache.get("500669086947344384").user.tag)
         const authorDb = await getUser(message.author.id)
         let username = authorDb.uuid

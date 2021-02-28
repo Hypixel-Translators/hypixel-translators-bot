@@ -10,7 +10,7 @@ module.exports = {
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development bot-translators
     async execute(message, args, getString) {
-        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
+        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
         const collection = getDb().collection("quotes")
         let allowed = false
         if (message.member?.hasPermission("VIEW_AUDIT_LOG")) allowed = true
