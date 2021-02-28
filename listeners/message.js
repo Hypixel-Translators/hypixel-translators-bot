@@ -46,7 +46,8 @@ client.on("message", async message => {
     //Crowdin verification system
     if (/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel.id === "569178590697095168") { //verify
         message.react("798339571531382874") //icon_working
-        return crowdinVerify(message)
+        await crowdinVerify(message.member, message.content.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
+        message.delete()
     }
 
     //Staff messaging system
