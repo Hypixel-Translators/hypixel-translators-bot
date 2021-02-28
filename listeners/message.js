@@ -109,7 +109,7 @@ client.on("message", async message => {
 
     //Enable commands in DMs
     if (command.allowDM && message.channel.type === "dm") allowed = true
-    
+
     //Prevent users from running commands in development
     if (command.dev && !message.member?.roles.cache.has("764442984119795732")) allowed = false //Discord Administrator
 
