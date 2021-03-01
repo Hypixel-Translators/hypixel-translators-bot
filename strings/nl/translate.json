@@ -15,6 +15,5 @@
     "lastThing": "Nog een ding",
     "requestInfo": "Als je je verzoek indient, moet je je tag (%%tag%%) of je ID (%%id%%) opgeven in je bericht. \n**Als je dit niet doet, wordt je verzoek geweigerd!**",
     "noLanguage": "Staat je taal er niet bij?",
-    "langRequest": "Misschien ondersteunen we je taal nog niet. Als dit zo is, kun je `+language add <taal>` gebruiken. Administratoren zullen een melding krijgen zodat ze weten dat je deze taal graag ziet in het project.",
-    "executedBy": "Uitgevoerd door %%user%%"
+    "langRequest": "Misschien ondersteunen we je taal nog niet. Als dit zo is, kun je `+language add <taal>` gebruiken. Administratoren zullen een melding krijgen zodat ze weten dat je deze taal graag ziet in het project."
 }
