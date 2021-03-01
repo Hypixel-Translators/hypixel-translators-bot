@@ -1,8 +1,9 @@
-const Discord = require("discord.js")
-const fetch = require("node-fetch")
-const ctokenV2 = process.env.CTOKEN_API_V2
-const { successColor, loadingColor, errorColor, neutralColor } = require("../../config.json")
-const { getUser, getDb } = require("../../lib/mongodb")
+import { client } from "../../index"
+import Discord from "discord.js"
+import fetch from "node-fetch"
+import { successColor, loadingColor, errorColor, neutralColor } from "../../config.json"
+const ctokenV2 = process.env.CTOKEN_API_V
+
 
 module.exports = {
     name: "languagestats",
@@ -11,14 +12,14 @@ module.exports = {
     aliases: ["langstats", "lstats"],
     cooldown: 30,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-    async execute(message, args, getString) {
-        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
-        let rawLang
-        const authorDb = await getUser(message.author.id)
+    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+        let rawLang: string
+        const authorDb = await client.getUser(message.author.id)
         if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !args[0]) rawLang = authorDb.lang
         if (args[0]) rawLang = args.join(" ").toLowerCase()
-        if (!rawLang) throw "noLang"
-        const langdb = await getDb().collection("langdb").find().toArray()
+        if (!rawLang!) throw "noLang"
+        const langdb = await client.db.collection("langdb").find().toArray()
         let lang = langdb.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)
         if (!lang) lang = langdb.find(l => l.name.toLowerCase().includes(rawLang))
         if (lang.code === "en") lang = undefined
@@ -27,41 +28,42 @@ module.exports = {
         message.channel.startTyping()
         const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
         const hypixel = `https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500`
-        var hypixelData
+        var hypixelData: LanguageStatus["data"]
         fetch(hypixel, settings)
             .then(res => res.json())
             .then(json => {
-                json.data.forEach(language => {
+                json.data.forEach((language: LanguageStatus) => {
                     if (language.data.languageId === lang.id) hypixelData = language.data
                 })
 
                 const quickplay = `https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500`
-                let quickplayData
+                let quickplayData: LanguageStatus["data"]
                 fetch(quickplay, settings)
                     .then(res => res.json())
                     .then(json => {
-                        json.data.forEach(language => {
+                        json.data.forEach((language: LanguageStatus) => {
                             if (language.data.languageId === lang.id) quickplayData = language.data
                         })
 
                         const sba = `https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500`
-                        let sbaData
+                        let sbaData: LanguageStatus["data"]
                         fetch(sba, settings)
                             .then(res => res.json())
                             .then(json => {
-                                json.data.forEach(language => {
+                                json.data.forEach((language: LanguageStatus) => {
                                     if (language.data.languageId === lang.id) sbaData = language.data
                                 })
 
                                 const bot = `https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500`
-                                let botData
+                                let botData: LanguageStatus["data"]
                                 fetch(bot, settings)
                                     .then(res => res.json())
                                     .then(json => {
-                                        json.data.forEach(language => {
+                                        json.data.forEach((language: LanguageStatus) => {
                                             if (language.data.languageId === lang.id) botData = language.data
                                         })
 
+                                        let adapColour: string
                                         if (hypixelData?.approvalProgress > 89 || quickplayData?.approvalProgress > 89 || sbaData?.approvalProgress > 89 || botData?.approvalProgress > 89) adapColour = successColor
                                         else if (hypixelData?.approvalProgress > 49 || quickplayData?.approvalProgress > 49 || sbaData?.approvalProgress > 49 || botData?.approvalProgress > 49) adapColour = loadingColor
                                         else adapColour = errorColor
@@ -85,4 +87,22 @@ module.exports = {
                     })
             })
     }
+}
+
+interface LanguageStatus {
+    data: {
+        languageId: string,
+        words: {
+            total: number,
+            translated: number,
+            approved: number
+        },
+        phrases: {
+            total: number,
+            translated: number,
+            approved: number
+        },
+        translationProgress: number,
+        approvalProgress: number
+    },
 }
