@@ -65,6 +65,5 @@
         "sheetD": "Solo personas específicas pueden abrir esta hoja de calculo. Puede solicitar acceso en la página que ve al seguir el enlace. Por favor, introduzca el enlace de su perfil de Crowdin (`.../profile/<nombre de usuario>`) y su nombre de usuario de Discord.\nTenga en cuenta que Stannya y Rodry pueden ver el nombre y el correo electrónico de su perfil de Google.",
         "sheetDButton": "Haga clic aquí para abrir la Hoja de Calculo de Google que contiene información de contexto.",
         "sheetDel": "Eliminando mensaje después de 1 minuto"
-    },
-    "executedBy": "Ejecutado por %%user%%"
+    }
 }
