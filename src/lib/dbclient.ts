@@ -38,6 +38,7 @@ export interface Command {
 export class HTBClient extends Discord.Client {
     db: Db = db
     commands!: Discord.Collection<string, Command>
+    cooldowns: Discord.Collection<string, Discord.Collection<string, number>> = new Discord.Collection()
     async getUser(id: string) {
         let user = await this.db.collection("users").findOne({ id: id })
         if (!user) {
