@@ -1,14 +1,13 @@
 {
-    "moduleName": "Hypixel Verification",
-    "success": "You successfully verified yourself as %%player%%!",
-    "role": "You were given the %%role%% role due to your rank on the server.",
-    "noRoles": "You were not given any roles because you don't have a rank on Hypixel or we couldn't find it! Contact an administrator if you believe this is an error.",
-    "alreadyVerified": "You are already verified!",
-    "nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
-    "error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
-    "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this.",
-    "unverified": "You were successfully unverified!",
-    "notUnverified": "Couldn't unverify you!",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `+hypixelverify <username>`.",
-    "executedBy": "Udført af %%user%%"
+    "moduleName": "Hypixel Verifikation",
+    "success": "Du har verificeret dig selv som %%player%%!",
+    "role": "Du fik tildelt rollen %%role%% på grund af din rang på serveren.",
+    "noRoles": "Du fik ikke tildelt nogen roller, fordi du ikke har en rang på Hypixel, eller fordi vi ikke kunne finde den! Kontakt en administrator, hvis du mener, at dette er en fejl.",
+    "alreadyVerified": "Du er allerede registreret!",
+    "nameChangeDisclaimer": "Husk, at du ikke behøver at bekræfte dig selv igen, hvis du ændrer dit navn!",
+    "error": "Vi kunne ikke bekræfte dig, fordi du ikke har indstillet din Discord på Hypixel korrekt!",
+    "tutorial": "For at blive verificeret, skal du indstille din Discord på Hypixel til %%tag%% og vente op til 10 minutter for at udføre kommandoen igen. Følg instruktionerne i videoen nedenfor, hvis du ikke ved, hvordan du gør dette.",
+    "unverified": "Du blev uverificeret med succes!",
+    "notUnverified": "Kunne ikke uverificere dig!",
+    "whyNotUnverified": "Dette skete, fordi du ikke har bekræftet dig selv endnu! For at gøre det, skal du udføre `+hypixelverify <username>`."
 }
