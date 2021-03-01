@@ -2,6 +2,5 @@
     "moduleName": "Sitat",
     "invalidArg": "Ugyldig argument!",
     "indexArg": "Et sitat med index %%arg%% eksisterer ikke! Vennligst oppgi et nummer mellom 1 og %%max%%.",
-    "reqSub": "Din sitat forespørsel har blitt sendt inn, takk!",
-    "executedBy": "Utført av %%user%%"
+    "reqSub": "Din sitat forespørsel har blitt sendt inn, takk!"
 }
