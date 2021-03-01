@@ -1,27 +1,28 @@
-const { neutralColor } = require("../../config.json")
-const Discord = require("discord.js")
+import { neutralColor } from "../../config.json"
+import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "projects",
     description: "Gives you links and information about all the translation projects we support on the server.",
     usage: "+projects",
     cooldown: 120,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-    execute(message, args, getString) {
+    execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string)=>any) {
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         if (message.guild?.id === "549503328472530974") {
             let joinedHypixel
             let joinedQuickplay
             let joinedSba
             let joinedBot
-            if (message.member.roles.cache.find(role => role.name === "Hypixel Translator" || role.name === "Hypixel Proofreader" || role.name === "Hypixel Manager")) joinedHypixel = `<:vote_yes:732298639749152769> **${getString("alreadyJoined")}**`
+            if (message.member!.roles.cache.find(role => role.name === "Hypixel Translator" || role.name === "Hypixel Proofreader" || role.name === "Hypixel Manager")) joinedHypixel = `<:vote_yes:732298639749152769> **${getString("alreadyJoined")}**`
             else joinedHypixel = `<:vote_no:732298639736570007> **${getString("notJoined")}**`
-            if (message.member.roles.cache.find(role => role.name === "Quickplay Translator" || role.name === "Quickplay Proofreader" || role.name === "Quickplay Manager")) joinedQuickplay = `<:vote_yes:732298639749152769> **${getString("alreadyJoined")}**`
+            if (message.member!.roles.cache.find(role => role.name === "Quickplay Translator" || role.name === "Quickplay Proofreader" || role.name === "Quickplay Manager")) joinedQuickplay = `<:vote_yes:732298639749152769> **${getString("alreadyJoined")}**`
             else joinedQuickplay = `<:vote_no:732298639736570007> **${getString("notJoined")}**`
-            if (message.member.roles.cache.find(role => role.name === "SkyblockAddons Translator" || role.name === "SkyblockAddons Proofreader" || role.name === "SkyblockAddons Manager")) joinedSba = `<:vote_yes:732298639749152769> **${getString("alreadyJoined")}**`
+            if (message.member!.roles.cache.find(role => role.name === "SkyblockAddons Translator" || role.name === "SkyblockAddons Proofreader" || role.name === "SkyblockAddons Manager")) joinedSba = `<:vote_yes:732298639749152769> **${getString("alreadyJoined")}**`
             else joinedSba = `<:vote_no:732298639736570007> **${getString("notJoined")}**`
-            if (message.member.roles.cache.find(role => role.name === "Bot Translator" || role.name === "Bot Proofreader" || role.name === "Bot Manager")) joinedBot = `<:vote_yes:732298639749152769> **${getString("alreadyJoined")}**`
+            if (message.member!.roles.cache.find(role => role.name === "Bot Translator" || role.name === "Bot Proofreader" || role.name === "Bot Manager")) joinedBot = `<:vote_yes:732298639749152769> **${getString("alreadyJoined")}**`
             else joinedBot = `<:vote_no:732298639736570007> **${getString("notJoined")}**`
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
@@ -53,3 +54,5 @@ module.exports = {
         }
     }
 }
+
+export default command;

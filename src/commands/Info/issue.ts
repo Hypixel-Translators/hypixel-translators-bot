@@ -1,7 +1,8 @@
-const { successColor } = require("../../config.json")
-const Discord = require("discord.js")
+import { successColor } from "../../config.json"
+import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "issue",
     description: "Opens the GitHub issues page.",
     usage: "+issue",
@@ -9,7 +10,7 @@ module.exports = {
     cooldown: 120,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
-    execute(message, args, getString) {
+    execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string)=>any) {
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)
@@ -21,3 +22,5 @@ module.exports = {
         message.channel.send(embed)
     }
 }
+
+export default command;

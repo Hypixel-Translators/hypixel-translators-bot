@@ -9,7 +9,7 @@ module.exports = {
     cooldown: 5,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
-    async execute(message: Discord.Message, args: Array<String>, getString: Function) {
+    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string)=>any) {
         if (!args[0]) throw "noMessage"
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         const keys = Object.keys(getString("answers"))
