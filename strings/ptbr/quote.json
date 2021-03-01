@@ -2,6 +2,5 @@
     "moduleName": "Citação",
     "invalidArg": "Argumento inválido!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-    "reqSub": "O seu pedido de citação foi enviado, obrigado!",
-    "executedBy": "Executado por %%user%%"
+    "reqSub": "O seu pedido de citação foi enviado, obrigado!"
 }
