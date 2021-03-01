@@ -9,6 +9,5 @@
     "tutorial": "Ahhoz hogy összecsatold a fiókodat, be kell állítanod a Discord nevedet a Hypixelen erre kell állítanod: %%tag%%, és várj 10 percet a parancs újbóli használatához. Kövesd ezt a videót, ha nem tudod hogyan kell ezt megtenni.",
     "unverified": "Sikeresen szétcsatoltad a fiókodat!",
     "notUnverified": "Nem sikerült szétcsatolni a fiókodat!",
-    "whyNotUnverified": "Ez azért történt, mert még nics felhasználó hozzád csatolva! Hogy ezt megtedd, használd a `+hypixelverify <felhasználónév>` parancsot.",
-    "executedBy": "%%user%% által küldve"
+    "whyNotUnverified": "Ez azért történt, mert még nics felhasználó hozzád csatolva! Hogy ezt megtedd, használd a `+hypixelverify <felhasználónév>` parancsot."
 }
