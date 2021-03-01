@@ -65,6 +65,5 @@
         "sheetD": "Tylko konkretne osoby mogą otworzyć ten arkusz. Możesz poprosić o dostęp poprzez podany link. Proszę wypełnić go podając link do swojego profilu Crowdin (`.../profile/<nick>`) i dodając swój pseudonim Discord.\nPamiętaj, że Stannya i Rodry mogą zobaczyć nazwę oraz adres e-mail twojego profilu Google.",
         "sheetDButton": "Kliknij tutaj, aby otworzyć Google Sheet zawierający informacje na temat kontekstu.",
         "sheetDel": "Wiadomość zostanie usunięta za minutę"
-    },
-    "executedBy": "Wykonano przez %%user%%"
+    }
 }
