@@ -1,6 +1,5 @@
 {
     "moduleName": "Viive",
     "pong": "%%pingEmote%% Pong!",
-    "message": "Viiveeni on %%ping%%ms.",
-    "executedBy": "Komennon suoritti %%user%%"
+    "message": "Viiveeni on %%ping%%ms."
 }
