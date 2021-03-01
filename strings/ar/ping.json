@@ -1,6 +1,5 @@
 {
     "moduleName": "Ping",
     "pong": "%%pingEmote%% Pong!",
-    "message": "الـPing خاصتي %%ping%%ms.",
-    "executedBy": "نفذ من قبل %%user%%"
+    "message": "الـPing خاصتي %%ping%%ms."
 }
