@@ -1,6 +1,6 @@
-const { errorColor, neutralColor, prefix } = require("../../config.json")
-const Discord = require("discord.js")
-const fs = require("fs")
+import { errorColor, neutralColor, prefix } from "../../config.json"
+import Discord from "discord.js"
+import fs from "fs"
 
 module.exports = {
   name: "help",
@@ -10,15 +10,15 @@ module.exports = {
   cooldown: 5,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
   allowDM: true,
-  async execute(message, args, getString) {
+  async execute(message: Discord.Message, args: Array<string>, getString: Function) {
     const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
     const madeBy = getString("madeBy").replace("%%QkeleQ10%%", "QkeleQ10#6046")
 
     //Define command categories
-    const utilityCmds = []
-    fs.readdirSync("./commands/Utility/").forEach(command => utilityCmds.push(command.split(".").shift()))
-    const infoCmds = []
-    fs.readdirSync("./commands/Info/").forEach(command => infoCmds.push(command.split(".").shift()))
+    const utilityCmds: string[]=[]
+    fs.readdirSync("./commands/Utility/").forEach(command => utilityCmds.push(command.split(".").shift()!))
+    const infoCmds: string[]=[]
+    fs.readdirSync("./commands/Info/").forEach(command => infoCmds.push(command.split(".").shift()!))
     utilityCmds.forEach(cmd => {
       if (message.client.commands.get(cmd).dev) utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
     })
@@ -34,9 +34,9 @@ module.exports = {
     ]
 
     if (args[0] && args[0].startsWith(prefix)) args[0] = args[0].slice(1)
-    if (!args[0] || !isNaN(args[0])) {
+    if (!args[0] || !Number(args[0])) {
 
-      if (args[0] > pages.length || args[0] < 1) {
+      if (<number> <unknown>args[0] > pages.length || args[0] < 1) {
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor)
           .setAuthor(getString("moduleName"))

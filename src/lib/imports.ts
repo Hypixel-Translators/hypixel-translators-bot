@@ -2,7 +2,6 @@ import fs from "fs"
 import path from "path"
 import Discord from "discord.js"
 import { HTBClient, Command } from "./dbclient"
-import { CommandCursor } from "mongodb"
 
 
 function findCommands(dir: string, pattern: string) {

@@ -1,5 +1,5 @@
-const Discord = require("discord.js")
-const { successColor, loadingColor, errorColor } = require("../../config.json")
+import Discord from "discord.js"
+import { successColor, loadingColor, errorColor } from "../../config.json"
 
 module.exports = {
     name: "8ball",
@@ -9,7 +9,7 @@ module.exports = {
     cooldown: 5,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
-    async execute(message, args, getString) {
+    async execute(message: Discord.Message, args: Array<String>, getString: Function) {
         if (!args[0]) throw "noMessage"
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         const keys = Object.keys(getString("answers"))

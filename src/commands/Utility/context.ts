@@ -1,8 +1,8 @@
-const { loadingColor, errorColor, successColor, neutralColor } = require("../../config.json")
-const Discord = require("discord.js")
-const { GoogleSpreadsheet } = require("google-spreadsheet")
-const creds = { "type": process.env.type, "project_id": process.env.project_id, "private_key_id": process.env.private_key_id, "private_key": process.env.private_key.replace(/\\n/gm, "\n"), "client_email": process.env.client_email, "client_id": process.env.client_id, "auth_uri": process.env.auth_uri, "token_uri": process.env.token_uri, "auth_provider_x509_cert_url": process.env.auth_provider_x509_cert_url, "client_x509_cert_url": process.env.client_x509_cert_url }
-const contextSheet = process.env.context
+import { loadingColor, errorColor, successColor, neutralColor } from "../../config.json"
+import Discord from "discord.js"
+import { GoogleSpreadsheet, ServiceAccountCredentials } from "google-spreadsheet"
+const creds = { "type": process.env.type, "project_id": process.env.project_id, "private_key_id": process.env.private_key_id, "private_key": process.env.private_key!.replace(/\\n/gm, "\n"), "client_email": process.env.client_email, "client_id": process.env.client_id, "auth_uri": process.env.auth_uri, "token_uri": process.env.token_uri, "auth_provider_x509_cert_url": process.env.auth_provider_x509_cert_url, "client_x509_cert_url": process.env.client_x509_cert_url } as ServiceAccountCredentials,
+    contextSheet = process.env.context
 
 module.exports = {
     name: "context",
@@ -11,7 +11,7 @@ module.exports = {
     roleWhitelist: ["569839580971401236", "569839517444341771"],
     channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "801904400826105876", "550951034332381184", "713084081579098152"], //off-topic memes pets food suggestions no-mic
     cooldown: 30,
-    async execute(message, args, getString) {
+    async execute(message: Discord.Message, args: Array<String>, getString: Function) {
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
         if (!args[0]) throw "contextSubArg"
         const subCmd = args[0].toLowerCase()
@@ -19,17 +19,17 @@ module.exports = {
             if (subCmd === "add" || subCmd === "new") await addToSpreadsheet(executedBy, message, getString, args)
             else if (subCmd === "get" || subCmd === "show") await getFromSpreadsheet(executedBy, message, getString, args)
             else if (subCmd === "edit") await editInSpreadsheet(executedBy, message, getString, args)
-            else if (subCmd === "help" || subCmd === "info") await showInfo(executedBy, message, getString, args)
-            else if (subCmd === "link" || subCmd === "sheet" || subCmd === "list") await sheetLink(executedBy, message, getString, args)
+            else if (subCmd === "help" || subCmd === "info") await showInfo(executedBy, message, getString)
+            else if (subCmd === "link" || subCmd === "sheet" || subCmd === "list") await sheetLink(executedBy, message, getString)
             else throw "contextSubArg"
         } catch (err) { throw err }
     }
 }
 
-async function getFromSpreadsheet(executedBy, message, getString, args) {
+async function getFromSpreadsheet(executedBy: String, message: Discord.Message, getString: Function, args: Array<string>) {
     message.channel.startTyping()
     const string = args[1]
-    const doc = new GoogleSpreadsheet(contextSheet)
+    const doc = new GoogleSpreadsheet(contextSheet!)
     await doc.useServiceAccountAuth(creds)
 
     await doc.loadInfo()
@@ -86,18 +86,16 @@ async function getFromSpreadsheet(executedBy, message, getString, args) {
     message.channel.send(embed)
 }
 
-async function addToSpreadsheet(executedBy, message, getString, args) {
+async function addToSpreadsheet(executedBy: String, message: Discord.Message, getString: Function, args: Array<string>) {
     message.channel.startTyping()
     const string = args[1]
     let toSend = [...args]
     toSend.splice(0, 2)
-    toSend = toSend.join(" ")
+    const context = toSend.join(" ")
 
-    if (!toSend || !string) {
-        throw "noContext"
-    }
+    if (!context || !string) throw "noContext"
 
-    if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("MANAGE_ROLES")) { //Hypixel Proofreader
+    if (!message.member!.roles.cache.has("569839580971401236") && !message.member!.hasPermission("MANAGE_ROLES")) { //Hypixel Proofreader
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(getString("moduleName"))
@@ -108,14 +106,14 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
         return message.channel.send(embed)
     }
 
-    const doc = new GoogleSpreadsheet(contextSheet)
+    const doc = new GoogleSpreadsheet(contextSheet!)
     await doc.useServiceAccountAuth(creds)
 
     await doc.loadInfo()
 
     const sheet = doc.sheetsByIndex[0]
-    const noEmoji = message.client.emojis.cache.find(emoji => emoji.name === "vote_no")
-    const yesEmoji = message.client.emojis.cache.find(emoji => emoji.name === "vote_yes")
+    const noEmoji = "732298639736570007"
+    const yesEmoji = "732298639749152769"
 
     const rows = await sheet.getRows()
     const correctRow = rows.find(r => r.id === string)
@@ -130,7 +128,7 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
         return message.channel.send(embed)
     }
 
-    let toAdd = { id: string, context: toSend }
+    let toAdd = { id: string, context: context }
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
@@ -138,26 +136,26 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
         .setDescription(getString("willAdd").replace("%%voteNo%%", "<:vote_no:732298639736570007>").replace("%%voteYes%%", "<:vote_yes:732298639749152769>"))
         .addFields(
             { name: getString("stringId"), value: string },
-            { name: getString("moduleName"), value: toSend }
+            { name: getString("moduleName"), value: context }
         )
         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.stopTyping()
     message.channel.send(embed)
         .then(async msg => {
             msg.react("📑").then(() => { msg.react(yesEmoji).then(() => { msg.react(noEmoji) }) })
-            const filter = (reaction, reacter) => {
-                return (reaction.emoji.name === "📑" || reaction.emoji === yesEmoji || reaction.emoji === noEmoji) && reacter.id === message.author.id
+            const filter = (reaction: Discord.MessageReaction, reacter: Discord.User) => {
+                return (reaction.emoji.name === "📑" || reaction.emoji.id === yesEmoji || reaction.emoji.id === noEmoji) && reacter.id === message.author.id
             }
 
             const collector = msg.createReactionCollector(filter, { time: 120000 })
 
-            let extraMsgs = []
-            let extraReceiveds = []
+            let extraMsgs: Discord.Message[]
+            let extraReceiveds: Discord.Message[]
 
             collector.on("collect", async (reaction, reacter) => {
                 if (reaction.emoji.name === "📑") {
                     reaction.users.remove(message.author.id)
-                    const collectorB = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 120000 })
+                    const collectorB = new Discord.MessageCollector(<Discord.TextChannel>message.channel, m => m.author.id === message.author.id, { time: 120000 })
                     const extraEmbed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor(getString("moduleName"))
@@ -170,7 +168,7 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
                         collectorB.on("collect", received => {
                             collectorB.stop()
                             extraReceiveds.push(received)
-                            let key = received.toString().toLowerCase()
+                            let key = received.toString().toLowerCase() as any
                             key = key.replace(/ .*/, "")
                             let value = received.toString()
                             value = value.substr(value.indexOf(" ") + 1)
@@ -207,9 +205,7 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
                     msg.channel.send(embed)
                         .then(finalMsg => {
                             if (!msg.deleted) msg.delete()
-                            if (!result) {
-                                throw "falseContext"
-                            }
+                            if (!result) throw "falseContext"
 
                             embed
                                 .setColor(successColor)
@@ -296,10 +292,10 @@ async function addToSpreadsheet(executedBy, message, getString, args) {
         })
 }
 
-async function editInSpreadsheet(executedBy, message, getString, args) {
+async function editInSpreadsheet(executedBy: String, message: Discord.Message, getString: Function, args: Array<string>) {
     message.channel.startTyping()
     const string = args[1]
-    if (!message.member.roles.cache.has("569839580971401236") && !message.member.hasPermission("MANAGE_ROLES")) { //Hypixel Proofreader
+    if (!message.member!.roles.cache.has("569839580971401236") && !message.member!.hasPermission("MANAGE_ROLES")) { //Hypixel Proofreader
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(getString("moduleName"))
@@ -310,7 +306,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
         return message.channel.send(embed)
     }
 
-    const doc = new GoogleSpreadsheet(contextSheet)
+    const doc = new GoogleSpreadsheet(contextSheet!)
     await doc.useServiceAccountAuth(creds)
 
     await doc.loadInfo()
@@ -342,12 +338,12 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
     }
 
     let key = args[2].toLowerCase()
-    let arguments = [...args]
-    arguments.splice(0, 3)
-    let value = arguments.join(" ")
+    let newValues = [...args]
+    newValues.splice(0, 3)
+    let value = newValues.join(" ")
 
-    const noEmoji = msg.client.emojis.cache.find(emoji => emoji.name === "vote_no")
-    const yesEmoji = msg.client.emojis.cache.find(emoji => emoji.name === "vote_yes")
+    const noEmoji = "732298639736570007"
+    const yesEmoji = "732298639749152769"
 
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
@@ -366,13 +362,13 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
         .then(msg => {
             msg.react(yesEmoji).then(() => { msg.react(noEmoji) })
 
-            const filter = (reaction, reacter) => {
-                return (reaction.emoji === yesEmoji || reaction.emoji === noEmoji) && reacter.id === message.author.id
+            const filter = (reaction: Discord.MessageReaction, reacter: Discord.User) => {
+                return (reaction.emoji.id === yesEmoji || reaction.emoji.id === noEmoji) && reacter.id === message.author.id
             }
 
             const collector = msg.createReactionCollector(filter, { time: 10000 })
 
-            collector.on("collect", async (reaction, reacter) => {
+            collector.on("collect", async reaction => {
                 if (reaction.emoji.name === "vote_no") {
                     msg.reactions.removeAll()
                     collector.stop()
@@ -387,8 +383,8 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
                 if (reaction.emoji.name === "vote_yes") {
                     msg.reactions.removeAll()
                     collector.stop()
-                    correctRow[key] = value
-                    const save = await correctRow.save()
+                    correctRow![key] = value
+                    await correctRow!.save()
                     const result = rows.find(r => r.id === string)
 
                     if (!result) {
@@ -396,7 +392,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
                             .setColor(errorColor)
                             .setAuthor(getString("moduleName"))
                             .setTitle(getString("editContextFor") + string)
-                            .setDescription(string.edited + string.tryRunGet)
+                            .setDescription(getString("tryRunGet"))
                             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                         return msg.edit(embed)
                     }
@@ -444,7 +440,7 @@ async function editInSpreadsheet(executedBy, message, getString, args) {
             collector.on("end", async () => {
                 msg.reactions.removeAll()
                 let correctRow = rows.find(r => r.id === string)
-                if (correctRow[key] !== value) {
+                if (correctRow![key] !== value) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setAuthor(getString("moduleName"))
