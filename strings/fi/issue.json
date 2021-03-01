@@ -3,6 +3,5 @@
     "bugT": "Ilmoitusten tarkasteleminen ja luominen",
     "bugD": "Luodaksesi ehdotuksia tai bugi-ilmoituksia tai tarkastellaksesi niitä, ole hyvä ja [klikkaa tästä]%%github%%.",
     "urgentT": "Onko tämä kiireellistä?",
-    "urgentD": "Mikäli yrität ilmoittaa vakavasta bugista tai botti on ollut alhaalla pidemmän aikaa ilman virallista ilmoitusta, ole hyvä ja mainitse ylläpidon jäsen julkisella kanavalla ja selitä ongelma.",
-    "executedBy": "Komennon suoritti %%user%%"
+    "urgentD": "Mikäli yrität ilmoittaa vakavasta bugista tai botti on ollut alhaalla pidemmän aikaa ilman virallista ilmoitusta, ole hyvä ja mainitse ylläpidon jäsen julkisella kanavalla ja selitä ongelma."
 }
