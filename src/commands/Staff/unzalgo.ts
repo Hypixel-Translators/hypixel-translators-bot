@@ -1,6 +1,6 @@
-const { successColor } = require("../../config.json")
-const Discord = require("discord.js")
-const unzalgo = require("../../events/unzalgo.js")
+import { successColor } from "../../config.json"
+import Discord from "discord.js"
+import unzalgo from "../../events/unzalgo.js"
 
 module.exports = {
     name: "unzalgo",
@@ -9,7 +9,7 @@ module.exports = {
     aliases: ["zalgo", "zalgocheck"],
     roleWhitelist: ["768435276191891456"], //Discord Staff
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
-    execute(message) {
+    execute(message: Discord.Message) {
         unzalgo.execute(message.client, true)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)

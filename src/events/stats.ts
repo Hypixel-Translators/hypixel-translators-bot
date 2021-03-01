@@ -5,35 +5,29 @@ import { HTBClient } from "../lib/dbclient"
 import { ObjectId } from "mongodb"
 const ctokenV2 = process.env.CTOKEN_API_V2
 
-module.exports = {
-    async execute(client: HTBClient, manual: boolean) {
-        try {
-            const d = new Date()
-            const m = d.getMinutes()
-            if (m == 0 || m == 20 || m == 40) {
-                await hypixel(client)
-                await skyblockaddons(client)
-            }
-            if (m == 10 || m == 30 || m == 50) {
-                await quickplay(client)
-                await bot(client)
-            }
-            if (manual) {
-                await hypixel(client)
-                await skyblockaddons(client)
-                await quickplay(client)
-                await bot(client)
-                console.log("All stats have been manually updated.")
-            }
-        } catch (err) { throw err }
-    },
-    hypixel,
-    quickplay,
-    skyblockaddons,
-    bot
+export async function execute(client: HTBClient, manual: boolean) {
+    try {
+        const d = new Date()
+        const m = d.getMinutes()
+        if (m == 0 || m == 20 || m == 40) {
+            await hypixel(client)
+            await skyblockaddons(client)
+        }
+        if (m == 10 || m == 30 || m == 50) {
+            await quickplay(client)
+            await bot(client)
+        }
+        if (manual) {
+            await hypixel(client)
+            await skyblockaddons(client)
+            await quickplay(client)
+            await bot(client)
+            console.log("All stats have been manually updated.")
+        }
+    } catch (err) { throw err }
 }
 
-async function hypixel(client: HTBClient) {
+export async function hypixel(client: HTBClient) {
     const langdb = await client.db.collection("langdb").find().toArray()
     fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } })
         .then(res => res.json())
@@ -82,7 +76,7 @@ async function hypixel(client: HTBClient) {
         })
 }
 
-async function quickplay(client: HTBClient) {
+export async function quickplay(client: HTBClient) {
     const langdb = await client.db.collection("langdb").find().toArray()
     fetch("https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } })
         .then(res => res.json())
@@ -136,7 +130,7 @@ async function quickplay(client: HTBClient) {
         })
 }
 
-async function bot(client: HTBClient) {
+export async function bot(client: HTBClient) {
     const langdb = await client.db.collection("langdb").find().toArray()
     fetch("https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } })
         .then(res => res.json())
@@ -190,7 +184,7 @@ async function bot(client: HTBClient) {
         })
 }
 
-async function skyblockaddons(client: HTBClient) {
+export async function skyblockaddons(client: HTBClient) {
     const langdb = await client.db.collection("langdb").find().toArray()
     fetch("https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } })
         .then(res => res.json())

@@ -1,5 +1,5 @@
-const { successColor, blurple } = require("../../config.json")
-const Discord = require("discord.js")
+import { successColor, blurple } from "../../config.json"
+import Discord from "discord.js"
 
 module.exports = {
     name: "channel",
@@ -8,7 +8,7 @@ module.exports = {
     aliases: ["updatechannel", "channelupdate"],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
-    execute(message, args) {
+    execute(message: Discord.Message, args: string[]) {
         if (args[0] === "info") {
             info(message)
             const successEmbed = new Discord.MessageEmbed()
@@ -51,8 +51,9 @@ module.exports = {
     }
 }
 
-function info(message) {
-    message.client.channels.cache.get("762341271611506708").messages.fetch("800415708851732491").then(msg => { //server-info and channels message
+function info(message: Discord.Message) {
+    const serverInfo = message.client.channels.cache.get("762341271611506708") as Discord.TextChannel
+    serverInfo.messages.fetch("800415708851732491").then(msg => { //server-info and channels message
         const channelsEmbed = new Discord.MessageEmbed()
             .setColor("#0022ff")
             .setTitle("Channels")
@@ -64,7 +65,7 @@ function info(message) {
                 { name: "**Language-specific channels 🎏**", value: "We offer channels where translators and proofreaders (of the Hypixel and Quickplay projects) for specific languages can interact with one another! You can speak in English there, but we encourage you to speak the language you're translating. Please keep in mind these channels are not actively moderated. In case you need to report something that occured in these channels, please contact an administrator." })
         msg.edit("", channelsEmbed)
     })
-    message.client.channels.cache.get("762341271611506708").messages.fetch("800415710508744744").then(msg => { //server-info and roles message
+    serverInfo.messages.fetch("800415710508744744").then(msg => { //server-info and roles message
         const botsEmbed = new Discord.MessageEmbed()
             .setColor("#0055ff")
             .setTitle("Bots")
@@ -75,8 +76,7 @@ function info(message) {
             )
         msg.edit("", botsEmbed)
     })
-    message.client.channels.cache.get("762341271611506708").messages.fetch("800415711864029204").then(msg => { //server-info and bots message
-
+    serverInfo.messages.fetch("800415711864029204").then(msg => { //server-info and bots message
         const rolesEmbed = new Discord.MessageEmbed()
             .setColor("#0077ff")
             .setTitle("Roles")
@@ -86,16 +86,16 @@ function info(message) {
                 { name: "**Official Hypixel staff members**", value: "They do not moderate the Discord but they can be helpful when it comes to asking things regarding translation or the server. (Please refer to rule 5)\n<@&624880339722174464> - Official Hypixel Administrators.\n<@&551758392021090304> - Official Hypixel Moderators.\n<@&551758392339857418> - Official Hypixel Helpers." },
                 { name: "**Translators**", value: "Each of the following roles applies to all 4 projects we support: **Hypixel**, **SkyblockAddons**, **Quickplay** and our **Bot**.\n**Managers** - The managers of each project are the ones responsible for new strings, proofreader promotions, amongst other things. Please avoid tagging people with these roles (refer to rule 5).\n**Proofreaders** - The proofreaders of each language are the ones responsible for reviewing and approving strings. If you notice any mistakes, these are the people you should message.\n**Translators** - A translator's job is to suggest and vote on translations, which helps the proofreaders' job a lot." },
                 { name: "**Miscellaneous**", value: "<@&549894155174674432> - A role given to all bots in the Discord.\n<@&732586582787358781> - A role given to the current developer(s) of our bot.\n<@&618502156638617640> - A role given to people who have helped create art for this server.\n<@&766339653615484930> - A role given to the person who won the Trick'cord Treat contest in October 2020, <@435546264432803840>\n<@&719263346909773864> - A role given to all of the people who've hosted giveaways in <#787050912005881876>!\n<@&557090185670557716> - A role given to all users that joined in the first 6 months of this server (August 28, 2019)." },
-                { name: "**Reaction Roles**", value: `You can react to this message to receive the roles below, here's what they do:\n<@&646098170794868757> - React with 📊 to be notified whenever a new poll is posted on <#646096405252800512>\n<@&732615152246980628> - React with 🤖 to be notified whenever a new major update to <@${message.client.user.id}> is posted on <#732587569744838777>\n<@&801052623745974272> - React with 🎉 to be notified of future giveaways in <#787050912005881876>!` }
+                { name: "**Reaction Roles**", value: `You can react to this message to receive the roles below, here's what they do:\n<@&646098170794868757> - React with 📊 to be notified whenever a new poll is posted on <#646096405252800512>\n<@&732615152246980628> - React with 🤖 to be notified whenever a new major update to <@${message.client.user!.id}> is posted on <#732587569744838777>\n<@&801052623745974272> - React with 🎉 to be notified of future giveaways in <#787050912005881876>!` }
             )
             .setFooter("Need help? Ask your questions in #off-topic | Bot made with lots of care by QkeleQ10#6163")
         msg.edit("", rolesEmbed)
     })
 }
 
-function rules(message) {
-    message.client.channels.cache.get("796159719617986610").messages.fetch("800412977220026398").then(msg => {
-
+function rules(message: Discord.Message) {
+    const rules = message.client.channels.cache.get("796159719617986610") as Discord.TextChannel
+    rules.messages.fetch("800412977220026398").then(msg => {
         const rulesEmbed = new Discord.MessageEmbed()
             .setColor(blurple)
             .setTitle("Server Rules")
@@ -116,12 +116,13 @@ function rules(message) {
     })
 }
 
-function verify(message) {
-    message.client.channels.cache.get("569178590697095168").messages.fetch("787366444970541056").then(msg => { //verify-prototype and verify embed
+function verify(message: Discord.Message) {
+    const verify = message.client.channels.cache.get("569178590697095168") as Discord.TextChannel
+    verify.messages.fetch("787366444970541056").then(msg => { //verify-prototype and verify embed
         const verifyEmbed = new Discord.MessageEmbed()
             .setColor(blurple)
             .setAuthor("Welcome!")
-            .setThumbnail(message.guild.iconURL())
+            .setThumbnail(message.guild!.iconURL()!)
             .setTitle("The Hypixel Translators Community")
             .setDescription("Hello there and welcome to the __**Unofficial**__ Hypixel Translators Server! In order to verify yourself to have access to other channels, please follow the instructions below. While you wait we also suggest you check out <#796159719617986610> to be more familiar with the server rules once you've joined.")
             .addFields(

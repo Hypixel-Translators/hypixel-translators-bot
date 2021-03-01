@@ -1,7 +1,7 @@
-const { loadingColor, errorColor, successColor, neutralColor } = require("../../config.json")
-const Discord = require("discord.js")
-const { flag } = require("country-emoji")
-const { getDb } = require("../../lib/mongodb")
+import { loadingColor, errorColor, successColor, neutralColor } from "../../config.json"
+import Discord from "discord.js"
+import { flag } from "country-emoji"
+import { client } from "../../index"
 
 module.exports = {
   name: "prefix",
@@ -10,13 +10,13 @@ module.exports = {
   usage: "+prefix [flags]",
   cooldown: 30,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
-  async execute(message, args, getString) {
-    const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
-    const nickNoPrefix = message.member.displayName.replace(/\[[^\s]*\] /g, "")
-    const langdb = await getDb().collection("langdb").find().toArray()
+  async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
+    const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+    const nickNoPrefix = message.member!.displayName.replace(/\[[^\s]*\] /g, "")
+    const langdb = await client.db.collection("langdb").find().toArray()
 
     if (args[0]) {
-      let flagEmojis = []
+      let flagEmojis: (string | undefined)[] = []
       args.forEach(emoji => {
         if (emoji.toLowerCase() === "lol" || emoji.toLowerCase() === "lolcat") flagEmojis.push("😹")
         else if (emoji.toLowerCase() === "enpt" || emoji.toLowerCase() === "pirate") flagEmojis.push("☠")
@@ -38,7 +38,7 @@ module.exports = {
         .then(msg => {
           msg.react("✅").then(() => msg.react("❎"))
 
-          const filter = (reaction, reacter) => {
+          const filter = (reaction: Discord.MessageReaction, reacter: Discord.User) => {
             return (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id
           }
 
@@ -48,8 +48,8 @@ module.exports = {
             msg.react("✅")
             if (reaction.emoji.name === "✅") {
               msg.reactions.removeAll()
-              if (message.member.nickname !== ("[" + prefix + "] " + nickNoPrefix)) {
-                await message.member.setNickname("[" + prefix + "] " + nickNoPrefix, "Used the prefix command")
+              if (message.member!.nickname !== ("[" + prefix + "] " + nickNoPrefix)) {
+                await message.member!.setNickname("[" + prefix + "] " + nickNoPrefix, "Used the prefix command")
                   .then(() => {
                     const embed = new Discord.MessageEmbed()
                       .setColor(successColor)
@@ -63,8 +63,8 @@ module.exports = {
                       .setAuthor("Prefix")
                       .setTitle("A user manually changed their prefix")
                       .setDescription(`${message.author} manually changed their prefix to include the following flag: ${prefix}\nMake sure they have the appropriate roles for this prefix and, if not, follow the appropriate procedure`)
-                      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    message.client.channels.cache.get("624881429834366986").send(staffAlert)
+                      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }));
+                    (message.client.channels.cache.get("624881429834366986") as Discord.TextChannel).send(staffAlert) //staff-bots
                   })
                   .catch(err => {
                     const embed = new Discord.MessageEmbed()
@@ -102,8 +102,8 @@ module.exports = {
             msg.reactions.removeAll()
             if (prefix === "n") return
             if (prefix.length > 0) {
-              if (message.member.nickname !== ("[" + prefix + "] " + nickNoPrefix)) {
-                message.member.setNickname("[" + prefix + "] " + nickNoPrefix, "Used the prefix command")
+              if (message.member!.nickname !== ("[" + prefix + "] " + nickNoPrefix)) {
+                message.member!.setNickname("[" + prefix + "] " + nickNoPrefix, "Used the prefix command")
                   .then(() => {
                     const embed = new Discord.MessageEmbed()
                       .setColor(successColor)
@@ -155,10 +155,10 @@ module.exports = {
         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
       message.channel.send(embed)
         .then(async msg => {
-          let userLangs = []
+          let userLangs: string[] = []
           let prefixes = ""
 
-          await message.member.roles.cache.forEach(async r => {
+          await message.member!.roles.cache.forEach(async r => {
             const roleName = r.name.split(" ")
             await roleName.splice(roleName.length - 1, 1)
             const role = roleName.join(" ")
@@ -171,7 +171,7 @@ module.exports = {
           userLangs.forEach(async emoji => await msg.react(emoji))
 
           if (userLangs.length < 1) {
-            if (message.member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628") || message.member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))) { //Bot updates
+            if (message.member!.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628") || message.member!.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))) { //Bot updates
               const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor(getString("moduleName"))
@@ -199,7 +199,7 @@ module.exports = {
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
           msg.edit(embed)
 
-          const filter = (reaction, reacter) => {
+          const filter = (reaction: Discord.MessageReaction, reacter:Discord.User) => {
             return (userLangs.includes(reaction.emoji.name) || reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id
           }
 
@@ -210,8 +210,8 @@ module.exports = {
             if (reaction.emoji.name === "✅") {
               msg.reactions.removeAll()
               if (prefixes.length > 0) {
-                if (message.member.nickname !== ("[" + prefixes + "] " + nickNoPrefix)) {
-                  await message.member.setNickname("[" + prefixes + "] " + nickNoPrefix, "Used the prefix command")
+                if (message.member!.nickname !== ("[" + prefixes + "] " + nickNoPrefix)) {
+                  await message.member!.setNickname("[" + prefixes + "] " + nickNoPrefix, "Used the prefix command")
                     .then(() => {
                       const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
@@ -278,8 +278,8 @@ module.exports = {
             msg.reactions.removeAll()
             if (prefixes === "n") return
             if (prefixes.length > 0) {
-              if (message.member.nickname !== ("[" + prefixes + "] " + nickNoPrefix)) {
-                message.member.setNickname("[" + prefixes + "] " + nickNoPrefix, "Used the prefix command")
+              if (message.member!.nickname !== ("[" + prefixes + "] " + nickNoPrefix)) {
+                message.member!.setNickname("[" + prefixes + "] " + nickNoPrefix, "Used the prefix command")
                   .then(() => {
                     const embed = new Discord.MessageEmbed()
                       .setColor(successColor)

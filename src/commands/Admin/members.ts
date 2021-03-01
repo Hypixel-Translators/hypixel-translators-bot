@@ -1,5 +1,5 @@
-const { blurple } = require("../../config.json")
-const Discord = require("discord.js")
+import { blurple } from "../../config.json"
+import Discord from "discord.js"
 
 module.exports = {
     name: "members",
@@ -8,15 +8,15 @@ module.exports = {
     usage: "+members <role>",
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-development admin-bots
-    execute(message, args) {
-        let role = args.join(" ").replace(/[\\<>@#&!]/g, "").toLowerCase()
-        if (!role) throw "noRole"
-        role = message.guild.roles.cache.find(r => r.id === role || r.name.toLowerCase() === role)
-        if (!role) role = message.guild.roles.cache.find(r.name.toLowerCase().includes(role))
+    execute(message: Discord.Message, args: string[]) {
+        let roleRaw = args.join(" ").replace(/[\\<>@#&!]/g, "").toLowerCase()
+        if (!roleRaw) throw "noRole"
+        let role = message.guild!.roles.cache.find(r => r.id === roleRaw || r.name.toLowerCase() === roleRaw)
+        if (!role) role = message.guild!.roles.cache.find(r => r.name.toLowerCase().includes(roleRaw))
         if (!role) throw "falseRole"
 
-        let tags = []
-        role.members.forEach(member => tags.push(`<@!${member.user.id}>`))
+        let tags: Discord.GuildMember[] = []
+        role.members.forEach(member => tags.push(member))
 
         const arr = []
         let p = 0

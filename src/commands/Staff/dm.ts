@@ -1,6 +1,6 @@
-const { errorColor, successColor, neutralColor } = require("../../config.json")
-const Discord = require("discord.js")
-const { getUser } = require("../../lib/mongodb")
+import Discord from "discord.js"
+import { errorColor, successColor, neutralColor } from "../../config.json"
+import { client } from "../../index"
 
 module.exports = {
     name: "dm",
@@ -8,7 +8,7 @@ module.exports = {
     usage: "+dm <mention> <message>",
     aliases: ["message", "privatemessage", "pm"],
     roleWhitelist: ["768435276191891456"], //Discord Staff
-    async execute(message, args) {
+    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
         if (!args[0]) throw "noUser"
         const userToSend = args[0].replace(/[\\<>@#&!]/g, "")
         const recipient = message.client.users.cache.get(userToSend)
@@ -16,15 +16,14 @@ module.exports = {
         args.splice(0, 1)
         let toSend = args.join(" ")
 
-        const recipientDb = await getUser(recipient.id)
-        const rStrings = require(`../../strings/${recipientDb.lang}/dm.json`)
+        const recipientDb = await client.getUser(recipient.id)
         message.channel.startTyping()
         if (toSend) {
             const dm = new Discord.MessageEmbed()
                 .setColor(neutralColor)
-                .setAuthor(rStrings.incoming)
+                .setAuthor(getString("incoming", this.name, recipientDb.lang))
                 .setDescription(toSend)
-                .setFooter(rStrings.incomingDisclaimer)
+                .setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang))
             recipient.send(dm)
                 .then(() => {
                     const embed = new Discord.MessageEmbed()

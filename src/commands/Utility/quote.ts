@@ -1,6 +1,7 @@
-const { errorColor, successColor, neutralColor } = require("../../config.json")
-const Discord = require("discord.js")
-const { getDb } = require("../../lib/mongodb")
+import { errorColor, successColor, neutralColor } from "../../config.json"
+import Discord from "discord.js"
+import { client } from "../../index"
+import { Collection } from "mongodb"
 
 module.exports = {
     name: "quote",
@@ -9,9 +10,9 @@ module.exports = {
     cooldown: 5,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development bot-translators
-    async execute(message, args, getString) {
-        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
-        const collection = getDb().collection("quotes")
+    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+        const collection = client.db.collection("quotes")
         let allowed = false
         if (message.member?.hasPermission("VIEW_AUDIT_LOG")) allowed = true
         message.channel.startTyping()
@@ -28,7 +29,7 @@ module.exports = {
                 throw "noUserQuote"
             }
             if (!allowed) {
-                const sendTo = message.client.channels.cache.get("624881429834366986") //staff-bots
+                const sendTo = message.client.channels.cache.get("624881429834366986") as Discord.TextChannel //staff-bots
                 const report = new Discord.MessageEmbed()
                     .setColor(neutralColor)
                     .setAuthor("Quote")
@@ -52,7 +53,7 @@ module.exports = {
     }
 }
 
-async function findQuote(executedBy, message, getString, args, collection) {
+async function findQuote(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string) => any, args: string[], collection: Collection<any>) {
 
     const all = await collection.find({}).toArray()
 
@@ -82,7 +83,7 @@ async function findQuote(executedBy, message, getString, args, collection) {
     return message.channel.send(embed)
 }
 
-async function addQuote(executedBy, message, quote, author, collection) {
+async function addQuote(executedBy: string, message: Discord.Message, quote: string, author: string, collection: Collection<any>) {
 
     const all = await collection.find({}).toArray()
     const quoteId = all.length + 1
@@ -102,7 +103,7 @@ async function addQuote(executedBy, message, quote, author, collection) {
     message.channel.send(embed)
 }
 
-async function editQuote(executedBy, message, args, collection) {
+async function editQuote(executedBy: string, message: Discord.Message, args: string[], collection: Collection<any>) {
 
     const quoteId = Number(args[1])
     if (isNaN(quoteId)) throw "noQuote"
@@ -125,7 +126,7 @@ async function editQuote(executedBy, message, args, collection) {
     })
 }
 
-async function deleteQuote(executedBy, message, args, collection) {
+async function deleteQuote(executedBy: string, message: Discord.Message, args: string[], collection: Collection<any>) {
 
     const quoteId = Number(args[1])
     if (!quoteId) throw "noQuote"

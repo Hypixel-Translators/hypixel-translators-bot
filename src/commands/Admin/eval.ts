@@ -1,12 +1,12 @@
-const { loadingColor, errorColor, successColor, neutralColor, blurple, listeningStatuses, watchingStatuses, playingStatuses } = require("../../config.json")
-const fetch = require("node-fetch")
-const Discord = require("discord.js")
-const { inspect } = require("util")
-const { clean, isZalgo } = require("unzalgo")
-const { flag, code, name, countries } = require('country-emoji')
-const fs = require("fs")
-const country = require('countryjs')
-const { init, getDb, getUser, mClient } = require("../../lib/mongodb.js")
+import Discord from "discord.js"
+import { inspect } from "util"
+import { loadingColor, errorColor, successColor, neutralColor, blurple, listeningStatuses, watchingStatuses, playingStatuses } from "../../config.json"
+import fetch from "node-fetch"
+import { clean, isZalgo } from "unzalgo"
+import { flag, code, name, countries } from 'country-emoji'
+import fs from "fs"
+import country from 'countryjs'
+import { client } from "../../index.js"
 
 module.exports = {
   name: "eval",
@@ -15,7 +15,7 @@ module.exports = {
   aliases: ["evaluate", "ev"],
   roleWhitelist: ["620274909700161556"], //*
   channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
-  async execute(message, args, getString) {
+  async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
     const me = message.member
     const guild = message.guild
     const client = message.client

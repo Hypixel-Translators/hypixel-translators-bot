@@ -1,6 +1,7 @@
-const { errorColor, successColor } = require("../../config.json")
-const Discord = require("discord.js")
-const { execute, hypixel, quickplay, skyblockaddons, bot } = require("../../events/stats.js")
+import { errorColor, successColor } from "../../config.json"
+import Discord from "discord.js"
+import { execute, hypixel, quickplay, skyblockaddons, bot } from "../../events/stats.js"
+import { client } from "../../index"
 
 module.exports = {
     name: "stats",
@@ -8,8 +9,7 @@ module.exports = {
     usage: "+stats",
     aliases: ["statistics", "progress"],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
-    async execute(message, args) {
-        const client = message.client
+    async execute(message: Discord.Message, args: string[]) {
         if (!args[0] || args[0].toLowerCase() === "all") {
             await execute(client, true)
                 .then(() => {
@@ -17,14 +17,14 @@ module.exports = {
                         .setColor(successColor)
                         .setAuthor("Statistics updater")
                         .setTitle("All language statistics have been updated!")
-                        .setDescription(`Check them out at ${message.guild.channels.cache.find(c => c.name === "hypixel-language-status")}, ${message.guild.channels.cache.find(c => c.name === "sba-language-status")}, ${message.guild.channels.cache.find(c => c.name === "bot-language-status")} and ${message.guild.channels.cache.find(c => c.name === "quickplay-language-status")}`)
+                        .setDescription(`Check them out at ${message.guild!.channels.cache.find(c => c.name === "hypixel-language-status")}, ${message.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${message.guild!.channels.cache.find(c => c.name === "bot-language-status")} and ${message.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`)
                         .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     message.channel.send(allEmbed)
                 })
                 .catch(err => { throw err })
         } else if (args[0]) {
             let project = args[0].toLowerCase()
-            let channel
+            let channel: string
             if (project === "hypixel" || project === "hp") {
                 await hypixel(client)
                 project = "Hypixel"
@@ -56,7 +56,7 @@ module.exports = {
                 .setColor(successColor)
                 .setAuthor("Statistics updater")
                 .setTitle(`The ${project} language statistics have been updated!`)
-                .setDescription(`Check it out at ${message.guild.channels.cache.find(c => c.name === `${channel}-language-status`)}!`)
+                .setDescription(`Check it out at ${message.guild!.channels.cache.find(c => c.name === `${channel}-language-status`)}!`)
                 .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             message.channel.send(projectEmbed)
             console.log(`Manually updated the ${project} language statistics.`)

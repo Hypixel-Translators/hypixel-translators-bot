@@ -1,5 +1,5 @@
-const { successColor } = require("../../config.json")
-const Discord = require("discord.js")
+import { successColor } from "../../config.json"
+import Discord from "discord.js"
 
 module.exports = {
   name: "say",
@@ -8,16 +8,16 @@ module.exports = {
   cooldown: 600,
   aliases: ["parrot", "repeat", "send"],
   roleWhitelist: ["768435276191891456"], //Discord Staff
-  async execute(message, args) {
+  async execute(message: Discord.Message, args: string[]) {
     if (!args[0]) throw "noMessage"
-    const sendTo = message.client.channels.cache.get(args[0].replace(/[\\<>@#&!]/g, ""))
+    const sendTo = message.client.channels.cache.get(args[0].replace(/[\\<>@#&!]/g, "")) as (Discord.TextChannel | Discord.NewsChannel)
     args.splice(0, 1)
     const toSend = args.join(" ")
     let msg
 
     if (!sendTo) throw "noChannel"
     if (!toSend) throw "noMessage"
-    if (!message.member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
+    if (!message.member!.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
 
     if (message.member) if (message.member.hasPermission("MANAGE_ROLES")) msg = await sendTo.send(toSend).catch(() => { throw "noChannel" })
     else msg = await sendTo.send(">>> " + toSend).catch(() => { throw "noChannel" })

@@ -1,6 +1,7 @@
-const fetch = require("node-fetch")
-const fs = require('fs')
-const path = require('path')
+import fetch from "node-fetch"
+import fs from 'fs'
+import path from 'path'
+import Discord from "discord.js"
 
 module.exports = {
     name: "holidays",
@@ -9,15 +10,15 @@ module.exports = {
     aliases: ["holiday"],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["730042612647723058", "551693960913879071"], // bot-development admin-bots
-    execute(message, args, getString) {
+    execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
         if (!args[0]) return message.channel.send("You absolute buffoon you need to tell me what holiday to look for.")
         let holidayName = args[0].toLowerCase()
         if (holidayName === "newyear" || args.join("").toLowerCase() === "newyear") holidayName = "newYear"
         if (getString(holidayName) === holidayName) return message.channel.send("I have no idea what holiday that is sir.")
         let strings = require(`../../strings/en/holidays.json`)
         const dirPath = path.join(__dirname, "../../strings")
-        let holiday = []
-        let log = []
+        let holiday: string[] = []
+        let log: string[] = []
         holiday.push(strings[holidayName])
         fs.readdir(dirPath, function (err, files) {
             files.forEach(file => {
@@ -30,7 +31,8 @@ module.exports = {
             })
             const announcement = holiday.join(" ")
             if (announcement) {
-                message.client.channels.cache.get("549503985501995011").send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`) //announcements
+                const announcements = message.client.channels.cache.get("549503985501995011") as Discord.NewsChannel
+                announcements.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`) //announcements
                     .then(msg => msg.crosspost())
                 message.channel.send(`${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement sent! Here's each language's translation:\n${log.join("\n")}`)
                 console.log(log)

@@ -1,6 +1,6 @@
-const { getDb } = require("../../lib/mongodb")
-const { successColor, errorColor, neutralColor } = require("../../config.json")
-const Discord = require("discord.js")
+import { client } from "../../index"
+import { successColor, errorColor, neutralColor } from "../../config.json"
+import Discord from "discord.js"
 
 module.exports = {
     name: "profile",
@@ -9,14 +9,14 @@ module.exports = {
     allowTip: false,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["569178590697095168"], // verify
-    async execute(message, args) {
+    async execute(message: Discord.Message, args: string[]) {
         let user = message.author
         if (args[0]) {
             let userRaw = args[0].replace(/[\\<>@#&!]/g, "")
             user = message.client.users.cache.find(m => m.id === userRaw || m.tag === userRaw || m.username === userRaw || m.tag.toLowerCase().includes(userRaw.toLowerCase()))
             if (!user) throw "falseUser"
         }
-        const collection = getDb().collection("users")
+        const collection = client.db.collection("users")
         if (!args[1]) {
             const userDb = await collection.findOne({ id: user.id })
             if (userDb.profile) {

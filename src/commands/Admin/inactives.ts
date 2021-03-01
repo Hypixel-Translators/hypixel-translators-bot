@@ -1,6 +1,6 @@
-const { successColor } = require("../../config.json")
-const Discord = require("discord.js")
-const inactives = require("../../events/inactives.js")
+import { successColor } from "../../config.json"
+import Discord from "discord.js"
+import inactives from "../../events/inactives.js"
 
 module.exports = {
     name: "inactives",
@@ -8,7 +8,7 @@ module.exports = {
     usage: "+inactives",
     aliases: ["updateinactives", "unverifieds", "inactive"],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
-    execute(message) {
+    execute(message: Discord.Message) {
         inactives.execute(message.client, true)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)

@@ -26,7 +26,7 @@ module.exports = {
     }
 }
 
-async function getFromSpreadsheet(executedBy: String, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string)=>any, args: string[]) {
+async function getFromSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string)=>any, args: string[]) {
     message.channel.startTyping()
     const string = args[1]
     const doc = new GoogleSpreadsheet(contextSheet!)
@@ -86,7 +86,7 @@ async function getFromSpreadsheet(executedBy: String, message: Discord.Message, 
     message.channel.send(embed)
 }
 
-async function addToSpreadsheet(executedBy: String, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string)=>any, args: string[]) {
+async function addToSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string)=>any, args: string[]) {
     message.channel.startTyping()
     const string = args[1]
     let toSend = [...args]
@@ -292,7 +292,7 @@ async function addToSpreadsheet(executedBy: String, message: Discord.Message, ge
         })
 }
 
-async function editInSpreadsheet(executedBy: String, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string)=>any, args: string[]) {
+async function editInSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string)=>any, args: string[]) {
     message.channel.startTyping()
     const string = args[1]
     if (!message.member!.roles.cache.has("569839580971401236") && !message.member!.hasPermission("MANAGE_ROLES")) { //Hypixel Proofreader
