@@ -3,6 +3,5 @@
     "bugT": "Fouten weergeven en melden",
     "bugD": "[Klik hier]%%github%% om suggesties of foutrapporten te zien en toe te voegen.",
     "urgentT": "Is het urgent?",
-    "urgentD": "Als je een fatale fout wilt melden of als de bot langere tijd offline is zonder aankondiging, vermeld dan alsjeblieft een stafflid in een openbaar kanaal (met uitleg van het probleem).",
-    "executedBy": "Uitgevoerd door %%user%%"
+    "urgentD": "Als je een fatale fout wilt melden of als de bot langere tijd offline is zonder aankondiging, vermeld dan alsjeblieft een stafflid in een openbaar kanaal (met uitleg van het probleem)."
 }
