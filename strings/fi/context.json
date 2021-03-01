@@ -65,6 +65,5 @@
         "sheetD": "Vain tietyt henkilöt voivat avata tämän taulukkoasiakirjan. Voit pyytää pääsyä linkin takaa löytyvältä sivulta. Syötäthän Crowdin-profiilisi linkin (`.../profile/<käyttäjänimi>`) sekä Discord-käyttäjänimesi. Huomaathan, että Stannya ja Rodry voivat nähdä Google-käyttäjänimesi ja sähköpostisi.",
         "sheetDButton": "Klikkaa tästä avataksesi kontekstitiedot sisältävän Google Sheets -dokumentin.",
         "sheetDel": "Viesti poistetaan 1 minuutin kuluttua"
-    },
-    "executedBy": "Komennon suoritti %%user%%"
+    }
 }
