@@ -2,6 +2,5 @@
     "moduleName": "Cytat",
     "invalidArg": "Nieprawidłowy argument!",
     "indexArg": "Cytat z indeksem %%arg%% nie istnieje! Podaj liczbę pomiędzy 1 a %%max%%.",
-    "reqSub": "Twoja prośba o cytat została złożona, dziękujemy!",
-    "executedBy": "Wykonano przez %%user%%"
+    "reqSub": "Twoja prośba o cytat została złożona, dziękujemy!"
 }
