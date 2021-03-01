@@ -69,8 +69,12 @@
         "description": "De glazen bol die al je vragen zal beantwoorden."
     },
     "verify": {
-        "usage": "+verify",
-        "description": "Controleert automatisch op wijzigingen in je Crowdin-profiel en geeft je de bijbehorende rollen. Als je profiel niet in onze database is opgeslagen, word je gevraagd om je profiel opnieuw te versturen. Zorg ervoor dat je privéberichten hebt ingeschakeld voor deze server zodat de bot je een bericht kan sturen."
+        "usage": "+verify [profileURL]",
+        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `+profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+    },
+    "profile": {
+        "usage": "+profile",
+        "description": "Geeft je de link naar je Crowdin-profiel als deze is opgeslagen in onze database. Als dit niet het geval is, kun je `+help verify` uitvoeren om te zien hoe je je profiel kunt laten opslaan en je rollen kunt updaten."
     },
     "tip": {
         "usage": "+tip",
@@ -111,6 +115,5 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Geeft je de link naar de officiële Hypixel-vertaalcommunity-Twitterpagina."
-    },
-    "executedBy": "Uitgevoerd door %%user%%"
+    }
 }
