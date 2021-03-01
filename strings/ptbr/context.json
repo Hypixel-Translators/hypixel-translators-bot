@@ -65,6 +65,5 @@
         "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
         "sheetDButton": "Clique aqui para abrir o Google Sheet com informações de contexto.",
         "sheetDel": "Excluindo mensagem em 1 minuto"
-    },
-    "executedBy": "Executado por %%user%%"
+    }
 }
