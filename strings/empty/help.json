@@ -69,8 +69,12 @@
         "description": "crwdns1240:0crwdne1240:0"
     },
     "verify": {
-        "usage": "crwdns1242:0crwdne1242:0",
+        "usage": "crwdns1242:0[profileURL]crwdne1242:0",
         "description": "crwdns1244:0crwdne1244:0"
+    },
+    "profile": {
+        "usage": "crwdns1258:0crwdne1258:0",
+        "description": "crwdns1260:0crwdne1260:0"
     },
     "tip": {
         "usage": "crwdns622:0crwdne622:0",
@@ -111,6 +115,5 @@
     "twitter": {
         "usage": "crwdns654:0crwdne654:0",
         "description": "crwdns656:0crwdne656:0"
-    },
-    "executedBy": "crwdns658:0%%user%%crwdne658:0"
+    }
 }
