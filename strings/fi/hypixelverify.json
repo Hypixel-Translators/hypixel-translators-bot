@@ -9,6 +9,5 @@
     "tutorial": "Voidaksesi linkittää käyttäjäsi, sinun tulee asettaa Discord-käyttäjäsi hypixelissä tilaan %%tag%% ja odottaa noin 10 minuuttia käyttääksesi komentoa uudelleen. Seuraa ohjeita alla olevalla videolla, jollet tiedä miten tämä tehdään.",
     "unverified": "Linkitys poistettiin onnistuneesti!",
     "notUnverified": "Käyttäjääsi ei voitu linkittää!",
-    "whyNotUnverified": "Tämä tapahtui, koska et ole linkittänyt itseäsi vielä! Tehdäksesi sen käytä komentoa `+hypixelverify <käyttäjänimi>`.",
-    "executedBy": "Komennon suoritti %%user%%"
+    "whyNotUnverified": "Tämä tapahtui, koska et ole linkittänyt itseäsi vielä! Tehdäksesi sen käytä komentoa `+hypixelverify <käyttäjänimi>`."
 }
