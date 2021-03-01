@@ -5,6 +5,5 @@
     "projectInfo": "Puede encontrar el enlace al proyecto de %%project%% [aquí](%%link%%). Para obtener más información, ejecute %%command%%.",
     "alreadyJoined": "¡Ya te has unido a este proyecto!",
     "notJoined": "¡Aún no te has unido a este proyecto!",
-    "dmError": "No pudimos verificar si ya estás en estos proyectos o no. Para hacer esto, debe ejecutar el comando en el Discord de La Comunidad de Traductores de Hypixel.",
-    "executedBy": "Ejecutado por %%user%%"
+    "dmError": "No pudimos verificar si ya estás en estos proyectos o no. Para hacer esto, debe ejecutar el comando en el Discord de La Comunidad de Traductores de Hypixel."
 }
