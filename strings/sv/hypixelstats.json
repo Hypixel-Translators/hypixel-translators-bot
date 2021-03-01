@@ -48,6 +48,5 @@
     "THAI": "Thailändska",
     "TURKISH": "Turkiska",
     "UKRAINIAN": "Ukrainska",
-    "madeBy": "Kommando skapat av %%developer%%",
-    "executedBy": "Utfördes av %%user%%"
+    "madeBy": "Kommando skapat av %%developer%%"
 }
