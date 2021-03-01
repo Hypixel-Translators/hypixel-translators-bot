@@ -11,8 +11,8 @@ module.exports = {
     roleWhitelist: ["569839580971401236", "569839517444341771"],
     channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "801904400826105876", "550951034332381184", "713084081579098152"], //off-topic memes pets food suggestions no-mic
     cooldown: 30,
-    async execute(message: Discord.Message, args: string[], getString: Function) {
-        const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
+    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string)=>any) {
+        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
         if (!args[0]) throw "contextSubArg"
         const subCmd = args[0].toLowerCase()
         try {
@@ -26,7 +26,7 @@ module.exports = {
     }
 }
 
-async function getFromSpreadsheet(executedBy: String, message: Discord.Message, getString: Function, args: string[]) {
+async function getFromSpreadsheet(executedBy: String, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string)=>any, args: string[]) {
     message.channel.startTyping()
     const string = args[1]
     const doc = new GoogleSpreadsheet(contextSheet!)
@@ -86,7 +86,7 @@ async function getFromSpreadsheet(executedBy: String, message: Discord.Message, 
     message.channel.send(embed)
 }
 
-async function addToSpreadsheet(executedBy: String, message: Discord.Message, getString: Function, args: string[]) {
+async function addToSpreadsheet(executedBy: String, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string)=>any, args: string[]) {
     message.channel.startTyping()
     const string = args[1]
     let toSend = [...args]
@@ -292,7 +292,7 @@ async function addToSpreadsheet(executedBy: String, message: Discord.Message, ge
         })
 }
 
-async function editInSpreadsheet(executedBy: String, message: Discord.Message, getString: Function, args: string[]) {
+async function editInSpreadsheet(executedBy: String, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string)=>any, args: string[]) {
     message.channel.startTyping()
     const string = args[1]
     if (!message.member!.roles.cache.has("569839580971401236") && !message.member!.hasPermission("MANAGE_ROLES")) { //Hypixel Proofreader
