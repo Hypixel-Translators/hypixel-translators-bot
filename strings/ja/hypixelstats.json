@@ -48,6 +48,5 @@
     "THAI": "タイ語",
     "TURKISH": "トルコ語",
     "UKRAINIAN": "ウクライナ語",
-    "madeBy": "コマンドは%%developer%%によって作成されました",
-    "executedBy": "%%user%%によって実行されました"
+    "madeBy": "コマンドは%%developer%%によって作成されました"
 }

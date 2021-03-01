@@ -48,6 +48,5 @@
     "THAI": "泰语",
     "TURKISH": "土耳其语",
     "UKRAINIAN": "乌克兰语",
-    "madeBy": "Command made by %%developer%%",
-    "executedBy": "触发者：%%user%%"
+    "madeBy": "Command made by %%developer%%"
 }

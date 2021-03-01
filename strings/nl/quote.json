@@ -2,6 +2,5 @@
     "moduleName": "Citaat",
     "invalidArg": "Ongeldig argument!",
     "indexArg": "Er bestaat geen citaat met index %%arg%%! Geef een nummer tussen 1 en %%max%%.",
-    "reqSub": "De citaattoevoegingsaanvraag is ingediend, bedankt!",
-    "executedBy": "Uitgevoerd door %%user%%"
+    "reqSub": "De citaattoevoegingsaanvraag is ingediend, bedankt!"
 }

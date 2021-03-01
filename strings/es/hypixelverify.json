@@ -9,6 +9,5 @@
     "tutorial": "Para ser verificado, debes configurar tu Discord en Hypixel en %%tag%% y luego ejecutar el comando nuevamente. Sigue las instrucciones del video a continuación si no sabes cómo hacer esto.",
     "unverified": "¡Has desverificado con éxito!",
     "notUnverified": "¡No se pudo desverificarte!",
-    "whyNotUnverified": "¡Esto sucedió porque aún no te has verificado! Para hacerlo, usa `+hypixelverify <usuario>`.",
-    "executedBy": "Ejecutado por %%user%%"
+    "whyNotUnverified": "¡Esto sucedió porque aún no te has verificado! Para hacerlo, usa `+hypixelverify <usuario>`."
 }

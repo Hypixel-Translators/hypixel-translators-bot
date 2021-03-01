@@ -48,6 +48,5 @@
     "THAI": "泰語",
     "TURKISH": "土耳其語",
     "UKRAINIAN": "烏克蘭語",
-    "madeBy": "指令由 %%developer%% 開發",
-    "executedBy": "由 %%user%% 執行"
+    "madeBy": "指令由 %%developer%% 開發"
 }

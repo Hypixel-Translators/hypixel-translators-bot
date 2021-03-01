@@ -48,6 +48,5 @@
     "THAI": "التايلاندية",
     "TURKISH": "التركية",
     "UKRAINIAN": "الأوكرانية",
-    "madeBy": "صنع الأمر من قبل %%developer%%",
-    "executedBy": "نفذ من قبل %%user%%"
+    "madeBy": "صنع الأمر من قبل %%developer%%"
 }

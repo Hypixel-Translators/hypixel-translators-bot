@@ -48,6 +48,5 @@
     "THAI": "Thai",
     "TURKISH": "Turkish",
     "UKRAINIAN": "Ukrainian",
-    "madeBy": "Command made by %%developer%%",
-    "executedBy": "Asg'fuat vo %%user%%"
+    "madeBy": "Command made by %%developer%%"
 }

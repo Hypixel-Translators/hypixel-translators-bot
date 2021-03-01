@@ -2,6 +2,5 @@
     "moduleName": "Цитата",
     "invalidArg": "Недійсний аргумент!",
     "indexArg": "Цитата з індексом %%arg%% не існує! Будь-ласка вкажіть число між 1 і %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!",
-    "executedBy": "Виконано користувачем %%user%%"
+    "reqSub": "Your quote request has been submitted, thanks!"
 }

@@ -2,6 +2,5 @@
     "moduleName": "Funnysentence",
     "invalidArg": "Not gud argarment!",
     "indexArg": "Quots withs indx %%arg%% exist? NO! Giv numbre betwin 1 and %%max%%, idot!",
-    "reqSub": "Ur funnysentence sumiit has been, tank!",
-    "executedBy": "Done by le %%user%%"
+    "reqSub": "Ur funnysentence sumiit has been, tank!"
 }

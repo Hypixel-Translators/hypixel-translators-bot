@@ -65,6 +65,5 @@
         "sheetD": "Μόνο συγκεκριμένα άτομα μπορούν να ανοίξουν αυτό το φύλλο. Μπορείς να ζητήσεις πρόσβαση στην σελίδα που θα δεις όταν πατήσεις το link. Παρακαλώ συμπερίλαβε μέσα το link του προφίλ σου στο Crowdin (`.../profile/<όνομα χρήστη>`) και το όνομα χρήστη σου στο Discord.\nΘυμήσου ότι ο Stannya, ο Rodry και ο QkeleQ10 θα μπορούν να δουν το όνομα προφίλ σου στο Google και το email σου.",
         "sheetDButton": "Click here to open the Google Sheet containing context information.",
         "sheetDel": "Deleting message in 1 minute"
-    },
-    "executedBy": "Εκτελέστηκε από τον %%user%%"
+    }
 }

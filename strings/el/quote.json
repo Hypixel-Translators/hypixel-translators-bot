@@ -2,6 +2,5 @@
     "moduleName": "Παράθεμα",
     "invalidArg": "Μη έγκυρο επιχείρημα!",
     "indexArg": "Ένα παράθεμα με ένδειξη %%arg%% δεν υπάρχει! Παρακαλώ εισήγαγε έναν αριθμό μεταξύ του 1 και %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!",
-    "executedBy": "Εκτελέστηκε από τον %%user%%"
+    "reqSub": "Your quote request has been submitted, thanks!"
 }

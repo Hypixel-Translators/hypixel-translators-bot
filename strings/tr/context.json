@@ -65,6 +65,5 @@
         "sheetD": "Bu sayfayı yalnızca belirli kişiler açabilir. Bağlantıyı takip ederken gördüğünüz sayfaya erişim talebinde bulunabilirsiniz. Lütfen Crowdin profil bağlantınızı (`.../profile/<kullanıcı adı>`) ve Discord kullanıcı adınızı doldurun.\nStannya, Rodry ve QkeleQ10'un Google profil adınızı ve e-postanızı görebileceğini unutmayın.",
         "sheetDButton": "İçerik bilgilerini içeren Google Sheet'i açmak için buraya tıklayın.",
         "sheetDel": " | Mesaj 2 dakika sonra siliniyor"
-    },
-    "executedBy": "%%user%% tarafından yürütüldü"
+    }
 }

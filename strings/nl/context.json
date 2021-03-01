@@ -65,6 +65,5 @@
         "sheetD": "Alleen specifieke personen kunnen deze Sheet openen. Je kunt toegang aanvragen op de pagina die je ziet als je de link volgt. Voer daar je Crowdin-profiellink (`.../profile/<gebruikersnaam>`) en je Discord-gebruikersnaam in.\nLet wel dat Stannya en Rodry je Google-profielnaam en -e-mail kunnen zien.",
         "sheetDButton": "Klik hier om de Google Sheet met contextinformatie te openen.",
         "sheetDel": "Bericht wordt verwijderd in 1 minuut"
-    },
-    "executedBy": "Uitgevoerd door %%user%%"
+    }
 }

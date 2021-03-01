@@ -48,6 +48,5 @@
     "THAI": "Thailändisch",
     "TURKISH": "Türkisch",
     "UKRAINIAN": "Ukrainisch",
-    "madeBy": "Befehl erstellt von %%developer%%",
-    "executedBy": "Ausgeführt von %%user%%"
+    "madeBy": "Befehl erstellt von %%developer%%"
 }

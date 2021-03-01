@@ -2,6 +2,5 @@
     "moduleName": "Quote",
     "invalidArg": "無效的參數！",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!",
-    "executedBy": "由 %%user%% 執行"
+    "reqSub": "Your quote request has been submitted, thanks!"
 }

@@ -2,6 +2,5 @@
     "moduleName": "Alıntı",
     "invalidArg": "Geçersiz argüman!",
     "indexArg": "%%arg%% endeksine sahip bir alıntı mevcut değil! Lütfen 1 ile %%max%% arasında bir sayı sağlayın.",
-    "reqSub": "Alıntı isteğiniz gönderildi, teşekkürler!",
-    "executedBy": "%%user%% tarafından yürütüldü"
+    "reqSub": "Alıntı isteğiniz gönderildi, teşekkürler!"
 }

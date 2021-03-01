@@ -2,6 +2,5 @@
     "moduleName": "Citat",
     "invalidArg": "Ogiltigt argument!",
     "indexArg": "Ett citat med indexet %%arg%% finns inte! Ange ett nummer mellan 1 och %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!",
-    "executedBy": "Utfördes av %%user%%"
+    "reqSub": "Your quote request has been submitted, thanks!"
 }

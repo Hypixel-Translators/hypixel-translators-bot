@@ -3,6 +3,5 @@
     "bugT": "Avleser og legger til problemer",
     "bugD": "For å vise og lage forslag eller problems-rapporter, vær snill å [klikk her]%%github%%.",
     "urgentT": "Haster det?",
-    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention a staff member in a public channel, explaining the issue.",
-    "executedBy": "Utført av %%user%%"
+    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention a staff member in a public channel, explaining the issue."
 }

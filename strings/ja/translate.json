@@ -15,6 +15,5 @@
     "lastThing": "Just one last thing",
     "requestInfo": "リクエストを送信する際は、ご自身のタグ（%%tag%%）またはID（%%id%%）を含めてください。\n**いずれかを含んでいない場合は却下されます！**",
     "noLanguage": "Can't find your language?",
-    "langRequest": "It is possible that we don't support your language yet. If that's the case, execute `+language add <language>`. This will send a message to the admins letting them know that you want this language to be added.",
-    "executedBy": "%%user%%によって実行されました"
+    "langRequest": "It is possible that we don't support your language yet. If that's the case, execute `+language add <language>`. This will send a message to the admins letting them know that you want this language to be added."
 }

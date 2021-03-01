@@ -1,6 +1,5 @@
 {
     "moduleName": "Ping",
     "pong": "%%pingEmote%% ポン！",
-    "message": "このボットのPing値は%%ping%%msです。",
-    "executedBy": "%%user%% によって実行されました"
+    "message": "このボットのPing値は%%ping%%msです。"
 }
