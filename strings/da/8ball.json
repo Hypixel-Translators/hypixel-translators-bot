@@ -1,33 +1,32 @@
 {
-    "moduleName": "Magic 8 ball",
-    "question": "Question",
+    "moduleName": "Magisk 8 bold",
+    "question": "Spørgsmål",
     "answers": {
         "positive": [
-            "It is certain.",
-            "It is decidedly so.",
-            "Without a doubt.",
-            "Yes – definitely.",
-            "You may rely on it.",
-            "As I see it, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Yes",
-            "Signs point to yes."
+            "Det er helt sikkert.",
+            "Det er bestemt sådan.",
+            "Uden tvivl.",
+            "Ja - uden tvivl.",
+            "Du kan stole på det.",
+            "Som jeg ser det, så ja.",
+            "Højst sandsynligt.",
+            "Udsigt ser godt ud.",
+            "Ja",
+            "Tegn tyder på ja."
         ],
         "inconclusive": [
-            "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again."
+            "Svar tåget, prøv igen.",
+            "Spørg igen senere.",
+            "Burde jeg ikke sige nu.",
+            "Kan ikke forudsige nu.",
+            "Koncentrér og spørg igen."
         ],
         "negative": [
-            "Don't count on it.",
-            "My reply is no.",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful."
+            "Stol ikke på det.",
+            "Mit svar er nej.",
+            "Mine kilder siger nej.",
+            "Udsigt ser ikke så godt ud.",
+            "Højst usandsynligt."
         ]
-    },
-    "executedBy": "Udført af %%user%%"
+    }
 }
