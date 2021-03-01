@@ -1,7 +1,7 @@
-const Discord = require("discord.js")
-const { prefix, successColor, errorColor } = require("../../config.json")
-const fetch = require("node-fetch")
-const { getDb } = require("../../lib/mongodb")
+import Discord from "discord.js"
+import { prefix, successColor, errorColor } from "../../config.json"
+import fetch, { FetchError } from "node-fetch"
+import { client } from "../../index"
 
 module.exports = {
     name: "hypixelverify",
@@ -10,13 +10,13 @@ module.exports = {
     aliases: ["hverify", "hypixellink", "hlink", "hypixelunverify", "hunverify"],
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
-    async execute(message, args, getString) {
+    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy").replace("%%user%%", message.author.tag)
 
         const command = message.content.slice(prefix.length).split(" ")[0].toLowerCase()
         if (command === "hypixelunverify" || command === "hunverify") {
             await this.updateRoles(message.member)
-            await getDb().collection("users").updateOne({ id: message.author.id }, { $set: { uuid: "" } }).then(async r => {
+            await client.db.collection("users").updateOne({ id: message.author.id }, { $set: { uuid: "" } }).then(async r => {
                 if (r.result.nModified) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
@@ -54,7 +54,7 @@ module.exports = {
                     throw "apiError"
                 }
                 if (json.links?.DISCORD === message.author.tag) {
-                    await getDb().collection("users").updateOne({ id: message.author.id }, { $set: { uuid: json.uuid } }).then(async r => {
+                    await client.db.collection("users").updateOne({ id: message.author.id }, { $set: { uuid: json.uuid } }).then(async r => {
                         const role = await this.updateRoles(message.member, json)
                         if (r.result.nModified) {
                             const successEmbed = new Discord.MessageEmbed()
@@ -90,13 +90,13 @@ module.exports = {
                 }
             })
             .catch(e => {
-                if (e instanceof fetch.FetchError) {
+                if (e instanceof FetchError) {
                     console.error("slothpixel is down, sending error.")
                     throw "apiError"
                 } else throw e
             })
     },
-    async updateRoles(member, json) {
+    async updateRoles(member: Discord.GuildMember, json: JsonResponse) {
         let role = null
         await member.roles.remove(["808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
         if (!json) return
@@ -142,4 +142,9 @@ module.exports = {
         }
         return role
     }
+}
+
+interface JsonResponse { //Just declaring the variables we need
+    username: string,
+    rank: string
 }
