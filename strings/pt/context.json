@@ -65,6 +65,5 @@
         "sheetD": "Apenas pessoas autorizadas podem abrir esta folha. Podes pedir acesso na página que vês ao abrir o link. No pedido, deves incluir o link para o teu perfil do Crowdin (`.../profile/<nome>`) e o teu nome do Discord.\nTem em atenção que o Stannya e o Rodry podem ver o teu nome do perfil do Google e o teu e-mail.",
         "sheetDButton": "Clica aqui para abrir a folha do Google Sheets que contém o contexto.",
         "sheetDel": "Esta mensagem será eliminada dentro de 1 minuto"
-    },
-    "executedBy": "Executado por %%user%%"
+    }
 }
