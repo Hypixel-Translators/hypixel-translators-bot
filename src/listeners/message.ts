@@ -169,10 +169,10 @@ client.on("message", async (message: Discord.Message) => {
 
     //Function to get strings
     function getString(path: string, cmd?: string, lang?: string): any {
-        let enStrings = require(`../strings/en/${cmd || command!.name}.json`)
+        let enStrings = require(`../../strings/en/${cmd || command!.name}.json`)
         let strings: any
-        try { strings = require(`../strings/${lang || author.lang}/${cmd || command!.name}.json`) }
-        catch { strings = require(`../strings/en/${cmd || command!.name}.json`) }
+        try { strings = require(`../../strings/${lang || author.lang}/${cmd || command!.name}.json`) }
+        catch { strings = require(`../../strings/en/${cmd || command!.name}.json`) }
         const pathSplit = path.split(".")
         let string
         pathSplit.forEach(pathPart => {
