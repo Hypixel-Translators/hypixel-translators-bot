@@ -57,14 +57,14 @@ module.exports = {
                 if (json.links?.DISCORD === message.author.tag) {
                     await getDb().collection("users").updateOne({ id: message.author.id }, { $set: { uuid: json.uuid } }).then(async r => {
                         const role = await this.updateRoles(message.member, json)
+                        if (role) console.error(`Role for the user ${json.username} is undefined PLEASE FIX`)
                         if (r.result.nModified) {
                             const successEmbed = new Discord.MessageEmbed()
                                 .setColor(successColor)
                                 .setAuthor(getString("moduleName"))
                                 .setTitle(getString("success").replace("%%player%%", json.username))
+                                .setDescription(getString("role").replace("%%role%%", role))
                                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                            if (role) successEmbed.setDescription(getString("role").replace("%%role%%", role))
-                            else successEmbed.setDescription(getString("noRoles"))
                             message.channel.stopTyping()
                             return message.channel.send(successEmbed)
                         } else {
@@ -138,6 +138,10 @@ module.exports = {
                 case "VIP":
                     await member.roles.add("808032608456802337", `Successfully verified as ${json.username}`) //VIP
                     role = member.guild.roles.cache.get("808032608456802337")
+                    break
+                default:
+                    await member.roles.add("816435344689987585", `Successfully verified as ${json.username}`) //Unranked
+                    role = member.guild.roles.cache.get("816435344689987585")
                     break
             }
         }
