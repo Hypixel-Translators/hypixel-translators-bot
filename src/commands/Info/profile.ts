@@ -14,7 +14,8 @@ module.exports = {
             let user = message.author
             if (args[0]) {
                 let userRaw = args[0].replace(/[\\<>@#&!]/g, "")
-                user = message.client.users.cache.find(m => m.id === userRaw || m.tag === userRaw || m.username === userRaw || m.tag.toLowerCase().includes(userRaw.toLowerCase()))!
+                //@ts-expect-error
+                user = message.client.users.cache.find(m => m.id === userRaw || m.tag === userRaw || m.username === userRaw || m.tag.toLowerCase().includes(userRaw.toLowerCase()))
                 if (!user) throw "falseUser"
             }
             if (!args[1]) {
