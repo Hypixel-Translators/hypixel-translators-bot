@@ -99,48 +99,57 @@ module.exports = {
     },
     async updateRoles(member, json) {
         let role = null
-        await member.roles.remove(["808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
-        if (!json) return
+        if (!json) return await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
         if (json.rank) {
             switch (json.rank) {
                 case "ADMIN":
                     await member.roles.add(["624880339722174464", "715674953697198141"], `Successfully verified as ${json.username}`) //Hypixel Admin and Hypixel Staff
+                    await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod
                     role = member.guild.roles.cache.get("624880339722174464")
                     break
                 case "MODERATOR":
-                    await member.roles.add(["551758392021090304", "715674953697198141"], `Successfully verified as ${json.username}`) //Hypixel Moderator and Hypixel Staff
+                    await member.roles.add(["551758392021090304", "715674953697198141"], `Successfully verified as ${json.username}`) //Hypixel Mod and Hypixel Staff
+                    await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "624880339722174464"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper and Hypixel Admin
                     role = member.guild.roles.cache.get("551758392021090304")
                     break
                 case "HELPER":
                     await member.roles.add(["551758392339857418", "715674953697198141"], `Successfully verified as ${json.username}`) //Hypixel Helper and Hypixel Staff
+                    await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392021090304", "624880339722174464"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Mod and Hypixel Admin
                     role = member.guild.roles.cache.get("551758392339857418")
                     break
                 case "YOUTUBER":
                     await member.roles.add("808032689709514852", `Successfully verified as ${json.username}`) //YouTuber
+                    await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP+, MVP++, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
                     role = member.guild.roles.cache.get("808032689709514852")
                     break
                 case "MVP_PLUS_PLUS":
                     await member.roles.add("808032672160153641", `Successfully verified as ${json.username}`) //MVP++
+                    await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP+, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
                     role = member.guild.roles.cache.get("808032672160153641")
                     break
                 case "MVP_PLUS":
                     await member.roles.add("808032657505255424", `Successfully verified as ${json.username}`) //MVP+
+                    await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
                     role = member.guild.roles.cache.get("808032657505255424")
                     break
                 case "MVP":
                     await member.roles.add("808032640631832637", `Successfully verified as ${json.username}`) //MVP
+                    await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP, VIP+, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
                     role = member.guild.roles.cache.get("808032640631832637")
                     break
                 case "VIP_PLUS":
                     await member.roles.add("808032624215457823", `Successfully verified as ${json.username}`) //VIP+
+                    await member.roles.remove(["816435344689987585", "808032608456802337", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
                     role = member.guild.roles.cache.get("808032624215457823")
                     break
                 case "VIP":
                     await member.roles.add("808032608456802337", `Successfully verified as ${json.username}`) //VIP
+                    await member.roles.remove(["816435344689987585", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
                     role = member.guild.roles.cache.get("808032608456802337")
                     break
                 default:
                     await member.roles.add("816435344689987585", `Successfully verified as ${json.username}`) //Unranked
+                    await member.roles.remove(["808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
                     role = member.guild.roles.cache.get("816435344689987585")
                     break
             }
