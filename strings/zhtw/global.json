@@ -19,7 +19,7 @@
         "falseLang": "找不到該語言！",
         "falseRole": "找不到該身份組！",
         "falseContext": "That context entry couldn't be found!",
-        "noPlayer": "That player has never joined Hypixel!",
+        "noPlayer": "該玩家從未加入過 Hypixel！",
         "notVerified": "That user hasn't linked their Hypixel account yet!",
         "disabled": "這個指令已暫時停用。",
         "noAccess": "你沒有權限執行這個指令！",
@@ -42,18 +42,18 @@
         "ib": "Have you tried the Inhale Banana language? Change your language to it using `+lang ib`!",
         "translators": "I need translators! Find out how to become a bot translator by executing `+translate`.",
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
-        "enen": "Please change your links to en-en!",
+        "enen": "請將你發送的連結更改為 en-en！",
         "xp": "你在聊天時，每分鐘都會得到隨機數量的經驗，這會讓你提升等級。",
         "guide": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%gettingStarted%%, it has some useful tips!",
         "twitter": "Have you followed our twitter account? Check it out at %%twitter%%!",
-        "rulesInfo": "%%rules%% and %%serverInfo%% have all the info you need about this server!",
+        "rulesInfo": "%%rules%% 和 %%serverInfo%% 包含了關於這個伺服器的所有資訊！",
         "fixTranslation": "找到了錯誤的翻譯？請向你的語言的校對員聯絡，或在翻譯頻道提出。",
-        "pinnedInfo": "Did you know most channels have important information pinned? You should check it out every time you visit one!",
+        "pinnedInfo": "你知道每個頻道都會釘選一些重要資訊嗎？請記得在進入頻道時查看已釘選的訊息！",
         "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!",
         "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!",
         "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
         "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
-        "moreTips": "We need more tips! Submit them using `+feedback`."
+        "moreTips": "我們需要更多提示！你可以使用 `+feedback` 來提交。"
     },
     "executedBy": "由 %%user%% 執行"
 }
