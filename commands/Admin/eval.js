@@ -21,8 +21,10 @@ module.exports = {
     const client = message.client
 
     let evaled
+    let code = args.join(" ").replace(/[“”]/gim, '"')
+    if (code.includes("await ")) code = `(async () => {\n${code}\n})();`
     try {
-      evaled = await eval(args.join(" ").replace(/[“”]/gim, '"'))
+      evaled = await eval(code)
       message.channel.send(inspect(evaled).substring(0, 255))
       console.log(inspect(evaled))
     } catch (error) {
