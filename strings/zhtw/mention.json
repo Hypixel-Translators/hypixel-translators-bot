@@ -1,5 +1,5 @@
 {
-    "errorNoPing": "You don't have that language's proofreader role, ",
+    "errorNoPing": "你沒有該語言的校對員身份組，",
     "errorNoPingPr": "so you can't mention it.",
     "errorNoPingTr": "so you can't mention its translator role.",
     "errorNoPingAll": "so you can't mention the entire language.",
