@@ -1,6 +1,5 @@
 {
     "moduleName": "Ping",
     "pong": "%%pingEmote%% Pong!",
-    "message": "A pingem %%ping%%ms.",
-    "executedBy": "%%user%% által küldve"
+    "message": "A pingem %%ping%%ms."
 }

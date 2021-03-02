@@ -2,6 +2,5 @@
     "moduleName": "Idézet",
     "invalidArg": "Invalid argument!",
     "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-    "reqSub": "Az idézeted el lett küldve, köszönjük!",
-    "executedBy": "%%user%% által küldve"
+    "reqSub": "Az idézeted el lett küldve, köszönjük!"
 }

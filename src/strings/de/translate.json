@@ -15,6 +15,5 @@
     "lastThing": "Nur noch eine Sache",
     "requestInfo": "Wenn du deine Anfrage einreichst, achte bitte darauf, entweder deinen Tag (%%tag%%) oder deine ID (%%id%%) anzugeben.\n**Wenn du nicht mindestens eines davon angibst, wirst du abgelehnt!**",
     "noLanguage": "Du kannst deine Sprache nicht finden?",
-    "langRequest": "Es ist möglich, dass wir deine Sprache noch nicht unterstützen. Wenn das der Fall ist, führe `+language add <Sprache>` aus. Dies sendet eine Nachricht an die Admins, um sie wissen zu lassen, dass du diese Sprache hinzufügen möchtest.",
-    "executedBy": "Ausgeführt von %%user%%"
+    "langRequest": "Es ist möglich, dass wir deine Sprache noch nicht unterstützen. Wenn das der Fall ist, führe `+language add <Sprache>` aus. Dies sendet eine Nachricht an die Admins, um sie wissen zu lassen, dass du diese Sprache hinzufügen möchtest."
 }

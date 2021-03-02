@@ -2,6 +2,5 @@
     "moduleName": "Cita",
     "invalidArg": "¡Argumento inválido!",
     "indexArg": "¡Una cita con el número %%arg%% no existe! Por favor, da un número entre 1 y %%max%%.",
-    "reqSub": "¡Tu pedida de cita ha sido enviada, gracias!",
-    "executedBy": "Ejecutado por %%user%%"
+    "reqSub": "¡Tu pedida de cita ha sido enviada, gracias!"
 }

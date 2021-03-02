@@ -1,6 +1,5 @@
 {
     "moduleName": "Πινγκ",
     "pong": "%%pingEmote%% Πονγκ!",
-    "message": "Το ping μου είναι %%ping%%ms.",
-    "executedBy": "Εκτελέστηκε από τον %%user%%"
+    "message": "Το ping μου είναι %%ping%%ms."
 }

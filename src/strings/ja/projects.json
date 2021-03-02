@@ -5,6 +5,5 @@
     "projectInfo": "%%project%% プロジェクトへのリンクは [こちら](%%link%%) です。詳細は%%command%%を実行してください。",
     "alreadyJoined": "このプロジェクトに参加済みです！",
     "notJoined": "このプロジェクトに参加していません！",
-    "dmError": "We couldn't check whether you're already on these projects or not. In order to do this, you must execute the command on The Hypixel Translators Community Discord.",
-    "executedBy": "%%user%%によって実行されました"
+    "dmError": "We couldn't check whether you're already on these projects or not. In order to do this, you must execute the command on The Hypixel Translators Community Discord."
 }

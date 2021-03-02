@@ -48,6 +48,5 @@
     "THAI": "Tháj",
     "TURKISH": "Török",
     "UKRAINIAN": "Ukrán",
-    "madeBy": "Command made by %%developer%%",
-    "executedBy": "%%user%% által küldve"
+    "madeBy": "Command made by %%developer%%"
 }

@@ -48,6 +48,5 @@
     "THAI": "thai",
     "TURKISH": "turkki",
     "UKRAINIAN": "ukraina",
-    "madeBy": "Komennon tehnyt %%developer%%",
-    "executedBy": "Komennon suoritti %%user%%"
+    "madeBy": "Komennon tehnyt %%developer%%"
 }

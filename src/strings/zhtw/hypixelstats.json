@@ -16,7 +16,7 @@
     "link": "Link",
     "notConnected": "未連結",
     "blocked": "Blocked server link",
-    "unknown": "unknown",
+    "unknown": "不明",
     "lastGameHidden": "Last game is hidden or couldn't be obtained!",
     "lastLoginHidden": "Last seen time is hidden or couldn't be obtained!",
     "firstLoginHidden": "First login time is hidden or couldn't be obtained!",
@@ -31,7 +31,7 @@
     "CHINESE_SIMPLIFIED": "簡體中文",
     "CHINESE_TRADITIONAL": "繁體中文",
     "PORTUGUESE_BR": "葡萄牙語（巴西）",
-    "RUSSIAN": "俄語",
+    "RUSSIAN": "俄羅斯語",
     "KOREAN": "韓語",
     "POLISH": "波蘭語",
     "JAPANESE": "日語",
@@ -48,6 +48,5 @@
     "THAI": "泰語",
     "TURKISH": "土耳其語",
     "UKRAINIAN": "烏克蘭語",
-    "madeBy": "指令由 %%developer%% 開發",
-    "executedBy": "由 %%user%% 執行"
+    "madeBy": "指令由 %%developer%% 開發"
 }

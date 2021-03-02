@@ -1,6 +1,5 @@
 {
     "moduleName": "响应时间",
     "pong": "%%pingEmote%% Pong!",
-    "message": "我的响应时间是 %%ping%%ms。",
-    "executedBy": "触发者：%%user%%"
+    "message": "我的响应时间是 %%ping%%ms。"
 }

@@ -14,9 +14,7 @@ client.on("message", async (message: Discord.Message) => {
     //Publish message if sent in bot-updates
     if (message.channel.id === "732587569744838777") return message.crosspost() //bot-updates
 
-    //Get global strings
-    const author = await client.getUser(message.author.id)
-    const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+    //Define channel types
     const textchannel = message.channel as Discord.GuildChannel
     const parent = textchannel.parent as Discord.CategoryChannel
 
@@ -34,8 +32,7 @@ client.on("message", async (message: Discord.Message) => {
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
                 if (message.content !== langFix && parent.id === "549503328472530977") embed.setDescription(`${getString("example", "global").replace("%%url%%", "<https://crowdin.com/translate/hypixel/286/en-en#106644>")}\n${getString("reminderLang", "global").replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`")}`)
                 return message.channel.send(message.author, embed)
-            }
-            if (message.content !== langFix && parent.id === "549503328472530977") {
+            } else if (message.content !== langFix && parent.id === "549503328472530977") {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
@@ -48,9 +45,10 @@ client.on("message", async (message: Discord.Message) => {
     }
 
     //Crowdin verification system
-    if (/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel?.id === "569178590697095168") { //verify
+    if (/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel.id === "569178590697095168") { //verify
         message.react("798339571531382874") //icon_working
-        return crowdinVerify(message)
+        await crowdinVerify(message.member!, message.content.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
+        message.delete()
     }
 
     //Staff messaging system
@@ -93,38 +91,45 @@ client.on("message", async (message: Discord.Message) => {
 
     //Role Blacklist and Whitelist system
     let allowed = true
-    if (message.guild?.id === "549503328472530974") {
-        if (command.roleBlacklist) {
-            allowed = true
-            command.roleBlacklist.forEach(role => {
-                if (message.member?.roles.cache.has(role)) allowed = false
-            })
-        }
-        if (command.roleWhitelist) {
-            allowed = false
-            command.roleWhitelist.forEach(role => {
-                if (message.member?.roles.cache.has(role)) allowed = true
-            })
-        }
+    if (command.roleBlacklist) {
+        allowed = true
+        command.roleBlacklist.forEach(role => {
+            if (message.member?.roles.cache.has(role)) allowed = false
+        })
+    }
+    if (command.roleWhitelist) {
+        allowed = false
+        command.roleWhitelist.forEach(role => {
+            if (message.member?.roles.cache.has(role)) allowed = true
+        })
+    }
 
-        //Channel Blacklist and whitelist systems
-        if (command.categoryBlacklist && command.categoryBlacklist.includes(parent.id)) allowed = false
-        else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
-        else if (command.categoryWhitelist && !command.categoryWhitelist.includes(parent.id)) allowed = false
-        else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
+    //Channel Blacklist and whitelist systems
+    //@ts-expect-error
+    if (command.categoryBlacklist && command.categoryBlacklist?.includes(message.channel.parent?.id)) allowed = false
+    else if (command.channelBlacklist && command.channelBlacklist?.includes(message.channel.id)) allowed = false
+    //@ts-expect-error
+    else if (command.categoryWhitelist && !command.categoryWhitelist?.includes(message.channel.parent?.id)) allowed = false
+    else if (command.channelWhitelist && !command.channelWhitelist?.includes(message.channel.id)) allowed = false
 
-        //Prevent users from running commands in development
-        if (command.dev && !message.member?.roles.cache.has("764442984119795732")) allowed = false //Discord Administrator
+    //Enable commands in DMs
+    if (command.allowDM && message.channel.type === "dm") allowed = true
 
-        //Give perm to admins and return if not allowed
-        if (message.member?.hasPermission("MANAGE_ROLES") && command.name !== "eval") allowed = true
-    } else allowed = false
+    //Prevent users from running commands in development
+    if (command.dev && !message.member?.roles.cache.has("764442984119795732")) allowed = false //Discord Administrator
+
+    //Give perm to admins and return if not allowed
+    if (message.member?.hasPermission("MANAGE_ROLES") && command.name !== "eval") allowed = true
     if (!allowed) {
         message.react("732298639736570007")
         return setTimeout(() => {
             if (!message.deleted && message.channel.type !== "dm") message.delete()
         }, 5000);
     }
+
+    //Get the author from the database
+    const author = await client.getUser(message.author.id)
+    const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
 
     //Stop and error if command is not allowed in DMs and command is sent in DMs
     if (!command.allowDM && message.channel.type === "dm") {
@@ -136,9 +141,7 @@ client.on("message", async (message: Discord.Message) => {
         return message.channel.send(embed)
     }
     //Cooldown system
-    if (!client.cooldowns.has(command.name)) {
-        client.cooldowns.set(command.name, new Discord.Collection())
-    }
+    if (!client.cooldowns.has(command.name))         client.cooldowns.set(command.name, new Discord.Collection())
     const now = Date.now()
     const timestamps: Discord.Collection<string, number> = client.cooldowns.get(command.name)!
     const cooldownAmount = (command.cooldown || 3) * 1000
@@ -147,13 +150,10 @@ client.on("message", async (message: Discord.Message) => {
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000
             let timeLeftS
-            if (Math.ceil(timeLeft) >= 120) {
-                timeLeftS = (getString("minsLeftT", "global").replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", commandName))
-            } else if (Math.ceil(timeLeft) === 1) {
-                timeLeftS = (getString("secondLeft", "global").replace("%%command%%", commandName))
-            } else {
-                timeLeftS = (getString("timeLeftT", "global").replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", commandName))
-            }
+            if (Math.ceil(timeLeft) >= 120) timeLeftS = (getString("minsLeftT", "global").replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", commandName))
+            else if (Math.ceil(timeLeft) === 1) timeLeftS = (getString("secondLeft", "global").replace("%%command%%", commandName))
+            else timeLeftS = (getString("timeLeftT", "global").replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", commandName))
+
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor(getString("cooldown", "global"))
@@ -218,16 +218,18 @@ client.on("message", async (message: Discord.Message) => {
         message.channel.stopTyping()
         return message.channel.send(embed)
             .then(msg => {
-                if (error.stack && process.env.NODE_ENV === "production") {
-                    const embed = new Discord.MessageEmbed()
-                        .setColor(errorColor)
-                        .setAuthor("Unexpected error!")
-                        .setTitle(error.substring(0, 255))
-                        .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
-                        .setFooter("Check the console for more details")
-                    const botdevchannel = message.guild!.channels.cache.get("730042612647723058") as Discord.TextChannel
-                    botdevchannel.send("ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
-                    console.error(`Unexpected error with command ${commandName} on channel ${textchannel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
+                if (error.stack) {
+                    if (process.env.NODE_ENV === "production") {
+                        const embed = new Discord.MessageEmbed()
+                            .setColor(errorColor)
+                            .setAuthor("Unexpected error!")
+                            .setTitle(error.substring(0, 255))
+                            .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
+                            .setFooter("Check the console for more details");
+                        (client.channels.cache.get("730042612647723058") as Discord.TextChannel).send("ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
+                    }
+                    //@ts-expect-error
+                    console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
                 } else {
                     setTimeout(() => {
                         if (!message.deleted && message.channel.type !== "dm") message.delete()

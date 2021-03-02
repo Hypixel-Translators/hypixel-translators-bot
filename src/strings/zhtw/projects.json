@@ -1,10 +1,9 @@
 {
     "moduleName": "翻譯項目",
-    "allProjects": "Here are all the projects we currently support on the server!",
-    "description": "If you're already on any of these projects but don't have your roles yet, do not hesitate to contact an administrator!",
-    "projectInfo": "You can find the link to the %%project%% project [here](%%link%%). For more information, execute %%command%%.",
+    "allProjects": "以下是我們伺服器支援的翻譯項目！",
+    "description": "如果你已經加入這些項目卻沒有身分組，請務必向管理員聯絡！",
+    "projectInfo": "你可以[點擊這裡](%%link%%)找到 %%project%% 項目的連結。如要了解更多資訊，請執行 %%command%%。",
     "alreadyJoined": "你已加入此項目！",
     "notJoined": "你尚未加入此項目！",
-    "dmError": "We couldn't check whether you're already on these projects or not. In order to do this, you must execute the command on The Hypixel Translators Community Discord.",
-    "executedBy": "由 %%user%% 執行"
+    "dmError": "We couldn't check whether you're already on these projects or not. In order to do this, you must execute the command on The Hypixel Translators Community Discord."
 }

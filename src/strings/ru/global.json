@@ -51,8 +51,8 @@
         "pinnedInfo": "Знаете ли вы, что на большинстве каналов важная информация закреплена? Вы должны проверять закрепленные сообщения каждый раз, когда посещаете один из каналов!",
         "hypixelStats": "Вы можете просмотреть информацию о конкретном игроке на Hypixel, выполнив `+hypixelstats <имя пользователя> [social]`!",
         "languageStats": "Знаете ли вы, что вы можете смотреть статистику любого языка из всех наших проектов? Просто выполните `+languagestats <язык>`!",
-        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
-        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "rolesChange": "Вы недавно получили новые роли на Crowdin или присоединились к одному из проектов, которую мы поддерживаем? Выполните `+reverify`, чтобы обновить ваши роли!",
+        "botTranslated": "Знаете ли вы, что наш бот доступен на разных языках? Попробуйте выполнить `+language list`, чтобы увидеть список всех языков, которые в настоящее время мы поддерживаем; возможно вы найдете свой язык!",
         "moreTips": "Нам нужно больше советов! Отправляйте их, используя `+feedback`."
     },
     "executedBy": "Выполнено %%user%%"

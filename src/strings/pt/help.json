@@ -69,8 +69,12 @@
         "description": "A bola mágica que irá responder a todas as tuas perguntas."
     },
     "verify": {
-        "usage": "+verify",
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you will be asked to send your profile again. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "usage": "+verify [link do perfil]",
+        "description": "Procura alterações no teu perfil do Crowdin automaticamente e dá-te os cargos apropriados. Se o teu perfil não estiver guardado na nossa base de dados, podes adicioná-lo como argumento ao executar o comando. Para saberes se o teu perfil está guardado ou não, executa `+profile`. Não te esqueças de ativar as mensagens neste servidor para que o bot te possa enviar mensagens."
+    },
+    "profile": {
+        "usage": "+profile",
+        "description": "Dá-te o link para o teu perfil do Crowdin se estiver guardado na nossa base de dados. Caso não esteja, podes executar `+help reverify` para descobrires como podes guardar o teu perfil e atualizar os teus cargos."
     },
     "tip": {
         "usage": "+tip",
@@ -111,6 +115,5 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Dá-te o link para a página oficial da comunidade de tradutores do Hypixel no twitter."
-    },
-    "executedBy": "Executado por %%user%%"
+    }
 }

@@ -69,8 +69,12 @@
         "description": "Шар судьбы, который ответит на все ваши вопросы."
     },
     "verify": {
-        "usage": "+verify",
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you will be asked to send your profile again. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "usage": "+verify [ссылка на профиль]",
+        "description": "Автоматически проверяет наличие изменений в вашем профиле Crowdin и дает вам соответствующие роли. Если ваш профиль не хранится в нашей базе данных, вы можете указать ссылку на него как аргумент в этой команде. Чтобы проверить, сохранен ли ваш профиль, выполните `+profile`. Убедитесь, что у вас разрешены личные сообщения от участников этого сервера, чтобы бот мог отправить вам сообщение."
+    },
+    "profile": {
+        "usage": "+profile",
+        "description": "Дает вам ссылку на ваш профиль Crowdin, если он хранится в нашей базе данных. Если нет, то вы можете выполнить `+help reverify`, чтобы узнать, как сохранить свой профиль и обновлять свои роли."
     },
     "tip": {
         "usage": "+tip",
@@ -111,6 +115,5 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Дает вам ссылку на официальную страницу сообщества переводчиков Hypixel в Twitter."
-    },
-    "executedBy": "Выполнено %%user%%"
+    }
 }

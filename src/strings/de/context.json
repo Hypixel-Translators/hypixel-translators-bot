@@ -65,6 +65,5 @@
         "sheetD": "Nur bestimmte Personen können diese Tabelle öffnen. Du kannst Zugriff über den Link anfordern. Bitte gib deinen Crowdin-Profillink (`... Profil/<username>`) und deinen Discord-Benutzernamen an.\nBeachte, dass Stannya und Rodry dein Google-Profil und E-Mail sehen können.",
         "sheetDButton": "Klicke hier, um das Google-Sheet mit den Kontextinformationen zu öffnen.",
         "sheetDel": "Lösche Nachricht nach 2 Minuten"
-    },
-    "executedBy": "Ausgeführt von %%user%%"
+    }
 }

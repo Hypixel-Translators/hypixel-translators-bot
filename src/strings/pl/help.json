@@ -54,7 +54,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Daje Ci informacje o pingu bota."
+        "description": "Gives you the bot's ping."
     },
     "hypixelstats": {
         "usage": "+hypixelstats [nick gracza] [social]",
@@ -65,12 +65,16 @@
         "description": "Łączy Twoje konto Discord z Twoim profilem Hypixel. Wpisz `+hypixelunverify` aby się odweryfikować."
     },
     "8ball": {
-        "usage": "+8ball <question>",
+        "usage": "+8ball <pytanie>",
         "description": "The Magic 8 Ball that will answer all your questions."
     },
     "verify": {
-        "usage": "+verify",
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you will be asked to send your profile again. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "usage": "+verify [profileURL]",
+        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `+profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+    },
+    "profile": {
+        "usage": "+profile",
+        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
     },
     "tip": {
         "usage": "+tip",
@@ -111,6 +115,5 @@
     "twitter": {
         "usage": "+twitter",
         "description": "Podaje odnośnik do oficjalnej strony Hypixel Translators Community na Twitterze."
-    },
-    "executedBy": "Wykonano przez %%user%%"
+    }
 }

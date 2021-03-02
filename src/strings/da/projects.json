@@ -1,10 +1,9 @@
 {
     "moduleName": "Oversættelsesprojekter",
     "allProjects": "Her er alle de projekter, som vi i øjeblikket understøtter på serveren!",
-    "description": "If you're already on any of these projects but don't have your roles yet, do not hesitate to contact an administrator!",
+    "description": "Hvis du allerede er på nogen af disse projekter, men ikke har dine roller endnu, så tøv ikke med at kontaktere en administrator!",
     "projectInfo": "Du kan finde linket til %%project%%-projektet [her](%%link%%). Skriv %%command%% for mere information.",
     "alreadyJoined": "Du deltager allerede i dette projekt!",
     "notJoined": "Du har endnu ikke tilmeldt dig dette projekt!",
-    "dmError": "We couldn't check whether you're already on these projects or not. In order to do this, you must execute the command on The Hypixel Translators Community Discord.",
-    "executedBy": "Udført af %%user%%"
+    "dmError": "Vi kunne ikke kontrollere, om du allerede er på disse projekter eller ej. For at gøre dette, skal du udføre kommandoen på The Hypixel Translators Community Discord."
 }

@@ -9,6 +9,5 @@
     "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this.",
     "unverified": "You were successfully unverified!",
     "notUnverified": "Couldn't unverify you!",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `+hypixelverify <username>`.",
-    "executedBy": "نفذ من قبل %%user%%"
+    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `+hypixelverify <username>`."
 }

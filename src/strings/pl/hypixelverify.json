@@ -9,6 +9,5 @@
     "tutorial": "Aby się zweryfikować, musisz ustawić swój połączony Discord na Hypixelu na %%tag%% i poczekać do 10 minut aby ponownie wykonać tą komendę. Jeśli nie wiesz jak to zrobić, postępuj zgodnie z instrukcjami zawartymi w poniższym filmiku.",
     "unverified": "Pomyślnie odweryfikowałeś się!",
     "notUnverified": "Nie udało się Ciebie odweryfikować!",
-    "whyNotUnverified": "Stało się tak dlatego, że nie jeszcze się nie zweryfikowałeś! Aby to zrobić, wpisz `+hypixelverify <nick>`.",
-    "executedBy": "Wykonano przez %%user%%"
+    "whyNotUnverified": "Stało się tak dlatego, że nie jeszcze się nie zweryfikowałeś! Aby to zrobić, wpisz `+hypixelverify <nick>`."
 }

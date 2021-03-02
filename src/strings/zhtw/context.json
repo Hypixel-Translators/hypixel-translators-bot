@@ -46,7 +46,7 @@
     "polish": "波蘭語",
     "portuguese": "葡萄牙語",
     "portugueseBr": "葡萄牙語（巴西）",
-    "russian": "俄語",
+    "russian": "俄羅斯語",
     "spanish": "西班牙語",
     "swedish": "瑞典語",
     "thai": "泰語",
@@ -65,6 +65,5 @@
         "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
         "sheetDButton": "Click here to open the Google Sheet containing context information.",
         "sheetDel": "Deleting message in 1 minute"
-    },
-    "executedBy": "由 %%user%% 執行"
+    }
 }

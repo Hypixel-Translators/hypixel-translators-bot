@@ -34,6 +34,7 @@ module.exports = {
                     return message.channel.send(embed)
                 }
             })
+            client.cooldowns.get(this.name)!.delete(message.author.id)
             return
         }
         if (!args[0]) throw "noUser"
@@ -104,39 +105,39 @@ module.exports = {
             switch (json.rank) {
                 case "ADMIN":
                     await member.roles.add(["624880339722174464", "715674953697198141"], `Successfully verified as ${json.username}`) //Hypixel Admin and Hypixel Staff
-                    role = member.roles.cache.get("624880339722174464")
+                    role = member.guild.roles.cache.get("624880339722174464")
                     break
                 case "MODERATOR":
                     await member.roles.add(["551758392021090304", "715674953697198141"], `Successfully verified as ${json.username}`) //Hypixel Moderator and Hypixel Staff
-                    role = member.roles.cache.get("551758392021090304")
+                    role = member.guild.roles.cache.get("551758392021090304")
                     break
                 case "HELPER":
                     await member.roles.add(["551758392339857418", "715674953697198141"], `Successfully verified as ${json.username}`) //Hypixel Helper and Hypixel Staff
-                    role = member.roles.cache.get("551758392339857418")
+                    role = member.guild.roles.cache.get("551758392339857418")
                     break
                 case "YOUTUBER":
                     await member.roles.add("808032689709514852", `Successfully verified as ${json.username}`) //YouTuber
-                    role = member.roles.cache.get("808032689709514852")
+                    role = member.guild.roles.cache.get("808032689709514852")
                     break
                 case "MVP_PLUS_PLUS":
                     await member.roles.add("808032672160153641", `Successfully verified as ${json.username}`) //MVP++
-                    role = member.roles.cache.get("808032672160153641")
+                    role = member.guild.roles.cache.get("808032672160153641")
                     break
                 case "MVP_PLUS":
                     await member.roles.add("808032657505255424", `Successfully verified as ${json.username}`) //MVP+
-                    role = member.roles.cache.get("808032657505255424")
+                    role = member.guild.roles.cache.get("808032657505255424")
                     break
                 case "MVP":
                     await member.roles.add("808032640631832637", `Successfully verified as ${json.username}`) //MVP
-                    role = member.roles.cache.get("808032640631832637")
+                    role = member.guild.roles.cache.get("808032640631832637")
                     break
                 case "VIP_PLUS":
                     await member.roles.add("808032624215457823", `Successfully verified as ${json.username}`) //VIP+
-                    role = member.roles.cache.get("808032624215457823")
+                    role = member.guild.roles.cache.get("808032624215457823")
                     break
                 case "VIP":
                     await member.roles.add("808032608456802337", `Successfully verified as ${json.username}`) //VIP
-                    role = member.roles.cache.get("808032608456802337")
+                    role = member.guild.roles.cache.get("808032608456802337")
                     break
             }
         }

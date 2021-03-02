@@ -1,6 +1,6 @@
 {
     "moduleName": "翻譯這個機器人",
-    "alreadyTranslator": "I see you're already a translator. Here's what you may be looking for:",
+    "alreadyTranslator": "我看到你已經是翻譯員。下面是你可能正在尋找的：",
     "projectLink": "You can find the link to the project [here](%%link%%).",
     "question": "有問題嗎？",
     "askTranslators": "Feel free to ask anything about the project on %%botTranslators%%. Don't forget to send a link to the string you're referring to!",
@@ -15,6 +15,5 @@
     "lastThing": "Just one last thing",
     "requestInfo": "When submitting your request, please make sure to include either your tag (%%tag%%) or your ID (%%id%%).\n**If you do not include at least one of these, you will be rejected!**",
     "noLanguage": "Can't find your language?",
-    "langRequest": "It is possible that we don't support your language yet. If that's the case, execute `+language add <language>`. This will send a message to the admins letting them know that you want this language to be added.",
-    "executedBy": "由 %%user%% 執行"
+    "langRequest": "It is possible that we don't support your language yet. If that's the case, execute `+language add <language>`. This will send a message to the admins letting them know that you want this language to be added."
 }

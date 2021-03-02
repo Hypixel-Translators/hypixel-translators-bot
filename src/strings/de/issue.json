@@ -3,6 +3,5 @@
     "bugT": "Anzeigen und Hinzufügen von Problemen",
     "bugD": "Zum Zeigen und um Vorschläge oder Fehlerberichte zu machen, bitte [hier klicken]%%github%%.",
     "urgentT": "Ist es dringend?",
-    "urgentD": "Wenn du versuchst, einen schwerwiegenden Fehler zu melden oder der Bot für eine lange Zeit ohne Benachrichtigung ausgefallen ist, erwähne bitte ein Teammitglied in einem öffentlichen Channel und erkläre das Problem.",
-    "executedBy": "Ausgeführt von %%user%%"
+    "urgentD": "Wenn du versuchst, einen schwerwiegenden Fehler zu melden oder der Bot für eine lange Zeit ohne Benachrichtigung ausgefallen ist, erwähne bitte ein Teammitglied in einem öffentlichen Channel und erkläre das Problem."
 }

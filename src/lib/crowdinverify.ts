@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer"
-import Discord from "discord.js"
+import Discord, { TextChannel } from "discord.js"
 import { errorColor, neutralColor } from "../config.json"
 import { v4 } from "uuid"
 import { client } from "../index"
@@ -24,39 +24,35 @@ const projectIDs: {
         verifyChannel: "569178590697095168"
     }
 
-async function crowdinVerify(message: Discord.Message) {
+async function crowdinVerify(member: Discord.GuildMember, url: string | undefined, sendDms: boolean) {
+    const verifyLogs = member.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel
+    const verify = member.client.channels.cache.get(UsefulIDs.verifyChannel) as Discord.TextChannel
     const errorEmbed = new Discord.MessageEmbed()
         .setColor(errorColor)
         .setAuthor("Received message from staff")
         .setFooter("Any messages you send here will be sent to staff.")
-    let url = message.content.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0]
     if (!url) {
-        const userDb = await client.db.collection("users").findOne({ id: message.author.id })
+        const userDb = await client.db.collection("users").findOne({ id: member.id })
         url = userDb.profile
         if (!url) { //if user runs +reverify and the profile is not stored on our DB
             //#region return message
             errorEmbed
                 .setDescription("Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!")
                 .setImage("https://i.imgur.com/7FVOSfT.png")
-            if (!message.deleted) message.delete()
-            return message.author.send(errorEmbed)
-                .then(() => {
-                    const channel = message.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel
-                    channel.send(`${message.author} sent the wrong profile link. Let’s hope they work their way around with the message I just sent them.`)
-                })
+            if (sendDms) member.send(errorEmbed)
+                .then(() => verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent them.`))
                 .catch(() => {
                     errorEmbed.setFooter("")
-                    const channel = message.client.channels.cache.get(UsefulIDs.verifyChannel) as Discord.TextChannel
-                    channel.send(`${message.author} you had DMs disabled, so here's our message,`, errorEmbed)
+                    verify.send(`${member} you had DMs disabled, so here's our message,`, errorEmbed)
                         .then(msg => {
                             setTimeout(() => {
                                 if (!msg.deleted) msg.delete()
                             }, 30000)
                         })
-                    const logChannel = message.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel
-                    logChannel.send(`${message.author} sent the wrong profile link. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
+                    verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
                 })
-            //#endregion
+            else verifyLogs.send(`The profile stored/provided for ${member} was invalid. Please fix this or ask them to fix this.`)
+            return
         }
     }
     const browser = await getBrowser(),
@@ -75,63 +71,46 @@ async function crowdinVerify(message: Discord.Message) {
             errorEmbed
                 .setDescription("Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!")
                 .setImage("https://i.imgur.com/7FVOSfT.png")
-            if (!message.deleted) message.delete()
-            return message.author.send(errorEmbed)
-                .then(() => {
-                    const channel = message.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel
-                    channel.send(`${message.author} sent the wrong profile link. Let’s hope they work their way around with the message I just sent them.`)
-                })
+            if (sendDms) member.send(errorEmbed)
+                .then(() => verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent them.`))
                 .catch(() => {
                     errorEmbed.setFooter("")
-                    const channel = message.client.channels.cache.get(UsefulIDs.verifyChannel) as Discord.TextChannel
-                    channel.send(`${message.author} you had DMs disabled, so here's our message,`, errorEmbed)
+                    verify.send(`${member} you had DMs disabled, so here's our message,`, errorEmbed)
                         .then(msg => {
                             setTimeout(() => {
                                 if (!msg.deleted) msg.delete()
                             }, 30000)
                         })
-                    const logChannel = message.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel
-                    logChannel.send(`${message.author} sent the wrong profile link. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
+                    verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
                 })
-            //#endregion
+            else verifyLogs.send(`The profile stored/provided for ${member} was invalid. Please fix this or ask them to fix this.`)
         } else { //if the profile is private
             //#region return message
             errorEmbed
                 .setDescription(`Hey there! We noticed you sent us your Crowdin profile, however, it was private so we couldn't check it. Please make it public, at least until you get verified, and send us your profile again on the channel. If you don't know how to, then go to your Crowdin profile settings (found [here](https://crowdin.com/settings#account)) and make sure the "Private Profile" setting is turned off (see the image below)\n\nIf you have any questions, be sure to send them to us!`)
                 .setImage("https://i.imgur.com/YX8VLeu.png")
-            if (!message.deleted) message.delete()
-            return message.author.send(errorEmbed)
-                .then(() => {
-                    const channel = message.client.channels.cache.get(
-                        UsefulIDs.logChannel
-                    ) as Discord.TextChannel
-                    channel.send(
-                        `${message.author}'s profile was private, I let them know about that.`
-                    )
-                })
+            if (sendDms) member.send(errorEmbed)
+                .then(() => verifyLogs.send(`${member}'s profile was private, I let them know about that.`))
                 .catch(() => {
                     errorEmbed.setFooter("")
-                    const channel = message.client.channels.cache.get(
-                        UsefulIDs.verifyChannel
-                    ) as Discord.TextChannel
-                    channel.send(`${message.author} you had DMs disabled, so here's our message,`, errorEmbed)
+                    verify.send(`${member} you had DMs disabled, so here's our message,`, errorEmbed)
                         .then(msg => {
                             setTimeout(() => {
                                 if (!msg.deleted) msg.delete()
                             }, 30000)
                         })
-                    const logChannel = message.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel
-                    logChannel.send(`${message.author}'s profile was private, I let them know about that in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
+                    verifyLogs.send(`${member}'s profile was private, I let them know about that in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
                 })
-            //#endregion
+            else verifyLogs.send(`${member}'s profile is private. Please ask them to change this.`)
         }
+        return
     }
-    const evalReturn: CrowdinProjects[] | null = await page.evaluate((tag: string) => {
-        if (document.querySelector(".user-about")?.textContent?.includes(tag))
+    const evalReturn: CrowdinProjects[] | null = await page.evaluate((tag: string, sendDms: boolean) => {
+        if (document.querySelector(".user-about")?.textContent?.includes(tag) || !sendDms)
             //@ts-expect-error
             return window.eval(crowdin.profile_projects.view.state.projects)
         else return
-    }, message.author.tag)
+    }, member.user.tag, sendDms)
     await page.close()
     closeConnection(browser.uuid)
 
@@ -140,23 +119,22 @@ async function crowdinVerify(message: Discord.Message) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor("Received message from staff")
-            .setDescription(`Hey there!\nWe noticed you sent us your Crowdin profile, however, you forgot to add your Discord tag to it! Just add ${message.author.tag} to your about section like shown in the image below. Once you've done so, send us the profile link again.\n\nIf you have any questions, be sure to send them to us!`)
+            .setDescription(`Hey there!\nWe noticed you sent us your Crowdin profile, however, you forgot to add your Discord tag to it! Just add ${member.user.tag} to your about section like shown in the image below. Once you've done so, send us the profile link again.\n\nIf you have any questions, be sure to send them to us!`)
             .setImage("https://i.imgur.com/BM2bJ4W.png")
             .setFooter("Any messages you send here will be sent to staff.")
-        if (!message.deleted) message.delete()
-        return message.author.send(embed)
-            .then(() => (message.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel).send(`${message.author} forgot to add their Discord to their profile. Let's hope they fix that with the message I just sent them.`))
+        if (sendDms) member.send(embed)
+            .then(() => verifyLogs.send(`${member} forgot to add their Discord to their profile. Let's hope they fix that with the message I just sent them.`))
             .catch(() => {
                 embed.setFooter("This message will be deleted in 30 seconds")
-                message.channel.send(`${message.author} you had DMs disabled, so here's our message,`, embed)
+                verify.send(`${member} you had DMs disabled, so here's our message,`, embed)
                     .then(msg => {
                         setTimeout(() => {
                             if (!msg.deleted) msg.delete()
                         }, 30000)
                     })
-                const channel = message.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel
-                channel.send(`${message.author} forgot to add their Discord to their profile. Let's hope they fix that with the message I just sent them.`)
+                verifyLogs.send(`${member} forgot to add their Discord to their profile. Let's hope they fix that with the message I just sent them.`)
             })
+        return
         //#endregion
     }
 
@@ -193,7 +171,7 @@ async function crowdinVerify(message: Discord.Message) {
             })
             highestProjectRoles[projectIDs[project.id].name] = highestRole
 
-            updateProjectRoles(projectIDs[project.id].name, message, project)
+            updateProjectRoles(projectIDs[project.id].name, member, project)
             if (projectIDs[project.id].langRoles)
                 project.contributed_languages?.forEach(lang => {
                     if (highestLangRoles[lang.code] && highestLangRoles[lang.code].type !== "Proofreader" && lang.user_role?.name === "Proofreader") {
@@ -207,38 +185,38 @@ async function crowdinVerify(message: Discord.Message) {
                 })
         })
 
-    updateLanguageRoles(highestLangRoles, message)
+    updateLanguageRoles(highestLangRoles, member)
     Object.values(projectIDs)
         .map(i => i.name)
         .filter(pj => !joinedProjects.includes(pj))
-        .forEach(project => checkProjectRoles(project, message))
+        .forEach(project => checkProjectRoles(project, member))
 
-    await message.member!.roles.remove(UsefulIDs.Alerted, "User is now Verified")
-    await message.member!.roles.add(UsefulIDs.Verified, "User is now Verified")
-    await client.db.collection("users").updateOne({ id: message.member!.user.id }, { $set: { profile: url } })
+    await member.roles.remove(UsefulIDs.Alerted, "User is now Verified")
+    await member.roles.add(UsefulIDs.Verified, "User is now Verified")
+    await client.db.collection("users").updateOne({ id: member.id }, { $set: { profile: url } })
 
     const endingMessageProjects: {
         [name: string]: Discord.Role[]
     } = {}
     for (const [k, v] of Object.entries(highestProjectRoles)) { //k => key; v => value
-        const role = message.guild!.roles.cache.find(r => r.name === `${k} ${v}`)
-        endingMessageProjects[k] = [role!]
+        const role = member.guild!.roles.cache.find(r => r.name === `${k} ${v}`)!
+        endingMessageProjects[k] = [role]
     }
 
     const coll = client.db.collection("langdb")
     for (const [k, v] of Object.entries(highestLangRoles)) { //k => key; v => value
         const lang = (await coll.findOne({ id: k })).name
         v.projects.forEach(p => {
-            const role = message.guild!.roles.cache.find(r => r.name === `${lang} ${v.type}`)
-            endingMessageProjects[p].push(role!)
+            const role = member.guild!.roles.cache.find(r => r.name === `${lang} ${v.type}`)!
+            endingMessageProjects[p].push(role)
         })
     }
     const logEmbed = new Discord.MessageEmbed()
         .setColor(neutralColor)
-        .setTitle(`${message.author.tag} is now verified!`)
+        .setTitle(`${member.user.tag} is now verified!`)
         .setDescription(Object.keys(endingMessageProjects).length
-            ? `${message.author} has received the following roles:`
-            : `${message.author} has not received any roles. They do not translate for any of the projects.`)
+            ? `${member} has received the following roles:`
+            : `${member} has not received any roles. They do not translate for any of the projects.`)
 
     if (Object.keys(endingMessageProjects).length) {
         for (const [k, v] of Object.entries(endingMessageProjects)) {
@@ -256,24 +234,19 @@ async function crowdinVerify(message: Discord.Message) {
             }\nIf you wanna know more about all the projects we currently support, run \`+projects\` here.`)
         .setFooter("Any messages you send here will be sent to staff.")
 
-    message.author.send(dmEmbed)
-        .then(() => (message.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel).send(logEmbed))
+    if (sendDms) member.send(dmEmbed)
+        .then(() => verifyLogs.send(logEmbed))
         .catch(() => {
             logEmbed.setFooter("Message not sent because user had DMs off")
-            const logMessage = message.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel
-            logMessage.send(logEmbed)
+            verifyLogs.send(logEmbed)
         })
-    if (!message.deleted) message.delete()
+    else verifyLogs.send(logEmbed)
     //#endregion
 }
 
 export { crowdinVerify }
 
-async function updateProjectRoles(
-    projectName: ValidProjects,
-    message: Discord.Message,
-    project: CrowdinProjects
-) {
+async function updateProjectRoles(projectName: ValidProjects, member: Discord.GuildMember, project: CrowdinProjects) {
     const role = project.contributed_languages?.length
         ? project.contributed_languages.map(lang => {
             return {
@@ -284,7 +257,7 @@ async function updateProjectRoles(
         : [{ role: project.user_role }],
         addedProjectRoles = []
 
-    message.member!.roles.cache.forEach(role => {
+    member.roles.cache.forEach(role => {
         if (role.name.includes("Translator") || role.name.includes("Proofreader")) addedProjectRoles.push(role.name)
     })
 
@@ -296,30 +269,28 @@ async function updateProjectRoles(
         }
     })
 
-    const projectTransRole = message.guild!.roles.cache.find(r => r.name === `${projectName} Translator`)!.id,
-        projectProofRole = message.guild!.roles.cache.find(r => r.name === `${projectName} Proofreader`)!.id,
-        projectManagerRole = message.guild!.roles.cache.find(
-            (r) => r.name === `${projectName} Manager`
-        )!.id
+    const projectTransRole = member.guild.roles.cache.find(r => r.name === `${projectName} Translator`)!.id,
+        projectProofRole = member.guild.roles.cache.find(r => r.name === `${projectName} Proofreader`)!.id,
+        projectManagerRole = member.guild.roles.cache.find(r => r.name === `${projectName} Manager`)!.id
 
     if (highestRole === "Translator") {
-        await message.member!.roles.remove(projectProofRole, "User no longer has this role on Crowdin")
+        await member.roles.remove(projectProofRole, "User no longer has this role on Crowdin")
 
-        await message.member!.roles.remove(projectManagerRole, "User no longer has this role on Crowdin")
+        await member.roles.remove(projectManagerRole, "User no longer has this role on Crowdin")
 
-        await message.member!.roles.add(projectTransRole, "User has received this role on Crowdin")
+        await member.roles.add(projectTransRole, "User has received this role on Crowdin")
     } else if (highestRole === "Proofreader") {
-        await message.member!.roles.remove(projectTransRole, "User no longer has this role on Crowdin")
+        await member.roles.remove(projectTransRole, "User no longer has this role on Crowdin")
 
-        await message.member!.roles.remove(projectManagerRole, "User no longer has this role on Crowdin")
+        await member.roles.remove(projectManagerRole, "User no longer has this role on Crowdin")
 
-        await message.member!.roles.add(projectProofRole, "User has received this role on Crowdin")
+        await member.roles.add(projectProofRole, "User has received this role on Crowdin")
     } else {
-        await message.member!.roles.remove(projectTransRole, "User no longer has this role on Crowdin")
+        await member.roles.remove(projectTransRole, "User no longer has this role on Crowdin")
 
-        await message.member!.roles.remove(projectProofRole, "User no longer has this role on Crowdin")
+        await member.roles.remove(projectProofRole, "User no longer has this role on Crowdin")
 
-        await message.member!.roles.add(projectManagerRole, "User has received this role on Crowdin")
+        await member.roles.add(projectManagerRole, "User has received this role on Crowdin")
     }
 }
 
@@ -330,7 +301,7 @@ async function updateLanguageRoles(
             projects: ValidProjects[]
         }
     },
-    message: Discord.Message
+    member: Discord.GuildMember
 ) {
     const coll = client.db.collection("langdb"),
         activeRoles: string[] = [],
@@ -340,14 +311,14 @@ async function updateLanguageRoles(
         activeRoles.push(`${(await coll.findOne({ id: k })).name} ${v.type}`)
     }
 
-    message.member!.roles.cache.forEach((role) => {
+    member.roles.cache.forEach(role => {
         if (role.name.includes("Translator") || role.name.includes("Proofreader")) addedRoles.push(role.name)
     })
 
     activeRoles
         .filter(pj => !addedRoles.includes(pj))
         .forEach(async p => {
-            await message.member!.roles.add(message.guild!.roles.cache.find((r) => r.name === p)!.id, "User has received this role on Crowdin")
+            await member.roles.add(member.guild.roles.cache.find(r => r.name === p)!.id, "User has received this role on Crowdin")
         })
 
     addedRoles
@@ -361,23 +332,20 @@ async function updateLanguageRoles(
             return included
         })
         .forEach(async role => {
-            await message.member!.roles.remove(message.guild!.roles.cache.find((r) => r.name === role)!.id, "User no longer has this role on Crowdin")
+            await member.roles.remove(member.guild.roles.cache.find(r => r.name === role)!.id, "User no longer has this role on Crowdin")
         })
 }
 
-async function checkProjectRoles(
-    projectName: ValidProjects,
-    message: Discord.Message
-) {
-    const projectTransRole = message.guild!.roles.cache.find((r) => r.name === `${projectName} Translator`)!.id,
-        projectProofRole = message.guild!.roles.cache.find((r) => r.name === `${projectName} Proofreader`)!.id,
-        projectManagerRole = message.guild!.roles.cache.find((r) => r.name === `${projectName} Manager`)!.id
+async function checkProjectRoles(projectName: ValidProjects, member: Discord.GuildMember) {
+    const projectTransRole = member.guild.roles.cache.find(r => r.name === `${projectName} Translator`)!.id,
+        projectProofRole = member.guild.roles.cache.find(r => r.name === `${projectName} Proofreader`)!.id,
+        projectManagerRole = member.guild.roles.cache.find(r => r.name === `${projectName} Manager`)!.id
 
-    await message.member!.roles.remove(projectTransRole, "User is no longer in this Crowdin project")
+    await member.roles.remove(projectTransRole, "User is no longer in this Crowdin project")
 
-    await message.member!.roles.remove(projectProofRole, "User is no longer in this Crowdin project")
+    await member.roles.remove(projectProofRole, "User is no longer in this Crowdin project")
 
-    await message.member!.roles.remove(projectManagerRole, "User is no longer in this Crowdin project")
+    await member.roles.remove(projectManagerRole, "User is no longer in this Crowdin project")
 }
 
 let browser: puppeteer.Browser | null = null,

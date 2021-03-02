@@ -26,12 +26,14 @@ export function setup(client: HTBClient) {
 
     //Set commands
     client.commands = new Discord.Collection()
-    if (cmdFiles.length <= 0) return console.log("There are no commands to load...")
-    cmdFiles.forEach(file => {
-        const command: Command = require(file)
-        client.commands.set(command.name, command)
-    })
-    console.log(`Loaded ${cmdFiles.length} commands.`)
+    if (cmdFiles.length <= 0) console.log("There are no commands to load...")
+    else {
+        cmdFiles.forEach(file => {
+            const command: Command = require(file)
+            client.commands.set(command.name, command)
+        })
+        console.log(`Loaded ${cmdFiles.length} commands.`)
+    }
 
     //Setup events
     fs.readdir("./listeners/", (err, files) => {

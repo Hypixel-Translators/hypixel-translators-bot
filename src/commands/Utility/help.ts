@@ -21,9 +21,11 @@ module.exports = {
     fs.readdirSync("./commands/Info/").forEach(command => infoCmds.push(command.split(".").shift()!))
     utilityCmds.forEach(cmd => {
       if (message.client.commands.get(cmd).dev) utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
+      else if (!message.client.commands.get(cmd).allowDM && message.channel.type === "dm") utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
     })
     infoCmds.forEach(cmd => {
       if (message.client.commands.get(cmd).dev) infoCmds.splice(infoCmds.indexOf(cmd), 1)
+      else if (!message.client.commands.get(cmd).allowDM && message.channel.type === "dm") utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
     })
 
     //Define all pages
@@ -47,7 +49,6 @@ module.exports = {
       }
 
       //Determine which page to use
-
       const page1 = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
@@ -61,7 +62,7 @@ module.exports = {
       pages[0].e = page1
 
       let page = 0
-      if (args[0]) if (args[0].length = 1) page = args[0] - 1
+      if (args[0]?.length === 1) page = args[0] - 1
       let pageEmbed
 
       pageEmbed = await fetchPage(page, pages, getString, executedBy, message, pageEmbed)
@@ -76,7 +77,7 @@ module.exports = {
 
         const collector = msg.createReactionCollector(filter, { time: 60000 }) //1 minute
 
-        collector.on("collect", async (reaction, user) => {
+        collector.on("collect", async reaction => {
           if (reaction.emoji.name === "⏮") page = 0 //First
           if (reaction.emoji.name === "⏭") page = pages.length - 1 //Last
           if (reaction.emoji.name === "◀") { //Previous
@@ -95,9 +96,8 @@ module.exports = {
         collector.on("end", async () => {
           msg.edit(getString("timeOut"))
           if (message.channel.type !== "dm") msg.reactions.removeAll()
-          setTimeout(() => {
-            msg.suppressEmbeds()
-          }, 10000)
+          else msg.reactions.cache.forEach(reaction => reaction.users.remove(message.client.user.id)) //remove all reactions by the bot
+          msg.suppressEmbeds()
         })
       })
 

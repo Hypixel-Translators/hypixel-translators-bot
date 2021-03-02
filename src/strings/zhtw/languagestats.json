@@ -1,8 +1,8 @@
 {
     "moduleName": "語言統計數據",
-    "statsAll": "Here are the statistics for the %%language%% language on all the projects we currently support.",
-    "translated": "%%percentage%%% translated (%%translated%%/%%total%% strings)",
-    "approved": "%%percentage%%% approved (%%approved%%/%%total%% strings)",
+    "statsAll": "以下是%%language%%在我們支援的翻譯項目中的翻譯進度。",
+    "translated": "已翻譯 %%percentage%%%（%%translated%%/%%total%% 條字串）",
+    "approved": "已核准 %%percentage%%%（%%approved%%/%%total%% 條字串）",
     "languages": {
         "ar": "阿拉伯語",
         "bar": "巴伐利亞語",
@@ -38,7 +38,7 @@
         "pt": "葡萄牙語",
         "ptbr": "葡萄牙語（巴西）",
         "ro": "羅馬尼亞語",
-        "ru": "俄語",
+        "ru": "俄羅斯語",
         "srcs": "塞爾維亞語（拉丁）",
         "sl": "斯洛維尼亞語",
         "es": "西班牙語",
@@ -50,6 +50,5 @@
         "ua": "烏克蘭語",
         "vi": "越南語",
         "ow": "OwO"
-    },
-    "executedBy": "由 %%user%% 執行"
+    }
 }

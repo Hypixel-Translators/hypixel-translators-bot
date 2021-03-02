@@ -48,6 +48,5 @@
     "THAI": "Tailandês",
     "TURKISH": "Turco",
     "UKRAINIAN": "Ucraniano",
-    "madeBy": "Comando feito por %%developer%%",
-    "executedBy": "Executado por %%user%%"
+    "madeBy": "Comando feito por %%developer%%"
 }

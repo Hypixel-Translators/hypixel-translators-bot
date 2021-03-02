@@ -2,6 +2,5 @@
     "moduleName": "Lainaus",
     "invalidArg": "Virheellinen argumentti!",
     "indexArg": "Lainausta numerolla %%arg%% ei ole olemassa! Ole hyvä ja syötä numero välillä 1-%%max%%.",
-    "reqSub": "Lainausehdotuksesi on lähetetty, kiitos!",
-    "executedBy": "Komennon suoritti %%user%%"
+    "reqSub": "Lainausehdotuksesi on lähetetty, kiitos!"
 }

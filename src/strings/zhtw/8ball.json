@@ -1,6 +1,6 @@
 {
     "moduleName": "Magic 8 ball",
-    "question": "Question",
+    "question": "問題",
     "answers": {
         "positive": [
             "It is certain.",
@@ -28,6 +28,5 @@
             "Outlook not so good.",
             "Very doubtful."
         ]
-    },
-    "executedBy": "由 %%user%% 執行"
+    }
 }

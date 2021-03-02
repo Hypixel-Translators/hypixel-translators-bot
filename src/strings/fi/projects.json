@@ -5,6 +5,5 @@
     "projectInfo": "Löyät linkin projektiin %%project%% [täältä](%%link%%). Saadaksesi lisätietoa käytä komentoa %%command%%.",
     "alreadyJoined": "Olet jo liittynyt tähän projektiin!",
     "notJoined": "Et ole vielä liittynyt tähän projektiin!",
-    "dmError": "Emme voineet tarkistaa oletko mukana tässä projektissa vai et. Tehdäksesi tämän sinun tulee suorittaa komento Hypixelin kääntäjien yhteisön Discord-palvelimella.",
-    "executedBy": "Komennon suoritti %%user%%"
+    "dmError": "Emme voineet tarkistaa oletko mukana tässä projektissa vai et. Tehdäksesi tämän sinun tulee suorittaa komento Hypixelin kääntäjien yhteisön Discord-palvelimella."
 }

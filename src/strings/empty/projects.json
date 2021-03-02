@@ -5,6 +5,5 @@
     "projectInfo": "crwdns900:0%%project%%crwdnd900:0[here]crwdnd900:0%%link%%crwdnd900:0%%command%%crwdne900:0",
     "alreadyJoined": "crwdns890:0crwdne890:0",
     "notJoined": "crwdns892:0crwdne892:0",
-    "dmError": "crwdns894:0crwdne894:0",
-    "executedBy": "crwdns896:0%%user%%crwdne896:0"
+    "dmError": "crwdns894:0crwdne894:0"
 }
