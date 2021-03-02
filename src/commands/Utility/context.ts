@@ -488,3 +488,5 @@ async function sheetLink(executedBy: string, message: Discord.Message, getString
             }, 60000)
         })
 }
+
+export default command
