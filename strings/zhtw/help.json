@@ -8,10 +8,10 @@
     "utilityHelp": "%%badge%% 實用工具",
     "infoHelp": "%%badge%% 訊息指令",
     "timeOut": "這個選單已逾時。如果你要繼續使用它，請再次輸入 `+help`。",
-    "pageNotExist": "That page doesn't exist!",
+    "pageNotExist": "該頁面並不存在。",
     "commandInfo": "Command information",
     "commandInfoFor": "Command information for ",
-    "commandNotExist": "這個指令不存在！",
+    "commandNotExist": "該指令並不存在！",
     "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
     "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": "seconds",
@@ -34,7 +34,7 @@
     },
     "mention": {
         "usage": "+mention <語言> translator|proofreader|all [訊息]",
-        "description": "Mentions a language role with an optional message."
+        "description": "提及一個語言身份組，而且可向他們發送訊息。"
     },
     "context": {
         "usage": "+context get|add|edit|view|help <參數>",
