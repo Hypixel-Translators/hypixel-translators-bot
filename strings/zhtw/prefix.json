@@ -4,7 +4,7 @@
     "loading": "請稍候...",
     "loadingRoles": "正在取得你的身份組...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
+        "noLanguages": "你似乎沒有任何語言身份組！如果你認為這是錯誤，請向伺服器擁有者或管理員聯繫。",
         "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
         "error": "更改暱稱失敗。你可以複製下列暱稱並自行更改。",
         "confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
