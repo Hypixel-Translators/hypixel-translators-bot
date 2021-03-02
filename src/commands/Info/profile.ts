@@ -9,7 +9,7 @@ const command: Command = {
     usage: "+profile [user]",
     allowTip: false,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string)=>any) {
+    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
         const collection = client.db.collection("users")
         if (message.member!.roles.cache.has("764442984119795732") && args[0]) { //Discord Administrator
             let user = message.author

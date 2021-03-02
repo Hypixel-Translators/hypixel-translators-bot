@@ -10,7 +10,7 @@ const command: Command = {
     cooldown: 120,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
-    execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string)=>any) {
+    execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)
