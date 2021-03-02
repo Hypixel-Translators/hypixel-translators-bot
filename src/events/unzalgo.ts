@@ -1,14 +1,12 @@
 import { clean, isZalgo } from "unzalgo"
 import { HTBClient } from "../lib/dbclient"
 
-module.exports = {
-    execute(client: HTBClient, manual: boolean) {
-        let d = new Date()
-        let h = d.getUTCHours()
-        let m = d.getUTCMinutes()
-        if ((h == 4 && m == 0) || manual) {
-            check(client)
-        }
+function execute(client: HTBClient, manual: boolean) {
+    let d = new Date()
+    let h = d.getUTCHours()
+    let m = d.getUTCMinutes()
+    if ((h == 4 && m == 0) || manual) {
+        check(client)
     }
 }
 
@@ -41,3 +39,5 @@ async function check(client: HTBClient) {
             })
         })
 }
+
+export default execute

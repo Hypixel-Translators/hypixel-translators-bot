@@ -1,7 +1,7 @@
 import { client } from "../index.js"
-import { execute } from "../events/stats.js"
-import { execute as _execute } from "../events/inactives.js"
-import { execute as __execute } from "../events/unzalgo.js"
+import stats from "../events/stats.js"
+import inactives from "../events/inactives.js"
+import unzalgo from "../events/unzalgo.js"
 import { listeningStatuses, watchingStatuses, playingStatuses } from "../config.json"
 import Discord from "discord.js"
 
@@ -51,8 +51,8 @@ client.once("ready", async () => {
             client.user!.setActivity(listenStatus, { type: "LISTENING" })
         } else console.error("Couldn't set the status because the percentage is a weird number: " + toPick)
 
-        execute(client, false)
-        _execute(client, false)
-        __execute(client, false)
+        stats(client, false)
+        inactives(client, false)
+        unzalgo(client, false)
     }, 60000)
 })

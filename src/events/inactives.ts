@@ -1,14 +1,12 @@
 import { HTBClient } from "../lib/dbclient"
 import Discord from "discord.js"
 
-module.exports = {
-    execute(client: HTBClient, manual: boolean) {
-        const d = new Date()
-        const h = d.getUTCHours()
-        const m = d.getUTCMinutes()
-        if ((h == 2 && m == 0) || manual) {
-            check(client)
-        }
+function execute(client: HTBClient, manual: boolean) {
+    const d = new Date()
+    const h = d.getUTCHours()
+    const m = d.getUTCMinutes()
+    if ((h == 2 && m == 0) || manual) {
+        check(client)
     }
 }
 
@@ -55,3 +53,5 @@ async function check(client: HTBClient) {
         }
     })
 }
+
+export default execute

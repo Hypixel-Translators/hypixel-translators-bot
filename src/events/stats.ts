@@ -274,3 +274,6 @@ interface LangDbEntry {
     id: string
     flag: string
 }
+
+export default execute
+

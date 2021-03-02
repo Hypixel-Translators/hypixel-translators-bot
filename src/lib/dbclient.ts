@@ -1,8 +1,7 @@
 import Discord from "discord.js"
 import { MongoClient, Db } from 'mongodb'
-
 const url = process.env.mongo_URL
-if (typeof url === "undefined") throw "mongo_URL not in .env"
+if (!url) throw "mongo_URL not in .env"
 const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true })
 
 var db: Db
@@ -25,7 +24,7 @@ export interface Command {
     cooldown?: number,
     allowDM?: true,
     allowTip?: false,
-    dev?: boolean,
+    dev?: true,
     roleWhitelist?: string[],
     roleBlacklist?: string[],
     channelBlacklist?: string[],

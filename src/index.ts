@@ -7,6 +7,5 @@ require("dotenv").config()
 import { setup } from "./lib/imports"
 setup(client)
 
-
 //Log in
 client.login(process.env.DISCORD_TOKEN)
