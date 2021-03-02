@@ -5,6 +5,10 @@ import { Command } from "../../lib/dbclient"
 const creds = { "type": process.env.type, "project_id": process.env.project_id, "private_key_id": process.env.private_key_id, "private_key": process.env.private_key!.replace(/\\n/gm, "\n"), "client_email": process.env.client_email, "client_id": process.env.client_id, "auth_uri": process.env.auth_uri, "token_uri": process.env.token_uri, "auth_provider_x509_cert_url": process.env.auth_provider_x509_cert_url, "client_x509_cert_url": process.env.client_x509_cert_url } as ServiceAccountCredentials,
     contextSheet = process.env.context
 
+interface IToAdd {
+    [key: string]: string
+}
+
 const command: Command = {
     name: "context",
     description: "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command.",
@@ -129,7 +133,7 @@ async function addToSpreadsheet(executedBy: string, message: Discord.Message, ge
         return message.channel.send(embed)
     }
 
-    let toAdd = { id: string, context: context }
+    let toAdd: IToAdd = { id: string, context: context }
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))

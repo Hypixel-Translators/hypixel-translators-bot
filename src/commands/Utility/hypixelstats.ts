@@ -4,6 +4,10 @@ import { client } from "../../index"
 import { updateRoles } from "./hypixelverify"
 import { Command } from "../../lib/dbclient"
 
+interface IColorCodes {
+    [key: string]: string
+}
+
 //Credits to marzeq_
 const command: Command = {
     name: "hypixelstats",
@@ -14,9 +18,9 @@ const command: Command = {
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
     async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string)=>any) {
-        function parseColorCode(rank: string) {
-            const colorCode = rank.substring(1, 2)
-            const colorsJson = { "0": "#000000", "1": "#0000AA", "2": "#00AA00", "3": "#00AAAA", "4": "#AA0000", "5": "#AA00AA", "6": "#FFAA00", "7": "#AAAAAA", "8": "#555555", "9": "#5555FF", "a": "#55FF55", "b": "#55FFFF", "c": "#FF5555", "d": "#FF55FF", "e": "#FFFF55", "f": "#FFFFFF" }
+        function parseColorCode(rank: string): string {
+            const colorCode: string = rank.substring(1, 2)
+            const colorsJson: IColorCodes = { "0": "#000000", "1": "#0000AA", "2": "#00AA00", "3": "#00AAAA", "4": "#AA0000", "5": "#AA00AA", "6": "#FFAA00", "7": "#AAAAAA", "8": "#555555", "9": "#5555FF", "a": "#55FF55", "b": "#55FFFF", "c": "#FF5555", "d": "#FF55FF", "e": "#FFFF55", "f": "#FFFFFF" }
             return colorsJson[colorCode]
         }
 
