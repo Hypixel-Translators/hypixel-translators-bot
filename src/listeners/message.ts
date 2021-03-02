@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import { crowdinVerify } from "./../lib/crowdinverify"
 import { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } from "../config.json"
 
-client.on("message", async (message: Discord.Message) => {
+client.on("message", async message => {
 
     //Stop if user is a bot
     if (message.author.bot) return
@@ -14,13 +14,11 @@ client.on("message", async (message: Discord.Message) => {
     //Publish message if sent in bot-updates
     if (message.channel.id === "732587569744838777") return message.crosspost() //bot-updates
 
-    //Define channel types
-    const textchannel = message.channel as Discord.GuildChannel
-    const parent = textchannel.parent as Discord.CategoryChannel
 
     //Link correction system
     if (message.content.toLowerCase().includes("/translate/hypixel/") && message.content.includes("://")) {
-        if (parent.id === "549503328472530977" || parent.id === "748585307825242322" || parent.id === "763131996163407902" || parent.id === "646083561769926668") { //Hypixel, SkyblockAddons, Bot and Quickplay Translations
+        //@ts-expect-error
+        if (message.channel.parent?.id === "549503328472530977" || message.channel.parent?.id === "748585307825242322" || message.channel.parent?.id === "763131996163407902" || message.channel.parent?.id === "646083561769926668") { //Hypixel, SkyblockAddons, Bot and Quickplay Translations
             const langFix = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
             if (/\/en(-?[a-z]{2,4})?[^#-]/gi.test(message.content)) {
                 message.react("732298639736570007")
@@ -30,9 +28,11 @@ client.on("message", async (message: Discord.Message) => {
                     .setTitle(getString("wrongStringURL", "global"))
                     .setDescription(getString("example", "global").replace("%%url%%", "https://crowdin.com/translate/hypixel/286/en-en#106644"))
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
-                if (message.content !== langFix && parent.id === "549503328472530977") embed.setDescription(`${getString("example", "global").replace("%%url%%", "<https://crowdin.com/translate/hypixel/286/en-en#106644>")}\n${getString("reminderLang", "global").replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`")}`)
+                //@ts-expect-error
+                if (message.content !== langFix && message.channel.parent?.id === "549503328472530977") embed.setDescription(`${getString("example", "global").replace("%%url%%", "<https://crowdin.com/translate/hypixel/286/en-en#106644>")}\n${getString("reminderLang", "global").replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`")}`)
                 return message.channel.send(message.author, embed)
-            } else if (message.content !== langFix && parent.id === "549503328472530977") {
+                //@ts-expect-error
+            } else if (message.content !== langFix && message.channel.parent?.id === "549503328472530977") {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)

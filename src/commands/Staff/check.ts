@@ -1,8 +1,9 @@
 import { blurple } from "../../config.json"
 import Discord from "discord.js"
 import { client } from "../../index"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
   name: "check",
   description: "Shows information about the specified user.",
   aliases: ["user", "userinfo", "czech"],
@@ -74,3 +75,5 @@ module.exports = {
     }
   }
 }
+
+export default command

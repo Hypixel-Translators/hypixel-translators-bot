@@ -2,9 +2,10 @@ import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
 import { client } from "../../index"
 import { updateRoles } from "./hypixelverify"
+import { Command } from "../../lib/dbclient"
 
 //Credits to marzeq_
-module.exports = {
+const command: Command = {
     name: "hypixelstats",
     description: "Shows you basic Hypixel stats for the provided user.",
     usage: "+hypixelstats [username] [social]",
@@ -48,10 +49,10 @@ module.exports = {
                 }
 
                 //Update user's roles if they're verified
-                if (json.uuid === authorDb.uuid) updateRoles(message.member, json)
+                if (json.uuid === authorDb.uuid) updateRoles(message.member!, json)
                 else {
                     const userDb = await client.db.collection("users").findOne({ uuid: json.uuid })
-                    if (userDb) updateRoles(message.guild!.members.cache.get(userDb.id), json)
+                    if (userDb) updateRoles(message.guild!.members.cache.get(userDb.id)!, json)
                 }
 
                 //Define values used in both subcommands
@@ -205,3 +206,5 @@ async function getCurrentName(uuid: string) {
         })
     return name
 }
+
+export default command

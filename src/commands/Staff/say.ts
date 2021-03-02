@@ -1,7 +1,8 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
   name: "say",
   description: "Says something in a specific channel.",
   usage: "+say <message>",
@@ -30,3 +31,5 @@ module.exports = {
     message.channel.send(embed)
   }
 }
+
+export default command

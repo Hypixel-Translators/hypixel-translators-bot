@@ -1,8 +1,9 @@
 import { client } from "../../index"
 import { successColor, errorColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "profile",
     description: "Gets the profile of a user",
     usage: "+profile [user]",
@@ -86,3 +87,5 @@ module.exports = {
         }
     }
 }
+
+export default command

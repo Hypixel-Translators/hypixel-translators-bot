@@ -2,8 +2,9 @@ import { errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import { client } from "../../index"
 import { Collection } from "mongodb"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "quote",
     description: "Gets (or adds) a funny/weird/wise quote from the server.",
     usage: "+quote [index] | quote add <quote> / <author mention>",
@@ -144,3 +145,5 @@ async function deleteQuote(executedBy: string, message: Discord.Message, args: s
         message.channel.send(embed)
     })
 }
+
+export default command

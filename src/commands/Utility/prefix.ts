@@ -2,8 +2,9 @@ import { loadingColor, errorColor, successColor, neutralColor } from "../../conf
 import Discord from "discord.js"
 import { flag } from "country-emoji"
 import { client } from "../../index"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
   name: "prefix",
   description: "Gives the author the appropriate prefix for their language(s).",
   aliases: ["langprefix", "languageprefix"],
@@ -42,7 +43,7 @@ module.exports = {
             return (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id
           }
 
-          const collector = msg.createReactionCollector(filter, { time: this.cooldown * 1000 })
+          const collector = msg.createReactionCollector(filter, { time: this.cooldown! * 1000 })
 
           collector.on("collect", async (reaction, reacter) => {
             msg.react("✅")
@@ -203,7 +204,7 @@ module.exports = {
             return (userLangs.includes(reaction.emoji.name) || reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id
           }
 
-          const collector = msg.createReactionCollector(filter, { time: this.cooldown * 1000 })
+          const collector = msg.createReactionCollector(filter, { time: this.cooldown! * 1000 })
 
           collector.on('collect', async (reaction, reacter) => {
             if (reaction.emoji.name !== "❎") msg.react("✅")
@@ -325,3 +326,5 @@ module.exports = {
     }
   }
 }
+
+export default command

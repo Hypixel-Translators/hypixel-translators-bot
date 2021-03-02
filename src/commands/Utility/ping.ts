@@ -1,7 +1,8 @@
 import { loadingColor, errorColor, successColor } from "../../config.json"
 import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
   name: "ping",
   description: "Gives you the bot's ping",
   usage: "+ping",
@@ -34,3 +35,5 @@ module.exports = {
     message.channel.send(embed)
   }
 }
+
+export default command

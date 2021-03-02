@@ -2,8 +2,7 @@ import { client } from "../index.js"
 import Discord from "discord.js"
 import { registerFont, createCanvas, loadImage } from "canvas"
 
-client.on("guildMemberAdd", (member: Discord.GuildMember) => {
-
+client.on("guildMemberAdd", member => {
     //Define assets and create canvas
     registerFont("../../assets/Bitter-Regular.ttf", { family: "Bitter" })
     registerFont("../../assets/Bitter-Bold.ttf", { family: "Bitter-Bold" })

@@ -1,7 +1,8 @@
 import { successColor, blurple } from "../../config.json"
 import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "channel",
     description: "Updates the specified channel.",
     usage: "+channel <info|verify>",
@@ -134,3 +135,5 @@ function verify(message: Discord.Message) {
         msg.edit("**Please do not run the command before reading the entire message.**", verifyEmbed) //verify-prototype
     })
 }
+
+export default command

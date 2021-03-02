@@ -1,6 +1,7 @@
 import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
   name: "mention",
   description: "Mentions a language role with a message.",
   aliases: ["langping", "languageping"],
@@ -21,6 +22,7 @@ module.exports = {
       toSend = "<a:bongoping:614477510423478275>" + toSend
     }
     const langs = { "Chinesesimplified": "Chinese Simplified", "Chinese-simplified": "Chinese Simplified", "Zhcn": "Chinese Simplified", "Chinesetraditional": "Chinese Traditional", "Chinese-traditional": "Chinese Traditional", "Zhtw": "Chinese Traditional", "Lolcat": "LOLCAT", "Lol": "LOLCAT", "Bg": "Bulgarian", "Cs": "Czech", "Da": "Danish", "Nl": "Dutch", "Fi": "Finnish", "Fr": "French", "De": "German", "El": "Greek", "It": "Italian", "Ja": "Japanese", "Ko": "Korean", "Ms": "Malay", "No": "Norwegian", "Pl": "Polish", "Pt": "Portuguese", "Ptbr": "Portuguese Brazilian", "Brazilian": "Portuguese Brazilian", "Ru": "Russian", "Es": "Spanish", "Sv": "Swedish", "Se": "Swedish", "Th": "Thai", "Tr": "Turkish", "Ua": "Ukrainian", "Enpt": "Pirate English", "Pirate": "Pirate English" }
+    //@ts-expect-error
     if (langs.hasOwnProperty(toLook)) toLook = langs[toLook]
     const role = message.guild!.roles.cache.find(x => x.name == (toLook + " Proofreader"))
 
@@ -65,3 +67,5 @@ module.exports = {
     }
   }
 }
+
+export default command

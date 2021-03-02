@@ -1,8 +1,9 @@
 import Discord from "discord.js"
 import { errorColor, successColor, neutralColor } from "../../config.json"
 import { client } from "../../index"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "dm",
     description: "Sends the user a private message.",
     usage: "+dm <mention> <message>",
@@ -57,3 +58,5 @@ module.exports = {
         }
     }
 }
+
+export default command

@@ -2,8 +2,9 @@ import { errorColor, successColor } from "../../config.json"
 import Discord from "discord.js"
 import { execute, hypixel, quickplay, skyblockaddons, bot } from "../../events/stats.js"
 import { client } from "../../index"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "stats",
     description: "Updates statistics channels and notifies members of new strings (if applicable).",
     usage: "+stats",
@@ -63,3 +64,5 @@ module.exports = {
         }
     }
 }
+
+export default command

@@ -1,10 +1,11 @@
-import { loadingColor, errorColor, successColor, neutralColor } from "../../config.json"
+import { errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import fs from "fs"
 import { name, code } from 'country-emoji'
 import { client } from "../../index"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "language",
     description: "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`.",
     aliases: ["lang"],
@@ -145,3 +146,5 @@ module.exports = {
         }
     }
 }
+
+export default command

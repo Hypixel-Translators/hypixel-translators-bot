@@ -1,6 +1,7 @@
 import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "giveaway",
     description: "Gives you the winners of a giveaway.",
     aliases: ["reroll", "g", "greroll", "giveaways"],
@@ -23,3 +24,5 @@ module.exports = {
         message.channel.send(`Congratulations to ${winners.join(", ")}`)
     }
 }
+
+export default command

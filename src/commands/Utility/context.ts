@@ -1,17 +1,18 @@
 import { loadingColor, errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import { GoogleSpreadsheet, ServiceAccountCredentials } from "google-spreadsheet"
+import { Command } from "../../lib/dbclient"
 const creds = { "type": process.env.type, "project_id": process.env.project_id, "private_key_id": process.env.private_key_id, "private_key": process.env.private_key!.replace(/\\n/gm, "\n"), "client_email": process.env.client_email, "client_id": process.env.client_id, "auth_uri": process.env.auth_uri, "token_uri": process.env.token_uri, "auth_provider_x509_cert_url": process.env.auth_provider_x509_cert_url, "client_x509_cert_url": process.env.client_x509_cert_url } as ServiceAccountCredentials,
     contextSheet = process.env.context
 
-module.exports = {
+const command: Command = {
     name: "context",
     description: "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command.",
     usage: "+context get|add|edit|link|help <arguments>",
     roleWhitelist: ["569839580971401236", "569839517444341771"],
     channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "801904400826105876", "550951034332381184", "713084081579098152"], //off-topic memes pets food suggestions no-mic
     cooldown: 30,
-    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string)=>any) {
+    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
         if (!args[0]) throw "contextSubArg"
         const subCmd = args[0].toLowerCase()
@@ -26,7 +27,7 @@ module.exports = {
     }
 }
 
-async function getFromSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string)=>any, args: string[]) {
+async function getFromSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string) => any, args: string[]) {
     message.channel.startTyping()
     const string = args[1]
     const doc = new GoogleSpreadsheet(contextSheet!)
@@ -86,7 +87,7 @@ async function getFromSpreadsheet(executedBy: string, message: Discord.Message, 
     message.channel.send(embed)
 }
 
-async function addToSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string)=>any, args: string[]) {
+async function addToSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string) => any, args: string[]) {
     message.channel.startTyping()
     const string = args[1]
     let toSend = [...args]
@@ -147,15 +148,15 @@ async function addToSpreadsheet(executedBy: string, message: Discord.Message, ge
                 return (reaction.emoji.name === "📑" || reaction.emoji.id === yesEmoji || reaction.emoji.id === noEmoji) && reacter.id === message.author.id
             }
 
-            const collector = msg.createReactionCollector(filter, { time: 120000 })
+            const reactionCollector = msg.createReactionCollector(filter, { time: 120000 })
 
             let extraMsgs: Discord.Message[]
             let extraReceiveds: Discord.Message[]
 
-            collector.on("collect", async (reaction, reacter) => {
+            reactionCollector.on("collect", async reaction => {
                 if (reaction.emoji.name === "📑") {
                     reaction.users.remove(message.author.id)
-                    const collectorB = new Discord.MessageCollector(<Discord.TextChannel>message.channel, m => m.author.id === message.author.id, { time: 120000 })
+                    const messageCollector = new Discord.MessageCollector(<Discord.TextChannel>message.channel, m => m.author.id === message.author.id, { time: 120000 })
                     const extraEmbed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor(getString("moduleName"))
@@ -165,10 +166,10 @@ async function addToSpreadsheet(executedBy: string, message: Discord.Message, ge
 
                         extraMsgs.push(extraMsg)
 
-                        collectorB.on("collect", received => {
-                            collectorB.stop()
+                        messageCollector.on("collect", received => {
+                            messageCollector.stop()
                             extraReceiveds.push(received)
-                            let key = received.toString().toLowerCase() as any
+                            let key = received.toString().toLowerCase() as string
                             key = key.replace(/ .*/, "")
                             let value = received.toString()
                             value = value.substr(value.indexOf(" ") + 1)
@@ -182,7 +183,7 @@ async function addToSpreadsheet(executedBy: string, message: Discord.Message, ge
                             extraMsg.edit(extraEmbed)
                         })
 
-                        collectorB.on("end", function () {
+                        messageCollector.on("end", function () {
                             const extraEmbed = new Discord.MessageEmbed()
                                 .setColor(errorColor)
                                 .setAuthor(getString("moduleName"))
@@ -271,7 +272,7 @@ async function addToSpreadsheet(executedBy: string, message: Discord.Message, ge
 
             })
 
-            collector.on("end", () => {
+            reactionCollector.on("end", () => {
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor(getString("moduleName"))
@@ -292,7 +293,7 @@ async function addToSpreadsheet(executedBy: string, message: Discord.Message, ge
         })
 }
 
-async function editInSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string)=>any, args: string[]) {
+async function editInSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string) => any, args: string[]) {
     message.channel.startTyping()
     const string = args[1]
     if (!message.member!.roles.cache.has("569839580971401236") && !message.member!.hasPermission("MANAGE_ROLES")) { //Hypixel Proofreader
@@ -453,7 +454,7 @@ async function editInSpreadsheet(executedBy: string, message: Discord.Message, g
         })
 }
 
-async function showInfo(executedBy, message, getString) {
+async function showInfo(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string) => any) {
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
@@ -471,7 +472,7 @@ async function showInfo(executedBy, message, getString) {
     message.channel.send(embed)
 }
 
-async function sheetLink(executedBy, message, getString) {
+async function sheetLink(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string) => any) {
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle(getString("info.sheetT"))

@@ -1,7 +1,8 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "restart",
     description: "Refresh the bot to apply changes and to fix errors.",
     aliases: ["refresh", "reload", "stop"],
@@ -19,3 +20,5 @@ module.exports = {
         setTimeout(() => { process.exit() }, 1000)
     }
 }
+
+export default command

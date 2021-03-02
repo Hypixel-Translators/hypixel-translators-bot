@@ -1,11 +1,11 @@
 import { client } from "../../index"
 import Discord from "discord.js"
 import fetch from "node-fetch"
-import { successColor, loadingColor, errorColor, neutralColor } from "../../config.json"
-const ctokenV2 = process.env.CTOKEN_API_V
+import { successColor, loadingColor, errorColor } from "../../config.json"
+import { Command } from "../../lib/dbclient"
+const ctokenV2 = process.env.CTOKEN_API_V2
 
-
-module.exports = {
+const command: Command = {
     name: "languagestats",
     description: "Shows you the progress of a language on the all projects we currently support.",
     usage: "+languagestats <language>",
@@ -88,6 +88,8 @@ module.exports = {
             })
     }
 }
+
+export default command
 
 interface LanguageStatus {
     data: {

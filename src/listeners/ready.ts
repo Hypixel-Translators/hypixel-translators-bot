@@ -14,13 +14,8 @@ client.once("ready", async () => {
     serverinfo.messages.fetch("800415711864029204") //server-info roles message
     const verify = client.channels!.cache!.get("569178590697095168") as Discord.TextChannel
     verify.messages.fetch("787366444970541056") //verify message
-    const reviewStringsChannels = client.channels.cache.filter(c => {
-        const textc = c as Discord.TextChannel
-        return textc.name.endsWith("review-strings")
-    })
-    reviewStringsChannels.forEach(c => {
-        const textc = c as Discord.TextChannel; return textc.messages.fetch() 
-    })
+    const reviewStringsChannels = client.channels.cache.filter(c => (c as Discord.TextChannel).name.endsWith("review-strings")) as Discord.Collection<string, Discord.TextChannel>
+    reviewStringsChannels.forEach(c => c.messages.fetch())
 
     //Get server boosters and staff for the status
     let boostersStaff: string[] = []

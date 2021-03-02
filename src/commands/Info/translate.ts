@@ -1,7 +1,8 @@
 import { neutralColor } from "../../config.json"
 import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "translate",
     description: "Gives you useful information on how to translate the Bot.",
     usage: "+translate",
@@ -40,3 +41,5 @@ module.exports = {
         }
     }
 }
+
+export default command

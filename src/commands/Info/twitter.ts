@@ -1,6 +1,7 @@
 import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
   name: "twitter",
   description: "Gives you a link to the official Hypixel Translators Community Twitter page",
   usage: "+twitter",
@@ -11,3 +12,5 @@ module.exports = {
     message.channel.send(getString("twitter").replace("%%twitter%%", "<https://twitter.com/HTranslators>"))
   }
 }
+
+export default command

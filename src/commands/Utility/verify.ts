@@ -2,8 +2,9 @@ import { client } from "../../index"
 import { crowdinVerify } from "../../lib/crowdinverify"
 import { errorColor } from "../../config.json"
 import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "verify",
     description: "Unverifies the user.",
     usage: "+verify [profileURL]",
@@ -65,3 +66,5 @@ module.exports = {
         }
     }
 }
+
+export default command

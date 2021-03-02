@@ -1,5 +1,3 @@
-import Discord from "discord.js"
-import { inspect } from "util"
 import { loadingColor, errorColor, successColor, neutralColor, blurple, listeningStatuses, watchingStatuses, playingStatuses } from "../../config.json"
 import fetch from "node-fetch"
 import { clean, isZalgo } from "unzalgo"
@@ -7,8 +5,11 @@ import { flag, code, name, countries } from 'country-emoji'
 import fs from "fs"
 import country from 'countryjs'
 import { client } from "../../index.js"
+import Discord from "discord.js"
+import { inspect } from "util"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
   name: "eval",
   description: "Evals the specified code.",
   usage: "+eval <code>",
@@ -31,3 +32,5 @@ module.exports = {
     }
   }
 }
+
+export default command

@@ -2,8 +2,9 @@ import fetch from "node-fetch"
 import fs from 'fs'
 import path from 'path'
 import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "holidays",
     description: "Sends an announcement wishing everyone a happy (holiday) in each language.",
     usage: "+holidays <holiday>",
@@ -41,3 +42,5 @@ module.exports = {
         })
     }
 }
+
+export default command

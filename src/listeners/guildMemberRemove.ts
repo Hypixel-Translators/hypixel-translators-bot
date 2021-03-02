@@ -1,13 +1,13 @@
 import { client } from "../index.js"
 import Discord from "discord.js"
 
-client.on("guildMemberRemove", async (member: Discord.GuildMember | Discord.PartialGuildMember) => {
+client.on("guildMemberRemove", async member => {
     //Leave message
     const channel = member.guild.channels.cache.get("549882021934137354") as Discord.TextChannel
     channel.send(`**${member.user!.tag}** just left the server 🙁`) //join-leave
 
     //Run if the member who leaves had the Bot Translator/Proofreader/Manager roles
-    const botRole = member.roles.cache.find((role: Discord.Role) => role.name.startsWith("Bot ") && role.id !== "732615152246980628")
+    const botRole = member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628")
     if (botRole) { //bot updates
         const memberDb = await client.db.collection("users").findOne({ id: member.id })
         const staffchannel = client.channels.cache.get("768160446368186428") as Discord.TextChannel

@@ -1,7 +1,8 @@
 import Discord from "discord.js"
 import { successColor, loadingColor, errorColor } from "../../config.json"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "8ball",
     description: "The Magic 8 Ball that will answer all your questions.",
     aliases: ["magic8ball", "magicball"],
@@ -28,3 +29,5 @@ module.exports = {
         message.channel.send(embed)
     }
 }
+
+export default command

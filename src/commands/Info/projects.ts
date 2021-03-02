@@ -55,4 +55,4 @@ const command: Command = {
     }
 }
 
-export default command;
+export default command

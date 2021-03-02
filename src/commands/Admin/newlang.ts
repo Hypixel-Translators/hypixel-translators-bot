@@ -3,8 +3,9 @@ import Discord from "discord.js"
 import country from "countryjs"
 import { flag } from "country-emoji"
 import { client } from "../../index"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
   name: "newlang",
   description: "Creates a new language category with the appropriate channels and roles.",
   usage: "+newlang <lang code> [HEX color]",
@@ -122,3 +123,5 @@ module.exports = {
     message.channel.send(embed)
   }
 }
+
+export default command

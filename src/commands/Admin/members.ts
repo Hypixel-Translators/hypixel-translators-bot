@@ -1,7 +1,8 @@
 import { blurple } from "../../config.json"
 import Discord from "discord.js"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "members",
     description: "Lists all the members in a role",
     aliases: ["listmembers"],
@@ -44,3 +45,5 @@ module.exports = {
         message.channel.send(embed)
     }
 }
+
+export default command

@@ -1,15 +1,17 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
 import inactives from "../../events/inactives.js"
+import { client } from "../../index"
+import { Command } from "../../lib/dbclient"
 
-module.exports = {
+const command: Command = {
     name: "inactives",
     description: "Checks for inactive unverified members (if applicable).",
     usage: "+inactives",
     aliases: ["updateinactives", "unverifieds", "inactive"],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     execute(message: Discord.Message) {
-        inactives.execute(message.client, true)
+        inactives(client, true)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor("Inactive checker")
@@ -18,3 +20,5 @@ module.exports = {
         message.channel.send(embed)
     }
 }
+
+export default command
