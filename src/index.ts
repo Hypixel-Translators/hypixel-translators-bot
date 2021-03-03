@@ -1,7 +1,7 @@
 //Import dependencies and define client
+require("dotenv").config()
 import { HTBClient } from "./lib/dbclient"
 export const client = new HTBClient()
-require("dotenv").config()
 
 //Import commands and events
 import { setup } from "./lib/imports"

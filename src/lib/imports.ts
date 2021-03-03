@@ -3,7 +3,6 @@ import path from "path"
 import Discord from "discord.js"
 import { HTBClient, Command } from "./dbclient"
 
-
 function findCommands(dir: string, pattern: string) {
 
     let results: string[] = []
@@ -20,7 +19,7 @@ function findCommands(dir: string, pattern: string) {
     return results
 }
 
-const cmdFiles = findCommands("./commands/", ".ts")
+const cmdFiles = findCommands(path.join(__dirname, "..", "commands"), ".ts")
 
 export function setup(client: HTBClient) {
 
@@ -36,7 +35,7 @@ export function setup(client: HTBClient) {
     }
 
     //Setup events
-    fs.readdir("./listeners/", (err, files) => {
+    fs.readdir(path.join(__dirname, "..", "listeners"), (err, files) => {
         if (err) console.error(err)
         let jsfiles = files.filter(f => f.endsWith(".ts"))
         if (jsfiles.length <= 0) return console.log("There are no events to load...")
