@@ -94,7 +94,7 @@
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Daje link do oficjalnego wątku odnośnie tłumaczeń Hypixel'a."
+        "description": "Gives you the link to the official thread regarding Hypixel translations."
     },
     "quickplay": {
         "usage": "+quickplay",
@@ -110,7 +110,7 @@
     },
     "thread": {
         "usage": "+thread",
-        "description": "Daje link do wątku ogłaszającego ten serwer Discord."
+        "description": "Gives you the link to the thread announcing this Discord server."
     },
     "twitter": {
         "usage": "+twitter",
