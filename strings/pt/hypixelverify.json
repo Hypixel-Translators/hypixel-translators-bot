@@ -2,7 +2,6 @@
     "moduleName": "Verificação com o Hypixel",
     "success": "Verificaste-te como %%player%%!",
     "role": "Recebeste o cargo %%role%% devido ao teu rank no servidor.",
-    "noRoles": "Não recebeste quaisquer cargos porque não tens nenhum rank no Hypixel ou não os conseguimos encontrar! Entra em contacto com um administrador se pensas que isto é um erro.",
     "alreadyVerified": "Já estás verificado!",
     "nameChangeDisclaimer": "Não te esqueças de que não tens de te verificar novamente se mudares o teu nome!",
     "error": "Não foi possível verificar-te porque não definiste o teu Discord no Hypixel corretamente!",
