@@ -30,7 +30,7 @@
         "wrongLink": "錯誤的連結！"
     },
     "cooldown": "冷卻時間",
-    "secondLeft": "Please wait another second to use `+%%command%%` again.",
+    "secondLeft": "請等待數秒後才再次使用 `+%%command%%` 指令。",
     "timeLeftT": "請等待 %%time%% 秒後才再次使用 `+%%command%%` 指令。",
     "minsLeftT": "請等待 %%time%% 分鐘後才再次使用 `+%%command%%` 指令。",
     "linkCorrectionDesc": "請你在下次發送連結前將其更改為 %%format%% 格式。",

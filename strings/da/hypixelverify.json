@@ -2,7 +2,6 @@
     "moduleName": "Hypixel Verifikation",
     "success": "Du har verificeret dig selv som %%player%%!",
     "role": "Du fik tildelt rollen %%role%% på grund af din rang på serveren.",
-    "noRoles": "Du fik ikke tildelt nogen roller, fordi du ikke har en rang på Hypixel, eller fordi vi ikke kunne finde den! Kontakt en administrator, hvis du mener, at dette er en fejl.",
     "alreadyVerified": "Du er allerede registreret!",
     "nameChangeDisclaimer": "Husk, at du ikke behøver at bekræfte dig selv igen, hvis du ændrer dit navn!",
     "error": "Vi kunne ikke bekræfte dig, fordi du ikke har indstillet din Discord på Hypixel korrekt!",
