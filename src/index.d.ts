@@ -1,5 +1,3 @@
-import { info } from "countryjs";
-
 interface ISO {
     alpha2: string;
     alpha3: string;
