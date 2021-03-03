@@ -16,7 +16,7 @@ module.exports = {
         const command = message.content.slice(prefix.length).split(" ")[0].toLowerCase()
         if (command === "hypixelunverify" || command === "hunverify") {
             await this.updateRoles(message.member)
-            await getDb().collection("users").updateOne({ id: message.author.id }, { $set: { uuid: "" } }).then(async r => {
+            await getDb().collection("users").updateOne({ id: message.author.id }, { $unset: { uuid: true } }).then(async r => {
                 if (r.result.nModified) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
