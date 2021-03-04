@@ -54,7 +54,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "Podaje informacje o pingu bota."
     },
     "hypixelstats": {
         "usage": "+hypixelstats [nick gracza] [social]",
