@@ -1,11 +1,11 @@
 {
-    "moduleName": "Magic 8 ball",
+    "moduleName": "Magiczna kula",
     "question": "Pytanie",
     "answers": {
         "positive": [
-            "It is certain.",
+            "To pewne.",
             "It is decidedly so.",
-            "Without a doubt.",
+            "Bez wątpienia.",
             "Tak - definitywnie.",
             "You may rely on it.",
             "As I see it, yes.",
@@ -22,11 +22,11 @@
             "Concentrate and ask again."
         ],
         "negative": [
-            "Don't count on it.",
-            "My reply is no.",
+            "Nie licz na to.",
+            "Moja odpowiedź brzmi nie.",
             "My sources say no.",
             "Outlook not so good.",
-            "Very doubtful."
+            "Wątpię."
         ]
     }
 }
