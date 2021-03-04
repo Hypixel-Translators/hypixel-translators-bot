@@ -58,7 +58,7 @@
         "get": "_Pobiera kontekst dla danego ciągu_\n`+context get <identyfikator ciągu>`\n\nZastąp <identyfikator ciągu> identyfikatorem ciągu, który możesz uzyskać kopiując adres URL ciągu. Jest to numer następujący po #.",
         "add": "_Dodaje wpis kontekstu_\n`+context add <ID ciągu> <kontekst>`\n\nZastąp <ID ciągu> identyfikatorem ciągu, znajdziesz go poprzez skopiowanie adresu URL ciągu. Jest to numer po #. Zastąp <kontekst> tekstem, który chcesz dodać. Po użyciu, możesz dodać więcej pól za pomocą reakcji.",
         "edit": "_Edytuje wpis kontekstu_\n`+context edit <ID ciągu> <pole> <nowa wartość>`\n\n\nZastąp <ID ciągu> identyfikatorem ciągu, znajdziesz go poprzez skopiowanie adresu URL ciągu. Jest to numer po #. Zastąp <pole> polem, które chcesz edytować, takim jak: `screenshot` or `enpt`. Zastąp <nową wartość> nową wartością dla tego pola.",
-        "link": "_Daje Ci odnośnik do arkusza Google zawierającego kontekst_\n`+context link`",
+        "link": "_Podaje odnośnik do arkusza Google zawierającego kontekst_\n„+context link”",
         "help": "_Pokazuje tę wiadomość!_\n`+context help`",
         "fields": "Pola",
         "sheetT": "Arkusz kontekstowy",
