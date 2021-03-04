@@ -47,13 +47,6 @@ module.exports = {
                     throw "apiError"
                 }
 
-                //Update user's roles if they're verified
-                if (json.uuid === authorDb.uuid) updateRoles(message.member, json)
-                else {
-                    const userDb = await getDb().collection("users").findOne({ uuid: json.uuid })
-                    if (userDb) updateRoles(message.guild.members.cache.get(userDb.id), json)
-                }
-
                 //Define values used in both subcommands
                 let rank // some ranks are just prefixes so this code accounts for that
                 let color
@@ -66,6 +59,10 @@ module.exports = {
                     rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
                 }
                 username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
+
+                //Update user's roles if they're verified
+                const uuidDb = await getDb().collection("users").findOne({ uuid: json.uuid })
+                if (uuidDb) updateRoles(message.guild.members.cache.get(uuidDb.id), json)
 
                 if (!args[1] || args[1] === "stats") {
 
@@ -106,7 +103,7 @@ module.exports = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${getString("description").replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${json.username})`)}\n${getString("updateNotice")}\n${getString("mediaTip").replace("%%command%%", `\`+hypixelstats ${currentName} social\``)}`)
+                        .setDescription(`${getString("description").replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${json.username})`)}\n${uuidDb ? `${getString("userVerified").replace("%%user%%", `<@${uuidDb.id}>`)}\n` : ""}${getString("updateNotice")}\n${getString("mediaTip").replace("%%command%%", `\`+hypixelstats ${currentName} social\``)}`)
                         .addFields(
                             { name: getString("networkLevel"), value: Math.abs(json.level).toLocaleString(dateLocale), inline: true },
                             { name: getString("ap"), value: json.achievement_points.toLocaleString(dateLocale), inline: true },
