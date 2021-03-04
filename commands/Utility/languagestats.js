@@ -26,38 +26,35 @@ module.exports = {
 
         message.channel.startTyping()
         const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
-        const hypixel = `https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500`
         var hypixelData
-        fetch(hypixel, settings)
+        await fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", settings)
             .then(res => res.json())
-            .then(json => {
+            .then(async json => {
                 json.data.forEach(language => {
                     if (language.data.languageId === lang.id) hypixelData = language.data
                 })
 
-                const quickplay = `https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500`
                 let quickplayData
-                fetch(quickplay, settings)
+                await fetch("https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500", settings)
                     .then(res => res.json())
-                    .then(json => {
+                    .then(async json => {
                         json.data.forEach(language => {
                             if (language.data.languageId === lang.id) quickplayData = language.data
                         })
 
-                        const sba = `https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500`
                         let sbaData
-                        fetch(sba, settings)
+                        await fetch("https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500", settings)
                             .then(res => res.json())
-                            .then(json => {
+                            .then(async json => {
                                 json.data.forEach(language => {
                                     if (language.data.languageId === lang.id) sbaData = language.data
                                 })
 
                                 const bot = `https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500`
                                 let botData
-                                fetch(bot, settings)
+                                await fetch("https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500", settings)
                                     .then(res => res.json())
-                                    .then(json => {
+                                    .then(async json => {
                                         json.data.forEach(language => {
                                             if (language.data.languageId === lang.id) botData = language.data
                                         })
@@ -83,6 +80,12 @@ module.exports = {
                                     })
                             })
                     })
+            })
+            .catch(e => {
+                if (e instanceof fetch.FetchError) {
+                    console.error("Crowdin API is down, sending error.")
+                    throw "apiError"
+                } else throw e
             })
     }
 }
