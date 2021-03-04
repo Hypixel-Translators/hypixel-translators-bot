@@ -57,14 +57,27 @@ client.on("message", async message => {
             .setAuthor("Incoming message from " + message.author.tag)
             .setDescription(message.content)
             .addFields({ name: "To reply", value: `\`+dm ${message.author.id} \`` })
-        client.channels.cache.get("624881429834366986").send(staffMsg) //staff-bots
 
-        const embed = new Discord.MessageEmbed()
+        const dmEmbed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor(getString("outgoing", "global"))
             .setDescription(message.content)
             .setFooter(getString("outgoingDisclaimer", "global"))
-        return message.channel.send(embed)
+        if (message.attachments.size > 1) {
+            const images = []
+            message.attachments.forEach(file => images.push(file.attachment))
+            staffMsg.setTitle("View attachments")
+            dmEmbed.setTitle("Attachments sent")
+            client.channels.cache.get("624881429834366986").send({ embed: staffMsg, files: images })
+            return message.channel.send(dmEmbed)
+        } else if (message.attachments.size > 0) {
+            staffMsg
+                .setTitle("View attachment")
+                .setImage(message.attachments.first().url)
+            dmEmbed.setTitle("Attachment sent")
+            client.channels.cache.get("624881429834366986").send(staffMsg)
+        } else client.channels.cache.get("624881429834366986").send(staffMsg) //staff-bots
+        return message.channel.send(dmEmbed)
     }
 
     //Stop if the message is not a command
@@ -222,7 +235,7 @@ client.on("message", async message => {
                             .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
                             .setFooter("Check the console for more details")
                         message.guild.channels.cache.get("730042612647723058").send("ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
-                    } 
+                    }
                     console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
                 } else {
                     setTimeout(() => {
