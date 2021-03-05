@@ -18,9 +18,9 @@ const command: Command = {
             .catch(err => {
                 return message.channel.send("That message doesn't have any 🎉 reactions. Here's the error:\n" + err)
             }) as Discord.Collection<string, Discord.User>
-        const winner = users!.random(Number(args[1]) || 1)
+        const winner: Discord.User[] = users!.random(Number(args[1]) || 1)
         let winners: Discord.User[] = []
-        winner.forEach((user: Discord.User) => winners.push(user))
+        winner.forEach(user => winners.push(user))
         message.channel.send(`Congratulations to ${winners.join(", ")}`)
     }
 }

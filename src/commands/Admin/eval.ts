@@ -1,8 +1,9 @@
 import { loadingColor, errorColor, successColor, neutralColor, blurple, listeningStatuses, watchingStatuses, playingStatuses } from "../../config.json"
 import fetch from "node-fetch"
-import { clean, isZalgo } from "unzalgo"
+//@ts-ignore
 import { flag, code, name, countries } from 'country-emoji'
 import fs from "fs"
+//@ts-ignore
 import country from 'countryjs'
 import { client } from "../../index.js"
 import Discord from "discord.js"

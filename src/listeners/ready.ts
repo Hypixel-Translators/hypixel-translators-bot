@@ -1,7 +1,6 @@
 import { client } from "../index.js"
 import stats from "../events/stats.js"
 import inactives from "../events/inactives.js"
-import unzalgo from "../events/unzalgo.js"
 import { listeningStatuses, watchingStatuses, playingStatuses } from "../config.json"
 import Discord from "discord.js"
 
@@ -48,6 +47,5 @@ client.once("ready", async () => {
 
         stats(client, false)
         inactives(client, false)
-        unzalgo(client, false)
     }, 60000)
 })

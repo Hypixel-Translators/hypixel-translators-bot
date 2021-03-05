@@ -1,5 +1,6 @@
 import { loadingColor, errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
+//@ts-ignore
 import { flag } from "country-emoji"
 import { client } from "../../index"
 import { Command } from "../../lib/dbclient"
