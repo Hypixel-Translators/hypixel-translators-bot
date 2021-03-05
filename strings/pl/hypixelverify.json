@@ -2,7 +2,6 @@
     "moduleName": "Weryfikacja Hypixel",
     "success": "Pomyślnie zweryfikowałeś się jako %%player%%!",
     "role": "Otrzymałeś rolę %%role%% ze względu na swoją rangę na serwerze.",
-    "noRoles": "Nie otrzymałeś żadnej roli, ponieważ nie masz rangi na Hypixelu lub nie mogliśmy jej znaleźć! Jeśli uważasz, że to błąd, skontaktuj się z administratorem.",
     "alreadyVerified": "Jesteś już zweryfikowany!",
     "nameChangeDisclaimer": "Pamiętaj, że nie musisz się ponownie weryfikować, jeśli zmienisz swój nick!",
     "error": "Nie mogliśmy Cię zweryfikować, gdyż nie połączyłeś swojego Discorda na Hypixelu!",

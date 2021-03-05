@@ -2,7 +2,6 @@
     "moduleName": "Hypixelin linkitys",
     "success": "Todensit itsesi onnistuneesti pelaajaksi %%player%%!",
     "role": "Sinulle annettiin rooli %%role%% palvelimen rankkisi mukaan.",
-    "noRoles": "Sinulle ei annettu rooleja, koska sinulla ei ole rankkia Hypixelissä tai emme löytäneet sellaista! Ota yhteyttä ylläpitäjään, mikäli uskot tämän olevan virhe.",
     "alreadyVerified": "Käyttäjäsi on jo linkitetty!",
     "nameChangeDisclaimer": "Muista, että sinun täytyy linkittää käyttäjäsi uudelleen aina kun vaihdat nimesi!",
     "error": "Emme voineet linkittää sinua, koska et ole asettanut Discordiasi Hypixelissä!",

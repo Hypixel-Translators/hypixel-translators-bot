@@ -1,8 +1,7 @@
 {
-    "moduleName": "Hypixel Verification",
+    "moduleName": "Hypixel認証",
     "success": "あなたを%%player%%として認証しました！",
     "role": "サーバーのランクに基づき%%role%%ロールを付与しました。",
-    "noRoles": "Hypixelでランクを保有していないか確認できなかったため、ロールは付与されませんでした！ これがエラーと思われる場合、管理者に連絡してください。",
     "alreadyVerified": "既に認証しています！",
     "nameChangeDisclaimer": "名前を変更した場合でも再度認証する必要はないことにご注意ください！",
     "error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",

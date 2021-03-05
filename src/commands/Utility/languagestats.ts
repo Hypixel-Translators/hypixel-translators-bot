@@ -1,6 +1,6 @@
 import { client } from "../../index"
 import Discord from "discord.js"
-import fetch from "node-fetch"
+import fetch, { FetchError } from "node-fetch"
 import { successColor, loadingColor, errorColor } from "../../config.json"
 import { Command } from "../../lib/dbclient"
 const ctokenV2 = process.env.CTOKEN_API_V2
@@ -27,38 +27,36 @@ const command: Command = {
 
         message.channel.startTyping()
         const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
-        const hypixel = `https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500`
         var hypixelData: LanguageStatus["data"]
-        fetch(hypixel, settings)
+        await fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", settings)
             .then(res => res.json())
-            .then(json => {
+            .then(async json => {
                 json.data.forEach((language: LanguageStatus) => {
                     if (language.data.languageId === lang.id) hypixelData = language.data
                 })
 
-                const quickplay = `https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500`
                 let quickplayData: LanguageStatus["data"]
-                fetch(quickplay, settings)
+                await fetch("https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500", settings)
                     .then(res => res.json())
-                    .then(json => {
+                    .then(async json => {
                         json.data.forEach((language: LanguageStatus) => {
                             if (language.data.languageId === lang.id) quickplayData = language.data
                         })
 
                         const sba = `https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500`
                         let sbaData: LanguageStatus["data"]
-                        fetch(sba, settings)
+                        await fetch(sba, settings)
                             .then(res => res.json())
-                            .then(json => {
+                            .then(async json => {
                                 json.data.forEach((language: LanguageStatus) => {
                                     if (language.data.languageId === lang.id) sbaData = language.data
                                 })
 
                                 const bot = `https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500`
                                 let botData: LanguageStatus["data"]
-                                fetch(bot, settings)
+                                await fetch(bot, settings)
                                     .then(res => res.json())
-                                    .then(json => {
+                                    .then(async json => {
                                         json.data.forEach((language: LanguageStatus) => {
                                             if (language.data.languageId === lang.id) botData = language.data
                                         })
@@ -85,6 +83,12 @@ const command: Command = {
                                     })
                             })
                     })
+            })
+            .catch(e => {
+                if (e instanceof FetchError) {
+                    console.error("Crowdin API is down, sending error.")
+                    throw "apiError"
+                } else throw e
             })
     }
 }

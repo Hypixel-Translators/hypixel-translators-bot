@@ -2,7 +2,6 @@
     "moduleName": "Hypixel-verificatie",
     "success": "Je hebt jezelf geverifieerd als %%player%%!",
     "role": "Je hebt de rol %%role%% ontvangen vanwege je rang op de server.",
-    "noRoles": "Je hebt geen rollen ontvangen omdat je geen rol hebt op Hypixel of omdat we deze niet konden vinden! Neem contact op met een administrator als je denkt dat dit een fout is.",
     "alreadyVerified": "Je bent al geverifieerd!",
     "nameChangeDisclaimer": "Houd er rekening mee dat je jezelf niet opnieuw hoeft te verifiëren als je je naam verandert!",
     "error": "We konden je niet verifiëren omdat je je Discord-account niet correct vermeld hebt op Hypixel!",

@@ -2,7 +2,6 @@
     "moduleName": "Hypixel csatlakoztatás",
     "success": "Sikeresen csatlakozás %%player%% felhasználóhoz!",
     "role": "Megkaptad a %%role%% rangot a szerveri rangodért.",
-    "noRoles": "Nem kaptál rangot, mivel nincs rangod a Hypixelen vagy nem találtuk meg! Írj egy adminnak ha ez szerinted egy hiba.",
     "alreadyVerified": "Már csatolva vagy!",
     "nameChangeDisclaimer": "Nem kell újracsatolnod a fiókodat, hogyha megváltoztatod a nevedet!",
     "error": "Nem tudtunk csatolni, mivel nem állítottad be helyesen a Discordodat a Hypixelen!",

@@ -12,7 +12,7 @@
     "howOpen": "Może to być zrobione poprzez ten [link](%%link%%).",
     "clickLanguage": "Teraz, kliknij na język który chciałbyś przetłumaczyć",
     "requestJoin": "Aby dołączyć do tego języka, kliknij \"Join\" i napisz krótką wiadomość dlaczego chciałbyś dołączyć do projektu.",
-    "lastThing": "Jeszcze jedna rzecz",
+    "lastThing": "Jeszcze jedna sprawa",
     "requestInfo": "Kiedy zatwierdzasz swoją prośbę, proszę zawrzeć swój tag (%%tag%%) lub swoje ID (%%id%%).\n**Jeżeli nie napiszesz przynajmniej jednej z tych rzeczy, będziesz odrzucony/a!**",
     "noLanguage": "Nie możesz znaleźć swojego języka?",
     "langRequest": "Jest szansa, że jeszcze nie obsługujemy twojego języka. W takim wypadku wykonaj `+language add <język>`. Ta komenda wyśle wiadomość do administracji, która powiadomi ich o tym, że chciał(a)byś, aby ten język został dodany."
