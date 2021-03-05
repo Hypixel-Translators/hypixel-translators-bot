@@ -22,8 +22,9 @@ const command: Command = {
                     (message.channel as Discord.TextChannel).bulkDelete(fiMessages)
                 })
             await message.member!.roles.add("569194996964786178", "Manually verified through the command")
-                .then(async () => await message.member!.roles.remove("756199836470214848", "Manually verified through the command")); //Add Verified and remove Alerted
+            await message.member!.roles.remove("756199836470214848", "Manually verified through the command"); //Add Verified and remove Alerted
             (message.guild!.channels.cache.get("662660931838410754") as Discord.TextChannel)!.send(`${message.author} manually verified themselves through the command`) //verify-logs
+            client.cooldowns.get(this.name)!.delete(message.author.id)
         } else if (!message.member!.roles.cache.has("764442984119795732") || /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(args[0])) { //Discord Administrator
             const userDb = await client.db.collection("users").findOne({ id: message.author.id })
             if (userDb.profile) {

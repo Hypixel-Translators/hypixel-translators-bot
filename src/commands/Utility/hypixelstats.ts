@@ -173,7 +173,7 @@ const command: Command = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${getString("socialMedia").replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`)}\n${getString("updateNotice")}`)
+                        .setDescription(`${getString("socialMedia").replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`)}\n${uuidDb ? `${getString("userVerified").replace("%%user%%", `<@${uuidDb.id}>`)}\n` : ""}${getString("updateNotice")}`)
                         .addFields(
                             { name: "Twitter", value: twitter, inline: true },
                             { name: "YouTube", value: youtube, inline: true },
