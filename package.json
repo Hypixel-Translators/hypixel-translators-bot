@@ -1,7 +1,7 @@
 {
   "name": "hypixel-translators",
   "version": "2.0.0",
-  "main": "index.js",
+  "main": "dist/index",
   "license": "MIT",
   "scripts": {
     "start": "node --trace-warnings index.js",
