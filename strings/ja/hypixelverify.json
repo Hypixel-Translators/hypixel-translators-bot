@@ -1,5 +1,5 @@
 {
-    "moduleName": "Hypixel 認証",
+    "moduleName": "Hypixel認証",
     "success": "あなたを%%player%%として認証しました！",
     "role": "サーバーのランクに基づき%%role%%ロールを付与しました。",
     "alreadyVerified": "既に認証しています！",
