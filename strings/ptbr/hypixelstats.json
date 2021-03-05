@@ -2,6 +2,7 @@
     "moduleName": "Estatísticas do jogador",
     "description": "Here are some Hypixel stats for %%username%%, obtained [here]%%link%%.",
     "socialMedia": "Here are the linked social media for %%username%%, obtained [here]%%link%%.",
+    "userVerified": "This player is verified as %%user%%.",
     "updateNotice": "Nota: as informações exibidas aqui podem levar alguns minutos para atualizar depois que você mudar alguma coisa.",
     "mediaTip": "To see their linked social media, execute %%command%%",
     "networkLevel": "Nível no Hypixel",

@@ -2,6 +2,7 @@
     "moduleName": "Pelaajan tilastot",
     "description": "Tässä joitain pelaajan %%username%% Hypixel-tilastoja, jotka on hankittu [täältä]%%link%%.",
     "socialMedia": "Tässä pelaajan %%username%% sosiaaliset mediat, jotka on hankittu [täältä]%%link%%.",
+    "userVerified": "This player is verified as %%user%%.",
     "updateNotice": "Huomio: Tässä olevien tietojen päivittyminen saattaa viedä muutamia minuutteja tekemiesi muutosten jälkeen.",
     "mediaTip": "Nähdäksesi hänen sosiaaliset mediansa, käytä komentoa %%command%%",
     "networkLevel": "Hypixel level",

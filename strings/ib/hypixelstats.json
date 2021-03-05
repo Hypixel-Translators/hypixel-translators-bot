@@ -2,6 +2,7 @@
     "moduleName": "Plaier statz",
     "description": "Hier ar som Hypickle statz for %%username%%, they have been get [hier]%%link%%.",
     "socialMedia": "Hier ar som soshal media for %%username%%, they have been get [hier]%%link%%.",
+    "userVerified": "This player is verified as %%user%%.",
     "updateNotice": "Wanting: Informashone sees hier might take a few minuts too updat aftr you has changag somthgn.",
     "mediaTip": "Too cee their socal meda, excut %%command%%",
     "networkLevel": "Hipexle levle",

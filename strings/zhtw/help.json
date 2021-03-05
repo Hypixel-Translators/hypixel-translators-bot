@@ -10,7 +10,7 @@
     "timeOut": "這個選單已逾時。如果你要繼續使用它，請再次輸入 `+help`。",
     "pageNotExist": "該頁面並不存在。",
     "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
+    "commandInfoFor": "指令資訊：",
     "commandNotExist": "該指令並不存在！",
     "staffOnly": "這個指令僅供管理員使用，因此有關訊息不公開顯示。如果你認為這是錯誤，請聯絡管理員。",
     "inDev": "This command is currently in development and will be available at a later date!",

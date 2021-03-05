@@ -26,7 +26,7 @@
     },
     "prefix": {
         "usage": "+prefix [flags]",
-        "description": "Daje ci przedrostek odpowiedni dla twojego języka/ów. Aby go otrzymać, wpisz `+prefix <flagi>`, gdzie `<flagi>` to kod flagi lub jej nazwa. Możesz dodać tyle flag, ile chcesz, oddzielając je spacją."
+        "description": "Daje ci przedrostek odpowiedni dla twojego języka (lub języków). Aby go otrzymać, wpisz `+prefix <flagi>`, gdzie `<flagi>` oznacza kod flagi lub jej nazwę. Możesz dodać tyle flag, ile chcesz; pamiętaj, by odzielić je spacjami."
     },
     "quote": {
         "usage": "+quote [index] | +quote add <cytat> / <wzmianka użytkownika>",
@@ -54,7 +54,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "Podaje informacje o pingu bota."
     },
     "hypixelstats": {
         "usage": "+hypixelstats [nick gracza] [social]",
@@ -94,7 +94,7 @@
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Podaje odnośnik do oficjalnego wątku dotyczącego tłumaczeń Hypixela."
     },
     "quickplay": {
         "usage": "+quickplay",
@@ -106,7 +106,7 @@
     },
     "translate": {
         "usage": "+translate",
-        "description": "Podaje ci przydatne informacje o tym jak tłumaczyć Bota."
+        "description": "Podaje ci przydatne informacje o tym, jak tłumaczyć Bota."
     },
     "thread": {
         "usage": "+thread",
