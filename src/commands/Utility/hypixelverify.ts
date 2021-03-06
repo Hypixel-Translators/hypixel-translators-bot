@@ -59,7 +59,6 @@ const command: Command = {
                 if (json.links?.DISCORD === message.author.tag) {
                     await db.collection("users").updateOne({ id: message.author.id }, { $set: { uuid: json.uuid } }).then(async r => {
                         const role = await updateRoles(message.member!, json)
-                        if (role) console.error(`Role for the user ${json.username} is undefined PLEASE FIX`)
                         if (r.result.nModified) {
                             const successEmbed = new Discord.MessageEmbed()
                                 .setColor(successColor)
