@@ -2,7 +2,7 @@ import puppeteer from "puppeteer"
 import Discord, { TextChannel } from "discord.js"
 import { errorColor, neutralColor } from "../config.json"
 import { v4 } from "uuid"
-import { client } from "../index"
+import { db } from "../lib/dbclient"
 
 type ValidProjects = "Hypixel" | "Quickplay" | "Bot" | "SkyblockAddons"
 
@@ -32,7 +32,7 @@ async function crowdinVerify(member: Discord.GuildMember, url: string | undefine
         .setAuthor("Received message from staff")
         .setFooter("Any messages you send here will be sent to staff.")
     if (!url) {
-        const userDb = await client.db.collection("users").findOne({ id: member.id })
+        const userDb = await db.collection("users").findOne({ id: member.id })
         url = userDb.profile
         if (!url) { //if user runs +reverify and the profile is not stored on our DB
             //#region return message
@@ -193,7 +193,7 @@ async function crowdinVerify(member: Discord.GuildMember, url: string | undefine
 
     await member.roles.remove(UsefulIDs.Alerted, "User is now Verified")
     await member.roles.add(UsefulIDs.Verified, "User is now Verified")
-    await client.db.collection("users").updateOne({ id: member.id }, { $set: { profile: url } })
+    await db.collection("users").updateOne({ id: member.id }, { $set: { profile: url } })
 
     const endingMessageProjects: {
         [name: string]: Discord.Role[]
@@ -203,7 +203,7 @@ async function crowdinVerify(member: Discord.GuildMember, url: string | undefine
         endingMessageProjects[k] = [role]
     }
 
-    const coll = client.db.collection("langdb")
+    const coll = db.collection("langdb")
     for (const [k, v] of Object.entries(highestLangRoles)) { //k => key; v => value
         const lang = (await coll.findOne({ id: k })).name
         v.projects.forEach(p => {
@@ -303,7 +303,7 @@ async function updateLanguageRoles(
     },
     member: Discord.GuildMember
 ) {
-    const coll = client.db.collection("langdb"),
+    const coll = db.collection("langdb"),
         activeRoles: string[] = [],
         addedRoles: string[] = []
 

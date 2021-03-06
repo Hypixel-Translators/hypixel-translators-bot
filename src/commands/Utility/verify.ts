@@ -1,3 +1,4 @@
+import { db } from "../../lib/dbclient"
 import { client } from "../../index"
 import { crowdinVerify } from "../../lib/crowdinverify"
 import { errorColor } from "../../config.json"
@@ -26,7 +27,7 @@ const command: Command = {
             (message.guild!.channels.cache.get("662660931838410754") as Discord.TextChannel)!.send(`${message.author} manually verified themselves through the command`) //verify-logs
             client.cooldowns.get(this.name)!.delete(message.author.id)
         } else if (!message.member!.roles.cache.has("764442984119795732") || /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(args[0])) { //Discord Administrator
-            const userDb = await client.db.collection("users").findOne({ id: message.author.id })
+            const userDb = await db.collection("users").findOne({ id: message.author.id })
             if (userDb.profile) {
                 message.react("798339571531382874"); //icon_working
                 (message.client.channels.cache.get("662660931838410754")  as Discord.TextChannel).send(`${message.author} was unverified.`) //verify-logs

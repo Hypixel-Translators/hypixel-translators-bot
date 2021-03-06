@@ -94,9 +94,8 @@ client.on("message", async message => {
     //Return if user is not verified
     if (message.member && !message.member.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
     else {
-        const server = message.client.guilds.cache.get("549503328472530974")
-        const user = server!.member(message.author)
-        if (user!.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
+        const member = message.client.guilds.cache.get("549503328472530974")!.member(message.author)
+        if (!member?.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
     }
 
     //Role Blacklist and Whitelist system

@@ -2,6 +2,7 @@ import { loadingColor, errorColor, successColor } from "../config.json"
 import Discord from "discord.js"
 import fetch from "node-fetch"
 import { HTBClient } from "../lib/dbclient"
+import { db } from "../lib/dbclient"
 import { ObjectId } from "mongodb"
 const ctokenV2 = process.env.CTOKEN_API_V2
 
@@ -28,7 +29,7 @@ export async function execute(client: HTBClient, manual: boolean) {
 }
 
 export async function hypixel(client: HTBClient) {
-    const langdb = await client.db.collection("langdb").find().toArray()
+    const langdb = await db.collection("langdb").find().toArray()
     fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } })
         .then(res => res.json())
         .then(json => {
@@ -77,7 +78,7 @@ export async function hypixel(client: HTBClient) {
 }
 
 export async function quickplay(client: HTBClient) {
-    const langdb = await client.db.collection("langdb").find().toArray()
+    const langdb = await db.collection("langdb").find().toArray()
     fetch("https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } })
         .then(res => res.json())
         .then(json => {
@@ -131,7 +132,7 @@ export async function quickplay(client: HTBClient) {
 }
 
 export async function bot(client: HTBClient) {
-    const langdb = await client.db.collection("langdb").find().toArray()
+    const langdb = await db.collection("langdb").find().toArray()
     fetch("https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } })
         .then(res => res.json())
         .then(json => {
@@ -185,7 +186,7 @@ export async function bot(client: HTBClient) {
 }
 
 export async function skyblockaddons(client: HTBClient) {
-    const langdb = await client.db.collection("langdb").find().toArray()
+    const langdb = await db.collection("langdb").find().toArray()
     fetch("https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } })
         .then(res => res.json())
         .then(json => {

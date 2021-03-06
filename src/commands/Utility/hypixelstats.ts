@@ -1,6 +1,7 @@
 import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
 import { client } from "../../index"
+import { db } from "../../lib/dbclient"
 import { updateRoles } from "./hypixelverify"
 import { Command } from "../../lib/dbclient"
 
@@ -64,7 +65,7 @@ const command: Command = {
                 username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
 
                 //Update user's roles if they're verified
-                const uuidDb = await client.db.collection("users").findOne({ uuid: json.uuid })
+                const uuidDb = await db.collection("users").findOne({ uuid: json.uuid })
                 if (uuidDb) updateRoles(message.guild!.members.cache.get(uuidDb.id)!, json)
 
                 if (!args[1] || args[1] === "stats") {

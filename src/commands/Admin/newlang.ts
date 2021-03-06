@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import country from "countryjs"
 //@ts-ignore
 import { flag } from "country-emoji"
-import { client } from "../../index"
+import { db } from "../../lib/dbclient"
 import { Command } from "../../lib/dbclient"
 
 const command: Command = {
@@ -15,7 +15,7 @@ const command: Command = {
     message.channel.startTyping()
     const lang = args[0].toLowerCase()
     const code = args[0].toUpperCase()
-    const langdbEntry = await client.db.collection("langdb").findOne({ code: lang })
+    const langdbEntry = await db.collection("langdb").findOne({ code: lang })
     let nationality = country.demonym(code)
     let emoji = flag(lang)
     if (langdbEntry) {

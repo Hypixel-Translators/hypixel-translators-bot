@@ -1,4 +1,4 @@
-import { client } from "../../index"
+import { db } from "../../lib/dbclient"
 import { successColor, errorColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import { Command } from "../../lib/dbclient"
@@ -10,7 +10,7 @@ const command: Command = {
     allowTip: false,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
     async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
-        const collection = client.db.collection("users")
+        const collection = db.collection("users")
         if (message.member!.roles.cache.has("764442984119795732") && args[0]) { //Discord Administrator
             let user = message.author
             if (args[0]) {

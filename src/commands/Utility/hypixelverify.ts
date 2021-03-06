@@ -2,6 +2,7 @@ import Discord from "discord.js"
 import { prefix, successColor, errorColor } from "../../config.json"
 import fetch, { FetchError } from "node-fetch"
 import { client } from "../../index"
+import { db } from "../../lib/dbclient"
 import { Command } from "../../lib/dbclient"
 
 const command: Command = {
@@ -17,7 +18,7 @@ const command: Command = {
         const command = message.content.slice(prefix.length).split(" ")[0].toLowerCase()
         if (command === "hypixelunverify" || command === "hunverify") {
             await updateRoles(message.member!)
-            await client.db.collection("users").updateOne({ id: message.author.id }, { $unset: { uuid: true } }).then(async r => {
+            await db.collection("users").updateOne({ id: message.author.id }, { $unset: { uuid: true } }).then(async r => {
                 if (r.result.nModified) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
@@ -56,7 +57,7 @@ const command: Command = {
                     throw "apiError"
                 }
                 if (json.links?.DISCORD === message.author.tag) {
-                    await client.db.collection("users").updateOne({ id: message.author.id }, { $set: { uuid: json.uuid } }).then(async r => {
+                    await db.collection("users").updateOne({ id: message.author.id }, { $set: { uuid: json.uuid } }).then(async r => {
                         const role = await updateRoles(message.member!, json)
                         if (role) console.error(`Role for the user ${json.username} is undefined PLEASE FIX`)
                         if (r.result.nModified) {

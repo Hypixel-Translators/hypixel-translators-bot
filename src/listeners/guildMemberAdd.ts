@@ -1,4 +1,5 @@
 import { client } from "../index.js"
+import { db } from "../lib/dbclient"
 import Discord from "discord.js"
 import { registerFont, createCanvas, loadImage } from "canvas"
 
@@ -68,6 +69,6 @@ client.on("guildMemberAdd", member => {
     })
     if (!member.user.bot) {
         member.send(`Hey there and thanks for joining **${member.guild.name}**! If you're a translator, be sure to check out <#699275092026458122> as this channel includes useful information for new and current translators. If you're looking to translate other projects, check out the ones we currently support by executing \`+projects\` here! We hope you have fun on our server!`).catch(() => console.log(`Couldn't DM user ${member.user.tag}, probably because they have DMs off`)) //getting started
-        client.db.collection("users").insertOne({ id: member.user.id, lang: "en" })
+        db.collection("users").insertOne({ id: member.user.id, lang: "en" })
     }
 })

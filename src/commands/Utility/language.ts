@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import fs from "fs"
 //@ts-ignore
 import { name, code } from 'country-emoji'
-import { client } from "../../index"
+import { db } from "../../lib/dbclient"
 import { Command } from "../../lib/dbclient"
 
 const command: Command = {
@@ -16,7 +16,7 @@ const command: Command = {
     cooldown: 5,
     async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
         let executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
-        const collection = client.db.collection("users")
+        const collection = db.collection("users")
         const stringsFolder = "./strings/"
 
         if (args[0]) {
@@ -87,7 +87,7 @@ const command: Command = {
                 message.channel.startTyping()
                 let newLang = args[0].toLowerCase()
                 if (newLang === "se") newLang = "sv"
-                const langdb = await client.db.collection("langdb").find().toArray()
+                const langdb = await db.collection("langdb").find().toArray()
                 const langdbEntry = langdb.find(l => l.name.toLowerCase() === newLang)
                 if (langdbEntry) newLang = langdbEntry.code
                 if (newLang === "empty" && !message.member!.roles.cache.has("764442984119795732")) newLang = "denied" //Discord Administrator

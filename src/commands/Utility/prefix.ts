@@ -2,7 +2,7 @@ import { loadingColor, errorColor, successColor, neutralColor } from "../../conf
 import Discord from "discord.js"
 //@ts-ignore
 import { flag } from "country-emoji"
-import { client } from "../../index"
+import { db } from "../../lib/dbclient"
 import { Command } from "../../lib/dbclient"
 
 const command: Command = {
@@ -15,7 +15,7 @@ const command: Command = {
   async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
     const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
     const nickNoPrefix = message.member!.displayName.replace(/\[[^\s]*\] /g, "")
-    const langdb = await client.db.collection("langdb").find().toArray()
+    const langdb = await db.collection("langdb").find().toArray()
 
     if (args[0]) {
       let flagEmojis: (string | undefined)[] = []

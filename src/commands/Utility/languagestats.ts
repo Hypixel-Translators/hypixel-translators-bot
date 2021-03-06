@@ -1,4 +1,5 @@
 import { client } from "../../index"
+import { db } from "../../lib/dbclient"
 import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
 import { successColor, loadingColor, errorColor } from "../../config.json"
@@ -19,7 +20,7 @@ const command: Command = {
         if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !args[0]) rawLang = authorDb.lang
         if (args[0]) rawLang = args.join(" ").toLowerCase()
         if (!rawLang!) throw "noLang"
-        const langdb = await client.db.collection("langdb").find().toArray()
+        const langdb = await db.collection("langdb").find().toArray()
         let lang = langdb.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)
         if (!lang) lang = langdb.find(l => l.name.toLowerCase().includes(rawLang))
         if (lang.code === "en") lang = undefined

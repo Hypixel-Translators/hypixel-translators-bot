@@ -1,6 +1,6 @@
 import { errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
-import { client } from "../../index"
+import { db } from "../../lib/dbclient"
 import { Collection } from "mongodb"
 import { Command } from "../../lib/dbclient"
 
@@ -13,7 +13,7 @@ const command: Command = {
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development bot-translators
     async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
-        const collection = client.db.collection("quotes")
+        const collection = db.collection("quotes")
         let allowed = false
         if (message.member?.hasPermission("VIEW_AUDIT_LOG")) allowed = true
         message.channel.startTyping()
