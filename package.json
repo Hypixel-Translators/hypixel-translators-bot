@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node --trace-warnings index.js",
     "test": "node --unhandled-rejections=strict index.js",
-    "compile": "rimraf dist/ && tsc"
+    "compile": "rimraf dist/ && tsc",
+    "postinstall": "tsc"
   },
   "repository": {
     "type": "git",
