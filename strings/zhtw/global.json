@@ -44,7 +44,7 @@
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "請將你發送的連結更改為 en-en！",
         "xp": "你在聊天時，每分鐘都會得到隨機數量的經驗，這會讓你提升等級。",
-        "guide": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%gettingStarted%%, it has some useful tips!",
+        "guide": "你知道我們為所有翻譯員提供了 Crowdin 的使用教學嗎？請到 %%gettingStarted%% 查看。那裡有很多有用的提示！",
         "twitter": "Have you followed our twitter account? Check it out at %%twitter%%!",
         "rulesInfo": "%%rules%% 和 %%serverInfo%% 包含了關於這個伺服器的所有資訊！",
         "fixTranslation": "找到了錯誤的翻譯？請向你的語言的校對員聯絡，或在翻譯頻道提出。",
