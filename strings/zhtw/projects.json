@@ -5,5 +5,5 @@
     "projectInfo": "你可以[點擊這裡](%%link%%)找到 %%project%% 項目的連結。如要了解更多資訊，請執行 %%command%%。",
     "alreadyJoined": "你已加入此項目！",
     "notJoined": "你尚未加入此項目！",
-    "dmError": "We couldn't check whether you're already on these projects or not. In order to do this, you must execute the command on The Hypixel Translators Community Discord."
+    "dmError": "我們無法確認你是否已經加入這些項目。為此，你必須在 The Hypixel Translators Community Discord 中執行此指令。"
 }
