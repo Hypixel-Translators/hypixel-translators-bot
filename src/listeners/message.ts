@@ -134,7 +134,7 @@ client.on("message", async message => {
         message.react("732298639736570007")
         return setTimeout(() => {
             if (!message.deleted && message.channel.type !== "dm") message.delete()
-        }, 5000);
+        }, 5000)
     }
 
     //Get the author from the database
@@ -244,7 +244,7 @@ client.on("message", async message => {
                     setTimeout(() => {
                         if (!message.deleted && message.channel.type !== "dm") message.delete()
                         if (!msg.deleted && message.channel.type !== "dm") msg.delete()
-                    }, 10000);
+                    }, 10000)
                 }
             })
     } finally {

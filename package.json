@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node --trace-warnings index.js",
-    "test": "node --unhandled-rejections=strict index.js"
+    "test": "node --unhandled-rejections=strict index.js",
+    "compile": "rimraf dist/ && tsc"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "@types/google-spreadsheet": "^3.0.2",
     "@types/mongodb": "^3.6.8",
     "@types/node-fetch": "^2.5.8",
-    "@types/uuid": "^8.3.0"
+    "@types/uuid": "^8.3.0",
+    "rimraf": "^3.0.2"
   }
 }

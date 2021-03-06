@@ -24,7 +24,7 @@ const command: Command = {
 
     let evaled
     let code = args.join(" ").replace(/[“”]/gim, '"')
-    if (code.includes("await ")) code = `(async () => {\n${code}\n})();`
+    if (code.includes("await ")) code = `(async () => {\n${code}\n})()`
     try {
       evaled = await eval(code)
       message.channel.send(inspect(evaled).substring(0, 255))

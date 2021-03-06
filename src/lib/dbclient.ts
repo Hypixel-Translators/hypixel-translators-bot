@@ -31,7 +31,7 @@ export interface Command {
     channelWhitelist?: string[],
     categoryWhitelist?: string[],
     categoryBlacklist?: string[],
-    execute: Function
+    execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any): any
 }
 
 export class HTBClient extends Discord.Client {

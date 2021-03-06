@@ -25,7 +25,7 @@ export function setup(client: HTBClient) {
     if (cmdFiles.length <= 0) console.log("There are no commands to load...")
     else {
         cmdFiles.forEach(file => {
-            const command: Command = require(file)
+            const command: Command = require(file).default
             client.commands.set(command.name, command)
         })
         console.log(`Loaded ${cmdFiles.length} commands.`)
