@@ -1,4 +1,4 @@
-//Import dependencies and define client
+//Setup dotenv and define client
 require("dotenv").config()
 import { HTBClient } from "./lib/dbclient"
 export const client = new HTBClient()

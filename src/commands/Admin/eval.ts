@@ -3,8 +3,7 @@ import fetch from "node-fetch"
 //@ts-ignore
 import { flag, code, name, countries } from 'country-emoji'
 import fs from "fs"
-//@ts-ignore
-import country from 'countryjs'
+import country from "countryjs"
 import { client } from "../../index.js"
 import Discord from "discord.js"
 import { inspect } from "util"
