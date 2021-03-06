@@ -2,7 +2,7 @@
     "moduleName": "Spelerstatistieken",
     "description": "Hier zijn een aantal statistieken voor %%username%% van [deze site]%%link%%.",
     "socialMedia": "Hier zijn de gelinkte sociale media voor %%username%%, van [deze site]%%link%%.",
-    "userVerified": "This player is verified as %%user%%.",
+    "userVerified": "Deze speler is geverifieerd als %%user%%.",
     "updateNotice": "Het kan een paar minuten duren voordat deze informatie bijgewerkt wordt nadat er iets in veranderd is.",
     "mediaTip": "Om gelinkte sociale media weer te geven, voer je %%command%% uit",
     "networkLevel": "Hypixellevel",
