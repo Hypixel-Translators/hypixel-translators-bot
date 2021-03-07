@@ -11,6 +11,7 @@ async function init() {
         client.connect()
             .then(mongoClient => {
                 db = mongoClient.db(process.env.db_name)
+                console.log("Connected to MongoDB!")
                 resolve(mongoClient)
             })
             .catch(reject)

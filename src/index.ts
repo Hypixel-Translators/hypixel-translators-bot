@@ -1,5 +1,6 @@
 //Setup dotenv and define client
-require("dotenv").config()
+import "dotenv/config"
+import 'source-map-support/register'
 import { HTBClient } from "./lib/dbclient"
 export const client = new HTBClient()
 

@@ -5,6 +5,7 @@ import { flag, code, name, countries } from 'country-emoji'
 import fs from "fs"
 import country from "countryjs"
 import { client } from "../../index.js"
+import { db } from "../../lib/dbclient"
 import Discord from "discord.js"
 import { inspect } from "util"
 import { Command } from "../../lib/dbclient"
