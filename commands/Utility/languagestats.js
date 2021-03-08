@@ -21,7 +21,7 @@ module.exports = {
         const langdb = await getDb().collection("langdb").find().toArray()
         let lang = langdb.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)
         if (!lang) lang = langdb.find(l => l.name.toLowerCase().includes(rawLang))
-        if (lang.code === "en") lang = undefined
+        if (lang?.code === "en") lang = undefined
         if (!lang) throw "falseLang"
 
         message.channel.startTyping()
