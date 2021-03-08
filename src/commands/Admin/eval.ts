@@ -1,15 +1,16 @@
-import { loadingColor, errorColor, successColor, neutralColor, blurple, listeningStatuses, watchingStatuses, playingStatuses } from "../../config.json"
-import fetch from "node-fetch"
+const { loadingColor, errorColor, successColor, neutralColor, blurple, listeningStatuses, watchingStatuses, playingStatuses } = require("../../config.json")
+const fetch = require("node-fetch")
 //@ts-ignore
-import { flag, code, name, countries } from 'country-emoji'
-import fs from "fs"
-import country from "countryjs"
-import { client } from "../../index.js"
-import { db } from "../../lib/dbclient"
+const { flag, code, name, countries }  = require('country-emoji')
+const fs = require("fs")
+const country = require("countryjs")
+const { client } = require("../../index.js")
+const { db } = require("../../lib/dbclient")
 import { transpile } from "typescript"
 import Discord from "discord.js"
 import { inspect } from "util"
 import { Command } from "../../lib/dbclient"
+
 
 const command: Command = {
   name: "eval",
