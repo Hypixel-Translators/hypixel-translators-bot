@@ -6,6 +6,7 @@ import fs from "fs"
 import country from "countryjs"
 import { client } from "../../index.js"
 import { db } from "../../lib/dbclient"
+import { transpile } from "typescript"
 import Discord from "discord.js"
 import { inspect } from "util"
 import { Command } from "../../lib/dbclient"
@@ -25,6 +26,7 @@ const command: Command = {
     let evaled
     let code = args.join(" ").replace(/[“”]/gim, '"')
     if (code.includes("await ")) code = `(async () => {\n${code}\n})()`
+    code = transpile(code)
     try {
       evaled = await eval(code)
       message.channel.send(inspect(evaled).substring(0, 255))
