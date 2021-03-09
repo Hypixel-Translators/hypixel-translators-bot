@@ -1,12 +1,12 @@
 {
   "name": "hypixel-translators",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "dist/index",
   "license": "MIT",
   "scripts": {
-    "start": "node --trace-warnings index.js",
-    "test": "node --unhandled-rejections=strict index.js",
-    "compile": "rimraf dist/ && tsc",
+    "start": "node --trace-warnings dist/index.js",
+    "test": "node --unhandled-rejections=strict dist/index.js",
+    "compile": "rimraf dist/ && tsc -w",
     "postinstall": "tsc"
   },
   "repository": {
