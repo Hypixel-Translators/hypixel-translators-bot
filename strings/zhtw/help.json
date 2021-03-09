@@ -19,7 +19,7 @@
     "minutes": "分鐘",
     "usageField": "用法",
     "cooldownField": "冷卻時間",
-    "aliasesField": "Aliases",
+    "aliasesField": "其他用法",
     "help": {
         "usage": "+help [頁數 | 指令名稱]",
         "description": "顯示所有你可使用的指令及關於機器人的其他訊息。"
@@ -74,11 +74,11 @@
     },
     "profile": {
         "usage": "+profile",
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
+        "description": "如果你的 Crowdin 個人檔案已儲存在我們的資料庫中，則會給予你的個人檔案連結。否則，你可以執行 `+help reverify` 以了解如何儲存你的個人檔案至資料庫和更新你的身分組。"
     },
     "tip": {
         "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
+        "description": "隨機給予你一個與伺服器相關的提示。"
     },
     "invite": {
         "usage": "+invite",
@@ -94,7 +94,7 @@
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "給予你 Hypixel 官方發布之翻譯準則的連結。"
     },
     "quickplay": {
         "usage": "+quickplay",

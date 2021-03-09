@@ -1,7 +1,7 @@
 {
     "moduleName": "プレイヤーの統計",
     "description": "%%username%%のHypixelの統計はこちらです。[こちら]%%link%% から取得しています。",
-    "socialMedia": "Here are the linked social media for %%username%%, obtained [here]%%link%%.",
+    "socialMedia": "%%username%%のリンク付けされたソーシャルメディアはこちらです。[こちら]%%link%% から取得しています。",
     "userVerified": "This player is verified as %%user%%.",
     "updateNotice": "注意：ここにある情報は、変更してから更新されるまで数分かかる場合があります。",
     "mediaTip": "リンク付けされたソーシャルメディアを見るには%%command%%を実行してください",
@@ -20,7 +20,7 @@
     "unknown": "不明",
     "lastGameHidden": "最後に遊んだゲームが非公開または取得できませんでした！",
     "lastLoginHidden": "最後に接続した時間が非公開または取得できませんでした！",
-    "firstLoginHidden": "First login time is hidden or couldn't be obtained!",
+    "firstLoginHidden": "初回ログイン日時が非公開または取得できませんでした！",
     "dateLocale": "ja-JP",
     "timeZone": "Asia/Tokyo",
     "ENGLISH": "英語",

@@ -69,7 +69,7 @@
         "description": "The Magic 8 Ball that will answer all your questions."
     },
     "verify": {
-        "usage": "+verify [profileURL]",
+        "usage": "+verify [odnośnik do profilu]",
         "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `+profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
     },
     "profile": {
