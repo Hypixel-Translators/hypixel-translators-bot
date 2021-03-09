@@ -4,6 +4,7 @@ import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
 import { successColor, loadingColor, errorColor } from "../../config.json"
 import { Command } from "../../lib/dbclient"
+import { ObjectId } from "mongodb"
 const ctokenV2 = process.env.CTOKEN_API_V2
 
 const command: Command = {
@@ -21,10 +22,9 @@ const command: Command = {
         if (args[0]) rawLang = args.join(" ").toLowerCase()
         if (!rawLang!) throw "noLang"
         const langdb = await db.collection("langdb").find().toArray()
-        let lang = langdb.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)
+        let lang: LangDbEntry = langdb.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)
         if (!lang) lang = langdb.find(l => l.name.toLowerCase().includes(rawLang))
-        if (lang.code === "en") lang = undefined
-        if (!lang) throw "falseLang"
+        if (!lang || lang?.code === "en") throw "falseLang"
 
         message.channel.startTyping()
         const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
@@ -112,4 +112,14 @@ interface LanguageStatus {
         translationProgress: number,
         approvalProgress: number
     },
+}
+
+interface LangDbEntry {
+    _id: ObjectId,
+    name: string,
+    emoji: string,
+    colour?: string,
+    code: string,
+    id: string
+    flag: string
 }

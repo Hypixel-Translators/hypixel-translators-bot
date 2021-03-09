@@ -1,11 +1,11 @@
 const { loadingColor, errorColor, successColor, neutralColor, blurple, listeningStatuses, watchingStatuses, playingStatuses } = require("../../config.json")
 const fetch = require("node-fetch")
 //@ts-ignore
-const { flag, code, name, countries }  = require('country-emoji')
+const { flag, code, name, countries } = require('country-emoji')
 const fs = require("fs")
 const country = require("countryjs")
 const { client } = require("../../index.js")
-const { db } = require("../../lib/dbclient")
+const dbclient = require("../../lib/dbclient")
 import { transpile } from "typescript"
 import Discord from "discord.js"
 import { inspect } from "util"
@@ -22,7 +22,6 @@ const command: Command = {
   async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
     const me = message.member
     const guild = message.guild
-    const client = message.client
 
     let evaled
     let code = args.join(" ").replace(/[“”]/gim, '"')
