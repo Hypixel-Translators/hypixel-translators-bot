@@ -1,11 +1,13 @@
 {
   "name": "hypixel-translators",
-  "version": "2.0.0",
-  "main": "index.js",
+  "version": "3.0.0",
+  "main": "dist/index",
   "license": "MIT",
   "scripts": {
-    "start": "node --trace-warnings index.js",
-    "test": "node --unhandled-rejections=strict index.js"
+    "start": "node --trace-warnings dist/index.js",
+    "test": "node --unhandled-rejections=strict dist/index.js",
+    "compile": "rimraf dist/ && tsc -w",
+    "postinstall": "tsc"
   },
   "repository": {
     "type": "git",
@@ -21,10 +23,18 @@
     "mongodb": "^3.6.2",
     "node-fetch": "^2.6.1",
     "puppeteer": "^7.1.0",
-    "unzalgo": "^2.1.2",
+    "source-map-support": "^0.5.19",
     "uuid": "^8.3.2"
   },
   "engines": {
     "node": "14.x"
+  },
+  "devDependencies": {
+    "@types/google-spreadsheet": "^3.0.2",
+    "@types/mongodb": "^3.6.8",
+    "@types/node-fetch": "^2.5.8",
+    "@types/uuid": "^8.3.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.2.3"
   }
 }
