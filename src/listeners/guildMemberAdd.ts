@@ -5,8 +5,8 @@ import { registerFont, createCanvas, loadImage } from "canvas"
 
 client.on("guildMemberAdd", member => {
     //Define assets and create canvas
-    registerFont("../../assets/Bitter-Regular.ttf", { family: "Bitter" })
-    registerFont("../../assets/Bitter-Bold.ttf", { family: "Bitter-Bold" })
+    registerFont("assets/Bitter-Regular.ttf", { family: "Bitter" })
+    registerFont("assets/Bitter-Bold.ttf", { family: "Bitter-Bold" })
     const canvas = createCanvas(800, 200)
     const ctx = canvas.getContext("2d")
     const userName = member.user.username
@@ -18,7 +18,7 @@ client.on("guildMemberAdd", member => {
     if (/(^[A-zÀ-ÿ0-9 $-/:-?{-~!"^_`\[\]])\w+/gi.test(userName)) usernameFont = "37.5px Bitter-Bold"
     else usernameFont = "37.5px sans-serif"*/
 
-    loadImage("../../assets/joinBackground.png").then(bg => {
+    loadImage("assets/joinBackground.png").then(bg => {
         let nameWidth
 
         //GENERAL

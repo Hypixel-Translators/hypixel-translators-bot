@@ -10,7 +10,7 @@ client.on("voiceStateUpdate", (oldState, newState) => {
             const embed = new Discord.MessageEmbed()
                 .setColor(newState.serverMute ? errorColor : successColor)
                 .setAuthor(newState.member!.user.tag, newState.member!.user.displayAvatarURL({ format: "png", dynamic: true }))
-                .setDescription(`**${newState.member} was server ${newState.serverMute ? "muted" : "unmuted"} in ${newState.channel!.name}**`)
+                .setDescription(`**${newState.member} was server ${newState.serverMute ? "muted" : "unmuted"} in ${newState.channel?.name}**`)
                 .setFooter(`ID: ${newState.member!.id}`)
                 .setTimestamp(Date.now())
             logs.send(embed)
