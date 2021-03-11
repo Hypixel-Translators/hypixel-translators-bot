@@ -38,7 +38,7 @@ const command: Command = {
     ] as Page[]
 
     if (args[0] && args[0].startsWith(prefix)) args[0] = args[0].slice(1)
-    if (!args[0] || !Number(args[0])) {
+    if (!args[0] || Number(args[0])) {
 
       if (Number(args[0]) > pages.length || Number(args[0]) < 1) {
         const embed = new Discord.MessageEmbed()
