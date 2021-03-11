@@ -35,6 +35,7 @@ export interface Command {
     channelWhitelist?: string[],
     categoryWhitelist?: string[],
     categoryBlacklist?: string[],
+    category?: string,
     execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any): any
 }
 

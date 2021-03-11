@@ -26,6 +26,8 @@ export function setup(client: HTBClient) {
     else {
         cmdFiles.forEach(file => {
             const command: Command = require(file).default
+            const pathSplit = file.split("\\")
+            command.category = pathSplit[pathSplit.length - 2]
             client.commands.set(command.name, command)
         })
         console.log(`Loaded ${cmdFiles.length} commands.`)

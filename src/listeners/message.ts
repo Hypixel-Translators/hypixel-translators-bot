@@ -200,7 +200,7 @@ client.on("message", async message => {
                         string = enStrings[pathPart] //if the string hasn't been added yet
                         if (!string) {
                             string = `strings.${path}` //in case of fire
-                            console.error(`Couldn't get string ${path} in English for ${cmd || command!.name}, please fix this`)
+                            if (command!.category != "Admin" && command!.category != "Staff") console.error(`Couldn't get string ${path} in English for ${cmd || command!.name}, please fix this`)
                         }
                     }
                 }
@@ -220,7 +220,7 @@ client.on("message", async message => {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(getString("error", "global"))
-            .setTitle(error.message?.substring(0, 255) || error.substring(0, 255))
+            .setTitle(error.message?.substring(0, 255) || error.toString().substring(0, 255))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         if (getString(`${command.name}.usage`, "help") === `strings.${command.name}.usage`) embed.addFields({ name: getString("usage", "global"), value: `\`${command.usage}\`` })
         else embed.addFields({ name: getString("usage", "global"), value: `\`${getString(`${command.name}.usage`, "help")}\`` })
