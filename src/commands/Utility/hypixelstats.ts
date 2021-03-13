@@ -1,9 +1,8 @@
 import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
-import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
 import { updateRoles } from "./hypixelverify"
-import { Command } from "../../index"
+import { Command, client } from "../../index"
 
 //Credits to marzeq_
 const command: Command = {

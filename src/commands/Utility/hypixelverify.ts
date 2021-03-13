@@ -1,9 +1,8 @@
 import Discord from "discord.js"
 import { prefix, successColor, errorColor } from "../../config.json"
 import fetch, { FetchError } from "node-fetch"
-import { client } from "../../index"
 import { db } from "../../lib/dbclient"
-import { Command } from "../../index"
+import { Command, client } from "../../index"
 
 const command: Command = {
     name: "hypixelverify",

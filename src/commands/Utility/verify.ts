@@ -1,9 +1,8 @@
 import { db, DbUser } from "../../lib/dbclient"
-import { client } from "../../index"
 import { crowdinVerify } from "../../lib/crowdinverify"
 import { errorColor } from "../../config.json"
 import Discord from "discord.js"
-import { Command } from "../../index"
+import { Command, client } from "../../index"
 
 const command: Command = {
     name: "verify",

@@ -8,18 +8,17 @@ client.once("ready", async () => {
     console.log("Ready!")
 
     //Fetch channels
-    client.guilds!.cache!.get("549503328472530974")!.members.fetch() //Guild members
-    const serverinfo = client.channels!.cache!.get("762341271611506708")! as Discord.TextChannel
+    client.guilds.cache.get("549503328472530974")?.members.fetch() //Guild members
+    const serverinfo = client.channels.cache.get("762341271611506708")! as Discord.TextChannel
     serverinfo.messages.fetch("800415711864029204") //server-info roles message
-    const verify = client.channels!.cache!.get("569178590697095168") as Discord.TextChannel
+    const verify = client.channels.cache.get("569178590697095168") as Discord.TextChannel
     verify.messages.fetch("787366444970541056") //verify message
-    const reviewStringsChannels = client.channels.cache.filter(c => (c as Discord.TextChannel).name.endsWith("review-strings")) as Discord.Collection<string, Discord.TextChannel>
-    reviewStringsChannels.forEach(c => c.messages.fetch())
+    client.channels.cache.filter(c => (c as Discord.TextChannel).name.endsWith("review-strings")).forEach(c => (c as Discord.TextChannel).messages.fetch())
 
     //Get server boosters and staff for the status
     let boostersStaff: string[] = []
-    client.guilds!.cache!.get("549503328472530974")!.roles!.cache!.get("644450674796396576")!.members.forEach(member => boostersStaff.push(member.user.username)) //Server Booster
-    client.guilds!.cache!.get("549503328472530974")!.roles!.cache!.get("768435276191891456")!.members.forEach(member => boostersStaff.push(member.user.username)) //Discord Staff
+    client.guilds.cache.get("549503328472530974")!.roles.cache.get("644450674796396576")!.members.forEach(member => boostersStaff.push(member.user.username)) //Server Booster
+    client.guilds.cache.get("549503328472530974")!.roles.cache.get("768435276191891456")!.members.forEach(member => boostersStaff.push(member.user.username)) //Discord Staff
 
     //Set status
     client.user!.setStatus("online").catch(console.error)

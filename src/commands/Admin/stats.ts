@@ -1,8 +1,7 @@
 import { errorColor, successColor } from "../../config.json"
 import Discord from "discord.js"
 import { execute, hypixel, quickplay, skyblockaddons, bot } from "../../events/stats.js"
-import { client } from "../../index"
-import { Command } from "../../index"
+import { Command, client } from "../../index"
 
 const command: Command = {
     name: "stats",

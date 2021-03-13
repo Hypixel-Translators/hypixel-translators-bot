@@ -5,7 +5,7 @@ const { flag, code, name, countries } = require('country-emoji')
 const fs = require("fs")
 const country = require("countryjs")
 const { client } = require("../../index.js")
-const dbclient = require("../../lib/dbclient")
+import { db as mongoDb } from "../../lib/dbclient"
 import { transpile } from "typescript"
 import Discord from "discord.js"
 import { inspect } from "util"
@@ -22,6 +22,7 @@ const command: Command = {
   async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
     const me = message.member
     const guild = message.guild
+    const db = mongoDb
 
     let evaled
     let code = args.join(" ").replace(/[“”]/gim, '"')
