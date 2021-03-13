@@ -232,7 +232,7 @@ client.on("message", async message => {
                         const embed = new Discord.MessageEmbed()
                             .setColor(errorColor)
                             .setAuthor("Unexpected error!")
-                            .setTitle(error.substring(0, 255))
+                            .setTitle(error.toString().substring(0, 255))
                             .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
                             .setFooter("Check the console for more details");
                         (message.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send("ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development

@@ -18,9 +18,9 @@ const command: Command = {
 
     //Define command categories
     const utilityCmds: string[] = []
-    fs.readdirSync("./dist/commands/Utility/").forEach(command => utilityCmds.push(command.split(".js.map").shift()!))
+    fs.readdirSync("./dist/commands/Utility/").forEach(command => { if (command.endsWith(".js")) utilityCmds.push(command.split(".").shift()!) })
     const infoCmds: string[] = []
-    fs.readdirSync("./dist/commands/Info/").forEach(command => infoCmds.push(command.split(".js.map").shift()!))
+    fs.readdirSync("./dist/commands/Info/").forEach(command => { if (command.endsWith(".js")) infoCmds.push(command.split(".").shift()!) })
     utilityCmds.forEach(cmd => {
       if (client.commands.get(cmd)!.dev) utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
       else if (!client.commands.get(cmd)!.allowDM && message.channel.type === "dm") utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
@@ -55,7 +55,7 @@ const command: Command = {
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("page1Title"))
-        .setDescription(getString("commandsListTooltip").replace("%%developer%%", "<@722738307477536778>").replace("%%github%%", "(https://github.com/Hypixel-Translators/hypixel-translators-bot)"))
+        .setDescription(getString("commandsListTooltip").replace("%%developer%%", "<@!807917674477649943>").replace("%%github%%", "(https://github.com/Hypixel-Translators/hypixel-translators-bot)"))
         .addFields(
           { name: getString("pageNumber").replace("%%number%%", "2").replace("%%total%%", pages.length), value: getString("utilityHelp").replace("%%badge%%", "🛠"), inline: true },
           { name: getString("pageNumber").replace("%%number%%", "3").replace("%%total%%", pages.length), value: getString("infoHelp").replace("%%badge%%", "ℹ"), inline: true })
