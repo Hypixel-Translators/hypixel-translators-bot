@@ -2,7 +2,7 @@ import { errorColor, neutralColor, prefix } from "../../config.json"
 import Discord from "discord.js"
 import fs from "fs"
 import { client } from "../../index"
-import { Command } from "../../lib/dbclient"
+import { Command } from "../../index"
 
 const command: Command = {
   name: "help",

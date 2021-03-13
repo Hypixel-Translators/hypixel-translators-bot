@@ -1,6 +1,6 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
-import { Command } from "../../lib/dbclient"
+import { Command } from "../../index"
 
 const command: Command = {
   name: "say",

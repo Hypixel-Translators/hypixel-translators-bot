@@ -4,7 +4,7 @@ import country from "countryjs"
 //@ts-ignore
 import { flag } from "country-emoji"
 import { db } from "../../lib/dbclient"
-import { Command } from "../../lib/dbclient"
+import { Command } from "../../index"
 
 const command: Command = {
   name: "newlang",

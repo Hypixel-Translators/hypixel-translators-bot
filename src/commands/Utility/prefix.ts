@@ -3,7 +3,7 @@ import Discord from "discord.js"
 //@ts-ignore
 import { flag } from "country-emoji"
 import { db } from "../../lib/dbclient"
-import { Command } from "../../lib/dbclient"
+import { Command } from "../../index"
 
 const command: Command = {
   name: "prefix",
@@ -201,7 +201,7 @@ const command: Command = {
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
           msg.edit(embed)
 
-          const filter = (reaction: Discord.MessageReaction, reacter:Discord.User) => {
+          const filter = (reaction: Discord.MessageReaction, reacter: Discord.User) => {
             return (userLangs.includes(reaction.emoji.name) || reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id
           }
 

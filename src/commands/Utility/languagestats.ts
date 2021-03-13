@@ -3,7 +3,7 @@ import { db } from "../../lib/dbclient"
 import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
 import { successColor, loadingColor, errorColor } from "../../config.json"
-import { Command } from "../../lib/dbclient"
+import { Command } from "../../index"
 import { ObjectId } from "mongodb"
 const ctokenV2 = process.env.CTOKEN_API_V2
 

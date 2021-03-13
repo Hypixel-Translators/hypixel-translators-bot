@@ -115,10 +115,10 @@ client.on("message", async message => {
 
     //Channel Blacklist and whitelist systems
     //@ts-expect-error
-    if (command.categoryBlacklist && command.categoryBlacklist?.includes(message.channel.parent?.id)) allowed = false
+    if (command.categoryBlacklist && command.categoryBlacklist?.includes(message.channel.parentID)) allowed = false
     else if (command.channelBlacklist && command.channelBlacklist?.includes(message.channel.id)) allowed = false
     //@ts-expect-error
-    else if (command.categoryWhitelist && !command.categoryWhitelist?.includes(message.channel.parent?.id)) allowed = false
+    else if (command.categoryWhitelist && !command.categoryWhitelist?.includes(message.channel.parentID)) allowed = false
     else if (command.channelWhitelist && !command.channelWhitelist?.includes(message.channel.id)) allowed = false
 
     //Enable commands in DMs

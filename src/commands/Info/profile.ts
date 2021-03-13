@@ -1,7 +1,7 @@
-import { db } from "../../lib/dbclient"
+import { db, DbUser } from "../../lib/dbclient"
 import { successColor, errorColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
-import { Command } from "../../lib/dbclient"
+import { Command } from "../../index"
 
 const command: Command = {
     name: "profile",
@@ -20,7 +20,7 @@ const command: Command = {
                 if (!user) throw "falseUser"
             }
             if (!args[1]) {
-                const userDb = await collection.findOne({ id: user.id })
+                const userDb: DbUser = await collection.findOne({ id: user.id })
                 if (userDb.profile) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
@@ -66,7 +66,7 @@ const command: Command = {
             }
         } else {
             const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
-            const userDb = await collection.findOne({ id: message.author.id })
+            const userDb: DbUser = await collection.findOne({ id: message.author.id })
             if (userDb.profile) {
                 const embed = new Discord.MessageEmbed()
                     .setColor(neutralColor)

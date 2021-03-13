@@ -1,9 +1,9 @@
 import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
 import { client } from "../../index"
-import { db } from "../../lib/dbclient"
+import { db, DbUser } from "../../lib/dbclient"
 import { updateRoles } from "./hypixelverify"
-import { Command } from "../../lib/dbclient"
+import { Command } from "../../index"
 
 //Credits to marzeq_
 const command: Command = {
@@ -29,7 +29,7 @@ const command: Command = {
         let username = authorDb.uuid
         if (args[0]) username = args[0].replace(/[\\<>@#&!]/g, "")
         if (message.guild!.members.cache.get(username)) {
-            const userDb = await client.getUser(username)
+            const userDb: DbUser = await client.getUser(username)
             if (userDb.uuid) username = userDb.uuid
             else throw "notVerified"
         }

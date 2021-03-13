@@ -4,7 +4,7 @@ import fs from "fs"
 //@ts-ignore
 import { name, code } from 'country-emoji'
 import { db } from "../../lib/dbclient"
-import { Command } from "../../lib/dbclient"
+import { Command } from "../../index"
 
 const command: Command = {
     name: "language",

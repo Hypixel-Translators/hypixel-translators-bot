@@ -9,7 +9,7 @@ const dbclient = require("../../lib/dbclient")
 import { transpile } from "typescript"
 import Discord from "discord.js"
 import { inspect } from "util"
-import { Command } from "../../lib/dbclient"
+import { Command } from "../../index"
 
 
 const command: Command = {

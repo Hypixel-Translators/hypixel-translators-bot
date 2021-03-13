@@ -1,7 +1,7 @@
 import { blurple } from "../../config.json"
 import Discord from "discord.js"
-import { db } from "../../lib/dbclient"
-import { Command } from "../../lib/dbclient"
+import { db, DbUser } from "../../lib/dbclient"
+import { Command } from "../../index"
 
 const command: Command = {
   name: "check",
@@ -18,7 +18,7 @@ const command: Command = {
       if (!member) throw "falseUser"
     }
 
-    const userDb = await db.collection("users").findOne({ id: member!.user.id })
+    const userDb: DbUser = await db.collection("users").findOne({ id: member!.user.id })
     let note
     if (member!.user.id === message.guild!.ownerID) note = "Discord Owner"
     else if (member!.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"

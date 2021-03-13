@@ -1,7 +1,8 @@
 import fs from "fs"
 import path from "path"
 import Discord from "discord.js"
-import { HTBClient, Command } from "./dbclient"
+import { HTBClient } from "./dbclient"
+import { Command } from "../index"
 
 function findCommands(dir: string, pattern: string) {
 

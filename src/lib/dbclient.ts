@@ -1,5 +1,6 @@
 import Discord from "discord.js"
 import { MongoClient, Db } from 'mongodb'
+import { Command } from "../index"
 const url = process.env.mongo_URL
 if (!url) throw "mongo_URL not in .env"
 const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -20,23 +21,11 @@ async function init() {
 
 init()
 
-export interface Command {
-    name: string,
-    description: string,
-    usage: string,
-    aliases?: string[],
-    cooldown?: number,
-    allowDM?: true,
-    allowTip?: false,
-    dev?: true,
-    roleWhitelist?: string[],
-    roleBlacklist?: string[],
-    channelBlacklist?: string[],
-    channelWhitelist?: string[],
-    categoryWhitelist?: string[],
-    categoryBlacklist?: string[],
-    category?: string,
-    execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any): any
+export interface DbUser {
+    id: string,
+    lang: string,
+    profile?: string,
+    uuid?: string,
 }
 
 export class HTBClient extends Discord.Client {

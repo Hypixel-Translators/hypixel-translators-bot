@@ -2,7 +2,7 @@ import puppeteer from "puppeteer"
 import Discord, { TextChannel } from "discord.js"
 import { errorColor, neutralColor } from "../config.json"
 import { v4 } from "uuid"
-import { db } from "../lib/dbclient"
+import { db, DbUser } from "../lib/dbclient"
 
 type ValidProjects = "Hypixel" | "Quickplay" | "Bot" | "SkyblockAddons"
 
@@ -32,7 +32,7 @@ async function crowdinVerify(member: Discord.GuildMember, url: string | undefine
         .setAuthor("Received message from staff")
         .setFooter("Any messages you send here will be sent to staff.")
     if (!url) {
-        const userDb = await db.collection("users").findOne({ id: member.id })
+        const userDb: DbUser = await db.collection("users").findOne({ id: member.id })
         url = userDb.profile
         if (!url) { //if user runs +reverify and the profile is not stored on our DB
             //#region return message

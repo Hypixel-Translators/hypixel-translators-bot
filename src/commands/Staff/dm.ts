@@ -1,7 +1,7 @@
 import Discord from "discord.js"
 import { errorColor, successColor, neutralColor } from "../../config.json"
 import { client } from "../../index"
-import { Command } from "../../lib/dbclient"
+import { Command } from "../../index"
 
 const command: Command = {
     name: "dm",
