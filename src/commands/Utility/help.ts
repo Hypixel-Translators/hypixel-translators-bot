@@ -18,9 +18,9 @@ const command: Command = {
 
     //Define command categories
     const utilityCmds: string[] = []
-    fs.readdirSync("./dist/commands/Utility/").forEach(command => utilityCmds.push(command.split(".").shift()!))
+    fs.readdirSync("./dist/commands/Utility/").forEach(command => utilityCmds.push(command.split(".js.map").shift()!))
     const infoCmds: string[] = []
-    fs.readdirSync("./dist/commands/Info/").forEach(command => infoCmds.push(command.split(".").shift()!))
+    fs.readdirSync("./dist/commands/Info/").forEach(command => infoCmds.push(command.split(".js.map").shift()!))
     utilityCmds.forEach(cmd => {
       if (client.commands.get(cmd)!.dev) utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
       else if (!client.commands.get(cmd)!.allowDM && message.channel.type === "dm") utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
