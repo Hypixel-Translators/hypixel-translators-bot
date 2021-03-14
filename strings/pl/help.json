@@ -66,7 +66,7 @@
     },
     "8ball": {
         "usage": "+8ball <pytanie>",
-        "description": "The Magic 8 Ball that will answer all your questions."
+        "description": "Magiczna kula, która odpowie na wszystkie twoje pytania."
     },
     "verify": {
         "usage": "+verify [odnośnik do profilu]",
@@ -74,7 +74,7 @@
     },
     "profile": {
         "usage": "+profile",
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
+        "description": "Podaje odnośnik do Twojego profilu Crowdin, jeśli jest on przechowywany w naszej bazie danych. W przciwnym razie, możesz wykonać polecenie `+help reverify`, aby dowiedzieć się, jak przechowywać swój profil i aktualizować swoje role."
     },
     "tip": {
         "usage": "+tip",
@@ -110,7 +110,7 @@
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Podaje odnośnik do wątku ogłaszającego ten serwer Discord."
     },
     "twitter": {
         "usage": "+twitter",
