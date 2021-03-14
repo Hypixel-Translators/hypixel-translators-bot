@@ -76,9 +76,10 @@ function fetchPage(page: number, pages: DbUser[][], getString: (path: string, cm
         .setFooter(`${getString("page").replace("%%number%%", page + 1).replace("%%total%%", pages.length)} | ${executedBy}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     for (let i = 0; i <= pages[page].length - 1; i++) {
         // const user = message.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that
-        const totalXp = pages[page][i].levels.totalXp
-        if (pages[page][i].levels) pageEmbed.addField(getString("level").replace("%%rank%%", (i + 1) + (page * 24)).replace("%%level%%", pages[page][i].levels.level).replace("%%xp%%", totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp), `<@!${pages[page][i].id}>`, true)
-        else pageEmbed.addField(getString("unranked").replace("%%rank%%", (i + 1) + (page * 24)), `<@!${pages[page][i].id}>`, true)
+        if (pages[page][i].levels) {
+            const totalXp = pages[page][i].levels.totalXp
+            pageEmbed.addField(getString("level").replace("%%rank%%", (i + 1) + (page * 24)).replace("%%level%%", pages[page][i].levels.level).replace("%%xp%%", totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp), `<@!${pages[page][i].id}>`, true)
+        } else pageEmbed.addField(getString("unranked").replace("%%rank%%", (i + 1) + (page * 24)), `<@!${pages[page][i].id}>`, true)
     }
     return pageEmbed
 }
