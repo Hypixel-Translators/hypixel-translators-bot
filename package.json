@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@types/google-spreadsheet": "^3.0.2",
-    "@types/mongodb": "^3.6.8",
+    "@types/mongodb": "^3.6.9",
     "@types/node-fetch": "^2.5.8",
     "@types/uuid": "^8.3.0",
     "rimraf": "^3.0.2"
