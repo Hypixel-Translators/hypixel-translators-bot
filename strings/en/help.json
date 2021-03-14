@@ -79,11 +79,11 @@
     },
     "rank": {
         "usage": "+rank [user]",
-        "description": "Gives you the current xp for yourself or any given user."
+        "description": "Gives you the current XP for yourself or any given user."
     },
     "levels": {
         "usage": "+levels [page]",
-        "description": "Shows you the XP leaderboard."
+        "description": "Gives you the XP leaderboard."
     },
     "tip": {
         "usage": "+tip",
