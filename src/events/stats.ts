@@ -30,7 +30,7 @@ export async function execute(client: HTBClient, manual: boolean) {
 
 export async function hypixel(client: HTBClient) {
     const langdb = await db.collection("langdb").find().toArray()
-    fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } })
+    fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 }, timeout: 10000 })
         .then(res => res.json())
         .then(json => {
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
@@ -79,7 +79,7 @@ export async function hypixel(client: HTBClient) {
 
 export async function quickplay(client: HTBClient) {
     const langdb = await db.collection("langdb").find().toArray()
-    fetch("https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } })
+    fetch("https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 }, timeout: 10000 })
         .then(res => res.json())
         .then(json => {
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
@@ -133,7 +133,7 @@ export async function quickplay(client: HTBClient) {
 
 export async function bot(client: HTBClient) {
     const langdb = await db.collection("langdb").find().toArray()
-    fetch("https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } })
+    fetch("https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 }, timeout: 10000 })
         .then(res => res.json())
         .then(json => {
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
@@ -187,7 +187,7 @@ export async function bot(client: HTBClient) {
 
 export async function skyblockaddons(client: HTBClient) {
     const langdb = await db.collection("langdb").find().toArray()
-    fetch("https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } })
+    fetch("https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500", { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 }, timeout: 10000 })
         .then(res => res.json())
         .then(json => {
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
@@ -254,15 +254,7 @@ interface LanguageStatus {
         },
         translationProgress: number,
         approvalProgress: number
-        language: {
-            _id: ObjectId,
-            name: string,
-            emoji: string,
-            colour?: string,
-            code: string,
-            id: string
-            flag: string
-        }
+        language: LangDbEntry
     },
 }
 

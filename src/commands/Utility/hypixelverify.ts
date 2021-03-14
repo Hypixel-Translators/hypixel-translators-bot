@@ -41,7 +41,7 @@ const command: Command = {
         if (!args[0]) throw "noUser"
 
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
-        await fetch(`https://api.slothpixel.me/api/players/${args[0]}`, { method: "Get" })
+        await fetch(`https://api.slothpixel.me/api/players/${args[0]}`, { method: "Get", timeout: 10000 })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
                 message.channel.startTyping()

@@ -36,7 +36,7 @@ const command: Command = {
 
         message.channel.startTyping()
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
-        await fetch(`https://api.slothpixel.me/api/players/${username}`, { method: "Get" })
+        await fetch(`https://api.slothpixel.me/api/players/${username}`, { method: "Get", timeout: 10000 })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
 
@@ -198,7 +198,7 @@ const command: Command = {
 
 async function getCurrentName(uuid: string) {
     let name
-    await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`)
+    await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`, { timeout: 10000 })
         .then(res => (res.json()))
         .then(async json => {
             name = json.pop().name

@@ -26,7 +26,7 @@ const command: Command = {
         if (!lang || lang?.code === "en") throw "falseLang"
 
         message.channel.startTyping()
-        const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 } }
+        const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 }, timeout: 10000 }
         var hypixelData: LanguageStatus["data"]
         await fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", settings)
             .then(res => res.json())
