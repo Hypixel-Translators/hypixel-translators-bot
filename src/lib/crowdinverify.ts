@@ -229,7 +229,7 @@ async function crowdinVerify(member: Discord.GuildMember, url: string | undefine
         .setColor(neutralColor)
         .setAuthor("Received message from staff")
         .setDescription(`Hey there!\nYou have successfully verified your Crowdin account${Object.keys(endingMessageProjects).length
-            ? " and you also received the corresponding roles on our Discord server!"
+            ? " and you also received the corresponding roles on our Discord server! Make sure to check out <#699275092026458122> if you want to learn more about Crowdin." //getting-started
             : "!\nSadly you didn't receive any roles because you don't translate for any of the projects we currently support.\nWhen you have started translating you can refresh your roles by running `+reverify`"
             }\nIf you wanna know more about all the projects we currently support, run \`+projects\` here.`)
         .setFooter("Any messages you send here will be sent to staff.")

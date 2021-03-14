@@ -26,7 +26,6 @@ client.on("guildMemberAdd", member => {
         ctx.drawImage(bg, 0, 0, 800, 200)
         ctx.fillStyle = "white"
 
-
         //TEXT
         //Measure text widths
         ctx.font = "37.5px Bitter"
@@ -56,19 +55,19 @@ client.on("guildMemberAdd", member => {
         ctx.closePath()
 
         //Put the image in the circle
-        loadImage(userAvatar).then((userPic) => {
+        loadImage(userAvatar).then(userPic => {
             ctx.clip()
             ctx.drawImage(userPic, 25, 25, 150, 150)
             ctx.restore()
 
             //OUTPUT
-            const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `${member.user.username} join.png`)
-            const channel = member.guild.channels.cache.get("549882021934137354") as Discord.TextChannel
-            channel.send(`${member.user} just joined! Welcome! 🎉`, attachment) //join-leave
+            const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `${member.user.username} join.png`);
+            (member.guild.channels.cache.get("549882021934137354") as Discord.TextChannel).send(`${member.user} just joined! Welcome! 🎉`, attachment) //join-leave
         })
     })
     if (!member.user.bot) {
-        member.send(`Hey there and thanks for joining **${member.guild.name}**! If you're a translator, be sure to check out <#699275092026458122> as this channel includes useful information for new and current translators. If you're looking to translate other projects, check out the ones we currently support by executing \`+projects\` here! We hope you have fun on our server!`).catch(() => console.log(`Couldn't DM user ${member.user.tag}, probably because they have DMs off`)) //getting started
+        member.send(`Hey there and thanks for joining **${member.guild.name}**! We hope you have fun on our server!`)
+            .catch(() => console.log(`Couldn't DM user ${member.user.tag}, probably because they have DMs off`))
         db.collection("users").insertOne({ id: member.user.id, lang: "en" })
     }
 })

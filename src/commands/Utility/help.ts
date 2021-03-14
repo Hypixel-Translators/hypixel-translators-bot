@@ -20,20 +20,27 @@ const command: Command = {
     fs.readdirSync("./src/commands/Utility/").forEach(command => utilityCmds.push(command.split(".").shift()!))
     const infoCmds: string[] = []
     fs.readdirSync("./src/commands/Info/").forEach(command => infoCmds.push(command.split(".").shift()!))
+    const projectCmds: string[] = []
+    fs.readdirSync("./src/commands/Projects/").forEach(command => projectCmds.push(command.split(".").shift()!))
     utilityCmds.forEach(cmd => {
       if (client.commands.get(cmd)!.dev) utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
       else if (!client.commands.get(cmd)!.allowDM && message.channel.type === "dm") utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
     })
     infoCmds.forEach(cmd => {
       if (client.commands.get(cmd)!.dev) infoCmds.splice(infoCmds.indexOf(cmd), 1)
-      else if (!client.commands.get(cmd)!.allowDM && message.channel.type === "dm") utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
+      else if (!client.commands.get(cmd)!.allowDM && message.channel.type === "dm") infoCmds.splice(infoCmds.indexOf(cmd), 1)
+    })
+    projectCmds.forEach(cmd => {
+      if (client.commands.get(cmd)!.dev) projectCmds.splice(projectCmds.indexOf(cmd), 1)
+      else if (!client.commands.get(cmd)!.allowDM && message.channel.type === "dm") projectCmds.splice(projectCmds.indexOf(cmd), 1)
     })
 
     //Define all pages
     const pages = [
-      { "n": 0 },
-      { "n": 1, "f": utilityCmds, "b": "🛠", "t": "utilityHelp" },
-      { "n": 2, "f": infoCmds, "b": "ℹ", "t": "infoHelp" }
+      { n: 0 },
+      { n: 1, f: utilityCmds, b: "🛠", t: "utilityHelp" },
+      { n: 2, f: infoCmds, b: "ℹ", "t": "infoHelp" },
+      { n: 3, f: projectCmds, b: "<:crowdin:820381256016723988>", t: "projectsHelp" }
     ] as Page[]
 
     if (args[0] && args[0].startsWith(prefix)) args[0] = args[0].slice(1)
@@ -56,8 +63,9 @@ const command: Command = {
         .setTitle(getString("page1Title"))
         .setDescription(getString("commandsListTooltip").replace("%%developer%%", "<@!807917674477649943>").replace("%%github%%", "(https://github.com/Hypixel-Translators/hypixel-translators-bot)"))
         .addFields(
-          { name: getString("pageNumber").replace("%%number%%", "2").replace("%%total%%", pages.length), value: getString("utilityHelp").replace("%%badge%%", "🛠"), inline: true },
-          { name: getString("pageNumber").replace("%%number%%", "3").replace("%%total%%", pages.length), value: getString("infoHelp").replace("%%badge%%", "ℹ"), inline: true })
+          { name: getString("pageNumber").replace("%%number%%", "2").replace("%%total%%", pages.length), value: `🛠 ${getString("utilityHelp")}`, inline: true },
+          { name: getString("pageNumber").replace("%%number%%", "3").replace("%%total%%", pages.length), value: `ℹ ${getString("infoHelp")}`, inline: true },
+          { name: getString("pageNumber").replace("%%number%%", "4").replace("%%total%%", pages.length), value: `<:crowdin:820381256016723988> ${getString("projectsHelp")}`, inline: true })
         .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
 
       pages[0].e = page1
@@ -97,7 +105,6 @@ const command: Command = {
           msg.edit(getString("timeOut"))
           if (message.channel.type !== "dm") msg.reactions.removeAll()
           else msg.reactions.cache.forEach(reaction => reaction.users.remove(message.client.user!.id)) //remove all reactions by the bot
-          msg.suppressEmbeds()
         })
       })
 
@@ -162,7 +169,7 @@ async function fetchPage(page: number, pages: Page[], getString: (path: string, 
       pageEmbed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
-        .setTitle(getString(pages[page].t!).replace("%%badge%%", pages[page].b))
+        .setTitle(`${pages[page].b} ${getString(pages[page].t!)}`)
         .setFooter(`${getString("page").replace("%%number%%", page + 1).replace("%%total%%", pages.length)} | ${executedBy}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
       pages[page].f!.forEach(f => pageEmbed!.addField(`\`${getString(`${f}.usage`)}\``, getString(`${f}.description`)))
     } else return console.error("no embed details")
