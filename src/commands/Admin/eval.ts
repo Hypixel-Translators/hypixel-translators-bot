@@ -11,7 +11,6 @@ import Discord from "discord.js"
 import { inspect } from "util"
 import { Command } from "../../index"
 
-
 const command: Command = {
   name: "eval",
   description: "Evals the specified code.",

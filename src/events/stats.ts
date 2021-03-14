@@ -258,7 +258,7 @@ interface LanguageStatus {
     },
 }
 
-interface LangDbEntry {
+export interface LangDbEntry {
     _id: ObjectId,
     name: string,
     emoji: string,

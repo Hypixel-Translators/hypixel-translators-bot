@@ -2,7 +2,7 @@ import { db } from "../../lib/dbclient"
 import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
 import { successColor, loadingColor, errorColor } from "../../config.json"
-import { ObjectId } from "mongodb"
+import { LangDbEntry } from "../../events/stats"
 import { Command, client } from "../../index"
 const ctokenV2 = process.env.CTOKEN_API_V2
 
@@ -111,14 +111,4 @@ interface LanguageStatus {
         translationProgress: number,
         approvalProgress: number
     },
-}
-
-interface LangDbEntry {
-    _id: ObjectId,
-    name: string,
-    emoji: string,
-    colour?: string,
-    code: string,
-    id: string
-    flag: string
 }
