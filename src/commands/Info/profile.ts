@@ -12,13 +12,13 @@ const command: Command = {
     async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
         const collection = db.collection("users")
         if (message.member!.roles.cache.has("764442984119795732") && args[0]) { //Discord Administrator
-            let user = message.author
+            let user: Discord.User | undefined = message.author
             if (args[0]) {
                 let userRaw = args[0].replace(/[\\<>@#&!]/g, "")
-                //@ts-expect-error
                 user = message.client.users.cache.find(m => m.id === userRaw || m.tag === userRaw || m.username === userRaw || m.tag.toLowerCase().includes(userRaw.toLowerCase()))
                 if (!user) throw "falseUser"
             }
+            console.log(args[1])
             if (!args[1]) {
                 const userDb: DbUser = await collection.findOne({ id: user.id })
                 if (userDb.profile) {
@@ -45,9 +45,9 @@ const command: Command = {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor)
                                     .setAuthor("User Profile")
-                                    .setTitle(`Successfully updated ${user.tag}'s Crowdin profile!`)
+                                    .setTitle(`Successfully updated ${user!.tag}'s Crowdin profile!`)
                                     .addFields(
-                                        { name: "Old profile", value: r.value.profile },
+                                        { name: "Old profile", value: r.value.profile || "None" },
                                         { name: "New profile", value: args[1] }
                                     )
                                     .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
@@ -56,7 +56,7 @@ const command: Command = {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(errorColor)
                                     .setAuthor("User Profile")
-                                    .setTitle(`Couldn't update ${user.tag}'s Crowdin profile!`)
+                                    .setTitle(`Couldn't update ${user!.tag}'s Crowdin profile!`)
                                     .setDescription(`Their current profile is the same as the one you tried to add.`)
                                     .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                                 return message.channel.send(embed)

@@ -16,5 +16,5 @@ client.on("guildMemberRemove", async member => {
         else staffchannel.send(`${member.user!.tag} had the ${botRole} role and just left the server! Unfortunately, their profile wasn't registered on the database.`) //managers
         console.log(`${member.user!.tag} left and had the ${botRole.name} role`)
     }
-    if (member.user!.bot) db.collection("users").deleteOne({ id: member.user!.id })
+    if (!member.user!.bot) db.collection("users").deleteOne({ id: member.user!.id })
 })
