@@ -26,6 +26,12 @@ export interface DbUser {
     lang: string,
     profile?: string,
     uuid?: string,
+    levels: {
+        level: number,
+        totalXp: number,
+        levelXp: number,
+        messageCount: number
+    }
 }
 
 export class HTBClient extends Discord.Client {

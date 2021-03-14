@@ -1,0 +1,86 @@
+import Discord from "discord.js"
+import { neutralColor, errorColor } from "../../config.json"
+import { Command } from "../../index"
+import { db, DbUser } from "../../lib/dbclient"
+import { getXpNeeded } from "../../lib/leveling"
+
+const command: Command = {
+    name: "levels",
+    description: "Shows you the XP leaderboard",
+    aliases: ["leaderboard"],
+    usage: "+levels",
+    cooldown: 60,
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
+    allowDM: true,
+    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+        const collection = db.collection("users")
+        const allUsers: DbUser[] = await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray()
+
+        const pages: DbUser[][] = [] // inner arrays are of length 24
+        let p = 0
+        while (p < allUsers.length) pages.push(allUsers.slice(p, p += 24)) //Max number of fields divisible by 3
+
+        let page: number = 0
+        if (Number(args[0])) page = Math.round(Number(args[0]) - 1)
+
+        if (page >= pages.length || page < 0) {
+            const embed = new Discord.MessageEmbed()
+                .setColor(errorColor)
+                .setAuthor(getString("moduleName"))
+                .setTitle(getString("pageTitle"))
+                .setDescription(getString("pageNotExist"))
+                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+            return message.channel.send(embed)
+        } else {
+            message.channel.send(fetchPage(page, pages, getString, executedBy, message))
+                .then(async msg => {
+                    await msg.react("⏮"); await msg.react("◀"); await msg.react("▶"); await msg.react("⏭")
+
+                    const filter = (reaction: Discord.MessageReaction, user: Discord.User) => (reaction.emoji.name === "⏮" || reaction.emoji.name === "◀" || reaction.emoji.name === "▶" || reaction.emoji.name === "⏭") && user.id === message.author.id
+
+                    const collector = msg.createReactionCollector(filter, { time: 120000 }) //2 minutes
+
+                    collector.on("collect", reaction => {
+                        if (reaction.emoji.name === "⏮") page = 0 //First
+                        if (reaction.emoji.name === "⏭") page = pages.length - 1 //Last
+                        if (reaction.emoji.name === "◀") { //Previous
+                            page--
+                            if (page < 0) page = 0
+                        }
+                        if (reaction.emoji.name === "▶") { //Next
+                            page++
+                            if (page > pages.length - 1) page = pages.length - 1
+                        }
+                        reaction.users.remove(message.author.id)
+                        msg.edit(fetchPage(page, pages, getString, executedBy, message))
+                    })
+
+                    collector.on("end", () => {
+                        msg.edit(getString("timeOut").replace("%%command%%", "`+levels`"))
+                        msg.reactions.removeAll()
+                    })
+                })
+        }
+
+    }
+}
+
+function fetchPage(page: number, pages: DbUser[][], getString: (path: string, cmd?: string, lang?: string) => any, executedBy: string, message: Discord.Message) {
+    if (page > pages.length - 1) page = pages.length - 1
+    if (page < 0) page = 0
+    const pageEmbed = new Discord.MessageEmbed()
+        .setColor(neutralColor)
+        .setAuthor(getString("moduleName"))
+        .setTitle(getString("pageTitle"))
+        .setFooter(`${getString("page").replace("%%number%%", page + 1).replace("%%total%%", pages.length)} | ${executedBy}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+    for (let i = 0; i <= pages[page].length - 1; i++) {
+        // const user = message.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that
+        const totalXp = pages[page][i].levels.totalXp
+        if (pages[page][i].levels) pageEmbed.addField(getString("level").replace("%%rank%%", (i + 1) + (page * 24)).replace("%%level%%", pages[page][i].levels.level).replace("%%xp%%", totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp), `<@!${pages[page][i].id}>`, true)
+        else pageEmbed.addField(getString("unranked").replace("%%rank%%", (i + 1) + (page * 24)), `<@!${pages[page][i].id}>`, true)
+    }
+    return pageEmbed
+}
+
+export default command

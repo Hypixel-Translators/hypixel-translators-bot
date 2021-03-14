@@ -2,6 +2,7 @@ import { client } from "../index.js"
 import Discord from "discord.js"
 import { Stream } from "stream"
 import { crowdinVerify } from "./../lib/crowdinverify"
+import leveling from "./../lib/leveling"
 import { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } from "../config.json"
 
 client.on("message", async message => {
@@ -11,6 +12,15 @@ client.on("message", async message => {
 
     //Delete pinned message messages
     if (message.type === "PINS_ADD" && message.channel.type !== "dm") return message.delete()
+
+    //Define command and leveling system
+    const args: string[] = message.content.slice(prefix.length).split(/ +/)
+    const commandName = args.shift()!.toLowerCase()
+    const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases! && cmd.aliases.includes(commandName))
+    const noXp = ["613015467984158742", "619190456911134750", "748267955552518175", "549894938712866816", "782267779008823326", "622814312615903233"] //Important, Archived, Verification, bots, music and staff-announcements
+    const noXpRoles = ["549894155174674432", "645208834633367562"] //Bot and Muted
+    client.channels.cache.filter(c => (c as Discord.TextChannel).name?.endsWith("review-strings")).forEach(c => noXp.push(c.id))
+    if (message.guild?.id === "549503328472530974" && !command && !noXp.includes((message.channel as Discord.GuildChannel).parentID!) && !noXp.includes(message.channel.id!) && !message.member?.roles.cache.some(r => noXpRoles.includes(r.id))) await leveling(message)
 
     //Publish message if sent in bot-updates
     if (message.channel.id === "732587569744838777") return message.crosspost() //bot-updates
@@ -81,11 +91,6 @@ client.on("message", async message => {
 
     //Stop if the message is not a command
     if (!message.content.startsWith(prefix)) return
-
-    //Define command and stop if none is found
-    const args: string[] = message.content.slice(prefix.length).split(/ +/)
-    const commandName = args.shift()!.toLowerCase()
-    const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases! && cmd.aliases.includes(commandName))
     if (!command) return
 
     //Log if command is ran in DMs

@@ -1,0 +1,62 @@
+import Discord from "discord.js"
+import { neutralColor, errorColor } from "../../config.json"
+import { Command } from "../../index"
+import { db, DbUser } from "../../lib/dbclient"
+import { getXpNeeded } from "../../lib/leveling"
+
+const command: Command = {
+    name: "rank",
+    description: "Gives you the current xp for yourself or any given user.",
+    aliases: ["level"],
+    usage: "+rank [user]",
+    cooldown: 30,
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
+    allowDM: true,
+    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+        const collection = db.collection("users")
+        let member: Discord.GuildMember | undefined
+        let memberRaw = args[0]?.replace(/[\\<>@#&!]/g, "").toLowerCase()
+        if (!args[0]) member = message.member!
+        else member = message.guild!.members.cache.find(u => u.id === memberRaw || u.user.tag.toLowerCase() === memberRaw || u.user.username.toLowerCase() === memberRaw || u.displayName.toLowerCase() === memberRaw || u.displayName.toLowerCase().includes(memberRaw))
+        if (!member) throw "falseUser"
+
+        const userDb: DbUser = await collection.findOne({ id: member.id })
+        if (!userDb.levels) {
+            const errorEmbed = new Discord.MessageEmbed()
+                .setColor(errorColor)
+                .setAuthor(getString("moduleName"))
+                .setTitle(member === message.member ? getString("youNotRanked") : getString("userNotRanked"))
+                .setDescription(getString("howRank"))
+                .setFooter(executedBy, message.author.displayAvatarURL())
+            return message.channel.send(errorEmbed)
+        }
+        const totalXp = getXpNeeded(userDb.levels.level)
+        const progressBar = generateProgressBar(userDb.levels?.levelXp, totalXp)
+        const ranking = (await collection.find({}, { sort: { "levels.totalXp": -1 } }).toArray()).map(u => u.id).indexOf(member.id) + 1
+        const currentXp = userDb.levels.levelXp
+        const messageCount = userDb.levels.messageCount
+
+        const embed = new Discord.MessageEmbed()
+            .setColor(neutralColor)
+            .setAuthor(getString("moduleName"))
+            .setTitle(member === message.member ? getString("yourRank") : getString("userRank").replace("%%user%%", member.user.tag))
+            .setDescription(member === message.member ? getString("youLevel").replace("%%level%%", userDb.levels.level).replace("%%rank%%", ranking) : getString("userLevel").replace("%%user%%", member).replace("%%level%%", userDb.levels.level).replace("%%rank%%", ranking))
+            .addField(getString("textProgress").replace("%%currentXp%%", currentXp > 1000 ? `${(currentXp / 1000).toFixed(2)}${getString("thousand")}` : currentXp).replace("%%xpNeeded%%", totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp).replace("%%messages%%", messageCount > 1000 ? `${(messageCount / 1000).toFixed(2)}${getString("thousand")}` : messageCount), progressBar)
+            .setFooter(executedBy, message.author.displayAvatarURL())
+        message.channel.send(embed)
+    }
+}
+
+function generateProgressBar(current: number, goal: number, places: number = 10): string {
+    const progressEmoji = "<:progress_done:820405383935688764>"
+    const leftEmoji = "<:progress_left:820405406906974289>"
+    if (isNaN(current) || isNaN(goal)) return leftEmoji.repeat(places) + "\u200b"
+
+    const progressFixed = Math.round((current / goal) * places)
+    const leftFixed = places - progressFixed
+
+    return progressEmoji.repeat(progressFixed) + leftEmoji.repeat(leftFixed) + "\u200b" //add a blank char at the end to prevent huge emojis on android
+}
+
+export default command

@@ -73,8 +73,7 @@ const command: Command = {
       let page = 0
       if (args[0]?.length === 1) page = Number(args[0]) - 1
 
-      let pageEmbed = await fetchPage(page, pages, getString, executedBy, message)
-        .catch(error => console.error(error)) as Discord.MessageEmbed
+      let pageEmbed = fetchPage(page, pages, getString, executedBy, message) as Discord.MessageEmbed
 
       await message.channel.send(pageEmbed).then(async msg => {
         await msg.react("⏮"); await msg.react("◀"); await msg.react("▶"); await msg.react("⏭")
@@ -83,9 +82,9 @@ const command: Command = {
           return (reaction.emoji.name === "⏮" || reaction.emoji.name === "◀" || reaction.emoji.name === "▶" || reaction.emoji.name === "⏭") && user.id === message.author.id
         }
 
-        const collector = msg.createReactionCollector(filter, { time: 60000 }) //1 minute
+        const collector = msg.createReactionCollector(filter, { time: 120000 }) //2 minutes
 
-        collector.on("collect", async reaction => {
+        collector.on("collect", reaction => {
           if (reaction.emoji.name === "⏮") page = 0 //First
           if (reaction.emoji.name === "⏭") page = pages.length - 1 //Last
           if (reaction.emoji.name === "◀") { //Previous
@@ -97,12 +96,12 @@ const command: Command = {
             if (page > pages.length - 1) page = pages.length - 1
           }
           if (message.channel.type !== "dm") reaction.users.remove(message.author.id)
-          pageEmbed = await fetchPage(page, pages, getString, executedBy, message) as Discord.MessageEmbed
+          pageEmbed = fetchPage(page, pages, getString, executedBy, message) as Discord.MessageEmbed
           msg.edit(pageEmbed)
         })
 
-        collector.on("end", async () => {
-          msg.edit(getString("timeOut"))
+        collector.on("end", () => {
+          msg.edit(getString("timeOut").replace("%%command%%", "`+help`"))
           if (message.channel.type !== "dm") msg.reactions.removeAll()
           else msg.reactions.cache.forEach(reaction => reaction.users.remove(message.client.user!.id)) //remove all reactions by the bot
         })
@@ -157,15 +156,14 @@ const command: Command = {
   }
 }
 
-async function fetchPage(page: number, pages: Page[], getString: (path: string, cmd?: string, lang?: string) => any, executedBy: string, message: Discord.Message) {
+function fetchPage(page: number, pages: Page[], getString: (path: string, cmd?: string, lang?: string) => any, executedBy: string, message: Discord.Message) {
   if (page > pages.length - 1) page = pages.length - 1
   if (page < 0) page = 0
-  let pageEmbed: Discord.MessageEmbed | undefined
+  let pageEmbed: Discord.MessageEmbed
 
   if (pages[page]) {
-    if (pages[page].e) {
-      pageEmbed = pages[page].e
-    } else if (pages[page].f) {
+    if (pages[page].e) pageEmbed = pages[page].e!
+    else if (pages[page].f) {
       pageEmbed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
@@ -175,7 +173,7 @@ async function fetchPage(page: number, pages: Page[], getString: (path: string, 
     } else return console.error("no embed details")
   } else return console.error("no embed listing - internal error")
 
-  return pageEmbed as Discord.MessageEmbed
+  return pageEmbed
 }
 
 interface Page {
