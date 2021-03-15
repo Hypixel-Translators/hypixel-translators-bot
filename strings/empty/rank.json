@@ -1,0 +1,12 @@
+{
+    "moduleName": "crwdns1280:0crwdne1280:0",
+    "yourRank": "crwdns1282:0crwdne1282:0",
+    "userRank": "crwdns1284:0%%user%%crwdne1284:0",
+    "youNotRanked": "crwdns1286:0crwdne1286:0",
+    "userNotRanked": "crwdns1288:0crwdne1288:0",
+    "howRank": "crwdns1290:0crwdne1290:0",
+    "textProgress": "crwdns1292:0%%currentXp%%crwdnd1292:0%%xpNeeded%%crwdnd1292:0%%messages%%crwdne1292:0",
+    "thousand": "crwdns1294:0crwdne1294:0",
+    "youLevel": "crwdns1296:0%%level%%crwdnd1296:0%%rank%%crwdne1296:0",
+    "userLevel": "crwdns1298:0%%user%%crwdnd1298:0%%level%%crwdnd1298:0%%rank%%crwdne1298:0"
+}
