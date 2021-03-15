@@ -5,9 +5,10 @@
     "madeBy": "بوت مصنوع مع الكثير من العناية من قبل %%QkeleQ10%%",
     "page": "الصفحة %%number%%/%%total%%",
     "pageNumber": "الصفحة %%number%%",
-    "utilityHelp": "%%badge%% أدوات و خدمات",
-    "infoHelp": "%%badge%% أوامر المعلومات",
-    "timeOut": "هذه القائمة قد نفذ وقتها. اذا وددت أن تستعملها مره اخرى، اكتب `+help`.",
+    "utilityHelp": "أدوات و خدمات",
+    "infoHelp": "أوامر المعلومات",
+    "projectsHelp": "Crowdin Projects",
+    "timeOut": "هذه القائمة قد نفذ وقتها. اذا وددت أن تستعملها مره اخرى، اكتب %%command%%.",
     "pageNotExist": "هذه الصفحة غير موجودة!",
     "commandInfo": "معلومات الأوامر",
     "commandInfoFor": "معلومات الأوامر لـ ",
@@ -75,6 +76,14 @@
     "profile": {
         "usage": "+profile",
         "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
+    },
+    "rank": {
+        "usage": "+rank [user]",
+        "description": "Gives you the current XP for yourself or any given user."
+    },
+    "levels": {
+        "usage": "+levels [page]",
+        "description": "Gives you the XP leaderboard."
     },
     "tip": {
         "usage": "+tip",
