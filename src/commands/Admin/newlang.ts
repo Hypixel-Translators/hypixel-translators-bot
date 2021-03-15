@@ -17,6 +17,7 @@ const command: Command = {
     const code = args[0].toUpperCase()
     const langdbEntry = await db.collection("langdb").findOne({ code: lang })
     let nationality = country.demonym(code)
+    if (!nationality) throw "Couldn't find that country!"
     let emoji = flag(lang)
     if (langdbEntry) {
       nationality = langdbEntry.name
@@ -85,7 +86,7 @@ const command: Command = {
       reason: "Added language " + nationality
     })
     const translatorsChannel = await message.guild!.channels.create(`${nationality} translators`, {
-      topic: `A text channel where you can discuss ${nationality.charAt(0).toUpperCase() + nationality.slice(1)} translations! ${emoji}\n\nTranslation`,
+      topic: `A text channel where you can discuss ${nationality!.charAt(0).toUpperCase() + nationality!.slice(1)} translations! ${emoji}\n\nTranslation`,
       parent: category,
       permissionOverwrites: overwrites,
       reason: "Added language " + nationality
