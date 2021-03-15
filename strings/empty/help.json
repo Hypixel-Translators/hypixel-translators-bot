@@ -5,9 +5,10 @@
     "madeBy": "crwdns550:0%%QkeleQ10%%crwdne550:0",
     "page": "crwdns552:0%%number%%crwdnd552:0%%total%%crwdne552:0",
     "pageNumber": "crwdns554:0%%number%%crwdne554:0",
-    "utilityHelp": "crwdns556:0%%badge%%crwdne556:0",
-    "infoHelp": "crwdns558:0%%badge%%crwdne558:0",
-    "timeOut": "crwdns560:0crwdne560:0",
+    "utilityHelp": "crwdns556:0crwdne556:0",
+    "infoHelp": "crwdns558:0crwdne558:0",
+    "projectsHelp": "crwdns1264:0crwdne1264:0",
+    "timeOut": "crwdns560:0%%command%%crwdne560:0",
     "pageNotExist": "crwdns562:0crwdne562:0",
     "commandInfo": "crwdns564:0crwdne564:0",
     "commandInfoFor": "crwdns566:0crwdne566:0",
@@ -75,6 +76,14 @@
     "profile": {
         "usage": "crwdns1258:0crwdne1258:0",
         "description": "crwdns1260:0crwdne1260:0"
+    },
+    "rank": {
+        "usage": "crwdns1300:0[user]crwdne1300:0",
+        "description": "crwdns1302:0crwdne1302:0"
+    },
+    "levels": {
+        "usage": "crwdns1304:0[page]crwdne1304:0",
+        "description": "crwdns1306:0crwdne1306:0"
     },
     "tip": {
         "usage": "crwdns622:0crwdne622:0",
