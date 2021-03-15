@@ -5,9 +5,10 @@
     "madeBy": "Bot hecho con mucho amor por %%QkeleQ10%%",
     "page": "Página %%number%%/%%total%%",
     "pageNumber": "Página %%number%%",
-    "utilityHelp": "%%badge%% Herramientas & Utilidades",
-    "infoHelp": "%%badge%% Comandos de información",
-    "timeOut": "Este menú ha expirado. Si deseas reiniciarlo, ejecuta `+help`.",
+    "utilityHelp": "Herramientas & Utilidades",
+    "infoHelp": "Comandos de información",
+    "projectsHelp": "Crowdin Projects",
+    "timeOut": "Este menú ha expirado. Si deseas reiniciarlo, ejecuta %%command%%.",
     "pageNotExist": "¡Esa página no existe!",
     "commandInfo": "Información del comando",
     "commandInfoFor": "Información para el comando ",
@@ -75,6 +76,14 @@
     "profile": {
         "usage": "+profile",
         "description": "Te da el link a tu perfil de Crowdin si está almacenado en nuestra base de datos. Si no está, puedes usar `+help reverify` para aprender como almacenar tu perfil y actualizar tus roles."
+    },
+    "rank": {
+        "usage": "+rank [user]",
+        "description": "Gives you the current XP for yourself or any given user."
+    },
+    "levels": {
+        "usage": "+levels [page]",
+        "description": "Gives you the XP leaderboard."
     },
     "tip": {
         "usage": "+tip",
