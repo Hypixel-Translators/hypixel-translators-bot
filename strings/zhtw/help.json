@@ -5,15 +5,16 @@
     "madeBy": "機器人由 %%QkeleQ10%% 開發和維護",
     "page": "第 %%number%%/%%total%% 頁",
     "pageNumber": "第 %%number%% 頁",
-    "utilityHelp": "%%badge%% 實用工具",
-    "infoHelp": "%%badge%% 訊息指令",
-    "timeOut": "這個選單已逾時。如果你要繼續使用它，請再次輸入 `+help`。",
+    "utilityHelp": "實用工具",
+    "infoHelp": "訊息指令",
+    "projectsHelp": "Crowdin Projects",
+    "timeOut": "這個選單已逾時。如果你要繼續使用它，請再次輸入 %%command%%。",
     "pageNotExist": "該頁面並不存在。",
-    "commandInfo": "Command information",
+    "commandInfo": "指令資訊",
     "commandInfoFor": "指令資訊：",
     "commandNotExist": "該指令並不存在！",
     "staffOnly": "這個指令僅供管理員使用，因此有關訊息不公開顯示。如果你認為這是錯誤，請聯絡管理員。",
-    "inDev": "This command is currently in development and will be available at a later date!",
+    "inDev": "這個指令仍在開發中，將在日後開放使用！",
     "seconds": "seconds",
     "second": "秒",
     "minutes": "分鐘",
@@ -42,7 +43,7 @@
     },
     "languagestats": {
         "usage": "+languagestats <語言>",
-        "description": "Shows you the progress of a language on all the projects we currently support."
+        "description": "顯示特定語言在我們支援的所有項目中的翻譯進度。"
     },
     "issue": {
         "usage": "+issue",
@@ -75,6 +76,14 @@
     "profile": {
         "usage": "+profile",
         "description": "如果你的 Crowdin 個人檔案已儲存在我們的資料庫中，則會給予你的個人檔案連結。否則，你可以執行 `+help reverify` 以了解如何儲存你的個人檔案至資料庫和更新你的身分組。"
+    },
+    "rank": {
+        "usage": "+rank [user]",
+        "description": "Gives you the current XP for yourself or any given user."
+    },
+    "levels": {
+        "usage": "+levels [page]",
+        "description": "Gives you the XP leaderboard."
     },
     "tip": {
         "usage": "+tip",
