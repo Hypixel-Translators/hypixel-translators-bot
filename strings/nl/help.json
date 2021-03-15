@@ -5,9 +5,10 @@
     "madeBy": "Bot met veel zorg ontwikkeld door %%QkeleQ10%%",
     "page": "Pagina %%number%%/%%total%%",
     "pageNumber": "Pagina %%number%%",
-    "utilityHelp": "%%badge%% Hulpmiddelen",
-    "infoHelp": "%%badge%% Informatieve commando's",
-    "timeOut": "Dit menu is verlopen. Om het opnieuw te gebruiken, kun je `+help` uitvoeren.",
+    "utilityHelp": "Hulpmiddelen",
+    "infoHelp": "Informatieve commando's",
+    "projectsHelp": "Crowdin-projecten",
+    "timeOut": "Dit menu is verlopen. Om het opnieuw te gebruiken, kun je %%command%% uitvoeren.",
     "pageNotExist": "Die pagina bestaat niet!",
     "commandInfo": "Commando-informatie",
     "commandInfoFor": "Commando-informatie voor ",
@@ -69,12 +70,20 @@
         "description": "De glazen bol die al je vragen zal beantwoorden."
     },
     "verify": {
-        "usage": "+verify [profileURL]",
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `+profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "usage": "+verify [profiel-URL]",
+        "description": "Controleert automatisch op wijzigingen in je Crowdin-profiel en geeft je de bijbehorende rollen. Als je profiel niet in onze database is opgeslagen, word je gevraagd om je profiel opnieuw te versturen. Zorg ervoor dat je privéberichten hebt ingeschakeld voor deze server zodat de bot je een bericht kan sturen."
     },
     "profile": {
         "usage": "+profile",
         "description": "Geeft je de link naar je Crowdin-profiel als deze is opgeslagen in onze database. Als dit niet het geval is, kun je `+help verify` uitvoeren om te zien hoe je je profiel kunt laten opslaan en je rollen kunt updaten."
+    },
+    "rank": {
+        "usage": "+rank [gebruiker]",
+        "description": "Geeft je jouw hoeveelheid XP of die van een andere gebruiker."
+    },
+    "levels": {
+        "usage": "+levels [pagina]",
+        "description": "Geeft je het XP-scorebord."
     },
     "tip": {
         "usage": "+tip",
