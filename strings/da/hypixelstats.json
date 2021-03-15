@@ -1,8 +1,8 @@
 {
     "moduleName": "Spillerstatistik",
-    "description": "Here are some Hypixel stats for %%username%%, obtained [here]%%link%%.",
+    "description": "Her er nogle Hypixel-statistikker fra %%username%%, som er [herfra]%%link%%.",
     "socialMedia": "Her er de sammenkoblede sociale medier fra %%username%%, som er [herfra]%%link%%.",
-    "userVerified": "This player is verified as %%user%%.",
+    "userVerified": "Denne spiller er verificeret som %%user%%.",
     "updateNotice": "Bemærk: Oplysninger, der vises her, kan tage et par minutter at opdatere efter du har ændret noget.",
     "mediaTip": "For at se brugerens sammenkoblede sociale medier, skriv %%command%%",
     "networkLevel": "Hypixel niveau",

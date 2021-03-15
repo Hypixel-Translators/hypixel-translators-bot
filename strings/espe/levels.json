@@ -1,0 +1,9 @@
+{
+    "moduleName": "XP Leaderboard",
+    "pageTitle": "Here is the XP leaderboard!",
+    "page": "Página %%number%%/%%total%%",
+    "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
+    "thousand": "k",
+    "unranked": "#%%rank%% Unranked",
+    "timeOut": "Este menú ha expirado. Si deseas reiniciarlo, ejecuta %%command%%."
+}

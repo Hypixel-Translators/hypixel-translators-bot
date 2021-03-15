@@ -5,9 +5,10 @@
     "madeBy": "Bot, %%QkeleQ10%% tarafından özenle yapıldı",
     "page": "Sayfa %%number%%/%%total%%",
     "pageNumber": "Sayfa %%number%%",
-    "utilityHelp": "%%badge%% Araçlar & Yardımcı Programlar",
-    "infoHelp": "%%badge%% Bilgi komutları",
-    "timeOut": "Bu menü zaman aşımına uğradı. Tekrar kullanmak istersen, `+help` komutunu kullan.",
+    "utilityHelp": "Araçlar & Yardımcı Programlar",
+    "infoHelp": "Bilgi komutları",
+    "projectsHelp": "Crowdin Projects",
+    "timeOut": "Bu menü zaman aşımına uğradı. Tekrar kullanmak istersen, %%command%% komutunu kullan.",
     "pageNotExist": "Böyle bir sayfa mevcut değil!",
     "commandInfo": "Komut bilgisi",
     "commandInfoFor": "Komut bilgisi: ",
@@ -75,6 +76,14 @@
     "profile": {
         "usage": "+profile",
         "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
+    },
+    "rank": {
+        "usage": "+rank [user]",
+        "description": "Gives you the current XP for yourself or any given user."
+    },
+    "levels": {
+        "usage": "+levels [page]",
+        "description": "Gives you the XP leaderboard."
     },
     "tip": {
         "usage": "+tip",

@@ -5,9 +5,10 @@
     "madeBy": "A botot %%QkeleQ10%% készítette sok szeretettel",
     "page": "%%number%%. lap/%%total%%",
     "pageNumber": "%%number%%. lap",
-    "utilityHelp": "%%badge%% Eszközök",
-    "infoHelp": "%%badge%% Információs parancsok",
-    "timeOut": "Időtúllépés. Ha újra használni akarod, használd a `+help` parancsot.",
+    "utilityHelp": "Eszközök",
+    "infoHelp": "Információs parancsok",
+    "projectsHelp": "Crowdin Projects",
+    "timeOut": "Időtúllépés. Ha újra használni akarod, használd a %%command%% parancsot.",
     "pageNotExist": "Ez az oldal nem létezik!",
     "commandInfo": "Parancs információ",
     "commandInfoFor": "Parancs információ ehhez: ",
@@ -75,6 +76,14 @@
     "profile": {
         "usage": "+profile",
         "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
+    },
+    "rank": {
+        "usage": "+rank [user]",
+        "description": "Gives you the current XP for yourself or any given user."
+    },
+    "levels": {
+        "usage": "+levels [page]",
+        "description": "Gives you the XP leaderboard."
     },
     "tip": {
         "usage": "+tip",

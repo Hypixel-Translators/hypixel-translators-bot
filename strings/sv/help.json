@@ -5,9 +5,10 @@
     "madeBy": "Bot skapad av %%QkeleQ10%%",
     "page": "Sida %%number%%/%%total%%",
     "pageNumber": "Sida %%number%%",
-    "utilityHelp": "%%badge%% Verktyg och hjälpmedel",
-    "infoHelp": "%%badge%% Informationskommandon",
-    "timeOut": "This menu has timed out. If you wish to use it again, do `+help`.",
+    "utilityHelp": "Verktyg och hjälpmedel",
+    "infoHelp": "Informationskommandon",
+    "projectsHelp": "Crowdin Projects",
+    "timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%.",
     "pageNotExist": "Denna sida finns inte!",
     "commandInfo": "Kommandoinformation",
     "commandInfoFor": "Kommandoinformation för ",
@@ -75,6 +76,14 @@
     "profile": {
         "usage": "+profile",
         "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
+    },
+    "rank": {
+        "usage": "+rank [user]",
+        "description": "Gives you the current XP for yourself or any given user."
+    },
+    "levels": {
+        "usage": "+levels [page]",
+        "description": "Gives you the XP leaderboard."
     },
     "tip": {
         "usage": "+tip",

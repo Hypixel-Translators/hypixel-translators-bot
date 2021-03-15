@@ -1,5 +1,5 @@
 {
-    "outgoing": "Sent message to staff",
+    "outgoing": "向工作人員發送訊息",
     "outgoingDisclaimer": "在這裡發送的訊息會傳送至工作人員。",
     "error": "錯誤",
     "usage": "Expected command usage",
@@ -24,7 +24,7 @@
         "disabled": "這個指令已暫時停用。",
         "noAccess": "你沒有權限執行這個指令！",
         "noPermission": "你沒有權限在本頻道執行這個指令！",
-        "contextSubArg": "Please enter a subcommand as first argument. This can either be `get`, `add`, `edit`, `link` or `help`.\nFor information, execute`+context help`.",
+        "contextSubArg": "請輸入一個子指令以作為第一個參數。這可以是 `get`、`add`、`edit`、`link` 或 `help`。\n如要取得更多資訊，請執行 `+context help`。",
         "apiError": "與 API 聯繫時發生錯誤！",
         "noSubCommand": "找不到該子指令！",
         "wrongLink": "錯誤的連結！"

@@ -1,0 +1,12 @@
+{
+    "moduleName": "Уровень пользователя",
+    "yourRank": "Вот ваш ранг",
+    "userRank": "Вот ранг %%user%%",
+    "youNotRanked": "У вас пока нет ранга!",
+    "userNotRanked": "У этого пользователя пока нет ранга!",
+    "howRank": "Чтобы получить ранг, вы должны общаться в чатах!",
+    "textProgress": "%%currentXp%% из %%xpNeeded%% | %%messages%% сообщений",
+    "thousand": " тыс.",
+    "youLevel": "У вас %%level%% уровень и вы на %%rank%% месте в таблице лидеров!",
+    "userLevel": "%%user%% на %%level%% уровне и он на %%rank%% месте в таблице лидеров!"
+}

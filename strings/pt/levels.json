@@ -1,0 +1,9 @@
+{
+    "moduleName": "Pódio de XP",
+    "pageTitle": "Aqui está o pódio de XP!",
+    "page": "Página %%number%%/%%total%%",
+    "level": "%%rank%%º | Nível %%level%% | XP: %%xp%%",
+    "thousand": "k",
+    "unranked": "%%rank%%º Sem rank",
+    "timeOut": "Este menu foi desativado. Se o quiseres usar outra vez, executa %%command%%."
+}
