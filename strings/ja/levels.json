@@ -1,0 +1,9 @@
+{
+    "moduleName": "XP Leaderboard",
+    "pageTitle": "Here is the XP leaderboard!",
+    "page": "ページ %%number%%/%%total%%",
+    "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
+    "thousand": "k",
+    "unranked": "#%%rank%% Unranked",
+    "timeOut": "このメニューはタイムアウトしました。もう一度使用する場合は %%command%% を実行してください。"
+}
