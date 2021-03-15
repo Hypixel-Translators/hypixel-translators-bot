@@ -11,7 +11,6 @@ export default async function leveling(message: Discord.Message) {
         const randomXp = Math.floor(Math.random() * 11) + 15 //Random number between 25 and 15. 11 comes from 25-15+1
         const userDb: DbUser = await collection.findOne({ id: message.author.id })
         const xpNeeded = getXpNeeded(userDb.levels?.level, userDb.levels?.levelXp + randomXp)
-        collection.find({}, { sort: { "levels.totalXp": -1 } })
 
         //If at least one of the values is undefined
         if (isNaN(xpNeeded)) collection.updateOne({ id: message.author.id }, { $inc: { "levels.level": 0, "levels.levelXp": 0, "levels.totalXp": 0, "levels.messageCount": 0 } })
