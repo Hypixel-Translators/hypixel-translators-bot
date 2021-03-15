@@ -1,0 +1,9 @@
+{
+    "moduleName": "XP Leaderboard",
+    "pageTitle": "Here is the XP leaderboard!",
+    "page": "Страница %%number%% из %%total%%",
+    "level": "%%rank%% место | %%level%% уровень | %%xp%% опыта",
+    "thousand": " тыс.",
+    "unranked": "%%rank%% место | Ранга нет",
+    "timeOut": "Время действия этого меню истекло. Если вы хотите воспользоваться им снова, выполните %%command%%."
+}
