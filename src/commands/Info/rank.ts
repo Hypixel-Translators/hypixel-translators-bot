@@ -33,7 +33,7 @@ const command: Command = {
         }
         const totalXp = getXpNeeded(userDb.levels.level)
         const progressBar = generateProgressBar(userDb.levels?.levelXp, totalXp)
-        const ranking = (await collection.find({}, { sort: { "levels.totalXp": -1 } }).toArray()).map(u => u.id).indexOf(member.id) + 1
+        const ranking = (await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray()).map(u => u.id).indexOf(member.id) + 1
         const currentXp = userDb.levels.levelXp
         const messageCount = userDb.levels.messageCount
 
