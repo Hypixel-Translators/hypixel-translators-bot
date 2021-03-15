@@ -1,0 +1,9 @@
+{
+    "moduleName": "XP Leaderboard",
+    "pageTitle": "Here is the XP leaderboard!",
+    "page": "第 %%number%%/%%total%% 頁",
+    "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
+    "thousand": "k",
+    "unranked": "#%%rank%% Unranked",
+    "timeOut": "這個選單已逾時。如果你要繼續使用它，請再次輸入 %%command%%。"
+}
