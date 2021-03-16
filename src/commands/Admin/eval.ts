@@ -24,11 +24,11 @@ const command: Command = {
     const db = mongoDb
 
     let evaled
-    let code = args.join(" ").replace(/[“”]/gim, '"')
-    if (code.includes("await ")) code = `(async () => {\n${code}\n})()`
-    code = transpile(code)
+    let codeToRun = args.join(" ").replace(/[“”]/gim, '"')
+    if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`
+    codeToRun = transpile(codeToRun)
     try {
-      evaled = await eval(code)
+      evaled = await eval(codeToRun)
       message.channel.send(inspect(evaled).substring(0, 255))
       console.log(inspect(evaled))
     } catch (error) {
