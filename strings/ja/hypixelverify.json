@@ -4,9 +4,9 @@
     "role": "サーバーのランクに基づき%%role%%ロールを付与しました。",
     "alreadyVerified": "既に認証しています！",
     "nameChangeDisclaimer": "名前を変更した場合でも再度認証する必要はないことにご注意ください！",
-    "error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
-    "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this.",
+    "error": "HypixelでDiscordを正しく設定していないため、認証できませんでした！",
+    "tutorial": "認証するには、Hypixelで自分のDiscordを%%tag%%に設定し、最大10分経過後に再度コマンドを実行してください。方法が分からない場合は、以下のビデオの手順に従ってください。",
     "unverified": "You were successfully unverified!",
-    "notUnverified": "Couldn't unverify you!",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `+hypixelverify <username>`."
+    "notUnverified": "認証を解除できませんでした！",
+    "whyNotUnverified": "まだ認証をしていないためです。認証するには`+hypixelverify <ユーザー名>`を実行してください。"
 }
