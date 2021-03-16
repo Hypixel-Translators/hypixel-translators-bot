@@ -79,11 +79,11 @@
     },
     "rank": {
         "usage": "+rank [пользователь]",
-        "description": "Gives you the current XP for yourself or any given user."
+        "description": "Дает вам текущее количество вашего опыта или опыт любого другого указанного пользователя."
     },
     "levels": {
         "usage": "+levels [страница]",
-        "description": "Gives you the XP leaderboard."
+        "description": "Дает вам таблицу лидеров по опыту."
     },
     "tip": {
         "usage": "+tip",
