@@ -7,7 +7,7 @@
     "pageNumber": "%%number%% ページ目",
     "utilityHelp": "ツール＆ユーティリティ",
     "infoHelp": "情報コマンド",
-    "projectsHelp": "Crowdin Projects",
+    "projectsHelp": "Crowdinプロジェクト",
     "timeOut": "このメニューはタイムアウトしました。もう一度使用する場合は %%command%% を実行してください。",
     "pageNotExist": "このページは存在しません！",
     "commandInfo": "コマンド情報",
@@ -75,15 +75,15 @@
     },
     "profile": {
         "usage": "+profile",
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
+        "description": "我々のデータベースに保存されている場合、あなたのCrowdinプロフィールのリンクを表示します。保存されていない場合`+help reverify`を実行することで、プロフィールの保存とロールの更新方法を確認できます。"
     },
     "rank": {
-        "usage": "+rank [user]",
-        "description": "Gives you the current XP for yourself or any given user."
+        "usage": "+rank [ユーザー名]",
+        "description": "自分自身、または指定したユーザーの現在のXPを表示します。"
     },
     "levels": {
-        "usage": "+levels [page]",
-        "description": "Gives you the XP leaderboard."
+        "usage": "+levels [ページ]",
+        "description": "XP順位表を表示します。"
     },
     "tip": {
         "usage": "+tip",
@@ -95,7 +95,7 @@
     },
     "projects": {
         "usage": "+projects",
-        "description": "Gives you links and information about all the translation projects we support on the server."
+        "description": "このサーバーが支援しているすべての翻訳プロジェクトのリンクと情報を表示します。"
     },
     "hypixel": {
         "usage": "+hypixel",

@@ -78,11 +78,11 @@
         "description": "如果你的 Crowdin 個人檔案已儲存在我們的資料庫中，則會給予你的個人檔案連結。否則，你可以執行 `+help reverify` 以了解如何儲存你的個人檔案至資料庫和更新你的身分組。"
     },
     "rank": {
-        "usage": "+rank [user]",
+        "usage": "+rank [使用者名稱]",
         "description": "Gives you the current XP for yourself or any given user."
     },
     "levels": {
-        "usage": "+levels [page]",
+        "usage": "+levels [頁數]",
         "description": "Gives you the XP leaderboard."
     },
     "tip": {

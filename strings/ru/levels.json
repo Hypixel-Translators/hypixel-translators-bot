@@ -1,6 +1,6 @@
 {
-    "moduleName": "XP Leaderboard",
-    "pageTitle": "Here is the XP leaderboard!",
+    "moduleName": "Таблица лидеров по опыту",
+    "pageTitle": "Вот таблица лидеров по опыту!",
     "page": "Страница %%number%% из %%total%%",
     "level": "%%rank%% место | %%level%% уровень | %%xp%% опыта",
     "thousand": " тыс.",
