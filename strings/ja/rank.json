@@ -1,12 +1,12 @@
 {
-    "moduleName": "User level",
-    "yourRank": "Here's your rank",
-    "userRank": "Here's %%user%%'s rank",
-    "youNotRanked": "You're not ranked yet!",
-    "userNotRanked": "That user is not ranked yet!",
-    "howRank": "In order to be ranked you must talk in the chats!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Messages",
+    "moduleName": "ユーザーレベル",
+    "yourRank": "あなたのランクはこちらです",
+    "userRank": "%%user%%のランクはこちらです",
+    "youNotRanked": "あなたはまだ順位がありません！",
+    "userNotRanked": "このユーザーはまだ順位がありません！",
+    "howRank": "順位を得るにはチャットで話す必要があります！",
+    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%%メッセージ",
     "thousand": "k",
-    "youLevel": "You're at level %%level%% and you're #%%rank%% on the leaderboard!",
-    "userLevel": "%%user%% is at level %%level%% and they're #%%rank%% on the leaderboard!"
+    "youLevel": "あなたはレベル%%level%%で、順位表の#%%rank%%です！",
+    "userLevel": "%%user%%はレベル%%level%%で、順位表の#%%rank%%です！"
 }
