@@ -4,6 +4,6 @@
     "page": "Pagina %%number%%/%%total%%",
     "level": "%%rank%%e | Niveau %%level%% | XP: %%xp%%",
     "thousand": " duizend",
-    "unranked": "#%%rank%% geen rang",
+    "unranked": "%%rank%%e | geen rang",
     "timeOut": "Dit menu is verlopen. Om het opnieuw te gebruiken, kun je %%command%% uitvoeren."
 }
