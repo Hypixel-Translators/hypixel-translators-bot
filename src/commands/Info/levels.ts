@@ -37,9 +37,7 @@ const command: Command = {
                 .then(async msg => {
                     await msg.react("⏮"); await msg.react("◀"); await msg.react("▶"); await msg.react("⏭")
 
-                    const filter = (reaction: Discord.MessageReaction, user: Discord.User) => (reaction.emoji.name === "⏮" || reaction.emoji.name === "◀" || reaction.emoji.name === "▶" || reaction.emoji.name === "⏭") && user.id === message.author.id
-
-                    const collector = msg.createReactionCollector(filter, { time: 120000 }) //2 minutes
+                    const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, user: Discord.User) => (reaction.emoji.name === "⏮" || reaction.emoji.name === "◀" || reaction.emoji.name === "▶" || reaction.emoji.name === "⏭") && user.id === message.author.id, { time: 120000 }) //2 minutes
 
                     collector.on("collect", reaction => {
                         if (reaction.emoji.name === "⏮") page = 0 //First

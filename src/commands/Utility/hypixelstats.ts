@@ -43,8 +43,8 @@ const command: Command = {
                 }
 
                 //Define values used in both subcommands
-                let rank // some ranks are just prefixes so this code accounts for that
-                let color
+                let rank: string // some ranks are just prefixes so this code accounts for that
+                let color: string
                 if (json.prefix) {
                     color = parseColorCode(json.prefix)
                     rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
@@ -59,8 +59,10 @@ const command: Command = {
                 const uuidDb = await db.collection("users").findOne({ uuid: json.uuid })
                 if (uuidDb) updateRoles(message.guild!.members.cache.get(uuidDb.id)!, json)
 
-                if (!args[1] || args[1] === "stats") {
+                //Get user's current name to suggest for the other command
+                const currentName = await getCurrentName(json.uuid)
 
+                const stats = async () => {
                     //Define each value
                     let online
                     if (json.online) online = getString("online")
@@ -90,15 +92,12 @@ const command: Command = {
                         if (!value) json[key] = getString("unknown")
                     }
 
-                    //Get user's current name to suggest for the other command
-                    const currentName = await getCurrentName(json.uuid)
-
                     const statsEmbed = new Discord.MessageEmbed()
                         .setColor(color)
                         .setAuthor(getString("moduleName"))
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${getString("description", { username: username, link: `(https://api.slothpixel.me/api/players/${json.username})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("mediaTip", { command: `\`+hypixelstats ${currentName} social\`` })}`)
+                        .setDescription(`${getString("description", { username: username, link: `(https://api.slothpixel.me/api/players/${currentName})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
                         .addFields(
                             { name: getString("networkLevel"), value: Math.abs(json.level).toLocaleString(dateLocale), inline: true },
                             { name: getString("ap"), value: json.achievement_points.toLocaleString(dateLocale), inline: true },
@@ -109,9 +108,10 @@ const command: Command = {
 
                         )
                         .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    message.channel.stopTyping()
-                    message.channel.send(statsEmbed)
-                } else if (args[1] === "social") {
+                    return statsEmbed
+                }
+
+                const social = async () => {
                     const socialMedia = json.links
 
                     let twitter
@@ -165,7 +165,7 @@ const command: Command = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${json.username})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}`)
+                        .setDescription(`${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${currentName})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
                         .addFields(
                             { name: "Twitter", value: twitter, inline: true },
                             { name: "YouTube", value: youtube, inline: true },
@@ -175,9 +175,34 @@ const command: Command = {
                             { name: "Forums", value: forums, inline: true }
                         )
                         .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    message.channel.stopTyping()
-                    message.channel.send(socialEmbed)
-                } else throw "noSubCommand"
+                    return socialEmbed
+                }
+
+                let embed: Discord.MessageEmbed
+                if (!args[1] || args[1] === "stats") embed = await stats()
+                else if (args[1] === "social") embed = await social()
+                else throw "noSubCommand"
+
+                message.channel.stopTyping()
+                message.channel.send(embed)
+                    .then(async msg => {
+                        await msg.react("📊"); await msg.react("<:twitter:821752918352068677>")
+
+                        const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, user: Discord.User) => (reaction.emoji.name === "📊" || reaction.emoji.name === "twitter") && user.id === message.author.id, { time: 120000 }) //2 minutes
+
+                        collector.on("collect", async reaction => {
+                            if (reaction.emoji.name === "📊") embed = await stats()
+                            else if (reaction.emoji.name === "twitter") embed = await social()
+                            reaction.users.remove(message.author.id)
+                            msg.edit(embed)
+                        })
+
+                        collector.on("end", () => {
+                            msg.edit(getString("timeOut", { command: "`+hypixelstats`" }))
+                            if (message.channel.type !== "dm") msg.reactions.removeAll()
+                            else msg.reactions.cache.forEach(reaction => reaction.users.remove(message.client.user!.id)) //remove all reactions by the bot
+                        })
+                    })
             })
             .catch(e => {
                 if (e instanceof FetchError) {
