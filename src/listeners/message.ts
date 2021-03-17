@@ -202,19 +202,21 @@ client.on("message", async message => {
                     return
                 } else {
                     string = strings[pathPart]
-                    if (!string) {
-                        string = enStrings[pathPart] //if the string hasn't been added yet
+                    if (!string || JSON.stringify(string.match(/%%(?:\S+)%%/g)) != JSON.stringify(enStrings[pathPart].match(/%%(?:\S+)%%/g))) {
+                        string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
                             string = `strings.${path}` //in case of fire
                             if (command!.category != "Admin" && command!.category != "Staff") console.error(`Couldn't get string ${path} in English for ${cmd || command!.name}, please fix this`)
                         }
                     }
+                    if (typeof string === "string" && variables) {
+                        for (const [variable, text] of Object.entries(variables)) {
+                            string = string.replace(`%%${variable}%%`, String(text))
+                        }
+                    }
                 }
             } else if (strings) string = strings
             else string = enStrings
-            if (typeof string === "string" && variables) for (const [variable, text] of Object.entries(variables)) {
-                string = string.replace(`%%${variable}%%`, String(text))
-            }
         })
         return string
     }
