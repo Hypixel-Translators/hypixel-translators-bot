@@ -18,7 +18,6 @@ const command: Command = {
                 user = message.client.users.cache.find(m => m.id === userRaw || m.tag === userRaw || m.username === userRaw || m.tag.toLowerCase().includes(userRaw.toLowerCase()))
                 if (!user) throw "falseUser"
             }
-            console.log(args[1])
             if (!args[1]) {
                 const userDb: DbUser = await collection.findOne({ id: user.id })
                 if (userDb.profile) {
