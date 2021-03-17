@@ -11,8 +11,8 @@ const command: Command = {
     cooldown: 5,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development bot-translators
-    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", { user: message.author.tag }, "global")
         const collection = db.collection("quotes")
         let allowed = false
         if (message.member?.hasPermission("VIEW_AUDIT_LOG")) allowed = true
@@ -35,15 +35,15 @@ const command: Command = {
                     .setColor(neutralColor)
                     .setAuthor("Quote")
                     .setTitle("A quote request has been submitted!")
-                    .setDescription(quote + "\n       - " + author)
-                    .addFields({ name: "To add it", value: "`+quote add " + toSend + "`" })
+                    .setDescription(`${quote}\n       - ${author}`)
+                    .addField("To add it", `\`+quote add ${toSend}\``)
                     .setFooter("Suggested by " + message.author.tag, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 sendTo.send(report)
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("reqSub"))
-                    .setDescription(quote + "\n       - " + author)
+                    .setDescription(`${quote}\n       - ${author}`)
                     .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 message.channel.stopTyping()
                 message.channel.send(embed)
@@ -54,7 +54,7 @@ const command: Command = {
     }
 }
 
-async function findQuote(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string) => any, args: string[], collection: Collection<any>) {
+async function findQuote(executedBy: string, message: Discord.Message, getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any, args: string[], collection: Collection<any>) {
 
     const all = await collection.find({}).toArray()
 
@@ -68,7 +68,7 @@ async function findQuote(executedBy: string, message: Discord.Message, getString
             .setColor(errorColor)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("invalidArg"))
-            .setDescription(getString("indexArg").replace("%%arg%%", args[0]).replace("%%max%%", all.length))
+            .setDescription(getString("indexArg", { arg: args[0], max: all.length }))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.stopTyping()
         return message.channel.send(embed)

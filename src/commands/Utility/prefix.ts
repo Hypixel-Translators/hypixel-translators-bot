@@ -11,8 +11,8 @@ const command: Command = {
   usage: "+prefix [flags]",
   cooldown: 30,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
-  async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
-    const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+  async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
+    const executedBy = getString("executedBy", { user: message.author.tag }, "global")
     const nickNoPrefix = message.member!.displayName.replace(/\[[^\s]*\] /g, "")
     const langdb = await db.collection("langdb").find().toArray()
 
@@ -32,8 +32,8 @@ const command: Command = {
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("caution"))
-        .setDescription(`${getString("warning")}\n${getString("reactTimer").replace("%%cooldown%%", this.cooldown)}`)
-        .addFields({ name: getString("previewT"), value: `\`[${prefix}] ${nickNoPrefix}\`` })
+        .setDescription(`${getString("warning")}\n${getString("reactTimer", { cooldown: this.cooldown! })}`)
+        .addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
       message.channel.send(embed)
         .then(msg => {
@@ -49,14 +49,14 @@ const command: Command = {
             msg.react("✅")
             if (reaction.emoji.name === "✅") {
               msg.reactions.removeAll()
-              if (message.member!.nickname !== ("[" + prefix + "] " + nickNoPrefix)) {
-                await message.member!.setNickname("[" + prefix + "] " + nickNoPrefix, "Used the prefix command")
+              if (message.member!.nickname !== (`[${prefix}]  ${nickNoPrefix}`)) {
+                await message.member!.setNickname(`[${prefix}]  ${nickNoPrefix}`, "Used the prefix command")
                   .then(() => {
                     const embed = new Discord.MessageEmbed()
                       .setColor(successColor)
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("saved"))
-                      .addFields({ name: getString("newNickT"), value: "\`[" + prefix + "] " + nickNoPrefix + "\`" })
+                      .addField(getString("newNickT"), `\`[${prefix}] ${nickNoPrefix}\``)
                       .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                     const staffAlert = new Discord.MessageEmbed()
@@ -73,7 +73,7 @@ const command: Command = {
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("errors.error"))
                       .setDescription(err)
-                      .addFields({ name: getString("previewT"), value: "\`[" + prefix + "] " + nickNoPrefix + "\`" })
+                      .addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
                       .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                   })
@@ -82,7 +82,7 @@ const command: Command = {
                   .setColor(successColor)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
-                  .addFields({ name: getString("newNickT"), value: getString("noChanges") })
+                  .addField(getString("newNickT"), getString("noChanges"))
                   .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 msg.edit(embed)
               }
@@ -94,7 +94,7 @@ const command: Command = {
                 .setColor(successColor)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
-                .addFields({ name: getString("newNickT"), value: getString("noChanges") })
+                .addField(getString("newNickT"), getString("noChanges"))
                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
               msg.edit(embed)
             }
@@ -102,15 +102,15 @@ const command: Command = {
           collector.on('end', () => {
             msg.reactions.removeAll()
             if (prefix === "n") return
-            if (prefix.length > 0) {
-              if (message.member!.nickname !== ("[" + prefix + "] " + nickNoPrefix)) {
-                message.member!.setNickname("[" + prefix + "] " + nickNoPrefix, "Used the prefix command")
+            if (prefix) {
+              if (message.member!.nickname !== (`[${prefix}]  ${nickNoPrefix}`)) {
+                message.member!.setNickname(`[${prefix}]  ${nickNoPrefix}`, "Used the prefix command")
                   .then(() => {
                     const embed = new Discord.MessageEmbed()
                       .setColor(successColor)
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("saved"))
-                      .addFields({ name: getString("newNickT"), value: "\`[" + prefix + "] " + nickNoPrefix + "\`" })
+                      .addField(getString("newNickT"), `\`[${prefix}] ${nickNoPrefix}\``)
                       .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                   })
@@ -120,7 +120,7 @@ const command: Command = {
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("errors.error"))
                       .setDescription(err)
-                      .addFields({ name: getString("previewT"), value: "\`[" + prefix + "] " + nickNoPrefix + "\`" })
+                      .addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
                       .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                     console.log(err)
@@ -130,7 +130,7 @@ const command: Command = {
                   .setColor(successColor)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
-                  .addFields({ name: getString("newNickT"), value: getString("noChanges") })
+                  .addField(getString("newNickT"), getString("noChanges"))
                   .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 msg.edit(embed)
               }
@@ -140,7 +140,7 @@ const command: Command = {
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("errors.timedOut"))
                 .setDescription(getString("errors.timeOutCustom") + getString("errors.notSaved"))
-                .addFields({ name: getString("newNickT"), value: getString("noChanges") })
+                .addField(getString("newNickT"), getString("noChanges"))
                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
               msg.edit(embed)
             }
@@ -195,8 +195,8 @@ const command: Command = {
             .setColor(neutralColor)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("react"))
-            .setDescription(getString("reactTimer").replace("%%cooldown%%", this.cooldown))
-            .addFields({ name: getString("previewT"), value: getString("noChanges") })
+            .setDescription(getString("reactTimer", { cooldown: this.cooldown! }))
+            .addField(getString("previewT"), getString("noChanges"))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
           msg.edit(embed)
 
@@ -210,15 +210,15 @@ const command: Command = {
             if (reaction.emoji.name !== "❎") msg.react("✅")
             if (reaction.emoji.name === "✅") {
               msg.reactions.removeAll()
-              if (prefixes.length > 0) {
-                if (message.member!.nickname !== ("[" + prefixes + "] " + nickNoPrefix)) {
-                  await message.member!.setNickname("[" + prefixes + "] " + nickNoPrefix, "Used the prefix command")
+              if (prefixes) {
+                if (message.member!.nickname !== (`[${prefixes}]  ${nickNoPrefix}`)) {
+                  await message.member!.setNickname(`[${prefixes}]  ${nickNoPrefix}`, "Used the prefix command")
                     .then(() => {
                       const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("saved"))
-                        .addFields({ name: getString("newNickT"), value: "`[" + prefixes + "] " + nickNoPrefix + "`" })
+                        .addField(getString("newNickT"), `[${prefixes}]  ${nickNoPrefix}`)
                         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                       msg.edit(embed)
                     })
@@ -228,7 +228,7 @@ const command: Command = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("errors.error"))
                         .setDescription(err)
-                        .addFields({ name: getString("previewT"), value: "`[" + prefixes + "] " + nickNoPrefix + "`" })
+                        .addField(getString("previewT"), `[${prefixes}]  ${nickNoPrefix}`)
                         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                       msg.edit(embed)
                     })
@@ -262,14 +262,14 @@ const command: Command = {
             } else {
               const valueToRemove = reaction.emoji.name
               userLangs = userLangs.filter(item => item !== valueToRemove)
-              if (prefixes.length > 0) { prefixes = (prefixes + "-") }
-              prefixes = (prefixes + reaction.emoji.name)
+              if (prefixes) prefixes = prefixes + "-"
+              prefixes = prefixes + reaction.emoji.name
               const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("react"))
-                .setDescription(getString("reactTimer2").replace("%%cooldown%%", this.cooldown))
-                .addFields({ name: getString("previewT"), value: "\`[" + prefixes + "] " + nickNoPrefix + "\`" })
+                .setDescription(getString("reactTimer2", { cooldown: this.cooldown! }))
+                .addField(getString("previewT"), `[${prefixes}]  ${nickNoPrefix}`)
                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
               msg.edit(embed)
             }
@@ -279,14 +279,14 @@ const command: Command = {
             msg.reactions.removeAll()
             if (prefixes === "n") return
             if (prefixes.length > 0) {
-              if (message.member!.nickname !== ("[" + prefixes + "] " + nickNoPrefix)) {
-                message.member!.setNickname("[" + prefixes + "] " + nickNoPrefix, "Used the prefix command")
+              if (message.member!.nickname !== (`[${prefixes}]  ${nickNoPrefix}`)) {
+                message.member!.setNickname(`[${prefixes}]  ${nickNoPrefix}`, "Used the prefix command")
                   .then(() => {
                     const embed = new Discord.MessageEmbed()
                       .setColor(successColor)
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("saved"))
-                      .addFields({ name: getString("newNickT"), value: "\`[" + prefixes + "] " + nickNoPrefix + "\`" })
+                      .addField(getString("newNickT"), `[${prefixes}]  ${nickNoPrefix}`)
                       .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                   })
@@ -296,7 +296,7 @@ const command: Command = {
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("errors.error"))
                       .setDescription(err)
-                      .addFields({ name: getString("previewT"), value: "\`[" + prefixes + "] " + nickNoPrefix + "\`" })
+                      .addField(getString("previewT"), `[${prefixes}]  ${nickNoPrefix}`)
                       .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                     console.log(err)
@@ -306,7 +306,7 @@ const command: Command = {
                   .setColor(successColor)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
-                  .addFields({ name: getString("newNickT"), value: getString("noChanges") })
+                  .addField(getString("newNickT"), getString("noChanges"))
                   .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 msg.edit(embed)
               }
@@ -316,7 +316,7 @@ const command: Command = {
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("errors.timedOut"))
                 .setDescription(getString("errors.timeOut") + getString("errors.notSaved"))
-                .addFields({ name: getString("newNickT"), value: getString("noChanges") })
+                .addField(getString("newNickT"), getString("noChanges"))
                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
               msg.edit(embed)
             }

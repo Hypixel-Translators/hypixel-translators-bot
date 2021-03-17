@@ -8,7 +8,7 @@ const command: Command = {
     usage: "+dm <mention> <message>",
     aliases: ["message", "privatemessage", "pm"],
     roleWhitelist: ["768435276191891456"], //Discord Staff
-    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
+    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
         if (!args[0]) throw "noUser"
         const userToSend = args[0].replace(/[\\<>@#&!]/g, "")
         const recipient = message.client.users.cache.get(userToSend)
@@ -21,9 +21,9 @@ const command: Command = {
         if (toSend) {
             const dm = new Discord.MessageEmbed()
                 .setColor(neutralColor)
-                .setAuthor(getString("incoming", this.name, recipientDb.lang))
+                .setAuthor(getString("incoming", {}, this.name, recipientDb.lang))
                 .setDescription(toSend)
-                .setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang))
+                .setFooter(getString("incomingDisclaimer", {}, this.name, recipientDb.lang))
             recipient.send(dm)
                 .then(() => {
                     const embed = new Discord.MessageEmbed()

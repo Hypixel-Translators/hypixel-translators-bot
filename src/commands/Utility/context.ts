@@ -12,8 +12,8 @@ const command: Command = {
     roleWhitelist: ["569839580971401236", "569839517444341771"],
     channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "801904400826105876", "550951034332381184", "713084081579098152"], //off-topic memes pets food suggestions no-mic
     cooldown: 30,
-    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", { user: message.author.tag }, "global")
         if (!args[0]) throw "contextSubArg"
         const subCmd = args[0].toLowerCase()
         try {
@@ -27,7 +27,7 @@ const command: Command = {
     }
 }
 
-async function getFromSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string) => any, args: string[]) {
+async function getFromSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any, args: string[]) {
     message.channel.startTyping()
     const string = args[1]
     const doc = new GoogleSpreadsheet(contextSheet!)
@@ -54,40 +54,40 @@ async function getFromSpreadsheet(executedBy: string, message: Discord.Message, 
         .setTitle(getString("contextFor") + string)
         .setDescription(correctRow.context)
         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-    if (correctRow.bg) { if (correctRow.bg.length > 1) { embed.addFields({ name: getString("noteFor") + getString("bulgarian"), value: correctRow.bg, inline: true }) } }
-    if (correctRow.zhcn) { if (correctRow.zhcn.length > 1) { embed.addFields({ name: getString("noteFor") + getString("chineseS"), value: correctRow.zhcn, inline: true }) } }
-    if (correctRow.zhtw) { if (correctRow.zhtw.length > 1) { embed.addFields({ name: getString("noteFor") + getString("chineseT"), value: correctRow.zhtw, inline: true }) } }
-    if (correctRow.cs) { if (correctRow.cs.length > 1) { embed.addFields({ name: getString("noteFor") + getString("czech"), value: correctRow.cs, inline: true }) } }
-    if (correctRow.da) { if (correctRow.da.length > 1) { embed.addFields({ name: getString("noteFor") + getString("danish"), value: correctRow.da, inline: true }) } }
-    if (correctRow.nl) { if (correctRow.nl.length > 1) { embed.addFields({ name: getString("noteFor") + getString("dutch"), value: correctRow.nl, inline: true }) } }
-    if (correctRow.fi) { if (correctRow.fi.length > 1) { embed.addFields({ name: getString("noteFor") + getString("finnish"), value: correctRow.fi, inline: true }) } }
-    if (correctRow.fr) { if (correctRow.fr.length > 1) { embed.addFields({ name: getString("noteFor") + getString("french"), value: correctRow.fr, inline: true }) } }
-    if (correctRow.de) { if (correctRow.de.length > 1) { embed.addFields({ name: getString("noteFor") + getString("german"), value: correctRow.de, inline: true }) } }
-    if (correctRow.el) { if (correctRow.el.length > 1) { embed.addFields({ name: getString("noteFor") + getString("greek"), value: correctRow.el, inline: true }) } }
-    if (correctRow.it) { if (correctRow.it.length > 1) { embed.addFields({ name: getString("noteFor") + getString("italian"), value: correctRow.it, inline: true }) } }
-    if (correctRow.ja) { if (correctRow.ja.length > 1) { embed.addFields({ name: getString("noteFor") + getString("japanese"), value: correctRow.ja, inline: true }) } }
-    if (correctRow.ko) { if (correctRow.ko.length > 1) { embed.addFields({ name: getString("noteFor") + getString("korean"), value: correctRow.ko, inline: true }) } }
-    if (correctRow.ms) { if (correctRow.ms.length > 1) { embed.addFields({ name: getString("noteFor") + getString("malay"), value: correctRow.ms, inline: true }) } }
-    if (correctRow.no) { if (correctRow.no.length > 1) { embed.addFields({ name: getString("noteFor") + getString("norwegian"), value: correctRow.no, inline: true }) } }
-    if (correctRow.enpt) { if (correctRow.enpt.length > 1) { embed.addFields({ name: getString("noteFor") + getString("pirate"), value: correctRow.enpt, inline: true }) } }
-    if (correctRow.pl) { if (correctRow.pl.length > 1) { embed.addFields({ name: getString("noteFor") + getString("polish"), value: correctRow.pl, inline: true }) } }
-    if (correctRow.pt) { if (correctRow.pt.length > 1) { embed.addFields({ name: getString("noteFor") + getString("portuguese"), value: correctRow.pt, inline: true }) } }
-    if (correctRow.ptbr) { if (correctRow.ptbr.length > 1) { embed.addFields({ name: getString("noteFor") + getString("portugueseBr"), value: correctRow.ptbr, inline: true }) } }
-    if (correctRow.ru) { if (correctRow.ru.length > 1) { embed.addFields({ name: getString("noteFor") + getString("russian"), value: correctRow.ru, inline: true }) } }
-    if (correctRow.es) { if (correctRow.es.length > 1) { embed.addFields({ name: getString("noteFor") + getString("spanish"), value: correctRow.es, inline: true }) } }
-    if (correctRow.sv) { if (correctRow.sv.length > 1) { embed.addFields({ name: getString("noteFor") + getString("swedish"), value: correctRow.sv, inline: true }) } }
-    if (correctRow.th) { if (correctRow.th.length > 1) { embed.addFields({ name: getString("noteFor") + getString("thai"), value: correctRow.th, inline: true }) } }
-    if (correctRow.tr) { if (correctRow.tr.length > 1) { embed.addFields({ name: getString("noteFor") + getString("turkish"), value: correctRow.tr, inline: true }) } }
-    if (correctRow.uk) { if (correctRow.uk.length > 1) { embed.addFields({ name: getString("noteFor") + getString("ukrainian"), value: correctRow.uk, inline: true }) } }
+    if (correctRow.bg) embed.addField(getString("noteFor") + getString("bulgarian"), correctRow.bg, true)
+    if (correctRow.zhcn) embed.addField(getString("noteFor") + getString("chineseS"), correctRow.zhcn, true)
+    if (correctRow.zhtw) embed.addField(getString("noteFor") + getString("chineseT"), correctRow.zhtw, true)
+    if (correctRow.cs) embed.addField(getString("noteFor") + getString("czech"), correctRow.cs, true)
+    if (correctRow.da) embed.addField(getString("noteFor") + getString("danish"), correctRow.da, true)
+    if (correctRow.nl) embed.addField(getString("noteFor") + getString("dutch"), correctRow.nl, true)
+    if (correctRow.fi) embed.addField(getString("noteFor") + getString("finnish"), correctRow.fi, true)
+    if (correctRow.fr) embed.addField(getString("noteFor") + getString("french"), correctRow.fr, true)
+    if (correctRow.de) embed.addField(getString("noteFor") + getString("german"), correctRow.de, true)
+    if (correctRow.el) embed.addField(getString("noteFor") + getString("greek"), correctRow.el, true)
+    if (correctRow.it) embed.addField(getString("noteFor") + getString("italian"), correctRow.it, true)
+    if (correctRow.ja) embed.addField(getString("noteFor") + getString("japanese"), correctRow.ja, true)
+    if (correctRow.ko) embed.addField(getString("noteFor") + getString("korean"), correctRow.ko, true)
+    if (correctRow.ms) embed.addField(getString("noteFor") + getString("malay"), correctRow.ms, true)
+    if (correctRow.no) embed.addField(getString("noteFor") + getString("norwegian"), correctRow.no, true)
+    if (correctRow.enpt) embed.addField(getString("noteFor") + getString("pirate"), correctRow.enpt, true)
+    if (correctRow.pl) embed.addField(getString("noteFor") + getString("polish"), correctRow.pl, true)
+    if (correctRow.pt) embed.addField(getString("noteFor") + getString("portuguese"), correctRow.pt, true)
+    if (correctRow.ptbr) embed.addField(getString("noteFor") + getString("portugueseBr"), correctRow.ptbr, true)
+    if (correctRow.ru) embed.addField(getString("noteFor") + getString("russian"), correctRow.ru, true)
+    if (correctRow.es) embed.addField(getString("noteFor") + getString("spanish"), correctRow.es, true)
+    if (correctRow.sv) embed.addField(getString("noteFor") + getString("swedish"), correctRow.sv, true)
+    if (correctRow.th) embed.addField(getString("noteFor") + getString("thai"), correctRow.th, true)
+    if (correctRow.tr) embed.addField(getString("noteFor") + getString("turkish"), correctRow.tr, true)
+    if (correctRow.uk) embed.addField(getString("noteFor") + getString("ukrainian"), correctRow.uk, true)
     if (correctRow.screenshot) {
         if (/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(correctRow.screenshot)) embed.setImage(correctRow.screenshot)
-        embed.addFields({ name: getString("screenshot"), value: correctRow.screenshot })
+        embed.addField(getString("screenshot"), correctRow.screenshot)
     }
     message.channel.stopTyping()
     message.channel.send(embed)
 }
 
-async function addToSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string) => any, args: string[]) {
+async function addToSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any, args: string[]) {
     message.channel.startTyping()
     const string = args[1]
     let toSend = [...args]
@@ -136,7 +136,7 @@ async function addToSpreadsheet(executedBy: string, message: Discord.Message, ge
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("addContextFor") + string)
-        .setDescription(getString("willAdd").replace("%%voteNo%%", "<:vote_no:732298639736570007>").replace("%%voteYes%%", "<:vote_yes:732298639749152769>"))
+        .setDescription(getString("willAdd", { voteNo: "<:vote_no:732298639736570007>", voteYes: "<:vote_yes:732298639749152769>" }))
         .addFields(
             { name: getString("stringId"), value: string },
             { name: getString("moduleName"), value: context }
@@ -181,7 +181,7 @@ async function addToSpreadsheet(executedBy: string, message: Discord.Message, ge
                                 .setAuthor(getString("moduleName"))
                                 .setTitle(getString("addContextFor") + string)
                                 .setDescription(getString("addedMore"))
-                                .addFields({ name: key, value: value })
+                                .addField(key, value)
                             extraMsg.edit(extraEmbed)
                         })
 
@@ -216,40 +216,40 @@ async function addToSpreadsheet(executedBy: string, message: Discord.Message, ge
                                 .setTitle(getString("addContextFor") + string)
                                 .setDescription(getString("addedResult") + result.context)
                                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                            if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: getString("noteFor") + getString("bulgarian"), value: result.bg, inline: true }) } }
-                            if (result.zhcn) { if (result.zhcn.length > 1) { embed.addFields({ name: getString("noteFor") + getString("chineseS"), value: result.zhcn, inline: true }) } }
-                            if (result.zhtw) { if (result.zhtw.length > 1) { embed.addFields({ name: getString("noteFor") + getString("chineseT"), value: result.zhtw, inline: true }) } }
-                            if (result.cs) { if (result.cs.length > 1) { embed.addFields({ name: getString("noteFor") + getString("czech"), value: result.cs, inline: true }) } }
-                            if (result.da) { if (result.da.length > 1) { embed.addFields({ name: getString("noteFor") + getString("danish"), value: result.da, inline: true }) } }
-                            if (result.nl) { if (result.nl.length > 1) { embed.addFields({ name: getString("noteFor") + getString("dutch"), value: result.nl, inline: true }) } }
-                            if (result.fi) { if (result.fi.length > 1) { embed.addFields({ name: getString("noteFor") + getString("finnish"), value: result.fi, inline: true }) } }
-                            if (result.fr) { if (result.fr.length > 1) { embed.addFields({ name: getString("noteFor") + getString("french"), value: result.fr, inline: true }) } }
-                            if (result.de) { if (result.de.length > 1) { embed.addFields({ name: getString("noteFor") + getString("german"), value: result.de, inline: true }) } }
-                            if (result.el) { if (result.el.length > 1) { embed.addFields({ name: getString("noteFor") + getString("greek"), value: result.el, inline: true }) } }
-                            if (result.it) { if (result.it.length > 1) { embed.addFields({ name: getString("noteFor") + getString("italian"), value: result.it, inline: true }) } }
-                            if (result.ja) { if (result.ja.length > 1) { embed.addFields({ name: getString("noteFor") + getString("japanese"), value: result.ja, inline: true }) } }
-                            if (result.ko) { if (result.ko.length > 1) { embed.addFields({ name: getString("noteFor") + getString("korean"), value: result.ko, inline: true }) } }
-                            if (result.ms) { if (result.ms.length > 1) { embed.addFields({ name: getString("noteFor") + getString("malay"), value: result.ms, inline: true }) } }
-                            if (result.no) { if (result.no.length > 1) { embed.addFields({ name: getString("noteFor") + getString("norwegian"), value: result.no, inline: true }) } }
-                            if (result.enpt) { if (result.enpt.length > 1) { embed.addFields({ name: getString("noteFor") + getString("pirate"), value: result.enpt, inline: true }) } }
-                            if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: getString("noteFor") + getString("polish"), value: result.pl, inline: true }) } }
-                            if (result.pt) { if (result.pt.length > 1) { embed.addFields({ name: getString("noteFor") + getString("portuguese"), value: result.pt, inline: true }) } }
-                            if (result.ptbr) { if (result.ptbr.length > 1) { embed.addFields({ name: getString("noteFor") + getString("portugueseBr"), value: result.ptbr, inline: true }) } }
-                            if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: getString("noteFor") + getString("russian"), value: result.ru, inline: true }) } }
-                            if (result.es) { if (result.es.length > 1) { embed.addFields({ name: getString("noteFor") + getString("spanish"), value: result.es, inline: true }) } }
-                            if (result.sv) { if (result.sv.length > 1) { embed.addFields({ name: getString("noteFor") + getString("swedish"), value: result.sv, inline: true }) } }
-                            if (result.th) { if (result.th.length > 1) { embed.addFields({ name: getString("noteFor") + getString("thai"), value: result.th, inline: true }) } }
-                            if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: getString("noteFor") + getString("turkish"), value: result.tr, inline: true }) } }
-                            if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: getString("noteFor") + getString("ukrainian"), value: result.uk, inline: true }) } }
+                            if (result.bg) embed.addField(getString("noteFor") + getString("bulgarian"), result.bg, true)
+                            if (result.zhcn) embed.addField(getString("noteFor") + getString("chineseS"), result.zhcn, true)
+                            if (result.zhtw) embed.addField(getString("noteFor") + getString("chineseT"), result.zhtw, true)
+                            if (result.cs) embed.addField(getString("noteFor") + getString("czech"), result.cs, true)
+                            if (result.da) embed.addField(getString("noteFor") + getString("danish"), result.da, true)
+                            if (result.nl) embed.addField(getString("noteFor") + getString("dutch"), result.nl, true)
+                            if (result.fi) embed.addField(getString("noteFor") + getString("finnish"), result.fi, true)
+                            if (result.fr) embed.addField(getString("noteFor") + getString("french"), result.fr, true)
+                            if (result.de) embed.addField(getString("noteFor") + getString("german"), result.de, true)
+                            if (result.el) embed.addField(getString("noteFor") + getString("greek"), result.el, true)
+                            if (result.it) embed.addField(getString("noteFor") + getString("italian"), result.it, true)
+                            if (result.ja) embed.addField(getString("noteFor") + getString("japanese"), result.ja, true)
+                            if (result.ko) embed.addField(getString("noteFor") + getString("korean"), result.ko, true)
+                            if (result.ms) embed.addField(getString("noteFor") + getString("malay"), result.ms, true)
+                            if (result.no) embed.addField(getString("noteFor") + getString("norwegian"), result.no, true)
+                            if (result.enpt) embed.addField(getString("noteFor") + getString("pirate"), result.enpt, true)
+                            if (result.pl) embed.addField(getString("noteFor") + getString("polish"), result.pl, true)
+                            if (result.pt) embed.addField(getString("noteFor") + getString("portuguese"), result.pt, true)
+                            if (result.ptbr) embed.addField(getString("noteFor") + getString("portugueseBr"), result.ptbr, true)
+                            if (result.ru) embed.addField(getString("noteFor") + getString("russian"), result.ru, true)
+                            if (result.es) embed.addField(getString("noteFor") + getString("spanish"), result.es, true)
+                            if (result.sv) embed.addField(getString("noteFor") + getString("swedish"), result.sv, true)
+                            if (result.th) embed.addField(getString("noteFor") + getString("thai"), result.th, true)
+                            if (result.tr) embed.addField(getString("noteFor") + getString("turkish"), result.tr, true)
+                            if (result.uk) embed.addField(getString("noteFor") + getString("ukrainian"), result.uk, true)
                             if (result.screenshot) {
                                 if (/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(result.screenshot)) embed.setImage(result.screenshot)
-                                embed.addFields({ name: getString("screenshot"), value: result.screenshot })
+                                embed.addField(getString("screenshot"), result.screenshot)
                             }
                             finalMsg.edit(embed)
-                            extraMsgs.forEach(item => {
+                            extraMsgs?.forEach(item => {
                                 if (!item.deleted) item.delete()
                             })
-                            extraReceiveds.forEach(item => {
+                            extraReceiveds?.forEach(item => {
                                 if (!item.deleted) item.delete()
                             })
                             console.log("Added a context entry for string " + string)
@@ -261,13 +261,13 @@ async function addToSpreadsheet(executedBy: string, message: Discord.Message, ge
                         .setColor(errorColor)
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("addContextFor") + string)
-                        .setDescription(getString("errors.hitReaction").replace("%%voteNo%%", "<:vote_no:732298639736570007>") + getString("errors.cancelledPrompt"))
+                        .setDescription(getString("errors.hitReaction", { voteNo: "<:vote_no:732298639736570007>" }) + getString("errors.cancelledPrompt"))
                         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
-                    extraMsgs.forEach(item => {
+                    extraMsgs?.forEach(item => {
                         if (!item.deleted) item.delete()
                     })
-                    extraReceiveds.forEach(item => {
+                    extraReceiveds?.forEach(item => {
                         if (!item.deleted) item.delete()
                     })
                 }
@@ -279,13 +279,13 @@ async function addToSpreadsheet(executedBy: string, message: Discord.Message, ge
                     .setColor(errorColor)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("addContextFor") + string)
-                    .setDescription(getString("errors.hitReaction").replace("%%voteNo%%", "<:vote_no:732298639736570007>") + getString("errors.cancelledPrompt"))
+                    .setDescription(getString("errors.hitReaction", { voteNo: "<:vote_no:732298639736570007>" }) + getString("errors.cancelledPrompt"))
                     .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 msg.edit(embed)
-                extraMsgs.forEach(item => {
+                extraMsgs?.forEach(item => {
                     if (!item.deleted) item.delete()
                 })
-                extraReceiveds.forEach(item => {
+                extraReceiveds?.forEach(item => {
                     if (!item.deleted) item.delete()
                 })
                 setTimeout(() => {
@@ -295,7 +295,7 @@ async function addToSpreadsheet(executedBy: string, message: Discord.Message, ge
         })
 }
 
-async function editInSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string) => any, args: string[]) {
+async function editInSpreadsheet(executedBy: string, message: Discord.Message, getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any, args: string[]) {
     message.channel.startTyping()
     const string = args[1]
     if (!message.member!.roles.cache.has("569839580971401236") && !message.member!.hasPermission("MANAGE_ROLES")) { //Hypixel Proofreader
@@ -352,14 +352,14 @@ async function editInSpreadsheet(executedBy: string, message: Discord.Message, g
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("editContextFor") + string)
-        .setDescription(getString("confirm").replace("%%voteNo%%", "<:vote_no:732298639736570007>").replace("%%voteYes%%", "<:vote_yes:732298639749152769>"))
+        .setDescription(getString("confirm", { voteNo: "<:vote_no:732298639736570007>", voteYes: "<:vote_yes:732298639749152769>" }))
         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     if (correctRow[key]) {
         if (correctRow[key].length > 1) {
-            embed.addFields({ name: getString("oldVal") + key, value: correctRow[key] })
+            embed.addField(getString("oldVal") + key, correctRow[key])
         }
     }
-    embed.addFields({ name: getString("newVal") + key, value: value })
+    embed.addField(getString("newVal") + key, value)
     message.channel.stopTyping()
     message.channel.send(embed)
         .then(msg => {
@@ -379,7 +379,7 @@ async function editInSpreadsheet(executedBy: string, message: Discord.Message, g
                         .setColor(errorColor)
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("editContextFor") + string)
-                        .setDescription(getString("errors.hitReaction").replace("%%voteNo%%", "<:vote_no:732298639736570007>") + getString("errors.cancelledPrompt"))
+                        .setDescription(getString("errors.hitReaction", { voteNo: "<:vote_no:732298639736570007>" }) + getString("errors.cancelledPrompt"))
                         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     return msg.edit(embed)
                 }
@@ -406,34 +406,34 @@ async function editInSpreadsheet(executedBy: string, message: Discord.Message, g
                         .setTitle(getString("editContextFor") + string)
                         .setDescription(getString("editedResult") + result.context)
                         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    if (result.bg) { if (result.bg.length > 1) { embed.addFields({ name: getString("noteFor") + getString("bulgarian"), value: result.bg, inline: true }) } }
-                    if (result.zhcn) { if (result.zhcn.length > 1) { embed.addFields({ name: getString("noteFor") + getString("chineseS"), value: result.zhcn, inline: true }) } }
-                    if (result.zhtw) { if (result.zhtw.length > 1) { embed.addFields({ name: getString("noteFor") + getString("chineseT"), value: result.zhtw, inline: true }) } }
-                    if (result.cs) { if (result.cs.length > 1) { embed.addFields({ name: getString("noteFor") + getString("czech"), value: result.cs, inline: true }) } }
-                    if (result.da) { if (result.da.length > 1) { embed.addFields({ name: getString("noteFor") + getString("danish"), value: result.da, inline: true }) } }
-                    if (result.nl) { if (result.nl.length > 1) { embed.addFields({ name: getString("noteFor") + getString("dutch"), value: result.nl, inline: true }) } }
-                    if (result.fi) { if (result.fi.length > 1) { embed.addFields({ name: getString("noteFor") + getString("finnish"), value: result.fi, inline: true }) } }
-                    if (result.fr) { if (result.fr.length > 1) { embed.addFields({ name: getString("noteFor") + getString("french"), value: result.fr, inline: true }) } }
-                    if (result.de) { if (result.de.length > 1) { embed.addFields({ name: getString("noteFor") + getString("german"), value: result.de, inline: true }) } }
-                    if (result.el) { if (result.el.length > 1) { embed.addFields({ name: getString("noteFor") + getString("greek"), value: result.el, inline: true }) } }
-                    if (result.it) { if (result.it.length > 1) { embed.addFields({ name: getString("noteFor") + getString("italian"), value: result.it, inline: true }) } }
-                    if (result.ja) { if (result.ja.length > 1) { embed.addFields({ name: getString("noteFor") + getString("japanese"), value: result.ja, inline: true }) } }
-                    if (result.ko) { if (result.ko.length > 1) { embed.addFields({ name: getString("noteFor") + getString("korean"), value: result.ko, inline: true }) } }
-                    if (result.ms) { if (result.ms.length > 1) { embed.addFields({ name: getString("noteFor") + getString("malay"), value: result.ms, inline: true }) } }
-                    if (result.no) { if (result.no.length > 1) { embed.addFields({ name: getString("noteFor") + getString("norwegian"), value: result.no, inline: true }) } }
-                    if (result.enpt) { if (result.enpt.length > 1) { embed.addFields({ name: getString("noteFor") + getString("pirate"), value: result.enpt, inline: true }) } }
-                    if (result.pl) { if (result.pl.length > 1) { embed.addFields({ name: getString("noteFor") + getString("polish"), value: result.pl, inline: true }) } }
-                    if (result.pt) { if (result.pt.length > 1) { embed.addFields({ name: getString("noteFor") + getString("portuguese"), value: result.pt, inline: true }) } }
-                    if (result.ptbr) { if (result.ptbr.length > 1) { embed.addFields({ name: getString("noteFor") + getString("portugueseBr"), value: result.ptbr, inline: true }) } }
-                    if (result.ru) { if (result.ru.length > 1) { embed.addFields({ name: getString("noteFor") + getString("russian"), value: result.ru, inline: true }) } }
-                    if (result.es) { if (result.es.length > 1) { embed.addFields({ name: getString("noteFor") + getString("spanish"), value: result.es, inline: true }) } }
-                    if (result.sv) { if (result.sv.length > 1) { embed.addFields({ name: getString("noteFor") + getString("swedish"), value: result.sv, inline: true }) } }
-                    if (result.th) { if (result.th.length > 1) { embed.addFields({ name: getString("noteFor") + getString("thai"), value: result.th, inline: true }) } }
-                    if (result.tr) { if (result.tr.length > 1) { embed.addFields({ name: getString("noteFor") + getString("turkish"), value: result.tr, inline: true }) } }
-                    if (result.uk) { if (result.uk.length > 1) { embed.addFields({ name: getString("noteFor") + getString("ukrainian"), value: result.uk, inline: true }) } }
+                    if (result.bg) embed.addField(getString("noteFor") + getString("bulgarian"), result.bg, true)
+                    if (result.zhcn) embed.addField(getString("noteFor") + getString("chineseS"), result.zhcn, true)
+                    if (result.zhtw) embed.addField(getString("noteFor") + getString("chineseT"), result.zhtw, true)
+                    if (result.cs) embed.addField(getString("noteFor") + getString("czech"), result.cs, true)
+                    if (result.da) embed.addField(getString("noteFor") + getString("danish"), result.da, true)
+                    if (result.nl) embed.addField(getString("noteFor") + getString("dutch"), result.nl, true)
+                    if (result.fi) embed.addField(getString("noteFor") + getString("finnish"), result.fi, true)
+                    if (result.fr) embed.addField(getString("noteFor") + getString("french"), result.fr, true)
+                    if (result.de) embed.addField(getString("noteFor") + getString("german"), result.de, true)
+                    if (result.el) embed.addField(getString("noteFor") + getString("greek"), result.el, true)
+                    if (result.it) embed.addField(getString("noteFor") + getString("italian"), result.it, true)
+                    if (result.ja) embed.addField(getString("noteFor") + getString("japanese"), result.ja, true)
+                    if (result.ko) embed.addField(getString("noteFor") + getString("korean"), result.ko, true)
+                    if (result.ms) embed.addField(getString("noteFor") + getString("malay"), result.ms, true)
+                    if (result.no) embed.addField(getString("noteFor") + getString("norwegian"), result.no, true)
+                    if (result.enpt) embed.addField(getString("noteFor") + getString("pirate"), result.enpt, true)
+                    if (result.pl) embed.addField(getString("noteFor") + getString("polish"), result.pl, true)
+                    if (result.pt) embed.addField(getString("noteFor") + getString("portuguese"), result.pt, true)
+                    if (result.ptbr) embed.addField(getString("noteFor") + getString("portugueseBr"), result.ptbr, true)
+                    if (result.ru) embed.addField(getString("noteFor") + getString("russian"), result.ru, true)
+                    if (result.es) embed.addField(getString("noteFor") + getString("spanish"), result.es, true)
+                    if (result.sv) embed.addField(getString("noteFor") + getString("swedish"), result.sv, true)
+                    if (result.th) embed.addField(getString("noteFor") + getString("thai"), result.th, true)
+                    if (result.tr) embed.addField(getString("noteFor") + getString("turkish"), result.tr, true)
+                    if (result.uk) embed.addField(getString("noteFor") + getString("ukrainian"), result.uk, true)
                     if (result.screenshot) {
                         if (/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(result.screenshot)) embed.setImage(result.screenshot)
-                        embed.addFields({ name: getString("screenshot"), value: result.screenshot })
+                        embed.addField(getString("screenshot"), result.screenshot)
                     }
                     msg.edit(embed)
                     console.log("Edited the context entry for string " + string)
@@ -456,7 +456,7 @@ async function editInSpreadsheet(executedBy: string, message: Discord.Message, g
         })
 }
 
-async function showInfo(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string) => any) {
+async function showInfo(executedBy: string, message: Discord.Message, getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
     const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
@@ -474,12 +474,12 @@ async function showInfo(executedBy: string, message: Discord.Message, getString:
     message.channel.send(embed)
 }
 
-async function sheetLink(executedBy: string, message: Discord.Message, getString: (path: string, cmd?: string, lang?: string) => any) {
+async function sheetLink(executedBy: string, message: Discord.Message, getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setTitle(getString("info.sheetT"))
         .setDescription(`[${getString("info.sheetDButton")}](https://docs.google.com/spreadsheets/d/1tVLWskn4InBeopmRdQyrDumr1H6STqyidcEwoL4a8ts)\n\n` + getString("info.sheetD"))
-        .setFooter(executedBy + " | " + getString("info.sheetDel"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
+        .setFooter(`${executedBy} | ${getString("info.sheetDel")}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.send(embed)
         .then(linkMsg => {
             setTimeout(() => {

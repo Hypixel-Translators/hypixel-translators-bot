@@ -12,8 +12,8 @@ const command: Command = {
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
-    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", { user: message.author.tag }, "global")
         const collection = db.collection("users")
         const allUsers: DbUser[] = await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray()
 
@@ -57,7 +57,7 @@ const command: Command = {
                     })
 
                     collector.on("end", () => {
-                        msg.edit(getString("timeOut").replace("%%command%%", "`+levels`"))
+                        msg.edit(getString("timeOut", { command: "`+levels`" }))
                         msg.reactions.removeAll()
                     })
                 })
@@ -66,20 +66,20 @@ const command: Command = {
     }
 }
 
-function fetchPage(page: number, pages: DbUser[][], getString: (path: string, cmd?: string, lang?: string) => any, executedBy: string, message: Discord.Message) {
+function fetchPage(page: number, pages: DbUser[][], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any, executedBy: string, message: Discord.Message) {
     if (page > pages.length - 1) page = pages.length - 1
     if (page < 0) page = 0
     const pageEmbed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("pageTitle"))
-        .setFooter(`${getString("page").replace("%%number%%", page + 1).replace("%%total%%", pages.length)} | ${executedBy}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+        .setFooter(`${getString("page", { number: page + 1, total: pages.length })} | ${executedBy}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     for (let i = 0; i <= pages[page].length - 1; i++) {
         // const user = message.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that
         if (pages[page][i].levels) {
             const totalXp = pages[page][i].levels.totalXp
-            pageEmbed.addField(getString("level").replace("%%rank%%", (i + 1) + (page * 24)).replace("%%level%%", pages[page][i].levels.level).replace("%%xp%%", totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp), `<@!${pages[page][i].id}>`, true)
-        } else pageEmbed.addField(getString("unranked").replace("%%rank%%", (i + 1) + (page * 24)), `<@!${pages[page][i].id}>`, true)
+            pageEmbed.addField(getString("level", { rank: (i + 1) + (page * 24), level: pages[page][i].levels.level, xp: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp }), `<@!${pages[page][i].id}>`, true)
+        } else pageEmbed.addField(getString("unranked", { rank: (i + 1) + (page * 24) }), `<@!${pages[page][i].id}>`, true)
     }
     return pageEmbed
 }

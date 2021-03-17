@@ -4,6 +4,7 @@ import { Stream } from "stream"
 import { crowdinVerify } from "./../lib/crowdinverify"
 import leveling from "./../lib/leveling"
 import { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } from "../config.json"
+import { DbUser } from "../lib/dbclient.js"
 
 client.on("message", async message => {
 
@@ -33,18 +34,18 @@ client.on("message", async message => {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(getString("errors.wrongLink", "global"))
-                    .setTitle(getString("wrongStringURL", "global"))
-                    .setDescription(getString("example", "global").replace("%%url%%", "https://crowdin.com/translate/hypixel/286/en-en#106644"))
+                    .setAuthor(getString("errors.wrongLink", {}, "global"))
+                    .setTitle(getString("wrongStringURL", {}, "global"))
+                    .setDescription(getString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }, "global"))
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
-                if (message.content !== langFix && message.channel.parentID === "549503328472530977") embed.setDescription(`${getString("example", "global").replace("%%url%%", "<https://crowdin.com/translate/hypixel/286/en-en#106644>")}\n${getString("reminderLang", "global").replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`")}`)
+                if (message.content !== langFix && message.channel.parentID === "549503328472530977") embed.setDescription(`${getString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }, "global")}\n${getString("reminderLang", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }, "global")}`)
                 return message.channel.send(message.author, embed)
             } else if (message.content !== langFix && message.channel.parentID === "549503328472530977") {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(getString("errors.wrongLink", "global"))
-                    .setTitle(getString("linkCorrectionDesc", "global").replace("%%format%%", "`crowdin.com/translate/hypixel/.../en-en#`"))
+                    .setAuthor(getString("errors.wrongLink", {}, "global"))
+                    .setTitle(getString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }, "global"))
                     .setDescription(langFix)
                 return message.channel.send(message.author, embed)
             }
@@ -65,13 +66,13 @@ client.on("message", async message => {
             .setColor(neutralColor)
             .setAuthor("Incoming message from " + message.author.tag)
             .setDescription(message.content)
-            .addFields({ name: "To reply", value: `\`+dm ${message.author.id} \`` })
+            .addField("To reply", `\`+dm ${message.author.id} \``)
 
         const dmEmbed = new Discord.MessageEmbed()
             .setColor(successColor)
-            .setAuthor(getString("outgoing", "global"))
+            .setAuthor(getString("outgoing", {}, "global"))
             .setDescription(message.content)
-            .setFooter(getString("outgoingDisclaimer", "global"))
+            .setFooter(getString("outgoingDisclaimer", {}, "global"))
         if (message.attachments.size > 1) {
             const images: (Discord.BufferResolvable | Stream)[] = []
             message.attachments.forEach(file => images.push(file.attachment))
@@ -94,7 +95,7 @@ client.on("message", async message => {
     if (!command) return
 
     //Log if command is ran in DMs
-    if (message.channel.type === "dm") console.log(message.author.tag + " used command " + commandName + " in DMs")
+    if (message.channel.type === "dm") console.log(`${message.author.tag} used command ${commandName} in DMs`)
 
     //Return if user is not verified
     if (message.member && !message.member.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
@@ -142,15 +143,15 @@ client.on("message", async message => {
     }
 
     //Get the author from the database
-    const author = await client.getUser(message.author.id)
-    const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+    const author: DbUser = await client.getUser(message.author.id)
+    const executedBy = getString("executedBy", { user: message.author.tag }, "global")
 
     //Stop and error if command is not allowed in DMs and command is sent in DMs
     if (!command.allowDM && message.channel.type === "dm") {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
-            .setAuthor(getString("error", "global"))
-            .setTitle(getString("errors.dmError", "global"))
+            .setAuthor(getString("error", {}, "global"))
+            .setTitle(getString("errors.dmError", {}, "global"))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         return message.channel.send(embed)
     }
@@ -164,13 +165,13 @@ client.on("message", async message => {
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000
             let timeLeftS
-            if (Math.ceil(timeLeft) >= 120) timeLeftS = (getString("minsLeftT", "global").replace("%%time%%", Math.ceil(timeLeft / 60)).replace("%%command%%", commandName))
-            else if (Math.ceil(timeLeft) === 1) timeLeftS = (getString("secondLeft", "global").replace("%%command%%", commandName))
-            else timeLeftS = (getString("timeLeftT", "global").replace("%%time%%", Math.ceil(timeLeft)).replace("%%command%%", commandName))
+            if (Math.ceil(timeLeft) >= 120) timeLeftS = getString("minsLeftT", { time: Math.ceil(timeLeft / 60), command: commandName }, "global")
+            else if (Math.ceil(timeLeft) === 1) timeLeftS = getString("secondLeft", { command: commandName }, "global")
+            else timeLeftS = getString("timeLeftT", { time: Math.ceil(timeLeft), command: commandName }, "global")
 
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
-                .setAuthor(getString("cooldown", "global"))
+                .setAuthor(getString("cooldown", {}, "global"))
                 .setTitle(timeLeftS)
                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             return message.channel.send(embed)
@@ -182,7 +183,7 @@ client.on("message", async message => {
     setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
 
     //Function to get strings
-    function getString(path: string, cmd?: string, lang?: string): any {
+    function getString(path: string, variables?: { [key: string]: string | number }, cmd: string = command!.name, lang: string = author.lang): any {
         let enStrings = require(`../../strings/en/${cmd || command!.name}.json`)
         let strings: any
         try { strings = require(`../../strings/${lang || author.lang}/${cmd || command!.name}.json`) }
@@ -211,6 +212,9 @@ client.on("message", async message => {
                 }
             } else if (strings) string = strings
             else string = enStrings
+            if (typeof string === "string" && variables) for (const [variable, text] of Object.entries(variables)) {
+                string = string.replace(`%%${variable}%%`, String(text))
+            }
         })
         return string
     }
@@ -218,17 +222,17 @@ client.on("message", async message => {
     //Run command and handle errors
     try { await command.execute(message, args, getString) }
     catch (error) {
-        if (!error.stack) error = getString(`errors.${error}`, "global")
+        if (!error.stack) error = getString(`errors.${error}`, {}, "global")
 
         //Handle errors
         timestamps.delete(message.author.id)
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
-            .setAuthor(getString("error", "global"))
+            .setAuthor(getString("error", {}, "global"))
             .setTitle(error.message?.substring(0, 255) || error.toString().substring(0, 255))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        if (getString(`${command.name}.usage`, "help") === `strings.${command.name}.usage`) embed.addFields({ name: getString("usage", "global"), value: `\`${command.usage}\`` })
-        else embed.addFields({ name: getString("usage", "global"), value: `\`${getString(`${command.name}.usage`, "help")}\`` })
+        if (getString(`${command.name}.usage`, {}, "help") === `strings.${command.name}.usage`) embed.addField(getString("usage", {}, "global"), `\`${command.usage}\``)
+        else embed.addField(getString("usage", {}, "global"), `\`${getString(`${command.name}.usage`, {}, "help")}\``)
         message.channel.stopTyping()
         return message.channel.send(embed)
             .then(msg => {
@@ -253,12 +257,12 @@ client.on("message", async message => {
             })
     } finally {
 
-        //Try sending a tip
-        const d = Number(Math.random().toFixed(2))
-        if (command.allowTip !== false && d < 0.05) {
-            const keys = Object.keys(getString("tips", "global"))
-            const tip = getString(`tips.${keys[keys.length * Math.random() << 0]}`, "global")
-            message.channel.send(`**${getString("tip", "global").toUpperCase()}:** ${tip.replace("%%botUpdates%%", "<#732587569744838777>").replace("%%gettingStarted%%", "<#699275092026458122>").replace("%%twitter%%", "<https://twitter.com/HTranslators>").replace("%%rules%%", "<#796159719617986610>").replace("%%serverInfo%%", "<#762341271611506708>").replace("%%bots%%", "<#549894938712866816>")}`)
+        // Try sending a tip
+        const d = Math.random() * 100 // Get percentage
+        if (command.allowTip !== false && d <= 5) { // Less than or equal to 5%
+            const keys = Object.keys(getString("tips", {}, "global"))
+            const tip = getString(`tips.${keys[keys.length * Math.random() << 0]}`, { botUpdates: "<#732587569744838777>", gettingStarted: "<#699275092026458122>", twitter: "<https://twitter.com/HTranslators>", rules: "<#796159719617986610>", serverInfo: "<#762341271611506708>", bots: "<#549894938712866816>" }, "global")
+            message.channel.send(`**${getString("tip", {}, "global").toUpperCase()}:** ${tip}`)
         }
     }
 })

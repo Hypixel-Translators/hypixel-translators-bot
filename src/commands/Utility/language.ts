@@ -13,8 +13,8 @@ const command: Command = {
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
     cooldown: 5,
-    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
-        let executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
+        let executedBy = getString("executedBy", { user: message.author.tag }, "global")
         const collection = db.collection("users")
         const stringsFolder = "./strings/"
 
@@ -53,10 +53,10 @@ const command: Command = {
                 let langList = ""
                 files.forEach(async (element, index, array) => {
                     if (element === "empty" && !message.member!.roles.cache.has("764442984119795732")) return //Discord Administrator
-                    let languageString
+                    let languageString: string
                     if (element === "empty") languageString = "Empty"
                     else languageString = getString(element)
-                    langList = langList + "\n" + getString("listElement").replace("%%code%%", element).replace("%%language%%", languageString || "Unknown")
+                    langList = `${langList}\n${getString("listElement", { code: element, language: languageString || "Unknown" })}`
                     if (index === array.length - 1) {
                         const embed = new Discord.MessageEmbed()
                             .setColor(neutralColor)
@@ -93,23 +93,23 @@ const command: Command = {
                 const path = `./strings/${newLang}/language.json`
                 fs.access(path, fs.constants.F_OK, async (err) => {
                     if (!err) {
-                        collection.updateOne({ id: message.author.id }, { $set: { lang: newLang } }).then(result => {
-                            if (result.result.nModified) {
-                                executedBy = getString("executedBy", "global", newLang).replace("%%user%%", message.author.tag)
+                        collection.updateOne({ id: message.author.id }, { $set: { lang: newLang } }).then(r => {
+                            if (r.result.nModified) {
+                                executedBy = getString("executedBy", { user: message.author.tag }, "global", newLang)
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor)
-                                    .setAuthor(getString("moduleName", this.name, newLang))
-                                    .setTitle(getString("changedToTitle", this.name, newLang))
-                                    .setDescription(getString("credits", this.name, newLang))
+                                    .setAuthor(getString("moduleName", {}, this.name, newLang))
+                                    .setTitle(getString("changedToTitle", {}, this.name, newLang))
+                                    .setDescription(getString("credits", {}, this.name, newLang))
                                     .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                                 message.channel.stopTyping()
                                 return message.channel.send(embed)
                             } else {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(errorColor)
-                                    .setAuthor(getString("moduleName", this.name, newLang))
-                                    .setTitle(getString("didntChange", this.name, newLang))
-                                    .setDescription(getString("alreadyThis", this.name, newLang))
+                                    .setAuthor(getString("moduleName", {}, this.name, newLang))
+                                    .setTitle(getString("didntChange", {}, this.name, newLang))
+                                    .setDescription(getString("alreadyThis", {}, this.name, newLang))
                                     .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                                 message.channel.stopTyping()
                                 return message.channel.send(embed)
@@ -123,7 +123,7 @@ const command: Command = {
                                 .setColor(errorColor)
                                 .setAuthor(getString("moduleName"))
                                 .setTitle(getString("errorTitle"))
-                                .setDescription(getString("errorDescription") + "\n`" + files.join("`, `") + "`\n" + getString("suggestAdd"))
+                                .setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n${getString("suggestAdd")}`)
                                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                             message.channel.stopTyping()
                             message.channel.send(embed)
@@ -139,7 +139,7 @@ const command: Command = {
                     .setColor(neutralColor)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("current"))
-                    .setDescription(getString("errorDescription") + "\n`" + files.join("`, `") + "`\n\n" + getString("credits"))
+                    .setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n\n${getString("credits")}`)
                     .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                 await message.channel.send(embed)
             })

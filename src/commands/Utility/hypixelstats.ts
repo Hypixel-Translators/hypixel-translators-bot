@@ -13,17 +13,9 @@ const command: Command = {
     cooldown: 45,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
     allowDM: true,
-    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
-        function parseColorCode(rank: string): string {
-            const colorCode: string = rank.substring(1, 2)
-            const colorsJson: {
-                [key: string]: string
-            } = { "0": "#000000", "1": "#0000AA", "2": "#00AA00", "3": "#00AAAA", "4": "#AA0000", "5": "#AA00AA", "6": "#FFAA00", "7": "#AAAAAA", "8": "#555555", "9": "#5555FF", "a": "#55FF55", "b": "#55FFFF", "c": "#FF5555", "d": "#FF55FF", "e": "#FFFF55", "f": "#FFFFFF" }
-            return colorsJson[colorCode]
-        }
-
-        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
-        const credits = getString("madeBy").replace("%%developer%%", message.client.users.cache.get("500669086947344384")!.tag)
+    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", { user: message.author.tag }, "global")
+        const credits = getString("madeBy", { developer: message.client.users.cache.get("500669086947344384")!.tag })
         const authorDb = await client.getUser(message.author.id)
         let username = authorDb.uuid
         if (args[0]) username = args[0].replace(/[\\<>@#&!]/g, "")
@@ -76,16 +68,16 @@ const command: Command = {
 
                     let last_seen
                     if (!json.last_game) last_seen = getString("lastGameHidden")
-                    else last_seen = getString("lastSeen").replace("%%game%%", json.last_game.replace(/([A-Z]+)/g, ' $1').trim())
+                    else last_seen = getString("lastSeen", { game: json.last_game.replace(/([A-Z]+)/g, ' $1').trim() })
 
                     let lastLoginSelector
                     if (json.online) lastLoginSelector = "last_login"
                     else lastLoginSelector = "last_logout"
 
                     let timeZone = getString("timeZone")
-                    if (timeZone.startsWith("crwdns")) timeZone = getString("timeZone", this.name, "en")
+                    if (timeZone.startsWith("crwdns")) timeZone = getString("timeZone", {}, this.name, "en")
                     let dateLocale = getString("dateLocale")
-                    if (dateLocale.startsWith("crwdns")) dateLocale = getString("dateLocale", this.name, "en")
+                    if (dateLocale.startsWith("crwdns")) dateLocale = getString("dateLocale", {}, this.name, "en")
                     let lastLogin
                     if (json[lastLoginSelector]) lastLogin = new Date(json[lastLoginSelector]).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
                     else lastLogin = getString("lastLoginHidden")
@@ -101,12 +93,12 @@ const command: Command = {
                     //Get user's current name to suggest for the other command
                     const currentName = await getCurrentName(json.uuid)
 
-                    const embed = new Discord.MessageEmbed()
+                    const statsEmbed = new Discord.MessageEmbed()
                         .setColor(color)
                         .setAuthor(getString("moduleName"))
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${getString("description").replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${json.username})`)}\n${uuidDb ? `${getString("userVerified").replace("%%user%%", `<@${uuidDb.id}>`)}\n` : ""}${getString("updateNotice")}\n${getString("mediaTip").replace("%%command%%", `\`+hypixelstats ${currentName} social\``)}`)
+                        .setDescription(`${getString("description", { username: username, link: `(https://api.slothpixel.me/api/players/${json.username})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("mediaTip", { command: `\`+hypixelstats ${currentName} social\`` })}`)
                         .addFields(
                             { name: getString("networkLevel"), value: Math.abs(json.level).toLocaleString(dateLocale), inline: true },
                             { name: getString("ap"), value: json.achievement_points.toLocaleString(dateLocale), inline: true },
@@ -118,7 +110,7 @@ const command: Command = {
                         )
                         .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     message.channel.stopTyping()
-                    message.channel.send(embed)
+                    message.channel.send(statsEmbed)
                 } else if (args[1] === "social") {
                     const socialMedia = json.links
 
@@ -173,7 +165,7 @@ const command: Command = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${getString("socialMedia").replace("%%username%%", username).replace("%%link%%", `(https://api.slothpixel.me/api/players/${username})`)}\n${uuidDb ? `${getString("userVerified").replace("%%user%%", `<@${uuidDb.id}>`)}\n` : ""}${getString("updateNotice")}`)
+                        .setDescription(`${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${json.username})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}`)
                         .addFields(
                             { name: "Twitter", value: twitter, inline: true },
                             { name: "YouTube", value: youtube, inline: true },
@@ -189,7 +181,7 @@ const command: Command = {
             })
             .catch(e => {
                 if (e instanceof FetchError) {
-                    console.error("slothpixel is down, sending error.")
+                    console.error("Slothpixel is down, sending error.")
                     throw "apiError"
                 } else throw e
             })
@@ -204,6 +196,14 @@ async function getCurrentName(uuid: string) {
             name = json.pop().name
         })
     return name
+}
+
+function parseColorCode(rank: string): string {
+    const colorCode: string = rank.substring(1, 2)
+    const colorsJson: {
+        [key: string]: string
+    } = { "0": "#000000", "1": "#0000AA", "2": "#00AA00", "3": "#00AAAA", "4": "#AA0000", "5": "#AA00AA", "6": "#FFAA00", "7": "#AAAAAA", "8": "#555555", "9": "#5555FF", "a": "#55FF55", "b": "#55FFFF", "c": "#FF5555", "d": "#FF55FF", "e": "#FFFF55", "f": "#FFFFFF" }
+    return colorsJson[colorCode]
 }
 
 export default command

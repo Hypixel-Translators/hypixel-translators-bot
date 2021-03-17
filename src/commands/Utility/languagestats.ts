@@ -13,8 +13,8 @@ const command: Command = {
     aliases: ["langstats", "lstats"],
     cooldown: 30,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", { user: message.author.tag }, "global")
         let rawLang: string
         const authorDb = await client.getUser(message.author.id)
         if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !args[0]) rawLang = authorDb.lang
@@ -72,12 +72,12 @@ const command: Command = {
                                             .setThumbnail(lang.flag)
                                             .setAuthor(getString("moduleName"))
                                             .setTitle(`${lang.emoji} | ${getString(`languages.${lang.code}`)}`)
-                                            .setDescription(`${getString("statsAll").replace("%%language%%", getString(`languages.${lang.code}`))}`)
+                                            .setDescription(`${getString("statsAll", { language: getString(`languages.${lang.code}`) })}`)
                                             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                                        if (hypixelData) embed.addField("Hypixel", `${getString("translated").replace("%%percentage%%", hypixelData.translationProgress).replace("%%translated%%", hypixelData.phrases.translated).replace("%%total%%", hypixelData.phrases.total)}\n${getString("approved").replace("%%percentage%%", hypixelData.approvalProgress).replace("%%approved%%", hypixelData.phrases.approved).replace("%%total%%", hypixelData.phrases.total)}`)
-                                        if (quickplayData) embed.addField("Quickplay", `${getString("translated").replace("%%percentage%%", quickplayData.translationProgress).replace("%%translated%%", quickplayData.phrases.translated).replace("%%total%%", quickplayData.phrases.total)}\n${getString("approved").replace("%%percentage%%", quickplayData.approvalProgress).replace("%%approved%%", quickplayData.phrases.approved).replace("%%total%%", quickplayData.phrases.total)}`)
-                                        if (sbaData) embed.addField("SkyblockAddons", `${getString("translated").replace("%%percentage%%", sbaData.translationProgress).replace("%%translated%%", sbaData.phrases.translated).replace("%%total%%", sbaData.phrases.total)}\n${getString("approved").replace("%%percentage%%", sbaData.approvalProgress).replace("%%approved%%", sbaData.phrases.approved).replace("%%total%%", sbaData.phrases.total)}`)
-                                        if (botData) embed.addField("Hypixel Translators Bot", `${getString("translated").replace("%%percentage%%", botData.translationProgress).replace("%%translated%%", botData.phrases.translated).replace("%%total%%", botData.phrases.total)}\n${getString("approved").replace("%%percentage%%", botData.approvalProgress).replace("%%approved%%", botData.phrases.approved).replace("%%total%%", botData.phrases.total)}`)
+                                        if (hypixelData) embed.addField("Hypixel", `${getString("translated", { percentage: hypixelData.translationProgress, translated: hypixelData.phrases.translated, total: hypixelData.phrases.total })}\n${getString("approved", { percentage: hypixelData.approvalProgress, approved: hypixelData.phrases.approved, total: hypixelData.phrases.total })}`)
+                                        if (quickplayData) embed.addField("Quickplay", `${getString("translated", { percentage: quickplayData.translationProgress, translated: quickplayData.phrases.translated, total: quickplayData.phrases.total })}\n${getString("approved", { percentage: quickplayData.approvalProgress, approved: quickplayData.phrases.approved, total: quickplayData.phrases.total })}`)
+                                        if (sbaData) embed.addField("SkyblockAddons", `${getString("translated", { percentage: sbaData.translationProgress, translated: sbaData.phrases.translated, total: sbaData.phrases.total })}\n${getString("approved", { percentage: sbaData.approvalProgress, approved: sbaData.phrases.approved, total: sbaData.phrases.total })}`)
+                                        if (botData) embed.addField("Hypixel Translators Bot", `${getString("translated", { percentage: botData.translationProgress, translated: botData.phrases.translated, total: botData.phrases.total })}\n${getString("approved", { percentage: botData.approvalProgress, approved: botData.phrases.approved, total: botData.phrases.total })}`)
                                         message.channel.stopTyping()
                                         message.channel.send(embed)
                                     })

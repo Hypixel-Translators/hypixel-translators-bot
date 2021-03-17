@@ -26,7 +26,7 @@ export interface Command {
     categoryWhitelist?: string[],
     categoryBlacklist?: string[],
     category?: string,
-    execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any): any
+    execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any): any
 }
 
 //Log in

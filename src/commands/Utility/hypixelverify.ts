@@ -11,8 +11,8 @@ const command: Command = {
     aliases: ["hverify", "hypixellink", "hlink", "hypixelunverify", "hunverify"],
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
-    async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
+    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", { user: message.author.tag }, "global")
 
         const command = message.content.slice(prefix.length).split(" ")[0].toLowerCase()
         if (command === "hypixelunverify" || command === "hunverify") {
@@ -57,13 +57,13 @@ const command: Command = {
                 }
                 if (json.links?.DISCORD === message.author.tag) {
                     await db.collection("users").updateOne({ id: message.author.id }, { $set: { uuid: json.uuid } }).then(async r => {
-                        const role = await updateRoles(message.member!, json)
+                        const role = await updateRoles(message.member!, json) as Discord.Role
                         if (r.result.nModified) {
                             const successEmbed = new Discord.MessageEmbed()
                                 .setColor(successColor)
                                 .setAuthor(getString("moduleName"))
-                                .setTitle(getString("success").replace("%%player%%", json.username))
-                                .setDescription(getString("role").replace("%%role%%", role))
+                                .setTitle(getString("success", { player: json.username }))
+                                .setDescription(getString("role", { role: String(role) }))
                                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                             message.channel.stopTyping()
                             return message.channel.send(successEmbed)
@@ -83,7 +83,7 @@ const command: Command = {
                         .setColor(errorColor)
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("error"))
-                        .setDescription(getString("tutorial").replace("%%tag%%", message.author.tag))
+                        .setDescription(getString("tutorial", { tag: message.author.tag }))
                         .setImage("https://i.imgur.com/JSeAHdG.gif")
                         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     message.channel.stopTyping()

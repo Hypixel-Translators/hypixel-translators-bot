@@ -11,9 +11,9 @@ const command: Command = {
   cooldown: 5,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
   allowDM: true,
-  async execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
-    const executedBy = getString("executedBy", "global").replace("%%user%%", message.author.tag)
-    const madeBy = getString("madeBy").replace("%%QkeleQ10%%", "QkeleQ10#6046")
+  async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
+    const executedBy = getString("executedBy", { user: message.author.tag }, "global")
+    const madeBy = getString("madeBy", { QkeleQ10: "QkeleQ10#8482" })
 
     //Define command categories
     const utilityCmds: string[] = []
@@ -52,7 +52,7 @@ const command: Command = {
           .setAuthor(getString("moduleName"))
           .setTitle(getString("page1Title"))
           .setDescription(getString("pageNotExist"))
-          .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+          .setFooter(`${executedBy} | ${madeBy}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         return message.channel.send(embed)
       }
 
@@ -61,12 +61,12 @@ const command: Command = {
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("page1Title"))
-        .setDescription(getString("commandsListTooltip").replace("%%developer%%", "<@!807917674477649943>").replace("%%github%%", "(https://github.com/Hypixel-Translators/hypixel-translators-bot)"))
+        .setDescription(getString("commandsListTooltip", { developer: "<@!807917674477649943>", github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)" }))
         .addFields(
-          { name: getString("pageNumber").replace("%%number%%", "2").replace("%%total%%", pages.length), value: `🛠 ${getString("utilityHelp")}`, inline: true },
-          { name: getString("pageNumber").replace("%%number%%", "3").replace("%%total%%", pages.length), value: `ℹ ${getString("infoHelp")}`, inline: true },
-          { name: getString("pageNumber").replace("%%number%%", "4").replace("%%total%%", pages.length), value: `<:crowdin:820381256016723988> ${getString("projectsHelp")}`, inline: true })
-        .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+          { name: getString("pageNumber", { number: 2, total: pages.length }), value: `🛠 ${getString("utilityHelp")}`, inline: true },
+          { name: getString("pageNumber", { number: 3, total: pages.length }), value: `ℹ ${getString("infoHelp")}`, inline: true },
+          { name: getString("pageNumber", { number: 4, total: pages.length }), value: `<:crowdin:820381256016723988> ${getString("projectsHelp")}`, inline: true })
+        .setFooter(`${executedBy} | ${madeBy}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
 
       pages[0].e = page1
 
@@ -101,7 +101,7 @@ const command: Command = {
         })
 
         collector.on("end", () => {
-          msg.edit(getString("timeOut").replace("%%command%%", "`+help`"))
+          msg.edit(getString("timeOut", { command: "`+help`" }))
           if (message.channel.type !== "dm") msg.reactions.removeAll()
           else msg.reactions.cache.forEach(reaction => reaction.users.remove(message.client.user!.id)) //remove all reactions by the bot
         })
@@ -123,7 +123,7 @@ const command: Command = {
           .setAuthor(getString("moduleName"))
           .setTitle(getString("commandInfo"))
           .setDescription(getString("commandNotExist"))
-          .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+          .setFooter(`${executedBy} | ${madeBy}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         return message.channel.send(embed)
       }
 
@@ -139,16 +139,16 @@ const command: Command = {
         .setAuthor(getString("moduleName"))
         .setTitle(getString("commandInfoFor") + `\`+${command.name}\``)
         .setDescription(cmdDesc || getString("staffOnly"))
-        .setFooter(executedBy + " | " + madeBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+        .setFooter(`${executedBy} | ${madeBy}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
       if (cmdUsage && cmdDesc !== getString("inDev")) {
-        embed.addFields({ name: getString("usageField"), value: "`" + cmdUsage + "`", inline: true })
+        embed.addField(getString("usageField"), `\`${cmdUsage}\``, true)
         if (command.cooldown) {
-          if (command.cooldown >= 120) embed.addFields({ name: getString("cooldownField"), value: `${command.cooldown / 60} ${getString("minutes")}`, inline: true })
-          else if (command.cooldown === 1) embed.addFields({ name: getString("cooldownField"), value: `${command.cooldown} ${getString("second")}`, inline: true })
-          else embed.addFields({ name: getString("cooldownField"), value: `${command.cooldown} ${getString("seconds")}`, inline: true })
+          if (command.cooldown >= 120) embed.addField(getString("cooldownField"), `${command.cooldown / 60} ${getString("minutes")}`, true)
+          else if (command.cooldown === 1) embed.addField(getString("cooldownField"), `${command.cooldown} ${getString("second")}`, true)
+          else embed.addField(getString("cooldownField"), `${command.cooldown} ${getString("seconds")}`, true)
         }
-        if (command.aliases) {
-          embed.addFields({ name: getString("aliasesField"), value: "`+" + command.aliases.join("`, `+") + "`", inline: true })
+        if (command.aliases?.length! > 0) {
+          embed.addField(getString("aliasesField"), `\`+${command.aliases!.join("`, `+")}\``, true)
         }
       }
       message.channel.send(embed)
@@ -156,7 +156,7 @@ const command: Command = {
   }
 }
 
-function fetchPage(page: number, pages: Page[], getString: (path: string, cmd?: string, lang?: string) => any, executedBy: string, message: Discord.Message) {
+function fetchPage(page: number, pages: Page[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any, executedBy: string, message: Discord.Message) {
   if (page > pages.length - 1) page = pages.length - 1
   if (page < 0) page = 0
   let pageEmbed: Discord.MessageEmbed
@@ -168,10 +168,10 @@ function fetchPage(page: number, pages: Page[], getString: (path: string, cmd?: 
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
         .setTitle(`${pages[page].b} ${getString(pages[page].t!)}`)
-        .setFooter(`${getString("page").replace("%%number%%", page + 1).replace("%%total%%", pages.length)} | ${executedBy}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+        .setFooter(`${getString("page", { number: page + 1, total: pages.length })} | ${executedBy}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
       pages[page].f!.forEach(f => pageEmbed!.addField(`\`${getString(`${f}.usage`)}\``, getString(`${f}.description`)))
-    } else return console.error("no embed details")
-  } else return console.error("no embed listing - internal error")
+    } else return console.error(`Help page ${page} has no embed fields specified!`)
+  } else return console.error(`Tried accessing help page ${page} but it doesn't exist in the pages array!`)
 
   return pageEmbed
 }

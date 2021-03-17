@@ -10,7 +10,7 @@ const command: Command = {
     aliases: ["holiday"],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["730042612647723058", "551693960913879071"], // bot-development admin-bots
-    execute(message: Discord.Message, args: string[], getString: (path: string, cmd?: string, lang?: string) => any) {
+    execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
         if (!args[0]) return message.channel.send("You absolute buffoon you need to tell me what holiday to look for.")
         let holidayName = args[0].toLowerCase()
         if (holidayName === "newyear" || args.join("").toLowerCase() === "newyear") holidayName = "newYear"
