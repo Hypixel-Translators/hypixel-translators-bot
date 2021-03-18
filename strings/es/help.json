@@ -7,7 +7,7 @@
     "pageNumber": "Página %%number%%",
     "utilityHelp": "Herramientas & Utilidades",
     "infoHelp": "Comandos de información",
-    "projectsHelp": "Crowdin Projects",
+    "projectsHelp": "Proyectos de Crowdin",
     "timeOut": "Este menú ha expirado. Si deseas usarlo de nuevo, ejecuta %%command%%.",
     "pageNotExist": "¡Esa página no existe!",
     "commandInfo": "Información del comando",
@@ -78,12 +78,12 @@
         "description": "Te da el enlace a tu perfil de Crowdin si está almacenado en nuestra base de datos. Si no está, puedes usar `+help reverify` para aprender como almacenar tu perfil y actualizar tus roles."
     },
     "rank": {
-        "usage": "+rank [user]",
-        "description": "Gives you the current XP for yourself or any given user."
+        "usage": "+rank [usuario]",
+        "description": "Te da la XP actual para ti o para cualquier usuario."
     },
     "levels": {
-        "usage": "+levels [page]",
-        "description": "Gives you the XP leaderboard."
+        "usage": "+levels [página]",
+        "description": "Te da el podio de XP."
     },
     "tip": {
         "usage": "+tip",
