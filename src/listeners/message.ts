@@ -202,7 +202,7 @@ client.on("message", async message => {
                     return
                 } else {
                     string = strings[pathPart]
-                    if (!string || typeof string === "string" && JSON.stringify(string.match(/%%(?:\S+)%%/g)) != JSON.stringify(enStrings[pathPart].match(/%%(?:\S+)%%/g))) {
+                    if (!string || typeof string === "string" && !arrayEqual(string.match(/%%(?:\S+)%%/g), enStrings[pathPart].match(/%%(?:\S+)%%/g))) {
                         string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
                             string = `strings.${path}` //in case of fire
@@ -268,3 +268,23 @@ client.on("message", async message => {
         }
     }
 })
+
+function arrayEqual(a: any, b: any) {
+    if (a == b) return true
+
+    if (!Array.isArray(a) || !Array.isArray(b)) return false
+
+    // .concat() to not mutate arguments
+    let arr1 = a.concat().sort(),
+        arr2 = b.concat().sort()
+
+    // Remove duplicated values
+    arr1 = arr1.filter((item: string, index: number) => arr1.indexOf(item) == index)
+    arr2 = arr2.filter((item: string, pos: number) => arr2.indexOf(item) == pos)
+
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) return false
+    }
+
+    return true
+}

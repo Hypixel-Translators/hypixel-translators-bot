@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer"
-import Discord, { TextChannel } from "discord.js"
+import Discord from "discord.js"
 import { errorColor, neutralColor } from "../config.json"
 import { v4 } from "uuid"
 import { db, DbUser } from "../lib/dbclient"
