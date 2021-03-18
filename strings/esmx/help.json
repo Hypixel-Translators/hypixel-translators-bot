@@ -55,7 +55,7 @@
     },
     "ping": {
         "usage": "+ping",
-        "description": "Te da el ping del bot."
+        "description": "Le da el ping del bot."
     },
     "hypixelstats": {
         "usage": "+hypixelstats [nombre de usuario] [social]",
@@ -91,7 +91,7 @@
     },
     "invite": {
         "usage": "+invite",
-        "description": "Te da un enlace de invitación al servidor - por favor, utilízalo cuando quieras invitar a un amigo."
+        "description": "Le da un enlace de invitación al servidor. Por favor, utilízalo cuando quieras invitar a un amigo."
     },
     "projects": {
         "usage": "+projects",
@@ -103,7 +103,7 @@
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Da un enlace al hilo oficial sobre las traducciones de Hypixel."
+        "description": "Le da un enlace al hilo oficial sobre las traducciones de Hypixel."
     },
     "quickplay": {
         "usage": "+quickplay",
