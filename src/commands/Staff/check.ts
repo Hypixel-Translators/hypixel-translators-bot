@@ -13,7 +13,7 @@ const command: Command = {
   async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
     let member = message.member
     if (args[0]) {
-      let userRaw = args[0].replace(/[\\<>@#&!]/g, "")
+      let userRaw = args[0].replace(/[\\<>@&!]/g, "")
       member = message.guild!.members.cache.find(m => m.id === userRaw || m.user.tag === userRaw || m.user.username === userRaw || m.nickname === userRaw || m.user.tag.toLowerCase().includes(userRaw.toLowerCase()) || m.displayName.toLowerCase().includes(userRaw.toLowerCase())) as (Discord.GuildMember | null)
       if (!member) throw "falseUser"
     }
