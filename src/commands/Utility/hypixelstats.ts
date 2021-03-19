@@ -172,7 +172,7 @@ const command: Command = {
                             { name: "Instagram", value: instagram, inline: true },
                             { name: "Twitch", value: twitch, inline: true },
                             { name: "Discord", value: discord, inline: true },
-                            { name: "Forums", value: forums, inline: true }
+                            { name: "Hypixel Forums", value: forums, inline: true }
                         )
                         .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     return socialEmbed
