@@ -40,7 +40,7 @@
     "tip": "Tip",
     "tips": {
         "ib": "Heb je de Inhale Banana-taal geprobeerd? Verander je taal ernaar met `+lang ib`!",
-        "translators": "Ik heb vertalers nodig! Ontdek hoe je botvertaler wordt op %%translate%%.",
+        "translators": "Ik heb vertalers nodig! Ontdek hoe je botvertaler wordt met `+translate`.",
         "prefix": "Wil je een cool voorvoegsel in je naam hebben? Voer `+prefix` uit in %%bots%% en volg de aanwijzingen! Beschikbaar voor alle vertalers van Hypixel en Quickplay.",
         "enen": "Verander je links naar en-en!",
         "xp": "Wanneer je chat krijg je elke minuut een willekeurige hoeveelheid XP, waarmee je uiteindelijk meer levels krijgt.",
