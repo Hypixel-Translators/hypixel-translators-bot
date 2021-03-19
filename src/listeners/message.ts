@@ -202,7 +202,7 @@ client.on("message", async message => {
                     return
                 } else {
                     string = strings[pathPart]
-                    if (!string || typeof string === "string" && !arrayEqual(string.match(/%%(?:\S+)%%/g), enStrings[pathPart].match(/%%(?:\S+)%%/g))) {
+                    if (!string || typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g))) {
                         string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
                             string = `strings.${path}` //in case of fire
