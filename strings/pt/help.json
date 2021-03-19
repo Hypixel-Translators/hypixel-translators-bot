@@ -119,7 +119,7 @@
     },
     "thread": {
         "usage": "+thread",
-        "description": "Dá-te o link para o artigo onde foi anunciado este servidor de discord."
+        "description": "Dá-te o link para o artigo onde foi anunciado este servidor de Discord."
     },
     "twitter": {
         "usage": "+twitter",
