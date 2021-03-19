@@ -89,7 +89,7 @@ const command: Command = {
                     else firstLogin = getString("firstLoginHidden")
 
                     for (const [key, value] of Object.entries(json)) {
-                        if (!value) json[key] = getString("unknown")
+                        if (!value && value !== false) json[key] = getString("unknown")
                     }
 
                     const statsEmbed = new Discord.MessageEmbed()
