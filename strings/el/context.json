@@ -62,7 +62,7 @@
         "help": "_Δείχνει αυτό το μήνυμα!_\n`+context help`",
         "fields": "Πεδία",
         "sheetT": "Φύλλο Περιγραφών",
-        "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
+        "sheetD": "Μόνο συγκεκριμένα άτομα μπορούν να ανοίξουν αυτό το φύλλο. Μπορείς να ζητήσεις πρόσβαση στην σελίδα που θα δεις όταν πατήσεις το link. Παρακαλώ συμπερίλαβε μέσα το link του προφίλ σου στο Crowdin (`.../profile/<όνομα χρήστη>`) και το όνομα χρήστη σου στο Discord.\nΘυμήσου ότι ο Stannya και ο Rodry θα μπορούν να δουν το όνομα προφίλ σου στο Google και το email σου.",
         "sheetDButton": "Click here to open the Google Sheet containing context information.",
         "sheetDel": "Deleting message in 1 minute"
     }
