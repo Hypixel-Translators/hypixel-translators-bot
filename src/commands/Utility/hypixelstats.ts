@@ -34,11 +34,9 @@ const command: Command = {
 
                 //Handle errors
                 if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
+                else if (json.error === "Player has no Hypixel stats!") throw "noPlayer"
                 else if (json.error || !json.username) { // if other error we didn't plan for appeared
-                    let error
-                    if (!json.error && !json.username) throw "noPlayer"
-                    else if (json.error) error = json.error
-                    console.log("Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n" + error)
+                    console.log("Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n" + json.error)
                     throw "apiError"
                 }
 
@@ -63,6 +61,12 @@ const command: Command = {
                 const currentName = await getCurrentName(json.uuid)
 
                 const stats = async () => {
+
+                    // Set null values to unknown
+                    for (const [key, value] of Object.entries(json)) {
+                        if (!value && value !== false) json[key] = getString("unknown")
+                    }
+
                     //Define each value
                     let online
                     if (json.online) online = getString("online")
@@ -87,10 +91,6 @@ const command: Command = {
                     let firstLogin
                     if (json.first_login) firstLogin = new Date(json.first_login).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
                     else firstLogin = getString("firstLoginHidden")
-
-                    for (const [key, value] of Object.entries(json)) {
-                        if (!value && value !== false) json[key] = getString("unknown")
-                    }
 
                     const statsEmbed = new Discord.MessageEmbed()
                         .setColor(color)
