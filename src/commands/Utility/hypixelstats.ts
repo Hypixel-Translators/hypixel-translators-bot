@@ -10,25 +10,28 @@ const command: Command = {
     description: "Shows you basic Hypixel stats for the provided user.",
     usage: "+hypixelstats [username] [social]",
     aliases: ["hstats"],
-    cooldown: 45,
-    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
+    cooldown: 120,
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev bot-translators
     allowDM: true,
     async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", { user: message.author.tag }, "global")
         const credits = getString("madeBy", { developer: message.client.users.cache.get("500669086947344384")!.tag })
-        const authorDb = await client.getUser(message.author.id)
-        let username = authorDb.uuid
-        if (args[0]) username = args[0].replace(/[\\<>@#&!]/g, "")
-        if (message.guild!.members.cache.get(username)) {
-            const userDb: DbUser = await client.getUser(username)
-            if (userDb.uuid) username = userDb.uuid
-            else throw "notVerified"
+        const authorDb: DbUser = await client.getUser(message.author.id)
+        let uuid = authorDb.uuid
+        if (args[0]) {
+            args[0] = args[0].replace(/[\\<>@#&!]/g, "")
+            if (message.guild!.members.cache.get(args[0])) {
+                const userDb: DbUser = await client.getUser(args[0])
+                if (userDb.uuid) uuid = userDb.uuid
+                else throw "notVerified"
+            } else if (args[0].length < 32) uuid = await getPlayer(args[0])
+            else uuid = args[0]
         }
-        if (!username) throw "noUser"
+        if (!uuid) throw "noUser"
 
         message.channel.startTyping()
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
-        await fetch(`https://api.slothpixel.me/api/players/${username}`, { method: "Get", timeout: 10000 })
+        await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { method: "Get", timeout: 50000 })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
 
@@ -36,7 +39,7 @@ const command: Command = {
                 if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
                 else if (json.error === "Player has no Hypixel stats!") throw "noPlayer"
                 else if (json.error || !json.username) { // if other error we didn't plan for appeared
-                    console.log("Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n" + json.error)
+                    console.log(`Welp, we didn't plan for this to happen. Something went wrong when trying to get stats for ${uuid}, here's the error\n` + json.error)
                     throw "apiError"
                 }
 
@@ -51,22 +54,13 @@ const command: Command = {
                     color = parseColorCode(json.rank_formatted)
                     rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
                 }
-                username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
+                const username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
 
                 //Update user's roles if they're verified
                 const uuidDb = await db.collection("users").findOne({ uuid: json.uuid })
                 if (uuidDb) updateRoles(message.guild!.members.cache.get(uuidDb.id)!, json)
 
-                //Get user's current name to suggest for the other command
-                const currentName = await getCurrentName(json.uuid)
-
                 const stats = async () => {
-
-                    // Set null values to unknown
-                    for (const [key, value] of Object.entries(json)) {
-                        if (!value && value !== false) json[key] = getString("unknown")
-                    }
-
                     //Define each value
                     let online
                     if (json.online) online = getString("online")
@@ -97,7 +91,7 @@ const command: Command = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${getString("description", { username: username, link: `(https://api.slothpixel.me/api/players/${currentName})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
+                        .setDescription(`${getString("description", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
                         .addFields(
                             { name: getString("networkLevel"), value: Math.abs(json.level).toLocaleString(dateLocale), inline: true },
                             { name: getString("ap"), value: json.achievement_points.toLocaleString(dateLocale), inline: true },
@@ -165,7 +159,7 @@ const command: Command = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${currentName})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
+                        .setDescription(`${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
                         .addFields(
                             { name: "Twitter", value: twitter, inline: true },
                             { name: "YouTube", value: youtube, inline: true },
@@ -188,7 +182,7 @@ const command: Command = {
                     .then(async msg => {
                         await msg.react("📊"); await msg.react("<:twitter:821752918352068677>")
 
-                        const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, user: Discord.User) => (reaction.emoji.name === "📊" || reaction.emoji.name === "twitter") && user.id === message.author.id, { time: 120000 }) //2 minutes
+                        const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, user: Discord.User) => (reaction.emoji.name === "📊" || reaction.emoji.name === "twitter") && user.id === message.author.id, { time: this.cooldown! * 1000 }) //2 minutes
 
                         collector.on("collect", async reaction => {
                             if (reaction.emoji.name === "📊") embed = await stats()
@@ -213,14 +207,15 @@ const command: Command = {
     }
 }
 
-async function getCurrentName(uuid: string) {
-    let name
-    await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`, { timeout: 10000 })
-        .then(res => (res.json()))
-        .then(async json => {
-            name = json.pop().name
+export async function getPlayer(username: string) {
+    return await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`)
+        .then(res => res.json())
+        .then(json => {
+            return json.id
         })
-    return name
+        .catch(() => {
+            return undefined
+        })
 }
 
 function parseColorCode(rank: string): string {
