@@ -2,6 +2,7 @@ import Discord from "discord.js"
 import { prefix, successColor, errorColor } from "../../config.json"
 import fetch, { FetchError } from "node-fetch"
 import { db } from "../../lib/dbclient"
+import { getPlayer } from "./hypixelstats"
 import { Command, client } from "../../index"
 
 const command: Command = {
@@ -10,7 +11,7 @@ const command: Command = {
     usage: "+hypixelverify <username>",
     aliases: ["hverify", "hypixellink", "hlink", "hypixelunverify", "hunverify"],
     cooldown: 60,
-    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev bot-translators
     async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", { user: message.author.tag }, "global")
 
@@ -38,15 +39,16 @@ const command: Command = {
             client.cooldowns.get(this.name)!.delete(message.author.id)
             return
         }
-        if (!args[0]) throw "noUser"
+        const user = getPlayer(args[0])
+        if (!user) throw "noUser"
 
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
-        await fetch(`https://api.slothpixel.me/api/players/${args[0]}`, { method: "Get", timeout: 10000 })
+        await fetch(`https://api.slothpixel.me/api/players/${user}`, { method: "Get", timeout: 50000 })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
                 message.channel.startTyping()
 
-                //Handle errors
+                // Handle errors
                 if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
                 else if (json.error !== undefined || json.username === null) { // if other error we didn't plan for appeared
                     let error
@@ -100,57 +102,76 @@ const command: Command = {
 }
 
 export async function updateRoles(member: Discord.GuildMember, json?: JsonResponse) {
-    if (!json) return await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
+    const roles = ["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "822787676482699297", "624880339722174464", "715674953697198141"] // Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Game Master, Hypixel Admin and Hypixel Staff
+    if (!json) return await member.roles.remove(roles, "Unverified") // Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Game Master, Hypixel Admin and Hypixel Staff
     let role: Discord.Role
     switch (json.rank) {
         case "ADMIN":
-            await member.roles.add(["624880339722174464", "715674953697198141"], `Successfully verified as ${json.username}`) //Hypixel Admin and Hypixel Staff
-            await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod
+            roles.splice(roles.indexOf("624880339722174464"), 1) // Hypixel Admin
+            roles.splice(roles.indexOf("715674953697198141"), 1) // Hypixel Staff
+            await member.roles.add(["624880339722174464", "715674953697198141"], `Successfully verified as ${json.username}`) // Hypixel Admin and Hypixel Staff
+            await member.roles.remove(roles, "Updated roles") // Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod and Hypixel Game Master
             role = member.guild.roles.cache.get("624880339722174464")!
             break
+        case "GAME_MASTER":
+            roles.splice(roles.indexOf("822787676482699297"), 1) // Hypixel Game Master
+            roles.splice(roles.indexOf("715674953697198141"), 1) // Hypixel Staff
+            await member.roles.add(["822787676482699297", "715674953697198141"], `Successfully verified as ${json.username}`) // Hypixel Game Master and Hypixel Staff
+            await member.roles.remove(roles, "Updated roles") // Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod and Hypixel Admin
         case "MODERATOR":
-            await member.roles.add(["551758392021090304", "715674953697198141"], `Successfully verified as ${json.username}`) //Hypixel Mod and Hypixel Staff
-            await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "624880339722174464"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper and Hypixel Admin
+            roles.splice(roles.indexOf("551758392021090304"), 1) // Hypixel Moderator
+            roles.splice(roles.indexOf("715674953697198141"), 1) // Hypixel Staff
+            await member.roles.add(["551758392021090304", "715674953697198141"], `Successfully verified as ${json.username}`) // Hypixel Mod and Hypixel Staff
+            await member.roles.remove(roles, "Updated roles") // Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Game Master and Hypixel Admin
             role = member.guild.roles.cache.get("551758392021090304")!
             break
         case "HELPER":
-            await member.roles.add(["551758392339857418", "715674953697198141"], `Successfully verified as ${json.username}`) //Hypixel Helper and Hypixel Staff
-            await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392021090304", "624880339722174464"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Mod and Hypixel Admin
+            roles.splice(roles.indexOf("551758392339857418"), 1) // Hypixel Helper
+            roles.splice(roles.indexOf("715674953697198141"), 1) // Hypixel Staff
+            await member.roles.add(["551758392339857418", "715674953697198141"], `Successfully verified as ${json.username}`) // Hypixel Helper and Hypixel Staff
+            await member.roles.remove(roles, "Updated roles") // Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Mod, Hypixel Game Master and Hypixel Admin
             role = member.guild.roles.cache.get("551758392339857418")!
             break
         case "YOUTUBER":
-            await member.roles.add("808032689709514852", `Successfully verified as ${json.username}`) //YouTuber
-            await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP+, MVP++, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
+            roles.splice(roles.indexOf("808032689709514852"), 1) // YouTuber
+            await member.roles.add("808032689709514852", `Successfully verified as ${json.username}`) // YouTuber
+            await member.roles.remove(roles, "Updated roles") // Unranked, VIP, VIP+, MVP, MVP+, MVP++, Hypixel Helper, Hypixel Mod, Hypixel Game Master, Hypixel Admin and Hypixel Staff
             role = member.guild.roles.cache.get("808032689709514852")!
             break
         case "MVP_PLUS_PLUS":
-            await member.roles.add("808032672160153641", `Successfully verified as ${json.username}`) //MVP++
-            await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP+, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
+            roles.splice(roles.indexOf("808032672160153641"), 1) // MVP++
+            await member.roles.add("808032672160153641", `Successfully verified as ${json.username}`) // MVP++
+            await member.roles.remove(roles, "Updated roles") // Unranked, VIP, VIP+, MVP, MVP+, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Game Master, Hypixel Admin and Hypixel Staff
             role = member.guild.roles.cache.get("808032672160153641")!
             break
         case "MVP_PLUS":
-            await member.roles.add("808032657505255424", `Successfully verified as ${json.username}`) //MVP+
-            await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP, VIP+, MVP, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
+            roles.splice(roles.indexOf("808032657505255424"), 1) // MVP+
+            await member.roles.add("808032657505255424", `Successfully verified as ${json.username}`) // MVP+
+            await member.roles.remove(roles, "Updated roles") // Unranked, VIP, VIP+, MVP, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Game Master, Hypixel Admin and Hypixel Staff
             role = member.guild.roles.cache.get("808032657505255424")!
             break
         case "MVP":
-            await member.roles.add("808032640631832637", `Successfully verified as ${json.username}`) //MVP
-            await member.roles.remove(["816435344689987585", "808032608456802337", "808032624215457823", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP, VIP+, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
+            roles.splice(roles.indexOf("808032640631832637"), 1) // MVP
+            await member.roles.add("808032640631832637", `Successfully verified as ${json.username}`) // MVP
+            await member.roles.remove(roles, "Updated roles") // Unranked, VIP, VIP+, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Game Master, Hypixel Admin and Hypixel Staff
             role = member.guild.roles.cache.get("808032640631832637")!
             break
         case "VIP_PLUS":
-            await member.roles.add("808032624215457823", `Successfully verified as ${json.username}`) //VIP+
-            await member.roles.remove(["816435344689987585", "808032608456802337", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
+            roles.splice(roles.indexOf("808032624215457823"), 1) // VIP+
+            await member.roles.add("808032624215457823", `Successfully verified as ${json.username}`) // VIP+
+            await member.roles.remove(roles, "Updated roles") // Unranked, VIP, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Game Master, Hypixel Admin and Hypixel Staff
             role = member.guild.roles.cache.get("808032624215457823")!
             break
         case "VIP":
-            await member.roles.add("808032608456802337", `Successfully verified as ${json.username}`) //VIP
-            await member.roles.remove(["816435344689987585", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //Unranked, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
+            roles.splice(roles.indexOf("808032608456802337"), 1) // VIP
+            await member.roles.add("808032608456802337", `Successfully verified as ${json.username}`) // VIP
+            await member.roles.remove(roles, "Updated roles") // Unranked, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Game Master, Hypixel Admin and Hypixel Staff
             role = member.guild.roles.cache.get("808032608456802337")!
             break
         default:
-            await member.roles.add("816435344689987585", `Successfully verified as ${json.username}`) //Unranked
-            await member.roles.remove(["808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "624880339722174464", "715674953697198141"], "Unverified") //VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Admin and Hypixel Staff
+            roles.splice(roles.indexOf("816435344689987585"), 1) // Unranked
+            await member.roles.add("816435344689987585", `Successfully verified as ${json.username}`) // Unranked
+            await member.roles.remove(roles, "Updated roles") // VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Game Master, Hypixel Admin and Hypixel Staff
             role = member.guild.roles.cache.get("816435344689987585")!
             break
     }
@@ -159,7 +180,7 @@ export async function updateRoles(member: Discord.GuildMember, json?: JsonRespon
 
 export default command
 
-interface JsonResponse { //Just declaring the variables we need
+interface JsonResponse { // Just declaring the variables we need
     username: string,
     rank: string
 }
