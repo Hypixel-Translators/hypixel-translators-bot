@@ -134,7 +134,7 @@ client.on("message", async message => {
     if (command.dev && !message.member?.roles.cache.has("764442984119795732")) allowed = false //Discord Administrator
 
     //Give perm to admins and return if not allowed
-    if (message.member?.hasPermission("MANAGE_ROLES") && command.name !== "eval") allowed = true
+    if (message.member?.hasPermission("MANAGE_ROLES") && command.name !== "eval" || message.member?.hasPermission("ADMINISTRATOR")) allowed = true
     if (!allowed) {
         message.react("732298639736570007")
         return setTimeout(() => {

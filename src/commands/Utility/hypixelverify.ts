@@ -39,7 +39,7 @@ const command: Command = {
             client.cooldowns.get(this.name)!.delete(message.author.id)
             return
         }
-        const uuid = getPlayer(args[0])
+        const uuid = await getPlayer(args[0])
         if (!uuid) throw "noUser"
 
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
