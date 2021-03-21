@@ -63,11 +63,11 @@
     },
     "hypixelverify": {
         "usage": "+hypixelverify <ユーザー名> | +hypixelunverify",
-        "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
+        "description": "DiscordアカウントとHypixelプロフィールを関連付けます。`+hypixelunverify`を実行すると認証を解除できます。"
     },
     "8ball": {
         "usage": "+8ball <質問>",
-        "description": "The Magic 8 Ball that will answer all your questions."
+        "description": "マジック・エイト・ボール。それはあなたの質問すべてに答えてくれます。"
     },
     "verify": {
         "usage": "+verify [プロフィールのURL]",
