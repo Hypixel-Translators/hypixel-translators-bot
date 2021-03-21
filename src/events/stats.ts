@@ -53,6 +53,7 @@ export async function hypixel(client: HTBClient) {
                             .setTitle(`${langData.language.emoji} | ${langData.language.name}` || "<:icon_question:756582065834688662>" + " | " + langData.language.name)
                             .setThumbnail("https://crowdin.com/images/flags/" + langData.languageId + ".png")
                             .setDescription(`**${langData.translationProgress}% translated (${langData.phrases.translated}/${langData.phrases.total} strings)**\n${langData.approvalProgress}% approved (${langData.phrases.approved}/${langData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel/all/en-${langData.language.code}`)
+                            .setFooter("Last update")
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
@@ -107,6 +108,7 @@ export async function quickplay(client: HTBClient) {
                             .setTitle(`${langData.language.emoji} | ${langData.language.name}` || "<:icon_question:756582065834688662>" + " | " + langData.language.name)
                             .setThumbnail("https://crowdin.com/images/flags/" + langData.languageId + ".png")
                             .setDescription(`**${langData.translationProgress}% translated (${langData.phrases.translated}/${langData.phrases.total} strings)**\n${langData.approvalProgress}% approved (${langData.phrases.approved}/${langData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/quickplay/all/en-${langData.language.code}`)
+                            .setFooter("Last update")
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
@@ -161,6 +163,7 @@ export async function bot(client: HTBClient) {
                             .setTitle(`${langData.language.emoji} | ${langData.language.name}` || "<:icon_question:756582065834688662>" + " | " + langData.language.name)
                             .setThumbnail((langData.language.flag))
                             .setDescription(`**${langData.translationProgress}% translated (${langData.phrases.translated}/${langData.phrases.total} strings)**\n${langData.approvalProgress}% approved (${langData.phrases.approved}/${langData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel-translators-bot/all/en-${langData.language.code}`)
+                            .setFooter("Last update")
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
@@ -215,6 +218,7 @@ export async function skyblockaddons(client: HTBClient) {
                             .setTitle(`${langData.language.emoji} | ${langData.language.name}`)
                             .setDescription(`**${langData.translationProgress}% translated (${langData.phrases.translated}/${langData.phrases.total} strings)**\n${langData.approvalProgress}% approved (${langData.phrases.approved}/${langData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/skyblockaddons/all/en-${langData.language.code}`)
                             .setThumbnail((langData.language.flag))
+                            .setFooter("Last update")
                             .setTimestamp()
                         msg.edit("", embed)
                         index++
