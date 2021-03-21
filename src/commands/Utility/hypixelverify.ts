@@ -39,11 +39,11 @@ const command: Command = {
             client.cooldowns.get(this.name)!.delete(message.author.id)
             return
         }
-        const user = getPlayer(args[0])
-        if (!user) throw "noUser"
+        const uuid = getPlayer(args[0])
+        if (!uuid) throw "noUser"
 
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
-        await fetch(`https://api.slothpixel.me/api/players/${user}`, { method: "Get", timeout: 50000 })
+        await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" },  method: "Get", timeout: 50000 })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
                 message.channel.startTyping()

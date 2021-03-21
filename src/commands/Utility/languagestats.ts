@@ -26,7 +26,7 @@ const command: Command = {
         if (!lang || lang?.code === "en") throw "falseLang"
 
         message.channel.startTyping()
-        const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2 }, timeout: 10000 }
+        const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2, "User-Agent": "Hypixel Translators Bot" }, timeout: 10000 }
         var hypixelData: LanguageStatus["data"]
         await fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", settings)
             .then(res => res.json())
@@ -43,18 +43,16 @@ const command: Command = {
                             if (language.data.languageId === lang.id) quickplayData = language.data
                         })
 
-                        const sba = `https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500`
                         let sbaData: LanguageStatus["data"]
-                        await fetch(sba, settings)
+                        await fetch("https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500", settings)
                             .then(res => res.json())
                             .then(async json => {
                                 json.data.forEach((language: LanguageStatus) => {
                                     if (language.data.languageId === lang.id) sbaData = language.data
                                 })
 
-                                const bot = `https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500`
                                 let botData: LanguageStatus["data"]
-                                await fetch(bot, settings)
+                                await fetch("https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500", settings)
                                     .then(res => res.json())
                                     .then(async json => {
                                         json.data.forEach((language: LanguageStatus) => {
