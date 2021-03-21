@@ -6,7 +6,7 @@
     "nameChangeDisclaimer": "名前を変更した場合でも再度認証する必要はないことにご注意ください！",
     "error": "HypixelでDiscordを正しく設定していないため、認証できませんでした！",
     "tutorial": "認証するには、Hypixelで自分のDiscordを%%tag%%に設定し、最大10分経過後に再度コマンドを実行してください。方法が分からない場合は、以下のビデオの手順に従ってください。",
-    "unverified": "You were successfully unverified!",
+    "unverified": "認証が解除されました！",
     "notUnverified": "認証を解除できませんでした！",
     "whyNotUnverified": "まだ認証をしていないためです。認証するには`+hypixelverify <ユーザー名>`を実行してください。"
 }
