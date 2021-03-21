@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magic 8 ball",
+    "moduleName": "マジック・エイト・ボール",
     "question": "質問",
     "answers": {
         "positive": [
-            "It is certain.",
-            "It is decidedly so.",
-            "Without a doubt.",
-            "Yes – definitely.",
-            "You may rely on it.",
-            "As I see it, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Yes",
-            "Signs point to yes."
+            "確かです。",
+            "間違いなくそうです。",
+            "疑いなく。",
+            "はい - 間違いなく。",
+            "あなたはそれを信頼するかもしれない。",
+            "私の知るところでは「はい」です。",
+            "多分きっとそうです。",
+            "見通しは良好です。",
+            "はい",
+            "兆候は「はい」を示しています。"
         ],
         "inconclusive": [
-            "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again."
+            "答えはハッキリしていません。もう一度試してください。",
+            "後でまた尋ねてください。",
+            "今はお伝えしない方が良いです。",
+            "今のところ予測できません。",
+            "集中して、もう一度尋ねてください。"
         ],
         "negative": [
-            "Don't count on it.",
-            "My reply is no.",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful."
+            "当てにしてはいけません。",
+            "私の返事は「いいえ」です。",
+            "私の情報では「いいえ」です。",
+            "見通しはあまり良くないです。",
+            "非常に怪しいです。"
         ]
     }
 }
