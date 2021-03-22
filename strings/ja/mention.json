@@ -1,7 +1,7 @@
 {
-    "errorNoPing": "You don't have that language's proofreader role, ",
-    "errorNoPingPr": "so you can't mention it.",
-    "errorNoPingTr": "so you can't mention its translator role.",
-    "errorNoPingAll": "so you can't mention the entire language.",
-    "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to."
+    "errorNoPing": "あなたはその言語の校正者ロールを所有していないため、",
+    "errorNoPingPr": "メンションできません。",
+    "errorNoPingTr": "その翻訳者ロールにメンションできません。",
+    "errorNoPingAll": "言語全体にメンションできません。",
+    "errorNoPingDisclaimer": "必要であれば、サーバーの所有者または管理者にご連絡ください。"
 }
