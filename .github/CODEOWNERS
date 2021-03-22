@@ -1,1 +1,4 @@
 *.ts @ImRodry
+/* @ImRodry
+/.github/ @ImRodry
+/strings/en/ @ImRodry 
