@@ -43,7 +43,7 @@
     },
     "languagestats": {
         "usage": "+languagestats <言語>",
-        "description": "Shows you the progress of a language on all the projects we currently support."
+        "description": "現在我々がサポートしている全プロジェクトの、言語の進捗状況を表示します。"
     },
     "issue": {
         "usage": "+issue",

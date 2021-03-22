@@ -17,7 +17,7 @@
     "last_logout": "最終オンライン日時",
     "link": "リンク",
     "notConnected": "未連携",
-    "blocked": "Blocked server link",
+    "blocked": "ブロックされたサーバーリンク",
     "lastGameHidden": "最後に遊んだゲームが非公開または取得できませんでした！",
     "lastLoginHidden": "最後に接続した時間が非公開または取得できませんでした！",
     "firstLoginHidden": "初回ログイン日時が非公開または取得できませんでした！",

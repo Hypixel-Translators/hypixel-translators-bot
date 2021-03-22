@@ -8,7 +8,7 @@
         "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
         "error": "ニックネームの変更に失敗しました。以下のニックネームをコピーして自分で適用できます。",
         "confirmedNoFlags": "確定しましたが、旗に回答しなかったため、",
-        "cancelled": "You cancelled the changing of your nickname, ",
+        "cancelled": "ニックネームの変更をキャンセルしたため、",
         "alreadyThis": "既にこのニックネームに設定しているため、",
         "timedOut": "タイムアウト",
         "timeOut": "旗をクリックして回答しなかったため、",
