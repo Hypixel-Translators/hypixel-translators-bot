@@ -1,5 +1,5 @@
 {
-    "moduleName": "Problems and feedback",
+    "moduleName": "問題とフィードバック",
     "bugT": "Issueの閲覧と追加",
     "bugD": "提案やバグ報告を表示・閲覧をするには [こちらをクリック]%%github%% してください。",
     "urgentT": "急を要しますか？",
