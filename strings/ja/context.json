@@ -62,8 +62,8 @@
         "help": "_Shows this message!_\n`+context help`",
         "fields": "Fields",
         "sheetT": "Context Sheet",
-        "sheetD": "Only specific people can open this sheet. You can request access on the page you see when following the link. Please fill in your Crowdin profile link (`.../profile/<username>`) and your Discord username.\nKeep in mind Stannya and Rodry can see your Google profile name and email.",
+        "sheetD": "許可された人だけがこのシートを表示できます。リンク先にてページへのアクセス許可をリクエストできます。その際Crowdinのプロフィールリンク (`.../profile/<ユーザ名>`) とDiscordのユーザ名を入力してください。\nStannyaとRodryはあなたのGoogleユーザ名とメールアドレスを閲覧できることにご注意ください。",
         "sheetDButton": "Click here to open the Google Sheet containing context information.",
-        "sheetDel": "Deleting message in 1 minute"
+        "sheetDel": "1分後にメッセージが削除されます"
     }
 }
