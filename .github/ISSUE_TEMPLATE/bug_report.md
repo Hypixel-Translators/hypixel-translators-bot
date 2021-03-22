@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a report to help us improve
 title: "[BUG]"
-labels: ''
+labels: 'Bug'
 assignees: ImRodry
 
 ---
@@ -20,11 +20,16 @@ Steps to reproduce the behavior:
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
+**Actual behavior**
+A clear and concise description of what actually happened when you reproduced the steps above.
+
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Your roles**
- - [Project] [role] + special ones
+**Your roles on the server**
+Example:
+ - Hypixel Translator
+ - Portuguese Translator
 
 **Additional context**
-Add any other context about the problem here.
+Add any other information about the problem here.
