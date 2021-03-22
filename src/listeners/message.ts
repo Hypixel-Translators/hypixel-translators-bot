@@ -26,6 +26,10 @@ client.on("message", async message => {
     //Publish message if sent in bot-updates
     if (message.channel.id === "732587569744838777") return message.crosspost() //bot-updates
 
+    //Get the author from the database
+    const author: DbUser = await client.getUser(message.author.id)
+    const executedBy = getString("executedBy", { user: message.author.tag }, "global")
+
     //Link correction system
     if (!(message.channel instanceof Discord.DMChannel) && message.content.toLowerCase().includes("/translate/hypixel/") && message.content.includes("://")) {
         if (message.channel.parentID === "549503328472530977" || message.channel.parentID === "748585307825242322" || message.channel.parentID === "763131996163407902" || message.channel.parentID === "646083561769926668") { //Hypixel, SkyblockAddons, Bot and Quickplay Translations
@@ -141,10 +145,6 @@ client.on("message", async message => {
             if (!message.deleted && message.channel.type !== "dm") message.delete()
         }, 5000)
     }
-
-    //Get the author from the database
-    const author: DbUser = await client.getUser(message.author.id)
-    const executedBy = getString("executedBy", { user: message.author.tag }, "global")
 
     //Stop and error if command is not allowed in DMs and command is sent in DMs
     if (!command.allowDM && message.channel.type === "dm") {
