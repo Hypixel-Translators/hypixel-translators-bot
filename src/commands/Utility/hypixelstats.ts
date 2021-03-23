@@ -208,6 +208,7 @@ const command: Command = {
 }
 
 export async function getPlayer(username: string) {
+    if (!username) return
     return await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 10000 })
         .then(res => res.json())
         .then(json => {
