@@ -5,7 +5,7 @@
     "loadingRoles": "あなたのロールを取得中…",
     "errors": {
         "noLanguages": "あなたは言語ロールを所有していません！ これがエラーだと思われる場合は、管理者または所有者にお問い合わせください。",
-        "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
+        "trNoRoles": "あなたが翻訳者であることを検出しましたが、あなたは言語のロールを取得していません。",
         "error": "ニックネームの変更に失敗しました。以下のニックネームをコピーして自分で適用できます。",
         "confirmedNoFlags": "確定しましたが、旗に回答しなかったため、",
         "cancelled": "ニックネームの変更をキャンセルしたため、",
@@ -15,9 +15,9 @@
         "timeOutCustom": "確定しなかったため、",
         "notSaved": "接頭辞が保存されませんでした。"
     },
-    "customPrefix": "Feel free to run `+prefix <flags>` to get your desired prefix.",
+    "customPrefix": "`+prefix <旗>`を実行して、お気軽に希望の接頭辞を取得してください。",
     "caution": "警告",
-    "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
+    "warning": "自身が翻訳していない言語の接頭辞に設定すると警告されます。それでもニックネームを変更しますか？",
     "react": "接頭辞に追加したい順番に、旗をクリックして回答してください。",
     "reactTimer": "有効時間は%%cooldown%%秒です。❎を押してキャンセルします。",
     "reactTimer2": "有効時間は%%cooldown%%秒以内です。✅を押して確定し、❎を押してキャンセルします。",

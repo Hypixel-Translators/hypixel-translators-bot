@@ -7,7 +7,7 @@
     "pageNumber": "Seite %%number%%",
     "utilityHelp": "Werkzeuge & Hilfsmittel",
     "infoHelp": "Informationsbefehle",
-    "projectsHelp": "Crowdin Projects",
+    "projectsHelp": "Crowdin-Projekte",
     "timeOut": "Dieses Menü hat eine Zeitüberschreitung. Wenn du es wieder benutzen willst, verwende %%command%%.",
     "pageNotExist": "Diese Seite existiert nicht!",
     "commandInfo": "Befehlsinformationen",
@@ -62,28 +62,28 @@
         "description": "Zeigt dir grundlegende Hypixel-Statistiken für den angegebenen Benutzer."
     },
     "hypixelverify": {
-        "usage": "+hypixelverify <username> | +hypixelunverify",
-        "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
+        "usage": "+hypixelverify <Spitzname> | +hypixelunverify",
+        "description": "Verbinde deinen Discord-Account mit deinem Hypixel-Profil. Führe `+hypixelunverify` aus, um dich zu entverifizieren."
     },
     "8ball": {
-        "usage": "+8ball <question>",
-        "description": "The Magic 8 Ball that will answer all your questions."
+        "usage": "+8ball <Frage>",
+        "description": "Der Magic 8 Ball, der alle deine Fragen beantwortet."
     },
     "verify": {
-        "usage": "+verify [profileURL]",
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `+profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "usage": "+verify [Profil-URL]",
+        "description": "Überprüft automatisch auf Änderungen in deinem Crowdin-Profil und gibt dir die entsprechenden Rollen. Wenn dein Profil nicht in unserer Datenbank gespeichert ist, wirst du gebeten, dein Profil erneut zu senden. Um zu überprüfen, ob dein Profil gespeichert ist, führe `+profile` aus. Stelle sicher, dass DMs auf diesem Server aktiviert sind, damit der Bot dir eine Nachricht senden kann."
     },
     "profile": {
         "usage": "+profile",
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
+        "description": "Gibt dir den Link zu deinem Crowdin-Profil, wenn er in unserer Datenbank gespeichert ist. Falls nicht, kannst du `+help reverify` ausführen, um zu erfahren, wie du dein Profil speicherst und deine Rollen aktualisierst."
     },
     "rank": {
-        "usage": "+rank [user]",
-        "description": "Gives you the current XP for yourself or any given user."
+        "usage": "+rank [Benutzer]",
+        "description": "Gibt dir die aktuellen XP für dich selbst oder einen bestimmten Benutzer an."
     },
     "levels": {
-        "usage": "+levels [page]",
-        "description": "Gives you the XP leaderboard."
+        "usage": "+levels [Seite]",
+        "description": "Gibt dir die XP-Rangliste."
     },
     "tip": {
         "usage": "+tip",
