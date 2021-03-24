@@ -13,7 +13,7 @@
     "lastSeen": "最後に接続した場所：%%game%%",
     "language": "言語",
     "first_login": "初回ログイン日時",
-    "last_login": "Online since",
+    "last_login": "オンライン状態開始時間",
     "last_logout": "最終オンライン日時",
     "link": "リンク",
     "notConnected": "未連携",
