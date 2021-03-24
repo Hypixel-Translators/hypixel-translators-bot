@@ -2,8 +2,8 @@
     "moduleName": "翻訳プロジェクト",
     "allProjects": "以下がサーバーでサポートしている全プロジェクトです！",
     "description": "既にプロジェクトに参加しているがまだロールを保有していない場合、ご遠慮なく管理者に連絡してください！",
-    "projectInfo": "%%project%% プロジェクトへのリンクは [こちら](%%link%%) です。詳細は%%command%%を実行してください。",
+    "projectInfo": "%%project%%プロジェクトへのリンクは [こちら](%%link%%) です。詳細は%%command%%を実行してください。",
     "alreadyJoined": "このプロジェクトに参加済みです！",
     "notJoined": "このプロジェクトに参加していません！",
-    "dmError": "We couldn't check whether you're already on these projects or not. In order to do this, you must execute the command on The Hypixel Translators Community Discord."
+    "dmError": "あなたがプロジェクトに参加済みかどうかを確認できませんでした。実行するにはThe Hypixel Translators Community Discordでコマンドを実行する必要があります。"
 }
