@@ -37,10 +37,6 @@
         "usage": "+mention <言語> translator|proofreader|all [メッセージ]",
         "description": "任意のメッセージを、言語のロールにメンションします。"
     },
-    "context": {
-        "usage": "+context get|add|edit|view|help <引数>",
-        "description": "入力したIDの説明文を取得、追加、編集します。`+context help`でこのコマンドの詳細を確認できます。`+context link`で説明文のスプレッドシートへのアクセス権をリクエストできるリンクを表示します。"
-    },
     "languagestats": {
         "usage": "+languagestats <言語>",
         "description": "現在我々がサポートしている全プロジェクトの、言語の進捗状況を表示します。"

@@ -37,10 +37,6 @@
         "usage": "+mention <språk> translator|proofreader|all [meddelande]",
         "description": "Mentions a language role with an optional message."
     },
-    "context": {
-        "usage": "+context get|add|edit|view|help <argument>",
-        "description": "Visar, lägger till eller redigerar ett string-ID. `+context help` för mer information om detta kommando."
-    },
     "languagestats": {
         "usage": "+languagestats <språk>",
         "description": "Shows you the progress of a language on all the projects we currently support."

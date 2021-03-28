@@ -1,5 +1,6 @@
 {
     "moduleName": "Citát",
+    "msgUrl": "Message URL",
     "invalidArg": "Neplatný argument!",
     "indexArg": "Citát s číslem %%arg%% neexistuje! Prosím zadej číslo mezi 1 a %%max%%.",
     "reqSub": "Tvoje žádost o citát se odeslala, díky!"

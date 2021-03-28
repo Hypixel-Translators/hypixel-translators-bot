@@ -37,10 +37,6 @@
         "usage": "+mention <idioma> translator|proofreader|all [mensagem]",
         "description": "Menciona o cargo de um idioma com uma mensagem opcional."
     },
-    "context": {
-        "usage": "+context get|add|edit|link|help <argumentos>",
-        "description": "Mostra, adiciona ou edita o contexto de uma string. `+context help` dá-te mais informações sobre este comando. `+context link` dá-te um link onde podes pedir acesso ao documento com o contexto."
-    },
     "languagestats": {
         "usage": "+languagestats <idioma>",
         "description": "Mostra-te o progresso de um idioma em todos os projetos que suportamos neste momento."

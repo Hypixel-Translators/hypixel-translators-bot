@@ -37,10 +37,6 @@
         "usage": "+mention <اللغة> translator|proofreader|all [الرسالة]",
         "description": "منشن رتبة اللغه مع رسالة اختيارية."
     },
-    "context": {
-        "usage": "+context get|add|edit|view|help <مُعطى>",
-        "description": "يحصل على أو يضيف أو يعدل السياق لمعرف السترينغ المحدد. `+context help` يظهر لك معلومات حول هذا الأمر. `+context link` يمنحك الرابط لطلب الوصول إلى جدول بيانات السياق."
-    },
     "languagestats": {
         "usage": "+languagestats <لغة>",
         "description": "يظهر لك مدى تقدم اللغة في جميع المشاريع التي ندعمها."

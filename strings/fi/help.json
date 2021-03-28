@@ -37,10 +37,6 @@
         "usage": "+mention <kieli> translator|proofreader|all [viesti]",
         "description": "Mainitsee kieliroolin ja lähettää valinnaisen viestin."
     },
-    "context": {
-        "usage": "+context get|add|edit|view|help <argumentit>",
-        "description": "Näyttää, lisää tai muokkaa valitun stringin (ID) kontekstia. Komennnolla `+context help` näet tietoa tästä komennosta. Komennolla `+context link` saat linkin kontekstitaulukkokirjaan."
-    },
     "languagestats": {
         "usage": "+languagestats <kieli>",
         "description": "Näyttää kielen käännöstyön edistymisen kaikissa tukemissamme projekteissa."
