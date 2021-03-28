@@ -37,10 +37,6 @@
         "usage": "+mention <γλώσσα> translator|proofreader|all [μήνυμα]",
         "description": "Αναφέρει έναν ρόλο γλώσσας με ένα προαιρετικό μήνυμα."
     },
-    "context": {
-        "usage": "+context get|add|edit|view|help <επιχειρήματα>",
-        "description": "Παίρνει, προσθέτει ή επεξεργάζεται την περιγραφή για το string ID που δόθηκε. Το `+context help` σου δείχνει πληροφορίες σχετικά με αυτή την εντολή."
-    },
     "languagestats": {
         "usage": "+languagestats <γλώσσα>",
         "description": "Shows you the progress of a language on all the projects we currently support."
