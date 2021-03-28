@@ -8,13 +8,15 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if (channel.type !== "dm") {
         await reaction.fetch()
         // Delete message when channel name ends with review-strings
-        if (channel.name.endsWith("review-strings") && !user.bot && reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
-            reaction.message.react("⏱")
-            reaction.message.react(reaction.emoji)
-            setTimeout(() => {
-                if (!reaction.message.deleted) reaction.message.delete()
-                console.log(`String reviewed in ${channel.name} (saw reaction ${reaction.emoji.name})`)
-            }, 10000)
+        if (channel.name.endsWith("review-strings") && !user.bot) {
+            if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
+                reaction.message.react("⏱")
+                reaction.message.react(reaction.emoji)
+                setTimeout(() => {
+                    if (!reaction.message.deleted) reaction.message.delete()
+                    console.log(`String reviewed in ${channel.name} (saw reaction ${reaction.emoji.name})`)
+                }, 10000)
+            }
         }
         // Give Polls role if reacted on reaction role message
         else if (reaction.message.id === "800415711864029204" && !user.bot) { //server-info roles message
