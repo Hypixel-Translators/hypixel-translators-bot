@@ -37,10 +37,6 @@
         "usage": "+mention <sprog> translator|proofreader|all [besked]",
         "description": "Nævner en sprogrolle med en valgfri besked."
     },
-    "context": {
-        "usage": "+context get|add|edit|link|help <argumenter>",
-        "description": "Får, tilføjer eller redigerer konteksten på den givne string-ID. `+context help` viser dig information om denne kommando. `+context link` giver dig et link til at anmode om adgang til kontekstregnearket."
-    },
     "languagestats": {
         "usage": "+languagestats <language>",
         "description": "Viser dig fremgangen for et sprog på alle de projekter, vi i øjeblikket støtter."
