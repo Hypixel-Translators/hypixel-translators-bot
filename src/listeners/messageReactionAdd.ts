@@ -1,4 +1,7 @@
+import Discord from "discord.js"
+import { successColor } from "../config.json"
 import { client } from "../index.js"
+import { db } from "../lib/dbclient.js"
 
 client.on("messageReactionAdd", async (reaction, user) => {
     const channel = reaction.message.channel
@@ -23,6 +26,29 @@ client.on("messageReactionAdd", async (reaction, user) => {
             reaction.message.guild!.member(user.id)!.roles.add(roleId, "Added the reaction in server-info")
                 .then(() => console.log(`Gave the ${reaction.message.guild!.roles.cache.get(roleId)!.name} role to ${user.tag}`))
                 .catch(err => console.error(`An error occured while trying to give the ${reaction.message.guild!.roles.cache.get(roleId)!.name} role to ${user.tag}. Here's the error:\n${err.stack}`))
+        }
+        // Starboard system
+        else if (reaction.emoji.name === "⭐" && channel.permissionsFor("569194996964786178")!.has(["SEND_MESSAGES", "VIEW_CHANNEL"]) && reaction.count! >= 4 && !reaction.message.author.bot && reaction.message.content) {
+            const collection = db.collection("quotes")
+            const urlQuote = await collection.findOne({ url: reaction.message.url })
+            if (!urlQuote) {
+                const all = await collection.find({}).toArray()
+                const id = all.length + 1
+
+                //Dumb fix for User.toString() inconsistency with message mentions
+                await collection.insertOne({ id: id, quote: reaction.message.content, author: `${reaction.message.author}`.replace("<@", "<@!"), url: reaction.message.url })
+                const embed = new Discord.MessageEmbed()
+                    .setColor(successColor)
+                    .setAuthor("Starboard")
+                    .setTitle(`The following quote reached ${reaction.count} ⭐ reactions and was added!`)
+                    .setDescription(reaction.message.content)
+                    .addFields(
+                        { name: "User", value: reaction.message.author },
+                        { name: "Quote number", value: id },
+                        { name: "URL", value: reaction.message.url }
+                    )
+                reaction.message.channel.send(embed)
+            }
         }
     }
 })
