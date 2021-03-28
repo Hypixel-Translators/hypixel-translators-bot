@@ -37,10 +37,6 @@
         "usage": "+mention <langag> translator|proofreader|all [masagsage]",
         "description": "Menton a langag rol wif megag (but not needd)."
     },
-    "context": {
-        "usage": "+context get|add|edit|view|help <argargments>",
-        "description": "The get, the add, the edit for the context for given ID string. `+context help` makes u see informaton abt dis acomand. `+context link` give u link for request aces for context spredshet."
-    },
     "languagestats": {
         "usage": "+languagestats <langag>",
         "description": "Givz u progresse of langag on al projgets wee suprot."
