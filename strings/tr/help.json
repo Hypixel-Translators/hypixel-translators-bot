@@ -1,36 +1,36 @@
 {
     "moduleName": "Bilgi",
     "page1Title": "Yardım sayfası",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `+translate` command.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
+    "commandsListTooltip": "Bu bot, Hypixel Translators Topluluğu için %%developer%% tarafından yapıldı. Bu bot açık kaynak kodludur ve GitHub depomuza [buradan]%%github%% erişebilirsin.\n`+translate` komutundaki talimatları izleyerek botun çevirilmesine yardımcı olabilirsin.\n\nBelirli bir komut hakkında daha fazla bilgi edinmek için `+help <komutun adı>` komutunu kullanabilirsin.\nAşağıda mevcut tüm komutların bir listesini bulabilirsin. Sayfalar arasında geçiş yapmak için bu mesajdaki tepkileri kullan.",
     "madeBy": "Bot, %%QkeleQ10%% tarafından özenle yapıldı",
     "page": "Sayfa %%number%%/%%total%%",
     "pageNumber": "Sayfa %%number%%",
     "utilityHelp": "Araçlar & Yardımcı Programlar",
     "infoHelp": "Bilgi komutları",
-    "projectsHelp": "Crowdin Projects",
-    "timeOut": "Bu menü zaman aşımına uğradı. Tekrar kullanmak istersen, %%command%% komutunu kullan.",
+    "projectsHelp": "Crowdin Projeleri",
+    "timeOut": "Bu menü zaman aşımına uğradı. Tekrar erişmek istersen, %%command%% komutunu kullan.",
     "pageNotExist": "Böyle bir sayfa mevcut değil!",
     "commandInfo": "Komut bilgisi",
     "commandInfoFor": "Komut bilgisi: ",
     "commandNotExist": "Böyle bir komut yok!",
-    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-    "inDev": "This command is currently in development and will be available at a later date!",
+    "staffOnly": "Bu komut sadece yetkililer tarafından kullanılabilir ve bu nedenle bilgi gizlidir.\nBunun bir hata olduğunu düşünüyorsan lütfen bir yetkiliyle iletişime geç.",
+    "inDev": "Bu komut şimdilik bakımdadır ve ilerki zamanlarda kullanılabilir olacaktır!",
     "seconds": " saniye",
-    "second": "second",
-    "minutes": "minutes",
+    "second": "saniye",
+    "minutes": "dakika",
     "usageField": "Kullanım",
     "cooldownField": "Bekleme Süresi",
     "aliasesField": "Takma adlar",
     "help": {
-        "usage": "+help [page | command name]",
+        "usage": "+help [sayfa | komut adı]",
         "description": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir."
     },
     "prefix": {
-        "usage": "+prefix [flags]",
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
+        "usage": "+prefix [bayrak]",
+        "description": "Sana dil(ler) için uygun prefix verir. Özel bir prefix almak için, `+prefix <bayrak>` komutunu kullan ve `<bayrak>` öğesini ülkenin bayrağıyla veya ülkenin bölgesel koduyla değiştir. Boşluk tuşu ile ayırarak, istediğin kadar bayrak ekleyebilirsin."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [dizin] | +quote add <alıntı> / <yazar>",
         "description": "Sunucudan komik/garip/bilge bir alıntı alır (veya ekler)."
     },
     "mention": {
@@ -42,48 +42,48 @@
         "description": "Verilen string kimliği için bağlamı alır, ekler veya düzenler. `+context help` size bu komutla ilgili bilgileri gösterir."
     },
     "languagestats": {
-        "usage": "+languagestats <language>",
-        "description": "Shows you the progress of a language on all the projects we currently support."
+        "usage": "+languagestats <dil>",
+        "description": "Şuanda desteklediğimiz bütün dillerdeki ilerlemeyi gösterir."
     },
     "issue": {
         "usage": "+issue",
         "description": "Herhangi bir hatayı bildirebileceğiniz GitHub sorunları sayfamızı açar."
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
-        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
+        "usage": "+language [<yeni dil> | list | add <dil>]",
+        "description": "Dilini değiştirir, mevcut dilini veya mevcut dillerin bir listesini gösterir. Bot için yeni bir dil istemek istersen, `+language add <dil>` komutunu kullanabilirsin."
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "Size botun gecikmesini söyler."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [username] [social]",
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "usage": "+hypixelstats [kullanıcı adı] [social]",
+        "description": "Belirtilen kullanıcı için temel Hypixel istatistiklerini gösterir."
     },
     "hypixelverify": {
-        "usage": "+hypixelverify <username> | +hypixelunverify",
-        "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
+        "usage": "+hypixelverify <kullanıcı adı> | +hypixelunverify",
+        "description": "Discord hesabını Hypixel profiline bağlar.\nBağlantıyı kaldırmak için `+hypixelunverify` komutunu kullan."
     },
     "8ball": {
-        "usage": "+8ball <question>",
-        "description": "The Magic 8 Ball that will answer all your questions."
+        "usage": "+8ball <soru>",
+        "description": "Sihirli Top, tüm sorularını cevaplayacak."
     },
     "verify": {
-        "usage": "+verify [profileURL]",
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `+profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "usage": "+verify [profilLinki]",
+        "description": "Crowdin profilinizdeki değişiklikleri otomatik olarak kontrol eder ve size uygun rolleri verir. Profiliniz veritabanımızda saklanmıyorsa, bunu komutta bir argüman olarak sağlayabilirsiniz. Profilinin saklanıp saklanmadığını kontrol etmek için `+profile` komutunu kullan. Botun sana bir mesaj gönderebilmesi için Dm'inin açık olduğundan emin ol."
     },
     "profile": {
         "usage": "+profile",
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
+        "description": "Veritabanımızda saklanıyorsa, Crowdin profiline bir bağlantı verir. Saklanmıyorsa, profilini nasıl saklayacağını ve rollerini nasıl güncelleyeceğini öğrenmek için `+help reverify` komutunu çalıştırabilirsin."
     },
     "rank": {
-        "usage": "+rank [user]",
-        "description": "Gives you the current XP for yourself or any given user."
+        "usage": "+rank [kullanıcı]",
+        "description": "Senin veya herhangi bir kullanıcının mevcut deneyim puanını gösterir."
     },
     "levels": {
-        "usage": "+levels [page]",
-        "description": "Gives you the XP leaderboard."
+        "usage": "+levels [sayfa]",
+        "description": "Deneyim Puanı sıralamasını gösterir."
     },
     "tip": {
         "usage": "+tip",
@@ -95,7 +95,7 @@
     },
     "projects": {
         "usage": "+projects",
-        "description": "Gives you links and information about all the translation projects we support on the server."
+        "description": "Sunucuda desteklediğimiz tüm çeviri projeleri hakkında size bağlantılar ve bilgiler verir."
     },
     "hypixel": {
         "usage": "+hypixel",
@@ -115,7 +115,7 @@
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "Botun nasıl çevrileceği hakkında size yararlı bilgiler verir."
     },
     "thread": {
         "usage": "+thread",
