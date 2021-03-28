@@ -37,10 +37,6 @@
         "usage": "+mention <language> translator|proofreader|all [message]",
         "description": "Mentions a language role with an optional message."
     },
-    "context": {
-        "usage": "+context get|add|edit|link|help <arguments>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
-    },
     "languagestats": {
         "usage": "+languagestats <language>",
         "description": "Shows you the progress of a language on all the projects we currently support."
