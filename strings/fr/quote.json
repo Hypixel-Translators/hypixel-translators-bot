@@ -1,5 +1,6 @@
 {
     "moduleName": "Citation",
+    "msgUrl": "Message URL",
     "invalidArg": "Arguments invalides!",
     "indexArg": "Une citation avec le nombre %%arg%% n'existe pas! Fournis un nombre entre 1 et %%max%%.",
     "reqSub": "Ta demande de citation a été envoyée, merci!"
