@@ -37,10 +37,6 @@
         "usage": "+mention <Sprache> translator|proofreader|all [message]",
         "description": "Erwähnt eine Sprachrolle mit einer optionalen Nachricht."
     },
-    "context": {
-        "usage": "+context get|add|edit|view|help <Argument>",
-        "description": "Zeigt, fügt oder bearbeitet Kontext für die angegebene String ID. `+context help` zeigt dir Informationen über diesen Befehl."
-    },
     "languagestats": {
         "usage": "+languagestats <Sprache>",
         "description": "Zeigt dir den Fortschritt einer Sprache über alle Projekte, die wir derzeit unterstützen."
