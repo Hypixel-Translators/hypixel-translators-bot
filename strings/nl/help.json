@@ -37,10 +37,6 @@
         "usage": "+mention <taal> translator|proofreader|all [bericht]",
         "description": "Vermeldt een taalrol met een optioneel bericht."
     },
-    "context": {
-        "usage": "+context get|add|edit|link|help <argumenten>",
-        "description": "Geeft context voor het gegeven string-ID, voegt het toe of bewerkt het. `+context help` geeft je informatie over dit commando. `+context link` geeft je de link om toegang tot de spreadsheet aan te vragen."
-    },
     "languagestats": {
         "usage": "+languagestats <taal>",
         "description": "Toont voortgang in een taal in alle projecten die we ondersteunen."
