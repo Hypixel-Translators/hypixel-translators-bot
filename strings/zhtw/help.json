@@ -37,10 +37,6 @@
         "usage": "+mention <語言> translator|proofreader|all [訊息]",
         "description": "提及一個語言身份組，而且可向他們發送訊息。"
     },
-    "context": {
-        "usage": "+context get|add|edit|view|help <參數>",
-        "description": "Gets, adds or edits context for the given string ID. `+context help` shows you information about this command. `+context link` gives you the link to request access to the context spreadsheet."
-    },
     "languagestats": {
         "usage": "+languagestats <語言>",
         "description": "顯示特定語言在我們支援的所有項目中的翻譯進度。"
