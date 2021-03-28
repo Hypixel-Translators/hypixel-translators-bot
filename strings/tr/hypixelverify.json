@@ -1,12 +1,12 @@
 {
-    "moduleName": "Hypixel Verification",
-    "success": "You successfully verified yourself as %%player%%!",
-    "role": "You were given the %%role%% role due to your rank on the server.",
-    "alreadyVerified": "You are already verified!",
-    "nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
-    "error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
-    "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this.",
-    "unverified": "You were successfully unverified!",
-    "notUnverified": "Couldn't unverify you!",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `+hypixelverify <username>`."
+    "moduleName": "Hypixel Doğrulaması",
+    "success": "Kendini başarıyla %%player%% olarak doğruladın!",
+    "role": "Sunucudaki rankın sebebiyle sana bu sunucuda %%role%% rolü verildi.",
+    "alreadyVerified": "Zaten doğrulandın!",
+    "nameChangeDisclaimer": "Unutma! Kullanıcı adını değiştirirsen kendini tekrar doğrulaman gerekmez!",
+    "error": "Seni doğrulayamadık çünkü Discord'unu Hypixel hesabın ile bağlamamışsın!",
+    "tutorial": "Doğrulanmak için, Discord'unu Hypixel'de %%tag%% olarak ayarlaman ve komutu tekrar çalıştırmak için 10 dakika kadar beklemen gerekiyor. Bunu nasıl yapacağını bilmiyorsan, aşağıdaki videodaki talimatları izle.",
+    "unverified": "Doğrulamayı başarıyla kaldırdın!",
+    "notUnverified": "Doğrulamanı kaldıramıyoruz!",
+    "whyNotUnverified": "Bu, henüz kendini doğrulamadığın için oldu! Doğrulamak için `+hypixelverify <kullanıcı adı>` komutunu kullan."
 }
