@@ -37,10 +37,6 @@
         "usage": "crwdns598:0[message]crwdne598:0",
         "description": "crwdns600:0crwdne600:0"
     },
-    "context": {
-        "usage": "crwdns602:0crwdne602:0",
-        "description": "crwdns604:0crwdne604:0"
-    },
     "languagestats": {
         "usage": "crwdns1120:0crwdne1120:0",
         "description": "crwdns1122:0crwdne1122:0"
