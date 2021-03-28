@@ -1,9 +1,9 @@
 {
-    "moduleName": "Translation Projects",
-    "allProjects": "Here are all the projects we currently support on the server!",
-    "description": "If you're already on any of these projects but don't have your roles yet, do not hesitate to contact an administrator!",
-    "projectInfo": "You can find the link to the %%project%% project [here](%%link%%). For more information, execute %%command%%.",
-    "alreadyJoined": "You've already joined this project!",
-    "notJoined": "You haven't joined this project yet!",
-    "dmError": "We couldn't check whether you're already on these projects or not. In order to do this, you must execute the command on The Hypixel Translators Community Discord."
+    "moduleName": "Çeviri Projeleri",
+    "allProjects": "İşte şu anda bu sunucu üzerinde desteklediğimiz diller!",
+    "description": "Zaten bu projelerde varsan ama henüz rolün yoksa yöneticiye söylemekten çekinme!",
+    "projectInfo": "%%project%% proje bağlantısını [burada](%%link%%) bulabilirsin. Daha fazla bilgi için %%command%% komutunu kullan.",
+    "alreadyJoined": "Bu projeye zaten katıldın!",
+    "notJoined": "Bu projeye henüz katılmadın!",
+    "dmError": "Bu projelerde olup olmadığını kontrol edemedik. Bunu yapmak için, Hypixel Translators Community sunucusunda komutu kullanman gerekiyor."
 }

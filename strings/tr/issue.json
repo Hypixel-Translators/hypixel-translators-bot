@@ -3,5 +3,5 @@
     "bugT": "Sorunları görüntüleme ve ekleme",
     "bugD": "Hata raporlarını göstermek veya öneri yapmak için lütfen [buraya tıklayın]%%github%%.",
     "urgentT": "Acil mi?",
-    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention a staff member in a public channel, explaining the issue."
+    "urgentD": "Önemli bir hatayı bildirmeye çalışıyorsanız veya bot önceden haber vermeksizin uzun bir süre çalışmıyorsa, lütfen sorunu açıklayan bir mesaj ile herkese açık kanalda yetkili birini etiketleyerek sorundan bahsedin."
 }
