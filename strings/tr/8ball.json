@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magic 8 ball",
-    "question": "Question",
+    "moduleName": "Sihirli Top",
+    "question": "Soru",
     "answers": {
         "positive": [
-            "It is certain.",
-            "It is decidedly so.",
-            "Without a doubt.",
-            "Yes – definitely.",
-            "You may rely on it.",
-            "As I see it, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Yes",
-            "Signs point to yes."
+            "Kesinlikle.",
+            "Kesinlikle öyle.",
+            "Şüphesiz.",
+            "Evet – kesinlikle.",
+            "Güvenebilirsin.",
+            "Gördüğüm kadarıyla, evet.",
+            "Büyük olasılıkla.",
+            "Güzel gözüküyor.",
+            "Evet",
+            "Çıkarımlarım evet diyor."
         ],
         "inconclusive": [
-            "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again."
+            "Cevap bulanık. Yeniden sor.",
+            "Daha sonra tekrar sor.",
+            "Sana şimdi söylemesem daha iyi.",
+            "Şimdi tahmin edemiyorum.",
+            "Konsantre ol ve yeniden sor."
         ],
         "negative": [
-            "Don't count on it.",
-            "My reply is no.",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful."
+            "O kadar emin olma.",
+            "Cevabım hayır.",
+            "Kaynaklarım hayır diyor.",
+            "Çok iyi görünmüyor.",
+            "Oldukça süpheli."
         ]
     }
 }
