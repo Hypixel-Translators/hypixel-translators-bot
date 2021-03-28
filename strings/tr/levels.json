@@ -1,9 +1,9 @@
 {
-    "moduleName": "XP Leaderboard",
-    "pageTitle": "Here is the XP leaderboard!",
+    "moduleName": "Deneyim Puanı Sıralaması",
+    "pageTitle": "İşte Deneyim Puanı Sıralaması!",
     "page": "Sayfa %%number%%/%%total%%",
-    "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
-    "thousand": "k",
-    "unranked": "#%%rank%% Unranked",
-    "timeOut": "Bu menü zaman aşımına uğradı. Tekrar kullanmak istersen, %%command%% komutunu kullan."
+    "level": "#%%rank%% | Seviye %%level%% | Deneyim Puanı: %%xp%%",
+    "thousand": "bin",
+    "unranked": "#%%rank%% Derecesiz",
+    "timeOut": "Bu menü zaman aşımına uğradı. Tekrar erişmek istersen, %%command%% komutunu kullan."
 }
