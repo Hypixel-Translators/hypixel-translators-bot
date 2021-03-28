@@ -21,6 +21,7 @@ const command: Command = {
   async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
     const me = message.member
     const guild = message.guild
+    const channel = message.channel as Discord.TextChannel
     const db = mongoDb
 
     let evaled

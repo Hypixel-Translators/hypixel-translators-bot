@@ -2,18 +2,9 @@ import { client } from "../index.js"
 import stats from "../events/stats.js"
 import inactives from "../events/inactives.js"
 import { listeningStatuses, watchingStatuses, playingStatuses } from "../config.json"
-import Discord from "discord.js"
 
 client.once("ready", async () => {
     console.log("Ready!")
-
-    //Fetch channels
-    client.guilds.cache.get("549503328472530974")?.members.fetch() //Guild members
-    const serverinfo = client.channels.cache.get("762341271611506708")! as Discord.TextChannel
-    serverinfo.messages.fetch("800415711864029204") //server-info roles message
-    const verify = client.channels.cache.get("569178590697095168") as Discord.TextChannel
-    verify.messages.fetch("787366444970541056") //verify message
-    client.channels.cache.filter(c => (c as Discord.TextChannel).name.endsWith("review-strings")).forEach(c => (c as Discord.TextChannel).messages.fetch())
 
     //Get server boosters and staff for the status
     let boostersStaff: string[] = []

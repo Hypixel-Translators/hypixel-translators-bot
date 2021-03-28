@@ -3,7 +3,7 @@ import "dotenv/config"
 import "source-map-support/register"
 import Discord from "discord.js"
 import { HTBClient } from "./lib/dbclient"
-export const client = new HTBClient()
+export const client = new HTBClient({ partials: ["MESSAGE", "CHANNEL", "REACTION", "GUILD_MEMBER", "USER"] })
 
 //Import commands and events
 import { setup } from "./lib/imports"
