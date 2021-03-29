@@ -7,6 +7,6 @@
     "howRank": "¡Para ser clasificado debes hablar en los chats!",
     "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Mensajes",
     "thousand": "k",
-    "youLevel": "¡Eres nivel %%level%% y estás rango #%%rank%% en la tabla de clasificación!",
+    "youLevel": "¡Eres nivel %%level%% y estás en el rango #%%rank%% en la tabla de clasificación!",
     "userLevel": "¡%%user%% es nivel %%level%% y está en el rango #%%rank%% en la tabla de clasificación!"
 }

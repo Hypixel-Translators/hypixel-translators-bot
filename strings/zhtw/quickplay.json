@@ -1,5 +1,5 @@
 {
     "quickplayCrowdin": "Here's the Quickplay Crowdin project: %%crowdin%%",
-    "quickplayThread": "Here’s the thread showcasing the mod: %%thread%%",
+    "quickplayThread": "點擊這裡查看模組的演示貼文：%%thread%%",
     "quickplayDiscord": "Here's the Quickplay Discord server: %%discord%%"
 }
