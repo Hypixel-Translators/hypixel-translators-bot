@@ -1,5 +1,5 @@
 {
     "sbaCrowdin": "Here's the SkyblockAddons Crowdin project: %%crowdin%%",
-    "sbaThread": "Here’s the thread showcasing the mod: %%thread%%",
+    "sbaThread": "點擊這裡查看模組的演示貼文：%%thread%%",
     "sbaDiscord": "這個項目由 Biscuit 擁有！加入該項目的伺服器︰%%discord%%"
 }
