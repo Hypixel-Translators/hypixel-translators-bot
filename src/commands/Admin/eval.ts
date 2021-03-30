@@ -23,6 +23,7 @@ const command: Command = {
     const guild = message.guild
     const channel = message.channel as Discord.TextChannel
     const db = mongoDb
+    const discord = Discord
 
     let evaled
     let codeToRun = args.join(" ").replace(/[“”]/gim, '"')
