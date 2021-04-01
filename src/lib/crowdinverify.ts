@@ -55,6 +55,7 @@ async function crowdinVerify(member: Discord.GuildMember, url: string | undefine
             return
         }
     }
+    url = url.toLowerCase()
     const browser = await getBrowser(),
         page = await browser.pupBrowser.newPage()
     try {
@@ -222,6 +223,8 @@ async function crowdinVerify(member: Discord.GuildMember, url: string | undefine
             logEmbed.addField(k, v.join(",\n"))
         }
     }
+
+    logEmbed.addField("Profile", url)
 
     //#region return message
     const dmEmbed = new Discord.MessageEmbed()
