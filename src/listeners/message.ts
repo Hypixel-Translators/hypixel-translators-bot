@@ -24,7 +24,7 @@ client.on("message", async message => {
     if (message.guild?.id === "549503328472530974" && !command && !noXp.includes((message.channel as Discord.GuildChannel).parentID!) && !noXp.includes(message.channel.id!) && !message.member?.roles.cache.some(r => noXpRoles.includes(r.id))) await leveling(message)
 
     //Publish message if sent in bot-updates
-    if (message.channel.id === "732587569744838777") return message.crosspost() //bot-updates
+    if (message.channel.id === "732587569744838777" || message.channel.id === "618909521741348874" && !message.embeds[0].description?.startsWith("@")) return message.crosspost() //bot-updates
 
     //Get the author from the database
     const author: DbUser = await client.getUser(message.author.id)
