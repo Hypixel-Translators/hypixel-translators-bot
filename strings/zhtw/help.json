@@ -115,7 +115,7 @@
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "給予你有關此 Discord 伺服器介紹之頁面。"
     },
     "twitter": {
         "usage": "+twitter",
