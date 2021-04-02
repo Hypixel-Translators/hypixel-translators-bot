@@ -24,7 +24,7 @@ const projectIDs: {
         verifyChannel: "569178590697095168"
     }
 
-async function crowdinVerify(member: Discord.GuildMember, url: string | undefined, sendDms: boolean) {
+async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms: boolean = false) {
     const verifyLogs = member.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel
     const verify = member.client.channels.cache.get(UsefulIDs.verifyChannel) as Discord.TextChannel
     const errorEmbed = new Discord.MessageEmbed()
@@ -34,25 +34,27 @@ async function crowdinVerify(member: Discord.GuildMember, url: string | undefine
     if (!url) {
         const userDb: DbUser = await db.collection("users").findOne({ id: member.id })
         url = userDb.profile
-        if (!url) { //if user runs +reverify and the profile is not stored on our DB
+        if (!url) { //if user runs +reverify and the profile is not stored on our DB or if the user sends the generic profile URL
             //#region return message
+            member.roles.remove("569194996964786178", "Tried to reverify but profile wasn't stored") // Verified
             errorEmbed
                 .setDescription("Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!")
                 .setImage("https://i.imgur.com/7FVOSfT.png")
             if (sendDms) member.send(errorEmbed)
                 .then(() => verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent them.`))
                 .catch(() => {
-                    errorEmbed.setFooter("")
+                    errorEmbed.setFooter("This message will be deleted in a minute")
                     verify.send(`${member} you had DMs disabled, so here's our message,`, errorEmbed)
                         .then(msg => {
                             setTimeout(() => {
                                 if (!msg.deleted) msg.delete()
-                            }, 30000)
+                            }, 60000)
                         })
                     verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
                 })
             else verifyLogs.send(`The profile stored/provided for ${member} was invalid. Please fix this or ask them to fix this.`)
             return
+            //#endregion
         }
     }
     url = url.toLowerCase()
@@ -69,40 +71,44 @@ async function crowdinVerify(member: Discord.GuildMember, url: string | undefine
         closeConnection(browser.uuid)
         if (!evaluation) { //if profile leads to a 404 page
             //#region return message
+            member.roles.remove("569194996964786178", "Tried to reverify with an invalid URL") // Verified
             errorEmbed
                 .setDescription("Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!")
                 .setImage("https://i.imgur.com/7FVOSfT.png")
             if (sendDms) member.send(errorEmbed)
                 .then(() => verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent them.`))
                 .catch(() => {
-                    errorEmbed.setFooter("")
+                    errorEmbed.setFooter("This message will be deleted in a minute")
                     verify.send(`${member} you had DMs disabled, so here's our message,`, errorEmbed)
                         .then(msg => {
                             setTimeout(() => {
                                 if (!msg.deleted) msg.delete()
-                            }, 30000)
+                            }, 60000)
                         })
                     verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
                 })
             else verifyLogs.send(`The profile stored/provided for ${member} was invalid. Please fix this or ask them to fix this.`)
+            //#endregion
         } else { //if the profile is private
             //#region return message
+            member.roles.remove("569194996964786178", "Tried to reverify with a private profile") // Verified
             errorEmbed
                 .setDescription(`Hey there! We noticed you sent us your Crowdin profile, however, it was private so we couldn't check it. Please make it public, at least until you get verified, and send us your profile again on the channel. If you don't know how to, then go to your Crowdin profile settings (found [here](https://crowdin.com/settings#account)) and make sure the "Private Profile" setting is turned off (see the image below)\n\nIf you have any questions, be sure to send them to us!`)
                 .setImage("https://i.imgur.com/YX8VLeu.png")
             if (sendDms) member.send(errorEmbed)
                 .then(() => verifyLogs.send(`${member}'s profile was private, I let them know about that.`))
                 .catch(() => {
-                    errorEmbed.setFooter("")
+                    errorEmbed.setFooter("This message will be deleted in a minute")
                     verify.send(`${member} you had DMs disabled, so here's our message,`, errorEmbed)
                         .then(msg => {
                             setTimeout(() => {
                                 if (!msg.deleted) msg.delete()
-                            }, 30000)
+                            }, 60000)
                         })
                     verifyLogs.send(`${member}'s profile was private, I let them know about that in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
                 })
             else verifyLogs.send(`${member}'s profile is private. Please ask them to change this.`)
+            //#endregion
         }
         return
     }
@@ -116,21 +122,19 @@ async function crowdinVerify(member: Discord.GuildMember, url: string | undefine
 
     if (!evalReturn) {
         //#region return message
-        const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
-            .setAuthor("Received message from staff")
+        member.roles.remove("569194996964786178", "Tried to verify with no Discord tag") // Verified
+        errorEmbed
             .setDescription(`Hey there!\nWe noticed you sent us your Crowdin profile, however, you forgot to add your Discord tag to it! Just add ${member.user.tag} to your about section like shown in the image below. Once you've done so, send us the profile link again.\n\nIf you have any questions, be sure to send them to us!`)
             .setImage("https://i.imgur.com/BM2bJ4W.png")
-            .setFooter("Any messages you send here will be sent to staff.")
-        if (sendDms) member.send(embed)
+        if (sendDms) member.send(errorEmbed)
             .then(() => verifyLogs.send(`${member} forgot to add their Discord to their profile. Let's hope they fix that with the message I just sent them.`))
             .catch(() => {
-                embed.setFooter("This message will be deleted in 30 seconds")
-                verify.send(`${member} you had DMs disabled, so here's our message,`, embed)
+                errorEmbed.setFooter("This message will be deleted in a minute")
+                verify.send(`${member} you had DMs disabled, so here's our message,`, errorEmbed)
                     .then(msg => {
                         setTimeout(() => {
                             if (!msg.deleted) msg.delete()
-                        }, 30000)
+                        }, 60000)
                     })
                 verifyLogs.send(`${member} forgot to add their Discord to their profile. Let's hope they fix that with the message I just sent them.`)
             })

@@ -33,7 +33,7 @@ const command: Command = {
                 await crowdinVerify(message.member!, message.content.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
                 message.delete()
             } else {
-                await message.member!.roles.remove("569194996964786178", "Unverified") //verified
+                await message.member!.roles.remove("569194996964786178", "Unverified") // Verified
                 if (!message.deleted) message.delete()
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
