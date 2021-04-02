@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/countryjs": "^1.8.1",
     "@types/mongodb": "^3.6.11",
-    "@types/node-fetch": "^2.5.8",
+    "@types/node-fetch": "^2.5.9",
     "@types/uuid": "^8.3.0",
     "rimraf": "^3.0.2"
   }
