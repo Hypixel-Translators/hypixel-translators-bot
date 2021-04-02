@@ -48,8 +48,8 @@
         "pinnedInfo": "你知道每個頻道都會釘選一些重要資訊嗎？請記得在進入頻道時查看已釘選的訊息！",
         "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!",
         "languageStats": "你知道你可以查看任何語言在我們支援的所有項目的統計數據嗎？只需要執行 `+languagestats <語言>`！",
-        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
-        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "rolesChange": "你最近在 Crowdin 擔任了新的職務，或加入了我們支援的翻譯項目？執行 `+reverify` 來更新你的身份組！",
+        "botTranslated": "你知道我們的機器人支援多國語言嗎？執行 `+language list` 即可查看我們目前支援的語言。你或者能找到你常用的語言！",
         "moreTips": "我們需要更多提示！你可以使用 `+feedback` 來提交。"
     },
     "executedBy": "由 %%user%% 執行"
