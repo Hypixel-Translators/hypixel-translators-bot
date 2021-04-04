@@ -15,18 +15,18 @@ const command: Command = {
         let holidayName = args[0].toLowerCase()
         if (holidayName === "newyear" || args.join("").toLowerCase() === "newyear") holidayName = "newYear"
         if (getString(holidayName) === holidayName) return message.channel.send("I have no idea what holiday that is sir.")
-        let strings = require(`../../strings/en/holidays.json`)
-        const dirPath = path.join(__dirname, "../../strings")
+        let strings = require(`../../../strings/en/holidays.json`)
+        const dirPath = path.join(__dirname, "../../../strings")
         let holiday: string[] = []
         let log: string[] = []
         holiday.push(strings[holidayName])
-        fs.readdir(dirPath, function (err, files) {
-            files.forEach(file => {
+        fs.readdir(dirPath, (err, langs) => {
+            langs.forEach(lang => {
                 if (err) return console.error(`Unable to scan directory: ${err}`)
-                strings = require(`../../strings/${file}/holidays.json`)
+                strings = require(`../../../strings/${lang}/holidays.json`)
                 if (!holiday.includes(strings[holidayName])) {
                     holiday.push(strings[holidayName])
-                    log.push(`${file}: ${strings[holidayName]}`)
+                    log.push(`${lang}: ${strings[holidayName]}`)
                 }
             })
             const announcement = holiday.join(" ")
