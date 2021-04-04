@@ -11,7 +11,7 @@ const command: Command = {
     usage: "+hypixelverify <username>",
     aliases: ["hverify", "hypixellink", "hlink", "hypixelunverify", "hunverify"],
     cooldown: 60,
-    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev bot-translators
+    channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
     async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", { user: message.author.tag }, "global")
 
@@ -43,7 +43,7 @@ const command: Command = {
         if (!uuid) throw "noUser"
 
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
-        await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" },  method: "Get", timeout: 50000 })
+        await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 50000 })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
                 message.channel.startTyping()

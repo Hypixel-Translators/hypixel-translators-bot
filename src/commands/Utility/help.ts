@@ -9,7 +9,7 @@ const command: Command = {
   aliases: ["commands", "cmds", "info", "botinfo"],
   usage: "+help [page | command name]",
   cooldown: 5,
-  channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev bot-translators
+  channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
   allowDM: true,
   async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
     const executedBy = getString("executedBy", { user: message.author.tag }, "global")
