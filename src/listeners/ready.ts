@@ -12,8 +12,7 @@ client.once("ready", async () => {
     client.guilds.cache.get("549503328472530974")!.roles.cache.get("768435276191891456")!.members.forEach(member => boostersStaff.push(member.user.username)) //Discord Staff
 
     //Set status
-    client.user!.setStatus("online").catch(console.error)
-    client.user!.setActivity("+help", { type: "LISTENING" })
+    client.user!.setPresence({status: process.env.NODE_ENV === "dev" ? "dnd": "online", activity: {name: "+help", type: "LISTENING"}})
 
     //Change status and run events every minute
     setInterval(() => {

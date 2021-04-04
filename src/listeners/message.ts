@@ -140,7 +140,7 @@ client.on("message", async message => {
     if (command.allowDM && message.channel.type === "dm") allowed = true
 
     //Prevent users from running commands in development
-    if (command.dev && !message.member?.roles.cache.has("764442984119795732")) allowed = false //Discord Administrator
+    if (command.dev && !message.member?.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
 
     //Give perm to admins and return if not allowed
     if (message.member?.hasPermission("MANAGE_ROLES") && command.name !== "eval" || message.member?.hasPermission("ADMINISTRATOR")) allowed = true
