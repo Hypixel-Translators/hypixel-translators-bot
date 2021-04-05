@@ -21,8 +21,9 @@ const command: Command = {
         let log: string[] = []
         holiday.push(strings[holidayName])
         fs.readdir(dirPath, (err, langs) => {
+            if (err) return console.error(`Unable to scan directory.\n${err}`)
             langs.forEach(lang => {
-                if (err) return console.error(`Unable to scan directory: ${err}`)
+                if (lang === "empty") return
                 strings = require(`../../../strings/${lang}/holidays.json`)
                 if (!holiday.includes(strings[holidayName])) {
                     holiday.push(strings[holidayName])
