@@ -228,8 +228,6 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
         }
     }
 
-    logEmbed.addField("Profile", url)
-
     //#region return message
     const dmEmbed = new Discord.MessageEmbed()
         .setColor(neutralColor)
@@ -241,12 +239,12 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
         .setFooter("Any messages you send here will be sent to staff.")
 
     if (sendDms) member.send(dmEmbed)
-        .then(() => verifyLogs.send(logEmbed))
+        .then(() => verifyLogs.send(`<${url}>`, logEmbed))
         .catch(() => {
             logEmbed.setFooter("Message not sent because user had DMs off")
-            verifyLogs.send(logEmbed)
+            verifyLogs.send(`<${url}>`, logEmbed)
         })
-    else verifyLogs.send(logEmbed)
+    else verifyLogs.send(`<${url}>`, logEmbed)
     //#endregion
 }
 
