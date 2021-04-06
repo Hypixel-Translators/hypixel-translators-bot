@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer"
 import Discord from "discord.js"
-import { errorColor, neutralColor } from "../config.json"
+import { errorColor, blurple } from "../config.json"
 import { v4 } from "uuid"
 import { db, DbUser } from "../lib/dbclient"
 
@@ -216,7 +216,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
         })
     }
     const logEmbed = new Discord.MessageEmbed()
-        .setColor(neutralColor)
+        .setColor(blurple)
         .setTitle(`${member.user.tag} is now verified!`)
         .setDescription(Object.keys(endingMessageProjects).length
             ? `${member} has received the following roles:`
@@ -232,7 +232,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
 
     //#region return message
     const dmEmbed = new Discord.MessageEmbed()
-        .setColor(neutralColor)
+        .setColor(blurple)
         .setAuthor("Received message from staff")
         .setDescription(`Hey there!\nYou have successfully verified your Crowdin account${Object.keys(endingMessageProjects).length
             ? " and you also received the corresponding roles on our Discord server! Make sure to check out <#699275092026458122> if you want to learn more about Crowdin." //getting-started
