@@ -49,7 +49,7 @@
         "hypixelStats": "Możesz sprawdzić statystyki gracza z Hypixela wpisując `+hypixelstats <nazwa gracza> [social]`!",
         "languageStats": "Czy wiesz, że możesz podejrzeć statystyki dla dowolnego języka we wszystkich naszych projektach? Wystarczy wykonać `+languagestats <język>`!",
         "rolesChange": "Jeżeli otrzymałeś ostatnio nowe role na Crowdin lub dołączyłeś do jednego ze wspieranych przez nas projektów, wykonaj polecenie `+reverify`, aby zaktualizować Twoje role!",
-        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "botTranslated": "Czy wiesz, że nasz bot jest dostępny w wielu językach? Wykonaj `+language list` aby zobaczyć listę wszystkich języków, które obecnie obsługujemy, i znajdziesz swój własny!",
         "moreTips": "Potrzebujemy więcej wskazówek! Prześlij je używając `+feedback`."
     },
     "executedBy": "Wykonano przez %%user%%"
