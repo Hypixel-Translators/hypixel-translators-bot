@@ -180,6 +180,11 @@ client.on("message", async message => {
                 .setTitle(timeLeftS)
                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
             return message.channel.send(embed)
+                .then(msg =>
+                    setTimeout(() => {
+                        if (!message.deleted && message.channel.type !== "dm") message.delete()
+                        if (!msg.deleted && message.channel.type !== "dm") msg.delete()
+                    }, 10000))
         }
     }
 
