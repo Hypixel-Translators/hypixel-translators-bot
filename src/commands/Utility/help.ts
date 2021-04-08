@@ -105,13 +105,7 @@ const command: Command = {
 
     } else {
 
-      let command
-
-      try {
-        command = client.commands.get(args[0].toLowerCase()) || client.commands.find(c => (c.aliases && c.aliases.includes(args[0].toLowerCase())) || c.name === args[0].toLowerCase())
-      } catch (error) {
-        console.error(error)
-      }
+      const command = client.commands.get(args[0].toLowerCase()) || client.commands.find(c => c.aliases?.includes(args[0].toLowerCase()) || c.name === args[0].toLowerCase())
 
       if (!command || !command.name) {
         const embed = new Discord.MessageEmbed()
@@ -123,9 +117,12 @@ const command: Command = {
         return message.channel.send(embed)
       }
 
-      if (getString(command.name)) {
-        if (getString(`${command.name}.description`)) var cmdDesc = getString(`${command.name}.description`)
-        if (getString(`${command.name}.usage`)) var cmdUsage = getString(`${command.name}.usage`)
+      let cmdDesc, cmdUsage
+      if (command.category !== "Admin" && command.category !== "Staff") {
+        if (getString(`${command.name}.description`) !== `strings.${command.name}.description`) cmdDesc = getString(`${command.name}.description`)
+        else cmdDesc = command.description
+        if (getString(`${command.name}.usage`) !== `strings.${command.name}.usage`) cmdUsage = getString(`${command.name}.usage`)
+        else cmdUsage = command.usage
       }
 
       if (command.dev) cmdDesc = getString("inDev")
