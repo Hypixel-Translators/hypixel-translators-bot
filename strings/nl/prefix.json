@@ -1,6 +1,5 @@
 {
     "moduleName": "Voorvoegsel",
-    "usage": "+prefix [vlaggen]",
     "loading": "Een momentje...",
     "loadingRoles": "Je rollen worden opgehaald...",
     "errors": {

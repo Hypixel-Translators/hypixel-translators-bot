@@ -1,6 +1,5 @@
 {
     "moduleName": "البرفكس",
-    "usage": "+prefix [أعلام]",
     "loading": "ثانية واحدة...",
     "loadingRoles": "جاري جلب الرتب الخاصة بك...",
     "errors": {

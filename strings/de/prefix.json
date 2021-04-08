@@ -1,6 +1,5 @@
 {
     "moduleName": "Präfix",
-    "usage": "+prefix",
     "loading": "Eine Sekunde …",
     "loadingRoles": "Rollen werden abgerufen …",
     "errors": {

@@ -1,6 +1,5 @@
 {
     "moduleName": "Πρόθεμα",
-    "usage": "+prefix [flags]",
     "loading": "Just a second...",
     "loadingRoles": "Λαμβάνουμε τους ρόλους σου...",
     "errors": {

@@ -1,6 +1,5 @@
 {
     "moduleName": "Előtag",
-    "usage": "+prefix [flags]",
     "loading": "Just a second...",
     "loadingRoles": "Fetching your roles...",
     "errors": {

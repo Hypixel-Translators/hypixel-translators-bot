@@ -1,6 +1,5 @@
 {
     "moduleName": "Prefixo",
-    "usage": "+prefix [bandeiras]",
     "loading": "Só um segundo...",
     "loadingRoles": "A analisar os teus cargos...",
     "errors": {

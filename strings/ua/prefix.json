@@ -1,6 +1,5 @@
 {
     "moduleName": "Префікс",
-    "usage": "+prefix [flags]",
     "loading": "Just a second...",
     "loadingRoles": "Отримання Ваших ролей...",
     "errors": {

@@ -1,6 +1,5 @@
 {
     "moduleName": "Etuliite",
-    "usage": "+prefix [liput]",
     "loading": "Odota sekunti...",
     "loadingRoles": "Haetaan roolejasi...",
     "errors": {

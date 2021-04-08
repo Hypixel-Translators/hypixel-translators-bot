@@ -1,6 +1,5 @@
 {
     "moduleName": "Prefix",
-    "usage": "+prefix [旗幟]",
     "loading": "請稍候...",
     "loadingRoles": "正在取得你的身份組...",
     "errors": {

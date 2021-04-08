@@ -1,12 +1,12 @@
 {
-    "moduleName": "Hypixel Verification",
-    "success": "You successfully verified yourself as %%player%%!",
-    "role": "You were given the %%role%% role due to your rank on the server.",
-    "alreadyVerified": "You are already verified!",
-    "nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
-    "error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
-    "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this.",
-    "unverified": "You were successfully unverified!",
-    "notUnverified": "Couldn't unverify you!",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `+hypixelverify <username>`."
+    "moduleName": "אימות Hypixel",
+    "success": "אימתת את זהותך בהצלחה בתור %%player%%!",
+    "role": "קיבלת את role ה%%role%% בגלל הrank שלך בHypixel.",
+    "alreadyVerified": "את/ה כבר מאומת/ת!",
+    "nameChangeDisclaimer": "קח/י בחשבון שאת/ה לא צריך/ה לאמת את זהותך מחדש במידה ושינית את שמך!",
+    "error": "לא היה באפשרותנו לאמת את זהותך מכיוון שלא הגדרת כראוי את חשבון הDiscord שלך בHypixel!",
+    "tutorial": "בכדי לאמת את זהותך, עלייך להגדיר את חשבון הDiscord שלך בHypixel בתור %%tag%% ולחכות כ10 דקות לפני ביצוע הפעולה פעם נוספת. עקוב/עקבי אחר ההנחיות בסרטון למטה אם את/ה לא יודע/ת איך לעשות זאת.",
+    "unverified": "ביטול האימות שלך בוצע בהצלחה!",
+    "notUnverified": "לא היה באפשרותנו לבטל את אימותך!",
+    "whyNotUnverified": "זה קרה מכיוון שעדיין לא אימתת את זהותך! בכדי לעשות זאת, בצע `+hypixelverify <שם משתמש>`."
 }

@@ -1,6 +1,5 @@
 {
     "moduleName": "Prefiks",
-    "usage": "+prefix [flags]",
     "loading": "Just a second...",
     "loadingRoles": "Henter dine roller...",
     "errors": {

@@ -1,6 +1,5 @@
 {
     "moduleName": "Prefix",
-    "usage": "+prefix [flaggor]",
     "loading": "Läser in...",
     "loadingRoles": "Hämtar roller...",
     "errors": {
