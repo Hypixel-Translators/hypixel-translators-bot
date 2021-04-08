@@ -1,6 +1,5 @@
 {
     "moduleName": "Prefuck",
-    "usage": "+prefix [flagz]",
     "loading": "Wait, idot...",
     "loadingRoles": "Geting ur rols...",
     "errors": {
