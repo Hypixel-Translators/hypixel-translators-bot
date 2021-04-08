@@ -1,6 +1,5 @@
 {
     "moduleName": "คำนำหน้า",
-    "usage": "+prefix [flags]",
     "loading": "Just a second...",
     "loadingRoles": "กำลังโหลดยศของคุณ",
     "errors": {
