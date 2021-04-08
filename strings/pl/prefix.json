@@ -1,6 +1,5 @@
 {
     "moduleName": "Przedrostek",
-    "usage": "+prefix [flags]",
     "loading": "Sekundkę…",
     "loadingRoles": "Pobieranie ról...",
     "errors": {
