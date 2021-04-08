@@ -1,6 +1,5 @@
 {
     "moduleName": "Prefix",
-    "usage": "+prefix [flags]",
     "loading": "Just a second...",
     "loadingRoles": "Načítají se tvé role...",
     "errors": {
