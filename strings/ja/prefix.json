@@ -1,6 +1,5 @@
 {
     "moduleName": "接頭辞",
-    "usage": "+prefix [旗]",
     "loading": "少々お待ちください…",
     "loadingRoles": "あなたのロールを取得中…",
     "errors": {
