@@ -1,6 +1,5 @@
 {
     "moduleName": "Ön ek",
-    "usage": "+prefix [bayrak]",
     "loading": "Bir saniye...",
     "loadingRoles": "Rollerin getiriliyor...",
     "errors": {
