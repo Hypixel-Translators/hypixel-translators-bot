@@ -119,13 +119,14 @@ const command: Command = {
 
       let cmdDesc, cmdUsage
       if (command.category !== "Admin" && command.category !== "Staff") {
-        if (getString(`${command.name}.description`) !== `strings.${command.name}.description`) cmdDesc = getString(`${command.name}.description`)
-        else cmdDesc = command.description
-        if (getString(`${command.name}.usage`) !== `strings.${command.name}.usage`) cmdUsage = getString(`${command.name}.usage`)
-        else cmdUsage = command.usage
+        cmdDesc = getString(`${command.name}.description`)
+        cmdUsage = getString(`${command.name}.usage`)
+      } else if (command.category === "Staff" && message.member?.roles.cache.has("768435276191891456") || command.category === "Admin" && message.member?.roles.cache.has("764442984119795732")) {
+        cmdDesc = command.description
+        cmdUsage = command.usage
       }
 
-      if (command.dev) cmdDesc = getString("inDev")
+      if (command.dev && !message.member?.roles.cache.has("768435276191891456")) cmdDesc = getString("inDev") // Discord Staff
 
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
@@ -140,7 +141,7 @@ const command: Command = {
           else if (command.cooldown === 1) embed.addField(getString("cooldownField"), `${command.cooldown} ${getString("second")}`, true)
           else embed.addField(getString("cooldownField"), `${command.cooldown} ${getString("seconds")}`, true)
         }
-        if (command.aliases?.length! > 0) {
+        if (command.aliases?.length) {
           embed.addField(getString("aliasesField"), `\`+${command.aliases!.join("`, `+")}\``, true)
         }
       }

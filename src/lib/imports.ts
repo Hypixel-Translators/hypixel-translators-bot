@@ -37,9 +37,9 @@ export function setup(client: HTBClient) {
     //Setup listeners
     fs.readdir("./dist/listeners", (err, files) => {
         if (err) console.error(err)
-        let jsfiles = files.filter(f => f.endsWith(".js"))
-        if (jsfiles.length <= 0) return console.log("There are no events to load...")
-        jsfiles.forEach((f, i) => require(`../listeners/${f}`))
-        console.log(`Loaded ${jsfiles.length} events.`)
+        let listeners = files.filter(f => f.endsWith(".js"))
+        if (listeners.length <= 0) return console.log("There are no events to load...")
+        listeners.forEach(file => require(`../listeners/${file}`))
+        console.log(`Loaded ${listeners.length} events.`)
     })
 }
