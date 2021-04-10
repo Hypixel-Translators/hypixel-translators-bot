@@ -192,11 +192,20 @@ client.on("message", async message => {
     setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
 
     //Function to get strings
+    /**
+     * Gets a string or an object of strings for the correct language and replaces all variables if any
+     * 
+     * @param {string} path Path to the string. Use dots to access strings inside objects
+     * @param {Object} [variables] Object containing all the variables and their corresponding text to be replaced in the string.
+     * @param {string} [cmd] The name of the file to get strings from. Defaults to the command being ran
+     * @param {string} [lang] The language to get the string from. Defaults to the author's language preference.
+     * @returns A clean string with all the variables replaced or an object of strings. Will return `strings.{path}` if the path cannot be found.
+     */
     function getString(path: string, variables?: { [key: string]: string | number }, cmd: string = command!.name, lang: string = author.lang): any {
-        let enStrings = require(`../../strings/en/${cmd || command!.name}.json`)
+        let enStrings = require(`../../strings/en/${cmd}.json`)
         let strings: any
-        try { strings = require(`../../strings/${lang || author.lang}/${cmd || command!.name}.json`) }
-        catch { strings = require(`../../strings/en/${cmd || command!.name}.json`) }
+        try { strings = require(`../../strings/${lang}/${cmd}.json`) }
+        catch { strings = require(`../../strings/en/${cmd}.json`) }
         const pathSplit = path.split(".")
         let string
         pathSplit.forEach(pathPart => {
@@ -215,7 +224,7 @@ client.on("message", async message => {
                         string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
                             string = `strings.${path}` //in case of fire
-                            if (command!.category != "Admin" && command!.category != "Staff") console.error(`Couldn't get string ${path} in English for ${cmd || command!.name}, please fix this`)
+                            if (command!.category != "Admin" && command!.category != "Staff") console.error(`Couldn't get string ${path} in English for ${cmd}, please fix this`)
                         }
                     }
                     if (typeof string === "string" && variables) {
