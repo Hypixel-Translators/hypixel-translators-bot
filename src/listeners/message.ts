@@ -100,8 +100,7 @@ client.on("message", async message => {
     }
 
     //Stop if the message is not a command
-    if (!message.content.startsWith(prefix)) return
-    if (!command) return
+    if (!message.content.startsWith(prefix) || !command) return
 
     //Log if command is ran in DMs
     if (message.channel.type === "dm") console.log(`${message.author.tag} used command ${commandName} in DMs`)

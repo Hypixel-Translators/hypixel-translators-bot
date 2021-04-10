@@ -63,7 +63,7 @@ const command: Command = {
             if (!msg.deleted) msg.delete()
           })
       }
-    }
+    } else throw "falseRole"
   }
 }
 

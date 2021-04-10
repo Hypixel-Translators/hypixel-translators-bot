@@ -39,13 +39,9 @@ const command: Command = {
         .then(msg => {
           msg.react("✅").then(() => msg.react("❎"))
 
-          const filter = (reaction: Discord.MessageReaction, reacter: Discord.User) => {
-            return (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id
-          }
+          const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, reacter: Discord.User) => (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id, { time: this.cooldown! * 1000 })
 
-          const collector = msg.createReactionCollector(filter, { time: this.cooldown! * 1000 })
-
-          collector.on("collect", async (reaction, reacter) => {
+          collector.on("collect", async reaction => {
             msg.react("✅")
             if (reaction.emoji.name === "✅") {
               msg.reactions.removeAll()
