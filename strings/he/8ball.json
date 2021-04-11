@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magic 8 ball",
-    "question": "Question",
+    "moduleName": "8 ball קסום",
+    "question": "שאלה",
     "answers": {
         "positive": [
-            "It is certain.",
-            "It is decidedly so.",
-            "Without a doubt.",
-            "Yes – definitely.",
-            "You may rely on it.",
-            "As I see it, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Yes",
-            "Signs point to yes."
+            "זה וודאי.",
+            "זה בהחלט כך.",
+            "בלי שמץ של ספק.",
+            "כן - בהחלט.",
+            "את/ה יכול לסמוך על זה.",
+            "כמו שאני רואה את זה, כן.",
+            "כמעט בוודאות.",
+            "תוצאות מבטיחות.",
+            "כן",
+            "השלטים מפנים לכיוון הכן."
         ],
         "inconclusive": [
-            "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again."
+            "תשובה מעורפלת, נסה/י שוב.",
+            "שאל/י במועד מאוחד יותר.",
+            "עדיף לא לספר לך כרגע.",
+            "אין באפשרותי לצפות מראש כרגע.",
+            "התרכז/י ושאל/י שוב."
         ],
         "negative": [
-            "Don't count on it.",
-            "My reply is no.",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful."
+            "אל תסמוך/י על זה.",
+            "התשובה שלי היא לא.",
+            "המקורות שלי אומרים לא.",
+            "התוצאות לא מבטיחות במיוחד.",
+            "בספקות קשות."
         ]
     }
 }
