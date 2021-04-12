@@ -1,12 +1,12 @@
 {
-    "moduleName": "User level",
-    "yourRank": "Here's your rank",
-    "userRank": "Here's %%user%%'s rank",
-    "youNotRanked": "You're not ranked yet!",
-    "userNotRanked": "That user is not ranked yet!",
-    "howRank": "In order to be ranked you must talk in the chats!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Messages",
+    "moduleName": "רמת משתמש",
+    "yourRank": "הנה הדרגה שלך",
+    "userRank": "הנה הדרגה של %%user%%",
+    "youNotRanked": "אין לך עדיין דרגה!",
+    "userNotRanked": "למשתמש זה אין עדיין דרגה!",
+    "howRank": "בכדי לקבל דרגה עליך לדבר בצ'אטים!",
+    "textProgress": "הודעות %%currentXp%%/%%xpNeeded%% | %%messages%%",
     "thousand": "k",
-    "youLevel": "You're at level %%level%% and you're #%%rank%% on the leaderboard!",
-    "userLevel": "%%user%% is at level %%level%% and they're #%%rank%% on the leaderboard!"
+    "youLevel": "את/ה ברמה %%level%% ואת/ה #%%rank%% בטבלת המובילים!",
+    "userLevel": "%%user%% נמצא/ת ברמה %%level%% והוא/היא #%%rank%% בטבלת המובילים!"
 }
