@@ -1,7 +1,7 @@
 {
-    "moduleName": "Problems and feedback",
-    "bugT": "Viewing and adding issues",
-    "bugD": "To show and make suggestions or bug reports, please [click here]%%github%%.",
-    "urgentT": "Is it urgent?",
-    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention a staff member in a public channel, explaining the issue."
+    "moduleName": "בעיות ומשוב",
+    "bugT": "דיווח על באג",
+    "bugD": "להציע הצעות או דיווח על באגים, בבקשה [לחץ/י כאן]%%github%%.",
+    "urgentT": "האם זה דחוף?",
+    "urgentD": "אם את/ה מנסה לדווח על באג חמור או שהבוט היה לא מחובר לזמן ממושך מבלי ששמו לב, אנא פנה/י לחבר צוות בערוץ ציבורי, והסבר/י את הבעיה."
 }
