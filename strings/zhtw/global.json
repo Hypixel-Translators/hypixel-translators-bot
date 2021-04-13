@@ -46,7 +46,7 @@
         "rulesInfo": "%%rules%% 和 %%serverInfo%% 包含了關於這個伺服器的所有資訊！",
         "fixTranslation": "找到了錯誤的翻譯？請向你的語言的校對員聯絡，或在翻譯頻道提出。",
         "pinnedInfo": "你知道每個頻道都會釘選一些重要資訊嗎？請記得在進入頻道時查看已釘選的訊息！",
-        "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!",
+        "hypixelStats": "你可以執行 `+hypixelstats <使用者名稱> [social]` 來查看特定玩家在 Hypixel 上的資訊！",
         "languageStats": "你知道你可以查看任何語言在我們支援的所有項目的統計數據嗎？只需要執行 `+languagestats <語言>`！",
         "rolesChange": "你最近在 Crowdin 擔任了新的職務，或加入了我們支援的翻譯項目？執行 `+reverify` 來更新你的身份組！",
         "botTranslated": "你知道我們的機器人支援多國語言嗎？執行 `+language list` 即可查看我們目前支援的語言。你或者能找到你常用的語言！",
