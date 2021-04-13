@@ -264,7 +264,7 @@ client.on("message", async message => {
                             .setTitle(error.toString().substring(0, 255))
                             .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
                             .setFooter("Check the console for more details");
-                        (message.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send("ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
+                        (message.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send("<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
                     }
                     //@ts-expect-error
                     console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
