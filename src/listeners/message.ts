@@ -1,5 +1,6 @@
 import { client } from "../index.js"
 import Discord from "discord.js"
+import fs from "fs"
 import { Stream } from "stream"
 import { crowdinVerify } from "./../lib/crowdinverify"
 import leveling from "./../lib/leveling"
@@ -201,10 +202,11 @@ client.on("message", async message => {
      * @param {string} [lang] The language to get the string from. Defaults to the author's language preference.
      * @returns A clean string with all the variables replaced or an object of strings. Will return `strings.{path}` if the path cannot be found.
      */
-    function getString(path: string, variables?: { [key: string]: string | number } | string, cmd: string = command!.name, lang: string = author?.lang ?? "en"): any {
+    function getString(path: string, variables?: { [key: string]: string | number } | string, cmd: string = command?.name ?? "global", lang: string = author?.lang ?? "en"): any {
+        const languages = fs.readdirSync("./strings")
         if (typeof variables === "string") {
             cmd = variables
-            lang = cmd ?? author.lang
+            lang = languages.includes(cmd) ? cmd : author.lang
         }
         let enStrings = require(`../../strings/en/${cmd}.json`)
         let strings: any
