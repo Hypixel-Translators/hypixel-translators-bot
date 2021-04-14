@@ -40,8 +40,8 @@ export class HTBClient extends Discord.Client {
     async getUser(id: string) {
         let user = await db.collection("users").findOne({ id: id })
         if (!user) {
-            db.collection("users").insertOne({ id: id, lang: "en" })
-            user = await db.collection("users").findOne({ id: id })
+            await db.collection("users").insertOne({ id: id, lang: "en" })
+            return await db.collection("users").findOne({ id: id })
         }
         return user
     }

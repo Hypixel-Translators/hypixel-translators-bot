@@ -201,7 +201,7 @@ client.on("message", async message => {
      * @param {string} [lang] The language to get the string from. Defaults to the author's language preference.
      * @returns A clean string with all the variables replaced or an object of strings. Will return `strings.{path}` if the path cannot be found.
      */
-    function getString(path: string, variables?: { [key: string]: string | number } | string, cmd: string = command!.name, lang: string = author.lang): any {
+    function getString(path: string, variables?: { [key: string]: string | number } | string, cmd: string = command!.name, lang: string = author?.lang ?? "en"): any {
         if (typeof variables === "string") {
             cmd = variables
             lang = cmd ?? author.lang
