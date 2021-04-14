@@ -76,6 +76,7 @@ export async function hypixel(client: HTBClient) {
                     }
                 })
         })
+        .catch(err => console.error(`Crowdin API is down, couldn't update Hypixel language statistics. Here's the error: ${err}`))
 }
 
 export async function quickplay(client: HTBClient) {
@@ -131,6 +132,7 @@ export async function quickplay(client: HTBClient) {
                     }
                 })
         })
+        .catch(err => console.error(`Crowdin API is down, couldn't update Quickplay language statistics. Here's the error: ${err}`))
 }
 
 export async function bot(client: HTBClient) {
@@ -186,6 +188,7 @@ export async function bot(client: HTBClient) {
                     }
                 })
         })
+        .catch(err => console.error(`Crowdin API is down, couldn't update Bot language statistics. Here's the error: ${err}`))
 }
 
 export async function skyblockaddons(client: HTBClient) {
@@ -241,6 +244,7 @@ export async function skyblockaddons(client: HTBClient) {
                     }
                 })
         })
+        .catch(err => console.error(`Crowdin API is down, couldn't update SkyblockAddons language statistics. Here's the error: ${err}`))
 }
 
 interface LanguageStatus {
