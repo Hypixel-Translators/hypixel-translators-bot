@@ -7,6 +7,6 @@
     "howRank": "Aby być w rankingu, musisz pisać na czatach!",
     "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% wiadomości",
     "thousand": " tys.",
-    "youLevel": "You're at level %%level%% and you're #%%rank%% on the leaderboard!",
-    "userLevel": "%%user%% is at level %%level%% and they're #%%rank%% on the leaderboard!"
+    "youLevel": "Twój poziom to %%level%% i jesteś #%%rank%% w rankingu!",
+    "userLevel": "%%user%% jest na poziomie %%level%% i jest #%%rank%% w rankingu!"
 }
