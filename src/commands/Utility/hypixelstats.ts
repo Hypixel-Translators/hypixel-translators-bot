@@ -13,7 +13,7 @@ const command: Command = {
     cooldown: 120,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
     allowDM: true,
-    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
+    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", { user: message.author.tag }, "global")
         const credits = getString("madeBy", { developer: message.client.users.cache.get("500669086947344384")!.tag })
         const authorDb: DbUser = await client.getUser(message.author.id)
@@ -75,9 +75,9 @@ const command: Command = {
                     else lastLoginSelector = "last_logout"
 
                     let timeZone = getString("timeZone")
-                    if (timeZone.startsWith("crwdns")) timeZone = getString("timeZone", {}, this.name, "en")
+                    if (timeZone.startsWith("crwdns")) timeZone = getString("timeZone", this.name, "en")
                     let dateLocale = getString("dateLocale")
-                    if (dateLocale.startsWith("crwdns")) dateLocale = getString("dateLocale", {}, this.name, "en")
+                    if (dateLocale.startsWith("crwdns")) dateLocale = getString("dateLocale", this.name, "en")
                     let lastLogin
                     if (json[lastLoginSelector]) lastLogin = new Date(json[lastLoginSelector]).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
                     else lastLogin = getString("lastLoginHidden")

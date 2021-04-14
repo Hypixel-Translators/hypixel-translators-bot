@@ -10,7 +10,7 @@ const command: Command = {
   usage: "+check [user]",
   roleWhitelist: ["768435276191891456", "551758391127834625", "748269219619274893", "645709877536096307", "752541221980733571"], //Discord Staff and Hypixel, SBA, QP and Bot managers
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "768160446368186428"], // bots staff-bots bot-development managers
-  async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number }, cmd?: string, lang?: string) => any) {
+  async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
     let member = message.member
     if (args[0]) {
       let userRaw = args[0].replace(/[\\<>@&!]/g, "")
@@ -31,8 +31,8 @@ const command: Command = {
 
     let color = member!.displayHexColor
     if (color == "#000000") color = blurple
-    let timeZone = getString("timeZone", {}, "hypixelstats")
-    if (timeZone.startsWith("crwdns")) timeZone = getString("timeZone", {}, "hypixelstats", "en")
+    let timeZone = getString("timeZone", "hypixelstats")
+    if (timeZone.startsWith("crwdns")) timeZone = getString("timeZone", "hypixelstats", "en")
     const joined = member!.joinedAt!.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
     const created = member!.user.createdAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
     let joinAgo = Math.round((new Date().getTime() - Number(member!.joinedAt!)) / 1000)
