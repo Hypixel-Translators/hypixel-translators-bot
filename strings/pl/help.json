@@ -75,7 +75,7 @@
     },
     "rank": {
         "usage": "+rank [użytkownik]",
-        "description": "Gives you the current XP for yourself or any given user."
+        "description": "Daje ci twoje PD lub dla danego użytkownika."
     },
     "levels": {
         "usage": "+levels [strona]",
@@ -87,7 +87,7 @@
     },
     "invite": {
         "usage": "+invite",
-        "description": "Daje link z zaproszeniem do serwera. Użyj tego, gdy chcesz kogoś zaprosić."
+        "description": "Daje odnośnik z zaproszeniem do serwera. Użyj tego, gdy chcesz kogoś zaprosić."
     },
     "projects": {
         "usage": "+projects",
