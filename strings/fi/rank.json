@@ -1,12 +1,12 @@
 {
-    "moduleName": "User level",
-    "yourRank": "Here's your rank",
-    "userRank": "Here's %%user%%'s rank",
-    "youNotRanked": "You're not ranked yet!",
-    "userNotRanked": "That user is not ranked yet!",
-    "howRank": "In order to be ranked you must talk in the chats!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Messages",
+    "moduleName": "Käyttäjän taso",
+    "yourRank": "Tässä on sijoituksesi",
+    "userRank": "Tässä on käyttäjän %%user%% sijoitus",
+    "youNotRanked": "Et ole vielä sijoittunut pistetaululla!",
+    "userNotRanked": "Tämä käyttäjä ei ole vielä sijoittunut pistetaululla!",
+    "howRank": "Sijoittuaksesi pistetaululla sinun tulee jutella chateissa!",
+    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% viestiä",
     "thousand": "k",
-    "youLevel": "You're at level %%level%% and you're #%%rank%% on the leaderboard!",
-    "userLevel": "%%user%% is at level %%level%% and they're #%%rank%% on the leaderboard!"
+    "youLevel": "Olet tasolla %%level%% ja olet pistetaululla sijalla #%%rank%%!",
+    "userLevel": "%%user%% on tasolla %%level%% hän on pistetaululla sijalla #%%rank%%!"
 }

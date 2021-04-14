@@ -18,7 +18,7 @@
         "falseLang": "Tätä kieltä ei löydetty!",
         "falseRole": "Tätä roolia ei löytynyt!",
         "noPlayer": "Tämä pelaaja ei ole koskaan käynyt Hypixelissä!",
-        "notVerified": "That user hasn't linked their Hypixel account yet!",
+        "notVerified": "Tämä käyttäjä ei ole yhdistänyt Hypixel-tiliään vielä!",
         "disabled": "Tämä komento on toistaiseksi pois käytöstä.",
         "noAccess": "Sinulla ei ole oikeuksia käyttää tuota komentoa!",
         "noPermission": "Sinulla ei ole oikeuksia käyttää tuota komentoa tällä kanavalla!",
@@ -48,8 +48,8 @@
         "pinnedInfo": "Tiestikö että useimpien kanavien kiinnitetyistä viesteistä löytyy tärkeää tietoa? Kannattaa kurkata niitä silloin tällöin!",
         "hypixelStats": "Voit tarkastella haluamasi pelaajan Hypixel-profiilin tietoja komennolla `+hypixelstats <käyttäjänimi> [social]`!",
         "languageStats": "Tiesitkö että voit tarkastella minkä tahansa projektikielemme tietoja? Suorita vain komento `+languagestats <language>`!",
-        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `+reverify` to have your roles updated!",
-        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
+        "rolesChange": "Oletko saanut lähiaikoina uusia rooleja Crowdinissa tai oletko liittynyt johonkin tukemaamme projektiin? Käytä komentoa `+reverify` päivittääksesi roolisi!",
+        "botTranslated": "Tiesitkö, että bottimme on saatavilla useilla eri kielillä? Kokeile komentoa `+language list` nähdäksesi listan kaikista kielistä, joita me nykyään tuemme, ja saatat löytää sieltä omasi!",
         "moreTips": "Tarvitsemme lisää vihjeitä! Ehdota niitä komennolla `+feedback`."
     },
     "executedBy": "Komennon suoritti %%user%%"
