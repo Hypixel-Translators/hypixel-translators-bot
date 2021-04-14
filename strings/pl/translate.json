@@ -9,7 +9,7 @@
     "newTranslator": "Czy chciałbyś przetłumaczyć naszego bota na Twój język?",
     "join": "Bardzo chcielibyśmy mieć Ciebie w naszym projekcie! Tutaj znajdziesz, jak możesz do nas dołączyć:",
     "openProject": "Po pierwsze, otwórz projekt na stronie Crowdin",
-    "howOpen": "Może to być zrobione poprzez ten [link](%%link%%).",
+    "howOpen": "Może to być zrobione poprzez ten [odnośnik](%%link%%).",
     "clickLanguage": "Teraz, kliknij na język który chciałbyś przetłumaczyć",
     "requestJoin": "Aby dołączyć do tego języka, kliknij \"Join\" i napisz krótką wiadomość dlaczego chciałbyś dołączyć do projektu.",
     "lastThing": "Jeszcze jedna sprawa",
