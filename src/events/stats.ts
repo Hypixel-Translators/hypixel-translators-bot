@@ -33,6 +33,7 @@ export async function hypixel(client: HTBClient) {
     fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", settings)
         .then(res => res.json())
         .then(json => {
+            if (!json.data) throw `We got no data from the API when trying to update Hypixel! Here's the response:\n${json}`
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
@@ -76,7 +77,7 @@ export async function hypixel(client: HTBClient) {
                     }
                 })
         })
-        .catch(err => console.error(`Crowdin API is down, couldn't update Hypixel language statistics. Here's the error: ${err}`))
+        .catch(err => console.error(`Crowdin API is down, couldn't update Hypixel language statistics. Here's the error:\n${err.stack}`))
 }
 
 export async function quickplay(client: HTBClient) {
@@ -84,6 +85,7 @@ export async function quickplay(client: HTBClient) {
     fetch("https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500", settings)
         .then(res => res.json())
         .then(json => {
+            if (!json.data) throw `We got no data from the API when trying to update Quickplay! Here's the response:\n${json}`
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find((l: LangDbEntry) => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
@@ -132,7 +134,7 @@ export async function quickplay(client: HTBClient) {
                     }
                 })
         })
-        .catch(err => console.error(`Crowdin API is down, couldn't update Quickplay language statistics. Here's the error: ${err}`))
+        .catch(err => console.error(`Crowdin API is down, couldn't update Quickplay language statistics. Here's the error:\n${err.stack}`))
 }
 
 export async function bot(client: HTBClient) {
@@ -140,6 +142,7 @@ export async function bot(client: HTBClient) {
     fetch("https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500", settings)
         .then(res => res.json())
         .then(json => {
+            if (!json.data) throw `We got no data from the API when trying to update the Bot! Here's the response:\n${json}`
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
@@ -188,7 +191,7 @@ export async function bot(client: HTBClient) {
                     }
                 })
         })
-        .catch(err => console.error(`Crowdin API is down, couldn't update Bot language statistics. Here's the error: ${err}`))
+        .catch(err => console.error(`Crowdin API is down, couldn't update Bot language statistics. Here's the error:\n${err.stack}`))
 }
 
 export async function skyblockaddons(client: HTBClient) {
@@ -196,6 +199,7 @@ export async function skyblockaddons(client: HTBClient) {
     fetch("https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500", settings)
         .then(res => res.json())
         .then(json => {
+            if (!json.data) throw `We got no data from the API when trying to update SkyblockAddons! Here's the response:\n${json}`
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find((l: LangDbEntry) => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
@@ -244,7 +248,7 @@ export async function skyblockaddons(client: HTBClient) {
                     }
                 })
         })
-        .catch(err => console.error(`Crowdin API is down, couldn't update SkyblockAddons language statistics. Here's the error: ${err}`))
+        .catch(err => console.error(`Crowdin API is down, couldn't update SkyblockAddons language statistics. Here's the error:\n${err.stack}`))
 }
 
 interface LanguageStatus {
