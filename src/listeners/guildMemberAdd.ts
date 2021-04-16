@@ -30,7 +30,7 @@ client.on("guildMemberAdd", member => {
         //Measure text widths
         ctx.font = "37.5px Bitter"
         let welcome = ctx.measureText("Welcome ")
-        ctx.font = "37.5px sans-serif"
+        ctx.font = "37.5px sans"
         let name = ctx.measureText(userName)
         if (name.width > (550 - welcome.width)) nameWidth = (550 - welcome.width)
         else nameWidth = name.width
@@ -41,7 +41,7 @@ client.on("guildMemberAdd", member => {
         ctx.fillText("!", (200 + welcome.width + nameWidth), 92.5)
 
         //Draw username
-        ctx.font = "37.5px sans-serif"
+        ctx.font = "37.5px sans"
         ctx.fillText(userName, (200 + welcome.width), 92.5, (550 - welcome.width))
 
         //Draw member count
@@ -62,7 +62,7 @@ client.on("guildMemberAdd", member => {
 
             //OUTPUT
             const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `${member.user.username} join.png`);
-            (member.guild.channels.cache.get("549882021934137354") as Discord.TextChannel).send(`${member.user} just joined! Welcome! 🎉`, attachment) //join-leave
+            (member.guild.channels.cache.get("549882021934137354") as Discord.TextChannel).send(`${member.user} just joined. Welcome! 🎉`, attachment) //join-leave
         })
     })
     if (!member.user.bot) {
