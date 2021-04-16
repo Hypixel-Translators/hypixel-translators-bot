@@ -27,11 +27,11 @@
     },
     "prefix": {
         "usage": "+prefix",
-        "description": "Gibt dir den passenden Präfix für deine Sprache(n). Um einen benutzerdefiniertes Präfix zu erhalten, führe `+prefix <Flaggen>` aus und ersetze `<Flaggen>` durch den Regionalcode der Flagge deines Landes oder dessen Namen. Du kannst so viele Flaggen hinzufügen, die durch ein Leerzeichen getrennt sind."
+        "description": "Gibt dir den passenden Präfix für deine Sprache(n). Um einen benutzerdefiniertes Präfix zu erhalten, führe `+prefix <Flaggen>` aus und ersetze `<Flaggen>` durch den Regionalcode der Flagge deines Landes oder dessen Namen. Du kannst so viele Flaggen hinzufügen wie du magst, getrennt durch ein Leerzeichen."
     },
     "quote": {
         "usage": "+quote [index] | +quote add <Zitat> / <Autorennennung>",
-        "description": "Ruft (oder hinzufügt) ein lustiges / seltsames Zitat vom Server ab."
+        "description": "Ruft (oder fügt hinzu) ein lustiges/seltsames/weises Zitat vom Server ab."
     },
     "mention": {
         "usage": "+mention <Sprache> translator|proofreader|all [message]",
@@ -54,7 +54,7 @@
         "description": "Gibt dir den Ping des Bots sowie den Ping der Discord API."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [Spitzname] [social]",
+        "usage": "+hypixelstats [Benutzername] [social]",
         "description": "Zeigt dir grundlegende Hypixel-Statistiken für den angegebenen Benutzer."
     },
     "hypixelverify": {

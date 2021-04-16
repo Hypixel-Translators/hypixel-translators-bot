@@ -22,7 +22,7 @@
         "disabled": "Der Befehl ist vorübergehend deaktiviert.",
         "noAccess": "Du darfst diesen Befehl nicht ausführen!",
         "noPermission": "Du darfst diesen Befehl in diesem Kanal nicht ausführen!",
-        "apiError": "Bei der Kontaktaufnahme mit der API ist etwas schief gelaufen!",
+        "apiError": "Bei der Kontaktaufnahme mit der API ist etwas schiefgelaufen!",
         "noSubCommand": "Der Unterbefehl konnte nicht gefunden werden!",
         "wrongLink": "Falscher Link!"
     },
