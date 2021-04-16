@@ -205,8 +205,8 @@ client.on("message", async message => {
     function getString(path: string, variables?: { [key: string]: string | number } | string, cmd: string = command?.name ?? "global", lang: string = author?.lang ?? "en"): any {
         const languages = fs.readdirSync("./strings")
         if (typeof variables === "string") {
-            cmd = variables
             lang = languages.includes(cmd) ? cmd : author.lang
+            cmd = variables
         }
         let enStrings = require(`../../strings/en/${cmd}.json`)
         let strings: any
