@@ -15,5 +15,5 @@
     "lastThing": "最後に",
     "requestInfo": "リクエストを送信する際は、ご自身のタグ (%%tag%%) またはID (%%id%%) を含めてください。\n**いずれかを含んでいない場合は却下されます！**",
     "noLanguage": "ご自身の言語が見つかりませんか？",
-    "langRequest": "あなたの言語をまだサポートしていない可能性があります。その場合`+language add <言語>`を実行してください。この言語を追加を求めているメッセージを管理者に送信します。"
+    "langRequest": "It is possible that we don't support your language yet. If that's the case, please contact an administrator asking them to add the language you want."
 }
