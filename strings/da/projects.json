@@ -1,7 +1,7 @@
 {
     "moduleName": "Oversættelsesprojekter",
     "allProjects": "Her er alle de projekter, som vi i øjeblikket understøtter på serveren!",
-    "description": "Hvis du allerede er på nogen af disse projekter, men ikke har dine roller endnu, så tøv ikke med at kontaktere en administrator!",
+    "description": "If you're already on some of these projects but don't have your roles yet, execute `+reverify [profileURL]` to get them!",
     "projectInfo": "Du kan finde linket til %%project%%-projektet [her](%%link%%). Skriv %%command%% for mere information.",
     "alreadyJoined": "Du deltager allerede i dette projekt!",
     "notJoined": "Du har endnu ikke tilmeldt dig dette projekt!",
