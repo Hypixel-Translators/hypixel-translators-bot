@@ -15,5 +15,5 @@
     "lastThing": "רק דבר אחד אחרון",
     "requestInfo": "כאשר את/ה שולח את הבקשה, תוודא/י שאת/ה כולל בתוכה את הTag שלך (%%tag%%) או את הID שלך (%%id%%).\n**אם את/ה לא תכלול לפחות אחד מהם, את/ה לא תוכל להתקבל!**",
     "noLanguage": "אינך מוצא את השפה שלך?",
-    "langRequest": "זה אפשרי שאנחנו עדיין לא תומכים בשפה שלך. אם זה המקרה, בצע/י `+language add <שפה>`. זה ישלח הודעה לאדמינים ויודיע להם שאת/ה רוצה שהשפה הזאת תתווסף."
+    "langRequest": "It is possible that we don't support your language yet. If that's the case, please contact an administrator asking them to add the language you want."
 }
