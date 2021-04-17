@@ -23,7 +23,7 @@ async function check(client: HTBClient) {
         if (member.roles.cache.has("756199836470214848")) { //Alerted
             if (member.joinedTimestamp! <= verify) {
                 //member.send("You stood in the verify channel for too long and, because of that, you were kicked for inactivity. If you wish to join back, feel free to do so at https://discord.gg/rcT948A")
-                member.send("You stood in the verify channel for too long and, because of that, you have been automatically verified as a player. If you're a translator and wish to receive your roles, please ping an administrator with your Corwdin profile URL or send it on this chat!")
+                member.send("You stood in the verify channel for too long and, because of that, you have been automatically verified as a player. If you're a translator and wish to receive your roles, please execute `+reverify <profileURL>` replacing <profileURL> with the URL to your Crowdin profile.")
                     .then(() => {
                         //verifyLogs.send(`**${member.user.tag}** has been kicked for inactivity.`)
                         //console.log(`Kicked ${member.user.tag} for inactivity`)
@@ -40,7 +40,7 @@ async function check(client: HTBClient) {
 
             }
         } else if (member.joinedTimestamp! <= alert) {
-            member.send("Hey there!\nWe noticed you haven't verified yourself on our server. Are you having any trouble? Please message Rodry or Stannya or just ask any questions in the <#569178590697095168> channel! Otherwise, please send your profile link like shown in the channel.\n\nThis message was sent to you because you have been on our server for too long, and you're in risk of getting kicked for inactivity soon.\nPlease do not reply to this bot.") //verify
+            member.send("Hey there!\nWe noticed you haven't verified yourself on our server. Are you having any trouble? Please message an administrator or just ask any questions in the <#569178590697095168> channel! Otherwise, please send your profile link like shown in the channel.\n\nThis message was sent to you because you have been on our server for too long, and you're in risk of getting kicked for inactivity soon.\Any messages you send here will be sent to staff.") //verify
                 .then(() => {
                     verifyLogs.send(`Sent an alert to ${member} as they've been in the server for 7 days without verifying.`)
                     console.log(`Alerted ${member.user.tag} for inactivity`)
