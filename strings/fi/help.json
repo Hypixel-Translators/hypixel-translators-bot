@@ -46,8 +46,8 @@
         "description": "Avaa GitHubin issues-sibun, jossa voit ilmiantaa botissa ilmeneviä ongelmia ja antaa palautetta."
     },
     "language": {
-        "usage": "+language [<kieli> | list | add <kieli>]",
-        "description": "Vaihtaa kielesi, näyttää käytössä olevan kielesi tai listaa kaikki saatavilla olevat kielet. Jos haluat pyytää uuden kielen lisäämistä, käytä komentoa `+language add <kieli>`."
+        "usage": "+language [<kieli> | list]",
+        "description": "Vaihtaa kielesi, näyttää käytössä olevan kielesi tai listaa kaikki saatavilla olevat kielet."
     },
     "ping": {
         "usage": "+ping",
