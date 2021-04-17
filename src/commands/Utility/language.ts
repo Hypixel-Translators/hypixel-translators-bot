@@ -1,15 +1,14 @@
 import { errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import fs from "fs"
-import { name, code } from 'country-emoji'
 import { db } from "../../lib/dbclient"
 import { Command } from "../../index"
 
 const command: Command = {
     name: "language",
-    description: "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`.",
+    description: "Changes your language, shows your current one or a list of available languages.",
     aliases: ["lang"],
-    usage: "+language [<new language> | list | add <language>]",
+    usage: "+language [<new language> | list]",
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
     allowDM: true,
     cooldown: 5,
@@ -19,36 +18,7 @@ const command: Command = {
             stringsFolder = "./strings/"
 
         if (args[0]) {
-            if (args[0] === "add") {
-                args.splice(0, 1)
-                const newLang = args.join(" ")
-                let requester = message.author.username
-                if (message.channel.type !== "dm") requester = message.member!.displayName
-                if (name(newLang) || code(newLang)) {
-                    const result = new Discord.MessageEmbed()
-                        .setColor(neutralColor)
-                        .setAuthor(getString("moduleName"))
-                        .setTitle(getString("request"))
-                        .setDescription(`\`${newLang}\``)
-                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    message.channel.send(result)
-                    const request = new Discord.MessageEmbed()
-                        .setColor(neutralColor)
-                        .setAuthor("Language")
-                        .setTitle(`${requester} wants the following language to be added to the Bot:`)
-                        .setDescription(`${name(newLang) || code(newLang)} (user input: ${newLang})`)
-                        .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }));
-                    (message.client.channels.cache.get("801024098116435988") as Discord.TextChannel).send("<@&764442984119795732>", request) //admin tagging Discord Administrator
-                } else {
-                    const errorRequest = new Discord.MessageEmbed()
-                        .setColor(errorColor)
-                        .setAuthor(getString("moduleName"))
-                        .setTitle(getString("errorRequest"))
-                        .setDescription(getString("request"))
-                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    message.channel.send(errorRequest)
-                }
-            } else if (args[0] === "list") {
+            if (args[0] === "list") {
                 const files = fs.readdirSync(stringsFolder)
                 let langList = ""
                 files.forEach(async (element, index, array) => {
@@ -77,44 +47,53 @@ const command: Command = {
                 const embed = new Discord.MessageEmbed()
                     .setColor(neutralColor)
                     .setAuthor("Language")
+                    .setTitle(`There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`)
                     .setFooter(`Executed By ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                if (langUsers.length === 1) embed.setTitle(`There is ${langUsers.length} user using that language at the moment.`)
-                else embed.setTitle(`There are ${langUsers.length} users using that language at the moment.`)
                 if (args[1] !== "en") embed.setDescription(users.join(", "))
                 message.channel.send(embed)
             } else {
                 message.channel.startTyping()
                 let newLang = args[0].toLowerCase()
                 if (newLang === "se") newLang = "sv"
-                const langdb = await db.collection("langdb").find().toArray()
-                const langdbEntry = langdb.find(l => l.name.toLowerCase() === newLang)
+                const langdb = await db.collection("langdb").find().toArray(),
+                    langdbEntry = langdb.find(l => l.name.toLowerCase() === newLang)
                 if (langdbEntry) newLang = langdbEntry.code
                 if (newLang === "empty" && !message.member?.roles.cache.has("764442984119795732")) newLang = "denied" //Discord Administrator
                 const path = `./strings/${newLang}/language.json`
                 fs.access(path, fs.constants.F_OK, async (err) => {
                     if (!err) {
-                        collection.updateOne({ id: message.author.id }, { $set: { lang: newLang } }).then(r => {
-                            if (r.result.nModified) {
-                                executedBy = getString("executedBy", { user: message.author.tag }, "global", newLang)
-                                const embed = new Discord.MessageEmbed()
-                                    .setColor(successColor)
-                                    .setAuthor(getString("moduleName", this.name, newLang))
-                                    .setTitle(getString("changedToTitle", this.name, newLang))
-                                    .setDescription(getString("credits", this.name, newLang))
-                                    .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                                message.channel.stopTyping()
-                                return message.channel.send(embed)
-                            } else {
-                                const embed = new Discord.MessageEmbed()
-                                    .setColor(errorColor)
-                                    .setAuthor(getString("moduleName", this.name, newLang))
-                                    .setTitle(getString("didntChange", this.name, newLang))
-                                    .setDescription(getString("alreadyThis", this.name, newLang))
-                                    .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                                message.channel.stopTyping()
-                                return message.channel.send(embed)
-                            }
-                        })
+                        if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, newLang)) {
+                            collection.updateOne({ id: message.author.id }, { $set: { lang: newLang } }).then(r => {
+                                if (r.result.nModified) {
+                                    executedBy = getString("executedBy", { user: message.author.tag }, "global", newLang)
+                                    const embed = new Discord.MessageEmbed()
+                                        .setColor(successColor)
+                                        .setAuthor(getString("moduleName", this.name, newLang))
+                                        .setTitle(getString("changedToTitle", this.name, newLang))
+                                        .setDescription(getString("credits", this.name, newLang))
+                                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+                                    message.channel.stopTyping()
+                                    return message.channel.send(embed)
+                                } else {
+                                    const embed = new Discord.MessageEmbed()
+                                        .setColor(errorColor)
+                                        .setAuthor(getString("moduleName", this.name, newLang))
+                                        .setTitle(getString("didntChange", this.name, newLang))
+                                        .setDescription(getString("alreadyThis", this.name, newLang))
+                                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+                                    message.channel.stopTyping()
+                                    return message.channel.send(embed)
+                                }
+                            })
+                        } else {
+                            const embed = new Discord.MessageEmbed()
+                                .setColor(errorColor)
+                                .setAuthor(getString("moduleName"))
+                                .setTitle(getString("didntChange"))
+                                .setDescription(getString("notTranslated"))
+                                .setFooter(executedBy, message.author.displayAvatarURL())
+                            return message.channel.send(embed)
+                        }
                     } else {
                         await fs.readdir(stringsFolder, async (err, files) => {
                             const emptyIndex = files.indexOf("empty")
