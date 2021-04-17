@@ -15,5 +15,5 @@
     "lastThing": "Só mais uma coisa",
     "requestInfo": "Ao submeteres o teu pedido, não te esqueças de incluir a tua tag (%%tag%%) ou o teu ID (%%id%%).\n**Se não incluíres no mínimo um destes, o teu pedido será rejeitado!**",
     "noLanguage": "Não consegues encontrar o teu idioma?",
-    "langRequest": "É possível que não tenhamos adicionado o teu idioma ainda. Se é este o caso, executa `+language add <idioma>`. Isto irá enviar uma mensagem aos admins, dizendo-lhes que queres que este idioma seja adicionado."
+    "langRequest": "É possível que não tenhamos adicionado o teu idioma ainda. Se é este o caso, entra em contacto com um administrator e pede-lhe que adicione o idioma que queres."
 }
