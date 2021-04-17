@@ -3,7 +3,7 @@
     "loading": "Een momentje...",
     "loadingRoles": "Je rollen worden opgehaald...",
     "errors": {
-        "noLanguages": "Je lijkt geen taalrollen te hebben! Neem contact op met de administrator of eigenaar als je denkt dat dit een fout is.",
+        "noLanguages": "Je lijkt geen taalrollen te hebben! Neem contact op met een administrator als je denkt dat dit een fout is.",
         "trNoRoles": "We zien dat je een vertaler bent, maar geen taalrollen hebt.",
         "error": "Kon bijnaam niet wijzigen. Je kunt de bijnaam wel kopiëren en hem zelf toepassen.",
         "confirmedNoFlags": "Je hebt bevestigd maar niet gereageerd met vlaggen, ",
