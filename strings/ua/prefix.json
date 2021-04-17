@@ -3,7 +3,7 @@
     "loading": "Just a second...",
     "loadingRoles": "Отримання Ваших ролей...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact the administrator or owner if you think this is in error.",
+        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
         "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
         "error": "Не вдалося змінити псевдонім. Ви можете скопіювати його нижче і самі змінити псевдонім.",
         "confirmedNoFlags": "Ви підтвердили, але Ви не відреагували на жодний прапор, ",
