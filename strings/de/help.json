@@ -46,8 +46,8 @@
         "description": "Öffnet unsere GitHub-Issues-Seite, wo du Probleme melden und Feedback senden kannst."
     },
     "language": {
-        "usage": "+language [<Neue Sprache> | list | add <Sprache>]",
-        "description": "Ändert deine Sprache, zeigt deine aktuelle Sprache oder eine Liste der verfügbaren Sprachen an. Wenn du eine neue Sprache anfordern möchtest, führe `+language add <Sprache>` aus."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or a list of available languages."
     },
     "ping": {
         "usage": "+ping",
