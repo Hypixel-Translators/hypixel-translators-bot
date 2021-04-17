@@ -3,7 +3,7 @@
     "loading": "Just a second...",
     "loadingRoles": "Henter dine roller...",
     "errors": {
-        "noLanguages": "Det ser ikke ut som du har noen språkroller! Vennligst ta kontakt med en administrator eller eieren hvis du mener dette er en feil.",
+        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
         "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
         "error": "Kunne ikke endre kallenavn. Du kan kopiere kallenavnet under og ta det i bruk selv.",
         "confirmedNoFlags": "Du bekreftet, men du la ikke til en reaksjon på noen flagg, ",
