@@ -15,5 +15,5 @@
     "lastThing": "شيء واحد أخير",
     "requestInfo": "عند تقديم طلبك، يرجى التأكد من إدراج الهاشتاق الخاص بك (%%tag%%) أو رقم التعريف الخاص بك (%%id%%).\n**إذا لم تقم بإدراج واحد على الأقل من هذه ، سيتم رفضك!**",
     "noLanguage": "لا يمكنك العثور على لغتك؟",
-    "langRequest": "من المحتمل أننا لا ندعم لغتك حتى الآن. إذا كان الأمر كذلك، قم بتنفيذ `+language add <لغة>`. هذا سوف يرسل رسالة إلى المشرفين ليعرفوا أنك تريد إضافة هذه اللغة."
+    "langRequest": "It is possible that we don't support your language yet. If that's the case, please contact an administrator asking them to add the language you want."
 }

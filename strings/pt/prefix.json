@@ -3,7 +3,7 @@
     "loading": "Só um segundo...",
     "loadingRoles": "A analisar os teus cargos...",
     "errors": {
-        "noLanguages": "Parece que não tens nenhum cargo de idioma! Contacta o administrador ou o dono se pensas que isto é um erro.",
+        "noLanguages": "Parece que não tens nenhum cargo de idioma! Entra em contacto com um administrador se pensas que isto é um erro.",
         "trNoRoles": "Reparámos que és um tradutor mas não tens nenhum cargo de idioma.",
         "error": "Não foi possível alterar o teu apelido. Podes copiá-lo abaixo para o aplicar.",
         "confirmedNoFlags": "Confirmaste o apelido, porém não reagiste com nenhuma bandeira, ",

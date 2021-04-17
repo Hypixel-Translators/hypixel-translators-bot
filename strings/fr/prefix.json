@@ -3,7 +3,7 @@
     "loading": "Just a second...",
     "loadingRoles": "J'obtiens tes rôles...",
     "errors": {
-        "noLanguages": "Tu n'as pas de rôles de langue! Contacte l'administrateur ou le propriétaire si tu penses que c'est une erreur.",
+        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
         "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
         "error": "Échoué à changer le pseudo. Tu peux copier le pseudo ci-dessous et l'appliquer tu-même.",
         "confirmedNoFlags": "Tu as confirmé mais tu n'as pas réagi à aucun drapeau, ",

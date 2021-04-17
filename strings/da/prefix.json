@@ -3,7 +3,7 @@
     "loading": "Et sekund...",
     "loadingRoles": "Henter dine roller...",
     "errors": {
-        "noLanguages": "Det ser ud til, at du ikke har nogen sprogroller! Kontakt venligst administratoren eller ejeren, hvis du tror, at det er en fejl.",
+        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
         "trNoRoles": "Vi har bemærket, at du er en oversætter, men at du ikke har nogle sprogroller.",
         "error": "Kunne ikke ændre dit kaldenavn. Du kan kopiere kaldenavnet herunder og ændre det selv.",
         "confirmedNoFlags": "Du bekræftede, men du reagerede ikke på nogen flag, ",

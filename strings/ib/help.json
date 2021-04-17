@@ -46,8 +46,8 @@
         "description": "Open the GitHub ishshoe page, where report probems and fedbek send can."
     },
     "language": {
-        "usage": "+language [<new langag> | list | add <langag>]",
-        "description": "Chang ur langag, show curent 1 or show list of vaalabalble langages. If wants new langag fur the böt excut `+language add <new langag>`."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or a list of available languages."
     },
     "ping": {
         "usage": "+ping",

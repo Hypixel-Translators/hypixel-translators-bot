@@ -46,8 +46,8 @@
         "description": "Opens our GitHub issues page, where you can report problems and send feedback."
     },
     "language": {
-        "usage": "+language [<nytt språk> | list | add <språk>]",
-        "description": "Ändrar språk, visar ditt aktuella språk eller en lista över tillgängliga språk. Om du vill begära ett nytt språk, kör \"+ språk lägg till <språk>\"."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or a list of available languages."
     },
     "ping": {
         "usage": "+ping",

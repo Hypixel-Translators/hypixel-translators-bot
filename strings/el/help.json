@@ -46,8 +46,8 @@
         "description": "Ανοίγει τη σελίδα ζητημάτων GitHub, όπου μπορείς να αναφέρεις προβλήματα και να στείλεις σχόλια."
     },
     "language": {
-        "usage": "+language [<νέα γλώσσα> | list | add <γλώσσα>]",
-        "description": "Changes your language, shows your current one or a list of available languages. If you would like to request a new language for the bot, execute `+language add <language>`."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or a list of available languages."
     },
     "ping": {
         "usage": "+ping",

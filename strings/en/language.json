@@ -3,7 +3,7 @@
     "changedToTitle": "Changed your language to English!",
     "didntChange": "Your language didn't change",
     "alreadyThis": "This happened because you chose a language that already was your language preference.",
-    "notTranslated": "The language you tried to select isn't translated enough for it to be chosen. If you speak this language, you can find out how to help translate it by using `+translate`",
+    "notTranslated": "The language you tried to select isn't translated enough for it to be chosen. If you speak this language, you can find out how to help translate it by using `+translate`.",
     "errorTitle": "That language hasn't been added yet!",
     "errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
     "suggestAdd": "If you'd like to have this language added to the bot, please contact an administrator.",

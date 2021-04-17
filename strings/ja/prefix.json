@@ -3,7 +3,7 @@
     "loading": "少々お待ちください…",
     "loadingRoles": "あなたのロールを取得中…",
     "errors": {
-        "noLanguages": "あなたは言語ロールを所有していません！ これがエラーだと思われる場合は、管理者または所有者にお問い合わせください。",
+        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
         "trNoRoles": "あなたが翻訳者であることを検出しましたが、あなたは言語のロールを取得していません。",
         "error": "ニックネームの変更に失敗しました。以下のニックネームをコピーして自分で適用できます。",
         "confirmedNoFlags": "確定しましたが、旗に回答しなかったため、",

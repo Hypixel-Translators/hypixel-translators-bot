@@ -3,7 +3,7 @@
     "loading": "Bir saniye...",
     "loadingRoles": "Rollerin getiriliyor...",
     "errors": {
-        "noLanguages": "Herhangi bir dil rolünüz yok gibi görünüyor! Bunun bir hata olduğunu düşünüyorsanız lütfen admin veya sunucu sahibiyle iletişime geçin.",
+        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
         "trNoRoles": "Çevirmen olduğunu, ancak herhangi bir dil rolüne sahip olmadığını farkettik.",
         "error": "İsim değiştirilemedi. Aşağıdaki ismi kopyalayıp kendin uygulayabilirsin.",
         "confirmedNoFlags": "Onayladın ama hiçbir bayrağa tepki vermedin, ",

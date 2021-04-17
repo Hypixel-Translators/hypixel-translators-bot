@@ -3,7 +3,7 @@
     "loading": "שנייה...",
     "loadingRoles": "משיג את הroles שלך...",
     "errors": {
-        "noLanguages": "נראה כי אין בידיך role של אף שפה! אנא פנה/י אל אדמין או בעל שרת אם את/ה חושב/ת כי זאת טעות.",
+        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
         "trNoRoles": "שמנו לב שאת/ה מתרגם/ת אך אין בידיך אף role של שפה.",
         "error": "נכשל בשינוי כינוי. את/ה יכול/ה להעתיק את הכינוי הנמצא למטה ולקבוע אותו לעצמך.",
         "confirmedNoFlags": "אישרת אך לא הגבת עם אימוג'י של אף דגל, ",

@@ -46,8 +46,8 @@
         "description": "פותח את עמוד הבעיות שלנו בGitHub, שבו תוכל/י לדווח על בעיות ולשלוח חוות דעת."
     },
     "language": {
-        "usage": "+language [<שפה חדשה> | רשימה | הוסף <שפה>]",
-        "description": "משנה את השפה שלך, מציג לך את השפה הנוכחית שלך או רשימה של כל השפות הזמינות. אם ברצונך לבקש שפה חדשה עבור הבוט בצע את הפקודה הבאה: `+language add <שפה>`."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or a list of available languages."
     },
     "ping": {
         "usage": "+ping",
