@@ -1,7 +1,7 @@
 {
     "moduleName": "مشاريع الترجمة",
     "allProjects": "هذه هي جميع المشاريع التي ندعمها حاليا في السيرفر!",
-    "description": "إذا كنت بالفعل في أي من هذه المشاريع ولكن ليس لديك رتبتك حتى الآن، لا تتردد في الاتصال بالمسؤول!",
+    "description": "If you're already on some of these projects but don't have your roles yet, execute `+reverify [profileURL]` to get them!",
     "projectInfo": "يمكنك العثور على الرابط لمشروع %%project%% [هنا](%%link%%). لمزيد من المعلومات، قم بتنفيذ %%command%%.",
     "alreadyJoined": "انت بالفعل انضممت لهذا المشروع!",
     "notJoined": "انت لم تنضم إلى هذا المشروع بعد!",
