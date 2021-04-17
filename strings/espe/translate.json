@@ -15,5 +15,5 @@
     "lastThing": "Una cosa más",
     "requestInfo": "Cuando envías tu pedida, asegurate de incluir tu tag (%%tag%%) o tu ID (%%id%%).\n**¡Si no incluyes al menos uno de estos, no serás aceptado!**",
     "noLanguage": "¿No puedes encontrar tu idioma?",
-    "langRequest": "Es posible que aún no tenemos tu idioma. Si eso es el caso, usa `+language add <idioma>`. Esto enviará un mensaje a los admins diciéndoles que quieres que se agregue este idioma."
+    "langRequest": "It is possible that we don't support your language yet. If that's the case, please contact an administrator asking them to add the language you want."
 }
