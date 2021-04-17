@@ -46,7 +46,7 @@
         "description": "Opens our GitHub issues page, where you can report problems and send feedback."
     },
     "language": {
-        "usage": "+language [<new language> | list | add <language>]",
+        "usage": "+language [<new language> | list]",
         "description": "Changes your language, shows your current one or a list of available languages."
     },
     "ping": {
