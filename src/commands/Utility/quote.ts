@@ -57,10 +57,10 @@ const command: Command = {
 
 async function findQuote(executedBy: string, message: Discord.Message, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any, args: string[], collection: Collection<any>) {
 
-    const all = await collection.find({}).toArray()
+    const count = await collection.estimatedDocumentCount()
 
     let quoteId
-    if (!args[0]) quoteId = Math.ceil(Math.random() * Math.floor(all.length)) //generate random id if no arg is given
+    if (!args[0]) quoteId = Math.ceil(Math.random() * Math.floor(count)) //generate random id if no arg is given
     else quoteId = Number(args[0])
 
     const quote = await collection.findOne({ id: quoteId })
@@ -69,7 +69,7 @@ async function findQuote(executedBy: string, message: Discord.Message, getString
             .setColor(errorColor)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("invalidArg"))
-            .setDescription(getString("indexArg", { arg: args[0], max: all.length }))
+            .setDescription(getString("indexArg", { arg: args[0], max: count }))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         message.channel.stopTyping()
         return message.channel.send(embed)
@@ -88,8 +88,7 @@ async function findQuote(executedBy: string, message: Discord.Message, getString
 
 async function addQuote(message: Discord.Message, quote: string, author: string, collection: Collection<any>) {
 
-    const all = await collection.find({}).toArray()
-    const quoteId = all.length + 1
+    const quoteId = await collection.estimatedDocumentCount() + 1
 
     await collection.insertOne({ id: quoteId, quote: quote, author: author })
     const embed = new Discord.MessageEmbed()

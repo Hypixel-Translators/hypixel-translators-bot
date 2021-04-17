@@ -34,8 +34,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             const collection = db.collection("quotes")
             const urlQuote = await collection.findOne({ url: reaction.message.url })
             if (!urlQuote) {
-                const all = await collection.find({}).toArray()
-                const id = all.length + 1
+                const id = await collection.estimatedDocumentCount() + 1
 
                 //Dumb fix for User.toString() inconsistency with message mentions
                 await collection.insertOne({ id: id, quote: reaction.message.content, author: `${reaction.message.author}`.replace("<@", "<@!"), url: reaction.message.url })
