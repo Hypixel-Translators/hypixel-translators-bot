@@ -15,5 +15,5 @@
     "lastThing": "還有一點",
     "requestInfo": "提交請求時，請留下你的 Discord Tag（%%tag%%）或你的 ID（%%id%%）。\n**如果提交的請求中不包括至少一項上述的資料，你的請求將會被拒絕！**",
     "noLanguage": "找不到你的語言？",
-    "langRequest": "我們有可能尚未支援你常用的語言。如果是這樣的話，請執行 `+language add <新語言>` 指令。這指令將向管理員發送訊息，使他們知道你希望把你的語言加入至機器人的可用語言中。"
+    "langRequest": "It is possible that we don't support your language yet. If that's the case, please contact an administrator asking them to add the language you want."
 }
