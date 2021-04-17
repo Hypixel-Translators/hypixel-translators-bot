@@ -3,7 +3,7 @@
     "loading": "Just a second...",
     "loadingRoles": "Fetching your roles...",
     "errors": {
-        "noLanguages": "Úgy látszik nincsen nyelvi rangod! Kérlek lépj kapcsolatba egy adminnal vagy a tulajjal ha úgy gondolod, hogy ez egy hiba.",
+        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
         "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
         "error": "Nem sikerült megváltoztatni a nevedet. Ki tudod másolni az alábbi nevet, és beállítani becenevedként.",
         "confirmedNoFlags": "Elfogadtad, de nem reagáltál egy zászlóval sem, ",
