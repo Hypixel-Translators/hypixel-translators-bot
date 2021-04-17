@@ -62,7 +62,7 @@ const command: Command = {
                 const path = `./strings/${newLang}/language.json`
                 fs.access(path, fs.constants.F_OK, async (err) => {
                     if (!err) {
-                        if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, newLang)) {
+                        if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, newLang) || newLang === "en") {
                             collection.updateOne({ id: message.author.id }, { $set: { lang: newLang } }).then(r => {
                                 if (r.result.nModified) {
                                     executedBy = getString("executedBy", { user: message.author.tag }, "global", newLang)
