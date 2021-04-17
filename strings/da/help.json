@@ -46,8 +46,8 @@
         "description": "Åbner vores GitHub-problem side, hvor du kan rapportere problemer eller sende feedback."
     },
     "language": {
-        "usage": "+language [<nyt sprog> | list | add <sprog>]",
-        "description": "Skifter dit sprog, viser din nuværende sprogindstilling eller viser en liste over tilgængelige sprog."
+        "usage": "+language [<new language> | list]",
+        "description": "Changes your language, shows your current one or a list of available languages."
     },
     "ping": {
         "usage": "+ping",
