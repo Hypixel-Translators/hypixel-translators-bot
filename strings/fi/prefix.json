@@ -3,7 +3,7 @@
     "loading": "Odota sekunti...",
     "loadingRoles": "Haetaan roolejasi...",
     "errors": {
-        "noLanguages": "Sinulla ei vaikuttaisi olevan kielirooleja! Ole hyvä ja ota yhteyttä ylläpitäjään tai omistajaan, mikäli luulet tämän olevan virhe.",
+        "noLanguages": "Sinulla ei vaikuttaisi olevan kielirooleja! Ole hyvä ja ota yhteyttä ylläpitäjään, mikäli uskot tämän olevan virhe.",
         "trNoRoles": "Huomasimme, että olet kääntäjä, mutta sinulla ei ole yhtään kieliroolia.",
         "error": "Nimen vaihtaminen epäonnistui. Voit kopioida nimen alapuolelta ja vaihtaa sen itse.",
         "confirmedNoFlags": "Vahvistit pyynnön, mutta et reagoinut lipuilla, ",
