@@ -3,7 +3,7 @@
     "loading": "Just a second...",
     "loadingRoles": "Λαμβάνουμε τους ρόλους σου...",
     "errors": {
-        "noLanguages": "Δεν φαίνεται να έχεις κάποιο ρόλο γλώσσας! Παρακαλώ επικοινώνησε με τον διαχειριστή ή με τον ιδιοκτήτη αν πιστεύεις ότι αυτό είναι ένα σφάλμα.",
+        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
         "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
         "error": "Απέτυχε η αλλαγή ψευδωνύμου. Μπορείς να αντιγράψεις το ψευδώνυμο παρακάτω και εφάρμοσε το από μόνος σου.",
         "confirmedNoFlags": "Επιβεβαίωσες αλλά δεν αντίδρασες σε κάποια σημαία, ",
