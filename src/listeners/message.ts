@@ -257,7 +257,7 @@ client.on("message", async message => {
             .setAuthor(getString("error", "global"))
             .setTitle(error.message?.substring(0, 255) || error.toString().substring(0, 255))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        if (getString(`${command.name}.usage`, "help") === `strings.${command.name}.usage`) embed.addField(getString("usage", "global"), `\`${command.usage}\``)
+        if (command.category == "Admin" || command.category == "Staff") embed.addField(getString("usage", "global"), `\`${command.usage}\``)
         else embed.addField(getString("usage", "global"), `\`${getString(`${command.name}.usage`, "help")}\``)
         message.channel.stopTyping()
         return message.channel.send(embed)
@@ -282,7 +282,6 @@ client.on("message", async message => {
                 }
             })
     } finally {
-
         // Try sending a tip
         const d = Math.random() * 100 // Get percentage
         if (command.allowTip !== false && d <= 5) { // Less than or equal to 5%
