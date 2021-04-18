@@ -3,7 +3,7 @@
     "loading": "Un segundo...",
     "loadingRoles": "Obteniendo tus roles...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
+        "noLanguages": "¡Parece que no tienes ningún rol de idioma! Si crees que esto es un error, por favor póngate en contacto con un administrador.",
         "trNoRoles": "Notamos que eres un traductor pero no tienes ningún rol de idioma.",
         "error": "No se ha podido cambiar tu apodo. Puedes copiar el apodo abajo y aplicarlo tú mismo.",
         "confirmedNoFlags": "Has confirmado, pero no has reaccionado a ninguna bandera, ",
