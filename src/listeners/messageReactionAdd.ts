@@ -8,7 +8,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if (channel.type !== "dm") {
         await reaction.fetch()
         // Delete message when channel name ends with review-strings
-        if (channel.name.endsWith("review-strings") && !user.bot) {
+        if (channel.name.endsWith("review-strings") && !user.bot && /^https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+$/gi.test(reaction.message.content)) {
             if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
                 reaction.message.react("⏱")
                 reaction.message.react(reaction.emoji)
