@@ -28,7 +28,7 @@ client.on("message", async message => {
     if (message.channel.id === "732587569744838777" || message.channel.id === "618909521741348874" && !message.embeds[0].description?.startsWith("@")) return message.crosspost() //bot-updates
 
     // Delete non-stringURL messages in review-strings
-    if ((message.channel as Discord.TextChannel).name.endsWith("-review-strings") && !/https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(message.content)) message.delete()
+    if (message.channel instanceof Discord.TextChannel && message.channel.name.endsWith("-review-strings") && !/https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(message.content)) message.delete()
 
     //Get the author from the database
     const author: DbUser = await client.getUser(message.author.id)
