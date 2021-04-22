@@ -8,6 +8,7 @@ const command: Command = {
     description: "Checks for inactive unverified members (if applicable).",
     usage: "+inactives",
     aliases: ["updateinactives", "unverifieds", "inactive"],
+    allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     execute(message: Discord.Message) {
         inactives(client, true)

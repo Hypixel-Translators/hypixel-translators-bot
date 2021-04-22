@@ -7,6 +7,7 @@ const command: Command = {
     description: "Updates the specified channel.",
     usage: "+channel <info|verify>",
     aliases: ["updatechannel", "channelupdate"],
+    allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
     execute(message: Discord.Message, args: string[]) {

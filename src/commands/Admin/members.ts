@@ -1,19 +1,20 @@
 import { blurple } from "../../config.json"
 import Discord from "discord.js"
-import { Command } from "../../index"
+import { client, Command } from "../../index"
 
 const command: Command = {
     name: "members",
     description: "Lists all the members in a role",
     aliases: ["listmembers"],
     usage: "+members <role>",
+    allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-development admin-bots
     execute(message: Discord.Message, args: string[]) {
         let roleRaw = args.join(" ").replace(/[\\<>@#&!]/g, "").toLowerCase()
         if (!roleRaw) throw "noRole"
-        let role = message.guild!.roles.cache.find(r => r.id === roleRaw || r.name.toLowerCase() === roleRaw)
-        if (!role) role = message.guild!.roles.cache.find(r => r.name.toLowerCase().includes(roleRaw))
+        let role = client.guilds.cache.get("549503328472530974")!.roles.cache.find(r => r.id === roleRaw || r.name.toLowerCase() === roleRaw)
+        if (!role) role = client.guilds.cache.get("549503328472530974")!.roles.cache.find(r => r.name.toLowerCase().includes(roleRaw))
         if (!role) throw "falseRole"
 
         let tags: Discord.GuildMember[] = []

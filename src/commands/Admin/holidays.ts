@@ -8,6 +8,7 @@ const command: Command = {
     description: "Sends an announcement wishing everyone a happy (holiday) in each language.",
     usage: "+holidays <holiday>",
     aliases: ["holiday"],
+    allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["730042612647723058", "551693960913879071"], // bot-development admin-bots
     execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {

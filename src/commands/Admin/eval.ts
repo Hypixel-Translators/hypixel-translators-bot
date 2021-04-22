@@ -16,6 +16,7 @@ const command: Command = {
   usage: "+eval <code>",
   aliases: ["evaluate", "ev"],
   allowTip: false,
+  allowDM: true,
   roleWhitelist: ["620274909700161556"], //*
   channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
   async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {

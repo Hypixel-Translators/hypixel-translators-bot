@@ -136,9 +136,6 @@ client.on("message", async message => {
         else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
     }
 
-    //Enable commands in DMs
-    if (command.allowDM && message.channel.type === "dm") allowed = true
-
     //Prevent users from running commands in development
     if (command.dev && !member?.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
 
@@ -152,7 +149,7 @@ client.on("message", async message => {
     }
 
     //Stop and error if command is not allowed in DMs and command is sent in DMs
-    if (!command.allowDM && message.channel.type === "dm") {
+    if (!command.allowDM && message.channel.type === "dm" && !member?.hasPermission("ADMINISTRATOR")) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(getString("error", "global"))
