@@ -110,43 +110,40 @@ client.on("message", async message => {
     if (message.channel.type === "dm") console.log(`${message.author.tag} used command ${commandName} in DMs`)
 
     //Return if user is not verified
-    if (message.member && !message.member.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
-    else {
-        const member = message.client.guilds.cache.get("549503328472530974")!.member(message.author)
-        if (!member?.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
-    }
+    const member = message.client.guilds.cache.get("549503328472530974")!.member(message.author.id)
+    if (!member?.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
 
     //Role Blacklist and Whitelist system
     let allowed = true
     if (command.roleBlacklist) {
         allowed = true
         command.roleBlacklist.forEach(role => {
-            if (message.member?.roles.cache.has(role)) allowed = false
+            if (member?.roles.cache.has(role)) allowed = false
         })
     }
     if (command.roleWhitelist) {
         allowed = false
         command.roleWhitelist.forEach(role => {
-            if (message.member?.roles.cache.has(role)) allowed = true
+            if (member?.roles.cache.has(role)) allowed = true
         })
     }
 
     //Channel Blacklist and whitelist systems
-    //@ts-expect-error
-    if (command.categoryBlacklist && command.categoryBlacklist?.includes(message.channel.parentID)) allowed = false
-    else if (command.channelBlacklist && command.channelBlacklist?.includes(message.channel.id)) allowed = false
-    //@ts-expect-error
-    else if (command.categoryWhitelist && !command.categoryWhitelist?.includes(message.channel.parentID)) allowed = false
-    else if (command.channelWhitelist && !command.channelWhitelist?.includes(message.channel.id)) allowed = false
+    if (!(message.channel instanceof Discord.DMChannel)) {
+        if (command.categoryBlacklist && command.categoryBlacklist.includes(message.channel.parentID!)) allowed = false
+        else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
+        else if (command.categoryWhitelist && !command.categoryWhitelist.includes(message.channel.parentID!)) allowed = false
+        else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
+    }
 
     //Enable commands in DMs
     if (command.allowDM && message.channel.type === "dm") allowed = true
 
     //Prevent users from running commands in development
-    if (command.dev && !message.member?.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
+    if (command.dev && !member?.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
 
     //Give perm to admins and return if not allowed
-    if (message.member?.hasPermission("MANAGE_ROLES") && command.name !== "eval" || message.member?.hasPermission("ADMINISTRATOR")) allowed = true
+    if (member?.hasPermission("MANAGE_ROLES") && command.name !== "eval" || member?.hasPermission("ADMINISTRATOR")) allowed = true
     if (!allowed) {
         message.react("732298639736570007")
         return setTimeout(() => {
@@ -192,7 +189,7 @@ client.on("message", async message => {
     }
 
     //Remove cooldown if administrator
-    if (message.member && !message.member.hasPermission("MANAGE_ROLES")) timestamps.set(message.author.id, now)
+    if (member?.hasPermission("MANAGE_ROLES")) timestamps.set(message.author.id, now)
     setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
 
     //Function to get strings
@@ -275,8 +272,7 @@ client.on("message", async message => {
                             .setFooter("Check the console for more details");
                         (message.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send("<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
                     }
-                    //@ts-expect-error
-                    console.error(`Unexpected error with command ${commandName} on channel ${message.channel.name || message.channel.type} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
+                    console.error(`Unexpected error with command ${commandName} on channel ${message.channel instanceof Discord.DMChannel ? message.channel.type : message.channel.name} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
                 } else {
                     setTimeout(() => {
                         if (!message.deleted && message.channel.type !== "dm") message.delete()
