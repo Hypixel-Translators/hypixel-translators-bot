@@ -46,8 +46,8 @@
         "description": "GitHubのIssueページを開きます。こちらで問題の報告とフィードバックの送信ができます。"
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or a list of available languages."
+        "usage": "+language [<設定する言語> | list]",
+        "description": "言語の変更、現在の言語の表示、利用可能な言語の一覧を表示します。"
     },
     "ping": {
         "usage": "+ping",
