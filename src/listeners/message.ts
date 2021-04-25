@@ -186,8 +186,10 @@ client.on("message", async message => {
     }
 
     //Remove cooldown if administrator
-    if (member?.hasPermission("MANAGE_ROLES")) timestamps.set(message.author.id, now)
-    setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
+    if (!member?.hasPermission("MANAGE_ROLES")) {
+        timestamps.set(message.author.id, now)
+        setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
+    }
 
     //Function to get strings
     /**
