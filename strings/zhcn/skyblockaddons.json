@@ -1,5 +1,5 @@
 {
-    "sbaCrowdin": "Here's the SkyblockAddons Crowdin project: %%crowdin%%",
+    "sbaCrowdin": "SkyblockAddons 本地化项目链接：%%crowdin%%",
     "sbaThread": "Here’s the thread showcasing the mod: %%thread%%",
-    "sbaDiscord": "This project is owned by Biscuit! Join his server at %%discord%%"
+    "sbaDiscord": "此项目的所有者是 Biscuit！Discord 服务器：%%discord%%"
 }

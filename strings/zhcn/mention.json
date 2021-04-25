@@ -1,7 +1,7 @@
 {
-    "errorNoPing": "You don't have that language's proofreader role, ",
-    "errorNoPingPr": "so you can't mention it.",
-    "errorNoPingTr": "so you can't mention its translator role.",
-    "errorNoPingAll": "so you can't mention the entire language.",
-    "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to."
+    "errorNoPing": "你没有该语言的审核员权限，",
+    "errorNoPingPr": "因此无法提及对应用户组。",
+    "errorNoPingTr": "因此无法提及对应译者用户组。",
+    "errorNoPingAll": "因此无法提及对应语言的所有用户组。",
+    "errorNoPingDisclaimer": "若仍希望提及其他用户，请联系服务器所有者或管理员。"
 }
