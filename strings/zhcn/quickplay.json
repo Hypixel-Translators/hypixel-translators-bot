@@ -1,5 +1,5 @@
 {
-    "quickplayCrowdin": "Here's the Quickplay Crowdin project: %%crowdin%%",
+    "quickplayCrowdin": "Quickplay 本地化项目链接：%%crowdin%%",
     "quickplayThread": "Here’s the thread showcasing the mod: %%thread%%",
-    "quickplayDiscord": "Here's the Quickplay Discord server: %%discord%%"
+    "quickplayDiscord": "Quickplay Discord 服务器链接：%%discord%%"
 }
