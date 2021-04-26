@@ -15,5 +15,5 @@
     "lastThing": "Son bir şey daha",
     "requestInfo": "İsteğini gönderirken, lütfen etiketini (%%tag%%) veya ID'ni (%%id%%) eklediğinden emin ol.\n**Bunlardan en az birini dahil etmezsen, reddedileceksin!**",
     "noLanguage": "Dilini bulamıyor musunuz?",
-    "langRequest": "It is possible that we don't support your language yet. If that's the case, please contact an administrator asking them to add the language you want."
+    "langRequest": "Dilini henüz desteklemiyor olmamız mümkün. Durum buysa, eklenmesini istediğin dili yöneticiyle iletişime geçerek bildir."
 }

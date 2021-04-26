@@ -1,6 +1,6 @@
 {
     "moduleName": "Citat",
-    "msgUrl": "Message URL",
+    "msgUrl": "Besked Link",
     "invalidArg": "Ugyldigt argument!",
     "indexArg": "Et citat med indekset %%arg%% findes ikke! Angiv venligst et tal mellem 1 og %%max%%.",
     "reqSub": "Din anmodning om et citat blev indsendt. Tak for det!"
