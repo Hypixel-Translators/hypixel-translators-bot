@@ -15,5 +15,5 @@
     "lastThing": "Kun én sidste ting",
     "requestInfo": "Når du indsender din anmodning, skal du sørge for at inkludere enten dit tag (%%tag%%) eller dit ID (%%id%%).\n**Hvis du ikke inkluderer mindst én af disse, vil du blive afvist! **",
     "noLanguage": "Kan du ikke finde dit sprog?",
-    "langRequest": "It is possible that we don't support your language yet. If that's the case, please contact an administrator asking them to add the language you want."
+    "langRequest": "Det er muligt, at vi ikke understøtter dit sprog endnu. Hvis det er tilfældet, skal du udføre `+language add <language>`. Dette vil sende en besked til administratorerne, der lader dem vide, at du ønsker at dette sprog skal tilføjes."
 }
