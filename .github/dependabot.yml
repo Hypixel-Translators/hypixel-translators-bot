@@ -1,0 +1,21 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  reviewers:
+  - imrodry
+  assignees:
+  - imrodry
+  ignore:
+  - dependency-name: "@types/countryjs"
+    versions:
+    - 1.8.1
+  - dependency-name: mongodb
+    versions:
+    - 3.6.4
+  - dependency-name: "@types/mongodb"
+    versions:
+    - 3.6.9
