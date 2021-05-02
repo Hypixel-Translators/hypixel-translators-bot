@@ -67,7 +67,7 @@ client.on("message", async message => {
         if (!message.deleted) await message.delete()
         message.channel.messages.fetch()
             .then(messages => {
-                const fiMessages = messages.filter(msgs => msgs.author === message.author);
+                const fiMessages = messages.filter(msgs => msgs.author.id === message.author.id);
                 (message.channel as Discord.TextChannel).bulkDelete(fiMessages)
             })
     }
@@ -245,7 +245,19 @@ client.on("message", async message => {
     }
 
     //Run command and handle errors
-    try { await command.execute(message, args, getString) }
+    try {
+        // Run the command
+        await command.execute(message, args, getString)
+
+        // Try sending a tip
+        // This will only execute if the command is successful
+        const d = Math.random() * 100 // Get percentage
+        if (command.allowTip !== false && d <= 5) { // Less than or equal to 5%
+            const keys = Object.keys(getString("tips", "global"))
+            const tip = getString(`tips.${keys[keys.length * Math.random() << 0]}`, { botUpdates: "<#732587569744838777>", gettingStarted: "<#699275092026458122>", twitter: "<https://twitter.com/HTranslators>", rules: "<#796159719617986610>", serverInfo: "<#762341271611506708>", bots: "<#549894938712866816>" }, "global")
+            message.channel.send(`**${getString("tip", "global").toUpperCase()}:** ${tip}`)
+        }
+    }
     catch (error) {
         if (!error.stack) error = getString(`errors.${error}`, "global")
 
@@ -279,14 +291,6 @@ client.on("message", async message => {
                     }, 10000)
                 }
             })
-    } finally {
-        // Try sending a tip
-        const d = Math.random() * 100 // Get percentage
-        if (command.allowTip !== false && d <= 5) { // Less than or equal to 5%
-            const keys = Object.keys(getString("tips", "global"))
-            const tip = getString(`tips.${keys[keys.length * Math.random() << 0]}`, { botUpdates: "<#732587569744838777>", gettingStarted: "<#699275092026458122>", twitter: "<https://twitter.com/HTranslators>", rules: "<#796159719617986610>", serverInfo: "<#762341271611506708>", bots: "<#549894938712866816>" }, "global")
-            message.channel.send(`**${getString("tip", "global").toUpperCase()}:** ${tip}`)
-        }
     }
 })
 

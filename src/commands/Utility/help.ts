@@ -107,15 +107,7 @@ const command: Command = {
 
       const command = client.commands.get(args[0].toLowerCase()) || client.commands.find(c => c.aliases?.includes(args[0].toLowerCase()) || c.name === args[0].toLowerCase())
 
-      if (!command || !command.name) {
-        const embed = new Discord.MessageEmbed()
-          .setColor(errorColor)
-          .setAuthor(getString("moduleName"))
-          .setTitle(getString("commandInfo"))
-          .setDescription(getString("commandNotExist"))
-          .setFooter(`${executedBy} | ${madeBy}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        return message.channel.send(embed)
-      }
+      if (!command || !command.name) throw "noCommand"
 
       let cmdDesc, cmdUsage
       if (command.category !== "Admin" && command.category !== "Staff") {
