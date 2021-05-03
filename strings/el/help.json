@@ -12,7 +12,6 @@
     "pageNotExist": "Αυτή η σελίδα δεν υπάρχει!",
     "commandInfo": "Πληροφορίες Εντολής",
     "commandInfoFor": "Πληροφορίες Εντολής για ",
-    "commandNotExist": "Αυτή η εντολή δεν υπάρχει!",
     "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
     "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": " δευτερόλεπτα",
