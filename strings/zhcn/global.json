@@ -5,6 +5,7 @@
     "usage": "正确命令用法",
     "errors": {
         "dmError": "抱歉，你不能在私信中执行此命令。",
+        "noCommand": "That command doesn't exist!",
         "noMessage": "你尚未提供信息！",
         "noChannel": "你尚未提供频道！",
         "noUser": "你尚未提供用户名！",
