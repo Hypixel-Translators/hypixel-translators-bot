@@ -5,6 +5,7 @@
     "usage": "Expected command usage",
     "errors": {
         "dmError": "Вибачте, але Ви не можете виконувати цю команду в приватних повідомленнях.",
+        "noCommand": "Ця команда не існує!",
         "noMessage": "Ви не надали повідомлення!",
         "noChannel": "You didn't provide a channel!",
         "noUser": "You didn't provide a user!",
