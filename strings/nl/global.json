@@ -5,6 +5,7 @@
     "usage": "Commandosyntaxis",
     "errors": {
         "dmError": "Sorry, maar je kunt dit commando niet uitvoeren in privéberichten.",
+        "noCommand": "Dat commando bestaat niet!",
         "noMessage": "Je hebt geen bericht opgegeven!",
         "noChannel": "Je hebt geen kanaal opgegeven!",
         "noUser": "Je hebt geen gebruiker opgegeven!",
