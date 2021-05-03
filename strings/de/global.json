@@ -5,6 +5,7 @@
     "usage": "Erwartet Befehl Eingabe",
     "errors": {
         "dmError": "Entschuldigung, du kannst diesen Befehl nicht in private Nachrichten ausführen.",
+        "noCommand": "Dieser Befehl existiert nicht!",
         "noMessage": "Du hast keine Nachricht angegeben!",
         "noChannel": "Du hast keinen Kanal zur Auswahl gestellt!",
         "noUser": "Du hast keine Nachricht angegeben!",
