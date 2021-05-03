@@ -5,6 +5,7 @@
     "usage": "Forventet kommando bruk",
     "errors": {
         "dmError": "Beklager, men du kan ikke utføre denne kommandoen i private meldinger.",
+        "noCommand": "Den kommandoen finnes ikke!",
         "noMessage": "Du har ikke oppgitt en melding!",
         "noChannel": "Du har ikke oppgitt en kanal!",
         "noUser": "Du har ikke oppgitt en bruker!",
