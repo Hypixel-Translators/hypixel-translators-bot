@@ -12,7 +12,6 @@
     "pageNotExist": "Ta strona nie istnieje!",
     "commandInfo": "Informacje o poleceniu",
     "commandInfoFor": "Informacje o poleceniu dla ",
-    "commandNotExist": "To polecenie nie istnieje!",
     "staffOnly": "Ta komenda jest dostępna tylko dla administracji, a zatem jej informacje jest ukryte.\nJeżeli uważasz że to błąd, skontaktuj się z członkiem administracji.",
     "inDev": "Ta komenda jest chwilowo w fazie rozwoju i będzie dostępna w późniejszym terminie!",
     "seconds": " sekund",
