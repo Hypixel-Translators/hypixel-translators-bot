@@ -5,6 +5,7 @@
     "usage": "Forventet kommandoforbrug",
     "errors": {
         "dmError": "Beklager, men du kan ikke udføre denne kommando i private beskeder.",
+        "noCommand": "Denne kommando findes ikke!",
         "noMessage": "Du har ikke angivet en besked!",
         "noChannel": "Du har ikke angivet en kanal!",
         "noUser": "Du har ikke angivet en bruger!",
