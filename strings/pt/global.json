@@ -5,6 +5,7 @@
     "usage": "Uso do comando esperado",
     "errors": {
         "dmError": "Não podes executar este comando nas mensagens privadas.",
+        "noCommand": "Esse comando não existe!",
         "noMessage": "Não adicionaste uma mensagem!",
         "noChannel": "Não mencionaste um canal!",
         "noUser": "Não adicionaste um utilizador!",
