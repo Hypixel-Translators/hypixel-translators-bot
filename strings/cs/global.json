@@ -5,6 +5,7 @@
     "usage": "Očekávané použití příkazu",
     "errors": {
         "dmError": "Omlouváme se, ale tento příkaz nelze provést v soukromých zprávách.",
+        "noCommand": "Tento příkaz neexistuje!",
         "noMessage": "Nenapsal jsi žádnou zprávu!",
         "noChannel": "Nezadal jsi název kanálu!",
         "noUser": "Nezadal jsi jméno uživatele!",
