@@ -12,7 +12,6 @@
     "pageNotExist": "Tätä sivua ei ole olemassa!",
     "commandInfo": "Komennon tiedot",
     "commandInfoFor": "Tiedot komennolle ",
-    "commandNotExist": "Tätä komentoa ei ole olemassa!",
     "staffOnly": "Tämä komento on vain ylläpidon käytössä ja sen tiedot on siksi piilotettu.\nOtathan yhteyttä ylläpitäjään, mikäli uskot tämän olevan virhe.",
     "inDev": "Tämä komento on vasta kehitteillä ja tulee käyttöön myöhemmin!",
     "seconds": "sekuntia",
