@@ -5,6 +5,7 @@
     "usage": "crwdns468:0crwdne468:0",
     "errors": {
         "dmError": "crwdns966:0crwdne966:0",
+        "noCommand": "crwdns1318:0crwdne1318:0",
         "noMessage": "crwdns968:0crwdne968:0",
         "noChannel": "crwdns970:0crwdne970:0",
         "noUser": "crwdns972:0crwdne972:0",
