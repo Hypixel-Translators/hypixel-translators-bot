@@ -5,6 +5,7 @@
     "usage": "Förväntad kommandoanvändning",
     "errors": {
         "dmError": "Sorry, but you can't execute this command in private messages.",
+        "noCommand": "Detta kommando finns inte!",
         "noMessage": "You didn't provide a message!",
         "noChannel": "You didn't provide a channel!",
         "noUser": "You didn't provide a user!",
