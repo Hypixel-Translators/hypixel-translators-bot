@@ -12,7 +12,6 @@
     "pageNotExist": "Essa página não existe!",
     "commandInfo": "Informação do comando",
     "commandInfoFor": "Informação para o comando ",
-    "commandNotExist": "Esse comando não existe!",
     "staffOnly": "Este comando só está disponível para a staff, logo, a sua informação foi escondida.\nEntra em contacto com um membro da staff se achas que isto é um erro.",
     "inDev": "Este comando ainda está a ser desenvolvido e só estará disponível no futuro!",
     "seconds": "segundos",
