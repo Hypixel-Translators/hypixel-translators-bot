@@ -3,12 +3,11 @@ const fetch = require("node-fetch")
 const { flag, code, name, countries } = require('country-emoji')
 const fs = require("fs")
 const country = require("countryjs")
-const { client } = require("../../index.js")
 import { db as mongoDb } from "../../lib/dbclient"
 import { transpile } from "typescript"
 import Discord from "discord.js"
 import { inspect } from "util"
-import { Command } from "../../index"
+import { Command, client as Client } from "../../index"
 
 const command: Command = {
   name: "eval",
@@ -20,11 +19,12 @@ const command: Command = {
   roleWhitelist: ["620274909700161556"], //*
   channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
   async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-    const me = message.member
-    const guild = message.guild
-    const channel = message.channel as Discord.TextChannel
-    const db = mongoDb
-    const discord = Discord
+    const me = message.member,
+      guild = message.guild,
+      channel = message.channel as Discord.TextChannel,
+      db = mongoDb,
+      discord = Discord,
+      client = Client
 
     let evaled
     let codeToRun = args.join(" ").replace(/[“”]/gim, '"')
