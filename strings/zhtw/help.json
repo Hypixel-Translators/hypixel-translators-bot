@@ -12,7 +12,6 @@
     "pageNotExist": "該頁面並不存在。",
     "commandInfo": "指令資訊",
     "commandInfoFor": "指令資訊：",
-    "commandNotExist": "該指令並不存在！",
     "staffOnly": "這個指令僅供管理員使用，因此有關訊息不公開顯示。如果你認為這是錯誤，請聯絡管理員。",
     "inDev": "這個指令仍在開發中，將在日後開放使用！",
     "seconds": "seconds",
