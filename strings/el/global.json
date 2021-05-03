@@ -5,6 +5,7 @@
     "usage": "Expected command usage",
     "errors": {
         "dmError": "Συγνώμη, αλλά δεν μπορείς να εκτελέσεις αυτή την εντολή στα προσωπικά μηνύματα.",
+        "noCommand": "Αυτή η εντολή δεν υπάρχει!",
         "noMessage": "Δεν εισήγαγες ένα μήνυμα!",
         "noChannel": "You didn't provide a channel!",
         "noUser": "You didn't provide a user!",

@@ -5,6 +5,7 @@
     "usage": "Acomand usag i wanted",
     "errors": {
         "dmError": "U cant do dis in dms, idot.",
+        "noCommand": "Dat acomand existn't!",
         "noMessage": "Providd not mesgag!",
         "noChannel": "Providd not chanel!",
         "noUser": "Providd not uzer!",

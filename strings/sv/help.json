@@ -12,7 +12,6 @@
     "pageNotExist": "Denna sida finns inte!",
     "commandInfo": "Kommandoinformation",
     "commandInfoFor": "Kommandoinformation för ",
-    "commandNotExist": "Detta kommando finns inte!",
     "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
     "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": " sekunder",

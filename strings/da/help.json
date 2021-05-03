@@ -12,7 +12,6 @@
     "pageNotExist": "Denne side findes ikke!",
     "commandInfo": "Kommando information",
     "commandInfoFor": "Kommando information om ",
-    "commandNotExist": "Denne kommando findes ikke!",
     "staffOnly": "Denne kommando er kun tilgængelig for personalet, og derfor er dens oplysninger skjult.\nKontakt venligst en medarbejder, hvis du mener, at dette er en fejl.",
     "inDev": "Denne kommando er i udvikling og vil være tilgængelig på et senere tidspunkt!",
     "seconds": "sekunder",

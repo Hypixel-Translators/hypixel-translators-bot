@@ -5,6 +5,7 @@
     "usage": "Oczekiwany sposób użycia polecenia",
     "errors": {
         "dmError": "Przepraszamy, ale nie możesz wykonać tego polecenia w wiadomości prywatnej.",
+        "noCommand": "To polecenie nie istnieje!",
         "noMessage": "Nie podano wiadomości!",
         "noChannel": "Nie określono kanału!",
         "noUser": "Nie określono użytkownika!",

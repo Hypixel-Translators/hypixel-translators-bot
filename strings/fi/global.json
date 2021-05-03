@@ -5,6 +5,7 @@
     "usage": "Odotettu komennon syöte",
     "errors": {
         "dmError": "Valitettavasti sinulla ei ole käyttää tätä komentoa yksityisviesteissä.",
+        "noCommand": "Tätä komentoa ei ole olemassa!",
         "noMessage": "Et syöttänyt viestiä!",
         "noChannel": "Et syöttänyt kanavaa!",
         "noUser": "Et syöttänyt käyttäjää!",

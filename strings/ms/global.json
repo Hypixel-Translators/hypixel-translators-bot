@@ -5,6 +5,7 @@
     "usage": "Penggunaan perintah yang dijangkakan",
     "errors": {
         "dmError": "Maaf, tapi anda tidak bisa melaksanakan perintah ini di pesan privat.",
+        "noCommand": "That command doesn't exist!",
         "noMessage": "You didn't provide a message!",
         "noChannel": "Anda belum menyediakan saluran!",
         "noUser": "Anda belum menyediakan pengguna!",

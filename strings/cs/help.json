@@ -12,7 +12,6 @@
     "pageNotExist": "That page doesn't exist!",
     "commandInfo": "Informace o příkazu",
     "commandInfoFor": "Informace o příkazu ",
-    "commandNotExist": "Tento příkaz neexistuje!",
     "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
     "inDev": "This command is currently in development and will be available at a later date!",
     "seconds": "seconds",

@@ -5,6 +5,7 @@
     "usage": "Várt parancs használat",
     "errors": {
         "dmError": "Ezt a parancsot nem tudod privát üzenetekben végrehajtani.",
+        "noCommand": "Ez a parancs nem létezik!",
         "noMessage": "Meg kell adnod egy üzenetet!",
         "noChannel": "Meg kell adnod egy csatornát!",
         "noUser": "Meg kell adnod egy felhasználót!",

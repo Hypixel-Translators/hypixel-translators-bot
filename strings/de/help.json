@@ -12,7 +12,6 @@
     "pageNotExist": "Diese Seite existiert nicht!",
     "commandInfo": "Befehlsinformationen",
     "commandInfoFor": "Befehlsinformationen für ",
-    "commandNotExist": "Dieser Befehl existiert nicht!",
     "staffOnly": "Dieser Befehl ist nur für Teammitglieder verfügbar und seine Informationen sind daher versteckt.\nBitte kontaktiere ein Teammitglied, wenn du glaubst, dass dies ein Fehler ist.",
     "inDev": "Dieser Befehl ist derzeit in der Entwicklung und wird zu einem späteren Zeitpunkt verfügbar sein!",
     "seconds": " Sekunden",
