@@ -12,7 +12,6 @@
     "pageNotExist": "Böyle bir sayfa mevcut değil!",
     "commandInfo": "Komut bilgisi",
     "commandInfoFor": "Komut bilgisi: ",
-    "commandNotExist": "Böyle bir komut yok!",
     "staffOnly": "Bu komut sadece yetkililer tarafından kullanılabilir ve bu nedenle bilgi gizlidir.\nBunun bir hata olduğunu düşünüyorsan lütfen bir yetkiliyle iletişime geç.",
     "inDev": "Bu komut şimdilik bakımdadır ve ilerki zamanlarda kullanılabilir olacaktır!",
     "seconds": " saniye",
