@@ -5,6 +5,7 @@
     "usage": "Beklenen komut kullanımı",
     "errors": {
         "dmError": "Üzgünüm, ama bu komutu özel mesajlarda yürütemezsin.",
+        "noCommand": "Böyle bir komut yok!",
         "noMessage": "Bir mesaj yazmadınız!",
         "noChannel": "Bir kanal sağlamadın!",
         "noUser": "Bir kullanıcı sağlamadın!",
