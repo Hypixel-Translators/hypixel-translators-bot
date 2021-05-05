@@ -9,7 +9,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
         await reaction.fetch()
         await user.fetch()
         // Delete message when channel name ends with review-strings
-        if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content) && reaction.message.guild?.member(user.id)!.roles.cache.has("569839580971401236")) { // Hypixel Proofreader
+        if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content) && reaction.message.guild!.member(user.id)!.roles.cache.has("569839580971401236")) { // Hypixel Proofreader
             const translatorChannel = channel.parent!.children.filter(c => c.type === "text").sort((a, b) => a.position - b.position).first()! as Discord.TextChannel
             let strings
             try {
@@ -17,7 +17,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             } catch {
                 strings = require(`../../strings/en/reviewStrings.json`)
             }
-            if (reaction.emoji.name === "vote_yes") {
+            if (reaction.emoji.name === "vote_yes" && reaction.message.author.id !== user.id) {
                 reaction.message.react("⏱")
                 setTimeout(() => {
                     // Check if the user hasn't removed their reaction
@@ -37,7 +37,6 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     .setFooter(strings.requestedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
                 if (reaction.message.author.id !== user.id) translatorChannel.send(reaction.message.author, embed)
             } else if (reaction.emoji.name === "vote_no") {
-                reaction.message.react("⏱")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor(strings.moduleName)
@@ -45,8 +44,9 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     .setDescription(reaction.message)
                     .setFooter(strings.rejectedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
                 if (reaction.message.author.id !== user.id) {
-                    translatorChannel.send(reaction.message.author, embed)
+                    reaction.message.react("⏱")
                     setTimeout(() => {
+                        translatorChannel.send(reaction.message.author, embed)
                         // Check if the user hasn't removed their reaction
                         if (reaction.users.fetch().then(cache => cache.has(user.id))) {
                             if (!reaction.message.deleted) reaction.message.delete()
