@@ -1,0 +1,9 @@
+{
+    "moduleName": "Gjennomgang av string",
+    "message": "Melding",
+    "clickHere": "Klikk her",
+    "requestDetails": "%%user%% requested more details on your suggestion",
+    "requestedBy": "Forespurt av %%user%%",
+    "rejected": "%%user%% avslo ditt forslag",
+    "rejectedBy": "Avslått av %%user%%"
+}
