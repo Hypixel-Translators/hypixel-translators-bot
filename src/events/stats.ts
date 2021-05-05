@@ -37,7 +37,7 @@ export async function hypixel(client: HTBClient) {
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
-            })
+            }).sort((a: LanguageStatus, b: LanguageStatus) => b.data.phrases.total - a.data.phrases.total)
             const sortedSatus = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) => {
                 return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
             })
@@ -89,7 +89,7 @@ export async function quickplay(client: HTBClient) {
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find((l: LangDbEntry) => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
-            })
+            }).sort((a: LanguageStatus, b: LanguageStatus) => b.data.phrases.total - a.data.phrases.total)
             const sortedStatus = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) => {
                 return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
             })
@@ -146,7 +146,7 @@ export async function bot(client: HTBClient) {
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
-            })
+            }).sort((a: LanguageStatus, b: LanguageStatus) => b.data.phrases.total - a.data.phrases.total)
             const sortedStatus = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) => {
                 return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
             })
@@ -203,7 +203,7 @@ export async function skyblockaddons(client: HTBClient) {
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find((l: LangDbEntry) => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
-            })
+            }).sort((a: LanguageStatus, b: LanguageStatus) => b.data.phrases.total - a.data.phrases.total)
             const sortedStatus = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) => {
                 return nextStatus.data.language.name.localeCompare(currentStatus.data.language.name)
             })
