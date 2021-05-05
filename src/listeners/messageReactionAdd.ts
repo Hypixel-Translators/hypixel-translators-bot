@@ -21,7 +21,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 reaction.message.react("⏱")
                 setTimeout(() => {
                     // Check if the user hasn't removed their reaction
-                    if (reaction.users.cache.has(user.id)) {
+                    if (reaction.users.fetch().then(cache => cache.has(user.id))) {
                         if (!reaction.message.deleted) reaction.message.delete()
                         console.log(`String reviewed in ${channel.name}`)
                     } else reaction.message.reactions.cache.get("⏱")?.remove()
@@ -48,7 +48,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     translatorChannel.send(reaction.message.author, embed)
                     setTimeout(() => {
                         // Check if the user hasn't removed their reaction
-                        if (reaction.users.cache.has(user.id)) {
+                        if (reaction.users.fetch().then(cache => cache.has(user.id))) {
                             if (!reaction.message.deleted) reaction.message.delete()
                             console.log(`String rejected in ${channel.name}`)
                         } else reaction.message.reactions.cache.get("⏱")?.remove()
