@@ -27,8 +27,7 @@
     "uuid": "^8.3.2"
   },
   "engines": {
-    "node": "14.x",
-    "npm": "7.x"
+    "node": "14.x"
   },
   "devDependencies": {
     "@types/countryjs": "^1.8.1",
