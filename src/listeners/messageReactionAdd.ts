@@ -11,8 +11,12 @@ client.on("messageReactionAdd", async (reaction, user) => {
         // Delete message when channel name ends with review-strings
         if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content) && reaction.message.guild?.member(user.id)!.roles.cache.has("569839580971401236")) { // Hypixel Proofreader
             const translatorChannel = channel.parent!.children.filter(c => c.type === "text").sort((a, b) => a.position - b.position).first()! as Discord.TextChannel
-            let strings = require(`../../strings/${channel.name.split("-")[0]}/reviewStrings.json`)
-            if (!strings) strings = require(`../../strings/en/reviewStrings.json`)
+            let strings
+            try {
+                strings = require(`../../strings/${channel.name.split("-")[0]}/reviewStrings.json`)
+            } catch {
+                strings = require(`../../strings/en/reviewStrings.json`)
+            }
             if (reaction.emoji.name === "vote_yes") {
                 reaction.message.react("⏱")
                 setTimeout(() => {
