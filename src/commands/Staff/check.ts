@@ -37,10 +37,11 @@ const command: Command = {
     const created = member!.user.createdAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
     let joinAgo = Math.round((new Date().getTime() - Number(member!.joinedAt!)) / 1000)
     let createAgo = Math.round((new Date().getTime() - Number(member!.user.createdAt)) / 1000)
-    let userRoles = member!.roles.cache as any
-    if (userRoles.size !== 1) {
-      userRoles.delete("549503328472530974")
-      userRoles = userRoles.sort((a: Discord.Role, b: Discord.Role) => b.position - a.position).map((r: Discord.Role) => `${r}`).join(", ")
+    const rolesCache = member!.roles.cache
+    let userRoles
+    if (rolesCache.size !== 1) {
+      rolesCache.delete("549503328472530974")
+      userRoles = rolesCache.sort((a: Discord.Role, b: Discord.Role) => b.position - a.position).map((r: Discord.Role) => `${r}`).join(", ")
     } else userRoles = "No roles yet!"
 
     const embed = new Discord.MessageEmbed()
