@@ -1,26 +1,52 @@
 import Discord from "discord.js"
-import { successColor } from "../config.json"
+import { successColor, loadingColor, errorColor } from "../config.json"
 import { client } from "../index.js"
 import { db } from "../lib/dbclient.js"
 
 client.on("messageReactionAdd", async (reaction, user) => {
     const channel = reaction.message.channel
-    if (channel.type !== "dm") {
+    if (channel.type !== "dm" && !user.bot) {
         await reaction.fetch()
+        await user.fetch()
         // Delete message when channel name ends with review-strings
-        if (channel.name.endsWith("review-strings") && !user.bot && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content)) {
-            if (reaction.emoji.name === "vote_yes" || reaction.emoji.name === "✅" || reaction.emoji.name === "like" || reaction.emoji.name === "👍" || reaction.emoji.name === "approved") {
+        if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content)) {
+            const translatorChannel = channel.parent!.children.filter(c => c.type === "text").sort((a, b) => a.position - b.position).first()! as Discord.TextChannel
+            let strings = require(`../../strings/${channel.name.split("-")[0]}/reviewStrings.json`)
+            if (!strings) strings = require(`../../strings/en/reviewStrings.json`)
+            if (reaction.emoji.name === "vote_yes") {
                 reaction.message.react("⏱")
                 reaction.message.react(reaction.emoji)
                 setTimeout(() => {
-                    if (!reaction.message.deleted) reaction.message.delete()
-                    console.log(`String reviewed in ${channel.name} (saw reaction ${reaction.emoji.name})`)
+                    // Check if the user hasn't removed their reaction
+                    if (reaction.users.cache.has(user.id)) {
+                        if (!reaction.message.deleted) reaction.message.delete()
+                        console.log(`String reviewed in ${channel.name} (saw reaction ${reaction.emoji.name})`)
+                    } else reaction.users.remove()
                 }, 10000)
-            }
-            // TODO add the ability to request an explanation or deny a suggestion
+            } else if (reaction.emoji.name === "vote_maybe") {
+                reaction.users.remove(user.id)
+                const embed = new Discord.MessageEmbed()
+                    .setColor(loadingColor)
+                    .setAuthor(strings.moduleName)
+                    .setTitle(strings.requestDetails.replace("%%user%%", user.tag))
+                    .setDescription(reaction.message)
+                    .addField(strings.message, `[${strings.clickHere}](${reaction.message.url})`)
+                    .setFooter(strings.requestedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
+                translatorChannel.send(reaction.message.author, embed)
+            } else if (reaction.emoji.name === "vote_no") {
+                reaction.users.remove(user.id)
+                const embed = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setAuthor(strings.moduleName)
+                    .setTitle(strings.rejected.replace("%%user%%", user.tag))
+                    .setDescription(reaction.message)
+                    .setFooter(strings.rejectedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
+                translatorChannel.send(reaction.message.author, embed)
+                if (!reaction.message.deleted) reaction.message.delete()
+            } else reaction.remove()
         }
         // Give Polls role if reacted on reaction role message
-        else if (reaction.message.id === "800415711864029204" && !user.bot) { //server-info roles message
+        else if (reaction.message.id === "800415711864029204") { //server-info roles message
             let roleId: string
             if (reaction.emoji.name === "📊") roleId = "646098170794868757" //Polls
             else if (reaction.emoji.name === "🤖") roleId = "732615152246980628" //Bot Updates
