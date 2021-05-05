@@ -1,6 +1,7 @@
 {
     "moduleName": "String review",
     "message": "Message",
+    "clickHere": "Click here",
     "cliclHere": "Click here",
     "requestDetails": "%%user%% requested more details on your suggestion",
     "requestedBy": "Requested by %%user%%",
