@@ -9,13 +9,12 @@ client.on("messageReactionAdd", async (reaction, user) => {
         await reaction.fetch()
         await user.fetch()
         // Delete message when channel name ends with review-strings
-        if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content)) {
+        if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content) && reaction.message.guild?.member(user.id)!.roles.cache.has("569839580971401236")) { // Hypixel Proofreader
             const translatorChannel = channel.parent!.children.filter(c => c.type === "text").sort((a, b) => a.position - b.position).first()! as Discord.TextChannel
             let strings = require(`../../strings/${channel.name.split("-")[0]}/reviewStrings.json`)
             if (!strings) strings = require(`../../strings/en/reviewStrings.json`)
             if (reaction.emoji.name === "vote_yes") {
                 reaction.message.react("⏱")
-                reaction.message.react(reaction.emoji)
                 setTimeout(() => {
                     // Check if the user hasn't removed their reaction
                     if (reaction.users.cache.has(user.id)) {
@@ -32,7 +31,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     .setDescription(reaction.message)
                     .addField(strings.message, `[${strings.clickHere}](${reaction.message.url})`)
                     .setFooter(strings.requestedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
-                translatorChannel.send(reaction.message.author, embed)
+                if (reaction.message.author.id !== user.id) translatorChannel.send(reaction.message.author, embed)
             } else if (reaction.emoji.name === "vote_no") {
                 reaction.users.remove(user.id)
                 const embed = new Discord.MessageEmbed()
@@ -41,8 +40,14 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     .setTitle(strings.rejected.replace("%%user%%", user.tag))
                     .setDescription(reaction.message)
                     .setFooter(strings.rejectedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
-                translatorChannel.send(reaction.message.author, embed)
-                if (!reaction.message.deleted) reaction.message.delete()
+                if (reaction.message.author.id !== user.id) translatorChannel.send(reaction.message.author, embed)
+                setTimeout(() => {
+                    // Check if the user hasn't removed their reaction
+                    if (reaction.users.cache.has(user.id)) {
+                        if (!reaction.message.deleted) reaction.message.delete()
+                        console.log(`String rejected in ${channel.name}`)
+                    } else reaction.users.remove()
+                }, 10000)
             } else reaction.remove()
         }
         // Give Polls role if reacted on reaction role message
