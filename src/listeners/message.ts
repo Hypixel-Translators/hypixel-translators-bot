@@ -9,11 +9,11 @@ import { DbUser } from "../lib/dbclient.js"
 
 client.on("message", async message => {
 
-    //Stop if user is a bot
-    if (message.author.bot) return
-
     //Delete pinned message messages
     if (message.type === "PINS_ADD" && message.channel.type !== "dm") return message.delete()
+
+    //Stop if user is a bot
+    if (message.author.bot) return
 
     //Define command and leveling system
     const args: string[] = message.content.slice(prefix.length).split(/ +/)
