@@ -12,7 +12,7 @@ const command: Command = {
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
     execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", { user: message.author.tag }, "global"),
-            member = client.guilds.cache.get("549503328472530974")!.member(message.author.id)
+            member = client.guilds.cache.get("549503328472530974")!.members.resolve(message.author.id)
         if (member?.roles.cache.find(role => role.name.startsWith("Bot ") && role.name !== "Bot Updates")) {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)

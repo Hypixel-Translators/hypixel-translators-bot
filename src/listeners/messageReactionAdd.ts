@@ -9,7 +9,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
         await reaction.fetch()
         await user.fetch()
         // Delete message when channel name ends with review-strings
-        if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content) && reaction.message.guild!.member(user.id)!.roles.cache.has("569839580971401236")) { // Hypixel Proofreader
+        if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content) && reaction.message.guild!.members.resolve(user.id)!.roles.cache.has("569839580971401236")) { // Hypixel Proofreader
             const translatorChannel = channel.parent!.children.filter(c => c.type === "text").sort((a, b) => a.position - b.position).first()! as Discord.TextChannel
             let strings
             try {
@@ -63,7 +63,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             else if (reaction.emoji.name === "🤖") roleId = "732615152246980628" //Bot Updates
             else if (reaction.emoji.name === "🎉") roleId = "801052623745974272" //Giveaway pings
             else return
-            reaction.message.guild!.member(user.id)!.roles.add(roleId, "Added the reaction in server-info")
+            reaction.message.guild!.members.resolve(user.id)!.roles.add(roleId, "Added the reaction in server-info")
                 .then(() => console.log(`Gave the ${reaction.message.guild!.roles.cache.get(roleId)!.name} role to ${user.tag}`))
                 .catch(err => console.error(`An error occured while trying to give the ${reaction.message.guild!.roles.cache.get(roleId)!.name} role to ${user.tag}. Here's the error:\n${err.stack}`))
         }

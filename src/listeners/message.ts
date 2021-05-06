@@ -80,7 +80,8 @@ client.on("message", async message => {
     }
 
     //Staff messaging system
-    if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm" && !client.guilds.cache.get("549503328472530974")!.member(message.author.id)?.roles.cache.has("645208834633367562")) { // Muted
+    const member = await message.client.guilds.cache.get("549503328472530974")!.members.fetch(message.author.id)
+    if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm" && !member!.roles.cache.has("645208834633367562")) { // Muted
         const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
         const staffMsg = new Discord.MessageEmbed()
             .setColor(neutralColor)
@@ -117,7 +118,6 @@ client.on("message", async message => {
     if (message.channel.type === "dm") console.log(`${message.author.tag} used command ${commandName} in DMs`)
 
     //Return if user is not verified
-    const member = message.client.guilds.cache.get("549503328472530974")!.member(message.author.id)
     if (!member?.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
 
     //Role Blacklist and Whitelist system
