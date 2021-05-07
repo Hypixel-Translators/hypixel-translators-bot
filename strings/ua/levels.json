@@ -1,9 +1,9 @@
 {
-    "moduleName": "XP Leaderboard",
-    "pageTitle": "Here is the XP leaderboard!",
+    "moduleName": "Таблиця лідерів за досвідом",
+    "pageTitle": "Ось таблиця лідерів за досвідом!",
     "page": "Page %%number%%/%%total%%",
-    "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
-    "thousand": "k",
-    "unranked": "#%%rank%% Unranked",
+    "level": "#%%rank%% місце | %%level%% рівень | %%xp%% досвіду",
+    "thousand": "тис.",
+    "unranked": "#%%rank%% місце | Без рангу",
     "timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%."
 }
