@@ -3,7 +3,7 @@
     "loading": "Eine Sekunde …",
     "loadingRoles": "Rollen werden abgerufen …",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
+        "noLanguages": "Du scheinst keine Sprachrollen zu haben! Bitte kontaktiere einen Administrator, wenn du glaubst, dass dies ein Fehler ist.",
         "trNoRoles": "Wir haben bemerkt, dass du ein Übersetzer bist, aber du keine Sprachrollen hast.",
         "error": "Benutzername konnte nicht geändert werden. Du kannst den Benutzernamen unten kopieren und ihn selbst anwenden.",
         "confirmedNoFlags": "Du hast bestätigt, aber du hast auf keine Flaggen reagiert, ",
