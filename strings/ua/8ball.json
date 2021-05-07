@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magic 8 ball",
-    "question": "Question",
+    "moduleName": "Чарівна куля",
+    "question": "Запитання",
     "answers": {
         "positive": [
-            "It is certain.",
-            "It is decidedly so.",
-            "Without a doubt.",
-            "Yes – definitely.",
-            "You may rely on it.",
-            "As I see it, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Yes",
-            "Signs point to yes."
+            "Безспірно.",
+            "Безумовно, так.",
+            "Без сумнівно.",
+            "Так – безумовно.",
+            "Можете розраховувати на це.",
+            "Як я бачу, так.",
+            "Найвірогідніше.",
+            "Гарні перспективи.",
+            "Так",
+            "Знаки вказують, що так."
         ],
         "inconclusive": [
-            "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again."
+            "Ще точно не зрозуміло, спробуйте ще раз.",
+            "Спробуйте запитати пізніше.",
+            "Краще Вам це зараз не розповідати.",
+            "Не можу зараз нічого сказати.",
+            "Сконцентруйтеся та запитайтеся знову."
         ],
         "negative": [
-            "Don't count on it.",
-            "My reply is no.",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful."
+            "Навіть не думайте.",
+            "Моя відповідь — ні.",
+            "Мої джерела кажуть, що ні.",
+            "Перспективи не дуже гарні.",
+            "Дуже сумнівно."
         ]
     }
 }

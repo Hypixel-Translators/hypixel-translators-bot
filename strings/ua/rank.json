@@ -1,12 +1,12 @@
 {
-    "moduleName": "User level",
-    "yourRank": "Here's your rank",
-    "userRank": "Here's %%user%%'s rank",
-    "youNotRanked": "You're not ranked yet!",
-    "userNotRanked": "That user is not ranked yet!",
-    "howRank": "In order to be ranked you must talk in the chats!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Messages",
-    "thousand": "k",
-    "youLevel": "You're at level %%level%% and you're #%%rank%% on the leaderboard!",
-    "userLevel": "%%user%% is at level %%level%% and they're #%%rank%% on the leaderboard!"
+    "moduleName": "Рівень користувача",
+    "yourRank": "Ось ваш ранг",
+    "userRank": "Ось ранг %%user%%",
+    "youNotRanked": "У вас поки немає рангу!",
+    "userNotRanked": "У цього користувача поки немає рангу!",
+    "howRank": "Для того, щоб отримати ранг, Ви повинні спілкуватися в чатах!",
+    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% повідомлень",
+    "thousand": "тис.",
+    "youLevel": "У вас %%level%% рівень і Ви на #%%rank%% місці в таблиці лідерів!",
+    "userLevel": "%%user%% на %%level%% рівні й він на #%%rank%% місці в таблиці лідерів!"
 }
