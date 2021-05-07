@@ -1,5 +1,5 @@
 {
-    "moduleName": "Ping",
-    "pong": "%%pingEmote%% Pong!",
-    "message": "My ping is %%ping%%ms."
+    "moduleName": "Пінг",
+    "pong": "%%pingEmote%% Понг!",
+    "message": "Мій пінг %%ping%%мс."
 }
