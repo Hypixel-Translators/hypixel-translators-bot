@@ -1,9 +1,9 @@
 {
     "moduleName": "Таблиця лідерів за досвідом",
     "pageTitle": "Ось таблиця лідерів за досвідом!",
-    "page": "Page %%number%%/%%total%%",
+    "page": "Сторінка %%number%% із %%total%%",
     "level": "#%%rank%% місце | %%level%% рівень | %%xp%% досвіду",
     "thousand": "тис.",
     "unranked": "#%%rank%% місце | Без рангу",
-    "timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%."
+    "timeOut": "Термін дії цього меню сплив. Якщо Ви хочете використовувати його знову, напишіть %%command%%."
 }
