@@ -13,14 +13,14 @@ const command: Command = {
     cooldown: 120,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
     allowDM: true,
-    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", { user: message.author.tag }, "global")
-        const credits = getString("madeBy", { developer: message.client.users.cache.get("500669086947344384")!.tag })
-        const authorDb: DbUser = await client.getUser(message.author.id)
+    async execute(interaction: Discord.CommandInteraction, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
+        const credits = getString("madeBy", { developer: interaction.client.users.cache.get("500669086947344384")!.tag })
+        const authorDb: DbUser = await client.getUser(interaction.user.id)
         let uuid = authorDb.uuid
         if (args[0]) {
             args[0] = args[0].replace(/[\\<>@#&!]/g, "")
-            if (message.guild!.members.cache.get(args[0])) {
+            if (interaction.guild!.members.cache.get(args[0])) {
                 const userDb: DbUser = await client.getUser(args[0])
                 if (userDb.uuid) uuid = userDb.uuid
                 else throw "notVerified"
@@ -29,7 +29,6 @@ const command: Command = {
         }
         if (!uuid) throw "noUser"
 
-        message.channel.startTyping()
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
         await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 50000 })
             .then(res => (res.json())) // get the response json
@@ -58,7 +57,7 @@ const command: Command = {
 
                 //Update user's roles if they're verified
                 const uuidDb = await db.collection("users").findOne({ uuid: json.uuid })
-                if (uuidDb) updateRoles(message.guild!.members.cache.get(uuidDb.id)!, json)
+                if (uuidDb) updateRoles(interaction.guild!.members.cache.get(uuidDb.id)!, json)
 
                 const stats = async () => {
                     //Define each value
@@ -101,7 +100,7 @@ const command: Command = {
                             { name: getString(lastLoginSelector), value: lastLogin, inline: true }
 
                         )
-                        .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+                        .setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                     return statsEmbed
                 }
 
@@ -134,7 +133,7 @@ const command: Command = {
                     if (socialMedia.DISCORD) {
                         if (!socialMedia.DISCORD.includes("discord.gg")) discord = socialMedia.DISCORD.split("_").join("\\_")
                         else {
-                            await message.client.fetchInvite(socialMedia.DISCORD)
+                            await interaction.client.fetchInvite(socialMedia.DISCORD)
                                 .then(invite => {
                                     if (allowedGuildIDs.includes((invite.channel as Discord.GuildChannel).guild?.id)) discord = `[${getString("link")}](${invite.url})` //invite.channel.guild is used here because invite.guild is not guaranteed according to the docs
                                     else {
@@ -168,7 +167,7 @@ const command: Command = {
                             { name: "Discord", value: discord, inline: true },
                             { name: "Hypixel Forums", value: forums, inline: true }
                         )
-                        .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+                        .setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                     return socialEmbed
                 }
 
@@ -177,24 +176,23 @@ const command: Command = {
                 else if (args[1] === "social") embed = await social()
                 else throw "noSubCommand"
 
-                message.channel.stopTyping()
-                message.channel.send(embed)
+                interaction.reply(embed)
                     .then(async msg => {
                         await msg.react("📊"); await msg.react("<:twitter:821752918352068677>")
 
-                        const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, user: Discord.User) => (reaction.emoji.name === "📊" || reaction.emoji.name === "twitter") && user.id === message.author.id, { time: this.cooldown! * 1000 }) //2 minutes
+                        const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, user: Discord.User) => (reaction.emoji.name === "📊" || reaction.emoji.name === "twitter") && user.id === interaction.user.id, { time: this.cooldown! * 1000 }) //2 minutes
 
                         collector.on("collect", async reaction => {
                             if (reaction.emoji.name === "📊") embed = await stats()
                             else if (reaction.emoji.name === "twitter") embed = await social()
-                            reaction.users.remove(message.author.id)
+                            reaction.users.remove(interaction.user.id)
                             msg.edit(embed)
                         })
 
                         collector.on("end", () => {
                             msg.edit(getString("timeOut", { command: "`+hypixelstats`" }))
-                            if (message.channel.type !== "dm") msg.reactions.removeAll()
-                            else msg.reactions.cache.forEach(reaction => reaction.users.remove(message.client.user!.id)) //remove all reactions by the bot
+                            if (interaction.channel.type !== "dm") msg.reactions.removeAll()
+                            else msg.reactions.cache.forEach(reaction => reaction.users.remove(interaction.client.user!.id)) //remove all reactions by the bot
                         })
                     })
             })

@@ -9,23 +9,13 @@ import { setup } from "./lib/imports"
 setup(client)
 
 //Command interface
-export interface Command {
-    name: string,
-    description: string,
-    usage: string,
-    aliases?: string[],
+export interface Command extends Discord.CommandInteraction {
     cooldown?: number,
     allowDM?: true,
     allowTip?: false,
     dev?: true,
-    roleWhitelist?: string[],
-    roleBlacklist?: string[],
-    channelBlacklist?: string[],
-    channelWhitelist?: string[],
-    categoryWhitelist?: string[],
-    categoryBlacklist?: string[],
     category?: string,
-    execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any): any
+    execute(interaction: Discord.CommandInteraction, getString?: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any): any
 }
 
 //Log in

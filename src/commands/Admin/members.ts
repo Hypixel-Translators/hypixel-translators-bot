@@ -10,7 +10,7 @@ const command: Command = {
     allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-development admin-bots
-    execute(message: Discord.Message, args: string[]) {
+    execute(interaction: Discord.CommandInteraction, args: string[]) {
         let roleRaw = args.join(" ").replace(/[\\<>@#&!]/g, "").toLowerCase()
         if (!roleRaw) throw "noRole"
         let role = client.guilds.cache.get("549503328472530974")!.roles.cache.find(r => r.id === roleRaw || r.name.toLowerCase() === roleRaw)
@@ -35,15 +35,15 @@ const command: Command = {
         if (arr.length > 1) {
             arr.forEach(arg => {
                 embed.setDescription(arg.join(", "))
-                message.channel.send(embed)
+                interaction.reply(embed)
                 embed
                     .setAuthor("")
                     .setTitle("")
                     .setFooter("")
             })
         } else embed.setDescription(arr[0].join(", "))
-        embed.setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        message.channel.send(embed)
+        embed.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+        interaction.reply(embed)
     }
 }
 

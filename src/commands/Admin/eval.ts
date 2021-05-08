@@ -18,10 +18,10 @@ const command: Command = {
   allowDM: true,
   roleWhitelist: ["620274909700161556"], //*
   channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
-  async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-    const me = message.member,
-      guild = message.guild,
-      channel = message.channel as Discord.TextChannel,
+  async execute(interaction: Discord.CommandInteraction, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    const me = interaction.member,
+      guild = interaction.guild,
+      channel = interaction.channel as Discord.TextChannel,
       db = mongoDb,
       discord = Discord,
       client = Client
@@ -32,11 +32,11 @@ const command: Command = {
     codeToRun = transpile(codeToRun)
     try {
       evaled = await eval(codeToRun)
-      message.channel.send(inspect(evaled).substring(0, 255))
+      interaction.reply(inspect(evaled).substring(0, 255))
       console.log(inspect(evaled))
     } catch (error) {
       console.error(error)
-      message.channel.send(`Something went wrong. Here is the error:\n${error}`)
+      interaction.reply(`Something went wrong. Here is the error:\n${error}`)
     }
   }
 }

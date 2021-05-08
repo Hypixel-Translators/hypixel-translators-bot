@@ -9,14 +9,14 @@ const command: Command = {
     usage: "restart",
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-dev admin-bots
-    execute(message: Discord.Message) {
+    execute(interaction: Discord.CommandInteraction) {
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor("Restart")
             .setTitle("Restarting...")
-            .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        message.channel.send(embed)
-        message.client.user!.setStatus("invisible")
+            .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+        interaction.reply(embed)
+        interaction.client.user!.setStatus("invisible")
         setTimeout(() => { process.exit() }, 1000)
     }
 }

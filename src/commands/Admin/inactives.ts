@@ -10,14 +10,14 @@ const command: Command = {
     aliases: ["updateinactives", "unverifieds", "inactive"],
     allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
-    execute(message: Discord.Message) {
+    execute(interaction: Discord.CommandInteraction) {
         inactives(client, true)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor("Inactive checker")
             .setTitle("All inactive members have been notified!")
-            .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        message.channel.send(embed)
+            .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+        interaction.reply(embed)
     }
 }
 

@@ -54,7 +54,7 @@ client.on("message", async message => {
                     .setDescription(getString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }, "global"))
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
                 if (message.content !== langFix && message.channel.parentID === "549503328472530977") embed.setDescription(`${getString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }, "global")}\n${getString("reminderLang", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }, "global")}`)
-                return message.channel.send(message.author, embed)
+                return message.reply(message.author, embed)
             } else if (message.content !== langFix && message.channel.parentID === "549503328472530977") {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
@@ -62,7 +62,7 @@ client.on("message", async message => {
                     .setAuthor(getString("errors.wrongLink", "global"))
                     .setTitle(getString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }, "global"))
                     .setDescription(langFix)
-                return message.channel.send(message.author, embed)
+                return message.reply(message.author, embed)
             }
         }
     }
@@ -100,7 +100,7 @@ client.on("message", async message => {
             staffMsg.setTitle("View attachments")
             dmEmbed.setTitle("Attachments sent")
             staffBots.send({ embed: staffMsg, files: images })
-            return message.channel.send(dmEmbed)
+            return message.reply(dmEmbed)
         } else if (message.attachments.size > 0) {
             staffMsg
                 .setTitle("View attachment")
@@ -108,7 +108,7 @@ client.on("message", async message => {
             dmEmbed.setTitle("Attachment sent")
             staffBots.send(staffMsg)
         } else staffBots.send(staffMsg) //staff-bots
-        return message.channel.send(dmEmbed)
+        return message.reply(dmEmbed)
     }
 
     //Stop if the message is not a command
@@ -162,7 +162,7 @@ client.on("message", async message => {
             .setAuthor(getString("error", "global"))
             .setTitle(getString("errors.dmError", "global"))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        return message.channel.send(embed)
+        return message.reply(embed)
     }
     //Cooldown system
     if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Discord.Collection())
@@ -183,7 +183,7 @@ client.on("message", async message => {
                 .setAuthor(getString("cooldown", "global"))
                 .setTitle(timeLeftS)
                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            return message.channel.send(embed)
+            return message.reply(embed)
                 .then(msg =>
                     setTimeout(() => {
                         if (!message.deleted && message.channel.type !== "dm") message.delete()
@@ -262,7 +262,7 @@ client.on("message", async message => {
         if (command.allowTip !== false && d <= 5) { // Less than or equal to 5%
             const keys = Object.keys(getString("tips", "global"))
             const tip = getString(`tips.${keys[keys.length * Math.random() << 0]}`, { botUpdates: "<#732587569744838777>", gettingStarted: "<#699275092026458122>", twitter: "<https://twitter.com/HTranslators>", rules: "<#796159719617986610>", serverInfo: "<#762341271611506708>", bots: "<#549894938712866816>" }, "global")
-            message.channel.send(`**${getString("tip", "global").toUpperCase()}:** ${tip}`)
+            message.reply(`**${getString("tip", "global").toUpperCase()}:** ${tip}`)
         }
     }
     catch (error) {
@@ -278,7 +278,7 @@ client.on("message", async message => {
         if (command.category == "Admin" || command.category == "Staff") embed.addField(getString("usage", "global"), `\`${command.usage}\``)
         else embed.addField(getString("usage", "global"), `\`${getString(`${command.name}.usage`, "help")}\``)
         message.channel.stopTyping()
-        return message.channel.send(embed)
+        return message.reply(embed)
             .then(msg => {
                 if (error.stack) {
                     if (process.env.NODE_ENV === "production") {

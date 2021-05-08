@@ -9,7 +9,7 @@ const command: Command = {
     usage: "+stats",
     aliases: ["statistics", "progress"],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
-    async execute(message: Discord.Message, args: string[]) {
+    async execute(interaction: Discord.CommandInteraction, args: string[]) {
         if (!args[0] || args[0].toLowerCase() === "all") {
             await execute(client, true)
                 .then(() => {
@@ -17,9 +17,9 @@ const command: Command = {
                         .setColor(successColor)
                         .setAuthor("Statistics updater")
                         .setTitle("All language statistics have been updated!")
-                        .setDescription(`Check them out at ${message.guild!.channels.cache.find(c => c.name === "hypixel-language-status")}, ${message.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${message.guild!.channels.cache.find(c => c.name === "bot-language-status")} and ${message.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`)
-                        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    message.channel.send(allEmbed)
+                        .setDescription(`Check them out at ${interaction.guild!.channels.cache.find(c => c.name === "hypixel-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "bot-language-status")} and ${interaction.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`)
+                        .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                    interaction.reply(allEmbed)
                 })
                 .catch(err => { throw err })
         } else if (args[0]) {
@@ -49,16 +49,16 @@ const command: Command = {
                     .setColor(errorColor)
                     .setAuthor("Statistics updater")
                     .setTitle(`Couldn't find the project with the name ${args[0]}.`)
-                    .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                return message.channel.send(errorEmbed)
+                    .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                return interaction.reply(errorEmbed)
             }
             const projectEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor("Statistics updater")
                 .setTitle(`The ${project} language statistics have been updated!`)
-                .setDescription(`Check it out at ${message.guild!.channels.cache.find(c => c.name === `${channel}-language-status`)}!`)
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            message.channel.send(projectEmbed)
+                .setDescription(`Check it out at ${interaction.guild!.channels.cache.find(c => c.name === `${channel}-language-status`)}!`)
+                .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            interaction.reply(projectEmbed)
             console.log(`Manually updated the ${project} language statistics.`)
         }
     }

@@ -10,7 +10,7 @@ const command: Command = {
     allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
-    execute(message: Discord.Message, args: string[]) {
+    execute(interaction: Discord.CommandInteraction, args: string[]) {
         if (args[0] === "info") {
             info(message)
             const successEmbed = new Discord.MessageEmbed()
@@ -18,8 +18,8 @@ const command: Command = {
                 .setAuthor("Channel updater")
                 .setTitle("Updated the information channel!")
                 .setDescription(`Check it out at <#762341271611506708>!`) //server-info
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            message.channel.send(successEmbed)
+                .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            interaction.reply(successEmbed)
         } else if (args[0] === "rules") {
             rules(message)
             const successEmbed = new Discord.MessageEmbed()
@@ -27,8 +27,8 @@ const command: Command = {
                 .setAuthor("Channel updater")
                 .setTitle("Updated the rules channel!")
                 .setDescription(`Check it out at <#796159719617986610>!`) //rules
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            message.channel.send(successEmbed)
+                .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            interaction.reply(successEmbed)
         } else if (args[0] === "verify") {
             verify(message)
             const successEmbed = new Discord.MessageEmbed()
@@ -36,8 +36,8 @@ const command: Command = {
                 .setAuthor("Channel updater")
                 .setTitle("Updated the verification channel!")
                 .setDescription(`Check it out at <#569178590697095168>!`) //verify
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            message.channel.send(successEmbed)
+                .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            interaction.reply(successEmbed)
         } else if (args[0] === "all" || !args[0]) {
             info(message)
             verify(message)
@@ -47,14 +47,14 @@ const command: Command = {
                 .setAuthor("Channel updater")
                 .setTitle("All channels have been updated!")
                 .setDescription(`Check them out at <#762341271611506708>, <#796159719617986610> and <#569178590697095168>!`) //server-info, rules and verify
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            message.channel.send(successEmbed)
+                .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            interaction.reply(successEmbed)
         } else throw "noChannel"
     }
 }
 
-function info(message: Discord.Message) {
-    const serverInfo = message.client.channels.cache.get("762341271611506708") as Discord.TextChannel
+function info(interaction: Discord.CommandInteraction) {
+    const serverInfo = interaction.client.channels.cache.get("762341271611506708") as Discord.TextChannel
     serverInfo.messages.fetch("800415708851732491").then(msg => { //server-info and channels message
         const channelsEmbed = new Discord.MessageEmbed()
             .setColor("#0022ff")
@@ -88,15 +88,15 @@ function info(message: Discord.Message) {
                 { name: "**Official Hypixel staff members**", value: "They do not moderate the Discord but they can be helpful when it comes to asking things regarding translation or the server. (Please refer to rule 5)\n<@&624880339722174464> - Official Hypixel Administrators.\n<@&551758392021090304> - Official Hypixel Moderators.\n<@&551758392339857418> - Official Hypixel Helpers." },
                 { name: "**Translators**", value: "Each of the following roles applies to all 4 projects we support: **Hypixel**, **SkyblockAddons**, **Quickplay** and our **Bot**.\n**Managers** - The managers of each project are the ones responsible for new strings, proofreader promotions, amongst other things. Please avoid tagging people with these roles (refer to rule 5).\n**Proofreaders** - The proofreaders of each language are the ones responsible for reviewing and approving strings. If you notice any mistakes, these are the people you should message.\n**Translators** - A translator's job is to suggest and vote on translations, which helps the proofreaders' job a lot." },
                 { name: "**Miscellaneous**", value: "<@&549894155174674432> - A role given to all bots in the Discord.\n<@&732586582787358781> - A role given to the current developer(s) of our bot.\n<@&618502156638617640> - A role given to people who have helped create art for this server.\n<@&766339653615484930> - A role given to the person who won the Trick'cord Treat contest in October 2020, <@435546264432803840>\n<@&719263346909773864> - A role given to all of the people who've hosted giveaways in <#787050912005881876>!\n<@&557090185670557716> - A role given to all users that joined in the first 6 months of this server (August 28, 2019)." },
-                { name: "**Reaction Roles**", value: `You can react to this message to receive the roles below, here's what they do:\n<@&646098170794868757> - React with 📊 to be notified whenever a new poll is posted on <#646096405252800512>\n<@&732615152246980628> - React with 🤖 to be notified whenever a new major update to <@${message.client.user!.id}> is posted on <#732587569744838777>\n<@&801052623745974272> - React with 🎉 to be notified of future giveaways in <#787050912005881876>!` }
+                { name: "**Reaction Roles**", value: `You can react to this message to receive the roles below, here's what they do:\n<@&646098170794868757> - React with 📊 to be notified whenever a new poll is posted on <#646096405252800512>\n<@&732615152246980628> - React with 🤖 to be notified whenever a new major update to <@${interaction.client.user!.id}> is posted on <#732587569744838777>\n<@&801052623745974272> - React with 🎉 to be notified of future giveaways in <#787050912005881876>!` }
             )
             .setFooter("Need help? Ask your questions in #off-topic | Bot made with lots of care by QkeleQ10#6163")
         msg.edit("", rolesEmbed)
     })
 }
 
-function rules(message: Discord.Message) {
-    const rules = message.client.channels.cache.get("796159719617986610") as Discord.TextChannel
+function rules(interaction: Discord.CommandInteraction) {
+    const rules = interaction.client.channels.cache.get("796159719617986610") as Discord.TextChannel
     rules.messages.fetch("800412977220026398").then(msg => {
         const rulesEmbed = new Discord.MessageEmbed()
             .setColor(blurple)
@@ -118,13 +118,13 @@ function rules(message: Discord.Message) {
     })
 }
 
-function verify(message: Discord.Message) {
-    const verify = message.client.channels.cache.get("569178590697095168") as Discord.TextChannel
+function verify(interaction: Discord.CommandInteraction) {
+    const verify = interaction.client.channels.cache.get("569178590697095168") as Discord.TextChannel
     verify.messages.fetch("787366444970541056").then(msg => { //verify-prototype and verify embed
         const verifyEmbed = new Discord.MessageEmbed()
             .setColor(blurple)
             .setAuthor("Welcome!")
-            .setThumbnail(message.guild!.iconURL()!)
+            .setThumbnail(interaction.guild!.iconURL()!)
             .setTitle("The Hypixel Translators Community")
             .setDescription("Hello there and welcome to the __**Unofficial**__ Hypixel Translators Server! In order to verify yourself to have access to other channels, please follow the instructions below. While you wait we also suggest you check out <#796159719617986610> to be more familiar with the server rules once you've joined.")
             .addFields(
@@ -133,7 +133,7 @@ function verify(message: Discord.Message) {
                 { name: "Need help?", value: "Feel free to send a message on this channel, or DM either <@240875059953139714>, <@241926666400563203> or <@435546264432803840> with any questions you might have!" }
             )
             .setFooter("Have fun on our server!")
-        msg.edit("**Please do not run the command before reading the entire message.**", verifyEmbed) //verify-prototype
+        msg.edit("**Please do not run the command before reading the entire interaction.**", verifyEmbed) //verify-prototype
     })
 }
 

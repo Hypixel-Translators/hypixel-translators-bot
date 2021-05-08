@@ -11,12 +11,11 @@ const command: Command = {
     cooldown: 5,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development 
-    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", { user: message.author.tag }, "global")
+    async execute(interaction: Discord.CommandInteraction, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
         const collection = db.collection("quotes")
         let allowed = false
-        if (message.member?.permissions.has("VIEW_AUDIT_LOG")) allowed = true
-        message.channel.startTyping()
+        if (interaction.member?.permissions.has("VIEW_AUDIT_LOG")) allowed = true
         if (args[0] === "add") {
             args.splice(0, 1)
             const toSend = args.join(" ")
@@ -37,16 +36,15 @@ const command: Command = {
                     .setTitle("A quote request has been submitted!")
                     .setDescription(`${quote}\n       - ${author}`)
                     .addField("To add it", `\`+quote add ${toSend}\``)
-                    .setFooter("Suggested by " + message.author.tag, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+                    .setFooter("Suggested by " + interaction.user.tag, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                 sendTo.send(report)
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("reqSub"))
                     .setDescription(`${quote}\n       - ${author}`)
-                    .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                message.channel.stopTyping()
-                message.channel.send(embed)
+                    .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                interaction.reply(embed)
             } else await addQuote(message, quote, author, collection)
         } else if (args[0] === "edit" && allowed) await editQuote(message, args, collection)
         else if (args[0] === "delete" && allowed) await deleteQuote(message, args, collection)
@@ -55,7 +53,7 @@ const command: Command = {
     }
 }
 
-async function findQuote(executedBy: string, message: Discord.Message, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any, args: string[], collection: Collection<any>) {
+async function findQuote(executedBy: string, interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any, args: string[], collection: Collection<any>) {
 
     const count = await collection.estimatedDocumentCount()
 
@@ -70,9 +68,8 @@ async function findQuote(executedBy: string, message: Discord.Message, getString
             .setAuthor(getString("moduleName"))
             .setTitle(getString("invalidArg"))
             .setDescription(getString("indexArg", { arg: args[0], max: count }))
-            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        message.channel.stopTyping()
-        return message.channel.send(embed)
+            .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+        return interaction.reply(embed)
     }
     console.log(`Quote with ID ${quoteId} was requested`)
     const embed = new Discord.MessageEmbed()
@@ -80,13 +77,12 @@ async function findQuote(executedBy: string, message: Discord.Message, getString
         .setAuthor(getString("moduleName"))
         .setTitle(quote.quote)
         .setDescription(`      - ${quote.author}`)
-        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+        .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     if (quote.url) embed.addField(getString("msgUrl"), quote.url)
-    message.channel.stopTyping()
-    return message.channel.send(embed)
+    return interaction.reply(embed)
 }
 
-async function addQuote(message: Discord.Message, quote: string, author: string, collection: Collection<any>) {
+async function addQuote(interaction: Discord.CommandInteraction, quote: string, author: string, collection: Collection<any>) {
 
     const quoteId = await collection.estimatedDocumentCount() + 1
 
@@ -100,12 +96,11 @@ async function addQuote(message: Discord.Message, quote: string, author: string,
             { name: "User", value: author },
             { name: "Quote number", value: quoteId }
         )
-        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-    message.channel.stopTyping()
-    message.channel.send(embed)
+        .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+    interaction.reply(embed)
 }
 
-async function editQuote(message: Discord.Message, args: string[], collection: Collection<any>) {
+async function editQuote(interaction: Discord.CommandInteraction, args: string[], collection: Collection<any>) {
 
     const quoteId = Number(args[1])
     if (!quoteId) throw "noQuote"
@@ -123,22 +118,20 @@ async function editQuote(message: Discord.Message, args: string[], collection: C
                     { name: "New quote", value: newQuote },
                     { name: "Author", value: r.value.author }
                 )
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            message.channel.stopTyping()
-            message.channel.send(embed)
+                .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            interaction.reply(embed)
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor("Quote")
                 .setTitle("Couldn't find a quote with that ID!")
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            message.channel.stopTyping()
-            message.channel.send(embed)
+                .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            interaction.reply(embed)
         }
     })
 }
 
-async function deleteQuote(message: Discord.Message, args: string[], collection: Collection<any>) {
+async function deleteQuote(interaction: Discord.CommandInteraction, args: string[], collection: Collection<any>) {
 
     const quoteId = Number(args[1])
     if (!quoteId) throw "noQuote"
@@ -152,22 +145,20 @@ async function deleteQuote(message: Discord.Message, args: string[], collection:
                     { name: "User", value: r.value.author },
                     { name: "Quote", value: r.value.quote }
                 )
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            message.channel.stopTyping()
-            message.channel.send(embed)
+                .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            interaction.reply(embed)
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor("Quote")
                 .setTitle("Couldn't find a quote with that ID!")
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            message.channel.stopTyping()
-            message.channel.send(embed)
+                .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            interaction.reply(embed)
         }
     })
 }
 
-async function linkQuote(message: Discord.Message, args: string[], collection: Collection<any>) {
+async function linkQuote(interaction: Discord.CommandInteraction, args: string[], collection: Collection<any>) {
     const quoteId = Number(args[1])
     if (!quoteId) throw "noQuote"
     const urlSplit = args[2].split("/");
@@ -185,17 +176,15 @@ async function linkQuote(message: Discord.Message, args: string[], collection: C
                             { name: "Quote", value: r.value.quote },
                             { name: "Author", value: r.value.author }
                         )
-                        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    message.channel.stopTyping()
-                    message.channel.send(embed)
+                        .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                    interaction.reply(embed)
                 } else {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setAuthor("Quote")
                         .setTitle("Couldn't find a quote with that ID!")
-                        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    message.channel.stopTyping()
-                    message.channel.send(embed)
+                        .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                    interaction.reply(embed)
                 }
             })
         })
@@ -204,10 +193,9 @@ async function linkQuote(message: Discord.Message, args: string[], collection: C
                 .setColor(errorColor)
                 .setAuthor("Quote")
                 .setTitle("Couldn't find a message linked to that URL!")
-                .setDescription("Make sure you obtained it by coping the message URL directly and that I have permission to see that message.")
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            message.channel.stopTyping()
-            message.channel.send(embed)
+                .setDescription("Make sure you obtained it by coping the message URL directly and that I have permission to see that interaction.")
+                .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            interaction.reply(embed)
         })
 }
 

@@ -9,8 +9,8 @@ const command: Command = {
   cooldown: 120,
   allowDM: true,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-  execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-    message.channel.send(`${getString("sbaCrowdin", { crowdin: "<https://crowdin.com/project/skyblockaddons>" })}\n${getString("sbaThread", { thread: "<https://hypixel.net/threads/2109217/>" })}\n${getString("sbaDiscord", { discord: "https://discord.gg/zWyr3f5GXz" })}`)
+  execute(interaction: Discord.CommandInteraction, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    interaction.reply(`${getString("sbaCrowdin", { crowdin: "<https://crowdin.com/project/skyblockaddons>" })}\n${getString("sbaThread", { thread: "<https://hypixel.net/threads/2109217/>" })}\n${getString("sbaDiscord", { discord: "https://discord.gg/zWyr3f5GXz" })}`)
   }
 }
 
