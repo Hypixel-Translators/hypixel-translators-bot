@@ -1,9 +1,9 @@
 {
-    "moduleName": "Translation Projects",
-    "allProjects": "Here are all the projects we currently support on the server!",
-    "description": "If you're already on some of these projects but don't have your roles yet, execute `+reverify [profileURL]` to get them!",
-    "projectInfo": "You can find the link to the %%project%% project [here](%%link%%). For more information, execute %%command%%.",
-    "alreadyJoined": "You've already joined this project!",
-    "notJoined": "You haven't joined this project yet!",
-    "dmError": "We couldn't check whether you're already on these projects or not. In order to do this, you must execute the command on The Hypixel Translators Community Discord."
+    "moduleName": "Проєкти перекладу",
+    "allProjects": "Ось усі проекти, які ми наразі підтримуємо на сервері!",
+    "description": "Якщо Ви вже учасник будь-якого з цих проєктів, але ще не маєте своїх ролей, напишіть `+reverify [profileURL]`, щоб отримати їх!",
+    "projectInfo": "Ви можете знайти посилання на проект %%project%% [тут](%%link%%). Для отримання додаткової інформації напишіть %%command%%.",
+    "alreadyJoined": "Ви вже приєдналися до цього проєкту!",
+    "notJoined": "Ви ще не приєдналися до цього проєкту!",
+    "dmError": "Ми не змогли перевірити чи Ви вже перебуваєте в цих проєктах, чи ні. Для того, щоб зробити це Ви повинні виконати команду на Discord сервері Спільноти перекладачів Hypixel."
 }
