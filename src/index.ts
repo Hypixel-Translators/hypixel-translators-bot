@@ -9,7 +9,11 @@ import { setup } from "./lib/imports"
 setup(client)
 
 //Command interface
-export interface Command extends Discord.CommandInteraction {
+export interface Command {
+    name: string,
+    description: string,
+    options: Discord.ApplicationCommandOptionData[],
+    defaultPermission: boolean,
     cooldown?: number,
     allowDM?: true,
     allowTip?: false,
