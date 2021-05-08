@@ -8,8 +8,8 @@ client.once("ready", async () => {
 
     //Get server boosters and staff for the status
     let boostersStaff: string[] = []
-    client.guilds.cache.get("549503328472530974")!.roles.cache.get("644450674796396576")!.members.forEach(member => boostersStaff.push(member.user.username)) //Server Booster
-    client.guilds.cache.get("549503328472530974")!.roles.cache.get("768435276191891456")!.members.forEach(member => boostersStaff.push(member.user.username)) //Discord Staff
+    client.guilds.cache.get("549503328472530974")?.roles.cache.get("644450674796396576")!.members.forEach(member => boostersStaff.push(member.user.username)) //Server Booster
+    client.guilds.cache.get("549503328472530974")?.roles.cache.get("768435276191891456")!.members.forEach(member => boostersStaff.push(member.user.username)) //Discord Staff
 
     //Set status
     client.user!.setPresence({ status: process.env.NODE_ENV === "dev" ? "dnd" : "online", activities: [{ name: "+help", type: "LISTENING" }] })
