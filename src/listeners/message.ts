@@ -147,7 +147,7 @@ client.on("message", async message => {
     if (command.dev && !member?.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
 
     //Give perm to admins and return if not allowed
-    if (member?.hasPermission("MANAGE_ROLES") && command.name !== "eval" || member?.hasPermission("ADMINISTRATOR")) allowed = true
+    if (member?.permissions.has("MANAGE_ROLES") && command.name !== "eval" || member?.permissions.has("ADMINISTRATOR")) allowed = true
     if (!allowed) {
         message.react("732298639736570007")
         return setTimeout(() => {
@@ -156,7 +156,7 @@ client.on("message", async message => {
     }
 
     //Stop and error if command is not allowed in DMs and command is sent in DMs
-    if (!command.allowDM && message.channel.type === "dm" && !member?.hasPermission("ADMINISTRATOR")) {
+    if (!command.allowDM && message.channel.type === "dm" && !member?.permissions.has("ADMINISTRATOR")) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(getString("error", "global"))
@@ -193,7 +193,7 @@ client.on("message", async message => {
     }
 
     //Remove cooldown if administrator
-    if (!member?.hasPermission("MANAGE_ROLES")) {
+    if (!member?.permissions.has("MANAGE_ROLES")) {
         timestamps.set(message.author.id, now)
         setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
     }

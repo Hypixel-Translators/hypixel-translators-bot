@@ -25,25 +25,21 @@ const command: Command = {
     console.log(lang)
     console.log(nationality)
     const translatorRole = await message.guild!.roles.create({
-      data: {
-        name: `${nationality} Translator`,
-        color: `${args[1] || "000000"}`,
-        hoist: false,
-        position: 22,
-        permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
-        mentionable: false
-      },
+      name: `${nationality} Translator`,
+      color: `${args[1] || "000000"}`,
+      hoist: false,
+      position: 22,
+      permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
+      mentionable: false,
       reason: "Added language " + nationality
     })
     const proofreaderRole = await message.guild!.roles.create({
-      data: {
-        name: `${nationality} Proofreader`,
-        color: `${args[1] || "000000"}`,
-        hoist: false,
-        position: 49,
-        permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
-        mentionable: false
-      },
+      name: `${nationality} Proofreader`,
+      color: `${args[1] || "000000"}`,
+      hoist: false,
+      position: 49,
+      permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
+      mentionable: false,
       reason: "Added language " + nationality
     })
     const overwrites = [
