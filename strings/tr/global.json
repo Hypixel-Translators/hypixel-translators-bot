@@ -35,7 +35,7 @@
     "wrongStringURL": "Gönderdiğin bağlantı, dizenin kendisine değil, editöre yönlendiren bir bağlantıdır!",
     "example": "Doğru dize URL'sini kopyalamak için aşağıdaki resimde gösterilen düğmeye tıkla. Bağlantı böyle olmalı: %%url%%",
     "reminderLang": "Bağlantını %%format%% formatına değiştirmeyi unutma.",
-    "tip": "İpucu",
+    "tip": "Tüyo",
     "tips": {
         "ib": "Henüz Muz dilini denemedin mi? Dilini `+lang ib` komutu ile muz dili olarak güncelleyebilirsin!",
         "translators": "Çevirmenlere ihtiyacım var! Nasıl bir bot çevirmeni olacağını `+translate` komutunu kullanarak öğren.",
