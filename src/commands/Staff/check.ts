@@ -18,7 +18,7 @@ const command: Command = {
       if (!member) throw "falseUser"
     }
 
-    const userDb: DbUser = await db.collection("users").findOne({ id: member!.user.id })
+    const userDb: DbUser | null = await db.collection("users").findOne({ id: member!.user.id })
     let note
     if (member!.user.id === interaction.guild!.ownerID) note = "Discord Owner"
     else if (member!.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"
@@ -27,7 +27,7 @@ const command: Command = {
     else if (member!.roles.cache.find(r => r.name === "Discord Helper")) note = "Discord Helper"
     else if (member!.roles.cache.find(r => r.name.endsWith(" Manager"))) note = "Project Manager"
     else if (member!.roles.cache.find(r => r.name === "Hypixel Staff")) note = "Hypixel Staff Member"
-    else if (userDb.profile) note = userDb.profile
+    else if (userDb?.profile) note = userDb.profile
 
     let color = member!.displayHexColor
     if (color == "#000000") color = blurple

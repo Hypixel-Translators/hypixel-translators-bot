@@ -1,7 +1,7 @@
 {
     "moduleName": "Цитата",
-    "msgUrl": "Message URL",
+    "msgUrl": "URL-адреса повідомлення",
     "invalidArg": "Недійсний аргумент!",
     "indexArg": "Цитата з індексом %%arg%% не існує! Будь-ласка вкажіть число між 1 і %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!"
+    "reqSub": "Ваш запит на цитування був відправлений, дякуємо!"
 }

@@ -1,35 +1,35 @@
 {
     "moduleName": "Інформація",
-    "page1Title": "Help page",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `+translate` command.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
-    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
-    "page": "Page %%number%%/%%total%%",
-    "pageNumber": "Page %%number%%",
-    "utilityHelp": "Tools & Utilities",
-    "infoHelp": "Information commands",
-    "projectsHelp": "Crowdin Projects",
-    "timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%.",
-    "pageNotExist": "That page doesn't exist!",
+    "page1Title": "Сторінка допомоги",
+    "commandsListTooltip": "Цей бот був створений для Спільноти перекладачів Hypixel користувачем %%developer%%. Бот з відкритим кодом та наш репозиторій на GitHub можна знайти [тут]%%github%%.\nВи можете допомогти перекласти бота, написавши `+translate` та дотримуючись інструкцій.\n\nВи можете виконати `+help <назва команди>`, щоб дізнатися більше про конкретну команду.\nНижче Ви можете знайти список всіх доступних сторінок. Використовуйте реакції на це повідомлення, щоб прогортати їх.",
+    "madeBy": "Бот написаний з великою турботою користувачем %%QkeleQ10%%",
+    "page": "Сторінка %%number%% із %%total%%",
+    "pageNumber": "Сторінка %%number%%",
+    "utilityHelp": "Інструменти та засоби",
+    "infoHelp": "Інформаційні команди",
+    "projectsHelp": "Проєкти на Crowdin",
+    "timeOut": "Термін дії цього меню сплив. Якщо Ви хочете використовувати його знову, напишіть %%command%%.",
+    "pageNotExist": "Цієї сторінки не існує!",
     "commandInfo": "Інформація щодо команди",
     "commandInfoFor": "Інформація щодо команди ",
-    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-    "inDev": "This command is currently in development and will be available at a later date!",
-    "seconds": "seconds",
-    "second": "second",
-    "minutes": "minutes",
+    "staffOnly": "Ця команда доступна тільки команді Discord і тому її інформація прихована.\nБудь ласка, зв'яжіться з один із команди, якщо Ви вважаєте, що це помилка.",
+    "inDev": "Ця команда в даний час на стадії розробки і буде доступна пізніше!",
+    "seconds": "сек.",
+    "second": "сек.",
+    "minutes": "хв.",
     "usageField": "Використання",
     "cooldownField": "Перезарядка",
     "aliasesField": "Синоніми",
     "help": {
-        "usage": "+help [page | command name]",
+        "usage": "+help [сторінка | назва команди]",
         "description": "Відображає Вам усі доступні команди та іншу інформацію щодо бота."
     },
     "prefix": {
-        "usage": "+prefix [flags]",
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
+        "usage": "+prefix [флаги]",
+        "description": "Надає Вам відповідний префікс для вашої мов(и). Щоб отримати користувацький префікс, напишіть `+prefix <прапори>` та замініть `<прапори>` регіональним кодом прапора Вашої країни або її ім'я. Можна додавати стільки прапорів, скільки захочете, розділяючи пробілом."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [індекс] | +quote add <цитата> / <згадка користувача>",
         "description": "Надає (або додає) смішну/дивну/мудру цитату з сервера."
     },
     "mention": {
@@ -37,87 +37,87 @@
         "description": "Згадує мовну роль із повідомленням."
     },
     "languagestats": {
-        "usage": "+languagestats <language>",
-        "description": "Shows you the progress of a language on all the projects we currently support."
+        "usage": "+languagestats <мова>",
+        "description": "Показує для Вас прогрес мови на всіх проєктах, які ми підтримуємо."
     },
     "issue": {
         "usage": "+issue",
         "description": "Відкриває нашу сторінку проблем із GitHub, де ви можете повідомити про проблеми та надіслати відгук."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or a list of available languages."
+        "usage": "+language [<нова мова> | list]",
+        "description": "Змінює Вашу мову, показує Вашу поточну або показує список доступних мов."
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "Показує пінг бота."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [username] [social]",
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "usage": "+hypixelstats [ім'я користувача] [social]",
+        "description": "Показує Вам базову статистику Hypixel для вказаного користувача."
     },
     "hypixelverify": {
-        "usage": "+hypixelverify <username> | +hypixelunverify",
-        "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
+        "usage": "+hypixelverify <ім'я користувача> | +hypixelunverify",
+        "description": "Прив'язує Ваш обліковий запис Discord до Вашого профілю Hypixel. Напишіть `+hypixelunverify`, щоб відв'язати їх."
     },
     "8ball": {
-        "usage": "+8ball <question>",
-        "description": "The Magic 8 Ball that will answer all your questions."
+        "usage": "+8ball <питання>",
+        "description": "Магічна куля, яка відповість на всі Ваші запитання."
     },
     "verify": {
-        "usage": "+verify [profileURL]",
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `+profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "usage": "+verify [посилання на профіль]",
+        "description": "Автоматично перевіряє зміни в профілі Crowdin і дає відповідні ролі. Якщо Ваш профіль не зберігається в нашій базі даних, Ви можете надати посилання на нього в якості аргументу до команди. Щоб перевірити, чи зберігається Ваш профіль, напишіть `+profile`. Переконайтеся, що у Вас включені приватні повідомлення від учасників цього сервера, щоб бот міг надіслати Вам повідомлення."
     },
     "profile": {
         "usage": "+profile",
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
+        "description": "Надає Вам посилання на Ваш профіль Crowdin, якщо він зберігається в нашій базі даних. Якщо це не так, Ви можете написати `+help reverify`, щоб дізнатися як зберігати свій профіль і оновити ролі."
     },
     "rank": {
-        "usage": "+rank [user]",
-        "description": "Gives you the current XP for yourself or any given user."
+        "usage": "+rank [користувач]",
+        "description": "Надає Вам поточну кількість Вашого досвіду або досвіду будь-якого іншого користувача."
     },
     "levels": {
-        "usage": "+levels [page]",
-        "description": "Gives you the XP leaderboard."
+        "usage": "+levels [сторінка]",
+        "description": "Надає Вам таблицю лідерів за досвідом."
     },
     "tip": {
         "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
+        "description": "Надає Вам випадкову пораду щодо сервера."
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Надає Вам посилання із запрошенням на сервер. Будь ласка, використовуйте це, коли Ви хочете когось запросити."
     },
     "projects": {
         "usage": "+projects",
-        "description": "Gives you links and information about all the translation projects we support on the server."
+        "description": "Надає Вам посилання і інформацію про всі проєкти перекладу, які ми підтримуємо на сервері."
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "Надає Вам корисну інформацію про проєкт Hypixel."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Надає Вам посилання на офіційний потік, стосовно перекладу Hypixel."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Надає Вам корисну інформацію про проєкт Quickplay."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "Надає Вам корисну інформацію про проєкт SkyblockAddons."
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "Надає Вам корисну інформацію про те, як перекласти бота."
     },
     "thread": {
         "usage": "+thread",
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Надає Вам посилання на тему, що оголошує про цей Discord сервер."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Надає Вам посилання на офіційну сторінку спільноти перекладачів Hypixel в Twitter."
     }
 }

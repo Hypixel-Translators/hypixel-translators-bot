@@ -1,12 +1,12 @@
 {
-    "moduleName": "Hypixel Verification",
-    "success": "You successfully verified yourself as %%player%%!",
-    "role": "You were given the %%role%% role due to your rank on the server.",
-    "alreadyVerified": "You are already verified!",
-    "nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
-    "error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
-    "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this.",
-    "unverified": "You were successfully unverified!",
-    "notUnverified": "Couldn't unverify you!",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `+hypixelverify <username>`."
+    "moduleName": "Підтвердження профілю Hypixel",
+    "success": "Ви успішно підтвердили себе як %%player%%!",
+    "role": "Ви отримали роль %%role%%, у зв'язку з Вашим рангом на сервері.",
+    "alreadyVerified": "Ви вже підтверджені!",
+    "nameChangeDisclaimer": "Майте на увазі, що Вам не потрібно знову себе підтверджувати, якщо Ви зміните своє ім'я!",
+    "error": "Ми не змогли підтвердити Вас, тому що Ви не правильно налаштували свій Discord на Hypixel!",
+    "tutorial": "Для того, щоб перевірити профіль, Ви повинні встановити свій Discord на Hypixel на %%tag%% і зачекати близько 10 хвилин, щоб виконати команду знову. Дотримуйтесь інструкцій у відео нижче, якщо Ви не знаєте, як це зробити.",
+    "unverified": "Ви успішно скасували підтвердження!",
+    "notUnverified": "Не вдалося скасувати підтвердження!",
+    "whyNotUnverified": "Це сталося тому, що Ви ще не підтвердили свій профіль! Для того щоб зробити це, напишіть `+hypixelverify <ім'я користувача>`."
 }
