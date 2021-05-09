@@ -69,5 +69,5 @@ client.on("guildMemberAdd", member => {
         member.send(`Hey there and thanks for joining **${member.guild.name}**! We hope you have fun on our server!`)
             .catch(() => console.log(`Couldn't DM user ${member.user.tag}, probably because they have DMs off`))
         db.collection("users").insertOne({ id: member.user.id, lang: "en" })
-    }
+    } else member.roles.add("549894155174674432") // Bot
 })
