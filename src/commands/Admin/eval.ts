@@ -13,12 +13,15 @@ const command: Command = {
   name: "eval",
   description: "Evals the specified code.",
   usage: "+eval <code>",
-  aliases: ["evaluate", "ev"],
   allowTip: false,
   allowDM: true,
-  roleWhitelist: ["620274909700161556"], //*
-  channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
-  async execute(interaction: Discord.CommandInteraction, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+  options: [{
+    type: "STRING",
+    name: "code",
+    description: "The code to run",
+    required: false
+  }],
+  async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
     const me = interaction.member,
       guild = interaction.guild,
       channel = interaction.channel as Discord.TextChannel,
@@ -27,7 +30,7 @@ const command: Command = {
       client = Client
 
     let evaled
-    let codeToRun = args.join(" ").replace(/[“”]/gim, '"')
+    let codeToRun = (interaction.options[0].value! as string).replace(/[“”]/gim, '"')
     if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`
     codeToRun = transpile(codeToRun)
     try {

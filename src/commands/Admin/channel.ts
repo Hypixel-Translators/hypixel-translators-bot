@@ -5,14 +5,33 @@ import { Command } from "../../index"
 const command: Command = {
     name: "channel",
     description: "Updates the specified channel.",
-    usage: "+channel <info|verify>",
-    aliases: ["updatechannel", "channelupdate"],
+    usage: "+channel <rules|info|verify>",
     allowDM: true,
-    roleWhitelist: ["764442984119795732"], //Discord Administrator
-    channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
-    execute(interaction: Discord.CommandInteraction, args: string[]) {
-        if (args[0] === "info") {
-            info(message)
+    options: [{
+        type: "STRING",
+        name: "channel",
+        description: "The channel to update",
+        required: false,
+        choices: [{
+            name: "The #rules channel",
+            value: "rules",
+        },
+        {
+            name: "The server-info channel",
+            value: "info"
+        },
+        {
+            name: "The #verify channel",
+            value: "verify"
+        },
+        {
+            name: "Update all channels",
+            value: "all"
+        }]
+    }],
+    execute(interaction: Discord.CommandInteraction) {
+        if (interaction.options[0].value === "info") {
+            info(interaction)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor("Channel updater")
@@ -20,8 +39,8 @@ const command: Command = {
                 .setDescription(`Check it out at <#762341271611506708>!`) //server-info
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             interaction.reply(successEmbed)
-        } else if (args[0] === "rules") {
-            rules(message)
+        } else if (interaction.options[0].value === "rules") {
+            rules(interaction)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor("Channel updater")
@@ -29,8 +48,8 @@ const command: Command = {
                 .setDescription(`Check it out at <#796159719617986610>!`) //rules
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             interaction.reply(successEmbed)
-        } else if (args[0] === "verify") {
-            verify(message)
+        } else if (interaction.options[0].value === "verify") {
+            verify(interaction)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor("Channel updater")
@@ -38,10 +57,10 @@ const command: Command = {
                 .setDescription(`Check it out at <#569178590697095168>!`) //verify
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             interaction.reply(successEmbed)
-        } else if (args[0] === "all" || !args[0]) {
-            info(message)
-            verify(message)
-            rules(message)
+        } else if (interaction.options[0].value === "all" || !interaction.options[0].value) {
+            info(interaction)
+            verify(interaction)
+            rules(interaction)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor("Channel updater")
