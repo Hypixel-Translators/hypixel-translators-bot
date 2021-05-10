@@ -27,23 +27,20 @@ client.once("ready", async () => {
         }
 
         let permissions: Discord.ApplicationCommandPermissionData[] = []
-        if (command.roleWhitelist) { //Add whitelisted roles
-            command.roleWhitelist.forEach(id => {
-                permissions.push({
-                    type: 1,
-                    id,
-                    permission: true
-                })
+        command.roleWhitelist?.forEach(id => { //Add whitelisted roles
+            permissions.push({
+                type: 1,
+                id,
+                permission: true
             })
-        } else if (command.roleBlacklist) { //Add blacklisted roles
-            command.roleBlacklist.forEach(id => {
-                permissions.push({
-                    type: 1,
-                    id,
-                    permission: false
-                })
+        })
+        command.roleBlacklist?.forEach(id => { //Add blacklisted roles
+            permissions.push({
+                type: 1,
+                id,
+                permission: false
             })
-        }
+        })
 
         if (permissions) {
             await cmd?.setPermissions(permissions)
