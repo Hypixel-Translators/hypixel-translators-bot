@@ -7,6 +7,9 @@ const command: Command = {
     description: "Updates the specified channel.",
     usage: "+channel <rules|info|verify>",
     allowDM: true,
+    defaultPermission: false,
+    roleWhitelist: ["764442984119795732"], //Discord Administrator
+    channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
     options: [{
         type: "STRING",
         name: "channel",
@@ -29,7 +32,7 @@ const command: Command = {
             value: "all"
         }]
     }],
-    execute(interaction: Discord.CommandInteraction) {
+    async execute(interaction: Discord.CommandInteraction) {
         if (interaction.options[0].value === "info") {
             info(interaction)
             const successEmbed = new Discord.MessageEmbed()

@@ -1,10 +1,68 @@
-import { client } from "../index.js"
+import { client, Command } from "../index.js"
 import stats from "../events/stats.js"
 import inactives from "../events/inactives.js"
 import { listeningStatuses, watchingStatuses, playingStatuses } from "../config.json"
+import { ApplicationCommand, ApplicationCommandPermissionData, Collection } from "discord.js"
 
 client.once("ready", async () => {
     console.log("Ready!")
+
+    const publishCommand = async (command: Command) => {
+        if (command.allowDM) {
+            //Create a global command
+            var cmd = await client.application?.commands.create({
+                name: command.name,
+                description: command.description,
+                defaultPermission: command.defaultPermission,
+                options: command.options
+            })
+        } else {
+            //Create a guild wide command
+            var cmd = await client.guilds.cache.get('841233609012543489')?.commands.create({
+                name: command.name,
+                description: command.description,
+                defaultPermission: command.defaultPermission,
+                options: command.options
+            }) 
+        }
+
+        let permissions: ApplicationCommandPermissionData[] = []
+        if (command.roleWhitelist) { //Add whitelisted roles
+            command.roleWhitelist.forEach(id => {
+                permissions.push({
+                    type: 1,
+                    id,
+                    permission: true
+                })
+            })
+        } else if (command.roleBlacklist) { //Add blacklisted roles
+            command.roleBlacklist.forEach(id => {
+                permissions.push({
+                    type: 1,
+                    id,
+                    permission: false
+                })
+            })
+        }
+
+        if (permissions) {
+            await cmd?.setPermissions(permissions)
+        }
+    }
+
+    //Fetch slash commands
+    const commands: Collection<string, ApplicationCommand> | undefined = await client.application?.commands?.fetch()
+    if (!commands) {
+        client.commands.forEach(async (command: Command) => {
+            await publishCommand(command)
+        })
+    } else {
+        client.commands.forEach(async (command: Command) => {
+            if (!commands.some(cmd => cmd.name === command.name)) { //Chech if the command is published
+                await publishCommand(command)
+            }
+        })
+    }
 
     //Get server boosters and staff for the status
     let boostersStaff: string[] = []

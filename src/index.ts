@@ -14,9 +14,12 @@ export interface Command extends Discord.ApplicationCommandData {
     cooldown?: number,
     allowDM?: true,
     allowTip?: false,
+    roleWhitelist?: string[],
+    roleBlacklist?: string[],
+    channelWhitelist?: string[],
     dev?: true,
     category?: string,
-    execute(interaction: Discord.CommandInteraction, getString?: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any): any
+    execute(interaction: Discord.CommandInteraction, lang?: string): Promise<any>
 }
 
 //Log in
