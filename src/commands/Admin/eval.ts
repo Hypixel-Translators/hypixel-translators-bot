@@ -23,7 +23,7 @@ const command: Command = {
     description: "The code to run",
     required: false
   }],
-  async execute(interaction: Discord.CommandInteraction) {
+  async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
     const me = interaction.member,
       guild = interaction.guild,
       channel = interaction.channel as Discord.TextChannel,
