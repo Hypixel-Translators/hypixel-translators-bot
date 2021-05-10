@@ -24,6 +24,13 @@ const command: Command = {
     required: false
   }],
   async execute(interaction: Discord.CommandInteraction) {
+    const me = interaction.member,
+      guild = interaction.guild,
+      channel = interaction.channel as Discord.TextChannel,
+      db = mongoDb,
+      discord = Discord,
+      client = Client
+
     let evaled
     let codeToRun = (interaction.options[0].value! as string).replace(/[“”]/gim, '"')
     if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`
