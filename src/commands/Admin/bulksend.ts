@@ -20,7 +20,7 @@ const command: Command = {
     description: "The amount of messages to send in bulk",
     required: true
   }],
-  async execute(interaction: Discord.CommandInteraction) {
+  execute(interaction: Discord.CommandInteraction) {
     if (!(interaction.options[0].channel! as Discord.GuildChannel).isText()) return
     const sendTo = interaction.options[0].channel! as Discord.TextChannel
     let amount = Number(interaction.options[1].value)

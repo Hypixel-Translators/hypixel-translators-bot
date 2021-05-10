@@ -2,7 +2,7 @@ import { client, Command } from "../index.js"
 import stats from "../events/stats.js"
 import inactives from "../events/inactives.js"
 import { listeningStatuses, watchingStatuses, playingStatuses } from "../config.json"
-import { ApplicationCommand, ApplicationCommandPermissionData, Collection } from "discord.js"
+import Discord from "discord.js"
 
 client.once("ready", async () => {
     console.log("Ready!")
@@ -26,7 +26,7 @@ client.once("ready", async () => {
             }) 
         }
 
-        let permissions: ApplicationCommandPermissionData[] = []
+        let permissions: Discord.ApplicationCommandPermissionData[] = []
         if (command.roleWhitelist) { //Add whitelisted roles
             command.roleWhitelist.forEach(id => {
                 permissions.push({
@@ -51,7 +51,7 @@ client.once("ready", async () => {
     }
 
     //Fetch slash commands
-    const commands: Collection<string, ApplicationCommand> | undefined = await client.application?.commands?.fetch()
+    const commands = await client.application?.commands?.fetch()
     if (!commands) {
         client.commands.forEach(async (command: Command) => {
             await publishCommand(command)

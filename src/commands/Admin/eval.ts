@@ -1,3 +1,9 @@
+const { loadingColor, errorColor, successColor, neutralColor, blurple, listeningStatuses, watchingStatuses, playingStatuses } = require("../../config.json")
+const fetch = require("node-fetch")
+const { flag, code, name, countries } = require('country-emoji')
+const fs = require("fs")
+const country = require("countryjs")
+import { db as mongoDb } from "../../lib/dbclient"
 import { transpile } from "typescript"
 import Discord from "discord.js"
 import { inspect } from "util"

@@ -32,7 +32,7 @@ const command: Command = {
             value: "all"
         }]
     }],
-    async execute(interaction: Discord.CommandInteraction) {
+    execute(interaction: Discord.CommandInteraction) {
         if (interaction.options[0].value === "info") {
             info(interaction)
             const successEmbed = new Discord.MessageEmbed()
