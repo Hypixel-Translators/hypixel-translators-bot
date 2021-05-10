@@ -19,7 +19,7 @@ export interface Command extends Discord.ApplicationCommandData {
     channelWhitelist?: string[],
     dev?: true,
     category?: string,
-    execute(interaction: Discord.CommandInteraction, lang?: string): any
+    execute(interaction: Discord.CommandInteraction, getString?: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any): any
 }
 
 //Log in
