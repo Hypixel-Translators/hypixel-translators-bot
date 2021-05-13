@@ -4,7 +4,7 @@
   "errorColor": "#e02222",
   "successColor": "#21de70",
   "neutralColor": "#28dbde",
-  "blurple": "#7289da",
+  "blurple": "#5865f2",
   "listeningStatuses": ["+help", "RANDOM_USER's commands", "RANDOM_USER", "wise words from RANDOM_USER", "Stannya and Rodry"],
   "watchingStatuses": ["your commands", "your messages", "meatdata", "their prayers", "nicknames and stuff", "RANDOM_USER's messages", "project statistics"],
   "playingStatuses": ["with commands", "with RANDOM_USER", "Crowdin", "Hypixel", "Quickplay", "SkyblockAddons", "with myself"]
