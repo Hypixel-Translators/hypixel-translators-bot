@@ -3,7 +3,7 @@ import "dotenv/config"
 import "source-map-support/register"
 import Discord from "discord.js"
 import { HTBClient } from "./lib/dbclient"
-export const client = new HTBClient({ partials: ["USER", "CHANNEL", "GUILD_MEMBER", "MESSAGE", "REACTION"], intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_INTEGRATIONS", "GUILD_VOICE_STATES", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS"] })
+export const client = new HTBClient({ partials: ["USER", "CHANNEL", "GUILD_MEMBER", "MESSAGE", "REACTION"], intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_INTEGRATIONS", "GUILD_VOICE_STATES", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS"], allowedMentions: { repliedUser: false } })
 //Import commands and events
 import { setup } from "./lib/imports"
 setup(client)
@@ -16,7 +16,10 @@ export interface Command extends Discord.ApplicationCommandData {
     allowTip?: false,
     roleWhitelist?: string[],
     roleBlacklist?: string[],
+    channelBlacklist?: string[],
     channelWhitelist?: string[],
+    categoryWhitelist?: string[],
+    categoryBlacklist?: string[],
     dev?: true,
     category?: string,
     execute(interaction: Discord.CommandInteraction, getString?: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any): any

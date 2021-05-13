@@ -23,7 +23,7 @@ client.once("ready", async () => {
                 description: command.description,
                 defaultPermission: command.defaultPermission,
                 options: command.options
-            }) 
+            })
         }
 
         let permissions: Discord.ApplicationCommandPermissionData[] = []
@@ -43,7 +43,7 @@ client.once("ready", async () => {
         })
 
         if (permissions) {
-            await cmd?.setPermissions(permissions)
+            // await cmd?.setPermissions(permissions) //Reserved for official testing on the server
         }
     }
 
