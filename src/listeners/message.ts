@@ -83,7 +83,7 @@ client.on("message", async message => {
     const member = await message.client.guilds.cache.get("767076095156551741")!.members.fetch(message.author.id)
     if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm" && !member!.roles.cache.has("645208834633367562")) { // Muted
         const staffBots = client.channels.cache.get("783254723439493140") as Discord.TextChannel
-        const timeToPass = 300 // in seconds
+        const timeToPass = 300, timeForConfirmToExpire = 20 // in seconds
         if (typeof author.lastStaffMessage === "undefined" || author.lastStaffMessage - timeToPass > message.createdTimestamp) {
             const confirmEmbed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
@@ -93,7 +93,7 @@ client.on("message", async message => {
             
             const msg = (await message.channel.send(confirmEmbed))
             msg.react("✅").then(() => msg.react("❎"))
-            const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, reacter: Discord.User) => (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id, { time: 20 * 1000 })
+            const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, reacter: Discord.User) => (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id, { time: timeForConfirmToExpire * 1000 })
 
             collector.on("collect", async reaction => {
                 if (reaction.emoji.name === "❎") return msg.delete()
