@@ -28,7 +28,7 @@ const command: Command = {
     if (!role) throw "falseRole"
     if (type === "pf" || type === "pr" || type === "proofreader") {
       const toPing = message.guild!.roles.cache.find(role => role.name === `${toLook} Proofreader`)
-      if (message.member!.roles.cache.find(role => role.name === `${toLook} Proofreader` || message.member!.hasPermission("MANAGE_ROLES"))) {
+      if (message.member!.roles.cache.find(role => role.name === `${toLook} Proofreader` || message.member!.permissions.has("MANAGE_ROLES"))) {
         message.delete()
         message.channel.send(`**${message.author}**: ${toPing} ${toSend}`)
       } else {
@@ -40,7 +40,7 @@ const command: Command = {
       }
     } else if (type === "tr" || type === "translator") {
       const toPing = message.guild!.roles.cache.find(role => role.name === `${toLook} Translator`)
-      if (message.member!.roles.cache.find(role => role.name === `${toLook} Proofreader` || message.member!.hasPermission("MANAGE_ROLES"))) {
+      if (message.member!.roles.cache.find(role => role.name === `${toLook} Proofreader` || message.member!.permissions.has("MANAGE_ROLES"))) {
         message.delete()
         message.channel.send(`**${message.author}**: ${toPing} ${toSend}`)
       } else {
@@ -53,7 +53,7 @@ const command: Command = {
     } else if (type === "all" || type === "both") {
       const translatorPing = message.guild!.roles.cache.find(role => role.name === `${toLook} Translator`)
       const proofreaderPing = message.guild!.roles.cache.find(role => role.name === `${toLook} Proofreader`)
-      if (message.member!.roles.cache.find(role => role.name === `${toLook} Proofreader` || message.member!.hasPermission("MANAGE_ROLES"))) {
+      if (message.member!.roles.cache.find(role => role.name === `${toLook} Proofreader` || message.member!.permissions.has("MANAGE_ROLES"))) {
         message.delete()
         message.channel.send(`**${message.author}**: ${translatorPing} ${proofreaderPing} ${toSend}`)
       } else {

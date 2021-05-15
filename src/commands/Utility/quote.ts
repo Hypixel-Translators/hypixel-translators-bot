@@ -15,7 +15,7 @@ const command: Command = {
         const executedBy = getString("executedBy", { user: message.author.tag }, "global")
         const collection = db.collection("quotes")
         let allowed = false
-        if (message.member?.hasPermission("VIEW_AUDIT_LOG")) allowed = true
+        if (message.member?.permissions.has("VIEW_AUDIT_LOG")) allowed = true
         message.channel.startTyping()
         if (args[0] === "add") {
             args.splice(0, 1)

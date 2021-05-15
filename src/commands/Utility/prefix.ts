@@ -196,11 +196,7 @@ const command: Command = {
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
           msg.edit(embed)
 
-          const filter = (reaction: Discord.MessageReaction, reacter: Discord.User) => {
-            return (userLangs.includes(reaction.emoji.name) || reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id
-          }
-
-          const collector = msg.createReactionCollector(filter, { time: this.cooldown! * 1000 })
+          const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, reacter: Discord.User) => (userLangs.includes(reaction.emoji.name!) || reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id, { time: this.cooldown! * 1000 })
 
           collector.on('collect', async (reaction, reacter) => {
             if (reaction.emoji.name !== "❎") msg.react("✅")

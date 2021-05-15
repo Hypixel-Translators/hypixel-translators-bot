@@ -7,9 +7,10 @@ client.on("messageReactionAdd", async (reaction, user) => {
     const channel = reaction.message.channel
     if (channel.type !== "dm" && !user.bot) {
         await reaction.fetch()
+        await reaction.message.fetch()
         await user.fetch()
         // Delete message when channel name ends with review-strings
-        if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content) && reaction.message.guild!.members.resolve(user.id)!.roles.cache.has("569839580971401236")) { // Hypixel Proofreader
+        if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content!) && reaction.message.guild!.members.resolve(user.id)!.roles.cache.has("569839580971401236")) { // Hypixel Proofreader
             const translatorChannel = channel.parent!.children.filter(c => c.type === "text").sort((a, b) => a.position - b.position).first()! as Discord.TextChannel
             let strings
             try {
@@ -17,7 +18,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             } catch {
                 strings = require(`../../strings/en/reviewStrings.json`)
             }
-            if (reaction.emoji.name === "vote_yes" && reaction.message.author.id !== user.id) {
+            if (reaction.emoji.name === "vote_yes" && reaction.message.author!.id !== user.id) {
                 reaction.message.react("⏱")
                 setTimeout(() => {
                     // Check if the user hasn't removed their reaction
@@ -35,7 +36,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     .setDescription(reaction.message)
                     .addField(strings.message, `[${strings.clickHere}](${reaction.message.url})`)
                     .setFooter(strings.requestedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
-                if (reaction.message.author.id !== user.id) translatorChannel.send(reaction.message.author, embed)
+                if (reaction.message.author!.id !== user.id) translatorChannel.send(reaction.message.author, embed)
             } else if (reaction.emoji.name === "vote_no") {
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
@@ -43,7 +44,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     .setTitle(strings.rejected.replace("%%user%%", user.tag))
                     .setDescription(reaction.message)
                     .setFooter(strings.rejectedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
-                if (reaction.message.author.id !== user.id) {
+                if (reaction.message.author!.id !== user.id) {
                     reaction.message.react("⏱")
                     setTimeout(() => {
                         translatorChannel.send(reaction.message.author, embed)
@@ -68,7 +69,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 .catch(err => console.error(`An error occured while trying to give the ${reaction.message.guild!.roles.cache.get(roleId)!.name} role to ${user.tag}. Here's the error:\n${err.stack}`))
         }
         // Starboard system
-        else if (reaction.emoji.name === "⭐" && channel.permissionsFor("569194996964786178")!.has(["SEND_MESSAGES", "VIEW_CHANNEL"]) && reaction.count! >= 4 && !reaction.message.author.bot && reaction.message.content) {
+        else if (reaction.emoji.name === "⭐" && channel.permissionsFor("569194996964786178")!.has(["SEND_MESSAGES", "VIEW_CHANNEL"]) && reaction.count! >= 4 && !reaction.message.author!.bot && reaction.message.content) {
             const collection = db.collection("quotes")
             const urlQuote = await collection.findOne({ url: reaction.message.url })
             if (!urlQuote) {

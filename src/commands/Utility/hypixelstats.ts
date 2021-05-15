@@ -194,7 +194,7 @@ const command: Command = {
                         collector.on("end", () => {
                             msg.edit(getString("timeOut", { command: "`+hypixelstats`" }))
                             if (message.channel.type !== "dm") msg.reactions.removeAll()
-                            else msg.reactions.cache.forEach(reaction => reaction.users.remove(message.client.user!.id)) //remove all reactions by the bot
+                            else msg.reactions.cache.forEach(reaction => reaction.users.remove()) //remove all reactions by the bot
                         })
                     })
             })
