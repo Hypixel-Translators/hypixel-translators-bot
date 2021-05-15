@@ -83,10 +83,9 @@ client.on("message", async message => {
     const member = await message.client.guilds.cache.get("549503328472530974")!.members.fetch(message.author.id)
     if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm" && !member!.roles.cache.has("645208834633367562")) { // Muted
         const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
-        const timeToPass = 172800,
-        confirmTime = 60 // in seconds
-        if (!author.staffMsgTimestamp || author.staffMsgTimestamp - timeToPass > message.createdTimestamp) {
-            const confirmEmbed = new Discord.MessageEmbed()
+        const timeToPass = 172800, // 48h
+        confirmTime = 60 // 1 min
+        if (!author.staffMsgTimestamp || author.staffMsgTimestamp + timeToPass * 1000 < message.createdTimestamp) {            const confirmEmbed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor(getString("outgoingConfirmation", "global"))
                 .setDescription(message.content)
@@ -107,7 +106,7 @@ client.on("message", async message => {
                     msg.edit(cancelEmbed)
                 }
                 else {
-                    db.collection("users").updateOne({ id: message.author.id }, { $set: { lastStaffMessage: message.createdTimestamp } })
+                    db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: message.createdTimestamp } })
                     const staffMsg = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor("Incoming message from " + message.author.tag)
@@ -139,8 +138,19 @@ client.on("message", async message => {
                     msg.edit(dmEmbed)
                 }
             })
+
+            collector.on("end", () => {
+                const timeOutEmbed = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setAuthor(getString("timedOut", "global"))
+                    .setDescription(getString("resendInfo", "global"))
+                
+                    msg.edit(timeOutEmbed)
+                    msg.reactions.cache.get("❎")!.users.remove()
+                    msg.reactions.cache.get("✅")!.users.remove()
+            })
         } else {
-            db.collection("users").updateOne({ id: message.author.id }, { $set: { lastStaffMessage: message.createdTimestamp } })
+            db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: message.createdTimestamp } })
             const staffMsg = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor("Incoming message from " + message.author.tag)

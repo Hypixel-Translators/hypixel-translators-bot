@@ -7,6 +7,8 @@
     "attachmentsWarn": "Attachments will also be included.",
     "attachmentsSent": "Attachments sent",
     "attachmentSent": "Attachment sent",
+    "timedOut": "Timed out",
+    "resendInfo": "If you want to send this message to staff, resend it and click the ✅ button to confirm.",
     "error": "Error",
     "usage": "Expected command usage",
     "errors": {
