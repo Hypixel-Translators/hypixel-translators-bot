@@ -1,7 +1,7 @@
 {
     "outgoing": "Sent message to staff",
-    "outgoingDisclaimer": "Any message you send here within the next 5 minutes will get sent to staff without any confirmation.",
-    "outgoingDisclaimerConfirm": "If you confirm this, any message you send here within the next 5 minutes will get sent to staff without any confirmation.",
+    "outgoingDisclaimer": "Any messages you send here within the next 5 minutes will get sent to staff without any confirmation.",
+    "outgoingDisclaimerConfirm": "If you confirm this, any messages you send here within the next 5 minutes will get sent to staff without any confirmation.",
     "outgoingConfirmation": "Are you sure you want to send this message to staff?",
     "error": "Error",
     "usage": "Expected command usage",
