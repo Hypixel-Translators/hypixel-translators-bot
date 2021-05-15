@@ -10,7 +10,8 @@ const command: Command = {
   description: "Creates a new language category with the appropriate channels and roles.",
   usage: "+newlang <lang code> [HEX color]",
   roleWhitelist: ["764442984119795732"], //Discord Administrator
-  async execute(interaction: Discord.CommandInteraction, args: string[]) {
+  async execute(message: Discord.Message, args: string[]) {
+    message.channel.startTyping()
     const lang = args[0].toLowerCase()
     const code = args[0].toUpperCase()
     const langdbEntry = await db.collection("langdb").findOne({ code: lang })
@@ -23,7 +24,7 @@ const command: Command = {
     }
     console.log(lang)
     console.log(nationality)
-    const translatorRole = await interaction.guild!.roles.create({
+    const translatorRole = await message.guild!.roles.create({
       name: `${nationality} Translator`,
       color: `${args[1] || "000000"}`,
       hoist: false,
@@ -32,7 +33,7 @@ const command: Command = {
       mentionable: false,
       reason: "Added language " + nationality
     })
-    const proofreaderRole = await interaction.guild!.roles.create({
+    const proofreaderRole = await message.guild!.roles.create({
       name: `${nationality} Proofreader`,
       color: `${args[1] || "000000"}`,
       hoist: false,
@@ -43,15 +44,15 @@ const command: Command = {
     })
     const overwrites = [
       {
-        id: interaction.guild!.roles.everyone.id,
+        id: message.guild!.roles.everyone.id,
         deny: ["VIEW_CHANNEL", "CONNECT"]
       },
       {
-        id: interaction.guild!.roles.cache.find(role => role.name === "Muted")!.id,
+        id: message.guild!.roles.cache.find(role => role.name === "Muted")!.id,
         deny: ["SEND_MESSAGES", "ADD_REACTIONS", "SPEAK"]
       },
       {
-        id: interaction.guild!.roles.cache.find(role => role.name === "Bot")!.id,
+        id: message.guild!.roles.cache.find(role => role.name === "Bot")!.id,
         allow: ["VIEW_CHANNEL", "SEND_MESSAGES", "CONNECT", "SPEAK"]
       },
       {
@@ -63,41 +64,41 @@ const command: Command = {
         allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"]
       },
       {
-        id: interaction.guild!.roles.cache.find(role => role.name === "Quickplay Manager")!.id,
+        id: message.guild!.roles.cache.find(role => role.name === "Quickplay Manager")!.id,
         allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"]
       },
       {
-        id: interaction.guild!.roles.cache.find(role => role.name === "Hypixel Manager")!.id,
+        id: message.guild!.roles.cache.find(role => role.name === "Hypixel Manager")!.id,
         allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"]
       }
     ] as Discord.OverwriteResolvable[]
     const pfOverwrites = Array.from(overwrites)
     pfOverwrites.splice(3, 1)
-    const category = await interaction.guild!.channels.create(`${country.name(code)} ${emoji}`, {
+    const category = await message.guild!.channels.create(`${country.name(code)} ${emoji}`, {
       type: "category",
       permissionOverwrites: overwrites,
       position: 9,
       reason: "Added language " + nationality
     })
-    const translatorsChannel = await interaction.guild!.channels.create(`${nationality} translators`, {
+    const translatorsChannel = await message.guild!.channels.create(`${nationality} translators`, {
       topic: `A text channel where you can discuss ${nationality!.charAt(0).toUpperCase() + nationality!.slice(1)} translations! ${emoji}\n\nTranslation`,
       parent: category,
       permissionOverwrites: overwrites,
       reason: "Added language " + nationality
     })
-    const proofreadersChannel = await interaction.guild!.channels.create(`${nationality} proofreaders`, {
+    const proofreadersChannel = await message.guild!.channels.create(`${nationality} proofreaders`, {
       parent: category,
       permissionOverwrites: pfOverwrites,
       reason: "Added language " + nationality
     })
-    const translatorsVoice = await interaction.guild!.channels.create(`${nationality} Translators`, {
+    const translatorsVoice = await message.guild!.channels.create(`${nationality} Translators`, {
       type: "voice",
       userLimit: 10,
       parent: category,
       permissionOverwrites: overwrites,
       reason: "Added language " + nationality
     })
-    const proofreadersVoice = await interaction.guild!.channels.create(`${nationality} Proofreaders`, {
+    const proofreadersVoice = await message.guild!.channels.create(`${nationality} Proofreaders`, {
       type: "voice",
       userLimit: 10,
       parent: category,
@@ -114,8 +115,9 @@ const command: Command = {
         { name: "Voice Channels", value: `${translatorsVoice} and ${proofreadersVoice}` },
         { name: "Roles", value: `${translatorRole} and ${proofreaderRole}` }
       )
-      .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-    interaction.reply(embed)
+      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+    message.channel.stopTyping()
+    message.channel.send(embed)
   }
 }
 

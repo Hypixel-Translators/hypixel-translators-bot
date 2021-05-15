@@ -13,10 +13,10 @@ const command: Command = {
     aliases: ["langstats", "lstats"],
     cooldown: 30,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-    async execute(interaction: Discord.CommandInteraction, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
+    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", { user: message.author.tag }, "global")
         let rawLang: string
-        const authorDb = await client.getUser(interaction.user.id)
+        const authorDb = await client.getUser(message.author.id)
         if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !args[0]) rawLang = authorDb.lang
         if (args[0]) rawLang = args.join(" ").toLowerCase()
         if (!rawLang!) throw "noLang"
@@ -25,6 +25,7 @@ const command: Command = {
         if (!lang) lang = langdb.find(l => l.name.toLowerCase().includes(rawLang))
         if (!lang || lang?.code === "en") throw "falseLang"
 
+        message.channel.startTyping()
         const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2, "User-Agent": "Hypixel Translators Bot" }, timeout: 10000 }
         var hypixelData: LanguageStatus["data"]
         await fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", settings)
@@ -70,12 +71,13 @@ const command: Command = {
                                             .setAuthor(getString("moduleName"))
                                             .setTitle(`${lang.emoji} | ${getString(`languages.${lang.code}`)}`)
                                             .setDescription(`${getString("statsAll", { language: getString(`languages.${lang.code}`) })}`)
-                                            .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                                            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                                         if (hypixelData) embed.addField("Hypixel", `${getString("translated", { percentage: hypixelData.translationProgress, translated: hypixelData.phrases.translated, total: hypixelData.phrases.total })}\n${getString("approved", { percentage: hypixelData.approvalProgress, approved: hypixelData.phrases.approved, total: hypixelData.phrases.total })}`)
                                         if (quickplayData) embed.addField("Quickplay", `${getString("translated", { percentage: quickplayData.translationProgress, translated: quickplayData.phrases.translated, total: quickplayData.phrases.total })}\n${getString("approved", { percentage: quickplayData.approvalProgress, approved: quickplayData.phrases.approved, total: quickplayData.phrases.total })}`)
                                         if (sbaData) embed.addField("SkyblockAddons", `${getString("translated", { percentage: sbaData.translationProgress, translated: sbaData.phrases.translated, total: sbaData.phrases.total })}\n${getString("approved", { percentage: sbaData.approvalProgress, approved: sbaData.phrases.approved, total: sbaData.phrases.total })}`)
                                         if (botData) embed.addField("Hypixel Translators Bot", `${getString("translated", { percentage: botData.translationProgress, translated: botData.phrases.translated, total: botData.phrases.total })}\n${getString("approved", { percentage: botData.approvalProgress, approved: botData.phrases.approved, total: botData.phrases.total })}`)
-                                        interaction.reply(embed)
+                                        message.channel.stopTyping()
+                                        message.channel.send(embed)
                                     })
                             })
                     })

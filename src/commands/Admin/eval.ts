@@ -12,7 +12,6 @@ import { Command, client as Client } from "../../index"
 const command: Command = {
   name: "eval",
   description: "Evals the specified code.",
-  usage: "+eval <code>",
   allowTip: false,
   allowDM: true,
   roleWhitelist: ["620274909700161556"], //*
@@ -32,7 +31,7 @@ const command: Command = {
       client = Client
 
     let evaled
-    let codeToRun = (interaction.options[0].value! as string).replace(/[“”]/gim, '"')
+    let codeToRun = (interaction.options[0].value as string).replace(/[“”]/gim, '"')
     if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`
     codeToRun = transpile(codeToRun)
     try {

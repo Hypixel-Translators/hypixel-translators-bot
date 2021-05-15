@@ -12,31 +12,31 @@ const command: Command = {
     aliases: ["hverify", "hypixellink", "hlink", "hypixelunverify", "hunverify"],
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
-    async execute(interaction: Discord.CommandInteraction, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
+    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", { user: message.author.tag }, "global")
 
-        const command = interaction.content.slice(prefix.length).split(" ")[0].toLowerCase()
+        const command = message.content.slice(prefix.length).split(" ")[0].toLowerCase()
         if (command === "hypixelunverify" || command === "hunverify") {
-            await updateRoles(interaction.member!)
-            await db.collection("users").updateOne({ id: interaction.user.id }, { $unset: { uuid: true } }).then(async r => {
+            await updateRoles(message.member!)
+            await db.collection("users").updateOne({ id: message.author.id }, { $unset: { uuid: true } }).then(async r => {
                 if (r.result.nModified) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("unverified"))
-                        .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    return interaction.reply(embed)
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+                    return message.channel.send(embed)
                 } else {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("notUnverified"))
                         .setDescription(getString("whyNotUnverified"))
-                        .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    return interaction.reply(embed)
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+                    return message.channel.send(embed)
                 }
             })
-            client.cooldowns.get(this.name)!.delete(interaction.user.id)
+            client.cooldowns.get(this.name)!.delete(message.author.id)
             return
         }
         const uuid = await getPlayer(args[0])
@@ -46,6 +46,7 @@ const command: Command = {
         await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 50000 })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
+                message.channel.startTyping()
 
                 // Handle errors
                 if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
@@ -56,25 +57,27 @@ const command: Command = {
                     console.log("Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n" + error)
                     throw "apiError"
                 }
-                if (json.links?.DISCORD === interaction.user.tag) {
-                    await db.collection("users").updateOne({ id: interaction.user.id }, { $set: { uuid: json.uuid } }).then(async r => {
-                        const role = await updateRoles(interaction.member!, json) as Discord.Role
+                if (json.links?.DISCORD === message.author.tag) {
+                    await db.collection("users").updateOne({ id: message.author.id }, { $set: { uuid: json.uuid } }).then(async r => {
+                        const role = await updateRoles(message.member!, json) as Discord.Role
                         if (r.result.nModified) {
                             const successEmbed = new Discord.MessageEmbed()
                                 .setColor(successColor)
                                 .setAuthor(getString("moduleName"))
                                 .setTitle(getString("success", { player: json.username }))
                                 .setDescription(getString("role", { role: String(role) }))
-                                .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                            return interaction.reply(successEmbed)
+                                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+                            message.channel.stopTyping()
+                            return message.channel.send(successEmbed)
                         } else {
                             const notChanged = new Discord.MessageEmbed()
                                 .setColor(errorColor)
                                 .setAuthor(getString("moduleName"))
                                 .setTitle(getString("alreadyVerified"))
                                 .setDescription(getString("nameChangeDisclaimer"))
-                                .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                            return interaction.reply(notChanged)
+                                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+                            message.channel.stopTyping()
+                            return message.channel.send(notChanged)
                         }
                     })
                 } else {
@@ -82,10 +85,11 @@ const command: Command = {
                         .setColor(errorColor)
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("error"))
-                        .setDescription(getString("tutorial", { tag: interaction.user.tag }))
+                        .setDescription(getString("tutorial", { tag: message.author.tag }))
                         .setImage("https://i.imgur.com/JSeAHdG.gif")
-                        .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    interaction.reply(errorEmbed)
+                        .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+                    message.channel.stopTyping()
+                    message.channel.send(errorEmbed)
                 }
             })
             .catch(e => {

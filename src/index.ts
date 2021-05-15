@@ -10,17 +10,16 @@ setup(client)
 
 //Command interface
 export interface Command extends Discord.ApplicationCommandData {
-    usage: string,
     cooldown?: number,
     allowDM?: true,
     allowTip?: false,
+    dev?: true,
     roleWhitelist?: string[],
     roleBlacklist?: string[],
     channelBlacklist?: string[],
     channelWhitelist?: string[],
     categoryWhitelist?: string[],
     categoryBlacklist?: string[],
-    dev?: true,
     category?: string,
     execute(interaction: Discord.CommandInteraction, getString?: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any): any
 }

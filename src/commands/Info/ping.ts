@@ -10,9 +10,9 @@ const command: Command = {
   cooldown: 20,
   allowDM: true,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-  execute(interaction: Discord.CommandInteraction, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-    const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
-    const ping = Date.now() - interaction.createdTimestamp
+  execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    const executedBy = getString("executedBy", { user: message.author.tag }, "global")
+    const ping = Date.now() - message.createdTimestamp
 
     //Contributed by marzeq. Original idea by Rodry
     let color
@@ -31,8 +31,8 @@ const command: Command = {
       .setAuthor(getString("moduleName"))
       .setTitle(getString("pong", { pingEmote: "<:ping:620954198493888512>" }))
       .setDescription(getString("message", { ping: ping }))
-      .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-    interaction.reply(embed)
+      .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+    message.channel.send(embed)
   }
 }
 

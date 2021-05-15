@@ -10,9 +10,9 @@ const command: Command = {
     cooldown: 5,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
     allowDM: true,
-    async execute(interaction: Discord.CommandInteraction, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
         if (!args[0]) throw "noMessage"
-        const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
+        const executedBy = getString("executedBy", { user: message.author.tag }, "global")
         const keys = Object.keys(getString("answers"))
         const answerType = keys[keys.length * Math.random() << 0]
         const answers = getString(`answers.${answerType}`)
@@ -21,12 +21,12 @@ const command: Command = {
             .setAuthor(getString("moduleName"))
             .setTitle(answer)
             .addField(getString("question"), args.join(" "))
-            .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
         if (answerType === "positive") embed.setColor(successColor)
         else if (answerType === "inconclusive") embed.setColor(loadingColor)
         else if (answerType === "negative") embed.setColor(errorColor)
         else console.error("Help the 8ball answer type is weird")
-        interaction.reply(embed)
+        message.channel.send(embed)
     }
 }
 

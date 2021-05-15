@@ -5,7 +5,6 @@ import { Command } from "../../index"
 const command: Command = {
     name: "channel",
     description: "Updates the specified channel.",
-    usage: "+channel <rules|info|verify>",
     allowDM: true,
     defaultPermission: false,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
@@ -33,7 +32,7 @@ const command: Command = {
         }]
     }],
     execute(interaction: Discord.CommandInteraction) {
-        if (interaction.options[0].value === "info") {
+        if (interaction.options[0]?.value === "info") {
             info(interaction)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
@@ -42,7 +41,7 @@ const command: Command = {
                 .setDescription(`Check it out at <#762341271611506708>!`) //server-info
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             interaction.reply(successEmbed)
-        } else if (interaction.options[0].value === "rules") {
+        } else if (interaction.options[0]?.value === "rules") {
             rules(interaction)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
@@ -51,7 +50,7 @@ const command: Command = {
                 .setDescription(`Check it out at <#796159719617986610>!`) //rules
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             interaction.reply(successEmbed)
-        } else if (interaction.options[0].value === "verify") {
+        } else if (interaction.options[0]?.value === "verify") {
             verify(interaction)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
@@ -60,7 +59,7 @@ const command: Command = {
                 .setDescription(`Check it out at <#569178590697095168>!`) //verify
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             interaction.reply(successEmbed)
-        } else if (interaction.options[0].value === "all" || !interaction.options[0].value) {
+        } else if (interaction.options[0]?.value === "all" || !interaction.options[0]) {
             info(interaction)
             verify(interaction)
             rules(interaction)
@@ -155,7 +154,7 @@ function verify(interaction: Discord.CommandInteraction) {
                 { name: "Need help?", value: "Feel free to send a message on this channel, or DM either <@240875059953139714>, <@241926666400563203> or <@435546264432803840> with any questions you might have!" }
             )
             .setFooter("Have fun on our server!")
-        msg.edit("**Please do not run the command before reading the entire interaction.**", verifyEmbed) //verify-prototype
+        msg.edit("**Please do not run the command before reading the entire message.**", verifyEmbed) //verify-prototype
     })
 }
 

@@ -5,7 +5,6 @@ import { Command } from "../../index"
 const command: Command = {
   name: "bulksend",
   description: "Send messages in a channel, ready to be edited.",
-  usage: "+bulksend <channel> <amount>",
   defaultPermission: false,
   roleWhitelist: ["764442984119795732"], //Discord Administrator
   options: [{
@@ -25,7 +24,7 @@ const command: Command = {
     const sendTo = interaction.options[0].channel! as Discord.TextChannel
     let amount = Number(interaction.options[1].value)
     if (!amount) throw "You need to provide a number of messages to delete!"
-    for (amount; amount > 0; amount--) { sendTo.send("Language statistics will be here shortly!") }
+    for (amount; amount > 0; amount--) sendTo.send("Language statistics will be here shortly!")
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
       .setAuthor("Bulk Send")
