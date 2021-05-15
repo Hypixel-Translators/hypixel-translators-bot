@@ -84,7 +84,7 @@ client.on("message", async message => {
     if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm" && !member!.roles.cache.has("645208834633367562")) { // Muted
         const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
         const timeToPass = 300, timeForConfirmToExpire = 20 // in seconds
-        if (typeof author.lastStaffMessage === "undefined" || author.lastStaffMessage - timeToPass > message.createdTimestamp) {
+        if (!author.lastStaffMessage || author.lastStaffMessage - timeToPass > message.createdTimestamp) {
             const confirmEmbed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor(getString("outgoingConfirmation", "global"))
