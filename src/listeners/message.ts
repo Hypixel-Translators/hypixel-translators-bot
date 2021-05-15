@@ -82,7 +82,7 @@ client.on("message", async message => {
     //Staff messaging system
     const member = await message.client.guilds.cache.get("549503328472530974")!.members.fetch(message.author.id)
     if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm" && !member!.roles.cache.has("645208834633367562")) { // Muted
-        const staffBots = client.channels.cache.get("783254723439493140") as Discord.TextChannel
+        const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
         const timeToPass = 300, timeForConfirmToExpire = 20 // in seconds
         if (typeof author.lastStaffMessage === "undefined" || author.lastStaffMessage - timeToPass > message.createdTimestamp) {
             const confirmEmbed = new Discord.MessageEmbed()
@@ -127,7 +127,7 @@ client.on("message", async message => {
                 return message.channel.send(dmEmbed)
             })
         } else {
-            db.collection("users").updateOne({ id: message.author.id }, { $set: { lastStaffMessage: message.createdTimestamp.toFixed(0) } })
+            db.collection("users").updateOne({ id: message.author.id }, { $set: { lastStaffMessage: message.createdTimestamp } })
             const staffMsg = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor("Incoming message from " + message.author.tag)
