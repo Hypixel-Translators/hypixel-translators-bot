@@ -93,7 +93,7 @@ client.on("message", async message => {
                 .setFooter(getString("outgoingDisclaimerConfirm", "global"));
             
             const msg = (await message.channel.send(confirmEmbed))
-            msg.react("✅").then(() => msg.react("❎"))
+            await msg.react("✅"); await msg.react("❎")
             const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, reacter: Discord.User) => (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id, { time: timeForConfirmToExpire * 1000 })
 
             collector.on("collect", async reaction => {
