@@ -83,7 +83,8 @@ client.on("message", async message => {
     const member = await message.client.guilds.cache.get("549503328472530974")!.members.fetch(message.author.id)
     if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm" && !member!.roles.cache.has("645208834633367562")) { // Muted
         const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
-        const timeToPass = 300, timeForConfirmToExpire = 20 // in seconds
+        const timeToPass = 172800,
+        confirmTime = 60 // in seconds
         if (!author.lastStaffMessage || author.lastStaffMessage - timeToPass > message.createdTimestamp) {
             const confirmEmbed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
