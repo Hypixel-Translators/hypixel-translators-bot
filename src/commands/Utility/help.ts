@@ -15,33 +15,25 @@ const command: Command = {
     const executedBy = getString("executedBy", { user: message.author.tag }, "global")
     const madeBy = getString("madeBy", { QkeleQ10: "QkeleQ10#8482" })
 
-    //Define command categories
-    const utilityCmds: string[] = []
-    fs.readdirSync("./src/commands/Utility/").forEach(command => utilityCmds.push(command.split(".").shift()!))
-    const infoCmds: string[] = []
-    fs.readdirSync("./src/commands/Info/").forEach(command => infoCmds.push(command.split(".").shift()!))
-    const projectCmds: string[] = []
-    fs.readdirSync("./src/commands/Projects/").forEach(command => projectCmds.push(command.split(".").shift()!))
-    utilityCmds.forEach(cmd => {
-      if (client.commands.get(cmd)!.dev) utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
-      else if (!client.commands.get(cmd)!.allowDM && message.channel.type === "dm") utilityCmds.splice(utilityCmds.indexOf(cmd), 1)
+    // Define categories to get commands from and all pages
+    const categories = ["Utility", "Info", "Projects"],
+      pages = [
+        { n: 0 },
+        { n: 1, b: "🛠", t: "utilityHelp" },
+        { n: 2, b: "ℹ", t: "infoHelp" },
+        { n: 3, b: "<:crowdin:820381256016723988>", t: "projectsHelp" }
+      ] as Page[]
+    let pageIndex = 1
+    categories.forEach(category => {
+      const categoryCommands: string[] = []
+      fs.readdirSync(`./src/commands/${category}/`).forEach(command => categoryCommands.push(command.split(".").shift()!))
+      categoryCommands.forEach(cmd => {
+        if (client.commands.get(cmd)!.dev) categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
+        else if (!client.commands.get(cmd)!.allowDM && message.channel.type === "dm") categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
+      })
+      pages[pageIndex].f = categoryCommands
+      pageIndex++
     })
-    infoCmds.forEach(cmd => {
-      if (client.commands.get(cmd)!.dev) infoCmds.splice(infoCmds.indexOf(cmd), 1)
-      else if (!client.commands.get(cmd)!.allowDM && message.channel.type === "dm") infoCmds.splice(infoCmds.indexOf(cmd), 1)
-    })
-    projectCmds.forEach(cmd => {
-      if (client.commands.get(cmd)!.dev) projectCmds.splice(projectCmds.indexOf(cmd), 1)
-      else if (!client.commands.get(cmd)!.allowDM && message.channel.type === "dm") projectCmds.splice(projectCmds.indexOf(cmd), 1)
-    })
-
-    //Define all pages
-    const pages = [
-      { n: 0 },
-      { n: 1, f: utilityCmds, b: "🛠", t: "utilityHelp" },
-      { n: 2, f: infoCmds, b: "ℹ", "t": "infoHelp" },
-      { n: 3, f: projectCmds, b: "<:crowdin:820381256016723988>", t: "projectsHelp" }
-    ] as Page[]
 
     if (args[0] && args[0].startsWith(prefix)) args[0] = args[0].slice(1)
     if (!args[0] || Number(args[0])) {
@@ -99,7 +91,7 @@ const command: Command = {
         collector.on("end", () => {
           msg.edit(getString("timeOut", { command: "`+help`" }))
           if (message.channel.type !== "dm") msg.reactions.removeAll()
-          else msg.reactions.cache.forEach(reaction => reaction.users.remove(message.client.user!.id)) //remove all reactions by the bot
+          else msg.reactions.cache.forEach(reaction => reaction.users.remove()) //remove all reactions by the bot
         })
       })
 

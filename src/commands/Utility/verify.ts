@@ -18,7 +18,7 @@ const command: Command = {
             await message.delete()
             message.channel.messages.fetch()
                 .then(messages => {
-                    const fiMessages = messages.filter(msgs => msgs.author === message.author);
+                    const fiMessages = messages.filter(msgs => msgs.author.id === message.author.id);
                     (message.channel as Discord.TextChannel).bulkDelete(fiMessages)
                 })
             await message.member!.roles.add("569194996964786178", "Manually verified through the command")
