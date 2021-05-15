@@ -80,7 +80,7 @@ client.on("message", async message => {
     }
 
     //Staff messaging system
-    const member = await message.client.guilds.cache.get("767076095156551741")!.members.fetch(message.author.id)
+    const member = await message.client.guilds.cache.get("549503328472530974")!.members.fetch(message.author.id)
     if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm" && !member!.roles.cache.has("645208834633367562")) { // Muted
         const staffBots = client.channels.cache.get("783254723439493140") as Discord.TextChannel
         const timeToPass = 300, timeForConfirmToExpire = 20 // in seconds
