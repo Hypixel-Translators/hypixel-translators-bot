@@ -8,7 +8,6 @@ client.once("ready", async () => {
 
     //Get server boosters and staff for the status
     let boostersStaff: string[] = []
-    await client.guilds.cache.get("549503328472530974")?.members.fetch()
     client.guilds.cache.get("549503328472530974")?.roles.cache.get("644450674796396576")!.members.forEach(member => boostersStaff.push(member.user.username)) //Server Booster
     client.guilds.cache.get("549503328472530974")?.roles.cache.get("768435276191891456")!.members.forEach(member => boostersStaff.push(member.user.username)) //Discord Staff
 
