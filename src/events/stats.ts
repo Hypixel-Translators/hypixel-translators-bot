@@ -45,7 +45,7 @@ export async function hypixel(client: HTBClient) {
             channel.messages.fetch()
                 .then((messages: Discord.Collection<Discord.Snowflake, Discord.Message>) => {
                     let index = 0
-                    const fiMessages = messages.filter(msg => msg.author === client.user)
+                    const fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
                     fiMessages.forEach(msg => {
                         const langData = sortedSatus[index].data
 
@@ -97,7 +97,7 @@ export async function quickplay(client: HTBClient) {
             channel.messages.fetch()
                 .then((messages: Discord.Collection<Discord.Snowflake, Discord.Message>) => {
                     let index = 0
-                    const fiMessages = messages.filter(msg => msg.author === client.user)
+                    const fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
                     fiMessages.forEach((msg: Discord.Message) => {
                         const langData = sortedStatus[index].data
 
@@ -154,7 +154,7 @@ export async function bot(client: HTBClient) {
             channel.messages.fetch()
                 .then((messages: Discord.Collection<Discord.Snowflake, Discord.Message>) => {
                     let index = 0
-                    const fiMessages = messages.filter(msg => msg.author === client.user)
+                    const fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
                     fiMessages.forEach(msg => {
                         const langData = sortedStatus[index].data
 
@@ -211,7 +211,7 @@ export async function skyblockaddons(client: HTBClient) {
             channel.messages.fetch()
                 .then((messages: Discord.Collection<Discord.Snowflake, Discord.Message>) => {
                     let index = 0
-                    const fiMessages = messages.filter(msg => msg.author === client.user)
+                    const fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
                     fiMessages.forEach(msg => {
                         const langData = sortedStatus[index].data
 

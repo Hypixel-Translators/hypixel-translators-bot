@@ -70,7 +70,7 @@ const command: Command = {
                     if (!json.last_game) last_seen = getString("lastGameHidden")
                     else last_seen = getString("lastSeen", { game: json.last_game.replace(/([A-Z]+)/g, ' $1').trim() })
 
-                    let lastLoginSelector
+                    let lastLoginSelector: string
                     if (json.online) lastLoginSelector = "last_login"
                     else lastLoginSelector = "last_logout"
 
@@ -194,7 +194,7 @@ const command: Command = {
                         collector.on("end", () => {
                             msg.edit(getString("timeOut", { command: "`+hypixelstats`" }))
                             if (message.channel.type !== "dm") msg.reactions.removeAll()
-                            else msg.reactions.cache.forEach(reaction => reaction.users.remove(message.client.user!.id)) //remove all reactions by the bot
+                            else msg.reactions.cache.forEach(reaction => reaction.users.remove()) //remove all reactions by the bot
                         })
                     })
             })
