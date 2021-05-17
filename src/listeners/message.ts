@@ -89,10 +89,10 @@ client.on("message", async message => {
 
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
-                .setTitle(getString("staffDm.outgoingConfirmation", "global"))
+                .setTitle(getString("staffDm.confirmation", "global"))
                 .setDescription(message.content)
                 .setFooter(getString("staffDm.confirmSend", "global"))
-            if (message.attachments.size > 0) embed.setTitle(`${getString("staffDm.outgoingConfirmation", "global")} ${getString("staffDm.attachmentsWarn", "global")}`)
+            if (message.attachments.size > 0) embed.setTitle(`${getString("staffDm.confirmation", "global")} ${getString("staffDm.attachmentsWarn", "global")}`)
             const msg = await message.channel.send(embed)
             await msg.react("✅"); await msg.react("❎")
             const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, reacter: Discord.User) => (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id, { time: confirmTime * 1000 })
@@ -105,7 +105,7 @@ client.on("message", async message => {
                 if (reaction.emoji.name === "❎") {
                     embed
                         .setColor(errorColor)
-                        .setTitle(getString("staffDm.outgoingCancelled", "global"))
+                        .setTitle(getString("staffDm.dmCancelled", "global"))
                         .setFooter(getString("staffDm.resendInfo", "global"))
                     msg.edit(embed)
                 }
@@ -116,7 +116,7 @@ client.on("message", async message => {
                 if (reacted) return
                 const timeOutEmbed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(getString("staffDm.outgoingCancelled", "global"))
+                    .setAuthor(getString("staffDm.dmCancelled", "global"))
                     .setDescription(message.content)
                     .setFooter(getString("staffDm.resendInfo", "global"))
                 msg.edit(timeOutEmbed)
@@ -136,9 +136,9 @@ client.on("message", async message => {
 
             const dmEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
-                .setAuthor(getString("staffDm.outgoing", "global"))
+                .setAuthor(getString("staffDm.messageSent", "global"))
                 .setDescription(message.content)
-                .setFooter(getString("staffDm.outgoingDisclaimer", "global"))
+                .setFooter(getString("staffDm.noConfirmWarn", "global"))
             if (message.attachments.size > 1 || !message.attachments.first()!.contentType?.startsWith("image")) {
                 const images: (Discord.BufferResolvable | Stream)[] = []
                 message.attachments.forEach(file => images.push(file.attachment))
