@@ -5,7 +5,7 @@ const fs = require("fs")
 const country = require("countryjs")
 import { db as mongoDb } from "../../lib/dbclient"
 import { transpile } from "typescript"
-import Discord from "discord.js"
+import discord from "discord.js"
 import { inspect } from "util"
 import { Command, client as Client } from "../../index"
 
@@ -18,12 +18,12 @@ const command: Command = {
   allowDM: true,
   roleWhitelist: ["620274909700161556"], //*
   channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
-  async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-    const me = message.member,
+  async execute(message: discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    const me = message.member ?? message.author,
       guild = message.guild,
-      channel = message.channel as Discord.TextChannel,
+      channel = message.channel as discord.TextChannel,
       db = mongoDb,
-      discord = Discord,
+      Discord = discord,
       client = Client
 
     let evaled
