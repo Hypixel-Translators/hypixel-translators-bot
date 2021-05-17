@@ -83,74 +83,51 @@ client.on("message", async message => {
     const member = await message.client.guilds.cache.get("549503328472530974")!.members.fetch(message.author.id)
     if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm" && !member!.roles.cache.has("645208834633367562")) { // Muted
         const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
-        const timeToPass = 172800, // 48h
-        confirmTime = 60 // 1 min
-        if (!author.staffMsgTimestamp || author.staffMsgTimestamp + timeToPass * 1000 < message.createdTimestamp) {            const confirmEmbed = new Discord.MessageEmbed()
+        const dayCooldown = 48, // Hours to wait before asking for confirmation
+            confirmTime = 60 // 1 min
+        if (!author.staffMsgTimestamp || author.staffMsgTimestamp + dayCooldown * 60 * 60 * 1000 < message.createdTimestamp) {
+
+            const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
-                .setAuthor(getString("outgoingConfirmation", "global"))
+                .setTitle(getString("staffDm.outgoingConfirmation", "global"))
                 .setDescription(message.content)
-                .setFooter(getString("outgoingDisclaimerConfirm", "global"))
-            if (message.attachments.size > 0) confirmEmbed.setTitle(getString("attachmentsWarn", "global"))
-            const msg = (await message.channel.send(confirmEmbed))
+                .setFooter(getString("staffDm.confirmSend", "global"))
+            if (message.attachments.size > 0) embed.setTitle(`${getString("staffDm.outgoingConfirmation", "global")} ${getString("staffDm.attachmentsWarn", "global")}`)
+            const msg = await message.channel.send(embed)
             await msg.react("✅"); await msg.react("❎")
             const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, reacter: Discord.User) => (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id, { time: confirmTime * 1000 })
 
+            let reacted = false
+
             collector.on("collect", async reaction => {
-                const cancelEmbed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
-                    .setAuthor("outgoingCancelled", "global")
+                reacted = true
+                msg.reactions.cache.forEach(async reaction => await reaction.users.remove())
                 if (reaction.emoji.name === "❎") {
-                    msg.reactions.cache.get("❎")!.users.remove()
-                    msg.reactions.cache.get("✅")!.users.remove()
-
-                    msg.edit(cancelEmbed)
+                    embed
+                        .setColor(errorColor)
+                        .setTitle(getString("staffDm.outgoingCancelled", "global"))
+                        .setFooter(getString("staffDm.resendInfo", "global"))
+                    msg.edit(embed)
                 }
-                else {
-                    db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: message.createdTimestamp } })
-                    const staffMsg = new Discord.MessageEmbed()
-                        .setColor(neutralColor)
-                        .setAuthor("Incoming message from " + message.author.tag)
-                        .setDescription(message.content)
-                        .addField("To reply", `\`+dm ${message.author.id} \``)
-
-                    const dmEmbed = new Discord.MessageEmbed()
-                        .setColor(successColor)
-                        .setAuthor(getString("outgoing", "global"))
-                        .setDescription(message.content)
-                        .setFooter(getString("outgoingDisclaimer", "global"))
-                    if (message.attachments.size > 1) {
-                        const images: (Discord.BufferResolvable | Stream)[] = []
-                        message.attachments.forEach(file => images.push(file.attachment))
-                        staffMsg.setTitle("View attachments")
-                        dmEmbed.setTitle(getString("attachmentsSent", "global"))
-                        staffBots.send({ embed: staffMsg, files: images })
-                        return message.channel.send(dmEmbed)
-                    } else if (message.attachments.size > 0) {
-                        staffMsg
-                            .setTitle("View attachment")
-                            .setImage(message.attachments.first()!.url)
-                        dmEmbed.setTitle(getString("attachmentSent", "global"))
-                        staffBots.send(staffMsg)
-                    } else staffBots.send(staffMsg) //staff-bots
-                    msg.reactions.cache.get("❎")!.users.remove()
-                    msg.reactions.cache.get("✅")!.users.remove()
-
-                    msg.edit(dmEmbed)
-                }
+                else if (reaction.emoji.name === "✅") staffDm(msg, true)
             })
 
             collector.on("end", () => {
+                if (reacted) return
                 const timeOutEmbed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(getString("timedOut", "global"))
-                    .setDescription(getString("resendInfo", "global"))
-                
-                    msg.edit(timeOutEmbed)
-                    msg.reactions.cache.get("❎")!.users.remove()
-                    msg.reactions.cache.get("✅")!.users.remove()
+                    .setAuthor(getString("staffDm.outgoingCancelled", "global"))
+                    .setDescription(message.content)
+                    .setFooter(getString("staffDm.resendInfo", "global"))
+                msg.edit(timeOutEmbed)
+                msg.reactions.cache.forEach(async reaction => await reaction.users.remove())
+
             })
-        } else {
-            db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: message.createdTimestamp } })
+        } else staffDm(message, false)
+
+        function staffDm(msg: Discord.Message, afterConfirm: boolean) {
+            if (afterConfirm) db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: Date.now() } })
+            else db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: message.createdTimestamp } })
             const staffMsg = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor("Incoming message from " + message.author.tag)
@@ -159,26 +136,28 @@ client.on("message", async message => {
 
             const dmEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
-                .setAuthor(getString("outgoing", "global"))
+                .setAuthor(getString("staffDm.outgoing", "global"))
                 .setDescription(message.content)
-                .setFooter(getString("outgoingDisclaimer", "global"))
-            if (message.attachments.size > 1) {
+                .setFooter(getString("staffDm.outgoingDisclaimer", "global"))
+            if (message.attachments.size > 1 || !message.attachments.first()!.contentType?.startsWith("image")) {
                 const images: (Discord.BufferResolvable | Stream)[] = []
                 message.attachments.forEach(file => images.push(file.attachment))
                 staffMsg.setTitle("View attachments")
-                dmEmbed.setTitle(getString("attachmentsSent", "global"))
+                dmEmbed.setTitle(getString("staffDm.attachmentsSent", "global"))
                 staffBots.send({ embed: staffMsg, files: images })
                 return message.channel.send(dmEmbed)
             } else if (message.attachments.size > 0) {
                 staffMsg
                     .setTitle("View attachment")
                     .setImage(message.attachments.first()!.url)
-                dmEmbed.setTitle(getString("attachmentSent", "global"))
-                staffBots.send(staffMsg)
-            } else staffBots.send(staffMsg) //staff-bots
-            return message.channel.send(dmEmbed)
+                dmEmbed.setTitle(getString("staffDm.attachmentSent", "global"))
+                staffBots.send(`+dm ${message.author.id}`, staffMsg)
+            } else staffBots.send(`+dm ${message.author.id}`, staffMsg) //staff-bots
+            if (afterConfirm) return msg.edit(dmEmbed)
+            msg.channel.send(dmEmbed)
         }
     }
+
 
     //Stop if the message is not a command
     if (!message.content.startsWith(prefix) || !command) return
@@ -305,7 +284,7 @@ client.on("message", async message => {
                         string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
                             string = `strings.${path}` //in case of fire
-                            if (command!.category != "Admin" && command!.category != "Staff") console.error(`Couldn't get string ${path} in English for ${cmd}, please fix this`)
+                            if (command?.category != "Admin" && command?.category != "Staff") console.error(`Couldn't get string ${path} in English for ${cmd}, please fix this`)
                         }
                     }
                     if (typeof string === "string" && variables) {
