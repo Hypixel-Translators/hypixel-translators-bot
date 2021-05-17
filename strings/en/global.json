@@ -1,5 +1,4 @@
 {
-    "outgoing": "Sent message to staff",
     "staffDm": {
         "confirmSend": "If you confirm this, any messages you send here within the next 48 hours will be sent to staff without any confirmation.",
         "noConfirmWarn": "Any messages you send here within the next 48 hours will be sent to staff without any confirmation.",

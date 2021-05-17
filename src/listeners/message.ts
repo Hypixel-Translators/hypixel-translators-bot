@@ -108,8 +108,7 @@ client.on("message", async message => {
                         .setTitle(getString("staffDm.dmCancelled", "global"))
                         .setFooter(getString("staffDm.resendInfo", "global"))
                     msg.edit(embed)
-                }
-                else if (reaction.emoji.name === "✅") staffDm(msg, true)
+                } else if (reaction.emoji.name === "✅") staffDm(msg, true)
             })
 
             collector.on("end", () => {
