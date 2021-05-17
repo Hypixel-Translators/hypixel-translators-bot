@@ -136,7 +136,7 @@ client.on("message", async message => {
                 .setAuthor(getString("staffDm.messageSent", "global"))
                 .setDescription(message.content)
                 .setFooter(getString("staffDm.noConfirmWarn", "global"))
-            if (message.attachments.size > 1 || !message.attachments.first()?.contentType?.startsWith("image")) {
+            if (message.attachments.size > 1 || !(message.attachments.first()?.contentType?.startsWith("image") ?? true)) {
                 const images: (Discord.BufferResolvable | Stream)[] = []
                 message.attachments.forEach(file => images.push(file.attachment))
                 staffMsg.setTitle("View attachments")
