@@ -31,7 +31,8 @@ export interface DbUser {
         totalXp: number,
         levelXp: number,
         messageCount: number
-    }
+    },
+    staffMsgTimestamp?: number
 }
 
 export class HTBClient extends Discord.Client {
