@@ -5,29 +5,37 @@ import { Command } from "../../index"
 const command: Command = {
   name: "say",
   description: "Says something in a specific channel.",
-  usage: "+say <message>",
+  options: [{
+    type: "CHANNEL",
+    name: "channel",
+    description: "The channel to send the message in",
+    required: true
+  },
+  {
+    type: "STRING",
+    name: "message",
+    description: "The message to send",
+    required: true
+  }],
   cooldown: 600,
-  aliases: ["parrot", "repeat", "send"],
   roleWhitelist: ["768435276191891456"], //Discord Staff
-  async execute(message: Discord.Message, args: string[]) {
-    if (!args[0]) throw "noMessage"
-    const sendTo = message.client.channels.cache.get(args[0].replace(/[\\<>@#&!]/g, "")) as (Discord.TextChannel | Discord.NewsChannel)
-    args.splice(0, 1)
-    const toSend = args.join(" ")
+  async execute(interaction: Discord.CommandInteraction) {
+    const sendTo = interaction.options[0].channel as (Discord.TextChannel | Discord.NewsChannel),
+      member = interaction.member as Discord.GuildMember,
+      message = interaction.options[1].value!
 
-    if (!sendTo) throw "noChannel"
-    if (!toSend) throw "noMessage"
-    if (!message.member!.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
+    if (!sendTo.isText()) throw "noChannel"
+    if (!member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
 
-    if (message.member!.permissions.has("MANAGE_ROLES")) sendTo.send(toSend)
-    else sendTo.send(">>> " + toSend)
+    if (member.permissions.has("MANAGE_ROLES")) sendTo.send(message)
+    else sendTo.send(">>> " + message)
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
       .setAuthor("Message")
       .setTitle("Success! Message sent.")
-      .setDescription(`${sendTo}:\n${toSend}`)
-      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-    message.channel.send(embed)
+      .setDescription(`${sendTo}:\n${message}`)
+      .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+    interaction.reply(embed)
   }
 }
 

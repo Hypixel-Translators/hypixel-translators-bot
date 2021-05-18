@@ -6,21 +6,20 @@ import { Command } from "../../index"
 const command: Command = {
   name: "check",
   description: "Shows information about the specified user.",
-  aliases: ["user", "userinfo", "czech"],
-  usage: "+check [user]",
+  options: [{
+    type: "USER",
+    name: "user",
+    description: "The user to check",
+    required: false
+  }],
   roleWhitelist: ["768435276191891456", "551758391127834625", "748269219619274893", "645709877536096307", "752541221980733571"], //Discord Staff and Hypixel, SBA, QP and Bot managers
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "768160446368186428"], // bots staff-bots bot-development managers
-  async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-    let member = message.member
-    if (args[0]) {
-      let userRaw = args[0].replace(/[\\<>@&!]/g, "")
-      member = message.guild!.members.cache.find(m => m.id === userRaw || m.user.tag === userRaw || m.user.username === userRaw || m.nickname === userRaw || m.user.tag.toLowerCase().includes(userRaw.toLowerCase()) || m.displayName.toLowerCase().includes(userRaw.toLowerCase())) as (Discord.GuildMember | null)
-      if (!member) throw "falseUser"
-    }
+  async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    const member = interaction.options[0].member as Discord.GuildMember ?? interaction.member as Discord.GuildMember
 
     const userDb: DbUser | null = await db.collection("users").findOne({ id: member!.user.id })
     let note
-    if (member!.user.id === message.guild!.ownerID) note = "Discord Owner"
+    if (member!.user.id === interaction.guild!.ownerID) note = "Discord Owner"
     else if (member!.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"
     else if (member!.roles.cache.find(r => r.name === "Discord Administrator")) note = "Discord Administrator"
     else if (member!.roles.cache.find(r => r.name === "Discord Moderator")) note = "Discord Moderator"
@@ -55,9 +54,9 @@ const command: Command = {
         { name: "Roles", value: userRoles },
       )
       .setThumbnail(member!.user.displayAvatarURL({ format: "png", dynamic: true }))
-      .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+      .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     if (note) embed.addField("Note", note)
-    message.channel.send(embed)
+    interaction.reply(embed)
     function timeAgo(time: number) {
       let timeString: string
       if (time == 1) timeString = ` (${time} second ago)`
