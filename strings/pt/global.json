@@ -1,6 +1,15 @@
 {
-    "outgoing": "Mensagem enviada à staff",
-    "outgoingDisclaimer": "Quaisquer mensagens que envies aqui serão enviadas para a staff.",
+    "staffDm": {
+        "confirmSend": "Se confirmares, quaisquer mensagens que enviares aqui nas próximas 48 horas serão enviadas à staff sem qualquer confirmação.",
+        "noConfirmWarn": "Quaisquer mensagens que enviares aqui nas próximas 48 horas serão enviadas à staff sem qualquer confirmação.",
+        "attachmentsWarn": "Os ficheiros também serão incluídos.",
+        "attachmentsSent": "Ficheiros enviados",
+        "attachmentSent": "Ficheiro enviado",
+        "confirmation": "Tens a certeza de que queres enviar esta mensagem à staff?",
+        "messageSent": "Mensagem enviada à staff",
+        "dmCancelled": "Esta mensagem não será enviada.",
+        "resendInfo": "Se ainda quiseres falar com a staff, reenvia-a e clica no ✅ para confirmar."
+    },
     "error": "Erro",
     "usage": "Uso do comando esperado",
     "errors": {

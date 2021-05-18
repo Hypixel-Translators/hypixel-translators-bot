@@ -1,6 +1,15 @@
 {
-    "outgoing": "crwdns462:0crwdne462:0",
-    "outgoingDisclaimer": "crwdns464:0crwdne464:0",
+    "staffDm": {
+        "confirmSend": "crwdns1336:0crwdne1336:0",
+        "noConfirmWarn": "crwdns1338:0crwdne1338:0",
+        "attachmentsWarn": "crwdns1340:0crwdne1340:0",
+        "attachmentsSent": "crwdns1342:0crwdne1342:0",
+        "attachmentSent": "crwdns1344:0crwdne1344:0",
+        "confirmation": "crwdns1346:0crwdne1346:0",
+        "messageSent": "crwdns1348:0crwdne1348:0",
+        "dmCancelled": "crwdns1350:0crwdne1350:0",
+        "resendInfo": "crwdns1352:0crwdne1352:0"
+    },
     "error": "crwdns466:0crwdne466:0",
     "usage": "crwdns468:0crwdne468:0",
     "errors": {

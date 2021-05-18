@@ -1,6 +1,15 @@
 {
-    "outgoing": "Bericht verzonden aan staff",
-    "outgoingDisclaimer": "Als je hier een bericht stuurt, wordt het verzonden naar staff.",
+    "staffDm": {
+        "confirmSend": "Wanneer je bevestigt, worden alle berichten die hier de komende 48 uur verzonden worden naar personeel gestuurd zonder bevestiging.",
+        "noConfirmWarn": "Alle berichten die hier de komende 48 uur verzonden worden, worden naar personeel gestuurd zonder bevestiging.",
+        "attachmentsWarn": "Bijlagen worden ook meegezonden.",
+        "attachmentsSent": "Bijlagen verzonden",
+        "attachmentSent": "Bijlage verzonden",
+        "confirmation": "Wil je dit bericht echt aan personeel versturen?",
+        "messageSent": "Bericht verzonden aan staff",
+        "dmCancelled": "Dit bericht wordt niet verzonden.",
+        "resendInfo": "Als je nog steeds met personeel wilt spreken, stuur het dan opnieuw en klik op ✅."
+    },
     "error": "Fout",
     "usage": "Commandosyntaxis",
     "errors": {

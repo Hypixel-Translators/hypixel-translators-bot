@@ -1,6 +1,15 @@
 {
-    "outgoing": "Yetkililere mesaj gönderildi",
-    "outgoingDisclaimer": "Buraya gönderdiğin her mesaj, yetkililere gönderilecek.",
+    "staffDm": {
+        "confirmSend": "Eğer bunu onaylarsan, önümüzdeki 48 saat içinde buraya gönderdiğin tüm mesajlar herhangi bir onay olmadan direkt yetkililere gönderilecektir.",
+        "noConfirmWarn": "Önümüzdeki 48 saat içinde buraya gönderdiğin tüm mesajlar herhangi bir onay almadan yetkililere gönderilecektir.",
+        "attachmentsWarn": "Ekler de dahil edilecektir.",
+        "attachmentsSent": "Ekler gönderildi",
+        "attachmentSent": "Ek gönderildi",
+        "confirmation": "Bu mesajı yetkililere göndermek istediğinden emin misin?",
+        "messageSent": "Yetkililere mesaj gönderildi",
+        "dmCancelled": "Bu mesaj gönderilmeyecek.",
+        "resendInfo": "Hâlâ yetkili ile konuşmak istiyorsan, yeniden gönder ve onaylamak için ✅ tepkisine tıkla."
+    },
     "error": "Hata",
     "usage": "Beklenen komut kullanımı",
     "errors": {

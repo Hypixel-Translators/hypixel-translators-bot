@@ -14,7 +14,7 @@
     "commandInfoFor": "指令資訊：",
     "staffOnly": "這個指令僅供管理員使用，因此有關訊息不公開顯示。如果你認為這是錯誤，請聯絡管理員。",
     "inDev": "這個指令仍在開發中，將在日後開放使用！",
-    "seconds": "seconds",
+    "seconds": " 秒",
     "second": "秒",
     "minutes": "分鐘",
     "usageField": "用法",
@@ -66,7 +66,7 @@
     },
     "verify": {
         "usage": "+verify [個人檔案連結]",
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `+profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "description": "自動檢查你的 Crowdin 個人檔案的任何更改，並給予你適當的身分組。如果你的資料不在我們的資料庫裡，你可以在指令中將其作為參數提供給我們。如果你想確認你的個人檔案是否已經儲存，你可以執行 `+profile`。請確保你已允許來自本伺服器的私人訊息 (DM)，以便機器人可以直接發送訊息給你。"
     },
     "profile": {
         "usage": "+profile",

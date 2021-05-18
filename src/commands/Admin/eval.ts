@@ -5,7 +5,7 @@ const fs = require("fs")
 const country = require("countryjs")
 import { db as mongoDb } from "../../lib/dbclient"
 import { transpile } from "typescript"
-import Discord from "discord.js"
+import discord from "discord.js"
 import { inspect } from "util"
 import { Command, client as Client } from "../../index"
 
@@ -22,12 +22,12 @@ const command: Command = {
     description: "The code to run",
     required: false
   }],
-  async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-    const me = interaction.member,
+  async execute(interaction: discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    const me = interaction.member ?? interaction.user,
       guild = interaction.guild,
-      channel = interaction.channel as Discord.TextChannel,
+      channel = interaction.channel as discord.TextChannel,
       db = mongoDb,
-      discord = Discord,
+      Discord = discord,
       client = Client
 
     let evaled
