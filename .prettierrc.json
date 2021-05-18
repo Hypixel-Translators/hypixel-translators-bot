@@ -4,6 +4,7 @@
   "useTabs": false,
   "semi": false,
   "endOfLine": "lf",
-  "proseWrap": "always",
+  "proseWrap": "never",
+  "printWidth": 1000,
   "arrowParens": "avoid"
 }

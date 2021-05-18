@@ -20,7 +20,7 @@ const command: Command = {
     required: true
   }],
   execute(interaction: Discord.CommandInteraction) {
-    if (!(interaction.options[0].channel! as Discord.GuildChannel).isText()) return
+    if (!(interaction.options[0].channel! as Discord.GuildChannel).isText()) throw "You must provide a text channel to send messages in!"
     const sendTo = interaction.options[0].channel! as Discord.TextChannel
     let amount = Number(interaction.options[1].value)
     if (!amount) throw "You need to provide a number of messages to delete!"

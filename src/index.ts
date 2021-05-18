@@ -25,4 +25,4 @@ export interface Command extends Discord.ApplicationCommandData {
 }
 
 //Log in
-client.login(process.env.DISCORD_TOKEN)
+client.login(process.env.DISCORD_TOKEN_DEV)

@@ -12,7 +12,6 @@ client.on("interaction", async interaction => {
         member = await interaction.client.guilds.cache.get("440838503560118273")?.members.fetch(interaction.user.id)!,
         executedBy = getString("executedBy", { user: interaction.user.tag })
 
-
     //Log if command is ran in DMs
     if (interaction.channel?.type === "dm") console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
 
@@ -65,12 +64,14 @@ client.on("interaction", async interaction => {
     //Remove cooldown if administrator
     if (!member?.permissions.has("MANAGE_ROLES")) {
         timestamps.set(interaction.user.id, now)
-        setTimeout(() => { timestamps.delete(interaction.user.id) }, cooldownAmount)
+        setTimeout(() => {
+            timestamps.delete(interaction.user.id)
+        }, cooldownAmount)
     }
 
     /**
      * Gets a string or an object of strings for the correct language and replaces all variables if any
-     * 
+     *
      * @param {string} path Path to the string. Use dots to access strings inside objects
      * @param {Object} [variables] Object containing all the variables and their corresponding text to be replaced in the string.
      * @param {string} [cmd] The name of the file to get strings from. Defaults to the command being ran
@@ -85,8 +86,11 @@ client.on("interaction", async interaction => {
         }
         let enStrings = require(`../../strings/en/${cmd}.json`)
         let strings: any
-        try { strings = require(`../../strings/${lang}/${cmd}.json`) }
-        catch { strings = require(`../../strings/en/${cmd}.json`) }
+        try {
+            strings = require(`../../strings/${lang}/${cmd}.json`)
+        } catch {
+            strings = require(`../../strings/en/${cmd}.json`)
+        }
         const pathSplit = path.split(".")
         let string
         pathSplit.forEach(pathPart => {
@@ -95,7 +99,8 @@ client.on("interaction", async interaction => {
                 if (strings[pathPart]) jsonElement = strings[pathPart]
                 else jsonElement = enStrings[pathPart]
 
-                if (typeof jsonElement === "object" && pathSplit.indexOf(pathPart) !== pathSplit.length - 1) { //check if the string isn't an object nor the end of the path
+                if (typeof jsonElement === "object" && pathSplit.indexOf(pathPart) !== pathSplit.length - 1) {
+                    //check if the string isn't an object nor the end of the path
                     if (strings[pathPart]) strings = strings[pathPart]
                     enStrings = enStrings[pathPart]
                     return
@@ -104,7 +109,7 @@ client.on("interaction", async interaction => {
                     if (!string || typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g))) {
                         string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
-                            string = `strings.${path}` //in case of fire
+                            string = null //in case of fire
                             if (command!.category != "Admin" && command!.category != "Staff") console.error(`Couldn't get string ${path} in English for ${cmd}, please fix this`)
                         }
                     }
@@ -128,13 +133,13 @@ client.on("interaction", async interaction => {
         // Try sending a tip
         // This will only execute if the command is successful
         const d = Math.random() * 100 // Get percentage
-        if (command.allowTip !== false && d <= 5) { // Less than or equal to 5%
+        if (command.allowTip !== false && d <= 5) {
+            // Less than or equal to 5%
             const keys = Object.keys(getString("tips"))
-            const tip = getString(`tips.${keys[keys.length * Math.random() << 0]}`, { botUpdates: "<#732587569744838777>", gettingStarted: "<#699275092026458122>", twitter: "<https://twitter.com/HTranslators>", rules: "<#796159719617986610>", serverInfo: "<#762341271611506708>", bots: "<#549894938712866816>" }, "global")
-            interaction.reply(`**${getString("tip").toUpperCase()}:** ${tip}`)
+            const tip = getString(`tips.${keys[(keys.length * Math.random()) << 0]}`, { botUpdates: "<#732587569744838777>", gettingStarted: "<#699275092026458122>", twitter: "<https://twitter.com/HTranslators>", rules: "<#796159719617986610>", serverInfo: "<#762341271611506708>", bots: "<#549894938712866816>" }, "global")
+            interaction.webhook.send(`**${getString("tip").toUpperCase()}:** ${tip}`)
         }
-    }
-    catch (error) {
+    } catch (error) {
         if (!error.stack) error = getString(`errors.${error}`)
 
         // Send error to bot-dev channel
@@ -163,7 +168,6 @@ client.on("interaction", async interaction => {
         return interaction.reply({ embeds: [embed], ephemeral: true })
     }
 })
-
 
 export function arrayEqual(a: any, b: any) {
     if (a == b) return true
