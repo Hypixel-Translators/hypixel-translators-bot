@@ -1,6 +1,15 @@
 {
-    "outgoing": "Meddelandet skickades till ledningen",
-    "outgoingDisclaimer": "Any message you send here will get sent to staff.",
+    "staffDm": {
+        "confirmSend": "If you confirm this, any messages you send here within the next 48 hours will be sent to staff without any confirmation.",
+        "noConfirmWarn": "Any messages you send here within the next 48 hours will be sent to staff without any confirmation.",
+        "attachmentsWarn": "Attachments will also be included.",
+        "attachmentsSent": "Attachments sent",
+        "attachmentSent": "Attachment sent",
+        "confirmation": "Are you sure you want to send this message to staff?",
+        "messageSent": "Meddelandet skickades till ledningen",
+        "dmCancelled": "This message will not be sent.",
+        "resendInfo": "If you still want to talk to staff, resend it and click the ✅ button to confirm."
+    },
     "error": "Fel",
     "usage": "Förväntad kommandoanvändning",
     "errors": {
