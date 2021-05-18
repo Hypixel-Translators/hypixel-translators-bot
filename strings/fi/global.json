@@ -1,6 +1,15 @@
 {
-    "outgoing": "Lähetettiin viesti ylläpidolle",
-    "outgoingDisclaimer": "Kaikki täällä lähettämäsi viestit lähetetään ylläpidolle.",
+    "staffDm": {
+        "confirmSend": "Vahvistaessasi tämän kaikki 48 tunnin sisällä lähettämäsi viestit välitetään ylläpidolle ilman erillistä vahvistusta.",
+        "noConfirmWarn": "Kaikki 48 tunnin sisällä lähettämäsi viestit välitetään ylläpidolle ilman erillistä vahvistusta.",
+        "attachmentsWarn": "Liitetyt tiedostot sisällytetään viesteihin.",
+        "attachmentsSent": "Tiedostoja lähetetty",
+        "attachmentSent": "Tiedosto lähetetty",
+        "confirmation": "Oletko varma, että haluat lähettää tämän viestin ylläpidolle?",
+        "messageSent": "Lähetettiin viesti ylläpidolle",
+        "dmCancelled": "Tätä viestiä ei lähetetä.",
+        "resendInfo": "Jos haluat edelleen puhua ylläpidolle, lähetä viesti uudelleen ja klikkaa ✅ vahvistaaksesi."
+    },
     "error": "Virhe",
     "usage": "Odotettu komennon syöte",
     "errors": {

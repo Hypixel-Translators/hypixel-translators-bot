@@ -1,7 +1,7 @@
 {
     "moduleName": "Hypixel Doğrulaması",
     "success": "Kendini başarıyla %%player%% olarak doğruladın!",
-    "role": "Sunucudaki rankın sebebiyle sana bu sunucuda %%role%% rolü verildi.",
+    "role": "Oyundaki rankın sebebiyle sana bu sunucuda %%role%% rolü verildi.",
     "alreadyVerified": "Zaten doğrulandın!",
     "nameChangeDisclaimer": "Unutma! Kullanıcı adını değiştirirsen kendini tekrar doğrulaman gerekmez!",
     "error": "Seni doğrulayamadık çünkü Discord'unu Hypixel hesabın ile bağlamamışsın!",
