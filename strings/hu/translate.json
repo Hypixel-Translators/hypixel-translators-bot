@@ -1,6 +1,6 @@
 {
-    "moduleName": "Translate the Bot",
-    "alreadyTranslator": "I see you're already a translator. Here's what you may be looking for:",
+    "moduleName": "Bot lefordítása",
+    "alreadyTranslator": "Te már fordító vagy. Talán ezt kerested:",
     "projectLink": "You can find the link to the project [here](%%link%%).",
     "question": "Have a question?",
     "askTranslators": "Feel free to ask anything about the project on %%botTranslators%%. Don't forget to send a link to the string you're referring to!",
