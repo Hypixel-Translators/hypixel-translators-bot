@@ -18,7 +18,7 @@
     "second": "second",
     "minutes": "minutes",
     "usageField": "Használat",
-    "cooldownField": "Cooldown",
+    "cooldownField": "Időköz",
     "aliasesField": "Becenevek",
     "help": {
         "usage": "+help [oldal | parancs neve]",
@@ -29,7 +29,7 @@
         "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [szám] | +quote add <idézet>/<felhasználó említése>",
         "description": "Szerez (vagy hozz létre) egy vicces/fura/bölcs idézetet a szerverből."
     },
     "mention": {
@@ -45,12 +45,12 @@
         "description": "Megnyitja a GitHub oldalunkat, ahol hibákat jelenthetsz és visszajelzést adhatsz."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or a list of available languages."
+        "usage": "+language [<új nyelv> | list]",
+        "description": "Megváltoztatja a nyelved, megmutatja a mostanit, vagy ad egy listát az elérhető nyelvekről."
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "Megadja a bot és a Discord API pingjét."
     },
     "hypixelstats": {
         "usage": "+hypixelstats [username] [social]",
@@ -61,7 +61,7 @@
         "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
     },
     "8ball": {
-        "usage": "+8ball <question>",
+        "usage": "+8ball <kérdés>",
         "description": "The Magic 8 Ball that will answer all your questions."
     },
     "verify": {
@@ -73,7 +73,7 @@
         "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
     },
     "rank": {
-        "usage": "+rank [user]",
+        "usage": "+rank [felhasználó]",
         "description": "Gives you the current XP for yourself or any given user."
     },
     "levels": {
