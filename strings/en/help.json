@@ -56,6 +56,10 @@
         "usage": "+hypixelstats [username] [social]",
         "description": "Shows you basic Hypixel stats for the provided user."
     },
+    "hypixelunverify": {
+        "usage": "+hypixelunverify",
+        "description": "Unlinks your Discord account from your Hypixel player"
+    },
     "hypixelverify": {
         "usage": "+hypixelverify <username> | +hypixelunverify",
         "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
