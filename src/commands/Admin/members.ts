@@ -15,14 +15,14 @@ const command: Command = {
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-development admin-bots
     execute(interaction: Discord.CommandInteraction) {
-        const role = interaction.options[0].role as Discord.Role
-        let tags: Discord.GuildMember[] = []
+        const role = interaction.options[0].role as Discord.Role,
+            tags: Discord.GuildMember[] = []
         role.members.forEach(member => tags.push(member))
 
-        const arr = []
+        const maxMembersArr: Discord.GuildMember[][] = []
         let p = 0
         while (p < tags.length) {
-            arr.push(tags.slice(p, p += 85)) //89 is max for now
+            maxMembersArr.push(tags.slice(p, p += 85)) //89 is max for now
         }
 
         let color = role.hexColor
@@ -32,16 +32,16 @@ const command: Command = {
                 .setColor(color)
                 .setAuthor("Members list")
                 .setTitle(`Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`)
-        if (arr.length > 1) {
-            arr.forEach(arg => {
-                embed.setDescription(arg.join(", "))
+        if (maxMembersArr.length > 1) {
+            maxMembersArr.forEach(membersArray => {
+                embed.setDescription(membersArray.join(", "))
                 embeds.push(embed)
                 embed
                     .setAuthor("")
                     .setTitle("")
                     .setFooter("")
             })
-        } else embed.setDescription(arr[0].join(", "))
+        } else embed.setDescription(maxMembersArr[0].join(", "))
         embed.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
         embeds.push(embed)
         interaction.reply({ embeds: embeds })
