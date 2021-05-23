@@ -40,7 +40,7 @@ async function check(client: HTBClient) {
 
             }
         } else if (member.joinedTimestamp! <= alert) {
-            member.send("Hey there!\nWe noticed you haven't verified yourself on our server. Are you having any trouble? Please message an administrator or just ask any questions in the <#569178590697095168> channel! Otherwise, please send your profile link like shown in the channel.\n\nThis message was sent to you because you have been on our server for too long, and you're in risk of getting kicked for inactivity soon.\Any messages you send here will be sent to staff.") //verify
+            member.send("Hey there!\nWe noticed you haven't verified yourself on our server. Are you having any trouble? Please message an administrator or just ask any questions in the <#569178590697095168> channel! Otherwise, please send your profile link like shown in the channel.\n\nThis message was sent to you because you have been on our server for too long, and you're in risk of getting kicked for inactivity soon.\nAny messages you send here will be sent to staff upon confirmation.") //verify
                 .then(() => {
                     verifyLogs.send(`Sent an alert to ${member} as they've been in the server for 7 days without verifying.`)
                     console.log(`Alerted ${member.user.tag} for inactivity`)

@@ -30,7 +30,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
     const errorEmbed = new Discord.MessageEmbed()
         .setColor(errorColor)
         .setAuthor("Received message from staff")
-        .setFooter("Any messages you send here will be sent to staff.")
+        .setFooter("Any messages you send here will be sent to staff upon confirmation.")
     if (!url) {
         const userDb: DbUser = await db.collection("users").findOne({ id: member.id })
         url = userDb.profile
@@ -238,7 +238,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
             ? " and you also received the corresponding roles on our Discord server! Make sure to check out <#699275092026458122> if you want to learn more about Crowdin." //getting-started
             : "!\nSadly you didn't receive any roles because you don't translate for any of the projects we currently support.\nWhen you have started translating you can refresh your roles by running `+reverify`"
             }\nIf you wanna know more about all the projects we currently support, run \`+projects\` here.`)
-        .setFooter("Any messages you send here will be sent to staff.")
+        .setFooter("Any messages you send here will be sent to staff upon confirmation.")
 
     if (sendDms) member.send(dmEmbed)
         .then(() => verifyLogs.send(logEmbed))
