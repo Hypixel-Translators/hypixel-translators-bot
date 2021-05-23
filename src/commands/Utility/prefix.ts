@@ -45,8 +45,8 @@ const command: Command = {
             msg.react("✅")
             if (reaction.emoji.name === "✅") {
               msg.reactions.removeAll()
-              if (message.member!.nickname !== (`[${prefix}]  ${nickNoPrefix}`)) {
-                await message.member!.setNickname(`[${prefix}]  ${nickNoPrefix}`, "Used the prefix command")
+              if (message.member!.nickname !== (`[${prefix}] ${nickNoPrefix}`)) {
+                await message.member!.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
                   .then(() => {
                     const embed = new Discord.MessageEmbed()
                       .setColor(successColor)
@@ -99,8 +99,8 @@ const command: Command = {
             msg.reactions.removeAll()
             if (prefix === "n") return
             if (prefix) {
-              if (message.member!.nickname !== (`[${prefix}]  ${nickNoPrefix}`)) {
-                message.member!.setNickname(`[${prefix}]  ${nickNoPrefix}`, "Used the prefix command")
+              if (message.member!.nickname !== (`[${prefix}] ${nickNoPrefix}`)) {
+                message.member!.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
                   .then(() => {
                     const embed = new Discord.MessageEmbed()
                       .setColor(successColor)
@@ -203,14 +203,14 @@ const command: Command = {
             if (reaction.emoji.name === "✅") {
               msg.reactions.removeAll()
               if (prefixes) {
-                if (message.member!.nickname !== (`[${prefixes}]  ${nickNoPrefix}`)) {
-                  await message.member!.setNickname(`[${prefixes}]  ${nickNoPrefix}`, "Used the prefix command")
+                if (message.member!.nickname !== (`[${prefixes}] ${nickNoPrefix}`)) {
+                  await message.member!.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
                     .then(() => {
                       const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("saved"))
-                        .addField(getString("newNickT"), `\`[${prefixes}]  ${nickNoPrefix}\``)
+                        .addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                       msg.edit(embed)
                     })
@@ -220,7 +220,7 @@ const command: Command = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("errors.error"))
                         .setDescription(err)
-                        .addField(getString("previewT"), `\`[${prefixes}]  ${nickNoPrefix}\``)
+                        .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                       msg.edit(embed)
                     })
@@ -261,7 +261,7 @@ const command: Command = {
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("react"))
                 .setDescription(getString("reactTimer2", { cooldown: this.cooldown! }))
-                .addField(getString("previewT"), `\`[${prefixes}]  ${nickNoPrefix}\``)
+                .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
               msg.edit(embed)
             }
@@ -271,14 +271,14 @@ const command: Command = {
             msg.reactions.removeAll()
             if (prefixes === "n") return
             if (prefixes.length > 0) {
-              if (message.member!.nickname !== (`[${prefixes}]  ${nickNoPrefix}`)) {
-                message.member!.setNickname(`[${prefixes}]  ${nickNoPrefix}`, "Used the prefix command")
+              if (message.member!.nickname !== (`[${prefixes}] ${nickNoPrefix}`)) {
+                message.member!.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
                   .then(() => {
                     const embed = new Discord.MessageEmbed()
                       .setColor(successColor)
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("saved"))
-                      .addField(getString("newNickT"), `\`[${prefixes}]  ${nickNoPrefix}\``)
+                      .addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                       .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                   })
@@ -288,7 +288,7 @@ const command: Command = {
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("errors.error"))
                       .setDescription(err)
-                      .addField(getString("previewT"), `\`[${prefixes}]  ${nickNoPrefix}\``)
+                      .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                       .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
                     console.log(err)
