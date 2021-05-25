@@ -3,6 +3,7 @@ import Discord from "discord.js"
 import { flag } from "country-emoji"
 import { db } from "../../lib/dbclient"
 import { Command } from "../../index"
+import { LangDbEntry } from "../../events/stats"
 
 const command: Command = {
   name: "prefix",
@@ -12,12 +13,12 @@ const command: Command = {
   cooldown: 30,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
   async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-    const executedBy = getString("executedBy", { user: message.author.tag }, "global")
-    const nickNoPrefix = message.member!.displayName.replace(/\[[^\s]*\] ?/g, "")
-    const langdb = await db.collection("langdb").find().toArray()
+    const executedBy = getString("executedBy", { user: message.author.tag }, "global"),
+      nickNoPrefix = message.member!.displayName.replace(/\[[^\s]*\] ?/g, ""),
+      langdb: LangDbEntry[] = await db.collection("langdb").find().toArray()
 
     if (args[0]) {
-      let flagEmojis: (string | undefined)[] = []
+      const flagEmojis: (string | undefined)[] = []
       args.forEach(emoji => {
         if (emoji.toLowerCase() === "lol" || emoji.toLowerCase() === "lolcat") flagEmojis.push("😹")
         else if (emoji.toLowerCase() === "enpt" || emoji.toLowerCase() === "pirate") flagEmojis.push("☠")
