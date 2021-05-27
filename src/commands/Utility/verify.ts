@@ -39,7 +39,7 @@ const command: Command = {
         } else if (!member.roles.cache.has("764442984119795732") || !profileUrl || /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) { //Discord Administrator
             const userDb: DbUser = await db.collection("users").findOne({ id: interaction.user.id })
             if (userDb.profile || profileUrl && /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) {
-                interaction.defer(true);
+                interaction.defer({ ephemeral: true });
                 verifyLogs.send(`${interaction.user} was unverified.`)
                 await crowdinVerify(member, profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
                 interaction.editReply("Your profile has been processed. Check your DMs.")
@@ -69,7 +69,7 @@ const command: Command = {
         } else {
             const member = interaction.options.find(o => o.type === "USER")?.member as Discord.GuildMember | undefined
             if (!member) throw "noUser"
-            interaction.defer(true)
+            interaction.defer({ ephemeral: true })
             await crowdinVerify(member, profileUrl.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], false)
             interaction.editReply("Your request has been processed. Check the logs")
         }
