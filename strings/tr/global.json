@@ -60,7 +60,7 @@
         "languageStats": "Tüm projelerimizde herhangi bir dil için istatistikleri görüntüleyebileceğini biliyor muydun? Sadece `+languagestats <dil>` komutunu kullanman yeterli!",
         "rolesChange": "Son zamanlarda Crowdin'de yeni roller aldın veya desteklediğimiz projelerden birine mi katıldın? Rollerini güncellemek için `+reverify` komutunu kullan!",
         "botTranslated": "Botumuzun birden çok dilde mevcut olduğunu biliyor muydun? Şu anda desteklediğimiz tüm dillerin bir listesini görmek için `+language list` komutunu kullanmayı dene!",
-        "moreTips": "Daha fazla tüyoya ihtiyacımız var! `+feedback` kullanarak bize geri bildirim gönderin."
+        "moreTips": "Daha fazla tüyoya ihtiyacımız var! `+feedback` komutunu kullanarak bize tüyo gönderin."
     },
     "executedBy": "%%user%% tarafından yürütüldü"
 }
