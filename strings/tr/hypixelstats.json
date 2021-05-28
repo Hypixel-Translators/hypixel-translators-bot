@@ -10,7 +10,7 @@
     "ap": "Başarım Puanları",
     "online": "Çevrimiçi",
     "offline": "Çevrimdışı",
-    "lastSeen": "En son çevrimiçi olduğu zaman %%game%%",
+    "lastSeen": "En son %%game%% oynamış",
     "language": "Dil",
     "first_login": "İlk Giriş",
     "last_login": "Çevrimiçi olduğu süre",
