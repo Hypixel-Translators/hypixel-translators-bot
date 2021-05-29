@@ -35,7 +35,7 @@ const command: Command = {
                 if (!message.deleted) message.delete()
             } else {
                 await message.member!.roles.remove("569194996964786178", "Unverified") // Verified
-                db.collection("users").updateOne({ id: message.member!.id }, { unverifiedTimestamp: Date.now() })
+                db.collection("users").updateOne({ id: message.member!.id }, { $set: { unverifiedTimestamp: Date.now() } })
                 if (!message.deleted) message.delete()
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
