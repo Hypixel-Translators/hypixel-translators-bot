@@ -1,6 +1,7 @@
 import { client } from "../index.js"
-import stats from "../events/stats.js"
-import inactives from "../events/inactives.js"
+import stats from "../events/stats"
+import inactives from "../events/inactives"
+import crowdin from "../events/crowdinverify"
 import { listeningStatuses, watchingStatuses, playingStatuses } from "../config.json"
 
 client.once("ready", async () => {
@@ -36,5 +37,6 @@ client.once("ready", async () => {
 
         stats(client, false)
         inactives(client, false)
+        crowdin(client, false)
     }, 60000)
 })

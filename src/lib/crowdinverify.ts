@@ -24,7 +24,14 @@ const projectIDs: {
         verifyChannel: "569178590697095168"
     }
 
-async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms: boolean = false) {
+/**
+ * Verifies a guild member with their crowdin profile and gives them the appropriate project and veteran roles, if applicable.
+ * @param member The guild member to verify
+ * @param url The member's Crowdin profile URL
+ * @param sendDms Whether to send DMs to the member or not. Also bypasses the Discord tag check
+ * @param sendLogs Whether to send logs to the log channel or not
+ */
+async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms: boolean = false, sendLogs: boolean = true) {
     const verifyLogs = member.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel
     const verify = member.client.channels.cache.get(UsefulIDs.verifyChannel) as Discord.TextChannel
     const errorEmbed = new Discord.MessageEmbed()
@@ -87,7 +94,11 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
                         })
                     verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
                 })
-            else verifyLogs.send(`The profile stored/provided for ${member} was invalid. Please fix this or ask them to fix this.`)
+            else if (sendLogs) verifyLogs.send(`The profile stored/provided for ${member} was invalid. Please fix this or ask them to fix this.`)
+            else {
+                console.log(`(${member.id}) ${member.user.tag}'s previous profile URL was invalid and was removed but here it is: ${url}`)
+                db.collection("users").updateOne({ id: member.id }, { $unset: { profile: true } })
+            }
             //#endregion
         } else { //if the profile is private
             //#region return message
@@ -107,12 +118,12 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
                         })
                     verifyLogs.send(`${member}'s profile was private, I let them know about that in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
                 })
-            else verifyLogs.send(`${member}'s profile is private. Please ask them to change this.`)
+            else if (sendLogs) verifyLogs.send(`${member}'s profile is private. Please ask them to change this.`)
             //#endregion
         }
         return
     }
-    const evalReturn: CrowdinProjects[] | null = await page.evaluate((tag: string, sendDms: boolean) => {
+    const evalReturn: CrowdinProject[] | null = await page.evaluate((tag: string, sendDms: boolean) => {
         if (document.querySelector(".user-about")?.textContent?.includes(tag) || !sendDms)
             return window.eval("crowdin.profile_projects.view.state.projects")
         else return
@@ -142,7 +153,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
         //#endregion
     }
 
-    let highestLangRoles: {
+    var highestLangRoles: {
         [name: string]: {
             type: string
             projects: ValidProjects[]
@@ -150,12 +161,13 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
     } = {},
         highestProjectRoles: {
             [name: string]: string
-        } = {}
+        } = {},
+        veteranRole: Discord.Role | undefined //yes we have to use var here
     const joinedProjects: string[] = []
 
     evalReturn
         .filter(project => Object.keys(projectIDs).includes(project.id) && project.user_role !== "pending")
-        .forEach(project => {
+        .forEach(async project => {
             joinedProjects.push(projectIDs[project.id].name)
 
             const role = project.contributed_languages?.length
@@ -187,6 +199,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
                             projects: [projectIDs[project.id].name]
                         }
                 })
+            if (project.id == "128098") veteranRole = await veteranMedals(member, project) // Hypixel project
         })
 
     updateLanguageRoles(highestLangRoles, member)
@@ -228,6 +241,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
         }
     }
 
+    if (veteranRole) logEmbed.addField("Veteran role", veteranRole)
     logEmbed.addField("Profile", url)
 
     //#region return message
@@ -246,13 +260,13 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
             logEmbed.setFooter("Message not sent because user had DMs off")
             verifyLogs.send(logEmbed)
         })
-    else verifyLogs.send(logEmbed)
+    else if (sendLogs) verifyLogs.send(logEmbed)
     //#endregion
 }
 
 export { crowdinVerify }
 
-async function updateProjectRoles(projectName: ValidProjects, member: Discord.GuildMember, project: CrowdinProjects) {
+async function updateProjectRoles(projectName: ValidProjects, member: Discord.GuildMember, project: CrowdinProject) {
     const role = project.contributed_languages?.length
         ? project.contributed_languages.map(lang => {
             return {
@@ -354,11 +368,36 @@ async function checkProjectRoles(projectName: ValidProjects, member: Discord.Gui
     await member.roles.remove(projectManagerRole, "User is no longer in this Crowdin project")
 }
 
+async function veteranMedals(member: Discord.GuildMember, project: CrowdinProject) {
+    const medals = ["👻", "🥇", "🥈", "🥉", "🏅", "🎖️", "🏆", "💎", "💠", "⭐", "🌟", "👑"],
+        years = Math.floor((Date.now() - project.joined_at_timestamp * 1000) / (1000 * 60 * 60 * 24 * 365))
+    if (years == 0) return
+
+    let role = member.guild.roles.cache.find(r => r.name.includes(`${years == 1 ? `${years} Year` : `${years} Years`} Veteran`))
+    if (!medals[years]) throw "We've ran out of veteran medals!"
+    if (!role) role = await member.guild.roles.create(
+        {
+            name: `${medals[years]} ${years == 1 ? `${years} Year` : `${years} Years`} Veteran`,
+            position: 34,
+            reason: "New veteran role!"
+        }
+    )
+    if (role.name !== `${medals[years]} ${years == 1 ? `${years} Year` : `${years} Years`} Veteran`) role.setName(`${medals[years]} ${years == 1 ? `${years} Year` : `${years} Years`} Veteran`, "The name was wrong for some reason")
+    member.roles.cache.filter(r => r.name.includes(`${years - 1 == 1 ? `${years - 1} Year` : `${years - 1} Years`} Veteran`))
+        .forEach(async oldRole => {
+            if (oldRole.id !== role!.id) await member.roles.remove(role!, "Giving a new Veteran role") //why tf does this throw an error without the !
+        })
+
+    member.roles.add(role, `Been in the Hypixel project for ${years == 1 ? `${years} year` : `${years} years`}`)
+    return role
+}
+
 let browser: puppeteer.Browser | null = null,
     interval: NodeJS.Timeout | null = null,
     lastRequest = 0,
     activeConnections: string[] = [],
-    browserClosing = false
+    browserClosing = false,
+    browserOpening = false
 
 /**
  * Returns the browser and an connection ID.
@@ -377,11 +416,21 @@ async function getBrowser() {
     lastRequest = Date.now()
 
     //* Open a browser if there isn't one already.
+    await new Promise<void>((resolve) => {
+        let timer = setInterval(() => {
+            if (!browserOpening) {
+                clearInterval(timer)
+                resolve()
+            }
+        }, 100)
+    })
     if (!browser) {
+        browserOpening = true
         browser = await puppeteer.launch({
             args: ["--no-sandbox"],
             headless: process.env.NODE_ENV === "production"
         })
+        browserOpening = false
     }
 
     //* Add closing interval if there isn't one already.
@@ -422,7 +471,7 @@ async function closeConnection(uuid: string) {
     }
 }
 
-interface CrowdinProjects {
+interface CrowdinProject {
     id: string
     name: string
     identifier: string

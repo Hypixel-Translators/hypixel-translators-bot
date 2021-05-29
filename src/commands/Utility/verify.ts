@@ -15,7 +15,7 @@ const command: Command = {
         const verifyLogs = message.client.channels.cache.get("662660931838410754") as Discord.TextChannel
         const verify = message.client.channels.cache.get("569178590697095168") as Discord.TextChannel
         if (!message.member!.roles.cache.has("569194996964786178")) { //Verified
-            await message.delete()
+            if (!message.deleted) await message.delete()
             message.channel.messages.fetch()
                 .then(messages => {
                     const fiMessages = messages.filter(msgs => msgs.author.id === message.author.id);
@@ -31,7 +31,7 @@ const command: Command = {
                 message.react("798339571531382874"); //icon_working
                 (message.client.channels.cache.get("662660931838410754") as Discord.TextChannel).send(`${message.author} was unverified.`) //verify-logs
                 await crowdinVerify(message.member!, message.content.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
-                message.delete()
+                if (!message.deleted) message.delete()
             } else {
                 await message.member!.roles.remove("569194996964786178", "Unverified") // Verified
                 if (!message.deleted) message.delete()
@@ -63,7 +63,7 @@ const command: Command = {
             if (!member) throw "falseUser"
             message.react("798339571531382874") //icon_working
             await crowdinVerify(member, message.content.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], false)
-            message.delete()
+            if (!message.deleted) message.delete()
         }
     }
 }
