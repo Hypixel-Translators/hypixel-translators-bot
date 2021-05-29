@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import { MongoClient, Db } from 'mongodb'
+import { MongoClient, Db } from "mongodb"
 import { Command } from "../index"
 const url = process.env.MONGO_URL
 if (!url) throw "MONGO_URL not in .env"
@@ -22,17 +22,18 @@ async function init() {
 init()
 
 export interface DbUser {
-    id: string,
-    lang: string,
-    profile?: string,
-    uuid?: string,
+    id: string
+    lang: string
+    profile?: string
+    uuid?: string
     levels: {
-        level: number,
-        totalXp: number,
-        levelXp: number,
+        level: number
+        totalXp: number
+        levelXp: number
         messageCount: number
-    },
+    }
     staffMsgTimestamp?: number
+    unverifiedTimestamp?: number
 }
 
 export class HTBClient extends Discord.Client {
@@ -46,5 +47,4 @@ export class HTBClient extends Discord.Client {
         }
         return user
     }
-
 }

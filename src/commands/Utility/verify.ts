@@ -23,6 +23,7 @@ const command: Command = {
                 })
             await message.member!.roles.add("569194996964786178", "Manually verified through the command")
             await message.member!.roles.remove("756199836470214848", "Manually verified through the command"); //Add Verified and remove Alerted
+            db.collection("users").updateOne({ id: message.member!.id }, { $unset: { unverifiedTimestamp: true } });
             (message.guild!.channels.cache.get("662660931838410754") as Discord.TextChannel)!.send(`${message.author} manually verified themselves through the command`) //verify-logs
             client.cooldowns.get(this.name)!.delete(message.author.id)
         } else if (!message.member!.roles.cache.has("764442984119795732") || /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(args[0]) || !args[0]) { //Discord Administrator
@@ -34,6 +35,7 @@ const command: Command = {
                 if (!message.deleted) message.delete()
             } else {
                 await message.member!.roles.remove("569194996964786178", "Unverified") // Verified
+                db.collection("users").updateOne({ id: message.member!.id }, { unverifiedTimestamp: Date.now() })
                 if (!message.deleted) message.delete()
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
