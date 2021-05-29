@@ -10,7 +10,10 @@ import { db, DbUser } from "../lib/dbclient.js"
 client.on("message", async message => {
 
     //Delete pinned message messages
-    if (message.type === "PINS_ADD" && message.channel.type !== "dm") return message.delete()
+    if (message.type === "PINS_ADD" && message.channel.type !== "dm") {
+        message.delete()
+        return
+    }
 
     //Stop if user is a bot
     if (message.author.bot) return
@@ -25,7 +28,10 @@ client.on("message", async message => {
     if (message.guild?.id === "549503328472530974" && !command && !noXp.includes((message.channel as Discord.GuildChannel).parentID!) && !noXp.includes(message.channel.id!) && !message.member?.roles.cache.some(r => noXpRoles.includes(r.id))) await leveling(message)
 
     //Publish message if sent in bot-updates
-    if (message.channel.id === "732587569744838777" || message.channel.id === "618909521741348874" && !message.embeds[0].description?.startsWith("@")) return message.crosspost() //bot-updates
+    if (message.channel.id === "732587569744838777" || message.channel.id === "618909521741348874" && !message.embeds[0].description?.startsWith("@")) {
+        await message.crosspost() //bot-updates
+        return
+    }
 
     // Delete non-stringURL messages in review-strings
     if (message.channel instanceof Discord.TextChannel && message.channel.name.endsWith("-review-strings")) {
@@ -54,7 +60,8 @@ client.on("message", async message => {
                     .setDescription(getString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }, "global"))
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
                 if (message.content !== langFix && message.channel.parentID === "549503328472530977") embed.setDescription(`${getString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }, "global")}\n${getString("reminderLang", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }, "global")}`)
-                return message.channel.send(message.author, embed)
+                message.channel.send(message.author, embed)
+                return
             } else if (message.content !== langFix && message.channel.parentID === "549503328472530977") {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
@@ -62,7 +69,8 @@ client.on("message", async message => {
                     .setAuthor(getString("errors.wrongLink", "global"))
                     .setTitle(getString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }, "global"))
                     .setDescription(langFix)
-                return message.channel.send(message.author, embed)
+                message.channel.send(message.author, embed)
+                return
             }
         }
     }
@@ -142,7 +150,8 @@ client.on("message", async message => {
                 staffMsg.setTitle("View attachments")
                 dmEmbed.setTitle(getString("staffDm.attachmentsSent", "global"))
                 staffBots.send(`+dm ${message.author.id}`, { embed: staffMsg, files: images })
-                return message.channel.send(dmEmbed)
+                message.channel.send(dmEmbed)
+                return
             } else if (message.attachments.size > 0) {
                 staffMsg
                     .setTitle("View attachment")
@@ -150,7 +159,10 @@ client.on("message", async message => {
                 dmEmbed.setTitle(getString("staffDm.attachmentSent", "global"))
                 staffBots.send(`+dm ${message.author.id}`, staffMsg)
             } else staffBots.send(`+dm ${message.author.id}`, staffMsg) //staff-bots
-            if (afterConfirm) return msg.edit(dmEmbed)
+            if (afterConfirm) {
+                msg.edit(dmEmbed)
+                return
+            }
             msg.channel.send(dmEmbed)
         }
     }
@@ -195,9 +207,10 @@ client.on("message", async message => {
     if (member?.permissions.has("MANAGE_ROLES") && command.name !== "eval" || member?.permissions.has("ADMINISTRATOR")) allowed = true
     if (!allowed) {
         message.react("732298639736570007")
-        return setTimeout(() => {
+        setTimeout(() => {
             if (!message.deleted && message.channel.type !== "dm") message.delete()
         }, 5000)
+        return
     }
 
     //Stop and error if command is not allowed in DMs and command is sent in DMs
@@ -207,7 +220,8 @@ client.on("message", async message => {
             .setAuthor(getString("error", "global"))
             .setTitle(getString("errors.dmError", "global"))
             .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        return message.channel.send(embed)
+        message.channel.send(embed)
+        return
     }
     //Cooldown system
     if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Discord.Collection())
@@ -228,12 +242,13 @@ client.on("message", async message => {
                 .setAuthor(getString("cooldown", "global"))
                 .setTitle(timeLeftS)
                 .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            return message.channel.send(embed)
+            message.channel.send(embed)
                 .then(msg =>
                     setTimeout(() => {
                         if (!message.deleted && message.channel.type !== "dm") message.delete()
                         if (!msg.deleted && message.channel.type !== "dm") msg.delete()
                     }, 10000))
+            return
         }
     }
 
@@ -323,7 +338,7 @@ client.on("message", async message => {
         if (command.category == "Admin" || command.category == "Staff") embed.addField(getString("usage", "global"), `\`${command.usage}\``)
         else embed.addField(getString("usage", "global"), `\`${getString(`${command.name}.usage`, "help")}\``)
         message.channel.stopTyping()
-        return message.channel.send(embed)
+        message.channel.send(embed)
             .then(msg => {
                 if (error.stack) {
                     if (process.env.NODE_ENV === "production") {
