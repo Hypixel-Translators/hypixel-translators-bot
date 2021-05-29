@@ -382,7 +382,7 @@ async function veteranMedals(member: Discord.GuildMember, project: CrowdinProjec
     if (!role) role = await member.guild.roles.create(
         {
             name: `${medals[years]} ${years == 1 ? `${years} Year` : `${years} Years`} Veteran`,
-            position: 34,
+            position: member.guild.roles.cache.filter(r => r.name.includes(" Veteran")).sort((a, b) => b.position - a.position).first()!.position + 1,
             reason: "New veteran role!"
         }
     )
