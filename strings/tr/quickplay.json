@@ -1,5 +1,5 @@
 {
     "quickplayCrowdin": "İşte Quickplay Crowdin projesi: %%crowdin%%",
-    "quickplayThread": "Quickplay modunu gösteren konu için bu bağlantıyı takip edin: %%thread%%",
+    "quickplayThread": "Quickplay modunu tanıtan konu için bu bağlantıyı ziyaret et: %%thread%%",
     "quickplayDiscord": "Quickplay'in Discord sunucusuna %%discord%% adresinden katılabilirsin."
 }
