@@ -102,7 +102,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
                 db.collection("users").updateOne({ id: member.id }, { $unset: { profile: true } })
             }
             //#endregion
-        } else { //if the profile is private
+        } else if (sendLogs){ //if the profile is private
             //#region return message
             member.roles.remove("569194996964786178", "Tried to reverify with a private profile") // Verified
             db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
@@ -121,7 +121,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
                         })
                     verifyLogs.send(`${member}'s profile was private, I let them know about that in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
                 })
-            else if (sendLogs) verifyLogs.send(`${member}'s profile is private. Please ask them to change this.`)
+            else verifyLogs.send(`${member}'s profile is private. Please ask them to change this.`)
             //#endregion
         }
         return
