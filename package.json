@@ -17,7 +17,7 @@
     "canvas": "^2.8.0",
     "country-emoji": "^1.5.6",
     "countryjs": "^1.8.0",
-    "discord.js": "git+https://git@github.com/discordjs/discord.js.git",
+    "discord.js": "^13.0.0-dev.652c683da7032a147313b4a8db043be5385e0656",
     "mongodb": "^3.6.9",
     "node-fetch": "^2.6.1",
     "puppeteer": "^9.1.1",
@@ -26,7 +26,7 @@
     "uuid": "^8.3.2"
   },
   "engines": {
-    "node": ">=14",
+    "node": "14.x",
     "npm": ">=7"
   },
   "devDependencies": {
