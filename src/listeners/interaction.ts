@@ -24,9 +24,10 @@ client.on("interaction", async interaction => {
 
     //Give perm to admins and return if not allowed
     if (!allowed) {
-        return setTimeout(() => {
+        setTimeout(() => {
             if (!interaction.replied) interaction.reply(getString("errors.noPerm"), { ephemeral: true })
         }, 5000)
+        return
     }
 
     //Stop and error if command is not allowed in DMs and command is sent in DMs
@@ -106,7 +107,7 @@ client.on("interaction", async interaction => {
                     return
                 } else {
                     string = strings[pathPart]
-                    if (!string || typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g))) {
+                    if (!string || (typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g)))) {
                         string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
                             string = null //in case of fire
@@ -150,8 +151,8 @@ client.on("interaction", async interaction => {
                     .setAuthor("Unexpected error!")
                     .setTitle(error.toString().substring(0, 255))
                     .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
-                    .setFooter("Check the console for more details");
-                (interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send("<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
+                    .setFooter("Check the console for more details")
+                ;(interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send("<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
             }
             console.error(`Unexpected error with command ${interaction.commandName} on channel ${interaction.channel instanceof Discord.DMChannel ? interaction.channel.type : (interaction.channel as Discord.TextChannel).name} executed by ${interaction.user.tag}. Here's the error:\n${error.stack}`)
         }
