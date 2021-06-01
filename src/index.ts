@@ -1,5 +1,5 @@
 //Setup dotenv and define client
-import "dotenv/config"
+if (!process.env.MONGO_URL) require("dotenv").config()
 import "source-map-support/register"
 import Discord from "discord.js"
 import { HTBClient } from "./lib/dbclient"

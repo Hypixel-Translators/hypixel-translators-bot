@@ -1,6 +1,6 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
-import inactives from "../../events/inactives.js"
+import inactives from "../../events/inactives"
 import { Command, client } from "../../index"
 
 const command: Command = {

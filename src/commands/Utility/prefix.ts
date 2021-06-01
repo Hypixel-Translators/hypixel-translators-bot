@@ -3,6 +3,7 @@ import Discord from "discord.js"
 import { flag } from "country-emoji"
 import { db } from "../../lib/dbclient"
 import { Command } from "../../index"
+import { LangDbEntry } from "../../events/stats"
 
 const command: Command = {
   name: "prefix",
@@ -20,10 +21,10 @@ const command: Command = {
     const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
       member = interaction.member as Discord.GuildMember,
       nickNoPrefix = member.displayName.replace(/\[[^\s]*\] ?/g, ""),
-      langdb = await db.collection("langdb").find().toArray()
+      langdb: LangDbEntry[] = await db.collection("langdb").find().toArray()
 
     if (interaction.options[0].value) {
-      let flagEmojis: (string | undefined)[] = [];
+      const flagEmojis: (string | undefined)[] = [];
       (interaction.options[0].value as string).split(" ").forEach(emoji => {
         if (emoji.toLowerCase() === "lol" || emoji.toLowerCase() === "lolcat") flagEmojis.push("😹")
         else if (emoji.toLowerCase() === "enpt" || emoji.toLowerCase() === "pirate") flagEmojis.push("☠")

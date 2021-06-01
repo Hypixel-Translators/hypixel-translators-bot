@@ -34,6 +34,7 @@ const command: Command = {
                 })
             await member.roles.add("569194996964786178", "Manually verified through the command")
             await member.roles.remove("756199836470214848", "Manually verified through the command"); //Add Verified and remove Alerted
+            db.collection("users").updateOne({ id: member!.id }, { $unset: { unverifiedTimestamp: true } });
             verifyLogs.send(`${interaction.user} manually verified themselves through the command`)
             client.cooldowns.get(this.name)!.delete(interaction.user.id)
         } else if (!member.roles.cache.has("764442984119795732") || !profileUrl || /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) { //Discord Administrator
@@ -45,6 +46,7 @@ const command: Command = {
                 interaction.editReply("Your profile has been processed. Check your DMs.")
             } else {
                 await member.roles.remove("569194996964786178", "Unverified") // Verified
+                db.collection("users").updateOne({ id: member!.id }, { $set: { unverifiedTimestamp: Date.now() } })
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor("Manual verification")

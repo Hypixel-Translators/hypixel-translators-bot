@@ -4,7 +4,7 @@ import fetch, { FetchError } from "node-fetch"
 import { successColor, loadingColor, errorColor } from "../../config.json"
 import { LangDbEntry } from "../../events/stats"
 import { Command, client } from "../../index"
-const ctokenV2 = process.env.CTOKEN_API_V2!
+const ctokenV2 = process.env.CTOKEN_V2!
 
 const command: Command = {
     name: "languagestats",

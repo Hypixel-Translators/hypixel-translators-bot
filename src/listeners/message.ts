@@ -11,7 +11,10 @@ import { arrayEqual } from "./interaction.js"
 client.on("message", async message => {
 
     //Delete pinned message messages
-    if (message.type === "PINS_ADD" && message.channel.type !== "dm") return message.delete()
+    if (message.type === "PINS_ADD" && message.channel.type !== "dm") {
+        message.delete()
+        return
+    }
 
     //Stop if user is a bot
     if (message.author.bot) return
@@ -23,7 +26,10 @@ client.on("message", async message => {
     if (message.guild?.id === "549503328472530974" && !noXp.includes((message.channel as Discord.GuildChannel).parentID!) && !noXp.includes(message.channel.id!) && !message.member?.roles.cache.some(r => noXpRoles.includes(r.id))) await leveling(message)
 
     //Publish message if sent in bot-updates
-    if (message.channel.id === "732587569744838777" || message.channel.id === "618909521741348874" && !message.embeds[0].description?.startsWith("@")) return message.crosspost() //bot-updates
+    if (message.channel.id === "732587569744838777" || message.channel.id === "618909521741348874" && !message.embeds[0].description?.startsWith("@")) {
+        await message.crosspost() //bot-updates
+        return
+    }
 
     // Delete non-stringURL messages in review-strings
     if (message.channel instanceof Discord.TextChannel && message.channel.name.endsWith("-review-strings")) {
@@ -51,7 +57,8 @@ client.on("message", async message => {
                     .setDescription(getString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }, "global"))
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
                 if (message.content !== langFix && message.channel.parentID === "549503328472530977") embed.setDescription(`${getString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }, "global")}\n${getString("reminderLang", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }, "global")}`)
-                return message.reply(message.author, embed)
+                message.channel.send(message.author, embed)
+                return
             } else if (message.content !== langFix && message.channel.parentID === "549503328472530977") {
                 message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
@@ -59,7 +66,8 @@ client.on("message", async message => {
                     .setAuthor(getString("errors.wrongLink", "global"))
                     .setTitle(getString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }, "global"))
                     .setDescription(langFix)
-                return message.reply(message.author, embed)
+                message.channel.send(message.author, embed)
+                return
             }
         }
     }
@@ -139,7 +147,8 @@ client.on("message", async message => {
                 staffMsg.setTitle("View attachments")
                 dmEmbed.setTitle(getString("staffDm.attachmentsSent", "global"))
                 staffBots.send(`+dm ${message.author.id}`, { embed: staffMsg, files: images })
-                return message.channel.send(dmEmbed)
+                message.channel.send(dmEmbed)
+                return
             } else if (message.attachments.size > 0) {
                 staffMsg
                     .setTitle("View attachment")
@@ -147,7 +156,10 @@ client.on("message", async message => {
                 dmEmbed.setTitle(getString("staffDm.attachmentSent", "global"))
                 staffBots.send(`+dm ${message.author.id}`, staffMsg)
             } else staffBots.send(`+dm ${message.author.id}`, staffMsg) //staff-bots
-            if (afterConfirm) return msg.edit(dmEmbed)
+            if (afterConfirm) {
+                msg.edit(dmEmbed)
+                return
+            }
             msg.channel.send(dmEmbed)
         }
     }

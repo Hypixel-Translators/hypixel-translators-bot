@@ -1,6 +1,6 @@
 {
     "moduleName": "Dil istatistikleri",
-    "statsAll": "İşte şu anda desteklediğimiz tüm projelerdeki %%language%% dilin istatistikleri.",
+    "statsAll": "İşte şu anda desteklediğimiz tüm projelerdeki %%language%% dilinin istatistikleri.",
     "translated": "%%percentage%% çevrildi\n(%%translated%%/%%total%% dize)",
     "approved": "%%percentage%% onaylandı\n(%%approved%%/%%total%% dize)",
     "languages": {

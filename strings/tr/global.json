@@ -48,7 +48,7 @@
     "tips": {
         "ib": "Henüz Muz dilini denemedin mi? Dilini `+lang ib` komutu ile muz dili olarak güncelleyebilirsin!",
         "translators": "Çevirmenlere ihtiyacım var! Nasıl bir bot çevirmeni olacağını `+translate` komutunu kullanarak öğren.",
-        "prefix": "Kullanıcı adının yanına havalı bir prefix ister misin? %%bots%% da `+prefix` komutunu kullan ve talimatları takip et! Tüm Hypixel ve Quickplay çevirmenleri tarafından kullanılabilir.",
+        "prefix": "Kullanıcı adının başında gözüken havalı bir prefix ister misin? %%bots%% da `+prefix` komutunu kullan ve talimatları takip et! Tüm Hypixel ve Quickplay çevirmenleri tarafından kullanılabilir.",
         "enen": "Lütfen bağlantılarınızı en-en olarak değiştirin!",
         "xp": "Sohbet ederken her dakika rastgele miktarda deneyim puanı elde edersin, bu da seviyeni yükseltmeni sağlar.",
         "guide": "Tüm çevirmenler için Crowdin'i nasıl kullanacağınıza dair bir rehberimiz olduğunu biliyor muydunuz? %%gettingStarted%%, buradan kontrol edin, bazı yararlı ipuçları var!",
@@ -57,10 +57,10 @@
         "fixTranslation": "Çeviride bir hata mı buldun? Dilinin düzelticisine başvur veya çeviri kanalındaki insanlara bildir.",
         "pinnedInfo": "Çoğu kanalın önemli bilgilere sahip olduğunu biliyor muydun? Bunlardan birini her ziyaret ettiğinde kontrol etmelisin!",
         "hypixelStats": "`+hypixelstats <kullanıcı adı> [social]` komutunu kullanarak Hypixel'deki belirli bir oyuncu hakkında ki bilgileri görüntüleyebilirsin!",
-        "languageStats": "Tüm projelerimizde herhangi bir dil için istatistikleri görüntüleyebileceğini biliyor muydun? Sadece `+languagestats <dil>` komutunu kullanman yeterli!",
+        "languageStats": "Tüm projelerimizde, herhangi bir dil için istatistikleri görüntüleyebileceğini biliyor muydun? Sadece `+languagestats <dil>` komutunu kullanman yeterli!",
         "rolesChange": "Son zamanlarda Crowdin'de yeni roller aldın veya desteklediğimiz projelerden birine mi katıldın? Rollerini güncellemek için `+reverify` komutunu kullan!",
         "botTranslated": "Botumuzun birden çok dilde mevcut olduğunu biliyor muydun? Şu anda desteklediğimiz tüm dillerin bir listesini görmek için `+language list` komutunu kullanmayı dene!",
-        "moreTips": "Daha fazla tüyoya ihtiyacımız var! `+feedback` kullanarak bize geri bildirim gönderin."
+        "moreTips": "Daha fazla tüyoya ihtiyacımız var! `+feedback` komutunu kullanarak bize tüyo gönderin."
     },
     "executedBy": "%%user%% tarafından yürütüldü"
 }

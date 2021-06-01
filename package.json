@@ -17,25 +17,26 @@
     "canvas": "^2.8.0",
     "country-emoji": "^1.5.6",
     "countryjs": "^1.8.0",
-    "discord.js": "github:discordjs/discord.js",
-    "dotenv": "^9.0.2",
-    "mongodb": "^3.6.7",
+    "discord.js": "^13.0.0-dev.6567ba821a54d3dc97d07ce8ac55335fef2f346b",
+    "mongodb": "^3.6.9",
     "node-fetch": "^2.6.1",
-    "puppeteer": "^9.1.1",
+    "puppeteer": "^10.0.0",
     "source-map-support": "^0.5.19",
-    "typescript": "^4.2.4",
+    "typescript": "^4.3.2",
     "uuid": "^8.3.2"
   },
   "engines": {
-    "node": "14.x"
+    "node": "14.x",
+    "npm": ">=7"
   },
   "devDependencies": {
     "@types/countryjs": "^1.8.1",
-    "@types/mongodb": "^3.6.15",
+    "@types/mongodb": "^3.6.17",
     "@types/node-fetch": "^2.5.10",
     "@types/uuid": "^8.3.0",
     "@types/ws": "^7.4.2",
     "discord-api-types": "^0.18.1",
+    "dotenv": "^10.0.0",
     "rimraf": "^3.0.2"
   }
 }
