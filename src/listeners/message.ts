@@ -60,7 +60,7 @@ client.on("message", async message => {
                     .setDescription(getString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }, "global"))
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
                 if (message.content !== langFix && message.channel.parentID === "549503328472530977") embed.setDescription(`${getString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }, "global")}\n${getString("reminderLang", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }, "global")}`)
-                message.channel.send(message.author, embed)
+                message.channel.send(`${message.author}`, embed)
                 return
             } else if (message.content !== langFix && message.channel.parentID === "549503328472530977") {
                 message.react("732298639736570007")
@@ -69,7 +69,7 @@ client.on("message", async message => {
                     .setAuthor(getString("errors.wrongLink", "global"))
                     .setTitle(getString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }, "global"))
                     .setDescription(langFix)
-                message.channel.send(message.author, embed)
+                message.channel.send(`${message.author}`, embed)
                 return
             }
         }

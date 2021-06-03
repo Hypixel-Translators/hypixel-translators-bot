@@ -33,21 +33,21 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     .setColor(loadingColor)
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.requestDetails.replace("%%user%%", user.tag))
-                    .setDescription(reaction.message)
+                    .setDescription(`${reaction.message}`)
                     .addField(strings.message, `[${strings.clickHere}](${reaction.message.url})`)
                     .setFooter(strings.requestedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
-                if (reaction.message.author!.id !== user.id) translatorChannel.send(reaction.message.author, embed)
+                if (reaction.message.author!.id !== user.id) translatorChannel.send(`${reaction.message.author}`, embed)
             } else if (reaction.emoji.name === "vote_no") {
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.rejected.replace("%%user%%", user.tag))
-                    .setDescription(reaction.message)
+                    .setDescription(`${reaction.message}`)
                     .setFooter(strings.rejectedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
                 if (reaction.message.author!.id !== user.id) {
                     reaction.message.react("⏱")
                     setTimeout(() => {
-                        translatorChannel.send(reaction.message.author, embed)
+                        translatorChannel.send(`${reaction.message.author}`, embed)
                         // Check if the user hasn't removed their reaction
                         if (reaction.users.fetch().then(cache => cache.has(user.id))) {
                             if (!reaction.message.deleted) reaction.message.delete()
@@ -59,7 +59,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
         }
         // Give Polls role if reacted on reaction role message
         else if (reaction.message.id === "800415711864029204") { //server-info roles message
-            let roleId: string
+            let roleId: Discord.Snowflake
             if (reaction.emoji.name === "📊") roleId = "646098170794868757" //Polls
             else if (reaction.emoji.name === "🤖") roleId = "732615152246980628" //Bot Updates
             else if (reaction.emoji.name === "🎉") roleId = "801052623745974272" //Giveaway pings
@@ -82,11 +82,11 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     .setAuthor("Starboard")
                     .setTitle(`The following quote reached ${reaction.count} ⭐ reactions and was added!`)
                     .setDescription(reaction.message.content)
-                    .addFields(
-                        { name: "User", value: reaction.message.author },
-                        { name: "Quote number", value: id },
+                    .addFields([
+                        { name: "User", value: `${reaction.message.author}` },
+                        { name: "Quote number", value: `${id}` },
                         { name: "URL", value: reaction.message.url }
-                    )
+                    ])
                 reaction.message.channel.send(embed)
             }
         }

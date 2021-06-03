@@ -96,10 +96,10 @@ async function addQuote(message: Discord.Message, quote: string, author: string,
         .setAuthor("Quote")
         .setTitle("Success! The following quote has been added:")
         .setDescription(quote)
-        .addFields(
+        .addFields([
             { name: "User", value: author },
-            { name: "Quote number", value: quoteId }
-        )
+            { name: "Quote number", value: `${quoteId}` }
+        ])
         .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
     message.channel.stopTyping()
     message.channel.send(embed)
@@ -171,7 +171,7 @@ async function linkQuote(message: Discord.Message, args: string[], collection: C
     const quoteId = Number(args[1])
     if (!quoteId) throw "noQuote"
     const urlSplit = args[2].split("/");
-    (client.channels.cache.get(urlSplit[5]) as Discord.TextChannel)?.messages.fetch(urlSplit[6])
+    (client.channels.cache.get(urlSplit[5] as Discord.Snowflake) as Discord.TextChannel)?.messages.fetch(urlSplit[6] as Discord.Snowflake)
         .then(async msg => {
             await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } }).then(r => {
                 if (r.value) {

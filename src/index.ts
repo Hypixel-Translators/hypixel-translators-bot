@@ -32,12 +32,12 @@ export interface Command {
     allowDM?: true
     allowTip?: false
     dev?: true
-    roleWhitelist?: string[]
-    roleBlacklist?: string[]
-    channelBlacklist?: string[]
-    channelWhitelist?: string[]
-    categoryWhitelist?: string[]
-    categoryBlacklist?: string[]
+    roleWhitelist?: Discord.Snowflake[]
+    roleBlacklist?: Discord.Snowflake[]
+    channelBlacklist?: Discord.Snowflake[]
+    channelWhitelist?: Discord.Snowflake[]
+    categoryWhitelist?: Discord.Snowflake[]
+    categoryBlacklist?: Discord.Snowflake[]
     category?: string
     execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any): any
 }

@@ -10,7 +10,7 @@ const command: Command = {
     roleWhitelist: ["768435276191891456"], //Discord Staff
     async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
         if (!args[0]) throw "noUser"
-        const userToSend = args[0].replace(/[\\<>@#&!]/g, "")
+        const userToSend = args[0].replace(/[\\<>@#&!]/g, "") as Discord.Snowflake
         const recipient = message.client.users.cache.get(userToSend)
         if (!recipient) throw "falseUser"
         args.splice(0, 1)

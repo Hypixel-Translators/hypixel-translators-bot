@@ -22,7 +22,7 @@ async function init() {
 init()
 
 export interface DbUser {
-    id: string
+    id: Discord.Snowflake
     lang: string
     profile?: string
     uuid?: string

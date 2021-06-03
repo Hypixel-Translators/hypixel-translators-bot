@@ -11,7 +11,7 @@ const command: Command = {
   roleWhitelist: ["768435276191891456"], //Discord Staff
   async execute(message: Discord.Message, args: string[]) {
     if (!args[0]) throw "noMessage"
-    const sendTo = message.client.channels.cache.get(args[0].replace(/[\\<>@#&!]/g, "")) as (Discord.TextChannel | Discord.NewsChannel)
+    const sendTo = message.client.channels.cache.get(args[0].replace(/[\\<>@#&!]/g, "") as Discord.Snowflake) as (Discord.TextChannel | Discord.NewsChannel)
     args.splice(0, 1)
     const toSend = args.join(" ")
 

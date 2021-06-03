@@ -9,7 +9,7 @@ const command: Command = {
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(message: Discord.Message, args: string[]) {
         if (!args[0]) return message.channel.send("You forgot to specify a message to look for! Use the message ID")
-        const giveawayMsg = await message.channel.messages.fetch(args[0])
+        const giveawayMsg = await message.channel.messages.fetch(args[0] as Discord.Snowflake)
             .catch(err => {
                 return message.channel.send("Couldn't find that message! Here's the error:\n" + err)
             })

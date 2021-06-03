@@ -20,7 +20,7 @@ const command: Command = {
         let uuid = authorDb.uuid
         if (args[0]) {
             args[0] = args[0].replace(/[\\<>@#&!]/g, "")
-            if (message.guild!.members.cache.get(args[0])) {
+            if (message.guild!.members.cache.get(args[0] as Discord.Snowflake)) {
                 const userDb: DbUser = await client.getUser(args[0])
                 if (userDb.uuid) uuid = userDb.uuid
                 else throw "notVerified"

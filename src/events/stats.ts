@@ -73,7 +73,7 @@ export async function hypixel(client: HTBClient) {
                             if (stringDiff == 1) hypixelTranslators.send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the Hypixel project.")
                             else hypixelTranslators.send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the Hypixel project.")
                         }
-                        stringCount.edit(langStatus[0].data.phrases.total)
+                        stringCount.edit(`${langStatus[0].data.phrases.total}`)
                     }
                 })
         })
@@ -130,7 +130,7 @@ export async function quickplay(client: HTBClient) {
                             if (stringDiff == 1) qpTranslators.send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the Quickplay project.")
                             else qpTranslators.send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the Quickplay project.")
                         }
-                        stringCount.edit(langStatus[0].data.phrases.total)
+                        stringCount.edit(`${langStatus[0].data.phrases.total}`)
                     }
                 })
         })
@@ -187,7 +187,7 @@ export async function bot(client: HTBClient) {
                             if (stringDiff == 1) botTranslators.send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the Hypixel Translators Bot project.")
                             else botTranslators.send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the Hypixel Translators Bot project.")
                         }
-                        stringCount.edit(langStatus[0].data.phrases.total)
+                        stringCount.edit(`${langStatus[0].data.phrases.total}`)
                     }
                 })
         })
@@ -244,7 +244,7 @@ export async function skyblockaddons(client: HTBClient) {
                             if (stringDiff == 1) sbaTranslators.send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the SkyblockAddons project.")
                             else sbaTranslators.send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the SkyblockAddons project.")
                         }
-                        stringCount.edit(langStatus[0].data.phrases.total)
+                        stringCount.edit(`${langStatus[0].data.phrases.total}`)
                     }
                 })
         })

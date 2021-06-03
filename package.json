@@ -17,7 +17,7 @@
     "canvas": "^2.8.0",
     "country-emoji": "^1.5.6",
     "countryjs": "^1.8.0",
-    "discord.js": "^13.0.0-dev.6567ba821a54d3dc97d07ce8ac55335fef2f346b",
+    "discord.js": "^13.0.0-dev.43fc40e9b4250990649c7dc8e46f475c05a29032",
     "mongodb": "^3.6.9",
     "node-fetch": "^2.6.1",
     "puppeteer": "^10.0.0",
@@ -34,8 +34,6 @@
     "@types/mongodb": "^3.6.17",
     "@types/node-fetch": "^2.5.10",
     "@types/uuid": "^8.3.0",
-    "@types/ws": "^7.4.2",
-    "discord-api-types": "^0.18.1",
     "dotenv": "^10.0.0",
     "rimraf": "^3.0.2"
   }
