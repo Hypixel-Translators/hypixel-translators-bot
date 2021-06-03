@@ -23,7 +23,7 @@ const command: Command = {
          embed = new Discord.MessageEmbed()
             .setAuthor(getString("moduleName"))
             .setTitle(answer)
-            .addField(getString("question"), interaction.options[0].value)
+            .addField(getString("question"), interaction.options.get("question")!.value as string)
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
         if (answerType === "positive") embed.setColor(successColor)
         else if (answerType === "inconclusive") embed.setColor(loadingColor)

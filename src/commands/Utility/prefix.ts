@@ -23,9 +23,9 @@ const command: Command = {
       nickNoPrefix = member.displayName.replace(/\[[^\s]*\] ?/g, ""),
       langdb: LangDbEntry[] = await db.collection("langdb").find().toArray()
 
-    if (interaction.options[0].value) {
+    if (interaction.options.get("flags")?.value) {
       const flagEmojis: (string | undefined)[] = [];
-      (interaction.options[0].value as string).split(" ").forEach(emoji => {
+      (interaction.options.get("flags")!.value as string).split(" ").forEach(emoji => {
         if (emoji.toLowerCase() === "lol" || emoji.toLowerCase() === "lolcat") flagEmojis.push("😹")
         else if (emoji.toLowerCase() === "enpt" || emoji.toLowerCase() === "pirate") flagEmojis.push("☠")
         else if (emoji.toLowerCase() === "ib" || emoji.toLowerCase() === "banana") flagEmojis.push("🍌")

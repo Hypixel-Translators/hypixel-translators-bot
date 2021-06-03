@@ -32,7 +32,8 @@ const command: Command = {
         }]
     }],
     execute(interaction: Discord.CommandInteraction) {
-        if (interaction.options[0]?.value === "info") {
+        const channelInput = interaction.options.get("channel")?.value
+        if (channelInput === "info") {
             info(interaction)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
@@ -41,7 +42,7 @@ const command: Command = {
                 .setDescription(`Check it out at <#762341271611506708>!`) //server-info
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             interaction.reply(successEmbed)
-        } else if (interaction.options[0]?.value === "rules") {
+        } else if (channelInput === "rules") {
             rules(interaction)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
@@ -50,7 +51,7 @@ const command: Command = {
                 .setDescription(`Check it out at <#796159719617986610>!`) //rules
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             interaction.reply(successEmbed)
-        } else if (interaction.options[0]?.value === "verify") {
+        } else if (channelInput === "verify") {
             verify(interaction)
             const successEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
@@ -59,7 +60,7 @@ const command: Command = {
                 .setDescription(`Check it out at <#569178590697095168>!`) //verify
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             interaction.reply(successEmbed)
-        } else if (interaction.options[0]?.value === "all" || !interaction.options[0]) {
+        } else if (channelInput === "all" || !channelInput) {
             info(interaction)
             verify(interaction)
             rules(interaction)

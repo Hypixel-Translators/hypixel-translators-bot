@@ -21,11 +21,12 @@ const command: Command = {
     allowTip: false,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
     async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-        const collection = db.collection("users")
-        if ((interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732") && interaction.options[0].user) { //Discord Administrator
-            const user = interaction.options[0].user
-            if (!interaction.options[1].value) {
-                const userDb: DbUser = await collection.findOne({ id: user.id })
+        const collection = db.collection("users"),
+            user = interaction.options.get("user")?.user,
+            profile = interaction.options.get("profile")?.value as string | undefined
+        if ((interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732") && user) { //Discord Administrator
+            if (!profile) {
+                const userDb: DbUser = await collection.findOne({ id: user?.id })
                 if (userDb.profile) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
@@ -43,17 +44,17 @@ const command: Command = {
                     return interaction.reply(embed)
                 }
             } else {
-                if (/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(interaction.options[1].value as string)) {
-                    await collection.findOneAndUpdate({ id: user.id }, { $set: { profile: interaction.options[1].value } })
+                if (/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(profile)) {
+                    await collection.findOneAndUpdate({ id: user.id }, { $set: { profile: profile } })
                         .then(r => {
-                            if (r.value.profile !== interaction.options[1].value) {
+                            if (r.value.profile !== profile) {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor)
                                     .setAuthor("User Profile")
                                     .setTitle(`Successfully updated ${user.tag}'s Crowdin profile!`)
                                     .addFields(
                                         { name: "Old profile", value: r.value.profile || "None" },
-                                        { name: "New profile", value: interaction.options[1].value }
+                                        { name: "New profile", value: profile }
                                     )
                                     .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                                 return interaction.reply(embed)

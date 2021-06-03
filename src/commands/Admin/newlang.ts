@@ -17,14 +17,14 @@ const command: Command = {
   {
     type: "STRING",
     name: "color",
-    description: "The HEX color code for this language's role",
+    description: "The HEX color code for this language's role (without the #)",
     required: false
   }],
   roleWhitelist: ["764442984119795732"], //Discord Administrator
   async execute(interaction: Discord.CommandInteraction) {
     interaction.defer()
-    const lang = (interaction.options[0].value as string).toLowerCase()
-    const code = (interaction.options[0].value as string).toUpperCase()
+    const lang = (interaction.options.get("code")!.value as string).toLowerCase()
+    const code = (interaction.options.get("code")!.value as string).toUpperCase()
     const langdbEntry = await db.collection("langdb").findOne({ code: lang })
     let nationality = country.demonym(code)
     if (!nationality) throw "Couldn't find that country!"
@@ -37,7 +37,7 @@ const command: Command = {
     console.log(nationality)
     const translatorRole = await interaction.guild!.roles.create({
       name: `${nationality} Translator`,
-      color: `${interaction.options[1].value || "000000"}`,
+      color: `${interaction.options.get("color")?.value || "000000"}`,
       hoist: false,
       position: 22,
       permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
@@ -46,7 +46,7 @@ const command: Command = {
     })
     const proofreaderRole = await interaction.guild!.roles.create({
       name: `${nationality} Proofreader`,
-      color: `${interaction.options[1].value || "000000"}`,
+      color: `${interaction.options.get("color")?.value || "000000"}`,
       hoist: false,
       position: 49,
       permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],

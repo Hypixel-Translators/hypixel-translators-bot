@@ -17,7 +17,8 @@ const command: Command = {
     {
         type: "USER",
         name: "user",
-        description: "The user to manually verify. Admin only"
+        description: "The user to manually verify. Admin only",
+        required: false
     }],
     cooldown: 3600,
     allowTip: false,
@@ -25,7 +26,7 @@ const command: Command = {
         const verifyLogs = interaction.client.channels.cache.get("662660931838410754") as Discord.TextChannel,
             verify = interaction.client.channels.cache.get("569178590697095168") as Discord.TextChannel,
             member = interaction.member as Discord.GuildMember,
-            profileUrl = interaction.options[0]?.value as string | undefined
+            profileUrl = interaction.options.get("url")?.value as string | undefined
         if (!member.roles.cache.has("569194996964786178")) { //Verified
             (interaction.channel as Discord.TextChannel).messages.fetch()
                 .then(messages => {

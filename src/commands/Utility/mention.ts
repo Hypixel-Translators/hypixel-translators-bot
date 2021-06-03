@@ -40,12 +40,12 @@ const command: Command = {
   roleWhitelist: ["569839580971401236", "764442984119795732"], //Hypixel Proofreader and Discord Administrator
   channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "644620638878695424", "550951034332381184", "549894938712866816", "713084081579098152"],
   execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-    let type = (interaction.options[1].value as string).toLowerCase()
-    const lowerLang = (interaction.options[0].value as string).toLowerCase(),
+    let roleType = (interaction.options.get("role")!.value as string).toLowerCase()
+    const lang = (interaction.options.get("language")!.value as string).toLowerCase(),
       member = interaction.member as Discord.GuildMember
-    let roleName = lowerLang.charAt(0).toUpperCase() + lowerLang.slice(1)
-    let toSend = interaction.options[2].value as string
-    if (toSend.length < 2) toSend = "<a:bongoping:614477510423478275>" + toSend
+    let roleName = lang.charAt(0).toUpperCase() + lang.slice(1)
+    let message = interaction.options.get("message")?.value as string | undefined
+    if (!message) message = "<a:bongoping:614477510423478275>"
 
     const langs: { [key: string]: string } = { "Chinesesimplified": "Chinese Simplified", "Chinese-simplified": "Chinese Simplified", "Zhcn": "Chinese Simplified", "Chinesetraditional": "Chinese Traditional", "Chinese-traditional": "Chinese Traditional", "Zhtw": "Chinese Traditional", "Lolcat": "LOLCAT", "Lol": "LOLCAT", "Bg": "Bulgarian", "Cs": "Czech", "Da": "Danish", "Nl": "Dutch", "Fi": "Finnish", "Fr": "French", "De": "German", "El": "Greek", "It": "Italian", "Ja": "Japanese", "Ko": "Korean", "Ms": "Malay", "No": "Norwegian", "Pl": "Polish", "Pt": "Portuguese", "Ptbr": "Portuguese Brazilian", "Brazilian": "Portuguese Brazilian", "Ru": "Russian", "Es": "Spanish", "Sv": "Swedish", "Se": "Swedish", "Th": "Thai", "Tr": "Turkish", "Ua": "Ukrainian", "Enpt": "Pirate English", "Pirate": "Pirate English" }
 
@@ -53,25 +53,25 @@ const command: Command = {
     const role = interaction.guild!.roles.cache.find(x => x.name == (`${roleName} Proofreader`))
 
     if (!role) throw "falseRole"
-    if (type === "pf" || type === "pr" || type === "proofreader") {
+    if (roleType === "pf" || roleType === "pr" || roleType === "proofreader") {
       const toPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Proofreader`)
       if (member.roles.cache.find(role => role.name === `${roleName} Proofreader` || member.permissions.has("MANAGE_ROLES"))) {
-        interaction.reply(`**${interaction.user}**: ${toPing} ${toSend}`)
+        interaction.reply(`**${interaction.user}**: ${toPing} ${message}`)
       } else {
         interaction.reply(`${getString("errorNoPing")}${getString("errorNoPingPr")} ${getString("errorNoPingDisclaimer")}`, { ephemeral: true })
       }
-    } else if (type === "tr" || type === "translator") {
+    } else if (roleType === "tr" || roleType === "translator") {
       const toPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Translator`)
       if (member.roles.cache.find(role => role.name === `${roleName} Proofreader` || member.permissions.has("MANAGE_ROLES"))) {
-        interaction.reply(`**${interaction.user}**: ${toPing} ${toSend}`)
+        interaction.reply(`**${interaction.user}**: ${toPing} ${message}`)
       } else {
         interaction.reply(`${getString("errorNoPing")}${getString("errorNoPingTr")} ${getString("errorNoPingDisclaimer")}`, { ephemeral: true })
       }
-    } else if (type === "all" || type === "both") {
+    } else if (roleType === "all" || roleType === "both") {
       const translatorPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Translator`)
       const proofreaderPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Proofreader`)
       if (member.roles.cache.find(role => role.name === `${roleName} Proofreader` || member.permissions.has("MANAGE_ROLES"))) {
-        interaction.reply(`**${interaction.user}**: ${translatorPing} ${proofreaderPing} ${toSend}`)
+        interaction.reply(`**${interaction.user}**: ${translatorPing} ${proofreaderPing} ${message}`)
       } else {
         interaction.reply(`${getString("errorNoPing")}${getString("errorNoPingAll")} ${getString("errorNoPingDisclaimer")}`, { ephemeral: true })
       }

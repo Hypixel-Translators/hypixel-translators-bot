@@ -25,11 +25,13 @@ const command: Command = {
         {
             name: "Hypixel Translators Bot",
             value: "bot"
-        }]
+        }],
+        required: false
     }],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(interaction: Discord.CommandInteraction) {
-        if (!interaction.options[0].value) {
+        const projectInput = interaction.options.get("project")?.value as string
+        if (!projectInput) {
             await execute(client, true)
                 .then(() => {
                     const allEmbed = new Discord.MessageEmbed()
@@ -42,9 +44,8 @@ const command: Command = {
                 })
                 .catch(err => { throw err })
         } else {
-            const projectRaw = interaction.options[0].value as string,
-                project = interaction.options[0].name as string
-            switch (projectRaw) {
+            const project = interaction.options.get("project")!.name as string
+            switch (projectInput) {
                 case "hypixel": await hypixel(client)
                 case "quickplay": await quickplay(client)
                 case "skyblockaddons": await skyblockaddons(client)
@@ -54,7 +55,7 @@ const command: Command = {
                 .setColor(successColor)
                 .setAuthor("Statistics updater")
                 .setTitle(`The ${project} language statistics have been updated!`)
-                .setDescription(`Check it out at ${interaction.guild!.channels.cache.find(c => c.name === `${projectRaw}-language-status`)}!`)
+                .setDescription(`Check it out at ${interaction.guild!.channels.cache.find(c => c.name === `${projectInput}-language-status`)}!`)
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             interaction.reply(projectEmbed)
             console.log(`Manually updated the ${project} language statistics.`)

@@ -9,22 +9,23 @@ const command: Command = {
     options: [{
         type: "INTEGER",
         name: "page",
-        description: "The leaderboard page to get"
+        description: "The leaderboard page to get",
+        required: false
     }],
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
     allowDM: true,
     async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
-        const collection = db.collection("users")
-        const allUsers: DbUser[] = await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray()
+        const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+            collection = db.collection("users"),
+            allUsers: DbUser[] = await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray()
 
         const pages: DbUser[][] = [] // inner arrays are of length 24
         let p = 0
         while (p < allUsers.length) pages.push(allUsers.slice(p, p += 24)) //Max number of fields divisible by 3
 
         let page: number = 0
-        const inputPage = Math.abs(interaction.options[0].value as number) - 1
+        const inputPage = Math.abs(interaction.options.get("page")?.value as number) - 1
         if (inputPage) page = inputPage
 
         if (page >= pages.length || page < 0) {

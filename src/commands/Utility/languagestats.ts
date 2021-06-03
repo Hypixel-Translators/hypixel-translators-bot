@@ -21,7 +21,7 @@ const command: Command = {
     async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             authorDb = await client.getUser(interaction.user.id)
-        let rawLang = (interaction.options[0]?.value as string | undefined)?.toLowerCase()
+        let rawLang = (interaction.options.get("language")?.value as string | undefined)?.toLowerCase()
         if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !rawLang) rawLang = authorDb.lang
         if (!rawLang) throw "noLang"
         const langdb = await db.collection("langdb").find().toArray()

@@ -15,7 +15,7 @@ const command: Command = {
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-development admin-bots
     execute(interaction: Discord.CommandInteraction) {
-        const role = interaction.options[0].role as Discord.Role,
+        const role = interaction.options.get("role")!.role as Discord.Role,
             tags: Discord.GuildMember[] = []
         role.members.forEach(member => tags.push(member))
 

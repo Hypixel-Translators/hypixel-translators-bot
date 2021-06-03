@@ -30,7 +30,7 @@ const command: Command = {
             description: "The language to get usage statistics for",
             required: true
         }],
-        required: true
+        required: false
     }],
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
     allowDM: true,
@@ -40,7 +40,7 @@ const command: Command = {
         const collection = db.collection("users"),
             stringsFolder = "./strings/",
             member = interaction.member as Discord.GuildMember,
-            subCommand = interaction.options.filter(o => o.type == "SUB_COMMAND").shift()?.name as string | undefined
+            subCommand = interaction.options.find(o => o.type == "SUB_COMMAND")?.name as string | undefined
         let newLang = (interaction.options.find(o => o.name == "language")?.value as string | undefined)?.toLowerCase()
 
         if (subCommand) {
@@ -66,8 +66,8 @@ const command: Command = {
             } else if (subCommand === "stats") {
                 if (!member.roles.cache.has("764442984119795732")) return interaction.reply("You do not have permission to execute this command", { ephemeral: true })
                 const files = fs.readdirSync(stringsFolder)
-                if (!files.includes(interaction.options[1].value as string)) throw "falseLang"
-                const langUsers: DbUser[] = await collection.find({ lang: interaction.options[1].value }).toArray()
+                if (!files.includes(interaction.options.get("language")!.value as string)) throw "falseLang"
+                const langUsers: DbUser[] = await collection.find({ lang: interaction.options.get("language")!.value }).toArray()
                 const users: string[] = []
                 langUsers.forEach(u => users.push(`<@!${u.id}>`))
                 const embed = new Discord.MessageEmbed()
@@ -75,7 +75,7 @@ const command: Command = {
                     .setAuthor("Language")
                     .setTitle(`There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`)
                     .setFooter(`Executed By ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                if (interaction.options[1].value !== "en") embed.setDescription(users.join(", "))
+                if (interaction.options.get("language")!.value !== "en") embed.setDescription(users.join(", "))
                 interaction.reply(embed)
             }
         } else if (newLang) {

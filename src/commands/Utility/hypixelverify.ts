@@ -12,13 +12,14 @@ const command: Command = {
     options: [{
         type: "STRING",
         name: "username",
-        description: "Your Hypixel IGN. Must have your Discord linked in-game"
+        description: "Your Hypixel IGN. Must have your Discord linked in-game",
+        required: true
     }],
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
     async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-            uuid = await getPlayer(interaction.options[0].value as string)
+            uuid = await getPlayer(interaction.options.get("username")!.value as string)
         if (!uuid) throw "noUser"
 
         // make a response to the slothpixel api (hypixel api but we dont need an api key)

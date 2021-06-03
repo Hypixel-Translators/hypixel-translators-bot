@@ -25,7 +25,8 @@ const command: Command = {
         {
             name: "New Year",
             value: "newYear"
-        }]
+        }],
+        required: true
     }],
     allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
@@ -33,7 +34,7 @@ const command: Command = {
     execute(interaction: Discord.CommandInteraction) {
         let strings = require(`../../../strings/en/holidays.json`)
         const dirPath = path.join(__dirname, "../../../strings"),
-            holidayName = interaction.options[0].value as string
+            holidayName = interaction.options.get("holiday")!.value as string
         let holiday: string[] = []
         let log: string[] = []
         holiday.push(strings[holidayName])

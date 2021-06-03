@@ -17,9 +17,9 @@ const command: Command = {
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
     allowDM: true,
     async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
-        const collection = db.collection("users")
-        const user = interaction.options[0].user ?? interaction.user
+        const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+            collection = db.collection("users"),
+            user = interaction.options.get("user")?.user ?? interaction.user
 
         const userDb: DbUser = await collection.findOne({ id: user.id })
         if (!userDb.levels) {
