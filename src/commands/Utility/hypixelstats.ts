@@ -40,9 +40,9 @@ const command: Command = {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             credits = getString("madeBy", { developer: interaction.client.users.cache.get("500669086947344384")!.tag }),
             authorDb: DbUser = await client.getUser(interaction.user.id),
-            userInput = interaction.options.find(o => o.name == "user")?.user as Discord.User | undefined,
-            usernameInput = interaction.options.find(o => o.name == "username")?.value as string | undefined,
-            subCommand = interaction.options[0].name as string | undefined
+            userInput = interaction.options.get("user")?.user as Discord.User | undefined,
+            usernameInput = interaction.options.get("username")?.value as string | undefined,
+            subCommand = interaction.options.find(o => o.type == "SUB_COMMAND")!.name as string
         let uuid = authorDb.uuid
         if (userInput) {
             const userDb: DbUser = await client.getUser(userInput.id)

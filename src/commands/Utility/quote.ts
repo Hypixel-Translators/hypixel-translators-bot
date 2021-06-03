@@ -120,8 +120,8 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
     const count = await collection.estimatedDocumentCount()
 
     let quoteId
-    if (!interaction.options[0].value) quoteId = Math.ceil(Math.random() * Math.floor(count)) //generate random id if no arg is given
-    else quoteId = Number(interaction.options[0].value)
+    if (!interaction.options.get("index")?.value) quoteId = Math.ceil(Math.random() * Math.floor(count)) //generate random id if no arg is given
+    else quoteId = Number(interaction.options.get("index")?.value)
 
     const quote = await collection.findOne({ id: quoteId })
     if (!quote) {
@@ -129,7 +129,7 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
             .setColor(errorColor)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("invalidArg"))
-            .setDescription(getString("indexArg", { arg: interaction.options[0].value as number, max: count }))
+            .setDescription(getString("indexArg", { arg: interaction.options.get("index")!.value as number, max: count }))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
         return interaction.editReply(embed)
     }
@@ -154,30 +154,30 @@ async function addQuote(interaction: Discord.CommandInteraction, quote: string, 
         .setAuthor("Quote")
         .setTitle("Success! The following quote has been added:")
         .setDescription(quote)
-        .addFields(
-            { name: "User", value: author },
-            { name: "Quote number", value: quoteId }
-        )
+        .addFields([
+            { name: "User", value: `${author}` },
+            { name: "Quote number", value: `${quoteId}` }
+        ])
         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     interaction.editReply(embed)
 }
 
 async function editQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
 
-    const quoteId = Number(interaction.options[1].value)
+    const quoteId = Number(interaction.options.get("index")!.value)
     if (!quoteId) throw "noQuote"
-    const newQuote = interaction.options[2].value
+    const newQuote = interaction.options.get("quote")!.value
     await collection.findOneAndUpdate({ id: quoteId }, { $set: { quote: newQuote } }).then(r => {
         if (r.value) {
             const embed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor("Quote")
                 .setTitle(`Successfully edited quote #${quoteId}`)
-                .addFields(
+                .addFields([
                     { name: "Old quote", value: r.value.quote },
                     { name: "New quote", value: newQuote },
                     { name: "Author", value: r.value.author }
-                )
+                ])
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             interaction.editReply(embed)
         } else {
@@ -193,7 +193,7 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
 
 async function deleteQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
 
-    const quoteId = Number(interaction.options[1].value)
+    const quoteId = Number(interaction.options.get("index")!.value)
     if (!quoteId) throw "noQuote"
     collection.findOneAndDelete({ id: quoteId }).then(r => {
         if (r.value) {
@@ -219,10 +219,9 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
 }
 
 async function linkQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
-    const quoteId = Number(interaction.options[1].value)
-    if (!quoteId) throw "noQuote"
-    const urlSplit = (interaction.options[1].value as string).split("/");
-    (client.channels.cache.get(urlSplit[5]) as Discord.TextChannel)?.messages.fetch(urlSplit[6])
+    const quoteId = Number(interaction.options.get("index")!.value)
+    const urlSplit = (interaction.options.get("url")!.value as string).split("/");
+    (client.channels.cache.get(urlSplit[5] as Discord.Snowflake) as Discord.TextChannel)?.messages.fetch(urlSplit[6] as Discord.Snowflake)
         .then(async msg => {
             await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } }).then(r => {
                 if (r.value) {

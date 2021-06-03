@@ -17,7 +17,9 @@ const projectIDs: {
     "436418": { name: "Bot", langRoles: false },
     "369493": { name: "SkyblockAddons", langRoles: false }
 },
-    UsefulIDs = {
+    UsefulIDs: {
+        [key: string]: Discord.Snowflake
+    } = {
         Alerted: "756199836470214848",
         Verified: "569194996964786178",
         logChannel: "662660931838410754",
@@ -102,7 +104,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
                 db.collection("users").updateOne({ id: member.id }, { $unset: { profile: true } })
             }
             //#endregion
-        } else if (sendLogs){ //if the profile is private
+        } else if (sendLogs) { //if the profile is private
             //#region return message
             member.roles.remove("569194996964786178", "Tried to reverify with a private profile") // Verified
             db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
@@ -245,7 +247,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
         }
     }
 
-    if (veteranRole) logEmbed.addField("Veteran role", veteranRole)
+    if (veteranRole) logEmbed.addField("Veteran role", `${veteranRole}`)
     logEmbed.addField("Profile", url)
 
     //#region return message

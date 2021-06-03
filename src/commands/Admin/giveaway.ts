@@ -18,7 +18,7 @@ const command: Command = {
     }],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(interaction: Discord.CommandInteraction) {
-        const giveawayMsg = await (interaction.channel as Discord.TextChannel).messages.fetch((interaction.options[0].value as Discord.Snowflake))
+        const giveawayMsg = await (interaction.channel as Discord.TextChannel).messages.fetch((interaction.options.get("messageid")!.value as Discord.Snowflake))
             .catch(err => {
                 return interaction.reply("Couldn't find that message! Here's the error:\n" + err, { ephemeral: true })
             }) as Discord.Message
@@ -26,7 +26,7 @@ const command: Command = {
             .catch(err => {
                 return interaction.reply("That message doesn't have any 🎉 reactions. Here's the error:\n" + err, { ephemeral: true })
             }) as Discord.Collection<string, Discord.User>
-        const winner: Discord.User[] = users!.random(Number(interaction.options[1].value) || 1)
+        const winner: Discord.User[] = users!.random(Number(interaction.options.get("winners")?.value) || 1)
         let winners: Discord.User[] = []
         winner.forEach(user => winners.push(user))
         interaction.reply(`Congratulations to ${winners.join(", ")}`)

@@ -19,9 +19,9 @@ const command: Command = {
     }],
     roleWhitelist: ["768435276191891456"], //Discord Staff
     async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-        const recipient = interaction.options[0].user as Discord.User,
+        const recipient = interaction.options.get("user")!.user as Discord.User,
             recipientDb = await client.getUser(recipient.id),
-            message = interaction.options[1].value
+            message = interaction.options.get("message")!.value as string
         interaction.defer()
         const dm = new Discord.MessageEmbed()
             .setColor(neutralColor)

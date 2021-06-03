@@ -20,16 +20,16 @@ const command: Command = {
     required: true
   }],
   execute(interaction: Discord.CommandInteraction) {
-    if (!(interaction.options[0].channel! as Discord.GuildChannel).isText()) throw "You must provide a text channel to send messages in!"
-    const sendTo = interaction.options[0].channel! as Discord.TextChannel
-    let amount = Number(interaction.options[1].value)
+    const sendTo = interaction.options.get("channel")!.channel as Discord.TextChannel
+    if (!sendTo.isText()) throw "You must provide a text channel to send messages in!"
+    let amount = Number(interaction.options.get("amount")!.value)
     if (!amount) throw "You need to provide a number of messages to delete!"
     for (amount; amount > 0; amount--) sendTo.send("Language statistics will be here shortly!")
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
       .setAuthor("Bulk Send")
       .setTitle(amount === 1 ? "Success! Message sent." : "Success! Messages sent.")
-      .setDescription(sendTo)
+      .setDescription(`${sendTo}`)
       .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     interaction.reply(embed)
   }
