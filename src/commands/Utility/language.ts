@@ -20,7 +20,7 @@ const command: Command = {
         if (args[0]) {
             if (args[0] === "list") {
                 const files = fs.readdirSync(stringsFolder)
-                let langList: string[]
+                let langList: string[] = []
                 files.forEach(async (element, index, array) => {
                     if (element === "empty" && !message.member?.roles.cache.has("764442984119795732")) return //Discord Administrator
                     let languageString: string
