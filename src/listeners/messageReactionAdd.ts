@@ -55,7 +55,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                         } else reaction.message.reactions.cache.get("⏱")?.remove()
                     }, 10000)
                 }
-            } else reaction.remove()
+            } else reaction.users.remove(user.id)
         }
         // Give Polls role if reacted on reaction role message
         else if (reaction.message.id === "800415711864029204") { //server-info roles message
