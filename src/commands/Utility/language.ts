@@ -46,19 +46,19 @@ const command: Command = {
         if (subCommand) {
             if (subCommand === "list") {
                 const files = fs.readdirSync(stringsFolder)
-                let langList = ""
+                let langList: string[]
                 files.forEach(async (element, index, array) => {
                     if (element === "empty" && !member.roles.cache.has("764442984119795732")) return //Discord Administrator
                     let languageString: string
                     if (element === "empty") languageString = "Empty"
                     else languageString = getString(element)
-                    langList = `${langList}\n${getString("listElement", { code: element, language: languageString || "Unknown" })}`
+                    langList.push(getString("listElement", { code: element, language: languageString || "Unknown" }))
                     if (index === array.length - 1) {
                         const embed = new Discord.MessageEmbed()
                             .setColor(neutralColor)
                             .setAuthor(getString("moduleName"))
                             .setTitle(getString("listTitle"))
-                            .setDescription(langList)
+                            .setDescription(langList.join("\n"))
                             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                         await interaction.reply(embed)
                     }

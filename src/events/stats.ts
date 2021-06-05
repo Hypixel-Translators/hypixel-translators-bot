@@ -56,7 +56,7 @@ export async function hypixel(client: HTBClient) {
                             .setDescription(`**${langData.translationProgress}% translated (${langData.phrases.translated}/${langData.phrases.total} strings)**\n${langData.approvalProgress}% approved (${langData.phrases.approved}/${langData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel/all/en-${langData.language.code}`)
                             .setFooter("Last update")
                             .setTimestamp()
-                        msg.edit("", embed)
+                        msg.edit(null, embed)
                         index++
                     })
                 })
@@ -113,7 +113,7 @@ export async function quickplay(client: HTBClient) {
                             .setDescription(`**${langData.translationProgress}% translated (${langData.phrases.translated}/${langData.phrases.total} strings)**\n${langData.approvalProgress}% approved (${langData.phrases.approved}/${langData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/quickplay/all/en-${langData.language.code}`)
                             .setFooter("Last update")
                             .setTimestamp()
-                        msg.edit("", embed)
+                        msg.edit(null, embed)
                         index++
                     })
                 })
@@ -170,7 +170,7 @@ export async function bot(client: HTBClient) {
                             .setDescription(`**${langData.translationProgress}% translated (${langData.phrases.translated}/${langData.phrases.total} strings)**\n${langData.approvalProgress}% approved (${langData.phrases.approved}/${langData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel-translators-bot/all/en-${langData.language.code}`)
                             .setFooter("Last update")
                             .setTimestamp()
-                        msg.edit("", embed)
+                        msg.edit(null, embed)
                         index++
                     })
                 })
@@ -227,7 +227,7 @@ export async function skyblockaddons(client: HTBClient) {
                             .setThumbnail((langData.language.flag))
                             .setFooter("Last update")
                             .setTimestamp()
-                        msg.edit("", embed)
+                        msg.edit(null, embed)
                         index++
                     })
                 })
