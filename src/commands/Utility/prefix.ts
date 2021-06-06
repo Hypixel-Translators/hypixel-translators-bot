@@ -14,7 +14,7 @@ const command: Command = {
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
   async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
     const executedBy = getString("executedBy", { user: message.author.tag }, "global"),
-      nickNoPrefix = message.member!.displayName.replace(/\[[^\s]*\] ?/g, ""),
+      nickNoPrefix = message.member!.displayName.replace(/\[[^\s]*\] ?/g, "").trim(),
       langdb: LangDbEntry[] = await db.collection("langdb").find().toArray()
 
     if (args[0]) {
@@ -69,10 +69,11 @@ const command: Command = {
                       .setColor(errorColor)
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("errors.error"))
-                      .setDescription(err)
+                      .setDescription(err.toString())
                       .addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
                       .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
+                    console.log(err.stack)
                   })
               } else {
                 const embed = new Discord.MessageEmbed()
@@ -116,11 +117,11 @@ const command: Command = {
                       .setColor(errorColor)
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("errors.error"))
-                      .setDescription(err)
+                      .setDescription(err.toString())
                       .addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
                       .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
-                    console.log(err)
+                    console.log(err.stack)
                   })
               } else {
                 const embed = new Discord.MessageEmbed()
@@ -220,10 +221,11 @@ const command: Command = {
                         .setColor(errorColor)
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("errors.error"))
-                        .setDescription(err)
+                        .setDescription(err.toString())
                         .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                         .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                       msg.edit(embed)
+                      console.log(err.stack)
                     })
                   prefixes = "n"
                 } else {
@@ -288,11 +290,11 @@ const command: Command = {
                       .setColor(errorColor)
                       .setAuthor(getString("moduleName"))
                       .setTitle(getString("errors.error"))
-                      .setDescription(err)
+                      .setDescription(err.toString())
                       .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                       .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
                     msg.edit(embed)
-                    console.log(err)
+                    console.log(err.stack)
                   })
               } else {
                 const embed = new Discord.MessageEmbed()
