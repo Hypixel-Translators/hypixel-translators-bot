@@ -1,4 +1,4 @@
-# Hypixel Translators Bot [![Twitter](https://img.shields.io/twitter/follow/HTranslators?style=social)](https://twitter.com/HTranslators)
+# Hypixel Translators Bot [![Testing](https://github.com/Hypixel-Translators/hypixel-translators-bot/actions/workflows/test.yml/badge.svg)](https://github.com/Hypixel-Translators/hypixel-translators-bot/actions/workflows/test.yml) [![Twitter](https://img.shields.io/twitter/follow/HTranslators?style=social)](https://twitter.com/HTranslators)
 [![Join our Discord server](https://discordapp.com/api/guilds/549503328472530974/widget.png?style=banner2)](https://discord.gg/rcT948A)
 
 Welcome to the [Hypixel Translators Bot](https://discord.gg/rcT948A) GitHub repository! Here you can [report bugs](https://github.com/Hypixel-Translators/hypixel-translators-bot/issues) and [contribute to the code](https://github.com/Hypixel-Translators/hypixel-translators-bot/pulls).
