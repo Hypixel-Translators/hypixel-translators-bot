@@ -13,7 +13,8 @@ client.on("interaction", async interaction => {
         executedBy = getString("executedBy", { user: interaction.user.tag })
 
     //Log if command is ran in DMs
-    if (interaction.channel?.type === "dm") console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
+    if (interaction.channel?.type === "dm")
+        console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
 
     //Return if user is not verified
     if (!member?.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
@@ -49,8 +50,10 @@ client.on("interaction", async interaction => {
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000
             let timeLeftS
-            if (Math.ceil(timeLeft) >= 120) timeLeftS = getString("minsLeftT", { time: Math.ceil(timeLeft / 60), command: interaction.commandName })
-            else if (Math.ceil(timeLeft) === 1) timeLeftS = getString("secondLeft", { command: interaction.commandName })
+            if (Math.ceil(timeLeft) >= 120)
+                timeLeftS = getString("minsLeftT", { time: Math.ceil(timeLeft / 60), command: interaction.commandName })
+            else if (Math.ceil(timeLeft) === 1)
+                timeLeftS = getString("secondLeft", { command: interaction.commandName })
             else timeLeftS = getString("timeLeftT", { time: Math.ceil(timeLeft), command: interaction.commandName })
 
             const embed = new Discord.MessageEmbed()
@@ -79,7 +82,12 @@ client.on("interaction", async interaction => {
      * @param {string} [lang] The language to get the string from. Defaults to the author's language preference.
      * @returns A clean string with all the variables replaced or an object of strings. Will return `strings.{path}` if the path cannot be found.
      */
-    function getString(path: string, variables?: { [key: string]: string | number } | string, cmd: string = command?.name ?? "global", lang: string = author.lang ?? "en"): any {
+    function getString(
+        path: string,
+        variables?: { [key: string]: string | number } | string,
+        cmd: string = command?.name ?? "global",
+        lang: string = author.lang ?? "en"
+    ): any {
         const languages = fs.readdirSync("./strings")
         if (typeof variables === "string") {
             lang = languages.includes(cmd) ? cmd : author.lang ?? "en"
@@ -107,11 +115,18 @@ client.on("interaction", async interaction => {
                     return
                 } else {
                     string = strings[pathPart]
-                    if (!string || (typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g)))) {
+                    if (
+                        !string ||
+                        (typeof string === "string" &&
+                            !arrayEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g)))
+                    ) {
                         string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
                             string = null //in case of fire
-                            if (command!.category != "Admin" && command!.category != "Staff") console.error(`Couldn't get string ${path} in English for ${cmd}, please fix this`)
+                            if (command!.category != "Admin" && command!.category != "Staff")
+                                console.error(
+                                    `Couldn't get string ${path} in English for command ${cmd}, please fix this`
+                                )
                         }
                     }
                     if (typeof string === "string" && variables) {
@@ -130,6 +145,7 @@ client.on("interaction", async interaction => {
     try {
         // Run the command
         await command.execute(interaction, getString)
+        console.log("hello!")
 
         // Try sending a tip
         // This will only execute if the command is successful
@@ -137,7 +153,18 @@ client.on("interaction", async interaction => {
         if (command.allowTip !== false && d <= 5) {
             // Less than or equal to 5%
             const keys = Object.keys(getString("tips"))
-            const tip = getString(`tips.${keys[(keys.length * Math.random()) << 0]}`, { botUpdates: "<#732587569744838777>", gettingStarted: "<#699275092026458122>", twitter: "<https://twitter.com/HTranslators>", rules: "<#796159719617986610>", serverInfo: "<#762341271611506708>", bots: "<#549894938712866816>" }, "global")
+            const tip = getString(
+                `tips.${keys[(keys.length * Math.random()) << 0]}`,
+                {
+                    botUpdates: "<#732587569744838777>",
+                    gettingStarted: "<#699275092026458122>",
+                    twitter: "<https://twitter.com/HTranslators>",
+                    rules: "<#796159719617986610>",
+                    serverInfo: "<#762341271611506708>",
+                    bots: "<#549894938712866816>"
+                },
+                "global"
+            )
             interaction.webhook.send(`**${getString("tip").toUpperCase()}:** ${tip}`)
         }
     } catch (error) {
@@ -152,9 +179,18 @@ client.on("interaction", async interaction => {
                     .setTitle(error.toString().substring(0, 255))
                     .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
                     .setFooter("Check the console for more details")
-                ;(interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send("<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
+                ;(interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send(
+                    "<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>",
+                    embed
+                ) //Rodry and bot-development
             }
-            console.error(`Unexpected error with command ${interaction.commandName} on channel ${interaction.channel instanceof Discord.DMChannel ? interaction.channel.type : (interaction.channel as Discord.TextChannel).name} executed by ${interaction.user.tag}. Here's the error:\n${error.stack}`)
+            console.error(
+                `Unexpected error with command ${interaction.commandName} on channel ${
+                    interaction.channel instanceof Discord.DMChannel
+                        ? interaction.channel.type
+                        : (interaction.channel as Discord.TextChannel).name
+                } executed by ${interaction.user.tag}. Here's the error:\n${error.stack}`
+            )
         }
 
         //Handle errors
@@ -164,7 +200,8 @@ client.on("interaction", async interaction => {
             .setAuthor(getString("error"))
             .setTitle(error.interaction?.substring(0, 255) || error.toString().substring(0, 255))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        if (command.category == "Admin" || command.category == "Staff") embed.addField(getString("usage"), `\`${command.usage}\``)
+        if (command.category == "Admin" || command.category == "Staff")
+            embed.addField(getString("usage"), `\`${command.usage}\``)
         else embed.addField(getString("usage"), `\`${getString(`${command.name}.usage`, "help")}\``)
         return interaction.reply({ embeds: [embed], ephemeral: true })
     }

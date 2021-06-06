@@ -9,10 +9,15 @@ const command: Command = {
     description: "Gets (or adds) a funny/weird/wise quote from the server.",
     usage: "+quote [index] | quote add <quote> / <author mention>",
     options: [{
-        type: "INTEGER",
-        name: "index",
-        description: "The index of the quote you want to see",
-        required: false
+        type: "SUB_COMMAND",
+        name: "get",
+        description: "Get a random/specific quote",
+        options: [{
+            type: "INTEGER",
+            name: "index",
+            description: "The index of the quote you want to see",
+            required: false
+        }]
     },
     {
         type: "SUB_COMMAND",
@@ -82,7 +87,7 @@ const command: Command = {
     async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             collection = db.collection("quotes"),
-            subCommand = interaction.options.find(o => o.type == "SUB_COMMAND")?.name as string | undefined
+            subCommand = interaction.options.find(o => o.type == "SUB_COMMAND")!.name as string
         let allowed = false
         if ((interaction.member as Discord.GuildMember | undefined)?.permissions.has("VIEW_AUDIT_LOG")) allowed = true
         await interaction.defer()
@@ -111,7 +116,8 @@ const command: Command = {
         } else if (subCommand === "edit" && allowed) await editQuote(interaction, collection)
         else if (subCommand === "delete" && allowed) await deleteQuote(interaction, collection)
         else if (subCommand === "link" && allowed) await linkQuote(interaction, collection)
-        else await findQuote(executedBy, interaction, getString, collection)
+        else if (subCommand === "get") await findQuote(executedBy, interaction, getString, collection)
+        else interaction.reply("You're not allowed to do this!", { ephemeral: true })
     }
 }
 

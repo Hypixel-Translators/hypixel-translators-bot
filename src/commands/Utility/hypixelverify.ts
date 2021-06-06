@@ -18,7 +18,7 @@ const command: Command = {
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
     async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+        const executedBy = getString("executedBy", { user: interaction.user.tag }, "global") as string,
             uuid = await getPlayer(interaction.options.get("username")!.value as string)
         if (!uuid) throw "noUser"
 

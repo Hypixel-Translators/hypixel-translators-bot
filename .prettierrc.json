@@ -3,8 +3,7 @@
   "tabWidth": 4,
   "useTabs": false,
   "semi": false,
-  "endOfLine": "lf",
   "proseWrap": "never",
-  "printWidth": 1000,
+  "printWidth": 120,
   "arrowParens": "avoid"
 }

@@ -13,25 +13,35 @@ const command: Command = {
         type: "SUB_COMMAND",
         name: "social",
         description: "Shows the user's linked social media",
-        required: true
+        options: [{
+            type: "STRING",
+            name: "username",
+            description: "The IGN of the user to get statistics for",
+            required: false
+        },
+        {
+            type: "USER",
+            name: "user",
+            description: "The server member to get statistics for. Only works if the user has verified themselves",
+            required: false
+        }]
     },
     {
         type: "SUB_COMMAND",
         name: "stats",
         description: "Shows general statistics for the given user",
-        required: true
-    },
-    {
-        type: "STRING",
-        name: "username",
-        description: "The IGN of the user to get statistics for",
-        required: false
-    },
-    {
-        type: "USER",
-        name: "user",
-        description: "The server member to get statistics for. Only works if the user has verified themselves",
-        required: false
+        options: [{
+            type: "STRING",
+            name: "username",
+            description: "The IGN of the user to get statistics for. Can also be a UUID",
+            required: false
+        },
+        {
+            type: "USER",
+            name: "user",
+            description: "The server member to get statistics for. Only works if the user has verified themselves",
+            required: false
+        }]
     }],
     cooldown: 120,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 

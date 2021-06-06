@@ -9,16 +9,20 @@ const command: Command = {
     description: "Changes your language, shows your current one or a list of available languages.",
     usage: "+language [<new language> | list]",
     options: [{
-        type: "STRING",
-        name: "language",
-        description: "The language you want to choose",
-        required: false
+        type: "SUB_COMMAND",
+        name: "set",
+        description: "Sets your language to a new one",
+        options: [{
+            type: "STRING",
+            name: "language",
+            description: "The language you want to choose. Defaults to the language you have selected.",
+            required: false
+        }]
     },
     {
         type: "SUB_COMMAND",
         name: "list",
         description: "Gives you a list of all the available languages",
-        required: false
     },
     {
         type: "SUB_COMMAND",
@@ -30,7 +34,6 @@ const command: Command = {
             description: "The language to get usage statistics for",
             required: true
         }],
-        required: false
     }],
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
     allowDM: true,
@@ -41,44 +44,43 @@ const command: Command = {
             stringsFolder = "./strings/",
             member = interaction.member as Discord.GuildMember,
             subCommand = interaction.options.find(o => o.type == "SUB_COMMAND")?.name as string | undefined
-        let newLang = (interaction.options.find(o => o.name == "language")?.value as string | undefined)?.toLowerCase()
+        let newLang = (interaction.options.get("language")?.value as string | undefined)?.toLowerCase()
 
-        if (subCommand) {
-            if (subCommand === "list") {
-                const files = fs.readdirSync(stringsFolder)
-                let langList: string[]
-                files.forEach(async (element, index, array) => {
-                    if (element === "empty" && !member.roles.cache.has("764442984119795732")) return //Discord Administrator
-                    let languageString: string
-                    if (element === "empty") languageString = "Empty"
-                    else languageString = getString(element)
-                    langList.push(getString("listElement", { code: element, language: languageString || "Unknown" }))
-                    if (index === array.length - 1) {
-                        const embed = new Discord.MessageEmbed()
-                            .setColor(neutralColor)
-                            .setAuthor(getString("moduleName"))
-                            .setTitle(getString("listTitle"))
-                            .setDescription(langList.join("\n"))
-                            .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                        await interaction.reply(embed)
-                    }
-                })
-            } else if (subCommand === "stats") {
-                if (!member.roles.cache.has("764442984119795732")) return interaction.reply("You do not have permission to execute this command", { ephemeral: true })
-                const files = fs.readdirSync(stringsFolder)
-                if (!files.includes(interaction.options.get("language")!.value as string)) throw "falseLang"
-                const langUsers: DbUser[] = await collection.find({ lang: interaction.options.get("language")!.value }).toArray()
-                const users: string[] = []
-                langUsers.forEach(u => users.push(`<@!${u.id}>`))
-                const embed = new Discord.MessageEmbed()
-                    .setColor(neutralColor)
-                    .setAuthor("Language")
-                    .setTitle(`There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`)
-                    .setFooter(`Executed By ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                if (interaction.options.get("language")!.value !== "en") embed.setDescription(users.join(", "))
-                interaction.reply(embed)
-            }
-        } else if (newLang) {
+        if (subCommand === "list") {
+            const files = fs.readdirSync(stringsFolder)
+            let langList: string[]
+            files.forEach(async (element, index, array) => {
+                if (element === "empty" && !member.roles.cache.has("764442984119795732")) return //Discord Administrator
+                let languageString: string
+                if (element === "empty") languageString = "Empty"
+                else languageString = getString(element)
+                langList.push(getString("listElement", { code: element, language: languageString || "Unknown" }))
+                if (index === array.length - 1) {
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(neutralColor)
+                        .setAuthor(getString("moduleName"))
+                        .setTitle(getString("listTitle"))
+                        .setDescription(langList.join("\n"))
+                        .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                    await interaction.reply(embed)
+                }
+            })
+        } else if (subCommand === "stats") {
+            if (!member.roles.cache.has("764442984119795732")) return interaction.reply("You do not have permission to execute this command", { ephemeral: true })
+            const files = fs.readdirSync(stringsFolder)
+            if (!files.includes(interaction.options.get("language")!.value as string)) throw "falseLang"
+            const langUsers: DbUser[] = await collection.find({ lang: interaction.options.get("language")!.value }).toArray()
+            const users: string[] = []
+            langUsers.forEach(u => users.push(`<@!${u.id}>`))
+            const embed = new Discord.MessageEmbed()
+                .setColor(neutralColor)
+                .setAuthor("Language")
+                .setTitle(`There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`)
+                .setFooter(`Executed By ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            if (interaction.options.get("language")!.value !== "en") embed.setDescription(users.join(", "))
+            interaction.reply(embed)
+        }
+        else if (subCommand == "set" && newLang) {
             interaction.defer()
             if (newLang === "se") newLang = "sv"
             const langdb = await db.collection("langdb").find().toArray(),
