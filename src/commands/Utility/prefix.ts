@@ -20,7 +20,7 @@ const command: Command = {
   async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
     const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
       member = interaction.member as Discord.GuildMember,
-      nickNoPrefix = member.displayName.replace(/\[[^\s]*\] ?/g, ""),
+      nickNoPrefix = member.displayName.replace(/\[[^\s]*\] ?/g, "").trim(),
       langdb: LangDbEntry[] = await db.collection("langdb").find().toArray()
 
     if (interaction.options.get("flags")?.value) {
@@ -75,10 +75,11 @@ const command: Command = {
                   .setColor(errorColor)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("errors.error"))
-                  .setDescription(err)
+                  .setDescription(err.toString())
                   .addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                 interaction.editReply(embed)
+                console.log(err.stack || err)
               })
           } else {
             const embed = new Discord.MessageEmbed()
@@ -122,11 +123,11 @@ const command: Command = {
                   .setColor(errorColor)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("errors.error"))
-                  .setDescription(err)
+                  .setDescription(err.toString())
                   .addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                 interaction.editReply(embed)
-                console.log(err)
+                console.log(err.stack || err)
               })
           } else {
             const embed = new Discord.MessageEmbed()
@@ -161,9 +162,9 @@ const command: Command = {
       let userLangs: string[] = []
       let prefixes = ""
 
-      await member.roles.cache.forEach(async r => {
+      member.roles.cache.forEach(r => {
         const roleName = r.name.split(" ")
-        await roleName.splice(roleName.length - 1, 1)
+        roleName.splice(roleName.length - 1, 1)
         const role = roleName.join(" ")
         let langdbEntry = langdb.find(l => l.name === role)
         if (langdbEntry) {
@@ -225,10 +226,11 @@ const command: Command = {
                     .setColor(errorColor)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("errors.error"))
-                    .setDescription(err)
+                    .setDescription(err.toString())
                     .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                   interaction.editReply(embed)
+                  console.log(err.stack || err)
                 })
               prefixes = "n"
             } else {
@@ -293,11 +295,11 @@ const command: Command = {
                   .setColor(errorColor)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("errors.error"))
-                  .setDescription(err)
+                  .setDescription(err.toString())
                   .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                 interaction.editReply(embed)
-                console.log(err)
+                console.log(err.stack || err)
               })
           } else {
             const embed = new Discord.MessageEmbed()

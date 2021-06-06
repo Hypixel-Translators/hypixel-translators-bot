@@ -6,13 +6,13 @@ import { db } from "../lib/dbclient.js"
 client.on("messageReactionAdd", async (reaction, user) => {
     const channel = reaction.message.channel
     if (channel.type !== "dm" && !user.bot) {
-        await reaction.fetch()
-        await reaction.message.fetch()
-        await user.fetch()
+        if (reaction.partial) reaction = await reaction.fetch()
+        if (reaction.message.partial) reaction.message = await reaction.message.fetch()
+        if (user.partial) user = await user.fetch()
         // Delete message when channel name ends with review-strings
         if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content!) && reaction.message.guild!.members.resolve(user.id)!.roles.cache.has("569839580971401236")) { // Hypixel Proofreader
             const translatorChannel = channel.parent!.children.filter(c => c.type === "text").sort((a, b) => a.position - b.position).first()! as Discord.TextChannel
-            let strings
+            let strings: { [key: string]: string }
             try {
                 strings = require(`../../strings/${channel.name.split("-")[0]}/reviewStrings.json`)
             } catch {
@@ -20,14 +20,14 @@ client.on("messageReactionAdd", async (reaction, user) => {
             }
             if (reaction.emoji.name === "vote_yes" && reaction.message.author!.id !== user.id) {
                 reaction.message.react("⏱")
-                setTimeout(() => {
+                setTimeout(async () => {
                     // Check if the user hasn't removed their reaction
-                    if (reaction.users.fetch().then(cache => cache.has(user.id))) {
+                    if (await reaction.users.fetch().then(cache => cache.has(user.id))) {
                         if (!reaction.message.deleted) reaction.message.delete()
                         console.log(`String reviewed in ${channel.name}`)
                     } else reaction.message.reactions.cache.get("⏱")?.remove()
                 }, 10000)
-            } else if (reaction.emoji.name === "vote_maybe") {
+            } else if (reaction.emoji.name === "vote_maybe" && reaction.message.author!.id !== user.id) {
                 reaction.users.remove(user.id)
                 const embed = new Discord.MessageEmbed()
                     .setColor(loadingColor)
@@ -36,26 +36,24 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     .setDescription(`${reaction.message}`)
                     .addField(strings.message, `[${strings.clickHere}](${reaction.message.url})`)
                     .setFooter(strings.requestedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
-                if (reaction.message.author!.id !== user.id) translatorChannel.send(`${reaction.message.author}`, embed)
-            } else if (reaction.emoji.name === "vote_no") {
+                translatorChannel.send(`${reaction.message.author}`, embed)
+            } else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {
+                reaction.message.react("⏱")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.rejected.replace("%%user%%", user.tag))
                     .setDescription(`${reaction.message}`)
                     .setFooter(strings.rejectedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
-                if (reaction.message.author!.id !== user.id) {
-                    reaction.message.react("⏱")
-                    setTimeout(() => {
+                setTimeout(async () => {
+                    // Check if the user hasn't removed their reaction
+                    if (await reaction.users.fetch().then(cache => cache.has(user.id))) {
                         translatorChannel.send(`${reaction.message.author}`, embed)
-                        // Check if the user hasn't removed their reaction
-                        if (reaction.users.fetch().then(cache => cache.has(user.id))) {
-                            if (!reaction.message.deleted) reaction.message.delete()
-                            console.log(`String rejected in ${channel.name}`)
-                        } else reaction.message.reactions.cache.get("⏱")?.remove()
-                    }, 10000)
-                }
-            } else reaction.remove()
+                        if (!reaction.message.deleted) reaction.message.delete()
+                        console.log(`String rejected in ${channel.name}`)
+                    } else reaction.message.reactions.cache.get("⏱")?.remove()
+                }, 10000)
+            } else reaction.users.remove(user.id)
         }
         // Give Polls role if reacted on reaction role message
         else if (reaction.message.id === "800415711864029204") { //server-info roles message

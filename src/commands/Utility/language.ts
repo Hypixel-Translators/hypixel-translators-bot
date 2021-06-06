@@ -48,7 +48,7 @@ const command: Command = {
 
         if (subCommand === "list") {
             const files = fs.readdirSync(stringsFolder)
-            let langList: string[]
+            let langList: string[] = []
             files.forEach(async (element, index, array) => {
                 if (element === "empty" && !member.roles.cache.has("764442984119795732")) return //Discord Administrator
                 let languageString: string
@@ -121,7 +121,7 @@ const command: Command = {
                         return interaction.editReply(embed)
                     }
                 } else {
-                    await fs.readdir(stringsFolder, async (err, files) => {
+                    await fs.readdir(stringsFolder, async (_err, files) => {
                         const emptyIndex = files.indexOf("empty")
                         if (emptyIndex > -1 && !member.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
                         const embed = new Discord.MessageEmbed()
