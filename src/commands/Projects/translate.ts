@@ -8,7 +8,7 @@ const command: Command = {
     cooldown: 120,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-    execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             member = client.guilds.cache.get("549503328472530974")!.members.resolve(interaction.user.id)
         if (member?.roles.cache.find(role => role.name.startsWith("Bot ") && role.name !== "Bot Updates")) {
@@ -22,7 +22,7 @@ const command: Command = {
                     { name: getString("newCrowdin"), value: getString("checkGuide", { gettingStarted: "<#699275092026458122>" }) }
                 )
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.reply(embed)
+            await interaction.reply(embed)
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
@@ -36,7 +36,7 @@ const command: Command = {
                     { name: getString("noLanguage"), value: getString("langRequest") }
                 )
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.reply(embed)
+            await interaction.reply(embed)
         }
     }
 }

@@ -39,7 +39,7 @@ const command: Command = {
   allowTip: false,
   roleWhitelist: ["569839580971401236", "764442984119795732"], //Hypixel Proofreader and Discord Administrator
   channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "644620638878695424", "550951034332381184", "549894938712866816", "713084081579098152"],
-  execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+  async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
     let roleType = (interaction.options.get("role")!.value as string).toLowerCase()
     const lang = (interaction.options.get("language")!.value as string).toLowerCase(),
       member = interaction.member as Discord.GuildMember
@@ -56,24 +56,24 @@ const command: Command = {
     if (roleType === "pf" || roleType === "pr" || roleType === "proofreader") {
       const toPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Proofreader`)
       if (member.roles.cache.find(role => role.name === `${roleName} Proofreader` || member.permissions.has("MANAGE_ROLES"))) {
-        interaction.reply(`**${interaction.user}**: ${toPing} ${message}`)
+        await interaction.reply(`**${interaction.user}**: ${toPing} ${message}`)
       } else {
-        interaction.reply(`${getString("errorNoPing")}${getString("errorNoPingPr")} ${getString("errorNoPingDisclaimer")}`, { ephemeral: true })
+        await interaction.reply(`${getString("errorNoPing")}${getString("errorNoPingPr")} ${getString("errorNoPingDisclaimer")}`, { ephemeral: true })
       }
     } else if (roleType === "tr" || roleType === "translator") {
       const toPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Translator`)
       if (member.roles.cache.find(role => role.name === `${roleName} Proofreader` || member.permissions.has("MANAGE_ROLES"))) {
-        interaction.reply(`**${interaction.user}**: ${toPing} ${message}`)
+        await interaction.reply(`**${interaction.user}**: ${toPing} ${message}`)
       } else {
-        interaction.reply(`${getString("errorNoPing")}${getString("errorNoPingTr")} ${getString("errorNoPingDisclaimer")}`, { ephemeral: true })
+        await interaction.reply(`${getString("errorNoPing")}${getString("errorNoPingTr")} ${getString("errorNoPingDisclaimer")}`, { ephemeral: true })
       }
     } else if (roleType === "all" || roleType === "both") {
       const translatorPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Translator`)
       const proofreaderPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Proofreader`)
       if (member.roles.cache.find(role => role.name === `${roleName} Proofreader` || member.permissions.has("MANAGE_ROLES"))) {
-        interaction.reply(`**${interaction.user}**: ${translatorPing} ${proofreaderPing} ${message}`)
+        await interaction.reply(`**${interaction.user}**: ${translatorPing} ${proofreaderPing} ${message}`)
       } else {
-        interaction.reply(`${getString("errorNoPing")}${getString("errorNoPingAll")} ${getString("errorNoPingDisclaimer")}`, { ephemeral: true })
+        await interaction.reply(`${getString("errorNoPing")}${getString("errorNoPingAll")} ${getString("errorNoPingDisclaimer")}`, { ephemeral: true })
       }
     } else throw "falseRole"
   }

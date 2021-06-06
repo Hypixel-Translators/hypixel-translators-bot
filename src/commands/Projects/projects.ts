@@ -8,7 +8,7 @@ const command: Command = {
     cooldown: 120,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-    execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
         if (interaction.guild?.id === "549503328472530974") {
             const member = interaction.member as Discord.GuildMember
@@ -36,7 +36,7 @@ const command: Command = {
                     { name: "Hypixel Translators Bot", value: `${getString("projectInfo", { project: "**Hypixel Translators Bot**", link: "https://crowdin.com/project/hypixel-translators-bot", command: "`+bot`" })}\n${joinedBot}` }
                 )
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.reply(embed)
+            await interaction.reply(embed)
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
@@ -50,7 +50,7 @@ const command: Command = {
                     { name: "Hypixel Translators Bot", value: getString("projectInfo", { project: "**Hypixel Translators Bot**", link: "https://crowdin.com/project/hypixel-translators-bot", command: "`+bot`" }) }
                 )
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.reply(embed)
+            await interaction.reply(embed)
         }
     }
 }

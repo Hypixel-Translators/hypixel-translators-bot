@@ -14,7 +14,7 @@ const command: Command = {
     allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-development admin-bots
-    execute(interaction: Discord.CommandInteraction) {
+    async execute(interaction: Discord.CommandInteraction) {
         const role = interaction.options.get("role")!.role as Discord.Role,
             tags: Discord.GuildMember[] = []
         role.members.forEach(member => tags.push(member))
@@ -44,7 +44,7 @@ const command: Command = {
         } else embed.setDescription(maxMembersArr[0].join(", "))
         embed.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
         embeds.push(embed)
-        interaction.reply({ embeds: embeds })
+        await interaction.reply({ embeds: embeds })
     }
 }
 

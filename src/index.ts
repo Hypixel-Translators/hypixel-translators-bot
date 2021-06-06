@@ -36,8 +36,8 @@ export interface Command extends Discord.ApplicationCommandData {
     categoryWhitelist?: Discord.Snowflake[]
     categoryBlacklist?: Discord.Snowflake[]
     category?: string
-    execute(interaction: Discord.CommandInteraction, getString?: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any): any
+    execute(interaction: Discord.CommandInteraction, getString?: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any): Promise<any>
 }
 
 //Log in
-client.login(process.env.DISCORD_TOKEN_DEV)
+client.login(process.env.DISCORD_TOKEN)

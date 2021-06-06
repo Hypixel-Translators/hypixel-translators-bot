@@ -19,7 +19,7 @@ const command: Command = {
             value: "rules",
         },
         {
-            name: "The server-info channel",
+            name: "The #server-info channel",
             value: "info"
         },
         {
@@ -31,7 +31,7 @@ const command: Command = {
             value: "all"
         }]
     }],
-    execute(interaction: Discord.CommandInteraction) {
+    async execute(interaction: Discord.CommandInteraction) {
         const channelInput = interaction.options.get("channel")?.value
         if (channelInput === "info") {
             info(interaction)
@@ -41,7 +41,7 @@ const command: Command = {
                 .setTitle("Updated the information channel!")
                 .setDescription(`Check it out at <#762341271611506708>!`) //server-info
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.reply(successEmbed)
+            await interaction.reply(successEmbed)
         } else if (channelInput === "rules") {
             rules(interaction)
             const successEmbed = new Discord.MessageEmbed()
@@ -50,7 +50,7 @@ const command: Command = {
                 .setTitle("Updated the rules channel!")
                 .setDescription(`Check it out at <#796159719617986610>!`) //rules
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.reply(successEmbed)
+            await interaction.reply(successEmbed)
         } else if (channelInput === "verify") {
             verify(interaction)
             const successEmbed = new Discord.MessageEmbed()
@@ -59,7 +59,7 @@ const command: Command = {
                 .setTitle("Updated the verification channel!")
                 .setDescription(`Check it out at <#569178590697095168>!`) //verify
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.reply(successEmbed)
+            await interaction.reply(successEmbed)
         } else if (channelInput === "all" || !channelInput) {
             info(interaction)
             verify(interaction)
@@ -70,7 +70,7 @@ const command: Command = {
                 .setTitle("All channels have been updated!")
                 .setDescription(`Check them out at <#762341271611506708>, <#796159719617986610> and <#569178590697095168>!`) //server-info, rules and verify
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.reply(successEmbed)
+            await interaction.reply(successEmbed)
         } else throw "noChannel"
     }
 }

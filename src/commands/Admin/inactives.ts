@@ -8,14 +8,14 @@ const command: Command = {
     description: "Checks for inactive unverified members (if applicable).",
     allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
-    execute(interaction: Discord.CommandInteraction) {
+    async execute(interaction: Discord.CommandInteraction) {
         inactives(client, true)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor("Inactive checker")
             .setTitle("All inactive members have been notified!")
             .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        interaction.reply(embed)
+        await interaction.reply(embed)
     }
 }
 

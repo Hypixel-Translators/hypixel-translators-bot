@@ -56,7 +56,7 @@ const command: Command = {
       .setThumbnail(member!.user.displayAvatarURL({ format: "png", dynamic: true }))
       .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     if (note) embed.addField("Note", note)
-    interaction.reply(embed)
+    await interaction.reply(embed)
     function timeAgo(time: number) {
       let timeString: string
       if (time == 1) timeString = ` (${time} second ago)`

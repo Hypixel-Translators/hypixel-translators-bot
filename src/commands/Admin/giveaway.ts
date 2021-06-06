@@ -29,7 +29,7 @@ const command: Command = {
         const winner: Discord.User[] = users!.random(Number(interaction.options.get("winners")?.value) || 1)
         let winners: Discord.User[] = []
         winner.forEach(user => winners.push(user))
-        interaction.reply(`Congratulations to ${winners.join(", ")}`)
+        await interaction.reply(`Congratulations to ${winners.join(", ")}`)
     }
 }
 

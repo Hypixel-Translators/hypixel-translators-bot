@@ -78,7 +78,7 @@ const command: Command = {
                 .setTitle(`There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`)
                 .setFooter(`Executed By ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             if (interaction.options.get("language")!.value !== "en") embed.setDescription(users.join(", "))
-            interaction.reply(embed)
+            await interaction.reply(embed)
         }
         else if (subCommand == "set" && newLang) {
             interaction.defer()

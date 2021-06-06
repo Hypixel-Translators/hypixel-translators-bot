@@ -16,20 +16,20 @@ const command: Command = {
     allowDM: true,
     async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-         keys = Object.keys(getString("answers")),
-         answerType = keys[keys.length * Math.random() << 0],
-         answers = getString(`answers.${answerType}`),
-         answer = answers[Math.floor(Math.random() * answers.length)],
-         embed = new Discord.MessageEmbed()
-            .setAuthor(getString("moduleName"))
-            .setTitle(answer)
-            .addField(getString("question"), interaction.options.get("question")!.value as string)
-            .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            keys = Object.keys(getString("answers")),
+            answerType = keys[keys.length * Math.random() << 0],
+            answers = getString(`answers.${answerType}`),
+            answer = answers[Math.floor(Math.random() * answers.length)],
+            embed = new Discord.MessageEmbed()
+                .setAuthor(getString("moduleName"))
+                .setTitle(answer)
+                .addField(getString("question"), interaction.options.get("question")!.value as string)
+                .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
         if (answerType === "positive") embed.setColor(successColor)
         else if (answerType === "inconclusive") embed.setColor(loadingColor)
         else if (answerType === "negative") embed.setColor(errorColor)
         else console.error("Help the 8ball answer type is weird")
-        interaction.reply(embed)
+        await interaction.reply(embed)
     }
 }
 

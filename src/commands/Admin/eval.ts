@@ -36,11 +36,11 @@ const command: Command = {
     codeToRun = transpile(codeToRun)
     try {
       evaled = await eval(codeToRun)
-      interaction.reply(inspect(evaled).substring(0, 255))
+      await interaction.reply(inspect(evaled).substring(0, 255))
       console.log(inspect(evaled))
     } catch (error) {
       console.error(error)
-      interaction.reply(`Something went wrong. Here is the error:\n${error}`)
+      await interaction.reply(`Something went wrong. Here is the error:\n${error}`)
     }
   }
 }

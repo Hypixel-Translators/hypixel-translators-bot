@@ -33,14 +33,14 @@ const command: Command = {
         const projectInput = interaction.options.get("project")?.value as string
         if (!projectInput) {
             await execute(client, true)
-                .then(() => {
+                .then(async () => {
                     const allEmbed = new Discord.MessageEmbed()
                         .setColor(successColor)
                         .setAuthor("Statistics updater")
                         .setTitle("All language statistics have been updated!")
                         .setDescription(`Check them out at ${interaction.guild!.channels.cache.find(c => c.name === "hypixel-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "bot-language-status")} and ${interaction.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`)
                         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    interaction.reply(allEmbed)
+                    await interaction.reply(allEmbed)
                 })
                 .catch(err => { throw err })
         } else {
@@ -57,7 +57,7 @@ const command: Command = {
                 .setTitle(`The ${project} language statistics have been updated!`)
                 .setDescription(`Check it out at ${interaction.guild!.channels.cache.find(c => c.name === `${projectInput}-language-status`)}!`)
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.reply(projectEmbed)
+            await interaction.reply(projectEmbed)
             console.log(`Manually updated the ${project} language statistics.`)
         }
     }

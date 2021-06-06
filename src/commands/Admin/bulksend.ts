@@ -19,7 +19,7 @@ const command: Command = {
     description: "The amount of messages to send in bulk",
     required: true
   }],
-  execute(interaction: Discord.CommandInteraction) {
+  async execute(interaction: Discord.CommandInteraction) {
     const sendTo = interaction.options.get("channel")!.channel as Discord.TextChannel
     if (!sendTo.isText()) throw "You must provide a text channel to send messages in!"
     let amount = Number(interaction.options.get("amount")!.value)
@@ -31,7 +31,7 @@ const command: Command = {
       .setTitle(amount === 1 ? "Success! Message sent." : "Success! Messages sent.")
       .setDescription(`${sendTo}`)
       .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-    interaction.reply(embed)
+    await interaction.reply(embed)
   }
 }
 

@@ -31,14 +31,14 @@ const command: Command = {
     allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["730042612647723058", "551693960913879071"], // bot-development admin-bots
-    execute(interaction: Discord.CommandInteraction) {
+    async execute(interaction: Discord.CommandInteraction) {
         let strings = require(`../../../strings/en/holidays.json`)
         const dirPath = path.join(__dirname, "../../../strings"),
             holidayName = interaction.options.get("holiday")!.value as string
         let holiday: string[] = []
         let log: string[] = []
         holiday.push(strings[holidayName])
-        fs.readdir(dirPath, (err, langs) => {
+        fs.readdir(dirPath, async (err, langs) => {
             if (err) return console.error(`Unable to scan directory.\n${err}`)
             langs.forEach(lang => {
                 if (lang === "empty") return
@@ -53,7 +53,7 @@ const command: Command = {
                 const announcements = interaction.client.channels.cache.get("549503985501995011") as Discord.NewsChannel
                 announcements.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`) //announcements
                     .then(msg => msg.crosspost())
-                interaction.reply(`${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement sent! Here's each language's translation:\n${log.join("\n")}`)
+                await interaction.reply(`${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement sent! Here's each language's translation:\n${log.join("\n")}`)
                 console.log(log)
                 console.log(`Sent the ${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement`)
             } else return interaction.reply("For some reason there is nothing in the announcement so I can't send it. Fix your code bro.", { ephemeral: true })

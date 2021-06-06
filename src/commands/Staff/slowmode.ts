@@ -16,7 +16,7 @@ const command: Command = {
         if (Number(slowmode) > 21600) return interaction.reply("The maximum slowmode you can set is 21600 seconds!", { ephemeral: true })
         if (!(interaction.channel instanceof Discord.TextChannel)) return interaction.reply("You can only set a slowmode in a text channel!", { ephemeral: true })
         await interaction.channel.setRateLimitPerUser(slowmode, `Set by ${interaction.user.tag}`)
-        interaction.reply(`Successfully set the slowmode to ${interaction.options.get("seconds")!.value}`, { ephemeral: true })
+        await interaction.reply(`Successfully set the slowmode to ${interaction.options.get("seconds")!.value}`, { ephemeral: true })
     }
 }
 

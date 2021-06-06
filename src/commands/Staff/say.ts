@@ -35,7 +35,7 @@ const command: Command = {
       .setTitle("Success! Message sent.")
       .setDescription(`${sendTo}:\n${message}`)
       .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-    interaction.reply(embed)
+    await interaction.reply(embed)
   }
 }
 
