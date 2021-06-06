@@ -1,16 +1,17 @@
-import { client } from "../index.js"
-import { DbUser } from "../lib/dbclient.js"
+import { client } from "../index"
+import { DbUser } from "../lib/dbclient"
 import Discord from "discord.js"
 import { loadingColor, errorColor, successColor, neutralColor, blurple } from "../config.json"
 import fs from "fs"
+import { isEqual } from "lodash"
 
 client.on("interaction", async interaction => {
     if (!interaction.isCommand() || interaction.user.bot) return
 
     const author: DbUser = await client.getUser(interaction.user.id),
         command = client.commands.get(interaction.commandName)!,
-        member = await interaction.client.guilds.cache.get("440838503560118273")?.members.fetch(interaction.user.id)!,
-        executedBy = getString("executedBy", { user: interaction.user.tag })
+        member = await interaction.client.guilds.cache.get("549503328472530974")?.members.fetch(interaction.user.id)!,
+        executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
 
     //Log if command is ran in DMs
     if (interaction.channel?.type === "dm")
@@ -20,14 +21,21 @@ client.on("interaction", async interaction => {
     if (!member?.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
 
     let allowed = true
+
+    //Channel Blacklist and whitelist systems
+    if (!(interaction.channel instanceof Discord.DMChannel)) {
+        if (command.categoryBlacklist && command.categoryBlacklist.includes(interaction.channel.parentID!)) allowed = false
+        else if (command.channelBlacklist && command.channelBlacklist.includes(interaction.channel.id)) allowed = false
+        else if (command.categoryWhitelist && !command.categoryWhitelist.includes(interaction.channel.parentID!)) allowed = false
+        else if (command.channelWhitelist && !command.channelWhitelist.includes(interaction.channel.id)) allowed = false
+    }
+
     //Prevent users from running commands in development
     if (command.dev && !member?.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
 
     //Give perm to admins and return if not allowed
     if (!allowed) {
-        setTimeout(() => {
-            if (!interaction.replied) interaction.reply(getString("errors.noPerm"), { ephemeral: true })
-        }, 5000)
+        await interaction.reply(getString("errors.noPerm", "global"), { ephemeral: true })
         return
     }
 
@@ -35,8 +43,8 @@ client.on("interaction", async interaction => {
     if (!command.allowDM && interaction.channel?.type === "dm" && !member?.permissions.has("ADMINISTRATOR")) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
-            .setAuthor(getString("error"))
-            .setTitle(getString("errors.dmError"))
+            .setAuthor(getString("error", "global"))
+            .setTitle(getString("errors.dmError", "global"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
         return interaction.reply(embed)
     }
@@ -51,14 +59,14 @@ client.on("interaction", async interaction => {
             const timeLeft = (expirationTime - now) / 1000
             let timeLeftS
             if (Math.ceil(timeLeft) >= 120)
-                timeLeftS = getString("minsLeftT", { time: Math.ceil(timeLeft / 60), command: interaction.commandName })
+                timeLeftS = getString("minsLeftT", { time: Math.ceil(timeLeft / 60), command: interaction.commandName }, "global")
             else if (Math.ceil(timeLeft) === 1)
-                timeLeftS = getString("secondLeft", { command: interaction.commandName })
-            else timeLeftS = getString("timeLeftT", { time: Math.ceil(timeLeft), command: interaction.commandName })
+                timeLeftS = getString("secondLeft", { command: interaction.commandName }, "global")
+            else timeLeftS = getString("timeLeftT", { time: Math.ceil(timeLeft), command: interaction.commandName }, "global")
 
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
-                .setAuthor(getString("cooldown"))
+                .setAuthor(getString("cooldown", "global"))
                 .setTitle(timeLeftS)
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             return interaction.reply({ embeds: [embed], ephemeral: true })
@@ -118,15 +126,13 @@ client.on("interaction", async interaction => {
                     if (
                         !string ||
                         (typeof string === "string" &&
-                            !arrayEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g)))
+                            !isEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g)))
                     ) {
                         string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
                             string = null //in case of fire
                             if (command!.category != "Admin" && command!.category != "Staff")
-                                console.error(
-                                    `Couldn't get string ${path} in English for command ${cmd}, please fix this`
-                                )
+                                console.error(`Couldn't get string ${path} in English for ${cmd}, please fix this`)
                         }
                     }
                     if (typeof string === "string" && variables) {
@@ -145,16 +151,14 @@ client.on("interaction", async interaction => {
     try {
         // Run the command
         await command.execute(interaction, getString)
-        console.log("hello!")
 
         // Try sending a tip
         // This will only execute if the command is successful
         const d = Math.random() * 100 // Get percentage
         if (command.allowTip !== false && d <= 5) {
             // Less than or equal to 5%
-            const keys = Object.keys(getString("tips"))
-            const tip = getString(
-                `tips.${keys[(keys.length * Math.random()) << 0]}`,
+            const keys = Object.keys(getString("tips", "global"))
+            const tip = getString(`tips.${keys[(keys.length * Math.random()) << 0]}`,
                 {
                     botUpdates: "<#732587569744838777>",
                     gettingStarted: "<#699275092026458122>",
@@ -165,10 +169,10 @@ client.on("interaction", async interaction => {
                 },
                 "global"
             )
-            interaction.webhook.send(`**${getString("tip").toUpperCase()}:** ${tip}`)
+            await interaction.channel.send(`**${getString("tip", "global").toUpperCase()}:** ${tip}`)
         }
     } catch (error) {
-        if (!error.stack) error = getString(`errors.${error}`)
+        if (!error.stack) error = getString(`errors.${error}`, "global")
 
         // Send error to bot-dev channel
         if (error.stack) {
@@ -179,16 +183,15 @@ client.on("interaction", async interaction => {
                     .setTitle(error.toString().substring(0, 255))
                     .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
                     .setFooter("Check the console for more details")
-                ;(interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send(
-                    "<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>",
-                    embed
-                ) //Rodry and bot-development
+                    ; (interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send(
+                        "<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>",
+                        embed
+                    ) //Rodry and bot-development
             }
             console.error(
-                `Unexpected error with command ${interaction.commandName} on channel ${
-                    interaction.channel instanceof Discord.DMChannel
-                        ? interaction.channel.type
-                        : (interaction.channel as Discord.TextChannel).name
+                `Unexpected error with command ${interaction.commandName} on channel ${interaction.channel instanceof Discord.DMChannel
+                    ? interaction.channel.type
+                    : (interaction.channel as Discord.TextChannel).name
                 } executed by ${interaction.user.tag}. Here's the error:\n${error.stack}`
             )
         }
@@ -197,32 +200,12 @@ client.on("interaction", async interaction => {
         timestamps.delete(interaction.user.id)
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
-            .setAuthor(getString("error"))
+            .setAuthor(getString("error", "global"))
             .setTitle(error.interaction?.substring(0, 255) || error.toString().substring(0, 255))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
         if (command.category == "Admin" || command.category == "Staff")
-            embed.addField(getString("usage"), `\`${command.usage}\``)
-        else embed.addField(getString("usage"), `\`${getString(`${command.name}.usage`, "help")}\``)
+            embed.addField(getString("usage", "global"), `\`${command.usage}\``)
+        else embed.addField(getString("usage", "global"), `\`${getString(`${command.name}.usage`, "help")}\``)
         return interaction.reply({ embeds: [embed], ephemeral: true })
     }
 })
-
-export function arrayEqual(a: any, b: any) {
-    if (a == b) return true
-
-    if (!Array.isArray(a) || !Array.isArray(b)) return false
-
-    // .concat() to not mutate arguments
-    let arr1 = a.concat().sort(),
-        arr2 = b.concat().sort()
-
-    // Remove duplicated values
-    arr1 = arr1.filter((item: string, index: number) => arr1.indexOf(item) == index)
-    arr2 = arr2.filter((item: string, pos: number) => arr2.indexOf(item) == pos)
-
-    for (let i = 0; i < arr1.length; i++) {
-        if (arr1[i] !== arr2[i]) return false
-    }
-
-    return true
-}

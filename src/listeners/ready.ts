@@ -4,70 +4,84 @@ import inactives from "../events/inactives"
 import crowdin from "../events/crowdinverify"
 import { listeningStatuses, watchingStatuses, playingStatuses } from "../config.json"
 import Discord from "discord.js"
+import { isEqual } from "lodash"
 
 client.once("ready", async () => {
-    console.log("Ready!")
+    console.log(`Logged in as ${client.user!.tag}!`)
 
     const publishCommand = async (command: Command) => {
         if (command.allowDM) {
             //Create a global command
-            var cmd = await client.application?.commands.create({
-                name: command.name,
-                description: command.description,
-                defaultPermission: command.roleWhitelist ? false : true,
-                options: command.options
-            })
+            await client.application?.commands.create(convertToDiscordCommand(command))
         } else {
             //Create a guild wide command
-            var cmd = await client.guilds.cache.get("440838503560118273")?.commands.create({
-                name: command.name,
-                description: command.description,
-                defaultPermission: command.roleWhitelist ? false : true,
-                options: command.options
+            const cmd = await client.guilds.cache.get("549503328472530974")!.commands.create(convertToDiscordCommand(command))
+            const permissions: Discord.ApplicationCommandPermissionData[] = []
+            command.roleWhitelist?.forEach(id => {
+                //Add whitelisted roles
+                permissions.push({
+                    type: "ROLE",
+                    id,
+                    permission: true
+                })
             })
+            command.roleBlacklist?.forEach(id => {
+                //Add blacklisted roles
+                permissions.push({
+                    type: "ROLE",
+                    id,
+                    permission: false
+                })
+            })
+            if (permissions.length) await cmd.setPermissions(permissions)
         }
-
-        let permissions: Discord.ApplicationCommandPermissionData[] = []
-        command.roleWhitelist?.forEach(id => {
-            //Add whitelisted roles
-            permissions.push({
-                type: "ROLE",
-                id,
-                permission: true
-            })
-        })
-        command.roleBlacklist?.forEach(id => {
-            //Add blacklisted roles
-            permissions.push({
-                type: "ROLE",
-                id,
-                permission: false
-            })
-        })
-
-        if (permissions) {
-            await cmd?.setPermissions(permissions)
-        }
+        console.log(`Published command ${command.name}!`)
     }
 
-    //Fetch slash commands
-    const globalCommands = await client.application!.commands.fetch()
-    if (!globalCommands) client.commands.forEach(async (command: Command) => await publishCommand(command))
-    else
-        client.commands.forEach(async (command: Command) => {
-            const discordCommand = globalCommands.find(c => c.name == command.name)!
-            //Chech if the command is published
-            if (!globalCommands.some(cmd => cmd.name === command.name)) await publishCommand(command)
-            else if (!commandEquals(discordCommand, command)) {
-                discordCommand.edit({
-                    name: command.name,
-                    description: command.description,
-                    options: command.options,
-                    defaultPermission: command.roleWhitelist ? false : true
+    //Only update global commands in production
+    if (process.env.NODE_ENV !== "dev") {
+        const globalCommands = await client.application!.commands.fetch()
+        if (!globalCommands)
+            client.commands.filter(c => !!c.allowDM).forEach(async command => await publishCommand(command))
+        else
+            client.commands.forEach(async (command: Command) => {
+                const discordCommand = globalCommands.find(c => c.name == command.name)!
+                //Chech if the command is published
+                if (!globalCommands.some(cmd => cmd.name === command.name)) await publishCommand(command)
+                else if (!commandEquals(discordCommand, command)) {
+                    discordCommand.edit(convertToDiscordCommand(command))
+                    console.log(`Edited command ${command.name} since changes were found`)
+                }
+            })
+        const guildCommands = await client.guilds.cache.get("549503328472530974")!.commands.fetch()
+        if (!guildCommands) client.commands.filter(c => !c.allowDM).forEach(async command => await publishCommand(command))
+        else client.guilds.cache.get("549503328472530974")!.commands.set(constructDiscordCommands())
+    } else {
+        client.guilds.cache.get("549503328472530974")!.commands.set(constructDiscordCommands())
+            .then(commands =>
+                commands.forEach(async cmd => {
+                    const permissions: Discord.ApplicationCommandPermissionData[] = [],
+                        command = client.commands.get(cmd.name)!
+                    command.roleWhitelist?.forEach(id => {
+                        //Add whitelisted roles
+                        permissions.push({
+                            type: "ROLE",
+                            id,
+                            permission: true
+                        })
+                    })
+                    command.roleBlacklist?.forEach(id => {
+                        //Add blacklisted roles
+                        permissions.push({
+                            type: "ROLE",
+                            id,
+                            permission: false
+                        })
+                    })
+                    if (permissions.length) await cmd.setPermissions(permissions)
                 })
-                console.log(`Edited command ${command.name} since changes were found`)
-            }
-        })
+            )
+    }
 
     //Get server boosters and staff for the status
     let boostersStaff: string[] = []
@@ -115,18 +129,25 @@ client.once("ready", async () => {
     }, 60000)
 })
 
-const objectEquals = (obj1: any, obj2: any) => {
-    for (const key in obj1) {
-        if (typeof obj1[key] === "object" && typeof obj2[key] === "object") {
-            if (!objectEquals(obj1[key], obj2[key])) return false
-        } else if (obj1[key] !== obj2[key]) return false
-    }
-    for (const key in obj2) if (obj1[key] && obj1[key] !== obj2[key] && typeof obj1[key] !== "object") return false
+const constructDiscordCommands = () => {
+    const returnCommands: Discord.ApplicationCommandData[] = []
+    let clientCommands = client.commands
+    if (process.env.NODE_ENV !== "dev") clientCommands = clientCommands.filter(cmd => !cmd.allowDM)
+    clientCommands.forEach(c => returnCommands.push(convertToDiscordCommand(c)))
 
-    return true
+    return returnCommands
+}
+
+const convertToDiscordCommand = (command: Command): Discord.ApplicationCommandData => {
+    return {
+        name: command.name,
+        description: command.description,
+        defaultPermission: command.roleWhitelist ? false : true,
+        options: command.options
+    }
 }
 
 const commandEquals = (discordCommand: Discord.ApplicationCommand, localCommand: Command) =>
     discordCommand.name === localCommand.name &&
     discordCommand.description === localCommand.description &&
-    objectEquals(discordCommand.options, localCommand.options)
+    isEqual(discordCommand.options, localCommand.options)
