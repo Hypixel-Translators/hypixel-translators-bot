@@ -37,31 +37,46 @@ const command: Command = {
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             return interaction.reply(embed)
         } else {
-            await interaction.reply(fetchPage(page, pages, getString, executedBy, interaction))
+            const controlButtons = new Discord.MessageActionRow()
+                .addComponents(
+                    new Discord.MessageButton()
+                        .setStyle("DANGER")
+                        .setCustomID("first")
+                        .setLabel(getString("pagination.first", "global")),
+                    new Discord.MessageButton()
+                        .setStyle("PRIMARY")
+                        .setCustomID("previous")
+                        .setLabel(getString("pagination.previous", "global")),
+                    new Discord.MessageButton()
+                        .setStyle("PRIMARY")
+                        .setCustomID("next")
+                        .setLabel(getString("pagination.next", "global")),
+                    new Discord.MessageButton()
+                        .setStyle("DANGER")
+                        .setCustomID("last")
+                        .setLabel(getString("pagination.last", "global"))
+                )
+            await interaction.reply({ embeds: [fetchPage(page, pages, getString, executedBy, interaction)], components: [controlButtons] })
             const msg = await interaction.fetchReply() as Discord.Message
-            await msg.react("⏮"); await msg.react("◀"); await msg.react("▶"); await msg.react("⏭")
 
-            const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, user: Discord.User) => (reaction.emoji.name === "⏮" || reaction.emoji.name === "◀" || reaction.emoji.name === "▶" || reaction.emoji.name === "⏭") && user.id === interaction.user.id, { time: this.cooldown! * 1000 }) //2 minutes
+            const collector = msg.createMessageComponentInteractionCollector((button: Discord.MessageComponentInteraction) => (button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last") && interaction.user.id === button.user.id, { time: this.cooldown! * 1000 }) //2 minutes
 
-            collector.on("collect", reaction => {
-                if (reaction.emoji.name === "⏮") page = 0 //First
-                if (reaction.emoji.name === "⏭") page = pages.length - 1 //Last
-                if (reaction.emoji.name === "◀") { //Previous
+            collector.on("collect", buttonInteraction => {
+                if (buttonInteraction.customID === "first") page = 0
+                if (buttonInteraction.customID === "last") page = pages.length - 1
+                if (buttonInteraction.customID === "previous") {
                     page--
                     if (page < 0) page = 0
                 }
-                if (reaction.emoji.name === "▶") { //Next
+                if (buttonInteraction.customID === "next") {
                     page++
                     if (page > pages.length - 1) page = pages.length - 1
                 }
-                reaction.users.remove(interaction.user.id)
-                interaction.editReply(fetchPage(page, pages, getString, executedBy, interaction))
+                buttonInteraction.update(fetchPage(page, pages, getString, executedBy, interaction))
             })
 
             collector.on("end", () => {
-                interaction.editReply(getString("timeOut", { command: "`+levels`" }))
-                if (interaction.channel!.type !== "dm") msg.reactions.removeAll()
-                else msg.reactions.cache.forEach(reaction => reaction.users.remove()) //remove all reactions by the bot
+                interaction.editReply(getString("timeOut", { command: "`+levels`" }), { components: [] })
             })
 
         }

@@ -63,5 +63,11 @@
         "botTranslated": "Did you know our bot is available in multiple languages? Try executing `+language list` to see a list of all the languages we currently support and you may just find your own!",
         "moreTips": "We need more tips! Submit them using `+feedback`."
     },
+    "pagination": {
+        "first": "First page",
+        "previous": "Previous page",
+        "next": "Next page",
+        "last": "Last page"
+    },
     "executedBy": "Executed by %%user%%"
 }

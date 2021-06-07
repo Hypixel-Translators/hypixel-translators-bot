@@ -27,24 +27,37 @@ const command: Command = {
 
         let color = role.hexColor
         if (color === "#000000") color = blurple
-        const embeds: Discord.MessageEmbed[] = [],
-            embed = new Discord.MessageEmbed()
+        if (maxMembersArr.length > 1) {
+            maxMembersArr.forEach(async (membersArr, index) => {
+                if (index == 1) {
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(color)
+                        .setAuthor("Members list")
+                        .setTitle(`Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`)
+                        .setDescription(membersArr.join(", "))
+                   await interaction.reply(embed)
+                } else if (index + 1 == maxMembersArr.length) {
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(color)
+                        .setDescription(membersArr.join(", "))
+                        .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                    await interaction.followUp(embed)
+                } else {
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(color)
+                        .setDescription(membersArr.join(", "))
+                    await interaction.followUp(embed)
+                }
+            })
+        } else {
+            const embed = new Discord.MessageEmbed()
                 .setColor(color)
                 .setAuthor("Members list")
                 .setTitle(`Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`)
-        if (maxMembersArr.length > 1) {
-            maxMembersArr.forEach(membersArray => {
-                embed.setDescription(membersArray.join(", "))
-                embeds.push(embed)
-                embed
-                    .setAuthor("")
-                    .setTitle("")
-                    .setFooter("")
-            })
-        } else embed.setDescription(maxMembersArr[0].join(", "))
-        embed.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        embeds.push(embed)
-        await interaction.reply({ embeds: embeds })
+                .setDescription(maxMembersArr[0].join(", "))
+                .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+           await interaction.reply(embed)
+        }
     }
 }
 

@@ -44,7 +44,7 @@ const command: Command = {
                 })
                 .catch(err => { throw err })
         } else {
-            const project = interaction.options.get("project")!.name as string
+            const project = interaction.options.get("project")!.value as string
             switch (projectInput) {
                 case "hypixel": await hypixel(client)
                 case "quickplay": await quickplay(client)

@@ -14,10 +14,17 @@ const command: Command = {
             .setColor(successColor)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("bugT"))
-            .setDescription(getString("bugD", { github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot/issues)" }))
+            .setDescription(getString("bugD"))
             .addField(getString("urgentT"), getString("urgentD"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        await interaction.reply(embed)
+        const row = new Discord.MessageActionRow()
+            .addComponents(
+                new Discord.MessageButton()
+                    .setLabel("Link")
+                    .setStyle("LINK")
+                    .setURL("https://github.com/Hypixel-Translators/hypixel-translators-bot/issues")
+            )
+        await interaction.reply({ components: [row], embeds: [embed] })
     }
 }
 

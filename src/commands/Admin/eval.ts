@@ -20,7 +20,7 @@ const command: Command = {
     type: "STRING",
     name: "code",
     description: "The code to run",
-    required: false
+    required: true
   }],
   async execute(interaction: discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
     const me = interaction.member ?? interaction.user,
