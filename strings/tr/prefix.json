@@ -12,7 +12,7 @@
         "timedOut": "Zaman Aşımına Uğradı",
         "timeOut": "Hiçbir bayrakla tepki vermedin, ",
         "timeOutCustom": "Onaylamadın, ",
-        "notSaved": "yani ön ekin kaydedilmedi."
+        "notSaved": "bu yüzden ön ekin kaydedilmedi."
     },
     "customPrefix": "İstediğin öneki almak için `+prefix <bayrak>` komutunu kullanman yeterli.",
     "caution": "Dikkat",
