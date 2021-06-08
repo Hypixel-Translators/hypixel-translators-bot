@@ -77,34 +77,52 @@ const command: Command = {
       let page = 0
       if (pageInput) page = pageInput - 1
 
-      let pageEmbed = fetchPage(page, pages, getString, executedBy, interaction) as Discord.MessageEmbed
+      let pageEmbed = fetchPage(page, pages, getString, executedBy, interaction) as Discord.MessageEmbed,
+        controlButtons = new Discord.MessageActionRow()
+          .addComponents(
+            new Discord.MessageButton()
+              .setEmoji("⏮")
+              .setCustomID("first")
+              .setLabel(getString("pagination.first", "global")),
+            new Discord.MessageButton()
+              .setEmoji("◀️")
+              .setCustomID("previous")
+              .setLabel(getString("pagination.previous", "global")),
+            new Discord.MessageButton()
+              .setEmoji("▶️")
+              .setCustomID("next")
+              .setLabel(getString("pagination.next", "global")),
+            new Discord.MessageButton()
+              .setEmoji("⏭")
+              .setCustomID("last")
+              .setLabel(getString("pagination.last", "global"))
+          )
+      controlButtons = updateButtonColors(controlButtons, page, pages)
 
-      await interaction.reply(pageEmbed)
+      await interaction.reply({ embeds: [pageEmbed], components: [controlButtons] })
       const msg = await interaction.fetchReply() as Discord.Message
-      await msg.react("⏮"); await msg.react("◀"); await msg.react("▶"); await msg.react("⏭")
 
-      const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, user: Discord.User) => (reaction.emoji.name === "⏮" || reaction.emoji.name === "◀" || reaction.emoji.name === "▶" || reaction.emoji.name === "⏭") && user.id === interaction.user.id, { time: 120000 }) //2 minutes
+      const collector = msg.createMessageComponentInteractionCollector((button: Discord.MessageComponentInteraction) => button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last", { time: this.cooldown! * 1000 })
 
-      collector.on("collect", async reaction => {
-        if (reaction.emoji.name === "⏮") page = 0 //First
-        if (reaction.emoji.name === "⏭") page = pages.length - 1 //Last
-        if (reaction.emoji.name === "◀") { //Previous
+      collector.on("collect", async buttonInteraction => {
+        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply(getString("pagination.notYours", { command: `/${this.name}` }, "global"), { ephemeral: true })
+        else if (buttonInteraction.customID === "first") page = 0
+        else if (buttonInteraction.customID === "last") page = pages.length - 1
+        else if (buttonInteraction.customID === "previous") {
           page--
           if (page < 0) page = 0
         }
-        if (reaction.emoji.name === "▶") { //Next
+        else if (buttonInteraction.customID === "next") {
           page++
           if (page > pages.length - 1) page = pages.length - 1
         }
-        if ((interaction.channel as Discord.TextChannel | Discord.DMChannel).type !== "dm") reaction.users.remove(interaction.user.id)
+        controlButtons = updateButtonColors(controlButtons, page, pages)
         pageEmbed = fetchPage(page, pages, getString, executedBy, interaction) as Discord.MessageEmbed
-        await interaction.editReply(pageEmbed)
+        await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
       })
 
       collector.on("end", async () => {
-        await interaction.editReply(getString("timeOut", { command: "`+help`" }))
-        if ((interaction.channel as Discord.TextChannel | Discord.DMChannel).type !== "dm") msg.reactions.removeAll()
-        else msg.reactions.cache.forEach(reaction => reaction.users.remove()) //remove all reactions by the bot
+        await interaction.editReply(getString("timeOut", { command: "`+help`" }), { embeds: [pageEmbed], components: [] })
       })
 
     } else {
@@ -112,13 +130,11 @@ const command: Command = {
       const command = client.commands.get(commandInput)
       if (!command || !command.name) throw "noCommand"
 
-      let cmdDesc, cmdUsage
+      let cmdDesc
       if (command.category !== "Admin" && command.category !== "Staff") {
         cmdDesc = getString(`${command.name}.description`)
-        cmdUsage = getString(`${command.name}.usage`)
       } else if (command.category === "Staff" && (interaction.member as Discord.GuildMember | null)?.roles.cache.has("768435276191891456") || command.category === "Admin" && (interaction.member as Discord.GuildMember | null)?.roles.cache.has("764442984119795732")) {
         cmdDesc = command.description
-        cmdUsage = command.usage!
       }
 
       if (command.dev && !(interaction.member as Discord.GuildMember | null)?.roles.cache.has("768435276191891456")) cmdDesc = getString("inDev") // Discord Staff
@@ -129,15 +145,14 @@ const command: Command = {
         .setTitle(getString("commandInfoFor") + `\`+${command.name}\``)
         .setDescription(cmdDesc || getString("staffOnly"))
         .setFooter(`${executedBy} | ${madeBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-      if (cmdUsage && cmdDesc !== getString("inDev")) {
-        embed.addField(getString("usageField"), `\`${cmdUsage}\``, true)
+      if (cmdDesc !== getString("inDev")) {
         if (command.cooldown) {
           if (command.cooldown >= 120) embed.addField(getString("cooldownField"), `${command.cooldown / 60} ${getString("minutes")}`, true)
           else if (command.cooldown === 1) embed.addField(getString("cooldownField"), `${command.cooldown} ${getString("second")}`, true)
           else embed.addField(getString("cooldownField"), `${command.cooldown} ${getString("seconds")}`, true)
         }
       }
-      (interaction.channel as Discord.TextChannel | Discord.DMChannel).send(embed)
+      await interaction.reply(embed)
     }
   }
 }
@@ -160,6 +175,23 @@ function fetchPage(page: number, pages: Page[], getString: (path: string, variab
   } else return console.error(`Tried accessing help page ${page} but it doesn't exist in the pages array!`)
 
   return pageEmbed
+}
+
+function updateButtonColors(row: Discord.MessageActionRow, page: number, pages: Page[]) {
+  if (page == 0) {
+    row.components.forEach(button => {
+      if (button.customID == "first" || button.customID == "previous") button.setStyle("SECONDARY")
+      else button.setStyle("SUCCESS")
+    })
+  } else if (page == pages.length - 1) {
+    row.components.forEach(button => {
+      if (button.customID == "last" || button.customID == "next") button.setStyle("SECONDARY")
+      else button.setStyle("SUCCESS")
+    })
+  } else {
+    row.components.forEach(button => button.setStyle("SUCCESS"))
+  }
+  return row
 }
 
 interface Page {

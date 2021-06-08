@@ -67,7 +67,8 @@
         "first": "First page",
         "previous": "Previous page",
         "next": "Next page",
-        "last": "Last page"
+        "last": "Last page",
+        "notYours": "You cannot interact with this menu! Run %%command%% yourself to do this!"
     },
     "executedBy": "Executed by %%user%%"
 }

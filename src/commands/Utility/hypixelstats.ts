@@ -50,9 +50,9 @@ const command: Command = {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             credits = getString("madeBy", { developer: interaction.client.users.cache.get("500669086947344384")!.tag }),
             authorDb: DbUser = await client.getUser(interaction.user.id),
-            userInput = interaction.options.get("user")?.user as Discord.User | undefined,
-            usernameInput = interaction.options.get("username")?.value as string | undefined,
-            subCommand = interaction.options.find(o => o.type == "SUB_COMMAND")!.name as string
+            userInput = interaction.options.first()!.options?.get("user")?.user as Discord.User | undefined,
+            usernameInput = interaction.options.first()!.options?.get("username")?.value as string | undefined,
+            subCommand = interaction.options.first()!.name as string
         let uuid = authorDb.uuid
         if (userInput) {
             const userDb: DbUser = await client.getUser(userInput.id)
@@ -210,23 +210,37 @@ const command: Command = {
                 else if (subCommand === "social") embed = await social()
                 else throw "noSubCommand"
 
-                await interaction.editReply(embed)
+                let controlButtons = new Discord.MessageActionRow()
+                    .addComponents(
+                        new Discord.MessageButton()
+                            .setCustomID("stats")
+                            .setStyle(subCommand == "stats" ? "SECONDARY" : "SUCCESS")
+                            .setEmoji("📊")
+                            .setLabel(getString("stats")),
+                        new Discord.MessageButton()
+                            .setCustomID("social")
+                            .setStyle(subCommand == "social" ? "SECONDARY" : "SUCCESS")
+                            .setEmoji("twitter:821752918352068677")
+                            .setLabel(getString("social"))
+                    )
+                await interaction.editReply({ embeds: [embed], components: [controlButtons] })
                 const msg = await interaction.fetchReply() as Discord.Message
-                await msg.react("📊"); await msg.react("<:twitter:821752918352068677>")
 
-                const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, user: Discord.User) => (reaction.emoji.name === "📊" || reaction.emoji.name === "twitter") && user.id === interaction.user.id, { time: this.cooldown! * 1000 }) //2 minutes
+                const collector = msg.createMessageComponentInteractionCollector((button: Discord.MessageComponentInteraction) => button.customID === "stats" || button.customID === "social", { time: this.cooldown! * 1000 })
 
-                collector.on("collect", async reaction => {
-                    if (reaction.emoji.name === "📊") embed = await stats()
-                    else if (reaction.emoji.name === "twitter") embed = await social()
-                    reaction.users.remove(interaction.user.id)
-                    await interaction.editReply(embed)
+                collector.on("collect", async buttonInteraction => {
+                    if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply(getString("pagination.notYours", { command: `/${this.name}` }, "global"), { ephemeral: true })
+                    else if (buttonInteraction.customID === "stats") embed = await stats()
+                    else if (buttonInteraction.customID === "social") embed = await social()
+                    controlButtons.components.forEach(button => {
+                        if (button.customID == buttonInteraction.customID) button.setStyle("SECONDARY")
+                        else button.setStyle("SUCCESS")
+                    })
+                    await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
                 })
 
                 collector.on("end", () => {
-                    msg.edit(getString("timeOut", { command: "`+hypixelstats`" }))
-                    if (interaction.channel!.type !== "dm") msg.reactions.removeAll()
-                    else msg.reactions.cache.forEach(reaction => reaction.users.remove()) //remove all reactions by the bot
+                    interaction.editReply(getString("timeOut", { command: "`+hypixelstats`" }), { components: [], embeds: [embed] })
                 })
             })
             .catch(e => {

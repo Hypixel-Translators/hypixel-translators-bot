@@ -11,11 +11,11 @@ const command: Command = {
     options: [{
         type: "SUB_COMMAND",
         name: "set",
-        description: "Sets your language to a new one",
+        description: "Sets your language to a new one. Leave empty to see your current language",
         options: [{
             type: "STRING",
             name: "language",
-            description: "The language you want to choose. Defaults to the language you have selected.",
+            description: "The new language you want to set",
             required: false
         }]
     },
@@ -43,8 +43,8 @@ const command: Command = {
         const collection = db.collection("users"),
             stringsFolder = "./strings/",
             member = interaction.member as Discord.GuildMember,
-            subCommand = interaction.options.find(o => o.type == "SUB_COMMAND")?.name as string | undefined
-        let newLang = (interaction.options.get("language")?.value as string | undefined)?.toLowerCase()
+            subCommand = interaction.options.first()!.name as string | undefined
+        let newLang = (interaction.options.first()!.options?.get("language")?.value as string | undefined)?.toLowerCase()
 
         if (subCommand === "list") {
             const files = fs.readdirSync(stringsFolder)
@@ -67,28 +67,27 @@ const command: Command = {
             })
         } else if (subCommand === "stats") {
             if (!member.roles.cache.has("764442984119795732")) return interaction.reply("You do not have permission to execute this command", { ephemeral: true })
-            const files = fs.readdirSync(stringsFolder)
-            if (!files.includes(interaction.options.get("language")!.value as string)) throw "falseLang"
-            const langUsers: DbUser[] = await collection.find({ lang: interaction.options.get("language")!.value }).toArray()
-            const users: string[] = []
+            const files = fs.readdirSync(stringsFolder),
+                langInput = interaction.options.first()!.options!.get("language")!.value as string
+            if (!files.includes(langInput)) throw "falseLang"
+            const langUsers: DbUser[] = await collection.find({ lang: langInput }).toArray(),
+                users: string[] = []
             langUsers.forEach(u => users.push(`<@!${u.id}>`))
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor("Language")
                 .setTitle(`There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`)
                 .setFooter(`Executed By ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            if (interaction.options.get("language")!.value !== "en") embed.setDescription(users.join(", "))
+            if (langInput !== "en") embed.setDescription(users.join(", "))
             await interaction.reply(embed)
         }
         else if (subCommand == "set" && newLang) {
-            interaction.defer()
             if (newLang === "se") newLang = "sv"
             const langdb = await db.collection("langdb").find().toArray(),
                 langdbEntry = langdb.find(l => l.name.toLowerCase() === newLang)
             if (langdbEntry) newLang = langdbEntry.code
             if (newLang === "empty" && !member.roles.cache.has("764442984119795732")) newLang = "denied" //Discord Administrator
-            const path = `./strings/${newLang}/language.json`
-            fs.access(path, fs.constants.F_OK, async (err) => {
+            fs.access(`./strings/${newLang}/language.json`, fs.constants.F_OK, async (err) => {
                 if (!err) {
                     if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, newLang) || newLang === "en") {
                         collection.updateOne({ id: interaction.user.id }, { $set: { lang: newLang } }).then(r => {
@@ -100,7 +99,7 @@ const command: Command = {
                                     .setTitle(getString("changedToTitle", this.name, newLang))
                                     .setDescription(getString("credits", this.name, newLang))
                                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                                return interaction.editReply(embed)
+                                return interaction.reply(embed)
                             } else {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(errorColor)
@@ -108,7 +107,7 @@ const command: Command = {
                                     .setTitle(getString("didntChange", this.name, newLang))
                                     .setDescription(getString("alreadyThis", this.name, newLang))
                                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                                return interaction.editReply(embed)
+                                return interaction.reply(embed)
                             }
                         })
                     } else {
@@ -118,7 +117,7 @@ const command: Command = {
                             .setTitle(getString("didntChange"))
                             .setDescription(getString("notTranslated"))
                             .setFooter(executedBy, interaction.user.displayAvatarURL())
-                        return interaction.editReply(embed)
+                        return interaction.reply(embed)
                     }
                 } else {
                     await fs.readdir(stringsFolder, async (_err, files) => {
@@ -130,7 +129,7 @@ const command: Command = {
                             .setTitle(getString("errorTitle"))
                             .setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n${getString("suggestAdd")}`)
                             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                        await interaction.editReply(embed)
+                        await interaction.reply(embed)
                     })
                 }
             })

@@ -31,11 +31,11 @@ const command: Command = {
                 .setFooter(executedBy, interaction.user.displayAvatarURL())
             return interaction.reply(errorEmbed)
         }
-        const totalXp = getXpNeeded(userDb.levels.level)
-        const progressBar = generateProgressBar(userDb.levels?.levelXp, totalXp)
-        const ranking = (await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray()).map(u => u.id).indexOf(user.id) + 1
-        const currentXp = userDb.levels.levelXp
-        const messageCount = userDb.levels.messageCount
+        const totalXp = getXpNeeded(userDb.levels.level),
+            progressBar = generateProgressBar(userDb.levels?.levelXp, totalXp),
+            ranking = (await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray()).map(u => u.id).indexOf(user.id) + 1,
+            currentXp = userDb.levels.levelXp,
+            messageCount = userDb.levels.messageCount
 
         const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)

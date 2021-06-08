@@ -71,8 +71,8 @@ const command: Command = {
                 } else throw "wrongLink"
             }
         } else {
-            const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
-            const userDb: DbUser = await collection.findOne({ id: interaction.user.id })
+            const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+                userDb: DbUser = await collection.findOne({ id: interaction.user.id })
             if (userDb.profile) {
                 const embed = new Discord.MessageEmbed()
                     .setColor(neutralColor)
@@ -80,7 +80,7 @@ const command: Command = {
                     .setTitle(getString("profileSuccess"))
                     .setDescription(userDb.profile)
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                return interaction.reply(embed)
+                return interaction.reply({ embeds: [embed], ephemeral: true })
             } else {
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
@@ -88,7 +88,7 @@ const command: Command = {
                     .setTitle(getString("noProfile"))
                     .setDescription(getString("howStore"))
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                return interaction.reply(embed)
+                return interaction.reply({ embeds: [embed], ephemeral: true })
             }
         }
     }
