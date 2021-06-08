@@ -44,7 +44,7 @@ const command: Command = {
                 interaction.defer({ ephemeral: true });
                 verifyLogs.send(`${interaction.user} was unverified.`)
                 await crowdinVerify(member, profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
-                interaction.editReply("Your profile has been processed. Check your DMs.")
+                await interaction.editReply("Your profile has been processed. Check your DMs.")
             } else {
                 await member.roles.remove("569194996964786178", "Unverified") // Verified
                 db.collection("users").updateOne({ id: member!.id }, { $set: { unverifiedTimestamp: Date.now() } })
@@ -74,7 +74,7 @@ const command: Command = {
             if (!member) throw "noUser"
             interaction.defer({ ephemeral: true })
             await crowdinVerify(member, profileUrl.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], false)
-            interaction.editReply("Your request has been processed. Check the logs")
+            await interaction.editReply("Your request has been processed. Check the logs")
         }
     }
 }

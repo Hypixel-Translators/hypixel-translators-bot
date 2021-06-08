@@ -54,14 +54,14 @@ const command: Command = {
           msg.reactions.removeAll()
           if (member.nickname !== (`[${prefix}] ${nickNoPrefix}`)) {
             await member.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
-              .then(() => {
+              .then(async () => {
                 const embed = new Discord.MessageEmbed()
                   .setColor(successColor)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("saved"))
                   .addField(getString("newNickT"), `\`[${prefix}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                interaction.editReply(embed)
+                await interaction.editReply(embed)
                 const staffAlert = new Discord.MessageEmbed()
                   .setColor(loadingColor)
                   .setAuthor("Prefix")
@@ -70,7 +70,7 @@ const command: Command = {
                   .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }));
                 (interaction.client.channels.cache.get("624881429834366986") as Discord.TextChannel).send(staffAlert) //staff-bots
               })
-              .catch(err => {
+              .catch(async err => {
                 const embed = new Discord.MessageEmbed()
                   .setColor(errorColor)
                   .setAuthor(getString("moduleName"))
@@ -78,7 +78,7 @@ const command: Command = {
                   .setDescription(err.toString())
                   .addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                interaction.editReply(embed)
+                await interaction.editReply(embed)
                 console.log(err.stack || err)
               })
           } else {
@@ -88,7 +88,7 @@ const command: Command = {
               .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
               .addField(getString("newNickT"), getString("noChanges"))
               .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.editReply(embed)
+            await interaction.editReply(embed)
           }
           prefix = "n"
         } else if (reaction.emoji.name === "❎") {
@@ -100,25 +100,25 @@ const command: Command = {
             .setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
             .addField(getString("newNickT"), getString("noChanges"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          interaction.editReply(embed)
+          await interaction.editReply(embed)
         }
       })
-      collector.on('end', () => {
+      collector.on('end', async () => {
         msg.reactions.removeAll()
         if (prefix === "n") return
         if (prefix) {
           if (member.nickname !== (`[${prefix}] ${nickNoPrefix}`)) {
             member.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
-              .then(() => {
+              .then(async () => {
                 const embed = new Discord.MessageEmbed()
                   .setColor(successColor)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("saved"))
                   .addField(getString("newNickT"), `\`[${prefix}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                interaction.editReply(embed)
+                await interaction.editReply(embed)
               })
-              .catch(err => {
+              .catch(async err => {
                 const embed = new Discord.MessageEmbed()
                   .setColor(errorColor)
                   .setAuthor(getString("moduleName"))
@@ -126,7 +126,7 @@ const command: Command = {
                   .setDescription(err.toString())
                   .addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                interaction.editReply(embed)
+                await interaction.editReply(embed)
                 console.log(err.stack || err)
               })
           } else {
@@ -136,7 +136,7 @@ const command: Command = {
               .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
               .addField(getString("newNickT"), getString("noChanges"))
               .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.editReply(embed)
+            await interaction.editReply(embed)
           }
         } else {
           const embed = new Discord.MessageEmbed()
@@ -146,7 +146,7 @@ const command: Command = {
             .setDescription(getString("errors.timeOutCustom") + getString("errors.notSaved"))
             .addField(getString("newNickT"), getString("noChanges"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          interaction.editReply(embed)
+          await interaction.editReply(embed)
         }
       })
     } else {
@@ -201,7 +201,7 @@ const command: Command = {
         .setDescription(getString("reactTimer", { cooldown: this.cooldown! }))
         .addField(getString("previewT"), getString("noChanges"))
         .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-      interaction.editReply(noChangesEmbed)
+      await interaction.editReply(noChangesEmbed)
 
       const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, reacter: Discord.User) => (userLangs.includes(reaction.emoji.name!) || reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === interaction.user.id, { time: this.cooldown! * 1000 })
 
@@ -212,16 +212,16 @@ const command: Command = {
           if (prefixes) {
             if (member.nickname !== (`[${prefixes}] ${nickNoPrefix}`)) {
               await member.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
-                .then(() => {
+                .then(async () => {
                   const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("saved"))
                     .addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                  interaction.editReply(embed)
+                  await interaction.editReply(embed)
                 })
-                .catch(err => {
+                .catch(async err => {
                   const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor(getString("moduleName"))
@@ -229,7 +229,7 @@ const command: Command = {
                     .setDescription(err.toString())
                     .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                  interaction.editReply(embed)
+                  await interaction.editReply(embed)
                   console.log(err.stack || err)
                 })
               prefixes = "n"
@@ -240,7 +240,7 @@ const command: Command = {
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-              interaction.editReply(embed)
+              await interaction.editReply(embed)
             }
           } else {
             const embed = new Discord.MessageEmbed()
@@ -248,7 +248,7 @@ const command: Command = {
               .setAuthor(getString("moduleName"))
               .setTitle(getString("errors.confirmedNoFlags") + getString("errors.notSaved"))
               .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.editReply(embed)
+            await interaction.editReply(embed)
           }
         } else if (reaction.emoji.name === "❎") {
           msg.reactions.removeAll()
@@ -258,7 +258,7 @@ const command: Command = {
             .setAuthor(getString("moduleName"))
             .setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          interaction.editReply(embed)
+          await interaction.editReply(embed)
         } else {
           const valueToRemove = reaction.emoji.name
           userLangs = userLangs.filter(item => item !== valueToRemove)
@@ -271,26 +271,26 @@ const command: Command = {
             .setDescription(getString("reactTimer2", { cooldown: this.cooldown! }))
             .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          interaction.editReply(embed)
+          await interaction.editReply(embed)
         }
       })
 
-      collector.on('end', () => {
+      collector.on('end', async () => {
         msg.reactions.removeAll()
         if (prefixes === "n") return
         if (prefixes.length > 0) {
           if (member.nickname !== (`[${prefixes}] ${nickNoPrefix}`)) {
             member.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
-              .then(() => {
+              .then(async () => {
                 const embed = new Discord.MessageEmbed()
                   .setColor(successColor)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("saved"))
                   .addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                interaction.editReply(embed)
+                await interaction.editReply(embed)
               })
-              .catch(err => {
+              .catch(async err => {
                 const embed = new Discord.MessageEmbed()
                   .setColor(errorColor)
                   .setAuthor(getString("moduleName"))
@@ -298,7 +298,7 @@ const command: Command = {
                   .setDescription(err.toString())
                   .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                interaction.editReply(embed)
+                await interaction.editReply(embed)
                 console.log(err.stack || err)
               })
           } else {
@@ -308,7 +308,7 @@ const command: Command = {
               .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
               .addField(getString("newNickT"), getString("noChanges"))
               .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.editReply(embed)
+            await interaction.editReply(embed)
           }
         } else {
           const embed = new Discord.MessageEmbed()
@@ -318,7 +318,7 @@ const command: Command = {
             .setDescription(getString("errors.timeOut") + getString("errors.notSaved"))
             .addField(getString("newNickT"), getString("noChanges"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          interaction.editReply(embed)
+          await interaction.editReply(embed)
         }
       })
     }

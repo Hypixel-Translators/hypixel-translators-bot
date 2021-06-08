@@ -130,7 +130,7 @@ const command: Command = {
                             .setTitle(getString("errorTitle"))
                             .setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n${getString("suggestAdd")}`)
                             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                        interaction.editReply(embed)
+                        await interaction.editReply(embed)
                     })
                 }
             })

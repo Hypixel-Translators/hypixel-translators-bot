@@ -21,31 +21,31 @@ const command: Command = {
     async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
         const recipient = interaction.options.get("user")!.user as Discord.User,
             recipientDb = await client.getUser(recipient.id),
-            message = interaction.options.get("message")!.value as string
-        interaction.defer()
-        const dm = new Discord.MessageEmbed()
+            message = interaction.options.get("message")!.value as string,
+         dm = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setAuthor(getString("incoming", this.name, recipientDb.lang))
             .setDescription(message)
             .setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang))
-        recipient.send(dm)
-            .then(() => {
+            interaction.defer()
+         recipient.send(dm)
+            .then(async () => {
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
                     .setAuthor("Direct Message")
                     .setTitle(`Sent message to ${recipient.tag}`)
                     .setDescription(message)
                     .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                interaction.editReply(embed)
+                await interaction.editReply(embed)
             })
-            .catch(error => {
+            .catch(async error => {
                 const errorEmbed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor("Direct Message")
                     .setTitle(`An error occured while trying to message ${recipient.tag}`)
                     .setDescription(error)
                     .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                interaction.editReply(errorEmbed)
+                await interaction.editReply(errorEmbed)
             })
     }
 }

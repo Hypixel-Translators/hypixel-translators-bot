@@ -18,7 +18,7 @@ const command: Command = {
             .setTitle("All verified users had their roles updated!")
             .setDescription("Check the console for any errors that may have occured in the process")
             .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        interaction.editReply(embed)
+        await interaction.editReply(embed)
     }
 }
 

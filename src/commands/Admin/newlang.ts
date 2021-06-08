@@ -127,7 +127,7 @@ const command: Command = {
         { name: "Roles", value: `${translatorRole} and ${proofreaderRole}` }
       )
       .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-    interaction.editReply(embed)
+    await interaction.editReply(embed)
   }
 }
 

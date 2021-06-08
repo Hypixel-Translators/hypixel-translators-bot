@@ -165,7 +165,7 @@ async function addQuote(interaction: Discord.CommandInteraction, quote: string, 
             { name: "Quote number", value: `${quoteId}` }
         ])
         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-    interaction.editReply(embed)
+    await interaction.editReply(embed)
 }
 
 async function editQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
@@ -173,7 +173,7 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
     const quoteId = Number(interaction.options.get("index")!.value)
     if (!quoteId) throw "noQuote"
     const newQuote = interaction.options.get("quote")!.value
-    await collection.findOneAndUpdate({ id: quoteId }, { $set: { quote: newQuote } }).then(r => {
+    await collection.findOneAndUpdate({ id: quoteId }, { $set: { quote: newQuote } }).then(async r => {
         if (r.value) {
             const embed = new Discord.MessageEmbed()
                 .setColor(successColor)
@@ -185,14 +185,14 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
                     { name: "Author", value: r.value.author }
                 ])
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.editReply(embed)
+            await interaction.editReply(embed)
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor("Quote")
                 .setTitle("Couldn't find a quote with that ID!")
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.editReply(embed)
+            await interaction.editReply(embed)
         }
     })
 }
@@ -201,7 +201,7 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
 
     const quoteId = Number(interaction.options.get("index")!.value)
     if (!quoteId) throw "noQuote"
-    collection.findOneAndDelete({ id: quoteId }).then(r => {
+    collection.findOneAndDelete({ id: quoteId }).then(async r => {
         if (r.value) {
             const embed = new Discord.MessageEmbed()
                 .setColor(successColor)
@@ -212,14 +212,14 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
                     { name: "Quote", value: r.value.quote }
                 )
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.editReply(embed)
+            await interaction.editReply(embed)
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor("Quote")
                 .setTitle("Couldn't find a quote with that ID!")
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.editReply(embed)
+            await interaction.editReply(embed)
         }
     })
 }
@@ -229,7 +229,7 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
     const urlSplit = (interaction.options.get("url")!.value as string).split("/");
     (client.channels.cache.get(urlSplit[5] as Discord.Snowflake) as Discord.TextChannel)?.messages.fetch(urlSplit[6] as Discord.Snowflake)
         .then(async msg => {
-            await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } }).then(r => {
+            await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } }).then(async r => {
                 if (r.value) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(successColor)
@@ -242,25 +242,25 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
                             { name: "Author", value: r.value.author }
                         )
                         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    interaction.editReply(embed)
+                    await interaction.editReply(embed)
                 } else {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setAuthor("Quote")
                         .setTitle("Couldn't find a quote with that ID!")
                         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    interaction.editReply(embed)
+                    await interaction.editReply(embed)
                 }
             })
         })
-        .catch(() => {
+        .catch(async () => {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor("Quote")
                 .setTitle("Couldn't find a message linked to that URL!")
                 .setDescription("Make sure you obtained it by coping the message URL directly and that I have permission to see that message.")
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            interaction.editReply(embed)
+            await interaction.editReply(embed)
         })
 }
 

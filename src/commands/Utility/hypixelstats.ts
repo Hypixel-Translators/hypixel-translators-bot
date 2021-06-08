@@ -220,7 +220,7 @@ const command: Command = {
                     if (reaction.emoji.name === "📊") embed = await stats()
                     else if (reaction.emoji.name === "twitter") embed = await social()
                     reaction.users.remove(interaction.user.id)
-                    interaction.editReply(embed)
+                    await interaction.editReply(embed)
                 })
 
                 collector.on("end", () => {

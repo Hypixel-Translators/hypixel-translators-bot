@@ -85,7 +85,7 @@ const command: Command = {
 
       const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, user: Discord.User) => (reaction.emoji.name === "⏮" || reaction.emoji.name === "◀" || reaction.emoji.name === "▶" || reaction.emoji.name === "⏭") && user.id === interaction.user.id, { time: 120000 }) //2 minutes
 
-      collector.on("collect", reaction => {
+      collector.on("collect", async reaction => {
         if (reaction.emoji.name === "⏮") page = 0 //First
         if (reaction.emoji.name === "⏭") page = pages.length - 1 //Last
         if (reaction.emoji.name === "◀") { //Previous
@@ -98,11 +98,11 @@ const command: Command = {
         }
         if ((interaction.channel as Discord.TextChannel | Discord.DMChannel).type !== "dm") reaction.users.remove(interaction.user.id)
         pageEmbed = fetchPage(page, pages, getString, executedBy, interaction) as Discord.MessageEmbed
-        interaction.editReply(pageEmbed)
+        await interaction.editReply(pageEmbed)
       })
 
-      collector.on("end", () => {
-        interaction.editReply(getString("timeOut", { command: "`+help`" }))
+      collector.on("end", async () => {
+        await interaction.editReply(getString("timeOut", { command: "`+help`" }))
         if ((interaction.channel as Discord.TextChannel | Discord.DMChannel).type !== "dm") msg.reactions.removeAll()
         else msg.reactions.cache.forEach(reaction => reaction.users.remove()) //remove all reactions by the bot
       })
