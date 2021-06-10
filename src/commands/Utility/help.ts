@@ -6,7 +6,6 @@ import { Command, client } from "../../index"
 const command: Command = {
   name: "help",
   description: "Shows you all available commands and general info about the bot.",
-  usage: "+help [page | command name]",
   options: [{
     type: "STRING",
     name: "command",

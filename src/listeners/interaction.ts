@@ -35,7 +35,7 @@ client.on("interaction", async interaction => {
 
     //Give perm to admins and return if not allowed
     if (!allowed) {
-        await interaction.reply(getString("errors.noPerm", "global"), { ephemeral: true })
+        await interaction.reply(getString("errors.noAccess", "global"), { ephemeral: true })
         return
     }
 
@@ -203,9 +203,6 @@ client.on("interaction", async interaction => {
             .setAuthor(getString("error", "global"))
             .setTitle(error.interaction?.substring(0, 255) || error.toString().substring(0, 255))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        if (command.category == "Admin" || command.category == "Staff")
-            embed.addField(getString("usage", "global"), `\`${command.usage}\``)
-        else embed.addField(getString("usage", "global"), `\`${getString(`${command.name}.usage`, "help")}\``)
-        return interaction.reply({ embeds: [embed], ephemeral: error.stack ? false : true })
+        return interaction.reply({ embeds: [embed], ephemeral: error.stack ? false : true, components: [] })
     }
 })

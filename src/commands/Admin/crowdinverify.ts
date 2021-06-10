@@ -6,7 +6,6 @@ import { client, Command } from "../../index"
 const command: Command = {
     name: "crowdinverify",
     description: "Goes through all the stored profiles and updates the user's roles accordingly",
-    usage: "+crowdinverify",
     allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(interaction: Discord.CommandInteraction) {

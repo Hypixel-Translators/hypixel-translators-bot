@@ -7,7 +7,6 @@ import { Command, client } from "../../index"
 const command: Command = {
     name: "verify",
     description: "Verifies and gives you your corresponding roles",
-    usage: "+verify [profileURL]",
     options: [{
         type: "STRING",
         name: "url",

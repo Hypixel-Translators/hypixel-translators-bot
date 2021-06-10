@@ -24,7 +24,6 @@ setup(client)
 
 //Command interface
 export interface Command extends Discord.ApplicationCommandData {
-    usage?: string
     cooldown?: number
     allowDM?: true
     allowTip?: false

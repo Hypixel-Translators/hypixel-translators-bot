@@ -3,8 +3,8 @@ import Discord from "discord.js"
 import { Command } from "../../index"
 
 const command: Command = {
-    name: "issue",
-    description: "Opens the GitHub issues page.",
+    name: "feedback",
+    description: "Gives you instructions on how to give feedback towards the bot",
     cooldown: 120,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
@@ -20,7 +20,7 @@ const command: Command = {
         const row = new Discord.MessageActionRow()
             .addComponents(
                 new Discord.MessageButton()
-                    .setLabel("Link")
+                    .setLabel(getString("link"))
                     .setStyle("LINK")
                     .setURL("https://github.com/Hypixel-Translators/hypixel-translators-bot/issues")
             )

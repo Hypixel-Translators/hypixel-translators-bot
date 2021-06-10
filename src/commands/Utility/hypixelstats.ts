@@ -8,7 +8,6 @@ import { Command, client } from "../../index"
 const command: Command = {
     name: "hypixelstats",
     description: "Shows you basic Hypixel stats for the provided user.",
-    usage: "+hypixelstats [username] [social]",
     options: [{
         type: "SUB_COMMAND",
         name: "social",

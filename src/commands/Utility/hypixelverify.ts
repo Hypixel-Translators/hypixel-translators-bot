@@ -8,7 +8,6 @@ import { Command, client } from "../../index"
 const command: Command = {
     name: "hypixelverify",
     description: "Links your Discord account with your Hypixel player",
-    usage: "+hypixelverify <username>",
     options: [{
         type: "STRING",
         name: "username",

@@ -8,7 +8,6 @@ import { LangDbEntry } from "../../events/stats"
 const command: Command = {
   name: "prefix",
   description: "Gives the author the appropriate prefix for their language(s).",
-  usage: "+prefix [flags]",
   options: [{
     type: "STRING",
     name: "flags",

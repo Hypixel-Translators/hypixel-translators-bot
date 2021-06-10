@@ -16,7 +16,7 @@
     },
     "confirm": "Confirm",
     "cancel": "Cancel",
-    "customPrefix": "Feel free to run `+prefix <flags>` to get your desired prefix.",
+    "customPrefix": "Feel free to run `/prefix <flags>` to get your desired prefix.",
     "caution": "Caution",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "React with all flags you want to add to your prefix in order.",

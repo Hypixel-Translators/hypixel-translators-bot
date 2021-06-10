@@ -7,7 +7,6 @@ import { client, Command } from "../../index"
 const command: Command = {
     name: "quote",
     description: "Gets (or adds) a funny/weird/wise quote from the server.",
-    usage: "+quote [index] | quote add <quote> / <author mention>",
     options: [{
         type: "SUB_COMMAND",
         name: "get",
@@ -116,7 +115,7 @@ const command: Command = {
         else if (subCommand === "delete" && allowed) await deleteQuote(interaction, collection)
         else if (subCommand === "link" && allowed) await linkQuote(interaction, collection)
         else if (subCommand === "get") await findQuote(executedBy, interaction, getString, collection)
-        else interaction.reply(getString("errors.noPerm", "global"), { ephemeral: true })
+        else interaction.reply(getString("errors.noAccess", "global"), { ephemeral: true })
     }
 }
 

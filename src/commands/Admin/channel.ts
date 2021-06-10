@@ -25,10 +25,6 @@ const command: Command = {
         {
             name: "The #verify channel",
             value: "verify"
-        },
-        {
-            name: "Update all channels",
-            value: "all"
         }]
     }],
     async execute(interaction: Discord.CommandInteraction) {
@@ -60,7 +56,7 @@ const command: Command = {
                 .setDescription(`Check it out at <#569178590697095168>!`) //verify
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             await interaction.reply(successEmbed)
-        } else if (channelInput === "all" || !channelInput) {
+        } else if (!channelInput) {
             await info(interaction)
             await verify(interaction)
             await rules(interaction)

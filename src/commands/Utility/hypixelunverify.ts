@@ -7,7 +7,6 @@ import { updateRoles } from "./hypixelverify"
 const command: Command = {
     name: "hypixelunverify",
     description: "Unlinks your Discord account from your Hypixel player",
-    usage: "+hypixelunverify",
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
     async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {

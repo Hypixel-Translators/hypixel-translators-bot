@@ -7,7 +7,6 @@ import { Command } from "../../index"
 const command: Command = {
     name: "language",
     description: "Changes your language, shows your current one or a list of available languages.",
-    usage: "+language [<new language> | list]",
     options: [{
         type: "SUB_COMMAND",
         name: "set",

@@ -9,7 +9,6 @@ const ctokenV2 = process.env.CTOKEN_V2!
 const command: Command = {
     name: "languagestats",
     description: "Shows you the progress of a language on the all projects we currently support.",
-    usage: "+languagestats [language]",
     options: [{
         type: "STRING",
         name: "language",

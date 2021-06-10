@@ -4,7 +4,6 @@ import { Command } from "../../index"
 const command: Command = {
   name: "mention",
   description: "Mentions a language role with a message.",
-  usage: "+mention <language> <proofreader|translator|all> [message]",
   options: [{
     type: "STRING",
     name: "language",
