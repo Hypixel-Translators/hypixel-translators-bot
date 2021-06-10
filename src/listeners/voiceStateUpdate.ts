@@ -2,7 +2,7 @@ import Discord from "discord.js"
 import { client } from "../index"
 
 client.on("voiceStateUpdate", (oldState, newState) => {
-    if (newState.guild.id === "549503328472530974") {
+    if (newState.guild.id === "549503328472530974" && !newState.member?.user.bot) {
         const logs = client.channels.cache.get("591280178873892901") as Discord.TextChannel,
             successColor = "43B581",
             errorColor = "FF470F"

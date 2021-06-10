@@ -13,7 +13,7 @@ const projectIDs: {
     }
 } = {
     "128098": { name: "Hypixel", langRoles: true },
-    "369653": { name: "Quickplay", langRoles: true },
+    "369653": { name: "Quickplay", langRoles: false },
     "436418": { name: "Bot", langRoles: false },
     "369493": { name: "SkyblockAddons", langRoles: false }
 },
