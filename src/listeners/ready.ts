@@ -16,31 +16,14 @@ client.once("ready", async () => {
         } else {
             //Create a guild wide command
             const cmd = await client.guilds.cache.get("549503328472530974")!.commands.create(convertToDiscordCommand(command))
-            const permissions: Discord.ApplicationCommandPermissionData[] = []
-            command.roleWhitelist?.forEach(id => {
-                //Add whitelisted roles
-                permissions.push({
-                    type: "ROLE",
-                    id,
-                    permission: true
-                })
-            })
-            command.roleBlacklist?.forEach(id => {
-                //Add blacklisted roles
-                permissions.push({
-                    type: "ROLE",
-                    id,
-                    permission: false
-                })
-            })
-            if (permissions.length) await cmd.setPermissions(permissions)
+            await setPermissions(cmd)
         }
         console.log(`Published command ${command.name}!`)
     }
 
     //Only update global commands in production
     //TODO add check to delete commands that have been removed
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === "dev") {
         const globalCommands = await client.application!.commands.fetch()
         if (!globalCommands)
             client.commands.filter(c => !!c.allowDM).forEach(async command => await publishCommand(command))
@@ -57,32 +40,8 @@ client.once("ready", async () => {
         const guildCommands = await client.guilds.cache.get("549503328472530974")!.commands.fetch()
         if (!guildCommands) client.commands.filter(c => !c.allowDM).forEach(async command => await publishCommand(command))
         else client.guilds.cache.get("549503328472530974")!.commands.set(constructDiscordCommands())
-    } else {
-        client.guilds.cache.get("549503328472530974")!.commands.set(constructDiscordCommands())
-            .then(commands =>
-                commands.forEach(async cmd => {
-                    const permissions: Discord.ApplicationCommandPermissionData[] = [],
-                        command = client.commands.get(cmd.name)!
-                    command.roleWhitelist?.forEach(id => {
-                        //Add whitelisted roles
-                        permissions.push({
-                            type: "ROLE",
-                            id,
-                            permission: true
-                        })
-                    })
-                    command.roleBlacklist?.forEach(id => {
-                        //Add blacklisted roles
-                        permissions.push({
-                            type: "ROLE",
-                            id,
-                            permission: false
-                        })
-                    })
-                    if (permissions.length) await cmd.setPermissions(permissions)
-                })
-            )
-    }
+    } else client.guilds.cache.get("549503328472530974")!.commands.set(constructDiscordCommands())
+        .then(commands => commands.forEach(async command => await setPermissions(command)))
 
     //Get server boosters and staff for the status
     let boostersStaff: string[] = []
@@ -130,6 +89,27 @@ client.once("ready", async () => {
     }, 60000)
 })
 
+const setPermissions = async (command: Discord.ApplicationCommand) => {
+    const permissions: Discord.ApplicationCommandPermissionData[] = [],
+        clientCmd = client.commands.get(command.name)!
+    clientCmd.roleWhitelist?.forEach(id => {
+        //Add whitelisted roles
+        permissions.push({
+            type: "ROLE",
+            id,
+            permission: true
+        })
+    })
+    clientCmd.roleBlacklist?.forEach(id => {
+        //Add blacklisted roles
+        permissions.push({
+            type: "ROLE",
+            id,
+            permission: false
+        })
+    })
+    if (permissions.length) await command.setPermissions(permissions)
+}
 const constructDiscordCommands = () => {
     const returnCommands: Discord.ApplicationCommandData[] = []
     let clientCommands = client.commands
