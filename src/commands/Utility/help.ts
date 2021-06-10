@@ -28,10 +28,10 @@ const command: Command = {
     // Define categories to get commands from and all pages
     const categories = ["Utility", "Info", "Projects"],
       pages = [
-        { n: 0 },
-        { n: 1, b: "🛠", t: "utilityHelp" },
-        { n: 2, b: "ℹ", t: "infoHelp" },
-        { n: 3, b: "<:crowdin:820381256016723988>", t: "projectsHelp" }
+        { number: 0 },
+        { number: 1, badge: "🛠", titleString: "utilityHelp" },
+        { number: 2, badge: "ℹ", titleString: "infoHelp" },
+        { number: 3, badge: "<:crowdin:820381256016723988>", titleString: "projectsHelp" }
       ] as Page[]
     let pageIndex = 1
     categories.forEach(category => {
@@ -41,7 +41,7 @@ const command: Command = {
         if (client.commands.get(cmd)!.dev) categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
         else if (!client.commands.get(cmd)!.allowDM && (interaction.channel as Discord.TextChannel | Discord.DMChannel).type === "dm") categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
       })
-      pages[pageIndex].f = categoryCommands
+      pages[pageIndex].commands = categoryCommands
       pageIndex++
     })
 
@@ -71,7 +71,7 @@ const command: Command = {
           { name: getString("pageNumber", { number: 4, total: pages.length }), value: `<:crowdin:820381256016723988> ${getString("projectsHelp")}`, inline: true })
         .setFooter(`${executedBy} | ${madeBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 
-      pages[0].e = page1
+      pages[0].embed = page1
 
       let page = 0
       if (pageInput) page = pageInput - 1
@@ -162,14 +162,14 @@ function fetchPage(page: number, pages: Page[], getString: (path: string, variab
   let pageEmbed: Discord.MessageEmbed
 
   if (pages[page]) {
-    if (pages[page].e) pageEmbed = pages[page].e!
-    else if (pages[page].f) {
+    if (pages[page].embed) pageEmbed = pages[page].embed!
+    else if (pages[page].commands) {
       pageEmbed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
-        .setTitle(`${pages[page].b} ${getString(pages[page].t!)}`)
+        .setTitle(`${pages[page].badge} ${getString(pages[page].titleString!)}`)
         .setFooter(`${getString("page", { number: page + 1, total: pages.length })} | ${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-      pages[page].f!.forEach(f => pageEmbed!.addField(`\`${getString(`${f}.usage`)}\``, getString(`${f}.description`)))
+      pages[page].commands!.forEach(command => pageEmbed!.addField(`\`/${command}\``, getString(`${command}.description`)))
     } else return console.error(`Help page ${page} has no embed fields specified!`)
   } else return console.error(`Tried accessing help page ${page} but it doesn't exist in the pages array!`)
 
@@ -194,11 +194,11 @@ function updateButtonColors(row: Discord.MessageActionRow, page: number, pages: 
 }
 
 interface Page {
-  n: number
-  f?: string[]
-  b?: string
-  t?: string
-  e?: Discord.MessageEmbed
+  number: number
+  commands?: string[]
+  badge?: string
+  titleString?: string
+  embed?: Discord.MessageEmbed
 }
 
 export default command

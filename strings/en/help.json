@@ -17,9 +17,7 @@
     "seconds": "seconds",
     "second": "second",
     "minutes": "minutes",
-    "usageField": "Usage",
     "cooldownField": "Cooldown",
-    "aliasesField": "Aliases",
     "help": {
         "description": "Shows you all available commands and other info about the bot."
     },
