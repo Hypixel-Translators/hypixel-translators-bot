@@ -206,6 +206,6 @@ client.on("interaction", async interaction => {
         if (command.category == "Admin" || command.category == "Staff")
             embed.addField(getString("usage", "global"), `\`${command.usage}\``)
         else embed.addField(getString("usage", "global"), `\`${getString(`${command.name}.usage`, "help")}\``)
-        return interaction.reply({ embeds: [embed], ephemeral: true })
+        return interaction.reply({ embeds: [embed], ephemeral: error.stack ? false : true })
     }
 })

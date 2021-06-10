@@ -30,8 +30,8 @@ const command: Command = {
       Discord = discord,
       client = Client
 
-    let evaled
-    let codeToRun = (interaction.options.get("code")?.value as string).replace(/[“”]/gim, '"')
+    let evaled,
+      codeToRun = (interaction.options.get("code")?.value as string).replace(/[“”]/gim, '"')
     if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`
     codeToRun = transpile(codeToRun)
     try {

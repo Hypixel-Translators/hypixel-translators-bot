@@ -26,7 +26,7 @@ const command: Command = {
         await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 50000 })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
-                interaction.defer()
+                await interaction.defer()
 
                 // Handle errors
                 if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"

@@ -35,7 +35,7 @@ const command: Command = {
                         .setAuthor("Members list")
                         .setTitle(`Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`)
                         .setDescription(membersArr.join(", "))
-                   await interaction.reply(embed)
+                    await interaction.reply(embed)
                 } else if (index + 1 == maxMembersArr.length) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(color)
@@ -56,7 +56,7 @@ const command: Command = {
                 .setTitle(`Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`)
                 .setDescription(maxMembersArr[0].join(", "))
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-           await interaction.reply(embed)
+            await interaction.reply(embed)
         }
     }
 }

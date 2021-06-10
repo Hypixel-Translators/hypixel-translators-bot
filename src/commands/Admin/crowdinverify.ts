@@ -10,7 +10,7 @@ const command: Command = {
     allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(interaction: Discord.CommandInteraction) {
-        interaction.defer()
+        await interaction.defer()
         await crowdin(client, true)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)

@@ -22,13 +22,13 @@ const command: Command = {
         const recipient = interaction.options.get("user")!.user as Discord.User,
             recipientDb = await client.getUser(recipient.id),
             message = interaction.options.get("message")!.value as string,
-         dm = new Discord.MessageEmbed()
-            .setColor(neutralColor)
-            .setAuthor(getString("incoming", this.name, recipientDb.lang))
-            .setDescription(message)
-            .setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang))
-            interaction.defer()
-         recipient.send(dm)
+            dm = new Discord.MessageEmbed()
+                .setColor(neutralColor)
+                .setAuthor(getString("incoming", this.name, recipientDb.lang))
+                .setDescription(message)
+                .setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang))
+        await interaction.defer()
+        recipient.send(dm)
             .then(async () => {
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
@@ -43,7 +43,7 @@ const command: Command = {
                     .setColor(errorColor)
                     .setAuthor("Direct Message")
                     .setTitle(`An error occured while trying to message ${recipient.tag}`)
-                    .setDescription(error)
+                    .setDescription(error.toString())
                     .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                 await interaction.editReply(errorEmbed)
             })

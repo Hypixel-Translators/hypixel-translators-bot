@@ -2,7 +2,7 @@ import { loadingColor, errorColor, successColor, neutralColor } from "../../conf
 import Discord from "discord.js"
 import { flag } from "country-emoji"
 import { db } from "../../lib/dbclient"
-import { Command } from "../../index"
+import { client, Command } from "../../index"
 import { LangDbEntry } from "../../events/stats"
 
 const command: Command = {
@@ -13,7 +13,7 @@ const command: Command = {
     type: "STRING",
     name: "flags",
     description: "The flags to be applied to your prefix.",
-    required: true
+    required: false
   }],
   cooldown: 30,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
@@ -23,7 +23,7 @@ const command: Command = {
       nickNoPrefix = member.displayName.replace(/\[[^\s]*\] ?/g, "").trim(),
       langdb: LangDbEntry[] = await db.collection("langdb").find().toArray()
 
-    if (interaction.options.get("flags")?.value) {
+    if (interaction.options.get("flags")?.value && !member.roles.cache.has("569839517444341771") && !member.roles.cache.has("569839580971401236")) { //Hypixel Translator and Proofreader
       const flagEmojis: (string | undefined)[] = [];
       (interaction.options.get("flags")!.value as string).split(" ").forEach(emoji => {
         if (emoji.toLowerCase() === "lol" || emoji.toLowerCase() === "lolcat") flagEmojis.push("😹")
@@ -41,17 +41,28 @@ const command: Command = {
         .setTitle(getString("caution"))
         .setDescription(`${getString("warning")}\n${getString("reactTimer", { cooldown: this.cooldown! })}`)
         .addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
-        .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-      await interaction.reply(embed)
+        .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true })),
+        confirmButtons = new Discord.MessageActionRow()
+          .addComponents(
+            new Discord.MessageButton()
+              .setCustomID("confirm")
+              .setStyle("SUCCESS")
+              .setLabel(getString("confirm"))
+              .setEmoji("✅"),
+            new Discord.MessageButton()
+              .setCustomID("cancel")
+              .setStyle("DANGER")
+              .setEmoji("❎")
+              .setLabel(getString("cancel"))
+          )
+      await interaction.reply({ embeds: [embed], components: [confirmButtons] })
       const msg = await interaction.fetchReply() as Discord.Message
-      msg.react("✅").then(() => msg.react("❎"))
 
-      const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, reacter: Discord.User) => (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === interaction.user.id, { time: this.cooldown! * 1000 })
+      const collector = msg.createMessageComponentInteractionCollector((interaction: Discord.MessageComponentInteraction) => interaction.customID === "confirm" || interaction.customID === "cancel", { time: this.cooldown! * 1000 })
 
-      collector.on("collect", async reaction => {
-        msg.react("✅")
-        if (reaction.emoji.name === "✅") {
-          msg.reactions.removeAll()
+      collector.on("collect", async buttonInteraction => {
+        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply(getString("pagination.notYours", { command: `/${this.name}` }, "global"), { ephemeral: true })
+        if (buttonInteraction.customID === "confirm") {
           if (member.nickname !== (`[${prefix}] ${nickNoPrefix}`)) {
             await member.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
               .then(async () => {
@@ -61,7 +72,7 @@ const command: Command = {
                   .setTitle(getString("saved"))
                   .addField(getString("newNickT"), `\`[${prefix}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                await interaction.editReply(embed)
+                await interaction.editReply({ embeds: [embed], components: [] })
                 const staffAlert = new Discord.MessageEmbed()
                   .setColor(loadingColor)
                   .setAuthor("Prefix")
@@ -78,7 +89,7 @@ const command: Command = {
                   .setDescription(err.toString())
                   .addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                await interaction.editReply(embed)
+                await interaction.editReply({ embeds: [embed], components: [] })
                 console.log(err.stack || err)
               })
           } else {
@@ -88,23 +99,21 @@ const command: Command = {
               .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
               .addField(getString("newNickT"), getString("noChanges"))
               .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.editReply(embed)
+            await interaction.editReply({ embeds: [embed], components: [] })
           }
           prefix = "n"
-        } else if (reaction.emoji.name === "❎") {
-          msg.reactions.removeAll()
+        } else if (buttonInteraction.customID === "cancel") {
           prefix = "n"
           const embed = new Discord.MessageEmbed()
-            .setColor(successColor)
+            .setColor(errorColor)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
             .addField(getString("newNickT"), getString("noChanges"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          await interaction.editReply(embed)
+          await interaction.editReply({ embeds: [embed], components: [] })
         }
       })
       collector.on('end', async () => {
-        msg.reactions.removeAll()
         if (prefix === "n") return
         if (prefix) {
           if (member.nickname !== (`[${prefix}] ${nickNoPrefix}`)) {
@@ -116,7 +125,7 @@ const command: Command = {
                   .setTitle(getString("saved"))
                   .addField(getString("newNickT"), `\`[${prefix}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                await interaction.editReply(embed)
+                await interaction.editReply({ embeds: [embed], components: [] })
               })
               .catch(async err => {
                 const embed = new Discord.MessageEmbed()
@@ -126,7 +135,7 @@ const command: Command = {
                   .setDescription(err.toString())
                   .addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                await interaction.editReply(embed)
+                await interaction.editReply({ embeds: [embed], components: [] })
                 console.log(err.stack || err)
               })
           } else {
@@ -136,7 +145,7 @@ const command: Command = {
               .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
               .addField(getString("newNickT"), getString("noChanges"))
               .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.editReply(embed)
+            await interaction.editReply({ embeds: [embed], components: [] })
           }
         } else {
           const embed = new Discord.MessageEmbed()
@@ -146,20 +155,18 @@ const command: Command = {
             .setDescription(getString("errors.timeOutCustom") + getString("errors.notSaved"))
             .addField(getString("newNickT"), getString("noChanges"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          await interaction.editReply(embed)
+          await interaction.editReply({ embeds: [embed], components: [] })
         }
       })
     } else {
-
       const loadingEmbed = new Discord.MessageEmbed()
         .setColor(loadingColor)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("loading"))
         .setDescription(getString("loadingRoles"))
         .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-      await interaction.reply(loadingEmbed)
-      const msg = await interaction.fetchReply() as Discord.Message
-      let userLangs: string[] = []
+      await interaction.defer()
+      let userLangs: LangDbEntry[] = []
       let prefixes = ""
 
       member.roles.cache.forEach(r => {
@@ -168,11 +175,33 @@ const command: Command = {
         const role = roleName.join(" ")
         let langdbEntry = langdb.find(l => l.name === role)
         if (langdbEntry) {
-          userLangs.push(langdbEntry.emoji)
+          userLangs.push(langdbEntry)
         }
       })
       userLangs = userLangs.reverse()
-      userLangs.forEach(async emoji => await msg.react(emoji))
+      const prefixButtons = new Discord.MessageActionRow(),
+        controlButtons = new Discord.MessageActionRow()
+          .addComponents(
+            new Discord.MessageButton()
+              .setCustomID("confirm")
+              .setStyle("SUCCESS")
+              .setDisabled(true)
+              .setEmoji("✅")
+              .setLabel(getString("confirm")),
+            new Discord.MessageButton()
+              .setCustomID("cancel")
+              .setStyle("DANGER")
+              .setEmoji("❎")
+              .setLabel(getString("cancel"))
+          )
+      userLangs.forEach(entry => {
+        prefixButtons.addComponents(
+          new Discord.MessageButton()
+            .setStyle("SECONDARY")
+            .setCustomID(entry.code)
+            .setEmoji(entry.emoji)
+        )
+      })
 
       if (userLangs.length < 1) {
         if (member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628") || member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))) { //Bot updates
@@ -182,18 +211,18 @@ const command: Command = {
             .setTitle(getString("errors.trNoRoles"))
             .setDescription(getString("customPrefix"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          return interaction.editReply(embed)
+          client.cooldowns.get(this.name)!.delete(interaction.user.id)
+          return interaction.editReply({ embeds: [embed], components: [] })
         } else {
           const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("errors.noLanguages"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          return interaction.editReply(embed)
+          client.cooldowns.get(this.name)!.delete(interaction.user.id)
+          return interaction.editReply({ embeds: [embed], components: [] })
         }
       }
-      msg.react("❎")
-
       const noChangesEmbed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
@@ -201,14 +230,15 @@ const command: Command = {
         .setDescription(getString("reactTimer", { cooldown: this.cooldown! }))
         .addField(getString("previewT"), getString("noChanges"))
         .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-      await interaction.editReply(noChangesEmbed)
+      await interaction.editReply({ embeds: [noChangesEmbed], components: [prefixButtons, controlButtons] })
+      const msg = await interaction.fetchReply() as Discord.Message
 
-      const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, reacter: Discord.User) => (userLangs.includes(reaction.emoji.name!) || reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === interaction.user.id, { time: this.cooldown! * 1000 })
+      const collector = msg.createMessageComponentInteractionCollector((buttonInteraction: Discord.MessageComponentInteraction) => userLangs.includes(langdb.find(entry => entry.code == buttonInteraction.customID)!) || buttonInteraction.customID === "confirm" || buttonInteraction.customID === "cancel", { time: this.cooldown! * 1000 })
 
-      collector.on('collect', async (reaction, reacter) => {
-        if (reaction.emoji.name !== "❎") msg.react("✅")
-        if (reaction.emoji.name === "✅") {
-          msg.reactions.removeAll()
+      collector.on('collect', async buttonInteraction => {
+        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply(getString("pagination.notYours", { command: `/${this.name}` }, "global"), { ephemeral: true })
+        if (buttonInteraction.customID !== "cancel") controlButtons.components.find(button => button.customID == "confirm")!.setDisabled(false)
+        if (buttonInteraction.customID === "confirm") {
           if (prefixes) {
             if (member.nickname !== (`[${prefixes}] ${nickNoPrefix}`)) {
               await member.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
@@ -219,7 +249,7 @@ const command: Command = {
                     .setTitle(getString("saved"))
                     .addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                  await interaction.editReply(embed)
+                  await buttonInteraction.update({ embeds: [embed], components: [] })
                 })
                 .catch(async err => {
                   const embed = new Discord.MessageEmbed()
@@ -229,7 +259,7 @@ const command: Command = {
                     .setDescription(err.toString())
                     .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                  await interaction.editReply(embed)
+                  await buttonInteraction.update({ embeds: [embed], components: [] })
                   console.log(err.stack || err)
                 })
               prefixes = "n"
@@ -240,7 +270,7 @@ const command: Command = {
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-              await interaction.editReply(embed)
+              await buttonInteraction.update({ embeds: [embed], components: [] })
             }
           } else {
             const embed = new Discord.MessageEmbed()
@@ -248,9 +278,9 @@ const command: Command = {
               .setAuthor(getString("moduleName"))
               .setTitle(getString("errors.confirmedNoFlags") + getString("errors.notSaved"))
               .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.editReply(embed)
+            await buttonInteraction.update({ embeds: [embed], components: [] })
           }
-        } else if (reaction.emoji.name === "❎") {
+        } else if (buttonInteraction.customID === "cancel") {
           msg.reactions.removeAll()
           prefixes = "n"
           const embed = new Discord.MessageEmbed()
@@ -258,12 +288,12 @@ const command: Command = {
             .setAuthor(getString("moduleName"))
             .setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          await interaction.editReply(embed)
+          await buttonInteraction.update({ embeds: [embed], components: [] })
         } else {
-          const valueToRemove = reaction.emoji.name
-          userLangs = userLangs.filter(item => item !== valueToRemove)
-          if (prefixes) prefixes = prefixes + "-"
-          prefixes = prefixes + reaction.emoji.name
+          const clickedEntry = langdb.find(entry => entry.code == buttonInteraction.customID)!
+          if (prefixes) prefixes = `${prefixes}-${clickedEntry.emoji}`
+          else prefixes = `${clickedEntry.emoji}`
+          prefixButtons.components.find(button => button.customID == buttonInteraction.customID)!.setDisabled(true)
           const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setAuthor(getString("moduleName"))
@@ -271,12 +301,11 @@ const command: Command = {
             .setDescription(getString("reactTimer2", { cooldown: this.cooldown! }))
             .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          await interaction.editReply(embed)
+          await buttonInteraction.update({ embeds: [embed], components: [prefixButtons, controlButtons] })
         }
       })
 
       collector.on('end', async () => {
-        msg.reactions.removeAll()
         if (prefixes === "n") return
         if (prefixes.length > 0) {
           if (member.nickname !== (`[${prefixes}] ${nickNoPrefix}`)) {
@@ -288,7 +317,7 @@ const command: Command = {
                   .setTitle(getString("saved"))
                   .addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                await interaction.editReply(embed)
+                await interaction.editReply({ embeds: [embed], components: [] })
               })
               .catch(async err => {
                 const embed = new Discord.MessageEmbed()
@@ -298,7 +327,7 @@ const command: Command = {
                   .setDescription(err.toString())
                   .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                await interaction.editReply(embed)
+                await interaction.editReply({ embeds: [embed], components: [] })
                 console.log(err.stack || err)
               })
           } else {
@@ -308,7 +337,7 @@ const command: Command = {
               .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
               .addField(getString("newNickT"), getString("noChanges"))
               .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.editReply(embed)
+            await interaction.editReply({ embeds: [embed], components: [] })
           }
         } else {
           const embed = new Discord.MessageEmbed()
@@ -318,7 +347,7 @@ const command: Command = {
             .setDescription(getString("errors.timeOut") + getString("errors.notSaved"))
             .addField(getString("newNickT"), getString("noChanges"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          await interaction.editReply(embed)
+          await interaction.editReply({ embeds: [embed], components: [] })
         }
       })
     }

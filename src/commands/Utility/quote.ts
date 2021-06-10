@@ -87,13 +87,12 @@ const command: Command = {
     async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             collection = db.collection("quotes"),
-            subCommand = interaction.options.find(o => o.type == "SUB_COMMAND")!.name as string
+            subCommand = interaction.options.first()!.name as string
         let allowed = false
         if ((interaction.member as Discord.GuildMember | undefined)?.permissions.has("VIEW_AUDIT_LOG")) allowed = true
-        await interaction.defer()
         if (subCommand === "add") {
-            const quote = interaction.options.find(o => o.name === "quote")!.value as string,
-                author = interaction.options.find(o => o.name === "author")!.user as Discord.User
+            const quote = interaction.options.first()!.options!.get("quote")!.value as string,
+                author = interaction.options.first()!.options!.get("author")!.user as Discord.User
             if (!quote) throw "noQuote"
             if (!author) throw "noUserQuote"
             if (!allowed) {
@@ -111,13 +110,13 @@ const command: Command = {
                     .setTitle(getString("reqSub"))
                     .setDescription(`${quote}\n       - ${author}`)
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                await interaction.editReply(embed)
+                await interaction.reply(embed)
             } else await addQuote(interaction, quote, author, collection)
         } else if (subCommand === "edit" && allowed) await editQuote(interaction, collection)
         else if (subCommand === "delete" && allowed) await deleteQuote(interaction, collection)
         else if (subCommand === "link" && allowed) await linkQuote(interaction, collection)
         else if (subCommand === "get") await findQuote(executedBy, interaction, getString, collection)
-        else interaction.reply("You're not allowed to do this!", { ephemeral: true })
+        else interaction.reply(getString("errors.noPerm", "global"), { ephemeral: true })
     }
 }
 
@@ -125,9 +124,10 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
 
     const count = await collection.estimatedDocumentCount()
 
-    let quoteId
-    if (!interaction.options.get("index")?.value) quoteId = Math.ceil(Math.random() * Math.floor(count)) //generate random id if no arg is given
-    else quoteId = Number(interaction.options.get("index")?.value)
+    let quoteId,
+        index = interaction.options.first()!.options?.get("index")!.value as number | undefined
+    if (!index) quoteId = Math.ceil(Math.random() * Math.floor(count)) //generate random id if no arg is given
+    else quoteId = Number(index)
 
     const quote = await collection.findOne({ id: quoteId })
     if (!quote) {
@@ -135,9 +135,9 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
             .setColor(errorColor)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("invalidArg"))
-            .setDescription(getString("indexArg", { arg: interaction.options.get("index")!.value as number, max: count }))
+            .setDescription(getString("indexArg", { arg: index!, max: count }))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        return interaction.editReply(embed)
+        return interaction.reply({ embeds: [embed], ephemeral: true })
     }
     console.log(`Quote with ID ${quoteId} was requested`)
     const embed = new Discord.MessageEmbed()
@@ -147,14 +147,14 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
         .setDescription(`      - ${quote.author}`)
         .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     if (quote.url) embed.addField(getString("msgUrl"), quote.url)
-    return interaction.editReply(embed)
+    return interaction.reply(embed)
 }
 
 async function addQuote(interaction: Discord.CommandInteraction, quote: string, author: Discord.User, collection: Collection<any>) {
 
     const quoteId = await collection.estimatedDocumentCount() + 1
 
-    await collection.insertOne({ id: quoteId, quote: quote, author: author })
+    await collection.insertOne({ id: quoteId, quote: quote, author: author.toString() })
     const embed = new Discord.MessageEmbed()
         .setColor(successColor)
         .setAuthor("Quote")
@@ -165,14 +165,14 @@ async function addQuote(interaction: Discord.CommandInteraction, quote: string, 
             { name: "Quote number", value: `${quoteId}` }
         ])
         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-    await interaction.editReply(embed)
+    await interaction.reply(embed)
 }
 
 async function editQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
 
-    const quoteId = Number(interaction.options.get("index")!.value)
+    const quoteId = Number(interaction.options.first()!.options!.get("index")!.value)
     if (!quoteId) throw "noQuote"
-    const newQuote = interaction.options.get("quote")!.value
+    const newQuote = interaction.options.first()!.options!.get("quote")!.value
     await collection.findOneAndUpdate({ id: quoteId }, { $set: { quote: newQuote } }).then(async r => {
         if (r.value) {
             const embed = new Discord.MessageEmbed()
@@ -182,24 +182,25 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
                 .addFields([
                     { name: "Old quote", value: r.value.quote },
                     { name: "New quote", value: newQuote },
-                    { name: "Author", value: r.value.author }
+                    { name: "Author", value: r.value.author },
+                    { name: "Link", value: r.value.link || "None" }
                 ])
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.editReply(embed)
+            await interaction.reply(embed)
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor("Quote")
                 .setTitle("Couldn't find a quote with that ID!")
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.editReply(embed)
+            await interaction.reply({ embeds: [embed], ephemeral: true })
         }
     })
 }
 
 async function deleteQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
 
-    const quoteId = Number(interaction.options.get("index")!.value)
+    const quoteId = Number(interaction.options.first()!.options!.get("index")!.value)
     if (!quoteId) throw "noQuote"
     collection.findOneAndDelete({ id: quoteId }).then(async r => {
         if (r.value) {
@@ -209,24 +210,25 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
                 .setTitle(`Successfully deleted quote #${quoteId}`)
                 .addFields(
                     { name: "User", value: r.value.author },
-                    { name: "Quote", value: r.value.quote }
+                    { name: "Quote", value: r.value.quote },
+                    { name: "Link", value: r.value.link || "None" }
                 )
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.editReply(embed)
+            await interaction.reply(embed)
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor("Quote")
                 .setTitle("Couldn't find a quote with that ID!")
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.editReply(embed)
+            await interaction.reply({ embeds: [embed], ephemeral: true })
         }
     })
 }
 
 async function linkQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
-    const quoteId = Number(interaction.options.get("index")!.value)
-    const urlSplit = (interaction.options.get("url")!.value as string).split("/");
+    const quoteId = Number(interaction.options.first()!.options!.get("index")!.value)
+    const urlSplit = (interaction.options.first()!.options!.get("url")!.value as string).split("/");
     (client.channels.cache.get(urlSplit[5] as Discord.Snowflake) as Discord.TextChannel)?.messages.fetch(urlSplit[6] as Discord.Snowflake)
         .then(async msg => {
             await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } }).then(async r => {
@@ -242,14 +244,14 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
                             { name: "Author", value: r.value.author }
                         )
                         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    await interaction.editReply(embed)
+                    await interaction.reply(embed)
                 } else {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setAuthor("Quote")
                         .setTitle("Couldn't find a quote with that ID!")
                         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    await interaction.editReply(embed)
+                    await interaction.reply({ embeds: [embed], ephemeral: true })
                 }
             })
         })
@@ -260,7 +262,7 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
                 .setTitle("Couldn't find a message linked to that URL!")
                 .setDescription("Make sure you obtained it by coping the message URL directly and that I have permission to see that message.")
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.editReply(embed)
+            await interaction.reply({ embeds: [embed], ephemeral: true })
         })
 }
 

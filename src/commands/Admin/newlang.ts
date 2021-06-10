@@ -22,7 +22,7 @@ const command: Command = {
   }],
   roleWhitelist: ["764442984119795732"], //Discord Administrator
   async execute(interaction: Discord.CommandInteraction) {
-    interaction.defer()
+    await interaction.defer()
     const lang = (interaction.options.get("code")!.value as string).toLowerCase()
     const code = (interaction.options.get("code")!.value as string).toUpperCase()
     const langdbEntry = await db.collection("langdb").findOne({ code: lang })
