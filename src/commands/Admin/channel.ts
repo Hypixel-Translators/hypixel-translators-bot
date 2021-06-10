@@ -67,7 +67,7 @@ const command: Command = {
                 .setDescription(`Check them out at <#762341271611506708>, <#796159719617986610> and <#569178590697095168>!`) //server-info, rules and verify
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             await interaction.reply(successEmbed)
-        } else throw "noChannel"
+        }
     }
 }
 

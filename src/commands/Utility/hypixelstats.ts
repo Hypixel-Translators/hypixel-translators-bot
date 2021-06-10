@@ -204,10 +204,9 @@ const command: Command = {
                     return socialEmbed
                 }
 
-                let embed: Discord.MessageEmbed
+                let embed: Discord.MessageEmbed = new Discord.MessageEmbed()
                 if (!subCommand || subCommand === "stats") embed = await stats()
                 else if (subCommand === "social") embed = await social()
-                else throw "noSubCommand"
 
                 let controlButtons = new Discord.MessageActionRow()
                     .addComponents(

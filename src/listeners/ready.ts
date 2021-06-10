@@ -39,7 +39,8 @@ client.once("ready", async () => {
     }
 
     //Only update global commands in production
-    if (process.env.NODE_ENV !== "dev") {
+    //TODO add check to delete commands that have been removed
+    if (process.env.NODE_ENV === "production") {
         const globalCommands = await client.application!.commands.fetch()
         if (!globalCommands)
             client.commands.filter(c => !!c.allowDM).forEach(async command => await publishCommand(command))

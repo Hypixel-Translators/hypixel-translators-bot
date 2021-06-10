@@ -26,7 +26,7 @@ const command: Command = {
     {
         type: "SUB_COMMAND",
         name: "stats",
-        description: "Gives you usage statistics for a given language. Admin-only",
+        description: "Gives you usage statistics for a given language. Admin only",
         options: [{
             type: "STRING",
             name: "language",

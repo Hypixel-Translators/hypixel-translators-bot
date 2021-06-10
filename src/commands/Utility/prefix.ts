@@ -178,6 +178,7 @@ const command: Command = {
         }
       })
       userLangs = userLangs.reverse()
+      //TODO add system to split buttons into multiple rows when there's more than 5
       const prefixButtons = new Discord.MessageActionRow(),
         controlButtons = new Discord.MessageActionRow()
           .addComponents(

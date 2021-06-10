@@ -24,7 +24,7 @@ const command: Command = {
       member = interaction.member as Discord.GuildMember,
       message = interaction.options.get("message")!.value as string
 
-    if (!sendTo.isText()) throw "noChannel"
+    if (!sendTo.isText()) throw "You need to provide a text channel for me to send messages in!"
     if (!member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
 
     if (member.permissions.has("MANAGE_ROLES")) sendTo.send(message)

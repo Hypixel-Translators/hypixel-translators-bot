@@ -92,8 +92,6 @@ const command: Command = {
         if (subCommand === "add") {
             const quote = interaction.options.first()!.options!.get("quote")!.value as string,
                 author = interaction.options.first()!.options!.get("author")!.user as Discord.User
-            if (!quote) throw "noQuote"
-            if (!author) throw "noUserQuote"
             if (!allowed) {
                 const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
                 const report = new Discord.MessageEmbed()

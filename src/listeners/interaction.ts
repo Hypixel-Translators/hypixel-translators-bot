@@ -57,12 +57,12 @@ client.on("interaction", async interaction => {
         const expirationTime = timestamps.get(interaction.user.id)! + cooldownAmount
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000
-            let timeLeftS
+            let timeLeftS: string
             if (Math.ceil(timeLeft) >= 120)
-                timeLeftS = getString("minsLeftT", { time: Math.ceil(timeLeft / 60), command: interaction.commandName }, "global")
+                timeLeftS = getString("minsLeftT", { time: Math.ceil(timeLeft / 60), command: `/${interaction.commandName}` }, "global")
             else if (Math.ceil(timeLeft) === 1)
-                timeLeftS = getString("secondLeft", { command: interaction.commandName }, "global")
-            else timeLeftS = getString("timeLeftT", { time: Math.ceil(timeLeft), command: interaction.commandName }, "global")
+                timeLeftS = getString("secondLeft", { command: `/${interaction.commandName}` }, "global")
+            else timeLeftS = getString("timeLeftT", { time: Math.ceil(timeLeft), command: `/${interaction.commandName}` }, "global")
 
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)

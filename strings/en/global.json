@@ -14,12 +14,8 @@
     "errors": {
         "dmError": "Sorry, but you can't execute this command in private messages.",
         "noCommand": "That command doesn't exist!",
-        "noMessage": "You didn't provide a message!",
-        "noChannel": "You didn't provide a channel!",
         "noUser": "You didn't provide a user!",
         "noLang": "You didn't provide a language!",
-        "noRole": "You didn't provide a role!",
-        "falseChannel": "That channel couldn't be found!",
         "falseUser": "That user couldn't be found!",
         "falseFlag": "That flag couldn't be found!",
         "falseLang": "That language couldn't be found!",
@@ -30,7 +26,6 @@
         "noAccess": "You're not allowed to execute this command!",
         "noPermission": "You're not allowed to execute this command on this channel!",
         "apiError": "Something went wrong while contacting the API!",
-        "noSubCommand": "That sub-command couldn't be found!",
         "wrongLink": "Wrong link!"
     },
     "cooldown": "Cooldown",

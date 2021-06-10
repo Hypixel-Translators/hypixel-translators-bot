@@ -74,7 +74,7 @@ const command: Command = {
                     })
             }
         } else {
-            const member = interaction.options.find(o => o.type === "USER")?.member as Discord.GuildMember | undefined
+            const member = interaction.options.get("user")?.member as Discord.GuildMember | undefined
             if (!member) throw "noUser"
             await interaction.defer({ ephemeral: true })
             await crowdinVerify(member, profileUrl.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], false)
