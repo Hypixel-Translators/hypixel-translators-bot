@@ -1,13 +1,13 @@
 {
     "moduleName": "Informação",
     "page1Title": "Página de ajuda",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `+translate` command.\n\nYou can execute `+help <name of command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
+    "commandsListTooltip": "Este bot foi feito para a Comunidade de Tradutores do Hypixel por %%developer%%. É de código aberto e seu repositório no GitHub pode ser encontrado [aqui]%%github%%.\nVocê pode ajudar a traduzir o bot seguindo as instruções dadas pelo comando `+translate`.\n\nUse o comando `+help <nome do comando>` para saber mais sobre um comando em específico.\nA seguir você pode encontrar uma lista de páginas disponíveis. Use as reações nesta mensagem para alterar de página.",
     "madeBy": "Bot feito com muito carinho por %%QkeleQ10%%",
     "page": "Página %%number%%/%%total%%",
     "pageNumber": "Página %%number%%",
     "utilityHelp": "Ferramentas e Utilidades",
-    "infoHelp": "Information commands",
-    "projectsHelp": "Crowdin Projects",
+    "infoHelp": "Comandos de informação",
+    "projectsHelp": "Projetos do Crowdin",
     "timeOut": "Este menu expirou. Se você deseja usá-lo novamente, use %%command%%.",
     "pageNotExist": "Essa página não existe!",
     "commandInfo": "Informações do comando",
@@ -45,7 +45,7 @@
         "description": "Abra a nossa página no GitHub para reportar problemas e dar o seu feedback."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
+        "usage": "+language [<novo idioma> | list]",
         "description": "Changes your language, shows your current one or a list of available languages."
     },
     "ping": {
@@ -53,16 +53,16 @@
         "description": "Gives you the bot's ping."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [username] [social]",
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "usage": "+hypixelstats [jogador] [social]",
+        "description": "Mostra as estatísticas básicas de um jogador no Hypixel."
     },
     "hypixelverify": {
-        "usage": "+hypixelverify <username> | +hypixelunverify",
-        "description": "Links your Discord account with your Hypixel profile. Execute `+hypixelunverify` to unverify yourself."
+        "usage": "+hypixelverify <jogador> | +hypixelunverify",
+        "description": "Vincula a sua conta do Discord com o seu perfil do Hypixel. Use `+hypixelunverify` para desvincular."
     },
     "8ball": {
-        "usage": "+8ball <question>",
-        "description": "The Magic 8 Ball that will answer all your questions."
+        "usage": "+8ball <pergunta>",
+        "description": "A bola mágica que responde suas perguntas."
     },
     "verify": {
         "usage": "+verify [profileURL]",
