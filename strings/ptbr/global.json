@@ -34,7 +34,7 @@
         "noPermission": "Você não possui permissão para usar este comando neste canal!",
         "apiError": "Something went wrong while contacting the API!",
         "noSubCommand": "That sub-command couldn't be found!",
-        "wrongLink": "Wrong link!"
+        "wrongLink": "Link errado!"
     },
     "cooldown": "Tempo de recarga",
     "secondLeft": "Please wait another second to use `+%%command%%` again.",
@@ -50,11 +50,11 @@
         "translators": "Eu preciso de tradutores! Saiba como ajudar a traduzir este bot usando `+translate`.",
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `+prefix` in %%bots%% and follow the instructions! Available to all Hypixel and Quickplay translators.",
         "enen": "Por favor, altere seus links para en-en!",
-        "xp": "Você recebe quantidades aleatórias de EXP enquanto estiver enviando mensagens no bate-papo, fazendo você subir de nível.",
+        "xp": "Você recebe quantidades aleatórias de EXP enquanto estiver enviando mensagens no chat, fazendo você subir de nível.",
         "guide": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%gettingStarted%%, it has some useful tips!",
-        "twitter": "Have you followed our twitter account? Check it out at %%twitter%%!",
+        "twitter": "Siga-nos no Twitter acessando %%twitter%%!",
         "rulesInfo": "%%rules%% e %%serverInfo%% possuem todas as informações que você precisa saber sobre este servidor!",
-        "fixTranslation": "Encontrou algum erro nas traduções? Entre em contato com o revisor do idioma ou avise algum tradutor no canal de traduções.",
+        "fixTranslation": "Encontrou algum erro nas traduções? Contate o revisor do idioma ou avise algum tradutor no canal de traduções.",
         "pinnedInfo": "Você sabia que a maioria dos canais possuem informações fixadas? Vale a pena conferir sempre que visitar um canal!",
         "hypixelStats": "You can view information about a specific player on Hypixel by executing `+hypixelstats <username> [social]`!",
         "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `+languagestats <language>`!",
