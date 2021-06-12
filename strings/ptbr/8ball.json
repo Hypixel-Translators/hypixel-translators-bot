@@ -1,32 +1,32 @@
 {
     "moduleName": "Bola mágica",
-    "question": "Question",
+    "question": "Pergunta",
     "answers": {
         "positive": [
             "It is certain.",
             "It is decidedly so.",
-            "Without a doubt.",
-            "Yes – definitely.",
+            "Sem dúvidas.",
+            "Definitivamente.",
             "You may rely on it.",
             "As I see it, yes.",
-            "Most likely.",
+            "Muito provavelmente.",
             "Outlook good.",
-            "Yes",
+            "Sim",
             "Signs point to yes."
         ],
         "inconclusive": [
             "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again."
+            "Pergunte mais tarde.",
+            "É melhor eu não dizer agora.",
+            "Não consigo prever agora.",
+            "Concentre-se e pergunte novamente."
         ],
         "negative": [
-            "Don't count on it.",
-            "My reply is no.",
-            "My sources say no.",
+            "Não conte com isso.",
+            "A minha resposta é não.",
+            "As minhas fontes dizem que não.",
             "Outlook not so good.",
-            "Very doubtful."
+            "Muito duvidoso."
         ]
     }
 }
