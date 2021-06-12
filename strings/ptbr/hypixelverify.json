@@ -1,12 +1,12 @@
 {
-    "moduleName": "Hypixel Verification",
-    "success": "You successfully verified yourself as %%player%%!",
-    "role": "You were given the %%role%% role due to your rank on the server.",
-    "alreadyVerified": "You are already verified!",
-    "nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
-    "error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
-    "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this.",
-    "unverified": "You were successfully unverified!",
-    "notUnverified": "Couldn't unverify you!",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `+hypixelverify <username>`."
+    "moduleName": "Verificação no Hypixel",
+    "success": "Você foi verificado como %%player%%!",
+    "role": "Você recebeu o cargo %%role%% por possuir o rank no servidor.",
+    "alreadyVerified": "Você já está verificado!",
+    "nameChangeDisclaimer": "Lembre-se que você não precisa verificar-se novamente ao mudar de nome!",
+    "error": "Não foi possível verificar você pois não há um Discord vinculado em sua conta no Hypixel!",
+    "tutorial": "Para ser verificado, você precisa definir o seu Discord no Hypixel para %%tag%% e aguardar 10 minutos para usar o comando novamente. Siga as instruções no vídeo abaixo caso não saiba fazer isto.",
+    "unverified": "Você removeu sua verificação!",
+    "notUnverified": "Não foi possível remover sua verficação!",
+    "whyNotUnverified": "Isto ocorreu pois você não se verificou! Para se verificar, use `+hypixelverify <jogador>`."
 }

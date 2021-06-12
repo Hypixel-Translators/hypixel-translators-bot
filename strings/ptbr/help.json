@@ -26,11 +26,11 @@
     },
     "prefix": {
         "usage": "+prefix [bandeiras]",
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `+prefix <flags>` and replace `<flags>` with the regional code of your country's flag or its name. You can add as many flags as you wish, separated by a space."
+        "description": "Fornece a você um prefixo de acordo com o(s) seu(s) idioma(s). Caso queira um prefixo customizado, use `+prefix <bandeiras>` e substitua `<bandeiras>` com o código de bandeira do seu país ou o seu nome. Você pode adicionar quantas bandeiras desejar, separando-as com espaço."
     },
     "quote": {
         "usage": "+quote [index] | +quote add <quote> / <author mention>",
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "description": "Mostra ou adiciona uma citação engraçada, estranha ou sábia dita no servidor."
     },
     "mention": {
         "usage": "+mention <idioma> translator|proofreader|all [mensagem]",
@@ -42,15 +42,15 @@
     },
     "issue": {
         "usage": "+issue",
-        "description": "Abra a nossa página no GitHub para reportar problemas e dar o seu feedback."
+        "description": "Abra a nossa página no GitHub para relatar problemas e dar o seu feedback."
     },
     "language": {
         "usage": "+language [<novo idioma> | list]",
-        "description": "Changes your language, shows your current one or a list of available languages."
+        "description": "Altera seu idioma, mostra o idioma atual ou lista todos os idiomas disponíveis."
     },
     "ping": {
         "usage": "+ping",
-        "description": "Gives you the bot's ping."
+        "description": "Veja o ping do bot."
     },
     "hypixelstats": {
         "usage": "+hypixelstats [jogador] [social]",
@@ -65,48 +65,48 @@
         "description": "A bola mágica que responde suas perguntas."
     },
     "verify": {
-        "usage": "+verify [profileURL]",
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `+profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "usage": "+verify [link do perfil]",
+        "description": "Verifica automaticamente se há alterações no seu perfil do Crowdin e define os cargos apropriados. Se seu perfil não foi armazenado em nosso banco de dados, você pode definir um argumento no comando. Para conferir se seu perfil está armazenado, use `+profile`. Lembre-se de ativar as mensagens diretas de membros deste servidor para que você receba a mensagem."
     },
     "profile": {
         "usage": "+profile",
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
+        "description": "Receba o link do seu perfil do Crowdin se ele estiver salvo em nosso banco de dados. Caso contrário, use `+help reverify` para saber como armazenar seu perfil e atualizar seus cargos."
     },
     "rank": {
-        "usage": "+rank [user]",
-        "description": "Gives you the current XP for yourself or any given user."
+        "usage": "+rank [usuário]",
+        "description": "Veja o seu EXP atual ou de outro usuário."
     },
     "levels": {
-        "usage": "+levels [page]",
-        "description": "Gives you the XP leaderboard."
+        "usage": "+levels [página]",
+        "description": "Veja o pódio de EXP."
     },
     "tip": {
         "usage": "+tip",
-        "description": "Gives you a random tip regarding the server."
+        "description": "Receba uma dica aleatória sobre o servidor."
     },
     "invite": {
         "usage": "+invite",
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Receba um link de convite para o servidor. Use-o sempre que quiser convidar alguém."
     },
     "projects": {
         "usage": "+projects",
-        "description": "Gives you links and information about all the translation projects we support on the server."
+        "description": "Receba os links e as informações sobre os projetos de tradução disponíveis no servidor."
     },
     "hypixel": {
         "usage": "+hypixel",
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "Receba informações úteis sobre o projeto do Hypixel."
     },
     "guidelines": {
         "usage": "+guidelines",
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Receba o link do tópico oficial sobre as traduções do Hypixel."
     },
     "quickplay": {
         "usage": "+quickplay",
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Receba informações úteis sobre o projeto do Quickplay."
     },
     "skyblockaddons": {
         "usage": "+skyblockaddons",
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "Receba informações úteis sobre o projeto do SkyblockAddons."
     },
     "translate": {
         "usage": "+translate",
@@ -114,10 +114,10 @@
     },
     "thread": {
         "usage": "+thread",
-        "description": "Te dá o link para o tópico de anúncio deste servidor de Discord."
+        "description": "Receba o link do tópico de anúncio deste servidor de Discord."
     },
     "twitter": {
         "usage": "+twitter",
-        "description": "Te dá o link para a página oficial do Twitter da Comunidade de Tradutores do Hypixel."
+        "description": "Receba o link da página oficial do Twitter da Comunidade de Tradutores do Hypixel."
     }
 }

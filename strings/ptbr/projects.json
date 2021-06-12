@@ -2,8 +2,8 @@
     "moduleName": "Projetos de Tradução",
     "allProjects": "Here are all the projects we currently support on the server!",
     "description": "If you're already on some of these projects but don't have your roles yet, execute `+reverify [profileURL]` to get them!",
-    "projectInfo": "You can find the link to the %%project%% project [here](%%link%%). For more information, execute %%command%%.",
-    "alreadyJoined": "You've already joined this project!",
-    "notJoined": "You haven't joined this project yet!",
+    "projectInfo": "Você pode encontrar o link do projeto do %%project%% clicando [aqui](%%link%%). Para mais informações, use %%command%%.",
+    "alreadyJoined": "Você já entrou neste projeto!",
+    "notJoined": "Você ainda não entrou neste projeto!",
     "dmError": "Não foi possível verificar se você já está nesses projetos. Para verificarmos, use o comando no Discord da Comunidade de Tradutores do Hypixel."
 }
