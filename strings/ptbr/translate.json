@@ -2,7 +2,7 @@
     "moduleName": "Traduzir o Bot",
     "alreadyTranslator": "Você já é um tradutor. Aqui está o que você pode estar procurando:",
     "projectLink": "Você pode encontrar o link do projeto [aqui](%%link%%).",
-    "question": "Tem alguma dúvida?",
+    "question": "Possui alguma dúvida?",
     "askTranslators": "Feel free to ask anything about the project on %%botTranslators%%. Don't forget to send a link to the string you're referring to!",
     "newCrowdin": "Novo no Crowdin?",
     "checkGuide": "Check out our guide with a bunch of useful Crowdin tools and tips to get started! You can find it on %%gettingStarted%%.",
