@@ -3,7 +3,7 @@
     "changedToTitle": "Seu idioma foi alterado para Português (Brasil)!",
     "didntChange": "Seu idioma não foi alterado",
     "alreadyThis": "Isto ocorreu pois você escolheu um idioma que já estava definido como o seu padrão.",
-    "notTranslated": "The language you tried to select isn't translated enough for it to be chosen. If you speak this language, you can find out how to help translate it by using `+translate`.",
+    "notTranslated": "O idioma que você tentou selecionar não foi traduzido o suficiente para poder ser escolhido. Se você fala este idioma, você pode nos ajudar a traduzi-lo usando `+translate`.",
     "errorTitle": "Esse idioma ainda não foi adicionado!",
     "errorDescription": "Seu idioma não foi alterado. Os idiomas a seguir estão disponíveis no momento (isso não significa que estejam traduzidos):",
     "suggestAdd": "Caso queira que este idioma seja adicionado ao bot, por favor contate um administrador.",
