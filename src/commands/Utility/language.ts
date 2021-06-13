@@ -65,7 +65,7 @@ const command: Command = {
                 }
             })
         } else if (subCommand === "stats") {
-            if (!member.roles.cache.has("764442984119795732")) return interaction.reply({ content: getString("noAccess", "global"), ephemeral: true })
+            if (!member.roles.cache.has("764442984119795732")) return await interaction.reply({ content: getString("noAccess", "global"), ephemeral: true })
             const files = fs.readdirSync(stringsFolder),
                 langInput = interaction.options.first()!.options!.get("language")!.value as string
             if (!files.includes(langInput)) throw "falseLang"
@@ -89,7 +89,7 @@ const command: Command = {
             fs.access(`./strings/${newLang}/language.json`, fs.constants.F_OK, async (err) => {
                 if (!err) {
                     if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, newLang) || newLang === "en") {
-                        collection.updateOne({ id: interaction.user.id }, { $set: { lang: newLang } }).then(r => {
+                        collection.updateOne({ id: interaction.user.id }, { $set: { lang: newLang } }).then(async r => {
                             if (r.result.nModified) {
                                 executedBy = getString("executedBy", { user: interaction.user.tag }, "global", newLang)
                                 const embed = new Discord.MessageEmbed()
@@ -98,7 +98,7 @@ const command: Command = {
                                     .setTitle(getString("changedToTitle", this.name, newLang))
                                     .setDescription(getString("credits", this.name, newLang))
                                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                                return interaction.reply({ embeds: [embed] })
+                                return await interaction.reply({ embeds: [embed] })
                             } else {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(errorColor)
@@ -106,7 +106,7 @@ const command: Command = {
                                     .setTitle(getString("didntChange", this.name, newLang))
                                     .setDescription(getString("alreadyThis", this.name, newLang))
                                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                                return interaction.reply({ embeds: [embed] })
+                                return await interaction.reply({ embeds: [embed] })
                             }
                         })
                     } else {
@@ -116,7 +116,7 @@ const command: Command = {
                             .setTitle(getString("didntChange"))
                             .setDescription(getString("notTranslated"))
                             .setFooter(executedBy, interaction.user.displayAvatarURL())
-                        return interaction.reply({ embeds: [embed] })
+                        return await interaction.reply({ embeds: [embed] })
                     }
                 } else {
                     await fs.readdir(stringsFolder, async (_err, files) => {

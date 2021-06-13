@@ -100,7 +100,7 @@ const command: Command = {
                     .setTitle("A quote request has been submitted!")
                     .setDescription(`${quote}\n       - ${author}`)
                     .setFooter("Suggested by " + interaction.user.tag, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                staffBots.send({ content: `/quote add quote:${quote} author:@${author.tag}`, embeds: [report] })
+                await staffBots.send({ content: `/quote add quote:${quote} author:@${author.tag}`, embeds: [report] })
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
                     .setAuthor(getString("moduleName"))
@@ -113,7 +113,7 @@ const command: Command = {
         else if (subCommand === "delete" && allowed) await deleteQuote(interaction, collection)
         else if (subCommand === "link" && allowed) await linkQuote(interaction, collection)
         else if (subCommand === "get") await findQuote(executedBy, interaction, getString, collection)
-        else interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
+        else await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
     }
 }
 
@@ -134,7 +134,7 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
             .setTitle(getString("invalidArg"))
             .setDescription(getString("indexArg", { arg: index!, max: count }))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        return interaction.reply({ embeds: [embed], ephemeral: true })
+        return await interaction.reply({ embeds: [embed], ephemeral: true })
     }
     console.log(`Quote with ID ${quoteId} was requested`)
     const embed = new Discord.MessageEmbed()
@@ -144,7 +144,7 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
         .setDescription(`      - ${quote.author}`)
         .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     if (quote.url) embed.addField(getString("msgUrl"), quote.url)
-    return interaction.reply({ embeds: [embed] })
+    return await interaction.reply({ embeds: [embed] })
 }
 
 async function addQuote(interaction: Discord.CommandInteraction, quote: string, author: Discord.User, collection: Collection<any>) {

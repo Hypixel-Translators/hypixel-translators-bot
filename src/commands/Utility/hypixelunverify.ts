@@ -20,7 +20,7 @@ const command: Command = {
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("unverified"))
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                return interaction.reply({ embeds: [embed] })
+                return await interaction.reply({ embeds: [embed] })
             } else {
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
@@ -28,7 +28,7 @@ const command: Command = {
                     .setTitle(getString("notUnverified"))
                     .setDescription(getString("whyNotUnverified"))
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                return interaction.reply({ embeds: [embed], ephemeral: true })
+                return await interaction.reply({ embeds: [embed], ephemeral: true })
             }
         })
         return

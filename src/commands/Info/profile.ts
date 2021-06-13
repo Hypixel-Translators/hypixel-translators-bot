@@ -34,19 +34,19 @@ const command: Command = {
                         .setTitle(`Here's ${user.tag}'s Crowdin profile`)
                         .setDescription(userDb.profile)
                         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    return interaction.reply({ embeds: [embed] })
+                    return await interaction.reply({ embeds: [embed] })
                 } else {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setAuthor("Crowdin Profile")
                         .setTitle(`Couldn't find ${user.tag}'s Crowdin profile on the database!`)
                         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    return interaction.reply({ embeds: [embed] })
+                    return await interaction.reply({ embeds: [embed] })
                 }
             } else {
                 if (/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(profile)) {
                     await collection.findOneAndUpdate({ id: user.id }, { $set: { profile: profile } })
-                        .then(r => {
+                        .then(async r => {
                             if (r.value.profile !== profile) {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor)
@@ -57,7 +57,7 @@ const command: Command = {
                                         { name: "New profile", value: profile }
                                     )
                                     .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                                return interaction.reply({ embeds: [embed] })
+                                return await interaction.reply({ embeds: [embed] })
                             } else {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(errorColor)
@@ -65,7 +65,7 @@ const command: Command = {
                                     .setTitle(`Couldn't update ${user.tag}'s Crowdin profile!`)
                                     .setDescription(`Their current profile is the same as the one you tried to add.`)
                                     .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                                return interaction.reply({ embeds: [embed] })
+                                return await interaction.reply({ embeds: [embed] })
                             }
                         })
                 } else throw "wrongLink"
@@ -80,7 +80,7 @@ const command: Command = {
                     .setTitle(getString("profileSuccess"))
                     .setDescription(userDb.profile)
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                return interaction.reply({ embeds: [embed], ephemeral: true })
+                return await interaction.reply({ embeds: [embed], ephemeral: true })
             } else {
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
@@ -88,7 +88,7 @@ const command: Command = {
                     .setTitle(getString("noProfile"))
                     .setDescription(getString("howStore"))
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                return interaction.reply({ embeds: [embed], ephemeral: true })
+                return await interaction.reply({ embeds: [embed], ephemeral: true })
             }
         }
     }

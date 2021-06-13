@@ -56,7 +56,7 @@ const command: Command = {
           .setTitle(getString("page1Title"))
           .setDescription(getString("pageNotExist"))
           .setFooter(`${executedBy} | ${madeBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        return interaction.reply({ embeds: [embed], ephemeral: true })
+        return await interaction.reply({ embeds: [embed], ephemeral: true })
       }
 
       //Determine which page to use

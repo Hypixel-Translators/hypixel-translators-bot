@@ -27,8 +27,8 @@ const command: Command = {
     if (!sendTo.isText()) throw "You need to provide a text channel for me to send messages in!"
     if (!member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
 
-    if (member.permissions.has("MANAGE_ROLES")) sendTo.send(message)
-    else sendTo.send(">>> " + message)
+    if (member.permissions.has("MANAGE_ROLES")) await sendTo.send(message)
+    else await sendTo.send(">>> " + message)
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
       .setAuthor("Message")

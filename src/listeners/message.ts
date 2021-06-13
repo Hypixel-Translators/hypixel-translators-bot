@@ -11,7 +11,7 @@ import { isEqual } from "lodash"
 client.on("message", async message => {
     //Delete pinned message messages
     if (message.type === "PINS_ADD" && message.channel.type !== "dm") {
-        message.delete()
+        await message.delete()
         return
     }
 
@@ -72,7 +72,7 @@ client.on("message", async message => {
             //Hypixel, SkyblockAddons, Bot and Quickplay Translations
             const langFix = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
             if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
-                message.react("732298639736570007")
+                await message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor(getGlobalString("errors.wrongLink"))
@@ -84,16 +84,16 @@ client.on("message", async message => {
                         `${getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" })}
                         \n${getGlobalString("reminderLang", { format: "`crowdin.com/translate/hypixel/.../en-en#`" })}`
                     )
-                message.channel.send({ content: `${message.author}`, embeds: [embed] })
+                await message.channel.send({ content: `${message.author}`, embeds: [embed] })
                 return
             } else if (message.content !== langFix && message.channel.parentID === "549503328472530977") {
-                message.react("732298639736570007")
+                await message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor(getGlobalString("errors.wrongLink"))
                     .setTitle(getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }))
                     .setDescription(langFix)
-                message.channel.send({ content: `${message.author}`, embeds: [embed] })
+                await message.channel.send({ content: `${message.author}`, embeds: [embed] })
                 return
             }
         }
@@ -102,12 +102,12 @@ client.on("message", async message => {
     //Crowdin verification system
     if (/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel.id === "569178590697095168") {
         //verify
-        message.react("798339571531382874") //icon_working
+        await message.react("798339571531382874") //icon_working
         await crowdinVerify(message.member!, message.content.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
         if (!message.deleted) await message.delete()
-        message.channel.messages.fetch().then(messages => {
-            const fiMessages = messages.filter(msgs => msgs.author.id === message.author.id);
-            (message.channel as Discord.TextChannel).bulkDelete(fiMessages)
+        message.channel.messages.fetch().then(async messages => {
+            const fiMessages = messages.filter(msgs => msgs.author.id === message.author.id)
+            await (message.channel as Discord.TextChannel).bulkDelete(fiMessages)
         })
     }
 
@@ -141,23 +141,23 @@ client.on("message", async message => {
                 msg.reactions.cache.forEach(async reaction => await reaction.users.remove())
                 if (reaction.emoji.name === "❎") {
                     embed.setColor(errorColor).setTitle(getGlobalString("staffDm.dmCancelled")).setFooter(getGlobalString("staffDm.resendInfo"))
-                    msg.edit({ embeds: [embed] })
-                } else if (reaction.emoji.name === "✅") staffDm(msg, true)
+                    await msg.edit({ embeds: [embed] })
+                } else if (reaction.emoji.name === "✅") await staffDm(msg, true)
             })
 
-            collector.on("end", () => {
+            collector.on("end", async () => {
                 if (reacted) return
                 const timeOutEmbed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor(getGlobalString("staffDm.dmCancelled"))
                     .setDescription(message.content)
                     .setFooter(getGlobalString("staffDm.resendInfo"))
-                msg.edit({ embeds: [timeOutEmbed] })
+                await msg.edit({ embeds: [timeOutEmbed] })
                 msg.reactions.cache.forEach(async reaction => await reaction.users.remove())
             })
-        } else staffDm(message, false)
+        } else await staffDm(message, false)
 
-        function staffDm(msg: Discord.Message, afterConfirm: boolean) {
+        async function staffDm(msg: Discord.Message, afterConfirm: boolean) {
             if (afterConfirm) db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: Date.now() } })
             else db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: message.createdTimestamp } })
             const staffMsg = new Discord.MessageEmbed()
@@ -174,21 +174,21 @@ client.on("message", async message => {
                 message.attachments.forEach(file => images.push(file.attachment))
                 staffMsg.setTitle("View attachments")
                 dmEmbed.setTitle(getGlobalString("staffDm.attachmentsSent"))
-                staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg], files: images })
-                message.channel.send({ embeds: [dmEmbed] })
+                await staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg], files: images })
+                await message.channel.send({ embeds: [dmEmbed] })
                 return
             } else if (message.attachments.size > 0) {
                 staffMsg
                     .setTitle("View attachment")
                     .setImage(message.attachments.first()!.url)
                 dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent"))
-                staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg] })
-            } else staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg] }) //staff-bots
+                await staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg] })
+            } else await staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg] }) //staff-bots
             if (afterConfirm) {
-                msg.edit({ embeds: [dmEmbed] })
+                await msg.edit({ embeds: [dmEmbed] })
                 return
             }
-            msg.channel.send({ embeds: [dmEmbed] })
+            await msg.channel.send({ embeds: [dmEmbed] })
         }
     }
 

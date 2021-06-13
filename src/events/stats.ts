@@ -46,7 +46,7 @@ export async function hypixel(client: HTBClient) {
                 .then((messages: Discord.Collection<Discord.Snowflake, Discord.Message>) => {
                     let index = 0
                     const fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
-                    fiMessages.forEach(msg => {
+                    fiMessages.forEach(async msg => {
                         const langData = sortedSatus[index].data
 
                         const embed = new Discord.MessageEmbed()
@@ -56,7 +56,7 @@ export async function hypixel(client: HTBClient) {
                             .setDescription(`**${langData.translationProgress}% translated (${langData.phrases.translated}/${langData.phrases.total} strings)**\n${langData.approvalProgress}% approved (${langData.phrases.approved}/${langData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel/all/en-${langData.language.code}`)
                             .setFooter("Last update")
                             .setTimestamp()
-                        msg.edit({ content: null, embeds: [embed] })
+                        await msg.edit({ content: null, embeds: [embed] })
                         index++
                     })
                 })
@@ -98,7 +98,7 @@ export async function quickplay(client: HTBClient) {
                 .then((messages: Discord.Collection<Discord.Snowflake, Discord.Message>) => {
                     let index = 0
                     const fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
-                    fiMessages.forEach((msg: Discord.Message) => {
+                    fiMessages.forEach(async (msg: Discord.Message) => {
                         const langData = sortedStatus[index].data
 
                         let adapColour: string
@@ -113,7 +113,7 @@ export async function quickplay(client: HTBClient) {
                             .setDescription(`**${langData.translationProgress}% translated (${langData.phrases.translated}/${langData.phrases.total} strings)**\n${langData.approvalProgress}% approved (${langData.phrases.approved}/${langData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/quickplay/all/en-${langData.language.code}`)
                             .setFooter("Last update")
                             .setTimestamp()
-                        msg.edit({ content: null, embeds: [embed] })
+                        await msg.edit({ content: null, embeds: [embed] })
                         index++
                     })
                 })
@@ -155,7 +155,7 @@ export async function bot(client: HTBClient) {
                 .then((messages: Discord.Collection<Discord.Snowflake, Discord.Message>) => {
                     let index = 0
                     const fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
-                    fiMessages.forEach(msg => {
+                    fiMessages.forEach(async msg => {
                         const langData = sortedStatus[index].data
 
                         let adapColour: string
@@ -170,7 +170,7 @@ export async function bot(client: HTBClient) {
                             .setDescription(`**${langData.translationProgress}% translated (${langData.phrases.translated}/${langData.phrases.total} strings)**\n${langData.approvalProgress}% approved (${langData.phrases.approved}/${langData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel-translators-bot/all/en-${langData.language.code}`)
                             .setFooter("Last update")
                             .setTimestamp()
-                        msg.edit({ content: null, embeds: [embed] })
+                        await msg.edit({ content: null, embeds: [embed] })
                         index++
                     })
                 })
@@ -212,7 +212,7 @@ export async function skyblockaddons(client: HTBClient) {
                 .then((messages: Discord.Collection<Discord.Snowflake, Discord.Message>) => {
                     let index = 0
                     const fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
-                    fiMessages.forEach(msg => {
+                    fiMessages.forEach(async msg => {
                         const langData = sortedStatus[index].data
 
                         let adapColour: string
@@ -227,7 +227,7 @@ export async function skyblockaddons(client: HTBClient) {
                             .setThumbnail((langData.language.flag))
                             .setFooter("Last update")
                             .setTimestamp()
-                        msg.edit({ content: null, embeds: [embed] })
+                        await msg.edit({ content: null, embeds: [embed] })
                         index++
                     })
                 })

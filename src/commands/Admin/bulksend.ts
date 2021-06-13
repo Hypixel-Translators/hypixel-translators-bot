@@ -24,7 +24,7 @@ const command: Command = {
     if (!sendTo.isText()) throw "You must provide a text channel to send messages in!"
     let amount = Number(interaction.options.get("amount")!.value)
     if (!amount) throw "You need to provide a number of messages to delete!"
-    for (amount; amount > 0; amount--) sendTo.send("Language statistics will be here shortly!")
+    for (amount; amount > 0; amount--) await sendTo.send("Language statistics will be here shortly!")
     const embed = new Discord.MessageEmbed()
       .setColor(successColor)
       .setAuthor("Bulk Send")

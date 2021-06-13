@@ -29,7 +29,7 @@ const command: Command = {
                 .setTitle(user.id === interaction.user.id ? getString("youNotRanked") : getString("userNotRanked"))
                 .setDescription(getString("howRank"))
                 .setFooter(executedBy, interaction.user.displayAvatarURL())
-            return interaction.reply({ embeds: [errorEmbed] })
+            return await interaction.reply({ embeds: [errorEmbed] })
         }
         const totalXp = getXpNeeded(userDb.levels.level),
             progressBar = generateProgressBar(userDb.levels?.levelXp, totalXp),

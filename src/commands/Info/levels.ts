@@ -36,7 +36,7 @@ const command: Command = {
                 .setTitle(getString("pageTitle"))
                 .setDescription(getString("pageNotExist"))
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            return interaction.reply({ embeds: [embed] })
+            return await interaction.reply({ embeds: [embed] })
         } else {
             let controlButtons = new Discord.MessageActionRow()
                 .addComponents(

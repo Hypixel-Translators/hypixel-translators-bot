@@ -77,8 +77,8 @@ const command: Command = {
                   .setAuthor("Prefix")
                   .setTitle("A user manually changed their prefix")
                   .setDescription(`${interaction.user} manually changed their prefix to include the following flag: ${prefix}\nMake sure they have the appropriate roles for this prefix and, if not, follow the appropriate procedure`)
-                  .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }));
-                (interaction.client.channels.cache.get("624881429834366986") as Discord.TextChannel).send({ embeds: [staffAlert] }) //staff-bots
+                  .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                await (interaction.client.channels.cache.get("624881429834366986") as Discord.TextChannel).send({ embeds: [staffAlert] }) //staff-bots
               })
               .catch(async err => {
                 const embed = new Discord.MessageEmbed()
@@ -213,7 +213,7 @@ const command: Command = {
             .setDescription(getString("customPrefix"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
           client.cooldowns.get(this.name)!.delete(interaction.user.id)
-          return interaction.editReply({ embeds: [embed], components: [] })
+          return await interaction.editReply({ embeds: [embed], components: [] })
         } else {
           const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
@@ -221,7 +221,7 @@ const command: Command = {
             .setTitle(getString("errors.noLanguages"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
           client.cooldowns.get(this.name)!.delete(interaction.user.id)
-          return interaction.editReply({ embeds: [embed], components: [] })
+          return await interaction.editReply({ embeds: [embed], components: [] })
         }
       }
       const noChangesEmbed = new Discord.MessageEmbed()
@@ -282,7 +282,6 @@ const command: Command = {
             await buttonInteraction.update({ embeds: [embed], components: [] })
           }
         } else if (buttonInteraction.customID === "cancel") {
-          msg.reactions.removeAll()
           prefixes = "n"
           const embed = new Discord.MessageEmbed()
             .setColor(errorColor)

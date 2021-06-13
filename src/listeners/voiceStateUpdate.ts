@@ -1,7 +1,7 @@
 import Discord from "discord.js"
 import { client } from "../index"
 
-client.on("voiceStateUpdate", (oldState, newState) => {
+client.on("voiceStateUpdate", async (oldState, newState) => {
     if (newState.guild.id === "549503328472530974" && !newState.member?.user.bot) {
         const logs = client.channels.cache.get("591280178873892901") as Discord.TextChannel,
             successColor = "43B581",
@@ -18,7 +18,7 @@ client.on("voiceStateUpdate", (oldState, newState) => {
                 .setDescription(`**${newState.member} was server ${newState.serverMute ? "muted" : "unmuted"} in ${newState.channel?.name}**`)
                 .setFooter(`ID: ${newState.member!.id}`)
                 .setTimestamp(Date.now())
-            logs.send({ embeds: [embed] })
+            await logs.send({ embeds: [embed] })
         } else if (!!oldState.serverDeaf != !!newState.serverDeaf) {
             const embed = new Discord.MessageEmbed()
                 .setColor(newState.serverDeaf ? errorColor : successColor)
@@ -26,7 +26,7 @@ client.on("voiceStateUpdate", (oldState, newState) => {
                 .setDescription(`**${newState.member} was server ${newState.serverDeaf ? "deafened" : "undeafened"} in ${newState.channel?.name}**`)
                 .setFooter(`ID: ${newState.member!.id}`)
                 .setTimestamp(Date.now())
-            logs.send({ embeds: [embed] })
+            await logs.send({ embeds: [embed] })
         }
     }
 })

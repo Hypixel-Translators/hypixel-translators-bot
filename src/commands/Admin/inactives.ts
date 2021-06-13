@@ -9,7 +9,7 @@ const command: Command = {
     allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(interaction: Discord.CommandInteraction) {
-        inactives(client, true)
+        await inactives(client, true)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor("Inactive checker")

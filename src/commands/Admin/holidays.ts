@@ -62,12 +62,12 @@ const command: Command = {
             const announcement = holiday.join(" ")
             if (announcement) {
                 const announcements = interaction.client.channels.cache.get("549503985501995011") as Discord.NewsChannel
-                announcements.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`) //announcements
+                await announcements.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`) //announcements
                     .then(msg => msg.crosspost())
                 await interaction.reply(`${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement sent! Here's each language's translation:\n${debugMsg}`)
                 console.table(log)
                 console.log(`Sent the ${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement`)
-            } else return interaction.reply({ content: "For some reason there is nothing in the announcement so I can't send it. Fix your code bro.", ephemeral: true })
+            } else return await interaction.reply({ content: "For some reason there is nothing in the announcement so I can't send it. Fix your code bro.", ephemeral: true })
         })
     }
 }

@@ -19,13 +19,13 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 strings = require(`../../strings/en/reviewStrings.json`)
             }
             if (reaction.emoji.name === "vote_yes" && reaction.message.author!.id !== user.id) {
-                reaction.message.react("⏱")
+                await reaction.message.react("⏱")
                 setTimeout(async () => {
                     // Check if the user hasn't removed their reaction
                     if (await reaction.users.fetch().then(cache => cache.has(user.id))) {
                         if (!reaction.message.deleted) reaction.message.delete()
                         console.log(`String reviewed in ${channel.name}`)
-                    } else reaction.message.reactions.cache.get("⏱")?.remove()
+                    } else await reaction.message.reactions.cache.get("⏱")?.remove()
                 }, 10000)
             } else if (reaction.emoji.name === "vote_maybe" && reaction.message.author!.id !== user.id) {
                 reaction.users.remove(user.id)
@@ -36,9 +36,9 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     .setDescription(`${reaction.message}`)
                     .addField(strings.message, `[${strings.clickHere}](${reaction.message.url})`)
                     .setFooter(strings.requestedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
-                translatorChannel.send({ content: `${reaction.message.author}`, embeds: [embed] })
+                await translatorChannel.send({ content: `${reaction.message.author}`, embeds: [embed] })
             } else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {
-                reaction.message.react("⏱")
+                await reaction.message.react("⏱")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor(strings.moduleName)
@@ -48,10 +48,10 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 setTimeout(async () => {
                     // Check if the user hasn't removed their reaction
                     if (await reaction.users.fetch().then(cache => cache.has(user.id))) {
-                        translatorChannel.send({ content: `${reaction.message.author}`, embeds: [embed] })
+                        await translatorChannel.send({ content: `${reaction.message.author}`, embeds: [embed] })
                         if (!reaction.message.deleted) reaction.message.delete()
                         console.log(`String rejected in ${channel.name}`)
-                    } else reaction.message.reactions.cache.get("⏱")?.remove()
+                    } else await reaction.message.reactions.cache.get("⏱")?.remove()
                 }, 10000)
             } else reaction.users.remove(user.id)
         }
@@ -85,7 +85,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                         { name: "Quote number", value: `${id}` },
                         { name: "URL", value: reaction.message.url }
                     ])
-                reaction.message.channel.send({ embeds: [embed] })
+                await reaction.message.channel.send({ embeds: [embed] })
             }
         }
     }

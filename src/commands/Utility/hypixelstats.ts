@@ -237,8 +237,8 @@ const command: Command = {
                     await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
                 })
 
-                collector.on("end", () => {
-                    interaction.editReply({ content: getString("timeOut", { command: "`+hypixelstats`" }), components: [], embeds: [embed] })
+                collector.on("end", async () => {
+                    await interaction.editReply({ content: getString("timeOut", { command: "`+hypixelstats`" }), components: [], embeds: [embed] })
                 })
             })
             .catch(e => {

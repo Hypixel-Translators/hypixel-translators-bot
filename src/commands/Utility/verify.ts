@@ -34,27 +34,27 @@ const command: Command = {
                 })
             await member.roles.add("569194996964786178", "Manually verified through the command")
             await member.roles.remove("756199836470214848", "Manually verified through the command"); //Add Verified and remove Alerted
-            db.collection("users").updateOne({ id: member!.id }, { $unset: { unverifiedTimestamp: true } });
-            verifyLogs.send(`${interaction.user} manually verified themselves through the command`)
+            await db.collection("users").updateOne({ id: member!.id }, { $unset: { unverifiedTimestamp: true } });
+            await verifyLogs.send(`${interaction.user} manually verified themselves through the command`)
             client.cooldowns.get(this.name)!.delete(interaction.user.id)
             await interaction.reply({ content: "You successfully verified yourself!", ephemeral: true })
         } else if (!member.roles.cache.has("764442984119795732") || !profileUrl || /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) { //Discord Administrator
             const userDb: DbUser = await db.collection("users").findOne({ id: interaction.user.id })
             if (userDb.profile || profileUrl && /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) {
                 await interaction.defer({ ephemeral: true });
-                verifyLogs.send(`${interaction.user} was unverified.`)
+                await verifyLogs.send(`${interaction.user} was unverified.`)
                 await crowdinVerify(member, profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0] || userDb.profile, true)
                 await interaction.editReply("Your profile has been processed. Check your DMs.")
             } else {
                 await member.roles.remove("569194996964786178", "Unverified") // Verified
-                db.collection("users").updateOne({ id: member!.id }, { $set: { unverifiedTimestamp: Date.now() } })
+                await db.collection("users").updateOne({ id: member!.id }, { $set: { unverifiedTimestamp: Date.now() } })
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor("Manual verification")
                     .setTitle("You were successfully unverified!")
                     .setDescription(`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us on the <#569178590697095168> channel. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`)
                     .setFooter("Any messages you send here will be sent to staff upon confirmation.")
-                interaction.user.send({ embeds: [embed] })
+                await interaction.user.send({ embeds: [embed] })
                     .then(async () => {
                         await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL or there was no profile stored for them.`)
                         await interaction.reply({ content: "Your request was processed, check your DMs for more info!", ephemeral: true })

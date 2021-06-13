@@ -45,7 +45,7 @@ client.on("interaction", async interaction => {
             .setAuthor(getString("error", "global"))
             .setTitle(getString("errors.dmError", "global"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        return interaction.reply({ embeds: [embed] })
+        return await interaction.reply({ embeds: [embed] })
     }
     //Cooldown system
     if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Discord.Collection())
@@ -67,7 +67,7 @@ client.on("interaction", async interaction => {
                 .setAuthor(getString("cooldown", "global"))
                 .setTitle(timeLeftS)
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            return interaction.reply({ embeds: [embed], ephemeral: true })
+            return await interaction.reply({ embeds: [embed], ephemeral: true })
         }
     }
 
@@ -178,7 +178,7 @@ client.on("interaction", async interaction => {
                     .setTitle(error.toString().substring(0, 255))
                     .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
                     .setFooter("Check the console for more details")
-                    ; (interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send({
+                    await (interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send({
                         content: "<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>",
                         embeds: [embed]
                     }) //Rodry and bot-development
@@ -196,6 +196,6 @@ client.on("interaction", async interaction => {
             .setAuthor(getString("error", "global"))
             .setTitle(error.interaction?.substring(0, 255) || error.toString().substring(0, 255))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        return interaction.reply({ embeds: [embed], ephemeral: error.stack ? false : true, components: [] })
+        return await interaction.reply({ embeds: [embed], ephemeral: error.stack ? false : true, components: [] })
     }
 })
