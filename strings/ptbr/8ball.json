@@ -4,15 +4,15 @@
     "answers": {
         "positive": [
             "Certamente.",
-            "It is decidedly so.",
+            "É decididamente assim.",
             "Sem dúvidas.",
             "Definitivamente.",
             "Você pode contar com isso.",
-            "As I see it, yes.",
+            "Eu vejo que sim.",
             "Muito provavelmente.",
             "Parece bem.",
             "Sim",
-            "Signs point to yes."
+            "Tudo indica que sim."
         ],
         "inconclusive": [
             "Resposta vaga, tente novamente.",
@@ -25,7 +25,7 @@
             "Não conte com isso.",
             "A minha resposta é não.",
             "As minhas fontes dizem que não.",
-            "Outlook not so good.",
+            "Não me parece bom.",
             "Muito duvidoso."
         ]
     }
