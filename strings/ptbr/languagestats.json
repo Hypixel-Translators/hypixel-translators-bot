@@ -1,8 +1,8 @@
 {
     "moduleName": "Estatísticas do idioma",
     "statsAll": "Aqui estão as estatísticas do idioma %%language%% em todos os projetos que suportamos no momento.",
-    "translated": "%%percentage%%% traduzidos (%%translated%%/%%total%% linhas)",
-    "approved": "%%percentage%%% aprovados (%%approved%%/%%total%% linhas)",
+    "translated": "%%percentage%%% traduzido (%%translated%%/%%total%% linhas)",
+    "approved": "%%percentage%%% aprovado (%%approved%%/%%total%% linhas)",
     "languages": {
         "ar": "Árabe",
         "bar": "Bávaro",
@@ -39,7 +39,7 @@
         "ptbr": "Português (Brasil)",
         "ro": "Romeno",
         "ru": "Russo",
-        "srcs": "Serbian (Latin)",
+        "srcs": "Sérvio (Latim)",
         "sl": "Esloveno",
         "es": "Espanhol",
         "esmx": "Espanhol (México)",
