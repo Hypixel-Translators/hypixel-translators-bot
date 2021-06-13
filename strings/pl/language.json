@@ -3,7 +3,7 @@
     "changedToTitle": "Zmieniono Twój język na polski!",
     "didntChange": "Twój język nie został zmieniony",
     "alreadyThis": "Stało się to, gdyż język, który wybrałeś jest już przez Ciebie używany.",
-    "notTranslated": "Ten język nie jest wystarczająco przetłumaczony, aby mógł być wybrany. Jeśli go znasz możesz dowiedzieć się, jak pomóc w tłumaczeniu wykonując `+translate`.",
+    "notTranslated": "Ten język nie jest przetłumaczony w wystarczająco dużej mierze, by mógł być wybrany. Jeśli znasz ten język, możesz dowiedzieć się, jak wziąć udział w tłumaczeniu, wykonując polecenie `+translate`.",
     "errorTitle": "Ten język nie został jeszcze dodany!",
     "errorDescription": "Twój język nie został zmieniony. Obecnie dostępne są te języki (nie oznacza to jednak, że zostały przetłumaczone):",
     "suggestAdd": "Jeśli chcesz, aby ten język został dodany do bota, skontaktuj się z członkiem administracji.",
