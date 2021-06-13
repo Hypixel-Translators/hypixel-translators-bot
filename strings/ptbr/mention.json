@@ -1,7 +1,7 @@
 {
-    "errorNoPing": "You don't have that language's proofreader role, ",
+    "errorNoPing": "Você não possui o cargo de revisor de idioma, ",
     "errorNoPingPr": "então você não pode mencioná-lo.",
     "errorNoPingTr": "então você não pode mencionar o cargo tradutor.",
-    "errorNoPingAll": "so you can't mention the entire language.",
+    "errorNoPingAll": "então você não pode mencionar todos do idioma.",
     "errorNoPingDisclaimer": "Contate o dono ou administrador do servidor se você realmente precisar."
 }

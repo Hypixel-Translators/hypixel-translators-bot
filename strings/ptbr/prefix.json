@@ -4,7 +4,7 @@
     "loadingRoles": "Buscando seus cargos...",
     "errors": {
         "noLanguages": "Parece que você não possui um cargo de idioma! Contate um administrador se você acredita que isto é um erro.",
-        "trNoRoles": "Notamos que você é um tradutor, mas não tem um cargo do idioma.",
+        "trNoRoles": "Notamos que você é um tradutor, mas não possui um cargo do idioma.",
         "error": "Falha ao alterar o apelido. Você pode copiar o apelido abaixo e aplicar você mesmo.",
         "confirmedNoFlags": "Você confirmou, mas não reagiu à nenhuma bandeira, ",
         "cancelled": "Você cancelou a alteração de seu apelido, ",

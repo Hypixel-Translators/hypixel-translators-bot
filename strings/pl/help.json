@@ -74,7 +74,7 @@
     },
     "rank": {
         "usage": "+rank [użytkownik]",
-        "description": "Daje ci twoje PD lub dla danego użytkownika."
+        "description": "Podaje twoje obecne PD lub PD wybranego użytkownika."
     },
     "levels": {
         "usage": "+levels [strona]",

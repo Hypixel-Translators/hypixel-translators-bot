@@ -3,19 +3,19 @@
     "question": "Pergunta",
     "answers": {
         "positive": [
-            "It is certain.",
-            "It is decidedly so.",
+            "Certamente.",
+            "É decididamente assim.",
             "Sem dúvidas.",
             "Definitivamente.",
-            "You may rely on it.",
-            "As I see it, yes.",
+            "Você pode contar com isso.",
+            "Eu vejo que sim.",
             "Muito provavelmente.",
-            "Outlook good.",
+            "Parece bem.",
             "Sim",
-            "Signs point to yes."
+            "Tudo indica que sim."
         ],
         "inconclusive": [
-            "Reply hazy, try again.",
+            "Resposta vaga, tente novamente.",
             "Pergunte mais tarde.",
             "É melhor eu não dizer agora.",
             "Não consigo prever agora.",
@@ -25,7 +25,7 @@
             "Não conte com isso.",
             "A minha resposta é não.",
             "As minhas fontes dizem que não.",
-            "Outlook not so good.",
+            "Não me parece bom.",
             "Muito duvidoso."
         ]
     }

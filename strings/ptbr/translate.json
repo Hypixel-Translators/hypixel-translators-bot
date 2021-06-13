@@ -3,17 +3,17 @@
     "alreadyTranslator": "Você já é um tradutor. Aqui está o que você pode estar procurando:",
     "projectLink": "Você pode encontrar o link do projeto [aqui](%%link%%).",
     "question": "Possui alguma dúvida?",
-    "askTranslators": "Feel free to ask anything about the project on %%botTranslators%%. Don't forget to send a link to the string you're referring to!",
+    "askTranslators": "Sinta-se livre para perguntar qualquer coisa sobre o projeto no %%botTranslators%%. Não se esqueça de enviar o link da linha que você está se referindo!",
     "newCrowdin": "Novo no Crowdin?",
-    "checkGuide": "Check out our guide with a bunch of useful Crowdin tools and tips to get started! You can find it on %%gettingStarted%%.",
+    "checkGuide": "Confira nosso guia com várias dicas e ferramentas úteis para o Crowdin! Você pode encontrá-lo em %%gettingStarted%%.",
     "newTranslator": "Você está querendo traduzir o nosso bot para o seu próprio idioma?",
     "join": "Nós adoraríamos ter você no projeto! Veja como você pode participar:",
     "openProject": "Por favor, abra o projeto no Crowdin",
     "howOpen": "Isto pode ser feito acessando o link clicando [aqui](%%link%%).",
     "clickLanguage": "Agora, clique no idioma que você deseja traduzir",
-    "requestJoin": "In order to join that language, you must hit \"Join\" and write a simple message on why you want to join the project.",
+    "requestJoin": "Para entrar no projeto do idioma, você precisa clicar em \"Juntar-se\" e escrever uma mensagem simples sobre o porquê de você querer se juntar ao projeto.",
     "lastThing": "Só mais uma coisa",
-    "requestInfo": "When submitting your request, please make sure to include either your tag (%%tag%%) or your ID (%%id%%).\n**If you do not include at least one of these, you will be rejected!**",
+    "requestInfo": "Ao enviar seu pedido, por favor lembre-se de incluir sua tag (%%tag%%) ou ID (%%id%%).\n**Se você não incluir pelo menos um deles, seu pedido será rejeitado!**",
     "noLanguage": "Não encontrou seu idioma?",
-    "langRequest": "It is possible that we don't support your language yet. If that's the case, please contact an administrator asking them to add the language you want."
+    "langRequest": "É possível que nós não apoiemos seu idioma ainda. Se este for o caso, por favor, contate um administrador pedindo para que adicione o idioma que você deseja."
 }

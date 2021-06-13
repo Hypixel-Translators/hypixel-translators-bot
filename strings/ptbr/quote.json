@@ -1,7 +1,7 @@
 {
     "moduleName": "Citação",
-    "msgUrl": "Message URL",
+    "msgUrl": "Link da mensagem",
     "invalidArg": "Argumento inválido!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
+    "indexArg": "A citação de número %%arg%% não existe! O número deve ser entre 1 e %%max%%.",
     "reqSub": "Seu pedido de citação foi enviado, obrigado!"
 }

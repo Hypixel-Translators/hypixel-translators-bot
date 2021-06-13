@@ -12,7 +12,7 @@
     "pageNotExist": "Essa página não existe!",
     "commandInfo": "Informações do comando",
     "commandInfoFor": "Informação para o comando ",
-    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
+    "staffOnly": "Este comando está disponível apenas para a equipe, logo sua informação está escondida.\nPor favor, contate um membro da equipe se você acredita que isto é um erro.",
     "inDev": "Este comando está em desenvolvimento e estará disponível no futuro!",
     "seconds": "segundos",
     "second": "segundo",
@@ -29,7 +29,7 @@
         "description": "Fornece a você um prefixo de acordo com o(s) seu(s) idioma(s). Caso queira um prefixo customizado, use `+prefix <bandeiras>` e substitua `<bandeiras>` com o código de bandeira do seu país ou o seu nome. Você pode adicionar quantas bandeiras desejar, separando-as com espaço."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <quote> / <author mention>",
+        "usage": "+quote [número] | +quote add <citação> / <autor>",
         "description": "Mostra ou adiciona uma citação engraçada, estranha ou sábia dita no servidor."
     },
     "mention": {
@@ -110,7 +110,7 @@
     },
     "translate": {
         "usage": "+translate",
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "Receba informações úteis sobre como traduzir o Bot."
     },
     "thread": {
         "usage": "+thread",
