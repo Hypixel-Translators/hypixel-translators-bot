@@ -178,32 +178,33 @@ const command: Command = {
         }
       })
       userLangs = userLangs.reverse()
-      //TODO add system to split buttons into multiple rows when there's more than 5
-      const prefixButtons = new Discord.MessageActionRow(),
-        controlButtons = new Discord.MessageActionRow()
-          .addComponents(
-            new Discord.MessageButton()
-              .setCustomID("confirm")
-              .setStyle("SUCCESS")
-              .setDisabled(true)
-              .setEmoji("✅")
-              .setLabel(getString("confirm")),
-            new Discord.MessageButton()
-              .setCustomID("cancel")
-              .setStyle("DANGER")
-              .setEmoji("❎")
-              .setLabel(getString("cancel"))
-          )
+      const prefixButtons: Discord.MessageButton[] = []
       userLangs.forEach(entry => {
-        prefixButtons.addComponents(
-          new Discord.MessageButton()
-            .setStyle("SECONDARY")
-            .setCustomID(entry.code)
-            .setEmoji(entry.emoji)
-        )
+        const button = new Discord.MessageButton()
+          .setStyle("SECONDARY")
+          .setCustomID(entry.code)
+          .setEmoji(entry.emoji)
+        prefixButtons.push(button)
       })
+      const controlButtons: Discord.MessageButton[] = [
+        new Discord.MessageButton()
+          .setCustomID("confirm")
+          .setStyle("SUCCESS")
+          .setDisabled(true)
+          .setEmoji("✅")
+          .setLabel(getString("confirm")),
+        new Discord.MessageButton()
+          .setCustomID("cancel")
+          .setStyle("DANGER")
+          .setEmoji("❎")
+          .setLabel(getString("cancel"))
+      ]
+      const components: Discord.MessageButton[][] = []
+      let p = 0
+      while (p < prefixButtons.length) components.push(prefixButtons.slice(p, p += 5))
+      components.push(controlButtons)
 
-      if (userLangs.length < 1) {
+      if (!userLangs.length) {
         if (member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628") || member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))) { //Bot updates
           const embed = new Discord.MessageEmbed()
             .setColor(errorColor)
@@ -230,14 +231,14 @@ const command: Command = {
         .setDescription(getString("reactTimer", { cooldown: this.cooldown! }))
         .addField(getString("previewT"), getString("noChanges"))
         .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-      await interaction.editReply({ embeds: [noChangesEmbed], components: [prefixButtons, controlButtons] })
+      await interaction.editReply({ embeds: [noChangesEmbed], components: components })
       const msg = await interaction.fetchReply() as Discord.Message
 
       const collector = msg.createMessageComponentInteractionCollector((buttonInteraction: Discord.MessageComponentInteraction) => userLangs.includes(langdb.find(entry => entry.code === buttonInteraction.customID)!) || buttonInteraction.customID === "confirm" || buttonInteraction.customID === "cancel", { time: this.cooldown! * 1000 })
 
       collector.on('collect', async buttonInteraction => {
         if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global"), ephemeral: true })
-        if (buttonInteraction.customID !== "cancel") controlButtons.components.find(button => button.customID === "confirm")!.setDisabled(false)
+        if (buttonInteraction.customID !== "cancel") components.find(button => button.find(b => b.customID === "confirm")!.setDisabled(false))
         if (buttonInteraction.customID === "confirm") {
           if (prefixes) {
             if (member.nickname !== (`[${prefixes}] ${nickNoPrefix}`)) {
@@ -293,7 +294,7 @@ const command: Command = {
           const clickedEntry = langdb.find(entry => entry.code === buttonInteraction.customID)!
           if (prefixes) prefixes = `${prefixes}-${clickedEntry.emoji}`
           else prefixes = `${clickedEntry.emoji}`
-          prefixButtons.components.find(button => button.customID === buttonInteraction.customID)!.setDisabled(true)
+          components.find(button => button.find(b => b.customID === buttonInteraction.customID)!.setDisabled(false))
           const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setAuthor(getString("moduleName"))
@@ -301,7 +302,7 @@ const command: Command = {
             .setDescription(getString("reactTimer2", { cooldown: this.cooldown! }))
             .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          await buttonInteraction.update({ embeds: [embed], components: [prefixButtons, controlButtons] })
+          await buttonInteraction.update({ embeds: [embed], components: components })
         }
       })
 
