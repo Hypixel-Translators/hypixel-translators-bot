@@ -110,7 +110,7 @@ async function setPermissions(command: Discord.ApplicationCommand) {
             permission: false
         })
     })
-    if (permissions.length) await command.setPermissions(permissions)
+    if (permissions.length) await command.setPermissions(permissions, "549503328472530974")
 }
 function constructDiscordCommands() {
     const returnCommands: Discord.ApplicationCommandData[] = []
