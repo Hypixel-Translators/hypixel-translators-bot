@@ -20,7 +20,7 @@ const command: Command = {
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("unverified"))
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                return interaction.reply(embed)
+                return interaction.reply({ embeds: [embed] })
             } else {
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
@@ -31,7 +31,6 @@ const command: Command = {
                 return interaction.reply({ embeds: [embed], ephemeral: true })
             }
         })
-        client.cooldowns.get(this.name)!.delete(interaction.user.id)
         return
     },
 }

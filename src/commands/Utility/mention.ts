@@ -49,7 +49,7 @@ const command: Command = {
     const langs: { [key: string]: string } = { "Chinesesimplified": "Chinese Simplified", "Chinese-simplified": "Chinese Simplified", "Zhcn": "Chinese Simplified", "Chinesetraditional": "Chinese Traditional", "Chinese-traditional": "Chinese Traditional", "Zhtw": "Chinese Traditional", "Lolcat": "LOLCAT", "Lol": "LOLCAT", "Bg": "Bulgarian", "Cs": "Czech", "Da": "Danish", "Nl": "Dutch", "Fi": "Finnish", "Fr": "French", "De": "German", "El": "Greek", "It": "Italian", "Ja": "Japanese", "Ko": "Korean", "Ms": "Malay", "No": "Norwegian", "Pl": "Polish", "Pt": "Portuguese", "Ptbr": "Portuguese Brazilian", "Brazilian": "Portuguese Brazilian", "Ru": "Russian", "Es": "Spanish", "Sv": "Swedish", "Se": "Swedish", "Th": "Thai", "Tr": "Turkish", "Ua": "Ukrainian", "Enpt": "Pirate English", "Pirate": "Pirate English" }
 
     if (langs.hasOwnProperty(roleName)) roleName = langs[roleName]
-    const role = interaction.guild!.roles.cache.find(x => x.name == (`${roleName} Proofreader`))
+    const role = interaction.guild!.roles.cache.find(x => x.name === (`${roleName} Proofreader`))
 
     if (!role) throw "falseRole"
     if (roleType === "pf" || roleType === "pr" || roleType === "proofreader") {
@@ -57,14 +57,14 @@ const command: Command = {
       if (member.roles.cache.find(role => role.name === `${roleName} Proofreader` || member.permissions.has("MANAGE_ROLES"))) {
         await interaction.reply(`**${interaction.user}**: ${toPing} ${message}`)
       } else {
-        await interaction.reply(`${getString("errorNoPing")}${getString("errorNoPingPr")} ${getString("errorNoPingDisclaimer")}`, { ephemeral: true })
+        await interaction.reply({ content: `${getString("errorNoPing")}${getString("errorNoPingPr")} ${getString("errorNoPingDisclaimer")}`, ephemeral: true })
       }
     } else if (roleType === "tr" || roleType === "translator") {
       const toPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Translator`)
       if (member.roles.cache.find(role => role.name === `${roleName} Proofreader` || member.permissions.has("MANAGE_ROLES"))) {
         await interaction.reply(`**${interaction.user}**: ${toPing} ${message}`)
       } else {
-        await interaction.reply(`${getString("errorNoPing")}${getString("errorNoPingTr")} ${getString("errorNoPingDisclaimer")}`, { ephemeral: true })
+        await interaction.reply({ content: `${getString("errorNoPing")}${getString("errorNoPingTr")} ${getString("errorNoPingDisclaimer")}`, ephemeral: true })
       }
     } else if (roleType === "all" || roleType === "both") {
       const translatorPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Translator`)
@@ -72,7 +72,7 @@ const command: Command = {
       if (member.roles.cache.find(role => role.name === `${roleName} Proofreader` || member.permissions.has("MANAGE_ROLES"))) {
         await interaction.reply(`**${interaction.user}**: ${translatorPing} ${proofreaderPing} ${message}`)
       } else {
-        await interaction.reply(`${getString("errorNoPing")}${getString("errorNoPingAll")} ${getString("errorNoPingDisclaimer")}`, { ephemeral: true })
+        await interaction.reply({ content: `${getString("errorNoPing")}${getString("errorNoPingAll")} ${getString("errorNoPingDisclaimer")}`, ephemeral: true })
       }
     } else throw "falseRole"
   }

@@ -29,7 +29,7 @@ const command: Command = {
     else if (userDb?.profile) note = userDb.profile
 
     let color = member!.displayHexColor
-    if (color == "#000000") color = blurple
+    if (color === "#000000") color = blurple
     let timeZone = getString("timeZone", "hypixelstats")
     if (timeZone.startsWith("crwdns")) timeZone = getString("timeZone", "hypixelstats", "en")
     const joined = member!.joinedAt!.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
@@ -56,7 +56,7 @@ const command: Command = {
       .setThumbnail(member!.user.displayAvatarURL({ format: "png", dynamic: true }))
       .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     if (note) embed.addField("Note", note)
-    await interaction.reply(embed)
+    await interaction.reply({ embeds: [embed] })
     function timeAgo(time: number) {
       let timeString: string
       if (time == 1) timeString = ` (${time} second ago)`

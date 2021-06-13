@@ -22,7 +22,7 @@ const command: Command = {
                     { name: getString("newCrowdin"), value: getString("checkGuide", { gettingStarted: "<#699275092026458122>" }) }
                 )
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.reply(embed)
+            await interaction.reply({ embeds: [embed] })
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
@@ -36,7 +36,7 @@ const command: Command = {
                     { name: getString("noLanguage"), value: getString("langRequest") }
                 )
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.reply(embed)
+            await interaction.reply({ embeds: [embed] })
         }
     }
 }

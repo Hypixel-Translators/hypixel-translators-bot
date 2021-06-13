@@ -84,7 +84,7 @@ client.on("message", async message => {
                         `${getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" })}
                         \n${getGlobalString("reminderLang", { format: "`crowdin.com/translate/hypixel/.../en-en#`" })}`
                     )
-                message.channel.send(`${message.author}`, embed)
+                message.channel.send({ content: `${message.author}`, embeds: [embed] })
                 return
             } else if (message.content !== langFix && message.channel.parentID === "549503328472530977") {
                 message.react("732298639736570007")
@@ -93,7 +93,7 @@ client.on("message", async message => {
                     .setAuthor(getGlobalString("errors.wrongLink"))
                     .setTitle(getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }))
                     .setDescription(langFix)
-                message.channel.send(`${message.author}`, embed)
+                message.channel.send({ content: `${message.author}`, embeds: [embed] })
                 return
             }
         }
@@ -125,7 +125,7 @@ client.on("message", async message => {
                 .setDescription(message.content)
                 .setFooter(getGlobalString("staffDm.confirmSend"))
             if (message.attachments.size > 0) embed.setTitle(`${getGlobalString("staffDm.confirmation")} ${getGlobalString("staffDm.attachmentsWarn")}`)
-            const msg = await message.channel.send(embed)
+            const msg = await message.channel.send({ embeds: [embed] })
             await msg.react("✅")
             await msg.react("❎")
             const collector = msg.createReactionCollector(
@@ -141,7 +141,7 @@ client.on("message", async message => {
                 msg.reactions.cache.forEach(async reaction => await reaction.users.remove())
                 if (reaction.emoji.name === "❎") {
                     embed.setColor(errorColor).setTitle(getGlobalString("staffDm.dmCancelled")).setFooter(getGlobalString("staffDm.resendInfo"))
-                    msg.edit(embed)
+                    msg.edit({ embeds: [embed] })
                 } else if (reaction.emoji.name === "✅") staffDm(msg, true)
             })
 
@@ -152,7 +152,7 @@ client.on("message", async message => {
                     .setAuthor(getGlobalString("staffDm.dmCancelled"))
                     .setDescription(message.content)
                     .setFooter(getGlobalString("staffDm.resendInfo"))
-                msg.edit(timeOutEmbed)
+                msg.edit({ embeds: [timeOutEmbed] })
                 msg.reactions.cache.forEach(async reaction => await reaction.users.remove())
             })
         } else staffDm(message, false)
@@ -174,21 +174,21 @@ client.on("message", async message => {
                 message.attachments.forEach(file => images.push(file.attachment))
                 staffMsg.setTitle("View attachments")
                 dmEmbed.setTitle(getGlobalString("staffDm.attachmentsSent"))
-                staffBots.send(`+dm ${message.author.id}`, { embed: staffMsg, files: images })
-                message.channel.send(dmEmbed)
+                staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg], files: images })
+                message.channel.send({ embeds: [dmEmbed] })
                 return
             } else if (message.attachments.size > 0) {
                 staffMsg
                     .setTitle("View attachment")
                     .setImage(message.attachments.first()!.url)
                 dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent"))
-                staffBots.send(`+dm ${message.author.id}`, staffMsg)
-            } else staffBots.send(`+dm ${message.author.id}`, staffMsg) //staff-bots
+                staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg] })
+            } else staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg] }) //staff-bots
             if (afterConfirm) {
-                msg.edit(dmEmbed)
+                msg.edit({ embeds: [dmEmbed] })
                 return
             }
-            msg.channel.send(dmEmbed)
+            msg.channel.send({ embeds: [dmEmbed] })
         }
     }
 

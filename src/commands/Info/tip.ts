@@ -18,7 +18,7 @@ const command: Command = {
       .setAuthor(getString("tip", "global"))
       .setDescription(tip)
       .setFooter(executedBy, interaction.user.displayAvatarURL())
-    await interaction.reply(embed)
+    await interaction.reply({ embeds: [embed] })
   }
 }
 

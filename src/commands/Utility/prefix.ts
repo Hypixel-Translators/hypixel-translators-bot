@@ -60,7 +60,7 @@ const command: Command = {
       const collector = msg.createMessageComponentInteractionCollector((interaction: Discord.MessageComponentInteraction) => interaction.customID === "confirm" || interaction.customID === "cancel", { time: this.cooldown! * 1000 })
 
       collector.on("collect", async buttonInteraction => {
-        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply(getString("pagination.notYours", { command: `/${this.name}` }, "global"), { ephemeral: true })
+        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global"), ephemeral: true })
         if (buttonInteraction.customID === "confirm") {
           if (member.nickname !== (`[${prefix}] ${nickNoPrefix}`)) {
             await member.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
@@ -78,7 +78,7 @@ const command: Command = {
                   .setTitle("A user manually changed their prefix")
                   .setDescription(`${interaction.user} manually changed their prefix to include the following flag: ${prefix}\nMake sure they have the appropriate roles for this prefix and, if not, follow the appropriate procedure`)
                   .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }));
-                (interaction.client.channels.cache.get("624881429834366986") as Discord.TextChannel).send(staffAlert) //staff-bots
+                (interaction.client.channels.cache.get("624881429834366986") as Discord.TextChannel).send({ embeds: [staffAlert] }) //staff-bots
               })
               .catch(async err => {
                 const embed = new Discord.MessageEmbed()
@@ -233,11 +233,11 @@ const command: Command = {
       await interaction.editReply({ embeds: [noChangesEmbed], components: [prefixButtons, controlButtons] })
       const msg = await interaction.fetchReply() as Discord.Message
 
-      const collector = msg.createMessageComponentInteractionCollector((buttonInteraction: Discord.MessageComponentInteraction) => userLangs.includes(langdb.find(entry => entry.code == buttonInteraction.customID)!) || buttonInteraction.customID === "confirm" || buttonInteraction.customID === "cancel", { time: this.cooldown! * 1000 })
+      const collector = msg.createMessageComponentInteractionCollector((buttonInteraction: Discord.MessageComponentInteraction) => userLangs.includes(langdb.find(entry => entry.code === buttonInteraction.customID)!) || buttonInteraction.customID === "confirm" || buttonInteraction.customID === "cancel", { time: this.cooldown! * 1000 })
 
       collector.on('collect', async buttonInteraction => {
-        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply(getString("pagination.notYours", { command: `/${this.name}` }, "global"), { ephemeral: true })
-        if (buttonInteraction.customID !== "cancel") controlButtons.components.find(button => button.customID == "confirm")!.setDisabled(false)
+        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global"), ephemeral: true })
+        if (buttonInteraction.customID !== "cancel") controlButtons.components.find(button => button.customID === "confirm")!.setDisabled(false)
         if (buttonInteraction.customID === "confirm") {
           if (prefixes) {
             if (member.nickname !== (`[${prefixes}] ${nickNoPrefix}`)) {
@@ -290,10 +290,10 @@ const command: Command = {
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
           await buttonInteraction.update({ embeds: [embed], components: [] })
         } else {
-          const clickedEntry = langdb.find(entry => entry.code == buttonInteraction.customID)!
+          const clickedEntry = langdb.find(entry => entry.code === buttonInteraction.customID)!
           if (prefixes) prefixes = `${prefixes}-${clickedEntry.emoji}`
           else prefixes = `${clickedEntry.emoji}`
-          prefixButtons.components.find(button => button.customID == buttonInteraction.customID)!.setDisabled(true)
+          prefixButtons.components.find(button => button.customID === buttonInteraction.customID)!.setDisabled(true)
           const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setAuthor(getString("moduleName"))

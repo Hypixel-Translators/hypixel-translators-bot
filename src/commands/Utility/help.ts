@@ -45,8 +45,8 @@ const command: Command = {
       pageIndex++
     })
 
-    const commandInput = interaction.options.find(o => o.name == "command")?.value as string | undefined,
-      pageInput = interaction.options.find(o => o.name == "page")?.value as number | undefined
+    const commandInput = interaction.options.find(o => o.name === "command")?.value as string | undefined,
+      pageInput = interaction.options.find(o => o.name === "page")?.value as number | undefined
 
     if (!commandInput) {
       if (Number(pageInput) > pages.length || Number(pageInput) < 1) {
@@ -104,7 +104,7 @@ const command: Command = {
       const collector = msg.createMessageComponentInteractionCollector((button: Discord.MessageComponentInteraction) => button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last", { time: this.cooldown! * 1000 })
 
       collector.on("collect", async buttonInteraction => {
-        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply(getString("pagination.notYours", { command: `/${this.name}` }, "global"), { ephemeral: true })
+        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global"), ephemeral: true })
         else if (buttonInteraction.customID === "first") page = 0
         else if (buttonInteraction.customID === "last") page = pages.length - 1
         else if (buttonInteraction.customID === "previous") {
@@ -121,7 +121,7 @@ const command: Command = {
       })
 
       collector.on("end", async () => {
-        await interaction.editReply(getString("timeOut", { command: "`+help`" }), { embeds: [pageEmbed], components: [] })
+        await interaction.editReply({ content: getString("timeOut", { command: "`+ help`" }), embeds: [pageEmbed], components: [] })
       })
 
     } else {
@@ -151,7 +151,7 @@ const command: Command = {
           else embed.addField(getString("cooldownField"), `${command.cooldown} ${getString("seconds")}`, true)
         }
       }
-      await interaction.reply(embed)
+      await interaction.reply({ embeds: [embed] })
     }
   }
 }
@@ -176,23 +176,32 @@ function fetchPage(page: number, pages: Page[], getString: (path: string, variab
   return pageEmbed
 }
 
-function updateButtonColors(row: Discord.MessageActionRow, page: number, pages: Page[]) {
+export function updateButtonColors(row: Discord.MessageActionRow, page: number, pages: any[]) {
   if (page == 0) {
     row.components.forEach(button => {
-      if (button.customID == "first" || button.customID == "previous") button.setStyle("SECONDARY")
-      else button.setStyle("SUCCESS")
+      if (button.customID === "first" || button.customID === "previous") button
+        .setStyle("SECONDARY")
+        .setDisabled(true)
+      else button
+        .setStyle("SUCCESS")
+        .setDisabled(false)
     })
   } else if (page == pages.length - 1) {
     row.components.forEach(button => {
-      if (button.customID == "last" || button.customID == "next") button.setStyle("SECONDARY")
-      else button.setStyle("SUCCESS")
+      if (button.customID === "last" || button.customID === "next") button
+        .setStyle("SECONDARY")
+        .setDisabled(true)
+      else button
+        .setStyle("SUCCESS")
+        .setDisabled(false)
     })
   } else {
-    row.components.forEach(button => button.setStyle("SUCCESS"))
+    row.components.forEach(button => button
+      .setStyle("SUCCESS")
+      .setDisabled(false))
   }
   return row
 }
-
 interface Page {
   number: number
   commands?: string[]

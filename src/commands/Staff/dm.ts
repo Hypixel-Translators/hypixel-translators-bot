@@ -28,7 +28,7 @@ const command: Command = {
                 .setDescription(message)
                 .setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang))
         await interaction.defer()
-        recipient.send(dm)
+        recipient.send({ embeds: [dm] })
             .then(async () => {
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
@@ -36,7 +36,7 @@ const command: Command = {
                     .setTitle(`Sent message to ${recipient.tag}`)
                     .setDescription(message)
                     .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                await interaction.editReply(embed)
+                await interaction.editReply({ embeds: [embed] })
             })
             .catch(async error => {
                 const errorEmbed = new Discord.MessageEmbed()
@@ -45,7 +45,7 @@ const command: Command = {
                     .setTitle(`An error occured while trying to message ${recipient.tag}`)
                     .setDescription(error.toString())
                     .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                await interaction.editReply(errorEmbed)
+                await interaction.editReply({ embeds: [errorEmbed] })
             })
     }
 }

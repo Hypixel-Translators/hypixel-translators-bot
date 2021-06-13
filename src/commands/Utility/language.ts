@@ -61,11 +61,11 @@ const command: Command = {
                         .setTitle(getString("listTitle"))
                         .setDescription(langList.join("\n"))
                         .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    await interaction.reply(embed)
+                    await interaction.reply({ embeds: [embed] })
                 }
             })
         } else if (subCommand === "stats") {
-            if (!member.roles.cache.has("764442984119795732")) return interaction.reply("You do not have permission to execute this command", { ephemeral: true })
+            if (!member.roles.cache.has("764442984119795732")) return interaction.reply({ content: getString("noAccess", "global"), ephemeral: true })
             const files = fs.readdirSync(stringsFolder),
                 langInput = interaction.options.first()!.options!.get("language")!.value as string
             if (!files.includes(langInput)) throw "falseLang"
@@ -78,9 +78,9 @@ const command: Command = {
                 .setTitle(`There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`)
                 .setFooter(`Executed By ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             if (langInput !== "en") embed.setDescription(users.join(", "))
-            await interaction.reply(embed)
+            await interaction.reply({ embeds: [embed] })
         }
-        else if (subCommand == "set" && newLang) {
+        else if (subCommand === "set" && newLang) {
             if (newLang === "se") newLang = "sv"
             const langdb = await db.collection("langdb").find().toArray(),
                 langdbEntry = langdb.find(l => l.name.toLowerCase() === newLang)
@@ -98,7 +98,7 @@ const command: Command = {
                                     .setTitle(getString("changedToTitle", this.name, newLang))
                                     .setDescription(getString("credits", this.name, newLang))
                                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                                return interaction.reply(embed)
+                                return interaction.reply({ embeds: [embed] })
                             } else {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(errorColor)
@@ -106,7 +106,7 @@ const command: Command = {
                                     .setTitle(getString("didntChange", this.name, newLang))
                                     .setDescription(getString("alreadyThis", this.name, newLang))
                                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                                return interaction.reply(embed)
+                                return interaction.reply({ embeds: [embed] })
                             }
                         })
                     } else {
@@ -116,7 +116,7 @@ const command: Command = {
                             .setTitle(getString("didntChange"))
                             .setDescription(getString("notTranslated"))
                             .setFooter(executedBy, interaction.user.displayAvatarURL())
-                        return interaction.reply(embed)
+                        return interaction.reply({ embeds: [embed] })
                     }
                 } else {
                     await fs.readdir(stringsFolder, async (_err, files) => {
@@ -128,7 +128,7 @@ const command: Command = {
                             .setTitle(getString("errorTitle"))
                             .setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n${getString("suggestAdd")}`)
                             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                        await interaction.reply(embed)
+                        await interaction.reply({ embeds: [embed] })
                     })
                 }
             })
@@ -142,7 +142,7 @@ const command: Command = {
                 .setTitle(getString("current"))
                 .setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n\n${getString("credits")}`)
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.reply(embed)
+            await interaction.reply({ embeds: [embed] })
         }
     }
 }

@@ -21,10 +21,10 @@ const command: Command = {
     async execute(interaction: Discord.CommandInteraction) {
         const giveawayMsg = await (interaction.channel as Discord.TextChannel).messages.fetch((interaction.options.get("messageid")!.value as Discord.Snowflake))
             .catch(err => {
-                return interaction.reply("Couldn't find that message! Here's the error:\n" + err, { ephemeral: true })
+                return interaction.reply({ content: "Couldn't find that message! Here's the error:\n" + err, ephemeral: true })
             }) as Discord.Message
         const users = await giveawayMsg.reactions.cache.get("🎉")?.users.fetch() as Discord.Collection<string, Discord.User>
-        if (!users) return interaction.reply("That message doesn't have any 🎉 reactions.", { ephemeral: true })
+        if (!users) return interaction.reply({ content: "That message doesn't have any 🎉 reactions.", ephemeral: true })
         const winners: (Discord.User | undefined)[] = users.random(Number(interaction.options.get("winners")?.value) || 1)
         await interaction.reply(`Congratulations to ${winners.filter(user => user).join(", ")}`)
     }

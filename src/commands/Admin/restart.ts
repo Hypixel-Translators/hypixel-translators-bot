@@ -13,7 +13,7 @@ const command: Command = {
             .setAuthor("Restart")
             .setTitle("Restarting...")
             .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        await interaction.reply(embed)
+        await interaction.reply({ embeds: [embed] })
         interaction.client.user!.setStatus("invisible")
         setTimeout(() => {
             client.destroy()

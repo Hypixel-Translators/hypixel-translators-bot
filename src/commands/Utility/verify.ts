@@ -37,7 +37,7 @@ const command: Command = {
             db.collection("users").updateOne({ id: member!.id }, { $unset: { unverifiedTimestamp: true } });
             verifyLogs.send(`${interaction.user} manually verified themselves through the command`)
             client.cooldowns.get(this.name)!.delete(interaction.user.id)
-            await interaction.reply("You successfully verified yourself!", { ephemeral: true })
+            await interaction.reply({ content: "You successfully verified yourself!", ephemeral: true })
         } else if (!member.roles.cache.has("764442984119795732") || !profileUrl || /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) { //Discord Administrator
             const userDb: DbUser = await db.collection("users").findOne({ id: interaction.user.id })
             if (userDb.profile || profileUrl && /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) {
@@ -54,23 +54,23 @@ const command: Command = {
                     .setTitle("You were successfully unverified!")
                     .setDescription(`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us on the <#569178590697095168> channel. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`)
                     .setFooter("Any messages you send here will be sent to staff upon confirmation.")
-                interaction.user.send(embed)
+                interaction.user.send({ embeds: [embed] })
                     .then(async () => {
                         await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL or there was no profile stored for them.`)
-                        await interaction.reply("Your request was processed, check your DMs for more info!", { ephemeral: true })
+                        await interaction.reply({ content: "Your request was processed, check your DMs for more info!", ephemeral: true })
                     })
                     .catch(async () => {
                         embed
                             .setDescription(`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us here. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`)
                             .setFooter("")
                         await verifyLogs.send(`${interaction.user} was unverified and had DMs off.`) //verify-logs
-                        await verify.send(`${interaction.user} you had DMs disabled, so here's our message:`, embed) //verify
+                        await verify.send({ content: `${interaction.user} you had DMs disabled, so here's our message:`, embeds: [embed] }) //verify
                             .then(msg => {
                                 setTimeout(() => {
                                     if (!msg.deleted) msg.delete()
                                 }, 30000)
                             })
-                        await interaction.reply(`Your request was processed, check ${verify} for more info!`, { ephemeral: true })
+                        await interaction.reply({ content: `Your request was processed, check ${verify} for more info!`, ephemeral: true })
                     })
             }
         } else {

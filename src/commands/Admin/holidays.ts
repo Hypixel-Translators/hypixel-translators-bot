@@ -67,7 +67,7 @@ const command: Command = {
                 await interaction.reply(`${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement sent! Here's each language's translation:\n${debugMsg}`)
                 console.table(log)
                 console.log(`Sent the ${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement`)
-            } else return interaction.reply("For some reason there is nothing in the announcement so I can't send it. Fix your code bro.", { ephemeral: true })
+            } else return interaction.reply({ content: "For some reason there is nothing in the announcement so I can't send it. Fix your code bro.", ephemeral: true })
         })
     }
 }

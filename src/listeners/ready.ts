@@ -4,7 +4,7 @@ import inactives from "../events/inactives"
 import crowdin from "../events/crowdinverify"
 import { listeningStatuses, watchingStatuses, playingStatuses } from "../config.json"
 import Discord from "discord.js"
-import { isEqual } from "lodash"
+import { isArray, isEqual, isObject, transform } from "lodash";
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user!.tag}!`)
@@ -12,7 +12,8 @@ client.once("ready", async () => {
     const publishCommand = async (command: Command) => {
         if (command.allowDM) {
             //Create a global command
-            await client.application?.commands.create(convertToDiscordCommand(command))
+            const cmd = await client.application!.commands.create(convertToDiscordCommand(command))!
+            await setPermissions(cmd)
         } else {
             //Create a guild wide command
             const cmd = await client.guilds.cache.get("549503328472530974")!.commands.create(convertToDiscordCommand(command))
@@ -25,23 +26,22 @@ client.once("ready", async () => {
     //TODO add check to delete commands that have been removed
     if (process.env.NODE_ENV === "dev") {
         const globalCommands = await client.application!.commands.fetch()
-        if (!globalCommands)
-            client.commands.filter(c => !!c.allowDM).forEach(async command => await publishCommand(command))
-        else
-            client.commands.forEach(async (command: Command) => {
-                const discordCommand = globalCommands.find(c => c.name == command.name)!
+        client.commands.filter(c => !!c.allowDM).forEach(async command => {
+            if (!globalCommands) await publishCommand(command)
+            else {
+                const discordCommand = globalCommands.find(c => c.name === command.name)!
                 //Chech if the command is published
                 if (!globalCommands.some(cmd => cmd.name === command.name)) await publishCommand(command)
                 else if (!commandEquals(discordCommand, command)) {
+                    console.log(discordCommand.options, command.options?.map(o => transformOption(o)))
                     discordCommand.edit(convertToDiscordCommand(command))
                     console.log(`Edited command ${command.name} since changes were found`)
                 }
-            })
-        const guildCommands = await client.guilds.cache.get("549503328472530974")!.commands.fetch()
-        if (!guildCommands) client.commands.filter(c => !c.allowDM).forEach(async command => await publishCommand(command))
-        else client.guilds.cache.get("549503328472530974")!.commands.set(constructDiscordCommands())
-    } else client.guilds.cache.get("549503328472530974")!.commands.set(constructDiscordCommands())
-        .then(commands => commands.forEach(async command => await setPermissions(command)))
+            }
+        })
+    }
+    //Set guild commands - these don't need checks since they update instantly
+    client.guilds.cache.get("549503328472530974")!.commands.set(constructDiscordCommands())
 
     //Get server boosters and staff for the status
     let boostersStaff: string[] = []
@@ -89,7 +89,7 @@ client.once("ready", async () => {
     }, 60000)
 })
 
-const setPermissions = async (command: Discord.ApplicationCommand) => {
+async function setPermissions(command: Discord.ApplicationCommand) {
     const permissions: Discord.ApplicationCommandPermissionData[] = [],
         clientCmd = client.commands.get(command.name)!
     clientCmd.roleWhitelist?.forEach(id => {
@@ -110,7 +110,7 @@ const setPermissions = async (command: Discord.ApplicationCommand) => {
     })
     if (permissions.length) await command.setPermissions(permissions)
 }
-const constructDiscordCommands = () => {
+function constructDiscordCommands() {
     const returnCommands: Discord.ApplicationCommandData[] = []
     let clientCommands = client.commands
     if (process.env.NODE_ENV !== "dev") clientCommands = clientCommands.filter(cmd => !cmd.allowDM)
@@ -119,7 +119,7 @@ const constructDiscordCommands = () => {
     return returnCommands
 }
 
-const convertToDiscordCommand = (command: Command): Discord.ApplicationCommandData => {
+function convertToDiscordCommand(command: Command): Discord.ApplicationCommandData {
     return {
         name: command.name,
         description: command.description,
@@ -131,4 +131,15 @@ const convertToDiscordCommand = (command: Command): Discord.ApplicationCommandDa
 const commandEquals = (discordCommand: Discord.ApplicationCommand, localCommand: Command) =>
     discordCommand.name === localCommand.name &&
     discordCommand.description === localCommand.description &&
-    isEqual(discordCommand.options, localCommand.options)
+    isEqual(discordCommand.options, localCommand.options?.map(o => transformOption(o)) ?? [])
+
+function transformOption(option: Discord.ApplicationCommandOptionData): Discord.ApplicationCommandOptionData {
+    return {
+        type: option.type,
+        name: option.name,
+        description: option.description,
+        required: option.required ? true : undefined,
+        choices: option.choices,
+        options: option.options?.map(o => transformOption(o)),
+    }
+}

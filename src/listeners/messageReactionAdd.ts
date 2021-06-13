@@ -36,7 +36,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     .setDescription(`${reaction.message}`)
                     .addField(strings.message, `[${strings.clickHere}](${reaction.message.url})`)
                     .setFooter(strings.requestedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
-                translatorChannel.send(`${reaction.message.author}`, embed)
+                translatorChannel.send({ content: `${reaction.message.author}`, embeds: [embed] })
             } else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {
                 reaction.message.react("⏱")
                 const embed = new Discord.MessageEmbed()
@@ -48,7 +48,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 setTimeout(async () => {
                     // Check if the user hasn't removed their reaction
                     if (await reaction.users.fetch().then(cache => cache.has(user.id))) {
-                        translatorChannel.send(`${reaction.message.author}`, embed)
+                        translatorChannel.send({ content: `${reaction.message.author}`, embeds: [embed] })
                         if (!reaction.message.deleted) reaction.message.delete()
                         console.log(`String rejected in ${channel.name}`)
                     } else reaction.message.reactions.cache.get("⏱")?.remove()
@@ -85,7 +85,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                         { name: "Quote number", value: `${id}` },
                         { name: "URL", value: reaction.message.url }
                     ])
-                reaction.message.channel.send(embed)
+                reaction.message.channel.send({ embeds: [embed] })
             }
         }
     }

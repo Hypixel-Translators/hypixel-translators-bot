@@ -18,7 +18,7 @@ client.on("voiceStateUpdate", (oldState, newState) => {
                 .setDescription(`**${newState.member} was server ${newState.serverMute ? "muted" : "unmuted"} in ${newState.channel?.name}**`)
                 .setFooter(`ID: ${newState.member!.id}`)
                 .setTimestamp(Date.now())
-            logs.send(embed)
+            logs.send({ embeds: [embed] })
         } else if (!!oldState.serverDeaf != !!newState.serverDeaf) {
             const embed = new Discord.MessageEmbed()
                 .setColor(newState.serverDeaf ? errorColor : successColor)
@@ -26,7 +26,7 @@ client.on("voiceStateUpdate", (oldState, newState) => {
                 .setDescription(`**${newState.member} was server ${newState.serverDeaf ? "deafened" : "undeafened"} in ${newState.channel?.name}**`)
                 .setFooter(`ID: ${newState.member!.id}`)
                 .setTimestamp(Date.now())
-            logs.send(embed)
+            logs.send({ embeds: [embed] })
         }
     }
 })

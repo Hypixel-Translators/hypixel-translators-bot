@@ -30,7 +30,7 @@ const command: Command = {
       .setTitle(getString("pong", { pingEmote: "<:ping:620954198493888512>" }))
       .setDescription(getString("message", { ping: ping }))
       .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-    await interaction.reply(embed)
+    await interaction.reply({ embeds: [embed] })
   }
 }
 

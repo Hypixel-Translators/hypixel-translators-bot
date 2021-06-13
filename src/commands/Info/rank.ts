@@ -29,7 +29,7 @@ const command: Command = {
                 .setTitle(user.id === interaction.user.id ? getString("youNotRanked") : getString("userNotRanked"))
                 .setDescription(getString("howRank"))
                 .setFooter(executedBy, interaction.user.displayAvatarURL())
-            return interaction.reply(errorEmbed)
+            return interaction.reply({ embeds: [errorEmbed] })
         }
         const totalXp = getXpNeeded(userDb.levels.level),
             progressBar = generateProgressBar(userDb.levels?.levelXp, totalXp),
@@ -44,7 +44,7 @@ const command: Command = {
             .setDescription(user.id === interaction.user.id ? getString("youLevel", { level: userDb.levels.level, rank: ranking }) : getString("userLevel", { user: String(user), level: userDb.levels.level, rank: ranking }))
             .addField(getString("textProgress", { currentXp: currentXp > 1000 ? `${(currentXp / 1000).toFixed(2)}${getString("thousand")}` : currentXp, xpNeeded: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp, messages: messageCount > 1000 ? `${(messageCount / 1000).toFixed(2)}${getString("thousand")}` : messageCount }), progressBar)
             .setFooter(executedBy, interaction.user.displayAvatarURL())
-        await interaction.reply(embed)
+        await interaction.reply({ embeds: [embed] })
     }
 }
 

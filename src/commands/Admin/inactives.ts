@@ -15,7 +15,7 @@ const command: Command = {
             .setAuthor("Inactive checker")
             .setTitle("All inactive members have been notified!")
             .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        await interaction.reply(embed)
+        await interaction.reply({ embeds: [embed] })
     }
 }
 

@@ -100,20 +100,20 @@ const command: Command = {
                     .setTitle("A quote request has been submitted!")
                     .setDescription(`${quote}\n       - ${author}`)
                     .setFooter("Suggested by " + interaction.user.tag, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                staffBots.send(`/quote add quote:${quote} author:@${author.tag}`, report)
+                staffBots.send({ content: `/quote add quote:${quote} author:@${author.tag}`, embeds: [report] })
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("reqSub"))
                     .setDescription(`${quote}\n       - ${author}`)
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                await interaction.reply(embed)
+                await interaction.reply({ embeds: [embed] })
             } else await addQuote(interaction, quote, author, collection)
         } else if (subCommand === "edit" && allowed) await editQuote(interaction, collection)
         else if (subCommand === "delete" && allowed) await deleteQuote(interaction, collection)
         else if (subCommand === "link" && allowed) await linkQuote(interaction, collection)
         else if (subCommand === "get") await findQuote(executedBy, interaction, getString, collection)
-        else interaction.reply(getString("errors.noAccess", "global"), { ephemeral: true })
+        else interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
     }
 }
 
@@ -144,7 +144,7 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
         .setDescription(`      - ${quote.author}`)
         .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     if (quote.url) embed.addField(getString("msgUrl"), quote.url)
-    return interaction.reply(embed)
+    return interaction.reply({ embeds: [embed] })
 }
 
 async function addQuote(interaction: Discord.CommandInteraction, quote: string, author: Discord.User, collection: Collection<any>) {
@@ -162,7 +162,7 @@ async function addQuote(interaction: Discord.CommandInteraction, quote: string, 
             { name: "Quote number", value: `${quoteId}` }
         ])
         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-    await interaction.reply(embed)
+    await interaction.reply({ embeds: [embed] })
 }
 
 async function editQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
@@ -183,7 +183,7 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
                     { name: "Link", value: r.value.link || "None" }
                 ])
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.reply(embed)
+            await interaction.reply({ embeds: [embed] })
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
@@ -211,7 +211,7 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
                     { name: "Link", value: r.value.link || "None" }
                 )
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.reply(embed)
+            await interaction.reply({ embeds: [embed] })
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(errorColor)
@@ -241,7 +241,7 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
                             { name: "Author", value: r.value.author }
                         )
                         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    await interaction.reply(embed)
+                    await interaction.reply({ embeds: [embed] })
                 } else {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)

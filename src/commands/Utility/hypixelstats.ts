@@ -212,12 +212,12 @@ const command: Command = {
                     .addComponents(
                         new Discord.MessageButton()
                             .setCustomID("stats")
-                            .setStyle(subCommand == "stats" ? "SECONDARY" : "SUCCESS")
+                            .setStyle(subCommand === "stats" ? "SECONDARY" : "SUCCESS")
                             .setEmoji("📊")
                             .setLabel(getString("stats")),
                         new Discord.MessageButton()
                             .setCustomID("social")
-                            .setStyle(subCommand == "social" ? "SECONDARY" : "SUCCESS")
+                            .setStyle(subCommand === "social" ? "SECONDARY" : "SUCCESS")
                             .setEmoji("twitter:821752918352068677")
                             .setLabel(getString("social"))
                     )
@@ -227,18 +227,18 @@ const command: Command = {
                 const collector = msg.createMessageComponentInteractionCollector((button: Discord.MessageComponentInteraction) => button.customID === "stats" || button.customID === "social", { time: this.cooldown! * 1000 })
 
                 collector.on("collect", async buttonInteraction => {
-                    if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply(getString("pagination.notYours", { command: `/${this.name}` }, "global"), { ephemeral: true })
+                    if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global"), ephemeral: true })
                     else if (buttonInteraction.customID === "stats") embed = await stats()
                     else if (buttonInteraction.customID === "social") embed = await social()
                     controlButtons.components.forEach(button => {
-                        if (button.customID == buttonInteraction.customID) button.setStyle("SECONDARY")
+                        if (button.customID === buttonInteraction.customID) button.setStyle("SECONDARY")
                         else button.setStyle("SUCCESS")
                     })
                     await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
                 })
 
                 collector.on("end", () => {
-                    interaction.editReply(getString("timeOut", { command: "`+hypixelstats`" }), { components: [], embeds: [embed] })
+                    interaction.editReply({ content: getString("timeOut", { command: "`+hypixelstats`" }), components: [], embeds: [embed] })
                 })
             })
             .catch(e => {

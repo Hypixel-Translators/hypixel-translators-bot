@@ -2,6 +2,7 @@ import Discord from "discord.js"
 import { neutralColor, errorColor } from "../../config.json"
 import { Command } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
+import { updateButtonColors } from "../Utility/help"
 
 const command: Command = {
     name: "levels",
@@ -35,23 +36,27 @@ const command: Command = {
                 .setTitle(getString("pageTitle"))
                 .setDescription(getString("pageNotExist"))
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            return interaction.reply(embed)
+            return interaction.reply({ embeds: [embed] })
         } else {
             let controlButtons = new Discord.MessageActionRow()
                 .addComponents(
                     new Discord.MessageButton()
+                        .setStyle("SUCCESS")
                         .setEmoji("⏮")
                         .setCustomID("first")
                         .setLabel(getString("pagination.first", "global")),
                     new Discord.MessageButton()
+                        .setStyle("SUCCESS")
                         .setEmoji("◀️")
                         .setCustomID("previous")
                         .setLabel(getString("pagination.previous", "global")),
                     new Discord.MessageButton()
+                        .setStyle("SUCCESS")
                         .setEmoji("▶️")
                         .setCustomID("next")
                         .setLabel(getString("pagination.next", "global")),
                     new Discord.MessageButton()
+                        .setStyle("SUCCESS")
                         .setEmoji("⏭")
                         .setCustomID("last")
                         .setLabel(getString("pagination.last", "global"))
@@ -64,7 +69,7 @@ const command: Command = {
 
             let pageEmbed: Discord.MessageEmbed
             collector.on("collect", async buttonInteraction => {
-                if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply(getString("pagination.notYours", { command: `/${this.name}` }, "global"), { ephemeral: true })
+                if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global"), ephemeral: true })
                 else if (buttonInteraction.customID === "first") page = 0
                 else if (buttonInteraction.customID === "last") page = pages.length - 1
                 else if (buttonInteraction.customID === "previous") {
@@ -81,7 +86,7 @@ const command: Command = {
             })
 
             collector.on("end", async () => {
-                await interaction.editReply(getString("timeOut", { command: "`+levels`" }), { components: [], embeds: [pageEmbed] })
+                await interaction.editReply({ content: getString("timeOut", { command: "`+levels`" }), components: [], embeds: [pageEmbed] })
             })
         }
 
@@ -104,23 +109,6 @@ function fetchPage(page: number, pages: DbUser[][], getString: (path: string, va
         } else pageEmbed.addField(getString("unranked", { rank: (i + 1) + (page * 24) }), `<@!${pages[page][i].id}>`, true)
     }
     return pageEmbed
-}
-
-function updateButtonColors(row: Discord.MessageActionRow, page: number, pages: DbUser[][]) {
-    if (page == 0) {
-        row.components.forEach(button => {
-            if (button.customID == "first" || button.customID == "previous") button.setStyle("SECONDARY")
-            else button.setStyle("SUCCESS")
-        })
-    } else if (page == pages.length - 1) {
-        row.components.forEach(button => {
-            if (button.customID == "last" || button.customID == "next") button.setStyle("SECONDARY")
-            else button.setStyle("SUCCESS")
-        })
-    } else {
-        row.components.forEach(button => button.setStyle("SUCCESS"))
-    }
-    return row
 }
 
 export default command

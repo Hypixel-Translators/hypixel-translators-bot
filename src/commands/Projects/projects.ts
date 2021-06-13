@@ -36,7 +36,7 @@ const command: Command = {
                     { name: "Hypixel Translators Bot", value: `${getString("projectInfo", { project: "**Hypixel Translators Bot**", link: "https://crowdin.com/project/hypixel-translators-bot", command: "`+bot`" })}\n${joinedBot}` }
                 )
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.reply(embed)
+            await interaction.reply({ embeds: [embed] })
         } else {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
@@ -50,7 +50,7 @@ const command: Command = {
                     { name: "Hypixel Translators Bot", value: getString("projectInfo", { project: "**Hypixel Translators Bot**", link: "https://crowdin.com/project/hypixel-translators-bot", command: "`+bot`" }) }
                 )
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.reply(embed)
+            await interaction.reply({ embeds: [embed] })
         }
     }
 }

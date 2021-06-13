@@ -50,11 +50,11 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
             errorEmbed
                 .setDescription("Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!")
                 .setImage("https://i.imgur.com/7FVOSfT.png")
-            if (sendDms) member.send(errorEmbed)
+            if (sendDms) member.send({ embeds: [errorEmbed] })
                 .then(() => verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent them.`))
                 .catch(() => {
                     errorEmbed.setFooter("This message will be deleted in a minute")
-                    verify.send(`${member} you had DMs disabled, so here's our message,`, errorEmbed)
+                    verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
                         .then(msg => {
                             setTimeout(() => {
                                 if (!msg.deleted) msg.delete()
@@ -86,11 +86,11 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
             errorEmbed
                 .setDescription("Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!")
                 .setImage("https://i.imgur.com/7FVOSfT.png")
-            if (sendDms) member.send(errorEmbed)
+            if (sendDms) member.send({ embeds: [errorEmbed] })
                 .then(() => verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent them.`))
                 .catch(() => {
                     errorEmbed.setFooter("This message will be deleted in a minute")
-                    verify.send(`${member} you had DMs disabled, so here's our message,`, errorEmbed)
+                    verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
                         .then(msg => {
                             setTimeout(() => {
                                 if (!msg.deleted) msg.delete()
@@ -111,11 +111,11 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
             errorEmbed
                 .setDescription(`Hey there! We noticed you sent us your Crowdin profile, however, it was private so we couldn't check it. Please make it public, at least until you get verified, and send us your profile again on the channel. If you don't know how to, then go to your Crowdin profile settings (found [here](https://crowdin.com/settings#account)) and make sure the "Private Profile" setting is turned off (see the image below)\n\nIf you have any questions, be sure to send them to us!`)
                 .setImage("https://i.imgur.com/YX8VLeu.png")
-            if (sendDms) member.send(errorEmbed)
+            if (sendDms) member.send({ embeds: [errorEmbed] })
                 .then(() => verifyLogs.send(`${member}'s profile was private, I let them know about that.`))
                 .catch(() => {
                     errorEmbed.setFooter("This message will be deleted in a minute")
-                    verify.send(`${member} you had DMs disabled, so here's our message,`, errorEmbed)
+                    verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
                         .then(msg => {
                             setTimeout(() => {
                                 if (!msg.deleted) msg.delete()
@@ -143,11 +143,11 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
         errorEmbed
             .setDescription(`Hey there!\nWe noticed you sent us your Crowdin profile, however, you forgot to add your Discord tag to it! Just add ${member.user.tag} to your about section like shown in the image below. Once you've done so, send us the profile link again.\n\nIf you have any questions, be sure to send them to us!`)
             .setImage("https://i.imgur.com/BM2bJ4W.png")
-        if (sendDms) member.send(errorEmbed)
+        if (sendDms) member.send({ embeds: [errorEmbed] })
             .then(() => verifyLogs.send(`${member} forgot to add their Discord to their profile. Let's hope they fix that with the message I just sent them.`))
             .catch(() => {
                 errorEmbed.setFooter("This message will be deleted in a minute")
-                verify.send(`${member} you had DMs disabled, so here's our message,`, errorEmbed)
+                verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
                     .then(msg => {
                         setTimeout(() => {
                             if (!msg.deleted) msg.delete()
@@ -188,7 +188,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
             role.forEach(role => {
                 if (role.role !== "Translator") {
                     if (role.role !== "Manager") highestRole = role.role
-                    if (highestRole == "manager" || highestRole == "owner") highestRole = "Manager"
+                    if (highestRole === "manager" || highestRole === "owner") highestRole = "Manager"
                 }
             })
             highestProjectRoles[projectIDs[project.id].name] = highestRole
@@ -260,13 +260,13 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
             }\nIf you wanna know more about all the projects we currently support, run \`+projects\` here.`)
         .setFooter("Any messages you send here will be sent to staff upon confirmation.")
 
-    if (sendDms) member.send(dmEmbed)
-        .then(() => verifyLogs.send(logEmbed))
+    if (sendDms) member.send({ embeds: [dmEmbed] })
+        .then(() => verifyLogs.send({ embeds: [logEmbed] }))
         .catch(() => {
             logEmbed.setFooter("Message not sent because user had DMs off")
-            verifyLogs.send(logEmbed)
+            verifyLogs.send({ embeds: [logEmbed] })
         })
-    else if (sendLogs) verifyLogs.send(logEmbed)
+    else if (sendLogs) verifyLogs.send({ embeds: [logEmbed] })
     //#endregion
 }
 
@@ -291,7 +291,7 @@ async function updateProjectRoles(projectName: ValidProjects, member: Discord.Gu
     role.forEach(role => {
         if (role.role !== "Translator") {
             if (role.role !== "Manager") highestRole = role.role
-            if (highestRole == "manager" || highestRole == "owner") highestRole = "Manager"
+            if (highestRole === "manager" || highestRole === "owner") highestRole = "Manager"
         }
     })
 

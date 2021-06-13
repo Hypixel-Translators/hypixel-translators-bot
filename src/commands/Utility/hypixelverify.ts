@@ -46,7 +46,7 @@ const command: Command = {
                                 .setTitle(getString("success", { player: json.username }))
                                 .setDescription(getString("role", { role: String(role) }))
                                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                            return await interaction.editReply(successEmbed)
+                            return await interaction.editReply({ embeds: [successEmbed] })
                         } else {
                             const notChanged = new Discord.MessageEmbed()
                                 .setColor(errorColor)
@@ -54,7 +54,7 @@ const command: Command = {
                                 .setTitle(getString("alreadyVerified"))
                                 .setDescription(getString("nameChangeDisclaimer"))
                                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                            return await interaction.editReply(notChanged)
+                            return await interaction.editReply({ embeds: [notChanged] })
                         }
                     })
                 } else {
@@ -65,7 +65,7 @@ const command: Command = {
                         .setDescription(getString("tutorial", { tag: interaction.user.tag }))
                         .setImage("https://i.imgur.com/JSeAHdG.gif")
                         .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    await interaction.editReply(errorEmbed)
+                    await interaction.editReply({ embeds: [errorEmbed] })
                 }
             })
             .catch(e => {

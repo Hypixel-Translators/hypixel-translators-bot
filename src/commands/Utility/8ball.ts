@@ -29,7 +29,7 @@ const command: Command = {
         else if (answerType === "inconclusive") embed.setColor(loadingColor)
         else if (answerType === "negative") embed.setColor(errorColor)
         else console.error("Help the 8ball answer type is weird")
-        await interaction.reply(embed)
+        await interaction.reply({ embeds: [embed] })
     }
 }
 

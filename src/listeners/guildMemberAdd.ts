@@ -62,7 +62,7 @@ client.on("guildMemberAdd", member => {
 
             //OUTPUT
             const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `${member.user.username} join.png`);
-            (member.guild.channels.cache.get("549882021934137354") as Discord.TextChannel).send(`${member.user} just joined. Welcome! 🎉`, attachment) //join-leave
+            (member.guild.channels.cache.get("549882021934137354") as Discord.TextChannel).send({ content: `${member.user} just joined. Welcome! 🎉`, files: [attachment] }) //join-leave
         })
     })
     if (!member.user.bot) {

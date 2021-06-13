@@ -14,8 +14,7 @@ client.on("interaction", async interaction => {
         executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
 
     //Log if command is ran in DMs
-    if (interaction.channel?.type === "dm")
-        console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
+    if (interaction.channel?.type === "dm") console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
 
     //Return if user is not verified
     if (!member?.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
@@ -35,7 +34,7 @@ client.on("interaction", async interaction => {
 
     //Give perm to admins and return if not allowed
     if (!allowed) {
-        await interaction.reply(getString("errors.noAccess", "global"), { ephemeral: true })
+        await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
         return
     }
 
@@ -46,7 +45,7 @@ client.on("interaction", async interaction => {
             .setAuthor(getString("error", "global"))
             .setTitle(getString("errors.dmError", "global"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        return interaction.reply(embed)
+        return interaction.reply({ embeds: [embed] })
     }
     //Cooldown system
     if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Discord.Collection())
@@ -60,8 +59,7 @@ client.on("interaction", async interaction => {
             let timeLeftS: string
             if (Math.ceil(timeLeft) >= 120)
                 timeLeftS = getString("minsLeftT", { time: Math.ceil(timeLeft / 60), command: `/${interaction.commandName}` }, "global")
-            else if (Math.ceil(timeLeft) === 1)
-                timeLeftS = getString("secondLeft", { command: `/${interaction.commandName}` }, "global")
+            else if (Math.ceil(timeLeft) === 1) timeLeftS = getString("secondLeft", { command: `/${interaction.commandName}` }, "global")
             else timeLeftS = getString("timeLeftT", { time: Math.ceil(timeLeft), command: `/${interaction.commandName}` }, "global")
 
             const embed = new Discord.MessageEmbed()
@@ -123,11 +121,7 @@ client.on("interaction", async interaction => {
                     return
                 } else {
                     string = strings[pathPart]
-                    if (
-                        !string ||
-                        (typeof string === "string" &&
-                            !isEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g)))
-                    ) {
+                    if (!string || (typeof string === "string" && !isEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g)))) {
                         string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
                             string = null //in case of fire
@@ -158,7 +152,8 @@ client.on("interaction", async interaction => {
         if (command.allowTip !== false && d <= 5) {
             // Less than or equal to 5%
             const keys = Object.keys(getString("tips", "global"))
-            const tip = getString(`tips.${keys[(keys.length * Math.random()) << 0]}`,
+            const tip = getString(
+                `tips.${keys[(keys.length * Math.random()) << 0]}`,
                 {
                     botUpdates: "<#732587569744838777>",
                     gettingStarted: "<#699275092026458122>",
@@ -183,15 +178,13 @@ client.on("interaction", async interaction => {
                     .setTitle(error.toString().substring(0, 255))
                     .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
                     .setFooter("Check the console for more details")
-                    ; (interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send(
-                        "<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>",
-                        embed
-                    ) //Rodry and bot-development
+                    ; (interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send({
+                        content: "<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>",
+                        embeds: [embed]
+                    }) //Rodry and bot-development
             }
             console.error(
-                `Unexpected error with command ${interaction.commandName} on channel ${interaction.channel instanceof Discord.DMChannel
-                    ? interaction.channel.type
-                    : (interaction.channel as Discord.TextChannel).name
+                `Unexpected error with command ${interaction.commandName} on channel ${interaction.channel instanceof Discord.DMChannel ? interaction.channel.type : (interaction.channel as Discord.TextChannel).name
                 } executed by ${interaction.user.tag}. Here's the error:\n${error.stack}`
             )
         }
