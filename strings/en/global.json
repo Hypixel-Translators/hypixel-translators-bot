@@ -38,7 +38,7 @@
     "reminderLang": "Don't forget to also change your link to the %%format%% format.",
     "tip": "Tip",
     "tips": {
-        "ib": "Have you tried the Inhale Banana language? Change your language to it using `/lang ib`!",
+        "ib": "Have you tried the Inhale Banana language? Change your language to it using `/language ib`!",
         "translators": "I need translators! Find out how to become a bot translator by executing `/translate`.",
         "prefix": "Do you wanna have a cool prefix on your nickname? Run `/prefix` in %%bots%% and follow the instructions! Available to all Hypixel translators.",
         "enen": "Please change your links to en-en!",
@@ -59,6 +59,8 @@
         "previous": "Previous page",
         "next": "Next page",
         "last": "Last page",
+        "confirm": "Confirm",
+        "cancel": "Cancel",
         "notYours": "You cannot interact with this menu! Run %%command%% yourself to do this!"
     },
     "executedBy": "Executed by %%user%%"

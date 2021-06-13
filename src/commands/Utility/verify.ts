@@ -72,6 +72,7 @@ const command: Command = {
                             })
                         await interaction.reply({ content: `Your request was processed, check ${verify} for more info!`, ephemeral: true })
                     })
+                    client.cooldowns.get(this.name)!.delete(interaction.user.id)
             }
         } else {
             const member = interaction.options.get("user")?.member as Discord.GuildMember | undefined

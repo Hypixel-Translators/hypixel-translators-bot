@@ -116,50 +116,60 @@ client.on("message", async message => {
     if (message.author !== client.user && message.channel.type === "dm" && !member!.roles.cache.has("645208834633367562")) {
         // Muted
         const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
-        const dayCooldown = 48, // Hours to wait before asking for confirmation
+        const hourCooldown = 48, // Hours to wait before asking for confirmation
             confirmTime = 60 // 1 min
-        if (!author.staffMsgTimestamp || author.staffMsgTimestamp + dayCooldown * 60 * 60 * 1000 < message.createdTimestamp) {
+        if (!author.staffMsgTimestamp || author.staffMsgTimestamp + hourCooldown * 60 * 60 * 1000 < message.createdTimestamp) {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setTitle(getGlobalString("staffDm.confirmation"))
                 .setDescription(message.content)
                 .setFooter(getGlobalString("staffDm.confirmSend"))
             if (message.attachments.size > 0) embed.setTitle(`${getGlobalString("staffDm.confirmation")} ${getGlobalString("staffDm.attachmentsWarn")}`)
-            const msg = await message.channel.send({ embeds: [embed] })
-            await msg.react("✅")
-            await msg.react("❎")
-            const collector = msg.createReactionCollector(
-                (reaction: Discord.MessageReaction, reacter: Discord.User) =>
-                    (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id,
+            const controlButtons = [
+                new Discord.MessageButton()
+                    .setStyle("SUCCESS")
+                    .setCustomID("confirm")
+                    .setEmoji("✅")
+                    .setLabel(getGlobalString("pagination.confirm")),
+                new Discord.MessageButton()
+                    .setStyle("DANGER")
+                    .setCustomID("cancel")
+                    .setEmoji("❎")
+                    .setLabel(getGlobalString("pagination.cancel"))
+            ]
+            const msg = await message.channel.send({ embeds: [embed], components: [controlButtons] })
+            const collector = msg.createMessageComponentInteractionCollector(
+                (buttonInteraction: Discord.MessageComponentInteraction) =>
+                    buttonInteraction.customID === "confirm" || buttonInteraction.customID === "cancel",
                 { time: confirmTime * 1000 }
             )
 
-            let reacted = false
-
+            let replied = false
             collector.on("collect", async reaction => {
-                reacted = true
-                msg.reactions.cache.forEach(async reaction => await reaction.users.remove())
-                if (reaction.emoji.name === "❎") {
-                    embed.setColor(errorColor).setTitle(getGlobalString("staffDm.dmCancelled")).setFooter(getGlobalString("staffDm.resendInfo"))
-                    await msg.edit({ embeds: [embed] })
-                } else if (reaction.emoji.name === "✅") await staffDm(msg, true)
+                replied = true
+                if (reaction.customID === "cancel") {
+                    embed
+                        .setColor(errorColor)
+                        .setTitle(getGlobalString("staffDm.dmCancelled"))
+                        .setFooter(getGlobalString("staffDm.resendInfo"))
+                    await msg.edit({ embeds: [embed], components: [] })
+                } else if (reaction.customID === "confirm") await staffDm(msg, true)
             })
 
             collector.on("end", async () => {
-                if (reacted) return
+                if (replied) return
                 const timeOutEmbed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor(getGlobalString("staffDm.dmCancelled"))
                     .setDescription(message.content)
                     .setFooter(getGlobalString("staffDm.resendInfo"))
-                await msg.edit({ embeds: [timeOutEmbed] })
-                msg.reactions.cache.forEach(async reaction => await reaction.users.remove())
+                await msg.edit({ embeds: [timeOutEmbed], components: [] })
             })
         } else await staffDm(message, false)
 
         async function staffDm(msg: Discord.Message, afterConfirm: boolean) {
-            if (afterConfirm) db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: Date.now() } })
-            else db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: message.createdTimestamp } })
+            if (afterConfirm) await db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: Date.now() } })
+            else await db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: message.createdTimestamp } })
             const staffMsg = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor("Incoming message from " + message.author.tag)
@@ -184,11 +194,8 @@ client.on("message", async message => {
                 dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent"))
                 await staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg] })
             } else await staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg] }) //staff-bots
-            if (afterConfirm) {
-                await msg.edit({ embeds: [dmEmbed] })
-                return
-            }
-            await msg.channel.send({ embeds: [dmEmbed] })
+            if (afterConfirm) await msg.edit({ embeds: [dmEmbed], components: [] })
+            else await msg.channel.send({ embeds: [dmEmbed] })
         }
     }
 

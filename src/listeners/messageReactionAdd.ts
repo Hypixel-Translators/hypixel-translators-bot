@@ -1,7 +1,7 @@
 import Discord from "discord.js"
 import { successColor, loadingColor, errorColor } from "../config.json"
-import { client } from "../index.js"
-import { db } from "../lib/dbclient.js"
+import { client } from "../index"
+import { db } from "../lib/dbclient"
 
 client.on("messageReactionAdd", async (reaction, user) => {
     const channel = reaction.message.channel

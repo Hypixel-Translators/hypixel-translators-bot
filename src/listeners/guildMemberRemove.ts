@@ -1,4 +1,4 @@
-import { client } from "../index.js"
+import { client } from "../index"
 import { db } from "../lib/dbclient"
 import Discord from "discord.js"
 

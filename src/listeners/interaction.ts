@@ -50,7 +50,7 @@ client.on("interaction", async interaction => {
     //Cooldown system
     if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Discord.Collection())
     const now = Date.now(),
-        timestamps: Discord.Collection<string, number> = client.cooldowns.get(command.name)!,
+        timestamps = client.cooldowns.get(command.name)!,
         cooldownAmount = (command.cooldown || 3) * 1000
     if (timestamps.has(interaction.user.id)) {
         const expirationTime = timestamps.get(interaction.user.id)! + cooldownAmount
@@ -196,6 +196,6 @@ client.on("interaction", async interaction => {
             .setAuthor(getString("error", "global"))
             .setTitle(error.interaction?.substring(0, 255) || error.toString().substring(0, 255))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        return await interaction.reply({ embeds: [embed], ephemeral: error.stack ? false : true, components: [] })
+        return await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
     }
 })

@@ -1,4 +1,4 @@
-import { client, Command } from "../index.js"
+import { client, Command } from "../index"
 import stats from "../events/stats"
 import inactives from "../events/inactives"
 import crowdin from "../events/crowdinverify"
@@ -44,6 +44,7 @@ client.once("ready", async () => {
     }
     //Set guild commands - these don't need checks since they update instantly
     client.guilds.cache.get("549503328472530974")!.commands.set(constructDiscordCommands())
+        .then(commands => commands.forEach(async command => await setPermissions(command)))
 
     //Get server boosters and staff for the status
     let boostersStaff: string[] = []
@@ -140,7 +141,7 @@ function transformOption(option: Discord.ApplicationCommandOptionData): Discord.
         type: option.type,
         name: option.name,
         description: option.description,
-        required: option.required ? true : undefined,
+        required: option.required,
         choices: option.choices,
         options: option.options?.map(o => transformOption(o)),
     }

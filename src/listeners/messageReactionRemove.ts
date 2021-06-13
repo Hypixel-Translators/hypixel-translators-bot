@@ -1,4 +1,4 @@
-import { client } from "../index.js"
+import { client } from "../index"
 import Discord from "discord.js"
 
 client.on("messageReactionRemove", async (reaction, user) => {

@@ -46,13 +46,13 @@ const command: Command = {
             new Discord.MessageButton()
               .setCustomID("confirm")
               .setStyle("SUCCESS")
-              .setLabel(getString("confirm"))
+              .setLabel(getString("pagination.confirm", "global"))
               .setEmoji("✅"),
             new Discord.MessageButton()
               .setCustomID("cancel")
               .setStyle("DANGER")
               .setEmoji("❎")
-              .setLabel(getString("cancel"))
+              .setLabel(getString("pagination.cancel", "global"))
           )
       await interaction.reply({ embeds: [embed], components: [confirmButtons] })
       const msg = await interaction.fetchReply() as Discord.Message
@@ -192,12 +192,12 @@ const command: Command = {
           .setStyle("SUCCESS")
           .setDisabled(true)
           .setEmoji("✅")
-          .setLabel(getString("confirm")),
+          .setLabel(getString("pagination.confirm", "global")),
         new Discord.MessageButton()
           .setCustomID("cancel")
           .setStyle("DANGER")
           .setEmoji("❎")
-          .setLabel(getString("cancel"))
+          .setLabel(getString("pagination.cancel", "global"))
       ]
       const components: Discord.MessageButton[][] = []
       let p = 0
