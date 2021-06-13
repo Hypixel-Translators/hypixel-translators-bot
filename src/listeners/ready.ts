@@ -4,7 +4,7 @@ import inactives from "../events/inactives"
 import crowdin from "../events/crowdinverify"
 import { listeningStatuses, watchingStatuses, playingStatuses } from "../config.json"
 import Discord from "discord.js"
-import { isArray, isEqual, isObject, transform } from "lodash";
+import { isEqual } from "lodash";
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user!.tag}!`)
@@ -23,8 +23,7 @@ client.once("ready", async () => {
     }
 
     //Only update global commands in production
-    //TODO add check to delete commands that have been removed
-    if (process.env.NODE_ENV === "dev") {
+    if (process.env.NODE_ENV === "production") {
         const globalCommands = await client.application!.commands.fetch()
         client.commands.filter(c => !!c.allowDM).forEach(async command => {
             if (!globalCommands) await publishCommand(command)
@@ -33,11 +32,14 @@ client.once("ready", async () => {
                 //Chech if the command is published
                 if (!globalCommands.some(cmd => cmd.name === command.name)) await publishCommand(command)
                 else if (!commandEquals(discordCommand, command)) {
-                    console.log(discordCommand.options, command.options?.map(o => transformOption(o)))
-                    discordCommand.edit(convertToDiscordCommand(command))
-                    console.log(`Edited command ${command.name} since changes were found`)
+                    await discordCommand.edit(convertToDiscordCommand(command))
+                    console.log(`Edited command ${command.name} since changes were found`, discordCommand, command)
                 }
             }
+        })
+        //Delete commands that have been removed locally
+        globalCommands.forEach(async command => {
+            if (!client.commands.get(command.name)) await command.delete()
         })
     }
     //Set guild commands - these don't need checks since they update instantly
@@ -56,7 +58,7 @@ client.once("ready", async () => {
 
     //Set status
     client.user!.setPresence({
-        status: process.env.NODE_ENV === "dev" ? "dnd" : "online",
+        status: process.env.NODE_ENV === "production" ? "online" : "dnd",
         activities: [{ name: "+help", type: "LISTENING" }]
     })
 
@@ -113,7 +115,7 @@ async function setPermissions(command: Discord.ApplicationCommand) {
 function constructDiscordCommands() {
     const returnCommands: Discord.ApplicationCommandData[] = []
     let clientCommands = client.commands
-    if (process.env.NODE_ENV !== "dev") clientCommands = clientCommands.filter(cmd => !cmd.allowDM)
+    if (process.env.NODE_ENV === "production") clientCommands = clientCommands.filter(cmd => !cmd.allowDM)
     clientCommands.forEach(c => returnCommands.push(convertToDiscordCommand(c)))
 
     return returnCommands
