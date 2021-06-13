@@ -32,7 +32,7 @@ export async function hypixel(client: HTBClient) {
     const langdb = await db.collection("langdb").find().toArray()
     fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", settings)
         .then(res => res.json())
-        .then(json => {
+        .then(async json => {
             if (!json.data) throw `We got no data from the API when trying to update Hypixel! Here's the response:\n${json}`
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
@@ -60,22 +60,16 @@ export async function hypixel(client: HTBClient) {
                         index++
                     })
                 })
-            const botDev = client.channels.cache.get("730042612647723058") as Discord.TextChannel
-            botDev.messages.fetch("782637177552240661") //bot development Hypixel string count
-                .then((stringCount: Discord.Message) => {
-                    if (Number(stringCount.content) != langStatus[0].data.phrases.total) {
-                        const hypixelTranslators = client.channels.cache.get("549503328472530976") as Discord.TextChannel
-                        const stringDiff = Math.abs(Number(Number(langStatus[0].data.phrases.total) - Number(stringCount.content)))
-                        if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
-                            if (stringDiff == 1) hypixelTranslators.send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the Hypixel project.\n\nTranslate at <https://crowdin.com/translate/hypixel/all/en>")
-                            else hypixelTranslators.send("> <a:partyBlob:769679132317057064> **New Strings!**\n" + stringDiff + " strings have been added to the Hypixel project.\n\nTranslate at <https://crowdin.com/translate/hypixel/all/en>")
-                        } else if (Number(stringCount.content) > langStatus[0].data.phrases.total) {
-                            if (stringDiff == 1) hypixelTranslators.send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the Hypixel project.")
-                            else hypixelTranslators.send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the Hypixel project.")
-                        }
-                        stringCount.edit(`${langStatus[0].data.phrases.total}`)
-                    }
-                })
+            const { stringCount } = await db.collection("crowdin").findOne({ project: "hypixel" }) as StringCount
+            if (stringCount != langStatus[0].data.phrases.total) {
+                const hypixelTranslators = client.channels.cache.get("549503328472530976") as Discord.TextChannel,
+                    stringDiff = Math.abs(langStatus[0].data.phrases.total - stringCount)
+                if (stringCount < langStatus[0].data.phrases.total)
+                    await hypixelTranslators.send(`> <a:partyBlob:769679132317057064> **New ${stringDiff == 1 ? "String" : "Strings"}!**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the Hypixel project.\n\nTranslate at <https://crowdin.com/translate/hypixel/all/en>`)
+                else if (stringCount > langStatus[0].data.phrases.total)
+                    await hypixelTranslators.send(`> <:vote_no:732298639736570007> **${stringDiff == 1 ? "String" : "Strings"} Removed**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the Hypixel project.`)
+                await db.collection("crowdin").updateOne({ project: "hypixel" }, { $set: { stringCount: langStatus[0].data.phrases.total } })
+            }
         })
         .catch(err => console.error(`Crowdin API is down, couldn't update Hypixel language statistics. Here's the error:\n${err.stack}`))
 }
@@ -84,7 +78,7 @@ export async function quickplay(client: HTBClient) {
     const langdb = await db.collection("langdb").find().toArray()
     fetch("https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500", settings)
         .then(res => res.json())
-        .then(json => {
+        .then(async json => {
             if (!json.data) throw `We got no data from the API when trying to update Quickplay! Here's the response:\n${json}`
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find((l: LangDbEntry) => l.code === status.data.languageId || l.id === status.data.languageId)
@@ -117,22 +111,16 @@ export async function quickplay(client: HTBClient) {
                         index++
                     })
                 })
-            const botDev = client.channels.cache.get("730042612647723058") as Discord.TextChannel
-            botDev.messages.fetch("782637234322931733") //bot-development Quickplay string count
-                .then((stringCount: Discord.Message) => {
-                    if (Number(stringCount.content) != langStatus[0].data.phrases.total) {
-                        const qpTranslators = client.channels.cache.get("646383292010070016") as Discord.TextChannel
-                        const stringDiff = Math.abs(Number(Number(langStatus[0].data.phrases.total) - Number(stringCount.content)))
-                        if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
-                            if (stringDiff == 1) qpTranslators.send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the Quickplay project.\n\nTranslate at <https://crowdin.com/translate/quickplay/all/en>")
-                            else qpTranslators.send("> <a:partyBlob:769679132317057064> **New Strings!**\n" + stringDiff + " strings have been added to the Quickplay project.\n\nTranslate at <https://crowdin.com/translate/quickplay/all/en>")
-                        } else if (Number(stringCount.content) > langStatus[0].data.phrases.total) {
-                            if (stringDiff == 1) qpTranslators.send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the Quickplay project.")
-                            else qpTranslators.send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the Quickplay project.")
-                        }
-                        stringCount.edit(`${langStatus[0].data.phrases.total}`)
-                    }
-                })
+            const { stringCount } = await db.collection("crowdin").findOne({ project: "quickplay" }) as StringCount
+            if (stringCount != langStatus[0].data.phrases.total) {
+                const quickplayTranslators = client.channels.cache.get("646383292010070016") as Discord.TextChannel,
+                    stringDiff = Math.abs(langStatus[0].data.phrases.total - stringCount)
+                if (stringCount < langStatus[0].data.phrases.total)
+                    await quickplayTranslators.send(`> <a:partyBlob:769679132317057064> **New ${stringDiff == 1 ? "String" : "Strings"}!**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the Quickplay project.\n\nTranslate at <https://crowdin.com/translate/quickplay/all/en>`)
+                else if (stringCount > langStatus[0].data.phrases.total)
+                    await quickplayTranslators.send(`> <:vote_no:732298639736570007> **${stringDiff == 1 ? "String" : "Strings"} Removed**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the Quickplay project.`)
+                await db.collection("crowdin").updateOne({ project: "quickplay" }, { $set: { stringCount: langStatus[0].data.phrases.total } })
+            }
         })
         .catch(err => console.error(`Crowdin API is down, couldn't update Quickplay language statistics. Here's the error:\n${err.stack}`))
 }
@@ -141,7 +129,7 @@ export async function bot(client: HTBClient) {
     const langdb = await db.collection("langdb").find().toArray()
     fetch("https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500", settings)
         .then(res => res.json())
-        .then(json => {
+        .then(async json => {
             if (!json.data) throw `We got no data from the API when trying to update the Bot! Here's the response:\n${json}`
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
@@ -174,22 +162,16 @@ export async function bot(client: HTBClient) {
                         index++
                     })
                 })
-            const botDev = client.channels.cache.get("730042612647723058") as Discord.TextChannel
-            botDev.messages.fetch("782637303427497994") //bot-development Bot string count
-                .then((stringCount: Discord.Message) => {
-                    if (Number(stringCount.content) != langStatus[0].data.phrases.total) {
-                        const botTranslators = client.channels.cache.get("749391414600925335") as Discord.TextChannel
-                        const stringDiff = Math.abs(Number(Number(langStatus[0].data.phrases.total) - Number(stringCount.content)))
-                        if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
-                            if (stringDiff == 1) botTranslators.send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the Hypixel Translators Bot project.\n\nTranslate at <https://crowdin.com/translate/hypixel-translators-bot/all/en>")
-                            else botTranslators.send("> <a:partyBlob:769679132317057064> **New Strings!**\n" + stringDiff + " strings have been added to the Hypixel Translators Bot project.\n\nTranslate at <https://crowdin.com/translate/hypixel-translators-bot/all/en>")
-                        } else if (Number(stringCount.content) > langStatus[0].data.phrases.total) {
-                            if (stringDiff == 1) botTranslators.send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the Hypixel Translators Bot project.")
-                            else botTranslators.send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the Hypixel Translators Bot project.")
-                        }
-                        stringCount.edit(`${langStatus[0].data.phrases.total}`)
-                    }
-                })
+            const { stringCount } = await db.collection("crowdin").findOne({ project: "bot" }) as StringCount
+            if (stringCount != langStatus[0].data.phrases.total) {
+                const botTranslators = client.channels.cache.get("749391414600925335") as Discord.TextChannel,
+                    stringDiff = Math.abs(langStatus[0].data.phrases.total - stringCount)
+                if (stringCount < langStatus[0].data.phrases.total)
+                    await botTranslators.send(`> <a:partyBlob:769679132317057064> **New ${stringDiff == 1 ? "String" : "Strings"}!**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the Hypixel Translators Bot project.\n\nTranslate at <https://crowdin.com/translate/hypixel-translators-bot/all/en>`)
+                else if (stringCount > langStatus[0].data.phrases.total)
+                    await botTranslators.send(`> <:vote_no:732298639736570007> **${stringDiff == 1 ? "String" : "Strings"} Removed**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the Hypixel Translators Bot project.`)
+                await db.collection("crowdin").updateOne({ project: "bot" }, { $set: { stringCount: langStatus[0].data.phrases.total } })
+            }
         })
         .catch(err => console.error(`Crowdin API is down, couldn't update Bot language statistics. Here's the error:\n${err.stack}`))
 }
@@ -198,7 +180,7 @@ export async function skyblockaddons(client: HTBClient) {
     const langdb = await db.collection("langdb").find().toArray()
     fetch("https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500", settings)
         .then(res => res.json())
-        .then(json => {
+        .then(async json => {
             if (!json.data) throw `We got no data from the API when trying to update SkyblockAddons! Here's the response:\n${json}`
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.data.language = langdb.find((l: LangDbEntry) => l.code === status.data.languageId || l.id === status.data.languageId)
@@ -231,22 +213,16 @@ export async function skyblockaddons(client: HTBClient) {
                         index++
                     })
                 })
-            const botDev = client.channels.cache.get("730042612647723058") as Discord.TextChannel
-            botDev.messages.fetch("782637265230626836") //bot-development Sba string count
-                .then((stringCount: Discord.Message) => {
-                    if (Number(stringCount.content) != langStatus[0].data.phrases.total) {
-                        const sbaTranslators = client.channels.cache.get("748594964476329994") as Discord.TextChannel
-                        const stringDiff = Math.abs(Number(Number(langStatus[0].data.phrases.total) - Number(stringCount.content)))
-                        if (Number(stringCount.content) < langStatus[0].data.phrases.total) {
-                            if (stringDiff == 1) sbaTranslators.send("> <a:partyBlob:769679132317057064> **New String!**\n" + stringDiff + " string has been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>")
-                            else sbaTranslators.send("> <a:partyBlob:769679132317057064> **New Strings!**\n" + stringDiff + " strings have been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>")
-                        } else if (Number(stringCount.content) > langStatus[0].data.phrases.total) {
-                            if (stringDiff == 1) sbaTranslators.send("> <:vote_no:732298639736570007> **String Removed**\n" + stringDiff + " string has been removed from the SkyblockAddons project.")
-                            else sbaTranslators.send("> <:vote_no:732298639736570007> **Strings Removed**\n" + stringDiff + " strings have been removed from the SkyblockAddons project.")
-                        }
-                        stringCount.edit(`${langStatus[0].data.phrases.total}`)
-                    }
-                })
+            const { stringCount } = await db.collection("crowdin").findOne({ project: "sba" }) as StringCount
+            if (stringCount != langStatus[0].data.phrases.total) {
+                const sbaTranslators = client.channels.cache.get("549503328472530976") as Discord.TextChannel,
+                    stringDiff = Math.abs(langStatus[0].data.phrases.total - stringCount)
+                if (stringCount < langStatus[0].data.phrases.total)
+                    await sbaTranslators.send(`> <a:partyBlob:769679132317057064> **New ${stringDiff == 1 ? "String" : "Strings"}!**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the SkyblockAddons project.\n\nTranslate at <https://crowdin.com/translate/skyblockaddons/all/en>`)
+                else if (stringCount > langStatus[0].data.phrases.total)
+                    await sbaTranslators.send(`> <:vote_no:732298639736570007> **${stringDiff == 1 ? "String" : "Strings"} Removed**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the SkyblockAddons project.`)
+                await db.collection("crowdin").updateOne({ project: "sba" }, { $set: { stringCount: langStatus[0].data.phrases.total } })
+            }
         })
         .catch(err => console.error(`Crowdin API is down, couldn't update SkyblockAddons language statistics. Here's the error:\n${err.stack}`))
 }
@@ -278,6 +254,12 @@ export interface LangDbEntry {
     code: string,
     id: string
     flag: string
+}
+
+interface StringCount {
+    _id: ObjectId
+    project: string
+    stringCount: number
 }
 
 export default execute
