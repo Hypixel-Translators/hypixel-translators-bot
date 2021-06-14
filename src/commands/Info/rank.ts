@@ -7,44 +7,44 @@ import { getXpNeeded } from "../../lib/leveling"
 const command: Command = {
     name: "rank",
     description: "Gives you the current xp for yourself or any given user.",
-    aliases: ["level"],
-    usage: "+rank [user]",
+    options: [{
+        type: "USER",
+        name: "user",
+        description: "The user to get the rank for",
+        required: false
+    }],
     cooldown: 30,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
     allowDM: true,
-    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", { user: message.author.tag }, "global")
-        const collection = db.collection("users")
-        let member: Discord.GuildMember | undefined
-        let memberRaw = args[0]?.replace(/[\\<>@#&!]/g, "").toLowerCase()
-        if (!args[0]) member = message.member!
-        else member = message.guild!.members.cache.find(u => u.id === memberRaw || u.user.tag.toLowerCase() === memberRaw || u.user.username.toLowerCase() === memberRaw || u.displayName.toLowerCase() === memberRaw || u.displayName.toLowerCase().includes(memberRaw))
-        if (!member) throw "falseUser"
+    async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+            collection = db.collection("users"),
+            user = interaction.options.get("user")?.user ?? interaction.user
 
-        const userDb: DbUser = await collection.findOne({ id: member.id })
+        const userDb: DbUser = await collection.findOne({ id: user.id })
         if (!userDb.levels) {
             const errorEmbed = new Discord.MessageEmbed()
                 .setColor(errorColor)
                 .setAuthor(getString("moduleName"))
-                .setTitle(member === message.member ? getString("youNotRanked") : getString("userNotRanked"))
+                .setTitle(user.id === interaction.user.id ? getString("youNotRanked") : getString("userNotRanked"))
                 .setDescription(getString("howRank"))
-                .setFooter(executedBy, message.author.displayAvatarURL())
-            return message.channel.send(errorEmbed)
+                .setFooter(executedBy, interaction.user.displayAvatarURL())
+            return await interaction.reply({ embeds: [errorEmbed] })
         }
-        const totalXp = getXpNeeded(userDb.levels.level)
-        const progressBar = generateProgressBar(userDb.levels?.levelXp, totalXp)
-        const ranking = (await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray()).map(u => u.id).indexOf(member.id) + 1
-        const currentXp = userDb.levels.levelXp
-        const messageCount = userDb.levels.messageCount
+        const totalXp = getXpNeeded(userDb.levels.level),
+            progressBar = generateProgressBar(userDb.levels?.levelXp, totalXp),
+            ranking = (await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray()).map(u => u.id).indexOf(user.id) + 1,
+            currentXp = userDb.levels.levelXp,
+            messageCount = userDb.levels.messageCount
 
         const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setAuthor(getString("moduleName"))
-            .setTitle(member === message.member ? getString("yourRank") : getString("userRank", { user: member.user.tag }))
-            .setDescription(member === message.member ? getString("youLevel", { level: userDb.levels.level, rank: ranking }) : getString("userLevel", { user: String(member), level: userDb.levels.level, rank: ranking }))
+            .setTitle(user.id === interaction.user.id ? getString("yourRank") : getString("userRank", { user: user.tag }))
+            .setDescription(user.id === interaction.user.id ? getString("youLevel", { level: userDb.levels.level, rank: ranking }) : getString("userLevel", { user: String(user), level: userDb.levels.level, rank: ranking }))
             .addField(getString("textProgress", { currentXp: currentXp > 1000 ? `${(currentXp / 1000).toFixed(2)}${getString("thousand")}` : currentXp, xpNeeded: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp, messages: messageCount > 1000 ? `${(messageCount / 1000).toFixed(2)}${getString("thousand")}` : messageCount }), progressBar)
-            .setFooter(executedBy, message.author.displayAvatarURL())
-        message.channel.send(embed)
+            .setFooter(executedBy, interaction.user.displayAvatarURL())
+        await interaction.reply({ embeds: [embed] })
     }
 }
 

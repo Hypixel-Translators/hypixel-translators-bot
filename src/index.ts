@@ -23,11 +23,7 @@ import { setup } from "./lib/imports"
 setup(client)
 
 //Command interface
-export interface Command {
-    name: string
-    description: string
-    usage: string
-    aliases?: string[]
+export interface Command extends Discord.ApplicationCommandData {
     cooldown?: number
     allowDM?: true
     allowTip?: false
@@ -39,7 +35,7 @@ export interface Command {
     categoryWhitelist?: Discord.Snowflake[]
     categoryBlacklist?: Discord.Snowflake[]
     category?: string
-    execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any): any
+    execute(interaction: Discord.CommandInteraction, getString?: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any): Promise<any>
 }
 
 //Log in

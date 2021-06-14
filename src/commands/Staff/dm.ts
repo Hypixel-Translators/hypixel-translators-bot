@@ -5,56 +5,48 @@ import { Command, client } from "../../index"
 const command: Command = {
     name: "dm",
     description: "Sends the user a private message.",
-    usage: "+dm <mention> <message>",
-    aliases: ["message", "privatemessage", "pm"],
+    options: [{
+        type: "USER",
+        name: "user",
+        description: "The user to DM",
+        required: true
+    },
+    {
+        type: "STRING",
+        name: "message",
+        description: "The message to send",
+        required: true
+    }],
     roleWhitelist: ["768435276191891456"], //Discord Staff
-    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-        if (!args[0]) throw "noUser"
-        const userToSend = args[0].replace(/[\\<>@#&!]/g, "") as Discord.Snowflake
-        const recipient = message.client.users.cache.get(userToSend)
-        if (!recipient) throw "falseUser"
-        args.splice(0, 1)
-        let toSend = args.join(" ")
-
-        const recipientDb = await client.getUser(recipient.id)
-        message.channel.startTyping()
-        if (toSend) {
-            const dm = new Discord.MessageEmbed()
+    async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+        const recipient = interaction.options.get("user")!.user as Discord.User,
+            recipientDb = await client.getUser(recipient.id),
+            message = interaction.options.get("message")!.value as string,
+            dm = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor(getString("incoming", this.name, recipientDb.lang))
-                .setDescription(toSend)
+                .setDescription(message)
                 .setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang))
-            recipient.send(dm)
-                .then(() => {
-                    const embed = new Discord.MessageEmbed()
-                        .setColor(successColor)
-                        .setAuthor("Direct Message")
-                        .setTitle(`Sent message to ${recipient.tag}`)
-                        .setDescription(toSend)
-                        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    message.channel.stopTyping()
-                    message.channel.send(embed)
-                })
-                .catch(error => {
-                    const errorEmbed = new Discord.MessageEmbed()
-                        .setColor(errorColor)
-                        .setAuthor("Direct Message")
-                        .setTitle(`An error occured while trying to message ${recipient.tag}`)
-                        .setDescription(error)
-                        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    message.channel.stopTyping()
-                    message.channel.send(errorEmbed)
-                })
-        } else {
-            const errorEmbed = new Discord.MessageEmbed()
-                .setColor(errorColor)
-                .setAuthor("Direct Message")
-                .setTitle(`An error occured while trying to message ${recipient.tag}`)
-                .setDescription("You need to specify what message you want to send to this person!")
-                .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            message.channel.stopTyping()
-            message.channel.send(errorEmbed)
-        }
+        await interaction.defer()
+        recipient.send({ embeds: [dm] })
+            .then(async () => {
+                const embed = new Discord.MessageEmbed()
+                    .setColor(successColor)
+                    .setAuthor("Direct Message")
+                    .setTitle(`Sent message to ${recipient.tag}`)
+                    .setDescription(message)
+                    .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                await interaction.editReply({ embeds: [embed] })
+            })
+            .catch(async error => {
+                const errorEmbed = new Discord.MessageEmbed()
+                    .setColor(errorColor)
+                    .setAuthor("Direct Message")
+                    .setTitle(`An error occured while trying to message ${recipient.tag}`)
+                    .setDescription(error.toString())
+                    .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                await interaction.editReply({ embeds: [errorEmbed] })
+            })
     }
 }
 

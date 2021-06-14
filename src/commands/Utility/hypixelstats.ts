@@ -4,32 +4,64 @@ import { db, DbUser } from "../../lib/dbclient"
 import { updateRoles } from "./hypixelverify"
 import { Command, client } from "../../index"
 
-//Credits to marzeq_
+//Credits to marzeq
 const command: Command = {
     name: "hypixelstats",
     description: "Shows you basic Hypixel stats for the provided user.",
-    usage: "+hypixelstats [username] [social]",
-    aliases: ["hstats"],
+    options: [{
+        type: "SUB_COMMAND",
+        name: "social",
+        description: "Shows the user's linked social media",
+        options: [{
+            type: "STRING",
+            name: "username",
+            description: "The IGN of the user to get statistics for",
+            required: false
+        },
+        {
+            type: "USER",
+            name: "user",
+            description: "The server member to get statistics for. Only works if the user has verified themselves",
+            required: false
+        }]
+    },
+    {
+        type: "SUB_COMMAND",
+        name: "stats",
+        description: "Shows general statistics for the given user",
+        options: [{
+            type: "STRING",
+            name: "username",
+            description: "The IGN of the user to get statistics for. Can also be a UUID",
+            required: false
+        },
+        {
+            type: "USER",
+            name: "user",
+            description: "The server member to get statistics for. Only works if the user has verified themselves",
+            required: false
+        }]
+    }],
     cooldown: 120,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
     allowDM: true,
-    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-        const executedBy = getString("executedBy", { user: message.author.tag }, "global")
-        const credits = getString("madeBy", { developer: message.client.users.cache.get("500669086947344384")!.tag })
-        const authorDb: DbUser = await client.getUser(message.author.id)
+    async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+        const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+            credits = getString("madeBy", { developer: interaction.client.users.cache.get("500669086947344384")!.tag }),
+            authorDb: DbUser = await client.getUser(interaction.user.id),
+            userInput = interaction.options.first()!.options?.get("user")?.user as Discord.User | undefined,
+            usernameInput = interaction.options.first()!.options?.get("username")?.value as string | undefined,
+            subCommand = interaction.options.first()!.name as string
         let uuid = authorDb.uuid
-        if (args[0]) {
-            args[0] = args[0].replace(/[\\<>@#&!]/g, "")
-            if (message.guild!.members.cache.get(args[0] as Discord.Snowflake)) {
-                const userDb: DbUser = await client.getUser(args[0])
-                if (userDb.uuid) uuid = userDb.uuid
-                else throw "notVerified"
-            } else if (args[0].length < 32) uuid = await getPlayer(args[0])
-            else uuid = args[0]
-        }
+        if (userInput) {
+            const userDb: DbUser = await client.getUser(userInput.id)
+            if (userDb.uuid) uuid = userDb.uuid
+            else throw "notVerified"
+        } else if (usernameInput && usernameInput?.length < 32) uuid = await getPlayer(usernameInput)
+        else uuid = usernameInput ?? authorDb.uuid
         if (!uuid) throw "noUser"
 
-        message.channel.startTyping()
+        await interaction.defer()
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
         await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 50000 })
             .then(res => (res.json())) // get the response json
@@ -58,7 +90,7 @@ const command: Command = {
 
                 //Update user's roles if they're verified
                 const uuidDb = await db.collection("users").findOne({ uuid: json.uuid })
-                if (uuidDb) updateRoles(message.guild!.members.cache.get(uuidDb.id)!, json)
+                if (uuidDb) updateRoles(interaction.guild!.members.cache.get(uuidDb.id)!, json)
 
                 const stats = async () => {
                     //Define each value
@@ -101,7 +133,7 @@ const command: Command = {
                             { name: getString(lastLoginSelector), value: lastLogin, inline: true }
 
                         )
-                        .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+                        .setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                     return statsEmbed
                 }
 
@@ -134,7 +166,7 @@ const command: Command = {
                     if (socialMedia.DISCORD) {
                         if (!socialMedia.DISCORD.includes("discord.gg")) discord = socialMedia.DISCORD.split("_").join("\\_")
                         else {
-                            await message.client.fetchInvite(socialMedia.DISCORD)
+                            await interaction.client.fetchInvite(socialMedia.DISCORD)
                                 .then(invite => {
                                     if (allowedGuildIDs.includes((invite.channel as Discord.GuildChannel).guild?.id)) discord = `[${getString("link")}](${invite.url})` //invite.channel.guild is used here because invite.guild is not guaranteed according to the docs
                                     else {
@@ -168,35 +200,46 @@ const command: Command = {
                             { name: "Discord", value: discord, inline: true },
                             { name: "Hypixel Forums", value: forums, inline: true }
                         )
-                        .setFooter(`${executedBy} | ${credits}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
+                        .setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                     return socialEmbed
                 }
 
-                let embed: Discord.MessageEmbed
-                if (!args[1] || args[1] === "stats") embed = await stats()
-                else if (args[1] === "social") embed = await social()
-                else throw "noSubCommand"
+                let embed: Discord.MessageEmbed = new Discord.MessageEmbed()
+                if (!subCommand || subCommand === "stats") embed = await stats()
+                else if (subCommand === "social") embed = await social()
 
-                message.channel.stopTyping()
-                message.channel.send(embed)
-                    .then(async msg => {
-                        await msg.react("📊"); await msg.react("<:twitter:821752918352068677>")
+                let controlButtons = new Discord.MessageActionRow()
+                    .addComponents(
+                        new Discord.MessageButton()
+                            .setCustomID("stats")
+                            .setStyle(subCommand === "stats" ? "SECONDARY" : "SUCCESS")
+                            .setEmoji("📊")
+                            .setLabel(getString("stats")),
+                        new Discord.MessageButton()
+                            .setCustomID("social")
+                            .setStyle(subCommand === "social" ? "SECONDARY" : "SUCCESS")
+                            .setEmoji("twitter:821752918352068677")
+                            .setLabel(getString("social"))
+                    )
+                await interaction.editReply({ embeds: [embed], components: [controlButtons] })
+                const msg = await interaction.fetchReply() as Discord.Message
 
-                        const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, user: Discord.User) => (reaction.emoji.name === "📊" || reaction.emoji.name === "twitter") && user.id === message.author.id, { time: this.cooldown! * 1000 }) //2 minutes
+                const collector = msg.createMessageComponentInteractionCollector((button: Discord.MessageComponentInteraction) => button.customID === "stats" || button.customID === "social", { time: this.cooldown! * 1000 })
 
-                        collector.on("collect", async reaction => {
-                            if (reaction.emoji.name === "📊") embed = await stats()
-                            else if (reaction.emoji.name === "twitter") embed = await social()
-                            reaction.users.remove(message.author.id)
-                            msg.edit(embed)
-                        })
-
-                        collector.on("end", () => {
-                            msg.edit(getString("timeOut", { command: "`+hypixelstats`" }))
-                            if (message.channel.type !== "dm") msg.reactions.removeAll()
-                            else msg.reactions.cache.forEach(reaction => reaction.users.remove()) //remove all reactions by the bot
-                        })
+                collector.on("collect", async buttonInteraction => {
+                    if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global"), ephemeral: true })
+                    else if (buttonInteraction.customID === "stats") embed = await stats()
+                    else if (buttonInteraction.customID === "social") embed = await social()
+                    controlButtons.components.forEach(button => {
+                        if (button.customID === buttonInteraction.customID) button.setStyle("SECONDARY")
+                        else button.setStyle("SUCCESS")
                     })
+                    await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
+                })
+
+                collector.on("end", async () => {
+                    await interaction.editReply({ content: getString("timeOut", { command: "`+hypixelstats`" }), components: [], embeds: [embed] })
+                })
             })
             .catch(e => {
                 if (e instanceof FetchError) {
@@ -207,7 +250,7 @@ const command: Command = {
     }
 }
 
-export async function getPlayer(username: string) {
+export async function getPlayer(username: string): Promise<string | undefined> {
     if (!username) return
     return await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 10000 })
         .then(res => res.json())
@@ -215,7 +258,7 @@ export async function getPlayer(username: string) {
             return json.id
         })
         .catch(() => {
-            return undefined
+            return
         })
 }
 

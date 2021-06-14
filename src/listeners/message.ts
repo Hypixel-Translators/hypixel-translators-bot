@@ -1,17 +1,17 @@
-import { client } from "../index.js"
+import { client } from "../index"
 import Discord from "discord.js"
 import fs from "fs"
 import { Stream } from "stream"
 import { crowdinVerify } from "./../lib/crowdinverify"
 import leveling from "./../lib/leveling"
-import { prefix, loadingColor, errorColor, successColor, neutralColor, blurple } from "../config.json"
-import { db, DbUser } from "../lib/dbclient.js"
+import { loadingColor, errorColor, successColor, neutralColor, blurple } from "../config.json"
+import { db, DbUser } from "../lib/dbclient"
+import { isEqual } from "lodash"
 
 client.on("message", async message => {
-
     //Delete pinned message messages
     if (message.type === "PINS_ADD" && message.channel.type !== "dm") {
-        message.delete()
+        await message.delete()
         return
     }
 
@@ -19,23 +19,33 @@ client.on("message", async message => {
     if (message.author.bot) return
 
     //Define command and leveling system
-    const args: string[] = message.content.slice(prefix.length).split(/ +/)
-    const commandName = args.shift()!.toLowerCase()
-    const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases! && cmd.aliases.includes(commandName))
-    const noXp = ["613015467984158742", "619190456911134750", "748267955552518175", "549894938712866816", "782267779008823326", "622814312615903233"] //Important, Archived, Verification, bots, music and staff-announcements
+    const noXp = [
+        "613015467984158742", //Important
+        "619190456911134750", //Archived
+        "748267955552518175", //Verification
+        "549894938712866816", //bots
+        "782267779008823326", //music
+        "622814312615903233" //staff-announcements
+    ]
     const noXpRoles = ["549894155174674432", "645208834633367562"] //Bot and Muted
     client.channels.cache.filter(c => (c as Discord.TextChannel).name?.endsWith("review-strings")).forEach(c => noXp.push(c.id))
-    if (message.guild?.id === "549503328472530974" && !command && !noXp.includes((message.channel as Discord.GuildChannel).parentID!) && !noXp.includes(message.channel.id!) && !message.member?.roles.cache.some(r => noXpRoles.includes(r.id))) await leveling(message)
+    if (
+        message.guild?.id === "549503328472530974" &&
+        !noXp.includes((message.channel as Discord.GuildChannel).parentID!) &&
+        !noXp.includes(message.channel.id!) &&
+        !message.member?.roles.cache.some(r => noXpRoles.includes(r.id))
+    )
+        await leveling(message)
 
     //Publish message if sent in bot-updates
-    if (message.channel.id === "732587569744838777" || message.channel.id === "618909521741348874" && !message.embeds[0].description?.startsWith("@")) {
+    if (message.channel.id === "732587569744838777" || (message.channel.id === "618909521741348874" && !message.embeds[0].description?.startsWith("@"))) {
         await message.crosspost() //bot-updates
         return
     }
 
     // Delete non-stringURL messages in review-strings
     if (message.channel instanceof Discord.TextChannel && message.channel.name.endsWith("-review-strings")) {
-        if (!/https:\/\/crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(message.content)) message.delete()
+        if (!/https:\/\/crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) message.delete()
         else {
             await message.react("732298639749152769") // vote_yes
             await message.react("839262179416211477") // vote_maybe
@@ -45,239 +55,179 @@ client.on("message", async message => {
 
     //Get the author from the database
     const author: DbUser = await client.getUser(message.author.id)
-    const executedBy = getString("executedBy", { user: message.author.tag }, "global")
 
     //Link correction system
-    if (!(message.channel instanceof Discord.DMChannel) && message.content.toLowerCase().includes("/translate/hypixel/") && message.content.includes("://") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)) {
-        if (message.channel.parentID === "549503328472530977" || message.channel.parentID === "748585307825242322" || message.channel.parentID === "763131996163407902" || message.channel.parentID === "646083561769926668") { //Hypixel, SkyblockAddons, Bot and Quickplay Translations
+    if (
+        !(message.channel instanceof Discord.DMChannel) &&
+        message.content.toLowerCase().includes("/translate/hypixel/") &&
+        message.content.includes("://") &&
+        /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)
+    ) {
+        if (
+            message.channel.parentID === "549503328472530977" ||
+            message.channel.parentID === "748585307825242322" ||
+            message.channel.parentID === "763131996163407902" ||
+            message.channel.parentID === "646083561769926668"
+        ) {
+            //Hypixel, SkyblockAddons, Bot and Quickplay Translations
             const langFix = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
-            if (!/(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(message.content)) {
-                message.react("732298639736570007")
+            if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
+                await message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(getString("errors.wrongLink", "global"))
-                    .setTitle(getString("wrongStringURL", "global"))
-                    .setDescription(getString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }, "global"))
+                    .setAuthor(getGlobalString("errors.wrongLink"))
+                    .setTitle(getGlobalString("wrongStringURL"))
+                    .setDescription(getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }))
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
-                if (message.content !== langFix && message.channel.parentID === "549503328472530977") embed.setDescription(`${getString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }, "global")}\n${getString("reminderLang", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }, "global")}`)
-                message.channel.send(`${message.author}`, embed)
+                if (message.content !== langFix && message.channel.parentID === "549503328472530977")
+                    embed.setDescription(
+                        `${getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" })}
+                        \n${getGlobalString("reminderLang", { format: "`crowdin.com/translate/hypixel/.../en-en#`" })}`
+                    )
+                await message.channel.send({ content: `${message.author}`, embeds: [embed] })
                 return
             } else if (message.content !== langFix && message.channel.parentID === "549503328472530977") {
-                message.react("732298639736570007")
+                await message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(getString("errors.wrongLink", "global"))
-                    .setTitle(getString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }, "global"))
+                    .setAuthor(getGlobalString("errors.wrongLink"))
+                    .setTitle(getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }))
                     .setDescription(langFix)
-                message.channel.send(`${message.author}`, embed)
+                await message.channel.send({ content: `${message.author}`, embeds: [embed] })
                 return
             }
         }
     }
 
     //Crowdin verification system
-    if (/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel.id === "569178590697095168") { //verify
-        message.react("798339571531382874") //icon_working
+    if (/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel.id === "569178590697095168") {
+        //verify
+        await message.react("798339571531382874") //icon_working
         await crowdinVerify(message.member!, message.content.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
         if (!message.deleted) await message.delete()
-        message.channel.messages.fetch()
-            .then(messages => {
-                const fiMessages = messages.filter(msgs => msgs.author.id === message.author.id);
-                (message.channel as Discord.TextChannel).bulkDelete(fiMessages)
-            })
+        message.channel.messages.fetch().then(async messages => {
+            const fiMessages = messages.filter(msgs => msgs.author.id === message.author.id)
+            await (message.channel as Discord.TextChannel).bulkDelete(fiMessages)
+        })
     }
 
     //Staff messaging system
     const member = await message.client.guilds.cache.get("549503328472530974")!.members.fetch(message.author.id)
-    if (!message.content.startsWith(prefix) && message.author !== client.user && message.channel.type === "dm" && !member!.roles.cache.has("645208834633367562")) { // Muted
+    if (message.author !== client.user && message.channel.type === "dm" && !member!.roles.cache.has("645208834633367562")) {
+        // Muted
         const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
-        const dayCooldown = 48, // Hours to wait before asking for confirmation
+        const hourCooldown = 48, // Hours to wait before asking for confirmation
             confirmTime = 60 // 1 min
-        if (!author.staffMsgTimestamp || author.staffMsgTimestamp + dayCooldown * 60 * 60 * 1000 < message.createdTimestamp) {
-
+        if (!author.staffMsgTimestamp || author.staffMsgTimestamp + hourCooldown * 60 * 60 * 1000 < message.createdTimestamp) {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor)
-                .setTitle(getString("staffDm.confirmation", "global"))
+                .setTitle(getGlobalString("staffDm.confirmation"))
                 .setDescription(message.content)
-                .setFooter(getString("staffDm.confirmSend", "global"))
-            if (message.attachments.size > 0) embed.setTitle(`${getString("staffDm.confirmation", "global")} ${getString("staffDm.attachmentsWarn", "global")}`)
-            const msg = await message.channel.send(embed)
-            await msg.react("✅"); await msg.react("❎")
-            const collector = msg.createReactionCollector((reaction: Discord.MessageReaction, reacter: Discord.User) => (reaction.emoji.name === "✅" || reaction.emoji.name === "❎") && reacter.id === message.author.id, { time: confirmTime * 1000 })
+                .setFooter(getGlobalString("staffDm.confirmSend"))
+            if (message.attachments.size > 0) embed.setTitle(`${getGlobalString("staffDm.confirmation")} ${getGlobalString("staffDm.attachmentsWarn")}`)
+            const controlButtons = [
+                new Discord.MessageButton()
+                    .setStyle("SUCCESS")
+                    .setCustomID("confirm")
+                    .setEmoji("✅")
+                    .setLabel(getGlobalString("pagination.confirm")),
+                new Discord.MessageButton()
+                    .setStyle("DANGER")
+                    .setCustomID("cancel")
+                    .setEmoji("❎")
+                    .setLabel(getGlobalString("pagination.cancel"))
+            ]
+            const msg = await message.channel.send({ embeds: [embed], components: [controlButtons] })
+            const collector = msg.createMessageComponentInteractionCollector(
+                (buttonInteraction: Discord.MessageComponentInteraction) =>
+                    buttonInteraction.customID === "confirm" || buttonInteraction.customID === "cancel",
+                { time: confirmTime * 1000 }
+            )
 
-            let reacted = false
-
+            let replied = false
             collector.on("collect", async reaction => {
-                reacted = true
-                msg.reactions.cache.forEach(async reaction => await reaction.users.remove())
-                if (reaction.emoji.name === "❎") {
+                replied = true
+                if (reaction.customID === "cancel") {
                     embed
                         .setColor(errorColor)
-                        .setTitle(getString("staffDm.dmCancelled", "global"))
-                        .setFooter(getString("staffDm.resendInfo", "global"))
-                    msg.edit(embed)
-                } else if (reaction.emoji.name === "✅") staffDm(msg, true)
+                        .setTitle(getGlobalString("staffDm.dmCancelled"))
+                        .setFooter(getGlobalString("staffDm.resendInfo"))
+                    await msg.edit({ embeds: [embed], components: [] })
+                } else if (reaction.customID === "confirm") await staffDm(msg, true)
             })
 
-            collector.on("end", () => {
-                if (reacted) return
+            collector.on("end", async () => {
+                if (replied) return
                 const timeOutEmbed = new Discord.MessageEmbed()
                     .setColor(errorColor)
-                    .setAuthor(getString("staffDm.dmCancelled", "global"))
+                    .setAuthor(getGlobalString("staffDm.dmCancelled"))
                     .setDescription(message.content)
-                    .setFooter(getString("staffDm.resendInfo", "global"))
-                msg.edit(timeOutEmbed)
-                msg.reactions.cache.forEach(async reaction => await reaction.users.remove())
-
+                    .setFooter(getGlobalString("staffDm.resendInfo"))
+                await msg.edit({ embeds: [timeOutEmbed], components: [] })
             })
-        } else staffDm(message, false)
+        } else await staffDm(message, false)
 
-        function staffDm(msg: Discord.Message, afterConfirm: boolean) {
-            if (afterConfirm) db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: Date.now() } })
-            else db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: message.createdTimestamp } })
+        async function staffDm(msg: Discord.Message, afterConfirm: boolean) {
+            if (afterConfirm) await db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: Date.now() } })
+            else await db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: message.createdTimestamp } })
             const staffMsg = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor("Incoming message from " + message.author.tag)
                 .setDescription(message.content)
             const dmEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
-                .setAuthor(getString("staffDm.messageSent", "global"))
+                .setAuthor(getGlobalString("staffDm.messageSent"))
                 .setDescription(message.content)
-                .setFooter(getString("staffDm.noConfirmWarn", "global"))
+                .setFooter(getGlobalString("staffDm.noConfirmWarn"))
             if (message.attachments.size > 1 || !(message.attachments.first()?.contentType?.startsWith("image") ?? true)) {
                 const images: (Discord.BufferResolvable | Stream)[] = []
                 message.attachments.forEach(file => images.push(file.attachment))
                 staffMsg.setTitle("View attachments")
-                dmEmbed.setTitle(getString("staffDm.attachmentsSent", "global"))
-                staffBots.send(`+dm ${message.author.id}`, { embed: staffMsg, files: images })
-                message.channel.send(dmEmbed)
+                dmEmbed.setTitle(getGlobalString("staffDm.attachmentsSent"))
+                await staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg], files: images })
+                await message.channel.send({ embeds: [dmEmbed] })
                 return
             } else if (message.attachments.size > 0) {
                 staffMsg
                     .setTitle("View attachment")
                     .setImage(message.attachments.first()!.url)
-                dmEmbed.setTitle(getString("staffDm.attachmentSent", "global"))
-                staffBots.send(`+dm ${message.author.id}`, staffMsg)
-            } else staffBots.send(`+dm ${message.author.id}`, staffMsg) //staff-bots
-            if (afterConfirm) {
-                msg.edit(dmEmbed)
-                return
-            }
-            msg.channel.send(dmEmbed)
+                dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent"))
+                await staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg] })
+            } else await staffBots.send({ content: `+dm ${message.author.id}`, embeds: [staffMsg] }) //staff-bots
+            if (afterConfirm) await msg.edit({ embeds: [dmEmbed], components: [] })
+            else await msg.channel.send({ embeds: [dmEmbed] })
         }
-    }
-
-
-    //Stop if the message is not a command
-    if (!message.content.startsWith(prefix) || !command) return
-
-    //Log if command is ran in DMs
-    if (message.channel.type === "dm") console.log(`${message.author.tag} used command ${commandName} in DMs`)
-
-    //Return if user is not verified
-    if (!member?.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
-
-    //Role Blacklist and Whitelist system
-    let allowed = true
-    if (command.roleBlacklist) {
-        allowed = true
-        command.roleBlacklist.forEach(role => {
-            if (member?.roles.cache.has(role)) allowed = false
-        })
-    }
-    if (command.roleWhitelist) {
-        allowed = false
-        command.roleWhitelist.forEach(role => {
-            if (member?.roles.cache.has(role)) allowed = true
-        })
-    }
-
-    //Channel Blacklist and whitelist systems
-    if (!(message.channel instanceof Discord.DMChannel)) {
-        if (command.categoryBlacklist && command.categoryBlacklist.includes(message.channel.parentID!)) allowed = false
-        else if (command.channelBlacklist && command.channelBlacklist.includes(message.channel.id)) allowed = false
-        else if (command.categoryWhitelist && !command.categoryWhitelist.includes(message.channel.parentID!)) allowed = false
-        else if (command.channelWhitelist && !command.channelWhitelist.includes(message.channel.id)) allowed = false
-    }
-
-    //Prevent users from running commands in development
-    if (command.dev && !member?.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
-
-    //Give perm to admins and return if not allowed
-    if (member?.permissions.has("MANAGE_ROLES") && command.name !== "eval" || member?.permissions.has("ADMINISTRATOR")) allowed = true
-    if (!allowed) {
-        message.react("732298639736570007")
-        setTimeout(() => {
-            if (!message.deleted && message.channel.type !== "dm") message.delete()
-        }, 5000)
-        return
-    }
-
-    //Stop and error if command is not allowed in DMs and command is sent in DMs
-    if (!command.allowDM && message.channel.type === "dm" && !member?.permissions.has("ADMINISTRATOR")) {
-        const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
-            .setAuthor(getString("error", "global"))
-            .setTitle(getString("errors.dmError", "global"))
-            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        message.channel.send(embed)
-        return
-    }
-    //Cooldown system
-    if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Discord.Collection())
-    const now = Date.now()
-    const timestamps: Discord.Collection<string, number> = client.cooldowns.get(command.name)!
-    const cooldownAmount = (command.cooldown || 3) * 1000
-    if (timestamps.has(message.author.id)) {
-        const expirationTime = timestamps.get(message.author.id)! + cooldownAmount
-        if (now < expirationTime) {
-            const timeLeft = (expirationTime - now) / 1000
-            let timeLeftS
-            if (Math.ceil(timeLeft) >= 120) timeLeftS = getString("minsLeftT", { time: Math.ceil(timeLeft / 60), command: commandName }, "global")
-            else if (Math.ceil(timeLeft) === 1) timeLeftS = getString("secondLeft", { command: commandName }, "global")
-            else timeLeftS = getString("timeLeftT", { time: Math.ceil(timeLeft), command: commandName }, "global")
-
-            const embed = new Discord.MessageEmbed()
-                .setColor(errorColor)
-                .setAuthor(getString("cooldown", "global"))
-                .setTitle(timeLeftS)
-                .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-            message.channel.send(embed)
-                .then(msg =>
-                    setTimeout(() => {
-                        if (!message.deleted && message.channel.type !== "dm") message.delete()
-                        if (!msg.deleted && message.channel.type !== "dm") msg.delete()
-                    }, 10000))
-            return
-        }
-    }
-
-    //Remove cooldown if administrator
-    if (!member?.permissions.has("MANAGE_ROLES")) {
-        timestamps.set(message.author.id, now)
-        setTimeout(() => { timestamps.delete(message.author.id) }, cooldownAmount)
     }
 
     //Function to get strings
     /**
      * Gets a string or an object of strings for the correct language and replaces all variables if any
-     * 
+     *
      * @param {string} path Path to the string. Use dots to access strings inside objects
      * @param {Object} [variables] Object containing all the variables and their corresponding text to be replaced in the string.
-     * @param {string} [cmd] The name of the file to get strings from. Defaults to the command being ran
+     * @param {string} [cmd] The name of the file to get strings from. Defaults to global
      * @param {string} [lang] The language to get the string from. Defaults to the author's language preference.
      * @returns A clean string with all the variables replaced or an object of strings. Will return `strings.{path}` if the path cannot be found.
      */
-    function getString(path: string, variables?: { [key: string]: string | number } | string, cmd: string = command?.name ?? "global", lang: string = author?.lang ?? "en"): any {
+    function getGlobalString(
+        path: string,
+        variables?: { [key: string]: string | number } | string,
+        cmd: string = "global",
+        lang: string = author.lang ?? "en"
+    ): any {
         const languages = fs.readdirSync("./strings")
         if (typeof variables === "string") {
-            lang = languages.includes(cmd) ? cmd : author?.lang ?? "en"
+            lang = languages.includes(cmd) ? cmd : author.lang ?? "en"
             cmd = variables
         }
+        const command = client.commands.get(cmd)
         let enStrings = require(`../../strings/en/${cmd}.json`)
         let strings: any
-        try { strings = require(`../../strings/${lang}/${cmd}.json`) }
-        catch { strings = require(`../../strings/en/${cmd}.json`) }
+        try {
+            strings = require(`../../strings/${lang}/${cmd}.json`)
+        } catch {
+            strings = require(`../../strings/en/${cmd}.json`)
+        }
         const pathSplit = path.split(".")
         let string
         pathSplit.forEach(pathPart => {
@@ -286,17 +236,19 @@ client.on("message", async message => {
                 if (strings[pathPart]) jsonElement = strings[pathPart]
                 else jsonElement = enStrings[pathPart]
 
-                if (typeof jsonElement === "object" && pathSplit.indexOf(pathPart) !== pathSplit.length - 1) { //check if the string isn't an object nor the end of the path
+                if (typeof jsonElement === "object" && pathSplit.indexOf(pathPart) !== pathSplit.length - 1) {
+                    //check if the string isn't an object nor the end of the path
                     if (strings[pathPart]) strings = strings[pathPart]
                     enStrings = enStrings[pathPart]
                     return
                 } else {
                     string = strings[pathPart]
-                    if (!string || typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g))) {
+                    if (!string || (typeof string === "string" && !isEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g)))) {
                         string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
                             string = `strings.${path}` //in case of fire
-                            if (command?.category != "Admin" && command?.category != "Staff") console.error(`Couldn't get string ${path} in English for ${cmd}, please fix this`)
+                            if (command?.category != "Admin" && command?.category != "Staff")
+                                console.error(`Couldn't get string ${path} in English for ${cmd}, please fix this`)
                         }
                     }
                     if (typeof string === "string" && variables) {
@@ -310,73 +262,4 @@ client.on("message", async message => {
         })
         return string
     }
-
-    //Run command and handle errors
-    try {
-        // Run the command
-        await command.execute(message, args, getString)
-
-        // Try sending a tip
-        // This will only execute if the command is successful
-        const d = Math.random() * 100 // Get percentage
-        if (command.allowTip !== false && d <= 5) { // Less than or equal to 5%
-            const keys = Object.keys(getString("tips", "global"))
-            const tip = getString(`tips.${keys[keys.length * Math.random() << 0]}`, { botUpdates: "<#732587569744838777>", gettingStarted: "<#699275092026458122>", twitter: "<https://twitter.com/HTranslators>", rules: "<#796159719617986610>", serverInfo: "<#762341271611506708>", bots: "<#549894938712866816>" }, "global")
-            message.channel.send(`**${getString("tip", "global").toUpperCase()}:** ${tip}`)
-        }
-    }
-    catch (error) {
-        if (!error.stack) error = getString(`errors.${error}`, "global")
-
-        //Handle errors
-        timestamps.delete(message.author.id)
-        const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
-            .setAuthor(getString("error", "global"))
-            .setTitle(error.message?.substring(0, 255) || error.toString().substring(0, 255))
-            .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-        if (command.category == "Admin" || command.category == "Staff") embed.addField(getString("usage", "global"), `\`${command.usage}\``)
-        else embed.addField(getString("usage", "global"), `\`${getString(`${command.name}.usage`, "help")}\``)
-        message.channel.stopTyping()
-        message.channel.send(embed)
-            .then(msg => {
-                if (error.stack) {
-                    if (process.env.NODE_ENV === "production") {
-                        const embed = new Discord.MessageEmbed()
-                            .setColor(errorColor)
-                            .setAuthor("Unexpected error!")
-                            .setTitle(error.toString().substring(0, 255))
-                            .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
-                            .setFooter("Check the console for more details");
-                        (message.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send("<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>", embed) //Rodry and bot-development
-                    }
-                    console.error(`Unexpected error with command ${commandName} on channel ${message.channel instanceof Discord.DMChannel ? message.channel.type : message.channel.name} executed by ${message.author.tag}. Here's the error:\n${error.stack}`)
-                } else {
-                    setTimeout(() => {
-                        if (!message.deleted && message.channel.type !== "dm") message.delete()
-                        if (!msg.deleted && message.channel.type !== "dm") msg.delete()
-                    }, 10000)
-                }
-            })
-    }
 })
-
-function arrayEqual(a: any, b: any) {
-    if (a == b) return true
-
-    if (!Array.isArray(a) || !Array.isArray(b)) return false
-
-    // .concat() to not mutate arguments
-    let arr1 = a.concat().sort(),
-        arr2 = b.concat().sort()
-
-    // Remove duplicated values
-    arr1 = arr1.filter((item: string, index: number) => arr1.indexOf(item) == index)
-    arr2 = arr2.filter((item: string, pos: number) => arr2.indexOf(item) == pos)
-
-    for (let i = 0; i < arr1.length; i++) {
-        if (arr1[i] !== arr2[i]) return false
-    }
-
-    return true
-}

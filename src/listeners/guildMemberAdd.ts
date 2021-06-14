@@ -1,9 +1,9 @@
-import { client } from "../index.js"
+import { client } from "../index"
 import { db } from "../lib/dbclient"
 import Discord from "discord.js"
 import { registerFont, createCanvas, loadImage } from "canvas"
 
-client.on("guildMemberAdd", member => {
+client.on("guildMemberAdd", async member => {
     //Define assets and create canvas
     registerFont("assets/Bitter-Regular.ttf", { family: "Bitter" })
     registerFont("assets/Bitter-Bold.ttf", { family: "Bitter-Bold" })
@@ -55,19 +55,19 @@ client.on("guildMemberAdd", member => {
         ctx.closePath()
 
         //Put the image in the circle
-        loadImage(userAvatar).then(userPic => {
+        loadImage(userAvatar).then(async userPic => {
             ctx.clip()
             ctx.drawImage(userPic, 25, 25, 150, 150)
             ctx.restore()
 
             //OUTPUT
-            const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `${member.user.username} join.png`);
-            (member.guild.channels.cache.get("549882021934137354") as Discord.TextChannel).send(`${member.user} just joined. Welcome! 🎉`, attachment) //join-leave
+            const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `${member.user.username} join.png`)
+            await (member.guild.channels.cache.get("549882021934137354") as Discord.TextChannel).send({ content: `${member.user} just joined. Welcome! 🎉`, files: [attachment] }) //join-leave
         })
     })
     if (!member.user.bot) {
         member.send(`Hey there and thanks for joining **${member.guild.name}**! We hope you have fun on our server!`)
             .catch(() => console.log(`Couldn't DM user ${member.user.tag}, probably because they have DMs off`))
-        db.collection("users").insertOne({ id: member.user.id, lang: "en" })
-    } else member.roles.add("549894155174674432") // Bot
+        await db.collection("users").insertOne({ id: member.user.id, lang: "en" })
+    } else await member.roles.add("549894155174674432") // Bot
 })

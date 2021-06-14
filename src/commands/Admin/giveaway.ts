@@ -4,24 +4,29 @@ import { Command } from "../../index"
 const command: Command = {
     name: "giveaway",
     description: "Gives you the winners of a giveaway.",
-    aliases: ["reroll", "g", "greroll", "giveaways"],
-    usage: "+giveaway <messageID> [winners]",
+    options: [{
+        type: "STRING",
+        name: "messageid",
+        description: "The ID of the message to fetch winners from",
+        required: true
+    },
+    {
+        type: "INTEGER",
+        name: "winners",
+        description: "The amount of winners to pick. defaults to 1",
+        required: false
+    }],
+    allowTip: false,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
-    async execute(message: Discord.Message, args: string[]) {
-        if (!args[0]) return message.channel.send("You forgot to specify a message to look for! Use the message ID")
-        const giveawayMsg = await message.channel.messages.fetch(args[0] as Discord.Snowflake)
-            .catch(err => {
-                return message.channel.send("Couldn't find that message! Here's the error:\n" + err)
-            })
-        message.delete()
-        const users = await giveawayMsg.reactions.cache.find(r => r.emoji.name == "🎉")?.users.fetch()
-            .catch(err => {
-                return message.channel.send("That message doesn't have any 🎉 reactions. Here's the error:\n" + err)
-            }) as Discord.Collection<string, Discord.User>
-        const winner: Discord.User[] = users!.random(Number(args[1]) || 1)
-        let winners: Discord.User[] = []
-        winner.forEach(user => winners.push(user))
-        message.channel.send(`Congratulations to ${winners.join(", ")}`)
+    async execute(interaction: Discord.CommandInteraction) {
+        const giveawayMsg = await (interaction.channel as Discord.TextChannel).messages.fetch((interaction.options.get("messageid")!.value as Discord.Snowflake))
+            .catch(async err => {
+                return await interaction.reply({ content: "Couldn't find that message! Here's the error:\n" + err, ephemeral: true })
+            }) as Discord.Message
+        const users = await giveawayMsg.reactions.cache.get("🎉")?.users.fetch() as Discord.Collection<string, Discord.User>
+        if (!users) return await interaction.reply({ content: "That message doesn't have any 🎉 reactions.", ephemeral: true })
+        const winners: (Discord.User | undefined)[] = users.random(Number(interaction.options.get("winners")?.value) || 1)
+        await interaction.reply(`Congratulations to ${winners.filter(user => user).join(", ")}`)
     }
 }
 

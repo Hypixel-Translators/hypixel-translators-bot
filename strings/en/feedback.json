@@ -1,0 +1,8 @@
+{
+    "moduleName": "Problems and feedback",
+    "bugT": "Viewing and adding issues",
+    "bugD": "To show and make suggestions or bug reports, click on the button bellow!",
+    "urgentT": "Is it urgent?",
+    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention a staff member in a public channel, explaining the issue.",
+    "link": "Link"
+}

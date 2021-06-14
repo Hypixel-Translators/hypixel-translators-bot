@@ -6,82 +6,89 @@ import { Command } from "../../index"
 const command: Command = {
     name: "profile",
     description: "Gets the profile of a user",
-    usage: "+profile [user]",
+    options: [{
+        type: "USER",
+        name: "user",
+        description: "The user to find the profile for. Admin only.",
+        required: false
+    },
+    {
+        type: "STRING",
+        name: "profile",
+        description: "The new profile to set for the user. Admin only.",
+        required: false
+    }],
     allowTip: false,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-    async execute(message: Discord.Message, args: string[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
-        const collection = db.collection("users")
-        if (message.member!.roles.cache.has("764442984119795732") && args[0]) { //Discord Administrator
-            let user: Discord.User | undefined = message.author
-            if (args[0]) {
-                let userRaw = args[0].replace(/[\\<>@&!]/g, "")
-                user = message.client.users.cache.find(u => u.id === userRaw || u.tag === userRaw || u.username === userRaw || u.tag.toLowerCase().includes(userRaw.toLowerCase()))
-                if (!user) throw "falseUser"
-            }
-            if (!args[1]) {
-                const userDb: DbUser = await collection.findOne({ id: user.id })
+    async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+        const collection = db.collection("users"),
+            user = interaction.options.get("user")?.user,
+            profile = interaction.options.get("profile")?.value as string | undefined
+        if ((interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732") && user) { //Discord Administrator
+            if (!profile) {
+                const userDb: DbUser = await collection.findOne({ id: user?.id })
                 if (userDb.profile) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(neutralColor)
                         .setAuthor("Crowdin Profile")
                         .setTitle(`Here's ${user.tag}'s Crowdin profile`)
                         .setDescription(userDb.profile)
-                        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    return message.channel.send(embed)
+                        .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                    return await interaction.reply({ embeds: [embed] })
                 } else {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor)
                         .setAuthor("Crowdin Profile")
                         .setTitle(`Couldn't find ${user.tag}'s Crowdin profile on the database!`)
-                        .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                    return message.channel.send(embed)
+                        .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                    return await interaction.reply({ embeds: [embed] })
                 }
             } else {
-                if (/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(args[1])) {
-                    await collection.findOneAndUpdate({ id: user.id }, { $set: { profile: args[1] } })
-                        .then(r => {
-                            if (r.value.profile !== args[1]) {
+                if (/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(profile)) {
+                    await collection.findOneAndUpdate({ id: user.id }, { $set: { profile: profile } })
+                        .then(async r => {
+                            if (r.value.profile !== profile) {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor)
                                     .setAuthor("User Profile")
-                                    .setTitle(`Successfully updated ${user!.tag}'s Crowdin profile!`)
+                                    .setTitle(`Successfully updated ${user.tag}'s Crowdin profile!`)
                                     .addFields(
                                         { name: "Old profile", value: r.value.profile || "None" },
-                                        { name: "New profile", value: args[1] }
+                                        { name: "New profile", value: profile }
                                     )
-                                    .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                                return message.channel.send(embed)
+                                    .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                                return await interaction.reply({ embeds: [embed] })
                             } else {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(errorColor)
                                     .setAuthor("User Profile")
-                                    .setTitle(`Couldn't update ${user!.tag}'s Crowdin profile!`)
+                                    .setTitle(`Couldn't update ${user.tag}'s Crowdin profile!`)
                                     .setDescription(`Their current profile is the same as the one you tried to add.`)
-                                    .setFooter(`Executed by ${message.author.tag}`, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                                return message.channel.send(embed)
+                                    .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                                return await interaction.reply({ embeds: [embed] })
                             }
                         })
                 } else throw "wrongLink"
             }
         } else {
-            const executedBy = getString("executedBy", { user: message.author.tag }, "global")
-            const userDb: DbUser = await collection.findOne({ id: message.author.id })
+            const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+                userDb: DbUser = await collection.findOne({ id: interaction.user.id })
             if (userDb.profile) {
                 const embed = new Discord.MessageEmbed()
                     .setColor(neutralColor)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("profileSuccess"))
                     .setDescription(userDb.profile)
-                    .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                return message.channel.send(embed)
+                    .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                return await interaction.reply({ embeds: [embed], ephemeral: true })
             } else {
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("noProfile"))
                     .setDescription(getString("howStore"))
-                    .setFooter(executedBy, message.author.displayAvatarURL({ format: "png", dynamic: true }))
-                return message.channel.send(embed)
+                    .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                return await interaction.reply({ embeds: [embed], ephemeral: true })
             }
         }
     }
