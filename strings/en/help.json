@@ -33,9 +33,6 @@
     "languagestats": {
         "description": "Shows you the progress of a language on all the projects we currently support."
     },
-    "issue": {
-        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
-    },
     "feedback": {
         "description": "Opens our GitHub issues page, where you can report problems and send feedback."
     },
