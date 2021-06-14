@@ -72,7 +72,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
         page = await browser.pupBrowser.newPage()
     try {
         await page.goto(url, { timeout: 10000 })
-        await page.waitForSelector(".project-name", { timeout: 10000 })
+        await page.waitForSelector(".profile-project-info", { timeout: 10000 })
     } catch { //if no projects are available
         const evaluation = await page.evaluate(() => {
             return document.querySelector(".private-profile") !== null //check if the profile is private
@@ -100,8 +100,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
                 })
             else if (sendLogs) await verifyLogs.send(`The profile stored/provided for ${member} was invalid. Please fix this or ask them to fix this.`)
             else {
-                console.log(`(${member.id}) ${member.user.tag}'s previous profile URL was invalid and was removed but here it is: ${url}`)
-                await db.collection("users").updateOne({ id: member.id }, { $unset: { profile: true } })
+                await verifyLogs.send(`${member}'s profile seems to be invalid: <${url}>\nIf it is, please remove it from the database, otherwise ignore this message or maybe even delete it.`)
             }
             //#endregion
         } else if (sendLogs) { //if the profile is private

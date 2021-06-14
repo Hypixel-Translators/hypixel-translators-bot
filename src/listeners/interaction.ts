@@ -148,7 +148,8 @@ client.on("interaction", async interaction => {
 
         // Try sending a tip
         // This will only execute if the command is successful
-        const d = Math.random() * 100 // Get percentage
+        const d = Math.random() * 100, // Get percentage
+            reply = await interaction.fetchReply()
         if (command.allowTip !== false && d <= 5) {
             // Less than or equal to 5%
             const keys = Object.keys(getString("tips", "global"))
@@ -164,7 +165,7 @@ client.on("interaction", async interaction => {
                 },
                 "global"
             )
-            await interaction.channel.send(`**${getString("tip", "global").toUpperCase()}:** ${tip}`)
+            if (interaction.replied && reply) await interaction.channel.send(`**${getString("tip", "global").toUpperCase()}:** ${tip}`)
         }
     } catch (error) {
         if (!error.stack) error = getString(`errors.${error}`, "global")
@@ -178,10 +179,10 @@ client.on("interaction", async interaction => {
                     .setTitle(error.toString().substring(0, 255))
                     .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
                     .setFooter("Check the console for more details")
-                    await (interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send({
-                        content: "<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>",
-                        embeds: [embed]
-                    }) //Rodry and bot-development
+                await (interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send({
+                    content: "<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>",
+                    embeds: [embed]
+                }) //Rodry and bot-development
             }
             console.error(
                 `Unexpected error with command ${interaction.commandName} on channel ${interaction.channel instanceof Discord.DMChannel ? interaction.channel.type : (interaction.channel as Discord.TextChannel).name
