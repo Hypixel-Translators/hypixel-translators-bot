@@ -1,7 +1,7 @@
 {
     "moduleName": "פרוייקטי תרגום",
     "allProjects": "הנה כל הפרוייקטים שכרגע אנחנו תומכים בהם בשרת!",
-    "description": "If you're already on some of these projects but don't have your roles yet, execute `+reverify [profileURL]` to get them!",
+    "description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
     "projectInfo": "באפשרותך למצוא את הקישור של פרוייקט ה%%project%% [כאן] (%%link%%). למידע נוסף בצע/י %%command%%.",
     "alreadyJoined": "כבר הצטרפת לפרוייקט זה!",
     "notJoined": "עדיין לא הצטרפת לפרוייקט זה!",
