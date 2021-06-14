@@ -2,5 +2,5 @@
     "moduleName": "Crowdin-profil",
     "profileSuccess": "Her er din profil",
     "noProfile": "Vi kunne ikke finde din profil i vores database!",
-    "howStore": "Hvis du gerne vil gemme den, skal du udføre `+help reverify` for at vide, hvordan du skal gøre det."
+    "howStore": "If you'd like to store it, execute `/help verify` to know how you can do so."
 }
