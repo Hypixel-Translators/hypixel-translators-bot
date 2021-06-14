@@ -1,0 +1,8 @@
+{
+    "moduleName": "Bir hata bildir",
+    "bugT": "Sorunları görüntüleme ve ekleme",
+    "bugD": "Öneri yapmak veya hata raporu göndermek için aşağıdaki butona tıklayın!",
+    "urgentT": "Acil mi?",
+    "urgentD": "Önemli bir hatayı bildirmeye çalışıyorsanız veya bot önceden haber vermeksizin uzun bir süre çalışmıyorsa, lütfen sorunu açıklayan bir mesaj ile herkese açık kanalda yetkili birini etiketleyerek sorundan bahsedin.",
+    "link": "Link"
+}

@@ -2,5 +2,5 @@
     "moduleName": "Профиль Crowdin",
     "profileSuccess": "Вот ваш профиль",
     "noProfile": "Мы не смогли найти ваш профиль в нашей базе данных!",
-    "howStore": "Если вы хотите сохранить его, выполните `+help reverify`, чтобы узнать, как сделать это."
+    "howStore": "If you'd like to store it, execute `/help verify` to know how you can do so."
 }

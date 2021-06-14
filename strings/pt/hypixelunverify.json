@@ -1,0 +1,6 @@
+{
+    "moduleName": "Verificação com o Hypixel",
+    "unverified": "Foste desligado com sucesso!",
+    "notUnverified": "Não foi possível desligar-te!",
+    "whyNotUnverified": "Isto aconteceu porque ainda não te verificaste! Podes fazê-lo, executando `/hypixelverify <jogador>`."
+}

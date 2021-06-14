@@ -5,8 +5,5 @@
     "alreadyVerified": "¡Ya estás verificado!",
     "nameChangeDisclaimer": "¡Ten en cuenta que no es necesario verificarte nuevamente si cambias de nombre!",
     "error": "¡No pudimos verificarte porque no configuraste tu Discord en Hypixel correctamente!",
-    "tutorial": "Para ser verificado, debes configurar tu Discord en Hypixel en %%tag%% y luego ejecutar el comando nuevamente. Sigue las instrucciones del video a continuación si no sabes cómo hacer esto.",
-    "unverified": "¡Has desverificado con éxito!",
-    "notUnverified": "¡No se pudo desverificarte!",
-    "whyNotUnverified": "¡Esto sucedió porque aún no te has verificado! Para hacerlo, usa `+hypixelverify <usuario>`."
+    "tutorial": "Para ser verificado, debes configurar tu Discord en Hypixel en %%tag%% y luego ejecutar el comando nuevamente. Sigue las instrucciones del video a continuación si no sabes cómo hacer esto."
 }

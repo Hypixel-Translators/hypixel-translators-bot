@@ -1,7 +1,7 @@
 {
     "moduleName": "Translat Projgetz",
     "allProjects": "Here all projedz we suppor righ nows on servre!",
-    "description": "If you're already on some of these projects but don't have your roles yet, execute `+reverify [profileURL]` to get them!",
+    "description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
     "projectInfo": "You finds link to %%project%% projget [hir](%%link%%). Für mor informashon, excut %%command%%.",
     "alreadyJoined": "U alredi joins projget!",
     "notJoined": "U no joins projget yet!",

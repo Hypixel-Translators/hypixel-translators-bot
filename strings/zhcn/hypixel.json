@@ -1,5 +1,5 @@
 {
     "hypixelCrowdin": "Hypixel 本地化项目链接：%%crowdin%%",
-    "hypixelGuide": "如果你想查看项目的规则，请输入 `+guide`。",
+    "hypixelGuide": "If you want to check out the project's rules, do `/guidelines`.",
     "hypixelDiscord": "The Hypixel Discord server can be found at %%discord%% (useful for proofreaders)."
 }

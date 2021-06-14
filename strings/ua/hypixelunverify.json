@@ -1,0 +1,6 @@
+{
+    "moduleName": "Підтвердження профілю Hypixel",
+    "unverified": "Ви успішно скасували підтвердження!",
+    "notUnverified": "Не вдалося скасувати підтвердження!",
+    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `/hypixelverify <username>`."
+}

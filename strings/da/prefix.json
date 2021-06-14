@@ -14,7 +14,7 @@
         "timeOutCustom": "Du bekræftede ikke, ",
         "notSaved": "så dit præfiks blev ikke gemt."
     },
-    "customPrefix": "Du er velkommen til at udføre `+prefix <flags>` for at få din ønskede præfiks.",
+    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
     "caution": "Bemærk",
     "warning": "Indstilling af dit præfiks til et sprog du ikke oversætter vil resultere i en advarsel. Vil du ændre dit kaldenavn alligevel?",
     "react": "Reager med de flag, som du ønsker for at tilføje dit præfiks i rækkefølge.",

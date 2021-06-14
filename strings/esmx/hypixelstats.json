@@ -21,6 +21,8 @@
     "lastGameHidden": "¡El último juego está oculto o no se pudo obtener!",
     "lastLoginHidden": "¡La última vez que se vio está oculta o no se pudo obtener!",
     "firstLoginHidden": "¡La hora del primer inicio de sesión está oculta o no se pudo obtener!",
+    "social": "Social Media",
+    "stats": "Statistics",
     "dateLocale": "es-MX",
     "timeZone": "America/Mexico_City",
     "ENGLISH": "Inglés",

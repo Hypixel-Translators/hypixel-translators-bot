@@ -17,107 +17,83 @@
     "seconds": "crwdns574:0crwdne574:0",
     "second": "crwdns576:0crwdne576:0",
     "minutes": "crwdns578:0crwdne578:0",
-    "usageField": "crwdns580:0crwdne580:0",
     "cooldownField": "crwdns582:0crwdne582:0",
-    "aliasesField": "crwdns584:0crwdne584:0",
     "help": {
-        "usage": "crwdns586:0crwdne586:0",
         "description": "crwdns588:0crwdne588:0"
     },
     "prefix": {
-        "usage": "crwdns590:0[flags]crwdne590:0",
         "description": "crwdns592:0crwdne592:0"
     },
     "quote": {
-        "usage": "crwdns594:0[index]crwdne594:0",
         "description": "crwdns596:0crwdne596:0"
     },
     "mention": {
-        "usage": "crwdns598:0[message]crwdne598:0",
         "description": "crwdns600:0crwdne600:0"
     },
     "languagestats": {
-        "usage": "crwdns1120:0crwdne1120:0",
         "description": "crwdns1122:0crwdne1122:0"
     },
-    "issue": {
-        "usage": "crwdns606:0crwdne606:0",
-        "description": "crwdns608:0crwdne608:0"
+    "feedback": {
+        "description": "crwdns1402:0crwdne1402:0"
     },
     "language": {
-        "usage": "crwdns610:0crwdne610:0",
         "description": "crwdns612:0crwdne612:0"
     },
     "ping": {
-        "usage": "crwdns614:0crwdne614:0",
         "description": "crwdns616:0crwdne616:0"
     },
     "hypixelstats": {
-        "usage": "crwdns618:0[username]crwdnd618:0[social]crwdne618:0",
         "description": "crwdns620:0crwdne620:0"
     },
+    "hypixelunverify": {
+        "description": "crwdns1404:0crwdne1404:0"
+    },
     "hypixelverify": {
-        "usage": "crwdns1182:0crwdne1182:0",
         "description": "crwdns1184:0crwdne1184:0"
     },
     "8ball": {
-        "usage": "crwdns1238:0crwdne1238:0",
         "description": "crwdns1240:0crwdne1240:0"
     },
     "verify": {
-        "usage": "crwdns1242:0[profileURL]crwdne1242:0",
         "description": "crwdns1244:0crwdne1244:0"
     },
     "profile": {
-        "usage": "crwdns1258:0crwdne1258:0",
         "description": "crwdns1260:0crwdne1260:0"
     },
     "rank": {
-        "usage": "crwdns1300:0[user]crwdne1300:0",
         "description": "crwdns1302:0crwdne1302:0"
     },
     "levels": {
-        "usage": "crwdns1304:0[page]crwdne1304:0",
         "description": "crwdns1306:0crwdne1306:0"
     },
     "tip": {
-        "usage": "crwdns622:0crwdne622:0",
         "description": "crwdns624:0crwdne624:0"
     },
     "invite": {
-        "usage": "crwdns626:0crwdne626:0",
         "description": "crwdns628:0crwdne628:0"
     },
     "projects": {
-        "usage": "crwdns856:0crwdne856:0",
         "description": "crwdns858:0crwdne858:0"
     },
     "hypixel": {
-        "usage": "crwdns634:0crwdne634:0",
         "description": "crwdns636:0crwdne636:0"
     },
     "guidelines": {
-        "usage": "crwdns630:0crwdne630:0",
         "description": "crwdns632:0crwdne632:0"
     },
     "quickplay": {
-        "usage": "crwdns638:0crwdne638:0",
         "description": "crwdns640:0crwdne640:0"
     },
     "skyblockaddons": {
-        "usage": "crwdns642:0crwdne642:0",
         "description": "crwdns644:0crwdne644:0"
     },
     "translate": {
-        "usage": "crwdns646:0crwdne646:0",
         "description": "crwdns648:0crwdne648:0"
     },
     "thread": {
-        "usage": "crwdns650:0crwdne650:0",
         "description": "crwdns652:0crwdne652:0"
     },
     "twitter": {
-        "usage": "crwdns654:0crwdne654:0",
         "description": "crwdns656:0crwdne656:0"
     }
 }

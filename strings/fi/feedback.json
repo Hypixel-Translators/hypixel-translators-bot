@@ -1,0 +1,8 @@
+{
+    "moduleName": "Ongelmat ja palaute",
+    "bugT": "Ilmoitusten tarkasteleminen ja luominen",
+    "bugD": "To show and make suggestions or bug reports, click on the button below!",
+    "urgentT": "Onko tämä kiireellistä?",
+    "urgentD": "Mikäli yrität ilmoittaa vakavasta bugista tai botti on ollut alhaalla pidemmän aikaa ilman virallista ilmoitusta, ole hyvä ja mainitse ylläpidon jäsen julkisella kanavalla ja selitä ongelma.",
+    "link": "Osoite"
+}

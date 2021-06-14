@@ -14,7 +14,7 @@
         "timeOutCustom": "You didn't confirm, ",
         "notSaved": "so your prefix wasn't saved."
     },
-    "customPrefix": "Köra `+prefix <flaggor>` för att ändra ditt prefix.",
+    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
     "caution": "Varning",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "React with all flags you want to add to your prefix in order.",

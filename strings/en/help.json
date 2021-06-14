@@ -1,7 +1,7 @@
 {
     "moduleName": "Information",
     "page1Title": "Help page",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the reactions on this message to cycle through them.",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
     "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
     "page": "Page %%number%%/%%total%%",
     "pageNumber": "Page %%number%%",
@@ -46,10 +46,10 @@
         "description": "Shows you basic Hypixel stats for the provided user."
     },
     "hypixelunverify": {
-        "description": "Unlinks your Discord account from your Hypixel player."
+        "description": "Unlinks your Discord account from your Minecraft account."
     },
     "hypixelverify": {
-        "description": "Links your Discord account with your Hypixel profile."
+        "description": "Links your Discord account with your Minecraft account."
     },
     "8ball": {
         "description": "The Magic 8 Ball that will answer all your questions."

@@ -1,5 +1,5 @@
 {
     "hypixelCrowdin": "İşte Hypixel Crowdin projesi: %%crowdin%%",
-    "hypixelGuide": "Hypixel'i çevirmek için yönergeleri görmek istersen, `+guide` komutunu kullan.",
+    "hypixelGuide": "Proje kurallarına göz atmak istiyorsan, `/guidelines` komutunu kullan.",
     "hypixelDiscord": "Hypixel'in Discord sunucusu %%discord%% adresinde bulunabilir (düzeltmenler için kullanışlıdır)."
 }

@@ -14,7 +14,7 @@
         "timeOutCustom": "You didn't confirm, ",
         "notSaved": "så din prefiks ble ikke lagret."
     },
-    "customPrefix": "Feel free to run `+prefix <flags>` to get your desired prefix.",
+    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
     "caution": "Caution",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "Reager med de flaggene du vil ha i prefiksen din i rekkefølge.",

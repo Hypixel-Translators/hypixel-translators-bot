@@ -1,0 +1,6 @@
+{
+    "moduleName": "Verificação no Hypixel",
+    "unverified": "Você removeu sua verificação!",
+    "notUnverified": "Não foi possível remover sua verficação!",
+    "whyNotUnverified": "Isto ocorreu pois você não se verificou! Para se verificar, use `/hypixelverify <jogador>`."
+}

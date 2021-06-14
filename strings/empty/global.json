@@ -11,18 +11,11 @@
         "resendInfo": "crwdns1352:0crwdne1352:0"
     },
     "error": "crwdns466:0crwdne466:0",
-    "usage": "crwdns468:0crwdne468:0",
     "errors": {
         "dmError": "crwdns966:0crwdne966:0",
         "noCommand": "crwdns1318:0crwdne1318:0",
-        "noMessage": "crwdns968:0crwdne968:0",
-        "noChannel": "crwdns970:0crwdne970:0",
         "noUser": "crwdns972:0crwdne972:0",
         "noLang": "crwdns1114:0crwdne1114:0",
-        "noRole": "crwdns1146:0crwdne1146:0",
-        "noQuote": "crwdns976:0crwdne976:0",
-        "noUserQuote": "crwdns978:0crwdne978:0",
-        "falseChannel": "crwdns980:0crwdne980:0",
         "falseUser": "crwdns982:0crwdne982:0",
         "falseFlag": "crwdns984:0crwdne984:0",
         "falseLang": "crwdns1116:0crwdne1116:0",
@@ -33,7 +26,6 @@
         "noAccess": "crwdns992:0crwdne992:0",
         "noPermission": "crwdns994:0crwdne994:0",
         "apiError": "crwdns998:0crwdne998:0",
-        "noSubCommand": "crwdns1000:0crwdne1000:0",
         "wrongLink": "crwdns1190:0crwdne1190:0"
     },
     "cooldown": "crwdns504:0crwdne504:0",
@@ -56,11 +48,20 @@
         "rulesInfo": "crwdns958:0%%rules%%crwdnd958:0%%serverInfo%%crwdne958:0",
         "fixTranslation": "crwdns960:0crwdne960:0",
         "pinnedInfo": "crwdns962:0crwdne962:0",
-        "hypixelStats": "crwdns964:0[social]crwdne964:0",
+        "hypixelStats": "crwdns964:0crwdne964:0",
         "languageStats": "crwdns1118:0crwdne1118:0",
         "rolesChange": "crwdns1246:0crwdne1246:0",
         "botTranslated": "crwdns1248:0crwdne1248:0",
         "moreTips": "crwdns952:0crwdne952:0"
+    },
+    "pagination": {
+        "first": "crwdns1388:0crwdne1388:0",
+        "previous": "crwdns1390:0crwdne1390:0",
+        "next": "crwdns1392:0crwdne1392:0",
+        "last": "crwdns1394:0crwdne1394:0",
+        "confirm": "crwdns1396:0crwdne1396:0",
+        "cancel": "crwdns1398:0crwdne1398:0",
+        "notYours": "crwdns1400:0%%command%%crwdne1400:0"
     },
     "executedBy": "crwdns540:0%%user%%crwdne540:0"
 }

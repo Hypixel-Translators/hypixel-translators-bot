@@ -14,7 +14,7 @@
         "timeOutCustom": "Não confirmaste, ",
         "notSaved": "logo o teu prefixo não foi guardado."
     },
-    "customPrefix": "Podes executar `+prefix <bandeiras>` para receberes o prefixo desejado.",
+    "customPrefix": "Podes executar `/prefix <bandeiras>` para receberes o prefixo desejado.",
     "caution": "Cuidado",
     "warning": "Definir o teu prefixo para um idioma que não traduzes irá resultar num aviso. Tens a certeza que queres mudar o teu apelido?",
     "react": "Reage com todas as bandeiras que desejas adicionar ao teu prefixo, por ordem.",

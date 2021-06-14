@@ -14,7 +14,7 @@
         "timeOutCustom": "Du hast nicht bestätigt, ",
         "notSaved": "deswegen wurde dein Präfix nicht gespeichert."
     },
-    "customPrefix": "Fühle dich frei, `+prefix <Flagge>` auszuführen, um dein gewünschtes Präfix zu erhalten.",
+    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
     "caution": "Achtung",
     "warning": "Das Einstellen deines Präfixes auf eine Sprache, die du nicht übersetzen kannst, führt zu einer Warnung. Willst du deinen Benutzernamen trotzdem ändern?",
     "react": "Reagiere mit allen Flaggen, die du deinem Präfix in der Reihenfolge hinzufügen möchtest.",

@@ -5,8 +5,5 @@
     "alreadyVerified": "Du bist bereits verifiziert!",
     "nameChangeDisclaimer": "Denke daran, dass du dich nicht erneut verifizieren musst, wenn du deinen Namen änderst!",
     "error": "Wir konnten dich nicht verifizieren, weil du deinen Discord nicht korrekt auf Hypixel gesetzt hast!",
-    "tutorial": "Um verifiziert zu werden, musst du deinen Discord auf Hypixel auf %%tag%% setzen und bis zu 10 Minuten warten, um den Befehl erneut auszuführen. Folge den Anweisungen im Video unten, wenn du nicht weißt, wie du dies tust.",
-    "unverified": "Du wurdest erfolgreich entverifiziert!",
-    "notUnverified": "Konnte dich nicht entverifizieren!",
-    "whyNotUnverified": "Dies geschah, weil du dich noch nicht selbst verifiziert hast! Führe `+hypixelverify <Spitzname> ` aus."
+    "tutorial": "Um verifiziert zu werden, musst du deinen Discord auf Hypixel auf %%tag%% setzen und bis zu 10 Minuten warten, um den Befehl erneut auszuführen. Folge den Anweisungen im Video unten, wenn du nicht weißt, wie du dies tust."
 }

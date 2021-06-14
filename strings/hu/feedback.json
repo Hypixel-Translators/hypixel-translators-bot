@@ -1,0 +1,8 @@
+{
+    "moduleName": "Hibák és értékelés",
+    "bugT": "Hibák megnézése és hozzáadása",
+    "bugD": "Ajánlások és hibák megnézéséhez vagy hozzáadásához kattints az alábbi gombra!",
+    "urgentT": "Sürgős?",
+    "urgentD": "Ha egy súlyos hibát akarsz jelenteni vagy a bot már egy hosszú ideje offline figyelmeztetés nélkül, kérlek említs meg egy staffot egy publikus csatornában és írd le a problémádat.",
+    "link": "Link"
+}

@@ -1,7 +1,7 @@
 {
     "moduleName": "Informtonne",
     "page1Title": "Hewp pag",
-    "commandsListTooltip": "Dis bot made fur Hypickle Translazon Comonty by le %%developer%%. Is open snorce and GitHub repositostrory is found at [dis websit]%%github%%.\nU cans hewp translat de bot by follows instruccons on da `+translate` acomand.\n\nU cans excut `+help <næm of acomand>` fur lern more abt a specifuck acomand.\nHere are list of all avalibel pægs. Us reashone on dis mesgag too cicel thru dem.",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
     "madeBy": "Bot maed by a lotof banans and alsso %%QkeleQ10%%",
     "page": "Pag %%number%%/%%total%%",
     "pageNumber": "Pag %%number%%",
@@ -17,107 +17,83 @@
     "seconds": "sacondz",
     "second": "sacond",
     "minutes": "minutz",
-    "usageField": "Usache",
     "cooldownField": "Time to get cold and not hot",
-    "aliasesField": "Other ways of doing dis",
     "help": {
-        "usage": "+help [pag | naem acomand]",
         "description": "Letz u look at al de acomcnadns and moar infoo abt the bot."
     },
     "prefix": {
-        "usage": "+prefix [flagz]",
-        "description": "Gib u aprorprate prefucks fur ur langag(agags). Fur custúm prefucks excut `+prefix <flagz>` and replac `<flagz>` withs region cods of cuntry flæg or næm. U cans ad as manys flagz as wants, spearated by spæce."
+        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
-        "usage": "+quote [indoxox] | +quote add <funnysentence> / <hooman menton>",
         "description": "Gett (orr addd) un funi/werd/kirilish funnysentence from servar."
     },
     "mention": {
-        "usage": "+mention <langag> translator|proofreader|all [masagsage]",
         "description": "Menton a langag rol wif megag (but not needd)."
     },
     "languagestats": {
-        "usage": "+languagestats <langag>",
         "description": "Givz u progresse of langag on al projgets wee suprot."
     },
-    "issue": {
-        "usage": "+issue",
+    "feedback": {
         "description": "Open the GitHub ishshoe page, where report probems and fedbek send can."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
         "description": "Changes your language, shows your current one or a list of available languages."
     },
     "ping": {
-        "usage": "+ping",
         "description": "Hehe ping go brr."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [usrnam] [social]",
         "description": "Givs Hypickle statz for giv usr."
     },
+    "hypixelunverify": {
+        "description": "Unlinks your Discord account from your Minecraft account."
+    },
     "hypixelverify": {
-        "usage": "+hypixelverify <usernam> | +hypixelunverify",
-        "description": "Lonks ur Dishcord aconts with ur Hypickle profil. Excut `+hypixelunverify` too unverifs."
+        "description": "Links your Discord account with your Minecraft account."
     },
     "8ball": {
-        "usage": "+8ball <question>",
         "description": "The Magic 8 Ball that will answer all your questions."
     },
     "verify": {
-        "usage": "+verify [profileURL]",
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `+profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
     },
     "profile": {
-        "usage": "+profile",
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `+help reverify` to learn how to store your profile and update your roles."
+        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
     },
     "rank": {
-        "usage": "+rank [user]",
         "description": "Gives you the current XP for yourself or any given user."
     },
     "levels": {
-        "usage": "+levels [page]",
         "description": "Gives you the XP leaderboard."
     },
     "tip": {
-        "usage": "+tip",
         "description": "Givz u a randmo tip regadrin the servar."
     },
     "invite": {
-        "usage": "+invite",
         "description": "Give u invit link 2 dis servar. You's when u wants invites peoples to dis servar."
     },
     "projects": {
-        "usage": "+projects",
         "description": "Givz u lonks and informashon abut al the translat projgets we supor on the servar."
     },
     "hypixel": {
-        "usage": "+hypixel",
         "description": "Give u you's full informaton for Hypickle project."
     },
     "guidelines": {
-        "usage": "+guidelines",
         "description": "Give u lonk to ofical thred for Hypixel translalalatons."
     },
     "quickplay": {
-        "usage": "+quickplay",
         "description": "Give u you's full informaton for Quickplay project."
     },
     "skyblockaddons": {
-        "usage": "+skyblockaddons",
         "description": "Give u you's full informaton for SkyblockAddons project."
     },
     "translate": {
-        "usage": "+translate",
         "description": "Givz u usful informashon to how translat Bot."
     },
     "thread": {
-        "usage": "+thread",
         "description": "Give u lonk to thred anocuncing dis Disknord servar."
     },
     "twitter": {
-        "usage": "+twitter",
         "description": "Give u lonk to ofical Hypickle Translazorss Comuntiti Twoter pag."
     }
 }

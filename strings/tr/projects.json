@@ -1,7 +1,7 @@
 {
     "moduleName": "Çeviri Projeleri",
     "allProjects": "İşte şu anda bu sunucu üzerinde desteklediğimiz diller!",
-    "description": "Zaten bu projelerde varsan ama henüz rolün yoksa, rolünü almak için `reverify [profileURL]` komutunu kullan!",
+    "description": "Zaten bu projelerde varsan ama henüz rolün yoksa, rolünü almak için `/verify [profilBAĞLANTISI]` komutunu kullan!",
     "projectInfo": "%%project%% proje bağlantısını [burada](%%link%%) bulabilirsin. Daha fazla bilgi için %%command%% komutunu kullan.",
     "alreadyJoined": "Bu projeye zaten katıldın!",
     "notJoined": "Bu projeye henüz katılmadın!",

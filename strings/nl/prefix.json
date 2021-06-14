@@ -14,7 +14,7 @@
         "timeOutCustom": "Je hebt niet bevestigd, ",
         "notSaved": "dus is je voorvoegsel niet opgeslagen."
     },
-    "customPrefix": "Schroom niet om `+prefix <vlaggen>` uit te voeren om je voorvoegsel te krijgen.",
+    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
     "caution": "Opgelet",
     "warning": "Als je voorvoegsel een taal bevat die je niet vertaalt, zul je een waarschuwing ontvangen. Wil je toch doorgaan?",
     "react": "Reageer met alle vlaggen die je aan je voorvoegsel wilt toevoegen, in de gewenste volgorde.",
