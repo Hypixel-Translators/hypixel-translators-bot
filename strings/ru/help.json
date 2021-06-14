@@ -1,7 +1,7 @@
 {
     "moduleName": "Информация",
     "page1Title": "Страница помощи",
-    "commandsListTooltip": "Этот бот был сделан для сообщества переводчиков Hypixel пользователем %%developer%%. Бот с открытым исходным кодом и наш репозиторий на GitHub можно найти [здесь]%%github%%.\nВы можете помочь перевести бота. Для этого выполните `+translate` и следуйте дальнейшим инструкциям.\n\nВы можете выполнить `+help <название команды>`, чтобы узнать больше о конкретной команде.\nНиже вы можете найти список всех доступных страниц. Используйте реакции под этим сообщение, чтобы пролистать их.",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
     "madeBy": "Бот сделан с большой заботой пользователем %%QkeleQ10%%",
     "page": "Страница %%number%% из %%total%%",
     "pageNumber": "Страница %%number%%",
@@ -17,107 +17,83 @@
     "seconds": "сек.",
     "second": "сек.",
     "minutes": "мин.",
-    "usageField": "Использование",
     "cooldownField": "Перезарядка",
-    "aliasesField": "Альтернативы",
     "help": {
-        "usage": "+help [страница | название команды]",
         "description": "Показывает все доступные команды и другую информацию о боте."
     },
     "prefix": {
-        "usage": "+prefix [флаги]",
-        "description": "Дает вам соответствующий префикс относительно ваших языков. Чтобы получить пользовательский префикс, выполните `+prefix <флаги>` и замените `<флаги>` региональным кодом флага вашей страны или ее названием. Вы можете добавить столько флагов, сколько захотите; разделите их пробелами."
+        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
-        "usage": "+quote [индекс] | +quote add <цитата> / <упоминание автора>",
         "description": "Дает (или добавляет) смешную/странную/мудрую цитату с сервера."
     },
     "mention": {
-        "usage": "+mention <язык> translator|proofreader|all [сообщение]",
         "description": "Упоминает языковую роль вместе с сообщением."
     },
     "languagestats": {
-        "usage": "+languagestats <язык>",
         "description": "Показывает вам завершенность языка на всех проектах, которые в настоящее время мы поддерживаем."
     },
-    "issue": {
-        "usage": "+issue",
+    "feedback": {
         "description": "Открывает нашу страницу проблем на GitHub, где вы можете сообщать о проблемах и оставить отзыв."
     },
     "language": {
-        "usage": "+language [<новый язык> | list]",
         "description": "Изменяет ваш язык, показывает ваш текущий или список доступных языков."
     },
     "ping": {
-        "usage": "+ping",
         "description": "Дает пинг бота."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [имя пользователя] [social]",
         "description": "Показывает вам основную статистику Hypixel для указанного пользователя."
     },
+    "hypixelunverify": {
+        "description": "Unlinks your Discord account from your Minecraft account."
+    },
     "hypixelverify": {
-        "usage": "+hypixelverify <имя пользователя> | +hypixelunverify",
-        "description": "Связывает вашу учетную запись Discord с вашим профилем Hypixel. Выполните `+hypixelunverify`, чтобы отвязать их."
+        "description": "Links your Discord account with your Minecraft account."
     },
     "8ball": {
-        "usage": "+8ball <вопрос>",
         "description": "Шар судьбы, который ответит на все ваши вопросы."
     },
     "verify": {
-        "usage": "+verify [ссылка на профиль]",
-        "description": "Автоматически проверяет наличие изменений в вашем профиле Crowdin и дает вам соответствующие роли. Если ваш профиль не хранится в нашей базе данных, вы можете указать ссылку на него как аргумент в этой команде. Чтобы проверить, сохранен ли ваш профиль, выполните `+profile`. Убедитесь, что у вас разрешены личные сообщения от участников этого сервера, чтобы бот мог отправить вам сообщение."
+        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
     },
     "profile": {
-        "usage": "+profile",
-        "description": "Дает вам ссылку на ваш профиль Crowdin, если он хранится в нашей базе данных. Если нет, то вы можете выполнить `+help reverify`, чтобы узнать, как сохранить свой профиль и обновлять свои роли."
+        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
     },
     "rank": {
-        "usage": "+rank [пользователь]",
         "description": "Дает вам текущее количество вашего опыта или опыт любого другого указанного пользователя."
     },
     "levels": {
-        "usage": "+levels [страница]",
         "description": "Дает вам таблицу лидеров по опыту."
     },
     "tip": {
-        "usage": "+tip",
         "description": "Дает вам случайный совет касательно сервера."
     },
     "invite": {
-        "usage": "+invite",
         "description": "Дает вам ссылку-приглашение на сервер. Пожалуйста, используйте его каждый раз, когда вы хотите кого-то пригласить."
     },
     "projects": {
-        "usage": "+projects",
         "description": "Дает вам ссылки и информацию обо всех проектах переводов, которые мы поддерживаем на сервере."
     },
     "hypixel": {
-        "usage": "+hypixel",
         "description": "Дает вам полезную информацию о проекте Hypixel."
     },
     "guidelines": {
-        "usage": "+guidelines",
         "description": "Дает вам ссылку на официальную тему, касающийся переводов Hypixel."
     },
     "quickplay": {
-        "usage": "+quickplay",
         "description": "Дает вам полезную информацию о проекте Quickplay."
     },
     "skyblockaddons": {
-        "usage": "+skyblockaddons",
         "description": "Дает вам полезную информацию о проекте SkyblockAddons."
     },
     "translate": {
-        "usage": "+translate",
         "description": "Дает вам полезную информацию о том, как перевести бота."
     },
     "thread": {
-        "usage": "+thread",
         "description": "Дает вам ссылку на тему, объявляющий об этом Discord сервере."
     },
     "twitter": {
-        "usage": "+twitter",
         "description": "Дает вам ссылку на официальную страницу сообщества переводчиков Hypixel в Twitter."
     }
 }
