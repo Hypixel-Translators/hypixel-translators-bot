@@ -45,8 +45,8 @@
         "description": "開啟我們的 GitHub 議題頁面，你可以在那裡回報問題和發送回饋。"
     },
     "language": {
-        "usage": "+language [<new language> | list]",
-        "description": "Changes your language, shows your current one or a list of available languages."
+        "usage": "+language [<要更改的語言> | list]",
+        "description": "更改語言、顯示你目前使用的語言或顯示可用的語言列表。"
     },
     "ping": {
         "usage": "+ping",

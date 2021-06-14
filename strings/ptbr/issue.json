@@ -1,7 +1,7 @@
 {
     "moduleName": "Problemas e feedback",
     "bugT": "Ver e adicionar erros",
-    "bugD": "[Clique aqui]%%github%% para fazer sugestões ou reportar erros.",
+    "bugD": "[Clique aqui]%%github%% para fazer sugestões ou relatar erros.",
     "urgentT": "Isso é urgente?",
-    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention a staff member in a public channel, explaining the issue."
+    "urgentD": "Se você estiver tentando relatar um erro grave ou se o bot estiver offline por um longo período, por favor mencione um membro da equipe em um canal público, explicando o problema."
 }
