@@ -5,8 +5,5 @@
     "alreadyVerified": "Du er allerede registreret!",
     "nameChangeDisclaimer": "Husk, at du ikke behøver at bekræfte dig selv igen, hvis du ændrer dit navn!",
     "error": "Vi kunne ikke bekræfte dig, fordi du ikke har indstillet din Discord på Hypixel korrekt!",
-    "tutorial": "For at blive verificeret, skal du indstille din Discord på Hypixel til %%tag%% og vente op til 10 minutter for at udføre kommandoen igen. Følg instruktionerne i videoen nedenfor, hvis du ikke ved, hvordan du gør dette.",
-    "unverified": "Du blev uverificeret med succes!",
-    "notUnverified": "Kunne ikke uverificere dig!",
-    "whyNotUnverified": "Dette skete, fordi du ikke har bekræftet dig selv endnu! For at gøre det, skal du udføre `+hypixelverify <username>`."
+    "tutorial": "For at blive verificeret, skal du indstille din Discord på Hypixel til %%tag%% og vente op til 10 minutter for at udføre kommandoen igen. Følg instruktionerne i videoen nedenfor, hvis du ikke ved, hvordan du gør dette."
 }
