@@ -14,7 +14,7 @@
         "timeOutCustom": "Et vahvistanut, ",
         "notSaved": "joten etuliitettäsi ei tallennettu."
     },
-    "customPrefix": "Suorita vapaasti komento `+prefix <liput>` saadaksesi haluamasi etuliitteen.",
+    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
     "caution": "Huomio",
     "warning": "Asettaessasi etuliitteeksesi kielen, jonka kääntäjä et ole, saat varoituksen. Haluatko silti vaihtaa nimimerkkisi ja etuliitteesi?",
     "react": "Reagoi kaikilla lipuilla, jotka haluat asetettavan etuliitteiksesi.",
