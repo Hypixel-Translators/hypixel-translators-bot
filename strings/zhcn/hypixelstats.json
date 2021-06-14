@@ -21,6 +21,8 @@
     "lastGameHidden": "最后一局游戏被隐藏或无法获取！",
     "lastLoginHidden": "Last seen time is hidden or couldn't be obtained!",
     "firstLoginHidden": "First login time is hidden or couldn't be obtained!",
+    "social": "Social Media",
+    "stats": "Statistics",
     "dateLocale": "zh-CN",
     "timeZone": "Asia/Shanghai",
     "ENGLISH": "英语",
