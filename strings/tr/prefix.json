@@ -14,7 +14,7 @@
         "timeOutCustom": "Onaylamadın, ",
         "notSaved": "bu yüzden ön ekin kaydedilmedi."
     },
-    "customPrefix": "İstediğin öneki almak için `+prefix <bayrak>` komutunu kullanman yeterli.",
+    "customPrefix": "İstediğin ön eki almak için `/prefix <bayrak>` komutunu kullanman yeterli.",
     "caution": "Dikkat",
     "warning": "Önekini çevirmediğin bir dile ayarlamak uyarılmana sebep olur. Yine de takma adını değiştirmek istiyor musun?",
     "react": "Ön ekinize eklemek istediğiniz bayraklara sırayla tepki verin.",
