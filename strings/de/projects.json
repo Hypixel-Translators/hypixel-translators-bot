@@ -1,7 +1,7 @@
 {
     "moduleName": "Übersetzungsprojekte",
     "allProjects": "Hier sind alle Projekte, die wir derzeit auf dem Server unterstützen!",
-    "description": "Wenn du bereits in diesen Projekten bist aber noch keine Rollen hast, führe `+reverify [Profil-URL]` aus, um sie zu bekommen!",
+    "description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
     "projectInfo": "Du kannst den Link zum %%project%%-Projekt [hier](%%link%%) finden. Für weitere Informationen führe %%command%% aus.",
     "alreadyJoined": "Du bist diesem Projekt bereits beigetreten!",
     "notJoined": "Du bist dem Projekt noch nicht beigetreten!",
