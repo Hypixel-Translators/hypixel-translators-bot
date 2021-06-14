@@ -5,8 +5,5 @@
     "alreadyVerified": "Zaten doğrulandın!",
     "nameChangeDisclaimer": "Unutma! Kullanıcı adını değiştirirsen kendini tekrar doğrulaman gerekmez!",
     "error": "Seni doğrulayamadık çünkü Discord'unu Hypixel hesabın ile bağlamamışsın!",
-    "tutorial": "Doğrulanmak için, Discord'unu Hypixel'de %%tag%% olarak ayarlaman ve komutu tekrar çalıştırmak için 10 dakika kadar beklemen gerekiyor. Bunu nasıl yapacağını bilmiyorsan, aşağıdaki videodaki talimatları izle.",
-    "unverified": "Doğrulamayı başarıyla kaldırdın!",
-    "notUnverified": "Doğrulamanı kaldıramıyoruz!",
-    "whyNotUnverified": "Bu, henüz kendini doğrulamadığın için oldu! Doğrulamak için `+hypixelverify <kullanıcı adı>` komutunu kullan."
+    "tutorial": "Doğrulanmak için, Discord'unu Hypixel'de %%tag%% olarak ayarlaman ve komutu tekrar çalıştırmak için 10 dakika kadar beklemen gerekiyor. Bunu nasıl yapacağını bilmiyorsan, aşağıdaki videodaki talimatları izle."
 }
