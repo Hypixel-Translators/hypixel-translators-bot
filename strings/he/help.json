@@ -1,7 +1,7 @@
 {
     "moduleName": "מידע",
     "page1Title": "עמוד עזרה",
-    "commandsListTooltip": "הבוט הזה נוצר בעבור קהילת מתרגמי הייפיקסל על ידי %%developer%%. הבוט בנוי בקוד פתוח ופרוייקט הGitHub שלנו נמצא [כאן]%%github%%.\nאת/ה יכול/ה לעזור לתרגם את הבוט בעזרת מעקב אחרי ההוראות המתוארות בפקודה '+trasnlate'.\n\nאת/ה יכול/ה להשתמש ב`+help <שם הפקודה>` בכדי ללמוד עוד על הפקודה הספציפית.\nמתחת תוכל/י למצוא רשימה של כל הדפים המכילים פקודות. השתמש/י בחיצי התגובה למטה בכדי לנווט בתוך התפריט.",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
     "madeBy": "בוט נוצר עם הרבה אכפתיות על ידי %%QkeleQ10%%",
     "page": "עמוד מספר %%number%%/%%total%%",
     "pageNumber": "עמוד מספר %%number%%",
@@ -17,107 +17,83 @@
     "seconds": " שניות",
     "second": "שנייה",
     "minutes": "דקות",
-    "usageField": "שימוש",
     "cooldownField": "זמן המתנה",
-    "aliasesField": "דרכים חלופיות",
     "help": {
-        "usage": "+help [עמוד | שם הפקודה]",
         "description": "מציג עבורך את כל הפקודות הזמינות ומידע אחר על הבוט הזה."
     },
     "prefix": {
-        "usage": "+prefix [דגל]",
-        "description": "פקודה זאת נותנת לך קידות מתאימה בעבור השפה/ות שלך. בכדי לקבל קידומת מותאמת אישית, בצע/י `+prefix <דגלים>` והחלף/י את `<flags>` עם הקוד האזורי של מדינתך או שם מדינתך. ביכולתך להוסיף כמה דגלים שתרצה/י, שמופרדים ברווחים."
+        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
-        "usage": "+quote [ציטוט] | +quote add <ציטוט> / <תג הכותב>",
         "description": "מקבל (או מוסיף) ציטוט מצחיק/מוזר/משכיל מהשרת."
     },
     "mention": {
-        "usage": "+mention <שפה> translator|proofreader|all [הודעה]",
         "description": "מתייג תג של שפה עם הודעה נוספת."
     },
     "languagestats": {
-        "usage": "+languagestats <שפה>",
         "description": "מציג את התקדמות של השפה בכל הפרויקטים בהם אנו תומכים."
     },
-    "issue": {
-        "usage": "+issue",
+    "feedback": {
         "description": "פותח את עמוד הבעיות שלנו בGitHub, שבו תוכל/י לדווח על בעיות ולשלוח חוות דעת."
     },
     "language": {
-        "usage": "+language [<new language> | list]",
         "description": "Changes your language, shows your current one or a list of available languages."
     },
     "ping": {
-        "usage": "+ping",
         "description": "נותן לך את הping של הבוט."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [שם משתמש] [social]",
         "description": "מציג לך סטיסטיקות בסיסיות של הייפיקסל עבור המשתמש המבוקש."
     },
+    "hypixelunverify": {
+        "description": "Unlinks your Discord account from your Minecraft account."
+    },
     "hypixelverify": {
-        "usage": "+hypixelverify <שם משתמש> | +hypixelunverify",
-        "description": "מקשר את חשבון הדיסקורד שלך עם פרופיל ההייפיקסל שלך. בצע את הפקודה `+hypixelunverify` כדי לבטל את הקישור."
+        "description": "Links your Discord account with your Minecraft account."
     },
     "8ball": {
-        "usage": "+8ball <שאלה>",
         "description": "ה8 Ball הקסום שיענה לך על כל השאלות שלך."
     },
     "verify": {
-        "usage": "+verify [קישור לפרופיל]",
-        "description": "בודק באופן אוטומטי שינויים בחשבון הCrowdin שלך ונותן לך את הrole המתאים. אם הפרופיל שלך לא שמור במאגר המידע שלנו את/ה יכול/ה לספק אותו בתור משתנה בפקודה. בכדי לבדוק אם הפרופיל שלך שמור, בצע/י `+profile`. וודא/י שאת/ה מסוגל לקבל הודעות פרטיות (DM) מהשרת הזה כדי שהבוט יוכל לשלוח לך הודעות."
+        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
     },
     "profile": {
-        "usage": "+profile",
-        "description": "נותן לך קישור לפרופיל הCrowdin שלך אם הוא שמור במאגר המידע. אם לא, את/ה יכול/ה לבצע `+help reverify` בכדי ללמוד איך לשמור את הפרופיל ולעדכן את הroles שלך."
+        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
     },
     "rank": {
-        "usage": "+rank [משתמש]",
         "description": "נותן לך את כמות נקודות הXP שלך או של כל משתמש אחר."
     },
     "levels": {
-        "usage": "+levels [עמוד]",
         "description": "נותן לך טבלת מובילים בנקודות XP."
     },
     "tip": {
-        "usage": "+tip",
         "description": "נותן לך טיפ רנדומלי על השרת."
     },
     "invite": {
-        "usage": "+invite",
         "description": "נותן לך קישור הזמנה לשרת. בבקשה השתמש/י בפקודה כאשר ברצונך להזמין אדם כלשהו לשרת."
     },
     "projects": {
-        "usage": "+projects",
         "description": "נותן לך קישור ומידע על כל הפרויקטים של התרגום שאנו תומכים בהם בשרת שלנו."
     },
     "hypixel": {
-        "usage": "+hypixel",
         "description": "נותן לך מידע שימושי על פרויקט הייפיקסל."
     },
     "guidelines": {
-        "usage": "+guidelines",
         "description": "נותן לך קישור לפוסט הרשמי שלנו בפורום בנוגע לקהילת מתרגמי הייפיקסל."
     },
     "quickplay": {
-        "usage": "+quickplay",
         "description": "נותן לך מידע שימושי על פרויקט הQuickPlay."
     },
     "skyblockaddons": {
-        "usage": "+skyblockaddons",
         "description": "נותן לך מידע שימושי בנוגע לפרויקט SkyblockAddons."
     },
     "translate": {
-        "usage": "+translate",
         "description": "נותן לך מידע שימושי על איך לתרגם את הבוט."
     },
     "thread": {
-        "usage": "+thread",
         "description": "נותן לך קישור לפוסט בפורומים של הייפיקסל על שרת זה."
     },
     "twitter": {
-        "usage": "+twitter",
         "description": "נותן לך קישור לעמוד הרשמי של קהילת מתרגמי הייפיקסל בטוויטר."
     }
 }
