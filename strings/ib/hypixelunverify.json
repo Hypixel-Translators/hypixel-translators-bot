@@ -1,0 +1,6 @@
+{
+    "moduleName": "Hypickle Verifs",
+    "unverified": "U no longer has been become is verifs!",
+    "notUnverified": "No has ablitie to unverifs u!",
+    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `/hypixelverify <username>`."
+}
