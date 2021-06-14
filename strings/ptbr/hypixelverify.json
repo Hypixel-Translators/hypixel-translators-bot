@@ -5,8 +5,5 @@
     "alreadyVerified": "Você já está verificado!",
     "nameChangeDisclaimer": "Lembre-se que você não precisa verificar-se novamente ao mudar de nome!",
     "error": "Não foi possível verificar você pois não há um Discord vinculado em sua conta no Hypixel!",
-    "tutorial": "Para ser verificado, você precisa definir o seu Discord no Hypixel para %%tag%% e aguardar 10 minutos para usar o comando novamente. Siga as instruções no vídeo abaixo caso não saiba fazer isto.",
-    "unverified": "Você removeu sua verificação!",
-    "notUnverified": "Não foi possível remover sua verficação!",
-    "whyNotUnverified": "Isto ocorreu pois você não se verificou! Para se verificar, use `+hypixelverify <jogador>`."
+    "tutorial": "Para ser verificado, você precisa definir o seu Discord no Hypixel para %%tag%% e aguardar 10 minutos para usar o comando novamente. Siga as instruções no vídeo abaixo caso não saiba fazer isto."
 }
