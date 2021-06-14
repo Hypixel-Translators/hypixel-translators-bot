@@ -14,7 +14,7 @@
         "timeOutCustom": "No has confirmado, ",
         "notSaved": "por lo que su prefijo no se guardó."
     },
-    "customPrefix": "Siéntase libre de ejecutar `+ prefix <banderas>` para obtener el prefijo deseado.",
+    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
     "caution": "Precaución",
     "warning": "Si configura su prefijo en un idioma que no traduce, aparecerá una advertencia. ¿Quieres cambiar tu apodo de todos modos?",
     "react": "Reacciona con todas las banderas que quieras agregar a tu prefijo en orden.",
