@@ -1,0 +1,6 @@
+{
+    "moduleName": "Weryfikacja Hypixel",
+    "unverified": "Pomyślnie odweryfikowałeś się!",
+    "notUnverified": "Nie udało się Ciebie odweryfikować!",
+    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `/hypixelverify <username>`."
+}
