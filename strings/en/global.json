@@ -61,7 +61,7 @@
         "last": "Last page",
         "confirm": "Confirm",
         "cancel": "Cancel",
-        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this!"
+        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this."
     },
     "executedBy": "Executed by %%user%%"
 }
