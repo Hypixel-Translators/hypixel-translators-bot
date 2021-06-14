@@ -1,0 +1,6 @@
+{
+    "moduleName": "Hypixel Doğrulaması",
+    "unverified": "Doğrulamayı başarıyla kaldırdın!",
+    "notUnverified": "Doğrulamanı kaldıramıyoruz!",
+    "whyNotUnverified": "Bu, henüz kendini doğrulamadığın için oldu! Doğrulamak için `/hypixelverify <kullanıcı adı>` komutunu kullan."
+}
