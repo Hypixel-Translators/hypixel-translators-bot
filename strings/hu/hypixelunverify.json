@@ -1,0 +1,6 @@
+{
+    "moduleName": "Hypixel csatlakoztatás",
+    "unverified": "Sikeresen szétcsatoltad a fiókodat!",
+    "notUnverified": "Nem sikerült szétcsatolni a fiókodat!",
+    "whyNotUnverified": "Ez azért történt, mert még nincs felhasználó hozzád csatolva! Hogy ezt megtedd, használd a `+hypixelverify <felhasználónév>` parancsot."
+}
