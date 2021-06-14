@@ -15,7 +15,7 @@
         "notSaved": "így az előtagod nem lett elmentve."
     },
     "customPrefix": "Nyugodtan futtathatod a `+prefix <zászlók>` parancsot, hogy megkapd a választott előjelet.",
-    "caution": "Caution",
+    "caution": "Vigyázat",
     "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
     "react": "Reagálj egy zászlóval, amit a nevedhez szeretnél adni.",
     "reactTimer": "%%cooldown%% másodperced van. Nyomj az ❎ ikonra a törléshez.",
