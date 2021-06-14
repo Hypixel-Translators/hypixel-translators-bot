@@ -21,6 +21,8 @@
     "lastGameHidden": "最後に遊んだゲームが非公開または取得できませんでした！",
     "lastLoginHidden": "最後に接続した時間が非公開または取得できませんでした！",
     "firstLoginHidden": "初回ログイン日時が非公開または取得できませんでした！",
+    "social": "Social Media",
+    "stats": "Statistics",
     "dateLocale": "ja-JP",
     "timeZone": "Asia/Tokyo",
     "ENGLISH": "英語",
