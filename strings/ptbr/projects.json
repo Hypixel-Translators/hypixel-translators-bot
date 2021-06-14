@@ -1,7 +1,7 @@
 {
     "moduleName": "Projetos de Tradução",
     "allProjects": "Aqui estão todos os projetos disponíveis para tradução no servidor!",
-    "description": "Se você já está em algum destes projetos mas não possui os cargos, use `+reverify [link do perfil]` para recebê-los!",
+    "description": "Se você já está em algum destes projetos mas não possui os cargos, use `/verify [link do perfil]` para recebê-los!",
     "projectInfo": "Você pode encontrar o link do projeto do %%project%% clicando [aqui](%%link%%). Para mais informações, use %%command%%.",
     "alreadyJoined": "Você já entrou neste projeto!",
     "notJoined": "Você ainda não entrou neste projeto!",
