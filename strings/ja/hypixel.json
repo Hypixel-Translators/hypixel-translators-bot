@@ -1,5 +1,5 @@
 {
     "hypixelCrowdin": "HypixelのCrowdinプロジェクトはこちら：%%crowdin%%",
-    "hypixelGuide": "プロジェクトのルールを確認したい場合は `+guide` を実行してください。",
+    "hypixelGuide": "If you want to check out the project's rules, do `/guidelines`.",
     "hypixelDiscord": "HypixelのDiscordサーバーは %%discord%% で見つかります（校正者に便利です）。"
 }
