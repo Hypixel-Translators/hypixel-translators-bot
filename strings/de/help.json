@@ -1,7 +1,7 @@
 {
     "moduleName": "Information",
     "page1Title": "Hilfe-Seite",
-    "commandsListTooltip": "Dieser Bot wurde für die Hypixel Translators Community von %%QkeleQ10%% erstellt. Er ist Open Source und unser GitHub Repository kann [hier]%%github%% gefunden werden.\nDu kannst bei der Übersetzung des Bots helfen, indem du den Anweisungen in [dieser Nachricht]%%translate%% folgst.\n\nDu kannst `+help <Name des Befehls>` ausführen, um mehr über einen bestimmten Befehl zu erfahren.\nUnten findest du eine Liste mit allen verfügbaren Seiten. Benutze die Reaktionen auf diese Nachricht, um sie zu durchlaufen.",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
     "madeBy": "Der Bot wurde mit großer Sorgfalt von %%QkeleQ10%% erstellt",
     "page": "Seite %%number%%/%%total%%",
     "pageNumber": "Seite %%number%%",
@@ -17,107 +17,83 @@
     "seconds": " Sekunden",
     "second": "Sekunde",
     "minutes": "Minuten",
-    "usageField": "Verwendung",
     "cooldownField": "Abklingzeit",
-    "aliasesField": "Aliase",
     "help": {
-        "usage": "+help [Befehlsname]",
         "description": "Zeigt alle verfügbaren Befehle und andere Informationen über den Bot."
     },
     "prefix": {
-        "usage": "+prefix",
-        "description": "Gibt dir den passenden Präfix für deine Sprache(n). Um einen benutzerdefiniertes Präfix zu erhalten, führe `+prefix <Flaggen>` aus und ersetze `<Flaggen>` durch den Regionalcode der Flagge deines Landes oder dessen Namen. Du kannst so viele Flaggen hinzufügen wie du magst, getrennt durch ein Leerzeichen."
+        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
     },
     "quote": {
-        "usage": "+quote [index] | +quote add <Zitat> / <Autorennennung>",
         "description": "Ruft (oder fügt hinzu) ein lustiges/seltsames/weises Zitat vom Server ab."
     },
     "mention": {
-        "usage": "+mention <Sprache> translator|proofreader|all [message]",
         "description": "Erwähnt eine Sprachrolle mit einer optionalen Nachricht."
     },
     "languagestats": {
-        "usage": "+languagestats <Sprache>",
         "description": "Zeigt dir den Fortschritt einer Sprache über alle Projekte, die wir derzeit unterstützen."
     },
-    "issue": {
-        "usage": "+issue",
+    "feedback": {
         "description": "Öffnet unsere GitHub-Issues-Seite, wo du Probleme melden und Feedback senden kannst."
     },
     "language": {
-        "usage": "+language [<neue Sprache> | list]",
         "description": "Ändert deine Sprache, zeigt deine aktuelle Sprache oder eine Liste der verfügbaren Sprachen an."
     },
     "ping": {
-        "usage": "+ping",
         "description": "Gibt dir den Ping des Bots sowie den Ping der Discord API."
     },
     "hypixelstats": {
-        "usage": "+hypixelstats [Benutzername] [social]",
         "description": "Zeigt dir grundlegende Hypixel-Statistiken für den angegebenen Benutzer."
     },
+    "hypixelunverify": {
+        "description": "Unlinks your Discord account from your Minecraft account."
+    },
     "hypixelverify": {
-        "usage": "+hypixelverify <Spitzname> | +hypixelunverify",
-        "description": "Verbinde deinen Discord-Account mit deinem Hypixel-Profil. Führe `+hypixelunverify` aus, um dich zu entverifizieren."
+        "description": "Links your Discord account with your Minecraft account."
     },
     "8ball": {
-        "usage": "+8ball <Frage>",
         "description": "Der Magic 8 Ball, der alle deine Fragen beantwortet."
     },
     "verify": {
-        "usage": "+verify [Profil-URL]",
-        "description": "Überprüft automatisch auf Änderungen in deinem Crowdin-Profil und gibt dir die entsprechenden Rollen. Wenn dein Profil nicht in unserer Datenbank gespeichert ist, wirst du gebeten, dein Profil erneut zu senden. Um zu überprüfen, ob dein Profil gespeichert ist, führe `+profile` aus. Stelle sicher, dass DMs auf diesem Server aktiviert sind, damit der Bot dir eine Nachricht senden kann."
+        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
     },
     "profile": {
-        "usage": "+profile",
-        "description": "Gibt dir den Link zu deinem Crowdin-Profil, wenn er in unserer Datenbank gespeichert ist. Falls nicht, kannst du `+help reverify` ausführen, um zu erfahren, wie du dein Profil speicherst und deine Rollen aktualisierst."
+        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
     },
     "rank": {
-        "usage": "+rank [Benutzer]",
         "description": "Gibt dir die aktuellen XP für dich selbst oder einen bestimmten Benutzer an."
     },
     "levels": {
-        "usage": "+levels [Seite]",
         "description": "Gibt dir die XP-Rangliste."
     },
     "tip": {
-        "usage": "+tip",
         "description": "Gibt dir einen zufälligen Tipp bezüglich des Servers."
     },
     "invite": {
-        "usage": "+invite",
         "description": "Gibt dir einen Einladungslink zum Server. Bitte benutze diesen, wenn du jemanden einladen möchtest."
     },
     "projects": {
-        "usage": "+projects",
         "description": "Gibt dir Links und Informationen zu allen Übersetzungsprojekten, die wir auf dem Server unterstützen."
     },
     "hypixel": {
-        "usage": "+hypixel",
         "description": "Liefert dir nützliche Informationen über das Hypixel-Projekt."
     },
     "guidelines": {
-        "usage": "+guidelines",
         "description": "Hier findest du den Link zum offiziellen Thread bezüglich der Hypixel-Übersetzungen."
     },
     "quickplay": {
-        "usage": "+quickplay",
         "description": "Liefert dir nützliche Informationen über das Quickplay-Projekt."
     },
     "skyblockaddons": {
-        "usage": "+skyblockaddons",
         "description": "Liefert dir nützliche Informationen über das SkyblockAddons-Projekt."
     },
     "translate": {
-        "usage": "+translate",
         "description": "Gibt dir nützliche Informationen, wie du den Bot übersetzen kannst."
     },
     "thread": {
-        "usage": "+thread",
         "description": "Hier findest du den Link zu dem Thread, der diesen Discord-Server ankündigt."
     },
     "twitter": {
-        "usage": "+twitter",
         "description": "Gibt dir den Link zur offiziellen Hypixel Translators Community Twitter-Seite."
     }
 }
