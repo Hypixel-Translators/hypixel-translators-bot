@@ -40,7 +40,7 @@
     "tips": {
         "ib": "Have you tried the Inhale Banana language? Change your language to it using `/language ib`!",
         "translators": "I need translators! Find out how to become a bot translator by executing `/translate`.",
-        "prefix": "Do you wanna have a cool prefix on your nickname? Run `/prefix` in %%bots%% and follow the instructions! Available to all Hypixel translators.",
+        "prefix": "Do you wanna have a cool prefix on your nickname? Execute `/prefix` in %%bots%% and follow the instructions! Available to all Hypixel translators.",
         "enen": "Please change your links to en-en!",
         "xp": "You get random amounts of XP every minute when you're chatting, which will eventually make you level up.",
         "guide": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%gettingStarted%%, it has some useful tips!",
@@ -61,7 +61,7 @@
         "last": "Last page",
         "confirm": "Confirm",
         "cancel": "Cancel",
-        "notYours": "You cannot interact with this menu! Run %%command%% yourself to do this!"
+        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this!"
     },
     "executedBy": "Executed by %%user%%"
 }
