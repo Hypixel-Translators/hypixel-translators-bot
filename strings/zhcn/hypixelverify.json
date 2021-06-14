@@ -5,8 +5,5 @@
     "alreadyVerified": "你已经验证过了！",
     "nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
     "error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
-    "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this.",
-    "unverified": "你已成功取消验证！",
-    "notUnverified": "无法取消验证！",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `+hypixelverify <username>`."
+    "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this."
 }
