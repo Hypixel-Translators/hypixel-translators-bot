@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@types/countryjs": "^1.8.1",
-    "@types/mongodb": "^3.6.17",
+    "@types/mongodb": "^3.6.18",
     "@types/node-fetch": "^2.5.10",
     "@types/uuid": "^8.3.0",
     "dotenv": "^10.0.0",
