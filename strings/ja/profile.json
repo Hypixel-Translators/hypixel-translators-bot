@@ -2,5 +2,5 @@
     "moduleName": "Crowdinのプロフィール",
     "profileSuccess": "あなたプロフィールはこちらです",
     "noProfile": "我々のデータベース上にあなたのプロフィールは存在しません！",
-    "howStore": "保存したい場合`+help reverify`を実行して手順を確認してください。"
+    "howStore": "If you'd like to store it, execute `/help verify` to know how you can do so."
 }
