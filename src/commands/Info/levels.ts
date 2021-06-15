@@ -87,7 +87,7 @@ const command: Command = {
             })
 
             collector.on("end", async () => {
-                await interaction.editReply({ content: getString("timeOut", { command: "`+levels`" }), components: [], embeds: [pageEmbed] })
+                await interaction.editReply({ content: getString("timeOut", { command: "`/levels`" }), components: [] })
             })
         }
 
