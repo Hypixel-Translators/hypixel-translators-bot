@@ -1,7 +1,7 @@
 {
     "errorNoPing": "你沒有該語言的校對員身份組，",
     "errorNoPingPr": "so you can't mention it.",
-    "errorNoPingTr": "so you can't mention its translator role.",
-    "errorNoPingAll": "so you can't mention the entire language.",
-    "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to."
+    "errorNoPingTr": "因此你不可以提及該語言的翻譯員。",
+    "errorNoPingAll": "因此你不可以提及該語言的所有翻譯人員。",
+    "errorNoPingDisclaimer": "如果你仍然有需要，請聯絡伺服器的擁有者或管理員。"
 }
