@@ -151,6 +151,7 @@ client.on("interaction", async interaction => {
         // This will only execute if the command is successful
         const d = Math.random() * 100, // Get percentage
             reply = await interaction.fetchReply()
+                .catch()
         if (command.allowTip !== false && d <= 5) {
             // Less than or equal to 5%
             const keys = Object.keys(getString("tips", "global"))
