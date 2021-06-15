@@ -1,7 +1,7 @@
 {
     "moduleName": "資訊",
     "page1Title": "說明頁面",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "commandsListTooltip": "這個機器人由 %%developer%% 為 Hypixel 翻譯人員社群而開發。這個機器人是完全開源的，其 GitHub 儲存庫可以在[這裡]%%github%%找到。\n你可以使用 `/translate` 指令，並跟隨該指令的指示來協助翻譯機器人。\n\n你可以執行 `/help <指令名稱>` 來了解特定指令的用法。\n你可以在下面找到所有可用頁面的列表。請點擊訊息下方的反應按鈕來切換頁面。",
     "madeBy": "機器人由 %%QkeleQ10%% 開發和維護",
     "page": "第 %%number%%/%%total%% 頁",
     "pageNumber": "第 %%number%% 頁",
@@ -46,25 +46,25 @@
         "description": "顯示該使用者的 Hypixel 統計數據。"
     },
     "hypixelunverify": {
-        "description": "Unlinks your Discord account from your Minecraft account."
+        "description": "解除你的 Discord 帳戶與 Minecraft 帳號之間的連結。 "
     },
     "hypixelverify": {
-        "description": "Links your Discord account with your Minecraft account."
+        "description": "將你的 Discord 帳戶連結至你的 Minecraft 帳號。 "
     },
     "8ball": {
         "description": "The Magic 8 Ball that will answer all your questions."
     },
     "verify": {
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "description": "自動檢查你的 Crowdin 個人檔案的任何更改，並給予你適當的身分組。如果你的資料不在我們的資料庫裡，你可以在指令中將其作為參數提供給我們。如果你想確認你的個人檔案是否已經儲存，你可以執行 `/profile`。請確保你已允許來自本伺服器的私人訊息 (DM)，以便機器人可以直接發送訊息給你。"
     },
     "profile": {
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
+        "description": "如果你的 Crowdin 個人檔案已儲存在我們的資料庫中，則會給予你的個人檔案連結。否則，你可以執行 `/help reverify` 以了解如何儲存你的個人檔案至資料庫和更新你的身分組。"
     },
     "rank": {
-        "description": "Gives you the current XP for yourself or any given user."
+        "description": "顯示你自己或任何使用者目前的 XP。"
     },
     "levels": {
-        "description": "Gives you the XP leaderboard."
+        "description": "顯示目前的 XP 排行榜。"
     },
     "tip": {
         "description": "隨機給予你一個與伺服器相關的提示。"

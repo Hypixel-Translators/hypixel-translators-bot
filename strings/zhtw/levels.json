@@ -1,5 +1,5 @@
 {
-    "moduleName": "XP Leaderboard",
+    "moduleName": "XP 排行榜",
     "pageTitle": "Here is the XP leaderboard!",
     "page": "第 %%number%%/%%total%% 頁",
     "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",

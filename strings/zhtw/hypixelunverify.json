@@ -2,5 +2,5 @@
     "moduleName": "Hypixel 驗證",
     "unverified": "你已成功解除驗證！",
     "notUnverified": "無法將你解除驗證！",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `/hypixelverify <username>`."
+    "whyNotUnverified": "這是因為你尚未進行驗證！如果要這樣做，請先執行 `/hypixelverify <使用者名稱>`。"
 }
