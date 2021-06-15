@@ -33,6 +33,7 @@ client.on("interaction", async interaction => {
     if (command.dev && !member?.roles.cache.has("768435276191891456")) allowed = false //Discord Staff
 
     //Give perm to admins and return if not allowed
+    if (member.roles.cache.has("764442984119795732")) allowed = true //Discord Administrator
     if (!allowed) {
         await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
         return
