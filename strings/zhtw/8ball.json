@@ -3,27 +3,27 @@
     "question": "問題",
     "answers": {
         "positive": [
-            "It is certain.",
+            "這是肯定的。",
             "It is decidedly so.",
-            "Without a doubt.",
-            "Yes – definitely.",
+            "毫無疑問。",
+            "當然是的。",
             "You may rely on it.",
             "As I see it, yes.",
-            "Most likely.",
+            "大概是這樣。",
             "Outlook good.",
-            "Yes",
+            "是的",
             "Signs point to yes."
         ],
         "inconclusive": [
             "Reply hazy, try again.",
-            "Ask again later.",
+            "請在稍後再問一次。",
             "Better not tell you now.",
             "Cannot predict now.",
             "Concentrate and ask again."
         ],
         "negative": [
             "Don't count on it.",
-            "My reply is no.",
+            "我的回覆是「不」。",
             "My sources say no.",
             "Outlook not so good.",
             "Very doubtful."
