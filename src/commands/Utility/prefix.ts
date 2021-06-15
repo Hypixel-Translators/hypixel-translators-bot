@@ -1,7 +1,7 @@
 import { loadingColor, errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import { flag } from "country-emoji"
-import { db } from "../../lib/dbclient"
+import { db, DbUser } from "../../lib/dbclient"
 import { client, Command } from "../../index"
 import { LangDbEntry } from "../../events/stats"
 
@@ -60,7 +60,8 @@ const command: Command = {
       const collector = msg.createMessageComponentInteractionCollector((interaction: Discord.MessageComponentInteraction) => interaction.customID === "confirm" || interaction.customID === "cancel", { time: this.cooldown! * 1000 })
 
       collector.on("collect", async buttonInteraction => {
-        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global"), ephemeral: true })
+        const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
+        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
         if (buttonInteraction.customID === "confirm") {
           if (member.nickname !== (`[${prefix}] ${nickNoPrefix}`)) {
             await member.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
@@ -237,7 +238,8 @@ const command: Command = {
       const collector = msg.createMessageComponentInteractionCollector((buttonInteraction: Discord.MessageComponentInteraction) => userLangs.includes(langdb.find(entry => entry.code === buttonInteraction.customID)!) || buttonInteraction.customID === "confirm" || buttonInteraction.customID === "cancel", { time: this.cooldown! * 1000 })
 
       collector.on('collect', async buttonInteraction => {
-        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global"), ephemeral: true })
+        const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
+        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
         if (buttonInteraction.customID !== "cancel") components.find(button => button.find(b => b.customID === "confirm")!.setDisabled(false))
         if (buttonInteraction.customID === "confirm") {
           if (prefixes) {

@@ -69,7 +69,8 @@ const command: Command = {
             const collector = msg.createMessageComponentInteractionCollector((button: Discord.MessageComponentInteraction) => button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last", { time: this.cooldown! * 1000 })
 
             collector.on("collect", async buttonInteraction => {
-                if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global"), ephemeral: true })
+                const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
+                if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
                 else if (buttonInteraction.customID === "first") page = 0
                 else if (buttonInteraction.customID === "last") page = pages.length - 1
                 else if (buttonInteraction.customID === "previous") {
