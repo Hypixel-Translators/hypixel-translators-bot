@@ -60,14 +60,14 @@ const command: Command = {
                         .setEmoji("⏭")
                         .setCustomID("last")
                         .setLabel(getString("pagination.last", "global"))
-                )
+                ),
+                pageEmbed: Discord.MessageEmbed = fetchPage(page, pages, getString, executedBy, interaction)
             controlButtons = updateButtonColors(controlButtons, page, pages)
-            await interaction.reply({ embeds: [fetchPage(page, pages, getString, executedBy, interaction)], components: [controlButtons] })
+            await interaction.reply({ embeds: [pageEmbed], components: [controlButtons] })
             const msg = await interaction.fetchReply() as Discord.Message
 
             const collector = msg.createMessageComponentInteractionCollector((button: Discord.MessageComponentInteraction) => button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last", { time: this.cooldown! * 1000 })
 
-            let pageEmbed: Discord.MessageEmbed
             collector.on("collect", async buttonInteraction => {
                 if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global"), ephemeral: true })
                 else if (buttonInteraction.customID === "first") page = 0
