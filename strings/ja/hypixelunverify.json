@@ -2,5 +2,5 @@
     "moduleName": "Hypixel認証",
     "unverified": "認証が解除されました！",
     "notUnverified": "認証を解除できませんでした！",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `/hypixelverify <username>`."
+    "whyNotUnverified": "まだ認証をしていないためです。認証するには`/hypixelverify <ユーザー名>`を実行してください。"
 }
