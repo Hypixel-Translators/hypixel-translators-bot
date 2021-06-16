@@ -29,18 +29,18 @@
         "wrongLink": "Неправильная ссылка!"
     },
     "cooldown": "Перезарядка",
-    "secondLeft": "Please wait another second to use `%%command%%` again.",
-    "timeLeftT": "Please wait another %%time%% seconds to use `%%command%%` again.",
-    "minsLeftT": "Please wait another %%time%% minutes to use `%%command%%` again.",
+    "secondLeft": "Пожалуйста, подождите ещё одну секунду перед тем, как использовать команду `%%command%%` снова.",
+    "timeLeftT": "Пожалуйста, подождите ещё %%time%% секунд перед тем, как использовать команду `%%command%%` снова.",
+    "minsLeftT": "Пожалуйста, подождите ещё %%time%% минут перед тем, как использовать команду `%%command%%` снова.",
     "linkCorrectionDesc": "Пожалуйста, в следующий раз измените свою ссылку в %%format%% формат.",
     "wrongStringURL": "Ссылка, которую вы отправили — это ссылка на редактор, а не на саму строку!",
     "example": "Нажмите на кнопку, показанная на рисунке ниже, чтобы получить правильный URL-адрес строки. Он должен выглядеть так: %%url%%",
     "reminderLang": "Также не забудьте изменить свою ссылку на %%format%% формат.",
     "tip": "Совет",
     "tips": {
-        "ib": "Have you tried the Inhale Banana language? Change your language to it using `/language ib`!",
-        "translators": "I need translators! Find out how to become a bot translator by executing `/translate`.",
-        "prefix": "Do you wanna have a cool prefix on your nickname? Execute `/prefix` in %%bots%% and follow the instructions! Available to all Hypixel translators.",
+        "ib": "Пробовали ли вы сумасшедший язык? Измените ваш язык на него, используя `/lang ib`!",
+        "translators": "Мне нужны переводчики! Узнайте, как стать переводчиком бота, выполнив `/translate`.",
+        "prefix": "Хотите себе классный префикс к своему нику? Выполните `/prefix` в %%bots%% и следуйте инструкциям! Доступно для всех переводчиков Hypixel.",
         "enen": "Пожалуйста, изменяйте ваши ссылки на en-en!",
         "xp": "Вы получаете случайное количество опыта каждую минуту, когда вы общаетесь, что в конечном итоге повышает ваш уровень.",
         "guide": "Знаете ли вы, что у нас есть руководство о том, как начать работу с Crowdin, доступное для всех переводчиков? Проверьте его в %%gettingStarted%%, он содержит несколько полезных советов!",
@@ -48,20 +48,20 @@
         "rulesInfo": "%%rules%% и %%serverInfo%% содержат всю необходимую информацию о сервере!",
         "fixTranslation": "Нашли ошибку в переводе? Свяжитесь с корректором вашего языка или сообщите об этом людям в канале переводов.",
         "pinnedInfo": "Знаете ли вы, что на большинстве каналов важная информация закреплена? Вы должны проверять закрепленные сообщения каждый раз, когда посещаете один из каналов!",
-        "hypixelStats": "You can view information about a specific player on Hypixel by executing `/hypixelstats`!",
-        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `/languagestats`!",
-        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `/verify` to have your roles updated!",
-        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `/language list` to see a list of all the languages we currently support and you may just find your own!",
-        "moreTips": "We need more tips! Submit them using `/feedback`."
+        "hypixelStats": "Вы можете посмотреть информацию о конкретном игроке на Hypixel, выполнив `/hypixelstats`!",
+        "languageStats": "Знаете ли вы, что вы можете смотреть статистику любого языка из всех наших проектов? Просто выполните `/languagestats`!",
+        "rolesChange": "Вы недавно получили новые роли на Crowdin или присоединились к одному из проектов, которую мы поддерживаем? Выполните `/verify`, чтобы обновить ваши роли!",
+        "botTranslated": "Знаете ли вы, что наш бот доступен на разных языках? Попробуйте выполнить `/language list`, чтобы увидеть список всех языков, которые в настоящее время мы поддерживаем; возможно вы найдете свой язык!",
+        "moreTips": "Нам нужно больше советов! Предлагайте их, используя `/feedback`."
     },
     "pagination": {
-        "first": "First page",
-        "previous": "Previous page",
-        "next": "Next page",
-        "last": "Last page",
-        "confirm": "Confirm",
-        "cancel": "Cancel",
-        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this."
+        "first": "Первая",
+        "previous": "Предыдущая",
+        "next": "Следующая",
+        "last": "Последняя",
+        "confirm": "Подтвердить",
+        "cancel": "Отмена",
+        "notYours": "Вы не можете взаимвзаимодействовать с этим меню! Выполните %%command%%, чтобы получить свою меню."
     },
     "executedBy": "Выполнено пользователем %%user%%"
 }
