@@ -29,18 +29,18 @@
         "wrongLink": "リンクが間違っています！"
     },
     "cooldown": "クールダウン",
-    "secondLeft": "Please wait another second to use `%%command%%` again.",
-    "timeLeftT": "Please wait another %%time%% seconds to use `%%command%%` again.",
-    "minsLeftT": "Please wait another %%time%% minutes to use `%%command%%` again.",
+    "secondLeft": "再度`%%command%%`を使用するには数秒お待ちください。",
+    "timeLeftT": "もう一度`%%command%%`を使用するにはあと%%time%%秒お待ちください。",
+    "minsLeftT": "もう一度`%%command%%`を使用するにはあと%%time%%分お待ちください。",
     "linkCorrectionDesc": "次回はリンクの型を%%format%%に変更してください。",
     "wrongStringURL": "送信されたリンクは、文字列自体のものではなく編集画面へのリンクです！",
     "example": "以下の画像にあるボタンをクリックし、正しい文字列のURLを取得してください。以下のような形式です：%%url%%",
     "reminderLang": "リンクの型を%%format%%に変更することも忘れないでください。",
     "tip": "ヒント",
     "tips": {
-        "ib": "Have you tried the Inhale Banana language? Change your language to it using `/language ib`!",
-        "translators": "I need translators! Find out how to become a bot translator by executing `/translate`.",
-        "prefix": "Do you wanna have a cool prefix on your nickname? Execute `/prefix` in %%bots%% and follow the instructions! Available to all Hypixel translators.",
+        "ib": "言語Inhale Bananaを試しましたか？ `/language ib`で言語を変更できます！",
+        "translators": "翻訳者を求めています！ `/translate`を実行してボット翻訳者へのなり方を確認できます。",
+        "prefix": "ニックネームにカッコイイ接頭辞を付けませんか？ %%bots%% にて`/prefix`を実行し手順に従ってください！ すべてのHypixel翻訳者が利用できます。",
         "enen": "リンクをen-enに変更してください！",
         "xp": "チャットをする度ランダムな経験値が得られ、レベルアップすることができます。",
         "guide": "すべての翻訳者が利用できる、Crowdinの始め方ガイドがあるのを知っていますか？ %%gettingStarted%% でチェックしましょう。便利なヒントがたくさんあります！",
@@ -48,20 +48,20 @@
         "rulesInfo": "%%rules%% と %%serverInfo%% にこのサーバーに関する必要な情報がすべて載っています！",
         "fixTranslation": "翻訳にミスを発見しましたか？ 自身の言語の校正者に連絡するか、翻訳チャンネルでお知らせしましょう。",
         "pinnedInfo": "多くのチャンネルのピン留めには重要な情報があることを知っていますか？ チャンネルを見る度に確認することをお勧めします！",
-        "hypixelStats": "You can view information about a specific player on Hypixel by executing `/hypixelstats`!",
-        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `/languagestats`!",
-        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `/verify` to have your roles updated!",
-        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `/language list` to see a list of all the languages we currently support and you may just find your own!",
-        "moreTips": "We need more tips! Submit them using `/feedback`."
+        "hypixelStats": "特定のプレイヤーの情報を閲覧したい場合は、`/hypixelstats`を実行してください！",
+        "languageStats": "私たちの全プロジェクトの言語別の進捗を閲覧できるのを知っていますか？ `/languagestats`を実行してください！",
+        "rolesChange": "我々がサポートしているプロジェクトで、最近Crowdinで新しい役割を手に入れたり、新しく参加しましたか？ `/verify`を実行してロールを更新しましょう！",
+        "botTranslated": "我々のボットは複数の言語で利用できることをご存知ですか？ `/language list`を実行して現在サポートしている言語一覧を確認してください。ご自身の言語が見つかるでしょう！",
+        "moreTips": "更なるヒントを求めています！ `/feedback`を使用して投稿してください。"
     },
     "pagination": {
-        "first": "First page",
-        "previous": "Previous page",
-        "next": "Next page",
-        "last": "Last page",
-        "confirm": "Confirm",
-        "cancel": "Cancel",
-        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this."
+        "first": "最初のページ",
+        "previous": "前のページ",
+        "next": "次のページ",
+        "last": "最後のページ",
+        "confirm": "確認",
+        "cancel": "キャンセル",
+        "notYours": "このメニューは操作できません！ ご自身でで%%command%%を実行してください。"
     },
     "executedBy": "%%user%%によって実行されました"
 }
