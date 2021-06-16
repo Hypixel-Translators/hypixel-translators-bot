@@ -1,7 +1,7 @@
 {
     "moduleName": "Информация",
     "page1Title": "Страница помощи",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "commandsListTooltip": "Этот бот был сделан для сообщества переводчиков Hypixel пользователем %%developer%%. Бот с открытым исходным кодом и наш репозиторий на GitHub можно найти [здесь]%%github%%.\nВы можете помочь перевести бота. Для этого выполните `/translate` и следуйте дальнейшим инструкциям.\n\nВы можете выполнить `/help <название команды>`, чтобы узнать больше о конкретной команде.\nНиже вы можете найти список всех доступных страниц. Используйте кнопки под этим сообщение, чтобы пролистать их.",
     "madeBy": "Бот сделан с большой заботой пользователем %%QkeleQ10%%",
     "page": "Страница %%number%% из %%total%%",
     "pageNumber": "Страница %%number%%",
@@ -22,7 +22,7 @@
         "description": "Показывает все доступные команды и другую информацию о боте."
     },
     "prefix": {
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+        "description": "Дает вам соответствующий префикс относительно ваших языков. Чтобы получить пользовательский префикс, выполните `/prefix` и вставьте региональный код вашей страны или его название в параметр `flags`. Вы можете добавить столько флагов, сколько захотите; разделите их пробелами."
     },
     "quote": {
         "description": "Дает (или добавляет) смешную/странную/мудрую цитату с сервера."
@@ -46,19 +46,19 @@
         "description": "Показывает вам основную статистику Hypixel для указанного пользователя."
     },
     "hypixelunverify": {
-        "description": "Unlinks your Discord account from your Minecraft account."
+        "description": "Отвязывает вашу учётную запись Discord от вашей учётной записи Minecraft."
     },
     "hypixelverify": {
-        "description": "Links your Discord account with your Minecraft account."
+        "description": "Связывает вашу учётную запись Discord с вашей учётной записью Minecraft."
     },
     "8ball": {
         "description": "Шар судьбы, который ответит на все ваши вопросы."
     },
     "verify": {
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "description": "Автоматически проверяет наличие изменений в вашем профиле Crowdin и дает вам соответствующие роли. Если ваш профиль не хранится в нашей базе данных, вы можете указать ссылку на него как аргумент в этой команде. Чтобы проверить, сохранен ли ваш профиль, выполните `/profile`. Убедитесь, что у вас разрешены личные сообщения от участников этого сервера, чтобы бот мог отправить вам сообщение."
     },
     "profile": {
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
+        "description": "Дает вам ссылку на ваш профиль Crowdin, если он хранится в нашей базе данных. Если нет, то вы можете выполнить `/help verify`, чтобы узнать, как сохранить свой профиль и обновлять свои роли."
     },
     "rank": {
         "description": "Дает вам текущее количество вашего опыта или опыт любого другого указанного пользователя."
