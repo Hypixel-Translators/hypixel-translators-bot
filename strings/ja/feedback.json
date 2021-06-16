@@ -1,7 +1,7 @@
 {
     "moduleName": "問題とフィードバック",
     "bugT": "Issueの閲覧と追加",
-    "bugD": "To show and make suggestions or bug reports, click on the button below!",
+    "bugD": "提案やバグ報告を表示・作成するには、以下のボタンをクリックしてください！",
     "urgentT": "急を要しますか？",
     "urgentD": "致命的なバグを報告する時や、ボットが予告無しに長時間稼働していない時は、公開チャンネルでスタッフメンバーにメンションしてください。問題を説明します。",
     "link": "リンク"
