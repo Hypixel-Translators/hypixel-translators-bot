@@ -43,7 +43,7 @@ export async function hypixel(client: HTBClient) {
             })
             const channel = client.channels.cache.find(channel => (channel as Discord.TextChannel).name === "hypixel-language-status") as Discord.TextChannel
             channel.messages.fetch()
-                .then((messages: Discord.Collection<Discord.Snowflake, Discord.Message>) => {
+                .then(messages => {
                     let index = 0
                     const fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
                     fiMessages.forEach(async msg => {
@@ -56,8 +56,8 @@ export async function hypixel(client: HTBClient) {
                             .setDescription(`**${langData.translationProgress}% translated (${langData.phrases.translated}/${langData.phrases.total} strings)**\n${langData.approvalProgress}% approved (${langData.phrases.approved}/${langData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel/all/en-${langData.language.code}`)
                             .setFooter("Last update")
                             .setTimestamp()
-                        await msg.edit({ content: null, embeds: [embed] })
                         index++
+                        await msg.edit({ content: null, embeds: [embed] })
                     })
                 })
             const { stringCount } = await db.collection("crowdin").findOne({ project: "hypixel" }) as StringCount
@@ -89,7 +89,7 @@ export async function quickplay(client: HTBClient) {
             })
             const channel = client.channels.cache.find(channel => (channel as Discord.TextChannel).name === "quickplay-language-status") as Discord.TextChannel
             channel.messages.fetch()
-                .then((messages: Discord.Collection<Discord.Snowflake, Discord.Message>) => {
+                .then(messages => {
                     let index = 0
                     const fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
                     fiMessages.forEach(async (msg: Discord.Message) => {
@@ -107,8 +107,8 @@ export async function quickplay(client: HTBClient) {
                             .setDescription(`**${langData.translationProgress}% translated (${langData.phrases.translated}/${langData.phrases.total} strings)**\n${langData.approvalProgress}% approved (${langData.phrases.approved}/${langData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/quickplay/all/en-${langData.language.code}`)
                             .setFooter("Last update")
                             .setTimestamp()
-                        await msg.edit({ content: null, embeds: [embed] })
                         index++
+                        await msg.edit({ content: null, embeds: [embed] })
                     })
                 })
             const { stringCount } = await db.collection("crowdin").findOne({ project: "quickplay" }) as StringCount
@@ -140,7 +140,7 @@ export async function bot(client: HTBClient) {
             })
             const channel = client.channels.cache.find(channel => (channel as Discord.TextChannel).name === "bot-language-status") as Discord.TextChannel
             channel.messages.fetch()
-                .then((messages: Discord.Collection<Discord.Snowflake, Discord.Message>) => {
+                .then(messages => {
                     let index = 0
                     const fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
                     fiMessages.forEach(async msg => {
@@ -158,8 +158,8 @@ export async function bot(client: HTBClient) {
                             .setDescription(`**${langData.translationProgress}% translated (${langData.phrases.translated}/${langData.phrases.total} strings)**\n${langData.approvalProgress}% approved (${langData.phrases.approved}/${langData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/hypixel-translators-bot/all/en-${langData.language.code}`)
                             .setFooter("Last update")
                             .setTimestamp()
-                        await msg.edit({ content: null, embeds: [embed] })
                         index++
+                        await msg.edit({ content: null, embeds: [embed] })
                     })
                 })
             const { stringCount } = await db.collection("crowdin").findOne({ project: "bot" }) as StringCount
@@ -191,7 +191,7 @@ export async function skyblockaddons(client: HTBClient) {
             })
             const channel = client.channels.cache.find(channel => (channel as Discord.TextChannel).name === "sba-language-status") as Discord.TextChannel
             channel.messages.fetch()
-                .then((messages: Discord.Collection<Discord.Snowflake, Discord.Message>) => {
+                .then(messages => {
                     let index = 0
                     const fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
                     fiMessages.forEach(async msg => {
@@ -209,8 +209,8 @@ export async function skyblockaddons(client: HTBClient) {
                             .setThumbnail((langData.language.flag))
                             .setFooter("Last update")
                             .setTimestamp()
-                        await msg.edit({ content: null, embeds: [embed] })
                         index++
+                        await msg.edit({ content: null, embeds: [embed] })
                     })
                 })
             const { stringCount } = await db.collection("crowdin").findOne({ project: "sba" }) as StringCount
