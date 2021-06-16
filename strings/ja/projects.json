@@ -1,7 +1,7 @@
 {
     "moduleName": "翻訳プロジェクト",
     "allProjects": "以下がサーバーでサポートしている全プロジェクトです！",
-    "description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
+    "description": "既にプロジェクトに参加しているがまだロールを保有していない場合、`/verify [プロフィールURL]`を実行して入手できます！",
     "projectInfo": "%%project%%プロジェクトへのリンクは [こちら](%%link%%) です。詳細は%%command%%を実行してください。",
     "alreadyJoined": "このプロジェクトに参加済みです！",
     "notJoined": "このプロジェクトに参加していません！",
