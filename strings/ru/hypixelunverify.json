@@ -2,5 +2,5 @@
     "moduleName": "Подтверждение профиля Hypixel",
     "unverified": "Вы отменили подтверждение!",
     "notUnverified": "Невозможно отменить подтверждение!",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `/hypixelverify <username>`."
+    "whyNotUnverified": "Это произошло потому, что вы еще не подтвердили свой профиль! Для того, чтобы сделать это, выполните `/hypixelverify <имя пользователя>`."
 }
