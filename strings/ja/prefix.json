@@ -14,7 +14,7 @@
         "timeOutCustom": "確定しなかったため、",
         "notSaved": "接頭辞が保存されませんでした。"
     },
-    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
+    "customPrefix": "`/prefix <旗>`を実行して、お気軽に希望の接頭辞を取得してください。",
     "caution": "警告",
     "warning": "自身が翻訳していない言語の接頭辞に設定すると警告されます。それでもニックネームを変更しますか？",
     "react": "接頭辞に追加したい順番に、旗をクリックして回答してください。",
