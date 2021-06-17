@@ -151,7 +151,7 @@ client.on("interaction", async interaction => {
         // This will only execute if the command is successful
         const d = Math.random() * 100, // Get percentage
             reply = await interaction.fetchReply()
-                .catch()
+                .catch(() => { })
         if (command.allowTip !== false && d <= 5) {
             // Less than or equal to 5%
             const keys = Object.keys(getString("tips", "global"))
@@ -199,6 +199,10 @@ client.on("interaction", async interaction => {
             .setAuthor(getString("error", "global"))
             .setTitle(error.interaction?.substring(0, 255) || error.toString().substring(0, 255))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        return await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
+        if (!interaction.replied) return await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
+        else if (interaction.deferred) {
+            await interaction.editReply({ embeds: [embed], components: [] })
+            return
+        }
     }
 })
