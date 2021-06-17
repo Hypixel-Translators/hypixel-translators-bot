@@ -2,5 +2,5 @@
     "moduleName": "Hypixel-verificatie",
     "unverified": "Je verificatie is ongedaan gemaakt!",
     "notUnverified": "Kon je niet verifiëren!",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `/hypixelverify <username>`."
+    "whyNotUnverified": "Dit is gebeurd omdat je jezelf nog niet hebt geverifieerd! Voer eerst `/hypixelverify <gebruikersnaam>` uit."
 }

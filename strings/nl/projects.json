@@ -1,7 +1,7 @@
 {
     "moduleName": "Vertalingsprojecten",
     "allProjects": "Hieronder staan alle projecten die we momenteel ondersteunen!",
-    "description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
+    "description": "Als je voor één van deze projecten vertaalt maar geen rollen ervoor hebt, gebruik dan `/verify [profiel-url]` om ze te ontvangen!",
     "projectInfo": "Je kunt de link naar het %%project%%-project [hier](%%link%%) vinden. Voor meer info kun je %%command%% uitvoeren.",
     "alreadyJoined": "Je bent een vertaler voor dit project!",
     "notJoined": "Je bent nog geen vertaler voor dit project!",
