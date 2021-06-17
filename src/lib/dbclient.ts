@@ -24,7 +24,7 @@ init()
 export interface DbUser {
     id: Discord.Snowflake
     lang: string
-    profile?: string
+    profile?: string | null
     uuid?: string
     levels: {
         level: number

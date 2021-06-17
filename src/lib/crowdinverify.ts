@@ -33,7 +33,7 @@ const projectIDs: {
  * @param sendDms Whether to send DMs to the member or not. Also bypasses the Discord tag check
  * @param sendLogs Whether to send logs to the log channel or not
  */
-async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms: boolean = false, sendLogs: boolean = true) {
+async function crowdinVerify(member: Discord.GuildMember, url?: string | null, sendDms: boolean = false, sendLogs: boolean = true) {
     const verifyLogs = member.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel
     const verify = member.client.channels.cache.get(UsefulIDs.verifyChannel) as Discord.TextChannel
     const errorEmbed = new Discord.MessageEmbed()
@@ -43,7 +43,8 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
     if (!url) {
         const userDb: DbUser = await db.collection("users").findOne({ id: member.id })
         url = userDb.profile
-        if (!url) { //if user runs +reverify and the profile is not stored on our DB or if the user sends the generic profile URL
+        if (userDb.profile = null) removeAllRoles(member)
+        else if (!url) { //if user runs +reverify and the profile is not stored on our DB or if the user sends the generic profile URL
             //#region return message
             member.roles.remove("569194996964786178", "Tried to reverify but profile wasn't stored") // Verified
             await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
@@ -67,7 +68,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string, sendDms:
             //#endregion
         }
     }
-    url = url.toLowerCase()
+    url = url!.toLowerCase()
     const browser = await getBrowser(),
         page = await browser.pupBrowser.newPage()
     try {
@@ -395,6 +396,16 @@ async function veteranMedals(member: Discord.GuildMember, project: CrowdinProjec
 
     member.roles.add(role, `Been in the Hypixel project for ${years == 1 ? `${years} year` : `${years} years`}`)
     return role
+}
+
+function removeAllRoles(member: Discord.GuildMember) {
+    const roles = member.roles.cache.filter(r =>
+        r.name.endsWith(" Translator") ||
+        r.name.endsWith(" Proofreader") ||
+        r.name.endsWith(" Manager") ||
+        r.name.endsWith(" Veteran")
+    )
+    roles.forEach(async role => await member.roles.remove(role))
 }
 
 let browser: puppeteer.Browser | null = null,

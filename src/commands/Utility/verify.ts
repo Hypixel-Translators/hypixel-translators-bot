@@ -35,7 +35,7 @@ const command: Command = {
                 })
             await member.roles.add("569194996964786178", "Manually verified through the command")
             await member.roles.remove("756199836470214848", "Manually verified through the command"); //Add Verified and remove Alerted
-            await db.collection("users").updateOne({ id: member!.id }, { $unset: { unverifiedTimestamp: true } });
+            await db.collection("users").updateOne({ id: member!.id }, { $unset: { unverifiedTimestamp: true }, $set: { profile: null } });
             await verifyLogs.send(`${interaction.user} manually verified themselves through the command`)
             client.cooldowns.get(this.name)!.delete(interaction.user.id)
             await interaction.reply({ content: "You successfully verified yourself!", ephemeral: true })
