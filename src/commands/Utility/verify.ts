@@ -25,12 +25,13 @@ const command: Command = {
         const verifyLogs = interaction.client.channels.cache.get("662660931838410754") as Discord.TextChannel,
             verify = interaction.client.channels.cache.get("569178590697095168") as Discord.TextChannel,
             member = interaction.member as Discord.GuildMember,
-            profileUrl = interaction.options.get("url")?.value as string | undefined
+            profileUrl = interaction.options.get("url")?.value as string | undefined,
+            memberInput = interaction.options.get("user")?.member as Discord.GuildMember | undefined
         if (!member.roles.cache.has("569194996964786178")) { //Verified
             (interaction.channel as Discord.TextChannel).messages.fetch()
-                .then(messages => {
-                    const fiMessages = messages.filter(msgs => msgs.author.id === interaction.user.id);
-                    (interaction.channel as Discord.TextChannel).bulkDelete(fiMessages)
+                .then(async messages => {
+                    const fiMessages = messages.filter(msgs => msgs.author.id === interaction.user.id)
+                    await (interaction.channel as Discord.TextChannel).bulkDelete(fiMessages)
                 })
             await member.roles.add("569194996964786178", "Manually verified through the command")
             await member.roles.remove("756199836470214848", "Manually verified through the command"); //Add Verified and remove Alerted
@@ -38,7 +39,12 @@ const command: Command = {
             await verifyLogs.send(`${interaction.user} manually verified themselves through the command`)
             client.cooldowns.get(this.name)!.delete(interaction.user.id)
             await interaction.reply({ content: "You successfully verified yourself!", ephemeral: true })
-        } else if (!member.roles.cache.has("764442984119795732") || !profileUrl || /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) { //Discord Administrator
+        } else if (member.roles.cache.has("764442984119795732") && memberInput) { //Discord Administrator
+            if (!memberInput) throw "noUser"
+            await interaction.defer({ ephemeral: true })
+            await crowdinVerify(memberInput, profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], false)
+            await interaction.editReply("Your request has been processed. Check the logs")
+        } else {
             const userDb: DbUser = await db.collection("users").findOne({ id: interaction.user.id })
             if (userDb.profile || profileUrl && /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) {
                 await interaction.defer({ ephemeral: true });
@@ -63,8 +69,8 @@ const command: Command = {
                         embed
                             .setDescription(`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us here. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`)
                             .setFooter("")
-                        await verifyLogs.send(`${interaction.user} was unverified and had DMs off.`) //verify-logs
-                        await verify.send({ content: `${interaction.user} you had DMs disabled, so here's our message:`, embeds: [embed] }) //verify
+                        await verifyLogs.send(`${interaction.user} was unverified and had DMs off.`)
+                        await verify.send({ content: `${interaction.user} you had DMs disabled, so here's our message:`, embeds: [embed] })
                             .then(msg => {
                                 setTimeout(() => {
                                     if (!msg.deleted) msg.delete()
@@ -72,14 +78,8 @@ const command: Command = {
                             })
                         await interaction.reply({ content: `Your request was processed, check ${verify} for more info!`, ephemeral: true })
                     })
-                    client.cooldowns.get(this.name)!.delete(interaction.user.id)
+                client.cooldowns.get(this.name)!.delete(interaction.user.id)
             }
-        } else {
-            const member = interaction.options.get("user")?.member as Discord.GuildMember | undefined
-            if (!member) throw "noUser"
-            await interaction.defer({ ephemeral: true })
-            await crowdinVerify(member, profileUrl.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], false)
-            await interaction.editReply("Your request has been processed. Check the logs")
         }
     }
 }
