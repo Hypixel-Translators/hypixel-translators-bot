@@ -173,7 +173,7 @@ client.on("interaction", async interaction => {
             if (interaction.replied && reply) await interaction.channel.send(`**${getString("tip", "global").toUpperCase()}:** ${tip}`)
         }
     } catch (error) {
-        if (!error.stack) error = getString(`errors.${error}`, "global")
+        if (!error.stack) error = getString(`errors.${error}`, "global") || error
 
         // Send error to bot-dev channel
         if (error.stack) {
@@ -202,9 +202,13 @@ client.on("interaction", async interaction => {
             .setAuthor(getString("error", "global"))
             .setTitle(error.interaction?.substring(0, 255) || error.toString().substring(0, 255))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        if (!interaction.replied) return await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
-        else if (interaction.deferred) {
+        //Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first
+        if (interaction.deferred) {
             await interaction.editReply({ embeds: [embed], components: [] })
+            return
+        }
+        else if (!interaction.replied) {
+            await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
             return
         }
     }
