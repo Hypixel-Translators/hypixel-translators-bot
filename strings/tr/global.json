@@ -29,9 +29,9 @@
         "wrongLink": "Yanlış link!"
     },
     "cooldown": "Bekleme Süresi",
-    "secondLeft": "Lütfen `+%%command%%` komutunu tekrar kullanmak için biraz daha bekle.",
-    "timeLeftT": "`+%%command%%` komutunu kullanmak için lütfen %%time%% saniye bekle.",
-    "minsLeftT": "`+%%command%%` komutunu tekrar kullanmak için lütfen %%time%% dakika daha bekleyin.",
+    "secondLeft": "Lütfen `%%command%%` komutunu tekrar kullanmak için biraz daha bekle.",
+    "timeLeftT": "`%%command%%` komutunu kullanmak için lütfen %%time%% saniye bekle.",
+    "minsLeftT": "`%%command%%` komutunu tekrar kullanmak için lütfen %%time%% dakika daha bekleyin.",
     "linkCorrectionDesc": "Lütfen bağlantını bir dahaki sefere %%format%% formatına değiştir.",
     "wrongStringURL": "Gönderdiğin bağlantı, dizenin kendisine değil, editöre yönlendiren bir bağlantıdır!",
     "example": "Doğru dize URL'sini kopyalamak için aşağıdaki resimde gösterilen düğmeye tıkla. Bağlantı böyle olmalı: %%url%%",

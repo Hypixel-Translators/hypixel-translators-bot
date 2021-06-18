@@ -29,18 +29,18 @@
         "wrongLink": "Nem megfelelő link!"
     },
     "cooldown": "Időköz",
-    "secondLeft": "Please wait another second to use `%%command%%` again.",
-    "timeLeftT": "Please wait another %%time%% seconds to use `%%command%%` again.",
-    "minsLeftT": "Please wait another %%time%% minutes to use `%%command%%` again.",
+    "secondLeft": "Kérlek várj egy másodpercet hogy újra használd a `%%command%%` parancsot.",
+    "timeLeftT": "Kérlek várj %%time%% másodpercet hogy újra használd a `%%command%%` parancsot.",
+    "minsLeftT": "Kérlek várj %%time%% percet hogy újra használd a `%%command%%` parancsot.",
     "linkCorrectionDesc": "Kérlek máskor változtassad meg a linkedet %%format%% formátumba.",
     "wrongStringURL": "A küldött link csak a szerkesztőhöz vezet, és nem egy szöveg!",
     "example": "Nyomd meg az alábbi képen mutatott gombot, hogy megkapd a helyes linket. Így kellene kinéznie: %%url%%",
     "reminderLang": "Ne felejtsd el a linket megváltoztatni %%format%% formátumba.",
     "tip": "Tipp",
     "tips": {
-        "ib": "Have you tried the Inhale Banana language? Change your language to it using `/language ib`!",
-        "translators": "I need translators! Find out how to become a bot translator by executing `/translate`.",
-        "prefix": "Do you wanna have a cool prefix on your nickname? Execute `/prefix` in %%bots%% and follow the instructions! Available to all Hypixel translators.",
+        "ib": "Kipróbáltad már a Inhale Banana nyelvet? Így tudod kiválasztani a nyelvet: `/language ib`!",
+        "translators": "Fordítókat keresek! Tudd meg hogyan lehetsz fordító itt a `/translate` parancs használatával.",
+        "prefix": "Szeretnél egy menő előjelet a neved mellett? Használd a `/prefix` parancsot a %%bots%% csatornában, és kövesd az instrukciókat! Ez minden Hypixel fordítónak elérhető.",
         "enen": "Változtasd meg a linkjeidet en-en nyelvre!",
         "xp": "Véretlen mennyiségű TP-t kapsz minden percben amikor beszélsz, amitől majd szintet is léphetsz.",
         "guide": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%gettingStarted%%, it has some useful tips!",
@@ -52,7 +52,7 @@
         "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `/languagestats`!",
         "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `/verify` to have your roles updated!",
         "botTranslated": "Did you know our bot is available in multiple languages? Try executing `/language list` to see a list of all the languages we currently support and you may just find your own!",
-        "moreTips": "We need more tips! Submit them using `/feedback`."
+        "moreTips": "Több tipp kéne! Írj nekünk a `/feedback` használatával."
     },
     "pagination": {
         "first": "Első oldal",
