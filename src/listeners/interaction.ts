@@ -17,7 +17,10 @@ client.on("interaction", async interaction => {
     if (interaction.channel?.type === "dm") console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
 
     //Return if user is not verified
-    if (!member?.roles.cache.has("569194996964786178") && command.name !== "verify") return //Verified
+    if (!member?.roles.cache.has("569194996964786178") && command.name !== "verify") { //Verified
+        await interaction.reply({ content: "You must be verified to do this!", ephemeral: true })
+        return
+    }
 
     let allowed = true
 
@@ -72,7 +75,7 @@ client.on("interaction", async interaction => {
         }
     }
 
-    //Remove cooldown if administrator
+    //Set cooldown if not administrator
     if (!member?.permissions.has("MANAGE_ROLES")) {
         timestamps.set(interaction.user.id, now)
         setTimeout(() => {
@@ -151,7 +154,7 @@ client.on("interaction", async interaction => {
         // This will only execute if the command is successful
         const d = Math.random() * 100, // Get percentage
             reply = await interaction.fetchReply()
-                .catch(() => { })
+                .catch(() => {})
         if (command.allowTip !== false && d <= 5) {
             // Less than or equal to 5%
             const keys = Object.keys(getString("tips", "global"))
