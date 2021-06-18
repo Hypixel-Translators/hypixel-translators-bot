@@ -24,7 +24,7 @@ async function check(client: HTBClient) {
         if (member.roles.cache.has("756199836470214848")) { //Alerted
             if (Number(userDb.unverifiedTimestamp) <= verify || member.joinedTimestamp! <= verify) {
                 //await member.send("You stood in the verify channel for too long and, because of that, you were kicked for inactivity. If you wish to join back, feel free to do so at https://discord.gg/rcT948A")
-                member.send("You stood in the verify channel for too long and, because of that, you have been automatically verified as a player. If you're a translator and wish to receive your roles, please execute `+reverify <profileURL>` replacing <profileURL> with the URL to your Crowdin profile.")
+                member.send("You stood in the verify channel for too long and, because of that, you have been automatically verified as a player. If you're a translator and wish to receive your roles, please execute `/verify <profileURL>` replacing <profileURL> with the URL to your Crowdin profile.")
                     .then(async () => {
                         //await verifyLogs.send(`**${member.user.tag}** has been kicked for inactivity.`)
                         //console.log(`Kicked ${member.user.tag} for inactivity`)

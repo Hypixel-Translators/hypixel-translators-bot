@@ -44,7 +44,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         const userDb: DbUser = await db.collection("users").findOne({ id: member.id })
         url = userDb.profile
         if (userDb.profile = null) removeAllRoles(member)
-        else if (!url) { //if user runs +reverify and the profile is not stored on our DB or if the user sends the generic profile URL
+        else if (!url) { //if user runs /verify and the profile is not stored on our DB or if the user sends the generic profile URL
             //#region return message
             member.roles.remove("569194996964786178", "Tried to reverify but profile wasn't stored") // Verified
             await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
@@ -256,8 +256,8 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         .setAuthor("Received message from staff")
         .setDescription(`Hey there!\nYou have successfully verified your Crowdin account${Object.keys(endingMessageProjects).length
             ? " and you also received the corresponding roles on our Discord server! Make sure to check out <#699275092026458122> if you want to learn more about Crowdin." //getting-started
-            : "!\nSadly you didn't receive any roles because you don't translate for any of the projects we currently support.\nWhen you have started translating you can refresh your roles by running `+reverify`"
-            }\nIf you wanna know more about all the projects we currently support, run \`+projects\` here.`)
+            : "!\nSadly you didn't receive any roles because you don't translate for any of the projects we currently support.\nWhen you have started translating you can refresh your roles by running `/verify`"
+            }\nIf you wanna know more about all the projects we currently support, run \`/projects\` here.`)
         .setFooter("Any messages you send here will be sent to staff upon confirmation.")
 
     if (sendDms) member.send({ embeds: [dmEmbed] })

@@ -60,7 +60,7 @@ client.once("ready", async () => {
     //Set status
     client.user!.setPresence({
         status: process.env.NODE_ENV === "production" ? "online" : "dnd",
-        activities: [{ name: "+help", type: "LISTENING" }]
+        activities: [{ name: "/help", type: "LISTENING" }]
     })
 
     //Change status and run events every minute

@@ -30,10 +30,10 @@ const command: Command = {
                 .setTitle(getString("allProjects"))
                 .setDescription(getString("description"))
                 .addFields(
-                    { name: "Hypixel", value: `${getString("projectInfo", { project: "**Hypixel**", link: "https://crowdin.com/project/hypixel", command: "`+hypixel`" })}\n${joinedHypixel}` },
-                    { name: "Quickplay", value: `${getString("projectInfo", { project: "**Quickplay**", link: "https://crowdin.com/project/quickplay", command: "`+quickplay`" })}\n${joinedQuickplay}` },
-                    { name: "SkyblockAddons", value: `${getString("projectInfo", { project: "**SkyblockAddons**", link: "https://crowdin.com/project/skyblockaddons", command: "`+skyblockaddons`" })}\n${joinedSba}` },
-                    { name: "Hypixel Translators Bot", value: `${getString("projectInfo", { project: "**Hypixel Translators Bot**", link: "https://crowdin.com/project/hypixel-translators-bot", command: "`+bot`" })}\n${joinedBot}` }
+                    { name: "Hypixel", value: `${getString("projectInfo", { project: "**Hypixel**", link: "https://crowdin.com/project/hypixel", command: "`/hypixel`" })}\n${joinedHypixel}` },
+                    { name: "Quickplay", value: `${getString("projectInfo", { project: "**Quickplay**", link: "https://crowdin.com/project/quickplay", command: "`/quickplay`" })}\n${joinedQuickplay}` },
+                    { name: "SkyblockAddons", value: `${getString("projectInfo", { project: "**SkyblockAddons**", link: "https://crowdin.com/project/skyblockaddons", command: "`/skyblockaddons`" })}\n${joinedSba}` },
+                    { name: "Hypixel Translators Bot", value: `${getString("projectInfo", { project: "**Hypixel Translators Bot**", link: "https://crowdin.com/project/hypixel-translators-bot", command: "`/bot`" })}\n${joinedBot}` }
                 )
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             await interaction.reply({ embeds: [embed] })
@@ -44,10 +44,10 @@ const command: Command = {
                 .setTitle(getString("allProjects"))
                 .setDescription(`${getString("description")}\n${getString("dmError")}`)
                 .addFields(
-                    { name: "Hypixel", value: getString("projectInfo", { project: "**Hypixel**", link: "https://crowdin.com/project/hypixel", command: "`+hypixel`" }) },
-                    { name: "Quickplay", value: getString("projectInfo", { project: "**Quickplay**", link: "https://crowdin.com/project/quickplay", command: "`+quickplay`" }) },
-                    { name: "SkyblockAddons", value: getString("projectInfo", { project: "**SkyblockAddons**", link: "https://crowdin.com/project/skyblockaddons", command: "`+skyblockaddons`" }) },
-                    { name: "Hypixel Translators Bot", value: getString("projectInfo", { project: "**Hypixel Translators Bot**", link: "https://crowdin.com/project/hypixel-translators-bot", command: "`+bot`" }) }
+                    { name: "Hypixel", value: getString("projectInfo", { project: "**Hypixel**", link: "https://crowdin.com/project/hypixel", command: "`/hypixel`" }) },
+                    { name: "Quickplay", value: getString("projectInfo", { project: "**Quickplay**", link: "https://crowdin.com/project/quickplay", command: "`/quickplay`" }) },
+                    { name: "SkyblockAddons", value: getString("projectInfo", { project: "**SkyblockAddons**", link: "https://crowdin.com/project/skyblockaddons", command: "`/skyblockaddons`" }) },
+                    { name: "Hypixel Translators Bot", value: getString("projectInfo", { project: "**Hypixel Translators Bot**", link: "https://crowdin.com/project/hypixel-translators-bot", command: "`/bot`" }) }
                 )
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             await interaction.reply({ embeds: [embed] })

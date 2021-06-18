@@ -143,7 +143,7 @@ const command: Command = {
       const embed = new Discord.MessageEmbed()
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
-        .setTitle(getString("commandInfoFor") + `\`+${command.name}\``)
+        .setTitle(getString("commandInfoFor") + `\`/${command.name}\``)
         .setDescription(cmdDesc || getString("staffOnly"))
         .setFooter(`${executedBy} | ${madeBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
       if (cmdDesc !== getString("inDev")) {

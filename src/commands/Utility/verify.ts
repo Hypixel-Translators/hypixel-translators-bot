@@ -49,7 +49,7 @@ const command: Command = {
             if (userDb.profile || profileUrl && /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) {
                 await interaction.defer({ ephemeral: true });
                 await verifyLogs.send(`${interaction.user} was unverified.`)
-                await crowdinVerify(member, profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0] || userDb.profile, true)
+                await crowdinVerify(member, profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
                 await interaction.editReply("Your profile has been processed. Check your DMs.")
             } else {
                 await member.roles.remove("569194996964786178", "Unverified") // Verified
