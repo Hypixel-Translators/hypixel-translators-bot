@@ -46,7 +46,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         if (userDb.profile = null) removeAllRoles(member)
         else if (!url) { //if user runs /verify and the profile is not stored on our DB or if the user sends the generic profile URL
             //#region return message
-            member.roles.remove("569194996964786178", "Tried to reverify but profile wasn't stored") // Verified
+            member.roles.remove("569194996964786178", "Tried to verify but profile wasn't stored") // Verified
             await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
             errorEmbed
                 .setDescription("Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!")
@@ -82,7 +82,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         closeConnection(browser.uuid)
         if (!evaluation) { //if profile leads to a 404 page
             //#region return message
-            member.roles.remove("569194996964786178", "Tried to reverify with an invalid URL") // Verified
+            member.roles.remove("569194996964786178", "Tried to verify with an invalid URL") // Verified
             await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
             errorEmbed
                 .setDescription("Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!")
@@ -106,7 +106,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
             //#endregion
         } else if (sendLogs) { //if the profile is private
             //#region return message
-            member.roles.remove("569194996964786178", "Tried to reverify with a private profile") // Verified
+            member.roles.remove("569194996964786178", "Tried to verify with a private profile") // Verified
             await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
             errorEmbed
                 .setDescription(`Hey there! We noticed you sent us your Crowdin profile, however, it was private so we couldn't check it. Please make it public, at least until you get verified, and send us your profile again on the channel. If you don't know how to, then go to your Crowdin profile settings (found [here](https://crowdin.com/settings#account)) and make sure the "Private Profile" setting is turned off (see the image below)\n\nIf you have any questions, be sure to send them to us!`)
