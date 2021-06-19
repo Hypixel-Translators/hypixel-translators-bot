@@ -16,7 +16,11 @@ export const client = new HTBClient({
         Discord.Intents.FLAGS.DIRECT_MESSAGES,
         Discord.Intents.FLAGS.DIRECT_MESSAGE_REACTIONS
     ],
-    allowedMentions: { parse: ["roles", "users"], repliedUser: false }
+    allowedMentions: { parse: ["roles", "users"], repliedUser: false },
+    presence: {
+        status: process.env.NODE_ENV === "production" ? "online" : "dnd",
+        activities: [{ name: "/help", type: "LISTENING" }]
+    }
 })
 //Import commands and events
 import { setup } from "./lib/imports"

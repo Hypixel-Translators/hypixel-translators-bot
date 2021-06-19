@@ -57,12 +57,6 @@ client.once("ready", async () => {
         ?.roles.cache.get("768435276191891456")!
         .members.forEach(member => boostersStaff.push(member.user.username)) //Discord Staff
 
-    //Set status
-    client.user!.setPresence({
-        status: process.env.NODE_ENV === "production" ? "online" : "dnd",
-        activities: [{ name: "/help", type: "LISTENING" }]
-    })
-
     //Change status and run events every minute
     setInterval(() => {
         const pickedUser = boostersStaff[Math.floor(Math.random() * boostersStaff.length)]
