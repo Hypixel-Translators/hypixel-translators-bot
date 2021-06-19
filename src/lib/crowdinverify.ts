@@ -131,7 +131,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
     const evalReturn: CrowdinProject[] | null = await page.evaluate((tag: string, sendDms: boolean) => {
         if ((document.querySelector(".user-about")?.textContent?.includes(tag) ?? true) || !sendDms)
             return window.eval("crowdin.profile_projects.view.state.projects")
-        else return
+        else return null
     }, member.user.tag, sendDms)
     await page.close()
     closeConnection(browser.uuid)
