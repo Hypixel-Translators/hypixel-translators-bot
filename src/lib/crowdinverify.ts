@@ -73,7 +73,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         page = await browser.pupBrowser.newPage()
     try {
         await page.goto(url, { timeout: 10000 })
-        await page.waitForSelector(".profile-project-info", { timeout: 10000 })
+        await page.waitForSelector(".project-list-container", { timeout: 10000 })
     } catch { //if no projects are available
         const isPrivate = await page.$(".private-profile") !== null
         await page.close()
