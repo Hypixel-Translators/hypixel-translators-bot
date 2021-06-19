@@ -105,8 +105,8 @@ function fetchPage(page: number, pages: DbUser[][], getString: (path: string, va
     for (let i = 0; i <= pages[page].length - 1; i++) {
         // const user = interaction.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that
         if (pages[page][i].levels) {
-            const totalXp = pages[page][i].levels.totalXp
-            pageEmbed.addField(getString("level", { rank: (i + 1) + (page * 24), level: pages[page][i].levels.level, xp: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp }), `<@!${pages[page][i].id}>`, true)
+            const totalXp = pages[page][i].levels!.totalXp
+            pageEmbed.addField(getString("level", { rank: (i + 1) + (page * 24), level: pages[page][i].levels!.level, xp: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp }), `<@!${pages[page][i].id}>`, true)
         } else pageEmbed.addField(getString("unranked", { rank: (i + 1) + (page * 24) }), `<@!${pages[page][i].id}>`, true)
     }
     return pageEmbed

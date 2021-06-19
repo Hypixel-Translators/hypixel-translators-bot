@@ -47,7 +47,7 @@ client.once("ready", async () => {
         .then(commands => commands.forEach(async command => await setPermissions(command)))
 
     //Get server boosters and staff for the status
-    let boostersStaff: string[] = []
+    const boostersStaff: string[] = []
     client.guilds.cache
         .get("549503328472530974")
         ?.roles.cache.get("644450674796396576")!

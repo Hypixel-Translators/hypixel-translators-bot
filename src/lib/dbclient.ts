@@ -26,7 +26,7 @@ export interface DbUser {
     lang: string
     profile?: string | null
     uuid?: string
-    levels: {
+    levels?: {
         level: number
         totalXp: number
         levelXp: number
@@ -39,7 +39,7 @@ export interface DbUser {
 export class HTBClient extends Discord.Client {
     commands: Discord.Collection<string, Command> = new Discord.Collection()
     cooldowns: Discord.Collection<string, Discord.Collection<Discord.Snowflake, number>> = new Discord.Collection()
-    async getUser(id: string) {
+    async getUser(id: Discord.Snowflake) {
         let user = await db.collection("users").findOne({ id: id })
         if (!user) {
             await db.collection("users").insertOne({ id: id, lang: "en" })
