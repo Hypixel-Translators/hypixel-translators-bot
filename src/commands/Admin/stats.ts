@@ -1,6 +1,6 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
-import { execute, hypixel, quickplay, skyblockaddons, bot } from "../../events/stats"
+import { execute, updateProjectStatus } from "../../events/stats"
 import { Command, client } from "../../index"
 
 const command: Command = {
@@ -46,10 +46,10 @@ const command: Command = {
         } else {
             const project = interaction.options.get("project")!.value as string
             switch (projectInput) {
-                case "hypixel": await hypixel(client)
-                case "quickplay": await quickplay(client)
-                case "skyblockaddons": await skyblockaddons(client)
-                case "bot": await bot(client)
+                case "hypixel": await updateProjectStatus(client, "128098")
+                case "quickplay": await updateProjectStatus(client, "369653")
+                case "skyblockaddons": await updateProjectStatus(client, "369493")
+                case "bot": await updateProjectStatus(client, "436418")
             }
             const projectEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
