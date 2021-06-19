@@ -75,12 +75,10 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         await page.goto(url, { timeout: 10000 })
         await page.waitForSelector(".profile-project-info", { timeout: 10000 })
     } catch { //if no projects are available
-        const evaluation = await page.evaluate(() => {
-            return document.querySelector(".private-profile") !== null //check if the profile is private
-        })
+        const isPrivate = await page.$(".private-profile") !== null
         await page.close()
         closeConnection(browser.uuid)
-        if (!evaluation) { //if profile leads to a 404 page
+        if (!isPrivate) { //if profile leads to a 404 page
             //#region return message
             member.roles.remove("569194996964786178", "Tried to verify with an invalid URL") // Verified
             await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
@@ -128,29 +126,28 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         }
         return
     }
-    const evalReturn: CrowdinProject[] | null = await page.evaluate((tag: string, sendDms: boolean) => {
-        if ((document.querySelector(".user-about")?.textContent?.includes(tag) ?? true) || !sendDms)
-            return window.eval("crowdin.profile_projects.view.state.projects")
-        else return null
-    }, member.user.tag, sendDms)
+    const userAboutSelector = await page.$(".user-about"),
+        aboutContent = await page.evaluate(element => element?.textContent, userAboutSelector) ?? "" as string
+    let projects: CrowdinProject[] | null = null
+    if (aboutContent?.includes(member.user.tag) || !sendDms) projects = await page.evaluate(() => window.eval("crowdin.profile_projects.view.state.projects"))
     await page.close()
-    closeConnection(browser.uuid)
+    await closeConnection(browser.uuid)
 
-    if (!evalReturn) {
+    if (!projects) {
         //#region return message
-        member.roles.remove("569194996964786178", "Tried to verify with no Discord tag") // Verified
+        await member.roles.remove("569194996964786178", "Tried to verify with no Discord tag") // Verified
         await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
         errorEmbed
             .setDescription(`Hey there!\nWe noticed you sent us your Crowdin profile, however, you forgot to add your Discord tag to it! Just add ${member.user.tag} to your about section like shown in the image below. Once you've done so, send us the profile link again.\n\nIf you have any questions, be sure to send them to us!`)
             .setImage("https://i.imgur.com/BM2bJ4W.png")
-        if (sendDms) member.send({ embeds: [errorEmbed] })
+        if (sendDms) await member.send({ embeds: [errorEmbed] })
             .then(async () => await verifyLogs.send(`${member} forgot to add their Discord to their profile. Let's hope they fix that with the message I just sent them.`))
             .catch(async () => {
                 errorEmbed.setFooter("This message will be deleted in a minute")
                 await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
                     .then(msg => {
-                        setTimeout(() => {
-                            if (!msg.deleted) msg.delete()
+                        setTimeout(async () => {
+                            if (!msg.deleted) await msg.delete()
                         }, 60000)
                     })
                 await verifyLogs.send(`${member} forgot to add their Discord to their profile. Let's hope they fix that with the message I just sent them.`)
@@ -171,7 +168,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         veteranRole: Discord.Role | undefined //yes we have to use var here
     const joinedProjects: string[] = []
 
-    evalReturn
+    projects
         .filter(project => Object.keys(projectIDs).includes(project.id) && project.user_role !== "pending")
         .forEach(async project => {
             joinedProjects.push(projectIDs[project.id].name)
@@ -273,7 +270,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 export { crowdinVerify }
 
 async function updateProjectRoles(projectName: ValidProjects, member: Discord.GuildMember, project: CrowdinProject) {
-    const role = project.contributed_languages?.length
+    const languages = project.contributed_languages?.length
         ? project.contributed_languages.map(lang => {
             return {
                 lang: lang.code,
@@ -288,9 +285,9 @@ async function updateProjectRoles(projectName: ValidProjects, member: Discord.Gu
     })
 
     let highestRole = "Translator"
-    role.forEach(role => {
-        if (role.role !== "Translator") {
-            if (role.role !== "Manager") highestRole = role.role
+    languages.forEach(language => {
+        if (language.role !== "Translator") {
+            if (language.role !== "Manager") highestRole = language.role
             if (highestRole === "manager" || highestRole === "owner") highestRole = "Manager"
         }
     })
