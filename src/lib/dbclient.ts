@@ -3,13 +3,13 @@ import { MongoClient, Db } from "mongodb"
 import { Command } from "../index"
 const url = process.env.MONGO_URL
 if (!url) throw "MONGO_URL not in .env"
-const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true })
+export const mongoClient = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true })
 
 export let db: Db
 
 async function init() {
     return new Promise<MongoClient>((resolve, reject) => {
-        client.connect()
+        mongoClient.connect()
             .then(mongoClient => {
                 db = mongoClient.db(process.env.DB_NAME)
                 console.log("Connected to MongoDB!")

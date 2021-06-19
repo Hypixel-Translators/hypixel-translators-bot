@@ -58,31 +58,28 @@ client.once("ready", async () => {
         .members.forEach(member => boostersStaff.push(member.user.username)) //Discord Staff
 
     //Change status and run events every minute
-    setInterval(() => {
+    setInterval(async () => {
         const pickedUser = boostersStaff[Math.floor(Math.random() * boostersStaff.length)]
         const toPick = Math.ceil(Math.random() * 100) //get percentage
         // const statusType = client.user!.presence.activities[0].type
 
         if (toPick > 66) {
             //Higher than 66%
-            let playingStatus = playingStatuses[Math.floor(Math.random() * playingStatuses.length)]
-            playingStatus = playingStatus.replace("RANDOM_USER", pickedUser)
+            const playingStatus = playingStatuses[Math.floor(Math.random() * playingStatuses.length)].replace("RANDOM_USER", pickedUser)
             client.user!.setActivity(playingStatus, { type: "PLAYING" })
         } else if (toPick <= 66 && toPick > 33) {
             //Between 33% and 66% (inclusive)
-            let watchStatus = watchingStatuses[Math.floor(Math.random() * watchingStatuses.length)]
-            watchStatus = watchStatus.replace("RANDOM_USER", pickedUser)
+            const watchStatus = watchingStatuses[Math.floor(Math.random() * watchingStatuses.length)].replace("RANDOM_USER", pickedUser)
             client.user!.setActivity(watchStatus, { type: "WATCHING" })
         } else if (toPick <= 33 && toPick > 0) {
             //Between 0% and 33% (inclusive)
-            let listenStatus = listeningStatuses[Math.floor(Math.random() * listeningStatuses.length)]
-            listenStatus = listenStatus.replace("RANDOM_USER", pickedUser)
+            const listenStatus = listeningStatuses[Math.floor(Math.random() * listeningStatuses.length)].replace("RANDOM_USER", pickedUser)
             client.user!.setActivity(listenStatus, { type: "LISTENING" })
         } else console.error("Couldn't set the status because the percentage is a weird number: " + toPick)
 
-        stats(client, false)
-        inactives(client, false)
-        crowdin(client, false)
+        await stats(client, false)
+        await inactives(client, false)
+        await crowdin(client, false)
     }, 60000)
 })
 
