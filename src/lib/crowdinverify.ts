@@ -135,6 +135,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 
     if (!projects) {
         //#region return message
+        console.log(`${member} has no Discord tag.\nSendDMs: ${sendDms}\nAbout: ${aboutContent}\nProjects: ${projects}`)
         await member.roles.remove("569194996964786178", "Tried to verify with no Discord tag") // Verified
         await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
         errorEmbed
