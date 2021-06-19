@@ -202,14 +202,16 @@ client.on("interaction", async interaction => {
             .setAuthor(getString("error", "global"))
             .setTitle(error.interaction?.substring(0, 255) || error.toString().substring(0, 255))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+
         //Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first
-        if (interaction.deferred) {
-            await interaction.editReply({ embeds: [embed], components: [] })
-            return
-        }
-        else if (!interaction.replied) {
-            await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
-            return
-        }
+        if (interaction.deferred) await interaction.editReply({ embeds: [embed], components: [] })
+        else if (!interaction.replied) await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
+        else if (interaction.replied) await interaction.followUp({ embeds: [embed], ephemeral: !error.stack, components: [] })
+            .catch(async err => {
+                await interaction.channel.send({ embeds: [embed], components: [] })
+                console.error("Couldn't send a followUp on a replied interaction, here's the error", err)
+            })
+        else console.error("Couldn't send the error for some weird reason, here's some data to help you", interaction)
+
     }
 })
