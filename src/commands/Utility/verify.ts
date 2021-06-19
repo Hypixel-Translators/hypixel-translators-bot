@@ -27,7 +27,7 @@ const command: Command = {
             member = interaction.member as Discord.GuildMember,
             profileUrl = interaction.options.get("url")?.value as string | undefined,
             memberInput = interaction.options.get("user")?.member as Discord.GuildMember | undefined
-        if (!member.roles.cache.has("569194996964786178")) { //Verified
+        if (!member.roles.cache.has("569194996964786178") && interaction.channelID == "569178590697095168") { //Verified and #verify
             (interaction.channel as Discord.TextChannel).messages.fetch()
                 .then(async messages => {
                     const fiMessages = messages.filter(msgs => msgs.author.id === interaction.user.id)
