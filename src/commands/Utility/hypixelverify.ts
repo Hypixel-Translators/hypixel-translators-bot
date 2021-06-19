@@ -3,7 +3,7 @@ import { successColor, errorColor } from "../../config.json"
 import fetch, { FetchError } from "node-fetch"
 import { db } from "../../lib/dbclient"
 import { getPlayer } from "./hypixelstats"
-import { Command, client } from "../../index"
+import { Command } from "../../index"
 
 const command: Command = {
     name: "hypixelverify",
@@ -21,11 +21,11 @@ const command: Command = {
             uuid = await getPlayer(interaction.options.get("username")!.value as string)
         if (!uuid) throw "noUser"
 
+        await interaction.defer()
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
-        await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 50000 })
+        await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 30000 })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
-                await interaction.defer()
 
                 // Handle errors
                 if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
@@ -44,7 +44,7 @@ const command: Command = {
                                 .setColor(successColor)
                                 .setAuthor(getString("moduleName"))
                                 .setTitle(getString("success", { player: json.username }))
-                                .setDescription(getString("role", { role: String(role) }))
+                                .setDescription(getString("role", { role: role.toString() }))
                                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                             return await interaction.editReply({ embeds: [successEmbed] })
                         } else {
