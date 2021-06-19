@@ -1,12 +1,12 @@
 import { crowdinVerify } from "../lib/crowdinverify";
 import { db, DbUser, HTBClient } from "../lib/dbclient";
 
-export default async function updateVerified(client: HTBClient, manual: boolean) {
+export default async function updateVerified(client: HTBClient, manual: boolean, limit: number = 0) {
     const d = new Date()
     const h = d.getUTCHours()
     const m = d.getUTCMinutes()
     if ((h == 3 && m == 0) || manual) {
-        const verifiedUsers: DbUser[] = await db.collection("users").find({ profile: { $exists: true } }).toArray()
+        const verifiedUsers: DbUser[] = await db.collection("users").find({ profile: { $exists: true } }).limit(limit).toArray()
 
         async function verifyUser(n: number) {
             const user = verifiedUsers[n]

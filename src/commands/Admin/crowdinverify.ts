@@ -7,10 +7,17 @@ const command: Command = {
     name: "crowdinverify",
     description: "Goes through all the stored profiles and updates the user's roles accordingly",
     allowDM: true,
+    options: [{
+        type: "INTEGER",
+        name: "limit",
+        description: "The amount of profiles to check. All by default",
+        required: false
+    }],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(interaction: Discord.CommandInteraction) {
+        const limit = interaction.options.get("limit") as number | undefined
         await interaction.defer()
-        await crowdin(client, true)
+        await crowdin(client, true, limit)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor)
             .setAuthor("Role updater")
