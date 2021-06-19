@@ -1,7 +1,7 @@
 {
     "moduleName": "Probleme und Feedback",
     "bugT": "Anzeigen und Hinzufügen von Problemen",
-    "bugD": "To show and make suggestions or bug reports, click on the button below!",
+    "bugD": "Um Vorschläge oder Fehlerberichte anzuzeigen und zu machen, klicken Sie auf den Button unten!",
     "urgentT": "Ist es dringend?",
     "urgentD": "Wenn du versuchst, einen schwerwiegenden Fehler zu melden oder der Bot für eine lange Zeit ohne Benachrichtigung ausgefallen ist, erwähne bitte ein Teammitglied in einem öffentlichen Channel und erkläre das Problem.",
     "link": "Verknüpfung"
