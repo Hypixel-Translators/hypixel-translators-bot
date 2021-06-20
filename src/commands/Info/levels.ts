@@ -106,7 +106,7 @@ function fetchPage(page: number, pages: DbUser[][], getString: (path: string, va
         // const user = interaction.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that
         if (pages[page][i].levels) {
             const totalXp = pages[page][i].levels!.totalXp
-            pageEmbed.addField(getString("level", { rank: (i + 1) + (page * 24), level: pages[page][i].levels!.level, xp: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp }), `<@!${pages[page][i].id}>`, true)
+            pageEmbed.addField(getString("level", { rank: (i + 1) + (page * 24), level: pages[page][i].levels!.level, xp: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp }), `${pages[page][i].id === interaction.user.id ? "You -" : ""} <@!${pages[page][i].id}>`, true) //i think === will work, if not try with ==
         } else pageEmbed.addField(getString("unranked", { rank: (i + 1) + (page * 24) }), `<@!${pages[page][i].id}>`, true)
     }
     return pageEmbed
