@@ -68,7 +68,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
             //#endregion
         }
     }
-    url = url!.toLowerCase()
+    url = url!.toLowerCase().replace(/([a-z]{1,4}[.])?(crowdin[.]com)/gi, "$2")
     const browser = await getBrowser(),
         page = await browser.pupBrowser.newPage()
     try {
