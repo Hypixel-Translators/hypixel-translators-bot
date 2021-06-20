@@ -107,7 +107,7 @@ function fetchPage(page: number, pages: DbUser[][], getString: (path: string, va
         if (pages[page][i].levels) {
             const totalXp = pages[page][i].levels!.totalXp
             pageEmbed.addField(getString("level", { rank: (i + 1) + (page * 24), level: pages[page][i].levels!.level, xp: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp }), `<@!${pages[page][i].id}>`, true)
-        } else pageEmbed.addField(getString("unranked", { rank: (i + 1) + (page * 24) }), `<@!${pages[page][i].id}> ${pages[page][i].id === interaction.user.id ? getString("youIndicator") : ""}`, true)
+        } else pageEmbed.addField(getString("unranked", { rank: (i + 1) + (page * 24) }), `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - ${getString("youIndicator")}` : ""}`, true)
     }
     return pageEmbed
 }
