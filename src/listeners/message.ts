@@ -18,8 +18,6 @@ client.on("message", async message => {
     //Stop if user is a bot
     if (message.author.bot) return
 
-    if (message.content === "test very cool") message.reply("test cool indeed")
-
     //Define command and leveling system
     const noXp = [
         "613015467984158742", //Important
