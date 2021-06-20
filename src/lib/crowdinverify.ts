@@ -128,15 +128,13 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
     }
     const userAboutSelector = await page.$(".user-about"),
         aboutContent = await page.evaluate(element => element?.textContent, userAboutSelector) ?? "" as string
-    let projects: CrowdinProject[] | null = []
-    if (aboutContent?.includes(member.user.tag) || !sendDms) projects = await page.evaluate(() => window.eval("crowdin.profile_projects.view.state.projects"))
+    let projects: CrowdinProject[] | null = null
+    if (aboutContent.includes(member.user.tag) || !sendDms) projects = await page.evaluate(() => window.eval("crowdin.profile_projects.view.state.projects") ?? [])
     await page.close()
     await closeConnection(browser.uuid)
 
     if (!projects) {
         //#region return message
-        console.log(`${member.user.tag} has no Discord tag.\nSendDMs: ${sendDms}\nAbout: ${aboutContent}\nProjects: ${projects}`)
-        if (!sendDms) return
         await member.roles.remove("569194996964786178", "Tried to verify with no Discord tag") // Verified
         await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
         errorEmbed
@@ -157,6 +155,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         return
         //#endregion
     }
+    if (!projects.length) return
 
     var highestLangRoles: {
         [name: string]: {
