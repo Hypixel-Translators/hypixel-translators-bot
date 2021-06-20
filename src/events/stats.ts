@@ -29,7 +29,7 @@ export async function execute(client: HTBClient, manual: boolean) {
 
 export async function updateProjectStatus(client: HTBClient, projectId: string) {
     const langdb = await db.collection("langdb").find().toArray(),
-        projectDb: CrowdinProject = await db.collection("users").findOne({ id: projectId })
+        projectDb: CrowdinProject = await db.collection("crowdin").findOne({ id: projectId })
     await fetch(`https://api.crowdin.com/api/v2/projects/${projectId}/languages/progress?limit=500`, settings)
         .then(res => res.json())
         .then(async json => {
@@ -59,8 +59,9 @@ export async function updateProjectStatus(client: HTBClient, projectId: string) 
                         const embed = new Discord.MessageEmbed()
                             .setColor(adapColour)
                             .setTitle(`${fullData.language.emoji || "<:icon_question:756582065834688662>"} | ${fullData.language.name}`)
-                            .setThumbnail(`https://crowdin.com/images/flags/${crowdinData.languageId}.png`)
-                            .setDescription(`**${crowdinData.translationProgress}% translated (${crowdinData.phrases.translated}/${crowdinData.phrases.total} strings)**\n${crowdinData.approvalProgress}% approved (${crowdinData.phrases.approved}/${crowdinData.phrases.total} strings)\n\nTranslate at https://crowdin.com/translate/${projectDb.identifier}/all/en-${fullData.language.code}`)
+                            .setThumbnail(fullData.language.flag)
+                            .setDescription(`${crowdinData.translationProgress}% translated (${crowdinData.phrases.translated}/${crowdinData.phrases.total} strings)\n**${crowdinData.approvalProgress}% approved (${crowdinData.phrases.approved}/${crowdinData.phrases.total} strings)**`)
+                            .addField("Translate at", `https://crowdin.com/translate/${projectDb.identifier}/all/en-${fullData.language.code}`)
                             .setFooter("Last update")
                             .setTimestamp()
                         index++
