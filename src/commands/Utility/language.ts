@@ -65,7 +65,7 @@ const command: Command = {
                 }
             })
         } else if (subCommand === "stats") {
-            if (!member.roles.cache.has("764442984119795732")) return await interaction.reply({ content: getString("noAccess", "global"), ephemeral: true })
+            if (!member.roles.cache.has("764442984119795732")) return await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
             const files = fs.readdirSync(stringsFolder),
                 langInput = interaction.options.first()!.options!.get("language")!.value as string
             if (!files.includes(langInput)) throw "falseLang"
