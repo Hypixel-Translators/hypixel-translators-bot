@@ -129,7 +129,18 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
     const userAboutSelector = await page.$(".user-about"),
         aboutContent = await page.evaluate(element => element?.textContent, userAboutSelector) ?? "" as string
     let projects: CrowdinProject[] | null = null
-    if (aboutContent.includes(member.user.tag) || !sendDms) projects = await page.evaluate(() => window.eval("crowdin.profile_projects.view.state.projects") ?? [])
+    if (aboutContent.includes(member.user.tag) || !sendDms) projects = await page.evaluate(() => {
+        const now = Date.now()
+        let returnProjects = window.eval("crowdin.profile_projects.view.state.projects") as CrowdinProject[] | null
+        if (returnProjects) return returnProjects
+        let i = 0
+        while (returnProjects === null) {
+            returnProjects = window.eval("crowdin.profile_projects.view.state.projects")
+            i++
+        }
+        console.log(`✅Successfully fetched ${member.user.tag}'s profile after ${i} tries! Took ${now - Date.now()}ms`)
+        return returnProjects
+    })
     await page.close()
     await closeConnection(browser.uuid)
 
@@ -155,7 +166,6 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         return
         //#endregion
     }
-    if (!projects.length) return
 
     var highestLangRoles: {
         [name: string]: {
@@ -442,7 +452,7 @@ async function getBrowser() {
         browserOpening = true
         browser = await puppeteer.launch({
             args: ["--no-sandbox"],
-            headless: process.env.NODE_ENV === "production"
+            headless: process.env.NODE_ENV === "production" || process.platform === "linux"
         })
         browserOpening = false
     }
