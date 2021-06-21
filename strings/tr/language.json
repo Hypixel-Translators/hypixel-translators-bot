@@ -3,7 +3,7 @@
     "changedToTitle": "Diliniz Türkçe olarak değiştirildi!",
     "didntChange": "Dilin değişmedi",
     "alreadyThis": "Bunun nedeni, zaten tercihin olan bir dili tekrar seçmendir.",
-    "notTranslated": "The language you tried to select isn't translated enough for it to be chosen. If you speak this language, you can find out how to help translate it by using `/translate`.",
+    "notTranslated": "Seçmeye çalıştığın dil henüz kullanılabilir olacak kadar çevrilmemiş. Eğer bu dili konuşuyorsan, `+translate` komutunu kullanarak çeviriye nasıl yardımcı olabileceğini öğrenebilirsin.",
     "errorTitle": "Bu dil henüz eklenmedi!",
     "errorDescription": "Dilin değişmedi. Şu an bu diller mevcut (bu, onların çevrildiği anlamına gelmez):",
     "suggestAdd": "Bu dilin bota eklenmesini istiyorsan, lütfen bir yetkili ile iletişime geç.",
