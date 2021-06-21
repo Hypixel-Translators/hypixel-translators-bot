@@ -3,6 +3,7 @@
     "pageTitle": "Here is the XP leaderboard!",
     "page": "الصفحة %%number%%/%%total%%",
     "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
+    "youIndicator": "YOU",
     "thousand": "k",
     "unranked": "#%%rank%% Unranked",
     "timeOut": "هذه القائمة قد نفذ وقتها. اذا وددت أن تستعملها مره اخرى، اكتب %%command%%."
