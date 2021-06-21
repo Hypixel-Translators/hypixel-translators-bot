@@ -3,6 +3,7 @@
     "pageTitle": "¡Aquí está el podio de XP!",
     "page": "Página %%number%%/%%total%%",
     "level": "#%%rank%% | Nivel %%level%% | XP: %%xp%%",
+    "youIndicator": "YOU",
     "thousand": "k",
     "unranked": "#%%rank%% Sin clasificar",
     "timeOut": "Este menú ha expirado. Si deseas reiniciarlo, ejecuta %%command%%."
