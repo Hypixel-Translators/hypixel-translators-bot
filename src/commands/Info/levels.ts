@@ -10,7 +10,7 @@ const command: Command = {
     options: [{
         type: "BOOLEAN",
         name: "me",
-        description: "If set to true, open the leaderboard to the page you are",
+        description: "Whether to start at the page you appear in. Has priority over the \"page\" argument.",
         required: false
     },
     {
