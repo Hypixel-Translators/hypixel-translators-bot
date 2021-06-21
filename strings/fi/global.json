@@ -29,18 +29,18 @@
         "wrongLink": "Väärä linkki!"
     },
     "cooldown": "Odotusaika",
-    "secondLeft": "Please wait another second to use `%%command%%` again.",
-    "timeLeftT": "Please wait another %%time%% seconds to use `%%command%%` again.",
-    "minsLeftT": "Please wait another %%time%% minutes to use `%%command%%` again.",
+    "secondLeft": "Ole hyvä ja odota vielä sekunti ennen kuin voit käyttää komentoa `%%command%%` uudelleen.",
+    "timeLeftT": "Ole hyvä ja odota vielä %%time%% sekuntia ennen kuin voit käyttää komentoa `%%command%%` uudelleen.",
+    "minsLeftT": "Ole hyvä ja odota vielä %%time%% minuuttia ennen kuin voit käyttää komentoa `%%command%%` uudelleen.",
     "linkCorrectionDesc": "Vaihdathan osoitteen ensi kerralla muotoon %%format%%.",
     "wrongStringURL": "Lähettämäsi linkki ohjaa muokkaajaan eikä itse käännettävään tekstiin!",
     "example": "Klikkaa kuvan mukaista painiketta muokkaajassa saadaksesi oikean linkin. Sen tulisi näyttää tältä: %%url%%",
     "reminderLang": "Älä unohda vaihtaa linkkiäsi muotoon %%format%%.",
     "tip": "Vihje",
     "tips": {
-        "ib": "Have you tried the Inhale Banana language? Change your language to it using `/language ib`!",
-        "translators": "I need translators! Find out how to become a bot translator by executing `/translate`.",
-        "prefix": "Do you wanna have a cool prefix on your nickname? Execute `/prefix` in %%bots%% and follow the instructions! Available to all Hypixel translators.",
+        "ib": "Oletko kokeillut Inhale Banana -kieltä? Vaihda kielesi komennolla `/language ib`!",
+        "translators": "Tarvitsen kääntäjiä! Selvitä, miten voit päästä botin kääntäjäksi osoitteesta `/translate`.",
+        "prefix": "Haluatko siistin etuliitteen nimimerkillesi? Käytä komentoa `/prefix` %%bots%%-kanavalla ja seuraa ohjeita! Saatavilla kaikille Hypixelin kääntäjille.",
         "enen": "Vaihda linkkisi muotoon en-en!",
         "xp": "Kirjoittamalla viestejä saat satunnaisen määrän pisteitä minuutissa, mikä lopulta nostaa sinut tasoissa ylöspäin.",
         "guide": "Tiesitkä, että meillä on nykyään kaikille kääntäjille avoin ohjeistus Crowdinin käytön aloittamiselle? Tutustu siihen kanavalla %%gettingStarted%%, löydät sieltä hyödyllisiä vinkkejä!",
@@ -48,20 +48,20 @@
         "rulesInfo": "Kanavilta %%rules%% ja %%serverInfo%% löydät kaiken tarvitsemasi tiedon tästä palvelimesta!",
         "fixTranslation": "Löysitkö käännösvirheen? Ota yhteyttä kielesi oikolukijaan tai kerro asiasta käännöskanavalla.",
         "pinnedInfo": "Tiestikö että useimpien kanavien kiinnitetyistä viesteistä löytyy tärkeää tietoa? Kannattaa kurkata niitä silloin tällöin!",
-        "hypixelStats": "You can view information about a specific player on Hypixel by executing `/hypixelstats`!",
-        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `/languagestats`!",
-        "rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `/verify` to have your roles updated!",
-        "botTranslated": "Did you know our bot is available in multiple languages? Try executing `/language list` to see a list of all the languages we currently support and you may just find your own!",
-        "moreTips": "We need more tips! Submit them using `/feedback`."
+        "hypixelStats": "Voit tarkastella haluamasi pelaajan Hypixel-profiilin tietoja komennolla `/hypixelstats`!",
+        "languageStats": "Tiesitkö että voit tarkastella minkä tahansa projektikielemme tietoja? Suorita vain komento `/languagestats`!",
+        "rolesChange": "Oletko saanut lähiaikoina uusia rooleja Crowdinissa tai oletko liittynyt johonkin tukemaamme projektiin? Käytä komentoa `/verify` päivittääksesi roolisi!",
+        "botTranslated": "Tiesitkö, että bottimme on saatavilla useilla eri kielillä? Kokeile komentoa `/language list` nähdäksesi listan kaikista kielistä, joita me nykyään tuemme, ja saatat löytää sieltä omasi!",
+        "moreTips": "Tarvitsemme lisää vihjeitä! Ehdota niitä komennolla `/feedback`."
     },
     "pagination": {
-        "first": "First page",
-        "previous": "Previous page",
-        "next": "Next page",
-        "last": "Last page",
-        "confirm": "Confirm",
-        "cancel": "Cancel",
-        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this."
+        "first": "Ensimmäinen sivu",
+        "previous": "Edellinen sivu",
+        "next": "Seuraava sivu",
+        "last": "Viimeinen sivu",
+        "confirm": "Vahvista",
+        "cancel": "Peruuta",
+        "notYours": "Et voi käyttää tätä valikkoa! Käytä itse komentoa %%command%% voidaksesi tehdä niin."
     },
     "executedBy": "Komennon suoritti %%user%%"
 }
