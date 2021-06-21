@@ -2,5 +2,5 @@
     "moduleName": "Crowdin-profiili",
     "profileSuccess": "Tässä profiilisi",
     "noProfile": "Emme löytäneet profiiliasi tietokannastamme!",
-    "howStore": "If you'd like to store it, execute `/help verify` to know how you can do so."
+    "howStore": "Jos haluaisit tallentaa sen, käytä komentoa `/help reverify` saadaksesi tietää, kuinka voit tehdä sen."
 }

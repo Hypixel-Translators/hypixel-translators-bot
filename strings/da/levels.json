@@ -3,6 +3,7 @@
     "pageTitle": "Her er XP leaderboardet!",
     "page": "Side %%number%%/%%total%%",
     "level": "#%%rank%% | Niveau %%level%% | XP: %%xp%%",
+    "youIndicator": "YOU",
     "thousand": "k",
     "unranked": "#%%rank%% Unranked",
     "timeOut": "Denne menu er udløbet. Hvis du ønsker at bruge den igen, skal du bruge %%command%%."
