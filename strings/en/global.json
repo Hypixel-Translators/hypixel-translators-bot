@@ -22,6 +22,7 @@
         "falseRole": "That role couldn't be found!",
         "noPlayer": "That player has never joined Hypixel!",
         "notVerified": "That user hasn't linked their Hypixel account yet!",
+        "invalidUUID": "This UUID is invalid!",
         "disabled": "This command has been temporarily disabled.",
         "noAccess": "You're not allowed to execute this command!",
         "noPermission": "You're not allowed to execute this command on this channel!",

@@ -62,7 +62,7 @@ const command: Command = {
         if (!uuid) throw "noUser"
 
         await interaction.defer()
-        // make a response to the slothpixel api (hypixel api but we dont need an api key)
+        // make a request to the slothpixel api (hypixel api but we dont need an api key)
         await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 30000 })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
@@ -76,8 +76,8 @@ const command: Command = {
                 }
 
                 //Define values used in both subcommands
-                let rank: string // some ranks are just prefixes so this code accounts for that
-                let color: string
+                let rank: string, // some ranks are just prefixes so this code accounts for that
+                    color: string
                 if (json.prefix) {
                     color = parseColorCode(json.prefix)
                     rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
