@@ -3,6 +3,7 @@
     "pageTitle": "Tässä on XP-pistetaulu!",
     "page": "Sivu %%number%%/%%total%%",
     "level": "#%%rank%% | Taso %%level%% | XP: %%xp%%",
+    "youIndicator": "SINÄ",
     "thousand": "k",
     "unranked": "#%%rank%% Ei-tilastoitu",
     "timeOut": "Tämä valikko on aikakatkaistu. Mikäli haluat käyttää sitä uudelleen, käytä komentoa %%command%%."
