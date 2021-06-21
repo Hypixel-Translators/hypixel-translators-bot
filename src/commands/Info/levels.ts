@@ -8,6 +8,12 @@ const command: Command = {
     name: "levels",
     description: "Shows you the XP leaderboard",
     options: [{
+        type: "BOOLEAN",
+        name: "me",
+        description: "Whether to start at the page you appear in. Has priority over the \"page\" argument.",
+        required: false
+    },
+    {
         type: "INTEGER",
         name: "page",
         description: "The leaderboard page to get",
@@ -19,15 +25,17 @@ const command: Command = {
     async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             collection = db.collection("users"),
-            allUsers: DbUser[] = await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray()
+            allUsers: DbUser[] = await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray(),
+            inputMe = interaction.options.get("me")?.value as boolean | undefined,
+            inputPage = interaction.options.get("page")?.value as number | undefined
 
         const pages: DbUser[][] = [] // inner arrays are of length 24
         let p = 0
         while (p < allUsers.length) pages.push(allUsers.slice(p, p += 24)) //Max number of fields divisible by 3
 
         let page: number = 0
-        const inputPage = Math.abs(interaction.options.get("page")?.value as number - 1)
-        if (inputPage) page = inputPage
+        if (inputMe) page = pages.indexOf(pages.find(p => p.some(u => u.id === interaction.user.id))!)
+        else if (inputPage) page = inputPage - 1
 
         if (page >= pages.length || page < 0) {
             const embed = new Discord.MessageEmbed()
@@ -62,6 +70,7 @@ const command: Command = {
                         .setLabel(getString("pagination.last", "global"))
                 ),
                 pageEmbed: Discord.MessageEmbed = fetchPage(page, pages, getString, executedBy, interaction)
+
             controlButtons = updateButtonColors(controlButtons, page, pages)
             await interaction.reply({ embeds: [pageEmbed], components: [controlButtons] })
             const msg = await interaction.fetchReply() as Discord.Message
@@ -106,8 +115,8 @@ function fetchPage(page: number, pages: DbUser[][], getString: (path: string, va
         // const user = interaction.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that
         if (pages[page][i].levels) {
             const totalXp = pages[page][i].levels!.totalXp
-            pageEmbed.addField(getString("level", { rank: (i + 1) + (page * 24), level: pages[page][i].levels!.level, xp: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp }), `<@!${pages[page][i].id}>`, true)
-        } else pageEmbed.addField(getString("unranked", { rank: (i + 1) + (page * 24) }), `<@!${pages[page][i].id}>`, true)
+            pageEmbed.addField(getString("level", { rank: (i + 1) + (page * 24), level: pages[page][i].levels!.level, xp: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp }), `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`, true)
+        } else pageEmbed.addField(getString("unranked", { rank: (i + 1) + (page * 24) }), `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`, true)
     }
     return pageEmbed
 }
