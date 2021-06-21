@@ -34,7 +34,7 @@ const command: Command = {
         while (p < allUsers.length) pages.push(allUsers.slice(p, p += 24)) //Max number of fields divisible by 3
 
         let page: number = 0
-        if (interaction.options.get("me")?.value) page = pages.indexOf(pages.find(p => p.some(u => u.id === interaction.user.id))!)
+        if (inputMe) page = pages.indexOf(pages.find(p => p.some(u => u.id === interaction.user.id))!)
         else if (inputPage) page = inputPage - 1
 
         if (page >= pages.length || page < 0) {
