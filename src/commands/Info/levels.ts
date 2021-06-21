@@ -68,9 +68,9 @@ const command: Command = {
                         .setEmoji("⏭")
                         .setCustomID("last")
                         .setLabel(getString("pagination.last", "global"))
-                );
+                ),
+                pageEmbed: Discord.MessageEmbed = fetchPage(page, pages, getString, executedBy, interaction)
 
-            let pageEmbed: Discord.MessageEmbed = fetchPage(page, pages, getString, executedBy, interaction)
             controlButtons = updateButtonColors(controlButtons, page, pages)
             await interaction.reply({ embeds: [pageEmbed], components: [controlButtons] })
             const msg = await interaction.fetchReply() as Discord.Message
