@@ -40,7 +40,7 @@
     "tips": {
         "ib": "Czy poznałeś/aś już język Inhale Banana? Wypróbuj go, używając polecenia `/lang ib`!",
         "translators": "Potrzeba tłumaczy! Dowiedz się, jak zostać wziąć udział w tłumaczeniu bota, wykonując polecenie `/translate`.",
-        "prefix": "Do you wanna have a cool prefix on your nickname? Execute `/prefix` in %%bots%% and follow the instructions! Available to all Hypixel translators.",
+        "prefix": "Czy chcesz mieć fajny prefiks przed swoim nickiem? Wpisz `/prefix` na %%bots%% i postępuj zgodnie z instrukcjami! Dostępne dla wszystkich tłumaczy Hypixel.",
         "enen": "Pamiętaj, aby zmienić odnośniki na en-en!",
         "xp": "Otrzymujesz losową ilość PD za każdą minutę rozmowy, co ostatecznie sprawi, że osiągniesz wyższy poziom.",
         "guide": "Czy wiedziałeś/aś, że mamy poradnik jak zacząć z Crowdin, dostępny dla wszystkich tłumaczy? Sprawdź go na %%gettingStarted%%, zawiera kilka przydatnych wskazówek!",
@@ -48,19 +48,19 @@
         "rulesInfo": "%%rules%% i %%serverInfo%% mają wszystkie, potrzebne informacje o tym serwerze!",
         "fixTranslation": "Znalazłeś/aś błąd w tłumaczeniu? Skontaktuj się z korektorem swojego języka lub poinformuj o tym innych na kanale tłumaczeniowym.",
         "pinnedInfo": "Czy wiedziałeś/aś, że na większości kanałów najważniejsze informacje są przypięte? Należy je sprawdzać za każdym razem, jak odwiedzasz kanały!",
-        "hypixelStats": "You can view information about a specific player on Hypixel by executing `/hypixelstats`!",
-        "languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `/languagestats`!",
+        "hypixelStats": "Możesz sprawdzić statystyki gracza z Hypixela wpisując `/hypixelstats <nazwa gracza> [social]`!",
+        "languageStats": "Czy wiesz, że możesz podejrzeć statystyki dla dowolnego języka we wszystkich naszych projektach? Wystarczy wykonać `/languagestats <język>`!",
         "rolesChange": "Jeżeli otrzymałeś ostatnio nowe role na Crowdinie lub dołączyłeś do jednego ze wspieranych przez nas projektów, wykonaj polecenie `/reverify`. Polecenie to zauktualizuje Twoje role.",
         "botTranslated": "Czy wiesz, że nasz bot jest dostępny w wielu językach? Wykonaj polecenie `/language list`, by zobaczyć listę wszystkich języków, które obecnie obsługujemy.",
         "moreTips": "Potrzebujemy wskazówek! Prześlij je za pomocą polecenia `/feedback`."
     },
     "pagination": {
-        "first": "First page",
-        "previous": "Previous page",
-        "next": "Next page",
-        "last": "Last page",
-        "confirm": "Confirm",
-        "cancel": "Cancel",
+        "first": "Pierwsza strona",
+        "previous": "Poprzednia strona",
+        "next": "Następna strona",
+        "last": "Ostatnia strona",
+        "confirm": "Potwierdź",
+        "cancel": "Anuluj",
         "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this."
     },
     "executedBy": "Wykonano przez %%user%%"
