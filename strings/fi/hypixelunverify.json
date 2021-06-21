@@ -2,5 +2,5 @@
     "moduleName": "Hypixelin linkitys",
     "unverified": "Linkitys poistettiin onnistuneesti!",
     "notUnverified": "Käyttäjääsi ei voitu linkittää!",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `/hypixelverify <username>`."
+    "whyNotUnverified": "Tämä tapahtui, koska et ole linkittänyt itseäsi vielä! Tehdäksesi sen käytä komentoa `/hypixelverify <käyttäjänimi>`."
 }
