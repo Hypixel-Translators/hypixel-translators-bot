@@ -7,7 +7,7 @@ import { db as mongoDb } from "../../lib/dbclient"
 import { transpile } from "typescript"
 import discord from "discord.js"
 import { inspect } from "util"
-import { Command, client as Client } from "../../index"
+import { Command, client as Client, GetStringFunction } from "../../index"
 
 const command: Command = {
   name: "eval",
@@ -22,7 +22,7 @@ const command: Command = {
     description: "The code to run",
     required: true
   }],
-  async execute(interaction: discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+  async execute(interaction: discord.CommandInteraction, getString: GetStringFunction) {
     const me = interaction.member ?? interaction.user,
       guild = interaction.guild,
       channel = interaction.channel as discord.TextChannel,

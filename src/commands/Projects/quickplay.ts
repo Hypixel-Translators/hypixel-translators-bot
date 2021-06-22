@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import { Command } from "../../index"
+import { Command, GetStringFunction } from "../../index"
 
 const command: Command = {
   name: "quickplay",
@@ -7,7 +7,7 @@ const command: Command = {
   cooldown: 120,
   allowDM: true,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-  async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+  async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
     await interaction.reply(`${getString("quickplayCrowdin", { crowdin: "<https://crowdin.com/project/quickplay>" })}\n${getString("quickplayThread", { thread: "<https://hypixel.net/threads/1317410/>" })}\n${getString("quickplayDiscord", { discord: "<https://discord.gg/373EGB4>" })}`)
   }
 }

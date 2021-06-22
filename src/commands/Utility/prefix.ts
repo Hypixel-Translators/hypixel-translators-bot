@@ -2,7 +2,7 @@ import { loadingColor, errorColor, successColor, neutralColor } from "../../conf
 import Discord from "discord.js"
 import { flag } from "country-emoji"
 import { db, DbUser } from "../../lib/dbclient"
-import { client, Command } from "../../index"
+import { client, Command, GetStringFunction } from "../../index"
 import { LangDbEntry } from "../../events/stats"
 
 const command: Command = {
@@ -16,7 +16,7 @@ const command: Command = {
   }],
   cooldown: 30,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
-  async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+  async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
     const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
       member = interaction.member as Discord.GuildMember,
       nickNoPrefix = member.displayName.replace(/\[[^\s]*\] ?/g, "").trim(),

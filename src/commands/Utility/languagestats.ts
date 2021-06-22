@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
 import { successColor, loadingColor, errorColor } from "../../config.json"
 import { LangDbEntry } from "../../events/stats"
-import { Command, client } from "../../index"
+import { Command, client, GetStringFunction } from "../../index"
 const ctokenV2 = process.env.CTOKEN_V2!
 
 const command: Command = {
@@ -17,7 +17,7 @@ const command: Command = {
     }],
     cooldown: 30,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-    async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             authorDb = await client.getUser(interaction.user.id)
         let rawLang = (interaction.options.get("language")?.value as string | undefined)?.toLowerCase()

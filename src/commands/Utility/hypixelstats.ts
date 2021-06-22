@@ -2,7 +2,8 @@ import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
 import { db, DbUser } from "../../lib/dbclient"
 import { updateRoles } from "./hypixelverify"
-import { Command, client } from "../../index"
+import { Command, client, GetStringFunction } from "../../index"
+import { getUUID } from "./minecraft"
 
 //Credits to marzeq
 const command: Command = {
@@ -45,7 +46,7 @@ const command: Command = {
     cooldown: 120,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
     allowDM: true,
-    async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             credits = getString("madeBy", { developer: interaction.client.users.cache.get("500669086947344384")!.tag }),
             authorDb: DbUser = await client.getUser(interaction.user.id),
@@ -57,12 +58,12 @@ const command: Command = {
             const userDb: DbUser = await client.getUser(userInput.id)
             if (userDb.uuid) uuid = userDb.uuid
             else throw "notVerified"
-        } else if (usernameInput && usernameInput?.length < 32) uuid = await getPlayer(usernameInput)
+        } else if (usernameInput && usernameInput?.length < 32) uuid = await getUUID(usernameInput)
         else uuid = usernameInput ?? authorDb.uuid
         if (!uuid) throw "noUser"
 
         await interaction.defer()
-        // make a response to the slothpixel api (hypixel api but we dont need an api key)
+        // make a request to the slothpixel api (hypixel api but we dont need an api key)
         await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 30000 })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
@@ -76,8 +77,8 @@ const command: Command = {
                 }
 
                 //Define values used in both subcommands
-                let rank: string // some ranks are just prefixes so this code accounts for that
-                let color: string
+                let rank: string, // some ranks are just prefixes so this code accounts for that
+                    color: string
                 if (json.prefix) {
                     color = parseColorCode(json.prefix)
                     rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
@@ -239,7 +240,7 @@ const command: Command = {
                 })
 
                 collector.on("end", async () => {
-                    await interaction.editReply({ content: getString("timeOut", { command: `\`/${this.name}\`` }), components: [], embeds: [embed] })
+                    await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }), components: [], embeds: [embed] })
                 })
             })
             .catch(e => {
@@ -249,18 +250,6 @@ const command: Command = {
                 } else throw e
             })
     }
-}
-
-export async function getPlayer(username: string): Promise<string | undefined> {
-    if (!username) return
-    return await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 10000 })
-        .then(res => res.json())
-        .then(json => {
-            return json.id
-        })
-        .catch(() => {
-            return
-        })
 }
 
 function parseColorCode(rank: string): string {
