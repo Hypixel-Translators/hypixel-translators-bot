@@ -1,10 +1,8 @@
 {
     "moduleName": "XP Leaderboard",
     "pageTitle": "Here is the XP leaderboard!",
-    "page": "Sida %%number%%/%%total%%",
     "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
     "youIndicator": "YOU",
     "thousand": "k",
-    "unranked": "#%%rank%% Unranked",
-    "timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%."
+    "unranked": "#%%rank%% Unranked"
 }
