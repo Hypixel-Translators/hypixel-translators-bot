@@ -73,6 +73,8 @@ const command: Command = {
                 const nameHistory = await getNameHistory(uuid),
                     username = nameHistory[0].name.split("_").join("\\_")
 
+                nameHistory.forEach(e => e.name = e.name.split("_").join("\\_"))
+
                 let p = 0
                 const pages: NameHistory[][] = []
                 while (p < nameHistory.length) pages.push(nameHistory.slice(p, p += 24)) //Max number of fields divisible by 3
