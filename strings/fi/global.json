@@ -20,6 +20,7 @@
         "falseFlag": "Tätä lippua ei löytynyt!",
         "falseLang": "Tätä kieltä ei löydetty!",
         "falseRole": "Tätä roolia ei löytynyt!",
+        "falseUUID": "Ei löytynyt pelaajaa tällä UUID:llä!",
         "noPlayer": "Tämä pelaaja ei ole koskaan käynyt Hypixelissä!",
         "notVerified": "Tämä käyttäjä ei ole yhdistänyt Hypixel-tiliään vielä!",
         "disabled": "Tämä komento on toistaiseksi pois käytöstä.",
@@ -61,7 +62,13 @@
         "last": "Viimeinen sivu",
         "confirm": "Vahvista",
         "cancel": "Peruuta",
-        "notYours": "Et voi käyttää tätä valikkoa! Käytä itse komentoa %%command%% voidaksesi tehdä niin."
+        "page": "Sivu %%number%%/%%total%%",
+        "notYours": "Et voi käyttää tätä valikkoa! Käytä itse komentoa %%command%% voidaksesi tehdä niin.",
+        "timeOut": "Tämä valikko on aikakatkaistu. Mikäli haluat käyttää sitä uudelleen, käytä komentoa %%command%%."
+    },
+    "region": {
+        "dateLocale": "fi-FI",
+        "timeZone": "Europe/Helsinki"
     },
     "executedBy": "Komennon suoritti %%user%%"
 }

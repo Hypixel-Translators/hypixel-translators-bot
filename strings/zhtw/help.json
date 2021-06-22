@@ -3,12 +3,10 @@
     "page1Title": "說明頁面",
     "commandsListTooltip": "這個機器人由 %%developer%% 為 Hypixel 翻譯人員社群而開發。這個機器人是完全開源的，其 GitHub 儲存庫可以在[這裡]%%github%%找到。\n你可以使用 `/translate` 指令，並跟隨該指令的指示來協助翻譯機器人。\n\n你可以執行 `/help <指令名稱>` 來了解特定指令的用法。\n你可以在下面找到所有可用頁面的列表。請點擊訊息下方的反應按鈕來切換頁面。",
     "madeBy": "機器人由 %%QkeleQ10%% 開發和維護",
-    "page": "第 %%number%%/%%total%% 頁",
     "pageNumber": "第 %%number%% 頁",
     "utilityHelp": "實用工具",
     "infoHelp": "訊息指令",
     "projectsHelp": "Crowdin 項目",
-    "timeOut": "這個選單已逾時。如果你要繼續使用它，請再次輸入 %%command%%。",
     "pageNotExist": "該頁面並不存在。",
     "commandInfo": "指令資訊",
     "commandInfoFor": "指令資訊：",
@@ -18,29 +16,20 @@
     "second": "秒",
     "minutes": "分鐘",
     "cooldownField": "冷卻時間",
-    "help": {
-        "description": "顯示所有你可使用的指令及關於機器人的其他訊息。"
-    },
-    "prefix": {
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
-    },
-    "quote": {
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
-    },
-    "mention": {
-        "description": "提及一個語言身份組，而且可向他們發送訊息。"
-    },
-    "languagestats": {
-        "description": "顯示特定語言在我們支援的所有項目中的翻譯進度。"
+    "8ball": {
+        "description": "The Magic 8 Ball that will answer all your questions."
     },
     "feedback": {
         "description": "開啟我們的 GitHub 議題頁面，你可以在那裡回報問題和發送回饋。"
     },
-    "language": {
-        "description": "更改語言、顯示你目前使用的語言或顯示可用的語言列表。"
+    "guidelines": {
+        "description": "給予你 Hypixel 官方發布之翻譯準則的連結。"
     },
-    "ping": {
-        "description": "顯示機器人目前的 Ping。"
+    "help": {
+        "description": "顯示所有你可使用的指令及關於機器人的其他訊息。"
+    },
+    "hypixel": {
+        "description": "給予你有關 Hypixel 項目的實用訊息。"
     },
     "hypixelstats": {
         "description": "顯示該使用者的 Hypixel 統計數據。"
@@ -51,49 +40,61 @@
     "hypixelverify": {
         "description": "將你的 Discord 帳戶連結至你的 Minecraft 帳號。 "
     },
-    "8ball": {
-        "description": "The Magic 8 Ball that will answer all your questions."
+    "invite": {
+        "description": "給予你一個伺服器邀請連結。請在你想要邀請他人時使用此連結。"
     },
-    "verify": {
-        "description": "自動檢查你的 Crowdin 個人檔案的任何更改，並給予你適當的身分組。如果你的資料不在我們的資料庫裡，你可以在指令中將其作為參數提供給我們。如果你想確認你的個人檔案是否已經儲存，你可以執行 `/profile`。請確保你已允許來自本伺服器的私人訊息 (DM)，以便機器人可以直接發送訊息給你。"
+    "language": {
+        "description": "更改語言、顯示你目前使用的語言或顯示可用的語言列表。"
     },
-    "profile": {
-        "description": "如果你的 Crowdin 個人檔案已儲存在我們的資料庫中，則會給予你的個人檔案連結。否則，你可以執行 `/help verify` 以了解如何儲存你的個人檔案至資料庫和更新你的身分組。"
-    },
-    "rank": {
-        "description": "顯示你自己或任何使用者目前的 XP。"
+    "languagestats": {
+        "description": "顯示特定語言在我們支援的所有項目中的翻譯進度。"
     },
     "levels": {
         "description": "顯示目前的 XP 排行榜。"
     },
-    "tip": {
-        "description": "隨機給予你一個與伺服器相關的提示。"
+    "mention": {
+        "description": "提及一個語言身份組，而且可向他們發送訊息。"
     },
-    "invite": {
-        "description": "給予你一個伺服器邀請連結。請在你想要邀請他人時使用此連結。"
+    "minecraft": {
+        "description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+    },
+    "ping": {
+        "description": "顯示機器人目前的 Ping。"
+    },
+    "prefix": {
+        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+    },
+    "profile": {
+        "description": "如果你的 Crowdin 個人檔案已儲存在我們的資料庫中，則會給予你的個人檔案連結。否則，你可以執行 `/help verify` 以了解如何儲存你的個人檔案至資料庫和更新你的身分組。"
     },
     "projects": {
         "description": "給予你在伺服器上支援的所有翻譯項目之連結及相關訊息。"
     },
-    "hypixel": {
-        "description": "給予你有關 Hypixel 項目的實用訊息。"
-    },
-    "guidelines": {
-        "description": "給予你 Hypixel 官方發布之翻譯準則的連結。"
-    },
     "quickplay": {
         "description": "給予你有關 Quickplay 項目的實用訊息。"
+    },
+    "quote": {
+        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+    },
+    "rank": {
+        "description": "顯示你自己或任何使用者目前的 XP。"
     },
     "skyblockaddons": {
         "description": "給予你有關 SkyblockAddons 項目的實用訊息。"
     },
-    "translate": {
-        "description": "給予你有關 Hypixel Translators Bot 項目的實用訊息。"
-    },
     "thread": {
         "description": "給予你有關此 Discord 伺服器介紹之頁面。"
     },
+    "tip": {
+        "description": "隨機給予你一個與伺服器相關的提示。"
+    },
+    "translate": {
+        "description": "給予你有關 Hypixel Translators Bot 項目的實用訊息。"
+    },
     "twitter": {
         "description": "給予你 Hypixel Translators Community 的 Twitter 頁面連結。"
+    },
+    "verify": {
+        "description": "自動檢查你的 Crowdin 個人檔案的任何更改，並給予你適當的身分組。如果你的資料不在我們的資料庫裡，你可以在指令中將其作為參數提供給我們。如果你想確認你的個人檔案是否已經儲存，你可以執行 `/profile`。請確保你已允許來自本伺服器的私人訊息 (DM)，以便機器人可以直接發送訊息給你。"
     }
 }

@@ -20,6 +20,7 @@
         "falseFlag": "That flag couldn't be found!",
         "falseLang": "That language couldn't be found!",
         "falseRole": "That role couldn't be found!",
+        "falseUUID": "Couldn't find a player with that UUID!",
         "noPlayer": "That player has never joined Hypixel!",
         "notVerified": "That user hasn't linked their Hypixel account yet!",
         "disabled": "Tento příkaz byl dočasně deaktivován.",
@@ -61,7 +62,13 @@
         "last": "Last page",
         "confirm": "Confirm",
         "cancel": "Cancel",
-        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this."
+        "page": "Page %%number%%/%%total%%",
+        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
+        "timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%."
+    },
+    "region": {
+        "dateLocale": "cs-CZ",
+        "timeZone": "Europe/Prague"
     },
     "executedBy": "Provedeno uživatelem %%user%%"
 }

@@ -3,12 +3,10 @@
     "page1Title": "Súgó oldal",
     "commandsListTooltip": "Ezt a botot %%developer%% készítette a Hypixel Translators Community számára. A bot nyílt forrású és a GitHub oldalát [itt]%%github%% találod.\nSegíthetsz a bot fordításában a `/translate` paranccsal.\n\nHasználd a `/help <parancs>` parancsot hogy többet tudhass meg az adott parancsról.\nAlább találhatod az összes elérhető oldalt. Használd a gombokat a köztük való lapozáshoz.",
     "madeBy": "A botot %%QkeleQ10%% készítette sok szeretettel",
-    "page": "%%number%%. lap/%%total%%",
     "pageNumber": "%%number%%. lap",
     "utilityHelp": "Eszközök",
     "infoHelp": "Információs parancsok",
     "projectsHelp": "Crowdin Projects",
-    "timeOut": "Időtúllépés. Ha újra használni akarod, használd a %%command%% parancsot.",
     "pageNotExist": "Ez az oldal nem létezik!",
     "commandInfo": "Parancs információ",
     "commandInfoFor": "Parancs információ ehhez: ",
@@ -18,29 +16,20 @@
     "second": "second",
     "minutes": "minutes",
     "cooldownField": "Időköz",
-    "help": {
-        "description": "Megmutatja az összes elérhető parancsot és információkat ad a robotról."
-    },
-    "prefix": {
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
-    },
-    "quote": {
-        "description": "Szerez (vagy hozz létre) egy vicces/fura/bölcs idézetet a szerverből."
-    },
-    "mention": {
-        "description": "Említs meg egy nyelvi csoportot egy választott üzenettel."
-    },
-    "languagestats": {
-        "description": "Shows you the progress of a language on all the projects we currently support."
+    "8ball": {
+        "description": "The Magic 8 Ball that will answer all your questions."
     },
     "feedback": {
         "description": "Megnyitja a GitHub oldalunkat, ahol hibákat jelenthetsz és visszajelzést adhatsz."
     },
-    "language": {
-        "description": "Megváltoztatja a nyelved, megmutatja a mostanit, vagy ad egy listát az elérhető nyelvekről."
+    "guidelines": {
+        "description": "Linket ad a hivatalos Hypixel fordításáról szóló poszthoz."
     },
-    "ping": {
-        "description": "Megadja a bot és a Discord API pingjét."
+    "help": {
+        "description": "Megmutatja az összes elérhető parancsot és információkat ad a robotról."
+    },
+    "hypixel": {
+        "description": "Hasznos információt ad a Hypixel projektről."
     },
     "hypixelstats": {
         "description": "Shows you basic Hypixel stats for the provided user."
@@ -51,49 +40,61 @@
     "hypixelverify": {
         "description": "Links your Discord account with your Minecraft account."
     },
-    "8ball": {
-        "description": "The Magic 8 Ball that will answer all your questions."
+    "invite": {
+        "description": "Ad egy meghívót a szerverre. Kérlek ezt használd, ha meg szeretnél hívni valakit."
     },
-    "verify": {
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+    "language": {
+        "description": "Megváltoztatja a nyelved, megmutatja a mostanit, vagy ad egy listát az elérhető nyelvekről."
     },
-    "profile": {
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
-    },
-    "rank": {
-        "description": "Gives you the current XP for yourself or any given user."
+    "languagestats": {
+        "description": "Shows you the progress of a language on all the projects we currently support."
     },
     "levels": {
         "description": "Gives you the XP leaderboard."
     },
-    "tip": {
-        "description": "Egy random tippet ad a szerverrel kapcsolatban."
+    "mention": {
+        "description": "Említs meg egy nyelvi csoportot egy választott üzenettel."
     },
-    "invite": {
-        "description": "Ad egy meghívót a szerverre. Kérlek ezt használd, ha meg szeretnél hívni valakit."
+    "minecraft": {
+        "description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+    },
+    "ping": {
+        "description": "Megadja a bot és a Discord API pingjét."
+    },
+    "prefix": {
+        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+    },
+    "profile": {
+        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
     },
     "projects": {
         "description": "Gives you links and information about all the translation projects we support on the server."
     },
-    "hypixel": {
-        "description": "Hasznos információt ad a Hypixel projektről."
-    },
-    "guidelines": {
-        "description": "Linket ad a hivatalos Hypixel fordításáról szóló poszthoz."
-    },
     "quickplay": {
         "description": "Hasznos információt ad a Quickplay projektről."
+    },
+    "quote": {
+        "description": "Szerez (vagy hozz létre) egy vicces/fura/bölcs idézetet a szerverből."
+    },
+    "rank": {
+        "description": "Gives you the current XP for yourself or any given user."
     },
     "skyblockaddons": {
         "description": "Hasznos információt ad a SkyblockAddons projektről."
     },
-    "translate": {
-        "description": "Gives you useful information on how to translate the Bot."
-    },
     "thread": {
         "description": "Linket ad a Discordot bejelentő poszthoz."
     },
+    "tip": {
+        "description": "Egy random tippet ad a szerverrel kapcsolatban."
+    },
+    "translate": {
+        "description": "Gives you useful information on how to translate the Bot."
+    },
     "twitter": {
         "description": "Megadja a linket a hivatalos Hypixel Translators Community Twitter oldalához."
+    },
+    "verify": {
+        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
     }
 }

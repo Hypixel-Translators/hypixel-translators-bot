@@ -1,10 +1,8 @@
 {
     "moduleName": "XP-Rangliste",
     "pageTitle": "Hier ist die XP-Rangliste!",
-    "page": "Seite %%number%%/%%total%%",
     "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
     "youIndicator": "YOU",
     "thousand": "k",
-    "unranked": "#%%rank%% ohne Rang",
-    "timeOut": "Dieses Menü hat eine Zeitüberschreitung. Wenn du es wieder benutzen willst, verwende %%command%%."
+    "unranked": "#%%rank%% ohne Rang"
 }

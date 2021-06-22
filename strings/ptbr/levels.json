@@ -1,10 +1,8 @@
 {
     "moduleName": "Pódio de EXP",
     "pageTitle": "Aqui está o pódio de EXP!",
-    "page": "Página %%number%%/%%total%%",
     "level": "%%rank%%º | Nível %%level%% | EXP: %%xp%%",
     "youIndicator": "VOCÊ",
     "thousand": "k",
-    "unranked": "%%rank%%º Sem rank",
-    "timeOut": "Este menu expirou. Se você deseja usá-lo novamente, use %%command%%."
+    "unranked": "%%rank%%º Sem rank"
 }

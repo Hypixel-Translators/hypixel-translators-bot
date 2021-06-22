@@ -1,10 +1,8 @@
 {
     "moduleName": "Ranking PD",
     "pageTitle": "Oto ranking PD!",
-    "page": "Strona %%number%%/%%total%%",
     "level": "#%%rank%% | Poziom %%level%% | PD: %%xp%%",
     "youIndicator": "TY",
     "thousand": " tys.",
-    "unranked": "#%%rank%% Nieklasyfikowany",
-    "timeOut": "To menu wygasło. Jeśli chcesz użyć go ponownie, wpisz %%command%%."
+    "unranked": "#%%rank%% Nieklasyfikowany"
 }

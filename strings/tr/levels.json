@@ -1,10 +1,8 @@
 {
     "moduleName": "Deneyim Puanı Sıralaması",
     "pageTitle": "İşte Deneyim Puanı Sıralaması!",
-    "page": "Sayfa %%number%%/%%total%%",
     "level": "#%%rank%% | Seviye %%level%% | Deneyim Puanı: %%xp%%",
     "youIndicator": "SEN",
     "thousand": "bin",
-    "unranked": "#%%rank%% Derecesiz",
-    "timeOut": "Bu menü zaman aşımına uğradı. Tekrar erişmek istersen, %%command%% komutunu kullan."
+    "unranked": "#%%rank%% Derecesiz"
 }

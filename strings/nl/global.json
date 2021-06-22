@@ -20,6 +20,7 @@
         "falseFlag": "Die vlag kon niet worden gevonden!",
         "falseLang": "Die taal kon niet worden gevonden!",
         "falseRole": "Die rol kon niet worden gevonden!",
+        "falseUUID": "Kon geen speler vinden met die UUID!",
         "noPlayer": "Die speler heeft Hypixel nooit toegetreden!",
         "notVerified": "Die gebruiker heeft nog geen Hypixel-account gekoppeld!",
         "disabled": "Dit commando is tijdelijk uitgeschakeld.",
@@ -61,7 +62,13 @@
         "last": "Laatste pagina",
         "confirm": "Bevestigen",
         "cancel": "Annuleren",
-        "notYours": "Je kunt dit menu niet gebruiken! Voer zelf %%command%% uit om dit te doen."
+        "page": "Pagina %%number%%/%%total%%",
+        "notYours": "Je kunt dit menu niet gebruiken! Voer zelf %%command%% uit om dit te doen.",
+        "timeOut": "Dit menu is verlopen. Om het opnieuw te gebruiken, kun je %%command%% uitvoeren."
+    },
+    "region": {
+        "dateLocale": "nl-NL",
+        "timeZone": "Europe/Amsterdam"
     },
     "executedBy": "Uitgevoerd door %%user%%"
 }

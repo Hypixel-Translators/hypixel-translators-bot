@@ -1,0 +1,19 @@
+{
+    "moduleName": "Minecraft İstatistikleri",
+    "madeBy": "Komut %%developer%% tarafından yapıldı",
+    "history": {
+        "firstName": "İlk ad",
+        "nameHistoryFor": "%%username%% için ad geçmişi",
+        "userChangedName": "%%username%%, adını %%number%% kez değiştirmiş.",
+        "youChangedName": "Adını %%number%% kez değiştirmişsin.",
+        "userChangedName1": "%%username%% adını 1 kez değiştirmiş.",
+        "youChangedName1": "Adını 1 kez değiştirmişsin.",
+        "userNeverChanged": "%%username%% daha önce adını hiç değiştirmemiş.",
+        "youNeverChanged": "Adını daha önce hiç değiştirmemişsin."
+    },
+    "skin": {
+        "yourSkin": "İşte cildin!",
+        "userSkin": "İşte %%user%% adlı oyuncunun cildi!",
+        "isLinked": "Bu oyuncu %%user%% olarak doğrulanmış"
+    }
+}

@@ -3,12 +3,10 @@
     "page1Title": "Hulppagina",
     "commandsListTooltip": "Deze bot is gemaakt voor de Hypixel-vertalersgemeenschap door %%developer%%. Het is open-source en onze GitHub-repository kan [hier]%%github%% worden gevonden.\nJe kunt de bot helpen te vertalen door de instructies in het commando `/translate` te volgen.\n\nJe kunt `/help <commandonaam> ` uitvoeren om meer te lezen over een bepaald commando.\nHieronder staat een lijst met pagina's. Gebruik de reacties op dit bericht om te navigeren.",
     "madeBy": "Bot met veel zorg ontwikkeld door %%QkeleQ10%%",
-    "page": "Pagina %%number%%/%%total%%",
     "pageNumber": "Pagina %%number%%",
     "utilityHelp": "Hulpmiddelen",
     "infoHelp": "Informatieve commando's",
     "projectsHelp": "Crowdin-projecten",
-    "timeOut": "Dit menu is verlopen. Om het opnieuw te gebruiken, kun je %%command%% uitvoeren.",
     "pageNotExist": "Die pagina bestaat niet!",
     "commandInfo": "Commando-informatie",
     "commandInfoFor": "Commando-informatie voor ",
@@ -18,29 +16,20 @@
     "second": "seconde",
     "minutes": "minuten",
     "cooldownField": "Afkoeltijd",
-    "help": {
-        "description": "Geeft alle commando's en andere informatie over de bot weer."
-    },
-    "prefix": {
-        "description": "Geeft je het juiste voorvoegsel voor je taal/talen. Voor een aangepast voorvoegsel kun je `/prefix` uitvoeren en in het argument `vlaggen` een de code van een land of vlag of de naam van een land opgeven. Je kunt zo veel talen selecteren als je wilt, zolang je ze scheidt met een spatie."
-    },
-    "quote": {
-        "description": "Geeft een grappig/raar/wijs citaat uit de server (of voegt er een toe)."
-    },
-    "mention": {
-        "description": "Vermeldt een taalrol met een optioneel bericht."
-    },
-    "languagestats": {
-        "description": "Toont voortgang in een taal in alle projecten die we ondersteunen."
+    "8ball": {
+        "description": "De glazen bol die al je vragen zal beantwoorden."
     },
     "feedback": {
         "description": "Opent onze GitHub-issuespagina, waar je problemen kunt melden en feedback kunt geven."
     },
-    "language": {
-        "description": "Verandert je taal, toont je huidige taal of geeft een lijst met alle beschikbare talen."
+    "guidelines": {
+        "description": "Geeft je de link naar de officiële thread omtrent Hypixel-vertalingen."
     },
-    "ping": {
-        "description": "Laat de vertraging van de bot zien."
+    "help": {
+        "description": "Geeft alle commando's en andere informatie over de bot weer."
+    },
+    "hypixel": {
+        "description": "Geeft je nuttige informatie omtrent het Hypixel-project."
     },
     "hypixelstats": {
         "description": "Geeft je simpele Hypixel-statistieken voor de opgegeven speler."
@@ -51,49 +40,61 @@
     "hypixelverify": {
         "description": "Koppelt je Discord-account met je Minecraft-account."
     },
-    "8ball": {
-        "description": "De glazen bol die al je vragen zal beantwoorden."
+    "invite": {
+        "description": "Geeft je een uitnodigingslink voor deze server. Gebruik deze wanneer je iemand wilt uitnodigen."
     },
-    "verify": {
-        "description": "Controleert automatisch op wijzigingen in je Crowdin-profiel en geeft je de bijbehorende rollen. Als je profiel niet in onze database is opgeslagen, kun je het als argument opgeven in het commando. Om te controleren of je profiel is opgeslagen, kun je `/profile` uitvoeren. Zorg ervoor dat je privéberichten hebt ingeschakeld zodat de bot je een bericht kan sturen."
+    "language": {
+        "description": "Verandert je taal, toont je huidige taal of geeft een lijst met alle beschikbare talen."
     },
-    "profile": {
-        "description": "Geeft je de link naar je Crowdin-profiel als deze is opgeslagen in onze database. Als dit niet het geval is, kun je `/help verify` uitvoeren om te zien hoe je je profiel kunt laten opslaan en je rollen kunt updaten."
-    },
-    "rank": {
-        "description": "Geeft je jouw hoeveelheid XP of die van een andere gebruiker."
+    "languagestats": {
+        "description": "Toont voortgang in een taal in alle projecten die we ondersteunen."
     },
     "levels": {
         "description": "Geeft je het XP-scorebord."
     },
-    "tip": {
-        "description": "Geeft je een willekeurige servertip."
+    "mention": {
+        "description": "Vermeldt een taalrol met een optioneel bericht."
     },
-    "invite": {
-        "description": "Geeft je een uitnodigingslink voor deze server. Gebruik deze wanneer je iemand wilt uitnodigen."
+    "minecraft": {
+        "description": "Zoekt de naamgeschiedenis of skin van een specifieke Minecraft-speler op. Dit commando is compatibel met /hypixelverify, zodat je informatie over een gebruiker kunt opzoeken als diegene geverifieerd is. De parameter `user` heeft altijd prioriteit over `username`. Ze zijn allebei optioneel als je geverifieerd bent, anders moet er één opgegeven worden."
+    },
+    "ping": {
+        "description": "Laat de vertraging van de bot zien."
+    },
+    "prefix": {
+        "description": "Geeft je het juiste voorvoegsel voor je taal/talen. Voor een aangepast voorvoegsel kun je `/prefix` uitvoeren en in het argument `vlaggen` een de code van een land of vlag of de naam van een land opgeven. Je kunt zo veel talen selecteren als je wilt, zolang je ze scheidt met een spatie."
+    },
+    "profile": {
+        "description": "Geeft je de link naar je Crowdin-profiel als deze is opgeslagen in onze database. Als dit niet het geval is, kun je `/help verify` uitvoeren om te zien hoe je je profiel kunt laten opslaan en je rollen kunt updaten."
     },
     "projects": {
         "description": "Geeft je links en informatie over alle vertalingsprojecten die we hier ondersteunen."
     },
-    "hypixel": {
-        "description": "Geeft je nuttige informatie omtrent het Hypixel-project."
-    },
-    "guidelines": {
-        "description": "Geeft je de link naar de officiële thread omtrent Hypixel-vertalingen."
-    },
     "quickplay": {
         "description": "Geeft je nuttige informatie omtrent het Quickplay-project."
+    },
+    "quote": {
+        "description": "Geeft een grappig/raar/wijs citaat uit de server (of voegt er een toe)."
+    },
+    "rank": {
+        "description": "Geeft je jouw hoeveelheid XP of die van een andere gebruiker."
     },
     "skyblockaddons": {
         "description": "Geeft je nuttige informatie omtrent het SkyblockAddons-project."
     },
-    "translate": {
-        "description": "Geeft je handige tips over het vertalen van de bot."
-    },
     "thread": {
         "description": "Geeft je de link naar de thread die deze Discordserver aankondigt."
     },
+    "tip": {
+        "description": "Geeft je een willekeurige servertip."
+    },
+    "translate": {
+        "description": "Geeft je handige tips over het vertalen van de bot."
+    },
     "twitter": {
         "description": "Geeft je de link naar de officiële Hypixel-vertaalcommunity-Twitterpagina."
+    },
+    "verify": {
+        "description": "Controleert automatisch op wijzigingen in je Crowdin-profiel en geeft je de bijbehorende rollen. Als je profiel niet in onze database is opgeslagen, kun je het als argument opgeven in het commando. Om te controleren of je profiel is opgeslagen, kun je `/profile` uitvoeren. Zorg ervoor dat je privéberichten hebt ingeschakeld zodat de bot je een bericht kan sturen."
     }
 }

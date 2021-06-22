@@ -1,10 +1,8 @@
 {
     "moduleName": "XP順位表",
     "pageTitle": "XP順位表はこちらです！",
-    "page": "ページ %%number%%/%%total%%",
     "level": "#%%rank%% | レベル %%level%% | XP: %%xp%%",
     "youIndicator": "YOU",
     "thousand": "千",
-    "unranked": "#%%rank%% 未順位",
-    "timeOut": "このメニューはタイムアウトしました。もう一度使用する場合は %%command%% を実行してください。"
+    "unranked": "#%%rank%% 未順位"
 }

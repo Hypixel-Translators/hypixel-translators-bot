@@ -1,0 +1,19 @@
+{
+    "moduleName": "crwdns1412:0crwdne1412:0",
+    "madeBy": "crwdns1414:0%%developer%%crwdne1414:0",
+    "history": {
+        "firstName": "crwdns1416:0crwdne1416:0",
+        "nameHistoryFor": "crwdns1418:0%%username%%crwdne1418:0",
+        "userChangedName": "crwdns1420:0%%username%%crwdnd1420:0%%number%%crwdne1420:0",
+        "youChangedName": "crwdns1422:0%%number%%crwdne1422:0",
+        "userChangedName1": "crwdns1424:0%%username%%crwdne1424:0",
+        "youChangedName1": "crwdns1426:0crwdne1426:0",
+        "userNeverChanged": "crwdns1428:0%%username%%crwdne1428:0",
+        "youNeverChanged": "crwdns1430:0crwdne1430:0"
+    },
+    "skin": {
+        "yourSkin": "crwdns1432:0crwdne1432:0",
+        "userSkin": "crwdns1434:0%%user%%crwdne1434:0",
+        "isLinked": "crwdns1436:0%%user%%crwdne1436:0"
+    }
+}

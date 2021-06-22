@@ -20,6 +20,7 @@
         "falseFlag": "旗が見つかりませんでした！",
         "falseLang": "言語が見つかりませんでした！",
         "falseRole": "ロールが見つかりませんでした！",
+        "falseUUID": "Couldn't find a player with that UUID!",
         "noPlayer": "このプレイヤーはHypixelに参加したことがありません！",
         "notVerified": "このユーザーはHypixelアカウントを紐付けしていません！",
         "disabled": "このコマンドは一時的に無効化されています。",
@@ -61,7 +62,13 @@
         "last": "最後のページ",
         "confirm": "確認",
         "cancel": "キャンセル",
-        "notYours": "このメニューは操作できません！ ご自身で%%command%%を実行してください。"
+        "page": "ページ %%number%%/%%total%%",
+        "notYours": "このメニューは操作できません！ ご自身で%%command%%を実行してください。",
+        "timeOut": "このメニューはタイムアウトしました。もう一度使用する場合は %%command%% を実行してください。"
+    },
+    "region": {
+        "dateLocale": "ja-JP",
+        "timeZone": "Asia/Tokyo"
     },
     "executedBy": "%%user%%によって実行されました"
 }

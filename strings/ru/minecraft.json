@@ -1,0 +1,19 @@
+{
+    "moduleName": "Статистика Minecraft",
+    "madeBy": "Автор команды %%developer%%",
+    "history": {
+        "firstName": "Первое имя",
+        "nameHistoryFor": "История имени игрока %%username%%",
+        "userChangedName": "%%username%% изменял своё имя %%number%% раз.",
+        "youChangedName": "Вы изменяли своё имя %%number%% раз.",
+        "userChangedName1": "%%username%% изменял своё имя 1 раз.",
+        "youChangedName1": "Вы изменяли своё имя 1 раз.",
+        "userNeverChanged": "%%username%% никогда не изменял своё имя.",
+        "youNeverChanged": "Вы никогда не изменяли своё имя."
+    },
+    "skin": {
+        "yourSkin": "Вот ваш скин!",
+        "userSkin": "Вот скин игрока %%user%%!",
+        "isLinked": "Этот игрок привязан к %%user%%"
+    }
+}

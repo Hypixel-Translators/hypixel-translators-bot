@@ -1,0 +1,19 @@
+{
+    "moduleName": "Minecraft statisztikák",
+    "madeBy": "A parancsot %%developer%% készítette",
+    "history": {
+        "firstName": "Keresztnév",
+        "nameHistoryFor": "%%username%% előző nevei",
+        "userChangedName": "%%username%%-nek %%number%% névváltoztatása van.",
+        "youChangedName": "You have changed your name %%number%% times.",
+        "userChangedName1": "%%username%% egyszer változtatta meg a nevét.",
+        "youChangedName1": "You have changed your name 1 time.",
+        "userNeverChanged": "%%username%% még nem változtatta meg a nevét.",
+        "youNeverChanged": "You have never changed your name."
+    },
+    "skin": {
+        "yourSkin": "Itt a skined!",
+        "userSkin": "Itt van %%user%% skinje!",
+        "isLinked": "Ehhez a játékoshoz %%user%% van kötve"
+    }
+}

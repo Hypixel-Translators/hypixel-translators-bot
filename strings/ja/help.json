@@ -3,12 +3,10 @@
     "page1Title": "ヘルプページ",
     "commandsListTooltip": "このボットはHypixel翻訳コミュニティのために %%developer%% によって作成されました。オープンソースであり、GitHubのリポジトリは [こちら]%%github%% で確認できます。\n`/translate`コマンドにある手順に従って、このボットを翻訳できます。\n\n`/help <コマンド名>`を実行すると、指定したコマンドの詳細を確認できます。\n以下がコマンド一覧の利用可能なページです。このメッセージのリアクションを使ってページを切り替えられます。",
     "madeBy": "ボットは%%QkeleQ10%%が多大な注意を払って作成しました",
-    "page": "ページ %%number%%/%%total%%",
     "pageNumber": "%%number%% ページ目",
     "utilityHelp": "ツール＆ユーティリティ",
     "infoHelp": "情報コマンド",
     "projectsHelp": "Crowdinプロジェクト",
-    "timeOut": "このメニューはタイムアウトしました。もう一度使用する場合は %%command%% を実行してください。",
     "pageNotExist": "このページは存在しません！",
     "commandInfo": "コマンド情報",
     "commandInfoFor": "コマンド情報：",
@@ -18,29 +16,20 @@
     "second": "秒",
     "minutes": "分",
     "cooldownField": "クールダウン",
-    "help": {
-        "description": "利用可能なすべてのコマンドやボットに関するその他の情報を表示します。"
-    },
-    "prefix": {
-        "description": "あなたの言語に対して適切な接頭辞を設定します。カスタムな接頭辞を取得するには`/prefix`を実行し、`旗`の引数を国旗または国名の地域コードに置き換えてください。スラッシュで区切ることで複数個追加できます。"
-    },
-    "quote": {
-        "description": "サーバーから面白い/奇妙な/賢い引用を取得（または追加）します。"
-    },
-    "mention": {
-        "description": "任意のメッセージを、言語のロールにメンションします。"
-    },
-    "languagestats": {
-        "description": "現在我々がサポートしている全プロジェクトの、言語の進捗状況を表示します。"
+    "8ball": {
+        "description": "マジック・エイト・ボール。それはあなたの質問すべてに答えてくれます。"
     },
     "feedback": {
         "description": "GitHubのIssueページを開きます。こちらで問題の報告とフィードバックの送信ができます。"
     },
-    "language": {
-        "description": "言語の変更、現在の言語の表示、利用可能な言語の一覧を表示します。"
+    "guidelines": {
+        "description": "Hypixel翻訳に関する公式スレッドへのリンクを表示します。"
     },
-    "ping": {
-        "description": "ボットのPing値を表示します。"
+    "help": {
+        "description": "利用可能なすべてのコマンドやボットに関するその他の情報を表示します。"
+    },
+    "hypixel": {
+        "description": "Hypixelプロジェクトに関する便利な情報を表示します。"
     },
     "hypixelstats": {
         "description": "指定したユーザーのHypixelの基本統計を表示します。"
@@ -51,49 +40,61 @@
     "hypixelverify": {
         "description": "DiscordアカウントとMinecraftアカウントを関連付けます。"
     },
-    "8ball": {
-        "description": "マジック・エイト・ボール。それはあなたの質問すべてに答えてくれます。"
+    "invite": {
+        "description": "サーバーへの招待リンクを表示します。誰かを招待したい時に使用してください。"
     },
-    "verify": {
-        "description": "Crowdinプロフィールの変更を自動で確認し、適切なロールを付与します。あなたのプロフィールが我々のデータベース上に保存されていない場合は、コマンドの引数として指定できます。プロフィールが保存されているかの確認は`/profile`を実行してください。その際ボットからのメッセージを受信できるように、このサーバーからのDMが有効になっているかを確認してください。"
+    "language": {
+        "description": "言語の変更、現在の言語の表示、利用可能な言語の一覧を表示します。"
     },
-    "profile": {
-        "description": "我々のデータベースに保存されている場合、あなたのCrowdinプロフィールのリンクを表示します。保存されていない場合`/help verify`を実行することで、プロフィールの保存とロールの更新方法を確認できます。"
-    },
-    "rank": {
-        "description": "自分自身、または指定したユーザーの現在のXPを表示します。"
+    "languagestats": {
+        "description": "現在我々がサポートしている全プロジェクトの、言語の進捗状況を表示します。"
     },
     "levels": {
         "description": "XP順位表を表示します。"
     },
-    "tip": {
-        "description": "サーバーに関するランダムなヒントを表示します。"
+    "mention": {
+        "description": "任意のメッセージを、言語のロールにメンションします。"
     },
-    "invite": {
-        "description": "サーバーへの招待リンクを表示します。誰かを招待したい時に使用してください。"
+    "minecraft": {
+        "description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+    },
+    "ping": {
+        "description": "ボットのPing値を表示します。"
+    },
+    "prefix": {
+        "description": "あなたの言語に対して適切な接頭辞を設定します。カスタムな接頭辞を取得するには`/prefix`を実行し、`旗`の引数を国旗または国名の地域コードに置き換えてください。スラッシュで区切ることで複数個追加できます。"
+    },
+    "profile": {
+        "description": "我々のデータベースに保存されている場合、あなたのCrowdinプロフィールのリンクを表示します。保存されていない場合`/help verify`を実行することで、プロフィールの保存とロールの更新方法を確認できます。"
     },
     "projects": {
         "description": "このサーバーが支援しているすべての翻訳プロジェクトのリンクと情報を表示します。"
     },
-    "hypixel": {
-        "description": "Hypixelプロジェクトに関する便利な情報を表示します。"
-    },
-    "guidelines": {
-        "description": "Hypixel翻訳に関する公式スレッドへのリンクを表示します。"
-    },
     "quickplay": {
         "description": "Quickplayプロジェクトに関する便利な情報を表示します。"
+    },
+    "quote": {
+        "description": "サーバーから面白い/奇妙な/賢い引用を取得（または追加）します。"
+    },
+    "rank": {
+        "description": "自分自身、または指定したユーザーの現在のXPを表示します。"
     },
     "skyblockaddons": {
         "description": "SkyblockAddonsプロジェクトに関する便利な情報を表示します。"
     },
-    "translate": {
-        "description": "ボットを翻訳する方法の便利な情報を表示します。"
-    },
     "thread": {
         "description": "このDiscordサーバーの告知スレッドへのリンクを表示します。"
     },
+    "tip": {
+        "description": "サーバーに関するランダムなヒントを表示します。"
+    },
+    "translate": {
+        "description": "ボットを翻訳する方法の便利な情報を表示します。"
+    },
     "twitter": {
         "description": "公式のHypixel翻訳者コミュニティTwitterページへのリンクを表示します。"
+    },
+    "verify": {
+        "description": "Crowdinプロフィールの変更を自動で確認し、適切なロールを付与します。あなたのプロフィールが我々のデータベース上に保存されていない場合は、コマンドの引数として指定できます。プロフィールが保存されているかの確認は`/profile`を実行してください。その際ボットからのメッセージを受信できるように、このサーバーからのDMが有効になっているかを確認してください。"
     }
 }
