@@ -1,10 +1,8 @@
 {
     "moduleName": "XP Ranglista",
     "pageTitle": "Itt az XP ranglista!",
-    "page": "%%number%%. lap/%%total%%",
     "level": "#%%rank%% | %%level%%. szint | XP: %%xp%%",
     "youIndicator": "YOU",
     "thousand": "e",
-    "unranked": "#%%rank%% Rangtalan",
-    "timeOut": "Időtúllépés. Ha újra használni akarod, használd a %%command%% parancsot."
+    "unranked": "#%%rank%% Rangtalan"
 }
