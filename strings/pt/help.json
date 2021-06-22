@@ -3,12 +3,10 @@
     "page1Title": "Página de ajuda",
     "commandsListTooltip": "Este bot foi feito para a Comunidade de Tradutores do Hypixel por %%developer%%. É de código aberto e o repositório do GitHub pode ser encontrado [aqui]%%github%%.\nPodes ajudar a traduzir o bot seguindo as instruções no comando `/translate`.\n\nPodes fazer `/help <comando>` para saberes mais sobre um comando específico.\nAqui podes encontrar as páginas disponíveis neste momento. Usa os botões desta mensagem para veres cada uma.",
     "madeBy": "Bot desenvolvido por %%QkeleQ10%%",
-    "page": "Página %%number%%/%%total%%",
     "pageNumber": "Página %%number%%",
     "utilityHelp": "Ferramentas e utilidades",
     "infoHelp": "Comandos de informação",
     "projectsHelp": "Projetos do Crowdin",
-    "timeOut": "Este menu foi desativado. Se o quiseres usar outra vez, executa %%command%%.",
     "pageNotExist": "Essa página não existe!",
     "commandInfo": "Informação do comando",
     "commandInfoFor": "Informação para o comando ",
@@ -18,29 +16,20 @@
     "second": "segundo",
     "minutes": "minutos",
     "cooldownField": "Tempo de espera",
-    "help": {
-        "description": "Mostra-te todos os comandos disponíveis e outras informações sobre o bot."
-    },
-    "prefix": {
-        "description": "Dá-te o prefixo apropriado para o(s) teu(s) idioma(s). Para obteres um prefixo personalizado, executa `/prefix` com o código da bandeira do teu país ou o seu nome. Podes incluir tantas bandeiras quanto as que desejares, separadas por um espaço."
-    },
-    "quote": {
-        "description": "Mostra (ou adiciona) uma frase engraçada/estranha/sábia dita por um membro do servidor."
-    },
-    "mention": {
-        "description": "Menciona o cargo de um idioma com uma mensagem opcional."
-    },
-    "languagestats": {
-        "description": "Mostra-te o progresso de um idioma em todos os projetos que suportamos neste momento."
+    "8ball": {
+        "description": "A bola mágica que irá responder a todas as tuas perguntas."
     },
     "feedback": {
         "description": "Abre a nossa página de issues no GitHub, onde podes reportar problemas e enviar feedback."
     },
-    "language": {
-        "description": "Muda o teu idioma, mostra o teu idioma atual ou uma lista de idiomas disponíveis."
+    "guidelines": {
+        "description": "Dá-te o link para o artigo oficial sobre as traduções no Hypixel."
     },
-    "ping": {
-        "description": "Dá-te o ping do bot."
+    "help": {
+        "description": "Mostra-te todos os comandos disponíveis e outras informações sobre o bot."
+    },
+    "hypixel": {
+        "description": "Dá-te informação útil sobre o projeto do Hypixel."
     },
     "hypixelstats": {
         "description": "Mostra-te estatísticas básicas do Hypixel para o jogador requisitado."
@@ -51,49 +40,61 @@
     "hypixelverify": {
         "description": "Liga a tua conta do Discord à tua conta do Minecraft."
     },
-    "8ball": {
-        "description": "A bola mágica que irá responder a todas as tuas perguntas."
+    "invite": {
+        "description": "Dá-te o link de convite para o servidor. Usa-o sempre que quiseres convidar alguém."
     },
-    "verify": {
-        "description": "Procura alterações no teu perfil do Crowdin automaticamente e dá-te os cargos apropriados. Se o teu perfil não estiver guardado na nossa base de dados, podes adicioná-lo como argumento ao executar o comando. Para saberes se o teu perfil está guardado ou não, executa `/profile`. Não te esqueças de ativar as mensagens privadas neste servidor para que o bot te possa enviar uma."
+    "language": {
+        "description": "Muda o teu idioma, mostra o teu idioma atual ou uma lista de idiomas disponíveis."
     },
-    "profile": {
-        "description": "Dá-te o link para o teu perfil do Crowdin se estiver guardado na nossa base de dados. Caso não esteja, podes executar `/help verify` para descobrires como podes guardar o teu perfil e atualizar os teus cargos."
-    },
-    "rank": {
-        "description": "Dá-te o teu XP atual ou o de qualquer utilizador."
+    "languagestats": {
+        "description": "Mostra-te o progresso de um idioma em todos os projetos que suportamos neste momento."
     },
     "levels": {
         "description": "Dá-te o pódio de XP."
     },
-    "tip": {
-        "description": "Dá-te uma dica aleatória sobre o servidor."
+    "mention": {
+        "description": "Menciona o cargo de um idioma com uma mensagem opcional."
     },
-    "invite": {
-        "description": "Dá-te o link de convite para o servidor. Usa-o sempre que quiseres convidar alguém."
+    "minecraft": {
+        "description": "Dá-te o histórico de nomes ou a skin de um jogador específico do Minecraft. Este comando é compatível com o comando `/hypixelverify`, o que te permite procurar informações sobre um utilizador se este estiver verificado. O parâmetro `user` terá sempre prioridade sobre `username` e são ambos opcionais se estiveres verificado, caso contrário, pelo menos um é obrigatório."
+    },
+    "ping": {
+        "description": "Dá-te o ping do bot."
+    },
+    "prefix": {
+        "description": "Dá-te o prefixo apropriado para o(s) teu(s) idioma(s). Para obteres um prefixo personalizado, executa `/prefix` com o código da bandeira do teu país ou o seu nome. Podes incluir tantas bandeiras quanto as que desejares, separadas por um espaço."
+    },
+    "profile": {
+        "description": "Dá-te o link para o teu perfil do Crowdin se estiver guardado na nossa base de dados. Caso não esteja, podes executar `/help verify` para descobrires como podes guardar o teu perfil e atualizar os teus cargos."
     },
     "projects": {
         "description": "Dá-te links e informação sobre todos os projetos de tradução disponíveis no servidor."
     },
-    "hypixel": {
-        "description": "Dá-te informação útil sobre o projeto do Hypixel."
-    },
-    "guidelines": {
-        "description": "Dá-te o link para o artigo oficial sobre as traduções no Hypixel."
-    },
     "quickplay": {
         "description": "Dá-te informação útil sobre o projeto do Quickplay."
+    },
+    "quote": {
+        "description": "Mostra (ou adiciona) uma frase engraçada/estranha/sábia dita por um membro do servidor."
+    },
+    "rank": {
+        "description": "Dá-te o teu XP atual ou o de qualquer utilizador."
     },
     "skyblockaddons": {
         "description": "Dá-te informação útil sobre o projeto do SkyblockAddons."
     },
-    "translate": {
-        "description": "Dá-te informação útil sobre como traduzir o Bot."
-    },
     "thread": {
         "description": "Dá-te o link para o artigo onde foi anunciado este servidor de Discord."
     },
+    "tip": {
+        "description": "Dá-te uma dica aleatória sobre o servidor."
+    },
+    "translate": {
+        "description": "Dá-te informação útil sobre como traduzir o Bot."
+    },
     "twitter": {
         "description": "Dá-te o link para a página oficial da comunidade de tradutores do Hypixel no twitter."
+    },
+    "verify": {
+        "description": "Procura alterações no teu perfil do Crowdin automaticamente e dá-te os cargos apropriados. Se o teu perfil não estiver guardado na nossa base de dados, podes adicioná-lo como argumento ao executar o comando. Para saberes se o teu perfil está guardado ou não, executa `/profile`. Não te esqueças de ativar as mensagens privadas neste servidor para que o bot te possa enviar uma."
     }
 }
