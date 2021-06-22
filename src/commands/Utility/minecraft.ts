@@ -8,7 +8,7 @@ const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot" }, ti
 
 const command: Command = {
     name: "minecraft",
-    description: "Looks up info about a specific Minecraft player",
+    description: "Looks up a specific Minecraft player's name history or skin",
     options: [{
         type: "SUB_COMMAND",
         name: "history",
