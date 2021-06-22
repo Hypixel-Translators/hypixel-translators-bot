@@ -9,8 +9,7 @@
         "userChangedName1": "%%username%% has changed their name 1 time.",
         "youChangedName1": "You have changed your name 1 time",
         "userNeverChanged": "%%username%% has never changed their name.",
-        "youNeverChanged": "You have never changed your name",
-        "page": "Page %%number%%/%%total%%"
+        "youNeverChanged": "You have never changed your name"
     },
     "skin": {
         "yourSkin": "Here's your skin!",

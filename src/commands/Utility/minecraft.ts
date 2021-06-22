@@ -152,7 +152,7 @@ const command: Command = {
                         .setFooter(
                             pages.length == 1
                                 ? `${executedBy} | ${credits}`
-                                : `${getString("history.page", { number: page + 1, total: pages.length })} | ${credits}`,
+                                : `${getString("pagination.page", { number: page + 1, total: pages.length }, "global")} | ${credits}`,
                             interaction.user.displayAvatarURL({ format: "png", dynamic: true })
                         )
                 }
