@@ -2,10 +2,13 @@
     "moduleName": "Minecraft Statistics",
     "madeBy": "Command made by %%developer%%",
     "history": {
-        "changedAt": "%%username%% - Changed to at: %%date%%",
-        "nameHistoryFor": "Name history for %%username%%:",
-        "changedNameNTimes": "%%username%% has changed their name %%number%% times.",
-        "neverChangedName": "%%username%% has never changed their name."
+        "firstName": "First name",
+        "nameHistoryFor": "Name history for %%username%%",
+        "userChangedName": "%%username%% has changed their name %%number%% times.",
+        "youChangedName": "You have changed your name %%number%% times",
+        "userNeverChanged": "%%username%% has never changed their name.",
+        "youNeverChanged": "You have never changed your name",
+        "page": "Page %%number%%/%%total%%"
     },
     "skin": {
         "yourSkin": "Here's your skin!",

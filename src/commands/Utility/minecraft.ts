@@ -1,7 +1,7 @@
 import Discord from "discord.js"
 import { successColor } from "../../config.json"
 import fetch from "node-fetch"
-import { DbUser } from "../../lib/dbclient"
+import { db, DbUser } from "../../lib/dbclient"
 import { client, Command, GetStringFunction } from "../../index"
 import { updateButtonColors } from "./help"
 const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 10000 }
@@ -33,7 +33,7 @@ const command: Command = {
         options: [{
             type: "STRING",
             name: "username",
-            description: "The IGN/UUID of the user to get the skin for. Defaults to your own skin if you're verified with /hypixelverify",
+            description: "The IGN/UUID of the user to get the skin for. Defaults to your own skin if your account is linked",
             required: false
         },
         {
@@ -55,14 +55,15 @@ const command: Command = {
             usernameInput = interaction.options.first()!.options?.get("username")?.value as string | undefined
 
         let uuid = authorDb.uuid
-        const userDb: DbUser = await client.getUser(userInput?.id)
+        const userInputDb: DbUser | null = await client.getUser(userInput?.id)
         if (userInput) {
-            if (userDb.uuid) uuid = userDb.uuid
+            if (userInputDb!.uuid) uuid = userInputDb!.uuid
             else throw "notVerified"
         } else if (usernameInput && usernameInput.length < 32) uuid = await getUUID(usernameInput)
         else uuid = usernameInput ?? authorDb.uuid
-        if (!uuid) throw "noUser"
-        const isOwnUser = uuid === userDb?.uuid
+        if (!userInput && !usernameInput && !authorDb?.uuid) throw "noUser"
+        if (!uuid) throw "falseUser"
+        const isOwnUser = uuid === authorDb?.uuid
 
         switch (subCommand) {
             case "history":
@@ -71,26 +72,12 @@ const command: Command = {
                 const nameHistory = await getNameHistory(uuid),
                     username = nameHistory[0].name.split("_").join("\\_")
 
-                let timeZone = getString("region.timeZone", "global"),
-                    dateLocale = getString("region.dateLocale", "global")
-                if (timeZone.startsWith("crwdns")) timeZone = getString("region.timeZone", "global", "en")
-                if (dateLocale.startsWith("crwdns")) dateLocale = getString("region.dateLocale", "global", "en")
-
-                let nameHistoryList = ""
-                for (const nameChangedDate of nameHistory)
-                    nameHistoryList += (nameChangedDate.changedToAt ? getString("history.changedAt", { date: new Date(nameChangedDate.changedToAt!).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" }) }) : username) + "\n"
-
                 let p = 0
                 const pages: NameHistory[][] = []
                 while (p < nameHistory.length) pages.push(nameHistory.slice(p, p += 24)) //Max number of fields divisible by 3
 
                 if (pages.length == 1) {
-                    const nameHistoryEmbed = new Discord.MessageEmbed()
-                        .setColor(successColor)
-                        .setAuthor(getString("moduleName"))
-                        .setTitle(getString("history.nameHistoryFor", { username }))
-                        .addFields(constructFields(pages[0]))
-                        .setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                    const nameHistoryEmbed = fetchPage(0, pages)
                     await interaction.editReply({ embeds: [nameHistoryEmbed] })
                 } else {
                     let controlButtons = new Discord.MessageActionRow()
@@ -116,20 +103,67 @@ const command: Command = {
                                 .setCustomID("last")
                                 .setLabel(getString("pagination.last", "global"))
                         ),
-                        page = 0
+                        page = 0,
+                        pageEmbed = fetchPage(page, pages)
 
                     controlButtons = updateButtonColors(controlButtons, page, pages)
-                    await interaction.editReply({ embeds: [] })
+                    await interaction.editReply({ embeds: [pageEmbed], components: [controlButtons] })
+                    const msg = await interaction.fetchReply() as Discord.Message
 
-                    function fetchPage(page: number, pages: NameHistory[][]) {
-                        const embed = new Discord.MessageEmbed()
-                            .setColor(successColor)
-                            .setAuthor(getString("moduleName"))
-                            .setTitle(getString("history.nameHistoryFor", { username }))
-                            .addFields(constructFields(pages[0]))
-                            .setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    }
+                    const collector = msg.createMessageComponentInteractionCollector((button: Discord.MessageComponentInteraction) => button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last", { time: this.cooldown! * 1000 })
 
+                    collector.on("collect", async buttonInteraction => {
+                        const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
+                        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
+                        else if (buttonInteraction.customID === "first") page = 0
+                        else if (buttonInteraction.customID === "last") page = pages.length - 1
+                        else if (buttonInteraction.customID === "previous") {
+                            page--
+                            if (page < 0) page = 0
+                        }
+                        else if (buttonInteraction.customID === "next") {
+                            page++
+                            if (page > pages.length - 1) page = pages.length - 1
+                        }
+                        controlButtons = updateButtonColors(controlButtons, page, pages)
+                        pageEmbed = fetchPage(page, pages) as Discord.MessageEmbed
+                        await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
+                    })
+
+                    collector.on("end", async () => {
+                        await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"), embeds: [pageEmbed], components: [] })
+                    })
+
+                }
+
+                function fetchPage(page: number, pages: NameHistory[][]) {
+                    return new Discord.MessageEmbed()
+                        .setColor(successColor)
+                        .setAuthor(getString("moduleName"))
+                        .setTitle(getString("history.nameHistoryFor", { username }))
+                        .setDescription(
+                            nameHistory.length - 1
+                                ? getString(isOwnUser ? "history.youChangedName" : "history.userChangedName", { username, number: nameHistory.length - 1 })
+                                : getString(isOwnUser ? "history.youNeverChanged" : "history.userNeverChanged", { username })
+                        )
+                        .addFields(constructFields(pages[page]))
+                        .setFooter(
+                            pages.length == 1
+                                ? `${executedBy} | ${credits}`
+                                : `${getString("history.page", { number: page + 1, total: pages.length })} | ${credits}`,
+                            interaction.user.displayAvatarURL({ format: "png", dynamic: true })
+                        )
+                }
+
+                function constructFields(array: NameHistory[]) {
+                    let timeZone = getString("region.timeZone", "global"),
+                        dateLocale = getString("region.dateLocale", "global")
+                    if (timeZone.startsWith("crwdns")) timeZone = getString("region.timeZone", "global", "en")
+                    if (dateLocale.startsWith("crwdns")) dateLocale = getString("region.dateLocale", "global", "en")
+
+                    const fields: Discord.EmbedFieldData[] = []
+                    array.forEach(name => fields.push({ name: name.name, value: name.changedToAt ? new Date(name.changedToAt!).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" }) : getString("history.firstName"), inline: true }))
+                    return fields
                 }
 
                 break
@@ -138,8 +172,8 @@ const command: Command = {
                     .setColor(successColor)
                     .setAuthor(getString("moduleName"))
                     .setTitle(isOwnUser ? getString("skin.yourSkin") : getString("skin.userSkin", { user: (userInput?.toString() || usernameInput)! })) //There's always at least a user or username input if it's not the own user, otherwise the command throws an error above
-                    .setThumbnail(`https://crafatar.com/renders/body/${uuid}?overlay`)
-                    .setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                    .setImage(`https://crafatar.com/renders/body/${uuid}?overlay`)
+                    .setFooter(`${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                 await interaction.reply({ embeds: [skinEmbed] })
                 break
         }
@@ -163,12 +197,6 @@ export async function getUUID(username: string): Promise<string | undefined> {
 async function getNameHistory(uuid: string): Promise<NameHistory[]> {
     const res = await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`, fetchSettings)
     return (await res.json()).reverse()
-}
-
-function constructFields(array: NameHistory[]) {
-    const fields: Discord.EmbedFieldData[] = []
-    array.forEach(name => fields.push({ name: name.name, value: name.changedToAt?.toString() || "First name", inline: true }))
-    return fields
 }
 
 interface NameHistory {
