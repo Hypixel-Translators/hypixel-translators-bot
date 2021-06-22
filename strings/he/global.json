@@ -20,6 +20,7 @@
         "falseFlag": "לא ניתן היה למצוא דגל זה!",
         "falseLang": "לא ניתן היה למצוא שפה זו!",
         "falseRole": "לא ניתן היה למצוא את הrole הזה!",
+        "falseUUID": "Couldn't find a player with that UUID!",
         "noPlayer": "השחקן הזה מעולם לא התחבר לHypixel!",
         "notVerified": "המשתמש הזה עדיין לא חיבר את חשבון הHypixel שלו/שלה!",
         "disabled": "הפקודה הנוכחית בוטלה לזמן מוגבל.",
@@ -61,7 +62,13 @@
         "last": "Last page",
         "confirm": "Confirm",
         "cancel": "Cancel",
-        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this."
+        "page": "עמוד מספר %%number%%/%%total%%",
+        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
+        "timeOut": "לתפריט הזה תם הזמן. אם ברצונך להשתמש בו שוב, בצע/י %%command%%."
+    },
+    "region": {
+        "dateLocale": "he-IL",
+        "timeZone": "Asia/Jerusalem"
     },
     "executedBy": "בוצע על-ידי %%user%%"
 }
