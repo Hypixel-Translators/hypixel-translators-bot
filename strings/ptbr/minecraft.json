@@ -1,0 +1,19 @@
+{
+    "moduleName": "Estatísticas do Minecraft",
+    "madeBy": "Comando feito por %%developer%%",
+    "history": {
+        "firstName": "Primeiro nome",
+        "nameHistoryFor": "Histórico de nomes de %%username%%",
+        "userChangedName": "%%username%% mudou de nome %%number%% vezes.",
+        "youChangedName": "Você mudou de nome %%number%% vezes.",
+        "userChangedName1": "%%username%% mudou de nome 1 vez.",
+        "youChangedName1": "Você mudou de nome 1 vez.",
+        "userNeverChanged": "%%username%% nunca mudou de nome.",
+        "youNeverChanged": "You have never changed your name."
+    },
+    "skin": {
+        "yourSkin": "Aqui está a sua skin!",
+        "userSkin": "Aqui está a skin de %%user%%!",
+        "isLinked": "Este jogador está vinculado com %%user%%"
+    }
+}
