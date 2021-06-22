@@ -20,6 +20,7 @@
         "falseFlag": "Essa bandeira não foi encontrada!",
         "falseLang": "Esse idioma não foi encontrado!",
         "falseRole": "Esse cargo não foi encontrado!",
+        "falseUUID": "Não foi possível encontrar um jogador com esse UUID!",
         "noPlayer": "Esse jogador nunca entrou no Hypixel!",
         "notVerified": "Esse usuário não vinculou a conta do Hypixel!",
         "disabled": "Este comando está desativado temporariamente.",
@@ -61,7 +62,13 @@
         "last": "Última página",
         "confirm": "Confirmar",
         "cancel": "Cancelar",
-        "notYours": "Você não pode interagir com este menu! Use %%command%% você mesmo para fazer isso."
+        "page": "Página %%number%%/%%total%%",
+        "notYours": "Você não pode interagir com este menu! Use %%command%% você mesmo para fazer isso.",
+        "timeOut": "Este menu expirou. Se você deseja usá-lo novamente, use %%command%%."
+    },
+    "region": {
+        "dateLocale": "pt-BR",
+        "timeZone": "America/Sao_Paulo"
     },
     "executedBy": "Executado por %%user%%"
 }
