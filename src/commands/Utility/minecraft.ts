@@ -199,9 +199,9 @@ export async function getUUID(username: string): Promise<string | undefined> {
 
 async function getPlayer(uuid: string) {
     const res = await fetch(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings),
-        json = await res.json()
+        json: UserProfile = await res.json()
     if (json.error) throw "falseUUID"
-    return await res.json() as UserProfile
+    return json
 }
 
 async function getNameHistory(uuid: string): Promise<NameHistory[]> {
