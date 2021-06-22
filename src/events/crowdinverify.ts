@@ -9,8 +9,8 @@ export default async function updateVerified(client: HTBClient, manual: boolean,
         const verifiedUsers: DbUser[] = await db.collection("users").find({ profile: { $exists: true } }).limit(limit).toArray()
 
         async function verifyUser(n: number) {
-            const user = verifiedUsers[n]
-            const member = client.guilds.cache.get("549503328472530974")!.members.cache.get(user.id)
+            const user = verifiedUsers[n],
+                member = client.guilds.cache.get("549503328472530974")!.members.cache.get(user.id)
             if (!member) return console.error(`Could not find guild member with ID ${user.id}`)
             await crowdinVerify(member, user.profile, false, false)
             if (n + 1 < verifiedUsers.length) await verifyUser(n + 1)

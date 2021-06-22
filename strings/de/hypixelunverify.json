@@ -2,5 +2,5 @@
     "moduleName": "Hypixel-Verifizierung",
     "unverified": "Du wurdest erfolgreich entverifiziert!",
     "notUnverified": "Konnte dich nicht entverifizieren!",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `/hypixelverify <username>`."
+    "whyNotUnverified": "Dies geschah, weil du dich noch nicht selbst verifiziert hast! Führe `/hypixelverify <Spitzname> ` aus."
 }

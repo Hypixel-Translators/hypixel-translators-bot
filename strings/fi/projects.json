@@ -1,7 +1,7 @@
 {
     "moduleName": "Käännösprojektit",
     "allProjects": "Tässä ovat kaikki projektit, joita tällä hetkellä tuemme palvelimellamme!",
-    "description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
+    "description": "Jos olet jo mukana jossain näistä projekteista, mutta sinulla ei ole vielä rooleja, käytä komentoa `/verify [profiilin URL]` saadaksesi ne!",
     "projectInfo": "Löyät linkin projektiin %%project%% [täältä](%%link%%). Saadaksesi lisätietoa käytä komentoa %%command%%.",
     "alreadyJoined": "Olet jo liittynyt tähän projektiin!",
     "notJoined": "Et ole vielä liittynyt tähän projektiin!",

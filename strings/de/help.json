@@ -1,7 +1,7 @@
 {
     "moduleName": "Information",
     "page1Title": "Hilfe-Seite",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "commandsListTooltip": "Dieser Bot wurde für die Hypixel Translators Community von %%developer%% erstellt. Er ist Open Source und unser GitHub Repository kann [hier]%%github%% gefunden werden.\nDu kannst bei der Übersetzung des Bots helfen, indem du den Anweisungen in `/translate` folgst.\n\nDu kannst `/help <Name des Befehls>` ausführen, um mehr über einen bestimmten Befehl zu erfahren.\nUnten findest du eine Liste mit allen verfügbaren Seiten. Benutze die Buttons auf dieser Nachricht, um sie zu durchlaufen.",
     "madeBy": "Der Bot wurde mit großer Sorgfalt von %%QkeleQ10%% erstellt",
     "page": "Seite %%number%%/%%total%%",
     "pageNumber": "Seite %%number%%",
@@ -22,7 +22,7 @@
         "description": "Zeigt alle verfügbaren Befehle und andere Informationen über den Bot."
     },
     "prefix": {
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+        "description": "Gibt dir den passenden Präfix für deine Sprache(n). Um einen benutzerdefiniertes Präfix zu erhalten, führe `/prefix` aus und gebe den Regionalcode der Flagge deines Landes oder dessen Namen an. Du kannst so viele Flaggen hinzufügen wie du magst, getrennt durch ein Leerzeichen."
     },
     "quote": {
         "description": "Ruft (oder fügt hinzu) ein lustiges/seltsames/weises Zitat vom Server ab."
@@ -46,19 +46,19 @@
         "description": "Zeigt dir grundlegende Hypixel-Statistiken für den angegebenen Benutzer."
     },
     "hypixelunverify": {
-        "description": "Unlinks your Discord account from your Minecraft account."
+        "description": "Entferne deinen Discord Account von deinem Minecraft-Account."
     },
     "hypixelverify": {
-        "description": "Links your Discord account with your Minecraft account."
+        "description": "Verbindet deinen Discord Account mit deinem Minecraft-Account."
     },
     "8ball": {
         "description": "Der Magic 8 Ball, der alle deine Fragen beantwortet."
     },
     "verify": {
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "description": "Überprüft automatisch auf Änderungen in deinem Crowdin-Profil und gibt dir die entsprechenden Rollen. Wenn dein Profil nicht in unserer Datenbank gespeichert ist, wirst du gebeten, dein Profil erneut zu senden. Um zu überprüfen, ob dein Profil gespeichert ist, führe `/profile` aus. Stelle sicher, dass DMs auf diesem Server aktiviert sind, damit der Bot dir eine Nachricht senden kann."
     },
     "profile": {
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
+        "description": "Gibt dir den Link zu deinem Crowdin-Profil, wenn er in unserer Datenbank gespeichert ist. Falls nicht, kannst du `/help reverify` ausführen, um zu erfahren, wie du dein Profil speicherst und deine Rollen aktualisierst."
     },
     "rank": {
         "description": "Gibt dir die aktuellen XP für dich selbst oder einen bestimmten Benutzer an."

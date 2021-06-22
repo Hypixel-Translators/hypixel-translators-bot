@@ -3,6 +3,7 @@
     "pageTitle": "Here is the XP leaderboard!",
     "page": "Pag %%number%%/%%total%%",
     "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
+    "youIndicator": "YOU",
     "thousand": "k",
     "unranked": "#%%rank%% Unranked",
     "timeOut": "The menu has the time of the out. Want use? Typ %%command%% agen, idot!"

@@ -1,6 +1,6 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
-import { execute, hypixel, quickplay, skyblockaddons, bot } from "../../events/stats"
+import { execute, updateProjectStatus } from "../../events/stats"
 import { Command, client } from "../../index"
 
 const command: Command = {
@@ -20,7 +20,7 @@ const command: Command = {
         },
         {
             name: "SkyblockAddons",
-            value: "skyblockaddons"
+            value: "sba"
         },
         {
             name: "Hypixel Translators Bot",
@@ -31,6 +31,7 @@ const command: Command = {
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(interaction: Discord.CommandInteraction) {
         const projectInput = interaction.options.get("project")?.value as string
+        await interaction.defer()
         if (!projectInput) {
             await execute(client, true)
                 .then(async () => {
@@ -40,25 +41,36 @@ const command: Command = {
                         .setTitle("All language statistics have been updated!")
                         .setDescription(`Check them out at ${interaction.guild!.channels.cache.find(c => c.name === "hypixel-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "bot-language-status")} and ${interaction.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`)
                         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    await interaction.reply({ embeds: [allEmbed] })
+                    await interaction.editReply({ embeds: [allEmbed] })
                 })
                 .catch(err => { throw err })
         } else {
-            const project = interaction.options.get("project")!.value as string
             switch (projectInput) {
-                case "hypixel": await hypixel(client)
-                case "quickplay": await quickplay(client)
-                case "skyblockaddons": await skyblockaddons(client)
-                case "bot": await bot(client)
+                case "hypixel": {
+                    await updateProjectStatus(client, "128098")
+                    break
+                }
+                case "quickplay": {
+                    await updateProjectStatus(client, "369653")
+                    break
+                }
+                case "sba": {
+                    await updateProjectStatus(client, "369493")
+                    break
+                }
+                case "bot": {
+                    await updateProjectStatus(client, "436418")
+                    break
+                }
             }
             const projectEmbed = new Discord.MessageEmbed()
                 .setColor(successColor)
                 .setAuthor("Statistics updater")
-                .setTitle(`The ${project} language statistics have been updated!`)
+                .setTitle(`The ${projectInput} language statistics have been updated!`)
                 .setDescription(`Check it out at ${interaction.guild!.channels.cache.find(c => c.name === `${projectInput}-language-status`)}!`)
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.reply({ embeds: [projectEmbed] })
-            console.log(`Manually updated the ${project} language statistics.`)
+            await interaction.editReply({ embeds: [projectEmbed] })
+            console.log(`Manually updated the ${projectInput} language statistics.`)
         }
     }
 }
