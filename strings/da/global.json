@@ -20,6 +20,7 @@
         "falseFlag": "Denne bruger kunne ikke blive fundet!",
         "falseLang": "Dette sprog kunne ikke blive fundet!",
         "falseRole": "Denne rolle kunne ikke blive fundet!",
+        "falseUUID": "Couldn't find a player with that UUID!",
         "noPlayer": "Denne spiller har aldrig tilsluttet sig Hypixel!",
         "notVerified": "Den bruger ikke har tilknyttet deres Hypixel konto endnu!",
         "disabled": "Denne kommando er midlertidigt deaktiveret.",
@@ -61,7 +62,13 @@
         "last": "Last page",
         "confirm": "Confirm",
         "cancel": "Cancel",
-        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this."
+        "page": "Side %%number%%/%%total%%",
+        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
+        "timeOut": "Denne menu er udløbet. Hvis du ønsker at bruge den igen, skal du bruge %%command%%."
+    },
+    "region": {
+        "dateLocale": "da-DK",
+        "timeZone": "Europe/Copenhagen"
     },
     "executedBy": "Udført af %%user%%"
 }
