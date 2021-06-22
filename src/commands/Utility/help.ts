@@ -123,7 +123,7 @@ const command: Command = {
       })
 
       collector.on("end", async () => {
-        await interaction.editReply({ content: getString("timeOut", { command: "`/help`" }), embeds: [pageEmbed], components: [] })
+        await interaction.editReply({ content: getString("timeOut", { command: `\`/${this.name}\`` }), embeds: [pageEmbed], components: [] })
       })
 
     } else {

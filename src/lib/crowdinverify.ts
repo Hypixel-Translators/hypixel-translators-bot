@@ -133,6 +133,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         const now = Date.now()
         let returnProjects = window.eval("crowdin.profile_projects.view.state.projects") as CrowdinProject[] | null
         if (returnProjects) return returnProjects
+        console.log(`Projects were null for ${member}, attempting to re-evaluate.`)
         let i = 0
         while (returnProjects === null) {
             returnProjects = window.eval("crowdin.profile_projects.view.state.projects")

@@ -33,7 +33,7 @@ client.once("ready", async () => {
                 if (!globalCommands.some(cmd => cmd.name === command.name)) await publishCommand(command)
                 else if (!commandEquals(discordCommand, command)) {
                     await discordCommand.edit(convertToDiscordCommand(command))
-                    console.log(`Edited command ${command.name} since changes were found`, discordCommand, command)
+                    console.log(`Edited command ${command.name} since changes were found\n`, discordCommand, command)
                 }
             }
         })
