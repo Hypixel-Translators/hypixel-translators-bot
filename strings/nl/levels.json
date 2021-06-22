@@ -1,10 +1,8 @@
 {
     "moduleName": "XP-scorebord",
     "pageTitle": "Hier is het XP-scorebord!",
-    "page": "Pagina %%number%%/%%total%%",
     "level": "%%rank%%e | Niveau %%level%% | XP: %%xp%%",
     "youIndicator": "JIJ",
     "thousand": " duizend",
-    "unranked": "%%rank%%e | geen rang",
-    "timeOut": "Dit menu is verlopen. Om het opnieuw te gebruiken, kun je %%command%% uitvoeren."
+    "unranked": "%%rank%%e | geen rang"
 }
