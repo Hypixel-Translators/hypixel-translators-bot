@@ -20,6 +20,7 @@
         "falseFlag": "Bu bayrak bulunamadı!",
         "falseLang": "Dil bulunamadı!",
         "falseRole": "Bu rol bulunamadı!",
+        "falseUUID": "Bu UUID'e sahip herhangi bir oyuncu bulunamadı!",
         "noPlayer": "Bu oyuncu Hypixel'e hiç girmemiş!",
         "notVerified": "Bu kullanıcı henüz Hypixel hesabını bağlamadı!",
         "disabled": "Bu komut geçici olarak devre dışı bırakıldı.",
@@ -61,7 +62,13 @@
         "last": "Son Sayfa",
         "confirm": "Onayla",
         "cancel": "İptal",
-        "notYours": "Bu menü ile etkileşime giremezsiniz! Bu menüyü kullanmak için %%command%% komutunu kullanın."
+        "page": "Sayfa %%number%%/%%total%%",
+        "notYours": "Bu menü ile etkileşime giremezsiniz! Bu menüyü kullanmak için %%command%% komutunu kullanın.",
+        "timeOut": "Bu menü zaman aşımına uğradı. Tekrar erişmek istersen, %%command%% komutunu kullan."
+    },
+    "region": {
+        "dateLocale": "tr-TR",
+        "timeZone": "Europe/Istanbul"
     },
     "executedBy": "%%user%% tarafından yürütüldü"
 }
