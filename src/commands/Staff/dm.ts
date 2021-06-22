@@ -1,6 +1,6 @@
 import Discord from "discord.js"
 import { errorColor, successColor, neutralColor } from "../../config.json"
-import { Command, client } from "../../index"
+import { Command, client, GetStringFunction } from "../../index"
 
 const command: Command = {
     name: "dm",
@@ -18,7 +18,7 @@ const command: Command = {
         required: true
     }],
     roleWhitelist: ["768435276191891456"], //Discord Staff
-    async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
         const recipient = interaction.options.get("user")!.user as Discord.User,
             recipientDb = await client.getUser(recipient.id),
             message = interaction.options.get("message")!.value as string,

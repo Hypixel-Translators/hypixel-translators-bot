@@ -3,7 +3,7 @@ import { successColor, errorColor } from "../../config.json"
 import fetch, { FetchError } from "node-fetch"
 import { db } from "../../lib/dbclient"
 import { getUUID } from "./minecraft"
-import { Command } from "../../index"
+import { Command, GetStringFunction } from "../../index"
 
 const command: Command = {
     name: "hypixelverify",
@@ -16,7 +16,7 @@ const command: Command = {
     }],
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
-    async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global") as string,
             uuid = await getUUID(interaction.options.get("username")!.value as string)
         if (!uuid) throw "noUser"

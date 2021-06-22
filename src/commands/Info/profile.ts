@@ -1,7 +1,7 @@
 import { db, DbUser } from "../../lib/dbclient"
 import { successColor, errorColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
-import { Command } from "../../index"
+import { Command, GetStringFunction } from "../../index"
 
 const command: Command = {
     name: "profile",
@@ -20,7 +20,7 @@ const command: Command = {
     }],
     allowTip: false,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-    async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
         const collection = db.collection("users"),
             user = interaction.options.get("user")?.user,
             profile = interaction.options.get("profile")?.value as string | undefined

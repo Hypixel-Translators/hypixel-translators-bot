@@ -1,7 +1,7 @@
 import { errorColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import fs from "fs"
-import { Command, client } from "../../index"
+import { Command, client, GetStringFunction } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
 
 const command: Command = {
@@ -22,7 +22,7 @@ const command: Command = {
   cooldown: 60,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
   allowDM: true,
-  async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+  async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
     const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
       madeBy = getString("madeBy", { QkeleQ10: "QkeleQ10#8482" })
 
@@ -158,7 +158,7 @@ const command: Command = {
   }
 }
 
-function fetchPage(page: number, pages: Page[], getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any, executedBy: string, interaction: Discord.CommandInteraction) {
+function fetchPage(page: number, pages: Page[], getString: GetStringFunction, executedBy: string, interaction: Discord.CommandInteraction) {
   if (page > pages.length - 1) page = pages.length - 1
   if (page < 0) page = 0
   let pageEmbed: Discord.MessageEmbed

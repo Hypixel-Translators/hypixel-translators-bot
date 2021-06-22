@@ -2,7 +2,7 @@ import { errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import { db } from "../../lib/dbclient"
 import { Collection } from "mongodb"
-import { client, Command } from "../../index"
+import { client, Command, GetStringFunction } from "../../index"
 
 const command: Command = {
     name: "quote",
@@ -83,7 +83,7 @@ const command: Command = {
     cooldown: 5,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development 
-    async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             collection = db.collection("quotes"),
             subCommand = interaction.options.first()!.name as string
@@ -117,7 +117,7 @@ const command: Command = {
     }
 }
 
-async function findQuote(executedBy: string, interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any, collection: Collection<any>) {
+async function findQuote(executedBy: string, interaction: Discord.CommandInteraction, getString: GetStringFunction, collection: Collection<any>) {
 
     const count = await collection.estimatedDocumentCount()
 

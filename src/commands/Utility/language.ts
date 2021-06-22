@@ -2,7 +2,7 @@ import { errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import fs from "fs"
 import { db, DbUser } from "../../lib/dbclient"
-import { Command } from "../../index"
+import { Command, GetStringFunction } from "../../index"
 
 const command: Command = {
     name: "language",
@@ -37,7 +37,7 @@ const command: Command = {
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
     allowDM: true,
     cooldown: 5,
-    async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
         let executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
         const collection = db.collection("users"),
             stringsFolder = "./strings/",

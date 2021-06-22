@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import { Command } from "../../index"
+import { Command, GetStringFunction } from "../../index"
 
 const command: Command = {
   name: "mention",
@@ -38,7 +38,7 @@ const command: Command = {
   allowTip: false,
   roleWhitelist: ["569839580971401236", "764442984119795732"], //Hypixel Proofreader and Discord Administrator
   channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "644620638878695424", "550951034332381184", "549894938712866816", "713084081579098152"],
-  async execute(interaction: Discord.CommandInteraction, getString: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any) {
+  async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
     let roleType = (interaction.options.get("role")!.value as string).toLowerCase()
     const lang = (interaction.options.get("language")!.value as string).toLowerCase(),
       member = interaction.member as Discord.GuildMember
