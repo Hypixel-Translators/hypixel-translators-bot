@@ -119,16 +119,16 @@ const command: Command = {
                         page = 0
 
                     controlButtons = updateButtonColors(controlButtons, page, pages)
-                    await interaction.editReply({embeds: []})
+                    await interaction.editReply({ embeds: [] })
 
                     function fetchPage(page: number, pages: NameHistory[][]) {
-    const embed = new Discord.MessageEmbed()
-                        .setColor(successColor)
-                        .setAuthor(getString("moduleName"))
-                        .setTitle(getString("history.nameHistoryFor", { username }))
-                        .addFields(constructFields(pages[0]))
-                        .setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))        
-}
+                        const embed = new Discord.MessageEmbed()
+                            .setColor(successColor)
+                            .setAuthor(getString("moduleName"))
+                            .setTitle(getString("history.nameHistoryFor", { username }))
+                            .addFields(constructFields(pages[0]))
+                            .setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                    }
 
                 }
 
