@@ -46,8 +46,8 @@ const command: Command = {
       pageIndex++
     })
 
-    const commandInput = interaction.options.find(o => o.name === "command")?.value as string | undefined,
-      pageInput = interaction.options.find(o => o.name === "page")?.value as number | undefined
+    const commandInput = interaction.options.get("command")?.value as string | undefined,
+      pageInput = interaction.options.get("page")?.value as number | undefined
 
     if (!commandInput) {
       if (Number(pageInput) > pages.length || Number(pageInput) < 1) {
@@ -170,7 +170,7 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, ex
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
         .setTitle(`${pages[page].badge} ${getString(pages[page].titleString!)}`)
-        .setFooter(`${getString("page", { number: page + 1, total: pages.length })} | ${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+        .setFooter(`${getString("pagination.page", { number: page + 1, total: pages.length }, "global")} | ${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
       pages[page].commands!.forEach(command => pageEmbed!.addField(`\`/${command}\``, getString(`${command}.description`)))
     } else return console.error(`Help page ${page} has no embed fields specified!`)
   } else return console.error(`Tried accessing help page ${page} but it doesn't exist in the pages array!`)

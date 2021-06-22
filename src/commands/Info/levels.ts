@@ -110,7 +110,7 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("pageTitle"))
-        .setFooter(`${getString("page", { number: page + 1, total: pages.length })} | ${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+        .setFooter(`${getString("pagination.page", { number: page + 1, total: pages.length }, "global")} | ${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     for (let i = 0; i <= pages[page].length - 1; i++) {
         // const user = interaction.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that
         if (pages[page][i].levels) {

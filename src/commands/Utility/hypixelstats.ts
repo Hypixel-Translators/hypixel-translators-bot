@@ -107,10 +107,10 @@ const command: Command = {
                     if (json.online) lastLoginSelector = "last_login"
                     else lastLoginSelector = "last_logout"
 
-                    let timeZone = getString("timeZone")
-                    if (timeZone.startsWith("crwdns")) timeZone = getString("timeZone", this.name, "en")
-                    let dateLocale = getString("dateLocale")
-                    if (dateLocale.startsWith("crwdns")) dateLocale = getString("dateLocale", this.name, "en")
+                    let timeZone = getString("region.timeZone", "global")
+                    if (timeZone.startsWith("crwdns")) timeZone = getString("region.timeZone", "global", "en")
+                    let dateLocale = getString("region.dateLocale", "global")
+                    if (dateLocale.startsWith("crwdns")) dateLocale = getString("region.dateLocale", "global", "en")
                     let lastLogin
                     if (json[lastLoginSelector]) lastLogin = new Date(json[lastLoginSelector]).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
                     else lastLogin = getString("lastLoginHidden")
