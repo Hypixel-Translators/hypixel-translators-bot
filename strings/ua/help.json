@@ -3,12 +3,10 @@
     "page1Title": "Сторінка допомоги",
     "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
     "madeBy": "Бот написаний з великою турботою користувачем %%QkeleQ10%%",
-    "page": "Сторінка %%number%% із %%total%%",
     "pageNumber": "Сторінка %%number%%",
     "utilityHelp": "Інструменти та засоби",
     "infoHelp": "Інформаційні команди",
     "projectsHelp": "Проєкти на Crowdin",
-    "timeOut": "Термін дії цього меню сплив. Якщо Ви хочете використовувати його знову, напишіть %%command%%.",
     "pageNotExist": "Цієї сторінки не існує!",
     "commandInfo": "Інформація щодо команди",
     "commandInfoFor": "Інформація щодо команди ",
@@ -18,29 +16,20 @@
     "second": "сек.",
     "minutes": "хв.",
     "cooldownField": "Перезарядка",
-    "help": {
-        "description": "Відображає Вам усі доступні команди та іншу інформацію щодо бота."
-    },
-    "prefix": {
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
-    },
-    "quote": {
-        "description": "Надає (або додає) смішну/дивну/мудру цитату з сервера."
-    },
-    "mention": {
-        "description": "Згадує мовну роль із повідомленням."
-    },
-    "languagestats": {
-        "description": "Показує для Вас прогрес мови на всіх проєктах, які ми підтримуємо."
+    "8ball": {
+        "description": "Магічна куля, яка відповість на всі Ваші запитання."
     },
     "feedback": {
         "description": "Відкриває нашу сторінку проблем із GitHub, де ви можете повідомити про проблеми та надіслати відгук."
     },
-    "language": {
-        "description": "Змінює Вашу мову, показує Вашу поточну або показує список доступних мов."
+    "guidelines": {
+        "description": "Надає Вам посилання на офіційний потік, стосовно перекладу Hypixel."
     },
-    "ping": {
-        "description": "Показує пінг бота."
+    "help": {
+        "description": "Відображає Вам усі доступні команди та іншу інформацію щодо бота."
+    },
+    "hypixel": {
+        "description": "Надає Вам корисну інформацію про проєкт Hypixel."
     },
     "hypixelstats": {
         "description": "Показує Вам базову статистику Hypixel для вказаного користувача."
@@ -51,49 +40,61 @@
     "hypixelverify": {
         "description": "Links your Discord account with your Minecraft account."
     },
-    "8ball": {
-        "description": "Магічна куля, яка відповість на всі Ваші запитання."
+    "invite": {
+        "description": "Надає Вам посилання із запрошенням на сервер. Будь ласка, використовуйте це, коли Ви хочете когось запросити."
     },
-    "verify": {
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+    "language": {
+        "description": "Змінює Вашу мову, показує Вашу поточну або показує список доступних мов."
     },
-    "profile": {
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
-    },
-    "rank": {
-        "description": "Надає Вам поточну кількість Вашого досвіду або досвіду будь-якого іншого користувача."
+    "languagestats": {
+        "description": "Показує для Вас прогрес мови на всіх проєктах, які ми підтримуємо."
     },
     "levels": {
         "description": "Надає Вам таблицю лідерів за досвідом."
     },
-    "tip": {
-        "description": "Надає Вам випадкову пораду щодо сервера."
+    "mention": {
+        "description": "Згадує мовну роль із повідомленням."
     },
-    "invite": {
-        "description": "Надає Вам посилання із запрошенням на сервер. Будь ласка, використовуйте це, коли Ви хочете когось запросити."
+    "minecraft": {
+        "description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+    },
+    "ping": {
+        "description": "Показує пінг бота."
+    },
+    "prefix": {
+        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+    },
+    "profile": {
+        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
     },
     "projects": {
         "description": "Надає Вам посилання і інформацію про всі проєкти перекладу, які ми підтримуємо на сервері."
     },
-    "hypixel": {
-        "description": "Надає Вам корисну інформацію про проєкт Hypixel."
-    },
-    "guidelines": {
-        "description": "Надає Вам посилання на офіційний потік, стосовно перекладу Hypixel."
-    },
     "quickplay": {
         "description": "Надає Вам корисну інформацію про проєкт Quickplay."
+    },
+    "quote": {
+        "description": "Надає (або додає) смішну/дивну/мудру цитату з сервера."
+    },
+    "rank": {
+        "description": "Надає Вам поточну кількість Вашого досвіду або досвіду будь-якого іншого користувача."
     },
     "skyblockaddons": {
         "description": "Надає Вам корисну інформацію про проєкт SkyblockAddons."
     },
-    "translate": {
-        "description": "Надає Вам корисну інформацію про те, як перекласти бота."
-    },
     "thread": {
         "description": "Надає Вам посилання на тему, що оголошує про цей Discord сервер."
     },
+    "tip": {
+        "description": "Надає Вам випадкову пораду щодо сервера."
+    },
+    "translate": {
+        "description": "Надає Вам корисну інформацію про те, як перекласти бота."
+    },
     "twitter": {
         "description": "Надає Вам посилання на офіційну сторінку спільноти перекладачів Hypixel в Twitter."
+    },
+    "verify": {
+        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
     }
 }
