@@ -20,6 +20,7 @@
         "falseFlag": "crwdns984:0crwdne984:0",
         "falseLang": "crwdns1116:0crwdne1116:0",
         "falseRole": "crwdns1148:0crwdne1148:0",
+        "falseUUID": "crwdns1438:0crwdne1438:0",
         "noPlayer": "crwdns986:0crwdne986:0",
         "notVerified": "crwdns1188:0crwdne1188:0",
         "disabled": "crwdns988:0crwdne988:0",
@@ -61,7 +62,13 @@
         "last": "crwdns1394:0crwdne1394:0",
         "confirm": "crwdns1396:0crwdne1396:0",
         "cancel": "crwdns1398:0crwdne1398:0",
-        "notYours": "crwdns1400:0%%command%%crwdne1400:0"
+        "page": "crwdns1440:0%%number%%crwdnd1440:0%%total%%crwdne1440:0",
+        "notYours": "crwdns1400:0%%command%%crwdne1400:0",
+        "timeOut": "crwdns1442:0%%command%%crwdne1442:0"
+    },
+    "region": {
+        "dateLocale": "crwdns1444:0crwdne1444:0",
+        "timeZone": "crwdns1446:0crwdne1446:0"
     },
     "executedBy": "crwdns540:0%%user%%crwdne540:0"
 }
