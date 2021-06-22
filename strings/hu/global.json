@@ -20,6 +20,7 @@
         "falseFlag": "Ez a zászló nem található!",
         "falseLang": "Ez a nyelv nem található!",
         "falseRole": "Ez a rang nem található!",
+        "falseUUID": "Nem található játékos ilyen UUID-vel!",
         "noPlayer": "Ez a játékos még sosem csatlakozott a Hypixelre!",
         "notVerified": "A felhasználó még nem csatolta a Hypixel fiókját!",
         "disabled": "Ez a parancs ki lett kapcsolva egy időre.",
@@ -61,7 +62,13 @@
         "last": "Utolsó oldal",
         "confirm": "Megerősítés",
         "cancel": "Mégse",
-        "notYours": "Te nem használhatod ezt a menüt! Ezt a %%command%% parancs futtatásával érheted el."
+        "page": "%%number%%. lap/%%total%%",
+        "notYours": "Te nem használhatod ezt a menüt! Ezt a %%command%% parancs futtatásával érheted el.",
+        "timeOut": "Időtúllépés. Ha újra használni akarod, használd a %%command%% parancsot."
+    },
+    "region": {
+        "dateLocale": "hu-HU",
+        "timeZone": "Europe/Budapest"
     },
     "executedBy": "%%user%% által küldve"
 }
