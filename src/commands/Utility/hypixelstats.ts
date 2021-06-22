@@ -11,12 +11,12 @@ const command: Command = {
     description: "Shows you basic Hypixel stats for the provided user.",
     options: [{
         type: "SUB_COMMAND",
-        name: "social",
-        description: "Shows the user's linked social media",
+        name: "stats",
+        description: "Shows general statistics for the given user",
         options: [{
             type: "STRING",
             name: "username",
-            description: "The IGN of the user to get statistics for",
+            description: "The IGN of the user to get statistics for. Can also be a UUID",
             required: false
         },
         {
@@ -28,8 +28,8 @@ const command: Command = {
     },
     {
         type: "SUB_COMMAND",
-        name: "stats",
-        description: "Shows general statistics for the given user",
+        name: "social",
+        description: "Shows the user's linked social media",
         options: [{
             type: "STRING",
             name: "username",
