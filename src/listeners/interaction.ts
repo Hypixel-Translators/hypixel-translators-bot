@@ -53,7 +53,7 @@ client.on("interaction", async interaction => {
     const now = Date.now(),
         timestamps = client.cooldowns.get(command.name)!,
         cooldownAmount = (command.cooldown || 3) * 1000
-    if (timestamps.has(interaction.user.id)) {
+    if (timestamps.has(interaction.user.id) && interaction.channelID !== "730042612647723058") { //bot-development
         const expirationTime = timestamps.get(interaction.user.id)! + cooldownAmount
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000

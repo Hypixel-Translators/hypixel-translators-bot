@@ -43,7 +43,7 @@ const command: Command = {
             required: false
         }]
     }],
-    cooldown: 120,
+    cooldown: 30,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev
     allowDM: true,
     async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {

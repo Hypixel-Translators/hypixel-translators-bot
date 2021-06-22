@@ -57,6 +57,9 @@
     "mention": {
         "description": "Mentions a language role with an optional message."
     },
+    "minecraft": {
+        "description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+    },
     "ping": {
         "description": "Gives you the bot's ping."
     },
