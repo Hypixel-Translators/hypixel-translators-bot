@@ -25,11 +25,11 @@ client.on("interaction", async interaction => {
     let allowed = true
 
     //Channel Blacklist and whitelist systems
-    if (!(interaction.channel instanceof Discord.DMChannel)) {
+    if (!(interaction.channel instanceof Discord.DMChannel) && interaction.channel) {
         if (command.categoryBlacklist && command.categoryBlacklist.includes(interaction.channel.parentID!)) allowed = false
-        else if (command.channelBlacklist && command.channelBlacklist.includes(interaction.channel.id)) allowed = false
+        else if (command.channelBlacklist && command.channelBlacklist.includes(interaction.channelID)) allowed = false
         else if (command.categoryWhitelist && !command.categoryWhitelist.includes(interaction.channel.parentID!)) allowed = false
-        else if (command.channelWhitelist && !command.channelWhitelist.includes(interaction.channel.id)) allowed = false
+        else if (command.channelWhitelist && !command.channelWhitelist.includes(interaction.channelID)) allowed = false
     }
 
     //Give perm to admins and return if not allowed
