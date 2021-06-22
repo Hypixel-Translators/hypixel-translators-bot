@@ -86,23 +86,30 @@ client.once("ready", async () => {
 async function setPermissions(command: Discord.ApplicationCommand) {
     const permissions: Discord.ApplicationCommandPermissionData[] = [],
         clientCmd = client.commands.get(command.name)!
-    clientCmd.roleWhitelist?.forEach(id => {
-        //Add whitelisted roles
-        permissions.push({
-            type: "ROLE",
-            id,
-            permission: true
-        })
+    if (clientCmd.dev) permissions.push({
+        type: "ROLE",
+        id: "768435276191891456", //Discord Staff
+        permission: true
     })
-    clientCmd.roleBlacklist?.forEach(id => {
-        //Add blacklisted roles
-        permissions.push({
-            type: "ROLE",
-            id,
-            permission: false
+    else {
+        clientCmd.roleWhitelist?.forEach(id => {
+            //Add whitelisted roles
+            permissions.push({
+                type: "ROLE",
+                id,
+                permission: true
+            })
         })
-    })
-    if (permissions.length) await command.setPermissions(permissions, "549503328472530974")
+        clientCmd.roleBlacklist?.forEach(id => {
+            //Add blacklisted roles
+            permissions.push({
+                type: "ROLE",
+                id,
+                permission: false
+            })
+        })
+        if (permissions.length) await command.setPermissions(permissions, "549503328472530974")
+    }
 }
 function constructDiscordCommands() {
     const returnCommands: Discord.ApplicationCommandData[] = []
@@ -117,7 +124,7 @@ function convertToDiscordCommand(command: Command): Discord.ApplicationCommandDa
     return {
         name: command.name,
         description: command.description,
-        defaultPermission: command.roleWhitelist ? false : true,
+        defaultPermission: command.roleWhitelist || command.dev ? false : true,
         options: command.options
     }
 }
