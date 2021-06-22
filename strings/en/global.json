@@ -62,7 +62,8 @@
         "last": "Last page",
         "confirm": "Confirm",
         "cancel": "Cancel",
-        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this."
+        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
+        "timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%."
     },
     "region": {
         "dateLocale": "en-GB",

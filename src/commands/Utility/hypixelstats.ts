@@ -240,7 +240,7 @@ const command: Command = {
                 })
 
                 collector.on("end", async () => {
-                    await interaction.editReply({ content: getString("timeOut", { command: `\`/${this.name}\`` }), components: [], embeds: [embed] })
+                    await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }), components: [], embeds: [embed] })
                 })
             })
             .catch(e => {
