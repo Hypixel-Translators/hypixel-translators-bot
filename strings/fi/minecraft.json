@@ -1,0 +1,19 @@
+{
+    "moduleName": "Minecraft-tilastot",
+    "madeBy": "Komennon tehnyt %%developer%%",
+    "history": {
+        "firstName": "Ensimmäinen nimi",
+        "nameHistoryFor": "Käyttäjän %%username%% nimihistoria",
+        "userChangedName": "%%username%% on vaihtanut nimensä %%number%% kertaa.",
+        "youChangedName": "Olet vaihtanut nimesi %%number%% kertaa.",
+        "userChangedName1": "%%username%% on vaihtanut nimensä kerran.",
+        "youChangedName1": "Olet vaihtanut nimesi kerran.",
+        "userNeverChanged": "%%username%% ei ole koskaan vaihtanut nimeään.",
+        "youNeverChanged": "Et ole koskaan vaihtanut nimeäsi."
+    },
+    "skin": {
+        "yourSkin": "Tässä on skinisi!",
+        "userSkin": "Tässä on käyttäjän %%user%% skini!",
+        "isLinked": "Tämä on käyttäjän %%user%% Minecraft-käyttäjä"
+    }
+}
