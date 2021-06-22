@@ -20,6 +20,7 @@
         "falseFlag": "Префікс не знайдено!",
         "falseLang": "Мову не знайдено!",
         "falseRole": "Роль не знайдено!",
+        "falseUUID": "Couldn't find a player with that UUID!",
         "noPlayer": "Цей гравець ніколи не заходив на Hypixel!",
         "notVerified": "Цей користувач ще не прив'язав свій обліковий запис Hypixel!",
         "disabled": "Цю команду тимчасово вимкнено.",
@@ -61,7 +62,13 @@
         "last": "Last page",
         "confirm": "Confirm",
         "cancel": "Cancel",
-        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this."
+        "page": "Сторінка %%number%% із %%total%%",
+        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
+        "timeOut": "Термін дії цього меню сплив. Якщо Ви хочете використовувати його знову, напишіть %%command%%."
+    },
+    "region": {
+        "dateLocale": "uk-UA",
+        "timeZone": "Europe/Kiev"
     },
     "executedBy": "Виконано користувачем %%user%%"
 }
