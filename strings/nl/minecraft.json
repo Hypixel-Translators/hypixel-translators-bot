@@ -1,0 +1,19 @@
+{
+    "moduleName": "Minecraft-statistieken",
+    "madeBy": "Commando ontwikkeld door %%developer%%",
+    "history": {
+        "firstName": "Voornaam",
+        "nameHistoryFor": "Naamgeschiedenis voor %%username%%",
+        "userChangedName": "%%username%% is %%number%% keer van gebruikersnaam veranderd.",
+        "youChangedName": "Je bent %%number%% keer van gebruikersnaam veranderd.",
+        "userChangedName1": "%%username%% is één keer van gebruikersnaam veranderd.",
+        "youChangedName1": "Je bent één keer van gebruikersnaam veranderd.",
+        "userNeverChanged": "%%username%% is nog nooit van gebruikersnaam veranderd.",
+        "youNeverChanged": "Je bent nog nooit van gebruikersnaam veranderd."
+    },
+    "skin": {
+        "yourSkin": "Dit is je skin!",
+        "userSkin": "Dit is de skin van %%user%%!",
+        "isLinked": "Deze speler is gekoppeld aan %%user%%"
+    }
+}
