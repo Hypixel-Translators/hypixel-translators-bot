@@ -12,11 +12,11 @@ const command: Command = {
     options: [{
         type: "SUB_COMMAND",
         name: "history",
-        description: "Shows the user's name history",
+        description: "Shows a user's name history. You must provide at least 1 parameter if your MC account is not linked",
         options: [{
             type: "STRING",
             name: "username",
-            description: "The IGN/UUID of the user to get the name history for. ",
+            description: "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked",
             required: false
         },
         {
@@ -29,7 +29,7 @@ const command: Command = {
     {
         type: "SUB_COMMAND",
         name: "skin",
-        description: "Shows the user's skin",
+        description: "Shows a user's skin. You must provide at least 1 parameter if your MC account is not linked",
         options: [{
             type: "STRING",
             name: "username",
@@ -66,10 +66,10 @@ const command: Command = {
         const isOwnUser = uuid === authorDb?.uuid,
             uuidDb: DbUser | null = await db.collection("users").findOne({ uuid })
 
+        await interaction.defer()
+
         switch (subCommand) {
             case "history":
-                await interaction.defer()
-
                 const nameHistory = await getNameHistory(uuid),
                     username = nameHistory[0].name.split("_").join("\\_")
 
@@ -179,11 +179,9 @@ const command: Command = {
                     .setDescription(uuidDb ? getString("skin.isLinked", { user: `<@${uuidDb.id}>` }) : "")
                     .setImage(`https://crafatar.com/renders/body/${uuid}?overlay`)
                     .setFooter(`${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                await interaction.reply({ embeds: [skinEmbed] })
+                await interaction.editReply({ embeds: [skinEmbed] })
                 break
         }
-
-
     }
 }
 
@@ -200,13 +198,17 @@ export async function getUUID(username: string): Promise<string | undefined> {
 }
 
 async function getPlayer(uuid: string) {
-    const res = await fetch(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings)
+    const res = await fetch(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings),
+        json = await res.json()
+    if (json.error) throw "falseUUID"
     return await res.json() as UserProfile
 }
 
 async function getNameHistory(uuid: string): Promise<NameHistory[]> {
-    const res = await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`, fetchSettings)
-    return (await res.json()).reverse()
+    const res = await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`, fetchSettings),
+        json = await res.json()
+    if (json.error) throw "falseUUID"
+    return json.reverse()
 }
 
 interface NameHistory {

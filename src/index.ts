@@ -39,7 +39,7 @@ export interface Command extends Discord.ApplicationCommandData {
     categoryWhitelist?: Discord.Snowflake[]
     categoryBlacklist?: Discord.Snowflake[]
     category?: string
-    execute(interaction: Discord.CommandInteraction, getString?: (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any): Promise<any>
+    execute(interaction: Discord.CommandInteraction, getString?: GetStringFunction): Promise<any>
 }
 
 export type GetStringFunction = (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any
