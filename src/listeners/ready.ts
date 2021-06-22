@@ -9,19 +9,6 @@ import { isEqual } from "lodash";
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user!.tag}!`)
 
-    const publishCommand = async (command: Command) => {
-        if (command.allowDM) {
-            //Create a global command
-            const cmd = await client.application!.commands.create(convertToDiscordCommand(command))!
-            await setPermissions(cmd)
-        } else {
-            //Create a guild wide command
-            const cmd = await client.guilds.cache.get("549503328472530974")!.commands.create(convertToDiscordCommand(command))
-            await setPermissions(cmd)
-        }
-        console.log(`Published command ${command.name}!`)
-    }
-
     //Only update global commands in production
     if (process.env.NODE_ENV === "production") {
         const globalCommands = await client.application!.commands.fetch()
@@ -83,6 +70,19 @@ client.once("ready", async () => {
     }, 60000)
 })
 
+async function publishCommand(command: Command) {
+    if (command.allowDM) {
+        //Create a global command
+        const cmd = await client.application!.commands.create(convertToDiscordCommand(command))!
+        await setPermissions(cmd)
+    } else {
+        //Create a guild wide command
+        const cmd = await client.guilds.cache.get("549503328472530974")!.commands.create(convertToDiscordCommand(command))
+        await setPermissions(cmd)
+    }
+    console.log(`Published command ${command.name}!`)
+}
+
 async function setPermissions(command: Discord.ApplicationCommand) {
     const permissions: Discord.ApplicationCommandPermissionData[] = [],
         clientCmd = client.commands.get(command.name)!
@@ -111,6 +111,7 @@ async function setPermissions(command: Discord.ApplicationCommand) {
     }
     if (permissions.length) await command.setPermissions(permissions, "549503328472530974")
 }
+
 function constructDiscordCommands() {
     const returnCommands: Discord.ApplicationCommandData[] = []
     let clientCommands = client.commands
