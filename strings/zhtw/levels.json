@@ -1,10 +1,8 @@
 {
     "moduleName": "XP 排行榜",
     "pageTitle": "Here is the XP leaderboard!",
-    "page": "第 %%number%%/%%total%% 頁",
     "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
     "youIndicator": "YOU",
     "thousand": "k",
-    "unranked": "#%%rank%% Unranked",
-    "timeOut": "這個選單已逾時。如果你要繼續使用它，請再次輸入 %%command%%。"
+    "unranked": "#%%rank%% Unranked"
 }
