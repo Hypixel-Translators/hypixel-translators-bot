@@ -51,7 +51,7 @@ const command: Command = {
             credits = getString("madeBy", { developer: interaction.client.users.cache.get("500669086947344384")!.tag }),
             authorDb: DbUser = await client.getUser(interaction.user.id),
             subCommand = interaction.options.first()!.name as string,
-            userInput = interaction.options.first()!.options?.get("user")?.user as Discord.User | undefined,
+            userInput = interaction.options.first()!.options?.get("user")?.user,
             usernameInput = interaction.options.first()!.options?.get("username")?.value as string | undefined
 
         let uuid = authorDb.uuid
@@ -63,7 +63,8 @@ const command: Command = {
         else uuid = usernameInput ?? authorDb.uuid
         if (!userInput && !usernameInput && !authorDb?.uuid) throw "noUser"
         if (!uuid) throw "falseUser"
-        const isOwnUser = uuid === authorDb?.uuid
+        const isOwnUser = uuid === authorDb?.uuid,
+            uuidDb: DbUser | null = await db.collection("users").findOne({ uuid })
 
         switch (subCommand) {
             case "history":
@@ -133,7 +134,6 @@ const command: Command = {
                     collector.on("end", async () => {
                         await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"), embeds: [pageEmbed], components: [] })
                     })
-
                 }
 
                 function fetchPage(page: number, pages: NameHistory[][]) {
@@ -143,7 +143,9 @@ const command: Command = {
                         .setTitle(getString("history.nameHistoryFor", { username }))
                         .setDescription(
                             nameHistory.length - 1
-                                ? getString(isOwnUser ? "history.youChangedName" : "history.userChangedName", { username, number: nameHistory.length - 1 })
+                                ? nameHistory.length - 1 == 1
+                                    ? getString(isOwnUser ? "history.youChangedName1" : "history.userChangedName1", { username })
+                                    : getString(isOwnUser ? "history.youChangedName" : "history.userChangedName", { username, number: nameHistory.length - 1 })
                                 : getString(isOwnUser ? "history.youNeverChanged" : "history.userNeverChanged", { username })
                         )
                         .addFields(constructFields(pages[page]))
@@ -171,7 +173,10 @@ const command: Command = {
                 const skinEmbed = new Discord.MessageEmbed()
                     .setColor(successColor)
                     .setAuthor(getString("moduleName"))
-                    .setTitle(isOwnUser ? getString("skin.yourSkin") : getString("skin.userSkin", { user: (userInput?.toString() || usernameInput)! })) //There's always at least a user or username input if it's not the own user, otherwise the command throws an error above
+                    .setTitle(isOwnUser
+                        ? getString("skin.yourSkin")
+                        : getString("skin.userSkin", { user: (await getPlayer(uuid)).name }))
+                    .setDescription(uuidDb ? getString("skin.isLinked", { user: `<@${uuidDb.id}>` }) : "")
                     .setImage(`https://crafatar.com/renders/body/${uuid}?overlay`)
                     .setFooter(`${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                 await interaction.reply({ embeds: [skinEmbed] })
@@ -194,6 +199,11 @@ export async function getUUID(username: string): Promise<string | undefined> {
         })
 }
 
+async function getPlayer(uuid: string) {
+    const res = await fetch(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings)
+    return await res.json() as UserProfile
+}
+
 async function getNameHistory(uuid: string): Promise<NameHistory[]> {
     const res = await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`, fetchSettings)
     return (await res.json()).reverse()
@@ -202,4 +212,15 @@ async function getNameHistory(uuid: string): Promise<NameHistory[]> {
 interface NameHistory {
     name: string
     changedToAt?: number
+}
+
+/** @see https://wiki.vg/Mojang_API#UUID_to_Profile_and_Skin.2FCape */
+interface UserProfile {
+    id: string
+    name: string
+    legacy?: boolean
+    properties: {
+        name: string
+        value: string
+    }[]
 }

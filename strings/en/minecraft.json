@@ -6,12 +6,15 @@
         "nameHistoryFor": "Name history for %%username%%",
         "userChangedName": "%%username%% has changed their name %%number%% times.",
         "youChangedName": "You have changed your name %%number%% times",
+        "userChangedName1": "%%username%% has changed their name 1 time.",
+        "youChangedName1": "You have changed your name 1 time",
         "userNeverChanged": "%%username%% has never changed their name.",
         "youNeverChanged": "You have never changed your name",
         "page": "Page %%number%%/%%total%%"
     },
     "skin": {
         "yourSkin": "Here's your skin!",
-        "userSkin": "Here's %%user%%'s skin"
+        "userSkin": "Here's %%user%%'s skin",
+        "isLinked": "This player is linked to %%user%%"
     }
 }
