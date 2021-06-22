@@ -3,12 +3,10 @@
     "page1Title": "Yardım sayfası",
     "commandsListTooltip": "Bu bot, Hypixel Translators Topluluğu için %%developer%% tarafından yapıldı. Bu bot açık kaynak kodludur ve GitHub depomuza [buradan]%%github%% erişebilirsin.\n`/translate` komutundaki talimatları izleyerek botun çevirilmesine yardımcı olabilirsin.\n\nBelirli bir komut hakkında daha fazla bilgi edinmek için `/help <komut>` komutunu kullanabilirsin.\nAşağıda mevcut tüm komutların bir listesini bulabilirsin. Sayfalar arasında geçiş yapmak için bu mesajdaki tepkileri kullan.",
     "madeBy": "Bot, %%QkeleQ10%% tarafından özenle yapıldı",
-    "page": "Sayfa %%number%%/%%total%%",
     "pageNumber": "Sayfa %%number%%",
     "utilityHelp": "Araçlar & Yardımcı Programlar",
     "infoHelp": "Bilgi komutları",
     "projectsHelp": "Crowdin Projeleri",
-    "timeOut": "Bu menü zaman aşımına uğradı. Tekrar erişmek istersen, %%command%% komutunu kullan.",
     "pageNotExist": "Böyle bir sayfa mevcut değil!",
     "commandInfo": "Komut bilgisi",
     "commandInfoFor": "Komut bilgisi: ",
@@ -18,29 +16,20 @@
     "second": "saniye",
     "minutes": "dakika",
     "cooldownField": "Bekleme Süresi",
-    "help": {
-        "description": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir."
-    },
-    "prefix": {
-        "description": "Sana, dil(ler) için uygun ön ek verir. Özel bir ön ek almak için, `/prefix` komutunu kullan ve `<bayrak>` öğesini ülkenin bayrağıyla veya ülkenin bölge koduyla değiştir. Boşluk tuşu ile ayırarak, istediğin kadar bayrak ekleyebilirsin."
-    },
-    "quote": {
-        "description": "Sunucudan komik/garip/bilge bir alıntı alır (veya ekler)."
-    },
-    "mention": {
-        "description": "İsteğe bağlı bir mesajla bir dil rolünden bahseder."
-    },
-    "languagestats": {
-        "description": "Şuanda desteklediğimiz bütün dillerdeki ilerlemeyi gösterir."
+    "8ball": {
+        "description": "Sihirli Top, tüm sorularını cevaplayacak."
     },
     "feedback": {
         "description": "Herhangi bir hatayı bildirebileceğiniz GitHub sorunları sayfamızı açar."
     },
-    "language": {
-        "description": "Dilini değiştirir, mevcut dilini veya mevcut dillerin bir listesini gösterir."
+    "guidelines": {
+        "description": "Hypixel çevirileri ile ilgili resmi konuya yönlendiren bir bağlantı verir."
     },
-    "ping": {
-        "description": "Size botun gecikmesini söyler."
+    "help": {
+        "description": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir."
+    },
+    "hypixel": {
+        "description": "Hypixel Crowdin projesi ile ilgili yararlı bilgiler verir."
     },
     "hypixelstats": {
         "description": "Belirtilen kullanıcı için temel Hypixel istatistiklerini gösterir."
@@ -51,49 +40,61 @@
     "hypixelverify": {
         "description": "Discord hesabını Hypixel hesabına bağlar."
     },
-    "8ball": {
-        "description": "Sihirli Top, tüm sorularını cevaplayacak."
+    "invite": {
+        "description": "Sunucu için bir davet bağlantısı verir. Birini davet etmek istediğinde lütfen bu bağlantıyı kullan."
     },
-    "verify": {
-        "description": "Crowdin profilinizdeki değişiklikleri otomatik olarak kontrol eder ve size uygun rolleri verir. Profiliniz veritabanımızda saklanmıyorsa, bunu komutta bir argüman olarak sağlayabilirsiniz. Profilinin saklanıp saklanmadığını kontrol etmek için `/profile` komutunu kullan. Botun sana bir mesaj gönderebilmesi için Dm'inin açık olduğundan emin ol."
+    "language": {
+        "description": "Dilini değiştirir, mevcut dilini veya mevcut dillerin bir listesini gösterir."
     },
-    "profile": {
-        "description": "Veritabanımızda saklanıyorsa, Crowdin profiline yönlendiren bağlantı verir. Saklanmıyorsa, profilini nasıl saklayacağını ve rollerini nasıl güncelleyeceğini öğrenmek için `/help verify` komutunu kullanabilirsin."
-    },
-    "rank": {
-        "description": "Senin veya herhangi bir kullanıcının mevcut deneyim puanını gösterir."
+    "languagestats": {
+        "description": "Şuanda desteklediğimiz bütün dillerdeki ilerlemeyi gösterir."
     },
     "levels": {
         "description": "Deneyim Puanı sıralamasını gösterir."
     },
-    "tip": {
-        "description": "Sunucu ile ilgili rastgele bir ipucu verir."
+    "mention": {
+        "description": "İsteğe bağlı bir mesajla bir dil rolünden bahseder."
     },
-    "invite": {
-        "description": "Sunucu için bir davet bağlantısı verir. Birini davet etmek istediğinde lütfen bu bağlantıyı kullan."
+    "minecraft": {
+        "description": "Belirtilen oyuncunun ad veya cilt geçmişini gösterir. Bu komut `/hypixelverify` komutu ile uyumludur eğer doğrulanılırsa, belirli bir kullanıcının bilgilerini görüntülemenize izin verir. `user` parametresi her zaman `username`e göre önceliğe sahiptir ve doğrulanmanız durumunda her ikisi de isteğe bağlıdır, aksi takdirde en az biri gereklidir."
+    },
+    "ping": {
+        "description": "Size botun gecikmesini söyler."
+    },
+    "prefix": {
+        "description": "Sana, dil(ler) için uygun ön ek verir. Özel bir ön ek almak için, `/prefix` komutunu kullan ve `<bayrak>` öğesini ülkenin bayrağıyla veya ülkenin bölge koduyla değiştir. Boşluk tuşu ile ayırarak, istediğin kadar bayrak ekleyebilirsin."
+    },
+    "profile": {
+        "description": "Veritabanımızda saklanıyorsa, Crowdin profiline yönlendiren bağlantı verir. Saklanmıyorsa, profilini nasıl saklayacağını ve rollerini nasıl güncelleyeceğini öğrenmek için `/help verify` komutunu kullanabilirsin."
     },
     "projects": {
         "description": "Sunucuda desteklediğimiz tüm çeviri projeleri hakkında size bağlantılar ve bilgiler verir."
     },
-    "hypixel": {
-        "description": "Hypixel Crowdin projesi ile ilgili yararlı bilgiler verir."
-    },
-    "guidelines": {
-        "description": "Hypixel çevirileri ile ilgili resmi konuya yönlendiren bir bağlantı verir."
-    },
     "quickplay": {
         "description": "Quickplay Crowdin projesi ile ilgili yararlı bilgiler verir."
+    },
+    "quote": {
+        "description": "Sunucudan komik/garip/bilge bir alıntı alır (veya ekler)."
+    },
+    "rank": {
+        "description": "Senin veya herhangi bir kullanıcının mevcut deneyim puanını gösterir."
     },
     "skyblockaddons": {
         "description": "SkyblockAddons Crowdin projesi ile ilgili yararlı bilgiler verir."
     },
-    "translate": {
-        "description": "Botun nasıl çevrileceği hakkında size yararlı bilgiler verir."
-    },
     "thread": {
         "description": "Bu Discord sunucusunu açıklayan konu için bir bağlantı verir."
     },
+    "tip": {
+        "description": "Sunucu ile ilgili rastgele bir ipucu verir."
+    },
+    "translate": {
+        "description": "Botun nasıl çevrileceği hakkında size yararlı bilgiler verir."
+    },
     "twitter": {
         "description": "Hypixel Translators topluluğunun resmi Twitter sayfasına bir bağlantı verir."
+    },
+    "verify": {
+        "description": "Crowdin profilinizdeki değişiklikleri otomatik olarak kontrol eder ve size uygun rolleri verir. Profiliniz veritabanımızda saklanmıyorsa, bunu komutta bir argüman olarak sağlayabilirsiniz. Profilinin saklanıp saklanmadığını kontrol etmek için `/profile` komutunu kullan. Botun sana bir mesaj gönderebilmesi için Dm'inin açık olduğundan emin ol."
     }
 }
