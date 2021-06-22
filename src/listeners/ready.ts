@@ -26,7 +26,13 @@ client.once("ready", async () => {
         })
         //Delete commands that have been removed locally
         globalCommands.forEach(async command => {
-            if (!client.commands.get(command.name)) await command.delete()
+            if (!client.commands.get(command.name)) {
+                await command.delete()
+                console.log(`Deleted command ${command.name} as it was deleted locally.`)
+            } else if (!client.commands.get(command.name)?.allowDM) {
+                await command.delete()
+                console.log(`Deleted command ${command.name} globally as it is no longer allowed in DMs`)
+            }
         })
     }
     //Set guild commands - these don't need checks since they update instantly

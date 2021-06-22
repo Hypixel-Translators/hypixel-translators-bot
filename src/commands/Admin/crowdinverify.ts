@@ -6,7 +6,6 @@ import { client, Command } from "../../index"
 const command: Command = {
     name: "crowdinverify",
     description: "Goes through all the stored profiles and updates the user's roles accordingly",
-    allowDM: true,
     options: [{
         type: "INTEGER",
         name: "limit",

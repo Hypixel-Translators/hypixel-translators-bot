@@ -28,7 +28,6 @@ const command: Command = {
         }],
         required: true
     }],
-    allowDM: true,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["730042612647723058", "551693960913879071"], // bot-development admin-bots
     async execute(interaction: Discord.CommandInteraction) {
