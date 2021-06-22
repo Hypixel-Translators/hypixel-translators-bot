@@ -15,7 +15,7 @@ const command: Command = {
     }],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(interaction: Discord.CommandInteraction) {
-        const limit = interaction.options.get("limit") as number | undefined
+        const limit = interaction.options.get("limit")?.value as number | undefined
         await interaction.defer()
         await crowdin(client, true, limit)
         const embed = new Discord.MessageEmbed()
@@ -25,8 +25,7 @@ const command: Command = {
             .setDescription("Check the console for any errors that may have occured in the process")
             .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
         await interaction.editReply({ embeds: [embed] })
-            .catch(async (err: Error) => {
-                embed.addField("Error", err.stack || err.toString())
+            .catch(async () => {
                 await interaction.channel.send({ content: "The interaction expired, so here's the embed so you don't feel sad", embeds: [embed] })
             })
     }

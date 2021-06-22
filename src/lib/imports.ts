@@ -1,6 +1,5 @@
 import fs from "fs"
 import path from "path"
-import Discord from "discord.js"
 import { HTBClient } from "./dbclient"
 import { Command } from "../index"
 
