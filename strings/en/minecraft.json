@@ -1,0 +1,14 @@
+{
+    "moduleName": "Minecraft Statistics",
+    "madeBy": "Command made by %%developer%%",
+    "history": {
+        "changedAt": "%%username%% - Changed to at: %%date%%",
+        "nameHistoryFor": "Name history for %%username%%:",
+        "changedNameNTimes": "%%username%% has changed their name %%number%% times.",
+        "neverChangedName": "%%username%% has never changed their name."
+    },
+    "skin": {
+        "yourSkin": "Here's your skin!",
+        "userSkin": "Here's %%user%%'s skin"
+    }
+}

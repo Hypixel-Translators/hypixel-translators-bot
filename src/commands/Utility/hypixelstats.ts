@@ -3,6 +3,7 @@ import fetch, { FetchError } from "node-fetch"
 import { db, DbUser } from "../../lib/dbclient"
 import { updateRoles } from "./hypixelverify"
 import { Command, client } from "../../index"
+import { getUUID } from "./minecraft"
 
 //Credits to marzeq
 const command: Command = {
@@ -57,7 +58,7 @@ const command: Command = {
             const userDb: DbUser = await client.getUser(userInput.id)
             if (userDb.uuid) uuid = userDb.uuid
             else throw "notVerified"
-        } else if (usernameInput && usernameInput?.length < 32) uuid = await getPlayer(usernameInput)
+        } else if (usernameInput && usernameInput?.length < 32) uuid = await getUUID(usernameInput)
         else uuid = usernameInput ?? authorDb.uuid
         if (!uuid) throw "noUser"
 
@@ -249,18 +250,6 @@ const command: Command = {
                 } else throw e
             })
     }
-}
-
-export async function getPlayer(username: string): Promise<string | undefined> {
-    if (!username) return
-    return await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 10000 })
-        .then(res => res.json())
-        .then(json => {
-            return json.id
-        })
-        .catch(() => {
-            return
-        })
 }
 
 function parseColorCode(rank: string): string {

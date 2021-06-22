@@ -1,21 +1,22 @@
 import Discord from "discord.js"
-import { successColor, errorColor } from "../../config.json"
-import fetch, { FetchError } from "node-fetch"
-import { db, DbUser } from "../../lib/dbclient"
-import { getPlayer } from "./hypixelstats"
+import { successColor } from "../../config.json"
+import fetch from "node-fetch"
+import { DbUser } from "../../lib/dbclient"
 import { client, Command, GetStringFunction } from "../../index"
+import { updateButtonColors } from "./help"
+const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 10000 }
 
 const command: Command = {
     name: "minecraft",
     description: "Looks up info about a specific Minecraft player",
     options: [{
         type: "SUB_COMMAND",
-        name: "names",
+        name: "history",
         description: "Shows the user's name history",
         options: [{
             type: "STRING",
             name: "username",
-            description: "The IGN of the user to get the name history for. ",
+            description: "The IGN/UUID of the user to get the name history for. ",
             required: false
         },
         {
@@ -32,13 +33,13 @@ const command: Command = {
         options: [{
             type: "STRING",
             name: "username",
-            description: "The IGN of the user to get the skin for",
+            description: "The IGN/UUID of the user to get the skin for. Defaults to your own skin if you're verified with /hypixelverify",
             required: false
         },
         {
             type: "USER",
             name: "user",
-            description: "The server member to get statistics for. Only works if the user has verified themselves",
+            description: "The server member to get the skin for. Only works if the user has verified themselves",
             required: false
         }]
     }],
@@ -49,40 +50,128 @@ const command: Command = {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             credits = getString("madeBy", { developer: interaction.client.users.cache.get("500669086947344384")!.tag }),
             authorDb: DbUser = await client.getUser(interaction.user.id),
+            subCommand = interaction.options.first()!.name as string,
             userInput = interaction.options.first()!.options?.get("user")?.user as Discord.User | undefined,
-            usernameInput = interaction.options.first()!.options?.get("username")?.value as string | undefined,
-            subCommand = interaction.options.first()!.name as string
-        
+            usernameInput = interaction.options.first()!.options?.get("username")?.value as string | undefined
+
         let uuid = authorDb.uuid
+        const userDb: DbUser = await client.getUser(userInput?.id)
         if (userInput) {
-            const userDb: DbUser = await client.getUser(userInput.id)
             if (userDb.uuid) uuid = userDb.uuid
             else throw "notVerified"
-        } else if (usernameInput && usernameInput?.length < 32) uuid = await getPlayer(usernameInput)
+        } else if (usernameInput && usernameInput.length < 32) uuid = await getUUID(usernameInput)
         else uuid = usernameInput ?? authorDb.uuid
         if (!uuid) throw "noUser"
+        const isOwnUser = uuid === userDb?.uuid
 
-        await interaction.defer()
-        
-        const names = async () => {
-            const res = await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`, { headers: { "User-Agent": "Hypixel   Translators Bot" }, method: "Get", timeout: 30000 })
+        switch (subCommand) {
+            case "history":
+                await interaction.defer()
 
-            if (!await res.text())
-                throw "invalidUUID"
-            const json: NameHistoryResponse = await res.json()
+                const nameHistory = await getNameHistory(uuid),
+                    username = nameHistory[0].name.split("_").join("\\_")
 
-            const username = json[json.length - 1].name.split("_").join("\\_")
-            
-            const nameHistoryEmbed = new Discord.MessageEmbed()
-                .setColor(successColor)
-                .setAuthor(getString("moduleName"))
-                .setTitle(username)
+                let timeZone = getString("region.timeZone", "global"),
+                    dateLocale = getString("region.dateLocale", "global")
+                if (timeZone.startsWith("crwdns")) timeZone = getString("region.timeZone", "global", "en")
+                if (dateLocale.startsWith("crwdns")) dateLocale = getString("region.dateLocale", "global", "en")
+
+                let nameHistoryList = ""
+                for (const nameChangedDate of nameHistory)
+                    nameHistoryList += (nameChangedDate.changedToAt ? getString("history.changedAt", { date: new Date(nameChangedDate.changedToAt!).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" }) }) : username) + "\n"
+
+                let p = 0
+                const pages: NameHistory[][] = []
+                while (p < nameHistory.length) pages.push(nameHistory.slice(p, p += 24)) //Max number of fields divisible by 3
+
+                if (pages.length == 1) {
+                    const nameHistoryEmbed = new Discord.MessageEmbed()
+                        .setColor(successColor)
+                        .setAuthor(getString("moduleName"))
+                        .setTitle(getString("history.nameHistoryFor", { username }))
+                        .addFields(constructFields(pages[0]))
+                        .setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                    await interaction.editReply({ embeds: [nameHistoryEmbed] })
+                } else {
+                    let controlButtons = new Discord.MessageActionRow()
+                        .addComponents(
+                            new Discord.MessageButton()
+                                .setStyle("SUCCESS")
+                                .setEmoji("⏮")
+                                .setCustomID("first")
+                                .setLabel(getString("pagination.first", "global")),
+                            new Discord.MessageButton()
+                                .setStyle("SUCCESS")
+                                .setEmoji("◀️")
+                                .setCustomID("previous")
+                                .setLabel(getString("pagination.previous", "global")),
+                            new Discord.MessageButton()
+                                .setStyle("SUCCESS")
+                                .setEmoji("▶️")
+                                .setCustomID("next")
+                                .setLabel(getString("pagination.next", "global")),
+                            new Discord.MessageButton()
+                                .setStyle("SUCCESS")
+                                .setEmoji("⏭")
+                                .setCustomID("last")
+                                .setLabel(getString("pagination.last", "global"))
+                        ),
+                        page = 0
+
+                    controlButtons = updateButtonColors(controlButtons, page, pages)
+                    await interaction.editReply({embeds: []})
+
+                    function fetchPage(page: number, pages: NameHistory[][]) {
+    const embed = new Discord.MessageEmbed()
+                        .setColor(successColor)
+                        .setAuthor(getString("moduleName"))
+                        .setTitle(getString("history.nameHistoryFor", { username }))
+                        .addFields(constructFields(pages[0]))
+                        .setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))        
+}
+
+                }
+
+                break
+            case "skin":
+                const skinEmbed = new Discord.MessageEmbed()
+                    .setColor(successColor)
+                    .setAuthor(getString("moduleName"))
+                    .setTitle(isOwnUser ? getString("skin.yourSkin") : getString("skin.userSkin", { user: (userInput?.toString() || usernameInput)! })) //There's always at least a user or username input if it's not the own user, otherwise the command throws an error above
+                    .setThumbnail(`https://crafatar.com/renders/body/${uuid}?overlay`)
+                    .setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                await interaction.reply({ embeds: [skinEmbed] })
+                break
         }
 
-        
+
     }
 }
 
-type NameHistoryResponse = {name: string, changedToAt?: number}[]
-
 export default command
+
+export async function getUUID(username: string): Promise<string | undefined> {
+    if (!username) return
+    return await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`, fetchSettings)
+        .then(res => res.json())
+        .then(json => json.id)
+        .catch(() => {
+            return
+        })
+}
+
+async function getNameHistory(uuid: string): Promise<NameHistory[]> {
+    const res = await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`, fetchSettings)
+    return (await res.json()).reverse()
+}
+
+function constructFields(array: NameHistory[]) {
+    const fields: Discord.EmbedFieldData[] = []
+    array.forEach(name => fields.push({ name: name.name, value: name.changedToAt?.toString() || "First name", inline: true }))
+    return fields
+}
+
+interface NameHistory {
+    name: string
+    changedToAt?: number
+}

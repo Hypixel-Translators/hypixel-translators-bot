@@ -64,5 +64,9 @@
         "cancel": "Cancel",
         "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this."
     },
+    "region": {
+        "dateLocale": "en-GB",
+        "timeZone": "Europe/London"
+    },
     "executedBy": "Executed by %%user%%"
 }
