@@ -1,8 +1,8 @@
 {
     "moduleName": "情報",
     "page1Title": "ヘルプページ",
-    "commandsListTooltip": "このボットはHypixel翻訳コミュニティのために %%developer%% によって作成されました。オープンソースであり、GitHubのリポジトリは [こちら]%%github%% で確認できます。\n`/translate`コマンドにある手順に従って、このボットを翻訳できます。\n\n`/help <コマンド名>`を実行すると、指定したコマンドの詳細を確認できます。\n以下がコマンド一覧の利用可能なページです。このメッセージのリアクションを使ってページを切り替えられます。",
-    "madeBy": "ボットは%%QkeleQ10%%が多大な注意を払って作成しました",
+    "commandsListTooltip": "このボットはHypixel翻訳コミュニティのために作成され %%developer%% により管理されています。オープンソースであり、GitHubのリポジトリは [こちら]%%github%% で確認できます。\n`/translate`コマンドにある手順に従って、このボットを翻訳できます。\n\n`/help <コマンド名>`を実行すると、指定したコマンドの詳細を確認できます。\n以下がコマンド一覧の利用可能なページです。このメッセージのリアクションを使ってページを切り替えられます。",
+    "madeBy": "ボットは%%developer%%が多大な注意を払って作成しました",
     "pageNumber": "%%number%% ページ目",
     "utilityHelp": "ツール＆ユーティリティ",
     "infoHelp": "情報コマンド",
@@ -56,7 +56,7 @@
         "description": "任意のメッセージを、言語のロールにメンションします。"
     },
     "minecraft": {
-        "description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+        "description": "特定のMinecraftプレイヤーの名前の履歴またはスキンを検索します。このコマンドは/hypixelverifyと互換性があり、特定のユーザーが認証されていれば、そのユーザーの情報を検索できます。パラメータ`user`は常に`username`よりも優先され、認証されている場合にはどちらも任意ですが、認証されていない場合は少なくとも1つは必要です。"
     },
     "ping": {
         "description": "ボットのPing値を表示します。"
