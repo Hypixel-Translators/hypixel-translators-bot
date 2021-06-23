@@ -51,7 +51,7 @@
         "pinnedInfo": "Czy wiedziałeś/aś, że na większości kanałów najważniejsze informacje są przypięte? Należy je sprawdzać za każdym razem, jak odwiedzasz kanały!",
         "hypixelStats": "Możesz sprawdzić statystyki gracza z Hypixela wpisując `/hypixelstats <nazwa gracza> [social]`!",
         "languageStats": "Czy wiesz, że możesz podejrzeć statystyki dla dowolnego języka we wszystkich naszych projektach? Wystarczy wykonać `/languagestats <język>`!",
-        "rolesChange": "Jeżeli otrzymałeś ostatnio nowe role na Crowdinie lub dołączyłeś do jednego ze wspieranych przez nas projektów, wykonaj polecenie `/reverify`. Polecenie to zauktualizuje Twoje role.",
+        "rolesChange": "Jeżeli otrzymałeś ostatnio nowe role na Crowdinie lub dołączyłeś do jednego ze wspieranych przez nas projektów, wykonaj polecenie `/verify`. Polecenie to zauktualizuje Twoje role.",
         "botTranslated": "Czy wiesz, że nasz bot jest dostępny w wielu językach? Wykonaj polecenie `/language list`, by zobaczyć listę wszystkich języków, które obecnie obsługujemy.",
         "moreTips": "Potrzebujemy wskazówek! Prześlij je za pomocą polecenia `/feedback`."
     },
