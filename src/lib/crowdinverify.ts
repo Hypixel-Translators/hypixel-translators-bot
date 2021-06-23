@@ -73,12 +73,19 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         page = await browser.pupBrowser.newPage()
     try {
         await page.goto(url, { timeout: 10000 })
-        await page.waitForSelector(".project-list-container", { timeout: 10000 })
+        await page.waitForSelector(".project-name", { timeout: 10000 })
     } catch { //if no projects are available
-        const isPrivate = await page.$(".private-profile") !== null
+        const isPrivate = await page.$(".private-profile") !== null,
+            isValid = await page.$(".project-list-container") !== null
+        /*
+        Possible scenarios:
+        private profile: isPrivate = true && isValid = false
+        public profile with no projects: isPrivate = false && isValid = true
+        404 page: isPrivate = false && isValid = false 
+        */
         await page.close()
         closeConnection(browser.uuid)
-        if (!isPrivate) { //if profile leads to a 404 page
+        if (!isPrivate && !isValid) { //if profile leads to a 404 page
             //#region return message
             member.roles.remove("569194996964786178", "Tried to verify with an invalid URL") // Verified
             await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
@@ -102,7 +109,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
                 await verifyLogs.send(`${member}'s profile seems to be invalid: <${url}>\nIf it is, please remove it from the database, otherwise ignore this message or maybe even delete it.`)
             }
             //#endregion
-        } else if (sendLogs) { //if the profile is private
+        } else if (sendLogs && isPrivate) { //if the profile is private
             //#region return message
             member.roles.remove("569194996964786178", "Tried to verify with a private profile") // Verified
             await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
@@ -123,6 +130,24 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
                 })
             else await verifyLogs.send(`${member}'s profile is private. Please ask them to change this.`)
             //#endregion
+        } else {
+            const dmEmbed = new Discord.MessageEmbed()
+                .setColor(blurple)
+                .setAuthor("Received message from staff")
+                .setDescription(`Hey there!\nYou have successfully verified your Crowdin account!\nSadly you didn't receive any roles because you don't translate for any of the projects we currently support.\nWhen you have started translating you can refresh your roles by running \`/verify\`\nIf you wanna know more about all the projects we currently support, run \`/projects\` here.`)
+                .setFooter("Any messages you send here will be sent to staff upon confirmation."),
+                logEmbed = new Discord.MessageEmbed()
+                    .setColor(blurple)
+                    .setTitle(`${member.user.tag} is now verified!`)
+                    .setDescription(`${member} has not received any roles. They do not translate for any of the projects.`)
+                    .addField("Profile", url)
+            if (sendDms) member.send({ embeds: [dmEmbed] })
+                .then(async () => await verifyLogs.send({ embeds: [logEmbed] }))
+                .catch(async () => {
+                    logEmbed.setFooter("Message not sent because user had DMs off")
+                    await verifyLogs.send({ embeds: [logEmbed] })
+                })
+            else if (sendLogs) await verifyLogs.send({ embeds: [logEmbed] })
         }
         return
     }
@@ -232,16 +257,16 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
     const endingMessageProjects: {
         [name: string]: Discord.Role[]
     } = {}
-    for (const [k, v] of Object.entries(highestProjectRoles)) { //k => key; v => value
-        const role = member.guild!.roles.cache.find(r => r.name === `${k} ${v}`)!
-        endingMessageProjects[k] = [role]
+    for (const [key, value] of Object.entries(highestProjectRoles)) {
+        const role = member.guild!.roles.cache.find(r => r.name === `${key} ${value}`)!
+        endingMessageProjects[key] = [role]
     }
 
     const coll = db.collection("langdb")
-    for (const [k, v] of Object.entries(highestLangRoles)) { //k => key; v => value
-        const lang = (await coll.findOne({ id: k })).name
-        v.projects.forEach(p => {
-            const role = member.guild!.roles.cache.find(r => r.name === `${lang} ${v.type}`)!
+    for (const [key, value] of Object.entries(highestLangRoles)) {
+        const lang = (await coll.findOne({ id: key })).name
+        value.projects.forEach(p => {
+            const role = member.guild!.roles.cache.find(r => r.name === `${lang} ${value.type}`)!
             endingMessageProjects[p].push(role)
         })
     }
