@@ -1,6 +1,6 @@
 {
-    "moduleName": "Hypixel Verification",
-    "success": "You successfully verified yourself as %%player%%!",
+    "moduleName": "Vérification Hypixel",
+    "success": "Tu t'es connecté en temps que %%player%%!",
     "role": "You were given the %%role%% role due to your rank on the server.",
     "alreadyVerified": "You are already verified!",
     "nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
