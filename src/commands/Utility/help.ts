@@ -65,7 +65,7 @@ const command: Command = {
         .setColor(neutralColor)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("page1Title"))
-        .setDescription(getString("commandsListTooltip", { developer: "<@!807917674477649943>", github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)" }))
+        .setDescription(getString("commandsListTooltip", { developer: client.users.cache.get("240875059953139714")!.toString(), github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)" }))
         .addFields(
           { name: getString("pageNumber", { number: 2, total: pages.length }), value: `🛠 ${getString("utilityHelp")}`, inline: true },
           { name: getString("pageNumber", { number: 3, total: pages.length }), value: `ℹ ${getString("infoHelp")}`, inline: true },
