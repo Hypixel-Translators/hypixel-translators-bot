@@ -1,8 +1,8 @@
 {
     "moduleName": "Information",
     "page1Title": "Hjälpsida",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
-    "madeBy": "Bot skapad av %%QkeleQ10%%",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "madeBy": "Bot skapad av %%developer%%",
     "pageNumber": "Sida %%number%%",
     "utilityHelp": "Verktyg och hjälpmedel",
     "infoHelp": "Informationskommandon",
