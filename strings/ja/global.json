@@ -20,7 +20,7 @@
         "falseFlag": "旗が見つかりませんでした！",
         "falseLang": "言語が見つかりませんでした！",
         "falseRole": "ロールが見つかりませんでした！",
-        "falseUUID": "Couldn't find a player with that UUID!",
+        "falseUUID": "そのUUIDのプレイヤーが見つかりませんでした！",
         "noPlayer": "このプレイヤーはHypixelに参加したことがありません！",
         "notVerified": "このユーザーはHypixelアカウントを紐付けしていません！",
         "disabled": "このコマンドは一時的に無効化されています。",
