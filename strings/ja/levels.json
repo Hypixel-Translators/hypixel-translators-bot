@@ -2,7 +2,7 @@
     "moduleName": "XP順位表",
     "pageTitle": "XP順位表はこちらです！",
     "level": "#%%rank%% | レベル %%level%% | XP: %%xp%%",
-    "youIndicator": "YOU",
+    "youIndicator": "あなた",
     "thousand": "千",
     "unranked": "#%%rank%% 未順位"
 }
