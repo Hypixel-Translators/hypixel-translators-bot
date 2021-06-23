@@ -1,8 +1,8 @@
 {
     "moduleName": "Bilgi",
     "page1Title": "Yardım sayfası",
-    "commandsListTooltip": "Bu bot, Hypixel Translators Topluluğu için %%developer%% tarafından yapıldı. Bu bot açık kaynak kodludur ve GitHub depomuza [buradan]%%github%% erişebilirsin.\n`/translate` komutundaki talimatları izleyerek botun çevirilmesine yardımcı olabilirsin.\n\nBelirli bir komut hakkında daha fazla bilgi edinmek için `/help <komut>` komutunu kullanabilirsin.\nAşağıda mevcut tüm komutların bir listesini bulabilirsin. Sayfalar arasında geçiş yapmak için bu mesajdaki tepkileri kullan.",
-    "madeBy": "Bot, %%QkeleQ10%% tarafından özenle yapıldı",
+    "commandsListTooltip": "Bu bot, Hypixel Translators Topluluğu için yapılmış olup %%developer%% tarafından güncelleştirilmektedir. Bu bot açık kaynak kodludur ve GitHub deposuna [buradan]%%github%% erişebilirsin.\n`/translate` komutundaki talimatları izleyerek botun çevirilmesine yardımcı olabilirsin.\n\nBelirli bir komut hakkında daha fazla bilgi edinmek için `/help <komut>` komutunu kullanabilirsin.\nAşağıda mevcut tüm komutların bir listesini bulabilirsin. Sayfalar arasında geçiş yapmak için bu mesajdaki tepkileri kullan.",
+    "madeBy": "Bot, %%developer%% tarafından özenle yapıldı",
     "pageNumber": "Sayfa %%number%%",
     "utilityHelp": "Araçlar & Yardımcı Programlar",
     "infoHelp": "Bilgi komutları",
