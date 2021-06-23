@@ -3,6 +3,7 @@ import Discord from "discord.js"
 import { errorColor, blurple } from "../config.json"
 import { v4 } from "uuid"
 import { db, DbUser } from "../lib/dbclient"
+import { LangDbEntry } from "../events/stats"
 
 type ValidProjects = "Hypixel" | "Quickplay" | "Bot" | "SkyblockAddons"
 
@@ -264,7 +265,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 
     const coll = db.collection("langdb")
     for (const [key, value] of Object.entries(highestLangRoles)) {
-        const lang = (await coll.findOne({ id: key })).name
+        const lang = (await coll.findOne({ id: key }) as LangDbEntry).name
         value.projects.forEach(p => {
             const role = member.guild!.roles.cache.find(r => r.name === `${lang} ${value.type}`)!
             endingMessageProjects[p].push(role)
@@ -281,6 +282,13 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         for (const [k, v] of Object.entries(endingMessageProjects)) {
             logEmbed.addField(k, v.join(",\n"))
         }
+    }
+
+    //Set the user's language based off of their highest role
+    const highestRole = Object.assign({}, endingMessageProjects).hypixel?.filter(r => r.color).sort((a, b) => b.position - a.position).shift()
+    if (highestRole) {
+        const lang: LangDbEntry | null = await coll.findOne({ name: highestRole.name.replace(" Translator", "").replace(" Proofreader", "") })
+        if (lang) await db.collection("users").updateOne({ id: member.id }, { $set: { lang: lang.code } })
     }
 
     if (veteranRole) logEmbed.addField("Veteran role", `${veteranRole}`)
@@ -369,8 +377,8 @@ async function updateLanguageRoles(
         activeRoles: string[] = [],
         addedRoles: string[] = []
 
-    for (const [k, v] of Object.entries(highestLangRoles)) {
-        activeRoles.push(`${(await coll.findOne({ id: k })).name} ${v.type}`)
+    for (const [key, value] of Object.entries(highestLangRoles)) {
+        activeRoles.push(`${(await coll.findOne({ id: key }) as LangDbEntry).name} ${value.type}`)
     }
 
     member.roles.cache.forEach(role => {
