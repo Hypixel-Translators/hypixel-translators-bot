@@ -1,8 +1,8 @@
 {
     "moduleName": "Tietoa",
     "page1Title": "Apusivu",
-    "commandsListTooltip": "Tämän botin on tehnyt Hypixelin kääntäjien yhteisölle %%developer%%. Sen avoin lähdekoodi on saatavilla GitHubista [täältä]%%github%%. Voit auttaa kääntämään bottia seuraamalla ohjeita, jotka saat komennolla `+translate`.\n\nVoit suorittaa komennon `/help <komennon nimi>` saadaksesi tietää lisää valitusta komennosta.\nAlta löydät listan kaikista saatavilla olevista sivuista. Käytä viestin reaktioita siirtyäksesi sivulta toiselle.",
-    "madeBy": "Botin on huolellisesti kasannut %%QkeleQ10%%",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "madeBy": "Botin on huolellisesti kasannut %%developer%%",
     "pageNumber": "Sivu %%number%%",
     "utilityHelp": "Työkalut",
     "infoHelp": "Infokomennot",
@@ -65,7 +65,7 @@
         "description": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen. Saadaksesi etuliitteen, käytä komentoa `/prefix` ja syötä oman maasi lipun aluekoodi tai nimi. Voit lisätä niin monta lippua kuin haluat erottamalla ne välilyönneillä."
     },
     "profile": {
-        "description": "Antaa Crowdin-profiilisi linkin, jos se on tallennettu tietokantaamme. Jos näin ei ole, voit käyttää komentoa `/help reverify` saadaksesi lisätietoa siitä, kuinka voit tallentaa profiilisi ja päivittää roolisi."
+        "description": "Antaa Crowdin-profiilisi linkin, jos se on tallennettu tietokantaamme. Jos näin ei ole, voit käyttää komentoa `/help verify` saadaksesi lisätietoa siitä, kuinka voit tallentaa profiilisi ja päivittää roolisi."
     },
     "projects": {
         "description": "Antaa sinulle osoitteita ja tietoa kaikista käännösprojekteista, joita tällä palvelimella tuetaan."
