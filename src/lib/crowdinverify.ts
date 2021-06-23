@@ -129,19 +129,21 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
     const userAboutSelector = await page.$(".user-about"),
         aboutContent = await page.evaluate(element => element?.textContent, userAboutSelector) ?? "" as string
     let projects: CrowdinProject[] | null = null
-    if (aboutContent.includes(member.user.tag) || !sendDms) projects = await page.evaluate(() => {
+    page.on("console", msg => console.log(msg.text()))
+    if (aboutContent.includes(member.user.tag) || !sendDms) projects = await page.evaluate((tag: string) => {
         const now = Date.now()
         let returnProjects = window.eval("crowdin.profile_projects.view.state.projects") as CrowdinProject[] | null
         if (returnProjects) return returnProjects
-        console.log(`Projects were null for ${member}, attempting to re-evaluate.`)
+        console.log(`Projects were null for ${tag}, attempting to re-evaluate.`)
+        window.eval("crowdin.profile_projects.getProjectsInfo()")
         let i = 0
-        while (returnProjects === null) {
+        while (returnProjects === null && i < 100) {
             returnProjects = window.eval("crowdin.profile_projects.view.state.projects")
             i++
         }
-        console.log(`✅Successfully fetched ${member.user.tag}'s profile after ${i} tries! Took ${now - Date.now()}ms`)
+        console.log(`✅ Successfully fetched ${tag}'s profile after ${i} tries! Took ${Date.now() - now}ms`)
         return returnProjects
-    })
+    }, member.user.tag)
     await page.close()
     await closeConnection(browser.uuid)
 
@@ -425,7 +427,7 @@ let browser: puppeteer.Browser | null = null,
     browserOpening = false
 
 /**
- * Returns the browser and an connection ID.
+ * Returns the browser and a connection ID.
  */
 async function getBrowser() {
     //* If browser is currently closing wait for it to fully close.
