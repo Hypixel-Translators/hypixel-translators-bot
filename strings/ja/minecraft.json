@@ -1,19 +1,19 @@
 {
-    "moduleName": "Minecraft Statistics",
+    "moduleName": "Minecraftの統計",
     "madeBy": "コマンドは%%developer%%によって作成されました",
     "history": {
-        "firstName": "First name",
-        "nameHistoryFor": "Name history for %%username%%",
-        "userChangedName": "%%username%% has changed their name %%number%% times.",
-        "youChangedName": "You have changed your name %%number%% times.",
-        "userChangedName1": "%%username%% has changed their name 1 time.",
-        "youChangedName1": "You have changed your name 1 time.",
-        "userNeverChanged": "%%username%% has never changed their name.",
-        "youNeverChanged": "You have never changed your name."
+        "firstName": "最初の名前",
+        "nameHistoryFor": "%%username%%の名前履歴",
+        "userChangedName": "%%username%%は名前を%%number%%回変更しています。",
+        "youChangedName": "あなたは自身の名前を%%number%%回変更しています。",
+        "userChangedName1": "%%username%%は名前を1回変更しています。",
+        "youChangedName1": "あなたは自身の名前を1回変更しています。",
+        "userNeverChanged": "%%username%%は名前を変更したことがありません。",
+        "youNeverChanged": "あなたは名前を変更したことがありません。"
     },
     "skin": {
-        "yourSkin": "Here's your skin!",
-        "userSkin": "Here's %%user%%'s skin!",
-        "isLinked": "This player is linked to %%user%%"
+        "yourSkin": "こちらがあなたのスキンです！",
+        "userSkin": "%%user%%のスキンはこちらです！",
+        "isLinked": "このプレイヤーは%%user%%としてリンク付けされています"
     }
 }
