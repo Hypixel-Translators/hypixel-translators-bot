@@ -10,7 +10,7 @@
     "current": "Twoje preferencje językowe zostały ustawione na język polski.",
     "listTitle": "Lista języków",
     "listElement": "`%%code%%` | **%%language%%**",
-    "credits": "Znalazłeś/aś błąd? Zgłoś go, używając `/issue`.",
+    "credits": "Znalazłeś/aś błąd? Zgłoś go, używając `/feedback`.",
     "ar": "Arabski",
     "bar": "Bawarski",
     "bg": "Bułgarski",
