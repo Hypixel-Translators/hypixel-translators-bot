@@ -1,8 +1,8 @@
 {
     "moduleName": "Information",
     "page1Title": "Hilfe-Seite",
-    "commandsListTooltip": "Dieser Bot wurde für die Hypixel Translators Community von %%developer%% erstellt. Er ist Open Source und unser GitHub Repository kann [hier]%%github%% gefunden werden.\nDu kannst bei der Übersetzung des Bots helfen, indem du den Anweisungen in `/translate` folgst.\n\nDu kannst `/help <Name des Befehls>` ausführen, um mehr über einen bestimmten Befehl zu erfahren.\nUnten findest du eine Liste mit allen verfügbaren Seiten. Benutze die Buttons auf dieser Nachricht, um sie zu durchlaufen.",
-    "madeBy": "Der Bot wurde mit großer Sorgfalt von %%QkeleQ10%% erstellt",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "madeBy": "Der Bot wurde mit großer Sorgfalt von %%developer%% erstellt",
     "pageNumber": "Seite %%number%%",
     "utilityHelp": "Werkzeuge & Hilfsmittel",
     "infoHelp": "Informationsbefehle",
