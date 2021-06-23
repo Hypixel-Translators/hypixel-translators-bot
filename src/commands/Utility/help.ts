@@ -24,7 +24,7 @@ const command: Command = {
   allowDM: true,
   async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
     const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-      madeBy = getString("madeBy", { QkeleQ10: "QkeleQ10#8482" })
+      madeBy = getString("madeBy", { developer: "QkeleQ10#8482" })
 
     // Define categories to get commands from and all pages
     const categories = ["Utility", "Info", "Projects"],
