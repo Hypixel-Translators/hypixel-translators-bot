@@ -31,7 +31,7 @@ const command: Command = {
                 .setFooter(executedBy, interaction.user.displayAvatarURL())
             return await interaction.reply({ embeds: [errorEmbed] })
         }
-        const totalXp = getXpNeeded(userDb.levels.level),
+        const totalXp = getXpNeeded(userDb.levels?.level),
             progressBar = generateProgressBar(userDb.levels?.levelXp, totalXp),
             ranking = (await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray()).map(u => u.id).indexOf(user.id) + 1,
             currentXp = userDb.levels.levelXp,
