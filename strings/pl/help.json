@@ -1,8 +1,8 @@
 {
     "moduleName": "Informacja",
     "page1Title": "Strona pomocy",
-    "commandsListTooltip": "Ten bot został stworzony dla Społeczności Tłumaczy Hypixel przez %%developer%%. Jest otwartym oprogramowaniem, nasze repozytorium GitHub może zostać znalezione [tutaj]%%github%%.\nMożesz pomóc w tłumaczeniu bota postępując zgodnie z instrukcjami w poleceniu `+translate`.\n\nMożesz wykonać `/help <nazwa polecenia>`, aby dowiedzieć się więcej o danym poleceniu.\nTutaj jest lista wszystkich stron. Używaj reakcji, aby nawigować pomiędzy nimi.",
-    "madeBy": "Bot stworzony z ogromną starannością przez %%QkeleQ10%%",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "madeBy": "Bot stworzony z ogromną starannością przez %%developer%%",
     "pageNumber": "Strona %%number%%",
     "utilityHelp": "Narzędzia",
     "infoHelp": "Komendy informacyjne",
@@ -62,10 +62,10 @@
         "description": "Podaje informacje o pingu bota."
     },
     "prefix": {
-        "description": "Daje ci przedrostek odpowiedni dla twojego języka (lub języków). Aby go otrzymać, wpisz `/prefix <flagi>`, gdzie `<flagi>` oznacza kod flagi lub jej nazwę. Możesz dodać tyle flag, ile chcesz; pamiętaj, by odzielić je spacjami."
+        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
     },
     "profile": {
-        "description": "Podaje odnośnik do Twojego profilu Crowdin, jeśli jest on przechowywany w naszej bazie danych. W przeciwnym razie, możesz wykonać polecenie `/help reverify`, by dowiedzieć się, jak przechowywać swój profil i aktualizować swoje role."
+        "description": "Podaje odnośnik do Twojego profilu Crowdin, jeśli jest on przechowywany w naszej bazie danych. W przeciwnym razie, możesz wykonać polecenie `/help verify`, by dowiedzieć się, jak przechowywać swój profil i aktualizować swoje role."
     },
     "projects": {
         "description": "Daje ci odnośniki i informacje o wszystkich projektach tłumaczeniowych, które wspieramy na serwerze."

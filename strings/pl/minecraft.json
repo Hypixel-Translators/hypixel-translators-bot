@@ -2,18 +2,18 @@
     "moduleName": "Minecraft Statistics",
     "madeBy": "Komenda stworzona przez %%developer%%",
     "history": {
-        "firstName": "First name",
-        "nameHistoryFor": "Name history for %%username%%",
-        "userChangedName": "%%username%% has changed their name %%number%% times.",
-        "youChangedName": "You have changed your name %%number%% times.",
-        "userChangedName1": "%%username%% has changed their name 1 time.",
-        "youChangedName1": "You have changed your name 1 time.",
-        "userNeverChanged": "%%username%% has never changed their name.",
-        "youNeverChanged": "You have never changed your name."
+        "firstName": "Pierwsza nazwa użytkownika",
+        "nameHistoryFor": "Wykaz nazw użytkownika (%%username%%)",
+        "userChangedName": "%%username%% zmienił(a) swoją nazwę użytkownika %%number%% razy.",
+        "youChangedName": "Zmieniłeś/aś swoją nazwę użytkownika %%number%% razy.",
+        "userChangedName1": "%%username%% zmienił(a) swoją nazwę użytkownika tylko raz.",
+        "youChangedName1": "Zmieniłeś/aś swoją nazwę użytkownika tylko raz.",
+        "userNeverChanged": "%%username%% nigdy nie zmienił(a) swojej nazwy użytkownika.",
+        "youNeverChanged": "Nigdy nie zmieniłeś/aś swojej nazwy użytkownika."
     },
     "skin": {
-        "yourSkin": "Here's your skin!",
-        "userSkin": "Here's %%user%%'s skin!",
+        "yourSkin": "Oto Twoja skórka!",
+        "userSkin": "Oto skórka gracza o pseudonimie %%user%%!",
         "isLinked": "This player is linked to %%user%%"
     }
 }

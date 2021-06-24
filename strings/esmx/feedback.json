@@ -1,7 +1,7 @@
 {
     "moduleName": "Problemas y comentarios",
     "bugT": "Ver y añadir errores",
-    "bugD": "To show and make suggestions or bug reports, click on the button below!",
+    "bugD": "¡Para mostrar y hacer sugerencias o informes de errores, haga clic en el botón de abajo!",
     "urgentT": "¿Es urgente?",
     "urgentD": "Si está tratando de reportar un error fatal o el bot ha estado inactivo durante mucho tiempo sin previo aviso, por favor, mencione a un miembro del staff en un canal público, explicando el problema.",
     "link": "Enlace"

@@ -1,8 +1,8 @@
 {
     "moduleName": "資訊",
     "page1Title": "說明頁面",
-    "commandsListTooltip": "這個機器人由 %%developer%% 為 Hypixel 翻譯人員社群而開發。這個機器人是完全開源的，其 GitHub 儲存庫可以在[這裡]%%github%%找到。\n你可以使用 `/translate` 指令，並跟隨該指令的指示來協助翻譯機器人。\n\n你可以執行 `/help <指令名稱>` 來了解特定指令的用法。\n你可以在下面找到所有可用頁面的列表。請點擊訊息下方的反應按鈕來切換頁面。",
-    "madeBy": "機器人由 %%QkeleQ10%% 開發和維護",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
     "pageNumber": "第 %%number%% 頁",
     "utilityHelp": "實用工具",
     "infoHelp": "訊息指令",

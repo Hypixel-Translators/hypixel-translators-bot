@@ -1,8 +1,8 @@
 {
     "moduleName": "Informatie",
     "page1Title": "Hulppagina",
-    "commandsListTooltip": "Deze bot is gemaakt voor de Hypixel-vertalersgemeenschap door %%developer%%. Het is open-source en onze GitHub-repository kan [hier]%%github%% worden gevonden.\nJe kunt de bot helpen te vertalen door de instructies in het commando `/translate` te volgen.\n\nJe kunt `/help <commandonaam> ` uitvoeren om meer te lezen over een bepaald commando.\nHieronder staat een lijst met pagina's. Gebruik de reacties op dit bericht om te navigeren.",
-    "madeBy": "Bot met veel zorg ontwikkeld door %%QkeleQ10%%",
+    "commandsListTooltip": "Deze bot is gemaakt voor de Hypixel-vertalersgemeenschap en wordt onderhouden door %%developer%%. Het is open-source en onze GitHub-repository kan [hier]%%github%% worden gevonden.\nJe kunt de bot helpen te vertalen door de instructies in het commando `/translate` te volgen.\n\nJe kunt `/help <commandonaam> ` uitvoeren om meer te lezen over een bepaald commando.\nHieronder staat een lijst met pagina's. Gebruik de knoppen bij dit bericht om te navigeren.",
+    "madeBy": "Bot met veel zorg ontwikkeld door %%developer%%",
     "pageNumber": "Pagina %%number%%",
     "utilityHelp": "Hulpmiddelen",
     "infoHelp": "Informatieve commando's",

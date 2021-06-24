@@ -2,5 +2,5 @@
     "moduleName": "Profil Crowdin",
     "profileSuccess": "Oto Twój profil",
     "noProfile": "Nie udało się znaleźć Twojego profilu w naszej bazie danych!",
-    "howStore": "Jeśli chcesz go zapisać, wykonaj `/help reverify`, by dowiedzieć się, jak to zrobić."
+    "howStore": "Jeśli chcesz go zapisać, wykonaj `/help verify`, by dowiedzieć się, jak to zrobić."
 }

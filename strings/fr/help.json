@@ -1,19 +1,19 @@
 {
     "moduleName": "Information",
-    "page1Title": "Help page",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
-    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
+    "page1Title": "Page d'aide",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "madeBy": "Bot réalisé avec beaucoup de soin par %%developer%%",
     "pageNumber": "Page %%number%%",
-    "utilityHelp": "Tools & Utilities",
-    "infoHelp": "Information commands",
-    "projectsHelp": "Crowdin Projects",
-    "pageNotExist": "That page doesn't exist!",
+    "utilityHelp": "Outils & Utilitaires",
+    "infoHelp": "Commandes d'informations",
+    "projectsHelp": "Projets Crowdin",
+    "pageNotExist": "Cette page n'existe pas!",
     "commandInfo": "Information sur la commande",
     "commandInfoFor": "Information de la commande ",
-    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-    "inDev": "This command is currently in development and will be available at a later date!",
-    "seconds": "seconds",
-    "second": "second",
+    "staffOnly": "Cette commande est disponible que pour les administrateurs et donc ses informations sont masquées.\nVeuillez contacter un membre de l'administration si vous pensez qu'il s'agit d'une erreur.",
+    "inDev": "Cette commande est actuellement en cours de développement et sera disponible plus tard!",
+    "seconds": "secondes",
+    "second": "seconde",
     "minutes": "minutes",
     "cooldownField": "Temps de recharge",
     "8ball": {
@@ -41,60 +41,60 @@
         "description": "Links your Discord account with your Minecraft account."
     },
     "invite": {
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Te donnes un lien d'invitation vers le serveur. Utilisez ce dernier quand tu veux inviter quelqu'un."
     },
     "language": {
-        "description": "Changes your language, shows your current one or a list of available languages."
+        "description": "Modifie ta langue, affiche ta langue actuelle ou une liste des langues disponibles."
     },
     "languagestats": {
-        "description": "Shows you the progress of a language on all the projects we currently support."
+        "description": "Te montres la progression d'une langue sur tous les projets que nous supportons actuellement."
     },
     "levels": {
-        "description": "Gives you the XP leaderboard."
+        "description": "Te donne le classement d'expérience."
     },
     "mention": {
         "description": "Mentionne un rôle de langue avec un message optionnel."
     },
     "minecraft": {
-        "description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+        "description": "Recherche l'historique du nom ou du skin d'un joueur Minecraft spécifique. Cette commande est compatible avec /hypixelverify, te permettant de rechercher les informations d'un utilisateur spécifique s'il est vérifié. Le paramètre `user` aura toujours la priorité sur `username` et les deux sont optionnels si tu es déjà vérifié, dans le cas contraire, au moins l'un des deux paramètres est requis."
     },
     "ping": {
-        "description": "Gives you the bot's ping."
+        "description": "Te donnes le temps de latence du bot."
     },
     "prefix": {
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+        "description": "Te donnes le préfixe approprié pour ta/tes langue(s). Afin d'obtenir un préfixe personnalisé, exécutes `/prefix` et fournissez le code régional du drapeau de votre pays ou son nom dans le paramètre `flags`. Vous pouvez ajouter autant de drapeaux que vous le souhaitez, séparés par un espace."
     },
     "profile": {
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
+        "description": "Te donnes le lien vers ton profil Crowdin s'il est stocké dans notre base de données. S'il ne l'est pas, vous pouvez exécuter `/help verify` pour apprendre comment sauvegarder ton profil et mettre à jour tes rôles."
     },
     "projects": {
-        "description": "Gives you links and information about all the translation projects we support on the server."
+        "description": "Te donnes des liens et des informations sur tous les projets de traduction que nous supportons sur le serveur."
     },
     "quickplay": {
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Te donnes des informations utiles sur le projet Quickplay."
     },
     "quote": {
         "description": "Obtient (ou ajoute) une citation drôle/bizarre/sage du serveur."
     },
     "rank": {
-        "description": "Gives you the current XP for yourself or any given user."
+        "description": "T'affiches tes points d'expérience ou ceux d'un autre utilisateur donné."
     },
     "skyblockaddons": {
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "Te donnes des informations utiles concernant le projet SkyblockAddons."
     },
     "thread": {
         "description": "Gives you the link to the thread announcing this Discord server."
     },
     "tip": {
-        "description": "Gives you a random tip regarding the server."
+        "description": "Te donnes un conseil aléatoire à propos du serveur."
     },
     "translate": {
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "Te donnes des informations utiles sur la façon de traduire le Bot."
     },
     "twitter": {
         "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
     },
     "verify": {
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "description": "Vérifie automatiquement les changements sur ton profil Crowdin et te donnes les rôles appropriés. Si ton profil n'est pas stocké dans notre base de données, tu peux le fournir comme argument dans la commande. Pour vérifier si ton profil est stocké, exécutes `/profile`. Assures-toi que tu as activé les MPs depuis ce serveur afin que le bot puisse t'envoyer un message."
     }
 }

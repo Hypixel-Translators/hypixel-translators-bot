@@ -1,8 +1,8 @@
 {
     "moduleName": "Информация",
     "page1Title": "Страница помощи",
-    "commandsListTooltip": "Этот бот был сделан для сообщества переводчиков Hypixel пользователем %%developer%%. Бот с открытым исходным кодом и наш репозиторий на GitHub можно найти [здесь]%%github%%.\nВы можете помочь перевести бота. Для этого используйте `/translate` и следуйте дальнейшим инструкциям.\n\nВы можете использовать `/help <название команды>`, чтобы узнать больше о конкретной команде.\nНиже вы можете найти список всех доступных страниц. Используйте кнопки под этим сообщение, чтобы пролистать их.",
-    "madeBy": "Бот сделан с большой заботой пользователем %%QkeleQ10%%",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
     "pageNumber": "Страница %%number%%",
     "utilityHelp": "Инструменты и утилиты",
     "infoHelp": "Команды информации",
