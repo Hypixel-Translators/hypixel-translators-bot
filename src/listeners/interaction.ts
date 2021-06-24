@@ -41,10 +41,10 @@ client.on("interaction", async interaction => {
     let allowed = true
 
     //Channel Blacklist and whitelist systems
-    if (!(interaction.channel instanceof Discord.DMChannel) && interaction.channel) {
-        if (command.categoryBlacklist && command.categoryBlacklist.includes(interaction.channel.parentID!)) allowed = false
+    if (interaction.channel instanceof Discord.GuildChannel) {
+        if (command.categoryBlacklist && command.categoryBlacklist.includes(interaction.channel!.parentID!)) allowed = false
         else if (command.channelBlacklist && command.channelBlacklist.includes(interaction.channelID)) allowed = false
-        else if (command.categoryWhitelist && !command.categoryWhitelist.includes(interaction.channel.parentID!)) allowed = false
+        else if (command.categoryWhitelist && !command.categoryWhitelist.includes(interaction.channel!.parentID!)) allowed = false
         else if (command.channelWhitelist && !command.channelWhitelist.includes(interaction.channelID)) allowed = false
     }
 
@@ -184,7 +184,7 @@ client.on("interaction", async interaction => {
                 },
                 "global"
             )
-            if (interaction.replied && reply) await interaction.channel.send(`**${getString("tip", "global").toUpperCase()}:** ${tip}`)
+            if (interaction.replied && reply) await interaction.channel!.send(`**${getString("tip", "global").toUpperCase()}:** ${tip}`)
         }
     } catch (error) {
         if (!error.stack) error = getString(`errors.${error}`, "global") || error
@@ -204,7 +204,7 @@ client.on("interaction", async interaction => {
                 }) //Rodry and bot-development
             }
             console.error(
-                `Unexpected error with command ${interaction.commandName} on channel ${interaction.channel instanceof Discord.DMChannel ? interaction.channel.type : (interaction.channel as Discord.TextChannel).name
+                `Unexpected error with command ${interaction.commandName} on channel ${interaction.channel instanceof Discord.GuildChannel ? interaction.channel.name : interaction.channel!.type
                 } executed by ${interaction.user.tag}. Here's the error:\n${error.stack}`
             )
         }
@@ -222,7 +222,7 @@ client.on("interaction", async interaction => {
         else if (!interaction.replied) await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
         else if (interaction.replied) await interaction.followUp({ embeds: [embed], ephemeral: !error.stack, components: [] })
             .catch(async err => {
-                await interaction.channel.send({ embeds: [embed], components: [] })
+                await interaction.channel!.send({ embeds: [embed], components: [] })
                 console.error("Couldn't send a followUp on a replied interaction, here's the error", err)
             })
         else console.error("Couldn't send the error for some weird reason, here's some data to help you", interaction)

@@ -5,6 +5,7 @@ import { db } from "../lib/dbclient"
 
 client.on("messageReactionAdd", async (reaction, user) => {
     const channel = reaction.message.channel
+    if (channel instanceof Discord.ThreadChannel) return
     if (channel.type !== "dm" && !user.bot) {
         if (reaction.partial) reaction = await reaction.fetch()
         if (reaction.message.partial) reaction.message = await reaction.message.fetch()

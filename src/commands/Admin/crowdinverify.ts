@@ -25,7 +25,7 @@ const command: Command = {
             .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
         await interaction.editReply({ embeds: [embed] })
             .catch(async () => {
-                await interaction.channel.send({ content: "The interaction expired, so here's the embed so you don't feel sad", embeds: [embed] })
+                await interaction.channel!.send({ content: "The interaction expired, so here's the embed so you don't feel sad", embeds: [embed] })
             })
     }
 }
