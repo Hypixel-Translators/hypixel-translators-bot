@@ -6,6 +6,22 @@ import fs from "fs"
 import { isEqual } from "lodash"
 
 client.on("interaction", async interaction => {
+    if (interaction.isButton() && interaction.channelID === "730042612647723058" && interaction.customID == "done") {
+        if ((interaction.message as Discord.Message).mentions.users.first()!.id !== interaction.user.id) {
+            await interaction.reply({ content: "You can only remove your own LOA warning!", ephemeral: true })
+            return
+        }
+        const endDateRaw = (interaction.message as Discord.Message).embeds[0].fields[1].value.split("/"),
+            endDate = new Date(Number(endDateRaw[2]), Number(endDateRaw[1]) - 1, Number(endDateRaw[0]))
+        if (endDate.getTime() > Date.now()) {
+            await interaction.reply({ content: "You can't end this LOA yet! If something changed, please contact the admins.", ephemeral: true })
+            return
+        } else {
+            await (interaction.message as Discord.Message).delete()
+            await interaction.reply({ content: "Successfully deleted this LOA! **Welcome back!**", ephemeral: true })
+            return
+        }
+    }
     if (!interaction.isCommand() || interaction.user.bot) return
 
     const author: DbUser = await client.getUser(interaction.user.id),
