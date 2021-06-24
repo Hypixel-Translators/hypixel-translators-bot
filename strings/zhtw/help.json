@@ -1,8 +1,8 @@
 {
     "moduleName": "資訊",
     "page1Title": "說明頁面",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community by %%developer%%. It's open source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
-    "madeBy": "Bot made with lots of care by %%QkeleQ10%%",
+    "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "madeBy": "機器人由 %%developer%% 開發和維護",
     "pageNumber": "第 %%number%% 頁",
     "utilityHelp": "實用工具",
     "infoHelp": "訊息指令",
