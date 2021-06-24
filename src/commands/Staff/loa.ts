@@ -51,7 +51,7 @@ const command: Command = {
     channelWhitelist: ["624881429834366986"], //staff-bots
     roleWhitelist: ["768435276191891456"], //Discord Staff
     async execute(interaction: Discord.CommandInteraction) {
-        const loaChannel = interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel,
+        const loaChannel = interaction.client.channels.cache.get("836748153122324481") as Discord.TextChannel,
             startDay = interaction.options.get("startday")!.value as number,
             startMonth = interaction.options.get("startmonth")!.value as number,
             startYear = interaction.options.get("startyear")!.value as number,

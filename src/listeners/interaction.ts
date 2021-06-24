@@ -6,7 +6,7 @@ import fs from "fs"
 import { isEqual } from "lodash"
 
 client.on("interaction", async interaction => {
-    if (interaction.isButton() && interaction.channelID === "730042612647723058" && interaction.customID == "done") {
+    if (interaction.isButton() && interaction.channelID === "836748153122324481" && interaction.customID == "done") {
         if ((interaction.message as Discord.Message).mentions.users.first()!.id !== interaction.user.id) {
             await interaction.reply({ content: "You can only remove your own LOA warning!", ephemeral: true })
             return
