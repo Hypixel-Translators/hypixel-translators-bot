@@ -16,18 +16,18 @@ const command: Command = {
         name: "startmonth",
         description: "The month in which your LOA will start",
         choices: [
-            { name: "January", value: 0 },
-            { name: "February", value: 1 },
-            { name: "March", value: 2 },
-            { name: "April", value: 3 },
-            { name: "May", value: 4 },
-            { name: "June", value: 5 },
-            { name: "July", value: 6 },
-            { name: "August", value: 7 },
-            { name: "September", value: 8 },
-            { name: "October", value: 9 },
-            { name: "November", value: 10 },
-            { name: "December", value: 11 }
+            { name: "January", value: 1 },
+            { name: "February", value: 2 },
+            { name: "March", value: 3 },
+            { name: "April", value: 4 },
+            { name: "May", value: 5 },
+            { name: "June", value: 6 },
+            { name: "July", value: 7 },
+            { name: "August", value: 8 },
+            { name: "September", value: 9 },
+            { name: "October", value: 10 },
+            { name: "November", value: 11 },
+            { name: "December", value: 12 }
         ],
         required: true
     },
@@ -48,18 +48,18 @@ const command: Command = {
         name: "endmonth",
         description: "The month in which your LOA will end",
         choices: [
-            { name: "January", value: 0 },
-            { name: "February", value: 1 },
-            { name: "March", value: 2 },
-            { name: "April", value: 3 },
-            { name: "May", value: 4 },
-            { name: "June", value: 5 },
-            { name: "July", value: 6 },
-            { name: "August", value: 7 },
-            { name: "September", value: 8 },
-            { name: "October", value: 9 },
-            { name: "November", value: 10 },
-            { name: "December", value: 11 }
+            { name: "January", value: 1 },
+            { name: "February", value: 2 },
+            { name: "March", value: 3 },
+            { name: "April", value: 4 },
+            { name: "May", value: 5 },
+            { name: "June", value: 6 },
+            { name: "July", value: 7 },
+            { name: "August", value: 8 },
+            { name: "September", value: 9 },
+            { name: "October", value: 10 },
+            { name: "November", value: 11 },
+            { name: "December", value: 12 }
         ],
         required: true
     },
@@ -87,8 +87,8 @@ const command: Command = {
             endMonth = interaction.options.get("endmonth")!.value as number,
             endYear = interaction.options.get("endyear")!.value as number,
             reason = interaction.options.get("reason")!.value as string,
-            startDate = new Date(startYear, startMonth, startDay),
-            endDate = new Date(endYear, endMonth, endDay),
+            startDate = new Date(startYear, startMonth - 1, startDay),
+            endDate = new Date(endYear, endMonth - 1, endDay),
             today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate())
 
         if (startDay > 31 || endDay > 31)
@@ -104,8 +104,8 @@ const command: Command = {
             .setColor(blurple)
             .setTitle(`${interaction.user.tag} is going away for some time!`)
             .addFields(
-                { name: "From", value: `${startDay}/${startMonth + 1}/${startYear}` },
-                { name: "To", value: `${endDay}/${endMonth + 1}/${endYear}` },
+                { name: "From", value: `${startDay}/${startMonth}/${startYear}` },
+                { name: "To", value: `${endDay}/${endMonth}/${endYear}` },
                 { name: "Reason", value: reason }
             )
             .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true })),
