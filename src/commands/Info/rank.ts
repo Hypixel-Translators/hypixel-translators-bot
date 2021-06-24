@@ -49,14 +49,15 @@ const command: Command = {
 }
 
 function generateProgressBar(current: number, goal: number, places: number = 10): string {
-    const progressEmoji = "<:progress_done:820405383935688764>"
-    const leftEmoji = "<:progress_left:820405406906974289>"
+    const progressEmoji = "<:progress_done:820405383935688764>",
+        leftEmoji = "<:progress_left:820405406906974289>"
     if (isNaN(current) || isNaN(goal)) return leftEmoji.repeat(places) + "\u200b"
 
-    const progressFixed = Math.round((current / goal) * places)
-    const leftFixed = places - progressFixed
+    const progressFixed = Math.round((current / goal) * places),
+        leftFixed = places - progressFixed
 
-    return progressEmoji.repeat(progressFixed) + leftEmoji.repeat(leftFixed) + "\u200b" //add a blank char at the end to prevent huge emojis on android
+    //Apparently leftFixed can be negative and progressFixed can be bigger than 10, so let's not do that
+    return progressEmoji.repeat(progressFixed > 10 ? 10 : progressFixed) + leftEmoji.repeat(leftFixed < 0 ? 0 : leftFixed) + "\u200b" //add a blank char at the end to prevent huge emojis on android
 }
 
 export default command
