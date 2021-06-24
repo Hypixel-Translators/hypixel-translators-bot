@@ -47,7 +47,7 @@ const command: Command = {
         description: "The reason why you're gonna be away",
         required: true
     }],
-    cooldown: Infinity,
+    cooldown: 600,
     channelWhitelist: ["624881429834366986"], //staff-bots
     roleWhitelist: ["768435276191891456"], //Discord Staff
     async execute(interaction: Discord.CommandInteraction) {
