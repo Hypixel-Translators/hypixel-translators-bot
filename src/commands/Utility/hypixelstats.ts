@@ -233,8 +233,8 @@ const command: Command = {
                     else if (buttonInteraction.customID === "stats") embed = await stats()
                     else if (buttonInteraction.customID === "social") embed = await social()
                     controlButtons.components.forEach(button => {
-                        if (button.customID === buttonInteraction.customID) button.setStyle("SECONDARY")
-                        else button.setStyle("SUCCESS")
+                        if (button.customID === buttonInteraction.customID) (button as Discord.MessageButton).setStyle("SECONDARY")
+                        else (button as Discord.MessageButton).setStyle("SUCCESS")
                     })
                     await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
                 })

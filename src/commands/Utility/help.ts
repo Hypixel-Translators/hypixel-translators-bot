@@ -181,26 +181,27 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, ex
 export function updateButtonColors(row: Discord.MessageActionRow, page: number, pages: any[]) {
   if (page == 0) {
     row.components.forEach(button => {
-      if (button.customID === "first" || button.customID === "previous") button
+      if (button.customID === "first" || button.customID === "previous") (button as Discord.MessageButton)
         .setStyle("SECONDARY")
         .setDisabled(true)
-      else button
+      else (button as Discord.MessageButton)
         .setStyle("SUCCESS")
         .setDisabled(false)
     })
   } else if (page == pages.length - 1) {
     row.components.forEach(button => {
-      if (button.customID === "last" || button.customID === "next") button
+      if (button.customID === "last" || button.customID === "next") (button as Discord.MessageButton)
         .setStyle("SECONDARY")
         .setDisabled(true)
-      else button
+      else (button as Discord.MessageButton)
         .setStyle("SUCCESS")
         .setDisabled(false)
     })
   } else {
-    row.components.forEach(button => button
+    row.components.forEach(button => (button as Discord.MessageButton)
       .setStyle("SUCCESS")
-      .setDisabled(false))
+      .setDisabled(false)
+    )
   }
   return row
 }
