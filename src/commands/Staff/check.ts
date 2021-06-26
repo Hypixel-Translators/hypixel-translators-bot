@@ -49,8 +49,8 @@ const command: Command = {
       .setTitle(member.user.tag)
       .setDescription(`${member} (ID: ${member.user.id})`)
       .addFields(
-        { name: "Joined on", value: `${joined} (<t:${joinedAgo}:R)`, inline: true },
-        { name: "Account created on", value: `${created} (<t:${createdAgo}:R)`, inline: true },
+        { name: "Joined on", value: `${joined} (<t:${joinedAgo}:R>)`, inline: true },
+        { name: "Account created on", value: `${created} (<t:${createdAgo}:R>)`, inline: true },
         { name: "Roles", value: userRoles },
       )
       .setThumbnail(member.user.displayAvatarURL({ format: "png", dynamic: true }))
