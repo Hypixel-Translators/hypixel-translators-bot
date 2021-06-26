@@ -35,7 +35,7 @@ const command: Command = {
     const joined = member.joinedAt!.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" }),
       created = member.user.createdAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" }),
       joinedAgo = Math.round(member.joinedAt!.getTime() / 1000),
-      createdAgo = Math.abs(member.user.createdAt.getTime() / 1000),
+      createdAgo = Math.round(member.user.createdAt.getTime() / 1000),
       rolesCache = member.roles.cache
     let userRoles: string
     if (rolesCache.size !== 1) {
