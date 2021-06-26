@@ -137,12 +137,12 @@ client.on("message", async message => {
                     .setEmoji("❎")
                     .setLabel(getGlobalString("pagination.cancel"))
             ]
-            const msg = await message.channel.send({ embeds: [embed], components: [controlButtons] })
-            const collector = msg.createMessageComponentInteractionCollector(
-                (buttonInteraction: Discord.MessageComponentInteraction) =>
-                    buttonInteraction.customID === "confirm" || buttonInteraction.customID === "cancel",
-                { time: confirmTime * 1000 }
-            )
+            const msg = await message.channel.send({ embeds: [embed], components: [controlButtons] }),
+                collector = msg.createMessageComponentInteractionCollector({
+                    filter: (buttonInteraction: Discord.MessageComponentInteraction) =>
+                        buttonInteraction.customID === "confirm" || buttonInteraction.customID === "cancel",
+                    time: confirmTime * 1000
+                })
 
             let replied = false
             collector.on("collect", async reaction => {

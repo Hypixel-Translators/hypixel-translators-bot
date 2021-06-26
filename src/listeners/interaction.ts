@@ -1,11 +1,12 @@
 import { client } from "../index"
 import { DbUser } from "../lib/dbclient"
 import Discord from "discord.js"
-import { loadingColor, errorColor, successColor, neutralColor, blurple } from "../config.json"
+import { errorColor } from "../config.json"
 import fs from "fs"
 import { isEqual } from "lodash"
 
 client.on("interaction", async interaction => {
+    // Staff LOA warning removal system
     if (interaction.isButton() && interaction.channelID === "836748153122324481" && interaction.customID == "done") {
         if ((interaction.message as Discord.Message).mentions.users.first()!.id !== interaction.user.id) {
             await interaction.reply({ content: "You can only remove your own LOA warning!", ephemeral: true })
@@ -196,7 +197,7 @@ client.on("interaction", async interaction => {
                     .setColor(errorColor)
                     .setAuthor("Unexpected error!")
                     .setTitle(error.toString().substring(0, 255))
-                    .setDescription(`\`\`\`${error.stack.substring(0, 2047)}\`\`\``)
+                    .setDescription(`\`\`\`${error.stack.substring(0, 2_047)}\`\`\``)
                     .setFooter("Check the console for more details")
                 await (interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send({
                     content: "<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>",

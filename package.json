@@ -17,7 +17,7 @@
     "canvas": "^2.8.0",
     "country-emoji": "^1.5.6",
     "countryjs": "^1.8.0",
-    "discord.js": "^13.0.0-dev.4714a961b87746b0f85214c756614d276666f285",
+    "discord.js": "^13.0.0-dev.0d0c8f07f2535dd315ca95abe35e848c13d0ddf5",
     "lodash": "^4.17.21",
     "mongodb": "^3.6.9",
     "node-fetch": "^2.6.1",

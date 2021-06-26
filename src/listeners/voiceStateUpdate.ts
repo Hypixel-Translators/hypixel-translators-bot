@@ -17,7 +17,7 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
                 .setAuthor(newState.member!.user.tag, newState.member!.user.displayAvatarURL({ format: "png", dynamic: true }))
                 .setDescription(`**${newState.member} was server ${newState.serverMute ? "muted" : "unmuted"} in ${newState.channel?.name}**`)
                 .setFooter(`ID: ${newState.member!.id}`)
-                .setTimestamp(Date.now())
+                .setTimestamp()
             await logs.send({ embeds: [embed] })
         } else if (!!oldState.serverDeaf != !!newState.serverDeaf) {
             const embed = new Discord.MessageEmbed()
@@ -25,7 +25,7 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
                 .setAuthor(newState.member!.user.tag, newState.member!.user.displayAvatarURL({ format: "png", dynamic: true }))
                 .setDescription(`**${newState.member} was server ${newState.serverDeaf ? "deafened" : "undeafened"} in ${newState.channel?.name}**`)
                 .setFooter(`ID: ${newState.member!.id}`)
-                .setTimestamp(Date.now())
+                .setTimestamp()
             await logs.send({ embeds: [embed] })
         }
     }

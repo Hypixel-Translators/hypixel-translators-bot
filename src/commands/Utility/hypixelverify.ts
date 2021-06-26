@@ -23,8 +23,8 @@ const command: Command = {
 
         await interaction.defer()
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
-        await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 30000 })
-            .then(res => (res.json())) // get the response json
+        await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 30_000 })
+            .then(res => res.json()) // get the response json
             .then(async json => { // here we do stuff with the json
 
                 // Handle errors

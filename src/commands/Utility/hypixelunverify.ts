@@ -1,7 +1,7 @@
 import Discord from "discord.js"
 import { successColor, errorColor } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { Command, client, GetStringFunction } from "../../index"
+import { Command, GetStringFunction } from "../../index"
 import { updateRoles } from "./hypixelverify"
 
 const command: Command = {

@@ -35,7 +35,7 @@ const command: Command = {
       client = Client
 
     let evaled,
-      codeToRun = (interaction.options.get("code")?.value as string).replace(/[“”]/gim, '"')
+      codeToRun = (interaction.options.get("code")!.value as string).replaceAll(/[“”]/gim, '"')
     if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`
     codeToRun = transpile(codeToRun)
     try {

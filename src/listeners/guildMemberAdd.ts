@@ -7,11 +7,11 @@ client.on("guildMemberAdd", async member => {
     //Define assets and create canvas
     registerFont("assets/Bitter-Regular.ttf", { family: "Bitter" })
     registerFont("assets/Bitter-Bold.ttf", { family: "Bitter-Bold" })
-    const canvas = createCanvas(800, 200)
-    const ctx = canvas.getContext("2d")
-    const userName = member.user.username
-    const userAvatar = member.user.displayAvatarURL({ format: "png" })
-    const memberCount = `${member.guild.memberCount}`
+    const canvas = createCanvas(800, 200),
+        ctx = canvas.getContext("2d"),
+        userName = member.user.username,
+        userAvatar = member.user.displayAvatarURL({ format: "png" }),
+        memberCount = `${member.guild.memberCount}`
 
     //Select appropriate font based on used characters
     /*let usernameFont

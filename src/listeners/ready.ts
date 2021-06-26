@@ -73,7 +73,7 @@ client.once("ready", async () => {
         await stats(client, false)
         await inactives(client, false)
         await crowdin(client, false)
-    }, 60000)
+    }, 60_000)
 })
 
 async function publishCommand(command: Command) {

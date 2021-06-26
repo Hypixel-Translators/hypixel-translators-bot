@@ -64,7 +64,7 @@ const command: Command = {
 
         await interaction.defer()
         // make a request to the slothpixel api (hypixel api but we dont need an api key)
-        await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 30000 })
+        await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 30_000 })
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
 
@@ -223,9 +223,11 @@ const command: Command = {
                             .setLabel(getString("social"))
                     )
                 await interaction.editReply({ embeds: [embed], components: [controlButtons] })
-                const msg = await interaction.fetchReply() as Discord.Message
-
-                const collector = msg.createMessageComponentInteractionCollector((button: Discord.MessageComponentInteraction) => button.customID === "stats" || button.customID === "social", { time: this.cooldown! * 1000 })
+                const msg = (await interaction.fetchReply()) as Discord.Message,
+                    collector = msg.createMessageComponentInteractionCollector({
+                        filter: (button: Discord.MessageComponentInteraction) => button.customID === "stats" || button.customID === "social",
+                        time: this.cooldown! * 1000
+                    })
 
                 collector.on("collect", async buttonInteraction => {
                     const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
@@ -256,7 +258,24 @@ function parseColorCode(rank: string): string {
     const colorCode: string = rank.substring(1, 2)
     const colorsJson: {
         [key: string]: string
-    } = { "0": "#000000", "1": "#0000AA", "2": "#00AA00", "3": "#00AAAA", "4": "#AA0000", "5": "#AA00AA", "6": "#FFAA00", "7": "#AAAAAA", "8": "#555555", "9": "#5555FF", "a": "#55FF55", "b": "#55FFFF", "c": "#FF5555", "d": "#FF55FF", "e": "#FFFF55", "f": "#FFFFFF" }
+    } = {
+        "0": "#0_00000",
+        "1": "#0_000AA",
+        "2": "#00AA00",
+        "3": "#00AAAA",
+        "4": "#AA0_000",
+        "5": "#AA00AA",
+        "6": "#FFAA00",
+        "7": "#AAAAAA",
+        "8": "#555555",
+        "9": "#5555FF",
+        a: "#55FF55",
+        b: "#55FFFF",
+        c: "#FF5555",
+        d: "#FF55FF",
+        e: "#FFFF55",
+        f: "#FFFFFF"
+    }
     return colorsJson[colorCode]
 }
 

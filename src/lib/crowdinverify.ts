@@ -60,7 +60,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
                         .then(msg => {
                             setTimeout(() => {
                                 if (!msg.deleted) msg.delete()
-                            }, 60000)
+                            }, 60_000)
                         })
                     await verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
                 })
@@ -73,8 +73,8 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
     const browser = await getBrowser(),
         page = await browser.pupBrowser.newPage()
     try {
-        await page.goto(url, { timeout: 10000 })
-        await page.waitForSelector(".project-name", { timeout: 10000 })
+        await page.goto(url, { timeout: 10_000 })
+        await page.waitForSelector(".project-name", { timeout: 10_000 })
     } catch { //if no projects are available
         const isPrivate = await page.$(".private-profile") !== null,
             isValid = await page.$(".project-list-container") !== null
@@ -101,7 +101,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
                         .then(msg => {
                             setTimeout(() => {
                                 if (!msg.deleted) msg.delete()
-                            }, 60000)
+                            }, 60_000)
                         })
                     await verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
                 })
@@ -125,7 +125,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
                         .then(msg => {
                             setTimeout(() => {
                                 if (!msg.deleted) msg.delete()
-                            }, 60000)
+                            }, 60_000)
                         })
                     await verifyLogs.send(`${member}'s profile was private, I let them know about that in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
                 })
@@ -188,7 +188,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
                     .then(msg => {
                         setTimeout(async () => {
                             if (!msg.deleted) await msg.delete()
-                        }, 60000)
+                        }, 60_000)
                     })
                 await verifyLogs.send(`${member} forgot to add their Discord to their profile. Let's hope they fix that with the message I just sent them.`)
             })

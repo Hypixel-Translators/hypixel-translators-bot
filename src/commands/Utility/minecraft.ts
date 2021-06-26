@@ -4,7 +4,7 @@ import fetch from "node-fetch"
 import { db, DbUser } from "../../lib/dbclient"
 import { client, Command, GetStringFunction } from "../../index"
 import { updateButtonColors } from "./help"
-const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 10000 }
+const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 10_000 }
 
 const command: Command = {
     name: "minecraft",
@@ -113,7 +113,11 @@ const command: Command = {
                     await interaction.editReply({ embeds: [pageEmbed], components: [controlButtons] })
                     const msg = await interaction.fetchReply() as Discord.Message
 
-                    const collector = msg.createMessageComponentInteractionCollector((button: Discord.MessageComponentInteraction) => button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last", { time: this.cooldown! * 1000 })
+                    const collector = msg.createMessageComponentInteractionCollector({
+                        filter: (button: Discord.MessageComponentInteraction) =>
+                            button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last",
+                        time: this.cooldown! * 1000
+                    })
 
                     collector.on("collect", async buttonInteraction => {
                         const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })

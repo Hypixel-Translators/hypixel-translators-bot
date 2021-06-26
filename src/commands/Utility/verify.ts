@@ -75,7 +75,7 @@ const command: Command = {
                             .then(msg => {
                                 setTimeout(() => {
                                     if (!msg.deleted) msg.delete()
-                                }, 30000)
+                                }, 30_000)
                             })
                         await interaction.reply({ content: `Your request was processed, check ${verify} for more info!`, ephemeral: true })
                     })

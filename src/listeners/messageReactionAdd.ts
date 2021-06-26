@@ -27,7 +27,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                         if (!reaction.message.deleted) reaction.message.delete()
                         console.log(`String reviewed in ${channel.name}`)
                     } else await reaction.message.reactions.cache.get("⏱")?.remove()
-                }, 10000)
+                }, 10_000)
             } else if (reaction.emoji.name === "vote_maybe" && reaction.message.author!.id !== user.id) {
                 reaction.users.remove(user.id)
                 const embed = new Discord.MessageEmbed()
@@ -53,7 +53,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                         if (!reaction.message.deleted) reaction.message.delete()
                         console.log(`String rejected in ${channel.name}`)
                     } else await reaction.message.reactions.cache.get("⏱")?.remove()
-                }, 10000)
+                }, 10_000)
             } else reaction.users.remove(user.id)
         }
         // Give Polls role if reacted on reaction role message

@@ -4,7 +4,7 @@ import fetch from "node-fetch"
 import { HTBClient } from "../lib/dbclient"
 import { db } from "../lib/dbclient"
 import { ObjectId } from "mongodb"
-const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + process.env.CTOKEN_V2, "User-Agent": "Hypixel Translators Bot" }, timeout: 10000 }
+const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + process.env.CTOKEN_V2, "User-Agent": "Hypixel Translators Bot" }, timeout: 10_000 }
 
 export async function execute(client: HTBClient, manual: boolean) {
     try {
@@ -82,7 +82,7 @@ export async function updateProjectStatus(client: HTBClient, projectId: string) 
         .catch(err => console.error(`Crowdin API is down, couldn't update ${projectDb.name} language statistics. Here's the error:`, err))
 }
 
-interface LanguageStatus {
+export interface LanguageStatus {
     data: {
         languageId: string,
         words: {

@@ -73,9 +73,13 @@ const command: Command = {
 
             controlButtons = updateButtonColors(controlButtons, page, pages)
             await interaction.reply({ embeds: [pageEmbed], components: [controlButtons] })
-            const msg = await interaction.fetchReply() as Discord.Message
+            const msg = await interaction.fetchReply() as Discord.Message,
 
-            const collector = msg.createMessageComponentInteractionCollector((button: Discord.MessageComponentInteraction) => button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last", { time: this.cooldown! * 1000 })
+                collector = msg.createMessageComponentInteractionCollector({
+                    filter: (button: Discord.MessageComponentInteraction) =>
+                        button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last",
+                    time: this.cooldown! * 1000
+                })
 
             collector.on("collect", async buttonInteraction => {
                 const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
@@ -115,8 +119,21 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
         // const user = interaction.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that
         if (pages[page][i].levels) {
             const totalXp = pages[page][i].levels!.totalXp
-            pageEmbed.addField(getString("level", { rank: (i + 1) + (page * 24), level: pages[page][i].levels!.level, xp: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp }), `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`, true)
-        } else pageEmbed.addField(getString("unranked", { rank: (i + 1) + (page * 24) }), `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`, true)
+            pageEmbed.addField(
+                getString("level", {
+                    rank: i + 1 + page * 24,
+                    level: pages[page][i].levels!.level,
+                    xp: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp
+                }),
+                `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
+                true
+            )
+        } else
+            pageEmbed.addField(
+                getString("unranked", { rank: i + 1 + page * 24 }),
+                `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
+                true
+            )
     }
     return pageEmbed
 }

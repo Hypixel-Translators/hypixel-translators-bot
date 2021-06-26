@@ -7,7 +7,7 @@ export default async function leveling(message: Discord.Message) {
         now = Date.now(),
         lastMsg = talkedRecently.get(message.author.id)
 
-    if (!lastMsg || lastMsg + 60000 < now) { //If the user talked more than a minute ago or if they haven't talked since the bot started
+    if (!lastMsg || lastMsg + 60_000 < now) { //If the user talked more than a minute ago or if they haven't talked since the bot started
         const randomXp = Math.floor(Math.random() * 11) + 15, //Random number between 25 and 15. 11 comes from 25-15+1
             userDb: DbUser = await collection.findOne({ id: message.author.id }),
             xpNeeded = getXpNeeded(userDb.levels?.level, userDb.levels?.levelXp ?? 0 + randomXp)

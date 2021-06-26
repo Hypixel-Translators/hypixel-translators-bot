@@ -17,7 +17,7 @@ const command: Command = {
     async execute(interaction: Discord.CommandInteraction) {
         const role = interaction.options.get("role")!.role as Discord.Role,
             tags: Discord.GuildMember[] = []
-        
+
         await role.guild.members.fetch()
         role.members.forEach(member => tags.push(member))
 
@@ -55,7 +55,11 @@ const command: Command = {
             await interaction.reply({ embeds: [pageEmbed], components: [controlButtons] })
             const msg = await interaction.fetchReply() as Discord.Message
 
-            const collector = msg.createMessageComponentInteractionCollector((button: Discord.MessageComponentInteraction) => button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last", { time: 60000 })
+            const collector = msg.createMessageComponentInteractionCollector({
+                filter: (button: Discord.MessageComponentInteraction) =>
+                    button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last",
+                time: 60_000
+            })
 
             collector.on("collect", async buttonInteraction => {
                 if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: `You cannot interact with this menu! Execute /${this.name} yourself to do this.`, ephemeral: true })

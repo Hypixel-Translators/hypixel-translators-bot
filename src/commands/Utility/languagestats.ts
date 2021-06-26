@@ -2,7 +2,7 @@ import { db } from "../../lib/dbclient"
 import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
 import { successColor, loadingColor, errorColor } from "../../config.json"
-import { LangDbEntry } from "../../events/stats"
+import { LangDbEntry, LanguageStatus } from "../../events/stats"
 import { Command, client, GetStringFunction } from "../../index"
 const ctokenV2 = process.env.CTOKEN_V2!
 
@@ -29,7 +29,7 @@ const command: Command = {
         if (!lang || lang?.code === "en") throw "falseLang"
 
         await interaction.defer()
-        const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2, "User-Agent": "Hypixel Translators Bot" }, timeout: 10000 }
+        const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2, "User-Agent": "Hypixel Translators Bot" }, timeout: 10_000 }
         var hypixelData: LanguageStatus["data"]
         await fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", settings)
             .then(res => res.json())
@@ -94,21 +94,3 @@ const command: Command = {
 }
 
 export default command
-
-interface LanguageStatus {
-    data: {
-        languageId: string,
-        words: {
-            total: number,
-            translated: number,
-            approved: number
-        },
-        phrases: {
-            total: number,
-            translated: number,
-            approved: number
-        },
-        translationProgress: number,
-        approvalProgress: number
-    },
-}
