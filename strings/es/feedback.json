@@ -1,7 +1,7 @@
 {
     "moduleName": "Problemas y comentarios",
     "bugT": "Ver y añadir bugs",
-    "bugD": "To show and make suggestions or bug reports, click on the button below!",
+    "bugD": "¡Para mostrar y hacer sugerencias o reportes de bugs, haz clic en el botón de abajo!",
     "urgentT": "¿Es urgente?",
     "urgentD": "Si estas reportado un bug crucial o el bot está desconectado por mucho tiempo sin que nos damos cuenta, por favor, menciona a un miembro del staff en un canal publico, explicando la situación.",
     "link": "Enlace"

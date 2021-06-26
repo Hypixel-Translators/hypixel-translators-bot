@@ -20,7 +20,7 @@
         "falseFlag": "¡Esa bandera no se pudo encontrar!",
         "falseLang": "¡Ese idioma no se pudo encontrar!",
         "falseRole": "¡Ese rol no se pudo encontrar!",
-        "falseUUID": "Couldn't find a player with that UUID!",
+        "falseUUID": "¡No se pudo encontrar un jugador con ese UUID!",
         "noPlayer": "¡Ese jugador nunca se ha unido a Hypixel!",
         "notVerified": "¡Ese usuario no ha vinculado su cuenta de Hypixel todavía!",
         "disabled": "Este comando se ha desactivado temporalmente.",

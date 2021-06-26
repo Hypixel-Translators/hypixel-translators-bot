@@ -1,7 +1,7 @@
 {
     "moduleName": "Información",
     "page1Title": "Página de ayuda",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "commandsListTooltip": "Este bot fue creado para la Comunidad de Traductores de Hypixel y es mantenido por %%developer%%. Es de código abierto y nuestro repositorio de GitHub se puede encontrar [aquí]%%github%%.\nPuedes ayudar a traducir el bot siguiendo las instrucciones en el comando `/translate`\n\nPuedes ejecutar `/help <nombre del comando>` para aprender más sobre un comando especifico. Aquí hay una lista de todas las páginas disponibles. Utiliza los botones de este mensaje para recorrerlas.",
     "madeBy": "Bot hecho con mucho amor por %%developer%%",
     "pageNumber": "Página %%number%%",
     "utilityHelp": "Herramientas & Utilidades",
@@ -35,10 +35,10 @@
         "description": "Te muestra estadísticas simples de Hypixel de un jugador."
     },
     "hypixelunverify": {
-        "description": "Unlinks your Discord account from your Minecraft account."
+        "description": "Desconecta tu cuenta de Discord de tu cuenta de Minecraft."
     },
     "hypixelverify": {
-        "description": "Links your Discord account with your Minecraft account."
+        "description": "Conecta tu cuenta de Discord con tu cuenta de Minecraft."
     },
     "invite": {
         "description": "Te da una invitación al servidor - úsala cuando quieras invitar a alguien."
@@ -56,16 +56,16 @@
         "description": "Menciona un rol de idioma con un mensaje opcional."
     },
     "minecraft": {
-        "description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+        "description": "Busca el historial de nombres o skin de un jugador de Minecraft específico. Este comando es compatible con `/hypixelverify`, lo que te permite buscar la información de un usuario específico si está verificado. El parámetro `user` siempre tendrá prioridad sobre `username` y ambos son opcionales si estás verificado, de lo contrario, se requiere al menos uno."
     },
     "ping": {
         "description": "Te da el ping del bot."
     },
     "prefix": {
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+        "description": "Te da el prefijo apropiado para tu(s) idioma(s). Para obtener un prefijo personalizado, usa `/prefix` con el código regional de tu país o su nombre en el parámetro `banderas`. Puedes añadir tantas banderas como quieras, separadas con espacios."
     },
     "profile": {
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
+        "description": "Te da el enlace a tu perfil de Crowdin si está almacenado en nuestra base de datos. Si no está, puedes usar `/help verify` para aprender como almacenar tu perfil y actualizar tus roles."
     },
     "projects": {
         "description": "Te da enlaces e información sobre todos los proyectos de traducción que tenemos en el servidor."
@@ -95,6 +95,6 @@
         "description": "Te da un enlace a la página oficial de Twitter de la cuenta de Hypixel Translators Community."
     },
     "verify": {
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "description": "Comprueba automáticamente los cambios en tu perfil de Crowdin y te da los roles adecuados. Si tu perfil no está almacenado en nuestra base de datos, puedes darlo como un argumento en el comando. Para verificar si tu perfil está almacenado, usa `/profile`. Asegúrate de tener DMs habilitados desde este servidor para que el bot pueda enviarte un mensaje."
     }
 }

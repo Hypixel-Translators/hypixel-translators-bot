@@ -2,7 +2,7 @@
     "moduleName": "XP Ranglista",
     "pageTitle": "Itt az XP ranglista!",
     "level": "#%%rank%% | %%level%%. szint | XP: %%xp%%",
-    "youIndicator": "YOU",
+    "youIndicator": "TE",
     "thousand": "e",
     "unranked": "#%%rank%% Rangtalan"
 }
