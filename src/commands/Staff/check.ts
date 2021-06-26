@@ -17,62 +17,46 @@ const command: Command = {
   async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
     const member = interaction.options.get("user")?.member as Discord.GuildMember ?? interaction.member as Discord.GuildMember
 
-    const userDb: DbUser | null = await db.collection("users").findOne({ id: member!.user.id })
+    const userDb: DbUser | null = await db.collection("users").findOne({ id: member.user.id })
     let note
-    if (member!.user.id === interaction.guild!.ownerID) note = "Discord Owner"
-    else if (member!.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"
-    else if (member!.roles.cache.find(r => r.name === "Discord Administrator")) note = "Discord Administrator"
-    else if (member!.roles.cache.find(r => r.name === "Discord Moderator")) note = "Discord Moderator"
-    else if (member!.roles.cache.find(r => r.name === "Discord Helper")) note = "Discord Helper"
-    else if (member!.roles.cache.find(r => r.name.endsWith(" Manager"))) note = "Project Manager"
-    else if (member!.roles.cache.find(r => r.name === "Hypixel Staff")) note = "Hypixel Staff Member"
+    if (member.user.id === interaction.guild!.ownerID) note = "Discord Owner"
+    else if (member.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"
+    else if (member.roles.cache.find(r => r.name === "Discord Administrator")) note = "Discord Administrator"
+    else if (member.roles.cache.find(r => r.name === "Discord Moderator")) note = "Discord Moderator"
+    else if (member.roles.cache.find(r => r.name === "Discord Helper")) note = "Discord Helper"
+    else if (member.roles.cache.find(r => r.name.endsWith(" Manager"))) note = "Project Manager"
+    else if (member.roles.cache.find(r => r.name === "Hypixel Staff")) note = "Hypixel Staff Member"
     else if (userDb?.profile) note = userDb.profile
 
-    let color = member!.displayHexColor
+    let color = member.displayHexColor
     if (color === "#000000") color = blurple
     let timeZone = getString("region.timeZone", "global")
     if (timeZone.startsWith("crwdns")) timeZone = getString("region.timeZone", "global", "en")
-    const joined = member!.joinedAt!.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
-    const created = member!.user.createdAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
-    let joinAgo = Math.round((new Date().getTime() - Number(member!.joinedAt!)) / 1000)
-    let createAgo = Math.round((new Date().getTime() - Number(member!.user.createdAt)) / 1000)
-    const rolesCache = member!.roles.cache
-    let userRoles
+    const joined = member.joinedAt!.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" }),
+      created = member.user.createdAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" }),
+      joinedAgo = Math.round(member.joinedAt!.getTime() / 1000),
+      createdAgo = Math.abs(member.user.createdAt.getTime() / 1000),
+      rolesCache = member.roles.cache
+    let userRoles: string
     if (rolesCache.size !== 1) {
       rolesCache.delete("549503328472530974")
-      userRoles = rolesCache.sort((a: Discord.Role, b: Discord.Role) => b.position - a.position).map((r: Discord.Role) => `${r}`).join(", ")
+      userRoles = rolesCache.sort((a: Discord.Role, b: Discord.Role) => b.position - a.position).map((r: Discord.Role) => r).join(", ")
     } else userRoles = "No roles yet!"
 
     const embed = new Discord.MessageEmbed()
       .setColor(color)
-      .setAuthor("User information", member!.user.displayAvatarURL({ format: "png", dynamic: true }))
-      .setTitle(member!.user.tag)
-      .setDescription(`${member} (ID: ${member!.user.id})`)
+      .setAuthor("User information", member.user.displayAvatarURL({ format: "png", dynamic: true }))
+      .setTitle(member.user.tag)
+      .setDescription(`${member} (ID: ${member.user.id})`)
       .addFields(
-        { name: "Joined on", value: joined.charAt(0).toUpperCase() + joined.slice(1) + timeAgo(joinAgo), inline: true },
-        { name: "Account created on", value: created.charAt(0).toUpperCase() + created.slice(1) + timeAgo(createAgo), inline: true },
+        { name: "Joined on", value: `${joined} (<t:${joinedAgo}:R)`, inline: true },
+        { name: "Account created on", value: `${created} (<t:${createdAgo}:R)`, inline: true },
         { name: "Roles", value: userRoles },
       )
-      .setThumbnail(member!.user.displayAvatarURL({ format: "png", dynamic: true }))
+      .setThumbnail(member.user.displayAvatarURL({ format: "png", dynamic: true }))
       .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     if (note) embed.addField("Note", note)
     await interaction.reply({ embeds: [embed] })
-    function timeAgo(time: number) {
-      let timeString: string
-      if (time == 1) timeString = ` (${time} second ago)`
-      else if (time < 60) timeString = ` (${time} seconds ago)`
-      else if (time == 60) timeString = ` (${Math.round(time / 60)} minute ago)`
-      else if (time < (60 * 60 * 1.5)) timeString = ` (${Math.round(time / 60)} minutes ago)`
-      else if (time == (60 * 60 * 1.5)) timeString = ` (${Math.round(time / (60 * 60))} hour ago)`
-      else if (time < (60 * 60 * 24 * 1.5)) timeString = ` (${Math.round(time / (60 * 60))} hours ago)`
-      else if (time == (60 * 60 * 24 * 1.5)) timeString = ` (${Math.round(time / (60 * 60 * 24))} day ago)`
-      else if (time < (60 * 60 * 24 * 30 * 1.5)) timeString = ` (${Math.round(time / (60 * 60 * 24))} days ago)`
-      else if (time == (60 * 60 * 24 * 30 * 1.5)) timeString = ` (${Math.round(time / (60 * 60 * 24 * 30))} month ago)`
-      else if (time < (60 * 60 * 24 * 365 * 1.5)) timeString = ` (${Math.round(time / (60 * 60 * 24 * 30))} months ago)`
-      else if (time == (60 * 60 * 24 * 365 * 1.5)) timeString = ` (${Math.round(time / (60 * 60 * 24 * 365))} year ago)`
-      else timeString = ` (${Math.round(time / (60 * 60 * 24 * 365))} years ago)`
-      return timeString
-    }
   }
 }
 
