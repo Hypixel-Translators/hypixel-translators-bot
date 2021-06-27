@@ -259,11 +259,11 @@ function parseColorCode(rank: string): string {
     const colorsJson: {
         [key: string]: string
     } = {
-        "0": "#0_00000",
-        "1": "#0_000AA",
+        "0": "#000000",
+        "1": "#0000AA",
         "2": "#00AA00",
         "3": "#00AAAA",
-        "4": "#AA0_000",
+        "4": "#AA0000",
         "5": "#AA00AA",
         "6": "#FFAA00",
         "7": "#AAAAAA",
