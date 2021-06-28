@@ -184,7 +184,7 @@ client.on("message", async message => {
                 message.attachments.forEach(file => images.push(file.attachment))
                 staffMsg.setTitle("View attachments")
                 dmEmbed.setTitle(getGlobalString("staffDm.attachmentsSent"))
-                await staffBots.send({ content: `/dm user:${message.author.tag}`, embeds: [staffMsg], files: images })
+                await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg], files: images })
                 await message.channel.send({ embeds: [dmEmbed] })
                 return
             } else if (message.attachments.size > 0) {
@@ -192,8 +192,8 @@ client.on("message", async message => {
                     .setTitle("View attachment")
                     .setImage(message.attachments.first()!.url)
                 dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent"))
-                await staffBots.send({ content: `/dm user:${message.author.tag}`, embeds: [staffMsg] })
-            } else await staffBots.send({ content: `/dm user:${message.author.tag}`, embeds: [staffMsg] }) //staff-bots
+                await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg] })
+            } else await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg] }) //staff-bots
             if (afterConfirm) await msg.edit({ embeds: [dmEmbed], components: [] })
             else await msg.channel.send({ embeds: [dmEmbed] })
         }
