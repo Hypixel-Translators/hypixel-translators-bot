@@ -22,6 +22,6 @@ To join the translation project, please make a join request [here](https://crowd
 
 ## Just want to check it out?
 
-In order to change your language, execute `/language <language>`. If you find any bugs, please let us know by adding an issue [here](https://github.com/Hypixel-Translators/hypixel-translators-bot/issues). Keep in mind you do not have to join the translation project in order to use the language, but it may not be fully translated.
+In order to change your language, execute `/language set <language>`. If you find any bugs, please let us know by adding an issue [here](https://github.com/Hypixel-Translators/hypixel-translators-bot/issues). Keep in mind you do not have to join the translation project in order to use the language, but it may not be fully translated.
 
 **Done reading? Cool! [Click here to join our server.](https://discord.gg/rcT948A)**
