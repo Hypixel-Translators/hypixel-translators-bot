@@ -81,7 +81,7 @@ const command: Command = {
         controlButtons = new Discord.MessageActionRow()
           .addComponents(
             new Discord.MessageButton()
-              .setEmoji("⏮")
+              .setEmoji("⏮️")
               .setCustomID("first")
               .setLabel(getString("pagination.first", "global")),
             new Discord.MessageButton()
@@ -93,7 +93,7 @@ const command: Command = {
               .setCustomID("next")
               .setLabel(getString("pagination.next", "global")),
             new Discord.MessageButton()
-              .setEmoji("⏭")
+              .setEmoji("⏭️")
               .setCustomID("last")
               .setLabel(getString("pagination.last", "global"))
           )
