@@ -50,7 +50,7 @@ const command: Command = {
                 .addComponents(
                     new Discord.MessageButton()
                         .setStyle("SUCCESS")
-                        .setEmoji("⏮")
+                        .setEmoji("⏮️")
                         .setCustomID("first")
                         .setLabel(getString("pagination.first", "global")),
                     new Discord.MessageButton()
@@ -65,7 +65,7 @@ const command: Command = {
                         .setLabel(getString("pagination.next", "global")),
                     new Discord.MessageButton()
                         .setStyle("SUCCESS")
-                        .setEmoji("⏭")
+                        .setEmoji("⏭️")
                         .setCustomID("last")
                         .setLabel(getString("pagination.last", "global"))
                 ),
