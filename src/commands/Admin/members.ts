@@ -35,7 +35,7 @@ const command: Command = {
                 controlButtons = new Discord.MessageActionRow()
                     .addComponents(
                         new Discord.MessageButton()
-                            .setEmoji("⏮")
+                            .setEmoji("⏮️")
                             .setCustomID("first")
                             .setLabel("First page"),
                         new Discord.MessageButton()
@@ -47,7 +47,7 @@ const command: Command = {
                             .setCustomID("next")
                             .setLabel("Next page"),
                         new Discord.MessageButton()
-                            .setEmoji("⏭")
+                            .setEmoji("⏭️")
                             .setCustomID("last")
                             .setLabel("Last page")
                     )
