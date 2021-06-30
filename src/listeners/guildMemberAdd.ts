@@ -4,6 +4,8 @@ import Discord from "discord.js"
 import { registerFont, createCanvas, loadImage } from "canvas"
 
 client.on("guildMemberAdd", async member => {
+    if (member.guild.id !== "549503328472530974") return
+
     //Define assets and create canvas
     registerFont("assets/Bitter-Regular.ttf", { family: "Bitter" })
     registerFont("assets/Bitter-Bold.ttf", { family: "Bitter-Bold" })
