@@ -1,7 +1,7 @@
 {
     "moduleName": "Information",
     "page1Title": "Page d'aide",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "commandsListTooltip": "Ce bot a été conçu pour la Communauté des Traducteurs d'Hypixel et est maintenu par %%developer%%. Il est open source et notre projet GitHub peut être trouvé [ici]%%github%%.\nTu peux aider à traduire le bot en suivant les instructions de la commande `/translate`.\n\nTu peux exécuter la commande `/help <commande>` pour en apprendre plus à propos d'une commande spécifique.\nTu trouveras ci-dessous une liste de toutes les pages disponibles. Utilises les boutons de ce message pour les parcourir.",
     "madeBy": "Bot réalisé avec beaucoup de soin par %%developer%%",
     "pageNumber": "Page %%number%%",
     "utilityHelp": "Outils & Utilitaires",
@@ -17,28 +17,28 @@
     "minutes": "minutes",
     "cooldownField": "Temps de recharge",
     "8ball": {
-        "description": "The Magic 8 Ball that will answer all your questions."
+        "description": "La boule de cristal répondra à toutes vos questions."
     },
     "feedback": {
         "description": "Ouvre notre page de problèmes GitHub, où tu peux signaler des bogues."
     },
     "guidelines": {
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Te donnes le lien vers le fil de discussion officiel concernant les traductions d'Hypixel."
     },
     "help": {
         "description": "Te montre toutes les commandes disponibles et les informations générales sur le bot."
     },
     "hypixel": {
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "Te donnes des informations utiles sur le projet Hypixel."
     },
     "hypixelstats": {
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "description": "Affiche les statistiques Hypixel pour un utilisateur donné."
     },
     "hypixelunverify": {
-        "description": "Unlinks your Discord account from your Minecraft account."
+        "description": "Dissocie ton compte Discord de ton compte Minecraft."
     },
     "hypixelverify": {
-        "description": "Links your Discord account with your Minecraft account."
+        "description": "Lie ton compte Discord à ton compte Minecraft."
     },
     "invite": {
         "description": "Te donnes un lien d'invitation vers le serveur. Utilisez ce dernier quand tu veux inviter quelqu'un."
@@ -83,7 +83,7 @@
         "description": "Te donnes des informations utiles concernant le projet SkyblockAddons."
     },
     "thread": {
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Te donnes le lien vers le fil de discussion de présentation de ce serveur Discord."
     },
     "tip": {
         "description": "Te donnes un conseil aléatoire à propos du serveur."
@@ -92,7 +92,7 @@
         "description": "Te donnes des informations utiles sur la façon de traduire le Bot."
     },
     "twitter": {
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Te donnes le lien vers le Twitter officiel d'Hypixel Translators Community."
     },
     "verify": {
         "description": "Vérifie automatiquement les changements sur ton profil Crowdin et te donnes les rôles appropriés. Si ton profil n'est pas stocké dans notre base de données, tu peux le fournir comme argument dans la commande. Pour vérifier si ton profil est stocké, exécutes `/profile`. Assures-toi que tu as activé les MPs depuis ce serveur afin que le bot puisse t'envoyer un message."
