@@ -1,9 +1,9 @@
 {
     "moduleName": "Vérification Hypixel",
     "success": "Tu t'es connecté en temps que %%player%%!",
-    "role": "You were given the %%role%% role due to your rank on the server.",
-    "alreadyVerified": "You are already verified!",
-    "nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
-    "error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
-    "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this."
+    "role": "Tu as reçu le rôle %%role%% dû à ton grade sur le serveur.",
+    "alreadyVerified": "Tu es déjà vérifié !",
+    "nameChangeDisclaimer": "Gardes à l'esprit que tu n'as pas besoin de te connecter à nouveau si tu change de pseudo !",
+    "error": "Nous n'avons pas pu te vérifier parce que tu n'as pas configuré pseudo Discord sur Hypixel correctement !",
+    "tutorial": "Afin d'être vérifié, tu dois entrer ton pseudonyme Discord sur Hypixel sur %%tag%% et attendre jusqu'à 10 minutes pour exécuter à nouveau la commande. Suis les instructions de la vidéo ci-dessous si tu ne sais pas comment faire."
 }
