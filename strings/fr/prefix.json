@@ -1,15 +1,15 @@
 {
     "moduleName": "Préfixe",
-    "loading": "Just a second...",
+    "loading": "Une seconde...",
     "loadingRoles": "J'obtiens tes rôles...",
     "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
-        "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
+        "noLanguages": "Tu ne sembles pas avoir de rôles linguistiques ! Merci de contacter un administrateur si tu penses qu'il s'agit d'une erreur.",
+        "trNoRoles": "Nous avons remarqué que tu es un traducteur mais que tu n'as aucun rôle linguistique.",
         "error": "Échoué à changer le pseudo. Tu peux copier le pseudo ci-dessous et l'appliquer tu-même.",
         "confirmedNoFlags": "Tu as confirmé mais tu n'as pas réagi à aucun drapeau, ",
         "cancelled": "Tu as annulé le changement de pseudo ",
         "alreadyThis": "Tu as déjà ce pseudo, ",
-        "timedOut": "Timed Out",
+        "timedOut": "Délai expiré",
         "timeOut": "You didn't react with any flags, ",
         "timeOutCustom": "You didn't confirm, ",
         "notSaved": "donc ton préfixe n'a pas été enregistré."

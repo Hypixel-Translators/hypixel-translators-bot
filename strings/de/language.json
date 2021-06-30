@@ -10,7 +10,7 @@
     "current": "Deine Sprache wurde auf Deutsch gesetzt.",
     "listTitle": "Liste der Sprachen",
     "listElement": "`%%code%%` | **%%language%%**",
-    "credits": "Du hast einen Fehler gefunden? Melde ihn mit `/bug <Nachricht>`.",
+    "credits": "Du hast einen Fehler gefunden? Melde ihn mit `/feedback <Nachricht>`.",
     "ar": "Arabisch",
     "bar": "Bairisch",
     "bg": "Bulgarisch",
