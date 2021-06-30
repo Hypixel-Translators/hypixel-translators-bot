@@ -215,12 +215,14 @@ const command: Command = {
                             .setCustomID("stats")
                             .setStyle(subCommand === "stats" ? "SECONDARY" : "SUCCESS")
                             .setEmoji("📊")
-                            .setLabel(getString("stats")),
+                            .setLabel(getString("stats"))
+                            .setDisabled(subCommand === "stats"),
                         new Discord.MessageButton()
                             .setCustomID("social")
                             .setStyle(subCommand === "social" ? "SECONDARY" : "SUCCESS")
                             .setEmoji("twitter:821752918352068677")
                             .setLabel(getString("social"))
+                            .setDisabled(subCommand === "social")
                     )
                 await interaction.editReply({ embeds: [embed], components: [controlButtons] })
                 const msg = (await interaction.fetchReply()) as Discord.Message,
@@ -235,8 +237,8 @@ const command: Command = {
                     else if (buttonInteraction.customID === "stats") embed = await stats()
                     else if (buttonInteraction.customID === "social") embed = await social()
                     controlButtons.components.forEach(button => {
-                        if (button.customID === buttonInteraction.customID) (button as Discord.MessageButton).setStyle("SECONDARY")
-                        else (button as Discord.MessageButton).setStyle("SUCCESS")
+                        if (button.customID === buttonInteraction.customID) (button as Discord.MessageButton).setStyle("SECONDARY").setDisabled(true)
+                        else (button as Discord.MessageButton).setStyle("SUCCESS").setDisabled(false)
                     })
                     await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
                 })
