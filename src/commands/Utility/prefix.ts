@@ -248,7 +248,7 @@ const command: Command = {
       collector.on('collect', async buttonInteraction => {
         const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
         if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
-        if (buttonInteraction.customID !== "cancel") components[components.length - 1]!.find(b => b.customID === "confirm")!.setDisabled(false)
+        if (buttonInteraction.customID !== "cancel") components[components.length - 1].find(b => b.customID === "confirm")!.setDisabled(false)
         if (buttonInteraction.customID === "confirm") {
           if (prefixes) {
             if (member.nickname !== (`[${prefixes}] ${nickNoPrefix}`)) {
@@ -303,7 +303,7 @@ const command: Command = {
           const clickedEntry = langdb.find(entry => entry.code === buttonInteraction.customID)!
           if (prefixes) prefixes = `${prefixes}-${clickedEntry.emoji}`
           else prefixes = `${clickedEntry.emoji}`
-          components.find(button => button.find(b => b.customID === buttonInteraction.customID)?.setDisabled(false))
+          components.forEach(button => button.find(b => b.customID === buttonInteraction.customID)?.setDisabled(false))
           const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setAuthor(getString("moduleName"))
