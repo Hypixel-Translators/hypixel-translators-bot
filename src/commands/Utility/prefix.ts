@@ -303,7 +303,7 @@ const command: Command = {
           const clickedEntry = langdb.find(entry => entry.code === buttonInteraction.customID)!
           if (prefixes) prefixes = `${prefixes}-${clickedEntry.emoji}`
           else prefixes = `${clickedEntry.emoji}`
-          components.forEach(button => button.find(b => b.customID === buttonInteraction.customID)?.setDisabled(false))
+          components.find(button => button.find(b => b.customID === buttonInteraction.customID)?.setDisabled(true))
           const embed = new Discord.MessageEmbed()
             .setColor(neutralColor)
             .setAuthor(getString("moduleName"))
