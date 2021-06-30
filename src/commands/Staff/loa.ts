@@ -74,6 +74,12 @@ const command: Command = {
         name: "reason",
         description: "The reason why you're gonna be away",
         required: true
+    },
+    {
+        type: "STRING",
+        name: "extrainfo",
+        description: "More info you'd like to add",
+        required: false
     }],
     cooldown: 600,
     channelWhitelist: ["624881429834366986"], //staff-bots
@@ -87,6 +93,7 @@ const command: Command = {
             endMonth = interaction.options.get("endmonth")!.value as number,
             endYear = interaction.options.get("endyear")!.value as number,
             reason = interaction.options.get("reason")!.value as string,
+            extraInfo = interaction.options.get("extrainfo")?.value as string | undefined,
             startDate = new Date(startYear, startMonth - 1, startDay),
             endDate = new Date(endYear, endMonth - 1, endDay),
             today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate())
@@ -98,7 +105,7 @@ const command: Command = {
         else if (endDate.getTime() < startDate.getTime())
             return await interaction.reply({ content: "The ending date must be after the starting date!", ephemeral: true })
         else if (endDate.getTime() <= today.getTime() || startDate.getTime() <= today.getTime())
-            return await interaction.reply({ content: "The end and start date must both be after today!" })
+            return await interaction.reply({ content: "The end and start date must both be after today!", ephemeral: true })
 
         const embed = new Discord.MessageEmbed()
             .setColor(blurple)
@@ -108,12 +115,13 @@ const command: Command = {
                 { name: "To", value: `${endDay}/${endMonth}/${endYear}` },
                 { name: "Reason", value: reason }
             )
-            .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true })),
-            doneButton = new Discord.MessageButton()
-                .setStyle("SUCCESS")
-                .setLabel("End LOA")
-                .setEmoji("✅")
-                .setCustomID("done")
+            .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+        if (extraInfo) embed.addField("Extra info", extraInfo)
+        const doneButton = new Discord.MessageButton()
+            .setStyle("SUCCESS")
+            .setLabel("End LOA")
+            .setEmoji("✅")
+            .setCustomID("done")
         await loaChannel.send({ content: interaction.user.toString(), embeds: [embed], components: [[doneButton]] })
         await interaction.reply({ content: `Successfully reported your LOA in ${loaChannel}! Once it's over, please delete it by clicking the button on the message.`, ephemeral: true })
     }
