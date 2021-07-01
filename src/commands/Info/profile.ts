@@ -29,7 +29,7 @@ const command: Command = {
                 const userDb: DbUser = await collection.findOne({ id: user?.id })
                 if (userDb.profile) {
                     const embed = new Discord.MessageEmbed()
-                        .setColor(neutralColor)
+                        .setColor(neutralColor as Discord.HexColorString)
                         .setAuthor("Crowdin Profile")
                         .setTitle(`Here's ${user.tag}'s Crowdin profile`)
                         .setDescription(userDb.profile)
@@ -37,7 +37,7 @@ const command: Command = {
                     return await interaction.reply({ embeds: [embed] })
                 } else {
                     const embed = new Discord.MessageEmbed()
-                        .setColor(errorColor)
+                        .setColor(errorColor as Discord.HexColorString)
                         .setAuthor("Crowdin Profile")
                         .setTitle(`Couldn't find ${user.tag}'s Crowdin profile on the database!`)
                         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -49,7 +49,7 @@ const command: Command = {
                         .then(async r => {
                             if (r.value.profile !== profile) {
                                 const embed = new Discord.MessageEmbed()
-                                    .setColor(successColor)
+                                    .setColor(successColor as Discord.HexColorString)
                                     .setAuthor("User Profile")
                                     .setTitle(`Successfully updated ${user.tag}'s Crowdin profile!`)
                                     .addFields(
@@ -60,7 +60,7 @@ const command: Command = {
                                 return await interaction.reply({ embeds: [embed] })
                             } else {
                                 const embed = new Discord.MessageEmbed()
-                                    .setColor(errorColor)
+                                    .setColor(errorColor as Discord.HexColorString)
                                     .setAuthor("User Profile")
                                     .setTitle(`Couldn't update ${user.tag}'s Crowdin profile!`)
                                     .setDescription(`Their current profile is the same as the one you tried to add.`)
@@ -75,7 +75,7 @@ const command: Command = {
                 userDb: DbUser = await collection.findOne({ id: interaction.user.id })
             if (userDb.profile) {
                 const embed = new Discord.MessageEmbed()
-                    .setColor(neutralColor)
+                    .setColor(neutralColor as Discord.HexColorString)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("profileSuccess"))
                     .setDescription(userDb.profile)
@@ -83,7 +83,7 @@ const command: Command = {
                 return await interaction.reply({ embeds: [embed], ephemeral: true })
             } else {
                 const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
+                    .setColor(errorColor as Discord.HexColorString)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("noProfile"))
                     .setDescription(getString("howStore"))

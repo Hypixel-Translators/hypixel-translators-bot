@@ -1,4 +1,3 @@
-import { blurple } from "../../config.json"
 import Discord from "discord.js"
 import { db, DbUser } from "../../lib/dbclient"
 import { Command, GetStringFunction } from "../../index"
@@ -28,8 +27,8 @@ const command: Command = {
     else if (member.roles.cache.find(r => r.name === "Hypixel Staff")) note = "Hypixel Staff Member"
     else if (userDb?.profile) note = userDb.profile
 
-    let color = member.displayHexColor
-    if (color === "#000000") color = blurple
+    let color: Discord.ColorResolvable = member.displayHexColor
+    if (color === "#000000") color = "BLURPLE"
     let timeZone = getString("region.timeZone", "global")
     if (timeZone.startsWith("crwdns")) timeZone = getString("region.timeZone", "global", "en")
     const joined = member.joinedAt!.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" }),

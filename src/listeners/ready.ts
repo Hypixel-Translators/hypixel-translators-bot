@@ -77,19 +77,12 @@ client.once("ready", async () => {
 })
 
 async function publishCommand(command: Command) {
-    if (command.allowDM) {
-        //Create a global command
-        const cmd = await client.application!.commands.create(convertToDiscordCommand(command))!
-        await setPermissions(cmd)
-    } else {
-        //Create a guild wide command
-        const cmd = await client.guilds.cache.get("549503328472530974")!.commands.create(convertToDiscordCommand(command))
-        await setPermissions(cmd)
-    }
+    const cmd = await client.application!.commands.create(convertToDiscordCommand(command), command.allowDM ? undefined : "549503328472530974")
+    await setPermissions(cmd)
     console.log(`Published command ${command.name}!`)
 }
 
-async function setPermissions(command: Discord.ApplicationCommand) {
+async function setPermissions(command: Discord.ApplicationCommand<{ guild: Discord.GuildResolvable }>) {
     const permissions: Discord.ApplicationCommandPermissionData[] = [],
         clientCmd = client.commands.get(command.name)!
     if (clientCmd.dev) permissions.push({
@@ -115,7 +108,7 @@ async function setPermissions(command: Discord.ApplicationCommand) {
             })
         })
     }
-    if (permissions.length) await command.setPermissions(permissions, "549503328472530974")
+    if (permissions.length) await command.permissions.set({ permissions, guild: "549503328472530974" })
 }
 
 function constructDiscordCommands() {

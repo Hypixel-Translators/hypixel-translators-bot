@@ -11,7 +11,7 @@ const command: Command = {
     async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
         const embed = new Discord.MessageEmbed()
-            .setColor(successColor)
+            .setColor(successColor as Discord.HexColorString)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("bugT"))
             .setDescription(getString("bugD"))

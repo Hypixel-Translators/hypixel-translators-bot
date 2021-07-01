@@ -78,7 +78,7 @@ const command: Command = {
 
                 //Define values used in both subcommands
                 let rank: string, // some ranks are just prefixes so this code accounts for that
-                    color: string
+                    color: Discord.HexColorString
                 if (json.prefix) {
                     color = parseColorCode(json.prefix)
                     rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
@@ -256,10 +256,10 @@ const command: Command = {
     }
 }
 
-function parseColorCode(rank: string): string {
+function parseColorCode(rank: string): Discord.HexColorString {
     const colorCode: string = rank.substring(1, 2)
     const colorsJson: {
-        [key: string]: string
+        [key: string]: Discord.HexColorString
     } = {
         "0": "#000000",
         "1": "#0000AA",

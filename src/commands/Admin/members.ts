@@ -1,4 +1,3 @@
-import { blurple } from "../../config.json"
 import Discord from "discord.js"
 import { Command } from "../../index"
 import { updateButtonColors } from "../Utility/help"
@@ -27,8 +26,8 @@ const command: Command = {
             maxMembersArr.push(tags.slice(p, p += 85)) //89 is max for now
         }
 
-        let color = role.hexColor
-        if (color === "#000000") color = blurple
+        let color: Discord.ColorResolvable = role.hexColor
+        if (color === "#000000") color = "BLURPLE"
         if (maxMembersArr.length > 1) {
             let page = 0,
                 pageEmbed = updatePage(maxMembersArr[page], page),

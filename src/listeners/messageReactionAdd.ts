@@ -31,7 +31,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             } else if (reaction.emoji.name === "vote_maybe" && reaction.message.author!.id !== user.id) {
                 reaction.users.remove(user.id)
                 const embed = new Discord.MessageEmbed()
-                    .setColor(loadingColor)
+                    .setColor(loadingColor as Discord.HexColorString)
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.requestDetails.replace("%%user%%", user.tag))
                     .setDescription(`${reaction.message}`)
@@ -41,7 +41,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             } else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {
                 await reaction.message.react("⏱")
                 const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
+                    .setColor(errorColor as Discord.HexColorString)
                     .setAuthor(strings.moduleName)
                     .setTitle(strings.rejected.replace("%%user%%", user.tag))
                     .setDescription(`${reaction.message}`)
@@ -77,7 +77,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 //Dumb fix for User.toString() inconsistency with message mentions
                 await collection.insertOne({ id: id, quote: reaction.message.content, author: `${reaction.message.author}`.replace("<@", "<@!"), url: reaction.message.url })
                 const embed = new Discord.MessageEmbed()
-                    .setColor(successColor)
+                    .setColor(successColor as Discord.HexColorString)
                     .setAuthor("Starboard")
                     .setTitle(`The following quote reached ${reaction.count} ⭐ reactions and was added!`)
                     .setDescription(reaction.message.content)

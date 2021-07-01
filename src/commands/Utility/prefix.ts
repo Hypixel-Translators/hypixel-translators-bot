@@ -35,7 +35,7 @@ const command: Command = {
 
       let prefix = flagEmojis.join("-")
       const embed = new Discord.MessageEmbed()
-        .setColor(neutralColor)
+        .setColor(neutralColor as Discord.HexColorString)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("caution"))
         .setDescription(`${getString("warning")}\n${getString("reactTimer", { cooldown: this.cooldown! })}`)
@@ -69,14 +69,14 @@ const command: Command = {
             await member.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
               .then(async () => {
                 const embed = new Discord.MessageEmbed()
-                  .setColor(successColor)
+                  .setColor(successColor as Discord.HexColorString)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("saved"))
                   .addField(getString("newNickT"), `\`[${prefix}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                 await interaction.editReply({ embeds: [embed], components: [] })
                 const staffAlert = new Discord.MessageEmbed()
-                  .setColor(loadingColor)
+                  .setColor(loadingColor as Discord.HexColorString)
                   .setAuthor("Prefix")
                   .setTitle("A user manually changed their prefix")
                   .setDescription(`${interaction.user} manually changed their prefix to include the following flag: ${prefix}\nMake sure they have the appropriate roles for this prefix and, if not, follow the appropriate procedure`)
@@ -85,7 +85,7 @@ const command: Command = {
               })
               .catch(async err => {
                 const embed = new Discord.MessageEmbed()
-                  .setColor(errorColor)
+                  .setColor(errorColor as Discord.HexColorString)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("errors.error"))
                   .setDescription(err.toString())
@@ -96,7 +96,7 @@ const command: Command = {
               })
           } else {
             const embed = new Discord.MessageEmbed()
-              .setColor(successColor)
+              .setColor(successColor as Discord.HexColorString)
               .setAuthor(getString("moduleName"))
               .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
               .addField(getString("newNickT"), getString("noChanges"))
@@ -107,7 +107,7 @@ const command: Command = {
         } else if (buttonInteraction.customID === "cancel") {
           prefix = "n"
           const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
+            .setColor(errorColor as Discord.HexColorString)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
             .addField(getString("newNickT"), getString("noChanges"))
@@ -122,7 +122,7 @@ const command: Command = {
             member.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
               .then(async () => {
                 const embed = new Discord.MessageEmbed()
-                  .setColor(successColor)
+                  .setColor(successColor as Discord.HexColorString)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("saved"))
                   .addField(getString("newNickT"), `\`[${prefix}] ${nickNoPrefix}\``)
@@ -131,7 +131,7 @@ const command: Command = {
               })
               .catch(async err => {
                 const embed = new Discord.MessageEmbed()
-                  .setColor(errorColor)
+                  .setColor(errorColor as Discord.HexColorString)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("errors.error"))
                   .setDescription(err.toString())
@@ -142,7 +142,7 @@ const command: Command = {
               })
           } else {
             const embed = new Discord.MessageEmbed()
-              .setColor(successColor)
+              .setColor(successColor as Discord.HexColorString)
               .setAuthor(getString("moduleName"))
               .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
               .addField(getString("newNickT"), getString("noChanges"))
@@ -151,7 +151,7 @@ const command: Command = {
           }
         } else {
           const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
+            .setColor(errorColor as Discord.HexColorString)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("errors.timedOut"))
             .setDescription(getString("errors.timeOutCustom") + getString("errors.notSaved"))
@@ -162,7 +162,7 @@ const command: Command = {
       })
     } else {
       const loadingEmbed = new Discord.MessageEmbed()
-        .setColor(loadingColor)
+        .setColor(loadingColor as Discord.HexColorString)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("loading"))
         .setDescription(getString("loadingRoles"))
@@ -210,7 +210,7 @@ const command: Command = {
       if (!userLangs.length) {
         if (member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628") || member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))) { //Bot updates
           const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
+            .setColor(errorColor as Discord.HexColorString)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("errors.trNoRoles"))
             .setDescription(getString("customPrefix"))
@@ -219,7 +219,7 @@ const command: Command = {
           return await interaction.editReply({ embeds: [embed], components: [] })
         } else {
           const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
+            .setColor(errorColor as Discord.HexColorString)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("errors.noLanguages"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -228,7 +228,7 @@ const command: Command = {
         }
       }
       const noChangesEmbed = new Discord.MessageEmbed()
-        .setColor(neutralColor)
+        .setColor(neutralColor as Discord.HexColorString)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("react"))
         .setDescription(getString("reactTimer", { cooldown: this.cooldown! }))
@@ -255,7 +255,7 @@ const command: Command = {
               await member.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
                 .then(async () => {
                   const embed = new Discord.MessageEmbed()
-                    .setColor(successColor)
+                    .setColor(successColor as Discord.HexColorString)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("saved"))
                     .addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
@@ -264,7 +264,7 @@ const command: Command = {
                 })
                 .catch(async err => {
                   const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
+                    .setColor(errorColor as Discord.HexColorString)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("errors.error"))
                     .setDescription(err.toString())
@@ -277,7 +277,7 @@ const command: Command = {
             } else {
               prefixes = "n"
               const embed = new Discord.MessageEmbed()
-                .setColor(errorColor)
+                .setColor(errorColor as Discord.HexColorString)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -285,7 +285,7 @@ const command: Command = {
             }
           } else {
             const embed = new Discord.MessageEmbed()
-              .setColor(errorColor)
+              .setColor(errorColor as Discord.HexColorString)
               .setAuthor(getString("moduleName"))
               .setTitle(getString("errors.confirmedNoFlags") + getString("errors.notSaved"))
               .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -294,7 +294,7 @@ const command: Command = {
         } else if (buttonInteraction.customID === "cancel") {
           prefixes = "n"
           const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
+            .setColor(errorColor as Discord.HexColorString)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -305,7 +305,7 @@ const command: Command = {
           else prefixes = `${clickedEntry.emoji}`
           components.find(button => button.find(b => b.customID === buttonInteraction.customID)?.setDisabled(true))
           const embed = new Discord.MessageEmbed()
-            .setColor(neutralColor)
+            .setColor(neutralColor as Discord.HexColorString)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("react"))
             .setDescription(getString("reactTimer2", { cooldown: this.cooldown! }))
@@ -322,7 +322,7 @@ const command: Command = {
             member.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
               .then(async () => {
                 const embed = new Discord.MessageEmbed()
-                  .setColor(successColor)
+                  .setColor(successColor as Discord.HexColorString)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("saved"))
                   .addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
@@ -331,7 +331,7 @@ const command: Command = {
               })
               .catch(async err => {
                 const embed = new Discord.MessageEmbed()
-                  .setColor(errorColor)
+                  .setColor(errorColor as Discord.HexColorString)
                   .setAuthor(getString("moduleName"))
                   .setTitle(getString("errors.error"))
                   .setDescription(err.toString())
@@ -342,7 +342,7 @@ const command: Command = {
               })
           } else {
             const embed = new Discord.MessageEmbed()
-              .setColor(successColor)
+              .setColor(successColor as Discord.HexColorString)
               .setAuthor(getString("moduleName"))
               .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
               .addField(getString("newNickT"), getString("noChanges"))
@@ -351,7 +351,7 @@ const command: Command = {
           }
         } else {
           const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
+            .setColor(errorColor as Discord.HexColorString)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("errors.timedOut"))
             .setDescription(getString("errors.timeOut") + getString("errors.notSaved"))

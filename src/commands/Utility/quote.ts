@@ -95,14 +95,14 @@ const command: Command = {
             if (!allowed) {
                 const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
                 const report = new Discord.MessageEmbed()
-                    .setColor(neutralColor)
+                    .setColor(neutralColor as Discord.HexColorString)
                     .setAuthor("Quote")
                     .setTitle("A quote request has been submitted!")
                     .setDescription(`${quote}\n       - ${author}`)
                     .setFooter("Suggested by " + interaction.user.tag, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                 await staffBots.send({ content: `/quote add quote:${quote} author:@${author.tag}`, embeds: [report] })
                 const embed = new Discord.MessageEmbed()
-                    .setColor(successColor)
+                    .setColor(successColor as Discord.HexColorString)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("reqSub"))
                     .setDescription(`${quote}\n       - ${author}`)
@@ -129,7 +129,7 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
     const quote = await collection.findOne({ id: quoteId })
     if (!quote) {
         const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
+            .setColor(errorColor as Discord.HexColorString)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("invalidArg"))
             .setDescription(getString("indexArg", { arg: index!, max: count }))
@@ -138,7 +138,7 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
     }
     console.log(`Quote with ID ${quoteId} was requested`)
     const embed = new Discord.MessageEmbed()
-        .setColor(successColor)
+        .setColor(successColor as Discord.HexColorString)
         .setAuthor(getString("moduleName"))
         .setTitle(quote.quote)
         .setDescription(`      - ${quote.author}`)
@@ -153,7 +153,7 @@ async function addQuote(interaction: Discord.CommandInteraction, quote: string, 
 
     await collection.insertOne({ id: quoteId, quote: quote, author: author.toString() })
     const embed = new Discord.MessageEmbed()
-        .setColor(successColor)
+        .setColor(successColor as Discord.HexColorString)
         .setAuthor("Quote")
         .setTitle("Success! The following quote has been added:")
         .setDescription(quote)
@@ -173,7 +173,7 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
     await collection.findOneAndUpdate({ id: quoteId }, { $set: { quote: newQuote } }).then(async r => {
         if (r.value) {
             const embed = new Discord.MessageEmbed()
-                .setColor(successColor)
+                .setColor(successColor as Discord.HexColorString)
                 .setAuthor("Quote")
                 .setTitle(`Successfully edited quote #${quoteId}`)
                 .addFields([
@@ -186,7 +186,7 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
             await interaction.reply({ embeds: [embed] })
         } else {
             const embed = new Discord.MessageEmbed()
-                .setColor(errorColor)
+                .setColor(errorColor as Discord.HexColorString)
                 .setAuthor("Quote")
                 .setTitle("Couldn't find a quote with that ID!")
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -202,7 +202,7 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
     collection.findOneAndDelete({ id: quoteId }).then(async r => {
         if (r.value) {
             const embed = new Discord.MessageEmbed()
-                .setColor(successColor)
+                .setColor(successColor as Discord.HexColorString)
                 .setAuthor("Quote")
                 .setTitle(`Successfully deleted quote #${quoteId}`)
                 .addFields(
@@ -214,7 +214,7 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
             await interaction.reply({ embeds: [embed] })
         } else {
             const embed = new Discord.MessageEmbed()
-                .setColor(errorColor)
+                .setColor(errorColor as Discord.HexColorString)
                 .setAuthor("Quote")
                 .setTitle("Couldn't find a quote with that ID!")
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -231,7 +231,7 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
             await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } }).then(async r => {
                 if (r.value) {
                     const embed = new Discord.MessageEmbed()
-                        .setColor(successColor)
+                        .setColor(successColor as Discord.HexColorString)
                         .setAuthor("Quote")
                         .setTitle(`Successfully linked quote #${quoteId}`)
                         .addFields(
@@ -244,7 +244,7 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
                     await interaction.reply({ embeds: [embed] })
                 } else {
                     const embed = new Discord.MessageEmbed()
-                        .setColor(errorColor)
+                        .setColor(errorColor as Discord.HexColorString)
                         .setAuthor("Quote")
                         .setTitle("Couldn't find a quote with that ID!")
                         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -254,7 +254,7 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
         })
         .catch(async () => {
             const embed = new Discord.MessageEmbed()
-                .setColor(errorColor)
+                .setColor(errorColor as Discord.HexColorString)
                 .setAuthor("Quote")
                 .setTitle("Couldn't find a message linked to that URL!")
                 .setDescription("Make sure you obtained it by coping the message URL directly and that I have permission to see that message.")

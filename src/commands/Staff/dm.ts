@@ -23,7 +23,7 @@ const command: Command = {
             recipientDb = await client.getUser(recipient.id),
             message = (interaction.options.get("message")!.value as string).replaceAll("\\n", "\n"),
             dm = new Discord.MessageEmbed()
-                .setColor(neutralColor)
+                .setColor(neutralColor as Discord.HexColorString)
                 .setAuthor(getString("incoming", this.name, recipientDb.lang))
                 .setDescription(message)
                 .setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang))
@@ -31,7 +31,7 @@ const command: Command = {
         recipient.send({ embeds: [dm] })
             .then(async () => {
                 const embed = new Discord.MessageEmbed()
-                    .setColor(successColor)
+                    .setColor(successColor as Discord.HexColorString)
                     .setAuthor("Direct Message")
                     .setTitle(`Sent message to ${recipient.tag}`)
                     .setDescription(message)
@@ -40,7 +40,7 @@ const command: Command = {
             })
             .catch(async error => {
                 const errorEmbed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
+                    .setColor(errorColor as Discord.HexColorString)
                     .setAuthor("Direct Message")
                     .setTitle(`An error occured while trying to message ${recipient.tag}`)
                     .setDescription(error.toString())

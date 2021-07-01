@@ -10,7 +10,7 @@ const command: Command = {
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-dev admin-bots
     async execute(interaction: Discord.CommandInteraction) {
         const embed = new Discord.MessageEmbed()
-            .setColor(successColor)
+            .setColor(successColor as Discord.HexColorString)
             .setAuthor("Restart")
             .setTitle("Restarting...")
             .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))

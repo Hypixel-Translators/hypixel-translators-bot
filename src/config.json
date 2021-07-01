@@ -3,7 +3,6 @@
   "errorColor": "#e02222",
   "successColor": "#21de70",
   "neutralColor": "#28dbde",
-  "blurple": "#5865f2",
   "listeningStatuses": [
     "/help",
     "slash commands!",

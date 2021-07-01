@@ -2,9 +2,9 @@ import { crowdinVerify } from "../lib/crowdinverify";
 import { db, DbUser, HTBClient } from "../lib/dbclient";
 
 export default async function updateVerified(client: HTBClient, manual: boolean, limit: number = 0) {
-    const d = new Date()
-    const h = d.getUTCHours()
-    const m = d.getUTCMinutes()
+    const d = new Date(),
+        h = d.getUTCHours(),
+        m = d.getUTCMinutes()
     if ((h == 3 && m == 0) || manual) {
         const verifiedUsers: DbUser[] = await db.collection("users").find({ profile: { $exists: true } }).limit(limit).toArray()
 

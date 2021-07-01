@@ -25,7 +25,7 @@ const command: Command = {
             if (member.roles.cache.find(role => role.name === "Bot Translator" || role.name === "Bot Proofreader" || role.name === "Bot Manager")) joinedBot = `<:vote_yes:732298639749152769> **${getString("alreadyJoined")}**`
             else joinedBot = `<:vote_no:732298639736570007> **${getString("notJoined")}**`
             const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor)
+                .setColor(neutralColor as Discord.HexColorString)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("allProjects"))
                 .setDescription(getString("description"))
@@ -39,7 +39,7 @@ const command: Command = {
             await interaction.reply({ embeds: [embed] })
         } else {
             const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor)
+                .setColor(neutralColor as Discord.HexColorString)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("allProjects"))
                 .setDescription(`${getString("description")}\n${getString("dmError")}`)

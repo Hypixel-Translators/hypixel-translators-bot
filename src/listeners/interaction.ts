@@ -59,7 +59,7 @@ client.on("interaction", async interaction => {
     //Stop and error if command is not allowed in DMs and command is sent in DMs
     if (!command.allowDM && interaction.channel?.type === "dm" && !member?.permissions.has("ADMINISTRATOR")) {
         const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
+            .setColor(errorColor as Discord.HexColorString)
             .setAuthor(getString("error", "global"))
             .setTitle(getString("errors.dmError", "global"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -81,7 +81,7 @@ client.on("interaction", async interaction => {
             else timeLeftS = getString("timeLeftT", { time: Math.ceil(timeLeft), command: `/${interaction.commandName}` }, "global")
 
             const embed = new Discord.MessageEmbed()
-                .setColor(errorColor)
+                .setColor(errorColor as Discord.HexColorString)
                 .setAuthor(getString("cooldown", "global"))
                 .setTitle(timeLeftS)
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -194,7 +194,7 @@ client.on("interaction", async interaction => {
         if (error.stack) {
             if (process.env.NODE_ENV === "production") {
                 const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
+                    .setColor(errorColor as Discord.HexColorString)
                     .setAuthor("Unexpected error!")
                     .setTitle(error.toString().substring(0, 255))
                     .setDescription(`\`\`\`${error.stack.substring(0, 2_047)}\`\`\``)
@@ -213,7 +213,7 @@ client.on("interaction", async interaction => {
         //Handle errors
         timestamps.delete(interaction.user.id)
         const embed = new Discord.MessageEmbed()
-            .setColor(errorColor)
+            .setColor(errorColor as Discord.HexColorString)
             .setAuthor(getString("error", "global"))
             .setTitle(error.interaction?.substring(0, 255) || error.toString().substring(0, 255))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))

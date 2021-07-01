@@ -8,7 +8,7 @@ const settings = { headers: { "Content-Type": "application/json", "Authorization
 
 export async function execute(client: HTBClient, manual: boolean) {
     try {
-        const m = new Date().getMinutes()
+        const m = new Date().getUTCMinutes()
         if (m == 0 || m == 20 || m == 40) {
             await updateProjectStatus(client, "128098") //Hypixel
             await updateProjectStatus(client, "369493") //SkyblockAddons
@@ -50,11 +50,11 @@ export async function updateProjectStatus(client: HTBClient, projectId: string) 
                         const fullData = sortedSatus[index],
                             crowdinData = fullData.data
 
-                        let adapColour: string
+                        let adapColour: Discord.HexColorString
                         if (projectDb.name === "hypixel") adapColour = fullData.language.colour!
-                        else if (crowdinData.approvalProgress > 89) adapColour = successColor
-                        else if (crowdinData.approvalProgress > 49) adapColour = loadingColor
-                        else adapColour = errorColor
+                        else if (crowdinData.approvalProgress > 89) adapColour = successColor as Discord.HexColorString
+                        else if (crowdinData.approvalProgress > 49) adapColour = loadingColor as Discord.HexColorString
+                        else adapColour = errorColor as Discord.HexColorString
 
                         const embed = new Discord.MessageEmbed()
                             .setColor(adapColour)
@@ -105,7 +105,7 @@ export interface LangDbEntry {
     _id: ObjectId,
     name: string,
     emoji: string,
-    colour?: string,
+    colour?: Discord.HexColorString,
     code: string,
     id: string
     flag: string

@@ -1,4 +1,4 @@
-import { successColor, blurple } from "../../config.json"
+import { successColor } from "../../config.json"
 import Discord from "discord.js"
 import { Command } from "../../index"
 
@@ -31,7 +31,7 @@ const command: Command = {
         if (channelInput === "info") {
             await info(interaction)
             const successEmbed = new Discord.MessageEmbed()
-                .setColor(successColor)
+                .setColor(successColor as Discord.HexColorString)
                 .setAuthor("Channel updater")
                 .setTitle("Updated the information channel!")
                 .setDescription(`Check it out at <#762341271611506708>!`) //server-info
@@ -40,7 +40,7 @@ const command: Command = {
         } else if (channelInput === "rules") {
             await rules(interaction)
             const successEmbed = new Discord.MessageEmbed()
-                .setColor(successColor)
+                .setColor(successColor as Discord.HexColorString)
                 .setAuthor("Channel updater")
                 .setTitle("Updated the rules channel!")
                 .setDescription(`Check it out at <#796159719617986610>!`) //rules
@@ -49,7 +49,7 @@ const command: Command = {
         } else if (channelInput === "verify") {
             await verify(interaction)
             const successEmbed = new Discord.MessageEmbed()
-                .setColor(successColor)
+                .setColor(successColor as Discord.HexColorString)
                 .setAuthor("Channel updater")
                 .setTitle("Updated the verification channel!")
                 .setDescription(`Check it out at <#569178590697095168>!`) //verify
@@ -60,7 +60,7 @@ const command: Command = {
             await verify(interaction)
             await rules(interaction)
             const successEmbed = new Discord.MessageEmbed()
-                .setColor(successColor)
+                .setColor(successColor as Discord.HexColorString)
                 .setAuthor("Channel updater")
                 .setTitle("All channels have been updated!")
                 .setDescription(`Check them out at <#762341271611506708>, <#796159719617986610> and <#569178590697095168>!`) //server-info, rules and verify
@@ -115,7 +115,7 @@ async function rules(interaction: Discord.CommandInteraction) {
     const rules = interaction.client.channels.cache.get("796159719617986610") as Discord.TextChannel,
         rulesMessage = await rules.messages.fetch("800412977220026398"),
         rulesEmbed = new Discord.MessageEmbed()
-            .setColor(blurple)
+            .setColor("BLURPLE")
             .setTitle("Server Rules")
             .setDescription("Welcome  to the rules channel! In this channel, you will find every rule on this discord server. Please do not break any of the rules listed below or there will be consequences.")
             .addFields(
@@ -137,7 +137,7 @@ async function verify(interaction: Discord.CommandInteraction) {
     const verify = interaction.client.channels.cache.get("569178590697095168") as Discord.TextChannel,
         verifyMessage = await verify.messages.fetch("787366444970541056"),
         verifyEmbed = new Discord.MessageEmbed()
-            .setColor(blurple)
+            .setColor("BLURPLE")
             .setAuthor("Welcome!")
             .setThumbnail(interaction.guild!.iconURL()!)
             .setTitle("The Hypixel Translators Community")

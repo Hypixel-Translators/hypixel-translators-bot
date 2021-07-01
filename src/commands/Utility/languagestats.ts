@@ -62,10 +62,10 @@ const command: Command = {
                                             if (language.data.languageId === lang.id) botData = language.data
                                         })
 
-                                        let adapColour: string
-                                        if (hypixelData?.approvalProgress > 89 || quickplayData?.approvalProgress > 89 || sbaData?.approvalProgress > 89 || botData?.approvalProgress > 89) adapColour = successColor
-                                        else if (hypixelData?.approvalProgress > 49 || quickplayData?.approvalProgress > 49 || sbaData?.approvalProgress > 49 || botData?.approvalProgress > 49) adapColour = loadingColor
-                                        else adapColour = errorColor
+                                        let adapColour: Discord.HexColorString
+                                        if (hypixelData?.approvalProgress > 89 || quickplayData?.approvalProgress > 89 || sbaData?.approvalProgress > 89 || botData?.approvalProgress > 89) adapColour = successColor as Discord.HexColorString
+                                        else if (hypixelData?.approvalProgress > 49 || quickplayData?.approvalProgress > 49 || sbaData?.approvalProgress > 49 || botData?.approvalProgress > 49) adapColour = loadingColor as Discord.HexColorString
+                                        else adapColour = errorColor as Discord.HexColorString
 
 
                                         const embed = new Discord.MessageEmbed()

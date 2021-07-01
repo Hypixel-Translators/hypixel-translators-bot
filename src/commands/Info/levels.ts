@@ -39,7 +39,7 @@ const command: Command = {
 
         if (page >= pages.length || page < 0) {
             const embed = new Discord.MessageEmbed()
-                .setColor(errorColor)
+                .setColor(errorColor as Discord.HexColorString)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("pageTitle"))
                 .setDescription(getString("pageNotExist"))
@@ -111,7 +111,7 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
     if (page > pages.length - 1) page = pages.length - 1
     if (page < 0) page = 0
     const pageEmbed = new Discord.MessageEmbed()
-        .setColor(neutralColor)
+        .setColor(neutralColor as Discord.HexColorString)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("pageTitle"))
         .setFooter(`${getString("pagination.page", { number: page + 1, total: pages.length }, "global")} | ${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))

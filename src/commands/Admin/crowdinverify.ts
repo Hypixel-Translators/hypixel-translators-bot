@@ -18,7 +18,7 @@ const command: Command = {
         await interaction.defer()
         await crowdin(client, true, limit)
         const embed = new Discord.MessageEmbed()
-            .setColor(successColor)
+            .setColor(successColor as Discord.HexColorString)
             .setAuthor("Role updater")
             .setTitle("All verified users had their roles updated!")
             .setDescription("Check the console for any errors that may have occured in the process")

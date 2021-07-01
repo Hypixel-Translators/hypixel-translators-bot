@@ -37,7 +37,7 @@ const command: Command = {
     console.log(nationality)
     const translatorRole = await interaction.guild!.roles.create({
       name: `${nationality} Translator`,
-      color: `${interaction.options.get("color")?.value || "000000"}`,
+      color: `${interaction.options.get("color")?.value as Discord.HexColorString || "#000000"}`,
       hoist: false,
       position: 22,
       permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
@@ -46,7 +46,7 @@ const command: Command = {
     })
     const proofreaderRole = await interaction.guild!.roles.create({
       name: `${nationality} Proofreader`,
-      color: `${interaction.options.get("color")?.value || "000000"}`,
+      color: `${interaction.options.get("color")?.value as Discord.HexColorString || "#000000"}`,
       hoist: false,
       position: 49,
       permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
@@ -117,7 +117,7 @@ const command: Command = {
       reason: "Added language " + nationality
     })
     const embed = new Discord.MessageEmbed()
-      .setColor(successColor)
+      .setColor(successColor as Discord.HexColorString)
       .setAuthor("Channel creator")
       .setTitle(`Successfully created the new ${country.name(code)} category, channels and roles!`)
       .setDescription("Make sure their names were set correctly, put them in their correct positions, check the role colors and don't forget to translate the channel topic!")

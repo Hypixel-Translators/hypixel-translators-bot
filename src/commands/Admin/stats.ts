@@ -36,7 +36,7 @@ const command: Command = {
             await execute(client, true)
                 .then(async () => {
                     const allEmbed = new Discord.MessageEmbed()
-                        .setColor(successColor)
+                        .setColor(successColor as Discord.HexColorString)
                         .setAuthor("Statistics updater")
                         .setTitle("All language statistics have been updated!")
                         .setDescription(`Check them out at ${interaction.guild!.channels.cache.find(c => c.name === "hypixel-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "bot-language-status")} and ${interaction.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`)
@@ -64,7 +64,7 @@ const command: Command = {
                 }
             }
             const projectEmbed = new Discord.MessageEmbed()
-                .setColor(successColor)
+                .setColor(successColor as Discord.HexColorString)
                 .setAuthor("Statistics updater")
                 .setTitle(`The ${projectInput} language statistics have been updated!`)
                 .setDescription(`Check it out at ${interaction.guild!.channels.cache.find(c => c.name === `${projectInput}-language-status`)}!`)

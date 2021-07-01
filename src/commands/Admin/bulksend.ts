@@ -26,7 +26,7 @@ const command: Command = {
     if (!amount) throw "You need to provide a number of messages to delete!"
     for (amount; amount > 0; amount--) await sendTo.send("Language statistics will be here shortly!")
     const embed = new Discord.MessageEmbed()
-      .setColor(successColor)
+      .setColor(successColor as Discord.HexColorString)
       .setAuthor("Bulk Send")
       .setTitle(amount === 1 ? "Success! Message sent." : "Success! Messages sent.")
       .setDescription(`${sendTo}`)

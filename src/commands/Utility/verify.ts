@@ -56,7 +56,7 @@ const command: Command = {
                 await member.roles.remove("569194996964786178", "Unverified") // Verified
                 await db.collection("users").updateOne({ id: member!.id }, { $set: { unverifiedTimestamp: Date.now() } })
                 const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
+                    .setColor(errorColor as Discord.HexColorString)
                     .setAuthor("Manual verification")
                     .setTitle("You were successfully unverified!")
                     .setDescription(`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us on the <#569178590697095168> channel. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`)

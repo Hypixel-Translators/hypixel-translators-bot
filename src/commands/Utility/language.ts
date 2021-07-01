@@ -56,7 +56,7 @@ const command: Command = {
                 langList.push(getString("listElement", { code: element, language: languageString || "Unknown" }))
                 if (index === array.length - 1) {
                     const embed = new Discord.MessageEmbed()
-                        .setColor(neutralColor)
+                        .setColor(neutralColor as Discord.HexColorString)
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("listTitle"))
                         .setDescription(langList.join("\n"))
@@ -73,7 +73,7 @@ const command: Command = {
                 users: string[] = []
             langUsers.forEach(u => users.push(`<@!${u.id}>`))
             const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor)
+                .setColor(neutralColor as Discord.HexColorString)
                 .setAuthor("Language")
                 .setTitle(`There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`)
                 .setFooter(`Executed By ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -93,7 +93,7 @@ const command: Command = {
                             if (r.result.nModified) {
                                 executedBy = getString("executedBy", { user: interaction.user.tag }, "global", newLang)
                                 const embed = new Discord.MessageEmbed()
-                                    .setColor(successColor)
+                                    .setColor(successColor as Discord.HexColorString)
                                     .setAuthor(getString("moduleName", this.name, newLang))
                                     .setTitle(getString("changedToTitle", this.name, newLang))
                                     .setDescription(getString("credits", this.name, newLang))
@@ -101,7 +101,7 @@ const command: Command = {
                                 return await interaction.reply({ embeds: [embed] })
                             } else {
                                 const embed = new Discord.MessageEmbed()
-                                    .setColor(errorColor)
+                                    .setColor(errorColor as Discord.HexColorString)
                                     .setAuthor(getString("moduleName", this.name, newLang))
                                     .setTitle(getString("didntChange", this.name, newLang))
                                     .setDescription(getString("alreadyThis", this.name, newLang))
@@ -111,7 +111,7 @@ const command: Command = {
                         })
                     } else {
                         const embed = new Discord.MessageEmbed()
-                            .setColor(errorColor)
+                            .setColor(errorColor as Discord.HexColorString)
                             .setAuthor(getString("moduleName"))
                             .setTitle(getString("didntChange"))
                             .setDescription(getString("notTranslated"))
@@ -123,7 +123,7 @@ const command: Command = {
                         const emptyIndex = files.indexOf("empty")
                         if (emptyIndex > -1 && !member.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
                         const embed = new Discord.MessageEmbed()
-                            .setColor(errorColor)
+                            .setColor(errorColor as Discord.HexColorString)
                             .setAuthor(getString("moduleName"))
                             .setTitle(getString("errorTitle"))
                             .setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n${getString("suggestAdd")}`)
@@ -137,7 +137,7 @@ const command: Command = {
                 emptyIndex = files.indexOf("empty")
             if (emptyIndex > -1 && !member.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
             const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor)
+                .setColor(neutralColor as Discord.HexColorString)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("current"))
                 .setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n\n${getString("credits")}`)

@@ -13,7 +13,7 @@ const command: Command = {
             member = client.guilds.cache.get("549503328472530974")!.members.resolve(interaction.user.id)
         if (member?.roles.cache.find(role => role.name.startsWith("Bot ") && role.name !== "Bot Updates")) {
             const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor)
+                .setColor(neutralColor as Discord.HexColorString)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("alreadyTranslator"))
                 .setDescription(getString("projectLink", { link: "https://crowdin.com/project/hypixel-translators-bot" }))
@@ -25,7 +25,7 @@ const command: Command = {
             await interaction.reply({ embeds: [embed] })
         } else {
             const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor)
+                .setColor(neutralColor as Discord.HexColorString)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("newTranslator"))
                 .setDescription(getString("join"))

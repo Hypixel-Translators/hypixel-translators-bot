@@ -4,7 +4,7 @@ import fs from "fs"
 import { Stream } from "stream"
 import { crowdinVerify } from "./../lib/crowdinverify"
 import leveling from "./../lib/leveling"
-import { loadingColor, errorColor, successColor, neutralColor, blurple } from "../config.json"
+import { errorColor, successColor, neutralColor } from "../config.json"
 import { db, DbUser } from "../lib/dbclient"
 import { isEqual } from "lodash"
 
@@ -74,7 +74,7 @@ client.on("message", async message => {
             if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
                 await message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
+                    .setColor(errorColor as Discord.HexColorString)
                     .setAuthor(getGlobalString("errors.wrongLink"))
                     .setTitle(getGlobalString("wrongStringURL"))
                     .setDescription(getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }))
@@ -89,7 +89,7 @@ client.on("message", async message => {
             } else if (message.content !== langFix && message.channel.parentID === "549503328472530977") {
                 await message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
+                    .setColor(errorColor as Discord.HexColorString)
                     .setAuthor(getGlobalString("errors.wrongLink"))
                     .setTitle(getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }))
                     .setDescription(langFix)
@@ -120,7 +120,7 @@ client.on("message", async message => {
             confirmTime = 60 // 1 min
         if (!author.staffMsgTimestamp || author.staffMsgTimestamp + hourCooldown * 60 * 60 * 1000 < message.createdTimestamp) {
             const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor)
+                .setColor(neutralColor as Discord.HexColorString)
                 .setTitle(getGlobalString("staffDm.confirmation"))
                 .setDescription(message.content)
                 .setFooter(getGlobalString("staffDm.confirmSend"))
@@ -149,7 +149,7 @@ client.on("message", async message => {
                 replied = true
                 if (reaction.customID === "cancel") {
                     embed
-                        .setColor(errorColor)
+                        .setColor(errorColor as Discord.HexColorString)
                         .setTitle(getGlobalString("staffDm.dmCancelled"))
                         .setFooter(getGlobalString("staffDm.resendInfo"))
                     await msg.edit({ embeds: [embed], components: [] })
@@ -159,7 +159,7 @@ client.on("message", async message => {
             collector.on("end", async () => {
                 if (replied) return
                 const timeOutEmbed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
+                    .setColor(errorColor as Discord.HexColorString)
                     .setAuthor(getGlobalString("staffDm.dmCancelled"))
                     .setDescription(message.content)
                     .setFooter(getGlobalString("staffDm.resendInfo"))
@@ -171,11 +171,11 @@ client.on("message", async message => {
             if (afterConfirm) await db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: Date.now() } })
             else await db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: message.createdTimestamp } })
             const staffMsg = new Discord.MessageEmbed()
-                .setColor(neutralColor)
+                .setColor(neutralColor as Discord.HexColorString)
                 .setAuthor("Incoming message from " + message.author.tag)
                 .setDescription(message.content)
             const dmEmbed = new Discord.MessageEmbed()
-                .setColor(successColor)
+                .setColor(successColor as Discord.HexColorString)
                 .setAuthor(getGlobalString("staffDm.messageSent"))
                 .setDescription(message.content)
                 .setFooter(getGlobalString("staffDm.noConfirmWarn"))

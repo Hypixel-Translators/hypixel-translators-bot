@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer"
 import Discord from "discord.js"
-import { errorColor, blurple } from "../config.json"
+import { errorColor } from "../config.json"
 import { v4 } from "uuid"
 import { db, DbUser } from "../lib/dbclient"
 import { LangDbEntry } from "../events/stats"
@@ -38,7 +38,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
     const verifyLogs = member.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel
     const verify = member.client.channels.cache.get(UsefulIDs.verifyChannel) as Discord.TextChannel
     const errorEmbed = new Discord.MessageEmbed()
-        .setColor(errorColor)
+        .setColor(errorColor as Discord.HexColorString)
         .setAuthor("Received message from staff")
         .setFooter("Any messages you send here will be sent to staff upon confirmation.")
     if (!url) {
@@ -133,12 +133,12 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
             //#endregion
         } else {
             const dmEmbed = new Discord.MessageEmbed()
-                .setColor(blurple)
+                .setColor("BLURPLE")
                 .setAuthor("Received message from staff")
                 .setDescription(`Hey there!\nYou have successfully verified your Crowdin account!\nSadly you didn't receive any roles because you don't translate for any of the projects we currently support.\nWhen you have started translating you can refresh your roles by running \`/verify\`\nIf you wanna know more about all the projects we currently support, run \`/projects\` here.`)
                 .setFooter("Any messages you send here will be sent to staff upon confirmation."),
                 logEmbed = new Discord.MessageEmbed()
-                    .setColor(blurple)
+                    .setColor("BLURPLE")
                     .setTitle(`${member.user.tag} is now verified!`)
                     .setDescription(`${member} has not received any roles. They do not translate for any of the projects.`)
                     .addField("Profile", url)
@@ -272,7 +272,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         })
     }
     const logEmbed = new Discord.MessageEmbed()
-        .setColor(blurple)
+        .setColor("BLURPLE")
         .setTitle(`${member.user.tag} is now verified!`)
         .setDescription(Object.keys(endingMessageProjects).length
             ? `${member} has received the following roles:`
@@ -296,7 +296,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 
     //#region return message
     const dmEmbed = new Discord.MessageEmbed()
-        .setColor(blurple)
+        .setColor("BLURPLE")
         .setAuthor("Received message from staff")
         .setDescription(`Hey there!\nYou have successfully verified your Crowdin account${Object.keys(endingMessageProjects).length
             ? " and you also received the corresponding roles on our Discord server! Make sure to check out <#699275092026458122> if you want to learn more about Crowdin." //getting-started

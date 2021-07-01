@@ -41,7 +41,7 @@ const command: Command = {
                         const role = await updateRoles(interaction.member as Discord.GuildMember, json) as Discord.Role
                         if (r.result.nModified) {
                             const successEmbed = new Discord.MessageEmbed()
-                                .setColor(successColor)
+                                .setColor(successColor as Discord.HexColorString)
                                 .setAuthor(getString("moduleName"))
                                 .setTitle(getString("success", { player: json.username }))
                                 .setDescription(getString("role", { role: role.toString() }))
@@ -49,7 +49,7 @@ const command: Command = {
                             return await interaction.editReply({ embeds: [successEmbed] })
                         } else {
                             const notChanged = new Discord.MessageEmbed()
-                                .setColor(errorColor)
+                                .setColor(errorColor as Discord.HexColorString)
                                 .setAuthor(getString("moduleName"))
                                 .setTitle(getString("alreadyVerified"))
                                 .setDescription(getString("nameChangeDisclaimer"))
@@ -59,7 +59,7 @@ const command: Command = {
                     })
                 } else {
                     const errorEmbed = new Discord.MessageEmbed()
-                        .setColor(errorColor)
+                        .setColor(errorColor as Discord.HexColorString)
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("error"))
                         .setDescription(getString("tutorial", { tag: interaction.user.tag }))

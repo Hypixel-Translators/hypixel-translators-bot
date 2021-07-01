@@ -10,7 +10,7 @@ const command: Command = {
     async execute(interaction: Discord.CommandInteraction) {
         await inactives(client, true)
         const embed = new Discord.MessageEmbed()
-            .setColor(successColor)
+            .setColor(successColor as Discord.HexColorString)
             .setAuthor("Inactive checker")
             .setTitle("All inactive members have been notified!")
             .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))

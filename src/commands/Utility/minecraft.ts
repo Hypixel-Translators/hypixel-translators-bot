@@ -144,7 +144,7 @@ const command: Command = {
 
                 function fetchPage(page: number, pages: NameHistory[][]) {
                     return new Discord.MessageEmbed()
-                        .setColor(successColor)
+                        .setColor(successColor as Discord.HexColorString)
                         .setAuthor(getString("moduleName"))
                         .setTitle(getString("history.nameHistoryFor", { username }))
                         .setDescription(
@@ -177,7 +177,7 @@ const command: Command = {
                 break
             case "skin":
                 const skinEmbed = new Discord.MessageEmbed()
-                    .setColor(successColor)
+                    .setColor(successColor as Discord.HexColorString)
                     .setAuthor(getString("moduleName"))
                     .setTitle(isOwnUser
                         ? getString("skin.yourSkin")

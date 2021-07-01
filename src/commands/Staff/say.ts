@@ -30,7 +30,7 @@ const command: Command = {
     if (member.permissions.has("MANAGE_ROLES")) await sendTo.send(message)
     else await sendTo.send(">>> " + message)
     const embed = new Discord.MessageEmbed()
-      .setColor(successColor)
+      .setColor(successColor as Discord.HexColorString)
       .setAuthor("Message")
       .setTitle("Success! Message sent.")
       .setDescription(`${sendTo}:\n${message}`)

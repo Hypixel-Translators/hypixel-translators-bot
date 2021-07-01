@@ -1,5 +1,4 @@
 import Discord from "discord.js"
-import { blurple } from "../../config.json"
 import { Command } from "../../index"
 
 const command: Command = {
@@ -108,7 +107,7 @@ const command: Command = {
             return await interaction.reply({ content: "The end and start date must both be after today!", ephemeral: true })
 
         const embed = new Discord.MessageEmbed()
-            .setColor(blurple)
+            .setColor("BLURPLE")
             .setTitle(`${interaction.user.tag} is going away for some time!`)
             .addFields(
                 { name: "From", value: `${startDay}/${startMonth}/${startYear}` },

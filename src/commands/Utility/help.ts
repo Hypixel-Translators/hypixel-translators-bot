@@ -52,7 +52,7 @@ const command: Command = {
     if (!commandInput) {
       if (Number(pageInput) > pages.length || Number(pageInput) < 1) {
         const embed = new Discord.MessageEmbed()
-          .setColor(errorColor)
+          .setColor(errorColor as Discord.HexColorString)
           .setAuthor(getString("moduleName"))
           .setTitle(getString("page1Title"))
           .setDescription(getString("pageNotExist"))
@@ -62,7 +62,7 @@ const command: Command = {
 
       //Determine which page to use
       const page1 = new Discord.MessageEmbed()
-        .setColor(neutralColor)
+        .setColor(neutralColor as Discord.HexColorString)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("page1Title"))
         .setDescription(getString("commandsListTooltip", { developer: client.users.cache.get("240875059953139714")!.toString(), github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)" }))
@@ -144,7 +144,7 @@ const command: Command = {
       if (command.dev && !(interaction.member as Discord.GuildMember | null)?.roles.cache.has("768435276191891456")) cmdDesc = getString("inDev") // Discord Staff
 
       const embed = new Discord.MessageEmbed()
-        .setColor(neutralColor)
+        .setColor(neutralColor as Discord.HexColorString)
         .setAuthor(getString("moduleName"))
         .setTitle(getString("commandInfoFor") + `\`/${command.name}\``)
         .setDescription(cmdDesc || getString("staffOnly"))
@@ -170,7 +170,7 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, ex
     if (pages[page].embed) pageEmbed = pages[page].embed!
     else if (pages[page].commands) {
       pageEmbed = new Discord.MessageEmbed()
-        .setColor(neutralColor)
+        .setColor(neutralColor as Discord.HexColorString)
         .setAuthor(getString("moduleName"))
         .setTitle(`${pages[page].badge} ${getString(pages[page].titleString!)}`)
         .setFooter(`${getString("pagination.page", { number: page + 1, total: pages.length }, "global")} | ${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))

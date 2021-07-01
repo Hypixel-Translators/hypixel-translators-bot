@@ -16,14 +16,14 @@ const command: Command = {
         await db.collection("users").updateOne({ id: interaction.user.id }, { $unset: { uuid: true } }).then(async r => {
             if (r.result.nModified) {
                 const embed = new Discord.MessageEmbed()
-                    .setColor(successColor)
+                    .setColor(successColor as Discord.HexColorString)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("unverified"))
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                 return await interaction.reply({ embeds: [embed] })
             } else {
                 const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor)
+                    .setColor(errorColor as Discord.HexColorString)
                     .setAuthor(getString("moduleName"))
                     .setTitle(getString("notUnverified"))
                     .setDescription(getString("whyNotUnverified"))

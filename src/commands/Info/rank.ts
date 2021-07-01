@@ -24,7 +24,7 @@ const command: Command = {
         const userDb: DbUser = await collection.findOne({ id: user.id })
         if (!userDb.levels) {
             const errorEmbed = new Discord.MessageEmbed()
-                .setColor(errorColor)
+                .setColor(errorColor as Discord.HexColorString)
                 .setAuthor(getString("moduleName"))
                 .setTitle(user.id === interaction.user.id ? getString("youNotRanked") : getString("userNotRanked"))
                 .setDescription(getString("howRank"))
@@ -38,7 +38,7 @@ const command: Command = {
             messageCount = userDb.levels.messageCount
 
         const embed = new Discord.MessageEmbed()
-            .setColor(neutralColor)
+            .setColor(neutralColor as Discord.HexColorString)
             .setAuthor(getString("moduleName"))
             .setTitle(user.id === interaction.user.id ? getString("yourRank") : getString("userRank", { user: user.tag }))
             .setDescription(user.id === interaction.user.id ? getString("youLevel", { level: userDb.levels.level, rank: ranking }) : getString("userLevel", { user: String(user), level: userDb.levels.level, rank: ranking }))

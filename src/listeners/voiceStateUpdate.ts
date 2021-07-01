@@ -4,8 +4,8 @@ import { client } from "../index"
 client.on("voiceStateUpdate", async (oldState, newState) => {
     if (newState.guild.id === "549503328472530974" && !newState.member?.user.bot) {
         const logs = client.channels.cache.get("591280178873892901") as Discord.TextChannel,
-            successColor = "43B581",
-            errorColor = "FF470F"
+            successColor = "#43B581",
+            errorColor = "#FF470F"
 
         // Give users access to #no-mic
         if (!oldState.channel && newState.channel) newState.member!.roles.add("829312419406020608", "Joined a voice channel") // In Voice

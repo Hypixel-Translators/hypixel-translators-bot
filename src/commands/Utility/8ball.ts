@@ -25,9 +25,9 @@ const command: Command = {
                 .setTitle(answer)
                 .addField(getString("question"), interaction.options.get("question")!.value as string)
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        if (answerType === "positive") embed.setColor(successColor)
-        else if (answerType === "inconclusive") embed.setColor(loadingColor)
-        else if (answerType === "negative") embed.setColor(errorColor)
+        if (answerType === "positive") embed.setColor(successColor as Discord.HexColorString)
+        else if (answerType === "inconclusive") embed.setColor(loadingColor as Discord.HexColorString)
+        else if (answerType === "negative") embed.setColor(errorColor as Discord.HexColorString)
         else console.error("Help the 8ball answer type is weird")
         await interaction.reply({ embeds: [embed] })
     }

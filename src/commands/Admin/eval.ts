@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor, blurple, listeningStatuses, watchingStatuses, playingStatuses } = require("../../config.json")
+const { loadingColor, errorColor, successColor, neutralColor, listeningStatuses, watchingStatuses, playingStatuses } = require("../../config.json")
 const fetch = require("node-fetch")
 const { flag, code, name, countries } = require('country-emoji')
 const fs = require("fs")
