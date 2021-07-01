@@ -1,7 +1,7 @@
 {
     "moduleName": "Проєкти перекладу",
     "allProjects": "Ось усі проекти, які ми наразі підтримуємо на сервері!",
-    "description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
+    "description": "Якщо Ви вже учасник будь-якого з цих проєктів, але ще не маєте своїх ролей, напишіть `/verify [profileURL]`, щоб отримати їх!",
     "projectInfo": "Ви можете знайти посилання на проект %%project%% [тут](%%link%%). Для отримання додаткової інформації напишіть %%command%%.",
     "alreadyJoined": "Ви вже приєдналися до цього проєкту!",
     "notJoined": "Ви ще не приєдналися до цього проєкту!",

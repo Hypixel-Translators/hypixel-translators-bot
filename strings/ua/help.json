@@ -1,7 +1,7 @@
 {
     "moduleName": "Інформація",
     "page1Title": "Сторінка допомоги",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "commandsListTooltip": "Цей бот був створений для Спільноти перекладачів Hypixel та підтримується користувачем %%developer%%. Бот з відкритим кодом та наш репозиторій на GitHub можна знайти [тут]%%github%%.\nВи можете допомогти перекласти бота, написавши `/translate` та дотримуючись інструкцій.\n\nВи можете виконати `/help <назва команди>`, щоб дізнатися більше про конкретну команду.\nНижче Ви можете знайти список всіх доступних сторінок. Використовуйте реакції на це повідомлення, щоб прогортати їх.",
     "madeBy": "Бот написаний з великою турботою користувачем %%developer%%",
     "pageNumber": "Сторінка %%number%%",
     "utilityHelp": "Інструменти та засоби",
@@ -35,10 +35,10 @@
         "description": "Показує Вам базову статистику Hypixel для вказаного користувача."
     },
     "hypixelunverify": {
-        "description": "Unlinks your Discord account from your Minecraft account."
+        "description": "Від'єднує ваш обліковий запис Discord від вашого облікового запису Minecraft."
     },
     "hypixelverify": {
-        "description": "Links your Discord account with your Minecraft account."
+        "description": "Прив'язує ваш обліковий запис Discord до вашого облікового запису Minecraft."
     },
     "invite": {
         "description": "Надає Вам посилання із запрошенням на сервер. Будь ласка, використовуйте це, коли Ви хочете когось запросити."
@@ -56,16 +56,16 @@
         "description": "Згадує мовну роль із повідомленням."
     },
     "minecraft": {
-        "description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+        "description": "Виявляє конкретну історію імен або скінів гравця в Minecraft. Ця команда сумісна з /hypixelverify, дозволяючи Вам подивитися інформацію користувача в тому випадку, якщо вони перевірені. Параметр `user` завжди матиме пріоритет над `username` і вони обоє являються необов’язковими, якщо Ви перевірите, в іншому випадку, принаймні один з них."
     },
     "ping": {
         "description": "Показує пінг бота."
     },
     "prefix": {
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+        "description": "Надає Вам відповідний префікс для вашої мов(и). Щоб отримати користувацький префікс, напишіть `/prefix` та замініть `<прапори>` регіональним кодом прапора Вашої країни або її ім'я. Можна додавати стільки прапорів, скільки захочете, розділяючи пробілом."
     },
     "profile": {
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
+        "description": "Надає Вам посилання на Ваш профіль Crowdin, якщо він зберігається в нашій базі даних. Якщо це не так, Ви можете написати `/help verify`, щоб дізнатися як зберігати свій профіль і оновити ролі."
     },
     "projects": {
         "description": "Надає Вам посилання і інформацію про всі проєкти перекладу, які ми підтримуємо на сервері."
@@ -95,6 +95,6 @@
         "description": "Надає Вам посилання на офіційну сторінку спільноти перекладачів Hypixel в Twitter."
     },
     "verify": {
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "description": "Автоматично перевіряє зміни в профілі Crowdin і дає відповідні ролі. Якщо Ваш профіль не зберігається в нашій базі даних, Ви можете надати посилання на нього в якості аргументу до команди. Щоб перевірити, чи зберігається Ваш профіль, напишіть `/profile`. Переконайтеся, що у Вас включені приватні повідомлення від учасників цього сервера, щоб бот міг надіслати Вам повідомлення."
     }
 }
