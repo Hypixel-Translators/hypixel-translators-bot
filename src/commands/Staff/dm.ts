@@ -21,7 +21,7 @@ const command: Command = {
     async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
         const recipient = interaction.options.get("user")!.user as Discord.User,
             recipientDb = await client.getUser(recipient.id),
-            message = interaction.options.get("message")!.value as string,
+            message = (interaction.options.get("message")!.value as string).replaceAll("\\n", "\n"),
             dm = new Discord.MessageEmbed()
                 .setColor(neutralColor)
                 .setAuthor(getString("incoming", this.name, recipientDb.lang))
