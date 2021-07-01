@@ -4,7 +4,7 @@
     "socialMedia": "這是 %%username%% 已連結的社群媒體，資料從[這裡]%%link%%獲取 。",
     "userVerified": "這位玩家已驗證為 %%user%%。",
     "updateNotice": "注意：當你更改了一些內容後，可能需要等候數分鐘後才會更新。",
-    "otherStats": "To see other statistics, click on the buttons below!",
+    "otherStats": "若要查看其他統計數據，請點擊下方的按鈕！",
     "networkLevel": "Hypixel 等級",
     "ap": "成就點數",
     "online": "在線",
