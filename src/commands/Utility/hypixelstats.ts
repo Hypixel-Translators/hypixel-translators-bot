@@ -141,29 +141,32 @@ const command: Command = {
                 const social = async () => {
                     const socialMedia = json.links
 
-                    let twitter
+                    let twitter: string
                     if (socialMedia.TWITTER) {
                         if (!socialMedia.TWITTER.startsWith("https://")) twitter = `[${getString("link")}](https://${socialMedia.TWITTER})`
                         else twitter = `[${getString("link")}](${socialMedia.TWITTER})`
                     } else twitter = getString("notConnected")
-                    let youtube
+
+                    let youtube: string
                     if (socialMedia.YOUTUBE) {
                         if (!socialMedia.YOUTUBE.startsWith("https://")) youtube = `[${getString("link")}](https://${socialMedia.YOUTUBE})`
                         else youtube = `[${getString("link")}](${socialMedia.YOUTUBE})`
                     } else youtube = getString("notConnected")
-                    let instagram
+
+                    let instagram: string
                     if (socialMedia.INSTAGRAM) {
                         if (!socialMedia.INSTAGRAM.startsWith("https://")) instagram = `[${getString("link")}](https://${socialMedia.INSTAGRAM})`
                         else instagram = `[${getString("link")}](${socialMedia.INSTAGRAM})`
                     } else instagram = getString("notConnected")
-                    let twitch
+
+                    let twitch: string
                     if (socialMedia.TWITCH) {
                         if (!socialMedia.TWITCH.startsWith("https://")) twitch = `[${getString("link")}](https://${socialMedia.TWITCH})`
                         else twitch = `[${getString("link")}](${socialMedia.TWITCH})`
                     } else twitch = getString("notConnected")
 
                     const allowedGuildIDs = ["489529070913060867", "549503328472530974", "418938033325211649", "450878205294018560"] //Hypixel, our server, Quickplay Discord and Biscuit's Bakery
-                    let discord = null
+                    let discord: string | null = null
                     if (socialMedia.DISCORD) {
                         if (!socialMedia.DISCORD.includes("discord.gg")) discord = socialMedia.DISCORD.split("_").join("\\_")
                         else {
@@ -182,7 +185,7 @@ const command: Command = {
                         }
                     } else discord = getString("notConnected")
 
-                    let forums
+                    let forums: string
                     if (socialMedia.HYPIXEL) {
                         if (!socialMedia.HYPIXEL.startsWith("https://")) forums = `[${getString("link")}](https://${socialMedia.HYPIXEL})`
                         else forums = `[${getString("link")}](${socialMedia.HYPIXEL})`
@@ -198,7 +201,7 @@ const command: Command = {
                             { name: "YouTube", value: youtube, inline: true },
                             { name: "Instagram", value: instagram, inline: true },
                             { name: "Twitch", value: twitch, inline: true },
-                            { name: "Discord", value: discord, inline: true },
+                            { name: "Discord", value: discord!, inline: true },
                             { name: "Hypixel Forums", value: forums, inline: true }
                         )
                         .setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -209,38 +212,41 @@ const command: Command = {
                 if (!subCommand || subCommand === "stats") embed = await stats()
                 else if (subCommand === "social") embed = await social()
 
-                let controlButtons = new Discord.MessageActionRow()
-                    .addComponents(
-                        new Discord.MessageButton()
-                            .setCustomID("stats")
-                            .setStyle(subCommand === "stats" ? "SECONDARY" : "SUCCESS")
-                            .setEmoji("📊")
-                            .setLabel(getString("stats"))
-                            .setDisabled(subCommand === "stats"),
-                        new Discord.MessageButton()
-                            .setCustomID("social")
-                            .setStyle(subCommand === "social" ? "SECONDARY" : "SUCCESS")
-                            .setEmoji("twitter:821752918352068677")
-                            .setLabel(getString("social"))
-                            .setDisabled(subCommand === "social")
+                const optionsSelect = new Discord.MessageSelectMenu()
+                    .addOptions(
+                        {
+                            label: getString("stats"),
+                            value: "stats",
+                            emoji: "📊",
+                            default: subCommand === "stats",
+                        },
+                        {
+                            label: getString("social"),
+                            value: "social",
+                            emoji: "twitter:821752918352068677",
+                            default: subCommand === "social"
+                        }
                     )
-                await interaction.editReply({ embeds: [embed], components: [controlButtons] })
+                    .setCustomID("statType")
+                    .setMaxValues(1)
+                    .setMinValues(1)
+                await interaction.editReply({ embeds: [embed], components: [[optionsSelect]] })
                 const msg = (await interaction.fetchReply()) as Discord.Message,
-                    collector = msg.createMessageComponentInteractionCollector({
-                        filter: (button: Discord.MessageComponentInteraction) => button.customID === "stats" || button.customID === "social",
-                        time: this.cooldown! * 1000
-                    })
+                    collector = msg.createMessageComponentInteractionCollector({ time: this.cooldown! * 1000 })
 
-                collector.on("collect", async buttonInteraction => {
-                    const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
-                    if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
-                    else if (buttonInteraction.customID === "stats") embed = await stats()
-                    else if (buttonInteraction.customID === "social") embed = await social()
-                    controlButtons.components.forEach(button => {
-                        if (button.customID === buttonInteraction.customID) (button as Discord.MessageButton).setStyle("SECONDARY").setDisabled(true)
-                        else (button as Discord.MessageButton).setStyle("SUCCESS").setDisabled(false)
-                    })
-                    await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
+                collector.on("collect", async componentInteraction => {
+                    if (!componentInteraction.isSelectMenu()) return //this is just to set the typings properly, it won't actually trigger
+                    const userDb: DbUser = await db.collection("users").findOne({ id: componentInteraction.user.id }),
+                        option = componentInteraction.values![0]
+                    if (interaction.user.id !== componentInteraction.user.id)
+                        return await componentInteraction.reply({
+                            content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang),
+                            ephemeral: true
+                        })
+                    else if (option === "stats") embed = await stats()
+                    else if (option === "social") embed = await social()
+                    optionsSelect.options.forEach(o => o.default = option === o.value)
+                    await componentInteraction.update({ embeds: [embed], components: [[optionsSelect]] })
                 })
 
                 collector.on("end", async () => {

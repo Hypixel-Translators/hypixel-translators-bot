@@ -78,7 +78,7 @@ const command: Command = {
 }
 
 export async function updateRoles(member: Discord.GuildMember, json?: JsonResponse) {
-    const roles = ["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "822787676482699297", "624880339722174464", "715674953697198141"] // Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Game Master, Hypixel Admin and Hypixel Staff
+    const roles: Discord.Snowflake[] = ["816435344689987585", "808032608456802337", "808032624215457823", "808032640631832637", "808032657505255424", "808032672160153641", "808032689709514852", "551758392339857418", "551758392021090304", "822787676482699297", "624880339722174464", "715674953697198141"] // Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Game Master, Hypixel Admin and Hypixel Staff
     if (!json) return await member.roles.remove(roles, "Unverified") // Unranked, VIP, VIP+, MVP, MVP+, MVP++, YouTuber, Hypixel Helper, Hypixel Mod, Hypixel Game Master, Hypixel Admin and Hypixel Staff
     let role: Discord.Role
     switch (json.rank) {

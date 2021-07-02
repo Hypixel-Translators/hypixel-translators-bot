@@ -37,9 +37,10 @@ client.on("message", async message => {
     )
         await leveling(message)
 
-    //Publish message if sent in bot-updates
-    if (message.channel.id === "732587569744838777" || (message.channel.id === "618909521741348874" && !message.embeds[0].description?.startsWith("@"))) {
-        await message.crosspost() //bot-updates
+    //Publish message if sent in bot-updates or if it's a tweet
+    if (message.channel.id === "732587569744838777" || //bot-updates
+        message.channel.id === "618909521741348874" && !message.embeds[0]?.description?.startsWith("@")) { //twitter
+        await message.crosspost()
         return
     }
 
@@ -64,12 +65,11 @@ client.on("message", async message => {
         /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)
     ) {
         if (
-            message.channel.parentID === "549503328472530977" ||
-            message.channel.parentID === "748585307825242322" ||
-            message.channel.parentID === "763131996163407902" ||
-            message.channel.parentID === "646083561769926668"
+            message.channel.parentID === "549503328472530977" || //Hypixel Translations
+            message.channel.parentID === "748585307825242322" || //SkyblockAddons Translations
+            message.channel.parentID === "763131996163407902" || //Bot Translations
+            message.channel.parentID === "646083561769926668"    //Quickplay translations
         ) {
-            //Hypixel, SkyblockAddons, Bot and Quickplay Translations
             const langFix = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
             if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
                 await message.react("732298639736570007")
