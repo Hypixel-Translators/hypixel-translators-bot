@@ -62,7 +62,7 @@
         "description": "Le da el ping del bot."
     },
     "prefix": {
-        "description": "Le da el prefijo apropiado para su(s) idioma(s). Para obtener un prefijo personalizado, ejecute `/prefix` y proporcione el código regional de la bandera de su país o su nombre en el parámetro `bandera`. Puede agregar tantas banderas como desee, separadas por un espacio."
+        "description": "Le da el prefijo apropiado para su(s) idioma(s). Para obtener un prefijo personalizado, ejecute `/prefix` y proporcione el código regional de la bandera de su país o su nombre en el parámetro `banderas`. Puede agregar tantas banderas como desee, separadas por un espacio."
     },
     "profile": {
         "description": "Le da el enlace a su perfil de Crowdin si está almacenado en nuestra base de datos. Si no es así, puede ejecutar `/help verify` para aprender a almacenar su perfil y actualizar sus roles."
