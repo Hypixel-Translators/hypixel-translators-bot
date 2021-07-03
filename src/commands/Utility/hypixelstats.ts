@@ -228,10 +228,8 @@ const command: Command = {
                         }
                     )
                     .setCustomID("statType")
-                    .setMaxValues(1)
-                    .setMinValues(1)
                 await interaction.editReply({ embeds: [embed], components: [[optionsSelect]] })
-                const msg = (await interaction.fetchReply()) as Discord.Message,
+                const msg = await interaction.fetchReply() as Discord.Message,
                     collector = msg.createMessageComponentInteractionCollector({ time: this.cooldown! * 1000 })
 
                 collector.on("collect", async componentInteraction => {

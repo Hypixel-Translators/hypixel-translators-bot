@@ -37,10 +37,10 @@ export async function updateProjectStatus(client: HTBClient, projectId: string) 
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
                 status.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
                 return status
-            }).sort((a: LanguageStatus, b: LanguageStatus) => b.data.phrases.total - a.data.phrases.total)
-            const sortedSatus = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) =>
-                nextStatus.language.name.localeCompare(currentStatus.language.name)
-            )
+            }).sort((a: LanguageStatus, b: LanguageStatus) => b.data.phrases.total - a.data.phrases.total),
+                sortedSatus = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) =>
+                    nextStatus.language.name.localeCompare(currentStatus.language.name)
+                )
             const channel = client.channels.cache.find(channel => (channel as Discord.TextChannel).name === `${projectDb.shortName}-language-status`) as Discord.TextChannel
             channel.messages.fetch()
                 .then(messages => {
@@ -51,7 +51,7 @@ export async function updateProjectStatus(client: HTBClient, projectId: string) 
                             crowdinData = fullData.data
 
                         let adapColour: Discord.HexColorString
-                        if (projectDb.name === "hypixel") adapColour = fullData.language.colour!
+                        if (projectDb.identifier === "hypixel") adapColour = fullData.language.color!
                         else if (crowdinData.approvalProgress > 89) adapColour = successColor as Discord.HexColorString
                         else if (crowdinData.approvalProgress > 49) adapColour = loadingColor as Discord.HexColorString
                         else adapColour = errorColor as Discord.HexColorString
@@ -61,7 +61,7 @@ export async function updateProjectStatus(client: HTBClient, projectId: string) 
                             .setTitle(`${fullData.language.emoji || "<:icon_question:756582065834688662>"} | ${fullData.language.name}`)
                             .setThumbnail(fullData.language.flag)
                             .setDescription(`${crowdinData.translationProgress}% translated (${crowdinData.phrases.translated}/${crowdinData.phrases.total} strings)\n**${crowdinData.approvalProgress}% approved (${crowdinData.phrases.approved}/${crowdinData.phrases.total} strings)**`)
-                            .addField("Translate at", `https://crowdin.com/translate/${projectDb.identifier}/all/en-${fullData.language.code}`)
+                            .addField("Translate at", `https://crowdin.com/project/${projectDb.identifier}/${fullData.language.id}`)
                             .setFooter("Last update")
                             .setTimestamp()
                         index++
@@ -105,7 +105,7 @@ export interface LangDbEntry {
     _id: ObjectId,
     name: string,
     emoji: string,
-    colour?: Discord.HexColorString,
+    color?: Discord.HexColorString,
     code: string,
     id: string
     flag: string
