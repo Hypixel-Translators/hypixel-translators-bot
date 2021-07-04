@@ -70,6 +70,6 @@ client.on("guildMemberAdd", async member => {
     if (!member.user.bot) {
         member.send(`Hey there and thanks for joining **${member.guild.name}**! We hope you have fun on our server!`)
             .catch(() => console.log(`Couldn't DM user ${member.user.tag}, probably because they have DMs off`))
-        await db.collection("users").insertOne({ id: member.user.id, lang: "en" })
+        await db.collection("users").insertOne({ id: member.id, lang: "en" })
     } else await member.roles.add("549894155174674432") // Bot
 })

@@ -4,6 +4,7 @@ import { errorColor } from "../config.json"
 import { v4 } from "uuid"
 import { db, DbUser } from "../lib/dbclient"
 import { LangDbEntry } from "../events/stats"
+import { client } from "../index"
 
 type ValidProjects = "Hypixel" | "Quickplay" | "Bot" | "SkyblockAddons"
 
@@ -42,7 +43,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         .setAuthor("Received message from staff")
         .setFooter("Any messages you send here will be sent to staff upon confirmation.")
     if (!url) {
-        const userDb: DbUser = await db.collection("users").findOne({ id: member.id })
+        const userDb: DbUser = await client.getUser(member.id)
         url = userDb.profile
         if (userDb.profile = null) removeAllRoles(member)
         else if (!url) { //if user runs /verify and the profile is not stored on our DB or if the user sends the generic profile URL

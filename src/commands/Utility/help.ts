@@ -104,7 +104,7 @@ const command: Command = {
         collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
 
       collector.on("collect", async buttonInteraction => {
-        const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
+        const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
         if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
         else if (buttonInteraction.customID === "first") page = 0
         else if (buttonInteraction.customID === "last") page = pages.length - 1

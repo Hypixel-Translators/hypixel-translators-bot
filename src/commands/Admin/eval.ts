@@ -28,7 +28,7 @@ const command: Command = {
   }],
   async execute(interaction: discord.CommandInteraction, getString: GetStringFunction) {
     const me = interaction.member ?? interaction.user,
-      guild = interaction.guild,
+      guild = interaction.guild!,
       channel = interaction.channel as discord.TextChannel,
       db = mongoDb,
       Discord = discord,

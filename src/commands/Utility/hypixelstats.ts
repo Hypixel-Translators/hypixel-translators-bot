@@ -234,7 +234,7 @@ const command: Command = {
 
                 collector.on("collect", async componentInteraction => {
                     if (!componentInteraction.isSelectMenu()) return //this is just to set the typings properly, it won't actually trigger
-                    const userDb: DbUser = await db.collection("users").findOne({ id: componentInteraction.user.id }),
+                    const userDb: DbUser = await client.getUser(componentInteraction.user.id),
                         option = componentInteraction.values![0]
                     if (interaction.user.id !== componentInteraction.user.id)
                         return await componentInteraction.reply({

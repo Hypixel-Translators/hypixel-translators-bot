@@ -39,7 +39,9 @@ export interface DbUser {
 export class HTBClient extends Discord.Client {
     commands: Discord.Collection<string, Command> = new Discord.Collection()
     cooldowns: Discord.Collection<string, Discord.Collection<Discord.Snowflake, number>> = new Discord.Collection()
-    async getUser(id?: Discord.Snowflake) {
+    async getUser(): Promise<null>
+    async getUser(id: Discord.Snowflake): Promise<DbUser>
+    async getUser(id?: Discord.Snowflake): Promise<DbUser | null> {
         if (!id) return null
         let user = await db.collection("users").findOne({ id: id })
         if (!user) {

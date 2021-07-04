@@ -1,6 +1,6 @@
 import Discord from "discord.js"
 import { db, DbUser } from "../../lib/dbclient"
-import { Command, GetStringFunction } from "../../index"
+import { client, Command, GetStringFunction } from "../../index"
 
 const command: Command = {
   name: "check",
@@ -16,9 +16,9 @@ const command: Command = {
   async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
     const member = interaction.options.get("user")?.member as Discord.GuildMember ?? interaction.member as Discord.GuildMember
 
-    const userDb: DbUser | null = await db.collection("users").findOne({ id: member.user.id })
+    const userDb: DbUser | null = await client.getUser(member.id)
     let note
-    if (member.user.id === interaction.guild!.ownerID) note = "Discord Owner"
+    if (member.id === interaction.guild!.ownerID) note = "Discord Owner"
     else if (member.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"
     else if (member.roles.cache.find(r => r.name === "Discord Administrator")) note = "Discord Administrator"
     else if (member.roles.cache.find(r => r.name === "Discord Moderator")) note = "Discord Moderator"
@@ -46,7 +46,7 @@ const command: Command = {
       .setColor(color)
       .setAuthor("User information", member.user.displayAvatarURL({ format: "png", dynamic: true }))
       .setTitle(member.user.tag)
-      .setDescription(`${member} (ID: ${member.user.id})`)
+      .setDescription(`${member} (ID: ${member.id})`)
       .addFields(
         { name: "Joined on", value: `${joined} (<t:${joinedAgo}:R>)`, inline: true },
         { name: "Account created on", value: `${created} (<t:${createdAgo}:R>)`, inline: true },

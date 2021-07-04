@@ -59,7 +59,7 @@ const command: Command = {
         collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
 
       collector.on("collect", async buttonInteraction => {
-        const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
+        const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
         if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
         if (buttonInteraction.customID === "confirm") {
           if (member.nickname !== (`[${prefix}] ${nickNoPrefix}`)) {
@@ -237,7 +237,7 @@ const command: Command = {
       const collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
 
       collector.on('collect', async buttonInteraction => {
-        const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
+        const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
         if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
         if (buttonInteraction.customID !== "cancel") components[components.length - 1].find(b => b.customID === "confirm")!.setDisabled(false)
         if (buttonInteraction.customID === "confirm") {

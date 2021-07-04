@@ -19,7 +19,7 @@ async function check(client: HTBClient) {
         .forEach(async member => { //Get all members from the cache
             await member.fetch() //fetch the member
             const verifyLogs = client.channels.cache.get("662660931838410754") as Discord.TextChannel,
-                userDb: DbUser = await db.collection("users").findOne({ id: member.id })
+                userDb: DbUser = await client.getUser(member.id)
             if (member.roles.cache.has("756199836470214848")) { //Alerted
                 if (Number(userDb.unverifiedTimestamp) <= verify || member.joinedTimestamp! <= verify) {
                     //await member.send("You stood in the verify channel for too long and, because of that, you were kicked for inactivity. If you wish to join back, feel free to do so at https://discord.gg/rcT948A")

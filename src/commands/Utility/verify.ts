@@ -46,7 +46,7 @@ const command: Command = {
             await crowdinVerify(memberInput, profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], false)
             await interaction.editReply("Your request has been processed. Check the logs")
         } else {
-            const userDb: DbUser = await db.collection("users").findOne({ id: interaction.user.id })
+            const userDb: DbUser = await client.getUser(interaction.user.id)
             if (userDb.profile || profileUrl && /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) {
                 await interaction.defer({ ephemeral: true });
                 await verifyLogs.send(`${interaction.user} was unverified.`)
