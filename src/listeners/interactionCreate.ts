@@ -5,7 +5,7 @@ import { errorColor } from "../config.json"
 import fs from "fs"
 import { isEqual } from "lodash"
 
-client.on("interaction", async interaction => {
+client.on("interactionCreate", async interaction => {
     // Staff LOA warning removal system
     if (interaction.isButton() && interaction.channelID === "836748153122324481" && interaction.customID == "done") {
         if ((interaction.message as Discord.Message).mentions.users.first()!.id !== interaction.user.id) {
@@ -104,7 +104,7 @@ client.on("interaction", async interaction => {
      * @param {Object} [variables] Object containing all the variables and their corresponding text to be replaced in the string.
      * @param {string} [cmd] The name of the file to get strings from. Defaults to the command being ran
      * @param {string} [lang] The language to get the string from. Defaults to the author's language preference.
-     * @returns A clean string with all the variables replaced or an object of strings. Will return `strings.{path}` if the path cannot be found.
+     * @returns A clean string with all the variables replaced or an object of strings. Will return `null` if the path cannot be found.
      */
     function getString(
         path: string,

@@ -230,7 +230,7 @@ const command: Command = {
                     .setCustomID("statType")
                 await interaction.editReply({ embeds: [embed], components: [[optionsSelect]] })
                 const msg = await interaction.fetchReply() as Discord.Message,
-                    collector = msg.createMessageComponentInteractionCollector({ time: this.cooldown! * 1000 })
+                    collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
 
                 collector.on("collect", async componentInteraction => {
                     if (!componentInteraction.isSelectMenu()) return //this is just to set the typings properly, it won't actually trigger
@@ -248,7 +248,8 @@ const command: Command = {
                 })
 
                 collector.on("end", async () => {
-                    await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"), components: [], embeds: [embed] })
+                    optionsSelect.setDisabled(true)
+                    await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"), components: [[optionsSelect]], embeds: [embed] })
                 })
             })
             .catch(e => {

@@ -54,11 +54,7 @@ const command: Command = {
             await interaction.reply({ embeds: [pageEmbed], components: [controlButtons] })
             const msg = await interaction.fetchReply() as Discord.Message
 
-            const collector = msg.createMessageComponentInteractionCollector({
-                filter: (button: Discord.MessageComponentInteraction) =>
-                    button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last",
-                time: 60_000
-            })
+            const collector = msg.createMessageComponentCollector({ time: 60_000 })
 
             collector.on("collect", async buttonInteraction => {
                 if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: `You cannot interact with this menu! Execute /${this.name} yourself to do this.`, ephemeral: true })
@@ -78,7 +74,8 @@ const command: Command = {
             })
 
             collector.on("end", async () => {
-                await interaction.editReply({ content: `This menu has timed out. If you wish to use it again, execute \`/${this.name}\`.`, embeds: [pageEmbed], components: [] })
+                controlButtons.components.forEach(button => button.setDisabled(true))
+                await interaction.editReply({ content: `This menu has timed out. If you wish to use it again, execute \`/${this.name}\`.`, embeds: [pageEmbed], components: [controlButtons] })
             })
 
         } else {

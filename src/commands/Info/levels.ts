@@ -74,12 +74,7 @@ const command: Command = {
             controlButtons = updateButtonColors(controlButtons, page, pages)
             await interaction.reply({ embeds: [pageEmbed], components: [controlButtons] })
             const msg = await interaction.fetchReply() as Discord.Message,
-
-                collector = msg.createMessageComponentInteractionCollector({
-                    filter: (button: Discord.MessageComponentInteraction) =>
-                        button.customID === "first" || button.customID === "previous" || button.customID === "next" || button.customID === "last",
-                    time: this.cooldown! * 1000
-                })
+                collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
 
             collector.on("collect", async buttonInteraction => {
                 const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
@@ -100,7 +95,8 @@ const command: Command = {
             })
 
             collector.on("end", async () => {
-                await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"), components: [] })
+                controlButtons.components.forEach(button => button.setDisabled(true))
+                await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"), components: [controlButtons] })
             })
         }
 

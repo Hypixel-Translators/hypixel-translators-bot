@@ -23,7 +23,7 @@ const command: Command = {
             .catch(async err => {
                 return await interaction.reply({ content: "Couldn't find that message! Here's the error:\n" + err, ephemeral: true })
             }) as Discord.Message
-        const users = await giveawayMsg.reactions.cache.get("🎉")?.users.fetch() as Discord.Collection<string, Discord.User>
+        const users = await giveawayMsg.reactions.cache.get("🎉")?.users.fetch()
         if (!users) return await interaction.reply({ content: "That message doesn't have any 🎉 reactions.", ephemeral: true })
         const winners: (Discord.User | undefined)[] = users.random(Number(interaction.options.get("winners")?.value) || 1)
         await interaction.reply(`Congratulations to ${winners.filter(user => user).join(", ")}`)

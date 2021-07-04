@@ -2,13 +2,13 @@ import { client } from "../index"
 import Discord from "discord.js"
 import fs from "fs"
 import { Stream } from "stream"
-import { crowdinVerify } from "./../lib/crowdinverify"
-import leveling from "./../lib/leveling"
+import { crowdinVerify } from "../lib/crowdinverify"
+import leveling from "../lib/leveling"
 import { errorColor, successColor, neutralColor } from "../config.json"
 import { db, DbUser } from "../lib/dbclient"
 import { isEqual } from "lodash"
 
-client.on("message", async message => {
+client.on("messageCreate", async message => {
     //Delete pinned message messages
     if (message.type === "PINS_ADD" && message.channel.type !== "dm") {
         await message.delete()
@@ -117,15 +117,8 @@ client.on("message", async message => {
         // Muted
         const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
         const hourCooldown = 48, // Hours to wait before asking for confirmation
-            confirmTime = 60 // 1 min
-        if (!author.staffMsgTimestamp || author.staffMsgTimestamp + hourCooldown * 60 * 60 * 1000 < message.createdTimestamp) {
-            const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor as Discord.HexColorString)
-                .setTitle(getGlobalString("staffDm.confirmation"))
-                .setDescription(message.content)
-                .setFooter(getGlobalString("staffDm.confirmSend"))
-            if (message.attachments.size > 0) embed.setTitle(`${getGlobalString("staffDm.confirmation")} ${getGlobalString("staffDm.attachmentsWarn")}`)
-            const controlButtons = [
+            confirmTime = 60, // 1 min
+            controlButtons = [
                 new Discord.MessageButton()
                     .setStyle("SUCCESS")
                     .setCustomID("confirm")
@@ -137,33 +130,38 @@ client.on("message", async message => {
                     .setEmoji("❎")
                     .setLabel(getGlobalString("pagination.cancel"))
             ]
+        if (!author.staffMsgTimestamp || author.staffMsgTimestamp + hourCooldown * 60 * 60 * 1000 < message.createdTimestamp) {
+            const embed = new Discord.MessageEmbed()
+                .setColor(neutralColor as Discord.HexColorString)
+                .setTitle(getGlobalString("staffDm.confirmation"))
+                .setDescription(message.content)
+                .setFooter(getGlobalString("staffDm.confirmSend"))
+            if (message.attachments.size > 0) embed.setTitle(`${getGlobalString("staffDm.confirmation")} ${getGlobalString("staffDm.attachmentsWarn")}`)
             const msg = await message.channel.send({ embeds: [embed], components: [controlButtons] }),
-                collector = msg.createMessageComponentInteractionCollector({
-                    filter: (buttonInteraction: Discord.MessageComponentInteraction) =>
-                        buttonInteraction.customID === "confirm" || buttonInteraction.customID === "cancel",
-                    time: confirmTime * 1000
-                })
+                collector = msg.createMessageComponentCollector({ time: confirmTime * 1000 })
 
             let replied = false
             collector.on("collect", async reaction => {
                 replied = true
+                controlButtons.forEach(button => button.setDisabled(true))
                 if (reaction.customID === "cancel") {
                     embed
                         .setColor(errorColor as Discord.HexColorString)
                         .setTitle(getGlobalString("staffDm.dmCancelled"))
                         .setFooter(getGlobalString("staffDm.resendInfo"))
-                    await msg.edit({ embeds: [embed], components: [] })
+                    await msg.edit({ embeds: [embed], components: [controlButtons] })
                 } else if (reaction.customID === "confirm") await staffDm(msg, true)
             })
 
             collector.on("end", async () => {
                 if (replied) return
+                controlButtons.forEach(button => button.setDisabled(true))
                 const timeOutEmbed = new Discord.MessageEmbed()
                     .setColor(errorColor as Discord.HexColorString)
                     .setAuthor(getGlobalString("staffDm.dmCancelled"))
                     .setDescription(message.content)
                     .setFooter(getGlobalString("staffDm.resendInfo"))
-                await msg.edit({ embeds: [timeOutEmbed], components: [] })
+                await msg.edit({ embeds: [timeOutEmbed], components: [controlButtons] })
             })
         } else await staffDm(message, false)
 
@@ -193,8 +191,8 @@ client.on("message", async message => {
                     .setImage(message.attachments.first()!.url)
                 dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent"))
                 await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg] })
-            } else await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg] }) //staff-bots
-            if (afterConfirm) await msg.edit({ embeds: [dmEmbed], components: [] })
+            } else await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg] })
+            if (afterConfirm) await msg.edit({ embeds: [dmEmbed], components: [controlButtons] })
             else await msg.channel.send({ embeds: [dmEmbed] })
         }
     }
@@ -207,7 +205,7 @@ client.on("message", async message => {
      * @param {Object} [variables] Object containing all the variables and their corresponding text to be replaced in the string.
      * @param {string} [cmd] The name of the file to get strings from. Defaults to global
      * @param {string} [lang] The language to get the string from. Defaults to the author's language preference.
-     * @returns A clean string with all the variables replaced or an object of strings. Will return `strings.{path}` if the path cannot be found.
+     * @returns A clean string with all the variables replaced or an object of strings. Will return `null` if the path cannot be found.
      */
     function getGlobalString(
         path: string,
@@ -246,7 +244,7 @@ client.on("message", async message => {
                     if (!string || (typeof string === "string" && !isEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g)))) {
                         string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
-                            string = `strings.${path}` //in case of fire
+                            string = null //in case of fire
                             if (command?.category != "Admin" && command?.category != "Staff")
                                 console.error(`Couldn't get string ${path} in English for ${cmd}, please fix this`)
                         }

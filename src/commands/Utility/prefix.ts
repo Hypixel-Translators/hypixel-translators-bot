@@ -56,10 +56,7 @@ const command: Command = {
           )
       await interaction.reply({ embeds: [embed], components: [confirmButtons] })
       const msg = await interaction.fetchReply() as Discord.Message,
-        collector = msg.createMessageComponentInteractionCollector({
-          filter: (interaction: Discord.MessageComponentInteraction) => interaction.customID === "confirm" || interaction.customID === "cancel",
-          time: this.cooldown! * 1000
-        })
+        collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
 
       collector.on("collect", async buttonInteraction => {
         const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
@@ -237,13 +234,7 @@ const command: Command = {
       await interaction.editReply({ embeds: [noChangesEmbed], components: components })
       const msg = await interaction.fetchReply() as Discord.Message
 
-      const collector = msg.createMessageComponentInteractionCollector({
-        filter: (buttonInteraction: Discord.MessageComponentInteraction) =>
-          userLangs.includes(langdb.find(entry => entry.code === buttonInteraction.customID)!) ||
-          buttonInteraction.customID === "confirm" ||
-          buttonInteraction.customID === "cancel",
-        time: this.cooldown! * 1000
-      })
+      const collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
 
       collector.on('collect', async buttonInteraction => {
         const userDb: DbUser = await db.collection("users").findOne({ id: buttonInteraction.user.id })
