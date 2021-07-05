@@ -1,7 +1,5 @@
 {
     "moduleName": "Prefix",
-    "loading": "Just a second...",
-    "loadingRoles": "Fetching your roles...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
         "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
