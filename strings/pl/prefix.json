@@ -1,7 +1,5 @@
 {
     "moduleName": "Przedrostek",
-    "loading": "Sekundkę…",
-    "loadingRoles": "Pobieranie ról...",
     "errors": {
         "noLanguages": "Wygląda na to, że nie posiadasz żadnych ról językowych! Skontaktuj się z administratorem lub właścicielem, jeśli uważasz, że jest to błąd.",
         "trNoRoles": "Zauważyliśmy, że jesteś tłumaczem, ale nie masz żadnych ról językowych.",
