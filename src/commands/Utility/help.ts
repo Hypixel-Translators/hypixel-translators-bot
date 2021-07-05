@@ -82,19 +82,19 @@ const command: Command = {
           .addComponents(
             new Discord.MessageButton()
               .setEmoji("⏮️")
-              .setCustomID("first")
+              .setCustomId("first")
               .setLabel(getString("pagination.first", "global")),
             new Discord.MessageButton()
               .setEmoji("◀️")
-              .setCustomID("previous")
+              .setCustomId("previous")
               .setLabel(getString("pagination.previous", "global")),
             new Discord.MessageButton()
               .setEmoji("▶️")
-              .setCustomID("next")
+              .setCustomId("next")
               .setLabel(getString("pagination.next", "global")),
             new Discord.MessageButton()
               .setEmoji("⏭️")
-              .setCustomID("last")
+              .setCustomId("last")
               .setLabel(getString("pagination.last", "global"))
           )
       controlButtons = updateButtonColors(controlButtons, page, pages)
@@ -106,13 +106,13 @@ const command: Command = {
       collector.on("collect", async buttonInteraction => {
         const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
         if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
-        else if (buttonInteraction.customID === "first") page = 0
-        else if (buttonInteraction.customID === "last") page = pages.length - 1
-        else if (buttonInteraction.customID === "previous") {
+        else if (buttonInteraction.customId === "first") page = 0
+        else if (buttonInteraction.customId === "last") page = pages.length - 1
+        else if (buttonInteraction.customId === "previous") {
           page--
           if (page < 0) page = 0
         }
-        else if (buttonInteraction.customID === "next") {
+        else if (buttonInteraction.customId === "next") {
           page++
           if (page > pages.length - 1) page = pages.length - 1
         }
@@ -181,7 +181,7 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, ex
 export function updateButtonColors(row: Discord.MessageActionRow, page: number, pages: any[]) {
   if (page == 0) {
     row.components.forEach(button => {
-      if (button.customID === "first" || button.customID === "previous") (button as Discord.MessageButton)
+      if (button.customId === "first" || button.customId === "previous") (button as Discord.MessageButton)
         .setStyle("SECONDARY")
         .setDisabled(true)
       else (button as Discord.MessageButton)
@@ -190,7 +190,7 @@ export function updateButtonColors(row: Discord.MessageActionRow, page: number, 
     })
   } else if (page == pages.length - 1) {
     row.components.forEach(button => {
-      if (button.customID === "last" || button.customID === "next") (button as Discord.MessageButton)
+      if (button.customId === "last" || button.customId === "next") (button as Discord.MessageButton)
         .setStyle("SECONDARY")
         .setDisabled(true)
       else (button as Discord.MessageButton)

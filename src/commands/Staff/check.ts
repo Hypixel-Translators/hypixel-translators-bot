@@ -18,7 +18,7 @@ const command: Command = {
 
     const userDb: DbUser | null = await client.getUser(member.id)
     let note
-    if (member.id === interaction.guild!.ownerID) note = "Discord Owner"
+    if (member.id === interaction.guild!.ownerId) note = "Discord Owner"
     else if (member.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"
     else if (member.roles.cache.find(r => r.name === "Discord Administrator")) note = "Discord Administrator"
     else if (member.roles.cache.find(r => r.name === "Discord Moderator")) note = "Discord Moderator"

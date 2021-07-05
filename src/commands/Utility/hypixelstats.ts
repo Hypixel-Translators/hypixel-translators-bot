@@ -227,7 +227,7 @@ const command: Command = {
                             default: subCommand === "social"
                         }
                     )
-                    .setCustomID("statType")
+                    .setCustomId("statType")
                 await interaction.editReply({ embeds: [embed], components: [[optionsSelect]] })
                 const msg = await interaction.fetchReply() as Discord.Message,
                     collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })

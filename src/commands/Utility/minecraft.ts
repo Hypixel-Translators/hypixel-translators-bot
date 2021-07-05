@@ -88,22 +88,22 @@ const command: Command = {
                             new Discord.MessageButton()
                                 .setStyle("SUCCESS")
                                 .setEmoji("⏮️")
-                                .setCustomID("first")
+                                .setCustomId("first")
                                 .setLabel(getString("pagination.first", "global")),
                             new Discord.MessageButton()
                                 .setStyle("SUCCESS")
                                 .setEmoji("◀️")
-                                .setCustomID("previous")
+                                .setCustomId("previous")
                                 .setLabel(getString("pagination.previous", "global")),
                             new Discord.MessageButton()
                                 .setStyle("SUCCESS")
                                 .setEmoji("▶️")
-                                .setCustomID("next")
+                                .setCustomId("next")
                                 .setLabel(getString("pagination.next", "global")),
                             new Discord.MessageButton()
                                 .setStyle("SUCCESS")
                                 .setEmoji("⏭️")
-                                .setCustomID("last")
+                                .setCustomId("last")
                                 .setLabel(getString("pagination.last", "global"))
                         ),
                         page = 0,
@@ -118,13 +118,13 @@ const command: Command = {
                     collector.on("collect", async buttonInteraction => {
                         const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
                         if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
-                        else if (buttonInteraction.customID === "first") page = 0
-                        else if (buttonInteraction.customID === "last") page = pages.length - 1
-                        else if (buttonInteraction.customID === "previous") {
+                        else if (buttonInteraction.customId === "first") page = 0
+                        else if (buttonInteraction.customId === "last") page = pages.length - 1
+                        else if (buttonInteraction.customId === "previous") {
                             page--
                             if (page < 0) page = 0
                         }
-                        else if (buttonInteraction.customID === "next") {
+                        else if (buttonInteraction.customId === "next") {
                             page++
                             if (page > pages.length - 1) page = pages.length - 1
                         }

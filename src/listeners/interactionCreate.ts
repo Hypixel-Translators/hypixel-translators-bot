@@ -7,7 +7,7 @@ import { isEqual } from "lodash"
 
 client.on("interactionCreate", async interaction => {
     // Staff LOA warning removal system
-    if (interaction.isButton() && interaction.channelID === "836748153122324481" && interaction.customID == "done") {
+    if (interaction.isButton() && interaction.channelId === "836748153122324481" && interaction.customId == "done") {
         if ((interaction.message as Discord.Message).mentions.users.first()!.id !== interaction.user.id) {
             await interaction.reply({ content: "You can only remove your own LOA warning!", ephemeral: true })
             return
@@ -43,10 +43,10 @@ client.on("interactionCreate", async interaction => {
 
     //Channel Blacklist and whitelist systems
     if (interaction.channel instanceof Discord.GuildChannel) {
-        if (command.categoryBlacklist && command.categoryBlacklist.includes(interaction.channel!.parentID!)) allowed = false
-        else if (command.channelBlacklist && command.channelBlacklist.includes(interaction.channelID)) allowed = false
-        else if (command.categoryWhitelist && !command.categoryWhitelist.includes(interaction.channel!.parentID!)) allowed = false
-        else if (command.channelWhitelist && !command.channelWhitelist.includes(interaction.channelID)) allowed = false
+        if (command.categoryBlacklist && command.categoryBlacklist.includes(interaction.channel!.parentId!)) allowed = false
+        else if (command.channelBlacklist && command.channelBlacklist.includes(interaction.channelId)) allowed = false
+        else if (command.categoryWhitelist && !command.categoryWhitelist.includes(interaction.channel!.parentId!)) allowed = false
+        else if (command.channelWhitelist && !command.channelWhitelist.includes(interaction.channelId)) allowed = false
     }
 
     //Give perm to admins and return if not allowed
@@ -70,7 +70,7 @@ client.on("interactionCreate", async interaction => {
     const now = Date.now(),
         timestamps = client.cooldowns.get(command.name)!,
         cooldownAmount = (command.cooldown || 3) * 1000
-    if (timestamps.has(interaction.user.id) && interaction.channelID !== "730042612647723058") { //bot-development
+    if (timestamps.has(interaction.user.id) && interaction.channelId !== "730042612647723058") { //bot-development
         const expirationTime = timestamps.get(interaction.user.id)! + cooldownAmount
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000

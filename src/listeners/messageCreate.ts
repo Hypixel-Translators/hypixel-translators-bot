@@ -31,7 +31,7 @@ client.on("messageCreate", async message => {
     client.channels.cache.filter(c => (c as Discord.TextChannel).name?.endsWith("review-strings")).forEach(c => noXp.push(c.id))
     if (
         message.guild?.id === "549503328472530974" &&
-        !noXp.includes((message.channel as Discord.GuildChannel).parentID!) &&
+        !noXp.includes((message.channel as Discord.GuildChannel).parentId!) &&
         !noXp.includes(message.channel.id!) &&
         !message.member?.roles.cache.some(r => noXpRoles.includes(r.id))
     )
@@ -65,10 +65,10 @@ client.on("messageCreate", async message => {
         /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)
     ) {
         if (
-            message.channel.parentID === "549503328472530977" || //Hypixel Translations
-            message.channel.parentID === "748585307825242322" || //SkyblockAddons Translations
-            message.channel.parentID === "763131996163407902" || //Bot Translations
-            message.channel.parentID === "646083561769926668"    //Quickplay translations
+            message.channel.parentId === "549503328472530977" || //Hypixel Translations
+            message.channel.parentId === "748585307825242322" || //SkyblockAddons Translations
+            message.channel.parentId === "763131996163407902" || //Bot Translations
+            message.channel.parentId === "646083561769926668"    //Quickplay translations
         ) {
             const langFix = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
             if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
@@ -79,14 +79,14 @@ client.on("messageCreate", async message => {
                     .setTitle(getGlobalString("wrongStringURL"))
                     .setDescription(getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }))
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
-                if (message.content !== langFix && message.channel.parentID === "549503328472530977")
+                if (message.content !== langFix && message.channel.parentId === "549503328472530977")
                     embed.setDescription(
                         `${getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" })}
                         \n${getGlobalString("reminderLang", { format: "`crowdin.com/translate/hypixel/.../en-en#`" })}`
                     )
                 await message.channel.send({ content: `${message.author}`, embeds: [embed] })
                 return
-            } else if (message.content !== langFix && message.channel.parentID === "549503328472530977") {
+            } else if (message.content !== langFix && message.channel.parentId === "549503328472530977") {
                 await message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor as Discord.HexColorString)
@@ -121,12 +121,12 @@ client.on("messageCreate", async message => {
             controlButtons = [
                 new Discord.MessageButton()
                     .setStyle("SUCCESS")
-                    .setCustomID("confirm")
+                    .setCustomId("confirm")
                     .setEmoji("✅")
                     .setLabel(getGlobalString("pagination.confirm")),
                 new Discord.MessageButton()
                     .setStyle("DANGER")
-                    .setCustomID("cancel")
+                    .setCustomId("cancel")
                     .setEmoji("❎")
                     .setLabel(getGlobalString("pagination.cancel"))
             ]
@@ -144,13 +144,13 @@ client.on("messageCreate", async message => {
             collector.on("collect", async reaction => {
                 replied = true
                 controlButtons.forEach(button => button.setDisabled(true))
-                if (reaction.customID === "cancel") {
+                if (reaction.customId === "cancel") {
                     embed
                         .setColor(errorColor as Discord.HexColorString)
                         .setTitle(getGlobalString("staffDm.dmCancelled"))
                         .setFooter(getGlobalString("staffDm.resendInfo"))
                     await msg.edit({ embeds: [embed], components: [controlButtons] })
-                } else if (reaction.customID === "confirm") await staffDm(msg, true)
+                } else if (reaction.customId === "confirm") await staffDm(msg, true)
             })
 
             collector.on("end", async () => {

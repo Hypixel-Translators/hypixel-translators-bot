@@ -120,7 +120,7 @@ const command: Command = {
             .setStyle("SUCCESS")
             .setLabel("End LOA")
             .setEmoji("✅")
-            .setCustomID("done")
+            .setCustomId("done")
         await loaChannel.send({ content: interaction.user.toString(), embeds: [embed], components: [[doneButton]] })
         await interaction.reply({ content: `Successfully reported your LOA in ${loaChannel}! Once it's over, please delete it by clicking the button on the message.`, ephemeral: true })
     }

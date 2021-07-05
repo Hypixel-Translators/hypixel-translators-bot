@@ -35,19 +35,19 @@ const command: Command = {
                     .addComponents(
                         new Discord.MessageButton()
                             .setEmoji("⏮️")
-                            .setCustomID("first")
+                            .setCustomId("first")
                             .setLabel("First page"),
                         new Discord.MessageButton()
                             .setEmoji("◀️")
-                            .setCustomID("previous")
+                            .setCustomId("previous")
                             .setLabel("Previous page"),
                         new Discord.MessageButton()
                             .setEmoji("▶️")
-                            .setCustomID("next")
+                            .setCustomId("next")
                             .setLabel("Next page"),
                         new Discord.MessageButton()
                             .setEmoji("⏭️")
-                            .setCustomID("last")
+                            .setCustomId("last")
                             .setLabel("Last page")
                     )
             controlButtons = updateButtonColors(controlButtons, page, maxMembersArr)
@@ -58,13 +58,13 @@ const command: Command = {
 
             collector.on("collect", async buttonInteraction => {
                 if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: `You cannot interact with this menu! Execute /${this.name} yourself to do this.`, ephemeral: true })
-                else if (buttonInteraction.customID === "first") page = 0
-                else if (buttonInteraction.customID === "last") page = maxMembersArr.length - 1
-                else if (buttonInteraction.customID === "previous") {
+                else if (buttonInteraction.customId === "first") page = 0
+                else if (buttonInteraction.customId === "last") page = maxMembersArr.length - 1
+                else if (buttonInteraction.customId === "previous") {
                     page--
                     if (page < 0) page = 0
                 }
-                else if (buttonInteraction.customID === "next") {
+                else if (buttonInteraction.customId === "next") {
                     page++
                     if (page > maxMembersArr.length - 1) page = maxMembersArr.length - 1
                 }
