@@ -1,7 +1,5 @@
 {
     "moduleName": "קידומת",
-    "loading": "שנייה...",
-    "loadingRoles": "משיג את הroles שלך...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
         "trNoRoles": "שמנו לב שאת/ה מתרגם/ת אך אין בידיך אף role של שפה.",
