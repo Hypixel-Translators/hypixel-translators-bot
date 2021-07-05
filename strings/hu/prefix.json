@@ -1,7 +1,5 @@
 {
     "moduleName": "Előtag",
-    "loading": "Egy pillanat...",
-    "loadingRoles": "Rangjaid megszerzése...",
     "errors": {
         "noLanguages": "Úgy látszik nincsen nyelvi rangod! Kérlek lépj kapcsolatba egy adminnal ha úgy gondolod, hogy ez egy hiba.",
         "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
