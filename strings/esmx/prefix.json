@@ -1,7 +1,5 @@
 {
     "moduleName": "Prefijo",
-    "loading": "Un segundo...",
-    "loadingRoles": "Obteniendo tus roles...",
     "errors": {
         "noLanguages": "¡No parece tener ningún rol de idioma! Por favor comuníquese con un administrador si cree que se trata de un error.",
         "trNoRoles": "Notamos que eres un traductor, pero no tienes ningún rol de idioma.",
