@@ -1,7 +1,5 @@
 {
     "moduleName": "Ön ek",
-    "loading": "Bir saniye...",
-    "loadingRoles": "Rollerin getiriliyor...",
     "errors": {
         "noLanguages": "Herhangi bir dil rolün yok gibi görünüyor! Bunun bir hata olduğunu düşünüyorsan lütfen admin veya sunucu sahibiyle iletişime geç.",
         "trNoRoles": "Çevirmen olduğunu, ancak herhangi bir dil rolüne sahip olmadığını farkettik.",
