@@ -1,7 +1,5 @@
 {
     "moduleName": "Prefuck",
-    "loading": "Wait, idot...",
-    "loadingRoles": "Geting ur rols...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
         "trNoRoles": "Notis ur translat but no has ani translat rols.",
