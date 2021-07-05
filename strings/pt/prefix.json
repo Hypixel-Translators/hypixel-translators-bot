@@ -1,7 +1,5 @@
 {
     "moduleName": "Prefixo",
-    "loading": "Só um segundo...",
-    "loadingRoles": "A analisar os teus cargos...",
     "errors": {
         "noLanguages": "Parece que não tens nenhum cargo de idioma! Entra em contacto com um administrador se pensas que isto é um erro.",
         "trNoRoles": "Reparámos que és um tradutor mas não tens nenhum cargo de idioma.",
