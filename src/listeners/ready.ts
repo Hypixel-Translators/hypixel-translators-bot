@@ -43,12 +43,12 @@ client.once("ready", async () => {
     const boostersStaff: string[] = []
     client.guilds.cache
         .get("549503328472530974")
-        ?.roles.cache.get("644450674796396576")!
-        .members.forEach(member => boostersStaff.push(member.user.username)) //Server Booster
+        ?.roles.premiumSubscriberRole!
+        .members.forEach(member => boostersStaff.push(member.user.username))
     client.guilds.cache
         .get("549503328472530974")
-        ?.roles.cache.get("768435276191891456")!
-        .members.forEach(member => boostersStaff.push(member.user.username)) //Discord Staff
+        ?.roles.cache.get("768435276191891456")! //Discord Staff
+        .members.forEach(member => boostersStaff.push(member.user.username))
 
     //Change status and run events every minute
     setInterval(async () => {
