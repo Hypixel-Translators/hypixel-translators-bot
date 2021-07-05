@@ -1,5 +1,5 @@
 {
-    "moduleName": "Minecraft Statistics",
+    "moduleName": "Statystyki Minecraft",
     "madeBy": "Komenda stworzona przez %%developer%%",
     "history": {
         "firstName": "Pierwsza nazwa użytkownika",
@@ -14,6 +14,6 @@
     "skin": {
         "yourSkin": "Oto Twoja skórka!",
         "userSkin": "Oto skórka gracza o pseudonimie %%user%%!",
-        "isLinked": "This player is linked to %%user%%"
+        "isLinked": "Ten gracz jest połączony z kontem %%user%%"
     }
 }

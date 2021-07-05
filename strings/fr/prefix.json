@@ -1,7 +1,5 @@
 {
     "moduleName": "Préfixe",
-    "loading": "Une seconde...",
-    "loadingRoles": "J'obtiens tes rôles...",
     "errors": {
         "noLanguages": "Tu ne sembles pas avoir de rôles linguistiques ! Merci de contacter un administrateur si tu penses qu'il s'agit d'une erreur.",
         "trNoRoles": "Nous avons remarqué que tu es un traducteur mais que tu n'as aucun rôle linguistique.",

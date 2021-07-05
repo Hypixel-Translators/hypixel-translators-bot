@@ -1,7 +1,5 @@
 {
     "moduleName": "Präfix",
-    "loading": "Eine Sekunde …",
-    "loadingRoles": "Rollen werden abgerufen …",
     "errors": {
         "noLanguages": "Du scheinst keine Sprachrollen zu haben! Bitte kontaktiere einen Administrator, wenn du glaubst, dass dies ein Fehler ist.",
         "trNoRoles": "Wir haben bemerkt, dass du ein Übersetzer bist, aber du keine Sprachrollen hast.",

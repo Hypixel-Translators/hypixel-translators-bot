@@ -1,7 +1,5 @@
 {
     "moduleName": "Præfiks",
-    "loading": "Et sekund...",
-    "loadingRoles": "Henter dine roller...",
     "errors": {
         "noLanguages": "Det ser ud til, at du ikke har nogen sprogroller! Kontakt venligst administratoren eller ejeren, hvis du tror, at det er en fejl.",
         "trNoRoles": "Vi har bemærket, at du er en oversætter, men at du ikke har nogle sprogroller.",

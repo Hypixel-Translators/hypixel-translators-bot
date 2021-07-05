@@ -20,7 +20,7 @@
         "falseFlag": "Ta flaga nie została odnaleziona!",
         "falseLang": "Ten język nie został odnaleziony!",
         "falseRole": "Ta rola nie została znaleziona!",
-        "falseUUID": "Couldn't find a player with that UUID!",
+        "falseUUID": "Nie udało się znaleźć gracza o takim UUID!",
         "noPlayer": "Ten gracz nigdy nie wszedł na Hypixel!",
         "notVerified": "Ten użytkownik nie połączył jeszcze swojego konta Hypixel!",
         "disabled": "To polecenie zostało tymczasowo wyłączone.",
@@ -63,7 +63,7 @@
         "confirm": "Potwierdź",
         "cancel": "Anuluj",
         "page": "Strona %%number%%/%%total%%",
-        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
+        "notYours": "Nie możesz wchodzić w interakcje z tym menu! Wykonaj %%command%% samemu, aby to zrobić.",
         "timeOut": "To menu wygasło. Jeśli chcesz użyć go ponownie, wpisz %%command%%."
     },
     "region": {

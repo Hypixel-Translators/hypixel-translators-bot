@@ -1,7 +1,5 @@
 {
     "moduleName": "البرفكس",
-    "loading": "ثانية واحدة...",
-    "loadingRoles": "جاري جلب الرتب الخاصة بك...",
     "errors": {
         "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
         "trNoRoles": "لاحظنا أنك مترجم ولكن لا يوجد لديك أي من رتب اللغات.",
