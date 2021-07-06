@@ -30,10 +30,8 @@ const command: Command = {
                 // Handle errors
                 if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
                 else if (json.error !== undefined || json.username === null) { // if other error we didn't plan for appeared
-                    let error
                     if (json.error === undefined && json.username === null) throw "noPlayer"
-                    else if (json.error !== undefined) error = json.error
-                    console.log("Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n" + error)
+                    console.log("Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n", json.error)
                     throw "apiError"
                 }
                 if (json.links?.DISCORD === interaction.user.tag) {

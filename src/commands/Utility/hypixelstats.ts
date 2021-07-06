@@ -72,7 +72,7 @@ const command: Command = {
                 if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
                 else if (json.error === "Player has no Hypixel stats!") throw "noPlayer"
                 else if (json.error || !json.username) { // if other error we didn't plan for appeared
-                    console.log(`Welp, we didn't plan for this to happen. Something went wrong when trying to get stats for ${uuid}, here's the error\n` + json.error)
+                    console.log(`Welp, we didn't plan for this to happen. Something went wrong when trying to get stats for ${uuid}, here's the error\n`, json.error)
                     throw "apiError"
                 }
 
