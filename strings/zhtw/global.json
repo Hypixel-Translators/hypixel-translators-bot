@@ -34,6 +34,7 @@
     "timeLeftT": "請等待 %%time%% 秒後才再次使用 `%%command%%` 指令。",
     "minsLeftT": "請等待 %%time%% 分鐘後才再次使用 `%%command%%` 指令。",
     "linkCorrectionDesc": "請你在下次發送連結前將其更改為 %%format%% 格式。",
+    "correctLink": "Here's the correct link:",
     "wrongStringURL": "你發送的連結是連接至 Crowdin 在線編輯器而非特定字串本身！",
     "example": "點擊下方圖片顯示的按鈕以取得正確的字串連結。它應該是以下的格式︰%%url%%",
     "reminderLang": "請不要忘記將連結修改為 %%format%% 格式。",
