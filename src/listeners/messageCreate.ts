@@ -45,6 +45,7 @@ client.on("messageCreate", async message => {
     }
 
     // Delete non-stringURL messages in review-strings
+    const stringURLRegex = /https:\/\/crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
     if (message.channel instanceof Discord.TextChannel && message.channel.name.endsWith("-review-strings")) {
         if (!/https:\/\/crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) message.delete()
         else {
@@ -86,13 +87,13 @@ client.on("messageCreate", async message => {
                     )
                 await message.channel.send({ content: `${message.author}`, embeds: [embed] })
                 return
-            } else if (message.content !== langFix && message.channel.parentId === "549503328472530977") {
+            } else if (stringURLRegex.test(message.content) && message.channel.parentId === "549503328472530977") {
                 await message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor as Discord.HexColorString)
                     .setAuthor(getGlobalString("errors.wrongLink"))
                     .setTitle(getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }))
-                    .setDescription(langFix)
+                    .setDescription(`${getGlobalString("correctLink")}\n${langFix.match(stringURLRegex)![0]}`)
                 await message.channel.send({ content: `${message.author}`, embeds: [embed] })
                 return
             }
