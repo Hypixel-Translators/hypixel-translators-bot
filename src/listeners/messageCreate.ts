@@ -87,7 +87,7 @@ client.on("messageCreate", async message => {
                     )
                 await message.channel.send({ content: `${message.author}`, embeds: [embed] })
                 return
-            } else if (stringURLRegex.test(message.content) && message.channel.parentId === "549503328472530977") {
+            } else if (message.content !== langFix && message.channel.parentId === "549503328472530977") {
                 await message.react("732298639736570007")
                 const embed = new Discord.MessageEmbed()
                     .setColor(errorColor as Discord.HexColorString)
