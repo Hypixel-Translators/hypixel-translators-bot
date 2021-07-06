@@ -107,17 +107,15 @@ const command: Command = {
                     if (json.online) lastLoginSelector = "last_login"
                     else lastLoginSelector = "last_logout"
 
-                    let timeZone: string = getString("region.timeZone", "global")
-                    if (timeZone.startsWith("crwdns")) timeZone = getString("region.timeZone", "global", "en")
-                    let dateLocale: string = getString("region.dateLocale", "global")
-                    if (dateLocale.startsWith("crwdns")) dateLocale = getString("region.dateLocale", "global", "en")
-                    
+                    let locale: string = getString("region.dateLocale", "global")
+                    if (locale.startsWith("crwdns")) locale = getString("region.dateLocale", "global", "en")
+
                     let lastLogin: string
-                    if (json[lastLoginSelector]) lastLogin = new Date(json[lastLoginSelector]).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
+                    if (json[lastLoginSelector]) lastLogin = `<t:${Math.round(new Date(json[lastLoginSelector]).getTime() / 1000)}:F>`
                     else lastLogin = getString("lastLoginHidden")
 
                     let firstLogin: string
-                    if (json.first_login) firstLogin = new Date(json.first_login).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
+                    if (json.first_login) firstLogin = `<t:${Math.round(new Date(json.first_login).getTime() / 1000)}:F>`
                     else firstLogin = getString("firstLoginHidden")
 
                     const statsEmbed = new Discord.MessageEmbed()
@@ -125,10 +123,10 @@ const command: Command = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${getString("description", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
+                        .setDescription(`${getString("description", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
                         .addFields(
-                            { name: getString("networkLevel"), value: Math.abs(json.level).toLocaleString(dateLocale), inline: true },
-                            { name: getString("ap"), value: json.achievement_points.toLocaleString(dateLocale), inline: true },
+                            { name: getString("networkLevel"), value: Math.abs(json.level).toLocaleString(locale), inline: true },
+                            { name: getString("ap"), value: json.achievement_points.toLocaleString(locale), inline: true },
                             { name: getString("first_login"), value: firstLogin, inline: true },
                             { name: getString("language"), value: getString(json.language), inline: true },
                             { name: online, value: last_seen, inline: true },
@@ -196,7 +194,7 @@ const command: Command = {
                         .setAuthor(getString("moduleName"))
                         .setTitle(`${rank} ${username}`)
                         .setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
-                        .setDescription(`${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
+                        .setDescription(`${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
                         .addFields(
                             { name: "Twitter", value: twitter, inline: true },
                             { name: "YouTube", value: youtube, inline: true },

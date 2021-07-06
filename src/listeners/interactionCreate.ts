@@ -200,7 +200,7 @@ client.on("interactionCreate", async interaction => {
                     .setDescription(`\`\`\`${error.stack.substring(0, 2_047)}\`\`\``)
                     .setFooter("Check the console for more details")
                 await (interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send({ //bot-development
-                    content: `<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@240875059953139714>\n
+                    content: `<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@!240875059953139714>\n
                     Ran by : ${interaction.user}\n
                     Channel: ${interaction.channel?.type !== "dm" && interaction.channel ? interaction.channel : "dm"}\n
                     Time   : <t:${Math.round(Date.now() / 1000)}:F>`,

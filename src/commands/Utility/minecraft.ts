@@ -161,13 +161,14 @@ const command: Command = {
                 }
 
                 function constructFields(array: NameHistory[]) {
-                    let timeZone: string = getString("region.timeZone", "global"),
-                        dateLocale: string = getString("region.dateLocale", "global")
-                    if (timeZone.startsWith("crwdns")) timeZone = getString("region.timeZone", "global", "en")
-                    if (dateLocale.startsWith("crwdns")) dateLocale = getString("region.dateLocale", "global", "en")
-
                     const fields: Discord.EmbedFieldData[] = []
-                    array.forEach(name => fields.push({ name: name.name, value: name.changedToAt ? new Date(name.changedToAt!).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" }) : getString("history.firstName"), inline: true }))
+                    array.forEach(name =>
+                        fields.push({
+                            name: name.name,
+                            value: name.changedToAt ? `<t:${Math.round(new Date(name.changedToAt!).getTime() / 1000)}:F>` : getString("history.firstName"),
+                            inline: true
+                        })
+                    )
                     return fields
                 }
 
@@ -179,7 +180,7 @@ const command: Command = {
                     .setTitle(isOwnUser
                         ? getString("skin.yourSkin")
                         : getString("skin.userSkin", { user: (await getPlayer(uuid)).name }))
-                    .setDescription(uuidDb ? getString("skin.isLinked", { user: `<@${uuidDb.id}>` }) : "")
+                    .setDescription(uuidDb ? getString("skin.isLinked", { user: `<@!${uuidDb.id}>` }) : "")
                     .setImage(`https://crafatar.com/renders/body/${uuid}?overlay`)
                     .setFooter(`${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                 await interaction.editReply({ embeds: [skinEmbed] })
