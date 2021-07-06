@@ -34,6 +34,7 @@
     "timeLeftT": "もう一度`%%command%%`を使用するにはあと%%time%%秒お待ちください。",
     "minsLeftT": "もう一度`%%command%%`を使用するにはあと%%time%%分お待ちください。",
     "linkCorrectionDesc": "次回はリンクの型を%%format%%に変更してください。",
+    "correctLink": "Here's the correct link:",
     "wrongStringURL": "送信されたリンクは、文字列自体のものではなく編集画面へのリンクです！",
     "example": "以下の画像にあるボタンをクリックし、正しい文字列のURLを取得してください。以下のような形式です：%%url%%",
     "reminderLang": "リンクの型を%%format%%に変更することも忘れないでください。",
