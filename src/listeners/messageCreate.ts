@@ -93,7 +93,7 @@ client.on("messageCreate", async message => {
                     .setColor(errorColor as Discord.HexColorString)
                     .setAuthor(getGlobalString("errors.wrongLink"))
                     .setTitle(getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }))
-                    .setDescription(`${getGlobalString("correctLink")}\n${langFix.match(stringURLRegex)![0]}`)
+                    .setDescription(`**${getGlobalString("correctLink")}**\n${langFix.match(stringURLRegex)![0]}`)
                 await message.channel.send({ content: `${message.author}`, embeds: [embed] })
                 return
             }
