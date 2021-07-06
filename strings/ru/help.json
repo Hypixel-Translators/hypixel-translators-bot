@@ -56,7 +56,7 @@
         "description": "Упоминает языковую роль вместе с сообщением."
     },
     "minecraft": {
-        "description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+        "description": "Просматривает историю имен или скин указанного игрока Minecraft. Эта команда совместима с /hypixelverify, позволяет вам искать информацию об указанном пользователе, если он подтвердил себя. Параметр `user` всегда будет иметь приоритет над `username`, и они оба будут необязательными, если вы подтвердили себя, в противном случае требуется хотя бы один из них."
     },
     "ping": {
         "description": "Дает пинг бота."
