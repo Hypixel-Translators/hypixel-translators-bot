@@ -161,8 +161,8 @@ const command: Command = {
                 }
 
                 function constructFields(array: NameHistory[]) {
-                    let timeZone = getString("region.timeZone", "global"),
-                        dateLocale = getString("region.dateLocale", "global")
+                    let timeZone: string = getString("region.timeZone", "global"),
+                        dateLocale: string = getString("region.dateLocale", "global")
                     if (timeZone.startsWith("crwdns")) timeZone = getString("region.timeZone", "global", "en")
                     if (dateLocale.startsWith("crwdns")) dateLocale = getString("region.dateLocale", "global", "en")
 

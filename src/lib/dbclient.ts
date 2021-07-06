@@ -43,7 +43,7 @@ export class HTBClient extends Discord.Client {
     async getUser(id: Discord.Snowflake): Promise<DbUser>
     async getUser(id?: Discord.Snowflake): Promise<DbUser | null> {
         if (!id) return null
-        let user = await db.collection("users").findOne({ id: id })
+        let user: DbUser | null = await db.collection("users").findOne({ id: id })
         if (!user) {
             await db.collection("users").insertOne({ id: id, lang: "en" })
             return await db.collection("users").findOne({ id: id })

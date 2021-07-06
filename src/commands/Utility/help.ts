@@ -131,7 +131,7 @@ const command: Command = {
       const command = client.commands.get(commandInput)
       if (!command || !command.name) throw "noCommand"
 
-      let cmdDesc
+      let cmdDesc: string | undefined = undefined
       if (command.category !== "Admin" && command.category !== "Staff") {
         cmdDesc = getString(`${command.name}.description`)
       } else if (command.category === "Staff" && (interaction.member as Discord.GuildMember | null)?.roles.cache.has("768435276191891456") || command.category === "Admin" && (interaction.member as Discord.GuildMember | null)?.roles.cache.has("764442984119795732")) {

@@ -31,9 +31,9 @@ const command: Command = {
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["730042612647723058", "551693960913879071"], // bot-development admin-bots
     async execute(interaction: Discord.CommandInteraction) {
-        let strings = require(`../../../strings/en/holidays.json`)
+        let strings: HolidayStrings = require(`../../../strings/en/holidays.json`)
         const dirPath = path.join(__dirname, "../../../strings"),
-            holidayName = interaction.options.get("holiday")!.value as string,
+            holidayName = interaction.options.get("holiday")!.value as "easter" | "halloween" | "christmas" | "newYear",
             holiday: string[] = [],
             log: { [Language: string]: string } = {}
         holiday.push(strings[holidayName])
@@ -72,3 +72,11 @@ const command: Command = {
 }
 
 export default command
+
+interface HolidayStrings {
+    easter: string
+    halloween: string
+    christmas: string
+    newYear: string
+
+}

@@ -159,8 +159,8 @@ const command: Command = {
       })
     } else {
       await interaction.defer()
-      let userLangs: LangDbEntry[] = []
-      let prefixes = ""
+      let userLangs: LangDbEntry[] = [],
+        prefixes = ""
 
       member.roles.cache.forEach(r => {
         const roleName = r.name.split(" ")

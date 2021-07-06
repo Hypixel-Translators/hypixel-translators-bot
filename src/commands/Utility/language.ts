@@ -38,7 +38,7 @@ const command: Command = {
     allowDM: true,
     cooldown: 5,
     async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
-        let executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
+        let executedBy: string = getString("executedBy", { user: interaction.user.tag }, "global")
         const collection = db.collection("users"),
             stringsFolder = "./strings/",
             member = interaction.member as Discord.GuildMember,

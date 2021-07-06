@@ -13,11 +13,11 @@ const command: Command = {
   }],
   roleWhitelist: ["768435276191891456", "551758391127834625", "748269219619274893", "645709877536096307", "752541221980733571"], //Discord Staff and Hypixel, SBA, QP and Bot managers
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "768160446368186428"], // bots staff-bots bot-development managers
-  async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
+  async execute(interaction: Discord.CommandInteraction) {
     const member = interaction.options.get("user")?.member as Discord.GuildMember ?? interaction.member as Discord.GuildMember
 
     const userDb: DbUser | null = await client.getUser(member.id)
-    let note
+    let note: string | undefined = undefined
     if (member.id === interaction.guild!.ownerId) note = "Discord Owner"
     else if (member.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"
     else if (member.roles.cache.find(r => r.name === "Discord Administrator")) note = "Discord Administrator"
@@ -29,11 +29,7 @@ const command: Command = {
 
     let color: Discord.ColorResolvable = member.displayHexColor
     if (color === "#000000") color = "BLURPLE"
-    let timeZone = getString("region.timeZone", "global")
-    if (timeZone.startsWith("crwdns")) timeZone = getString("region.timeZone", "global", "en")
-    const joined = member.joinedAt!.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" }),
-      created = member.user.createdAt.toLocaleString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" }),
-      joinedAgo = Math.round(member.joinedAt!.getTime() / 1000),
+    const joinedAgo = Math.round(member.joinedAt!.getTime() / 1000),
       createdAgo = Math.round(member.user.createdAt.getTime() / 1000),
       rolesCache = member.roles.cache
     let userRoles: string
@@ -48,8 +44,8 @@ const command: Command = {
       .setTitle(member.user.tag)
       .setDescription(`${member} (ID: ${member.id})`)
       .addFields(
-        { name: "Joined on", value: `${joined} (<t:${joinedAgo}:R>)`, inline: true },
-        { name: "Account created on", value: `${created} (<t:${createdAgo}:R>)`, inline: true },
+        { name: "Joined on", value: `<t:${joinedAgo}:F> (<t:${joinedAgo}:R>)`, inline: true },
+        { name: "Account created on", value: `<t:${createdAgo}:F> (<t:${createdAgo}:R>)`, inline: true },
         { name: "Roles", value: userRoles },
       )
       .setThumbnail(member.user.displayAvatarURL({ format: "png", dynamic: true }))

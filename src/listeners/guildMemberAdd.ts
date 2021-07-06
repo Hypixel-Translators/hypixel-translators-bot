@@ -45,7 +45,7 @@ async function generateWelcomeImage(member: Discord.GuildMember) {
     else usernameFont = "37.5px sans-serif"*/
 
     const bg = await loadImage("assets/joinBackground.png")
-    let nameWidth
+    let nameWidth: number
 
     //GENERAL
     //Add background and set basic styling

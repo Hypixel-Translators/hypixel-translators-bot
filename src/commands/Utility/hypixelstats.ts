@@ -91,15 +91,15 @@ const command: Command = {
 
                 //Update user's roles if they're verified
                 const uuidDb = await db.collection("users").findOne({ uuid: json.uuid })
-                if (uuidDb) updateRoles(interaction.guild!.members.cache.get(uuidDb.id)!, json)
+                if (uuidDb) updateRoles(client.guilds.cache.get("549503328472530974")!.members.cache.get(uuidDb.id)!, json)
 
                 const stats = async () => {
                     //Define each value
-                    let online
+                    let online: string
                     if (json.online) online = getString("online")
                     else online = getString("offline")
 
-                    let last_seen
+                    let last_seen: string
                     if (!json.last_game) last_seen = getString("lastGameHidden")
                     else last_seen = getString("lastSeen", { game: json.last_game.replace(/([A-Z]+)/g, ' $1').trim() })
 
@@ -107,15 +107,16 @@ const command: Command = {
                     if (json.online) lastLoginSelector = "last_login"
                     else lastLoginSelector = "last_logout"
 
-                    let timeZone = getString("region.timeZone", "global")
+                    let timeZone: string = getString("region.timeZone", "global")
                     if (timeZone.startsWith("crwdns")) timeZone = getString("region.timeZone", "global", "en")
-                    let dateLocale = getString("region.dateLocale", "global")
+                    let dateLocale: string = getString("region.dateLocale", "global")
                     if (dateLocale.startsWith("crwdns")) dateLocale = getString("region.dateLocale", "global", "en")
-                    let lastLogin
+                    
+                    let lastLogin: string
                     if (json[lastLoginSelector]) lastLogin = new Date(json[lastLoginSelector]).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
                     else lastLogin = getString("lastLoginHidden")
 
-                    let firstLogin
+                    let firstLogin: string
                     if (json.first_login) firstLogin = new Date(json.first_login).toLocaleString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", timeZone: timeZone, timeZoneName: "short" })
                     else firstLogin = getString("firstLoginHidden")
 

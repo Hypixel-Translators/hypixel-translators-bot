@@ -107,9 +107,9 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
                     await verifyLogs.send(`${member} sent the wrong profile link. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
                 })
             else if (sendLogs) await verifyLogs.send(`The profile stored/provided for ${member} was invalid. Please fix this or ask them to fix this.`)
-            else {
+            else
                 await verifyLogs.send(`${member}'s profile seems to be invalid: <${url}>\nIf it is, please remove it from the database, otherwise ignore this message or maybe even delete it.`)
-            }
+
             //#endregion
         } else if (sendLogs && isPrivate) { //if the profile is private
             //#region return message

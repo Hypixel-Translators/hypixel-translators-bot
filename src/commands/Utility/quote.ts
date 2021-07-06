@@ -121,7 +121,7 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
 
     const count = await collection.estimatedDocumentCount()
 
-    let quoteId,
+    let quoteId: number,
         index = interaction.options.first()!.options?.get("index")!.value as number | undefined
     if (!index) quoteId = Math.ceil(Math.random() * Math.floor(count)) //generate random id if no arg is given
     else quoteId = Number(index)
