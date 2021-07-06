@@ -175,7 +175,7 @@ const command: Command = {
       const prefixButtons: Discord.MessageButton[] = []
       userLangs.forEach(entry => {
         const button = new Discord.MessageButton()
-          .setStyle("SECONDARY")
+          .setStyle("SUCCESS")
           .setCustomId(entry.code)
           .setEmoji(entry.emoji)
         prefixButtons.push(button)
@@ -207,7 +207,7 @@ const command: Command = {
             .setDescription(getString("customPrefix"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
           client.cooldowns.get(this.name)!.delete(interaction.user.id)
-          return await interaction.editReply({ embeds: [embed], components })
+          return await interaction.editReply({ embeds: [embed] })
         } else {
           const embed = new Discord.MessageEmbed()
             .setColor(errorColor as Discord.HexColorString)
@@ -215,7 +215,7 @@ const command: Command = {
             .setTitle(getString("errors.noLanguages"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
           client.cooldowns.get(this.name)!.delete(interaction.user.id)
-          return await interaction.editReply({ embeds: [embed], components })
+          return await interaction.editReply({ embeds: [embed] })
         }
       }
       const noChangesEmbed = new Discord.MessageEmbed()
@@ -235,6 +235,7 @@ const command: Command = {
         if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
         if (buttonInteraction.customId !== "cancel") components[components.length - 1].find(b => b.customId === "confirm")!.setDisabled(false)
         if (buttonInteraction.customId === "confirm") {
+          components.forEach(buttons => buttons.forEach(button => button.setDisabled(true)))
           if (prefixes) {
             if (member.nickname !== (`[${prefixes}] ${nickNoPrefix}`)) {
               await member.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
@@ -277,6 +278,7 @@ const command: Command = {
             await buttonInteraction.update({ embeds: [embed], components })
           }
         } else if (buttonInteraction.customId === "cancel") {
+          components.forEach(buttons => buttons.forEach(button => button.setDisabled(true)))
           prefixes = "n"
           const embed = new Discord.MessageEmbed()
             .setColor(errorColor as Discord.HexColorString)
@@ -288,7 +290,7 @@ const command: Command = {
           const clickedEntry = langdb.find(entry => entry.code === buttonInteraction.customId)!
           if (prefixes) prefixes = `${prefixes}-${clickedEntry.emoji}`
           else prefixes = `${clickedEntry.emoji}`
-          components.find(button => button.find(b => b.customId === buttonInteraction.customId)?.setDisabled(true))
+          components.find(button => button.find(b => b.customId === buttonInteraction.customId)?.setDisabled(true).setStyle("SECONDARY"))
           const embed = new Discord.MessageEmbed()
             .setColor(neutralColor as Discord.HexColorString)
             .setAuthor(getString("moduleName"))
@@ -302,6 +304,7 @@ const command: Command = {
 
       collector.on('end', async () => {
         if (prefixes === "n") return
+        components.forEach(buttons => buttons.forEach(button => button.setDisabled(true)))
         if (prefixes.length > 0) {
           if (member.nickname !== (`[${prefixes}] ${nickNoPrefix}`)) {
             member.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
