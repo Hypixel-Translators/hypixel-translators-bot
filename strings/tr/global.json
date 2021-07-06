@@ -34,6 +34,7 @@
     "timeLeftT": "`%%command%%` komutunu kullanmak için lütfen %%time%% saniye bekle.",
     "minsLeftT": "`%%command%%` komutunu tekrar kullanmak için lütfen %%time%% dakika daha bekleyin.",
     "linkCorrectionDesc": "Lütfen bağlantını bir dahaki sefere %%format%% formatına değiştir.",
+    "correctLink": "İşte doğru bağlantı:",
     "wrongStringURL": "Gönderdiğin bağlantı, dizenin kendisine değil, editöre yönlendiren bir bağlantıdır!",
     "example": "Doğru dize URL'sini kopyalamak için aşağıdaki resimde gösterilen düğmeye tıkla. Bağlantı böyle olmalı: %%url%%",
     "reminderLang": "Bağlantını %%format%% formatına değiştirmeyi unutma.",

@@ -34,6 +34,7 @@
     "timeLeftT": "Kérlek várj %%time%% másodpercet hogy újra használd a `%%command%%` parancsot.",
     "minsLeftT": "Kérlek várj %%time%% percet hogy újra használd a `%%command%%` parancsot.",
     "linkCorrectionDesc": "Kérlek máskor változtassad meg a linkedet %%format%% formátumba.",
+    "correctLink": "Here's the correct link:",
     "wrongStringURL": "A küldött link csak a szerkesztőhöz vezet, és nem egy szöveg!",
     "example": "Nyomd meg az alábbi képen mutatott gombot, hogy megkapd a helyes linket. Így kellene kinéznie: %%url%%",
     "reminderLang": "Ne felejtsd el a linket megváltoztatni %%format%% formátumba.",

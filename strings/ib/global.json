@@ -34,6 +34,7 @@
     "timeLeftT": "Please wait another %%time%% seconds to use `%%command%%` again.",
     "minsLeftT": "Please wait another %%time%% minutes to use `%%command%%` again.",
     "linkCorrectionDesc": "Ples chang ur lonk too de %%format%% format next tims.",
+    "correctLink": "Here's the correct link:",
     "wrongStringURL": "The lonk u send is a lonk too the editr and not the string istelf!",
     "example": "Clicc the buthron sees on imag down if wants gets good You Are Ell for string. It should be have like this: %%url%%",
     "reminderLang": "If wants do good do change ur lonk too %%format%% format.",

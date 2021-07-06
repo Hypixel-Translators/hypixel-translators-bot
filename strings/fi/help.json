@@ -1,7 +1,7 @@
 {
     "moduleName": "Tietoa",
     "page1Title": "Apusivu",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "commandsListTooltip": "Tämän botin on tehnyt Hypixelin kääntäjien yhteisölle %%developer%%. Sen avoin lähdekoodi on saatavilla GitHubista [täältä]%%github%%. \nVoit auttaa kääntämään bottia seuraamalla ohjeita, jotka saat komennolla `/translate`.\n\nVoit suorittaa komennon `/help <komennon nimi>` saadaksesi tietää lisää valitusta komennosta.\nAlta löydät listan kaikista saatavilla olevista sivuista. Käytä viestin nappeja siirtyäksesi sivulta toiselle.",
     "madeBy": "Botin on huolellisesti kasannut %%developer%%",
     "pageNumber": "Sivu %%number%%",
     "utilityHelp": "Työkalut",

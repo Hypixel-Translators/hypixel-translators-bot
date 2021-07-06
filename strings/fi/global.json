@@ -34,6 +34,7 @@
     "timeLeftT": "Ole hyvä ja odota vielä %%time%% sekuntia ennen kuin voit käyttää komentoa `%%command%%` uudelleen.",
     "minsLeftT": "Ole hyvä ja odota vielä %%time%% minuuttia ennen kuin voit käyttää komentoa `%%command%%` uudelleen.",
     "linkCorrectionDesc": "Vaihdathan osoitteen ensi kerralla muotoon %%format%%.",
+    "correctLink": "Tässä oikea linkki:",
     "wrongStringURL": "Lähettämäsi linkki ohjaa muokkaajaan eikä itse käännettävään tekstiin!",
     "example": "Klikkaa kuvan mukaista painiketta muokkaajassa saadaksesi oikean linkin. Sen tulisi näyttää tältä: %%url%%",
     "reminderLang": "Älä unohda vaihtaa linkkiäsi muotoon %%format%%.",

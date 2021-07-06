@@ -34,6 +34,7 @@
     "timeLeftT": "Por favor, aguarde %%time%% segundos para usar `%%command%%` novamente.",
     "minsLeftT": "Por favor, aguarde %%time%% minutos para usar `%%command%%` novamente.",
     "linkCorrectionDesc": "Por favor, da próxima vez altere o formato do link para %%format%%.",
+    "correctLink": "Aqui está o link correto:",
     "wrongStringURL": "O link que você enviou é um link para o editor e não a linha!",
     "example": "Clique no botão exibido na imagem abaixo para pegar o URL correto da linha. Ele deve ficar assim: %%url%%",
     "reminderLang": "Não se esqueça de alterar o formato do link para %%format%%.",
