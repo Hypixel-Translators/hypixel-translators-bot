@@ -34,6 +34,7 @@
     "timeLeftT": "crwdns508:0%%time%%crwdnd508:0%%command%%crwdne508:0",
     "minsLeftT": "crwdns510:0%%time%%crwdnd510:0%%command%%crwdne510:0",
     "linkCorrectionDesc": "crwdns514:0%%format%%crwdne514:0",
+    "correctLink": "crwdns1450:0crwdne1450:0",
     "wrongStringURL": "crwdns1152:0crwdne1152:0",
     "example": "crwdns1154:0%%url%%crwdne1154:0",
     "reminderLang": "crwdns1156:0%%format%%crwdne1156:0",
