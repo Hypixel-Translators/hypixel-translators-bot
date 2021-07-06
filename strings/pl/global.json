@@ -34,6 +34,7 @@
     "timeLeftT": "Poczekaj kolejne %%time%% sekund, aby ponownie użyć `%%command%%`.",
     "minsLeftT": "Poczekaj kolejne %%time%% minut, aby ponownie użyć `%%command%%`.",
     "linkCorrectionDesc": "Następnym razem zmień odnośnik na format %%format%%.",
+    "correctLink": "Here's the correct link:",
     "wrongStringURL": "Wysłany odnośnik jest odnośnikiem do edytora, a nie do samego ciągu!",
     "example": "Kliknij przycisk pokazany na obrazku poniżej, aby uzyskać poprawny odnośnik ciągu. Powinien wyglądać on tak: %%url%%",
     "reminderLang": "Nie zapomnij również zmienić odnośnika na format %%format%%.",
