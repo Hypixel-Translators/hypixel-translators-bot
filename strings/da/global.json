@@ -34,6 +34,7 @@
     "timeLeftT": "Please wait another %%time%% seconds to use `%%command%%` again.",
     "minsLeftT": "Please wait another %%time%% minutes to use `%%command%%` again.",
     "linkCorrectionDesc": "Skift venligst dit link til %%format%% -formatet næste gang.",
+    "correctLink": "Here's the correct link:",
     "wrongStringURL": "Linket du har sendt, er et link til editoren og ikke selve strengen!",
     "example": "Klik på knappen vist på billedet nedenfor for at få den korrekte streng-URL. Den bør se sådan ud: %%url%%",
     "reminderLang": "Glem ikke også at ændre dit link til %%format%% -formatet.",
