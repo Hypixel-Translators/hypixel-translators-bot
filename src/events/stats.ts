@@ -27,7 +27,7 @@ export async function execute(client: HTBClient, manual: boolean) {
     } catch (err) { throw err }
 }
 
-export async function updateProjectStatus(client: HTBClient, projectId: string) {
+export async function updateProjectStatus(client: Discord.Client, projectId: string) {
     const langdb = await db.collection("langdb").find().toArray(),
         projectDb: CrowdinProject = await db.collection("crowdin").findOne({ id: projectId })
     await fetch(`https://api.crowdin.com/api/v2/projects/${projectId}/languages/progress?limit=500`, settings)
@@ -111,7 +111,7 @@ export interface LangDbEntry {
     flag: string
 }
 
-interface CrowdinProject {
+export interface CrowdinProject {
     _id: ObjectId
     id: string
     identifier: string

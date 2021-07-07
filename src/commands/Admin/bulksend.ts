@@ -1,6 +1,8 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
 import { Command } from "../../index"
+import { db } from "../../lib/dbclient"
+import { updateProjectStatus, CrowdinProject } from "../../events/stats"
 
 const command: Command = {
   name: "bulksend",
@@ -18,20 +20,33 @@ const command: Command = {
     name: "amount",
     description: "The amount of messages to send in bulk",
     required: true
+  },
+  {
+    type: "BOOLEAN",
+    name: "update",
+    description: "Whether to update language statistics once all messages have been sent",
+    required: false
   }],
   async execute(interaction: Discord.CommandInteraction) {
     const sendTo = interaction.options.get("channel")!.channel as Discord.TextChannel
     if (!sendTo.isText()) throw "You must provide a text channel to send messages in!"
     let amount = Number(interaction.options.get("amount")!.value)
     if (!amount) throw "You need to provide a number of messages to delete!"
+    await interaction.defer()
     for (amount; amount > 0; amount--) await sendTo.send("Language statistics will be here shortly!")
     const embed = new Discord.MessageEmbed()
       .setColor(successColor as Discord.HexColorString)
       .setAuthor("Bulk Send")
-      .setTitle(amount === 1 ? "Success! Message sent." : "Success! Messages sent.")
+      .setTitle(`Success! Message${amount === 1 ? "" : "s"} sent!`)
       .setDescription(`${sendTo}`)
       .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-    await interaction.reply({ embeds: [embed] })
+    await interaction.editReply({ embeds: [embed] })
+    if (interaction.options.get("update")?.value) {
+      const project: CrowdinProject = await db.collection("crowdin").findOne({ shortName: sendTo.name.split("-")[0] })
+      if (!project) return await interaction.followUp("Couldn't update language statistics because the project was not found!")
+      await updateProjectStatus(interaction.client, project.id)
+      await interaction.followUp(`Language statistics have been successfully updated on the ${project.name} project!`)
+    }
   }
 }
 
