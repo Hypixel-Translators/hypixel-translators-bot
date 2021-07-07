@@ -214,8 +214,8 @@ client.on("messageCreate", async message => {
         cmd: string = "global",
         lang: string = author.lang ?? "en"
     ): any {
-        const languages = fs.readdirSync("./strings")
         if (typeof variables === "string") {
+            const languages = fs.readdirSync("./strings")
             lang = languages.includes(cmd) ? cmd : author.lang ?? "en"
             cmd = variables
         }
