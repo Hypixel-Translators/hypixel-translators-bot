@@ -1,8 +1,8 @@
 {
     "moduleName": "翻譯項目",
     "allProjects": "以下是我們伺服器支援的翻譯項目！",
-    "description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
-    "projectInfo": "你可以[點擊這裡](%%link%%)找到 %%project%% 項目的連結。如要了解更多資訊，請執行 %%command%%。",
+    "description": "如果你已經加入這些項目卻沒有身分組，請執行 `/verify [profileURL]` 來取得它們！",
+    "projectInfo": "你可以點擊[這裡](%%link%%)找到 %%project%% 項目的連結。如要了解更多資訊，請執行 %%command%%。",
     "alreadyJoined": "你已加入此項目！",
     "notJoined": "你尚未加入此項目！",
     "dmError": "我們無法確認你是否已經加入這些項目。為此，你必須在 The Hypixel Translators Community Discord 中執行此指令。"
