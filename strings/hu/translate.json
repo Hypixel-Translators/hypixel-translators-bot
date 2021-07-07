@@ -1,7 +1,7 @@
 {
     "moduleName": "Bot lefordítása",
     "alreadyTranslator": "Te már fordító vagy. Talán ezt kerested:",
-    "projectLink": "You can find the link to the project [here](%%link%%).",
+    "projectLink": "A projekt linkjét megtalálhatod [itt](%%link%%).",
     "question": "Have a question?",
     "askTranslators": "Feel free to ask anything about the project on %%botTranslators%%. Don't forget to send a link to the string you're referring to!",
     "newCrowdin": "New to Crowdin?",
@@ -9,7 +9,7 @@
     "newTranslator": "Are you looking to translate our bot to your own language?",
     "join": "We'd love to have you on the project! Here's how you can join us:",
     "openProject": "First, please open the project on Crowdin",
-    "howOpen": "This can be done by accessing the link found [here](%%link%%).",
+    "howOpen": "Amit az [itt](%%link%%) található linken keresztül tehetsz meg.",
     "clickLanguage": "Now, click on the language you want to translate",
     "requestJoin": "In order to join that language, you must hit \"Join\" and write a simple message on why you want to join the project.",
     "lastThing": "Just one last thing",
