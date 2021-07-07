@@ -242,7 +242,7 @@ client.on("messageCreate", async message => {
                     return
                 } else {
                     string = strings[pathPart]
-                    if (!string || (typeof string === "string" && !isEqual(string.match(/%%\w+%%/g), enStrings[pathPart].match(/%%\w+%%/g)))) {
+                    if (!string || (typeof string === "string" && !isEqual(string.match(/%%\w+%%/g)?.sort(), enStrings[pathPart].match(/%%\w+%%/g)?.sort()))) {
                         string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
                             string = null //in case of fire
