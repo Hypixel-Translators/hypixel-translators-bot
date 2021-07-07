@@ -1,10 +1,10 @@
 {
-    "moduleName": "Translate the Bot",
-    "alreadyTranslator": "I see you're already a translator. Here's what you may be looking for:",
-    "projectLink": "You can find the link to the project [here](%%link%%).",
-    "question": "Have a question?",
+    "moduleName": "Přelož bota",
+    "alreadyTranslator": "Vidím, že již jsi překladatel. Zde je to, co možná hledáš:",
+    "projectLink": "Můžeš najít odkaz na projekt [zde](%%link%%).",
+    "question": "Máš dotaz?",
     "askTranslators": "Feel free to ask anything about the project on %%botTranslators%%. Don't forget to send a link to the string you're referring to!",
-    "newCrowdin": "New to Crowdin?",
+    "newCrowdin": "Nový na Crowdinu?",
     "checkGuide": "Check out our guide with a bunch of useful Crowdin tools and tips to get started! You can find it on %%gettingStarted%%.",
     "newTranslator": "Are you looking to translate our bot to your own language?",
     "join": "We'd love to have you on the project! Here's how you can join us:",
@@ -14,6 +14,6 @@
     "requestJoin": "In order to join that language, you must hit \"Join\" and write a simple message on why you want to join the project.",
     "lastThing": "Just one last thing",
     "requestInfo": "When submitting your request, please make sure to include either your tag (%%tag%%) or your ID (%%id%%).\n**If you do not include at least one of these, you will be rejected!**",
-    "noLanguage": "Can't find your language?",
+    "noLanguage": "Nemůžeš najít svůj jazyk?",
     "langRequest": "It is possible that we don't support your language yet. If that's the case, please contact an administrator asking them to add the language you want."
 }

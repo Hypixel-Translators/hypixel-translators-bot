@@ -1,7 +1,7 @@
 {
     "moduleName": "Játékos statisztikák",
     "description": "Itt vannak %%username%% statisztikái, [innen]%%link%% szerezve.",
-    "socialMedia": "Here are the linked social media for %%username%%, obtained [here]%%link%%.",
+    "socialMedia": "Itt vannak %%username%% csatolt fiókjai, [innen]%%link%% szerezve.",
     "userVerified": "Ehhez a játékoshoz %%user%% van kötve.",
     "updateNotice": "Megjegyzés: Az itteni információ frissítése néhány percbe telhet miután frissítettél valamit.",
     "otherStats": "To see other statistics, click on the buttons below!",

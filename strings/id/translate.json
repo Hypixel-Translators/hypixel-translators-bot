@@ -1,7 +1,7 @@
 {
-    "moduleName": "Bot lefordítása",
-    "alreadyTranslator": "Te már fordító vagy. Talán ezt kerested:",
-    "projectLink": "A projekt linkjét megtalálhatod [itt](%%link%%).",
+    "moduleName": "Translate the Bot",
+    "alreadyTranslator": "I see you're already a translator. Here's what you may be looking for:",
+    "projectLink": "You can find the link to the project [here](%%link%%).",
     "question": "Have a question?",
     "askTranslators": "Feel free to ask anything about the project on %%botTranslators%%. Don't forget to send a link to the string you're referring to!",
     "newCrowdin": "New to Crowdin?",
@@ -9,11 +9,11 @@
     "newTranslator": "Are you looking to translate our bot to your own language?",
     "join": "We'd love to have you on the project! Here's how you can join us:",
     "openProject": "First, please open the project on Crowdin",
-    "howOpen": "Amit az [itt](%%link%%) található linken keresztül tehetsz meg.",
+    "howOpen": "This can be done by accessing the link found [here](%%link%%).",
     "clickLanguage": "Now, click on the language you want to translate",
     "requestJoin": "In order to join that language, you must hit \"Join\" and write a simple message on why you want to join the project.",
     "lastThing": "Just one last thing",
     "requestInfo": "When submitting your request, please make sure to include either your tag (%%tag%%) or your ID (%%id%%).\n**If you do not include at least one of these, you will be rejected!**",
     "noLanguage": "Can't find your language?",
-    "langRequest": "Lehetséges, hogy még nem támogatjuk a nyelvedet. Ha ez így van, lépj kapcsolatba egy adminnal a kéréseddel."
+    "langRequest": "It is possible that we don't support your language yet. If that's the case, please contact an administrator asking them to add the language you want."
 }

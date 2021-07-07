@@ -1,26 +1,26 @@
 {
     "moduleName": "Informace",
-    "page1Title": "Help page",
+    "page1Title": "Stránka pro nápovědu",
     "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
-    "madeBy": "Bot made with lots of care by %%developer%%",
-    "pageNumber": "Page %%number%%",
+    "madeBy": " | Bota s velkou péčí vytvořil %%developer%%",
+    "pageNumber": "Stránka %%number%%",
     "utilityHelp": "Tools & Utilities",
     "infoHelp": "Information commands",
     "projectsHelp": "Crowdin Projects",
-    "pageNotExist": "That page doesn't exist!",
+    "pageNotExist": "Tato stránka neexistuje!",
     "commandInfo": "Informace o příkazu",
     "commandInfoFor": "Informace o příkazu ",
     "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
     "inDev": "This command is currently in development and will be available at a later date!",
-    "seconds": "seconds",
-    "second": "second",
-    "minutes": "minutes",
+    "seconds": " sekund/y",
+    "second": "sekunda",
+    "minutes": "minut/y",
     "cooldownField": "Časové omezení",
     "8ball": {
         "description": "The Magic 8 Ball that will answer all your questions."
     },
     "feedback": {
-        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
+        "description": "Otevře naší GitHub stránku, kde můžeš nahlašovat problémy a poskytovat zpětnou vazbu."
     },
     "guidelines": {
         "description": "Gives you the link to the official thread regarding Hypixel translations."
@@ -32,7 +32,7 @@
         "description": "Gives you useful information regarding the Hypixel project."
     },
     "hypixelstats": {
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "description": "Zobrazí ti základní Hypixel statistiky vybraného uživatele."
     },
     "hypixelunverify": {
         "description": "Unlinks your Discord account from your Minecraft account."
@@ -44,7 +44,7 @@
         "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
     },
     "language": {
-        "description": "Changes your language, shows your current one or a list of available languages."
+        "description": "Změní tvůj jazyk, zobrazí tvůj aktuální jazyk nebo zobrazí seznam dostupných jazyků."
     },
     "languagestats": {
         "description": "Shows you the progress of a language on all the projects we currently support."
@@ -86,7 +86,7 @@
         "description": "Gives you the link to the thread announcing this Discord server."
     },
     "tip": {
-        "description": "Gives you a random tip regarding the server."
+        "description": "Zobrazí ti náhodný tip ohledně serveru."
     },
     "translate": {
         "description": "Gives you useful information on how to translate the Bot."
