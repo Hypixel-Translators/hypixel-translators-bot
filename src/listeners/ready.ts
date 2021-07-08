@@ -77,7 +77,7 @@ client.once("ready", async () => {
 })
 
 async function publishCommand(command: Command) {
-    const cmd = await client.application!.commands.create(convertToDiscordCommand(command), command.allowDM ? undefined : "549503328472530974")
+    const cmd = await client.application!.commands.create(convertToDiscordCommand(command))
     await setPermissions(cmd)
     console.log(`Published command ${command.name}!`)
 }
