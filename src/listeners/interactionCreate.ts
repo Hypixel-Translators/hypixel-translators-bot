@@ -31,7 +31,7 @@ client.on("interactionCreate", async interaction => {
         executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
 
     //Log if command is ran in DMs
-    if (interaction.channel?.type === "dm") console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
+    if (interaction.channel?.type === "DM") console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
 
     //Return if user is not verified
     if (!member?.roles.cache.has("569194996964786178") && command.name !== "verify") { //Verified
@@ -57,7 +57,7 @@ client.on("interactionCreate", async interaction => {
     }
 
     //Stop and error if command is not allowed in DMs and command is sent in DMs
-    if (!command.allowDM && interaction.channel?.type === "dm" && !member?.permissions.has("ADMINISTRATOR")) {
+    if (!command.allowDM && interaction.channel?.type === "DM" && !member?.permissions.has("ADMINISTRATOR")) {
         const embed = new Discord.MessageEmbed()
             .setColor(errorColor as Discord.HexColorString)
             .setAuthor(getString("error", "global"))
@@ -200,7 +200,7 @@ client.on("interactionCreate", async interaction => {
                     .setDescription(`\`\`\`${error.stack.substring(0, 2_047)}\`\`\``)
                     .setFooter("Check the console for more details")
                 await (interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send({ //bot-development
-                    content: `<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@!240875059953139714>\nRan by: ${interaction.user}\nCommand: ${interaction.commandName}\nChannel: ${interaction.channel?.type !== "dm" && interaction.channel ? interaction.channel : "dm"}\nTime: <t:${Math.round(Date.now() / 1000)}:F>`,
+                    content: `<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@!240875059953139714>\nRan by: ${interaction.user}\nCommand: ${interaction.commandName}\nChannel: ${interaction.channel?.type !== "DM" && interaction.channel ? interaction.channel : "DM"}\nTime: <t:${Math.round(Date.now() / 1000)}:F>`,
                     embeds: [embed]
                 }) //Rodry
             }

@@ -2,7 +2,7 @@ import { client } from "../index"
 import Discord from "discord.js"
 
 client.on("messageReactionRemove", async (reaction, user) => {
-    if (reaction.message.channel.type !== "dm") {
+    if (reaction.message.channel.type !== "DM") {
         //Reaction roles
         if (reaction.message.id === "800415711864029204" && !user.bot) { //server-info roles message
             let roleId: Discord.Snowflake

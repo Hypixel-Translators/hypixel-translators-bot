@@ -6,13 +6,13 @@ import { db } from "../lib/dbclient"
 client.on("messageReactionAdd", async (reaction, user) => {
     const channel = reaction.message.channel
     if (channel instanceof Discord.ThreadChannel) return
-    if (channel.type !== "dm" && !user.bot) {
+    if (channel.type !== "DM" && !user.bot) {
         if (reaction.partial) reaction = await reaction.fetch()
         if (reaction.message.partial) reaction.message = await reaction.message.fetch()
         if (user.partial) user = await user.fetch()
         // Delete message when channel name ends with review-strings
         if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content!) && reaction.message.guild!.members.resolve(user.id)!.roles.cache.has("569839580971401236")) { // Hypixel Proofreader
-            const translatorChannel = channel.parent!.children.filter(c => c.type === "text").sort((a, b) => a.position - b.position).first()! as Discord.TextChannel
+            const translatorChannel = channel.parent!.children.filter(c => c.type === "GUILD_TEXT").sort((a, b) => a.position - b.position).first()! as Discord.TextChannel
             let strings: { [key: string]: string }
             try {
                 strings = require(`../../strings/${channel.name.split("-")[0]}/reviewStrings.json`)

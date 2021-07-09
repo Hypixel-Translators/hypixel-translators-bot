@@ -86,7 +86,7 @@ const command: Command = {
     const pfOverwrites = Array.from(overwrites)
     pfOverwrites.splice(3, 1)
     const category = await interaction.guild!.channels.create(`${country.name(code)} ${emoji}`, {
-      type: "category",
+      type: "GUILD_CATEGORY",
       permissionOverwrites: overwrites,
       position: 9,
       reason: "Added language " + nationality
@@ -103,14 +103,14 @@ const command: Command = {
       reason: "Added language " + nationality
     })
     const translatorsVoice = await interaction.guild!.channels.create(`${nationality} Translators`, {
-      type: "voice",
+      type: "GUILD_VOICE",
       userLimit: 10,
       parent: category,
       permissionOverwrites: overwrites,
       reason: "Added language " + nationality
     })
     const proofreadersVoice = await interaction.guild!.channels.create(`${nationality} Proofreaders`, {
-      type: "voice",
+      type: "GUILD_VOICE",
       userLimit: 10,
       parent: category,
       permissionOverwrites: pfOverwrites,

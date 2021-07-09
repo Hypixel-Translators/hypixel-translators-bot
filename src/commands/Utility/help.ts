@@ -40,7 +40,7 @@ const command: Command = {
       fs.readdirSync(`./src/commands/${category}/`).forEach(command => categoryCommands.push(command.split(".").shift()!))
       categoryCommands.forEach(cmd => {
         if (client.commands.get(cmd)!.dev) categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
-        else if (!client.commands.get(cmd)!.allowDM && (interaction.channel as Discord.TextChannel | Discord.DMChannel).type === "dm") categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
+        else if (!client.commands.get(cmd)!.allowDM && (interaction.channel as Discord.TextChannel | Discord.DMChannel).type === "DM") categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
       })
       pages[pageIndex].commands = categoryCommands
       pageIndex++
