@@ -68,7 +68,7 @@
         "timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%."
     },
     "region": {
-        "dateLocale": "en-GB",
+        "dateLocale": "th-TH",
         "timeZone": "Asia/Bangkok"
     },
     "executedBy": "Executed by %%user%%"
