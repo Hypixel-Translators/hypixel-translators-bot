@@ -3,9 +3,9 @@ import { db } from "../lib/dbclient"
 import Discord from "discord.js"
 
 client.on("guildMemberRemove", async member => {
-    if (member.guild.id !== "549503328472530974" || !member.pending) return
+    if (member.guild.id !== "549503328472530974" || member.pending) return
     //Leave message
-    const joinLeave = member.guild.channels.cache.get("549882021934137354") as Discord.TextChannel
+    const joinLeave = client.channels.cache.get("549882021934137354") as Discord.TextChannel
     await joinLeave.send(`**${member.user!.tag}** just left the server 🙁`)
 
     //Run if the member who leaves had the Bot Translator/Proofreader/Manager roles
