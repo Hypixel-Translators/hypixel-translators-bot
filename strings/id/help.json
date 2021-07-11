@@ -1,100 +1,100 @@
 {
-    "moduleName": "Information",
-    "page1Title": "Help page",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
-    "madeBy": "Bot made with lots of care by %%developer%%",
-    "pageNumber": "Page %%number%%",
-    "utilityHelp": "Tools & Utilities",
-    "infoHelp": "Information commands",
-    "projectsHelp": "Crowdin Projects",
-    "pageNotExist": "That page doesn't exist!",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-    "inDev": "This command is currently in development and will be available at a later date!",
-    "seconds": "seconds",
-    "second": "second",
-    "minutes": "minutes",
+    "moduleName": "Informasi",
+    "page1Title": "Halaman bantuan",
+    "commandsListTooltip": "Bot ini dibuat untuk Hypixel Translators Community dan dipertahankan oleh %%developer%%. Bot ini open-source dan repository GitHub kami dapat ditemukan [sini]%%github%%.\nAnda dapat membantu menerjemahkan bot dengan mengikuti instruksi perintah `/translate`.\n\nAnda dapat jalankan `/help <perintah>` untuk pelajari lebih lanjut mengenai perintah spesifik.\nDibawah ini anda dapat menemukan list halaman yang tersedia. Gunakan tombol-tombol di pesan ini untuk siklus melaluinya.",
+    "madeBy": "Bot terbuat dengan banyak perhatian oleh %%developer%%",
+    "pageNumber": "Halaman %%number%%",
+    "utilityHelp": "Alat & Utilitas",
+    "infoHelp": "Perintah informasi",
+    "projectsHelp": "Proyek Crowdin",
+    "pageNotExist": "Halaman tersebut tidak ada!",
+    "commandInfo": "Informasi Perintah",
+    "commandInfoFor": "Informasi perintah untuk ",
+    "staffOnly": "Perintah ini hanya tersedia bagi staf, maka dari itu informasi tersebut disembunyikan.\nHarap kontak seorang staf jika anda yakin ini adalah eror.",
+    "inDev": "Perintah ini sedang di dalam pengembangan dan akan menjadi tersedia di lain waktu!",
+    "seconds": " detik",
+    "second": "detik",
+    "minutes": "menit",
     "cooldownField": "Cooldown",
     "8ball": {
-        "description": "The Magic 8 Ball that will answer all your questions."
+        "description": "Bola ajaib yang akan menjawab seluruh pertanyaan anda."
     },
     "feedback": {
-        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
+        "description": "Membuka halaman isu GitHub kami, dimana anda dapat melaporkan masalah dan mengirim umpan balik."
     },
     "guidelines": {
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "Memberikan anda link untuk utas resmi mengenai translasi Hypixel."
     },
     "help": {
-        "description": "Shows you all available commands and other info about the bot."
+        "description": "Memberi kamu semua perintah yang tersedia dan informasi lain tentang Bot ini."
     },
     "hypixel": {
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "Memberikan anda informasi berguna mengenai proyek Hypixel."
     },
     "hypixelstats": {
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "description": "Memberikan anda stat Hypixel dasar untuk pengguna yang disediakan."
     },
     "hypixelunverify": {
-        "description": "Unlinks your Discord account from your Minecraft account."
+        "description": "Putuskan tautan akun Discord anda dari akun Minecraft anda."
     },
     "hypixelverify": {
-        "description": "Links your Discord account with your Minecraft account."
+        "description": "Hubungkan akun Discord anda dengan akun Minecraft anda."
     },
     "invite": {
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "Memberikan anda sebuah tautan undangan ke server ini. Mohon gunakan ini jika anda ingin mengundang seseorang."
     },
     "language": {
-        "description": "Changes your language, shows your current one or a list of available languages."
+        "description": "Mengubah bahasa anda, menginformasikan yang anda pakai saat ini atau list bahasa yang tersedia."
     },
     "languagestats": {
-        "description": "Shows you the progress of a language on all the projects we currently support."
+        "description": "Memberikan anda progres suatu bahasa dalam semua proyek yang saat ini kami dukung."
     },
     "levels": {
-        "description": "Gives you the XP leaderboard."
+        "description": "Memberikan anda papan peringkat XP."
     },
     "mention": {
-        "description": "Mentions a language role with an optional message."
+        "description": "Menyebutkan role bahasa dengan pesan opsional."
     },
     "minecraft": {
-        "description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+        "description": "Mencari sejarah nama atau skin player Minecraft spesifik. Perintah ini dapat bekerja dengan /hypixelverify, membiarkan anda untuk mencari pengguna spesifik yang terverifikasi. Parameter `user` akan selalu mendapat prioritas diatas `username` dan mereka berdua opsional jika anda terverifikasi, jika tidak, sedikitnya satu diperlukan."
     },
     "ping": {
-        "description": "Gives you the bot's ping."
+        "description": "Memberikan anda ping bot."
     },
     "prefix": {
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+        "description": "Memberikan anda prefix yang tepat untuk bahasa anda. Untuk mendapatkan prefix kustom, jalankan `/prefix` dan sediakan kode regional bendera negara anda atau namanya di parameter `flags`. Anda dapat memasukkan bendera sebanyak-banyaknya, dipisahkan dengan spasi."
     },
     "profile": {
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
+        "description": "Memberikan anda tautan ke profil Crowdin anda jika tersimpan di database kami. Jika tidak, anda dapat menjalankan `/help verify` untuk mengetahui cara memasukkan profil anda dan memperbarui role anda."
     },
     "projects": {
-        "description": "Gives you links and information about all the translation projects we support on the server."
+        "description": "Memberikan anda tautan-tautan dan informasi mengenai semua proyek terjemahan yang kami dukung di server."
     },
     "quickplay": {
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Memberikan anda informasi berguna mengenai proyek Quickplay."
     },
     "quote": {
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "description": "Mendapatkan (atau menambahkan) sebuah kutipan lucu/aneh/bijaksana dari server."
     },
     "rank": {
-        "description": "Gives you the current XP for yourself or any given user."
+        "description": "Memberikan anda angka XP anda atau orang lain."
     },
     "skyblockaddons": {
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "Memberikan anda informasi berguna mengenai proyek SkyblockAddons."
     },
     "thread": {
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "Memberikan anda tautan untuk utas yang mengumumkan server Discord ini."
     },
     "tip": {
-        "description": "Gives you a random tip regarding the server."
+        "description": "Memberikan anda tip acak mengenai server."
     },
     "translate": {
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "Memberikan anda informasi yang berguna mengenai cara menerjemahkan Bot."
     },
     "twitter": {
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Memberikan anda tautan ke halaman Twitter resmi Hypixel Translators Community."
     },
     "verify": {
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "description": "Mengecek perubahan di profil Crowdin anda secara otomatis dan memberikan anda role yang sesuai. Jika profil anda tidak tersimpan di database kami, anda dapat menyediakannya sebagai argumen di perintahnya. Untuk mengecek apakah profil anda tersimpan, jalankan `/profile`. Pastikan anda mengaktifkan DMs dari server ini agar bot dapat mengirimkan anda pesan."
     }
 }
