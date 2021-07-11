@@ -2,7 +2,7 @@ import { errorColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import fs from "fs"
 import { Command, client, GetStringFunction } from "../../index"
-import { db, DbUser } from "../../lib/dbclient"
+import { DbUser } from "../../lib/dbclient"
 
 const command: Command = {
   name: "help",

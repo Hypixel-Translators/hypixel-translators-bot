@@ -198,6 +198,13 @@ client.on("messageCreate", async message => {
         }
     }
 
+    //Event role system
+    if (message.member?.roles.cache.has("764442984119795732") && message.mentions.roles.get("863430999122509824") && message.content.includes("\n\n")) { //Discord Administrator
+        await db.collection("config").updateOne({ name: "event" }, { $push: { ids: message.id } })
+        await message.react("732298639749152769") // vote_yes
+        await message.react("732298639736570007") // vote_no
+    }
+
     //Function to get strings
     /**
      * Gets a string or an object of strings for the correct language and replaces all variables if any

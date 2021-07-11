@@ -1,6 +1,6 @@
 import Discord from "discord.js"
-import { db, DbUser } from "../../lib/dbclient"
-import { client, Command, GetStringFunction } from "../../index"
+import { DbUser } from "../../lib/dbclient"
+import { client, Command } from "../../index"
 
 const command: Command = {
   name: "check",
