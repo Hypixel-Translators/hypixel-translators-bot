@@ -1,8 +1,8 @@
 {
-    "moduleName": "XP Leaderboard",
-    "pageTitle": "Here is the XP leaderboard!",
+    "moduleName": "Papan peringkat XP",
+    "pageTitle": "Inilah papan peringkat XP!",
     "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
-    "youIndicator": "YOU",
+    "youIndicator": "ANDA",
     "thousand": "k",
-    "unranked": "#%%rank%% Unranked"
+    "unranked": "#%%rank%% Tidak Berperingkat"
 }
