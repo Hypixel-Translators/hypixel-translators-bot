@@ -7,7 +7,7 @@
         "attachmentSent": "Attachment sent",
         "confirmation": "Are you sure you want to send this message to staff?",
         "messageSent": "Zpráva se odeslala adminům",
-        "dmCancelled": "This message will not be sent.",
+        "dmCancelled": "Tato zpráva nebude odeslána.",
         "resendInfo": "If you still want to talk to staff, resend it and click the ✅ button to confirm."
     },
     "error": "Chyba",
@@ -57,12 +57,12 @@
         "moreTips": "Potřebujeme více tipů! Navrhni je pomocí `/feedback`."
     },
     "pagination": {
-        "first": "First page",
-        "previous": "Previous page",
-        "next": "Next page",
-        "last": "Last page",
-        "confirm": "Confirm",
-        "cancel": "Cancel",
+        "first": "První stránka",
+        "previous": "Předchozí stránka",
+        "next": "Další stránka",
+        "last": "Poslední stránka",
+        "confirm": "Potvrdit",
+        "cancel": "Zrušit",
         "page": "Stránka %%number%%/%%total%%",
         "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
         "timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%."
