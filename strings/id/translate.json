@@ -1,7 +1,7 @@
 {
     "moduleName": "Terjemahkan bot",
     "alreadyTranslator": "Saya lihat anda sudah menjadi penerjemah. Inilah yang mungkin anda sedang cari:",
-    "projectLink": "Anda dapat menemukan tautan proyek [sini](%%link%%).",
+    "projectLink": "Anda dapat menemukan tautan proyek [disini](%%link%%).",
     "question": "Punya pertanyaan?",
     "askTranslators": "Jangan ragu untuk bertanya apapun mengenai proyek di %%botTranslators%%. Jangan lupa untuk mengirim tautan untuk string yang anda acukan!",
     "newCrowdin": "Baru di Crowdin?",
@@ -9,7 +9,7 @@
     "newTranslator": "Apakah anda ingin menerjemahkan bot kami untuk bahasa anda?",
     "join": "Kami akan senang untuk memasuki anda ke proyek! Inilah cara anda agar dapat ikut kami:",
     "openProject": "Pertama, mohon buka proyek di Crowdin",
-    "howOpen": "Ini dapat dilakukan dengan mengakses tautan yang ditemukan [sini](%%link%%).",
+    "howOpen": "Ini dapat dilakukan dengan mengakses tautan yang ditemukan [disini](%%link%%).",
     "clickLanguage": "Sekarang, klik bahasa yang anda ingin terjemahkan",
     "requestJoin": "Untuk gabung bahasa tersebut, anda harus klik \"Join\" dan menulis sebuah pesan mengenai alasan anda ingin memasuki proyek ini.",
     "lastThing": "Hanya satu hal terakhir",
