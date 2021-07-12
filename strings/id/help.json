@@ -1,7 +1,7 @@
 {
     "moduleName": "Informasi",
     "page1Title": "Halaman bantuan",
-    "commandsListTooltip": "Bot ini dibuat untuk Hypixel Translators Community dan dipertahankan oleh %%developer%%. Bot ini open-source dan repository GitHub kami dapat ditemukan [sini]%%github%%.\nAnda dapat membantu menerjemahkan bot dengan mengikuti instruksi perintah `/translate`.\n\nAnda dapat jalankan `/help <perintah>` untuk pelajari lebih lanjut mengenai perintah spesifik.\nDibawah ini anda dapat menemukan list halaman yang tersedia. Gunakan tombol-tombol di pesan ini untuk siklus melaluinya.",
+    "commandsListTooltip": "Bot ini dibuat untuk Hypixel Translators Community dan dipertahankan oleh %%developer%%. Bot ini open-source dan repository GitHub kami dapat ditemukan [disini]%%github%%.\nAnda dapat membantu menerjemahkan bot dengan mengikuti instruksi perintah `/translate`.\n\nAnda dapat jalankan `/help <perintah>` untuk pelajari lebih lanjut mengenai perintah spesifik.\nDibawah ini anda dapat menemukan list halaman yang tersedia. Gunakan tombol-tombol di pesan ini untuk siklus melaluinya.",
     "madeBy": "Bot terbuat dengan banyak perhatian oleh %%developer%%",
     "pageNumber": "Halaman %%number%%",
     "utilityHelp": "Alat & Utilitas",
@@ -12,7 +12,7 @@
     "commandInfoFor": "Informasi perintah untuk ",
     "staffOnly": "Perintah ini hanya tersedia bagi staf, maka dari itu informasi tersebut disembunyikan.\nHarap kontak seorang staf jika anda yakin ini adalah eror.",
     "inDev": "Perintah ini sedang di dalam pengembangan dan akan menjadi tersedia di lain waktu!",
-    "seconds": " detik",
+    "seconds": "detik",
     "second": "detik",
     "minutes": "menit",
     "cooldownField": "Cooldown",
