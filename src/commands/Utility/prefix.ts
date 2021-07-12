@@ -41,23 +41,24 @@ const command: Command = {
         .setDescription(`${getString("warning")}\n${getString("reactTimer", { cooldown: this.cooldown! })}`)
         .addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
         .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true })),
-        confirmButtons = [
-          new Discord.MessageButton()
-            .setCustomId("confirm")
-            .setStyle("SUCCESS")
-            .setLabel(getString("pagination.confirm", "global"))
-            .setEmoji("✅"),
-          new Discord.MessageButton()
-            .setCustomId("cancel")
-            .setStyle("DANGER")
-            .setEmoji("❎")
-            .setLabel(getString("pagination.cancel", "global"))
-        ]
+        confirmButtons = new Discord.MessageActionRow()
+          .addComponents(
+            new Discord.MessageButton()
+              .setCustomId("confirm")
+              .setStyle("SUCCESS")
+              .setLabel(getString("pagination.confirm", "global"))
+              .setEmoji("✅"),
+            new Discord.MessageButton()
+              .setCustomId("cancel")
+              .setStyle("DANGER")
+              .setEmoji("❎")
+              .setLabel(getString("pagination.cancel", "global"))
+          )
       await interaction.reply({ embeds: [embed], components: [confirmButtons] })
       const msg = await interaction.fetchReply() as Discord.Message,
         collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
 
-      confirmButtons.forEach(button => button.setDisabled(true))
+      confirmButtons.components.forEach(button => button.setDisabled(true))
       collector.on("collect", async buttonInteraction => {
         const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
         if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
@@ -197,6 +198,7 @@ const command: Command = {
       let p = 0
       while (p < prefixButtons.length) components.push(prefixButtons.slice(p, p += 5))
       components.push(controlButtons)
+      const rows = components.map(c => ({ type: 1, components: c }))
 
       if (!userLangs.length) {
         if (member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628") || member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))) { //Bot updates
@@ -225,7 +227,7 @@ const command: Command = {
         .setDescription(getString("reactTimer", { cooldown: this.cooldown! }))
         .addField(getString("previewT"), getString("noChanges"))
         .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-      await interaction.editReply({ embeds: [noChangesEmbed], components })
+      await interaction.editReply({ embeds: [noChangesEmbed], components: rows })
       const msg = await interaction.fetchReply() as Discord.Message
 
       const collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
@@ -246,7 +248,7 @@ const command: Command = {
                     .setTitle(getString("saved"))
                     .addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                  await buttonInteraction.update({ embeds: [embed], components })
+                  await buttonInteraction.update({ embeds: [embed], components: rows })
                 })
                 .catch(async err => {
                   const embed = new Discord.MessageEmbed()
@@ -256,7 +258,7 @@ const command: Command = {
                     .setDescription(err.toString())
                     .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                  await buttonInteraction.update({ embeds: [embed], components })
+                  await buttonInteraction.update({ embeds: [embed], components: rows })
                   console.log(err.stack || err)
                 })
               prefixes = "n"
@@ -267,7 +269,7 @@ const command: Command = {
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-              await buttonInteraction.update({ embeds: [embed], components })
+              await buttonInteraction.update({ embeds: [embed], components: rows })
             }
           } else {
             const embed = new Discord.MessageEmbed()
@@ -275,7 +277,7 @@ const command: Command = {
               .setAuthor(getString("moduleName"))
               .setTitle(getString("errors.confirmedNoFlags") + getString("errors.notSaved"))
               .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await buttonInteraction.update({ embeds: [embed], components })
+            await buttonInteraction.update({ embeds: [embed], components: rows })
           }
         } else if (buttonInteraction.customId === "cancel") {
           components.forEach(buttons => buttons.forEach(button => button.setDisabled(true)))
@@ -285,7 +287,7 @@ const command: Command = {
             .setAuthor(getString("moduleName"))
             .setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          await buttonInteraction.update({ embeds: [embed], components })
+          await buttonInteraction.update({ embeds: [embed], components: rows })
         } else {
           const clickedEntry = langdb.find(entry => entry.code === buttonInteraction.customId)!
           if (prefixes) prefixes = `${prefixes}-${clickedEntry.emoji}`
@@ -298,7 +300,7 @@ const command: Command = {
             .setDescription(getString("reactTimer2", { cooldown: this.cooldown! }))
             .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          await buttonInteraction.update({ embeds: [embed], components })
+          await buttonInteraction.update({ embeds: [embed], components: rows })
         }
       })
 
@@ -315,7 +317,7 @@ const command: Command = {
                   .setTitle(getString("saved"))
                   .addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                await interaction.editReply({ embeds: [embed], components })
+                await interaction.editReply({ embeds: [embed], components: rows })
               })
               .catch(async err => {
                 const embed = new Discord.MessageEmbed()
@@ -325,7 +327,7 @@ const command: Command = {
                   .setDescription(err.toString())
                   .addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
                   .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                await interaction.editReply({ embeds: [embed], components })
+                await interaction.editReply({ embeds: [embed], components: rows })
                 console.log(err.stack || err)
               })
           } else {
@@ -335,7 +337,7 @@ const command: Command = {
               .setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
               .addField(getString("newNickT"), getString("noChanges"))
               .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.editReply({ embeds: [embed], components })
+            await interaction.editReply({ embeds: [embed], components: rows })
           }
         } else {
           const embed = new Discord.MessageEmbed()
@@ -345,7 +347,7 @@ const command: Command = {
             .setDescription(getString("errors.timeOut") + getString("errors.notSaved"))
             .addField(getString("newNickT"), getString("noChanges"))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-          await interaction.editReply({ embeds: [embed], components })
+          await interaction.editReply({ embeds: [embed], components: rows })
         }
       })
     }

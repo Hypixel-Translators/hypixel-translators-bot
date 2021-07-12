@@ -119,18 +119,19 @@ client.on("messageCreate", async message => {
         const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
         const hourCooldown = 48, // Hours to wait before asking for confirmation
             confirmTime = 60, // 1 min
-            controlButtons = [
-                new Discord.MessageButton()
-                    .setStyle("SUCCESS")
-                    .setCustomId("confirm")
-                    .setEmoji("✅")
-                    .setLabel(getGlobalString("pagination.confirm")),
-                new Discord.MessageButton()
-                    .setStyle("DANGER")
-                    .setCustomId("cancel")
-                    .setEmoji("❎")
-                    .setLabel(getGlobalString("pagination.cancel"))
-            ]
+            controlButtons = new Discord.MessageActionRow()
+                .addComponents(
+                    new Discord.MessageButton()
+                        .setStyle("SUCCESS")
+                        .setCustomId("confirm")
+                        .setEmoji("✅")
+                        .setLabel(getGlobalString("pagination.confirm")),
+                    new Discord.MessageButton()
+                        .setStyle("DANGER")
+                        .setCustomId("cancel")
+                        .setEmoji("❎")
+                        .setLabel(getGlobalString("pagination.cancel"))
+                )
         if (!author.staffMsgTimestamp || author.staffMsgTimestamp + hourCooldown * 60 * 60 * 1000 < message.createdTimestamp) {
             const embed = new Discord.MessageEmbed()
                 .setColor(neutralColor as Discord.HexColorString)
@@ -144,7 +145,7 @@ client.on("messageCreate", async message => {
             let replied = false
             collector.on("collect", async reaction => {
                 replied = true
-                controlButtons.forEach(button => button.setDisabled(true))
+                controlButtons.components.forEach(button => button.setDisabled(true))
                 if (reaction.customId === "cancel") {
                     embed
                         .setColor(errorColor as Discord.HexColorString)
@@ -156,7 +157,7 @@ client.on("messageCreate", async message => {
 
             collector.on("end", async () => {
                 if (replied) return
-                controlButtons.forEach(button => button.setDisabled(true))
+                controlButtons.components.forEach(button => button.setDisabled(true))
                 const timeOutEmbed = new Discord.MessageEmbed()
                     .setColor(errorColor as Discord.HexColorString)
                     .setAuthor(getGlobalString("staffDm.dmCancelled"))

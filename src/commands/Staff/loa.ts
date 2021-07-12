@@ -116,12 +116,15 @@ const command: Command = {
             )
             .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
         if (extraInfo) embed.addField("Extra info", extraInfo)
-        const doneButton = new Discord.MessageButton()
-            .setStyle("SUCCESS")
-            .setLabel("End LOA")
-            .setEmoji("✅")
-            .setCustomId("done")
-        await loaChannel.send({ content: interaction.user.toString(), embeds: [embed], components: [[doneButton]] })
+        const doneRow = new Discord.MessageActionRow()
+            .addComponents(
+                new Discord.MessageButton()
+                    .setStyle("SUCCESS")
+                    .setLabel("End LOA")
+                    .setEmoji("✅")
+                    .setCustomId("done")
+            )
+        await loaChannel.send({ content: interaction.user.toString(), embeds: [embed], components: [doneRow] })
         await interaction.reply({ content: `Successfully reported your LOA in ${loaChannel}! Once it's over, please delete it by clicking the button on the message.`, ephemeral: true })
     }
 }

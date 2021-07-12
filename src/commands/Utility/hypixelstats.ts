@@ -227,7 +227,7 @@ const command: Command = {
                         }
                     )
                     .setCustomId("statType")
-                await interaction.editReply({ embeds: [embed], components: [[optionsSelect]] })
+                await interaction.editReply({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })
                 const msg = await interaction.fetchReply() as Discord.Message,
                     collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
 
@@ -243,12 +243,12 @@ const command: Command = {
                     else if (option === "stats") embed = await stats()
                     else if (option === "social") embed = await social()
                     optionsSelect.options.forEach(o => o.default = option === o.value)
-                    await componentInteraction.update({ embeds: [embed], components: [[optionsSelect]] })
+                    await componentInteraction.update({ embeds: [embed], components: [{ type: 1, components: [optionsSelect] }] })
                 })
 
                 collector.on("end", async () => {
                     optionsSelect.setDisabled(true)
-                    await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"), components: [[optionsSelect]], embeds: [embed] })
+                    await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"), components: [{ type: 1, components: [optionsSelect] }], embeds: [embed] })
                 })
             })
             .catch(e => {
