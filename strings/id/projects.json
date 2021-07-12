@@ -2,7 +2,7 @@
     "moduleName": "Proyek-proyek Penerjemahan",
     "allProjects": "Inilah semua proyek yang saat ini kami dukung di server!",
     "description": "Jika anda sudah memasuki beberapa proyek tetapi belum mendapatkan roles anda, jalankan`/verify [URLprofil]` untuk mendapatkannya!",
-    "projectInfo": "Anda dapat menemukan tautan ke proyek %%project%% [sini](%%link%%). Untuk informasi lebih lanjut, jalankan %%command%%.",
+    "projectInfo": "Anda dapat menemukan tautan ke proyek %%project%% [disini](%%link%%). Untuk informasi lebih lanjut, jalankan %%command%%.",
     "alreadyJoined": "Anda sudah memasuki proyek ini!",
     "notJoined": "Anda belum memasuki proyek ini!",
     "dmError": "Kami tidak dapat mengecek apakah anda sudah memasuki proyek-proyek ini atau tidak. Untuk melakukan ini, anda harus menjalankan perintah tersebut di Discord Hypixel Translators Community."
