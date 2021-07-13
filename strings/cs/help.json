@@ -6,7 +6,7 @@
     "pageNumber": "Stránka %%number%%",
     "utilityHelp": "Tools & Utilities",
     "infoHelp": "Information commands",
-    "projectsHelp": "Crowdin Projects",
+    "projectsHelp": "Crowdin projekty",
     "pageNotExist": "Tato stránka neexistuje!",
     "commandInfo": "Informace o příkazu",
     "commandInfoFor": "Informace o příkazu ",
@@ -71,7 +71,7 @@
         "description": "Gives you links and information about all the translation projects we support on the server."
     },
     "quickplay": {
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "Dá ti užitečné informace o Quickplay projektu."
     },
     "quote": {
         "description": "Zobrazí (nebo přidá) vtipný/divný/moudrý citát ze serveru."

@@ -1,19 +1,19 @@
 {
-    "moduleName": "Minecraft Statistics",
+    "moduleName": "Minecraft 统计数据",
     "madeBy": "命令由 %%developer%% 开发",
     "history": {
-        "firstName": "First name",
-        "nameHistoryFor": "Name history for %%username%%",
-        "userChangedName": "%%username%% has changed their name %%number%% times.",
-        "youChangedName": "You have changed your name %%number%% times.",
-        "userChangedName1": "%%username%% has changed their name 1 time.",
-        "youChangedName1": "You have changed your name 1 time.",
-        "userNeverChanged": "%%username%% has never changed their name.",
-        "youNeverChanged": "You have never changed your name."
+        "firstName": "初始游戏名",
+        "nameHistoryFor": "%%username%% 的曾用游戏名",
+        "userChangedName": "%%username%% 已更改过游戏名 %%number%% 次。",
+        "youChangedName": "你已更改过游戏名 %%number%% 次。",
+        "userChangedName1": "%%username%% 仅更改过 1 次游戏名。",
+        "youChangedName1": "你更改过游戏名 1 次。",
+        "userNeverChanged": "%%username%% 从未更改游戏名。",
+        "youNeverChanged": "你从未更改游戏名。"
     },
     "skin": {
-        "yourSkin": "Here's your skin!",
-        "userSkin": "Here's %%user%%'s skin!",
-        "isLinked": "This player is linked to %%user%%"
+        "yourSkin": "这是你的皮肤！",
+        "userSkin": "这是 %%user%% 的皮肤！",
+        "isLinked": "此玩家已绑定为 %%user%%"
     }
 }

@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magic 8 ball",
-    "question": "Question",
+    "moduleName": "占卜球",
+    "question": "问题",
     "answers": {
         "positive": [
-            "It is certain.",
-            "It is decidedly so.",
-            "Without a doubt.",
-            "Yes – definitely.",
-            "You may rely on it.",
-            "As I see it, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Yes",
-            "Signs point to yes."
+            "当然啦！",
+            "的确如此。",
+            "母庸置疑。",
+            "是啊，不然呢？",
+            "或许可信。",
+            "在我看来，是的。",
+            "很有可能。",
+            "看起来挺好。",
+            "是的",
+            "有迹象表明这是对的。"
         ],
         "inconclusive": [
-            "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again."
+            "你说啥了？请稍后再试。",
+            "请稍后再试。",
+            "诶嘿，我才不告诉你呢。",
+            "这会儿我可猜不出。",
+            "集中注意力，再问一遍吧。"
         ],
         "negative": [
-            "Don't count on it.",
-            "My reply is no.",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful."
+            "别指望了。",
+            "我觉得不可能。",
+            "根据我的消息来源看，不可能。",
+            "看起来不太好哦。",
+            "非常难说。"
         ]
     }
 }
