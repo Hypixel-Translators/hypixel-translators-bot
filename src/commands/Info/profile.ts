@@ -34,14 +34,14 @@ const command: Command = {
                         .setTitle(`Here's ${user.tag}'s Crowdin profile`)
                         .setDescription(userDb.profile)
                         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    return await interaction.reply({ embeds: [embed] })
+                    return await interaction.reply({ embeds: [embed], ephemeral: true })
                 } else {
                     const embed = new Discord.MessageEmbed()
                         .setColor(errorColor as Discord.HexColorString)
                         .setAuthor("Crowdin Profile")
                         .setTitle(`Couldn't find ${user.tag}'s Crowdin profile on the database!`)
                         .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                    return await interaction.reply({ embeds: [embed] })
+                    return await interaction.reply({ embeds: [embed], ephemeral: true })
                 }
             } else {
                 if (/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(profile)) {
@@ -57,7 +57,7 @@ const command: Command = {
                                         { name: "New profile", value: profile }
                                     )
                                     .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                                return await interaction.reply({ embeds: [embed] })
+                                return await interaction.reply({ embeds: [embed], ephemeral: true })
                             } else {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(errorColor as Discord.HexColorString)
@@ -65,7 +65,7 @@ const command: Command = {
                                     .setTitle(`Couldn't update ${user.tag}'s Crowdin profile!`)
                                     .setDescription(`Their current profile is the same as the one you tried to add.`)
                                     .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                                return await interaction.reply({ embeds: [embed] })
+                                return await interaction.reply({ embeds: [embed], ephemeral: true })
                             }
                         })
                 } else throw "wrongLink"
