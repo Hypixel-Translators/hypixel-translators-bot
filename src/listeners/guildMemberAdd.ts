@@ -11,7 +11,7 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
         await (newMember.guild.channels.cache.get("549882021934137354") as Discord.TextChannel).send({ content: `${newMember} just joined. Welcome! 🎉`, files: [await generateWelcomeImage(newMember)] }) //join-leave
 
         if (!newMember.user.bot) {
-            newMember.send(`Hey there and thanks for joining **${newMember.guild.name}**! In order to get access to the rest of the server, please verify yourself in <#549503328472530974>.`)
+            newMember.send(`Hey there and thanks for joining **${newMember.guild.name}**! In order to get access to the rest of the server, please verify yourself in <#569178590697095168>.`)
                 .catch(() => console.log(`Couldn't DM user ${newMember.user.tag}, probably because they have DMs off`))
             await db.collection("users").insertOne({ id: newMember.id, lang: "en" })
         }
