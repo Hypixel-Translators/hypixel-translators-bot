@@ -34,17 +34,18 @@ const command: Command = {
       Discord = discord,
       client = Client
 
+    await interaction.defer()
     let evaled,
       codeToRun = (interaction.options.get("code")!.value as string).replaceAll(/[“”]/gim, '"')
     if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`
     codeToRun = transpile(codeToRun)
     try {
       evaled = await eval(codeToRun)
-      await interaction.reply(inspect(evaled).substring(0, 255))
+      await interaction.editReply(inspect(evaled).substring(0, 255))
       console.log(inspect(evaled))
     } catch (error) {
       console.error(error)
-      await interaction.reply(`Something went wrong. Here is the error:\n${error}`)
+      await interaction.editReply(`Something went wrong. Here is the error:\n${error}`)
     }
   }
 }
