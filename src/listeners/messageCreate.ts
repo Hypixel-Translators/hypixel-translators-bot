@@ -82,8 +82,9 @@ client.on("messageCreate", async message => {
                     .setImage("https://i.imgur.com/eDZ8u9f.png")
                 if (message.content !== langFix && message.channel.parentId === "549503328472530977")
                     embed.setDescription(
-                        `${getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" })}
-                        \n${getGlobalString("reminderLang", { format: "`crowdin.com/translate/hypixel/.../en-en#`" })}`
+                        `${getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" })}\n${getGlobalString("reminderLang", {
+                            format: "`crowdin.com/translate/.../.../en-en#`"
+                        })}`
                     )
                 await message.channel.send({ content: `${message.author}`, embeds: [embed] })
                 return

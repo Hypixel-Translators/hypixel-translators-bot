@@ -201,6 +201,7 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
     if (!quoteId) throw "noQuote"
     collection.findOneAndDelete({ id: quoteId }).then(async r => {
         if (r.value) {
+            await collection.updateMany({ id: { $gt: quoteId } }, { $inc: { id: -1 } })
             const embed = new Discord.MessageEmbed()
                 .setColor(successColor as Discord.HexColorString)
                 .setAuthor("Quote")
