@@ -290,7 +290,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
         const highestRole = Object.assign({}, endingMessageProjects).hypixel?.filter(r => r.color).sort((a, b) => b.position - a.position).shift()
         if (highestRole) {
             const lang: LangDbEntry | null = await coll.findOne({ name: highestRole.name.replace(" Translator", "").replace(" Proofreader", "") })
-            if (lang) await db.collection("users").updateOne({ id: member.id }, { $set: { lang: lang.code } })
+            if (lang) await db.collection("users").updateOne({ id: member.id, lang: { $eq: "en" } }, { $set: { lang: lang.code } })
         }
     }
 
