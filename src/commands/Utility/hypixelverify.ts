@@ -13,12 +13,19 @@ const command: Command = {
         name: "username",
         description: "Your Hypixel IGN. Must have your Discord linked in-game",
         required: true
+    },
+    {
+        type: "USER",
+        name: "user",
+        description: "The user to verify. Admin-only",
+        required: false
     }],
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
     async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global") as string,
-            uuid = await getUUID(interaction.options.get("username")!.value as string)
+            uuid = await getUUID(interaction.options.get("username")!.value as string),
+            memberInput = interaction.options.get("user")?.member as Discord.GuildMember | undefined
         if (!uuid) throw "noUser"
 
         await interaction.defer()
@@ -52,6 +59,26 @@ const command: Command = {
                                 .setTitle(getString("alreadyVerified"))
                                 .setDescription(getString("nameChangeDisclaimer"))
                                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                            return await interaction.editReply({ embeds: [notChanged] })
+                        }
+                    })
+                } else if (memberInput && (interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732")) { //Discord Administrator
+                    await db.collection("users").updateOne({ id: memberInput.id }, { $set: { uuid: json.uuid } }).then(async r => {
+                        const role = await updateRoles(memberInput, json) as Discord.Role
+                        if (r.modifiedCount) {
+                            const successEmbed = new Discord.MessageEmbed()
+                                .setColor(successColor as Discord.HexColorString)
+                                .setAuthor("Hypixel Verification")
+                                .setTitle(`Successfully verified ${memberInput.user.tag} as ${json.username}`)
+                                .setDescription(`They were given the ${role} role due to their rank on the server.`)
+                                .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+                            return await interaction.editReply({ embeds: [successEmbed] })
+                        } else {
+                            const notChanged = new Discord.MessageEmbed()
+                                .setColor(errorColor as Discord.HexColorString)
+                                .setAuthor("Hypixel Verification")
+                                .setTitle("This user is already verified")
+                                .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                             return await interaction.editReply({ embeds: [notChanged] })
                         }
                     })
