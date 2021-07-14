@@ -8,8 +8,10 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
             errorColor = "#FF470F"
 
         // Give users access to #no-mic
-        if (!oldState.channel && newState.channel) newState.member!.roles.add("829312419406020608", "Joined a voice channel") // In Voice
-        else if (oldState.channel && !newState.channel) newState.member!.roles.remove("829312419406020608", "Left a voice channel")
+        if (newState.channel && !newState.member!.roles.cache.has("829312419406020608") && newState.channelId !== newState.guild.afkChannelId)
+            await newState.member!.roles.add("829312419406020608", "Joined a voice channel") // In Voice
+        else if ((!newState.channel || newState.channelId === newState.guild.afkChannelId) && newState.member!.roles.cache.has("829312419406020608"))
+            await newState.member!.roles.remove("829312419406020608", "Left a voice channel")
 
         if (!!oldState.serverMute != !!newState.serverMute) { // Convert to falsey value to prevent null != false from triggering the condition
             const embed = new Discord.MessageEmbed()
