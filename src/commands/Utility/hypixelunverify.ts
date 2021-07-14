@@ -14,7 +14,7 @@ const command: Command = {
 
         await updateRoles(interaction.member as Discord.GuildMember)
         await db.collection("users").updateOne({ id: interaction.user.id }, { $unset: { uuid: true } }).then(async r => {
-            if (r.result.nModified) {
+            if (r.modifiedCount) {
                 const embed = new Discord.MessageEmbed()
                     .setColor(successColor as Discord.HexColorString)
                     .setAuthor(getString("moduleName"))

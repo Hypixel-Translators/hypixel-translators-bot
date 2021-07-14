@@ -28,14 +28,14 @@ export async function execute(client: HTBClient, manual: boolean) {
 }
 
 export async function updateProjectStatus(client: Discord.Client, projectId: string) {
-    const langdb = await db.collection("langdb").find().toArray(),
-        projectDb: CrowdinProject = await db.collection("crowdin").findOne({ id: projectId })
+    const langdb = await db.collection("langdb").find().toArray() as LangDbEntry[],
+        projectDb = await db.collection("crowdin").findOne({ id: projectId }) as CrowdinProject
     await fetch(`https://api.crowdin.com/api/v2/projects/${projectId}/languages/progress?limit=500`, settings)
         .then(res => res.json())
         .then(async json => {
             if (!json.data) throw `We got no data from the API when trying to update Hypixel! Here's the response:\n${json}`
             const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
-                status.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)
+                status.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)!
                 return status
             }).sort((a: LanguageStatus, b: LanguageStatus) => b.data.phrases.total - a.data.phrases.total),
                 sortedSatus = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) =>

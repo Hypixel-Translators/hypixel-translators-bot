@@ -37,7 +37,7 @@ const command: Command = {
                 if (json.links?.DISCORD === interaction.user.tag) {
                     await db.collection("users").updateOne({ id: interaction.user.id }, { $set: { uuid: json.uuid } }).then(async r => {
                         const role = await updateRoles(interaction.member as Discord.GuildMember, json) as Discord.Role
-                        if (r.result.nModified) {
+                        if (r.modifiedCount) {
                             const successEmbed = new Discord.MessageEmbed()
                                 .setColor(successColor as Discord.HexColorString)
                                 .setAuthor(getString("moduleName"))

@@ -90,7 +90,7 @@ const command: Command = {
                 if (!err) {
                     if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, newLang) || newLang === "en") {
                         collection.updateOne({ id: interaction.user.id }, { $set: { lang: newLang } }).then(async r => {
-                            if (r.result.nModified) {
+                            if (r.modifiedCount) {
                                 executedBy = getString("executedBy", { user: interaction.user.tag }, "global", newLang)
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor as Discord.HexColorString)

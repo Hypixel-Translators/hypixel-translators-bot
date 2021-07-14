@@ -1,7 +1,7 @@
-import { db, DbUser } from "../../lib/dbclient"
+import { db } from "../../lib/dbclient"
 import { successColor, errorColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
-import { Command, GetStringFunction } from "../../index"
+import { client, Command, GetStringFunction } from "../../index"
 
 const command: Command = {
     name: "profile",
@@ -26,7 +26,7 @@ const command: Command = {
             profile = interaction.options.get("profile")?.value as string | undefined
         if ((interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732") && user) { //Discord Administrator
             if (!profile) {
-                const userDb: DbUser = await collection.findOne({ id: user?.id })
+                const userDb = await client.getUser(user?.id)
                 if (userDb.profile) {
                     const embed = new Discord.MessageEmbed()
                         .setColor(neutralColor as Discord.HexColorString)
@@ -47,13 +47,13 @@ const command: Command = {
                 if (/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(profile)) {
                     await collection.findOneAndUpdate({ id: user.id }, { $set: { profile: profile } })
                         .then(async r => {
-                            if (r.value.profile !== profile) {
+                            if (r.value!.profile !== profile) {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor as Discord.HexColorString)
                                     .setAuthor("User Profile")
                                     .setTitle(`Successfully updated ${user.tag}'s Crowdin profile!`)
                                     .addFields(
-                                        { name: "Old profile", value: r.value.profile || "None" },
+                                        { name: "Old profile", value: r.value!.profile || "None" },
                                         { name: "New profile", value: profile }
                                     )
                                     .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -72,7 +72,7 @@ const command: Command = {
             }
         } else {
             const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-                userDb: DbUser = await collection.findOne({ id: interaction.user.id })
+                userDb = await client.getUser(interaction.user.id)
             if (userDb.profile) {
                 const embed = new Discord.MessageEmbed()
                     .setColor(neutralColor as Discord.HexColorString)

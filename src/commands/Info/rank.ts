@@ -1,7 +1,7 @@
 import Discord from "discord.js"
 import { neutralColor, errorColor } from "../../config.json"
-import { Command, GetStringFunction } from "../../index"
-import { db, DbUser } from "../../lib/dbclient"
+import { client, Command, GetStringFunction } from "../../index"
+import { db } from "../../lib/dbclient"
 import { getXpNeeded } from "../../lib/leveling"
 
 const command: Command = {
@@ -21,7 +21,7 @@ const command: Command = {
             collection = db.collection("users"),
             user = interaction.options.get("user")?.user ?? interaction.user
 
-        const userDb: DbUser = await collection.findOne({ id: user.id })
+        const userDb = await client.getUser(user.id)
         if (!userDb.levels) {
             const errorEmbed = new Discord.MessageEmbed()
                 .setColor(errorColor as Discord.HexColorString)

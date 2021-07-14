@@ -3,7 +3,7 @@ import { MongoClient, Db } from "mongodb"
 import { Command } from "../index"
 const url = process.env.MONGO_URL
 if (!url) throw "MONGO_URL not in .env"
-export const mongoClient = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true })
+export const mongoClient = new MongoClient(url)
 
 export let db: Db
 
@@ -39,14 +39,14 @@ export interface DbUser {
 export class HTBClient extends Discord.Client {
     commands: Discord.Collection<string, Command> = new Discord.Collection()
     cooldowns: Discord.Collection<string, Discord.Collection<Discord.Snowflake, number>> = new Discord.Collection()
-    async getUser(): Promise<null>
+    async getUser(): Promise<undefined>
     async getUser(id: Discord.Snowflake): Promise<DbUser>
-    async getUser(id?: Discord.Snowflake): Promise<DbUser | null> {
-        if (!id) return null
-        let user: DbUser | null = await db.collection("users").findOne({ id: id })
-        if (!user) {
+    async getUser(id?: Discord.Snowflake): Promise<DbUser | undefined> {
+        if (!id) return
+        let user = await db.collection("users").findOne({ id: id }) as DbUser | undefined
+        while (!user) {
             await db.collection("users").insertOne({ id: id, lang: "en" })
-            return await db.collection("users").findOne({ id: id })
+            user = await db.collection("users").findOne({ id: id }) as DbUser
         }
         return user
     }

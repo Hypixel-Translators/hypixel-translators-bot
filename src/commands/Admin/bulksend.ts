@@ -42,7 +42,7 @@ const command: Command = {
       .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     await interaction.editReply({ embeds: [embed] })
     if (interaction.options.get("update")?.value) {
-      const project: CrowdinProject = await db.collection("crowdin").findOne({ shortName: sendTo.name.split("-")[0] })
+      const project = await db.collection("crowdin").findOne({ shortName: sendTo.name.split("-")[0] }) as CrowdinProject
       if (!project) return await interaction.followUp("Couldn't update language statistics because the project was not found!")
       await updateProjectStatus(interaction.client, project.id)
       await interaction.followUp(`Language statistics have been successfully updated on the ${project.name} project!`)

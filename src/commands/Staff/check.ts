@@ -16,7 +16,7 @@ const command: Command = {
   async execute(interaction: Discord.CommandInteraction) {
     const member = interaction.options.get("user")?.member as Discord.GuildMember ?? interaction.member as Discord.GuildMember
 
-    const userDb: DbUser | null = await client.getUser(member.id)
+    const userDb = await client.getUser(member.id)
     let note: string | undefined = undefined
     if (member.id === interaction.guild!.ownerId) note = "Discord Owner"
     else if (member.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"

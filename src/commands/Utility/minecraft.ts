@@ -56,7 +56,7 @@ const command: Command = {
 
         let uuid = authorDb.uuid
         if (userInput) {
-            const userInputDb = await client.getUser(userInput.id) as DbUser | null
+            const userInputDb = await client.getUser(userInput.id)
             if (userInputDb!.uuid) uuid = userInputDb!.uuid
             else throw "notVerified"
         } else if (usernameInput && usernameInput.length < 32) uuid = await getUUID(usernameInput)
@@ -64,7 +64,7 @@ const command: Command = {
         if (!userInput && !usernameInput && !authorDb?.uuid) throw "noUser"
         if (!uuid) throw "falseUser"
         const isOwnUser = uuid === authorDb?.uuid,
-            uuidDb: DbUser | null = await db.collection("users").findOne({ uuid })
+            uuidDb = await db.collection("users").findOne({ uuid }) as DbUser | undefined
 
         await interaction.defer()
 

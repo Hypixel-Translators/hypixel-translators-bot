@@ -16,7 +16,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
                 .then(() => console.log(`Took the ${reaction.message.guild!.roles.cache.get(roleId)!.name} role from ${user.tag}`))
                 .catch(err => console.error(`An error occured while trying to take the ${reaction.message.guild!.roles.cache.get(roleId)!.name} role from ${user.tag}. Here's the error:\n${err.stack}`))
         } else if (reaction.emoji.name === "vote_yes") {
-            const eventDb: EventDb = await db.collection("config").findOne({ name: "event" })
+            const eventDb = await db.collection("config").findOne({ name: "event" }) as EventDb
             if (eventDb.ids.includes(reaction.message.id)) {
                 const member = await reaction.message.guild!.members.fetch(user.id)
                 if (member) await member.roles.remove("863430999122509824")

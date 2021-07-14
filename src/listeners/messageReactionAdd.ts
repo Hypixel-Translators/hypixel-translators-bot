@@ -89,7 +89,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 await reaction.message.channel.send({ embeds: [embed] })
             }
         } else if (reaction.emoji.name === "vote_yes") {
-            const eventDb: EventDb = await db.collection("config").findOne({ name: "event" })
+            const eventDb = await db.collection("config").findOne({ name: "event" }) as EventDb
             if (eventDb.ids.includes(reaction.message.id)) {
                 const member = await reaction.message.guild!.members.fetch(user.id)
                 if (member) await member.roles.add("863430999122509824")

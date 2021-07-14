@@ -19,7 +19,7 @@
     "countryjs": "^1.8.0",
     "discord.js": "^13.0.0-dev.1dcad05.1626178061",
     "lodash": "^4.17.21",
-    "mongodb": "^3.6.10",
+    "mongodb": "^4.0.0",
     "node-fetch": "^2.6.1",
     "puppeteer": "^10.1.0",
     "source-map-support": "^0.5.19",
@@ -33,7 +33,6 @@
   "devDependencies": {
     "@types/countryjs": "^1.8.1",
     "@types/lodash": "^4.14.171",
-    "@types/mongodb": "^3.6.20",
     "@types/node-fetch": "^2.5.11",
     "@types/uuid": "^8.3.1",
     "dotenv": "^10.0.0",
