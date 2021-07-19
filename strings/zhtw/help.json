@@ -1,7 +1,7 @@
 {
     "moduleName": "資訊",
     "page1Title": "說明頁面",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+    "commandsListTooltip": "這個機器人由 %%developer%% 為 Hypixel 翻譯人員社群而開發。這個機器人是完全開源的，其 GitHub 儲存庫可以在[這裡]%%github%%找到。\n你可以使用 `/translate` 指令，並跟隨指示來協助翻譯機器人。\n\n你可以執行 `/help <指令名稱>` 來了解特定指令的用法。\n你可以在下面找到所有可用頁面的列表。請點擊訊息下方的按鈕來切換頁面。",
     "madeBy": "機器人由 %%developer%% 開發和維護",
     "pageNumber": "第 %%number%% 頁",
     "utilityHelp": "實用工具",
@@ -56,7 +56,7 @@
         "description": "提及一個語言身份組，而且可向他們發送訊息。"
     },
     "minecraft": {
-        "description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+        "description": "檢視指定的 Minecraft 玩家的遊戲名稱歷程記錄或外觀。這個指令與 /hypixelverify 相容，你可以檢視已驗證的使用者的資訊。如果你已成功驗證，你可以選擇不填入參數，否則，你必須填入至少一個參數。請注意︰`user` 參數的優先度高於 `username` 參數。"
     },
     "ping": {
         "description": "顯示機器人目前的 Ping。"
@@ -74,7 +74,7 @@
         "description": "給予你有關 Quickplay 項目的實用訊息。"
     },
     "quote": {
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "description": "取得（或新增）一條在這個伺服器的有趣／神奇／睿智的引文。"
     },
     "rank": {
         "description": "顯示你自己或任何使用者目前的 XP。"
