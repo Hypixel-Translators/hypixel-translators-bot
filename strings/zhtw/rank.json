@@ -5,7 +5,7 @@
     "youNotRanked": "You're not ranked yet!",
     "userNotRanked": "That user is not ranked yet!",
     "howRank": "In order to be ranked you must talk in the chats!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Messages",
+    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% 則訊息",
     "thousand": "k",
     "youLevel": "You're at level %%level%% and you're #%%rank%% on the leaderboard!",
     "userLevel": "%%user%% is at level %%level%% and they're #%%rank%% on the leaderboard!"
