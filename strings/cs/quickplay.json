@@ -1,5 +1,5 @@
 {
     "quickplayCrowdin": "Tady je Quickplay Crowdin projekt: %%crowdin%%",
-    "quickplayThread": "Here’s the thread showcasing the mod: %%thread%%",
-    "quickplayDiscord": "Here's the Quickplay Discord server: %%discord%%"
+    "quickplayThread": "Tady je vlákno s ukázkou módu: %%thread%%",
+    "quickplayDiscord": "Tady je Quickplay Discord server: %%discord%%"
 }

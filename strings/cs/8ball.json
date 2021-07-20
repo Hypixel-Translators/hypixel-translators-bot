@@ -1,6 +1,6 @@
 {
     "moduleName": "Magic 8 ball",
-    "question": "Question",
+    "question": "Otázka",
     "answers": {
         "positive": [
             "It is certain.",
@@ -11,15 +11,15 @@
             "As I see it, yes.",
             "Most likely.",
             "Outlook good.",
-            "Yes",
+            "Ano",
             "Signs point to yes."
         ],
         "inconclusive": [
             "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
+            "Zeptej se později.",
+            "Raději ti to teď nebudu říkat.",
             "Cannot predict now.",
-            "Concentrate and ask again."
+            "Soustřeď se a zeptej se znovu."
         ],
         "negative": [
             "Don't count on it.",

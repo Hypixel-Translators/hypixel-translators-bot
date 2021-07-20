@@ -2,9 +2,9 @@
     "staffDm": {
         "confirmSend": "If you confirm this, any messages you send here within the next 48 hours will be sent to staff without any confirmation.",
         "noConfirmWarn": "Any messages you send here within the next 48 hours will be sent to staff without any confirmation.",
-        "attachmentsWarn": "Attachments will also be included.",
-        "attachmentsSent": "Attachments sent",
-        "attachmentSent": "Attachment sent",
+        "attachmentsWarn": "附件也會包括在內。",
+        "attachmentsSent": "附件已發送",
+        "attachmentSent": "附件已發送",
         "confirmation": "你確定要向工作人員發送這個訊息嗎？",
         "messageSent": "向工作人員發送訊息",
         "dmCancelled": "這個訊息未有發送。",
@@ -20,7 +20,7 @@
         "falseFlag": "找不到該旗幟！",
         "falseLang": "找不到該語言！",
         "falseRole": "找不到該身份組！",
-        "falseUUID": "Couldn't find a player with that UUID!",
+        "falseUUID": "無法從該 UUID 找到任何玩家！",
         "noPlayer": "該玩家從未加入過 Hypixel！",
         "notVerified": "該使用者尚未與其 Hypixel 帳號連結！",
         "disabled": "這個指令已暫時停用。",
@@ -64,7 +64,7 @@
         "confirm": "確認",
         "cancel": "取消",
         "page": "第 %%number%%/%%total%% 頁",
-        "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
+        "notYours": "你不能使用這個選單！請執行 %%command%% 來完成這個操作。",
         "timeOut": "這個選單已逾時。如果你要繼續使用它，請再次輸入 %%command%%。"
     },
     "region": {
