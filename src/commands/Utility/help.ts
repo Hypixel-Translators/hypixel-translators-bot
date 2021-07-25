@@ -24,7 +24,7 @@ const command: Command = {
   allowDM: true,
   async execute(interaction, getString: GetStringFunction) {
     const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-      madeBy = getString("madeBy", { developer: "QkeleQ10#8482" })
+      madeBy = getString("madeBy", { developer: (await client.users.fetch("807917674477649943")).tag }) //QkeleQ10
 
     // Define categories to get commands from and all pages
     const categories = ["Utility", "Info", "Projects"],
@@ -50,7 +50,11 @@ const command: Command = {
       pageInput = interaction.options.getInteger("page", false)
 
     if (!commandInput) {
-      if (Number(pageInput) > pages.length || Number(pageInput) < 1) {
+
+      let page = 0
+      if (pageInput) page = pageInput - 1
+
+      if (page > pages.length - 1 || page < 0) {
         const embed = new Discord.MessageEmbed()
           .setColor(errorColor as Discord.HexColorString)
           .setAuthor(getString("moduleName"))
@@ -73,9 +77,6 @@ const command: Command = {
         .setFooter(`${executedBy} | ${madeBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 
       pages[0].embed = page1
-
-      let page = 0
-      if (pageInput) page = pageInput - 1
 
       let pageEmbed = fetchPage(page, pages, getString, executedBy, interaction) as Discord.MessageEmbed,
         controlButtons = new Discord.MessageActionRow()
