@@ -8,7 +8,6 @@ export const client = new HTBClient({
     intents: [
         Discord.Intents.FLAGS.GUILDS,
         Discord.Intents.FLAGS.GUILD_MEMBERS,
-        Discord.Intents.FLAGS.GUILD_INTEGRATIONS,
         Discord.Intents.FLAGS.GUILD_VOICE_STATES,
         Discord.Intents.FLAGS.GUILD_PRESENCES,
         Discord.Intents.FLAGS.GUILD_MESSAGES,
