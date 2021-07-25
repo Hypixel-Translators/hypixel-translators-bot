@@ -22,7 +22,7 @@ const command: Command = {
   cooldown: 60,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
   allowDM: true,
-  async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
+  async execute(interaction, getString: GetStringFunction) {
     const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
       madeBy = getString("madeBy", { developer: "QkeleQ10#8482" })
 
@@ -46,8 +46,8 @@ const command: Command = {
       pageIndex++
     })
 
-    const commandInput = interaction.options.get("command")?.value as string | undefined,
-      pageInput = interaction.options.get("page")?.value as number | undefined
+    const commandInput = interaction.options.getString("command", false),
+      pageInput = interaction.options.getInteger("page", false)
 
     if (!commandInput) {
       if (Number(pageInput) > pages.length || Number(pageInput) < 1) {

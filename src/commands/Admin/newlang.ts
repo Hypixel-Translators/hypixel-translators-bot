@@ -21,10 +21,10 @@ const command: Command = {
     required: false
   }],
   roleWhitelist: ["764442984119795732"], //Discord Administrator
-  async execute(interaction: Discord.CommandInteraction) {
+  async execute(interaction) {
     await interaction.defer()
-    const lang = (interaction.options.get("code")!.value as string).toLowerCase(),
-      code = (interaction.options.get("code")!.value as string).toUpperCase(),
+    const lang = interaction.options.getString("code", true).toLowerCase(),
+      code = interaction.options.getString("code", true).toUpperCase(),
       langdbEntry = await db.collection("langdb").findOne({ code: lang })
     let nationality = country.demonym(code)
     if (!nationality) throw "Couldn't find that country!"
@@ -37,7 +37,7 @@ const command: Command = {
     console.log(nationality)
     const translatorRole = await interaction.guild!.roles.create({
       name: `${nationality} Translator`,
-      color: `${interaction.options.get("color")?.value as Discord.HexColorString || "#000000"}`,
+      color: `${interaction.options.getString("color", false) as Discord.HexColorString | null || "#000000"}`,
       hoist: false,
       position: 22,
       permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
@@ -46,7 +46,7 @@ const command: Command = {
     })
     const proofreaderRole = await interaction.guild!.roles.create({
       name: `${nationality} Proofreader`,
-      color: `${interaction.options.get("color")?.value as Discord.HexColorString || "#000000"}`,
+      color: `${interaction.options.getString("color", false) as Discord.HexColorString | null || "#000000"}`,
       hoist: false,
       position: 49,
       permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
@@ -91,13 +91,15 @@ const command: Command = {
       position: 9,
       reason: "Added language " + nationality
     })
-    const translatorsChannel = await interaction.guild!.channels.create(`${nationality} translators`, {
-      topic: `A text channel where you can discuss ${nationality!.charAt(0).toUpperCase() + nationality!.slice(1)} translations! ${emoji}\n\nTranslation`,
+    const translatorsChannel = await interaction.guild!.channels.create(`${nationality}-translators`, {
+      type: "GUILD_TEXT",
+      topic: `A text channel where you can discuss ${nationality!.charAt(0).toUpperCase() + nationality!.slice(1)} translations! ${emoji}\n\nTRANSLATION`,
       parent: category,
       permissionOverwrites: overwrites,
       reason: "Added language " + nationality
     })
-    const proofreadersChannel = await interaction.guild!.channels.create(`${nationality} proofreaders`, {
+    const proofreadersChannel = await interaction.guild!.channels.create(`${nationality}-proofreaders`, {
+      type: "GUILD_TEXT",
       parent: category,
       permissionOverwrites: pfOverwrites,
       reason: "Added language " + nationality

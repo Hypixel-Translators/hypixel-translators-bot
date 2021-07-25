@@ -83,16 +83,16 @@ const command: Command = {
     cooldown: 600,
     channelWhitelist: ["624881429834366986"], //staff-bots
     roleWhitelist: ["768435276191891456"], //Discord Staff
-    async execute(interaction: Discord.CommandInteraction) {
+    async execute(interaction) {
         const loaChannel = interaction.client.channels.cache.get("836748153122324481") as Discord.TextChannel,
-            startDay = interaction.options.get("startday")!.value as number,
-            startMonth = interaction.options.get("startmonth")!.value as number,
-            startYear = interaction.options.get("startyear")!.value as number,
-            endDay = interaction.options.get("endday")!.value as number,
-            endMonth = interaction.options.get("endmonth")!.value as number,
-            endYear = interaction.options.get("endyear")!.value as number,
-            reason = interaction.options.get("reason")!.value as string,
-            extraInfo = interaction.options.get("extrainfo")?.value as string | undefined,
+            startDay = interaction.options.getInteger("startday", true),
+            startMonth = interaction.options.getInteger("startmonth", true),
+            startYear = interaction.options.getInteger("startyear", true),
+            endDay = interaction.options.getInteger("endday", true),
+            endMonth = interaction.options.getInteger("endmonth", true),
+            endYear = interaction.options.getInteger("endyear", true),
+            reason = interaction.options.getString("reason", true),
+            extraInfo = interaction.options.getString("extrainfo", false),
             startDate = new Date(startYear, startMonth - 1, startDay),
             endDate = new Date(endYear, endMonth - 1, endDay),
             today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate())

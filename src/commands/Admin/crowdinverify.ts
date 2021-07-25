@@ -13,8 +13,8 @@ const command: Command = {
         required: false
     }],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
-    async execute(interaction: Discord.CommandInteraction) {
-        const limit = interaction.options.get("limit")?.value as number | undefined
+    async execute(interaction) {
+        const limit = interaction.options.getInteger("limit", false) ?? undefined
         await interaction.defer()
         await crowdin(client, true, limit)
         const embed = new Discord.MessageEmbed()

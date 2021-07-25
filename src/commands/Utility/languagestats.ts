@@ -17,10 +17,10 @@ const command: Command = {
     }],
     cooldown: 30,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
+    async execute(interaction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             authorDb = await client.getUser(interaction.user.id)
-        let rawLang = (interaction.options.get("language")?.value as string | undefined)?.toLowerCase()
+        let rawLang = interaction.options.getString("language", false)?.toLowerCase()
         if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !rawLang) rawLang = authorDb.lang
         if (!rawLang) throw "noLang"
         const langdb = await db.collection("langdb").find().toArray() as LangDbEntry[]

@@ -22,10 +22,10 @@ const command: Command = {
     }],
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
-    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
+    async execute(interaction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global") as string,
-            uuid = await getUUID(interaction.options.get("username")!.value as string),
-            memberInput = interaction.options.get("user")?.member as Discord.GuildMember | undefined
+            uuid = await getUUID(interaction.options.getString("username", true)),
+            memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null
         if (!uuid) throw "noUser"
 
         await interaction.defer()

@@ -19,10 +19,10 @@ const command: Command = {
   }],
   cooldown: 600,
   roleWhitelist: ["768435276191891456"], //Discord Staff
-  async execute(interaction: Discord.CommandInteraction) {
-    const sendTo = interaction.options.get("channel")!.channel as (Discord.TextChannel | Discord.NewsChannel),
+  async execute(interaction) {
+    const sendTo = interaction.options.getChannel("channel", true) as (Discord.TextChannel | Discord.NewsChannel),
       member = interaction.member as Discord.GuildMember,
-      message = interaction.options.get("message")!.value as string
+      message = interaction.options.getString("message", true)
 
     if (!sendTo.isText()) throw "You need to provide a text channel for me to send messages in!"
     if (!member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"

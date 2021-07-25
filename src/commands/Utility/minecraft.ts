@@ -46,13 +46,13 @@ const command: Command = {
     cooldown: 30,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev
     allowDM: true,
-    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
+    async execute(interaction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             credits = getString("madeBy", { developer: interaction.client.users.cache.get("500669086947344384")!.tag }),
             authorDb: DbUser = await client.getUser(interaction.user.id),
-            subCommand = interaction.options.first()!.name as string,
-            userInput = interaction.options.first()!.options?.get("user")?.user,
-            usernameInput = interaction.options.first()!.options?.get("username")?.value as string | undefined
+            subCommand = interaction.options.getSubCommand(),
+            userInput = interaction.options.getUser("user", false),
+            usernameInput = interaction.options.getString("username", false)
 
         let uuid = authorDb.uuid
         if (userInput) {

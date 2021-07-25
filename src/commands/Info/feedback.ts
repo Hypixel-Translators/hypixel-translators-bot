@@ -8,7 +8,7 @@ const command: Command = {
     cooldown: 120,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
-    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
+    async execute(interaction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
         const embed = new Discord.MessageEmbed()
             .setColor(successColor as Discord.HexColorString)

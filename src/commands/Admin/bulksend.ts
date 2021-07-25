@@ -27,10 +27,10 @@ const command: Command = {
     description: "Whether to update language statistics once all messages have been sent",
     required: false
   }],
-  async execute(interaction: Discord.CommandInteraction) {
-    const sendTo = interaction.options.get("channel")!.channel as Discord.TextChannel
+  async execute(interaction) {
+    const sendTo = interaction.options.getChannel("channel", true) as Discord.TextChannel
     if (!sendTo.isText()) throw "You must provide a text channel to send messages in!"
-    let amount = Number(interaction.options.get("amount")!.value)
+    let amount = interaction.options.getInteger("amount", true)
     if (!amount) throw "You need to provide a number of messages to delete!"
     await interaction.defer()
     for (amount; amount > 0; amount--) await sendTo.send("Language statistics will be here shortly!")
@@ -41,7 +41,7 @@ const command: Command = {
       .setDescription(`${sendTo}`)
       .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     await interaction.editReply({ embeds: [embed] })
-    if (interaction.options.get("update")?.value) {
+    if (interaction.options.getBoolean("update", false)) {
       const project = await db.collection("crowdin").findOne({ shortName: sendTo.name.split("-")[0] }) as CrowdinProject
       if (!project) return await interaction.followUp("Couldn't update language statistics because the project was not found!")
       await updateProjectStatus(interaction.client, project.id)

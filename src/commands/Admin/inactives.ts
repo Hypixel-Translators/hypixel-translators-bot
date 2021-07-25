@@ -7,7 +7,7 @@ const command: Command = {
     name: "inactives",
     description: "Checks for inactive unverified members (if applicable).",
     roleWhitelist: ["764442984119795732"], //Discord Administrator
-    async execute(interaction: Discord.CommandInteraction) {
+    async execute(interaction) {
         await inactives(client, true)
         const embed = new Discord.MessageEmbed()
             .setColor(successColor as Discord.HexColorString)

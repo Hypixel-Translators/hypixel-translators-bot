@@ -18,10 +18,10 @@ const command: Command = {
         required: true
     }],
     roleWhitelist: ["768435276191891456"], //Discord Staff
-    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
-        const recipient = interaction.options.get("user")!.user as Discord.User,
+    async execute(interaction, getString: GetStringFunction) {
+        const recipient = interaction.options.getUser("user", true),
             recipientDb = await client.getUser(recipient.id),
-            message = (interaction.options.get("message")!.value as string).replaceAll("\\n", "\n"),
+            message = interaction.options.getString("message", true).replaceAll("\\n", "\n"),
             dm = new Discord.MessageEmbed()
                 .setColor(neutralColor as Discord.HexColorString)
                 .setAuthor(getString("incoming", this.name, recipientDb.lang))

@@ -13,8 +13,8 @@ const command: Command = {
     }],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-development admin-bots
-    async execute(interaction: Discord.CommandInteraction) {
-        const role = interaction.options.get("role")!.role as Discord.Role,
+    async execute(interaction) {
+        const role = interaction.options.getRole("role", true) as Discord.Role,
             tags: Discord.GuildMember[] = []
 
         await role.guild.members.fetch()

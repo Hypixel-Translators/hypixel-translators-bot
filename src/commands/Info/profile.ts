@@ -20,10 +20,10 @@ const command: Command = {
     }],
     allowTip: false,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
-    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
+    async execute(interaction, getString: GetStringFunction) {
         const collection = db.collection("users"),
-            user = interaction.options.get("user")?.user,
-            profile = interaction.options.get("profile")?.value as string | undefined
+            user = interaction.options.getUser("user", false),
+            profile = interaction.options.getString("profile", false)
         if ((interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732") && user) { //Discord Administrator
             if (!profile) {
                 const userDb = await client.getUser(user?.id)

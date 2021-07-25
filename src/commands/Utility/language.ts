@@ -37,13 +37,13 @@ const command: Command = {
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
     allowDM: true,
     cooldown: 5,
-    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
+    async execute(interaction, getString: GetStringFunction) {
         let executedBy: string = getString("executedBy", { user: interaction.user.tag }, "global")
         const collection = db.collection("users"),
             stringsFolder = "./strings/",
             member = interaction.member as Discord.GuildMember,
-            subCommand = interaction.options.first()!.name as string | undefined
-        let newLang = (interaction.options.first()!.options?.get("language")?.value as string | undefined)?.toLowerCase()
+            subCommand = interaction.options.getSubCommand()
+        let language = interaction.options.getString("language", subCommand === "stats")?.toLowerCase()
 
         if (subCommand === "list") {
             const files = fs.readdirSync(stringsFolder)
@@ -66,10 +66,9 @@ const command: Command = {
             })
         } else if (subCommand === "stats") {
             if (!member.roles.cache.has("764442984119795732")) return await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
-            const files = fs.readdirSync(stringsFolder),
-                langInput = interaction.options.first()!.options!.get("language")!.value as string
-            if (!files.includes(langInput)) throw "falseLang"
-            const langUsers: DbUser[] = await collection.find({ lang: langInput }).toArray(),
+            const files = fs.readdirSync(stringsFolder)
+            if (!files.includes(language!)) throw "falseLang"
+            const langUsers: DbUser[] = await collection.find({ lang: language }).toArray(),
                 users: string[] = []
             langUsers.forEach(u => users.push(`<@!${u.id}>`))
             const embed = new Discord.MessageEmbed()
@@ -77,34 +76,34 @@ const command: Command = {
                 .setAuthor("Language")
                 .setTitle(`There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`)
                 .setFooter(`Executed By ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            if (langInput !== "en") embed.setDescription(users.join(", "))
+            if (language !== "en") embed.setDescription(users.join(", "))
             await interaction.reply({ embeds: [embed] })
         }
-        else if (subCommand === "set" && newLang) {
-            if (newLang === "se") newLang = "sv"
+        else if (subCommand === "set" && language) {
+            if (language === "se") language = "sv"
             const langdb = await db.collection("langdb").find().toArray(),
-                langdbEntry = langdb.find(l => l.name.toLowerCase() === newLang)
-            if (langdbEntry) newLang = langdbEntry.code
-            if (newLang === "empty" && !member.roles.cache.has("764442984119795732")) newLang = "denied" //Discord Administrator
-            fs.access(`./strings/${newLang}/language.json`, fs.constants.F_OK, async (err) => {
+                langdbEntry = langdb.find(l => l.name.toLowerCase() === language)
+            if (langdbEntry) language = langdbEntry.code
+            if (language === "empty" && !member.roles.cache.has("764442984119795732")) language = "denied" //Discord Administrator
+            fs.access(`./strings/${language}/language.json`, fs.constants.F_OK, async (err) => {
                 if (!err) {
-                    if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, newLang) || newLang === "en") {
-                        collection.updateOne({ id: interaction.user.id }, { $set: { lang: newLang } }).then(async r => {
+                    if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, language) || language === "en") {
+                        collection.updateOne({ id: interaction.user.id }, { $set: { lang: language } }).then(async r => {
                             if (r.modifiedCount) {
-                                executedBy = getString("executedBy", { user: interaction.user.tag }, "global", newLang)
+                                executedBy = getString("executedBy", { user: interaction.user.tag }, "global", language)
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(successColor as Discord.HexColorString)
-                                    .setAuthor(getString("moduleName", this.name, newLang))
-                                    .setTitle(getString("changedToTitle", this.name, newLang))
-                                    .setDescription(getString("credits", this.name, newLang))
+                                    .setAuthor(getString("moduleName", this.name, language))
+                                    .setTitle(getString("changedToTitle", this.name, language))
+                                    .setDescription(getString("credits", this.name, language))
                                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                                 return await interaction.reply({ embeds: [embed] })
                             } else {
                                 const embed = new Discord.MessageEmbed()
                                     .setColor(errorColor as Discord.HexColorString)
-                                    .setAuthor(getString("moduleName", this.name, newLang))
-                                    .setTitle(getString("didntChange", this.name, newLang))
-                                    .setDescription(getString("alreadyThis", this.name, newLang))
+                                    .setAuthor(getString("moduleName", this.name, language))
+                                    .setTitle(getString("didntChange", this.name, language))
+                                    .setDescription(getString("alreadyThis", this.name, language))
                                     .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                                 return await interaction.reply({ embeds: [embed] })
                             }

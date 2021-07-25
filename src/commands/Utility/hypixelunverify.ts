@@ -9,7 +9,7 @@ const command: Command = {
     description: "Unlinks your Discord account from your Hypixel player",
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
-    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
+    async execute(interaction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
 
         await updateRoles(interaction.member as Discord.GuildMember)

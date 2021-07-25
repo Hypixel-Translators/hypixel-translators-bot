@@ -22,12 +22,12 @@ const command: Command = {
     cooldown: 60,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
     allowDM: true,
-    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
+    async execute(interaction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             collection = db.collection("users"),
             allUsers: DbUser[] = await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray(),
-            inputMe = interaction.options.get("me")?.value as boolean | undefined,
-            inputPage = interaction.options.get("page")?.value as number | undefined
+            inputMe = interaction.options.getBoolean("me", false),
+            inputPage = interaction.options.getInteger("page", false)
 
         const pages: DbUser[][] = [] // inner arrays are of length 24
         let p = 0

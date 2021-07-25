@@ -26,8 +26,8 @@ const command: Command = {
             value: "verify"
         }]
     }],
-    async execute(interaction: Discord.CommandInteraction) {
-        const channelInput = interaction.options.get("channel")?.value
+    async execute(interaction) {
+        const channelInput = interaction.options.getString("channel", false)
         if (channelInput === "info") {
             await info(interaction)
             const successEmbed = new Discord.MessageEmbed()

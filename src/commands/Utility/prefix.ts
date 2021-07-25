@@ -16,22 +16,22 @@ const command: Command = {
   }],
   cooldown: 30,
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
-  async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
+  async execute(interaction, getString: GetStringFunction) {
     const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
       member = interaction.member as Discord.GuildMember,
       nickNoPrefix = member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim(),
       langdb: LangDbEntry[] = await db.collection("langdb").find().toArray()
 
-    if (interaction.options.get("flags")?.value && !member.roles.cache.has("569839517444341771") && !member.roles.cache.has("569839580971401236")) { //Hypixel Translator and Proofreader
+    if (interaction.options.getString("flags", false) && !member.roles.cache.has("569839517444341771") && !member.roles.cache.has("569839580971401236")) { //Hypixel Translator and Proofreader
       const flagEmojis: (string | undefined)[] = [];
-      (interaction.options.get("flags")!.value as string).split(" ").forEach(emoji => {
+      interaction.options.getString("flags", true).split(" ").forEach(emoji => {
         if (emoji.toLowerCase() === "lol" || emoji.toLowerCase() === "lolcat") flagEmojis.push("😹")
         else if (emoji.toLowerCase() === "enpt" || emoji.toLowerCase() === "pirate") flagEmojis.push("☠")
         else if (emoji.toLowerCase() === "ib" || emoji.toLowerCase() === "banana") flagEmojis.push("🍌")
         else if (emoji.toLowerCase() === "bc" || emoji.toLowerCase() === "biscuitish") flagEmojis.push("🍪")
         else flagEmojis.push(flag(emoji))
       })
-      if (!flagEmojis || flagEmojis.includes(undefined)) throw "falseFlag"
+      if (!flagEmojis.length || flagEmojis.includes(undefined)) throw "falseFlag"
 
       let prefix = flagEmojis.join("-")
       const embed = new Discord.MessageEmbed()

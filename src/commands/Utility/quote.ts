@@ -83,15 +83,15 @@ const command: Command = {
     cooldown: 5,
     allowDM: true,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development 
-    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
+    async execute(interaction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             collection = db.collection("quotes"),
-            subCommand = interaction.options.first()!.name as string
+            subCommand = interaction.options.getSubCommand()
         let allowed = false
         if ((interaction.member as Discord.GuildMember | undefined)?.permissions.has("VIEW_AUDIT_LOG")) allowed = true
         if (subCommand === "add") {
-            const quote = interaction.options.first()!.options!.get("quote")!.value as string,
-                author = interaction.options.first()!.options!.get("author")!.user as Discord.User
+            const quote = interaction.options.getString("quote", true),
+                author = interaction.options.getUser("author", true)
             if (!allowed) {
                 const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
                 const report = new Discord.MessageEmbed()
@@ -122,7 +122,7 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
     const count = await collection.estimatedDocumentCount()
 
     let quoteId: number,
-        index = interaction.options.first()!.options?.get("index")!.value as number | undefined
+        index = interaction.options.getInteger("index", false)
     if (!index) quoteId = Math.ceil(Math.random() * Math.floor(count)) //generate random id if no arg is given
     else quoteId = Number(index)
 
@@ -167,9 +167,9 @@ async function addQuote(interaction: Discord.CommandInteraction, quote: string, 
 
 async function editQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
 
-    const quoteId = Number(interaction.options.first()!.options!.get("index")!.value)
+    const quoteId = interaction.options.getInteger("index", true),
+        newQuote = interaction.options.getString("quote", true)
     if (!quoteId) throw "noQuote"
-    const newQuote = interaction.options.first()!.options!.get("quote")!.value
     await collection.findOneAndUpdate({ id: quoteId }, { $set: { quote: newQuote } }).then(async r => {
         if (r.value) {
             const embed = new Discord.MessageEmbed()
@@ -197,8 +197,8 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
 
 async function deleteQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
 
-    const quoteId = Number(interaction.options.first()!.options!.get("index")!.value)
-    if (!quoteId) throw "noQuote"
+    const quoteId = interaction.options.getInteger("index", true)
+    if (quoteId <= 0) throw "noQuote"
     collection.findOneAndDelete({ id: quoteId }).then(async r => {
         if (r.value) {
             await collection.updateMany({ id: { $gt: quoteId } }, { $inc: { id: -1 } })
@@ -225,8 +225,8 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
 }
 
 async function linkQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
-    const quoteId = Number(interaction.options.first()!.options!.get("index")!.value)
-    const urlSplit = (interaction.options.first()!.options!.get("url")!.value as string).split("/");
+    const quoteId = interaction.options.getInteger("index", true),
+        urlSplit = interaction.options.getString("url", true).split("/");
     (client.channels.cache.get(urlSplit[5] as Discord.Snowflake) as Discord.TextChannel)?.messages.fetch(urlSplit[6] as Discord.Snowflake)
         .then(async msg => {
             await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } }).then(async r => {

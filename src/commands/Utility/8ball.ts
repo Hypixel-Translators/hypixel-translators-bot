@@ -14,7 +14,7 @@ const command: Command = {
     cooldown: 5,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
     allowDM: true,
-    async execute(interaction: Discord.CommandInteraction, getString: GetStringFunction) {
+    async execute(interaction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             keys = Object.keys(getString("answers")),
             answerType = keys[keys.length * Math.random() << 0] as "positive" | "inconclusive" | "negative",
@@ -23,7 +23,7 @@ const command: Command = {
             embed = new Discord.MessageEmbed()
                 .setAuthor(getString("moduleName"))
                 .setTitle(answer)
-                .addField(getString("question"), interaction.options.get("question")!.value as string)
+                .addField(getString("question"), interaction.options.getString("question", true))
                 .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
         if (answerType === "positive") embed.setColor(successColor as Discord.HexColorString)
         else if (answerType === "inconclusive") embed.setColor(loadingColor as Discord.HexColorString)

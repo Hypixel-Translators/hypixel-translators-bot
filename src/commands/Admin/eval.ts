@@ -26,7 +26,7 @@ const command: Command = {
     description: "The code to run",
     required: true
   }],
-  async execute(interaction: discord.CommandInteraction, getString: GetStringFunction) {
+  async execute(interaction, getString: GetStringFunction) {
     const me = interaction.member ?? interaction.user,
       guild = interaction.guild!,
       channel = interaction.channel as discord.TextChannel,
@@ -36,7 +36,7 @@ const command: Command = {
 
     await interaction.defer()
     let evaled,
-      codeToRun = (interaction.options.get("code")!.value as string).replaceAll(/[“”]/gim, '"')
+      codeToRun = interaction.options.getString("code", true).replaceAll(/[“”]/gim, '"')
     if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`
     codeToRun = transpile(codeToRun)
     try {

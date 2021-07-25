@@ -1,5 +1,4 @@
 import Discord from "discord.js"
-import { DbUser } from "../../lib/dbclient"
 import { client, Command } from "../../index"
 
 const command: Command = {
@@ -13,8 +12,8 @@ const command: Command = {
   }],
   roleWhitelist: ["768435276191891456", "551758391127834625", "748269219619274893", "645709877536096307", "752541221980733571"], //Discord Staff and Hypixel, SBA, QP and Bot managers
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "768160446368186428"], // bots staff-bots bot-development managers
-  async execute(interaction: Discord.CommandInteraction) {
-    const member = interaction.options.get("user")?.member as Discord.GuildMember ?? interaction.member as Discord.GuildMember
+  async execute(interaction) {
+    const member = interaction.options.getMember("user", false) as Discord.GuildMember | null ?? interaction.member as Discord.GuildMember
 
     const userDb = await client.getUser(member.id)
     let note: string | undefined = undefined

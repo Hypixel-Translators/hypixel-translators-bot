@@ -21,12 +21,12 @@ const command: Command = {
     }],
     cooldown: 3600,
     allowTip: false,
-    async execute(interaction: Discord.CommandInteraction) {
+    async execute(interaction) {
         const verifyLogs = interaction.client.channels.cache.get("662660931838410754") as Discord.TextChannel,
             verify = interaction.client.channels.cache.get("569178590697095168") as Discord.TextChannel,
             member = interaction.member as Discord.GuildMember,
-            profileUrl = interaction.options.get("url")?.value as string | undefined,
-            memberInput = interaction.options.get("user")?.member as Discord.GuildMember | undefined
+            profileUrl = interaction.options.getString("url", false),
+            memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null
         if (!member.roles.cache.has("569194996964786178") && interaction.channelId == "569178590697095168") { //Verified and #verify
             (interaction.channel as Discord.TextChannel).messages.fetch()
                 .then(async messages => {
