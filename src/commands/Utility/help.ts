@@ -47,8 +47,8 @@ const command: Command = {
     const categories = ["Utility", "Info", "Projects"],
       pages = [
         { number: 0, badge: "🏠", titleString: "mainPage" },
-        { number: 1, badge: "🛠", titleString: "utilityHelp" },
-        { number: 2, badge: "ℹ", titleString: "infoHelp" },
+        { number: 1, badge: "🛠️", titleString: "utilityHelp" },
+        { number: 2, badge: "ℹ️", titleString: "infoHelp" },
         { number: 3, badge: "<:crowdin:820381256016723988>", titleString: "projectsHelp" }
       ] as Page[]
 
