@@ -1,4 +1,3 @@
-import { errorColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import fs from "fs"
 import { Command, client, GetStringFunction } from "../../index"
@@ -17,6 +16,24 @@ const command: Command = {
     type: "INTEGER",
     name: "page",
     description: "The help page to open",
+    choices: [
+      {
+        name: "Main page",
+        value: 0
+      },
+      {
+        name: "Tools & Utilities",
+        value: 1
+      },
+      {
+        name: "Information commands",
+        value: 2
+      },
+      {
+        name: "Crowdin Projects",
+        value: 3
+      }
+    ],
     required: false
   }],
   cooldown: 60,
@@ -29,11 +46,12 @@ const command: Command = {
     // Define categories to get commands from and all pages
     const categories = ["Utility", "Info", "Projects"],
       pages = [
-        { number: 0 },
+        { number: 0, badge: "🏠", titleString: "mainPage" },
         { number: 1, badge: "🛠", titleString: "utilityHelp" },
         { number: 2, badge: "ℹ", titleString: "infoHelp" },
         { number: 3, badge: "<:crowdin:820381256016723988>", titleString: "projectsHelp" }
       ] as Page[]
+
     let pageIndex = 1
     categories.forEach(category => {
       const categoryCommands: string[] = []
@@ -54,77 +72,51 @@ const command: Command = {
       let page = 0
       if (pageInput) page = pageInput - 1
 
-      if (page > pages.length - 1 || page < 0) {
-        const embed = new Discord.MessageEmbed()
-          .setColor(errorColor as Discord.HexColorString)
-          .setAuthor(getString("moduleName"))
-          .setTitle(getString("page1Title"))
-          .setDescription(getString("pageNotExist"))
-          .setFooter(`${executedBy} | ${madeBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-        return await interaction.reply({ embeds: [embed], ephemeral: true })
-      }
-
-      //Determine which page to use
       const page1 = new Discord.MessageEmbed()
-        .setColor(neutralColor as Discord.HexColorString)
+        .setColor("BLURPLE")
         .setAuthor(getString("moduleName"))
-        .setTitle(getString("page1Title"))
+        .setTitle(getString("mainPage"))
         .setDescription(getString("commandsListTooltip", { developer: client.users.cache.get("240875059953139714")!.toString(), github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)" }))
-        .addFields(
-          { name: getString("pageNumber", { number: 2, total: pages.length }), value: `🛠 ${getString("utilityHelp")}`, inline: true },
-          { name: getString("pageNumber", { number: 3, total: pages.length }), value: `ℹ ${getString("infoHelp")}`, inline: true },
-          { name: getString("pageNumber", { number: 4, total: pages.length }), value: `<:crowdin:820381256016723988> ${getString("projectsHelp")}`, inline: true })
         .setFooter(`${executedBy} | ${madeBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+      pages.forEach(page => {
+        if (page.number === 0) return
+        page1.addField(getString("pageNumber", { number: page.number, total: pages.length }), `${page.badge} ${getString(page.titleString)}`, true)
+      })
 
       pages[0].embed = page1
 
-      let pageEmbed = fetchPage(page, pages, getString, executedBy, interaction) as Discord.MessageEmbed,
-        controlButtons = new Discord.MessageActionRow()
-          .addComponents(
-            new Discord.MessageButton()
-              .setEmoji("⏮️")
-              .setCustomId("first")
-              .setLabel(getString("pagination.first", "global")),
-            new Discord.MessageButton()
-              .setEmoji("◀️")
-              .setCustomId("previous")
-              .setLabel(getString("pagination.previous", "global")),
-            new Discord.MessageButton()
-              .setEmoji("▶️")
-              .setCustomId("next")
-              .setLabel(getString("pagination.next", "global")),
-            new Discord.MessageButton()
-              .setEmoji("⏭️")
-              .setCustomId("last")
-              .setLabel(getString("pagination.last", "global"))
-          )
-      controlButtons = updateButtonColors(controlButtons, page, pages)
+      //Determine which page to use
+      let pageEmbed = fetchPage(page, pages, getString, executedBy, interaction) as Discord.MessageEmbed
+      const pageMenu = new Discord.MessageActionRow()
+        .addComponents(
+          new Discord.MessageSelectMenu()
+            .setCustomId("page")
+        )
 
-      await interaction.reply({ embeds: [pageEmbed], components: [controlButtons] })
-      const msg = (await interaction.fetchReply()) as Discord.Message,
+      pages.forEach(p => (pageMenu.components[0] as Discord.MessageSelectMenu).addOptions({
+        label: getString(p.titleString),
+        value: `${p.number}`,
+        emoji: p.badge,
+        default: p.number === page
+      }))
+
+      const msg = await interaction.reply({ embeds: [pageEmbed], components: [pageMenu], fetchReply: true }) as Discord.Message,
         collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
 
-      collector.on("collect", async buttonInteraction => {
-        const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
-        if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
-        else if (buttonInteraction.customId === "first") page = 0
-        else if (buttonInteraction.customId === "last") page = pages.length - 1
-        else if (buttonInteraction.customId === "previous") {
-          page--
-          if (page < 0) page = 0
-        }
-        else if (buttonInteraction.customId === "next") {
-          page++
-          if (page > pages.length - 1) page = pages.length - 1
-        }
-        controlButtons = updateButtonColors(controlButtons, page, pages)
+      collector.on("collect", async componentInteraction => {
+        if (!componentInteraction.isSelectMenu()) return //this is just to set the typings properly, it won't actually trigger
+        const userDb: DbUser = await client.getUser(componentInteraction.user.id),
+          option = componentInteraction.values[0]
+        if (interaction.user.id !== componentInteraction.user.id) return await componentInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
+        else page = Number(option)
         pageEmbed = fetchPage(page, pages, getString, executedBy, interaction) as Discord.MessageEmbed
-        await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
+        (pageMenu.components[0] as Discord.MessageSelectMenu).options.forEach(o => o.default = option === o.value)
+        await componentInteraction.update({ embeds: [pageEmbed], components: [pageMenu] })
       })
 
       collector.on("end", async () => {
-        controlButtons.components.forEach(button => button.setDisabled(true))
-        await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"), embeds: [pageEmbed], components: [controlButtons] })
+        pageMenu.components.forEach(component => component.setDisabled(true))
+        await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"), embeds: [pageEmbed], components: [pageMenu] })
       })
 
     } else {
@@ -142,7 +134,7 @@ const command: Command = {
       if (command.dev && !(interaction.member as Discord.GuildMember | null)?.roles.cache.has("768435276191891456")) cmdDesc = getString("inDev") // Discord Staff
 
       const embed = new Discord.MessageEmbed()
-        .setColor(neutralColor as Discord.HexColorString)
+        .setColor("BLURPLE")
         .setAuthor(getString("moduleName"))
         .setTitle(getString("commandInfoFor") + `\`/${command.name}\``)
         .setDescription(cmdDesc || getString("staffOnly"))
@@ -168,7 +160,7 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, ex
     if (pages[page].embed) pageEmbed = pages[page].embed!
     else if (pages[page].commands) {
       pageEmbed = new Discord.MessageEmbed()
-        .setColor(neutralColor as Discord.HexColorString)
+        .setColor("BLURPLE")
         .setAuthor(getString("moduleName"))
         .setTitle(`${pages[page].badge} ${getString(pages[page].titleString!)}`)
         .setFooter(`${getString("pagination.page", { number: page + 1, total: pages.length }, "global")} | ${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -182,8 +174,8 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, ex
 interface Page {
   number: number
   commands?: string[]
-  badge?: string
-  titleString?: string
+  badge: string
+  titleString: string
   embed?: Discord.MessageEmbed
 }
 
