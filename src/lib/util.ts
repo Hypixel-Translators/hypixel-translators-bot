@@ -1,6 +1,7 @@
 //This file contains a bunch of functions used across the bot on multuple commands.
 import Discord from "discord.js"
 import { ObjectId } from "mongodb"
+import fetch from "node-fetch"
 
 export function updateButtonColors(row: Discord.MessageActionRow, page: number, pages: any[]) {
     if (page == 0) {
