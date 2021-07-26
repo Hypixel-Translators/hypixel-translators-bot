@@ -2,7 +2,7 @@ import Discord from "discord.js"
 import { successColor, errorColor } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { Command, GetStringFunction } from "../../index"
-import { updateRoles } from "./hypixelverify"
+import { updateRoles } from "../../lib/util"
 
 const command: Command = {
     name: "hypixelunverify",

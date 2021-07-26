@@ -1,9 +1,8 @@
 import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
 import { db, DbUser } from "../../lib/dbclient"
-import { updateRoles } from "./hypixelverify"
 import { Command, client, GetStringFunction } from "../../index"
-import { getUUID } from "./minecraft"
+import { fetchSettings, getUUID, updateRoles } from "../../lib/util"
 
 //Credits to marzeq
 const command: Command = {
@@ -64,7 +63,7 @@ const command: Command = {
 
         await interaction.defer()
         // make a request to the slothpixel api (hypixel api but we dont need an api key)
-        await fetch(`https://api.slothpixel.me/api/players/${uuid}`, { headers: { "User-Agent": "Hypixel Translators Bot" }, method: "Get", timeout: 30_000 })
+        await fetch(`https://api.slothpixel.me/api/players/${uuid}`, fetchSettings)
             .then(res => (res.json())) // get the response json
             .then(async json => { // here we do stuff with the json
 
@@ -234,7 +233,7 @@ const command: Command = {
                 collector.on("collect", async componentInteraction => {
                     if (!componentInteraction.isSelectMenu()) return //this is just to set the typings properly, it won't actually trigger
                     const userDb: DbUser = await client.getUser(componentInteraction.user.id),
-                        option = componentInteraction.values![0]
+                        option = componentInteraction.values[0]
                     if (interaction.user.id !== componentInteraction.user.id)
                         return await componentInteraction.reply({
                             content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang),

@@ -1,7 +1,7 @@
 import { client } from "../index"
 import Discord from "discord.js"
 import { db } from "../lib/dbclient"
-import { EventDb } from "./messageReactionAdd"
+import { EventDb } from "../lib/util"
 
 client.on("messageReactionRemove", async (reaction, user) => {
     if (reaction.message.channel.type !== "DM" && !user.bot) {

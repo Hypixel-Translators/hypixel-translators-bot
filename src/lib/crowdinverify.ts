@@ -3,8 +3,8 @@ import Discord from "discord.js"
 import { errorColor } from "../config.json"
 import { v4 } from "uuid"
 import { db, DbUser } from "../lib/dbclient"
-import { LangDbEntry } from "../events/stats"
 import { client } from "../index"
+import { LangDbEntry } from "./util"
 
 type ValidProjects = "Hypixel" | "Quickplay" | "Bot" | "SkyblockAddons"
 

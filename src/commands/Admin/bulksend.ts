@@ -2,7 +2,8 @@ import { successColor } from "../../config.json"
 import Discord from "discord.js"
 import { Command } from "../../index"
 import { db } from "../../lib/dbclient"
-import { updateProjectStatus, CrowdinProject } from "../../events/stats"
+import { updateProjectStatus } from "../../events/stats"
+import { CrowdinProject } from "../../lib/util"
 
 const command: Command = {
   name: "bulksend",

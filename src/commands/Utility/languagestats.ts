@@ -2,8 +2,8 @@ import { db } from "../../lib/dbclient"
 import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
 import { successColor, loadingColor, errorColor } from "../../config.json"
-import { LangDbEntry, LanguageStatus } from "../../events/stats"
 import { Command, client, GetStringFunction } from "../../index"
+import { LangDbEntry, LanguageStatus } from "../../lib/util"
 const ctokenV2 = process.env.CTOKEN_V2!
 
 const command: Command = {

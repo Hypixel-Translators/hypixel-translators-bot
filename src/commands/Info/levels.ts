@@ -2,7 +2,7 @@ import Discord from "discord.js"
 import { neutralColor, errorColor } from "../../config.json"
 import { client, Command, GetStringFunction } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { updateButtonColors } from "../Utility/help"
+import { updateButtonColors } from "../../lib/util"
 
 const command: Command = {
     name: "levels",
@@ -72,8 +72,7 @@ const command: Command = {
                 pageEmbed: Discord.MessageEmbed = fetchPage(page, pages, getString, executedBy, interaction)
 
             controlButtons = updateButtonColors(controlButtons, page, pages)
-            await interaction.reply({ embeds: [pageEmbed], components: [controlButtons] })
-            const msg = await interaction.fetchReply() as Discord.Message,
+            const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }) as Discord.Message,
                 collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
 
             collector.on("collect", async buttonInteraction => {

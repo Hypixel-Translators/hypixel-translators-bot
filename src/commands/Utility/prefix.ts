@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import { flag } from "country-emoji"
 import { db, DbUser } from "../../lib/dbclient"
 import { client, Command, GetStringFunction } from "../../index"
-import { LangDbEntry } from "../../events/stats"
+import { LangDbEntry } from "../../lib/util"
 
 const command: Command = {
   name: "prefix",
@@ -54,8 +54,7 @@ const command: Command = {
               .setEmoji("❎")
               .setLabel(getString("pagination.cancel", "global"))
           )
-      await interaction.reply({ embeds: [embed], components: [confirmButtons] })
-      const msg = await interaction.fetchReply() as Discord.Message,
+      const msg = await interaction.reply({ embeds: [embed], components: [confirmButtons], fetchReply: true }) as Discord.Message,
         collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
 
       confirmButtons.components.forEach(button => button.setDisabled(true))

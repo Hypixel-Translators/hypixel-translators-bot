@@ -2,6 +2,7 @@ import Discord from "discord.js"
 import { successColor, loadingColor, errorColor } from "../config.json"
 import { client } from "../index"
 import { db } from "../lib/dbclient"
+import { EventDb } from "../lib/util"
 
 client.on("messageReactionAdd", async (reaction, user) => {
     const channel = reaction.message.channel
@@ -97,8 +98,3 @@ client.on("messageReactionAdd", async (reaction, user) => {
         }
     }
 })
-
-export interface EventDb {
-    name: "event"
-    ids: Discord.Snowflake[]
-}

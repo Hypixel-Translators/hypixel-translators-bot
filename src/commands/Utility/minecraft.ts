@@ -3,8 +3,7 @@ import { successColor } from "../../config.json"
 import fetch from "node-fetch"
 import { db, DbUser } from "../../lib/dbclient"
 import { client, Command, GetStringFunction } from "../../index"
-import { updateButtonColors } from "./help"
-const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 10_000 }
+import { fetchSettings, getUUID, updateButtonColors } from "../../lib/util"
 
 const command: Command = {
     name: "minecraft",
@@ -190,16 +189,6 @@ const command: Command = {
 }
 
 export default command
-
-export async function getUUID(username: string): Promise<string | undefined> {
-    if (!username) return
-    return await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`, fetchSettings)
-        .then(res => res.json())
-        .then(json => json.id)
-        .catch(() => {
-            return
-        })
-}
 
 async function getPlayer(uuid: string) {
     const res = await fetch(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings),

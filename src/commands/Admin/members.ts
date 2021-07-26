@@ -1,6 +1,6 @@
 import Discord from "discord.js"
 import { Command } from "../../index"
-import { updateButtonColors } from "../Utility/help"
+import { updateButtonColors } from "../../lib/util"
 
 const command: Command = {
     name: "members",
@@ -51,10 +51,8 @@ const command: Command = {
                             .setLabel("Last page")
                     )
             controlButtons = updateButtonColors(controlButtons, page, maxMembersArr)
-            await interaction.reply({ embeds: [pageEmbed], components: [controlButtons] })
-            const msg = await interaction.fetchReply() as Discord.Message
-
-            const collector = msg.createMessageComponentCollector({ time: 60_000 })
+            const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }) as Discord.Message,
+                collector = msg.createMessageComponentCollector({ time: 60_000 })
 
             collector.on("collect", async buttonInteraction => {
                 if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: `You cannot interact with this menu! Execute /${this.name} yourself to do this.`, ephemeral: true })

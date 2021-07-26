@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import fetch from "node-fetch"
 import { HTBClient } from "../lib/dbclient"
 import { db } from "../lib/dbclient"
-import { ObjectId } from "mongodb"
+import { CrowdinProject, LangDbEntry, LanguageStatus } from "../lib/util"
 const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + process.env.CTOKEN_V2, "User-Agent": "Hypixel Translators Bot" }, timeout: 10_000 }
 
 export async function execute(client: HTBClient, manual: boolean) {
@@ -80,44 +80,6 @@ export async function updateProjectStatus(client: Discord.Client, projectId: str
             }
         })
         .catch(err => console.error(`Crowdin API is down, couldn't update ${projectDb.name} language statistics. Here's the error:`, err))
-}
-
-export interface LanguageStatus {
-    data: {
-        languageId: string,
-        words: {
-            total: number,
-            translated: number,
-            approved: number
-        },
-        phrases: {
-            total: number,
-            translated: number,
-            approved: number
-        },
-        translationProgress: number,
-        approvalProgress: number
-    },
-    language: LangDbEntry
-}
-
-export interface LangDbEntry {
-    _id: ObjectId,
-    name: string,
-    emoji: string,
-    color?: Discord.HexColorString,
-    code: string,
-    id: string
-    flag: string
-}
-
-export interface CrowdinProject {
-    _id: ObjectId
-    id: string
-    identifier: string
-    name: string
-    shortName: string
-    stringCount: number
 }
 
 export default execute
