@@ -75,7 +75,7 @@ const command: Command = {
       const page1 = new Discord.MessageEmbed()
         .setColor("BLURPLE")
         .setAuthor(getString("moduleName"))
-        .setTitle(getString("mainPage"))
+        .setTitle(`${pages[0].badge} ${getString("mainPage")}`)
         .setDescription(getString("commandsListTooltip", { developer: client.users.cache.get("240875059953139714")!.toString(), github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)" }))
         .setFooter(`${executedBy} | ${madeBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
       pages.forEach(page => {
