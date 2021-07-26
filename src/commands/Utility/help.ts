@@ -70,7 +70,7 @@ const command: Command = {
     if (!commandInput) {
 
       let page = 0
-      if (pageInput) page = pageInput - 1
+      if (pageInput) page = pageInput
 
       const page1 = new Discord.MessageEmbed()
         .setColor("BLURPLE")
