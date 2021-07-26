@@ -47,8 +47,8 @@ const command: Command = {
     const categories = ["Utility", "Info", "Projects"],
       pages = [
         { number: 0, badge: "🏠", titleString: "mainPage" },
-        { number: 1, badge: "🛠", titleString: "utilityHelp" },
-        { number: 2, badge: "ℹ", titleString: "infoHelp" },
+        { number: 1, badge: "🛠️", titleString: "utilityHelp" },
+        { number: 2, badge: "ℹ️", titleString: "infoHelp" },
         { number: 3, badge: "<:crowdin:820381256016723988>", titleString: "projectsHelp" }
       ] as Page[]
 
@@ -75,7 +75,7 @@ const command: Command = {
       const page1 = new Discord.MessageEmbed()
         .setColor("BLURPLE")
         .setAuthor(getString("moduleName"))
-        .setTitle(getString("mainPage"))
+        .setTitle(`${pages[0].badge} ${getString("mainPage")}`)
         .setDescription(getString("commandsListTooltip", { developer: client.users.cache.get("240875059953139714")!.toString(), github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)" }))
         .setFooter(`${executedBy} | ${madeBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
       pages.forEach(page => {
