@@ -12,50 +12,52 @@ client.on("messageReactionAdd", async (reaction, user) => {
         if (reaction.message.partial) reaction.message = await reaction.message.fetch()
         if (user.partial) user = await user.fetch()
         // Delete message when channel name ends with review-strings
-        if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content!) && reaction.message.guild!.members.resolve(user.id)!.roles.cache.has("569839580971401236")) { // Hypixel Proofreader
-            const translatorChannel = channel.parent!.children.filter(c => c.type === "GUILD_TEXT").sort((a, b) => a.position - b.position).first()! as Discord.TextChannel
-            let strings: { [key: string]: string }
-            try {
-                strings = require(`../../strings/${channel.name.split("-")[0]}/reviewStrings.json`)
-            } catch {
-                strings = require(`../../strings/en/reviewStrings.json`)
-            }
-            if (reaction.emoji.name === "vote_yes" && reaction.message.author!.id !== user.id) {
-                await reaction.message.react("⏱")
-                setTimeout(async () => {
-                    // Check if the user hasn't removed their reaction
-                    if (await reaction.users.fetch().then(cache => cache.has(user.id))) {
-                        if (!reaction.message.deleted) reaction.message.delete()
-                        console.log(`String reviewed in ${channel.name}`)
-                    } else await reaction.message.reactions.cache.get("⏱")?.remove()
-                }, 10_000)
-            } else if (reaction.emoji.name === "vote_maybe" && reaction.message.author!.id !== user.id) {
-                reaction.users.remove(user.id)
-                const embed = new Discord.MessageEmbed()
-                    .setColor(loadingColor as Discord.HexColorString)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.requestDetails.replace("%%user%%", user.tag))
-                    .setDescription(`${reaction.message}`)
-                    .addField(strings.message, `[${strings.clickHere}](${reaction.message.url})`)
-                    .setFooter(strings.requestedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
-                await translatorChannel.send({ content: `${reaction.message.author}`, embeds: [embed] })
-            } else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {
-                await reaction.message.react("⏱")
-                const embed = new Discord.MessageEmbed()
-                    .setColor(errorColor as Discord.HexColorString)
-                    .setAuthor(strings.moduleName)
-                    .setTitle(strings.rejected.replace("%%user%%", user.tag))
-                    .setDescription(`${reaction.message}`)
-                    .setFooter(strings.rejectedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
-                setTimeout(async () => {
-                    // Check if the user hasn't removed their reaction
-                    if (await reaction.users.fetch().then(cache => cache.has(user.id))) {
-                        await translatorChannel.send({ content: `${reaction.message.author}`, embeds: [embed] })
-                        if (!reaction.message.deleted) reaction.message.delete()
-                        console.log(`String rejected in ${channel.name}`)
-                    } else await reaction.message.reactions.cache.get("⏱")?.remove()
-                }, 10_000)
-            } else reaction.users.remove(user.id)
+        if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content!)) {
+            if (reaction.message.guild!.members.resolve(user.id)!.roles.cache.has("569839580971401236")) {
+                const translatorChannel = channel.parent!.children.filter(c => c.type === "GUILD_TEXT").sort((a, b) => a.position - b.position).first()! as Discord.TextChannel
+                let strings: { [key: string]: string }
+                try {
+                    strings = require(`../../strings/${channel.name.split("-")[0]}/reviewStrings.json`)
+                } catch {
+                    strings = require(`../../strings/en/reviewStrings.json`)
+                }
+                if (reaction.emoji.name === "vote_yes" && reaction.message.author!.id !== user.id) {
+                    await reaction.message.react("⏱")
+                    setTimeout(async () => {
+                        // Check if the user hasn't removed their reaction
+                        if (await reaction.users.fetch().then(cache => cache.has(user.id))) {
+                            if (!reaction.message.deleted) reaction.message.delete()
+                            console.log(`String reviewed in ${channel.name}`)
+                        } else await reaction.message.reactions.cache.get("⏱")?.remove()
+                    }, 10_000)
+                } else if (reaction.emoji.name === "vote_maybe" && reaction.message.author!.id !== user.id) {
+                    await reaction.users.remove(user.id)
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(loadingColor as Discord.HexColorString)
+                        .setAuthor(strings.moduleName)
+                        .setTitle(strings.requestDetails.replace("%%user%%", user.tag))
+                        .setDescription(`${reaction.message}`)
+                        .addField(strings.message, `[${strings.clickHere}](${reaction.message.url})`)
+                        .setFooter(strings.requestedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
+                    await translatorChannel.send({ content: `${reaction.message.author}`, embeds: [embed] })
+                } else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {
+                    await reaction.message.react("⏱")
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(errorColor as Discord.HexColorString)
+                        .setAuthor(strings.moduleName)
+                        .setTitle(strings.rejected.replace("%%user%%", user.tag))
+                        .setDescription(`${reaction.message}`)
+                        .setFooter(strings.rejectedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
+                    setTimeout(async () => {
+                        // Check if the user hasn't removed their reaction
+                        if (await reaction.users.fetch().then(cache => cache.has(user.id))) {
+                            await translatorChannel.send({ content: `${reaction.message.author}`, embeds: [embed] })
+                            if (!reaction.message.deleted) reaction.message.delete()
+                            console.log(`String rejected in ${channel.name}`)
+                        } else await reaction.message.reactions.cache.get("⏱")?.remove()
+                    }, 10_000)
+                } else await reaction.users.remove(user.id)
+            } else await reaction.users.remove(user.id)
         }
         // Give Polls role if reacted on reaction role message
         else if (reaction.message.id === "800415711864029204") { //server-info roles message
