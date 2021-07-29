@@ -15,7 +15,6 @@ import { Command, client as Client, GetStringFunction } from "../../index"
 const command: Command = {
   name: "eval",
   description: "Evals the specified code.",
-  allowTip: false,
   roleWhitelist: ["620274909700161556"], //*
   channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
   options: [{

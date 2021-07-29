@@ -16,7 +16,6 @@ const command: Command = {
         description: "The amount of winners to pick. defaults to 1",
         required: false
     }],
-    allowTip: false,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(interaction) {
         const giveawayMsg = await (interaction.channel as Discord.TextChannel).messages.fetch((interaction.options.getString("messageid", true) as Discord.Snowflake))

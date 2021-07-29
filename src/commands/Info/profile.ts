@@ -18,7 +18,6 @@ const command: Command = {
         description: "The new profile to set for the user. Admin only.",
         required: false
     }],
-    allowTip: false,
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
     async execute(interaction, getString: GetStringFunction) {
         const collection = db.collection("users"),
