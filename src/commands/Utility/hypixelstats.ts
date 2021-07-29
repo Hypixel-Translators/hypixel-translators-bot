@@ -51,7 +51,7 @@ const command: Command = {
             authorDb: DbUser = await client.getUser(interaction.user.id),
             userInput = interaction.options.getUser("user", false),
             usernameInput = interaction.options.getString("username", false),
-            subCommand = interaction.options.getSubCommand()
+            subCommand = interaction.options.getSubcommand()
         let uuid = authorDb.uuid
         if (userInput) {
             const userDb: DbUser = await client.getUser(userInput.id)

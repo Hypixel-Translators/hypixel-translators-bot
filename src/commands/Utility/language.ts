@@ -42,7 +42,7 @@ const command: Command = {
         const collection = db.collection("users"),
             stringsFolder = "./strings/",
             member = interaction.member as Discord.GuildMember,
-            subCommand = interaction.options.getSubCommand()
+            subCommand = interaction.options.getSubcommand()
         let language = interaction.options.getString("language", subCommand === "stats")?.toLowerCase()
 
         if (subCommand === "list") {

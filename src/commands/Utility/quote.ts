@@ -86,7 +86,7 @@ const command: Command = {
     async execute(interaction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             collection = db.collection("quotes"),
-            subCommand = interaction.options.getSubCommand()
+            subCommand = interaction.options.getSubcommand()
         let allowed = false
         if ((interaction.member as Discord.GuildMember | undefined)?.permissions.has("VIEW_AUDIT_LOG")) allowed = true
         if (subCommand === "add") {

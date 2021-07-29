@@ -49,7 +49,7 @@ const command: Command = {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
             credits = getString("madeBy", { developer: interaction.client.users.cache.get("500669086947344384")!.tag }),
             authorDb: DbUser = await client.getUser(interaction.user.id),
-            subCommand = interaction.options.getSubCommand(),
+            subCommand = interaction.options.getSubcommand(),
             userInput = interaction.options.getUser("user", false),
             usernameInput = interaction.options.getString("username", false)
 
