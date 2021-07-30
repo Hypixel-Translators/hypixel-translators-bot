@@ -9,8 +9,11 @@ import { db, DbUser } from "../lib/dbclient"
 import { isEqual } from "lodash"
 
 client.on("messageCreate", async message => {
-    //Delete pinned message messages
-    if (message.type === "PINS_ADD" && message.channel.type !== "DM") {
+    //Delete pinned message and thread created messages
+    if (
+        (message.type === "PINS_ADD" && message.channel.type !== "DM") ||
+        (message.type === "THREAD_CREATED" && (message.channel as Discord.TextChannel).name.endsWith("-review-strings"))
+    ) {
         await message.delete()
         return
     }

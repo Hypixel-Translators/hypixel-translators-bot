@@ -14,7 +14,6 @@ client.on("messageReactionAdd", async (reaction, user) => {
         // Delete message when channel name ends with review-strings
         if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content!)) {
             if (reaction.message.guild!.members.resolve(user.id)!.roles.cache.has("569839580971401236")) {
-                const translatorChannel = channel.parent!.children.filter(c => c.type === "GUILD_TEXT").sort((a, b) => a.position - b.position).first()! as Discord.TextChannel
                 let strings: { [key: string]: string }
                 try {
                     strings = require(`../../strings/${channel.name.split("-")[0]}/reviewStrings.json`)
@@ -39,7 +38,15 @@ client.on("messageReactionAdd", async (reaction, user) => {
                         .setDescription(`${reaction.message}`)
                         .addField(strings.message, `[${strings.clickHere}](${reaction.message.url})`)
                         .setFooter(strings.requestedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
-                    await translatorChannel.send({ content: `${reaction.message.author}`, embeds: [embed] })
+                    const stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/gi)?.[0],
+                        fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
+                        thread = await reaction.message.startThread(
+                            `More details requested on ${stringId ? `string ${stringId}` : fileId === "all" ? "all files" : fileId ? `file ${fileId}` : "an unknown string"}`,
+                            1440,
+                            `${user.tag} requested more details`
+                        )
+                    await thread.members.add(user.id)
+                    await thread.send({ embeds: [embed] })
                 } else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {
                     await reaction.message.react("⏱")
                     const embed = new Discord.MessageEmbed()
@@ -51,8 +58,18 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     setTimeout(async () => {
                         // Check if the user hasn't removed their reaction
                         if (await reaction.users.fetch().then(cache => cache.has(user.id))) {
-                            await translatorChannel.send({ content: `${reaction.message.author}`, embeds: [embed] })
-                            if (!reaction.message.deleted) reaction.message.delete()
+                            if (reaction.message.thread) await reaction.message.thread.delete("String rejected")
+                            const stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/gi)?.[0],
+                                fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
+                                thread = await channel.threads.create({
+                                    name: `Change rejected on ${stringId ? `string ${stringId}` : fileId === "all" ? "all files" : fileId ? `file ${fileId}` : "an unknown string"}`,
+                                    autoArchiveDuration: 1440,
+                                    reason: `${user.tag} rejected the change`
+                                })
+                            await thread.members.add(user.id)
+                            await thread.members.add(reaction.message.author!.id)
+                            await thread.send({ embeds: [embed] })
+                            if (!reaction.message.deleted) await reaction.message.delete()
                             console.log(`String rejected in ${channel.name}`)
                         } else await reaction.message.reactions.cache.get("⏱")?.remove()
                     }, 10_000)
