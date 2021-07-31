@@ -72,15 +72,15 @@ const command: Command = {
       },
       {
         id: proofreaderRole.id,
-        allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"]
+        allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "MANAGE_THREADS", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"]
       },
       {
-        id: interaction.guild!.roles.cache.find(role => role.name === "Quickplay Manager")!.id,
-        allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"]
+        id: "551758391127834625", //Hypixel Manager
+        allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "MANAGE_THREADS", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"]
       },
       {
-        id: interaction.guild!.roles.cache.find(role => role.name === "Hypixel Manager")!.id,
-        allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"]
+        id: "764442984119795732", //Discord Administrator
+        allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "MANAGE_THREADS", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"]
       }
     ] as Discord.OverwriteResolvable[]
     const pfOverwrites = Array.from(overwrites)
