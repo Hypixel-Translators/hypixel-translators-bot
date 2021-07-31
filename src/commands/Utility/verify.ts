@@ -19,7 +19,7 @@ const command: Command = {
         description: "The user to manually verify. Admin only",
         required: false
     }],
-    cooldown: 3600,
+    cooldown: 300,
     allowTip: false,
     async execute(interaction) {
         const verifyLogs = interaction.client.channels.cache.get("662660931838410754") as Discord.TextChannel,
