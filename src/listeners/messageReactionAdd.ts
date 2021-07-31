@@ -40,11 +40,11 @@ client.on("messageReactionAdd", async (reaction, user) => {
                         .setFooter(strings.requestedBy.replace("%%user%%", user.tag), user.displayAvatarURL({ dynamic: true, format: "png", }))
                     const stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/gi)?.[0],
                         fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
-                        thread = await reaction.message.startThread(
-                            `More details requested on ${stringId ? `string ${stringId}` : fileId === "all" ? "all files" : fileId ? `file ${fileId}` : "an unknown string"}`,
-                            1440,
-                            `${user.tag} requested more details`
-                        )
+                        thread = await reaction.message.startThread({
+                            name: `More details requested on ${stringId ? `string ${stringId}` : fileId === "all" ? "all files" : fileId ? `file ${fileId}` : "an unknown string"}`,
+                            autoArchiveDuration: 1440,
+                            reason: `${user.tag} requested more details`
+                        })
                     await thread.members.add(user.id)
                     await thread.send({ embeds: [embed] })
                 } else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {

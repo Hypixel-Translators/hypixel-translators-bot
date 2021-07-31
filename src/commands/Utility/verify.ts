@@ -26,8 +26,9 @@ const command: Command = {
             verify = interaction.client.channels.cache.get("569178590697095168") as Discord.TextChannel,
             member = interaction.member as Discord.GuildMember,
             profileUrl = interaction.options.getString("url", false),
-            memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null
-        if (!member.roles.cache.has("569194996964786178") && interaction.channelId == "569178590697095168" && !profileUrl) { //Verified and #verify
+            memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
+            url = profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0]
+        if (!member.roles.cache.has("569194996964786178") && interaction.channelId == "569178590697095168" && !url) { //Verified and #verify
             (interaction.channel as Discord.TextChannel).messages.fetch()
                 .then(async messages => {
                     const fiMessages = messages.filter(msgs => msgs.author.id === interaction.user.id)
@@ -43,7 +44,7 @@ const command: Command = {
         } else if (member.roles.cache.has("764442984119795732") && memberInput) { //Discord Administrator
             if (!memberInput) throw "noUser"
             await interaction.defer({ ephemeral: true })
-            await crowdinVerify(memberInput, profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], false)
+            await crowdinVerify(memberInput, url, false)
             await interaction.editReply("Your request has been processed. Check the logs")
         } else {
             const userDb: DbUser = await client.getUser(interaction.user.id)
@@ -51,7 +52,7 @@ const command: Command = {
                 await interaction.defer({ ephemeral: true });
                 await db.collection("users").updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
                 await verifyLogs.send(`${interaction.user} is being reverified.`)
-                await crowdinVerify(member, profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
+                await crowdinVerify(member, url, true)
                 await interaction.editReply("Your profile has been processed. Check your DMs.")
             } else {
                 await member.roles.remove("569194996964786178", "Unverified") // Verified
@@ -64,14 +65,14 @@ const command: Command = {
                     .setFooter("Any messages you send here will be sent to staff upon confirmation.")
                 await interaction.user.send({ embeds: [embed] })
                     .then(async () => {
-                        await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL or there was no profile stored for them.`)
+                        await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL ${url ? `(<${url}>) `: ""}or there was no profile stored for them.`)
                         await interaction.reply({ content: "Your request was processed, check your DMs for more info!", ephemeral: true })
                     })
                     .catch(async () => {
                         embed
                             .setDescription(`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us here. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`)
                             .setFooter("")
-                        await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL or there was no profile stored for them but they had DMs off so I couldn't tell them.`)
+                        await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL ${url ? `(<${url}>) ` : ""}or there was no profile stored for them but they had DMs off so I couldn't tell them.`)
                         await verify.send({ content: `${interaction.user} you had DMs disabled, so here's our message:`, embeds: [embed] })
                             .then(msg => {
                                 setTimeout(() => {
