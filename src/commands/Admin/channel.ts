@@ -5,7 +5,6 @@ import { Command } from "../../index"
 const command: Command = {
     name: "channel",
     description: "Updates the specified channel.",
-    defaultPermission: false,
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
     options: [{

@@ -258,7 +258,7 @@ client.on("messageCreate", async message => {
                         string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
                         if (!string) {
                             string = null //in case of fire
-                            if (command?.category != "Admin" && command?.category != "Staff")
+                            if (command?.category != "Admin" && command?.category != "Staff" && !path.includes(" "))
                                 console.error(`Couldn't get string ${path} in English for ${cmd}, please fix this`)
                         }
                     }
