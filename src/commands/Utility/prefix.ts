@@ -15,6 +15,16 @@ const command: Command = {
     required: false
   }],
   cooldown: 30,
+  roleWhitelist: [
+    "749390356763902114", //Bot Translator
+    "645709843436404767", //Quickplay Translator
+    "748268753405476905", //SkyblockAddons Translator
+    "569839517444341771", //Hypixel Translator
+    "752519784238678097", //Bot Proofreader
+    "645709808745578496", //Quickplay Proofreader
+    "748269222181863506", //SkyblockAddons Proofreader
+    "569839580971401236"  //Hypixel Proofreader
+  ],
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
   async execute(interaction, getString: GetStringFunction) {
     const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
@@ -22,7 +32,7 @@ const command: Command = {
       nickNoPrefix = member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim(),
       langdb: LangDbEntry[] = await db.collection("langdb").find().toArray()
 
-    if (interaction.options.getString("flags", false) && !member.roles.cache.has("569839517444341771") && !member.roles.cache.has("569839580971401236")) { //Hypixel Translator and Proofreader
+    if (interaction.options.getString("flags", false) && !member.roles.cache.hasAny("569839517444341771", "569839580971401236")) { //Hypixel Translator and Proofreader
       const flagEmojis: (string | undefined)[] = [];
       interaction.options.getString("flags", true).split(" ").forEach(emoji => {
         if (emoji.toLowerCase() === "lol" || emoji.toLowerCase() === "lolcat") flagEmojis.push("😹")
