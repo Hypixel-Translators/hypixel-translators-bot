@@ -51,7 +51,7 @@ const command: Command = {
             if (userDb.profile || profileUrl && /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) {
                 await interaction.defer({ ephemeral: true });
                 await db.collection("users").updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
-                await verifyLogs.send(`${interaction.user} is being reverified.`)
+                if ((interaction.member as Discord.GuildMember).roles.cache.has("569194996964786178")) await verifyLogs.send(`${interaction.user} is being reverified.`) //Verified
                 await crowdinVerify(member, url, true)
                 await interaction.editReply("Your profile has been processed. Check your DMs.")
             } else {
@@ -65,7 +65,7 @@ const command: Command = {
                     .setFooter("Any messages you send here will be sent to staff upon confirmation.")
                 await interaction.user.send({ embeds: [embed] })
                     .then(async () => {
-                        await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL ${url ? `(<${url}>) `: ""}or there was no profile stored for them.`)
+                        await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL ${url ? `(<${url}>) ` : ""}or there was no profile stored for them.`)
                         await interaction.reply({ content: "Your request has been processed, check your DMs for more info!", ephemeral: true })
                     })
                     .catch(async () => {
