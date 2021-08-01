@@ -72,7 +72,7 @@ const command: Command = {
                                 .setTitle(`Successfully verified ${memberInput.user.tag} as ${json.username}`)
                                 .setDescription(`They were given the ${role} role due to their rank on the server.`)
                                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-                            if (json.links?.DISCORD !== interaction.user.tag)
+                            if (json.links?.DISCORD !== memberInput.user.tag)
                                 successEmbed.setDescription("⚠ This player's Discord is different from their user tag! I hope you know what you're doing.")
                             return await interaction.editReply({ embeds: [successEmbed] })
                         } else {
