@@ -66,7 +66,7 @@ const command: Command = {
                 await interaction.user.send({ embeds: [embed] })
                     .then(async () => {
                         await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL ${url ? `(<${url}>) `: ""}or there was no profile stored for them.`)
-                        await interaction.reply({ content: "Your request was processed, check your DMs for more info!", ephemeral: true })
+                        await interaction.reply({ content: "Your request has been processed, check your DMs for more info!", ephemeral: true })
                     })
                     .catch(async () => {
                         embed
@@ -79,7 +79,7 @@ const command: Command = {
                                     if (!msg.deleted) msg.delete()
                                 }, 30_000)
                             })
-                        await interaction.reply({ content: `Your request was processed, check ${verify} for more info!`, ephemeral: true })
+                        await interaction.reply({ content: `Your request has been processed, check ${verify} for more info!`, ephemeral: true })
                     })
                 client.cooldowns.get(this.name)!.delete(interaction.user.id)
             }
