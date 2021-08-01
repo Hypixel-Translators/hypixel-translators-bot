@@ -45,8 +45,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                             autoArchiveDuration: 1440,
                             reason: `${user.tag} requested more details`
                         })
-                    await thread.members.add(user.id)
-                    await thread.send({ embeds: [embed] })
+                    await thread.send({ content: `${user}`, embeds: [embed] })
                 } else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {
                     await reaction.message.react("⏱")
                     const embed = new Discord.MessageEmbed()
@@ -66,9 +65,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                                     autoArchiveDuration: 1440,
                                     reason: `${user.tag} rejected the change`
                                 })
-                            await thread.members.add(user.id)
-                            await thread.members.add(reaction.message.author!.id)
-                            await thread.send({ embeds: [embed] })
+                            await thread.send({ content: `${reaction.message.author}, ${user}`, embeds: [embed] })
                             if (!reaction.message.deleted) await reaction.message.delete()
                             console.log(`String rejected in ${channel.name}`)
                         } else await reaction.message.reactions.cache.get("⏱")?.remove()
