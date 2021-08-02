@@ -3,7 +3,7 @@
     "commandsListTooltip": "這個機器人由 %%developer%% 為 Hypixel 翻譯人員社群而開發。這個機器人是完全開源的，其 GitHub 儲存庫可以在[這裡]%%github%%找到。\n你可以使用 `/translate` 指令，並跟隨指示來協助翻譯機器人。\n\n你可以執行 `/help <指令名稱>` 來了解特定指令的用法。\n你可以在下面找到所有可用頁面的列表。請點擊訊息下方的按鈕來切換頁面。",
     "madeBy": "機器人由 %%developer%% 開發和維護",
     "pageNumber": "第 %%number%% 頁",
-    "mainPage": "Main Page",
+    "mainPage": "首頁",
     "utilityHelp": "實用工具",
     "infoHelp": "訊息指令",
     "projectsHelp": "Crowdin 項目",
