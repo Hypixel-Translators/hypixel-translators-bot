@@ -1,5 +1,5 @@
 {
-    "hypixelCrowdin": "Here's the Hypixel Crowdin project: %%crowdin%%",
-    "hypixelGuide": "If you want to check out the project's rules, do `/guidelines`.",
-    "hypixelDiscord": "The Hypixel Discord server can be found at %%discord%% (useful for proofreaders)."
+    "hypixelCrowdin": "하이픽셀 Crowdin 프로젝트 링크입니다! %%crowdin%%",
+    "hypixelGuide": "프로젝트들의 규칙을 확인하시고 싶으시다면, `/guidelines`를 입력해보세요!",
+    "hypixelDiscord": "Proofreaders에게 유용한 하이픽셀 디스코드 서버는 %%discord%%를 통해 가입할 수 있습니다! "
 }
