@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magic 8 ball",
-    "question": "Question",
+    "moduleName": "마법의 소라고동",
+    "question": "질문",
     "answers": {
         "positive": [
-            "It is certain.",
-            "It is decidedly so.",
-            "Without a doubt.",
-            "Yes – definitely.",
-            "You may rely on it.",
-            "As I see it, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Yes",
-            "Signs point to yes."
+            "확실합니다.",
+            "그건 확실히 그렇지.",
+            "틀림없어.",
+            "당연하지.",
+            "그건 믿어도 좋아.",
+            "내가 보기엔 그래.",
+            "아마도 그래.",
+            "전망이 좋네.",
+            "어.",
+            "괜찮아 보여."
         ],
         "inconclusive": [
-            "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again."
+            "의미심장한데, 다시 시도해봐.",
+            "나중에 다시 물어봐.",
+            "지금은 말해주지 않는게 좋을것 같네.",
+            "지금은 예측할 수 없어.",
+            "집중해서 다시 물어봐."
         ],
         "negative": [
-            "Don't count on it.",
-            "My reply is no.",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful."
+            "그렇지는 않을거야.",
+            "내 대답은 \"아니\" 야.",
+            "내 자료들은 안된다고 말해주고 있어.",
+            "오늘은 전망이 안 좋아.",
+            "동작 그만. 밑장빼기냐?"
         ]
     }
 }
