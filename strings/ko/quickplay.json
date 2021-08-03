@@ -1,5 +1,5 @@
 {
-    "quickplayCrowdin": "Here's the Quickplay Crowdin project: %%crowdin%%",
-    "quickplayThread": "Here’s the thread showcasing the mod: %%thread%%",
-    "quickplayDiscord": "Here's the Quickplay Discord server: %%discord%%"
+    "quickplayCrowdin": "Quickplay Crowdin 프로젝트입니다 : %%crowdin%%",
+    "quickplayThread": "이 모드를 보여주는 스레드입니다 : %%thread%%",
+    "quickplayDiscord": "Quickplay의 디스코드 서버입니다 : %%discord%%"
 }
