@@ -1,5 +1,5 @@
 {
-    "sbaCrowdin": "Here's the SkyblockAddons Crowdin project: %%crowdin%%",
-    "sbaThread": "Here’s the thread showcasing the mod: %%thread%%",
-    "sbaDiscord": "This project is owned by Biscuit! Join his server at %%discord%%"
+    "sbaCrowdin": "SkyblockAddons Crowdin 프로젝트 링크입니다! %%crowdin%%",
+    "sbaThread": "이 모드를 보여주는 스레드입니다 : %%thread%%",
+    "sbaDiscord": "이 프로젝트는 Biscuit가 소유하고 있습니다. %%discord%%를 통해 프로젝트 디스코드 서버에 가입하세요!"
 }
