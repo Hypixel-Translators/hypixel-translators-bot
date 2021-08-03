@@ -1,8 +1,8 @@
 {
-    "moduleName": "XP Leaderboard",
-    "pageTitle": "Here is the XP leaderboard!",
+    "moduleName": "XP 리더보드",
+    "pageTitle": "XP 리더보드입니다!",
     "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
-    "youIndicator": "YOU",
-    "thousand": "k",
-    "unranked": "#%%rank%% Unranked"
+    "youIndicator": "나",
+    "thousand": "천",
+    "unranked": "#%%rank%% 랭크되지 않음."
 }
