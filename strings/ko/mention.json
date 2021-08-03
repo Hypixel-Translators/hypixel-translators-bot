@@ -1,7 +1,7 @@
 {
-    "errorNoPing": "You don't have that language's proofreader role, ",
-    "errorNoPingPr": "so you can't mention it.",
-    "errorNoPingTr": "so you can't mention its translator role.",
-    "errorNoPingAll": "so you can't mention the entire language.",
-    "errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to."
+    "errorNoPing": "그 언어의 Proofreader 역할을 가지고 있지 않아, ",
+    "errorNoPingPr": "멘션할 수 없습니다.",
+    "errorNoPingTr": "번역가 역할을 멘션할 수 없습니다.",
+    "errorNoPingAll": "그 언어 전체를 멘션할 수 없습니다.",
+    "errorNoPingDisclaimer": "진짜 필요할 경우에는 서버 오너 또는 관리진에게 연락하세요."
 }
