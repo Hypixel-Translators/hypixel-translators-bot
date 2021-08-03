@@ -1,4 +1,4 @@
 {
-    "incoming": "Received message from staff",
-    "incomingDisclaimer": "Any messages you send here will be sent to staff."
+    "incoming": "관리자로부터 메시지를 받았습니다.",
+    "incomingDisclaimer": "여기에 보내주시는 모든 메시지는 자동으로 관리자에게 전달됩니다."
 }
