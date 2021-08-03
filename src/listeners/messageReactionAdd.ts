@@ -25,7 +25,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     setTimeout(async () => {
                         // Check if the user hasn't removed their reaction
                         if (await reaction.users.fetch().then(cache => cache.has(user.id))) {
-                            if (!reaction.message.deleted) reaction.message.delete()
+                            if (!reaction.message.deleted) await reaction.message.delete()
                             console.log(`String reviewed in ${channel.name}`)
                         } else await reaction.message.reactions.cache.get("⏱")?.remove()
                     }, 10_000)

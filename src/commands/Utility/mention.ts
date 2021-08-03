@@ -43,7 +43,7 @@ const command: Command = {
       member = interaction.member as Discord.GuildMember
     let roleName = lang.charAt(0).toUpperCase() + lang.slice(1),
       message = interaction.options.getString("message", false)
-    if (!message) message = "<a:bongoping:614477510423478275>"
+    message ??= "<a:bongoping:614477510423478275>"
 
     const langs: { [key: string]: string } = {
       Chinesesimplified: "Chinese Simplified",

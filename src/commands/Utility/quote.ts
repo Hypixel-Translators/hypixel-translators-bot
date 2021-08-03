@@ -121,10 +121,8 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
 
     const count = await collection.estimatedDocumentCount()
 
-    let quoteId: number,
-        index = interaction.options.getInteger("index", false)
-    if (!index) quoteId = Math.ceil(Math.random() * Math.floor(count)) //generate random id if no arg is given
-    else quoteId = Number(index)
+    let quoteId = interaction.options.getInteger("index", false)
+    quoteId ??= Math.ceil(Math.random() * Math.floor(count)) //generate random id if no arg is given
 
     const quote = await collection.findOne({ id: quoteId })
     if (!quote) {
@@ -132,7 +130,7 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
             .setColor(errorColor as Discord.HexColorString)
             .setAuthor(getString("moduleName"))
             .setTitle(getString("invalidArg"))
-            .setDescription(getString("indexArg", { arg: index!, max: count }))
+            .setDescription(getString("indexArg", { arg: quoteId!, max: count }))
             .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
         return await interaction.reply({ embeds: [embed], ephemeral: true })
     }

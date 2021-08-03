@@ -170,7 +170,7 @@ client.on("interactionCreate", async interaction => {
 
         let reply: Discord.Message | null = null
         if (!interaction.ephemeral && interaction.replied) reply = await interaction.fetchReply() as Discord.Message
-        if (command.allowTip !== false && !command.roleWhitelist &&d <= 5) {
+        if (command.allowTip !== false && !command.roleWhitelist && d <= 5) {
             // Less than or equal to 5%
             const keys = Object.keys(getString("tips", "global"))
             const tip = getString(

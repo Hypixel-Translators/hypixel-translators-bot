@@ -75,8 +75,8 @@ const command: Command = {
                         await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL ${url ? `(<${url}>) ` : ""}or there was no profile stored for them but they had DMs off so I couldn't tell them.`)
                         await verify.send({ content: `${interaction.user} you had DMs disabled, so here's our message:`, embeds: [embed] })
                             .then(msg => {
-                                setTimeout(() => {
-                                    if (!msg.deleted) msg.delete()
+                                setTimeout(async () => {
+                                    if (!msg.deleted) await msg.delete()
                                 }, 30_000)
                             })
                         await interaction.reply({ content: `Your request has been processed, check ${verify} for more info!`, ephemeral: true })

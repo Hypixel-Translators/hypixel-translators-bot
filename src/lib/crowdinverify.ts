@@ -59,8 +59,8 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
                     errorEmbed.setFooter("This message will be deleted in a minute")
                     await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
                         .then(msg => {
-                            setTimeout(() => {
-                                if (!msg.deleted) msg.delete()
+                            setTimeout(async () => {
+                                if (!msg.deleted) await msg.delete()
                             }, 60_000)
                         })
                     await verifyLogs.send(`${member} didn't send a valid profile URL. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
@@ -100,8 +100,8 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
                     errorEmbed.setFooter("This message will be deleted in a minute")
                     await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
                         .then(msg => {
-                            setTimeout(() => {
-                                if (!msg.deleted) msg.delete()
+                            setTimeout(async () => {
+                                if (!msg.deleted) await msg.delete()
                             }, 60_000)
                         })
                     await verifyLogs.send(`${member} sent the wrong profile link (<${url}>). Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
@@ -124,8 +124,8 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
                     errorEmbed.setFooter("This message will be deleted in a minute")
                     await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
                         .then(msg => {
-                            setTimeout(() => {
-                                if (!msg.deleted) msg.delete()
+                            setTimeout(async () => {
+                                if (!msg.deleted) await msg.delete()
                             }, 60_000)
                         })
                     await verifyLogs.send(`${member}'s profile was private (<${url}>), I let them know about that in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
@@ -428,7 +428,7 @@ async function veteranMedals(member: Discord.GuildMember, project: CrowdinProjec
 
     let role = member.guild.roles.cache.find(r => r.name.includes(`${years == 1 ? `${years} Year` : `${years} Years`} Veteran`))
     if (!medals[years]) throw "We've ran out of veteran medals!"
-    if (!role) role = await member.guild.roles.create(
+    role ??= await member.guild.roles.create(
         {
             name: `${medals[years]} ${years == 1 ? `${years} Year` : `${years} Years`} Veteran`,
             position: member.guild.roles.cache.filter(r => r.name.includes(" Veteran")).sort((a, b) => b.position - a.position).first()!.position + 1,

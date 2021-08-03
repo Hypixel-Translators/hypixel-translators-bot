@@ -25,7 +25,7 @@ const command: Command = {
         if (!rawLang) throw "noLang"
         const langdb = await db.collection("langdb").find().toArray() as LangDbEntry[]
         let lang = langdb.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)!
-        if (!lang) lang = langdb.find(l => l.name.toLowerCase().includes(rawLang!))!
+        lang ??= langdb.find(l => l.name.toLowerCase().includes(rawLang!))!
         if (!lang || lang?.code === "en") throw "falseLang"
 
         await interaction.defer()

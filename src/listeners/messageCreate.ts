@@ -50,7 +50,7 @@ client.on("messageCreate", async message => {
     // Delete non-stringURL messages in review-strings
     const stringURLRegex = /https:\/\/crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
     if (message.channel instanceof Discord.TextChannel && message.channel.name.endsWith("-review-strings")) {
-        if (!/https:\/\/crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) message.delete()
+        if (!/https:\/\/crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) await message.delete()
         else {
             await message.react("732298639749152769") // vote_yes
             await message.react("839262179416211477") // vote_maybe
