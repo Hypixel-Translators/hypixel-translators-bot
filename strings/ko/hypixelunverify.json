@@ -1,6 +1,6 @@
 {
-    "moduleName": "Hypixel Verification",
-    "unverified": "You were successfully unverified!",
-    "notUnverified": "Couldn't unverify you!",
-    "whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `/hypixelverify <username>`."
+    "moduleName": "Hypixel 인증",
+    "unverified": "성공적으로 연동을 해제했습니다!",
+    "notUnverified": "연동을 해제할 수 없습니다!",
+    "whyNotUnverified": "아직 연동을 하지 않아 에러가 생겼습니다. 먼저 `/hypixelverify <username>` 을 통해 계정을 연동해주세요!"
 }

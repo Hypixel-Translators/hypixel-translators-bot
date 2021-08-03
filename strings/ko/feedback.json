@@ -1,8 +1,8 @@
 {
-    "moduleName": "Problems and feedback",
-    "bugT": "Viewing and adding issues",
-    "bugD": "To show and make suggestions or bug reports, click on the button below!",
-    "urgentT": "Is it urgent?",
-    "urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention a staff member in a public channel, explaining the issue.",
-    "link": "Link"
+    "moduleName": "문제 & 피드백",
+    "bugT": "확인 및 이슈 추가",
+    "bugD": "피드백 또는 버그 리포트를 확인/제출하기 위해서는 아래 버튼을 눌러주세요!",
+    "urgentT": "긴급한 제출인가요?",
+    "urgentD": "중대한 버그를 제출하거나 봇이 계속 오프라인일 경우에는, 관리자를 메인 채널 카테고리에서 멘션해서 상황을 설명해주세요.",
+    "link": "링크"
 }

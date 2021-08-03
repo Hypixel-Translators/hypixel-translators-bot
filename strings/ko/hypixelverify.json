@@ -1,9 +1,9 @@
 {
-    "moduleName": "Hypixel Verification",
-    "success": "You successfully verified yourself as %%player%%!",
-    "role": "You were given the %%role%% role due to your rank on the server.",
-    "alreadyVerified": "You are already verified!",
-    "nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
-    "error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
-    "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this."
+    "moduleName": "Hypixel 인증",
+    "success": "%%player%%로 성공적으로 인증했습니다!",
+    "role": "본인이 가지고 있는 랭크에 따라, 서버에서 %%role%% 역할이 지급되었습니다.",
+    "alreadyVerified": "이미 인증되었습니다.",
+    "nameChangeDisclaimer": "이름을 변경해도 다시 인증을 할 필요가 없습니다!",
+    "error": "Hypixel에 본인의 디스코드를 정상적으로 셋업하지 않아서 인증이 불가능합니다!",
+    "tutorial": "인증을 시도하려면, 하이픽셀에서 디스코드를 %%tag%%로 설정하고 명령어를 다시 실행할 때까지 최대 10분 동안 기다려야 합니다. 이 방법을 모를 경우 아래 비디오의 튜토리얼을 확인하세요."
 }

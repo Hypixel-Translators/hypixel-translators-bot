@@ -1,9 +1,9 @@
 {
-    "moduleName": "Translation Projects",
-    "allProjects": "Here are all the projects we currently support on the server!",
-    "description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
-    "projectInfo": "You can find the link to the %%project%% project [here](%%link%%). For more information, execute %%command%%.",
-    "alreadyJoined": "You've already joined this project!",
-    "notJoined": "You haven't joined this project yet!",
-    "dmError": "We couldn't check whether you're already on these projects or not. In order to do this, you must execute the command on The Hypixel Translators Community Discord."
+    "moduleName": "번역 프로젝트",
+    "allProjects": "이 서버에서 번역을 지원하는 모든 프로젝트 목록입니다!",
+    "description": "이미 이들 중 하나에 참여하고 있지만 역할을 받지 못하셨다면, '/verify [profileURL]'를 입력하여 역할 수령을 다시 시도해보세요!",
+    "projectInfo": "[여기](%%link%%)에서 %%project%%에 관한 링크를 얻을 수 있습니다. 자세한 정보는 %%command%% 명령어를 입력하여 확인해보세요.",
+    "alreadyJoined": "이미 이 프로젝트에 참여하셨습니다!",
+    "notJoined": "아직 이 프로젝트에 참여하지 않았습니다!",
+    "dmError": "당신이 이 프로젝트에 참여 중인지를 확인할 수 없습니다. 먼저 The Hypixel Translators Community Discord에서 명령어를 실행하셔야 합니다."
 }

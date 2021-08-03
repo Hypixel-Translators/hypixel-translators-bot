@@ -1,12 +1,12 @@
 {
-    "moduleName": "User level",
-    "yourRank": "Here's your rank",
-    "userRank": "Here's %%user%%'s rank",
-    "youNotRanked": "You're not ranked yet!",
-    "userNotRanked": "That user is not ranked yet!",
-    "howRank": "In order to be ranked you must talk in the chats!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Messages",
-    "thousand": "k",
-    "youLevel": "You're at level %%level%% and you're #%%rank%% on the leaderboard!",
-    "userLevel": "%%user%% is at level %%level%% and they're #%%rank%% on the leaderboard!"
+    "moduleName": "User Level",
+    "yourRank": "당신의 랭크입니다.",
+    "userRank": "%%user%%의 랭크입니다.",
+    "youNotRanked": "아직 랭크되지 않았습니다.",
+    "userNotRanked": "그 유저는 아직 랭크되지 않았습니다!",
+    "howRank": "랭크되기 위해서는 먼저 채널에서 채팅을 치셔야 합니다!",
+    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% 메시지",
+    "thousand": "천",
+    "youLevel": "현재 Lv. %%level%%에 있으며, 리더보드 랭킹은 #%%rank%% 입니다.",
+    "userLevel": "%%user%%님은 현재 Lv. %%level%%에 있으며, 리더보드 랭킹은 #%%rank%% 입니다."
 }

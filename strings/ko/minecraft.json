@@ -1,19 +1,19 @@
 {
-    "moduleName": "Minecraft Statistics",
-    "madeBy": "Command made by %%developer%%",
+    "moduleName": "마인크래프트 Stats",
+    "madeBy": "%%developer%%에 의해 명령어가 개발되었습니다.",
     "history": {
-        "firstName": "First name",
-        "nameHistoryFor": "Name history for %%username%%",
-        "userChangedName": "%%username%% has changed their name %%number%% times.",
-        "youChangedName": "You have changed your name %%number%% times.",
-        "userChangedName1": "%%username%% has changed their name 1 time.",
-        "youChangedName1": "You have changed your name 1 time.",
-        "userNeverChanged": "%%username%% has never changed their name.",
-        "youNeverChanged": "You have never changed your name."
+        "firstName": "이름",
+        "nameHistoryFor": "%%username%%의 이름 히스토리",
+        "userChangedName": "%%username%%은 본인의 이름을 %%number%%번 바꿨습니다.",
+        "youChangedName": "이름을 %%number%%번 바꿨습니다.",
+        "userChangedName1": "%%username%%은 이름을 1번 바꿨습니다.",
+        "youChangedName1": "이름을 1번 바꿨습니다.",
+        "userNeverChanged": "%%username%%은 한번도 이름을 바꾼 적이 없습니다.",
+        "youNeverChanged": "한번도 이름을 바꾼 적이 없습니다."
     },
     "skin": {
-        "yourSkin": "Here's your skin!",
-        "userSkin": "Here's %%user%%'s skin!",
-        "isLinked": "This player is linked to %%user%%"
+        "yourSkin": "본인의 스킨입니다.",
+        "userSkin": "%%user%%의 스킨입니다.",
+        "isLinked": "이 플레이어는 %%user%%로 인증되었습니다."
     }
 }

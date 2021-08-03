@@ -1,99 +1,99 @@
 {
-    "moduleName": "Information",
-    "commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
-    "madeBy": "Bot made with lots of care by %%developer%%",
-    "pageNumber": "Page %%number%%",
-    "mainPage": "Main Page",
-    "utilityHelp": "Tools & Utilities",
-    "infoHelp": "Information Commands",
-    "projectsHelp": "Crowdin Projects",
-    "commandInfo": "Command information",
-    "commandInfoFor": "Command information for ",
-    "staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-    "inDev": "This command is currently in development and will be available at a later date!",
-    "seconds": "seconds",
-    "second": "second",
-    "minutes": "minutes",
-    "cooldownField": "Cooldown",
+    "moduleName": "정보",
+    "commandsListTooltip": "이 봇은 Hypixel Translators Community 를 위해 만들어졌으며, %%developer%% 들에 의해서 유지됩니다. 이 봇은 오픈소스이며, 깃허브 레포지토리는 [여기서]%%github%% 확인할 수 있습니다. \n`/translate`를 입력해서 봇 번역에 기여해보세요. \n\n`/help <명령어>` 를 입력해서 특정 명령어에 대한 도움말을 얻을 수 있습니다. \n아래에서 확인할 수 있는 명령어들을 확인해보세요. 이 메시지에 있는 버튼을 통해 페이지를 변경할 수 있습니다.",
+    "madeBy": "이 봇은 %%developer%% 의 많은 사랑과 정성으로 만들어졌습니다.",
+    "pageNumber": "페이지 %%number%%",
+    "mainPage": "메인 페이지",
+    "utilityHelp": "도구 및 유틸리티",
+    "infoHelp": "정보",
+    "projectsHelp": "CrowdIn 프로젝트",
+    "commandInfo": "명령어 정보",
+    "commandInfoFor": "명령어 정보 : ",
+    "staffOnly": "이 명령어는 관리진만 사용할 수 있기 때문에 정보가 노출되지 않습니다.\n오류라고 생각하시면 관리진에게 연락하시기 바랍니다.",
+    "inDev": "이 명령어는 현재 개발중에 있습니다! 기대해주세요!",
+    "seconds": "초",
+    "second": "초",
+    "minutes": "분",
+    "cooldownField": "쿨다운",
     "8ball": {
-        "description": "The Magic 8 Ball that will answer all your questions."
+        "description": "당신의 질문에 답변해주는 마법에 소라고동!"
     },
     "feedback": {
-        "description": "Opens our GitHub issues page, where you can report problems and send feedback."
+        "description": "봇에 대한 피드백 / 버그를 제보할 수 있는 깃허브 이슈 페이지를 오픈합니다."
     },
     "guidelines": {
-        "description": "Gives you the link to the official thread regarding Hypixel translations."
+        "description": "하이픽셀 번역과 관련된 스레드에 대한 Official 링크를 제공합니다."
     },
     "help": {
-        "description": "Shows you all available commands and other info about the bot."
+        "description": "봇에 대한 모든 명령어와 기타 정보를 보여줍니다."
     },
     "hypixel": {
-        "description": "Gives you useful information regarding the Hypixel project."
+        "description": "하이픽셀 프로젝트와 관련된 유용한 정보를 제공합니다."
     },
     "hypixelstats": {
-        "description": "Shows you basic Hypixel stats for the provided user."
+        "description": "지정한 유저에 대한 기본적인 하이픽셀 Stats를 보여줍니다."
     },
     "hypixelunverify": {
-        "description": "Unlinks your Discord account from your Minecraft account."
+        "description": "마인크래프트 계정과 디스코드 계정의 연동을 해제합니다."
     },
     "hypixelverify": {
-        "description": "Links your Discord account with your Minecraft account."
+        "description": "마인크래프트 계정과 디스코드 계정을 연동합니다."
     },
     "invite": {
-        "description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+        "description": "이 서버의 초대링크를 제공합니다. 원하는 사람을 초대하고 싶을 땐, 이 초대링크를 사용해주세요."
     },
     "language": {
-        "description": "Changes your language, shows your current one or a list of available languages."
+        "description": "봇에서 사용할 수 있는 모든 언어들의 리스트를 노출하며, 언어를 바꿀 수 있습니다."
     },
     "languagestats": {
-        "description": "Shows you the progress of a language on all the projects we currently support."
+        "description": "우리가 지원하는 모든 프로젝트의 진행률을 보여줍니다."
     },
     "levels": {
-        "description": "Gives you the XP leaderboard."
+        "description": "XP Leaderboard를 보여줍니다."
     },
     "mention": {
-        "description": "Mentions a language role with an optional message."
+        "description": "메시지와 함께 특정 언어 역할을 가지고 있는 유저를 멘션합니다."
     },
     "minecraft": {
-        "description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+        "description": "마인크래프트 유저에 대한 닉네임 변경 히스토리 또는 스킨을 검색해줍니다. /hypixelverify 와 같이 유저가 인증되어 있는지 알 수 있습니다. `user` 는 `username` 보다 상위에 있으며, 본인이 verified 되어 있다면 두개 다 필요가 없지만, verified 되어 있지 않다면 최소한 한 개는 명령어를 실행하기 위해 있어야 합니다."
     },
     "ping": {
-        "description": "Gives you the bot's ping."
+        "description": "봇의 핑을 보여줍니다."
     },
     "prefix": {
-        "description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+        "description": "본인의 언어(들) 에 맞는 Prefix를 지정해줍니다. 커스텀 Prefix를 얻기 위해선 `/prefix`를 실행해서 국기 코드 또는 국기의 이름을 `flags`에 넣어주시기 바랍니다. Prefix에는 본인이 원하는 만큼 국기를 많이 넣을 수 있습니다."
     },
     "profile": {
-        "description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
+        "description": "데이터베이스에 저장되어 있는 본인의 CrowdIn 프로필의 링크를 제공해줍니다. 제공된 링크가 본인의 것이 아니라면, `/help verify` 를 입력해서 프로필 저장 및 역할 업데이트에 대해 알아보세요."
     },
     "projects": {
-        "description": "Gives you links and information about all the translation projects we support on the server."
+        "description": "우리 서버에서 지원하는 프로젝트들에 대한 정보와 링크를 제공합니다."
     },
     "quickplay": {
-        "description": "Gives you useful information regarding the Quickplay project."
+        "description": "퀵플레이 프로젝트와 관련된 유용한 정보를 제공합니다."
     },
     "quote": {
-        "description": "Gets (or adds) a funny/weird/wise quote from the server."
+        "description": "재미있거나 이상하거나 유익한 글귀들을 확인 (또는 추가) 할 수 있습니다."
     },
     "rank": {
-        "description": "Gives you the current XP for yourself or any given user."
+        "description": "본인, 또는 지정한 유저에 대한 XP를 확인할 수 있습니다."
     },
     "skyblockaddons": {
-        "description": "Gives you useful information regarding the SkyblockAddons project."
+        "description": "SkyblockAddons 프로젝트와 관련된 유용한 정보를 제공합니다."
     },
     "thread": {
-        "description": "Gives you the link to the thread announcing this Discord server."
+        "description": "이 디스코드 서버에 대한 하이픽셀 스레드 링크를 제공합니다."
     },
     "tip": {
-        "description": "Gives you a random tip regarding the server."
+        "description": "이 서버에 대한 랜덤 팁을 제공합니다."
     },
     "translate": {
-        "description": "Gives you useful information on how to translate the Bot."
+        "description": "이 봇을 어떻게 번역할 수 있는지에 대한 정보를 제공합니다."
     },
     "twitter": {
-        "description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+        "description": "Official Hypixel Translators Community 트위터 페이지 링크를 제공합니다."
     },
     "verify": {
-        "description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+        "description": "CrowdIn 프로필을 확인하며, 적절한 역할을 자동으로 지급합니다. 크라우드인 프로필이 데이터베이스에 없다면, 이 명령어를 통해 제공할 수 있습니다. CrowdIn 프로필이 있는지 확인하기 위해선 `/profile` 명령어를 입력해보세요. \n명령어를 실행하기 전, 봇이 본인에게 DM을 보낼 수 있는지 확인하세요."
     }
 }
