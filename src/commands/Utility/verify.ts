@@ -28,6 +28,7 @@ const command: Command = {
             profileUrl = interaction.options.getString("url", false),
             memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
             url = profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0]
+        await interaction.defer({ ephemeral: true });
         if (!member.roles.cache.has("569194996964786178") && interaction.channelId == "569178590697095168" && !url) { //Verified and #verify
             (interaction.channel as Discord.TextChannel).messages.fetch()
                 .then(async messages => {
@@ -40,16 +41,14 @@ const command: Command = {
             await db.collection("users").updateOne({ id: member.id, profile: { $exists: false } }, { $set: { profile: null } })
             await verifyLogs.send(`${interaction.user} manually verified themselves through the command`)
             client.cooldowns.get(this.name)!.delete(interaction.user.id)
-            await interaction.reply({ content: "You successfully verified yourself!", ephemeral: true })
+            await interaction.editReply({ content: "You successfully verified yourself!" })
         } else if (member.roles.cache.has("764442984119795732") && memberInput) { //Discord Administrator
-            if (!memberInput) throw "noUser"
-            await interaction.defer({ ephemeral: true })
+            await verifyLogs.send({ content: `${memberInput} is being reverified (requested by ${interaction.user})`, allowedMentions: { users: [memberInput.id] } })
             await crowdinVerify(memberInput, url, false)
             await interaction.editReply("Your request has been processed. Check the logs")
         } else {
             const userDb: DbUser = await client.getUser(interaction.user.id)
             if (userDb.profile || profileUrl && /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) {
-                await interaction.defer({ ephemeral: true });
                 await db.collection("users").updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
                 if ((interaction.member as Discord.GuildMember).roles.cache.has("569194996964786178")) await verifyLogs.send(`${interaction.user} is being reverified.`) //Verified
                 await crowdinVerify(member, url, true)
@@ -66,7 +65,7 @@ const command: Command = {
                 await interaction.user.send({ embeds: [embed] })
                     .then(async () => {
                         await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL ${url ? `(<${url}>) ` : ""}or there was no profile stored for them.`)
-                        await interaction.reply({ content: "Your request has been processed, check your DMs for more info!", ephemeral: true })
+                        await interaction.editReply({ content: "Your request has been processed, check your DMs for more info!" })
                     })
                     .catch(async () => {
                         embed
@@ -79,7 +78,7 @@ const command: Command = {
                                     if (!msg.deleted) await msg.delete()
                                 }, 30_000)
                             })
-                        await interaction.reply({ content: `Your request has been processed, check ${verify} for more info!`, ephemeral: true })
+                        await interaction.editReply({ content: `Your request has been processed, check ${verify} for more info!` })
                     })
                 client.cooldowns.get(this.name)!.delete(interaction.user.id)
             }
