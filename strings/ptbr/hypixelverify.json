@@ -4,6 +4,6 @@
     "role": "Você recebeu o cargo %%role%% por possuir o rank no servidor.",
     "alreadyVerified": "Você já está verificado!",
     "nameChangeDisclaimer": "Lembre-se que você não precisa verificar-se novamente ao mudar de nome!",
-    "error": "Não foi possível verificar você pois não há um Discord vinculado em sua conta no Hypixel!",
+    "error": "Não foi possível realizar a verificação pois você não vinculou o Discord no Hypixel corretamente!",
     "tutorial": "Para ser verificado, você precisa definir o seu Discord no Hypixel para %%tag%% e aguardar 10 minutos para usar o comando novamente. Siga as instruções no vídeo abaixo caso não saiba fazer isto."
 }
