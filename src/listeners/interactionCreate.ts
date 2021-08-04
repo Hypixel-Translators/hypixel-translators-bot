@@ -1,4 +1,4 @@
-import { client } from "../index"
+import { client, Command } from "../index"
 import { DbUser } from "../lib/dbclient"
 import Discord from "discord.js"
 import { errorColor } from "../config.json"
@@ -6,29 +6,69 @@ import fs from "fs"
 import { isEqual } from "lodash"
 
 client.on("interactionCreate", async interaction => {
-    // Staff LOA warning removal system
-    if (interaction.isButton() && interaction.channelId === "836748153122324481" && interaction.customId == "done") {
-        if ((interaction.message as Discord.Message).mentions.users.first()!.id !== interaction.user.id) {
-            await interaction.reply({ content: "You can only remove your own LOA warning!", ephemeral: true })
-            return
-        }
-        const endDateRaw = (interaction.message as Discord.Message).embeds[0].fields[1].value.split("/"),
-            endDate = new Date(Number(endDateRaw[2]), Number(endDateRaw[1]) - 1, Number(endDateRaw[0]))
-        if (endDate.getTime() > Date.now()) {
-            await interaction.reply({ content: "You can't end this LOA yet! If something changed, please contact the admins.", ephemeral: true })
-            return
-        } else {
-            await (interaction.message as Discord.Message).delete()
-            await interaction.reply({ content: "Successfully deleted this LOA! **Welcome back!**", ephemeral: true })
-            return
+    const author: DbUser = await client.getUser(interaction.user.id),
+        member = await interaction.client.guilds.cache.get("549503328472530974")?.members.fetch(interaction.user.id)!,
+        executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
+    let command: Command | null = null
+    if (interaction.isButton() && !interaction.user.bot) {
+        // Staff LOA warning removal system
+        if (interaction.channelId === "836748153122324481" && interaction.customId == "done") {
+            if ((interaction.message as Discord.Message).mentions.users.first()!.id !== interaction.user.id) {
+                await interaction.reply({ content: "You can only remove your own LOA warning!", ephemeral: true })
+                return
+            }
+            const endDateRaw = (interaction.message as Discord.Message).embeds[0].fields[1].value.split("/"),
+                endDate = new Date(Number(endDateRaw[2]), Number(endDateRaw[1]) - 1, Number(endDateRaw[0]))
+            if (endDate.getTime() > Date.now()) {
+                await interaction.reply({ content: "You can't end this LOA yet! If something changed, please contact the admins.", ephemeral: true })
+                return
+            } else {
+                await (interaction.message as Discord.Message).delete()
+                await interaction.reply({ content: "Successfully deleted this LOA! **Welcome back!**", ephemeral: true })
+                return
+            }
+        } else if (interaction.channelId === "762341271611506708") {
+            // Self-roles system
+            let roleId: Discord.Snowflake
+            if (interaction.customId === "polls") roleId = "646098170794868757" //Polls
+            else if (interaction.customId === "botUpdates") roleId = "732615152246980628" //Bot Updates
+            else if (interaction.customId === "giveaways") {
+                const userDb = await client.getUser(interaction.user.id)
+                if ((userDb.levels?.level ?? 0) < 5) {
+                    console.log(`${member.user.tag} tried to get the Giveaway pings role but they're level ${userDb.levels?.level ?? 0} lol`)
+                    return await interaction.reply({
+                        content: getString("roles.noLevel", { level: 5, command: "`/rank`", channel: "<#549894938712866816>" }),
+                        ephemeral: true
+                    })
+                }
+                roleId = "801052623745974272" //Giveaway pings
+            } else return
+            if (member.roles.cache.has(roleId)) {
+                member.roles.remove(roleId, "Clicked the button in server-info")
+                    .then(async () => {
+                        await interaction.reply({ content: getString("roles.successTake", { role: `<@&${roleId}>` }), ephemeral: true })
+                        console.log(`Took the ${interaction.guild!.roles.cache.get(roleId)!.name} role from ${interaction.user.tag}`)
+                    })
+                    .catch(async err => {
+                        await interaction.reply({ content: getString("roles.errorTake", { role: `<@&${roleId}>` }), ephemeral: true })
+                        console.error(`An error occured while trying to take the ${interaction.guild!.roles.cache.get(roleId)!.name} role from ${interaction.user.tag}. Here's the error:\n`, err)
+                    })
+            } else {
+                member.roles.add(roleId, "Clicked the button in server-info")
+                    .then(async () => {
+                        await interaction.reply({ content: getString("roles.successGive", { role: `<@&${roleId}>` }), ephemeral: true })
+                        console.log(`Gave the ${interaction.guild!.roles.cache.get(roleId)!.name} role to ${interaction.user.tag}`)
+                    })
+                    .catch(async err => {
+                        await interaction.reply({ content: getString("roles.errorGive", { role: `<@&${roleId}>` }), ephemeral: true })
+                        console.error(`An error occured while trying to give the ${interaction.guild!.roles.cache.get(roleId)!.name} role to ${interaction.user.tag}. Here's the error:\n`, err)
+                    })
+            }
         }
     }
     if (!interaction.isCommand() || interaction.user.bot) return
 
-    const author: DbUser = await client.getUser(interaction.user.id),
-        command = client.commands.get(interaction.commandName)!,
-        member = await interaction.client.guilds.cache.get("549503328472530974")?.members.fetch(interaction.user.id)!,
-        executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
+    command = client.commands.get(interaction.commandName)!
 
     //Log if command is ran in DMs
     if (interaction.channel?.type === "DM") console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
