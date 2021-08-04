@@ -41,7 +41,10 @@ const command: Command = {
             await db.collection("users").updateOne({ id: member.id, profile: { $exists: false } }, { $set: { profile: null } })
             await verifyLogs.send(`${interaction.user} manually verified themselves through the command`)
             client.cooldowns.get(this.name)!.delete(interaction.user.id)
-            await interaction.editReply({ content: "You successfully verified yourself!" })
+            await interaction.editReply({
+                content:
+                    "You successfully verified yourself as a regular user! If you're a translator and didn't mean to do this, feel free to run the /verify command and make sure to include your profile URL in the `url` parameter, e.g. `/verify url:https://crowdin.com/profile/atotallyvaliduser`"
+            })
         } else if (member.roles.cache.has("764442984119795732") && memberInput) { //Discord Administrator
             await verifyLogs.send({ content: `${memberInput} is being reverified (requested by ${interaction.user})`, allowedMentions: { users: [memberInput.id] } })
             await crowdinVerify(memberInput, url, false)
