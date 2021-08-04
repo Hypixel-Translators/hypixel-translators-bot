@@ -63,7 +63,7 @@ client.on("messageCreate", async message => {
 
     //Link correction system
     if (
-        !(message.channel instanceof Discord.DMChannel) &&
+        message.channel.type !== "DM" &&
         message.content.toLowerCase().includes("/translate/hypixel/") &&
         message.content.includes("://") &&
         /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)
