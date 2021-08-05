@@ -27,6 +27,7 @@ const command: Command = {
     }],
     async execute(interaction) {
         const channelInput = interaction.options.getString("channel", false)
+        await interaction.defer()
         if (channelInput === "info") {
             await info(interaction)
             const successEmbed = new Discord.MessageEmbed()
@@ -35,7 +36,7 @@ const command: Command = {
                 .setTitle("Updated the information channel!")
                 .setDescription(`Check it out at <#762341271611506708>!`) //server-info
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.reply({ embeds: [successEmbed] })
+            await interaction.editReply({ embeds: [successEmbed] })
         } else if (channelInput === "rules") {
             await rules(interaction)
             const successEmbed = new Discord.MessageEmbed()
@@ -44,7 +45,7 @@ const command: Command = {
                 .setTitle("Updated the rules channel!")
                 .setDescription(`Check it out at <#796159719617986610>!`) //rules
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.reply({ embeds: [successEmbed] })
+            await interaction.editReply({ embeds: [successEmbed] })
         } else if (channelInput === "verify") {
             await verify(interaction)
             const successEmbed = new Discord.MessageEmbed()
@@ -53,7 +54,7 @@ const command: Command = {
                 .setTitle("Updated the verification channel!")
                 .setDescription(`Check it out at <#569178590697095168>!`) //verify
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.reply({ embeds: [successEmbed] })
+            await interaction.editReply({ embeds: [successEmbed] })
         } else if (!channelInput) {
             await info(interaction)
             await verify(interaction)
@@ -64,7 +65,7 @@ const command: Command = {
                 .setTitle("All channels have been updated!")
                 .setDescription(`Check them out at <#762341271611506708>, <#796159719617986610> and <#569178590697095168>!`) //server-info, rules and verify
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-            await interaction.reply({ embeds: [successEmbed] })
+            await interaction.editReply({ embeds: [successEmbed] })
         }
     }
 }
