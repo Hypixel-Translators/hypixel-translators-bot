@@ -89,7 +89,7 @@ client.on("messageCreate", async message => {
                             format: "`crowdin.com/translate/.../.../en-en#`"
                         })}`
                     )
-                await message.reply({ content: `${message.author}`, embeds: [embed], allowedMentions: { repliedUser: true } })
+                await message.reply({ embeds: [embed], allowedMentions: { repliedUser: true } })
                 return
             } else if (message.content !== langFix && message.channel.parentId === "549503328472530977") {
                 await message.react("732298639736570007")
@@ -98,7 +98,7 @@ client.on("messageCreate", async message => {
                     .setAuthor(getGlobalString("errors.wrongLink"))
                     .setTitle(getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }))
                     .setDescription(`**${getGlobalString("correctLink")}**\n${langFix.match(stringURLRegex)![0]}`)
-                await message.reply({ content: `${message.author}`, embeds: [embed], allowedMentions: { repliedUser: true } })
+                await message.reply({ embeds: [embed], allowedMentions: { repliedUser: true } })
                 return
             }
         }
