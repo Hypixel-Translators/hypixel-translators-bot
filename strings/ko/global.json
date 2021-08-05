@@ -29,6 +29,13 @@
         "apiError": "API에 연결하는데 에러가 발생했습니다.",
         "wrongLink": "링크가 잘못되었습니다!"
     },
+    "roles": {
+        "noLevel": "You must be at least chat level %%level%% to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
+        "successGive": "Successfully gave you the %%role%% role!",
+        "errorGive": "There was a problem while giving you the %%role%% role. Please send me a message in order to let the staff know about this.",
+        "successTake": "Successfully took the %%role%% role from you!",
+        "errorTake": "There was a problem while taking the %%role%% role from you. Please send me a message in order to let the staff know about this."
+    },
     "cooldown": "쿨다운",
     "secondLeft": "`%%command%%`를 사용하기 위해서 1초 더 기다려주세요.",
     "timeLeftT": "`%%command%%`를 사용하기 위해서 %%time%%초 더 기다려주세요.",

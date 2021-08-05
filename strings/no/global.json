@@ -2,12 +2,12 @@
     "staffDm": {
         "confirmSend": "If you confirm this, any messages you send here within the next 48 hours will be sent to staff without any confirmation.",
         "noConfirmWarn": "Any messages you send here within the next 48 hours will be sent to staff without any confirmation.",
-        "attachmentsWarn": "Attachments will also be included.",
-        "attachmentsSent": "Attachments sent",
-        "attachmentSent": "Attachment sent",
+        "attachmentsWarn": "Vedlegg vil også bli inkludert.",
+        "attachmentsSent": "Vedlegg sendt",
+        "attachmentSent": "Vedlegg sendt",
         "confirmation": "Are you sure you want to send this message to staff?",
         "messageSent": "Melding sendt til staben",
-        "dmCancelled": "This message will not be sent.",
+        "dmCancelled": "Denne meldingen vil ikke bli sendt.",
         "resendInfo": "If you still want to talk to staff, resend it and click the ✅ button to confirm."
     },
     "error": "Feil",
@@ -28,6 +28,13 @@
         "noPermission": "You're not allowed to execute this command on this channel!",
         "apiError": "Something went wrong while contacting the API!",
         "wrongLink": "Wrong link!"
+    },
+    "roles": {
+        "noLevel": "You must be at least chat level %%level%% to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
+        "successGive": "Successfully gave you the %%role%% role!",
+        "errorGive": "There was a problem while giving you the %%role%% role. Please send me a message in order to let the staff know about this.",
+        "successTake": "Successfully took the %%role%% role from you!",
+        "errorTake": "There was a problem while taking the %%role%% role from you. Please send me a message in order to let the staff know about this."
     },
     "cooldown": "Nedkjøling",
     "secondLeft": "Please wait another second to use `%%command%%` again.",
@@ -61,8 +68,8 @@
         "previous": "Previous page",
         "next": "Next page",
         "last": "Last page",
-        "confirm": "Confirm",
-        "cancel": "Cancel",
+        "confirm": "Bekreft",
+        "cancel": "Avbryt",
         "page": "Page %%number%%/%%total%%",
         "notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
         "timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%."

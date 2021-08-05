@@ -29,6 +29,13 @@
         "apiError": "Щось пішло не так під час з'єднання з API!",
         "wrongLink": "Невірне посилання!"
     },
+    "roles": {
+        "noLevel": "You must be at least chat level %%level%% to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
+        "successGive": "Successfully gave you the %%role%% role!",
+        "errorGive": "There was a problem while giving you the %%role%% role. Please send me a message in order to let the staff know about this.",
+        "successTake": "Successfully took the %%role%% role from you!",
+        "errorTake": "There was a problem while taking the %%role%% role from you. Please send me a message in order to let the staff know about this."
+    },
     "cooldown": "Перезарядка",
     "secondLeft": "Будь ласка, зачекайте секунду, аби використати `%%command%%` знову.",
     "timeLeftT": "Будь ласка, зачекайте ще %%time%% секунд(у\\\\и), щоб використовувати `%%command%%` знову.",
