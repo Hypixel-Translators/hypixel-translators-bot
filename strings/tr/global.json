@@ -29,6 +29,13 @@
         "apiError": "API ile bağlantı kurarken bir şeyler ters gitti!",
         "wrongLink": "Yanlış link!"
     },
+    "roles": {
+        "noLevel": "Bu rolü alabilmek için en az %%level%% seviye olmalısın! Güncel seviyeni %%channel%% kanalında %%command%% komutunu kullanarak öğrenebilirsin.",
+        "successGive": "Başarıyla sana %%role%% rolü verildi!",
+        "errorGive": "Sana %%role%% rolünü verirken bir sorun oluştu. Yetkilileri bu konuda bilgilendirmek için bana bir mesaj gönder.",
+        "successTake": "Başarıyla senden %%role%% rolü alındı!",
+        "errorTake": "%%role%% rolü senden alınırken bir sorun oluştu. Yetkilileri bu konuda bilgilendirmek için bana bir mesaj gönder."
+    },
     "cooldown": "Bekleme Süresi",
     "secondLeft": "Lütfen `%%command%%` komutunu tekrar kullanmak için biraz daha bekle.",
     "timeLeftT": "`%%command%%` komutunu kullanmak için lütfen %%time%% saniye bekle.",
