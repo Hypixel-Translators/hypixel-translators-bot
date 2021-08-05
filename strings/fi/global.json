@@ -29,6 +29,13 @@
         "apiError": "Jokin meni vikaan yhdistettäessä ohjelmointirajapintaan!",
         "wrongLink": "Väärä linkki!"
     },
+    "roles": {
+        "noLevel": "Sinun tulee olla vähintään tasolla %%level%% saadaksesi tämän roolin! Voit tarkistaa nykyisen tasosi komennolla %%command%% kanavalla %%channel%%.",
+        "successGive": "Sinulle annettiin onnistuneesti rooli %%role%%!",
+        "errorGive": "Tapahtui virhe annettaessa sinulle roolia %%role%%. Ole hyvä ja lähetä minulle viesti, jotta ylläpito saa tietää tästä ongelmasta.",
+        "successTake": "Sinulta otettiin onnistuneesti rooli %%role%%!",
+        "errorTake": "Tapahtui virhe otettaessa sinulta roolia %%role%%. Ole hyvä ja lähetä minulle viesti, jotta ylläpito saa tietää tästä ongelmasta."
+    },
     "cooldown": "Odotusaika",
     "secondLeft": "Ole hyvä ja odota vielä sekunti ennen kuin voit käyttää komentoa `%%command%%` uudelleen.",
     "timeLeftT": "Ole hyvä ja odota vielä %%time%% sekuntia ennen kuin voit käyttää komentoa `%%command%%` uudelleen.",
