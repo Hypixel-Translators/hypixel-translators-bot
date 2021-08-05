@@ -17,7 +17,6 @@ const command: Command = {
         const role = interaction.options.getRole("role", true) as Discord.Role,
             tags: Discord.GuildMember[] = []
 
-        await role.guild.members.fetch()
         role.members.forEach(member => tags.push(member))
 
         const maxMembersArr: Discord.GuildMember[][] = []

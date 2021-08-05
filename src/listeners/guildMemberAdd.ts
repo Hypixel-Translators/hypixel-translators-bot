@@ -32,7 +32,6 @@ async function generateWelcomeImage(member: Discord.GuildMember) {
     //Define assets and create canvas
     registerFont("assets/Bitter-Regular.ttf", { family: "Bitter" })
     registerFont("assets/Bitter-Bold.ttf", { family: "Bitter-Bold" })
-    await member.guild.members.fetch() //Fetch all members to make sure we're getting the right count
     const canvas = createCanvas(800, 200),
         ctx = canvas.getContext("2d"),
         userName = member.user.username,
