@@ -29,6 +29,13 @@
         "apiError": "Ocorreu um erro ao se conectar à API!",
         "wrongLink": "Link errado!"
     },
+    "roles": {
+        "noLevel": "Você precisa ter o nível %%level%% de bate-papo para receber este cargo! Use o comando %%command%% para verificar o seu nível no canal %%channel%%.",
+        "successGive": "O cargo %%role%% foi adicionado à você!",
+        "errorGive": "Ocorreu um erro ao tentar adicioná-lo ao cargo %%role%%. Por favor, envie uma mensagem para mim para que a nossa equipe fique sabendo disso.",
+        "successTake": "O cargo %%role%% foi removido de você!",
+        "errorTake": "Ocorreu um erro ao tentar removê-lo do cargo %%role%%. Por favor, envie uma mensagem para mim para que a nossa equipe fique sabendo disso."
+    },
     "cooldown": "Tempo de recarga",
     "secondLeft": "Por favor, aguarde um segundo para usar `%%command%%` novamente.",
     "timeLeftT": "Por favor, aguarde %%time%% segundos para usar `%%command%%` novamente.",
