@@ -65,7 +65,7 @@ const command: Command = {
         const isOwnUser = uuid === authorDb?.uuid,
             uuidDb = await db.collection("users").findOne({ uuid }) as DbUser | undefined
 
-        await interaction.defer()
+        await interaction.deferReply()
 
         switch (subCommand) {
             case "history":

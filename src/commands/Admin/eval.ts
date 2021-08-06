@@ -31,7 +31,7 @@ const command: Command = {
       Discord = discord,
       client = Client
 
-    await interaction.defer()
+    await interaction.deferReply()
     let evaled,
       codeToRun = interaction.options.getString("code", true).replaceAll(/[“”]/gim, '"')
     if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`

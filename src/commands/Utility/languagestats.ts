@@ -28,7 +28,7 @@ const command: Command = {
         lang ??= langdb.find(l => l.name.toLowerCase().includes(rawLang!))!
         if (!lang || lang?.code === "en") throw "falseLang"
 
-        await interaction.defer()
+        await interaction.deferReply()
         const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2, "User-Agent": "Hypixel Translators Bot" }, timeout: 10_000 }
         var hypixelData: LanguageStatus["data"]
         await fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", settings)

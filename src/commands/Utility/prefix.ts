@@ -168,7 +168,7 @@ const command: Command = {
         }
       })
     } else {
-      await interaction.defer()
+      await interaction.deferReply()
       let userLangs: LangDbEntry[] = [],
         prefixes = ""
 

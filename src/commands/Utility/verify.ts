@@ -28,7 +28,7 @@ const command: Command = {
             profileUrl = interaction.options.getString("url", false),
             memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
             url = profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0]
-        await interaction.defer({ ephemeral: true });
+        await interaction.deferReply({ ephemeral: true });
         if (!member.roles.cache.has("569194996964786178") && interaction.channelId == "569178590697095168" && !url) { //Verified and #verify
             (interaction.channel as Discord.TextChannel).messages.fetch()
                 .then(async messages => {

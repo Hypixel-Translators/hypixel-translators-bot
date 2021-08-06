@@ -28,7 +28,7 @@ const command: Command = {
             memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null
         if (!uuid) throw "noUser"
 
-        await interaction.defer()
+        await interaction.deferReply()
         // make a response to the slothpixel api (hypixel api but we dont need an api key)
         await fetch(`https://api.slothpixel.me/api/players/${uuid}`, fetchSettings)
             .then(res => res.json()) // get the response json

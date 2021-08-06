@@ -27,7 +27,7 @@ const command: Command = {
     }],
     async execute(interaction) {
         const channelInput = interaction.options.getString("channel", false)
-        await interaction.defer()
+        await interaction.deferReply()
         if (channelInput === "info") {
             await info(interaction)
             const successEmbed = new Discord.MessageEmbed()

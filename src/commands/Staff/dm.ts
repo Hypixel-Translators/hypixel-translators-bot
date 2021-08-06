@@ -27,7 +27,7 @@ const command: Command = {
                 .setAuthor(getString("incoming", this.name, recipientDb.lang))
                 .setDescription(message)
                 .setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang))
-        await interaction.defer()
+        await interaction.deferReply()
         recipient.send({ embeds: [dm] })
             .then(async () => {
                 const embed = new Discord.MessageEmbed()

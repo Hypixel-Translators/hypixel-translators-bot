@@ -31,7 +31,7 @@ const command: Command = {
     roleWhitelist: ["764442984119795732"], //Discord Administrator
     async execute(interaction) {
         const projectInput = interaction.options.getString("project", false)
-        await interaction.defer()
+        await interaction.deferReply()
         if (!projectInput) {
             await execute(client, true)
                 .then(async () => {
