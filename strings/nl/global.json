@@ -34,7 +34,7 @@
         "successGive": "Rol %%role%% gegeven.",
         "errorGive": "Er is iets misgegaan bij het geven van de rol %%role%%. Stuur me een bericht om staff op de hoogte te brengen.",
         "successTake": "Rol %%role%% ontnomen.",
-        "errorTake": "There was a problem while taking the %%role%% role from you. Please send me a message in order to let the staff know about this."
+        "errorTake": "Er is iets misgegaan bij het ontnemen van de rol %%role%%. Stuur me een bericht om staff op de hoogte te brengen."
     },
     "cooldown": "Afkoeltijd",
     "secondLeft": "Wacht nog een seconde voor je `%%command%%` weer gebruikt.",
