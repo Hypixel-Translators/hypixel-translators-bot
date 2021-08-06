@@ -11,7 +11,7 @@ const command: Command = {
   async execute(interaction, getString: GetStringFunction) {
     const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
       ping = Date.now() - interaction.createdTimestamp,
-      onlineSince = Math.round((Date.now() - interaction.client.uptime!) / 1000)
+      onlineSince = Math.round(interaction.client.readyTimestamp! / 1000)
 
     //Contributed by marzeq. Original idea by Rodry
     let color: Discord.HexColorString
