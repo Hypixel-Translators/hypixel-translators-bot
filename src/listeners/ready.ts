@@ -42,7 +42,7 @@ client.once("ready", async () => {
     //Get server boosters and staff for the status
     const boostersStaff: string[] = [],
         guild = client.guilds.cache.get("549503328472530974")!
-    await guild.members.fetch()
+    await guild.members.fetch({ force: true })
     guild?.roles.premiumSubscriberRole!.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
     guild?.roles.cache.get("768435276191891456")! //Discord Staff
         .members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
