@@ -30,11 +30,11 @@
         "wrongLink": "Tautan Salah!"
     },
     "roles": {
-        "noLevel": "You must be at least chat level %%level%% to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
-        "successGive": "Successfully gave you the %%role%% role!",
-        "errorGive": "There was a problem while giving you the %%role%% role. Please send me a message in order to let the staff know about this.",
-        "successTake": "Successfully took the %%role%% role from you!",
-        "errorTake": "There was a problem while taking the %%role%% role from you. Please send me a message in order to let the staff know about this."
+        "noLevel": "Anda setidaknya harus level chat %%level%% untuk menerima role ini! Anda dapat mengecek level chat anda dengan menjalankan perintah %%command%% di %%channel%%.",
+        "successGive": "Berhasil memberikan anda role %%role%%!",
+        "errorGive": "Terdapat suatu masalah saat sedang memberikan anda role %%role%%. Mohon kirim pesan ke saya untuk memberitahukan staf tentang masalah ini.",
+        "successTake": "Berhasil mengambil role %%role%% dari anda!",
+        "errorTake": "Terdapat suatu masalah saat sedang mengambil role %%role%% dari anda. Mohon kirim pesan ke saya untuk memberitahukan staf tentang masalah ini."
     },
     "cooldown": "Cooldown",
     "secondLeft": "Mohon tunggu sedetik lagi untuk menjalankan `%%command%%` lagi.",

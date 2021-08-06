@@ -32,9 +32,9 @@
     "roles": {
         "noLevel": "You must be at least chat level %%level%% to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
         "successGive": "Successfully gave you the %%role%% role!",
-        "errorGive": "There was a problem while giving you the %%role%% role. Please send me a message in order to let the staff know about this.",
+        "errorGive": "There was a problem while trying to give you the %%role%% role. Please send me a message in order to let the staff know about this.",
         "successTake": "Successfully took the %%role%% role from you!",
-        "errorTake": "There was a problem while taking the %%role%% role from you. Please send me a message in order to let the staff know about this."
+        "errorTake": "There was a problem while trying to take the %%role%% role from you. Please send me a message in order to let the staff know about this."
     },
     "cooldown": "Enfriamiento",
     "secondLeft": "Espera otro segundo para usar `/%%command%%` otra vez.",
