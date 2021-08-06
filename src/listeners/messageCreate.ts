@@ -66,7 +66,7 @@ client.on("messageCreate", async message => {
         message.channel.type !== "DM" &&
         message.content.toLowerCase().includes("/translate/hypixel/") &&
         message.content.includes("://") &&
-        /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)
+        /https:\/\/(crowdin\.com|translate\.hypixel\.net)\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)
     ) {
         if (
             message.channel.parentId === "549503328472530977" || //Hypixel Translations
