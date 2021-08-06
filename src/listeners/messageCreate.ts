@@ -89,7 +89,7 @@ client.on("messageCreate", async message => {
                             format: "`crowdin.com/translate/.../.../en-en#`"
                         })}`
                     )
-                await message.reply({ embeds: [embed], allowedMentions: { repliedUser: true } })
+                await message.reply({ embeds: [embed] })
                 return
             } else if (message.content !== langFix && message.channel.parentId === "549503328472530977") {
                 await message.react("732298639736570007")
