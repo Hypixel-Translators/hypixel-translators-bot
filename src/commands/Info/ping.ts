@@ -10,7 +10,8 @@ const command: Command = {
   channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
   async execute(interaction, getString: GetStringFunction) {
     const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-      ping = Date.now() - interaction.createdTimestamp
+      ping = Date.now() - interaction.createdTimestamp,
+      onlineSince = Math.round((Date.now() - interaction.client.uptime!) / 1000)
 
     //Contributed by marzeq. Original idea by Rodry
     let color: Discord.HexColorString
@@ -28,7 +29,12 @@ const command: Command = {
       .setColor(color)
       .setAuthor(getString("moduleName"))
       .setTitle(getString("pong", { pingEmote: "<:ping:620954198493888512>" }))
-      .setDescription(getString("message", { ping: ping }))
+      .setDescription(
+        `${getString("message", { ping: ping })}\n\n${getString("onlineSince", {
+          timestamp: `<t:${onlineSince}>`,
+          timestampRelative: `<t:${onlineSince}:R>`
+        })}`
+      )
       .setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
     await interaction.reply({ embeds: [embed] })
   }
