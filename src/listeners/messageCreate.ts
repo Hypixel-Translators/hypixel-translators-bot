@@ -98,7 +98,7 @@ client.on("messageCreate", async message => {
                     .setAuthor(getGlobalString("errors.wrongLink"))
                     .setTitle(getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }))
                     .setDescription(`**${getGlobalString("correctLink")}**\n${langFix.match(stringURLRegex)![0]}`)
-                await message.reply({ embeds: [embed], allowedMentions: { repliedUser: true } })
+                await message.reply({ embeds: [embed] })
                 return
             }
         }
