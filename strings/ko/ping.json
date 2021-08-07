@@ -1,5 +1,6 @@
 {
     "moduleName": "핑",
     "pong": "%%pingEmote%% 퐁!",
-    "message": "봇의 핑은 %%ping%%ms 입니다."
+    "message": "봇의 핑은 %%ping%%ms 입니다.",
+    "onlineSince": "Online since %%timestamp%% (%%timestampRelative%%)"
 }

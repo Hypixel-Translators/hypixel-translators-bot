@@ -1,5 +1,6 @@
 {
     "moduleName": "Ping",
     "pong": "%%pingEmote%% Pong!",
-    "message": "Ping saya adalah %%ping%%ms."
+    "message": "Ping saya adalah %%ping%%ms.",
+    "onlineSince": "Online sejak %%timestamp%% (%%timestampRelative%%)"
 }
