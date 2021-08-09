@@ -2,5 +2,5 @@
     "moduleName": "Latencia",
     "pong": "%%pingEmote%% ¡Pong!",
     "message": "Mi ping es de %%ping%%ms.",
-    "onlineSince": "Online since %%timestamp%% (%%timestampRelative%%)"
+    "onlineSince": "En línea desde el %%timestamp%% (%%timestampRelative%%)"
 }
