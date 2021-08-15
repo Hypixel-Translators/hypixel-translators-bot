@@ -117,7 +117,7 @@ function constructDiscordCommands() {
     return returnCommands
 }
 
-function convertToDiscordCommand(command: Command): Discord.ApplicationCommandData {
+function convertToDiscordCommand(command: Command): Discord.ChatInputApplicationCommandData {
     return {
         name: command.name,
         description: command.description,
@@ -136,8 +136,17 @@ function transformOption(option: Discord.ApplicationCommandOptionData): Discord.
         type: option.type,
         name: option.name,
         description: option.description,
-        required: option.required,
-        choices: option.choices,
-        options: option.options?.map(o => transformOption(o)),
-    }
+        required:
+            option.type === "SUB_COMMAND" || option.type === "SUB_COMMAND_GROUP"
+                ? option.required
+                : option.required ?? false,
+        choices:
+            option.type === "STRING" || option.type === "NUMBER" || option.type === "INTEGER"
+                ? option.choices
+                : undefined,
+        options:
+            (option.type === "SUB_COMMAND" || option.type === "SUB_COMMAND_GROUP") && option.options
+                ? option.options?.map(o => transformOption(o))
+                : undefined,
+    } as Discord.ApplicationCommandOptionData
 }
