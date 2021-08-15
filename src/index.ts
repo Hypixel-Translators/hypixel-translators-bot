@@ -25,7 +25,7 @@ import { setup } from "./lib/imports"
 setup(client)
 
 //Command interface
-export interface Command extends Discord.ApplicationCommandData {
+export interface Command extends Discord.ChatInputApplicationCommandData {
     cooldown?: number
     allowDM?: true
     allowTip?: false
