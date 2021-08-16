@@ -27,7 +27,7 @@
         "noAccess": "Bu komutu kullanmana izin verilmiyor!",
         "noPermission": "Bu komutu bu kanalda kullanmana izin verilmiyor!",
         "apiError": "API ile bağlantı kurarken bir şeyler ters gitti!",
-        "wrongLink": "Yanlış link!"
+        "wrongLink": "Hatalı bağlantı!"
     },
     "roles": {
         "noLevel": "Bu rolü alabilmek için en az %%level%% seviye olmalısın! Güncel seviyeni %%channel%% kanalında %%command%% komutunu kullanarak öğrenebilirsin.",
@@ -40,10 +40,10 @@
     "secondLeft": "Lütfen `%%command%%` komutunu tekrar kullanmak için biraz daha bekle.",
     "timeLeftT": "`%%command%%` komutunu kullanmak için lütfen %%time%% saniye bekle.",
     "minsLeftT": "`%%command%%` komutunu tekrar kullanmak için lütfen %%time%% dakika daha bekleyin.",
-    "linkCorrectionDesc": "Lütfen bağlantını bir dahaki sefere %%format%% formatına değiştir.",
+    "linkCorrectionDesc": "Lütfen, bağlantını bir dahaki sefere %%format%% formatında gönder.",
     "correctLink": "İşte doğru bağlantı:",
-    "wrongStringURL": "Gönderdiğin bağlantı, dizenin kendisine değil, editöre yönlendiren bir bağlantıdır!",
-    "example": "Doğru dize URL'sini kopyalamak için aşağıdaki resimde gösterilen düğmeye tıkla. Bağlantı böyle olmalı: %%url%%",
+    "wrongStringURL": "Gönderdiğin bağlantı dizenin kendisine değil, editöre yönlendiren bir bağlantıdır!",
+    "example": "Doğru dize bağlantısını kopyalamak için aşağıdaki resimde gösterilen butona tıkla. Doğru bağlantı böyle olmalı: %%url%%",
     "reminderLang": "Bağlantını %%format%% formatına değiştirmeyi unutma.",
     "tip": "Tüyo",
     "tips": {
