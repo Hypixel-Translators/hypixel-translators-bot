@@ -3,6 +3,9 @@ import Discord from "discord.js"
 import { ObjectId } from "mongodb"
 import fetch from "node-fetch"
 
+// source: https://github.com/Mee6/Mee6-documentation/blob/master/docs/levels_xp.md
+export const getXpNeeded = (lvl: number = NaN, xp: number = 0) => 5 * (lvl ** 2) + (50 * lvl) + 100 - xp
+
 export function updateButtonColors(row: Discord.MessageActionRow, page: number, pages: any[]) {
     if (page == 0) {
         row.components.forEach(button => {

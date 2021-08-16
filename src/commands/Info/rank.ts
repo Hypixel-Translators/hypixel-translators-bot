@@ -2,7 +2,7 @@ import Discord from "discord.js"
 import { neutralColor, errorColor } from "../../config.json"
 import { client, Command, GetStringFunction } from "../../index"
 import { db } from "../../lib/dbclient"
-import { getXpNeeded } from "../../lib/leveling"
+import { getXpNeeded } from "../../lib/util"
 
 const command: Command = {
     name: "rank",
