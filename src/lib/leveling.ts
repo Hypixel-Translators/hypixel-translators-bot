@@ -4,7 +4,7 @@ import { client } from "../index"
 import { getXpNeeded } from "./util"
 const talkedRecently: Discord.Collection<Discord.Snowflake, number> = new Discord.Collection()
 
-export default async function leveling(message: Discord.Message) {
+export async function leveling(message: Discord.Message) {
     const collection = db.collection("users"),
         now = Date.now(),
         lastMsg = talkedRecently.get(message.author.id)
@@ -21,5 +21,7 @@ export default async function leveling(message: Discord.Message) {
             .then(r => message.reply(`GG ${message.author}, you just advanced to level ${r.value!.levels.level + 1}! 🎉`))
         else collection.updateOne({ id: message.author.id }, { $inc: { "levels.totalXp": randomXp, "levels.levelXp": randomXp, "levels.messageCount": 1 } })
         talkedRecently.set(message.author.id, now)
+        return xpNeeded <= 0
     } else collection.updateOne({ id: message.author.id }, { $inc: { "levels.messageCount": 1 } })
+    return null
 }

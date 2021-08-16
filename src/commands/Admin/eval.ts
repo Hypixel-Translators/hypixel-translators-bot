@@ -3,9 +3,9 @@ const fetch = require("node-fetch")
 const { flag, code, name, countries } = require('country-emoji')
 const fs = require("fs")
 const country = require("countryjs")
-const { updateButtonColors, getUUID, updateRoles } = require("../../lib/util")
+const { updateButtonColors, getUUID, updateRoles, getXpNeeded } = require("../../lib/util")
 const { crowdinVerify } = require("../../lib/crowdinverify")
-const { leveling, getXpNeeded } = require("../../lib/leveling")
+const { leveling } = require("../../lib/leveling")
 import { db as mongoDb } from "../../lib/dbclient"
 import { transpile } from "typescript"
 import discord from "discord.js"
