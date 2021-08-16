@@ -25,6 +25,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     setTimeout(async () => {
                         // Check if the user hasn't removed their reaction
                         if (await reaction.users.fetch().then(cache => cache.has(user.id))) {
+                            if (reaction.message.thread) await reaction.message.thread.setLocked(true, "String reviewed")
                             if (!reaction.message.deleted) await reaction.message.delete()
                             console.log(`String reviewed in ${channel.name}`)
                         } else await reaction.message.reactions.cache.get("⏱")?.remove()
@@ -57,7 +58,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     setTimeout(async () => {
                         // Check if the user hasn't removed their reaction
                         if (await reaction.users.fetch().then(cache => cache.has(user.id))) {
-                            if (reaction.message.thread) await reaction.message.thread.delete("String rejected")
+                            if (reaction.message.thread) await reaction.message.thread.setLocked(true, "String rejected")
                             const stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/gi)?.[0],
                                 fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
                                 thread = await channel.threads.create({
