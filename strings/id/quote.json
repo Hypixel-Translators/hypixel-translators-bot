@@ -1,7 +1,7 @@
 {
-    "moduleName": "Kutipan",
-    "msgUrl": "URL Pesan",
-    "invalidArg": "Argumen Tidak Valid!",
-    "indexArg": "Sebuah kutipan dengan indeks %%arg%% tidak ada! Mohon berikan angka dari 1 hingga %%max%%.",
-    "reqSub": "Permintaan kutipan anda telah terkirim, terima kasih!"
+	"moduleName": "Kutipan",
+	"msgUrl": "URL Pesan",
+	"invalidArg": "Argumen Tidak Valid!",
+	"indexArg": "Sebuah kutipan dengan indeks %%arg%% tidak ada! Mohon berikan angka dari 1 hingga %%max%%.",
+	"reqSub": "Permintaan kutipan anda telah terkirim, terima kasih!"
 }
