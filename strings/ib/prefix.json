@@ -1,25 +1,25 @@
 {
-    "moduleName": "Prefuck",
-    "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
-        "trNoRoles": "Notis ur translat but no has ani translat rols.",
-        "error": "Fails changag nicknams. U can copi da nicknams below and aply it ureself.",
-        "confirmedNoFlags": "U konform butt u reakt not flagos, ",
-        "cancelled": "U kanekled de chang of ur niknam, ",
-        "alreadyThis": "U has alredi dat niknam, ",
-        "timedOut": "Tims ut",
-        "timeOut": "U react not with flagos, ",
-        "timeOutCustom": "U no confirms, ",
-        "notSaved": "so ur prefuck save not."
-    },
-    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
-    "caution": "Caushone!!",
-    "warning": "Sets ur prefixsxsxs too langag u no translat wil giv warnnig. You wants changag anywaas?",
-    "react": "Reeeact wif al flagos u wantz add to ur prefucks in ordure.",
-    "reactTimer": "U hav %%cooldown%% skundos. Clicc ❎ fur kankel.",
-    "reactTimer2": "U has les than %%cooldown%% secundz right. Smas ✅ too confrim or ❎ too cnacle.",
-    "previewT": "Howshoudoterscalu presigt",
-    "newNickT": "New howshoudoterscalu",
-    "noChanges": "No tings diffrnt",
-    "saved": "Ur prefuck have ben savd!"
+	"moduleName": "Prefuck",
+	"errors": {
+		"noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
+		"trNoRoles": "Notis ur translat but no has ani translat rols.",
+		"error": "Fails changag nicknams. U can copi da nicknams below and aply it ureself.",
+		"confirmedNoFlags": "U konform butt u reakt not flagos, ",
+		"cancelled": "U kanekled de chang of ur niknam, ",
+		"alreadyThis": "U has alredi dat niknam, ",
+		"timedOut": "Tims ut",
+		"timeOut": "U react not with flagos, ",
+		"timeOutCustom": "U no confirms, ",
+		"notSaved": "so ur prefuck save not."
+	},
+	"customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
+	"caution": "Caushone!!",
+	"warning": "Sets ur prefixsxsxs too langag u no translat wil giv warnnig. You wants changag anywaas?",
+	"react": "Reeeact wif al flagos u wantz add to ur prefucks in ordure.",
+	"reactTimer": "U hav %%cooldown%% skundos. Clicc ❎ fur kankel.",
+	"reactTimer2": "U has les than %%cooldown%% secundz right. Smas ✅ too confrim or ❎ too cnacle.",
+	"previewT": "Howshoudoterscalu presigt",
+	"newNickT": "New howshoudoterscalu",
+	"noChanges": "No tings diffrnt",
+	"saved": "Ur prefuck have ben savd!"
 }
