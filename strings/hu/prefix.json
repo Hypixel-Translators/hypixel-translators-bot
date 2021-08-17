@@ -1,25 +1,25 @@
 {
-    "moduleName": "Előtag",
-    "errors": {
-        "noLanguages": "Úgy látszik nincsen nyelvi rangod! Kérlek lépj kapcsolatba egy adminnal ha úgy gondolod, hogy ez egy hiba.",
-        "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
-        "error": "Nem sikerült megváltoztatni a nevedet. Ki tudod másolni az alábbi nevet, és beállítani becenevedként.",
-        "confirmedNoFlags": "Elfogadtad, de nem reagáltál egy zászlóval sem, ",
-        "cancelled": "Befejezted a neved változtatását, ",
-        "alreadyThis": "Most is ez a beceneved, ",
-        "timedOut": "Időtúllépés",
-        "timeOut": "Nem reagáltál egy zászlóval sem, ",
-        "timeOutCustom": "Nem erősítetted meg, ",
-        "notSaved": "így az előtagod nem lett elmentve."
-    },
-    "customPrefix": "Nyugodtan futtathatod a `/prefix <zászlók>` parancsot, hogy megkapd a választott előjelet.",
-    "caution": "Vigyázat",
-    "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
-    "react": "Reagálj egy zászlóval, amit a nevedhez szeretnél adni.",
-    "reactTimer": "%%cooldown%% másodperced van. Nyomj az ❎ ikonra a törléshez.",
-    "reactTimer2": "Kevesebb mint %%cooldown%% másodperced van. Nyomj a ✅ ikonra a mentéshez vagy az ❎ ikonra a törléshez.",
-    "previewT": "Becenév előnézet",
-    "newNickT": "Új becenév",
-    "noChanges": "Nincs változás",
-    "saved": "Az előtagod el lett mentve!"
+	"moduleName": "Előtag",
+	"errors": {
+		"noLanguages": "Úgy látszik nincsen nyelvi rangod! Kérlek lépj kapcsolatba egy adminnal ha úgy gondolod, hogy ez egy hiba.",
+		"trNoRoles": "We noticed you're a translator but you don't have any language roles.",
+		"error": "Nem sikerült megváltoztatni a nevedet. Ki tudod másolni az alábbi nevet, és beállítani becenevedként.",
+		"confirmedNoFlags": "Elfogadtad, de nem reagáltál egy zászlóval sem, ",
+		"cancelled": "Befejezted a neved változtatását, ",
+		"alreadyThis": "Most is ez a beceneved, ",
+		"timedOut": "Időtúllépés",
+		"timeOut": "Nem reagáltál egy zászlóval sem, ",
+		"timeOutCustom": "Nem erősítetted meg, ",
+		"notSaved": "így az előtagod nem lett elmentve."
+	},
+	"customPrefix": "Nyugodtan futtathatod a `/prefix <zászlók>` parancsot, hogy megkapd a választott előjelet.",
+	"caution": "Vigyázat",
+	"warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
+	"react": "Reagálj egy zászlóval, amit a nevedhez szeretnél adni.",
+	"reactTimer": "%%cooldown%% másodperced van. Nyomj az ❎ ikonra a törléshez.",
+	"reactTimer2": "Kevesebb mint %%cooldown%% másodperced van. Nyomj a ✅ ikonra a mentéshez vagy az ❎ ikonra a törléshez.",
+	"previewT": "Becenév előnézet",
+	"newNickT": "Új becenév",
+	"noChanges": "Nincs változás",
+	"saved": "Az előtagod el lett mentve!"
 }
