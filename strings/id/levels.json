@@ -1,8 +1,8 @@
 {
-    "moduleName": "Papan peringkat XP",
-    "pageTitle": "Inilah papan peringkat XP!",
-    "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
-    "youIndicator": "ANDA",
-    "thousand": "k",
-    "unranked": "#%%rank%% Tidak Berperingkat"
+	"moduleName": "Papan peringkat XP",
+	"pageTitle": "Inilah papan peringkat XP!",
+	"level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
+	"youIndicator": "ANDA",
+	"thousand": "k",
+	"unranked": "#%%rank%% Tidak Berperingkat"
 }
