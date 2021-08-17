@@ -1,25 +1,25 @@
 {
-    "moduleName": "Prefix",
-    "errors": {
-        "noLanguages": "Anda tidak terlihat memiliki role bahasa apapun! Mohon kontak seorang admin jika anda yakin ini adalah eror.",
-        "trNoRoles": "Kami menyadari anda adalah seorang penerjemah tetapi anda tidak memiliki role bahasa apapun.",
-        "error": "Gagal untuk mengganti nama panggilan. Anda dapat salin nama panggilan dibawah dan menggantinya sendiri.",
-        "confirmedNoFlags": "Anda konfirmasi tetapi anda tidak reaksi ke bendera apapun, ",
-        "cancelled": "Anda membatalkan penggantian nama panggilan anda, ",
-        "alreadyThis": "Anda sudah memiliki nama panggilan ini, ",
-        "timedOut": "Waktu Habis",
-        "timeOut": "Anda tidak reaksi dengan bendera apapun, ",
-        "timeOutCustom": "Anda tidak konfirmasi, ",
-        "notSaved": "jadi prefix anda belum disimpan."
-    },
-    "customPrefix": "Jangan ragu untuk jalankan `/prefix <bendera>` untuk mendapatkan prefix yang anda inginkan.",
-    "caution": "Peringatan",
-    "warning": "Mengatur prefix anda menjadi bahasa yang anda tidak menerjemahkan akan menghasilkan peringatan. Apakah anda masih ingin mengganti nama panggilan anda?",
-    "react": "Reaksi dengan semua bendera yang anda ingin tambahkan ke prefix anda sesuai urutan.",
-    "reactTimer": "Anda memiliki %%cooldown%% detik. Tekan ❎ untuk batalkan.",
-    "reactTimer2": "Anda memiliki kurang dari %%cooldown%% detik lagi. Tekan ✅ untuk konfirmasi atau ❎ untuk batalkan.",
-    "previewT": "Preview nama panggilan",
-    "newNickT": "Nama panggilan baru",
-    "noChanges": "Tidak ada perubahan",
-    "saved": "Prefix anda telah disimpan!"
+	"moduleName": "Prefix",
+	"errors": {
+		"noLanguages": "Anda tidak terlihat memiliki role bahasa apapun! Mohon kontak seorang admin jika anda yakin ini adalah eror.",
+		"trNoRoles": "Kami menyadari anda adalah seorang penerjemah tetapi anda tidak memiliki role bahasa apapun.",
+		"error": "Gagal untuk mengganti nama panggilan. Anda dapat salin nama panggilan dibawah dan menggantinya sendiri.",
+		"confirmedNoFlags": "Anda konfirmasi tetapi anda tidak reaksi ke bendera apapun, ",
+		"cancelled": "Anda membatalkan penggantian nama panggilan anda, ",
+		"alreadyThis": "Anda sudah memiliki nama panggilan ini, ",
+		"timedOut": "Waktu Habis",
+		"timeOut": "Anda tidak reaksi dengan bendera apapun, ",
+		"timeOutCustom": "Anda tidak konfirmasi, ",
+		"notSaved": "jadi prefix anda belum disimpan."
+	},
+	"customPrefix": "Jangan ragu untuk jalankan `/prefix <bendera>` untuk mendapatkan prefix yang anda inginkan.",
+	"caution": "Peringatan",
+	"warning": "Mengatur prefix anda menjadi bahasa yang anda tidak menerjemahkan akan menghasilkan peringatan. Apakah anda masih ingin mengganti nama panggilan anda?",
+	"react": "Reaksi dengan semua bendera yang anda ingin tambahkan ke prefix anda sesuai urutan.",
+	"reactTimer": "Anda memiliki %%cooldown%% detik. Tekan ❎ untuk batalkan.",
+	"reactTimer2": "Anda memiliki kurang dari %%cooldown%% detik lagi. Tekan ✅ untuk konfirmasi atau ❎ untuk batalkan.",
+	"previewT": "Preview nama panggilan",
+	"newNickT": "Nama panggilan baru",
+	"noChanges": "Tidak ada perubahan",
+	"saved": "Prefix anda telah disimpan!"
 }
