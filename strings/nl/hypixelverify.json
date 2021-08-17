@@ -1,9 +1,9 @@
 {
-    "moduleName": "Hypixel-verificatie",
-    "success": "Je hebt jezelf geverifieerd als %%player%%!",
-    "role": "Je hebt de rol %%role%% ontvangen vanwege je rang op de server.",
-    "alreadyVerified": "Je bent al geverifieerd!",
-    "nameChangeDisclaimer": "Houd er rekening mee dat je jezelf niet opnieuw hoeft te verifiëren als je je naam verandert!",
-    "error": "We konden je niet verifiëren omdat je je Discord-account niet correct vermeld hebt op Hypixel!",
-    "tutorial": "Om te worden geverifieerd, moet je op Hypixel je Discord instellen op %%tag%% en tot 10 minuten wachten alvorens het commando weer te gebruiken. Volg de instructies in onderstaande video voor hulp."
+	"moduleName": "Hypixel-verificatie",
+	"success": "Je hebt jezelf geverifieerd als %%player%%!",
+	"role": "Je hebt de rol %%role%% ontvangen vanwege je rang op de server.",
+	"alreadyVerified": "Je bent al geverifieerd!",
+	"nameChangeDisclaimer": "Houd er rekening mee dat je jezelf niet opnieuw hoeft te verifiëren als je je naam verandert!",
+	"error": "We konden je niet verifiëren omdat je je Discord-account niet correct vermeld hebt op Hypixel!",
+	"tutorial": "Om te worden geverifieerd, moet je op Hypixel je Discord instellen op %%tag%% en tot 10 minuten wachten alvorens het commando weer te gebruiken. Volg de instructies in onderstaande video voor hulp."
 }
