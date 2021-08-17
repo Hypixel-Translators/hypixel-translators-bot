@@ -1,25 +1,25 @@
 {
-    "moduleName": "Πρόθεμα",
-    "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
-        "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
-        "error": "Απέτυχε η αλλαγή ψευδωνύμου. Μπορείς να αντιγράψεις το ψευδώνυμο παρακάτω και εφάρμοσε το από μόνος σου.",
-        "confirmedNoFlags": "Επιβεβαίωσες αλλά δεν αντίδρασες σε κάποια σημαία, ",
-        "cancelled": "Ακύρωσες την αλλαγή του ψευδωνύμου σου, ",
-        "alreadyThis": "Έχεις ήδη αυτό το ψευδώνυμο, ",
-        "timedOut": "Timed Out",
-        "timeOut": "You didn't react with any flags, ",
-        "timeOutCustom": "You didn't confirm, ",
-        "notSaved": "οπότε το πρόθεμα σου δεν αποθηκεύτηκε."
-    },
-    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
-    "caution": "Caution",
-    "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
-    "react": "Αντίδρασε με όλες τις σημαίες που θέλεις να προσθέσεις στο πρόθεμα σου σε σειρά.",
-    "reactTimer": "Έχεις %%cooldown%% δευτερόλεπτα. Πάτησε ❎ για ακύρωση.",
-    "reactTimer2": "Σου έχουν απομείνει λιγότερα από %%cooldown%% δευτερόλεπτα. Πάτησε ✅ για επιβεβαίωση ή ❎ για ακύρωση.",
-    "previewT": "Προβολή ψευδωνύμου",
-    "newNickT": "Νέο ψευδώνυμο",
-    "noChanges": "Δεν έγιναν αλλαγές",
-    "saved": "Το πρόθεμα σου αποθηκεύτηκε!"
+	"moduleName": "Πρόθεμα",
+	"errors": {
+		"noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
+		"trNoRoles": "We noticed you're a translator but you don't have any language roles.",
+		"error": "Απέτυχε η αλλαγή ψευδωνύμου. Μπορείς να αντιγράψεις το ψευδώνυμο παρακάτω και εφάρμοσε το από μόνος σου.",
+		"confirmedNoFlags": "Επιβεβαίωσες αλλά δεν αντίδρασες σε κάποια σημαία, ",
+		"cancelled": "Ακύρωσες την αλλαγή του ψευδωνύμου σου, ",
+		"alreadyThis": "Έχεις ήδη αυτό το ψευδώνυμο, ",
+		"timedOut": "Timed Out",
+		"timeOut": "You didn't react with any flags, ",
+		"timeOutCustom": "You didn't confirm, ",
+		"notSaved": "οπότε το πρόθεμα σου δεν αποθηκεύτηκε."
+	},
+	"customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
+	"caution": "Caution",
+	"warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
+	"react": "Αντίδρασε με όλες τις σημαίες που θέλεις να προσθέσεις στο πρόθεμα σου σε σειρά.",
+	"reactTimer": "Έχεις %%cooldown%% δευτερόλεπτα. Πάτησε ❎ για ακύρωση.",
+	"reactTimer2": "Σου έχουν απομείνει λιγότερα από %%cooldown%% δευτερόλεπτα. Πάτησε ✅ για επιβεβαίωση ή ❎ για ακύρωση.",
+	"previewT": "Προβολή ψευδωνύμου",
+	"newNickT": "Νέο ψευδώνυμο",
+	"noChanges": "Δεν έγιναν αλλαγές",
+	"saved": "Το πρόθεμα σου αποθηκεύτηκε!"
 }
