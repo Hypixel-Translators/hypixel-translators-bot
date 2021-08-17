@@ -1,41 +1,41 @@
 {
-  "name": "hypixel-translators",
-  "version": "3.0.0",
-  "main": "dist/index",
-  "license": "MIT",
-  "scripts": {
-    "start": "node --trace-warnings dist/index.js",
-    "test": "node --unhandled-rejections=strict dist/index.js",
-    "compile": "rimraf dist/ && tsc -w",
-    "postinstall": "tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/Hypixel-Translators/hypixel-translators-bot.git"
-  },
-  "dependencies": {
-    "canvas": "^2.8.0",
-    "country-emoji": "^1.5.6",
-    "countryjs": "^1.8.0",
-    "discord.js": "^13.1.0",
-    "lodash": "^4.17.21",
-    "mongodb": "^4.1.0",
-    "node-fetch": "^2.6.1",
-    "puppeteer": "^10.2.0",
-    "source-map-support": "^0.5.19",
-    "typescript": "^4.3.5",
-    "uuid": "^8.3.2"
-  },
-  "engines": {
-    "node": "16.x",
-    "npm": ">=7"
-  },
-  "devDependencies": {
-    "@types/countryjs": "^1.8.1",
-    "@types/lodash": "^4.14.172",
-    "@types/node-fetch": "^2.5.12",
-    "@types/uuid": "^8.3.1",
-    "dotenv": "^10.0.0",
-    "rimraf": "^3.0.2"
-  }
+	"name": "hypixel-translators",
+	"version": "3.0.0",
+	"main": "dist/index",
+	"license": "MIT",
+	"scripts": {
+		"start": "node --trace-warnings dist/index.js",
+		"test": "node --unhandled-rejections=strict dist/index.js",
+		"compile": "rimraf dist/ && tsc -w",
+		"postinstall": "tsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/Hypixel-Translators/hypixel-translators-bot.git"
+	},
+	"dependencies": {
+		"canvas": "^2.8.0",
+		"country-emoji": "^1.5.6",
+		"countryjs": "^1.8.0",
+		"discord.js": "^13.1.0",
+		"lodash": "^4.17.21",
+		"mongodb": "^4.1.0",
+		"node-fetch": "^2.6.1",
+		"puppeteer": "^10.2.0",
+		"source-map-support": "^0.5.19",
+		"typescript": "^4.3.5",
+		"uuid": "^8.3.2"
+	},
+	"engines": {
+		"node": "16.x",
+		"npm": ">=7"
+	},
+	"devDependencies": {
+		"@types/countryjs": "^1.8.1",
+		"@types/lodash": "^4.14.172",
+		"@types/node-fetch": "^2.5.12",
+		"@types/uuid": "^8.3.1",
+		"dotenv": "^10.0.0",
+		"rimraf": "^3.0.2"
+	}
 }

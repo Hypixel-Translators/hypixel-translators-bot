@@ -3,40 +3,40 @@ import Discord from "discord.js"
 import { Command } from "../../index"
 
 const command: Command = {
-  name: "say",
-  description: "Says something in a specific channel.",
-  options: [{
-    type: "CHANNEL",
-    name: "channel",
-    description: "The channel to send the message in",
-    required: true
-  },
-  {
-    type: "STRING",
-    name: "message",
-    description: "The message to send",
-    required: true
-  }],
-  cooldown: 600,
-  roleWhitelist: ["768435276191891456"], //Discord Staff
-  async execute(interaction) {
-    const sendTo = interaction.options.getChannel("channel", true) as (Discord.TextChannel | Discord.NewsChannel),
-      member = interaction.member as Discord.GuildMember,
-      message = interaction.options.getString("message", true)
+	name: "say",
+	description: "Says something in a specific channel.",
+	options: [{
+		type: "CHANNEL",
+		name: "channel",
+		description: "The channel to send the message in",
+		required: true
+	},
+	{
+		type: "STRING",
+		name: "message",
+		description: "The message to send",
+		required: true
+	}],
+	cooldown: 600,
+	roleWhitelist: ["768435276191891456"], //Discord Staff
+	async execute(interaction) {
+		const sendTo = interaction.options.getChannel("channel", true) as (Discord.TextChannel | Discord.NewsChannel),
+			member = interaction.member as Discord.GuildMember,
+			message = interaction.options.getString("message", true)
 
-    if (!sendTo.isText()) throw "You need to provide a text channel for me to send messages in!"
-    if (!member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
+		if (!sendTo.isText()) throw "You need to provide a text channel for me to send messages in!"
+		if (!member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
 
-    if (member.permissions.has("MANAGE_ROLES")) await sendTo.send(message)
-    else await sendTo.send(">>> " + message)
-    const embed = new Discord.MessageEmbed()
-      .setColor(successColor as Discord.HexColorString)
-      .setAuthor("Message")
-      .setTitle("Success! Message sent.")
-      .setDescription(`${sendTo}:\n${message}`)
-      .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-    await interaction.reply({ embeds: [embed] })
-  }
+		if (member.permissions.has("MANAGE_ROLES")) await sendTo.send(message)
+		else await sendTo.send(">>> " + message)
+		const embed = new Discord.MessageEmbed()
+			.setColor(successColor as Discord.HexColorString)
+			.setAuthor("Message")
+			.setTitle("Success! Message sent.")
+			.setDescription(`${sendTo}:\n${message}`)
+			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+		await interaction.reply({ embeds: [embed] })
+	}
 }
 
 export default command

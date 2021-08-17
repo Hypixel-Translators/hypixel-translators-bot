@@ -1,9 +1,9 @@
 {
-    "moduleName": "String review",
-    "message": "Message",
-    "clickHere": "Click here",
-    "requestDetails": "%%user%% requested more details on your suggestion",
-    "requestedBy": "Requested by %%user%%",
-    "rejected": "%%user%% rejected your suggestion",
-    "rejectedBy": "Rejected by %%user%%"
+	"moduleName": "String review",
+	"message": "Message",
+	"clickHere": "Click here",
+	"requestDetails": "%%user%% requested more details on your suggestion",
+	"requestedBy": "Requested by %%user%%",
+	"rejected": "%%user%% rejected your suggestion",
+	"rejectedBy": "Rejected by %%user%%"
 }

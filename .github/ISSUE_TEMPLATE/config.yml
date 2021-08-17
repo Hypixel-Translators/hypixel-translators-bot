@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Hypixel Translators Community Discord
-    url: https://discord.gg/rcT948A
-    about: Join the server to test the bot and find bugs.
+	- name: Hypixel Translators Community Discord
+		url: https://discord.gg/rcT948A
+		about: Join the server to test the bot and find bugs.
