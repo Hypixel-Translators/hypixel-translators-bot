@@ -1,7 +1,7 @@
 {
-    "moduleName": "Idézet",
-    "msgUrl": "Üzenet link",
-    "invalidArg": "Invalid argument!",
-    "indexArg": "A %%arg%% számú említés nem létezik! A számnak 1 és %%max%% között kell lennie.",
-    "reqSub": "Az idézeted el lett küldve, köszönjük!"
+	"moduleName": "Idézet",
+	"msgUrl": "Üzenet link",
+	"invalidArg": "Invalid argument!",
+	"indexArg": "A %%arg%% számú említés nem létezik! A számnak 1 és %%max%% között kell lennie.",
+	"reqSub": "Az idézeted el lett küldve, köszönjük!"
 }
