@@ -1,8 +1,8 @@
 {
-    "moduleName": "Pódio de XP",
-    "pageTitle": "Aqui está o pódio de XP!",
-    "level": "%%rank%%º | Nível %%level%% | XP: %%xp%%",
-    "youIndicator": "TU",
-    "thousand": "k",
-    "unranked": "%%rank%%º Sem rank"
+	"moduleName": "Pódio de XP",
+	"pageTitle": "Aqui está o pódio de XP!",
+	"level": "%%rank%%º | Nível %%level%% | XP: %%xp%%",
+	"youIndicator": "TU",
+	"thousand": "k",
+	"unranked": "%%rank%%º Sem rank"
 }
