@@ -1,9 +1,9 @@
 {
-    "moduleName": "Hypixel-Verifizierung",
-    "success": "Du hast dich erfolgreich als %%player%% verifiziert!",
-    "role": "Du hast die %%role%%-Rolle aufgrund deines Rangs auf dem Server erhalten.",
-    "alreadyVerified": "Du bist bereits verifiziert!",
-    "nameChangeDisclaimer": "Denke daran, dass du dich nicht erneut verifizieren musst, wenn du deinen Namen änderst!",
-    "error": "Wir konnten dich nicht verifizieren, weil du deinen Discord nicht korrekt auf Hypixel gesetzt hast!",
-    "tutorial": "Um verifiziert zu werden, musst du deinen Discord auf Hypixel auf %%tag%% setzen und bis zu 10 Minuten warten, um den Befehl erneut auszuführen. Folge den Anweisungen im Video unten, wenn du nicht weißt, wie du dies tust."
+	"moduleName": "Hypixel-Verifizierung",
+	"success": "Du hast dich erfolgreich als %%player%% verifiziert!",
+	"role": "Du hast die %%role%%-Rolle aufgrund deines Rangs auf dem Server erhalten.",
+	"alreadyVerified": "Du bist bereits verifiziert!",
+	"nameChangeDisclaimer": "Denke daran, dass du dich nicht erneut verifizieren musst, wenn du deinen Namen änderst!",
+	"error": "Wir konnten dich nicht verifizieren, weil du deinen Discord nicht korrekt auf Hypixel gesetzt hast!",
+	"tutorial": "Um verifiziert zu werden, musst du deinen Discord auf Hypixel auf %%tag%% setzen und bis zu 10 Minuten warten, um den Befehl erneut auszuführen. Folge den Anweisungen im Video unten, wenn du nicht weißt, wie du dies tust."
 }
