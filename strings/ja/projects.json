@@ -1,9 +1,9 @@
 {
-    "moduleName": "翻訳プロジェクト",
-    "allProjects": "以下がサーバーでサポートしている全プロジェクトです！",
-    "description": "既にプロジェクトに参加しているがまだロールを保有していない場合、`/verify [プロフィールURL]`を実行して入手できます！",
-    "projectInfo": "%%project%%プロジェクトへのリンクは [こちら](%%link%%) です。詳細は%%command%%を実行してください。",
-    "alreadyJoined": "このプロジェクトに参加済みです！",
-    "notJoined": "このプロジェクトに参加していません！",
-    "dmError": "あなたがプロジェクトに参加済みかどうかを確認できませんでした。実行するにはThe Hypixel Translators Community Discordでコマンドを実行する必要があります。"
+	"moduleName": "翻訳プロジェクト",
+	"allProjects": "以下がサーバーでサポートしている全プロジェクトです！",
+	"description": "既にプロジェクトに参加しているがまだロールを保有していない場合、`/verify [プロフィールURL]`を実行して入手できます！",
+	"projectInfo": "%%project%%プロジェクトへのリンクは [こちら](%%link%%) です。詳細は%%command%%を実行してください。",
+	"alreadyJoined": "このプロジェクトに参加済みです！",
+	"notJoined": "このプロジェクトに参加していません！",
+	"dmError": "あなたがプロジェクトに参加済みかどうかを確認できませんでした。実行するにはThe Hypixel Translators Community Discordでコマンドを実行する必要があります。"
 }
