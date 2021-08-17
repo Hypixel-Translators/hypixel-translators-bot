@@ -1,25 +1,25 @@
 {
-    "moduleName": "คำนำหน้า",
-    "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
-        "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
-        "error": "ไม่สามารถเปลี่ยนชื่อเล่นของคุณได้. คุณสามารถคัดลอกชื่อเล่นและเปลี่ยนชื่อของคุณได้",
-        "confirmedNoFlags": "คุณได้ยืนยันแต่ไม่ได้เลือกธงประเทศ, ",
-        "cancelled": "คุณได้ยกเลิกการเปลี่ยนชื่อเล่นของคุณ, ",
-        "alreadyThis": "คุณมีชื่อเล่นนี้แล้ว, ",
-        "timedOut": "Timed Out",
-        "timeOut": "You didn't react with any flags, ",
-        "timeOutCustom": "You didn't confirm, ",
-        "notSaved": "ดังนั้นคำนำหน้าของคุณไม่ถูกบันทึก"
-    },
-    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
-    "caution": "Caution",
-    "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
-    "react": "เลือกธงทุกอันที่คุณต้องการให้เป็นคำนำหน้าชื่อตามลำดับ.",
-    "reactTimer": "คุณมี %%cooldown%% วินาที. กด ❎ เพื่อยกเลิก",
-    "reactTimer2": "คุณมีเวลาเหลือน้อยกว่า %%cooldown%% วินาที. กด ✅ เพื่อยืนยัน หรือ ❎ เพื่อยกเลิก.",
-    "previewT": "ตัวอย่างชื่อเล่น",
-    "newNickT": "ชื่อเล่นใหม่",
-    "noChanges": "ไม่มีการเปลี่ยนแปลง",
-    "saved": "คำนำหน้าชื่อของคุณบันทึกเรียบร้อยแล้ว"
+	"moduleName": "คำนำหน้า",
+	"errors": {
+		"noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
+		"trNoRoles": "We noticed you're a translator but you don't have any language roles.",
+		"error": "ไม่สามารถเปลี่ยนชื่อเล่นของคุณได้. คุณสามารถคัดลอกชื่อเล่นและเปลี่ยนชื่อของคุณได้",
+		"confirmedNoFlags": "คุณได้ยืนยันแต่ไม่ได้เลือกธงประเทศ, ",
+		"cancelled": "คุณได้ยกเลิกการเปลี่ยนชื่อเล่นของคุณ, ",
+		"alreadyThis": "คุณมีชื่อเล่นนี้แล้ว, ",
+		"timedOut": "Timed Out",
+		"timeOut": "You didn't react with any flags, ",
+		"timeOutCustom": "You didn't confirm, ",
+		"notSaved": "ดังนั้นคำนำหน้าของคุณไม่ถูกบันทึก"
+	},
+	"customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
+	"caution": "Caution",
+	"warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
+	"react": "เลือกธงทุกอันที่คุณต้องการให้เป็นคำนำหน้าชื่อตามลำดับ.",
+	"reactTimer": "คุณมี %%cooldown%% วินาที. กด ❎ เพื่อยกเลิก",
+	"reactTimer2": "คุณมีเวลาเหลือน้อยกว่า %%cooldown%% วินาที. กด ✅ เพื่อยืนยัน หรือ ❎ เพื่อยกเลิก.",
+	"previewT": "ตัวอย่างชื่อเล่น",
+	"newNickT": "ชื่อเล่นใหม่",
+	"noChanges": "ไม่มีการเปลี่ยนแปลง",
+	"saved": "คำนำหน้าชื่อของคุณบันทึกเรียบร้อยแล้ว"
 }
