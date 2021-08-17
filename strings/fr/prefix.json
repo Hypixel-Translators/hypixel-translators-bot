@@ -1,25 +1,25 @@
 {
-    "moduleName": "Préfixe",
-    "errors": {
-        "noLanguages": "Tu ne sembles pas avoir de rôles linguistiques ! Merci de contacter un administrateur si tu penses qu'il s'agit d'une erreur.",
-        "trNoRoles": "Nous avons remarqué que tu es un traducteur mais que tu n'as aucun rôle linguistique.",
-        "error": "Échoué à changer le pseudo. Tu peux copier le pseudo ci-dessous et l'appliquer tu-même.",
-        "confirmedNoFlags": "Tu as confirmé mais tu n'as pas réagi à aucun drapeau, ",
-        "cancelled": "Tu as annulé le changement de pseudo ",
-        "alreadyThis": "Tu as déjà ce pseudo, ",
-        "timedOut": "Délai expiré",
-        "timeOut": "You didn't react with any flags, ",
-        "timeOutCustom": "You didn't confirm, ",
-        "notSaved": "donc ton préfixe n'a pas été enregistré."
-    },
-    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
-    "caution": "Caution",
-    "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
-    "react": "Réagis avec tous les drapeaux que tu veux ajouter à ton préfixe dans l'ordre.",
-    "reactTimer": "Tu as %%cooldown%% secondes. Appuie sur ❎ pour annuler.",
-    "reactTimer2": "Tu as moins de %%cooldown%% secondes restantes. Appuie sur ✅ pour confirmer ou ❎ pour annuler.",
-    "previewT": "Aperçu du pseudo",
-    "newNickT": "Nouveau pseudo",
-    "noChanges": "Aucun changement",
-    "saved": "Ton préfixe a été enregistré!"
+	"moduleName": "Préfixe",
+	"errors": {
+		"noLanguages": "Tu ne sembles pas avoir de rôles linguistiques ! Merci de contacter un administrateur si tu penses qu'il s'agit d'une erreur.",
+		"trNoRoles": "Nous avons remarqué que tu es un traducteur mais que tu n'as aucun rôle linguistique.",
+		"error": "Échoué à changer le pseudo. Tu peux copier le pseudo ci-dessous et l'appliquer tu-même.",
+		"confirmedNoFlags": "Tu as confirmé mais tu n'as pas réagi à aucun drapeau, ",
+		"cancelled": "Tu as annulé le changement de pseudo ",
+		"alreadyThis": "Tu as déjà ce pseudo, ",
+		"timedOut": "Délai expiré",
+		"timeOut": "You didn't react with any flags, ",
+		"timeOutCustom": "You didn't confirm, ",
+		"notSaved": "donc ton préfixe n'a pas été enregistré."
+	},
+	"customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
+	"caution": "Caution",
+	"warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
+	"react": "Réagis avec tous les drapeaux que tu veux ajouter à ton préfixe dans l'ordre.",
+	"reactTimer": "Tu as %%cooldown%% secondes. Appuie sur ❎ pour annuler.",
+	"reactTimer2": "Tu as moins de %%cooldown%% secondes restantes. Appuie sur ✅ pour confirmer ou ❎ pour annuler.",
+	"previewT": "Aperçu du pseudo",
+	"newNickT": "Nouveau pseudo",
+	"noChanges": "Aucun changement",
+	"saved": "Ton préfixe a été enregistré!"
 }
