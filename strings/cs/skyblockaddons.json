@@ -1,5 +1,5 @@
 {
-    "sbaCrowdin": "Tady je SkyblockAddons Crowdin projekt: %%crowdin%%",
-    "sbaThread": "Tady je vlákno s ukázkou módu: %%thread%%",
-    "sbaDiscord": "Tento projekt vlastní Biscuit! Připoj se na jeho server na %%discord%%"
+	"sbaCrowdin": "Tady je SkyblockAddons Crowdin projekt: %%crowdin%%",
+	"sbaThread": "Tady je vlákno s ukázkou módu: %%thread%%",
+	"sbaDiscord": "Tento projekt vlastní Biscuit! Připoj se na jeho server na %%discord%%"
 }
