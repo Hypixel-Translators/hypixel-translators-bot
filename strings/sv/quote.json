@@ -1,7 +1,7 @@
 {
-    "moduleName": "Citat",
-    "msgUrl": "Message URL",
-    "invalidArg": "Ogiltigt argument!",
-    "indexArg": "Ett citat med indexet %%arg%% finns inte! Ange ett nummer mellan 1 och %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!"
+	"moduleName": "Citat",
+	"msgUrl": "Message URL",
+	"invalidArg": "Ogiltigt argument!",
+	"indexArg": "Ett citat med indexet %%arg%% finns inte! Ange ett nummer mellan 1 och %%max%%.",
+	"reqSub": "Your quote request has been submitted, thanks!"
 }
