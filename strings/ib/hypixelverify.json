@@ -1,9 +1,9 @@
 {
-    "moduleName": "Hypickle Verifs",
-    "success": "U has been do has be verifs as %%player%%!",
-    "role": "U has ben give become %%role%% rol due too ur ranks on servar.",
-    "alreadyVerified": "U no verifs? NO, you has verifs alredi!",
-    "nameChangeDisclaimer": "Remebar, no need to verifs again if changs nicknam!",
-    "error": "We no has abilis too verifs becos u no sets Dischord on Hypickle good, idot!",
-    "tutorial": "Too has verifis, u has must be sets ur Dishcord on Hypickle too %%tag%% and waits up too 10 minutz too excut the commnad second tims. Copy instrushone in videos down if too idot too do."
+	"moduleName": "Hypickle Verifs",
+	"success": "U has been do has be verifs as %%player%%!",
+	"role": "U has ben give become %%role%% rol due too ur ranks on servar.",
+	"alreadyVerified": "U no verifs? NO, you has verifs alredi!",
+	"nameChangeDisclaimer": "Remebar, no need to verifs again if changs nicknam!",
+	"error": "We no has abilis too verifs becos u no sets Dischord on Hypickle good, idot!",
+	"tutorial": "Too has verifis, u has must be sets ur Dishcord on Hypickle too %%tag%% and waits up too 10 minutz too excut the commnad second tims. Copy instrushone in videos down if too idot too do."
 }
