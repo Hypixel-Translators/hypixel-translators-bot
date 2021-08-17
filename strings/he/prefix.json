@@ -1,25 +1,25 @@
 {
-    "moduleName": "קידומת",
-    "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
-        "trNoRoles": "שמנו לב שאת/ה מתרגם/ת אך אין בידיך אף role של שפה.",
-        "error": "נכשל בשינוי כינוי. את/ה יכול/ה להעתיק את הכינוי הנמצא למטה ולקבוע אותו לעצמך.",
-        "confirmedNoFlags": "אישרת אך לא הגבת עם אימוג'י של אף דגל, ",
-        "cancelled": "ביטלת את שינוי הכינוי שלך, ",
-        "alreadyThis": "כבר יש לך את הכינוי הזה, ",
-        "timedOut": "תם הזמן הקצוב",
-        "timeOut": "לא הגבת עם אף אימוג'י של דגל, ",
-        "timeOutCustom": "אינך אישרת, ",
-        "notSaved": "אז קידומתך לא נשמרה."
-    },
-    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
-    "caution": "זהירות",
-    "warning": "קביעת קידומת לשפה שאינך מתרגם/ת תגרור הערת משמעת. האם ברצונך לשנות את הכינוי שלך בכל זאת?",
-    "react": "הגב/י עם כל האימוג'ים של הדגלים שברצונך להוסיף לקידומת שלך בסדר הופעתם הרצוי.",
-    "reactTimer": "יש לך %%cooldown%% שניות. לחץ/י ❎ כדי לבטל.",
-    "reactTimer2": "יש לך פחות מ%%cooldown%% שניות. לחץ/י ✅ כדי לאשר או ❎ בכדי לבטל.",
-    "previewT": "תצוגת כינוי",
-    "newNickT": "כינוי חדש",
-    "noChanges": "אין שינויים",
-    "saved": "הקידומת שלך נשמרה!"
+	"moduleName": "קידומת",
+	"errors": {
+		"noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
+		"trNoRoles": "שמנו לב שאת/ה מתרגם/ת אך אין בידיך אף role של שפה.",
+		"error": "נכשל בשינוי כינוי. את/ה יכול/ה להעתיק את הכינוי הנמצא למטה ולקבוע אותו לעצמך.",
+		"confirmedNoFlags": "אישרת אך לא הגבת עם אימוג'י של אף דגל, ",
+		"cancelled": "ביטלת את שינוי הכינוי שלך, ",
+		"alreadyThis": "כבר יש לך את הכינוי הזה, ",
+		"timedOut": "תם הזמן הקצוב",
+		"timeOut": "לא הגבת עם אף אימוג'י של דגל, ",
+		"timeOutCustom": "אינך אישרת, ",
+		"notSaved": "אז קידומתך לא נשמרה."
+	},
+	"customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
+	"caution": "זהירות",
+	"warning": "קביעת קידומת לשפה שאינך מתרגם/ת תגרור הערת משמעת. האם ברצונך לשנות את הכינוי שלך בכל זאת?",
+	"react": "הגב/י עם כל האימוג'ים של הדגלים שברצונך להוסיף לקידומת שלך בסדר הופעתם הרצוי.",
+	"reactTimer": "יש לך %%cooldown%% שניות. לחץ/י ❎ כדי לבטל.",
+	"reactTimer2": "יש לך פחות מ%%cooldown%% שניות. לחץ/י ✅ כדי לאשר או ❎ בכדי לבטל.",
+	"previewT": "תצוגת כינוי",
+	"newNickT": "כינוי חדש",
+	"noChanges": "אין שינויים",
+	"saved": "הקידומת שלך נשמרה!"
 }
