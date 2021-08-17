@@ -14,6 +14,10 @@ export const client = new HTBClient({
         Discord.Intents.FLAGS.DIRECT_MESSAGES,
         Discord.Intents.FLAGS.DIRECT_MESSAGE_REACTIONS
     ],
+    makeCache: Discord.Options.cacheWithLimits({
+        BaseGuildEmojiManager: 0,
+        GuildStickerManager: 0
+    }),
     allowedMentions: { parse: ["roles", "users"] },
     presence: {
         status: process.env.NODE_ENV === "production" ? "online" : "dnd",

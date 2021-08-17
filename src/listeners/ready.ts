@@ -8,6 +8,7 @@ import { isEqual } from "lodash";
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user!.tag}!`)
+    const guild = client.guilds.cache.get("549503328472530974")!
 
     //Only update global commands in production
     if (process.env.NODE_ENV === "production") {
@@ -36,12 +37,11 @@ client.once("ready", async () => {
         })
     }
     //Set guild commands - these don't need checks since they update instantly
-    client.guilds.cache.get("549503328472530974")!.commands.set(constructDiscordCommands())
+    guild.commands.set(constructDiscordCommands())
         .then(commands => commands.forEach(async command => await setPermissions(command)))
 
     //Get server boosters and staff for the status
-    const boostersStaff: string[] = [],
-        guild = client.guilds.cache.get("549503328472530974")!
+    const boostersStaff: string[] = []
     await guild.members.fetch()
     guild?.roles.premiumSubscriberRole!.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
     guild?.roles.cache.get("768435276191891456")! //Discord Staff
