@@ -1,6 +1,6 @@
 {
-    "moduleName": "Crowdin-profiel",
-    "profileSuccess": "Dit is je profiel",
-    "noProfile": "Je profiel kon niet worden gevonden in onze database!",
-    "howStore": "Als je deze wilt opslaan, voer dan `/help verify` uit om te zien hoe je dit kunt doen."
+	"moduleName": "Crowdin-profiel",
+	"profileSuccess": "Dit is je profiel",
+	"noProfile": "Je profiel kon niet worden gevonden in onze database!",
+	"howStore": "Als je deze wilt opslaan, voer dan `/help verify` uit om te zien hoe je dit kunt doen."
 }
