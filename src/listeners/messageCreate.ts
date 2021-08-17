@@ -76,7 +76,7 @@ client.on("messageCreate", async message => {
 		) {
 			const langFix = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
 			if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
-				await message.react("732298639736570007")
+				await message.react("732298639736570007") //vote_no
 				const embed = new Discord.MessageEmbed()
 					.setColor(errorColor as Discord.HexColorString)
 					.setAuthor(getGlobalString("errors.wrongLink"))
@@ -92,7 +92,7 @@ client.on("messageCreate", async message => {
 				await message.reply({ embeds: [embed] })
 				return
 			} else if (message.content !== langFix && message.channel.parentId === "549503328472530977") {
-				await message.react("732298639736570007")
+				await message.react("732298639736570007") //vote_no
 				const embed = new Discord.MessageEmbed()
 					.setColor(errorColor as Discord.HexColorString)
 					.setAuthor(getGlobalString("errors.wrongLink"))
