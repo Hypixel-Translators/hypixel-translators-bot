@@ -1,8 +1,8 @@
 {
-    "moduleName": "XP順位表",
-    "pageTitle": "XP順位表はこちらです！",
-    "level": "#%%rank%% | レベル %%level%% | XP: %%xp%%",
-    "youIndicator": "あなた",
-    "thousand": "千",
-    "unranked": "#%%rank%% 未順位"
+	"moduleName": "XP順位表",
+	"pageTitle": "XP順位表はこちらです！",
+	"level": "#%%rank%% | レベル %%level%% | XP: %%xp%%",
+	"youIndicator": "あなた",
+	"thousand": "千",
+	"unranked": "#%%rank%% 未順位"
 }
