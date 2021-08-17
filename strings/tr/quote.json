@@ -1,7 +1,7 @@
 {
-    "moduleName": "Alıntı",
-    "msgUrl": "Mesaj Bağlantısı",
-    "invalidArg": "Geçersiz argüman!",
-    "indexArg": "%%arg%% endeksine sahip bir alıntı mevcut değil! Lütfen 1 ile %%max%% arasında bir sayı sağlayın.",
-    "reqSub": "Alıntı isteğiniz gönderildi, teşekkürler!"
+	"moduleName": "Alıntı",
+	"msgUrl": "Mesaj Bağlantısı",
+	"invalidArg": "Geçersiz argüman!",
+	"indexArg": "%%arg%% endeksine sahip bir alıntı mevcut değil! Lütfen 1 ile %%max%% arasında bir sayı sağlayın.",
+	"reqSub": "Alıntı isteğiniz gönderildi, teşekkürler!"
 }
