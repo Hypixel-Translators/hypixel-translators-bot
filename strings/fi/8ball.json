@@ -1,32 +1,32 @@
 {
-    "moduleName": "Taikapallo",
-    "question": "Kysymys",
-    "answers": {
-        "positive": [
-            "Varmasti.",
-            "Niin se selvästikin on.",
-            "Ilman pienintäkään epäilystä.",
-            "Kyllä – ehdottoman varmasti.",
-            "Voit luottaa siihen.",
-            "Minun mielestäni, kyllä.",
-            "Mitä todennäköisimmin.",
-            "Hyvältä näyttää.",
-            "Kyllä",
-            "Kaikkien merkkien mukaan kyllä."
-        ],
-        "inconclusive": [
-            "Vastaus epäselvä, yritä uudelleen.",
-            "Kysy myöhemmin uudelleen.",
-            "Parempi, jos en kerro juuri nyt.",
-            "En voi ennustaa nyt.",
-            "Keskity enemmän ja kysy uudelleen."
-        ],
-        "negative": [
-            "En luottaisi siihen.",
-            "Vastaukseni on ei.",
-            "Lähteeni sanovat ei.",
-            "Ei näytä niin hyvältä.",
-            "Todella epävarmaa."
-        ]
-    }
+	"moduleName": "Taikapallo",
+	"question": "Kysymys",
+	"answers": {
+		"positive": [
+			"Varmasti.",
+			"Niin se selvästikin on.",
+			"Ilman pienintäkään epäilystä.",
+			"Kyllä – ehdottoman varmasti.",
+			"Voit luottaa siihen.",
+			"Minun mielestäni, kyllä.",
+			"Mitä todennäköisimmin.",
+			"Hyvältä näyttää.",
+			"Kyllä",
+			"Kaikkien merkkien mukaan kyllä."
+		],
+		"inconclusive": [
+			"Vastaus epäselvä, yritä uudelleen.",
+			"Kysy myöhemmin uudelleen.",
+			"Parempi, jos en kerro juuri nyt.",
+			"En voi ennustaa nyt.",
+			"Keskity enemmän ja kysy uudelleen."
+		],
+		"negative": [
+			"En luottaisi siihen.",
+			"Vastaukseni on ei.",
+			"Lähteeni sanovat ei.",
+			"Ei näytä niin hyvältä.",
+			"Todella epävarmaa."
+		]
+	}
 }
