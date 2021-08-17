@@ -1,6 +1,6 @@
 {
-    "moduleName": "Crowdin-Profil",
-    "profileSuccess": "Hier ist dein Profil",
-    "noProfile": "Wir konnten dein Profil nicht in unserer Datenbank finden!",
-    "howStore": "Wenn du es speichern möchtest, führe `/help verify` aus, um zu wissen, wie du es tun kannst."
+	"moduleName": "Crowdin-Profil",
+	"profileSuccess": "Hier ist dein Profil",
+	"noProfile": "Wir konnten dein Profil nicht in unserer Datenbank finden!",
+	"howStore": "Wenn du es speichern möchtest, führe `/help verify` aus, um zu wissen, wie du es tun kannst."
 }
