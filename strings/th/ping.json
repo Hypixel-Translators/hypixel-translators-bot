@@ -1,6 +1,6 @@
 {
-    "moduleName": "ปิง",
-    "pong": "%%pingEmote%% Pong!",
-    "message": "ปิงของฉันคือ %%ping%%ms.",
-    "onlineSince": "Online since %%timestamp%% (%%timestampRelative%%)"
+	"moduleName": "ปิง",
+	"pong": "%%pingEmote%% Pong!",
+	"message": "ปิงของฉันคือ %%ping%%ms.",
+	"onlineSince": "Online since %%timestamp%% (%%timestampRelative%%)"
 }
