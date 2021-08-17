@@ -1,25 +1,25 @@
 {
-    "moduleName": "Etuliite",
-    "errors": {
-        "noLanguages": "Sinulla ei vaikuttaisi olevan kielirooleja! Ole hyvä ja ota yhteyttä ylläpitäjään, mikäli uskot tämän olevan virhe.",
-        "trNoRoles": "Huomasimme, että olet kääntäjä, mutta sinulla ei ole yhtään kieliroolia.",
-        "error": "Nimen vaihtaminen epäonnistui. Voit kopioida nimen alapuolelta ja vaihtaa sen itse.",
-        "confirmedNoFlags": "Vahvistit pyynnön, mutta et reagoinut lipuilla, ",
-        "cancelled": "Peruutit nimimerkkisi vaihtamisen, ",
-        "alreadyThis": "Sinulla on jo tämä nimimerkki, ",
-        "timedOut": "Aikakatkaisu",
-        "timeOut": "Et reagoinut lipuilla, ",
-        "timeOutCustom": "Et vahvistanut, ",
-        "notSaved": "joten etuliitettäsi ei tallennettu."
-    },
-    "customPrefix": "Suorita vapaasti komento `/prefix <liput>` saadaksesi haluamasi etuliitteen.",
-    "caution": "Huomio",
-    "warning": "Asettaessasi etuliitteeksesi kielen, jonka kääntäjä et ole, saat varoituksen. Haluatko silti vaihtaa nimimerkkisi ja etuliitteesi?",
-    "react": "Reagoi kaikilla lipuilla, jotka haluat asetettavan etuliitteiksesi.",
-    "reactTimer": "Sinulla on %%cooldown%% sekuntia aikaa. Paina ❎ peruaksesi.",
-    "reactTimer2": "Sinulla on alle %%cooldown%% sekuntia jäljellä. Paina ✅ vahvistaaksesi tai ❎ peruaksesi.",
-    "previewT": "Nimimerkin esikatselu",
-    "newNickT": "Uusi nimimerkki",
-    "noChanges": "Ei muutoksia",
-    "saved": "Etuliitteesi tallennettiin!"
+	"moduleName": "Etuliite",
+	"errors": {
+		"noLanguages": "Sinulla ei vaikuttaisi olevan kielirooleja! Ole hyvä ja ota yhteyttä ylläpitäjään, mikäli uskot tämän olevan virhe.",
+		"trNoRoles": "Huomasimme, että olet kääntäjä, mutta sinulla ei ole yhtään kieliroolia.",
+		"error": "Nimen vaihtaminen epäonnistui. Voit kopioida nimen alapuolelta ja vaihtaa sen itse.",
+		"confirmedNoFlags": "Vahvistit pyynnön, mutta et reagoinut lipuilla, ",
+		"cancelled": "Peruutit nimimerkkisi vaihtamisen, ",
+		"alreadyThis": "Sinulla on jo tämä nimimerkki, ",
+		"timedOut": "Aikakatkaisu",
+		"timeOut": "Et reagoinut lipuilla, ",
+		"timeOutCustom": "Et vahvistanut, ",
+		"notSaved": "joten etuliitettäsi ei tallennettu."
+	},
+	"customPrefix": "Suorita vapaasti komento `/prefix <liput>` saadaksesi haluamasi etuliitteen.",
+	"caution": "Huomio",
+	"warning": "Asettaessasi etuliitteeksesi kielen, jonka kääntäjä et ole, saat varoituksen. Haluatko silti vaihtaa nimimerkkisi ja etuliitteesi?",
+	"react": "Reagoi kaikilla lipuilla, jotka haluat asetettavan etuliitteiksesi.",
+	"reactTimer": "Sinulla on %%cooldown%% sekuntia aikaa. Paina ❎ peruaksesi.",
+	"reactTimer2": "Sinulla on alle %%cooldown%% sekuntia jäljellä. Paina ✅ vahvistaaksesi tai ❎ peruaksesi.",
+	"previewT": "Nimimerkin esikatselu",
+	"newNickT": "Uusi nimimerkki",
+	"noChanges": "Ei muutoksia",
+	"saved": "Etuliitteesi tallennettiin!"
 }
