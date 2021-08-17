@@ -1,25 +1,25 @@
 {
-    "moduleName": "Präfix",
-    "errors": {
-        "noLanguages": "Du scheinst keine Sprachrollen zu haben! Bitte kontaktiere einen Administrator, wenn du glaubst, dass dies ein Fehler ist.",
-        "trNoRoles": "Wir haben bemerkt, dass du ein Übersetzer bist, aber du keine Sprachrollen hast.",
-        "error": "Benutzername konnte nicht geändert werden. Du kannst den Benutzernamen unten kopieren und ihn selbst anwenden.",
-        "confirmedNoFlags": "Du hast bestätigt, aber du hast auf keine Flaggen reagiert, ",
-        "cancelled": "Du hast die Änderung deines Benutzernamens abgebrochen, ",
-        "alreadyThis": "Du hast bereits diesen Benutzernamen, ",
-        "timedOut": "Zeitüberschreitung",
-        "timeOut": "Du hast mit keiner Flagge reagiert, ",
-        "timeOutCustom": "Du hast nicht bestätigt, ",
-        "notSaved": "deswegen wurde dein Präfix nicht gespeichert."
-    },
-    "customPrefix": "Fühle dich frei, `/prefix <Flagge>` auszuführen, um dein gewünschtes Präfix zu erhalten.",
-    "caution": "Achtung",
-    "warning": "Das Einstellen deines Präfixes auf eine Sprache, die du nicht übersetzen kannst, führt zu einer Warnung. Willst du deinen Benutzernamen trotzdem ändern?",
-    "react": "Reagiere mit allen Flaggen, die du deinem Präfix in der Reihenfolge hinzufügen möchtest.",
-    "reactTimer": "Du hast %%cooldown%% Sekunden. Drücke ❎ zum Abbrechen.",
-    "reactTimer2": "Du hast weniger als 20 Sekunden übrig. Drücke ✅ um zu bestätigen oder ❎ um abzubrechen.",
-    "previewT": "Benutzernamen-Vorschau",
-    "newNickT": "Neuer Benutzername",
-    "noChanges": "Keine Änderungen",
-    "saved": "Dein Präfix wurde gespeichert!"
+	"moduleName": "Präfix",
+	"errors": {
+		"noLanguages": "Du scheinst keine Sprachrollen zu haben! Bitte kontaktiere einen Administrator, wenn du glaubst, dass dies ein Fehler ist.",
+		"trNoRoles": "Wir haben bemerkt, dass du ein Übersetzer bist, aber du keine Sprachrollen hast.",
+		"error": "Benutzername konnte nicht geändert werden. Du kannst den Benutzernamen unten kopieren und ihn selbst anwenden.",
+		"confirmedNoFlags": "Du hast bestätigt, aber du hast auf keine Flaggen reagiert, ",
+		"cancelled": "Du hast die Änderung deines Benutzernamens abgebrochen, ",
+		"alreadyThis": "Du hast bereits diesen Benutzernamen, ",
+		"timedOut": "Zeitüberschreitung",
+		"timeOut": "Du hast mit keiner Flagge reagiert, ",
+		"timeOutCustom": "Du hast nicht bestätigt, ",
+		"notSaved": "deswegen wurde dein Präfix nicht gespeichert."
+	},
+	"customPrefix": "Fühle dich frei, `/prefix <Flagge>` auszuführen, um dein gewünschtes Präfix zu erhalten.",
+	"caution": "Achtung",
+	"warning": "Das Einstellen deines Präfixes auf eine Sprache, die du nicht übersetzen kannst, führt zu einer Warnung. Willst du deinen Benutzernamen trotzdem ändern?",
+	"react": "Reagiere mit allen Flaggen, die du deinem Präfix in der Reihenfolge hinzufügen möchtest.",
+	"reactTimer": "Du hast %%cooldown%% Sekunden. Drücke ❎ zum Abbrechen.",
+	"reactTimer2": "Du hast weniger als 20 Sekunden übrig. Drücke ✅ um zu bestätigen oder ❎ um abzubrechen.",
+	"previewT": "Benutzernamen-Vorschau",
+	"newNickT": "Neuer Benutzername",
+	"noChanges": "Keine Änderungen",
+	"saved": "Dein Präfix wurde gespeichert!"
 }
