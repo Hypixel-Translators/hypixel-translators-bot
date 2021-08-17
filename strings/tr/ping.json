@@ -1,6 +1,6 @@
 {
-    "moduleName": "Ping",
-    "pong": "%%pingEmote%% Pong!",
-    "message": "Ping'im %%ping%%ms'dir.",
-    "onlineSince": "%%timestamp%% tarihinden beri çevrimiçi\n(%%timestampRelative%%)"
+	"moduleName": "Ping",
+	"pong": "%%pingEmote%% Pong!",
+	"message": "Ping'im %%ping%%ms'dir.",
+	"onlineSince": "%%timestamp%% tarihinden beri çevrimiçi\n(%%timestampRelative%%)"
 }
