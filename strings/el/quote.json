@@ -1,7 +1,7 @@
 {
-    "moduleName": "Παράθεμα",
-    "msgUrl": "Message URL",
-    "invalidArg": "Μη έγκυρο επιχείρημα!",
-    "indexArg": "Ένα παράθεμα με ένδειξη %%arg%% δεν υπάρχει! Παρακαλώ εισήγαγε έναν αριθμό μεταξύ του 1 και %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!"
+	"moduleName": "Παράθεμα",
+	"msgUrl": "Message URL",
+	"invalidArg": "Μη έγκυρο επιχείρημα!",
+	"indexArg": "Ένα παράθεμα με ένδειξη %%arg%% δεν υπάρχει! Παρακαλώ εισήγαγε έναν αριθμό μεταξύ του 1 και %%max%%.",
+	"reqSub": "Your quote request has been submitted, thanks!"
 }
