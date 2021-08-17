@@ -1,6 +1,6 @@
 {
-    "moduleName": "Crowdin Profili",
-    "profileSuccess": "İşte Profilin",
-    "noProfile": "Profilini veritabanımızda bulamadık!",
-    "howStore": "Veritabanımızda saklamak istersen, bunu nasıl yapabileceğini öğrenmek için `/help verify` komutunu kullan."
+	"moduleName": "Crowdin Profili",
+	"profileSuccess": "İşte Profilin",
+	"noProfile": "Profilini veritabanımızda bulamadık!",
+	"howStore": "Veritabanımızda saklamak istersen, bunu nasıl yapabileceğini öğrenmek için `/help verify` komutunu kullan."
 }
