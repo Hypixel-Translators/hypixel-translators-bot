@@ -1,9 +1,9 @@
 {
-    "moduleName": "مشاريع الترجمة",
-    "allProjects": "هذه هي جميع المشاريع التي ندعمها حاليا في السيرفر!",
-    "description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
-    "projectInfo": "يمكنك العثور على الرابط لمشروع %%project%% [هنا](%%link%%). لمزيد من المعلومات، قم بتنفيذ %%command%%.",
-    "alreadyJoined": "انت بالفعل انضممت لهذا المشروع!",
-    "notJoined": "انت لم تنضم إلى هذا المشروع بعد!",
-    "dmError": "لم نتمكن من التحقق مما إذا كنت بالفعل في هذه المشاريع أم لا. من أجل القيام بذلك، يجب عليك تنفيذ الأمر على سيرفر ديسكورد مترجمين هايبكسلl."
+	"moduleName": "مشاريع الترجمة",
+	"allProjects": "هذه هي جميع المشاريع التي ندعمها حاليا في السيرفر!",
+	"description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
+	"projectInfo": "يمكنك العثور على الرابط لمشروع %%project%% [هنا](%%link%%). لمزيد من المعلومات، قم بتنفيذ %%command%%.",
+	"alreadyJoined": "انت بالفعل انضممت لهذا المشروع!",
+	"notJoined": "انت لم تنضم إلى هذا المشروع بعد!",
+	"dmError": "لم نتمكن من التحقق مما إذا كنت بالفعل في هذه المشاريع أم لا. من أجل القيام بذلك، يجب عليك تنفيذ الأمر على سيرفر ديسكورد مترجمين هايبكسلl."
 }
