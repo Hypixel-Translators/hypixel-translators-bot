@@ -1,12 +1,12 @@
 {
-    "moduleName": "Nível do usuário",
-    "yourRank": "Aqui está o seu EXP",
-    "userRank": "Aqui está o EXP de %%user%%",
-    "youNotRanked": "Você não possui EXP!",
-    "userNotRanked": "Esse usuário não possui EXP!",
-    "howRank": "Você deve falar no chat para receber EXP!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% mensagens",
-    "thousand": "k",
-    "youLevel": "Você está no nível %%level%% e está em %%rank%%º lugar no pódio!",
-    "userLevel": "%%user%% está no nível %%level%% e está em %%rank%%º lugar no pódio!"
+	"moduleName": "Nível do usuário",
+	"yourRank": "Aqui está o seu EXP",
+	"userRank": "Aqui está o EXP de %%user%%",
+	"youNotRanked": "Você não possui EXP!",
+	"userNotRanked": "Esse usuário não possui EXP!",
+	"howRank": "Você deve falar no chat para receber EXP!",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% mensagens",
+	"thousand": "k",
+	"youLevel": "Você está no nível %%level%% e está em %%rank%%º lugar no pódio!",
+	"userLevel": "%%user%% está no nível %%level%% e está em %%rank%%º lugar no pódio!"
 }
