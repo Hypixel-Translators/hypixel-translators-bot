@@ -1,12 +1,12 @@
 {
-    "moduleName": "Poziom użytkownika",
-    "yourRank": "Oto twój ranking",
-    "userRank": "Oto ranking %%user%%",
-    "youNotRanked": "Nie jesteś jeszcze w rankingu!",
-    "userNotRanked": "Ten użytkownik nie jest jeszcze w rankingu!",
-    "howRank": "Aby być w rankingu, musisz pisać na czatach!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% wiadomości",
-    "thousand": " tys.",
-    "youLevel": "Twój poziom to %%level%% i jesteś #%%rank%% w rankingu!",
-    "userLevel": "%%user%% jest na poziomie %%level%% i jest #%%rank%% w rankingu!"
+	"moduleName": "Poziom użytkownika",
+	"yourRank": "Oto twój ranking",
+	"userRank": "Oto ranking %%user%%",
+	"youNotRanked": "Nie jesteś jeszcze w rankingu!",
+	"userNotRanked": "Ten użytkownik nie jest jeszcze w rankingu!",
+	"howRank": "Aby być w rankingu, musisz pisać na czatach!",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% wiadomości",
+	"thousand": " tys.",
+	"youLevel": "Twój poziom to %%level%% i jesteś #%%rank%% w rankingu!",
+	"userLevel": "%%user%% jest na poziomie %%level%% i jest #%%rank%% w rankingu!"
 }
