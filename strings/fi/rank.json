@@ -1,12 +1,12 @@
 {
-    "moduleName": "Käyttäjän taso",
-    "yourRank": "Tässä on sijoituksesi",
-    "userRank": "Tässä on käyttäjän %%user%% sijoitus",
-    "youNotRanked": "Et ole vielä sijoittunut pistetaululla!",
-    "userNotRanked": "Tämä käyttäjä ei ole vielä sijoittunut pistetaululla!",
-    "howRank": "Sijoittuaksesi pistetaululla sinun tulee jutella chateissa!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% viestiä",
-    "thousand": "k",
-    "youLevel": "Olet tasolla %%level%% ja olet pistetaululla sijalla #%%rank%%!",
-    "userLevel": "%%user%% on tasolla %%level%% hän on pistetaululla sijalla #%%rank%%!"
+	"moduleName": "Käyttäjän taso",
+	"yourRank": "Tässä on sijoituksesi",
+	"userRank": "Tässä on käyttäjän %%user%% sijoitus",
+	"youNotRanked": "Et ole vielä sijoittunut pistetaululla!",
+	"userNotRanked": "Tämä käyttäjä ei ole vielä sijoittunut pistetaululla!",
+	"howRank": "Sijoittuaksesi pistetaululla sinun tulee jutella chateissa!",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% viestiä",
+	"thousand": "k",
+	"youLevel": "Olet tasolla %%level%% ja olet pistetaululla sijalla #%%rank%%!",
+	"userLevel": "%%user%% on tasolla %%level%% hän on pistetaululla sijalla #%%rank%%!"
 }
