@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magiczna kula",
-    "question": "Pytanie",
-    "answers": {
-        "positive": [
-            "To pewne.",
-            "Zdecydowanie tak.",
-            "Bez wątpienia.",
-            "Tak - definitywnie.",
-            "Możesz na to liczyć.",
-            "Moim zdaniem tak.",
-            "Najprawdopodobniej.",
-            "Raczej tak.",
-            "Tak",
-            "Wszystko wskazuje, że tak."
-        ],
-        "inconclusive": [
-            "Twoje pytanie jest niejasne, spróbuj ponownie.",
-            "Zapytaj później.",
-            "Lepiej ci teraz nie mówić.",
-            "Nie mogę teraz tego przewidzieć.",
-            "Skup się i zapytaj ponownie."
-        ],
-        "negative": [
-            "Nie licz na to.",
-            "Moja odpowiedź brzmi nie.",
-            "Moje źródła mówią nie.",
-            "Nie wygląda to dobrze.",
-            "Wątpię."
-        ]
-    }
+	"moduleName": "Magiczna kula",
+	"question": "Pytanie",
+	"answers": {
+		"positive": [
+			"To pewne.",
+			"Zdecydowanie tak.",
+			"Bez wątpienia.",
+			"Tak - definitywnie.",
+			"Możesz na to liczyć.",
+			"Moim zdaniem tak.",
+			"Najprawdopodobniej.",
+			"Raczej tak.",
+			"Tak",
+			"Wszystko wskazuje, że tak."
+		],
+		"inconclusive": [
+			"Twoje pytanie jest niejasne, spróbuj ponownie.",
+			"Zapytaj później.",
+			"Lepiej ci teraz nie mówić.",
+			"Nie mogę teraz tego przewidzieć.",
+			"Skup się i zapytaj ponownie."
+		],
+		"negative": [
+			"Nie licz na to.",
+			"Moja odpowiedź brzmi nie.",
+			"Moje źródła mówią nie.",
+			"Nie wygląda to dobrze.",
+			"Wątpię."
+		]
+	}
 }
