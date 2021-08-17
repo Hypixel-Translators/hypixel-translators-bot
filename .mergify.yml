@@ -1,9 +1,9 @@
 pull_request_rules:
-	- name: Automerge translations
-		conditions:
-			- author=HypixelTranslators
-			- check-success=GitGuardian Security Checks
-			- check-success=Install dependencies and compile
-		actions:
-			merge:
-				method: squash
+  - name: Automerge translations
+    conditions:
+      - author=HypixelTranslators
+      - check-success=GitGuardian Security Checks
+      - check-success=Install dependencies and compile
+    actions:
+      merge:
+        method: squash
