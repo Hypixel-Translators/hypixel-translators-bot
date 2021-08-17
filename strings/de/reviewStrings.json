@@ -1,9 +1,9 @@
 {
-    "moduleName": "Zeichenkettenüberprüfung",
-    "message": "Nachricht",
-    "clickHere": "Hier klicken",
-    "requestDetails": "%%user%% hat weitere Details zu deinem Vorschlag angefordert",
-    "requestedBy": "Angefordert von %%user%%",
-    "rejected": "%%user%% hat deinen Vorschlag abgelehnt",
-    "rejectedBy": "Abgelehnt von %%user%%"
+	"moduleName": "Zeichenkettenüberprüfung",
+	"message": "Nachricht",
+	"clickHere": "Hier klicken",
+	"requestDetails": "%%user%% hat weitere Details zu deinem Vorschlag angefordert",
+	"requestedBy": "Angefordert von %%user%%",
+	"rejected": "%%user%% hat deinen Vorschlag abgelehnt",
+	"rejectedBy": "Abgelehnt von %%user%%"
 }
