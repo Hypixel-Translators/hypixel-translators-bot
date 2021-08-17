@@ -1,9 +1,9 @@
 {
-    "moduleName": "Ulas string",
-    "message": "Pesan",
-    "clickHere": "Klik disini",
-    "requestDetails": "%%user%% menginginkan keterangan lebih lanjut dalam saran anda",
-    "requestedBy": "Diminta oleh %%user%%",
-    "rejected": "%%user%% menolak saran anda",
-    "rejectedBy": "Ditolak oleh %%user%%"
+	"moduleName": "Ulas string",
+	"message": "Pesan",
+	"clickHere": "Klik disini",
+	"requestDetails": "%%user%% menginginkan keterangan lebih lanjut dalam saran anda",
+	"requestedBy": "Diminta oleh %%user%%",
+	"rejected": "%%user%% menolak saran anda",
+	"rejectedBy": "Ditolak oleh %%user%%"
 }
