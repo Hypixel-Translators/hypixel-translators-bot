@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magic 8 ball",
-    "question": "Otázka",
-    "answers": {
-        "positive": [
-            "It is certain.",
-            "It is decidedly so.",
-            "Without a doubt.",
-            "Yes – definitely.",
-            "You may rely on it.",
-            "As I see it, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Ano",
-            "Signs point to yes."
-        ],
-        "inconclusive": [
-            "Reply hazy, try again.",
-            "Zeptej se později.",
-            "Raději ti to teď nebudu říkat.",
-            "Cannot predict now.",
-            "Soustřeď se a zeptej se znovu."
-        ],
-        "negative": [
-            "Don't count on it.",
-            "Moje odpověď je ne.",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful."
-        ]
-    }
+	"moduleName": "Magic 8 ball",
+	"question": "Otázka",
+	"answers": {
+		"positive": [
+			"It is certain.",
+			"It is decidedly so.",
+			"Without a doubt.",
+			"Yes – definitely.",
+			"You may rely on it.",
+			"As I see it, yes.",
+			"Most likely.",
+			"Outlook good.",
+			"Ano",
+			"Signs point to yes."
+		],
+		"inconclusive": [
+			"Reply hazy, try again.",
+			"Zeptej se později.",
+			"Raději ti to teď nebudu říkat.",
+			"Cannot predict now.",
+			"Soustřeď se a zeptej se znovu."
+		],
+		"negative": [
+			"Don't count on it.",
+			"Moje odpověď je ne.",
+			"My sources say no.",
+			"Outlook not so good.",
+			"Very doubtful."
+		]
+	}
 }
