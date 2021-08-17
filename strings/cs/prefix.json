@@ -1,25 +1,25 @@
 {
-    "moduleName": "Prefix",
-    "errors": {
-        "noLanguages": "Vypadá to, že nemáš žádnou roli jazyka! Pokud si myslíš, že je to chyba, kontaktuj prosím vedení serveru.",
-        "trNoRoles": "We noticed you're a translator but you don't have any language roles.",
-        "error": "Nepodařilo se změnit přezdívku. Můžeš si zkopírovat přezdívku níže a nastavit si ji sám.",
-        "confirmedNoFlags": "Potvrdil jsi to, ale nezareagoval jsi žádnou vlajkou, ",
-        "cancelled": "Zrušil jsi změnu své přezdívky, ",
-        "alreadyThis": "Tuto přezdívku už máš, ",
-        "timedOut": "Timed Out",
-        "timeOut": "Nezareagoval jsi žádnou vlajkou, ",
-        "timeOutCustom": "You didn't confirm, ",
-        "notSaved": "takže se tvůj prefix neuložil."
-    },
-    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
-    "caution": "Caution",
-    "warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
-    "react": "Zareaguj vlajkami v takovém pořadí, v jakém je chceš přidat do prefixu.",
-    "reactTimer": "Máš %%cooldown%% sekund. Pro zrušení klikni na ❎.",
-    "reactTimer2": "Máš méně než %%cooldown%% sekund. Pro potvrzení klikni na ✅, pro zrušení na ❎.",
-    "previewT": "Jak bude přezdívka vypadat",
-    "newNickT": "Nová přezdívka",
-    "noChanges": "Žádné změny",
-    "saved": "Tvůj prefix byl uložen!"
+	"moduleName": "Prefix",
+	"errors": {
+		"noLanguages": "Vypadá to, že nemáš žádnou roli jazyka! Pokud si myslíš, že je to chyba, kontaktuj prosím vedení serveru.",
+		"trNoRoles": "We noticed you're a translator but you don't have any language roles.",
+		"error": "Nepodařilo se změnit přezdívku. Můžeš si zkopírovat přezdívku níže a nastavit si ji sám.",
+		"confirmedNoFlags": "Potvrdil jsi to, ale nezareagoval jsi žádnou vlajkou, ",
+		"cancelled": "Zrušil jsi změnu své přezdívky, ",
+		"alreadyThis": "Tuto přezdívku už máš, ",
+		"timedOut": "Timed Out",
+		"timeOut": "Nezareagoval jsi žádnou vlajkou, ",
+		"timeOutCustom": "You didn't confirm, ",
+		"notSaved": "takže se tvůj prefix neuložil."
+	},
+	"customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
+	"caution": "Caution",
+	"warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
+	"react": "Zareaguj vlajkami v takovém pořadí, v jakém je chceš přidat do prefixu.",
+	"reactTimer": "Máš %%cooldown%% sekund. Pro zrušení klikni na ❎.",
+	"reactTimer2": "Máš méně než %%cooldown%% sekund. Pro potvrzení klikni na ✅, pro zrušení na ❎.",
+	"previewT": "Jak bude přezdívka vypadat",
+	"newNickT": "Nová přezdívka",
+	"noChanges": "Žádné změny",
+	"saved": "Tvůj prefix byl uložen!"
 }
