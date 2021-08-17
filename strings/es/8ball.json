@@ -1,32 +1,32 @@
 {
-    "moduleName": "Bola 8 mágica",
-    "question": "Pregunta",
-    "answers": {
-        "positive": [
-            "Es cierto.",
-            "Es decididamente así.",
-            "Sin duda.",
-            "Sí – definitivamente.",
-            "Puedes confiar en ello.",
-            "En mi opinión, sí.",
-            "Probablemente.",
-            "Buen pronóstico.",
-            "Sí",
-            "Todo apunta a que sí."
-        ],
-        "inconclusive": [
-            "Respuesta vaga, vuelve a intentarlo.",
-            "Pregunta en otro momento.",
-            "Será mejor que no te lo diga ahora.",
-            "No puedo predecirlo ahora.",
-            "Concéntrate y vuelve a preguntar."
-        ],
-        "negative": [
-            "No cuentes con ello.",
-            "Mi respuesta es no.",
-            "Mis fuentes me dicen que no.",
-            "Las perspectivas no son buenas.",
-            "Muy dudoso."
-        ]
-    }
+	"moduleName": "Bola 8 mágica",
+	"question": "Pregunta",
+	"answers": {
+		"positive": [
+			"Es cierto.",
+			"Es decididamente así.",
+			"Sin duda.",
+			"Sí – definitivamente.",
+			"Puedes confiar en ello.",
+			"En mi opinión, sí.",
+			"Probablemente.",
+			"Buen pronóstico.",
+			"Sí",
+			"Todo apunta a que sí."
+		],
+		"inconclusive": [
+			"Respuesta vaga, vuelve a intentarlo.",
+			"Pregunta en otro momento.",
+			"Será mejor que no te lo diga ahora.",
+			"No puedo predecirlo ahora.",
+			"Concéntrate y vuelve a preguntar."
+		],
+		"negative": [
+			"No cuentes con ello.",
+			"Mi respuesta es no.",
+			"Mis fuentes me dicen que no.",
+			"Las perspectivas no son buenas.",
+			"Muy dudoso."
+		]
+	}
 }
