@@ -1,9 +1,9 @@
 {
-    "moduleName": "Verificación de Hypixel",
-    "success": "¡Te has verificado con éxito como %%player%%!",
-    "role": "Se le asignó el rol %%role%% debido a su rango en el servidor.",
-    "alreadyVerified": "¡Ya estás verificado!",
-    "nameChangeDisclaimer": "¡Tenga en cuenta que no es necesario que se verifique nuevamente si cambia su nombre!",
-    "error": "¡No pudimos verificarlo porque no configuró su Discord en Hypixel correctamente!",
-    "tutorial": "Para ser verificado, debe configurar su Discord en Hypixel en %%tag%% y luego ejecutar el comando nuevamente. Siga las instrucciones del video a continuación si no sabe cómo hacer esto."
+	"moduleName": "Verificación de Hypixel",
+	"success": "¡Te has verificado con éxito como %%player%%!",
+	"role": "Se le asignó el rol %%role%% debido a su rango en el servidor.",
+	"alreadyVerified": "¡Ya estás verificado!",
+	"nameChangeDisclaimer": "¡Tenga en cuenta que no es necesario que se verifique nuevamente si cambia su nombre!",
+	"error": "¡No pudimos verificarlo porque no configuró su Discord en Hypixel correctamente!",
+	"tutorial": "Para ser verificado, debe configurar su Discord en Hypixel en %%tag%% y luego ejecutar el comando nuevamente. Siga las instrucciones del video a continuación si no sabe cómo hacer esto."
 }
