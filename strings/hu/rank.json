@@ -1,12 +1,12 @@
 {
-    "moduleName": "Felhasználó szintja",
-    "yourRank": "Itt a rangod",
-    "userRank": "Itt van %%user%% rangja",
-    "youNotRanked": "Még nincsen rangod!",
-    "userNotRanked": "Ennek a felhasználónak még nincs rangja!",
-    "howRank": "In order to be ranked you must talk in the chats!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% üzenet",
-    "thousand": "e",
-    "youLevel": "%%level%% szintű vagy és te vagy a #%%rank%% a ranglistán!",
-    "userLevel": "%%user%% %%level%% szintű és ő a #%%rank%% a ranglistán!"
+	"moduleName": "Felhasználó szintja",
+	"yourRank": "Itt a rangod",
+	"userRank": "Itt van %%user%% rangja",
+	"youNotRanked": "Még nincsen rangod!",
+	"userNotRanked": "Ennek a felhasználónak még nincs rangja!",
+	"howRank": "In order to be ranked you must talk in the chats!",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% üzenet",
+	"thousand": "e",
+	"youLevel": "%%level%% szintű vagy és te vagy a #%%rank%% a ranglistán!",
+	"userLevel": "%%user%% %%level%% szintű és ő a #%%rank%% a ranglistán!"
 }
