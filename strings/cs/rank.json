@@ -1,12 +1,12 @@
 {
-    "moduleName": "Úroveň uživatele",
-    "yourRank": "Tohle je tvoje hodnocení",
-    "userRank": "Tohle je hodnocení uživatele %%user%%",
-    "youNotRanked": "Ještě nemáš žádné hodnocení!",
-    "userNotRanked": "Tento uživatel ještě nemá žádné hodnocení!",
-    "howRank": "Abys získal hodnocení, musíš psát do chatu!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% zpráv",
-    "thousand": "k",
-    "youLevel": "Máš úroveň %%level%% a jsi %%rank%%. na žebříčku!",
-    "userLevel": "%%user%% má úroveň %%level%% a je %%rank%%. na žebříčku!"
+	"moduleName": "Úroveň uživatele",
+	"yourRank": "Tohle je tvoje hodnocení",
+	"userRank": "Tohle je hodnocení uživatele %%user%%",
+	"youNotRanked": "Ještě nemáš žádné hodnocení!",
+	"userNotRanked": "Tento uživatel ještě nemá žádné hodnocení!",
+	"howRank": "Abys získal hodnocení, musíš psát do chatu!",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% zpráv",
+	"thousand": "k",
+	"youLevel": "Máš úroveň %%level%% a jsi %%rank%%. na žebříčku!",
+	"userLevel": "%%user%% má úroveň %%level%% a je %%rank%%. na žebříčku!"
 }
