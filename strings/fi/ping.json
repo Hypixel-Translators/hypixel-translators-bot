@@ -1,6 +1,6 @@
 {
-    "moduleName": "Viive",
-    "pong": "%%pingEmote%% Pong!",
-    "message": "Viiveeni on %%ping%%ms.",
-    "onlineSince": "Paikalla %%timestamp%% alkaen (%%timestampRelative%%)"
+	"moduleName": "Viive",
+	"pong": "%%pingEmote%% Pong!",
+	"message": "Viiveeni on %%ping%%ms.",
+	"onlineSince": "Paikalla %%timestamp%% alkaen (%%timestampRelative%%)"
 }
