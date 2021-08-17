@@ -1,9 +1,9 @@
 {
-    "moduleName": "Hypixel認証",
-    "success": "あなたを%%player%%として認証しました！",
-    "role": "サーバーのランクに基づき%%role%%ロールを付与しました。",
-    "alreadyVerified": "既に認証しています！",
-    "nameChangeDisclaimer": "名前を変更した場合でも再度認証する必要はないことにご注意ください！",
-    "error": "HypixelでDiscordを正しく設定していないため、認証できませんでした！",
-    "tutorial": "認証するには、Hypixelで自分のDiscordを%%tag%%に設定し、最大10分経過後に再度コマンドを実行してください。方法が分からない場合は、以下のビデオの手順に従ってください。"
+	"moduleName": "Hypixel認証",
+	"success": "あなたを%%player%%として認証しました！",
+	"role": "サーバーのランクに基づき%%role%%ロールを付与しました。",
+	"alreadyVerified": "既に認証しています！",
+	"nameChangeDisclaimer": "名前を変更した場合でも再度認証する必要はないことにご注意ください！",
+	"error": "HypixelでDiscordを正しく設定していないため、認証できませんでした！",
+	"tutorial": "認証するには、Hypixelで自分のDiscordを%%tag%%に設定し、最大10分経過後に再度コマンドを実行してください。方法が分からない場合は、以下のビデオの手順に従ってください。"
 }
