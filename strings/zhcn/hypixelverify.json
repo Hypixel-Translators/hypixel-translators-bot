@@ -1,9 +1,9 @@
 {
-    "moduleName": "Hypixel 验证",
-    "success": "你已成功验证为 %%player%%！",
-    "role": "You were given the %%role%% role due to your rank on the server.",
-    "alreadyVerified": "你已经验证过了！",
-    "nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
-    "error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
-    "tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this."
+	"moduleName": "Hypixel 验证",
+	"success": "你已成功验证为 %%player%%！",
+	"role": "You were given the %%role%% role due to your rank on the server.",
+	"alreadyVerified": "你已经验证过了！",
+	"nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
+	"error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
+	"tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this."
 }
