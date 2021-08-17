@@ -1,25 +1,25 @@
 {
-    "moduleName": "البرفكس",
-    "errors": {
-        "noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
-        "trNoRoles": "لاحظنا أنك مترجم ولكن لا يوجد لديك أي من رتب اللغات.",
-        "error": "فشل تغيير الاسم المستعار. يمكنك نسخ الاسم المستعار أدناه وتضعه بنفسك.",
-        "confirmedNoFlags": "لقد أكدت ولكنك لم تضغط على أي أعلام، ",
-        "cancelled": "قمت بإلغاء تغيير اسمك المستعار، ",
-        "alreadyThis": "لديك هذا الاسم المستعار بالفعل، ",
-        "timedOut": "انتهت المهلة",
-        "timeOut": "لم تقم بالضغط على أي من الأعلام، ",
-        "timeOutCustom": "لم تقم بالتأكد، ",
-        "notSaved": "لذلك لم يتم حفظ البرفكس الخاص بك."
-    },
-    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
-    "caution": "تحذير",
-    "warning": "إعداد البرفكس إلى لغة لا تترجمها سيؤدي إلى تحذير. هل تريد تغيير اسمك المستعار على أي حال؟",
-    "react": "اضغط على جميع الأعلام التي تريد إضافتها إلى البرفكس الخاص بك بالترتيب.",
-    "reactTimer": "لديك %%cooldown%% ثانية. اضغط على ❎ للإلغاء.",
-    "reactTimer2": "لديك أقل من %%cooldown%% ثانية متبقية. اضغط على ✅ للتأكيد أو ❎ للإلغاء.",
-    "previewT": "معاينه الإسم المستعار",
-    "newNickT": "اسم مستعار جديد",
-    "noChanges": "لا يوجد تغييرات",
-    "saved": "تم حفظ البرفكس الخاص بك!"
+	"moduleName": "البرفكس",
+	"errors": {
+		"noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
+		"trNoRoles": "لاحظنا أنك مترجم ولكن لا يوجد لديك أي من رتب اللغات.",
+		"error": "فشل تغيير الاسم المستعار. يمكنك نسخ الاسم المستعار أدناه وتضعه بنفسك.",
+		"confirmedNoFlags": "لقد أكدت ولكنك لم تضغط على أي أعلام، ",
+		"cancelled": "قمت بإلغاء تغيير اسمك المستعار، ",
+		"alreadyThis": "لديك هذا الاسم المستعار بالفعل، ",
+		"timedOut": "انتهت المهلة",
+		"timeOut": "لم تقم بالضغط على أي من الأعلام، ",
+		"timeOutCustom": "لم تقم بالتأكد، ",
+		"notSaved": "لذلك لم يتم حفظ البرفكس الخاص بك."
+	},
+	"customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
+	"caution": "تحذير",
+	"warning": "إعداد البرفكس إلى لغة لا تترجمها سيؤدي إلى تحذير. هل تريد تغيير اسمك المستعار على أي حال؟",
+	"react": "اضغط على جميع الأعلام التي تريد إضافتها إلى البرفكس الخاص بك بالترتيب.",
+	"reactTimer": "لديك %%cooldown%% ثانية. اضغط على ❎ للإلغاء.",
+	"reactTimer2": "لديك أقل من %%cooldown%% ثانية متبقية. اضغط على ✅ للتأكيد أو ❎ للإلغاء.",
+	"previewT": "معاينه الإسم المستعار",
+	"newNickT": "اسم مستعار جديد",
+	"noChanges": "لا يوجد تغييرات",
+	"saved": "تم حفظ البرفكس الخاص بك!"
 }
