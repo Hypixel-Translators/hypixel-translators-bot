@@ -1,7 +1,7 @@
 {
-    "moduleName": "글귀",
-    "msgUrl": "메시지 URL",
-    "invalidArg": "변수가 잘못되었습니다!",
-    "indexArg": "%%arg%%에 대한 글귀는 존재하지 않습니다! 1부터 %%max%% 사이의 숫자를 사용해주세요.",
-    "reqSub": "글귀 요청을 신청했습니다!"
+	"moduleName": "글귀",
+	"msgUrl": "메시지 URL",
+	"invalidArg": "변수가 잘못되었습니다!",
+	"indexArg": "%%arg%%에 대한 글귀는 존재하지 않습니다! 1부터 %%max%% 사이의 숫자를 사용해주세요.",
+	"reqSub": "글귀 요청을 신청했습니다!"
 }
