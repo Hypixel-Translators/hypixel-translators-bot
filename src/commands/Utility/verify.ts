@@ -28,7 +28,7 @@ const command: Command = {
             profileUrl = interaction.options.getString("url", false),
             memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
             url = profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0]
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply({ ephemeral: true })
         if (!member.roles.cache.has("569194996964786178") && interaction.channelId == "569178590697095168" && !url) { //Verified and #verify
             (interaction.channel as Discord.TextChannel).messages.fetch()
                 .then(async messages => {
@@ -36,8 +36,8 @@ const command: Command = {
                     await (interaction.channel as Discord.TextChannel).bulkDelete(fiMessages)
                 })
             await member.roles.add("569194996964786178", "Manually verified through the command")
-            await member.roles.remove("756199836470214848", "Manually verified through the command"); //Add Verified and remove Alerted
-            await db.collection("users").updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } });
+            await member.roles.remove("756199836470214848", "Manually verified through the command") //Add Verified and remove Alerted
+            await db.collection("users").updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
             await db.collection("users").updateOne({ id: member.id, profile: { $exists: false } }, { $set: { profile: null } })
             await verifyLogs.send(`${interaction.user} manually verified themselves through the command`)
             client.cooldowns.get(this.name)!.delete(interaction.user.id)

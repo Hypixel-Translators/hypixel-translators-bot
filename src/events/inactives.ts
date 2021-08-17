@@ -37,7 +37,7 @@ async function check(client: HTBClient) {
                     //member.kick("Stood on the server for 14 days without verifying")
                     await member.roles.add("569194996964786178", "Automatically verified after 2 weeks") //Add Verified
                     await member.roles.remove("756199836470214848", "Automatically verified after 2 weeks") //Remove Alerted
-                    await db.collection("users").updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } });
+                    await db.collection("users").updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
                 }
             } else if (Number(userDb.unverifiedTimestamp) <= alert || member.joinedTimestamp! <= alert) {
                 member.send("Hey there!\nWe noticed you haven't verified yourself on our server. Are you having any trouble? Please message an administrator or just ask any questions in the <#569178590697095168> channel! Otherwise, please send your profile link like shown in the channel.\n\nThis message was sent to you because you have been on our server for too long, and you're in risk of getting kicked for inactivity soon.\nAny messages you send here will be sent to staff upon confirmation.") //verify

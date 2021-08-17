@@ -46,8 +46,8 @@ const command: Command = {
         let language = interaction.options.getString("language", subCommand === "stats")?.toLowerCase()
 
         if (subCommand === "list") {
-            const files = fs.readdirSync(stringsFolder)
-            let langList: string[] = []
+            const files = fs.readdirSync(stringsFolder),
+                langList: string[] = []
             files.forEach(async (element, index, array) => {
                 if (element === "empty" && !member.roles.cache.has("764442984119795732")) return //Discord Administrator
                 let languageString: string

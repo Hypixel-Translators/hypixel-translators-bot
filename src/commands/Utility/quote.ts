@@ -1,7 +1,7 @@
 import { errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import { db } from "../../lib/dbclient"
-import { Collection } from "mongodb"
+import { Collection, ObjectId } from "mongodb"
 import { client, Command, GetStringFunction } from "../../index"
 
 const command: Command = {
@@ -85,7 +85,7 @@ const command: Command = {
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development 
     async execute(interaction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-            collection = db.collection("quotes"),
+            collection: Collection<Quote> = db.collection("quotes"),
             subCommand = interaction.options.getSubcommand()
         let allowed = false
         if ((interaction.member as Discord.GuildMember | undefined)?.permissions.has("VIEW_AUDIT_LOG")) allowed = true
@@ -117,7 +117,7 @@ const command: Command = {
     }
 }
 
-async function findQuote(executedBy: string, interaction: Discord.CommandInteraction, getString: GetStringFunction, collection: Collection<any>) {
+async function findQuote(executedBy: string, interaction: Discord.CommandInteraction, getString: GetStringFunction, collection: Collection<Quote>) {
 
     const count = await collection.estimatedDocumentCount()
 
@@ -145,7 +145,7 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
     return await interaction.reply({ embeds: [embed] })
 }
 
-async function addQuote(interaction: Discord.CommandInteraction, quote: string, author: Discord.User, collection: Collection<any>) {
+async function addQuote(interaction: Discord.CommandInteraction, quote: string, author: Discord.User, collection: Collection<Quote>) {
 
     const quoteId = await collection.estimatedDocumentCount() + 1
 
@@ -163,7 +163,7 @@ async function addQuote(interaction: Discord.CommandInteraction, quote: string, 
     await interaction.reply({ embeds: [embed] })
 }
 
-async function editQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
+async function editQuote(interaction: Discord.CommandInteraction, collection: Collection<Quote>) {
 
     const quoteId = interaction.options.getInteger("index", true),
         newQuote = interaction.options.getString("quote", true)
@@ -178,7 +178,7 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
                     { name: "Old quote", value: r.value.quote },
                     { name: "New quote", value: newQuote },
                     { name: "Author", value: r.value.author },
-                    { name: "Link", value: r.value.link || "None" }
+                    { name: "Link", value: r.value.url || "None" }
                 ])
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             await interaction.reply({ embeds: [embed] })
@@ -193,7 +193,7 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
     })
 }
 
-async function deleteQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
+async function deleteQuote(interaction: Discord.CommandInteraction, collection: Collection<Quote>) {
 
     const quoteId = interaction.options.getInteger("index", true)
     if (quoteId <= 0) throw "noQuote"
@@ -207,7 +207,7 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
                 .addFields(
                     { name: "User", value: r.value.author },
                     { name: "Quote", value: r.value.quote },
-                    { name: "Link", value: r.value.link || "None" }
+                    { name: "Link", value: r.value.url || "None" }
                 )
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             await interaction.reply({ embeds: [embed] })
@@ -222,7 +222,7 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
     })
 }
 
-async function linkQuote(interaction: Discord.CommandInteraction, collection: Collection<any>) {
+async function linkQuote(interaction: Discord.CommandInteraction, collection: Collection<Quote>) {
     const quoteId = interaction.options.getInteger("index", true),
         urlSplit = interaction.options.getString("url", true).split("/");
     (client.channels.cache.get(urlSplit[5] as Discord.Snowflake) as Discord.TextChannel)?.messages.fetch(urlSplit[6] as Discord.Snowflake)
@@ -263,3 +263,11 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
 }
 
 export default command
+
+interface Quote {
+    _id: ObjectId
+    author: string
+    id: number
+    quote: string
+    url?: string
+}

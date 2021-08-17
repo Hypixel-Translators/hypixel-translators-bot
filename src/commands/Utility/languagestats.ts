@@ -19,7 +19,8 @@ const command: Command = {
     channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
     async execute(interaction, getString: GetStringFunction) {
         const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-            authorDb = await client.getUser(interaction.user.id)
+            authorDb = await client.getUser(interaction.user.id),
+            settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2, "User-Agent": "Hypixel Translators Bot" }, timeout: 10_000 }
         let rawLang = interaction.options.getString("language", false)?.toLowerCase()
         if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !rawLang) rawLang = authorDb.lang
         if (!rawLang) throw "noLang"
@@ -29,8 +30,7 @@ const command: Command = {
         if (!lang || lang?.code === "en") throw "falseLang"
 
         await interaction.deferReply()
-        const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + ctokenV2, "User-Agent": "Hypixel Translators Bot" }, timeout: 10_000 }
-        var hypixelData: LanguageStatus["data"]
+        let hypixelData: LanguageStatus["data"]
         await fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", settings)
             .then(res => res.json())
             .then(async json => {

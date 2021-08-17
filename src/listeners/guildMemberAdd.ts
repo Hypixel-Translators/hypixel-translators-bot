@@ -54,9 +54,9 @@ async function generateWelcomeImage(member: Discord.GuildMember) {
     //TEXT
     //Measure text widths
     ctx.font = "37.5px Bitter"
-    let welcome = ctx.measureText("Welcome ")
+    const welcome = ctx.measureText("Welcome ")
     ctx.font = "37.5px sans"
-    let name = ctx.measureText(userName)
+    const name = ctx.measureText(userName)
     if (name.width > (550 - welcome.width)) nameWidth = (550 - welcome.width)
     else nameWidth = name.width
 

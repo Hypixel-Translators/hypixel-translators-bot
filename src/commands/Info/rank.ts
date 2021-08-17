@@ -48,7 +48,7 @@ const command: Command = {
     }
 }
 
-function generateProgressBar(current: number, goal: number, places: number = 10): string {
+function generateProgressBar(current: number, goal: number, places = 10): string {
     const progressEmoji = "<:progress_done:820405383935688764>",
         leftEmoji = "<:progress_left:820405406906974289>"
     if (isNaN(current) || isNaN(goal)) return leftEmoji.repeat(places) + "\u200b"

@@ -17,22 +17,10 @@ const command: Command = {
     name: "page",
     description: "The help page to open",
     choices: [
-      {
-        name: "Main page",
-        value: 0
-      },
-      {
-        name: "Tools & Utilities",
-        value: 1
-      },
-      {
-        name: "Information commands",
-        value: 2
-      },
-      {
-        name: "Crowdin Projects",
-        value: 3
-      }
+      { name: "Main page", value: 0 },
+      { name: "Tools & Utilities", value: 1 },
+      { name: "Information commands", value: 2 },
+      { name: "Crowdin Projects", value: 3 }
     ],
     required: false
   }],

@@ -33,7 +33,7 @@ const command: Command = {
       langdb: LangDbEntry[] = await db.collection("langdb").find().toArray()
 
     if (interaction.options.getString("flags", false) && !member.roles.cache.hasAny("569839517444341771", "569839580971401236")) { //Hypixel Translator and Proofreader
-      const flagEmojis: (string | undefined)[] = [];
+      const flagEmojis: (string | undefined)[] = []
       interaction.options.getString("flags", true).split(" ").forEach(emoji => {
         if (emoji.toLowerCase() === "lol" || emoji.toLowerCase() === "lolcat") flagEmojis.push("😹")
         else if (emoji.toLowerCase() === "enpt" || emoji.toLowerCase() === "pirate") flagEmojis.push("☠")
@@ -122,7 +122,7 @@ const command: Command = {
           await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
         }
       })
-      collector.on('end', async () => {
+      collector.on("end", async () => {
         if (prefix === "n") return
         if (prefix) {
           if (member.nickname !== (`[${prefix}] ${nickNoPrefix}`)) {
@@ -175,8 +175,8 @@ const command: Command = {
       member.roles.cache.forEach(r => {
         const roleName = r.name.split(" ")
         roleName.splice(roleName.length - 1, 1)
-        const role = roleName.join(" ")
-        let langdbEntry = langdb.find(l => l.name === role)
+        const role = roleName.join(" "),
+          langdbEntry = langdb.find(l => l.name === role)
         if (langdbEntry) {
           userLangs.push(langdbEntry)
         }
@@ -241,7 +241,7 @@ const command: Command = {
 
       const collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
 
-      collector.on('collect', async buttonInteraction => {
+      collector.on("collect", async buttonInteraction => {
         const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
         if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
         if (buttonInteraction.customId !== "cancel") components[components.length - 1].find(b => b.customId === "confirm")!.setDisabled(false)
@@ -313,7 +313,7 @@ const command: Command = {
         }
       })
 
-      collector.on('end', async () => {
+      collector.on("end", async () => {
         if (prefixes === "n") return
         components.forEach(buttons => buttons.forEach(button => button.setDisabled(true)))
         if (prefixes.length > 0) {

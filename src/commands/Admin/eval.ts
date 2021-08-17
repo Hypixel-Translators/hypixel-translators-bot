@@ -1,6 +1,6 @@
 const { loadingColor, errorColor, successColor, neutralColor, listeningStatuses, watchingStatuses, playingStatuses } = require("../../config.json")
 const fetch = require("node-fetch")
-const { flag, code, name, countries } = require('country-emoji')
+const { flag, code, name, countries } = require("country-emoji")
 const fs = require("fs")
 const country = require("countryjs")
 const { updateButtonColors, getUUID, updateRoles, getXpNeeded } = require("../../lib/util")

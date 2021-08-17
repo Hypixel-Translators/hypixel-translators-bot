@@ -223,7 +223,7 @@ client.on("messageCreate", async message => {
     function getGlobalString(
         path: string,
         variables?: { [key: string]: string | number } | string,
-        cmd: string = "global",
+        cmd = "global",
         lang: string = author.lang ?? "en"
     ): any {
         if (typeof variables === "string") {

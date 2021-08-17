@@ -7,7 +7,7 @@ import { isEqual } from "lodash"
 
 client.on("interactionCreate", async interaction => {
     const author: DbUser = await client.getUser(interaction.user.id),
-        member = await interaction.client.guilds.cache.get("549503328472530974")?.members.cache.get(interaction.user.id)!,
+        member = interaction.client.guilds.cache.get("549503328472530974")?.members.cache.get(interaction.user.id)!,
         executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
     let command: Command | null = null
     if (interaction.isButton() && !interaction.user.bot) {

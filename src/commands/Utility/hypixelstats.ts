@@ -100,7 +100,7 @@ const command: Command = {
 
                     let last_seen: string
                     if (!json.last_game) last_seen = getString("lastGameHidden")
-                    else last_seen = getString("lastSeen", { game: json.last_game.replace(/([A-Z]+)/g, ' $1').trim() })
+                    else last_seen = getString("lastSeen", { game: json.last_game.replace(/([A-Z]+)/g, " $1").trim() })
 
                     let lastLoginSelector: string
                     if (json.online) lastLoginSelector = "last_login"
@@ -173,7 +173,7 @@ const command: Command = {
                                     if (allowedGuildIDs.includes((invite.channel as Discord.GuildChannel).guild?.id)) discord = `[${getString("link")}](${invite.url})` //invite.channel.guild is used here because invite.guild is not guaranteed according to the docs
                                     else {
                                         discord = getString("blocked")
-                                        console.log(`Blocked the following Discord invite link in ${json.username}\'s Hypixel profile: ${socialMedia.DISCORD} (led to ${(invite.channel as Discord.GuildChannel).guild?.name || invite.channel.name})`)
+                                        console.log(`Blocked the following Discord invite link in ${json.username}'s Hypixel profile: ${socialMedia.DISCORD} (led to ${(invite.channel as Discord.GuildChannel).guild?.name || invite.channel.name})`)
                                     }
                                 })
                                 .catch(() => {

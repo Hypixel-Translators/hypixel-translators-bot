@@ -10,22 +10,12 @@ const command: Command = {
         type: "STRING",
         name: "project",
         description: "The project to update statistics for. Defaults to all projects",
-        choices: [{
-            name: "Hypixel",
-            value: "hypixel"
-        },
-        {
-            name: "Quickplay",
-            value: "quickplay"
-        },
-        {
-            name: "SkyblockAddons",
-            value: "sba"
-        },
-        {
-            name: "Hypixel Translators Bot",
-            value: "bot"
-        }],
+        choices: [
+            { name: "Hypixel", value: "hypixel" },
+            { name: "Quickplay", value: "quickplay" },
+            { name: "SkyblockAddons", value: "sba" },
+            { name: "Hypixel Translators Bot", value: "bot" }
+        ],
         required: false
     }],
     roleWhitelist: ["764442984119795732"], //Discord Administrator

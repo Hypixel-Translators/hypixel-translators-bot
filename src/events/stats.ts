@@ -6,25 +6,23 @@ import { db } from "../lib/dbclient"
 import { CrowdinProject, LangDbEntry, LanguageStatus } from "../lib/util"
 const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + process.env.CTOKEN_V2, "User-Agent": "Hypixel Translators Bot" }, timeout: 10_000 }
 
-export async function execute(client: HTBClient, manual: boolean) {
-    try {
-        const m = new Date().getUTCMinutes()
-        if (m == 0 || m == 20 || m == 40) {
-            await updateProjectStatus(client, "128098") //Hypixel
-            await updateProjectStatus(client, "369493") //SkyblockAddons
-        }
-        if (m == 10 || m == 30 || m == 50) {
-            await updateProjectStatus(client, "369653") //Quickplay
-            await updateProjectStatus(client, "436418") //Bot
-        }
-        if (manual) {
-            await updateProjectStatus(client, "128098") //Hypixel
-            await updateProjectStatus(client, "369493") //SkyblockAddons
-            await updateProjectStatus(client, "369653") //Quickplay
-            await updateProjectStatus(client, "436418") //Bot
-            console.log("All stats have been manually updated.")
-        }
-    } catch (err) { throw err }
+export async function execute(client: HTBClient, manual: boolean): Promise<void> {
+    const m = new Date().getUTCMinutes()
+    if (m == 0 || m == 20 || m == 40) {
+        await updateProjectStatus(client, "128098") //Hypixel
+        await updateProjectStatus(client, "369493") //SkyblockAddons
+    }
+    if (m == 10 || m == 30 || m == 50) {
+        await updateProjectStatus(client, "369653") //Quickplay
+        await updateProjectStatus(client, "436418") //Bot
+    }
+    if (manual) {
+        await updateProjectStatus(client, "128098") //Hypixel
+        await updateProjectStatus(client, "369493") //SkyblockAddons
+        await updateProjectStatus(client, "369653") //Quickplay
+        await updateProjectStatus(client, "436418") //Bot
+        console.log("All stats have been manually updated.")
+    }
 }
 
 export async function updateProjectStatus(client: Discord.Client, projectId: string) {

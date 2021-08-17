@@ -33,7 +33,7 @@ const command: Command = {
         let p = 0
         while (p < allUsers.length) pages.push(allUsers.slice(p, p += 24)) //Max number of fields divisible by 3
 
-        let page: number = 0
+        let page = 0
         if (inputMe) page = pages.indexOf(pages.find(p => p.some(u => u.id === interaction.user.id))!)
         else if (inputPage) page = inputPage - 1
 

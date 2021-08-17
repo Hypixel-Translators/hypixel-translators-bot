@@ -12,18 +12,11 @@ const command: Command = {
         name: "channel",
         description: "The channel to update",
         required: false,
-        choices: [{
-            name: "The #rules channel",
-            value: "rules",
-        },
-        {
-            name: "The #server-info channel",
-            value: "info"
-        },
-        {
-            name: "The #verify channel",
-            value: "verify"
-        }]
+        choices: [
+            { name: "The #rules channel", value: "rules", },
+            { name: "The #server-info channel", value: "info" },
+            { name: "The #verify channel", value: "verify" }
+        ]
     }],
     async execute(interaction) {
         const channelInput = interaction.options.getString("channel", false)
@@ -34,7 +27,7 @@ const command: Command = {
                 .setColor(successColor as Discord.HexColorString)
                 .setAuthor("Channel updater")
                 .setTitle("Updated the information channel!")
-                .setDescription(`Check it out at <#762341271611506708>!`) //server-info
+                .setDescription("Check it out at <#762341271611506708>!") //server-info
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             await interaction.editReply({ embeds: [successEmbed] })
         } else if (channelInput === "rules") {
@@ -43,7 +36,7 @@ const command: Command = {
                 .setColor(successColor as Discord.HexColorString)
                 .setAuthor("Channel updater")
                 .setTitle("Updated the rules channel!")
-                .setDescription(`Check it out at <#796159719617986610>!`) //rules
+                .setDescription("Check it out at <#796159719617986610>!") //rules
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             await interaction.editReply({ embeds: [successEmbed] })
         } else if (channelInput === "verify") {
@@ -52,7 +45,7 @@ const command: Command = {
                 .setColor(successColor as Discord.HexColorString)
                 .setAuthor("Channel updater")
                 .setTitle("Updated the verification channel!")
-                .setDescription(`Check it out at <#569178590697095168>!`) //verify
+                .setDescription("Check it out at <#569178590697095168>!") //verify
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             await interaction.editReply({ embeds: [successEmbed] })
         } else if (!channelInput) {
@@ -63,7 +56,7 @@ const command: Command = {
                 .setColor(successColor as Discord.HexColorString)
                 .setAuthor("Channel updater")
                 .setTitle("All channels have been updated!")
-                .setDescription(`Check them out at <#762341271611506708>, <#796159719617986610> and <#569178590697095168>!`) //server-info, rules and verify
+                .setDescription("Check them out at <#762341271611506708>, <#796159719617986610> and <#569178590697095168>!") //server-info, rules and verify
                 .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
             await interaction.editReply({ embeds: [successEmbed] })
         }

@@ -4,7 +4,7 @@ import { ObjectId } from "mongodb"
 import fetch from "node-fetch"
 
 // source: https://github.com/Mee6/Mee6-documentation/blob/master/docs/levels_xp.md
-export const getXpNeeded = (lvl: number = NaN, xp: number = 0) => 5 * (lvl ** 2) + (50 * lvl) + 100 - xp
+export const getXpNeeded = (lvl = NaN, xp = 0) => 5 * (lvl ** 2) + (50 * lvl) + 100 - xp
 
 export function updateButtonColors(row: Discord.MessageActionRow, page: number, pages: any[]) {
     if (page == 0) {
@@ -61,7 +61,7 @@ export async function updateRoles(member: Discord.GuildMember, json?: JsonRespon
         "715674953697198141"  //Hypixel Staff
     ]
     if (!json) return await member.roles.remove(roles, "Unverified")
-    let role: Discord.Role, rolesToGive: Discord.Snowflake[] = []
+    let role = member.guild.roles.cache.get("816435344689987585")!, rolesToGive: Discord.Snowflake[] = []
     switch (json.rank) {
         case "ADMIN":
             rolesToGive = ["624880339722174464", "715674953697198141"] // Hypixel Admin and Hypixel Staff
@@ -79,6 +79,7 @@ export async function updateRoles(member: Discord.GuildMember, json?: JsonRespon
             roles.splice(roles.indexOf("715674953697198141"), 1) // Hypixel Staff
             await member.roles.remove(roles, "Updated roles")
             await member.roles.add(rolesToGive, `Successfully verified as ${json.username}`)
+            break
         case "MODERATOR":
             rolesToGive = ["551758392021090304", "715674953697198141"] // Hypixel Mod and Hypixel Staff
             member.roles.cache.forEach(r => { if (rolesToGive.includes(r.id)) rolesToGive.splice(rolesToGive.indexOf(r.id), 1) })
@@ -151,7 +152,6 @@ export async function updateRoles(member: Discord.GuildMember, json?: JsonRespon
             roles.splice(roles.indexOf("816435344689987585"), 1) // Unranked
             await member.roles.remove(roles, "Updated roles")
             await member.roles.add("816435344689987585", `Successfully verified as ${json.username}`)
-            role = member.guild.roles.cache.get("816435344689987585")!
             break
     }
     return role

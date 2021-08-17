@@ -10,22 +10,12 @@ const command: Command = {
         type: "STRING",
         name: "holiday",
         description: "The holiday to announce",
-        choices: [{
-            name: "Easter",
-            value: "easter"
-        },
-        {
-            name: "Halloween",
-            value: "halloween"
-        },
-        {
-            name: "Christmas",
-            value: "christmas"
-        },
-        {
-            name: "New Year",
-            value: "newYear"
-        }],
+        choices: [
+            { name: "Easter", value: "easter" },
+            { name: "Halloween", value: "halloween" },
+            { name: "Christmas", value: "christmas" },
+            { name: "New Year", value: "newYear" }
+        ],
         required: true
     }],
     roleWhitelist: ["764442984119795732"], //Discord Administrator
@@ -53,7 +43,7 @@ const command: Command = {
             let logMsg = ""
             for (const lang in log) {
                 if (!log.hasOwnProperty.call(log, lang)) {
-                    continue;
+                    continue
                 }
 
                 logMsg = logMsg.concat(`${lang}: ${log[lang]}\n`)

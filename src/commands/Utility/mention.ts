@@ -14,18 +14,11 @@ const command: Command = {
     type: "STRING",
     name: "role",
     description: "The role to mention",
-    choices: [{
-      name: "Both roles",
-      value: "all"
-    },
-    {
-      name: "Proofreader",
-      value: "proofreader"
-    },
-    {
-      name: "Translator",
-      value: "translator"
-    }],
+    choices: [
+      { name: "Both roles", value: "all" },
+      { name: "Proofreader", value: "proofreader" },
+      { name: "Translator", value: "translator" }
+    ],
     required: true
   },
   {
@@ -82,7 +75,7 @@ const command: Command = {
       Pirate: "Pirate English"
     }
 
-    if (langs.hasOwnProperty(roleName)) roleName = langs[roleName]
+    if (langs[roleName]) roleName = langs[roleName]
     const role = interaction.guild!.roles.cache.find(x => x.name === (`${roleName} Proofreader`))
 
     if (!role) throw "falseRole"

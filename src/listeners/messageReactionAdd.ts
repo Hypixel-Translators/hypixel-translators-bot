@@ -18,7 +18,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 try {
                     strings = require(`../../strings/${channel.name.split("-")[0]}/reviewStrings.json`)
                 } catch {
-                    strings = require(`../../strings/en/reviewStrings.json`)
+                    strings = require("../../strings/en/reviewStrings.json")
                 }
                 if (reaction.emoji.name === "vote_yes" && reaction.message.author!.id !== user.id) {
                     await reaction.message.react("⏱")

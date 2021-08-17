@@ -1,7 +1,7 @@
 import { crowdinVerify } from "../lib/crowdinverify";
 import { db, DbUser, HTBClient } from "../lib/dbclient";
 
-export default async function updateVerified(client: HTBClient, manual: boolean, limit: number = 0) {
+export default async function updateVerified(client: HTBClient, manual: boolean, limit = 0) {
     const d = new Date(),
         h = d.getUTCHours(),
         m = d.getUTCMinutes()

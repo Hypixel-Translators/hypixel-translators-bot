@@ -62,7 +62,7 @@ const command: Command = {
                                     .setColor(errorColor as Discord.HexColorString)
                                     .setAuthor("User Profile")
                                     .setTitle(`Couldn't update ${user.tag}'s Crowdin profile!`)
-                                    .setDescription(`Their current profile is the same as the one you tried to add.`)
+                                    .setDescription("Their current profile is the same as the one you tried to add.")
                                     .setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
                                 return await interaction.reply({ embeds: [embed], ephemeral: true })
                             }
