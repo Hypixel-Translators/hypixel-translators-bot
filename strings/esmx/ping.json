@@ -1,6 +1,6 @@
 {
-    "moduleName": "Latencia",
-    "pong": "%%pingEmote%% ¡Pong!",
-    "message": "Mi ping es de %%ping%%ms.",
-    "onlineSince": "En línea desde el %%timestamp%% (%%timestampRelative%%)"
+	"moduleName": "Latencia",
+	"pong": "%%pingEmote%% ¡Pong!",
+	"message": "Mi ping es de %%ping%%ms.",
+	"onlineSince": "En línea desde el %%timestamp%% (%%timestampRelative%%)"
 }
