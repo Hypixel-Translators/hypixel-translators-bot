@@ -1,8 +1,9 @@
 import { errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import { db } from "../../lib/dbclient"
-import { Collection, ObjectId } from "mongodb"
+import { Collection } from "mongodb"
 import { client, Command, GetStringFunction } from "../../index"
+import { Quote } from "../../lib/util"
 
 const command: Command = {
 	name: "quote",
@@ -85,7 +86,7 @@ const command: Command = {
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development 
 	async execute(interaction, getString: GetStringFunction) {
 		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-			collection: Collection<Quote> = db.collection("quotes"),
+			collection = db.collection<Quote>("quotes"),
 			subCommand = interaction.options.getSubcommand()
 		let allowed = false
 		if ((interaction.member as Discord.GuildMember | undefined)?.permissions.has("VIEW_AUDIT_LOG")) allowed = true
@@ -135,30 +136,31 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
 		return await interaction.reply({ embeds: [embed], ephemeral: true })
 	}
 	console.log(`Quote with ID ${quoteId} was requested`)
-	const embed = new Discord.MessageEmbed()
-		.setColor(successColor as Discord.HexColorString)
-		.setAuthor(getString("moduleName"))
-		.setTitle(quote.quote)
-		.setDescription(`      - ${quote.author}`)
-		.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+	const author = await Promise.all(quote.author.map(async a => interaction.guild!.members.cache.get(a)?.toString() ?? (await client.users.fetch(a)).tag)),
+		embed = new Discord.MessageEmbed()
+			.setColor(successColor as Discord.HexColorString)
+			.setAuthor(getString("moduleName"))
+			.setTitle(quote.quote)
+			.setDescription(`      - ${author.join(" and ")}`)
+			.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 	if (quote.url) embed.addField(getString("msgUrl"), quote.url)
 	return await interaction.reply({ embeds: [embed] })
 }
 
 async function addQuote(interaction: Discord.CommandInteraction, quote: string, author: Discord.User, collection: Collection<Quote>) {
 
-	const quoteId = await collection.estimatedDocumentCount() + 1
+	const quoteId = (await collection.estimatedDocumentCount()) + 1
 
-	await collection.insertOne({ id: quoteId, quote: quote, author: author.toString() })
+	await collection.insertOne({ id: quoteId, quote: quote, author: [author.id] })
 	const embed = new Discord.MessageEmbed()
 		.setColor(successColor as Discord.HexColorString)
 		.setAuthor("Quote")
 		.setTitle("Success! The following quote has been added:")
 		.setDescription(quote)
-		.addFields([
+		.addFields(
 			{ name: "User", value: `${author}` },
 			{ name: "Quote number", value: `${quoteId}` }
-		])
+		)
 		.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 	await interaction.reply({ embeds: [embed] })
 }
@@ -170,17 +172,18 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
 	if (!quoteId) throw "noQuote"
 	await collection.findOneAndUpdate({ id: quoteId }, { $set: { quote: newQuote } }).then(async r => {
 		if (r.value) {
-			const embed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
-				.setAuthor("Quote")
-				.setTitle(`Successfully edited quote #${quoteId}`)
-				.addFields([
-					{ name: "Old quote", value: r.value.quote },
-					{ name: "New quote", value: newQuote },
-					{ name: "Author", value: r.value.author },
-					{ name: "Link", value: r.value.url || "None" }
-				])
-				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			const author = await Promise.all(r.value.author.map(async a => await client.users.fetch(a))),
+				embed = new Discord.MessageEmbed()
+					.setColor(successColor as Discord.HexColorString)
+					.setAuthor("Quote")
+					.setTitle(`Successfully edited quote #${quoteId}`)
+					.addFields(
+						{ name: "Old quote", value: r.value.quote },
+						{ name: "New quote", value: newQuote },
+						{ name: "Author", value: author.join(" and ") },
+						{ name: "Link", value: r.value.url || "None" }
+					)
+					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.reply({ embeds: [embed] })
 		} else {
 			const embed = new Discord.MessageEmbed()
@@ -199,13 +202,14 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
 	if (quoteId <= 0) throw "noQuote"
 	collection.findOneAndDelete({ id: quoteId }).then(async r => {
 		if (r.value) {
+			const author = await Promise.all(r.value.author.map(async a => await client.users.fetch(a)))
 			await collection.updateMany({ id: { $gt: quoteId } }, { $inc: { id: -1 } })
 			const embed = new Discord.MessageEmbed()
 				.setColor(successColor as Discord.HexColorString)
 				.setAuthor("Quote")
 				.setTitle(`Successfully deleted quote #${quoteId}`)
 				.addFields(
-					{ name: "User", value: r.value.author },
+					{ name: "Author", value: author.join(" and ") },
 					{ name: "Quote", value: r.value.quote },
 					{ name: "Link", value: r.value.url || "None" }
 				)
@@ -225,21 +229,22 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
 async function linkQuote(interaction: Discord.CommandInteraction, collection: Collection<Quote>) {
 	const quoteId = interaction.options.getInteger("index", true),
 		urlSplit = interaction.options.getString("url", true).split("/");
-	(client.channels.cache.get(urlSplit[5] as Discord.Snowflake) as Discord.TextChannel)?.messages.fetch(urlSplit[6] as Discord.Snowflake)
+	(client.channels.cache.get(urlSplit[5] as Discord.Snowflake) as Discord.TextChannel | undefined)?.messages.fetch(urlSplit[6] as Discord.Snowflake)
 		.then(async msg => {
 			await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } }).then(async r => {
 				if (r.value) {
-					const embed = new Discord.MessageEmbed()
-						.setColor(successColor as Discord.HexColorString)
-						.setAuthor("Quote")
-						.setTitle(`Successfully linked quote #${quoteId}`)
-						.addFields(
-							{ name: "Old URL", value: r.value.url || "None" },
-							{ name: "New URL", value: msg.url },
-							{ name: "Quote", value: r.value.quote },
-							{ name: "Author", value: r.value.author }
-						)
-						.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					const author = await Promise.all(r.value.author.map(a => client.users.fetch(a))),
+						embed = new Discord.MessageEmbed()
+							.setColor(successColor as Discord.HexColorString)
+							.setAuthor("Quote")
+							.setTitle(`Successfully linked quote #${quoteId}`)
+							.addFields(
+								{ name: "Old URL", value: r.value.url || "None" },
+								{ name: "New URL", value: msg.url },
+								{ name: "Quote", value: r.value.quote },
+								{ name: "Author", value: author.join(" and ") }
+							)
+							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 					await interaction.reply({ embeds: [embed] })
 				} else {
 					const embed = new Discord.MessageEmbed()
@@ -263,11 +268,3 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
 }
 
 export default command
-
-interface Quote {
-	_id: ObjectId
-	author: string
-	id: number
-	quote: string
-	url?: string
-}

@@ -39,7 +39,7 @@ const command: Command = {
 	cooldown: 5,
 	async execute(interaction, getString: GetStringFunction) {
 		let executedBy: string = getString("executedBy", { user: interaction.user.tag }, "global")
-		const collection = db.collection("users"),
+		const collection = db.collection<DbUser>("users"),
 			stringsFolder = "./strings/",
 			member = interaction.member as Discord.GuildMember,
 			subCommand = interaction.options.getSubcommand()
@@ -68,7 +68,7 @@ const command: Command = {
 			if (!member.roles.cache.has("764442984119795732")) return await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
 			const files = fs.readdirSync(stringsFolder)
 			if (!files.includes(language!)) throw "falseLang"
-			const langUsers: DbUser[] = await collection.find({ lang: language }).toArray(),
+			const langUsers = await collection.find({ lang: language }).toArray(),
 				users: string[] = []
 			langUsers.forEach(u => users.push(`<@!${u.id}>`))
 			const embed = new Discord.MessageEmbed()

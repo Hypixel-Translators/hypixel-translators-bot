@@ -2,7 +2,7 @@ import Discord from "discord.js"
 import { successColor, loadingColor, errorColor } from "../config.json"
 import { client } from "../index"
 import { db } from "../lib/dbclient"
-import { EventDb } from "../lib/util"
+import { EventDb, Quote } from "../lib/util"
 
 client.on("messageReactionAdd", async (reaction, user) => {
 	const channel = reaction.message.channel
@@ -76,13 +76,12 @@ client.on("messageReactionAdd", async (reaction, user) => {
 		}
 		// Starboard system
 		else if (reaction.emoji.name === "⭐" && channel.permissionsFor("569194996964786178")!.has(["SEND_MESSAGES", "VIEW_CHANNEL"]) && reaction.count! >= 4 && !reaction.message.author!.bot && reaction.message.content) {
-			const collection = db.collection("quotes")
-			const urlQuote = await collection.findOne({ url: reaction.message.url })
+			const collection = db.collection<Quote>("quotes"),
+				urlQuote = await collection.findOne({ url: reaction.message.url })
 			if (!urlQuote) {
 				const id = await collection.estimatedDocumentCount() + 1
 
-				//Dumb fix for User.toString() inconsistency with message mentions
-				await collection.insertOne({ id: id, quote: reaction.message.content, author: `${reaction.message.author}`.replace("<@", "<@!"), url: reaction.message.url })
+				await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url })
 				const embed = new Discord.MessageEmbed()
 					.setColor(successColor as Discord.HexColorString)
 					.setAuthor("Starboard")

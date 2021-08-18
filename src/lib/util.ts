@@ -205,3 +205,11 @@ export interface EventDb {
 	ids: Discord.Snowflake[]
 }
 
+export interface Quote {
+	_id: ObjectId
+	author: Discord.Snowflake[]
+	id: number
+	quote: string
+	url?: string
+}
+

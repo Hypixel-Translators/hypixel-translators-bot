@@ -1,4 +1,4 @@
-import { db } from "../../lib/dbclient"
+import { db, DbUser } from "../../lib/dbclient"
 import { successColor, errorColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import { client, Command, GetStringFunction } from "../../index"
@@ -20,7 +20,7 @@ const command: Command = {
 	}],
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
 	async execute(interaction, getString: GetStringFunction) {
-		const collection = db.collection("users"),
+		const collection = db.collection<DbUser>("users"),
 			user = interaction.options.getUser("user", false),
 			profile = interaction.options.getString("profile", false)
 		if ((interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732") && user) { //Discord Administrator
