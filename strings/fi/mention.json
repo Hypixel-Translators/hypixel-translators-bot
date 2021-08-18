@@ -1,7 +1,7 @@
 {
-    "errorNoPing": "Sinulla ei ole tuon kielen oikolukijan roolia, ",
-    "errorNoPingPr": "joten et voi mainita sitä.",
-    "errorNoPingTr": "joten et voi mainita sen kääntäjän roolia.",
-    "errorNoPingAll": "joten et voi mainita koko kieltä.",
-    "errorNoPingDisclaimer": "Ota yhteyttä palvelimen omistajaan tai ylläpitäjään, mikäli se on todella tarpeen."
+	"errorNoPing": "Sinulla ei ole tuon kielen oikolukijan roolia, ",
+	"errorNoPingPr": "joten et voi mainita sitä.",
+	"errorNoPingTr": "joten et voi mainita sen kääntäjän roolia.",
+	"errorNoPingAll": "joten et voi mainita koko kieltä.",
+	"errorNoPingDisclaimer": "Ota yhteyttä palvelimen omistajaan tai ylläpitäjään, mikäli se on todella tarpeen."
 }
