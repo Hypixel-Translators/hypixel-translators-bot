@@ -1,9 +1,9 @@
 {
-    "moduleName": "crwdns1354:0crwdne1354:0",
-    "message": "crwdns1356:0crwdne1356:0",
-    "clickHere": "crwdns1358:0crwdne1358:0",
-    "requestDetails": "crwdns1360:0%%user%%crwdne1360:0",
-    "requestedBy": "crwdns1362:0%%user%%crwdne1362:0",
-    "rejected": "crwdns1364:0%%user%%crwdne1364:0",
-    "rejectedBy": "crwdns1366:0%%user%%crwdne1366:0"
+	"moduleName": "crwdns1354:0crwdne1354:0",
+	"message": "crwdns1356:0crwdne1356:0",
+	"clickHere": "crwdns1358:0crwdne1358:0",
+	"requestDetails": "crwdns1360:0%%user%%crwdne1360:0",
+	"requestedBy": "crwdns1362:0%%user%%crwdne1362:0",
+	"rejected": "crwdns1364:0%%user%%crwdne1364:0",
+	"rejectedBy": "crwdns1366:0%%user%%crwdne1366:0"
 }

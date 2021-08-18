@@ -1,6 +1,6 @@
 {
-    "moduleName": "Πινγκ",
-    "pong": "%%pingEmote%% Πονγκ!",
-    "message": "Το ping μου είναι %%ping%%ms.",
-    "onlineSince": "Online since %%timestamp%% (%%timestampRelative%%)"
+	"moduleName": "Πινγκ",
+	"pong": "%%pingEmote%% Πονγκ!",
+	"message": "Το ping μου είναι %%ping%%ms.",
+	"onlineSince": "Online since %%timestamp%% (%%timestampRelative%%)"
 }

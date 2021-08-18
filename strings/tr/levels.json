@@ -1,8 +1,8 @@
 {
-    "moduleName": "Deneyim Puanı Sıralaması",
-    "pageTitle": "İşte Deneyim Puanı Sıralaması!",
-    "level": "#%%rank%% | Seviye %%level%% | Deneyim Puanı: %%xp%%",
-    "youIndicator": "SEN",
-    "thousand": "bin",
-    "unranked": "#%%rank%% Derecesiz"
+	"moduleName": "Deneyim Puanı Sıralaması",
+	"pageTitle": "İşte Deneyim Puanı Sıralaması!",
+	"level": "#%%rank%% | Seviye %%level%% | Deneyim Puanı: %%xp%%",
+	"youIndicator": "SEN",
+	"thousand": "bin",
+	"unranked": "#%%rank%% Derecesiz"
 }

@@ -1,25 +1,25 @@
 {
-    "moduleName": "crwdns698:0crwdne698:0",
-    "errors": {
-        "noLanguages": "crwdns706:0crwdne706:0",
-        "trNoRoles": "crwdns708:0crwdne708:0",
-        "error": "crwdns710:0crwdne710:0",
-        "confirmedNoFlags": "crwdns712:0crwdne712:0",
-        "cancelled": "crwdns714:0crwdne714:0",
-        "alreadyThis": "crwdns716:0crwdne716:0",
-        "timedOut": "crwdns718:0crwdne718:0",
-        "timeOut": "crwdns720:0crwdne720:0",
-        "timeOutCustom": "crwdns722:0crwdne722:0",
-        "notSaved": "crwdns724:0crwdne724:0"
-    },
-    "customPrefix": "crwdns726:0crwdne726:0",
-    "caution": "crwdns728:0crwdne728:0",
-    "warning": "crwdns730:0crwdne730:0",
-    "react": "crwdns732:0crwdne732:0",
-    "reactTimer": "crwdns734:0%%cooldown%%crwdne734:0",
-    "reactTimer2": "crwdns736:0%%cooldown%%crwdne736:0",
-    "previewT": "crwdns738:0crwdne738:0",
-    "newNickT": "crwdns740:0crwdne740:0",
-    "noChanges": "crwdns742:0crwdne742:0",
-    "saved": "crwdns744:0crwdne744:0"
+	"moduleName": "crwdns698:0crwdne698:0",
+	"errors": {
+		"noLanguages": "crwdns706:0crwdne706:0",
+		"trNoRoles": "crwdns708:0crwdne708:0",
+		"error": "crwdns710:0crwdne710:0",
+		"confirmedNoFlags": "crwdns712:0crwdne712:0",
+		"cancelled": "crwdns714:0crwdne714:0",
+		"alreadyThis": "crwdns716:0crwdne716:0",
+		"timedOut": "crwdns718:0crwdne718:0",
+		"timeOut": "crwdns720:0crwdne720:0",
+		"timeOutCustom": "crwdns722:0crwdne722:0",
+		"notSaved": "crwdns724:0crwdne724:0"
+	},
+	"customPrefix": "crwdns726:0crwdne726:0",
+	"caution": "crwdns728:0crwdne728:0",
+	"warning": "crwdns730:0crwdne730:0",
+	"react": "crwdns732:0crwdne732:0",
+	"reactTimer": "crwdns734:0%%cooldown%%crwdne734:0",
+	"reactTimer2": "crwdns736:0%%cooldown%%crwdne736:0",
+	"previewT": "crwdns738:0crwdne738:0",
+	"newNickT": "crwdns740:0crwdne740:0",
+	"noChanges": "crwdns742:0crwdne742:0",
+	"saved": "crwdns744:0crwdne744:0"
 }

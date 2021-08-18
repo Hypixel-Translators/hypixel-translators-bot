@@ -1,9 +1,9 @@
 {
-    "moduleName": "Hypixel Verifikation",
-    "success": "Du har verificeret dig selv som %%player%%!",
-    "role": "Du fik tildelt rollen %%role%% på grund af din rang på serveren.",
-    "alreadyVerified": "Du er allerede registreret!",
-    "nameChangeDisclaimer": "Husk, at du ikke behøver at bekræfte dig selv igen, hvis du ændrer dit navn!",
-    "error": "Vi kunne ikke bekræfte dig, fordi du ikke har indstillet din Discord på Hypixel korrekt!",
-    "tutorial": "For at blive verificeret, skal du indstille din Discord på Hypixel til %%tag%% og vente op til 10 minutter for at udføre kommandoen igen. Følg instruktionerne i videoen nedenfor, hvis du ikke ved, hvordan du gør dette."
+	"moduleName": "Hypixel Verifikation",
+	"success": "Du har verificeret dig selv som %%player%%!",
+	"role": "Du fik tildelt rollen %%role%% på grund af din rang på serveren.",
+	"alreadyVerified": "Du er allerede registreret!",
+	"nameChangeDisclaimer": "Husk, at du ikke behøver at bekræfte dig selv igen, hvis du ændrer dit navn!",
+	"error": "Vi kunne ikke bekræfte dig, fordi du ikke har indstillet din Discord på Hypixel korrekt!",
+	"tutorial": "For at blive verificeret, skal du indstille din Discord på Hypixel til %%tag%% og vente op til 10 minutter for at udføre kommandoen igen. Følg instruktionerne i videoen nedenfor, hvis du ikke ved, hvordan du gør dette."
 }

@@ -1,9 +1,9 @@
 {
-    "moduleName": "Hypixel Doğrulaması",
-    "success": "Kendini başarıyla %%player%% olarak doğruladın!",
-    "role": "Oyundaki rankın sebebiyle sana bu sunucuda %%role%% rolü verildi.",
-    "alreadyVerified": "Zaten doğrulandın!",
-    "nameChangeDisclaimer": "Unutma! Kullanıcı adını değiştirirsen kendini tekrar doğrulaman gerekmez!",
-    "error": "Seni doğrulayamadık çünkü Discord'unu Hypixel hesabın ile bağlamamışsın!",
-    "tutorial": "Doğrulanmak için, Discord'unu Hypixel'de %%tag%% olarak ayarlaman ve komutu tekrar çalıştırmak için 10 dakika kadar beklemen gerekiyor. Bunu nasıl yapacağını bilmiyorsan, aşağıdaki videodaki talimatları izle."
+	"moduleName": "Hypixel Doğrulaması",
+	"success": "Kendini başarıyla %%player%% olarak doğruladın!",
+	"role": "Oyundaki rankın sebebiyle sana bu sunucuda %%role%% rolü verildi.",
+	"alreadyVerified": "Zaten doğrulandın!",
+	"nameChangeDisclaimer": "Unutma! Kullanıcı adını değiştirirsen kendini tekrar doğrulaman gerekmez!",
+	"error": "Seni doğrulayamadık çünkü Discord'unu Hypixel hesabın ile bağlamamışsın!",
+	"tutorial": "Doğrulanmak için, Discord'unu Hypixel'de %%tag%% olarak ayarlaman ve komutu tekrar çalıştırmak için 10 dakika kadar beklemen gerekiyor. Bunu nasıl yapacağını bilmiyorsan, aşağıdaki videodaki talimatları izle."
 }

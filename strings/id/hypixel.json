@@ -1,5 +1,5 @@
 {
-    "hypixelCrowdin": "Inilah proyek Crowdin Hypixel: %%crowdin%%",
-    "hypixelGuide": "Jika anda ingin melihat peraturan proyek, jalankan `/guidelines`.",
-    "hypixelDiscord": "Server Discord Hypixel dapat ditemukan di %%discord%% (berguna untuk korektor)."
+	"hypixelCrowdin": "Inilah proyek Crowdin Hypixel: %%crowdin%%",
+	"hypixelGuide": "Jika anda ingin melihat peraturan proyek, jalankan `/guidelines`.",
+	"hypixelDiscord": "Server Discord Hypixel dapat ditemukan di %%discord%% (berguna untuk korektor)."
 }

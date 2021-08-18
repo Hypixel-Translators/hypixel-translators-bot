@@ -1,25 +1,25 @@
 {
-    "moduleName": "Prefijo",
-    "errors": {
-        "noLanguages": "¡No parece tener ningún rol de idioma! Por favor comuníquese con un administrador si cree que se trata de un error.",
-        "trNoRoles": "Notamos que eres un traductor, pero no tienes ningún rol de idioma.",
-        "error": "No se pudo cambiar el apodo. Puede copiar el apodo a continuación y aplicarlo usted mismo.",
-        "confirmedNoFlags": "Has confirmado, pero no reaccionaste a ninguna bandera, ",
-        "cancelled": "Has cancelado el cambio de tu apodo, ",
-        "alreadyThis": "Ya tienes este apodo, ",
-        "timedOut": "Caducado",
-        "timeOut": "No has reaccionado con ninguna bandera, ",
-        "timeOutCustom": "No has confirmado, ",
-        "notSaved": "por lo que su prefijo no se guardó."
-    },
-    "customPrefix": "Siéntase libre de ejecutar `/prefix <banderas>` para obtener el prefijo deseado.",
-    "caution": "Precaución",
-    "warning": "Si configura su prefijo en un idioma que no traduce, aparecerá una advertencia. ¿Quieres cambiar tu apodo de todos modos?",
-    "react": "Reacciona con todas las banderas que quieras agregar a tu prefijo en orden.",
-    "reactTimer": "Tienes %%cooldown%% segundos. Presiona ❎ para cancelar.",
-    "reactTimer2": "Te quedan menos de %%cooldown%% segundos. Presione ✅ para confirmar o ❎ para cancelar.",
-    "previewT": "Vista previa del apodo",
-    "newNickT": "Nuevo apodo",
-    "noChanges": "Sin cambios",
-    "saved": "¡Tu prefijo ha sido guardado!"
+	"moduleName": "Prefijo",
+	"errors": {
+		"noLanguages": "¡No parece tener ningún rol de idioma! Por favor comuníquese con un administrador si cree que se trata de un error.",
+		"trNoRoles": "Notamos que eres un traductor, pero no tienes ningún rol de idioma.",
+		"error": "No se pudo cambiar el apodo. Puede copiar el apodo a continuación y aplicarlo usted mismo.",
+		"confirmedNoFlags": "Has confirmado, pero no reaccionaste a ninguna bandera, ",
+		"cancelled": "Has cancelado el cambio de tu apodo, ",
+		"alreadyThis": "Ya tienes este apodo, ",
+		"timedOut": "Caducado",
+		"timeOut": "No has reaccionado con ninguna bandera, ",
+		"timeOutCustom": "No has confirmado, ",
+		"notSaved": "por lo que su prefijo no se guardó."
+	},
+	"customPrefix": "Siéntase libre de ejecutar `/prefix <banderas>` para obtener el prefijo deseado.",
+	"caution": "Precaución",
+	"warning": "Si configura su prefijo en un idioma que no traduce, aparecerá una advertencia. ¿Quieres cambiar tu apodo de todos modos?",
+	"react": "Reacciona con todas las banderas que quieras agregar a tu prefijo en orden.",
+	"reactTimer": "Tienes %%cooldown%% segundos. Presiona ❎ para cancelar.",
+	"reactTimer2": "Te quedan menos de %%cooldown%% segundos. Presione ✅ para confirmar o ❎ para cancelar.",
+	"previewT": "Vista previa del apodo",
+	"newNickT": "Nuevo apodo",
+	"noChanges": "Sin cambios",
+	"saved": "¡Tu prefijo ha sido guardado!"
 }

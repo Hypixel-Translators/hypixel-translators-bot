@@ -1,8 +1,8 @@
 {
-    "moduleName": "crwdns1266:0crwdne1266:0",
-    "pageTitle": "crwdns1268:0crwdne1268:0",
-    "level": "crwdns1272:0%%rank%%crwdnd1272:0%%level%%crwdnd1272:0%%xp%%crwdne1272:0",
-    "youIndicator": "crwdns1410:0crwdne1410:0",
-    "thousand": "crwdns1274:0crwdne1274:0",
-    "unranked": "crwdns1276:0%%rank%%crwdne1276:0"
+	"moduleName": "crwdns1266:0crwdne1266:0",
+	"pageTitle": "crwdns1268:0crwdne1268:0",
+	"level": "crwdns1272:0%%rank%%crwdnd1272:0%%level%%crwdnd1272:0%%xp%%crwdne1272:0",
+	"youIndicator": "crwdns1410:0crwdne1410:0",
+	"thousand": "crwdns1274:0crwdne1274:0",
+	"unranked": "crwdns1276:0%%rank%%crwdne1276:0"
 }

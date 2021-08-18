@@ -1,32 +1,32 @@
 {
-    "moduleName": "Bola Ajaib",
-    "question": "Pertanyaan",
-    "answers": {
-        "positive": [
-            "Sudah pasti.",
-            "Sudah pasti begitu.",
-            "Tanpa ada ragu apapun.",
-            "Ya, pastinya.",
-            "Anda dapat bergantung padanya.",
-            "Seperti yang saya lihat, ya.",
-            "Kemungkinan besar iya.",
-            "Hasil terlihat bagus.",
-            "Ya",
-            "Tanda menunjuk ke ya."
-        ],
-        "inconclusive": [
-            "Balas kabur, coba lagi.",
-            "Tanya lagi nanti.",
-            "Lebih baik tidak memberitahumu sekarang.",
-            "Tidak dapat diprediksi sekarang.",
-            "Berkonsentrasilah dan tanya kembali."
-        ],
-        "negative": [
-            "Jangan mengandalkannya.",
-            "Balasan saya adalah tidak.",
-            "Sumber saya bilang tidak.",
-            "Hasil terlihat tidak bagus.",
-            "Sangat meragukan."
-        ]
-    }
+	"moduleName": "Bola Ajaib",
+	"question": "Pertanyaan",
+	"answers": {
+		"positive": [
+			"Sudah pasti.",
+			"Sudah pasti begitu.",
+			"Tanpa ada ragu apapun.",
+			"Ya, pastinya.",
+			"Anda dapat bergantung padanya.",
+			"Seperti yang saya lihat, ya.",
+			"Kemungkinan besar iya.",
+			"Hasil terlihat bagus.",
+			"Ya",
+			"Tanda menunjuk ke ya."
+		],
+		"inconclusive": [
+			"Balas kabur, coba lagi.",
+			"Tanya lagi nanti.",
+			"Lebih baik tidak memberitahumu sekarang.",
+			"Tidak dapat diprediksi sekarang.",
+			"Berkonsentrasilah dan tanya kembali."
+		],
+		"negative": [
+			"Jangan mengandalkannya.",
+			"Balasan saya adalah tidak.",
+			"Sumber saya bilang tidak.",
+			"Hasil terlihat tidak bagus.",
+			"Sangat meragukan."
+		]
+	}
 }

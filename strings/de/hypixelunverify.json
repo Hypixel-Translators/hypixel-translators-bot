@@ -1,6 +1,6 @@
 {
-    "moduleName": "Hypixel-Verifizierung",
-    "unverified": "Du wurdest erfolgreich entverifiziert!",
-    "notUnverified": "Konnte dich nicht entverifizieren!",
-    "whyNotUnverified": "Dies geschah, weil du dich noch nicht selbst verifiziert hast! Führe `/hypixelverify <Spitzname> ` aus."
+	"moduleName": "Hypixel-Verifizierung",
+	"unverified": "Du wurdest erfolgreich entverifiziert!",
+	"notUnverified": "Konnte dich nicht entverifizieren!",
+	"whyNotUnverified": "Dies geschah, weil du dich noch nicht selbst verifiziert hast! Führe `/hypixelverify <Spitzname> ` aus."
 }

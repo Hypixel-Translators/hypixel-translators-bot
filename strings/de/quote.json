@@ -1,7 +1,7 @@
 {
-    "moduleName": "Zitieren",
-    "msgUrl": "Nachrichtenlink",
-    "invalidArg": "Ungültiges Argument!",
-    "indexArg": "Ein Zitat mit Index %%arg%% existiert nicht! Bitte gebe eine Zahl zwischen 1 und %%max%% an.",
-    "reqSub": "Deine Anfrage wurde abgeschickt, danke!"
+	"moduleName": "Zitieren",
+	"msgUrl": "Nachrichtenlink",
+	"invalidArg": "Ungültiges Argument!",
+	"indexArg": "Ein Zitat mit Index %%arg%% existiert nicht! Bitte gebe eine Zahl zwischen 1 und %%max%% an.",
+	"reqSub": "Deine Anfrage wurde abgeschickt, danke!"
 }

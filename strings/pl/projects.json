@@ -1,9 +1,9 @@
 {
-    "moduleName": "Projekty tłumaczeń",
-    "allProjects": "Oto wszystkie projekty, które obecnie obsługujemy na serwerze!",
-    "description": "Jeśli jesteś już w którymkolwiek z tych projektów, ale nie masz jeszcze ról, wykonaj `/reverity [odnośnikDoProfilu]` aby je dostać!",
-    "projectInfo": "Możesz znaleźć odnośnik do %%project%% [tutaj](%%link%%). Po więcej informacji, wpisz %%command%%.",
-    "alreadyJoined": "Dołączyłeś już do tego projektu!",
-    "notJoined": "Nie dołączyłeś jeszcze do tego projektu!",
-    "dmError": "Nie mogliśmy sprawdzić, czy jesteś już w tych projektach, czy nie. Aby to zrobić, musisz wykonać komendę na Discordzie Hypixel Translators Community."
+	"moduleName": "Projekty tłumaczeń",
+	"allProjects": "Oto wszystkie projekty, które obecnie obsługujemy na serwerze!",
+	"description": "Jeśli jesteś już w którymkolwiek z tych projektów, ale nie masz jeszcze ról, wykonaj `/reverity [odnośnikDoProfilu]` aby je dostać!",
+	"projectInfo": "Możesz znaleźć odnośnik do %%project%% [tutaj](%%link%%). Po więcej informacji, wpisz %%command%%.",
+	"alreadyJoined": "Dołączyłeś już do tego projektu!",
+	"notJoined": "Nie dołączyłeś jeszcze do tego projektu!",
+	"dmError": "Nie mogliśmy sprawdzić, czy jesteś już w tych projektach, czy nie. Aby to zrobić, musisz wykonać komendę na Discordzie Hypixel Translators Community."
 }

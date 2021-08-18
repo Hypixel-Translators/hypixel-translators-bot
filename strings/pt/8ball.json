@@ -1,32 +1,32 @@
 {
-    "moduleName": "Bola mágica",
-    "question": "Pergunta",
-    "answers": {
-        "positive": [
-            "É certo.",
-            "Decididamente que sim.",
-            "Sem dúvida.",
-            "Sim, definitivamente.",
-            "Podes contar com isso.",
-            "Vejo que sim.",
-            "Muito provavelmente.",
-            "Parece-me bem.",
-            "Sim",
-            "Tudo indica que sim."
-        ],
-        "inconclusive": [
-            "Resposta vaga, tenta outra vez.",
-            "Pergunta novamente mais tarde.",
-            "É melhor não te dizer agora.",
-            "Não consigo prever agora.",
-            "Concentra-te e pergunta novamente."
-        ],
-        "negative": [
-            "Não contes com isso.",
-            "A minha resposta é não.",
-            "As minhas fontes dizem que não.",
-            "Não me parece tão bem.",
-            "Muito duvidoso."
-        ]
-    }
+	"moduleName": "Bola mágica",
+	"question": "Pergunta",
+	"answers": {
+		"positive": [
+			"É certo.",
+			"Decididamente que sim.",
+			"Sem dúvida.",
+			"Sim, definitivamente.",
+			"Podes contar com isso.",
+			"Vejo que sim.",
+			"Muito provavelmente.",
+			"Parece-me bem.",
+			"Sim",
+			"Tudo indica que sim."
+		],
+		"inconclusive": [
+			"Resposta vaga, tenta outra vez.",
+			"Pergunta novamente mais tarde.",
+			"É melhor não te dizer agora.",
+			"Não consigo prever agora.",
+			"Concentra-te e pergunta novamente."
+		],
+		"negative": [
+			"Não contes com isso.",
+			"A minha resposta é não.",
+			"As minhas fontes dizem que não.",
+			"Não me parece tão bem.",
+			"Muito duvidoso."
+		]
+	}
 }

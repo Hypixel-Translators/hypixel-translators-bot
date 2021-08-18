@@ -1,6 +1,6 @@
 {
-    "moduleName": "Crowdin 個人檔案",
-    "profileSuccess": "以下是你的個人檔案",
-    "noProfile": "我們無法從資料庫中找到你的個人檔案！",
-    "howStore": "如果你想把個人檔案儲存至資料庫，請執行 `/help verify` 以了解操作流程。"
+	"moduleName": "Crowdin 個人檔案",
+	"profileSuccess": "以下是你的個人檔案",
+	"noProfile": "我們無法從資料庫中找到你的個人檔案！",
+	"howStore": "如果你想把個人檔案儲存至資料庫，請執行 `/help verify` 以了解操作流程。"
 }

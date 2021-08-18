@@ -1,7 +1,7 @@
 {
-    "errorNoPing": "Du har ikke det språkets korrekturleser-rolle, ",
-    "errorNoPingPr": "så du kan ikke nevne det.",
-    "errorNoPingTr": "så du kan ikke nevne oversetter-rollen.",
-    "errorNoPingAll": "så du kan ikke nevne hele språket.",
-    "errorNoPingDisclaimer": "Kontakt servereieren eller administratoren dersom det er nødvendig."
+	"errorNoPing": "Du har ikke det språkets korrekturleser-rolle, ",
+	"errorNoPingPr": "så du kan ikke nevne det.",
+	"errorNoPingTr": "så du kan ikke nevne oversetter-rollen.",
+	"errorNoPingAll": "så du kan ikke nevne hele språket.",
+	"errorNoPingDisclaimer": "Kontakt servereieren eller administratoren dersom det er nødvendig."
 }

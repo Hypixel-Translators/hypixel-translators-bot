@@ -1,7 +1,7 @@
 {
-    "errorNoPing": "Nincs arra a nyelvre ellenőrző rangod, ",
-    "errorNoPingPr": "így nem tudod megemlíteni.",
-    "errorNoPingTr": "így nem tudod megemlíteni a fordítóit.",
-    "errorNoPingAll": "így nem említheted meg az egész nyelvet.",
-    "errorNoPingDisclaimer": "Üzenj a szerver tulajdonosának vagy egy adminisztrátornak ha nagyon fontos."
+	"errorNoPing": "Nincs arra a nyelvre ellenőrző rangod, ",
+	"errorNoPingPr": "így nem tudod megemlíteni.",
+	"errorNoPingTr": "így nem tudod megemlíteni a fordítóit.",
+	"errorNoPingAll": "így nem említheted meg az egész nyelvet.",
+	"errorNoPingDisclaimer": "Üzenj a szerver tulajdonosának vagy egy adminisztrátornak ha nagyon fontos."
 }

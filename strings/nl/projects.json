@@ -1,9 +1,9 @@
 {
-    "moduleName": "Vertalingsprojecten",
-    "allProjects": "Hieronder staan alle projecten die we momenteel ondersteunen!",
-    "description": "Als je voor één van deze projecten vertaalt maar geen rollen ervoor hebt, gebruik dan `/verify [profiel-url]` om ze te ontvangen!",
-    "projectInfo": "Je kunt de link naar het %%project%%-project [hier](%%link%%) vinden. Voor meer info kun je %%command%% uitvoeren.",
-    "alreadyJoined": "Je bent een vertaler voor dit project!",
-    "notJoined": "Je bent nog geen vertaler voor dit project!",
-    "dmError": "Je status voor deze projecten kon niet gecontroleerd worden. Hiervoor moet je dit commando uitvoeren op de Hypixel-vertalersgemeenschaps-Discord."
+	"moduleName": "Vertalingsprojecten",
+	"allProjects": "Hieronder staan alle projecten die we momenteel ondersteunen!",
+	"description": "Als je voor één van deze projecten vertaalt maar geen rollen ervoor hebt, gebruik dan `/verify [profiel-url]` om ze te ontvangen!",
+	"projectInfo": "Je kunt de link naar het %%project%%-project [hier](%%link%%) vinden. Voor meer info kun je %%command%% uitvoeren.",
+	"alreadyJoined": "Je bent een vertaler voor dit project!",
+	"notJoined": "Je bent nog geen vertaler voor dit project!",
+	"dmError": "Je status voor deze projecten kon niet gecontroleerd worden. Hiervoor moet je dit commando uitvoeren op de Hypixel-vertalersgemeenschaps-Discord."
 }

@@ -1,6 +1,6 @@
 {
-    "moduleName": "Ping",
-    "pong": "%%pingEmote%% ポン！",
-    "message": "このボットのPing値は%%ping%%msです。",
-    "onlineSince": "オンライン状態開始時間 %%timestamp%% (%%timestampRelative%%)"
+	"moduleName": "Ping",
+	"pong": "%%pingEmote%% ポン！",
+	"message": "このボットのPing値は%%ping%%msです。",
+	"onlineSince": "オンライン状態開始時間 %%timestamp%% (%%timestampRelative%%)"
 }

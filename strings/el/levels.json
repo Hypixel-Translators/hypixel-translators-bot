@@ -1,8 +1,8 @@
 {
-    "moduleName": "XP Leaderboard",
-    "pageTitle": "Here is the XP leaderboard!",
-    "level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
-    "youIndicator": "YOU",
-    "thousand": "k",
-    "unranked": "#%%rank%% Unranked"
+	"moduleName": "XP Leaderboard",
+	"pageTitle": "Here is the XP leaderboard!",
+	"level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
+	"youIndicator": "YOU",
+	"thousand": "k",
+	"unranked": "#%%rank%% Unranked"
 }

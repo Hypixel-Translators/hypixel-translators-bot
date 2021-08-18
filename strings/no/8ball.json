@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magic 8 ball",
-    "question": "Spørsmål",
-    "answers": {
-        "positive": [
-            "It is certain.",
-            "It is decidedly so.",
-            "Without a doubt.",
-            "Yes – definitely.",
-            "You may rely on it.",
-            "As I see it, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Ja",
-            "Signs point to yes."
-        ],
-        "inconclusive": [
-            "Svar uklart, prøv igjen.",
-            "Spør igjen senere.",
-            "Better not tell you now.",
-            "Kan ikke forutsi nå.",
-            "Konsentrer og spør igjen."
-        ],
-        "negative": [
-            "Ikke regn med det.",
-            "Mitt svar er nei.",
-            "Mine kilder sier nei.",
-            "Outlook not so good.",
-            "Very doubtful."
-        ]
-    }
+	"moduleName": "Magic 8 ball",
+	"question": "Spørsmål",
+	"answers": {
+		"positive": [
+			"It is certain.",
+			"It is decidedly so.",
+			"Without a doubt.",
+			"Yes – definitely.",
+			"You may rely on it.",
+			"As I see it, yes.",
+			"Most likely.",
+			"Outlook good.",
+			"Ja",
+			"Signs point to yes."
+		],
+		"inconclusive": [
+			"Svar uklart, prøv igjen.",
+			"Spør igjen senere.",
+			"Better not tell you now.",
+			"Kan ikke forutsi nå.",
+			"Konsentrer og spør igjen."
+		],
+		"negative": [
+			"Ikke regn med det.",
+			"Mitt svar er nei.",
+			"Mine kilder sier nei.",
+			"Outlook not so good.",
+			"Very doubtful."
+		]
+	}
 }

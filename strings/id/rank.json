@@ -1,12 +1,12 @@
 {
-    "moduleName": "Level pengguna",
-    "yourRank": "Inilah rank anda",
-    "userRank": "Inilah rank %%user%%",
-    "youNotRanked": "Anda belum mendapat rank!",
-    "userNotRanked": "Pengguna tersebut belum mendapat rank!",
-    "howRank": "Agar anda bisa mendapat rank anda harus berbicara di chats!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Pesan",
-    "thousand": "k",
-    "youLevel": "Anda berada di level %%level%% dan #%%rank%% di papan peringkat!",
-    "userLevel": "%%user%% berada di level %%level%% dan mereka #%%rank%% di papan peringkat!"
+	"moduleName": "Level pengguna",
+	"yourRank": "Inilah rank anda",
+	"userRank": "Inilah rank %%user%%",
+	"youNotRanked": "Anda belum mendapat rank!",
+	"userNotRanked": "Pengguna tersebut belum mendapat rank!",
+	"howRank": "Agar anda bisa mendapat rank anda harus berbicara di chats!",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Pesan",
+	"thousand": "k",
+	"youLevel": "Anda berada di level %%level%% dan #%%rank%% di papan peringkat!",
+	"userLevel": "%%user%% berada di level %%level%% dan mereka #%%rank%% di papan peringkat!"
 }

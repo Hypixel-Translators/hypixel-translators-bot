@@ -1,6 +1,6 @@
 {
-    "moduleName": "Crowdin-profiili",
-    "profileSuccess": "Tässä profiilisi",
-    "noProfile": "Emme löytäneet profiiliasi tietokannastamme!",
-    "howStore": "Jos haluaisit tallentaa sen, käytä komentoa `/help verify` saadaksesi tietää, kuinka voit tehdä sen."
+	"moduleName": "Crowdin-profiili",
+	"profileSuccess": "Tässä profiilisi",
+	"noProfile": "Emme löytäneet profiiliasi tietokannastamme!",
+	"howStore": "Jos haluaisit tallentaa sen, käytä komentoa `/help verify` saadaksesi tietää, kuinka voit tehdä sen."
 }

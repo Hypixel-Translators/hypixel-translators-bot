@@ -1,7 +1,7 @@
 {
-    "moduleName": "Quote",
-    "msgUrl": "Message URL",
-    "invalidArg": "Invalid argument!",
-    "indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 an' %%max%%.",
-    "reqSub": "Your quote request has been submitted, thanks!"
+	"moduleName": "Quote",
+	"msgUrl": "Message URL",
+	"invalidArg": "Invalid argument!",
+	"indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 an' %%max%%.",
+	"reqSub": "Your quote request has been submitted, thanks!"
 }

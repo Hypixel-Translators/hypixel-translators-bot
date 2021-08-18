@@ -1,5 +1,5 @@
 {
-    "hypixelCrowdin": "Voici le projet Hypixel sur Crowdin : %%crowdin%%",
-    "hypixelGuide": "Si vous voulez consulter les règles du projet, faites `/guidelines`.",
-    "hypixelDiscord": "Le serveur Discord d'Hypixel peut être trouvé sur %%discord%% (utile pour les relecteurs)."
+	"hypixelCrowdin": "Voici le projet Hypixel sur Crowdin : %%crowdin%%",
+	"hypixelGuide": "Si vous voulez consulter les règles du projet, faites `/guidelines`.",
+	"hypixelDiscord": "Le serveur Discord d'Hypixel peut être trouvé sur %%discord%% (utile pour les relecteurs)."
 }

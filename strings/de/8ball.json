@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magic 8-Ball",
-    "question": "Frage",
-    "answers": {
-        "positive": [
-            "Es ist sicher.",
-            "Es ist eindeutig so.",
-            "Zweifellos.",
-            "Ja, definitiv.",
-            "Du kannst dich darauf verlassen.",
-            "So wie ich es sehe, ja.",
-            "Sehr wahrscheinlich.",
-            "Sieht gut aus.",
-            "Ja",
-            "Die Zeichen deuten auf ja."
-        ],
-        "inconclusive": [
-            "Unklare Antwort, versuche es erneut.",
-            "Frage später noch einmal.",
-            "Das sage ich dir besser nicht.",
-            "Das kann ich jetzt nicht vorhersagen.",
-            "Konzentriere dich und frag nochmal."
-        ],
-        "negative": [
-            "Verlasse dich nicht drauf.",
-            "Meine Antwort ist nein.",
-            "Meine Quellen sagen nein.",
-            "Sieht nicht so gut aus.",
-            "Sehr zweifelhaft."
-        ]
-    }
+	"moduleName": "Magic 8-Ball",
+	"question": "Frage",
+	"answers": {
+		"positive": [
+			"Es ist sicher.",
+			"Es ist eindeutig so.",
+			"Zweifellos.",
+			"Ja, definitiv.",
+			"Du kannst dich darauf verlassen.",
+			"So wie ich es sehe, ja.",
+			"Sehr wahrscheinlich.",
+			"Sieht gut aus.",
+			"Ja",
+			"Die Zeichen deuten auf ja."
+		],
+		"inconclusive": [
+			"Unklare Antwort, versuche es erneut.",
+			"Frage später noch einmal.",
+			"Das sage ich dir besser nicht.",
+			"Das kann ich jetzt nicht vorhersagen.",
+			"Konzentriere dich und frag nochmal."
+		],
+		"negative": [
+			"Verlasse dich nicht drauf.",
+			"Meine Antwort ist nein.",
+			"Meine Quellen sagen nein.",
+			"Sieht nicht so gut aus.",
+			"Sehr zweifelhaft."
+		]
+	}
 }

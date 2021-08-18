@@ -1,32 +1,32 @@
 {
-    "moduleName": "Sihirli Top",
-    "question": "Soru",
-    "answers": {
-        "positive": [
-            "Kesinlikle.",
-            "Kesinlikle öyle.",
-            "Şüphesiz.",
-            "Evet – kesinlikle.",
-            "Güvenebilirsin.",
-            "Gördüğüm kadarıyla, evet.",
-            "Büyük olasılıkla.",
-            "Güzel gözüküyor.",
-            "Evet",
-            "Çıkarımlarım evet diyor."
-        ],
-        "inconclusive": [
-            "Cevap bulanık. Yeniden sor.",
-            "Daha sonra tekrar sor.",
-            "Sana şimdi söylemesem daha iyi.",
-            "Şimdi tahmin edemiyorum.",
-            "Konsantre ol ve yeniden sor."
-        ],
-        "negative": [
-            "O kadar emin olma.",
-            "Cevabım hayır.",
-            "Kaynaklarım hayır diyor.",
-            "Çok iyi görünmüyor.",
-            "Oldukça süpheli."
-        ]
-    }
+	"moduleName": "Sihirli Top",
+	"question": "Soru",
+	"answers": {
+		"positive": [
+			"Kesinlikle.",
+			"Kesinlikle öyle.",
+			"Şüphesiz.",
+			"Evet – kesinlikle.",
+			"Güvenebilirsin.",
+			"Gördüğüm kadarıyla, evet.",
+			"Büyük olasılıkla.",
+			"Güzel gözüküyor.",
+			"Evet",
+			"Çıkarımlarım evet diyor."
+		],
+		"inconclusive": [
+			"Cevap bulanık. Yeniden sor.",
+			"Daha sonra tekrar sor.",
+			"Sana şimdi söylemesem daha iyi.",
+			"Şimdi tahmin edemiyorum.",
+			"Konsantre ol ve yeniden sor."
+		],
+		"negative": [
+			"O kadar emin olma.",
+			"Cevabım hayır.",
+			"Kaynaklarım hayır diyor.",
+			"Çok iyi görünmüyor.",
+			"Oldukça süpheli."
+		]
+	}
 }

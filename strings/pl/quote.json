@@ -1,7 +1,7 @@
 {
-    "moduleName": "Cytat",
-    "msgUrl": "Odnośnik do wiadomości",
-    "invalidArg": "Nieprawidłowy argument!",
-    "indexArg": "Cytat z indeksem %%arg%% nie istnieje! Podaj liczbę pomiędzy 1 a %%max%%.",
-    "reqSub": "Twoja prośba o cytat została złożona, dziękujemy!"
+	"moduleName": "Cytat",
+	"msgUrl": "Odnośnik do wiadomości",
+	"invalidArg": "Nieprawidłowy argument!",
+	"indexArg": "Cytat z indeksem %%arg%% nie istnieje! Podaj liczbę pomiędzy 1 a %%max%%.",
+	"reqSub": "Twoja prośba o cytat została złożona, dziękujemy!"
 }

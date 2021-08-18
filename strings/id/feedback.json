@@ -1,8 +1,8 @@
 {
-    "moduleName": "Masalah dan umpan balik",
-    "bugT": "Melihat dan menambah masalah",
-    "bugD": "Untuk memperlihatkan dan membuat saran atau laporan bug, klik tombol di bawah!",
-    "urgentT": "Apakah ini mendesak?",
-    "urgentD": "Jika anda sedang mencoba untuk melaporkan bug fatal atau bot yang down untuk jangka waktu yang lama tanpa pemberitahuan, mohon menyebutkan seorang staf di channel publik, dengan menjelaskan masalahnya.",
-    "link": "Tautan"
+	"moduleName": "Masalah dan umpan balik",
+	"bugT": "Melihat dan menambah masalah",
+	"bugD": "Untuk memperlihatkan dan membuat saran atau laporan bug, klik tombol di bawah!",
+	"urgentT": "Apakah ini mendesak?",
+	"urgentD": "Jika anda sedang mencoba untuk melaporkan bug fatal atau bot yang down untuk jangka waktu yang lama tanpa pemberitahuan, mohon menyebutkan seorang staf di channel publik, dengan menjelaskan masalahnya.",
+	"link": "Tautan"
 }

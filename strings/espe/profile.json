@@ -1,6 +1,6 @@
 {
-    "moduleName": "Perfil de Crowdin",
-    "profileSuccess": "Aquí está tu perfil",
-    "noProfile": "¡No pudimos encontrar tu perfil en nuestra base de datos!",
-    "howStore": "Si quieres almacenarlo, usa `/help verify` para saber como hacerlo."
+	"moduleName": "Perfil de Crowdin",
+	"profileSuccess": "Aquí está tu perfil",
+	"noProfile": "¡No pudimos encontrar tu perfil en nuestra base de datos!",
+	"howStore": "Si quieres almacenarlo, usa `/help verify` para saber como hacerlo."
 }

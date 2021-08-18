@@ -1,5 +1,5 @@
 {
-    "sbaCrowdin": "SkyblockAddons 本地化项目链接：%%crowdin%%",
-    "sbaThread": "Here’s the thread showcasing the mod: %%thread%%",
-    "sbaDiscord": "此项目的所有者是 Biscuit！Discord 服务器：%%discord%%"
+	"sbaCrowdin": "SkyblockAddons 本地化项目链接：%%crowdin%%",
+	"sbaThread": "Here’s the thread showcasing the mod: %%thread%%",
+	"sbaDiscord": "此项目的所有者是 Biscuit！Discord 服务器：%%discord%%"
 }

@@ -1,25 +1,25 @@
 {
-    "moduleName": "Ön ek",
-    "errors": {
-        "noLanguages": "Herhangi bir dil rolün yok gibi görünüyor! Bunun bir hata olduğunu düşünüyorsan lütfen admin veya sunucu sahibiyle iletişime geç.",
-        "trNoRoles": "Çevirmen olduğunu, ancak herhangi bir dil rolüne sahip olmadığını farkettik.",
-        "error": "İsim değiştirilemedi. Aşağıdaki ismi kopyalayıp kendin uygulayabilirsin.",
-        "confirmedNoFlags": "Onayladın ama hiçbir bayrağa tepki vermedin, ",
-        "cancelled": "İsminin değiştirilmesini iptal ettin, ",
-        "alreadyThis": "Bu isme zaten sahipsin, ",
-        "timedOut": "Zaman Aşımına Uğradı",
-        "timeOut": "Hiçbir bayrakla tepki vermedin, ",
-        "timeOutCustom": "Onaylamadın, ",
-        "notSaved": "bu yüzden ön ekin kaydedilmedi."
-    },
-    "customPrefix": "İstediğin ön eki almak için `/prefix <bayrak>` komutunu kullanman yeterli.",
-    "caution": "Dikkat",
-    "warning": "Önekini çevirmediğin bir dile ayarlamak uyarılmana sebep olur. Yine de takma adını değiştirmek istiyor musun?",
-    "react": "Ön ekinize eklemek istediğiniz bayraklara sırayla tepki verin.",
-    "reactTimer": "%%cooldown%% saniyen var. İptal etmek için ❎'e bas.",
-    "reactTimer2": "%%cooldown%% saniyeden daha az vaktin kaldı. Onaylamak için ✅'e, iptal etmek için ❎'e bas.",
-    "previewT": "Takma ad önizlemesi",
-    "newNickT": "Yeni takma ad",
-    "noChanges": "Değişiklik yok",
-    "saved": "Ön ekin kaydedildi!"
+	"moduleName": "Ön ek",
+	"errors": {
+		"noLanguages": "Herhangi bir dil rolün yok gibi görünüyor! Bunun bir hata olduğunu düşünüyorsan lütfen admin veya sunucu sahibiyle iletişime geç.",
+		"trNoRoles": "Çevirmen olduğunu, ancak herhangi bir dil rolüne sahip olmadığını farkettik.",
+		"error": "İsim değiştirilemedi. Aşağıdaki ismi kopyalayıp kendin uygulayabilirsin.",
+		"confirmedNoFlags": "Onayladın ama hiçbir bayrağa tepki vermedin, ",
+		"cancelled": "İsminin değiştirilmesini iptal ettin, ",
+		"alreadyThis": "Bu isme zaten sahipsin, ",
+		"timedOut": "Zaman Aşımına Uğradı",
+		"timeOut": "Hiçbir bayrakla tepki vermedin, ",
+		"timeOutCustom": "Onaylamadın, ",
+		"notSaved": "bu yüzden ön ekin kaydedilmedi."
+	},
+	"customPrefix": "İstediğin ön eki almak için `/prefix <bayrak>` komutunu kullanman yeterli.",
+	"caution": "Dikkat",
+	"warning": "Önekini çevirmediğin bir dile ayarlamak uyarılmana sebep olur. Yine de takma adını değiştirmek istiyor musun?",
+	"react": "Ön ekinize eklemek istediğiniz bayraklara sırayla tepki verin.",
+	"reactTimer": "%%cooldown%% saniyen var. İptal etmek için ❎'e bas.",
+	"reactTimer2": "%%cooldown%% saniyeden daha az vaktin kaldı. Onaylamak için ✅'e, iptal etmek için ❎'e bas.",
+	"previewT": "Takma ad önizlemesi",
+	"newNickT": "Yeni takma ad",
+	"noChanges": "Değişiklik yok",
+	"saved": "Ön ekin kaydedildi!"
 }

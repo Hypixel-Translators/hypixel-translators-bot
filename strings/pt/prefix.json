@@ -1,25 +1,25 @@
 {
-    "moduleName": "Prefixo",
-    "errors": {
-        "noLanguages": "Parece que não tens nenhum cargo de idioma! Entra em contacto com um administrador se pensas que isto é um erro.",
-        "trNoRoles": "Reparámos que és um tradutor mas não tens nenhum cargo de idioma.",
-        "error": "Não foi possível alterar o teu apelido. Podes copiá-lo abaixo para o aplicar.",
-        "confirmedNoFlags": "Confirmaste o apelido, porém não reagiste com nenhuma bandeira, ",
-        "cancelled": "Cancelaste a alteração do teu apelido, ",
-        "alreadyThis": "Já tens este apelido, ",
-        "timedOut": "Tempo excedido",
-        "timeOut": "Não reagiste com nenhuma bandeira, ",
-        "timeOutCustom": "Não confirmaste, ",
-        "notSaved": "logo o teu prefixo não foi guardado."
-    },
-    "customPrefix": "Podes executar `/prefix <bandeiras>` para receberes o prefixo desejado.",
-    "caution": "Cuidado",
-    "warning": "Definir o teu prefixo para um idioma que não traduzes irá resultar num aviso. Tens a certeza que queres mudar o teu apelido?",
-    "react": "Reage com todas as bandeiras que desejas adicionar ao teu prefixo, por ordem.",
-    "reactTimer": "Tens %%cooldown%% segundos. Carrega no ❎ para cancelar.",
-    "reactTimer2": "Tens menos de %%cooldown%% segundos. Carrega no ✅ para confirmar ou no ❎ para cancelar.",
-    "previewT": "Pré-visualização do apelido",
-    "newNickT": "Novo apelido",
-    "noChanges": "Sem alterações",
-    "saved": "O teu prefixo foi guardado!"
+	"moduleName": "Prefixo",
+	"errors": {
+		"noLanguages": "Parece que não tens nenhum cargo de idioma! Entra em contacto com um administrador se pensas que isto é um erro.",
+		"trNoRoles": "Reparámos que és um tradutor mas não tens nenhum cargo de idioma.",
+		"error": "Não foi possível alterar o teu apelido. Podes copiá-lo abaixo para o aplicar.",
+		"confirmedNoFlags": "Confirmaste o apelido, porém não reagiste com nenhuma bandeira, ",
+		"cancelled": "Cancelaste a alteração do teu apelido, ",
+		"alreadyThis": "Já tens este apelido, ",
+		"timedOut": "Tempo excedido",
+		"timeOut": "Não reagiste com nenhuma bandeira, ",
+		"timeOutCustom": "Não confirmaste, ",
+		"notSaved": "logo o teu prefixo não foi guardado."
+	},
+	"customPrefix": "Podes executar `/prefix <bandeiras>` para receberes o prefixo desejado.",
+	"caution": "Cuidado",
+	"warning": "Definir o teu prefixo para um idioma que não traduzes irá resultar num aviso. Tens a certeza que queres mudar o teu apelido?",
+	"react": "Reage com todas as bandeiras que desejas adicionar ao teu prefixo, por ordem.",
+	"reactTimer": "Tens %%cooldown%% segundos. Carrega no ❎ para cancelar.",
+	"reactTimer2": "Tens menos de %%cooldown%% segundos. Carrega no ✅ para confirmar ou no ❎ para cancelar.",
+	"previewT": "Pré-visualização do apelido",
+	"newNickT": "Novo apelido",
+	"noChanges": "Sem alterações",
+	"saved": "O teu prefixo foi guardado!"
 }

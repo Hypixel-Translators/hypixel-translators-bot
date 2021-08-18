@@ -1,9 +1,9 @@
 {
-    "moduleName": "Hypixel 驗證",
-    "success": "你已成功驗證為 %%player%%！",
-    "role": "基於你在 Hypixel 的 Rank，你已被給予 %%role%% 身份組。",
-    "alreadyVerified": "你已經驗證過了！",
-    "nameChangeDisclaimer": "請注意︰如果你只是更改了名稱，則無需再次進行驗證！",
-    "error": "我們無法驗證你的身份，因為你在 Hypixel 的 Discord 帳號設定不正確！",
-    "tutorial": "要完成驗證，你必須在 Hypixel 的社群媒體設定中將你的 Discord 設為 %%tag%%，並等待約 10 分鐘後再次執行此指令。如果你不知道該如何做，請參考以下影片的內容後再進行操作。"
+	"moduleName": "Hypixel 驗證",
+	"success": "你已成功驗證為 %%player%%！",
+	"role": "基於你在 Hypixel 的 Rank，你已被給予 %%role%% 身份組。",
+	"alreadyVerified": "你已經驗證過了！",
+	"nameChangeDisclaimer": "請注意︰如果你只是更改了名稱，則無需再次進行驗證！",
+	"error": "我們無法驗證你的身份，因為你在 Hypixel 的 Discord 帳號設定不正確！",
+	"tutorial": "要完成驗證，你必須在 Hypixel 的社群媒體設定中將你的 Discord 設為 %%tag%%，並等待約 10 分鐘後再次執行此指令。如果你不知道該如何做，請參考以下影片的內容後再進行操作。"
 }

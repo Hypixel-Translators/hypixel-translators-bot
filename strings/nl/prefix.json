@@ -1,25 +1,25 @@
 {
-    "moduleName": "Voorvoegsel",
-    "errors": {
-        "noLanguages": "Je lijkt geen taalrollen te hebben! Neem contact op met een administrator als je denkt dat dit een fout is.",
-        "trNoRoles": "We zien dat je een vertaler bent, maar geen taalrollen hebt.",
-        "error": "Kon bijnaam niet wijzigen. Je kunt de bijnaam wel kopiëren en hem zelf toepassen.",
-        "confirmedNoFlags": "Je hebt bevestigd maar niet gereageerd met vlaggen, ",
-        "cancelled": "Je hebt het wijzigen van je bijnaam geannuleerd, ",
-        "alreadyThis": "Je hebt deze bijnaam al, ",
-        "timedOut": "Time-out",
-        "timeOut": "Je hebt niet gereageerd met vlaggen, ",
-        "timeOutCustom": "Je hebt niet bevestigd, ",
-        "notSaved": "dus is je voorvoegsel niet opgeslagen."
-    },
-    "customPrefix": "Schroom niet om `/prefix <vlaggen>` uit te voeren om je voorvoegsel te krijgen.",
-    "caution": "Opgelet",
-    "warning": "Als je voorvoegsel een taal bevat die je niet vertaalt, zul je een waarschuwing ontvangen. Wil je toch doorgaan?",
-    "react": "Reageer met alle vlaggen die je aan je voorvoegsel wilt toevoegen, in de gewenste volgorde.",
-    "reactTimer": "Je hebt %%cooldown%% seconden. Klik op ❎ om te annuleren.",
-    "reactTimer2": "Je hebt minder dan %%cooldown%% seconden over. Klik op ✅ om te bevestigen of ❎ om te annuleren.",
-    "previewT": "Voorbeeld bijnaam",
-    "newNickT": "Nieuwe bijnaam",
-    "noChanges": "Geen wijzigingen",
-    "saved": "Je voorvoegsel is opgeslagen!"
+	"moduleName": "Voorvoegsel",
+	"errors": {
+		"noLanguages": "Je lijkt geen taalrollen te hebben! Neem contact op met een administrator als je denkt dat dit een fout is.",
+		"trNoRoles": "We zien dat je een vertaler bent, maar geen taalrollen hebt.",
+		"error": "Kon bijnaam niet wijzigen. Je kunt de bijnaam wel kopiëren en hem zelf toepassen.",
+		"confirmedNoFlags": "Je hebt bevestigd maar niet gereageerd met vlaggen, ",
+		"cancelled": "Je hebt het wijzigen van je bijnaam geannuleerd, ",
+		"alreadyThis": "Je hebt deze bijnaam al, ",
+		"timedOut": "Time-out",
+		"timeOut": "Je hebt niet gereageerd met vlaggen, ",
+		"timeOutCustom": "Je hebt niet bevestigd, ",
+		"notSaved": "dus is je voorvoegsel niet opgeslagen."
+	},
+	"customPrefix": "Schroom niet om `/prefix <vlaggen>` uit te voeren om je voorvoegsel te krijgen.",
+	"caution": "Opgelet",
+	"warning": "Als je voorvoegsel een taal bevat die je niet vertaalt, zul je een waarschuwing ontvangen. Wil je toch doorgaan?",
+	"react": "Reageer met alle vlaggen die je aan je voorvoegsel wilt toevoegen, in de gewenste volgorde.",
+	"reactTimer": "Je hebt %%cooldown%% seconden. Klik op ❎ om te annuleren.",
+	"reactTimer2": "Je hebt minder dan %%cooldown%% seconden over. Klik op ✅ om te bevestigen of ❎ om te annuleren.",
+	"previewT": "Voorbeeld bijnaam",
+	"newNickT": "Nieuwe bijnaam",
+	"noChanges": "Geen wijzigingen",
+	"saved": "Je voorvoegsel is opgeslagen!"
 }

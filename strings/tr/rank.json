@@ -1,12 +1,12 @@
 {
-    "moduleName": "Kullanıcı Seviyesi",
-    "yourRank": "İşte Derecen",
-    "userRank": "İşte %%user%% kullanıcısının derecesi",
-    "youNotRanked": "Henüz derecen yok!",
-    "userNotRanked": "Bu kullanıcının henüz derecesi yok!",
-    "howRank": "Sıralamada yer almak için sohbetlerde konuşmalısın!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Mesaj",
-    "thousand": "bin",
-    "youLevel": "Şu anda %%level%% seviyesin ve sıralamadaki yerin #%%rank%%!",
-    "userLevel": "%%user%% şu anda %%level%% seviye ve sıralamadaki yeri #%%rank%%!"
+	"moduleName": "Kullanıcı Seviyesi",
+	"yourRank": "İşte Derecen",
+	"userRank": "İşte %%user%% kullanıcısının derecesi",
+	"youNotRanked": "Henüz derecen yok!",
+	"userNotRanked": "Bu kullanıcının henüz derecesi yok!",
+	"howRank": "Sıralamada yer almak için sohbetlerde konuşmalısın!",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Mesaj",
+	"thousand": "bin",
+	"youLevel": "Şu anda %%level%% seviyesin ve sıralamadaki yerin #%%rank%%!",
+	"userLevel": "%%user%% şu anda %%level%% seviye ve sıralamadaki yeri #%%rank%%!"
 }

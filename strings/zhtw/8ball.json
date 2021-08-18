@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magic 8 ball",
-    "question": "問題",
-    "answers": {
-        "positive": [
-            "這是肯定的。",
-            "It is decidedly so.",
-            "毫無疑問。",
-            "當然是的。",
-            "You may rely on it.",
-            "As I see it, yes.",
-            "大概是這樣。",
-            "Outlook good.",
-            "是的",
-            "Signs point to yes."
-        ],
-        "inconclusive": [
-            "Reply hazy, try again.",
-            "請在稍後再問一次。",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again."
-        ],
-        "negative": [
-            "Don't count on it.",
-            "我的回覆是「不」。",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful."
-        ]
-    }
+	"moduleName": "Magic 8 ball",
+	"question": "問題",
+	"answers": {
+		"positive": [
+			"這是肯定的。",
+			"It is decidedly so.",
+			"毫無疑問。",
+			"當然是的。",
+			"You may rely on it.",
+			"As I see it, yes.",
+			"大概是這樣。",
+			"Outlook good.",
+			"是的",
+			"Signs point to yes."
+		],
+		"inconclusive": [
+			"Reply hazy, try again.",
+			"請在稍後再問一次。",
+			"Better not tell you now.",
+			"Cannot predict now.",
+			"Concentrate and ask again."
+		],
+		"negative": [
+			"Don't count on it.",
+			"我的回覆是「不」。",
+			"My sources say no.",
+			"Outlook not so good.",
+			"Very doubtful."
+		]
+	}
 }

@@ -1,25 +1,25 @@
 {
-    "moduleName": "Præfiks",
-    "errors": {
-        "noLanguages": "Det ser ud til, at du ikke har nogen sprogroller! Kontakt venligst administratoren eller ejeren, hvis du tror, at det er en fejl.",
-        "trNoRoles": "Vi har bemærket, at du er en oversætter, men at du ikke har nogle sprogroller.",
-        "error": "Kunne ikke ændre dit kaldenavn. Du kan kopiere kaldenavnet herunder og ændre det selv.",
-        "confirmedNoFlags": "Du bekræftede, men du reagerede ikke på nogen flag, ",
-        "cancelled": "Du annullerede ændringen af dit kaldenavn, ",
-        "alreadyThis": "Du har allerede det kaldenavn, ",
-        "timedOut": "Tiden er udløbet",
-        "timeOut": "Du har ikke reageret med nogen flag, ",
-        "timeOutCustom": "Du bekræftede ikke, ",
-        "notSaved": "så dit præfiks blev ikke gemt."
-    },
-    "customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
-    "caution": "Bemærk",
-    "warning": "Indstilling af dit præfiks til et sprog du ikke oversætter vil resultere i en advarsel. Vil du ændre dit kaldenavn alligevel?",
-    "react": "Reager med de flag, som du ønsker for at tilføje dit præfiks i rækkefølge.",
-    "reactTimer": "Du har %%cooldown%% sekunder. Tryk på ❎ for at annullere.",
-    "reactTimer2": "Du har mindre end %%cooldown%% sekunder tilbage. Tryk på ✅ for at bekræfte eller tryk på ❎ for at annullere.",
-    "previewT": "Kaldenavnsforhåndsvisning",
-    "newNickT": "Nyt kaldenavn",
-    "noChanges": "Ingen ændringer",
-    "saved": "Dit præfiks er blevet gemt!"
+	"moduleName": "Præfiks",
+	"errors": {
+		"noLanguages": "Det ser ud til, at du ikke har nogen sprogroller! Kontakt venligst administratoren eller ejeren, hvis du tror, at det er en fejl.",
+		"trNoRoles": "Vi har bemærket, at du er en oversætter, men at du ikke har nogle sprogroller.",
+		"error": "Kunne ikke ændre dit kaldenavn. Du kan kopiere kaldenavnet herunder og ændre det selv.",
+		"confirmedNoFlags": "Du bekræftede, men du reagerede ikke på nogen flag, ",
+		"cancelled": "Du annullerede ændringen af dit kaldenavn, ",
+		"alreadyThis": "Du har allerede det kaldenavn, ",
+		"timedOut": "Tiden er udløbet",
+		"timeOut": "Du har ikke reageret med nogen flag, ",
+		"timeOutCustom": "Du bekræftede ikke, ",
+		"notSaved": "så dit præfiks blev ikke gemt."
+	},
+	"customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
+	"caution": "Bemærk",
+	"warning": "Indstilling af dit præfiks til et sprog du ikke oversætter vil resultere i en advarsel. Vil du ændre dit kaldenavn alligevel?",
+	"react": "Reager med de flag, som du ønsker for at tilføje dit præfiks i rækkefølge.",
+	"reactTimer": "Du har %%cooldown%% sekunder. Tryk på ❎ for at annullere.",
+	"reactTimer2": "Du har mindre end %%cooldown%% sekunder tilbage. Tryk på ✅ for at bekræfte eller tryk på ❎ for at annullere.",
+	"previewT": "Kaldenavnsforhåndsvisning",
+	"newNickT": "Nyt kaldenavn",
+	"noChanges": "Ingen ændringer",
+	"saved": "Dit præfiks er blevet gemt!"
 }

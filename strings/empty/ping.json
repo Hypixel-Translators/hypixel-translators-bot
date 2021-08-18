@@ -1,6 +1,6 @@
 {
-    "moduleName": "crwdns660:0crwdne660:0",
-    "pong": "crwdns662:0%%pingEmote%%crwdne662:0",
-    "message": "crwdns664:0%%ping%%crwdne664:0",
-    "onlineSince": "crwdns1465:0%%timestamp%%crwdnd1465:0%%timestampRelative%%crwdne1465:0"
+	"moduleName": "crwdns660:0crwdne660:0",
+	"pong": "crwdns662:0%%pingEmote%%crwdne662:0",
+	"message": "crwdns664:0%%ping%%crwdne664:0",
+	"onlineSince": "crwdns1465:0%%timestamp%%crwdnd1465:0%%timestampRelative%%crwdne1465:0"
 }

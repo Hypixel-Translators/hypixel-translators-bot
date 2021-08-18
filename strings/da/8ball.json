@@ -1,32 +1,32 @@
 {
-    "moduleName": "Magisk 8 bold",
-    "question": "Spørgsmål",
-    "answers": {
-        "positive": [
-            "Det er helt sikkert.",
-            "Det er bestemt sådan.",
-            "Uden tvivl.",
-            "Ja - uden tvivl.",
-            "Du kan stole på det.",
-            "Som jeg ser det, så ja.",
-            "Højst sandsynligt.",
-            "Udsigt ser godt ud.",
-            "Ja",
-            "Tegn tyder på ja."
-        ],
-        "inconclusive": [
-            "Svar tåget, prøv igen.",
-            "Spørg igen senere.",
-            "Burde jeg ikke sige nu.",
-            "Kan ikke forudsige nu.",
-            "Koncentrér og spørg igen."
-        ],
-        "negative": [
-            "Stol ikke på det.",
-            "Mit svar er nej.",
-            "Mine kilder siger nej.",
-            "Udsigt ser ikke så godt ud.",
-            "Højst usandsynligt."
-        ]
-    }
+	"moduleName": "Magisk 8 bold",
+	"question": "Spørgsmål",
+	"answers": {
+		"positive": [
+			"Det er helt sikkert.",
+			"Det er bestemt sådan.",
+			"Uden tvivl.",
+			"Ja - uden tvivl.",
+			"Du kan stole på det.",
+			"Som jeg ser det, så ja.",
+			"Højst sandsynligt.",
+			"Udsigt ser godt ud.",
+			"Ja",
+			"Tegn tyder på ja."
+		],
+		"inconclusive": [
+			"Svar tåget, prøv igen.",
+			"Spørg igen senere.",
+			"Burde jeg ikke sige nu.",
+			"Kan ikke forudsige nu.",
+			"Koncentrér og spørg igen."
+		],
+		"negative": [
+			"Stol ikke på det.",
+			"Mit svar er nej.",
+			"Mine kilder siger nej.",
+			"Udsigt ser ikke så godt ud.",
+			"Højst usandsynligt."
+		]
+	}
 }

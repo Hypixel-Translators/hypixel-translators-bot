@@ -1,12 +1,12 @@
 {
-    "moduleName": "Bruger Level",
-    "yourRank": "Her er din rang",
-    "userRank": "Her er %%user%%'s rang",
-    "youNotRanked": "Du er ikke rangeret endnu!",
-    "userNotRanked": "Denne bruger er ikke rangeret endnu!",
-    "howRank": "For at blive rangeret skal du tale i chatten!",
-    "textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Beskeder",
-    "thousand": "k",
-    "youLevel": "Du er på niveau %%level%% og du er #%%rank%% på leaderboardet!",
-    "userLevel": "%%user%% er på niveau %%level%% og de er #%%rank%% på leaderboarded!"
+	"moduleName": "Bruger Level",
+	"yourRank": "Her er din rang",
+	"userRank": "Her er %%user%%'s rang",
+	"youNotRanked": "Du er ikke rangeret endnu!",
+	"userNotRanked": "Denne bruger er ikke rangeret endnu!",
+	"howRank": "For at blive rangeret skal du tale i chatten!",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Beskeder",
+	"thousand": "k",
+	"youLevel": "Du er på niveau %%level%% og du er #%%rank%% på leaderboardet!",
+	"userLevel": "%%user%% er på niveau %%level%% og de er #%%rank%% på leaderboarded!"
 }
