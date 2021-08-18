@@ -1,6 +1,6 @@
 {
-    "moduleName": "Hypixelin linkitys",
-    "unverified": "Linkitys poistettiin onnistuneesti!",
-    "notUnverified": "Käyttäjääsi ei voitu linkittää!",
-    "whyNotUnverified": "Tämä tapahtui, koska et ole linkittänyt itseäsi vielä! Tehdäksesi sen käytä komentoa `/hypixelverify <käyttäjänimi>`."
+	"moduleName": "Hypixelin linkitys",
+	"unverified": "Linkitys poistettiin onnistuneesti!",
+	"notUnverified": "Käyttäjääsi ei voitu linkittää!",
+	"whyNotUnverified": "Tämä tapahtui, koska et ole linkittänyt itseäsi vielä! Tehdäksesi sen käytä komentoa `/hypixelverify <käyttäjänimi>`."
 }
