@@ -1,99 +1,99 @@
 {
-    "moduleName": "Informacja",
-    "commandsListTooltip": "Ten bot został stworzony dla Społeczności Tłumaczy Hypixela i jest utrzymywany przez użytkownika o pseudonimie %%developer%%. Kod źródłowy bota jest publiczny, nasze repozytorium GitHub znajduje się [tutaj]%%github%%.\nMożesz pomóc w tłumaczeniu bota, postępując zgodnie z instrukcjami, które otrzymasz po wykonaniu polecenia `/translate`.\n\nMożesz wykonać `/help <nazwa polecenia>`, aby uzyskać więcej informacji o danym poleceniu.\nPoniżej znajduje się lista wszystkich stron. Przewijanie stron odbywa się za pomocą przycisków pod tą wiadomością.",
-    "madeBy": "Bot stworzony z ogromną starannością przez %%developer%%",
-    "pageNumber": "Strona %%number%%",
-    "mainPage": "Strona główna",
-    "utilityHelp": "Narzędzia",
-    "infoHelp": "Komendy informacyjne",
-    "projectsHelp": "Projekty Crowdin",
-    "commandInfo": "Informacje o poleceniu",
-    "commandInfoFor": "Informacje o poleceniu dla ",
-    "staffOnly": "Ta komenda jest dostępna tylko dla administracji, a zatem jej informacje jest ukryte.\nJeżeli uważasz że to błąd, skontaktuj się z członkiem administracji.",
-    "inDev": "Ta komenda jest chwilowo w fazie rozwoju i będzie dostępna w późniejszym terminie!",
-    "seconds": " sekund",
-    "second": "sekunda",
-    "minutes": "minuty",
-    "cooldownField": "Czas odnawiania",
-    "8ball": {
-        "description": "Magiczna kula, która odpowie na wszystkie twoje pytania."
-    },
-    "feedback": {
-        "description": "Otwórz naszą stronę GitHub z problemami, tam możesz zgłosić błędy i wysłać opinię."
-    },
-    "guidelines": {
-        "description": "Podaje odnośnik do oficjalnego wątku dotyczącego tłumaczeń Hypixela."
-    },
-    "help": {
-        "description": "Pokazuje wszystkie dostępne polecenia i inne informacje o bocie."
-    },
-    "hypixel": {
-        "description": "Zawiera przydatne informacje dotyczące projektu Hypixel."
-    },
-    "hypixelstats": {
-        "description": "Pokazuje ci podstawowe informacje danego gracza z Hypixela."
-    },
-    "hypixelunverify": {
-        "description": "Odłącza twoje konto Discord od konta Minecraft."
-    },
-    "hypixelverify": {
-        "description": "Łączy twoje konto Discord z kontem Minecraft."
-    },
-    "invite": {
-        "description": "Daje odnośnik z zaproszeniem do serwera. Użyj tego, gdy chcesz kogoś zaprosić."
-    },
-    "language": {
-        "description": "Zmienia Twój język, pokazuje bieżący lub pokazuje listę dostępnych języków."
-    },
-    "languagestats": {
-        "description": "Wyświetla postęp języka we wszystkich projektach, które wspieramy."
-    },
-    "levels": {
-        "description": "Pokazuje ci ranking PD."
-    },
-    "mention": {
-        "description": "Oznacza rolę językową z opcjonalną wiadomością."
-    },
-    "minecraft": {
-        "description": "Wyszukuje historię nazw użytkownika lub skina gracza Minecraft. Komenda jest kompatybilna z komendą /hypixelverify i pozwala na wyszukiwanie informacji o konkretnym użytkowniku, dopóki są oni zweryfikowanii. Parametr `user` zawsze będzie miał priorytet nad parametrem `username` i oba są opcjonalne, jeśli jesteś zweryfikowany/a, w przeciwnym razie wymagana jest co najmniej jedna opcja."
-    },
-    "ping": {
-        "description": "Podaje informacje o pingu bota."
-    },
-    "prefix": {
-        "description": "Daje ci przedrostek odpowiedni dla twojego języka (lub języków). Aby go otrzymać, wpisz `/prefix` i podaj w parametrze `flags` kod flagi twojego kraju albo jej nazwę. Możesz dodać tyle flag, ile chcesz; pamiętaj, by odzielić je spacjami."
-    },
-    "profile": {
-        "description": "Podaje odnośnik do Twojego profilu Crowdin, jeśli jest on przechowywany w naszej bazie danych. W przeciwnym razie, możesz wykonać polecenie `/help verify`, by dowiedzieć się, jak przechowywać swój profil i aktualizować swoje role."
-    },
-    "projects": {
-        "description": "Daje ci odnośniki i informacje o wszystkich projektach tłumaczeniowych, które wspieramy na serwerze."
-    },
-    "quickplay": {
-        "description": "Zawiera przydatne informacje dotyczące projektu Quickplay."
-    },
-    "quote": {
-        "description": "Pobiera (lub dodaje) śmieszny/dziwny/mądry cytat z serwera."
-    },
-    "rank": {
-        "description": "Podaje twoje obecne PD lub PD wybranego użytkownika."
-    },
-    "skyblockaddons": {
-        "description": "Zawiera przydatne informacje dotyczące projektu SkyblockAddons."
-    },
-    "thread": {
-        "description": "Podaje odnośnik do wątku ogłaszającego ten serwer Discord."
-    },
-    "tip": {
-        "description": "Podaje ci losową poradę na temat serwera."
-    },
-    "translate": {
-        "description": "Podaje ci przydatne informacje o tym, jak tłumaczyć Bota."
-    },
-    "twitter": {
-        "description": "Podaje odnośnik do oficjalnej strony Hypixel Translators Community na Twitterze."
-    },
-    "verify": {
-        "description": "Automatycznie sprawdza zmiany w Twoim profilu Crowdin i daje Ci odpowiednie role. Jeśli Twój profil nie jest przechowywany w naszej bazie danych, możesz podać go jako argument w poleceniu. Aby sprawdzić, czy Twój profil jest tam przechowywany, wykonaj polecenie `/profile`. Upewnij się, że masz włączone wiadomości prywatne z tego serwera, aby bot mógł wysłać Ci wiadomość."
-    }
+	"moduleName": "Informacja",
+	"commandsListTooltip": "Ten bot został stworzony dla Społeczności Tłumaczy Hypixela i jest utrzymywany przez użytkownika o pseudonimie %%developer%%. Kod źródłowy bota jest publiczny, nasze repozytorium GitHub znajduje się [tutaj]%%github%%.\nMożesz pomóc w tłumaczeniu bota, postępując zgodnie z instrukcjami, które otrzymasz po wykonaniu polecenia `/translate`.\n\nMożesz wykonać `/help <nazwa polecenia>`, aby uzyskać więcej informacji o danym poleceniu.\nPoniżej znajduje się lista wszystkich stron. Przewijanie stron odbywa się za pomocą przycisków pod tą wiadomością.",
+	"madeBy": "Bot stworzony z ogromną starannością przez %%developer%%",
+	"pageNumber": "Strona %%number%%",
+	"mainPage": "Strona główna",
+	"utilityHelp": "Narzędzia",
+	"infoHelp": "Komendy informacyjne",
+	"projectsHelp": "Projekty Crowdin",
+	"commandInfo": "Informacje o poleceniu",
+	"commandInfoFor": "Informacje o poleceniu dla ",
+	"staffOnly": "Ta komenda jest dostępna tylko dla administracji, a zatem jej informacje jest ukryte.\nJeżeli uważasz że to błąd, skontaktuj się z członkiem administracji.",
+	"inDev": "Ta komenda jest chwilowo w fazie rozwoju i będzie dostępna w późniejszym terminie!",
+	"seconds": " sekund",
+	"second": "sekunda",
+	"minutes": "minuty",
+	"cooldownField": "Czas odnawiania",
+	"8ball": {
+		"description": "Magiczna kula, która odpowie na wszystkie twoje pytania."
+	},
+	"feedback": {
+		"description": "Otwórz naszą stronę GitHub z problemami, tam możesz zgłosić błędy i wysłać opinię."
+	},
+	"guidelines": {
+		"description": "Podaje odnośnik do oficjalnego wątku dotyczącego tłumaczeń Hypixela."
+	},
+	"help": {
+		"description": "Pokazuje wszystkie dostępne polecenia i inne informacje o bocie."
+	},
+	"hypixel": {
+		"description": "Zawiera przydatne informacje dotyczące projektu Hypixel."
+	},
+	"hypixelstats": {
+		"description": "Pokazuje ci podstawowe informacje danego gracza z Hypixela."
+	},
+	"hypixelunverify": {
+		"description": "Odłącza twoje konto Discord od konta Minecraft."
+	},
+	"hypixelverify": {
+		"description": "Łączy twoje konto Discord z kontem Minecraft."
+	},
+	"invite": {
+		"description": "Daje odnośnik z zaproszeniem do serwera. Użyj tego, gdy chcesz kogoś zaprosić."
+	},
+	"language": {
+		"description": "Zmienia Twój język, pokazuje bieżący lub pokazuje listę dostępnych języków."
+	},
+	"languagestats": {
+		"description": "Wyświetla postęp języka we wszystkich projektach, które wspieramy."
+	},
+	"levels": {
+		"description": "Pokazuje ci ranking PD."
+	},
+	"mention": {
+		"description": "Oznacza rolę językową z opcjonalną wiadomością."
+	},
+	"minecraft": {
+		"description": "Wyszukuje historię nazw użytkownika lub skina gracza Minecraft. Komenda jest kompatybilna z komendą /hypixelverify i pozwala na wyszukiwanie informacji o konkretnym użytkowniku, dopóki są oni zweryfikowanii. Parametr `user` zawsze będzie miał priorytet nad parametrem `username` i oba są opcjonalne, jeśli jesteś zweryfikowany/a, w przeciwnym razie wymagana jest co najmniej jedna opcja."
+	},
+	"ping": {
+		"description": "Podaje informacje o pingu bota."
+	},
+	"prefix": {
+		"description": "Daje ci przedrostek odpowiedni dla twojego języka (lub języków). Aby go otrzymać, wpisz `/prefix` i podaj w parametrze `flags` kod flagi twojego kraju albo jej nazwę. Możesz dodać tyle flag, ile chcesz; pamiętaj, by odzielić je spacjami."
+	},
+	"profile": {
+		"description": "Podaje odnośnik do Twojego profilu Crowdin, jeśli jest on przechowywany w naszej bazie danych. W przeciwnym razie, możesz wykonać polecenie `/help verify`, by dowiedzieć się, jak przechowywać swój profil i aktualizować swoje role."
+	},
+	"projects": {
+		"description": "Daje ci odnośniki i informacje o wszystkich projektach tłumaczeniowych, które wspieramy na serwerze."
+	},
+	"quickplay": {
+		"description": "Zawiera przydatne informacje dotyczące projektu Quickplay."
+	},
+	"quote": {
+		"description": "Pobiera (lub dodaje) śmieszny/dziwny/mądry cytat z serwera."
+	},
+	"rank": {
+		"description": "Podaje twoje obecne PD lub PD wybranego użytkownika."
+	},
+	"skyblockaddons": {
+		"description": "Zawiera przydatne informacje dotyczące projektu SkyblockAddons."
+	},
+	"thread": {
+		"description": "Podaje odnośnik do wątku ogłaszającego ten serwer Discord."
+	},
+	"tip": {
+		"description": "Podaje ci losową poradę na temat serwera."
+	},
+	"translate": {
+		"description": "Podaje ci przydatne informacje o tym, jak tłumaczyć Bota."
+	},
+	"twitter": {
+		"description": "Podaje odnośnik do oficjalnej strony Hypixel Translators Community na Twitterze."
+	},
+	"verify": {
+		"description": "Automatycznie sprawdza zmiany w Twoim profilu Crowdin i daje Ci odpowiednie role. Jeśli Twój profil nie jest przechowywany w naszej bazie danych, możesz podać go jako argument w poleceniu. Aby sprawdzić, czy Twój profil jest tam przechowywany, wykonaj polecenie `/profile`. Upewnij się, że masz włączone wiadomości prywatne z tego serwera, aby bot mógł wysłać Ci wiadomość."
+	}
 }
