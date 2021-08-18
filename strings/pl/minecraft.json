@@ -1,19 +1,19 @@
 {
-    "moduleName": "Statystyki Minecraft",
-    "madeBy": "Komenda stworzona przez %%developer%%",
-    "history": {
-        "firstName": "Pierwsza nazwa użytkownika",
-        "nameHistoryFor": "Wykaz nazw użytkownika (%%username%%)",
-        "userChangedName": "%%username%% zmienił(a) swoją nazwę użytkownika %%number%% razy.",
-        "youChangedName": "Zmieniłeś/aś swoją nazwę użytkownika %%number%% razy.",
-        "userChangedName1": "%%username%% zmienił(a) swoją nazwę użytkownika tylko raz.",
-        "youChangedName1": "Zmieniłeś/aś swoją nazwę użytkownika tylko raz.",
-        "userNeverChanged": "%%username%% nigdy nie zmienił(a) swojej nazwy użytkownika.",
-        "youNeverChanged": "Nigdy nie zmieniłeś/aś swojej nazwy użytkownika."
-    },
-    "skin": {
-        "yourSkin": "Oto Twoja skórka!",
-        "userSkin": "Oto skórka gracza o pseudonimie %%user%%!",
-        "isLinked": "Ten gracz jest połączony z kontem %%user%%"
-    }
+	"moduleName": "Statystyki Minecraft",
+	"madeBy": "Komenda stworzona przez %%developer%%",
+	"history": {
+		"firstName": "Pierwsza nazwa użytkownika",
+		"nameHistoryFor": "Wykaz nazw użytkownika (%%username%%)",
+		"userChangedName": "%%username%% zmienił(a) swoją nazwę użytkownika %%number%% razy.",
+		"youChangedName": "Zmieniłeś/aś swoją nazwę użytkownika %%number%% razy.",
+		"userChangedName1": "%%username%% zmienił(a) swoją nazwę użytkownika tylko raz.",
+		"youChangedName1": "Zmieniłeś/aś swoją nazwę użytkownika tylko raz.",
+		"userNeverChanged": "%%username%% nigdy nie zmienił(a) swojej nazwy użytkownika.",
+		"youNeverChanged": "Nigdy nie zmieniłeś/aś swojej nazwy użytkownika."
+	},
+	"skin": {
+		"yourSkin": "Oto Twoja skórka!",
+		"userSkin": "Oto skórka gracza o pseudonimie %%user%%!",
+		"isLinked": "Ten gracz jest połączony z kontem %%user%%"
+	}
 }
