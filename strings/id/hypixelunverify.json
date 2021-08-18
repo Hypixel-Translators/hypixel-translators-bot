@@ -1,6 +1,6 @@
 {
-    "moduleName": "Verifikasi Hypixel",
-    "unverified": "Anda berhasil membatalkan verifikasi anda!",
-    "notUnverified": "Tidak dapat membatalkan verifikasi anda!",
-    "whyNotUnverified": "Ini terjadi karena saat ini anda belum verifikasi! Untuk melakukannya, jalankan `/hypixelverify <nama pengguna>`."
+	"moduleName": "Verifikasi Hypixel",
+	"unverified": "Anda berhasil membatalkan verifikasi anda!",
+	"notUnverified": "Tidak dapat membatalkan verifikasi anda!",
+	"whyNotUnverified": "Ini terjadi karena saat ini anda belum verifikasi! Untuk melakukannya, jalankan `/hypixelverify <nama pengguna>`."
 }
