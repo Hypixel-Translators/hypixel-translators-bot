@@ -1,5 +1,5 @@
 {
-    "hypixelCrowdin": "Ось проєкт Hypixel на Crowdin: %%crowdin%%",
-    "hypixelGuide": "Якщо Ви хочете перевірити правила проєкту, напишіть `/guidelines`.",
-    "hypixelDiscord": "Discord сервер Hypixel можна знайти тут: %%discord%% (корисно для коректорів)."
+	"hypixelCrowdin": "Ось проєкт Hypixel на Crowdin: %%crowdin%%",
+	"hypixelGuide": "Якщо Ви хочете перевірити правила проєкту, напишіть `/guidelines`.",
+	"hypixelDiscord": "Discord сервер Hypixel можна знайти тут: %%discord%% (корисно для коректорів)."
 }
