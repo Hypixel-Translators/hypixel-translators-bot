@@ -1,5 +1,5 @@
 {
-    "quickplayCrowdin": "Ось проєкт Quickplay на Crowdin: %%crowdin%%",
-    "quickplayThread": "Ось тема, яка демонструє мод: %%thread%%",
-    "quickplayDiscord": "Ось Discord сервер Quickplay: %%discord%%"
+	"quickplayCrowdin": "Ось проєкт Quickplay на Crowdin: %%crowdin%%",
+	"quickplayThread": "Ось тема, яка демонструє мод: %%thread%%",
+	"quickplayDiscord": "Ось Discord сервер Quickplay: %%discord%%"
 }
