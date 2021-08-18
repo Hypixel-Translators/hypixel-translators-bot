@@ -1,7 +1,7 @@
 {
-    "errorNoPing": "Anda tidak memiliki role proofreader bahasa tersebut, ",
-    "errorNoPingPr": "jadi anda tidak boleh menyebutkannya.",
-    "errorNoPingTr": "jadi anda tidak boleh menyebutkan role penerjemahnya.",
-    "errorNoPingAll": "jadi anda tidak dapat menyebutkan seluruh bahasanya.",
-    "errorNoPingDisclaimer": "Kontak pemilik server atau admin jika anda sangatlah memerlukannya."
+	"errorNoPing": "Anda tidak memiliki role proofreader bahasa tersebut, ",
+	"errorNoPingPr": "jadi anda tidak boleh menyebutkannya.",
+	"errorNoPingTr": "jadi anda tidak boleh menyebutkan role penerjemahnya.",
+	"errorNoPingAll": "jadi anda tidak dapat menyebutkan seluruh bahasanya.",
+	"errorNoPingDisclaimer": "Kontak pemilik server atau admin jika anda sangatlah memerlukannya."
 }
