@@ -1,19 +1,19 @@
 {
-    "moduleName": "Minecraft 統計數據",
-    "madeBy": "指令由 %%developer%% 開發",
-    "history": {
-        "firstName": "最初的遊戲名稱",
-        "nameHistoryFor": "Name history for %%username%%",
-        "userChangedName": "%%username%% 已更改他的遊戲名稱 %%number%% 次。",
-        "youChangedName": "你已更改你的遊戲名稱 %%number%% 次。",
-        "userChangedName1": "%%username%% 已更改他的遊戲名稱 1 次。",
-        "youChangedName1": "你已更改你的遊戲名稱 1 次。",
-        "userNeverChanged": "%%username%% 從未更改遊戲名稱。",
-        "youNeverChanged": "你從未更改遊戲名稱。"
-    },
-    "skin": {
-        "yourSkin": "Here's your skin!",
-        "userSkin": "Here's %%user%%'s skin!",
-        "isLinked": "This player is linked to %%user%%"
-    }
+	"moduleName": "Minecraft 統計數據",
+	"madeBy": "指令由 %%developer%% 開發",
+	"history": {
+		"firstName": "最初的遊戲名稱",
+		"nameHistoryFor": "Name history for %%username%%",
+		"userChangedName": "%%username%% 已更改他的遊戲名稱 %%number%% 次。",
+		"youChangedName": "你已更改你的遊戲名稱 %%number%% 次。",
+		"userChangedName1": "%%username%% 已更改他的遊戲名稱 1 次。",
+		"youChangedName1": "你已更改你的遊戲名稱 1 次。",
+		"userNeverChanged": "%%username%% 從未更改遊戲名稱。",
+		"youNeverChanged": "你從未更改遊戲名稱。"
+	},
+	"skin": {
+		"yourSkin": "Here's your skin!",
+		"userSkin": "Here's %%user%%'s skin!",
+		"isLinked": "This player is linked to %%user%%"
+	}
 }
