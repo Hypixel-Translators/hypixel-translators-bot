@@ -1,6 +1,6 @@
 {
-    "moduleName": "Verificación de Hypixel",
-    "unverified": "¡Has desverificado con éxito!",
-    "notUnverified": "¡No se pudo desverificarte!",
-    "whyNotUnverified": "¡Esto sucedió porque aún no te has verificado! Para hacerlo, usa `/hypixelverify <usuario>`."
+	"moduleName": "Verificación de Hypixel",
+	"unverified": "¡Has desverificado con éxito!",
+	"notUnverified": "¡No se pudo desverificarte!",
+	"whyNotUnverified": "¡Esto sucedió porque aún no te has verificado! Para hacerlo, usa `/hypixelverify <usuario>`."
 }
