@@ -1,19 +1,19 @@
 {
-    "moduleName": "Minecraft-statistikk",
-    "madeBy": "Kommando laget av %%developer%%",
-    "history": {
-        "firstName": "Første navn",
-        "nameHistoryFor": "Navnehistorikk for %%username%%",
-        "userChangedName": "%%username%% har endret navnet sitt %%number%% ganger.",
-        "youChangedName": "Du har endret navnet ditt %%number%% ganger.",
-        "userChangedName1": "%%username%% har endret navnet sitt 1 gang.",
-        "youChangedName1": "Du har endret navnet ditt 1 gang.",
-        "userNeverChanged": "%%username%% har aldri endret navnet sitt.",
-        "youNeverChanged": "Du har aldri endret navnet ditt."
-    },
-    "skin": {
-        "yourSkin": "Here's your skin!",
-        "userSkin": "Here's %%user%%'s skin!",
-        "isLinked": "This player is linked to %%user%%"
-    }
+	"moduleName": "Minecraft-statistikk",
+	"madeBy": "Kommando laget av %%developer%%",
+	"history": {
+		"firstName": "Første navn",
+		"nameHistoryFor": "Navnehistorikk for %%username%%",
+		"userChangedName": "%%username%% har endret navnet sitt %%number%% ganger.",
+		"youChangedName": "Du har endret navnet ditt %%number%% ganger.",
+		"userChangedName1": "%%username%% har endret navnet sitt 1 gang.",
+		"youChangedName1": "Du har endret navnet ditt 1 gang.",
+		"userNeverChanged": "%%username%% har aldri endret navnet sitt.",
+		"youNeverChanged": "Du har aldri endret navnet ditt."
+	},
+	"skin": {
+		"yourSkin": "Here's your skin!",
+		"userSkin": "Here's %%user%%'s skin!",
+		"isLinked": "This player is linked to %%user%%"
+	}
 }
