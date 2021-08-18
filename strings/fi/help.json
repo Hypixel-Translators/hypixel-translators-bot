@@ -1,99 +1,99 @@
 {
-    "moduleName": "Tietoa",
-    "commandsListTooltip": "Tämän botin on tehnyt Hypixelin kääntäjien yhteisölle %%developer%%. Sen avoin lähdekoodi on saatavilla GitHubista [täältä]%%github%%. \nVoit auttaa kääntämään bottia seuraamalla ohjeita, jotka saat komennolla `/translate`.\n\nVoit suorittaa komennon `/help <komennon nimi>` saadaksesi tietää lisää valitusta komennosta.\nAlta löydät listan kaikista saatavilla olevista sivuista. Käytä viestin nappeja siirtyäksesi sivulta toiselle.",
-    "madeBy": "Botin on huolellisesti kasannut %%developer%%",
-    "pageNumber": "Sivu %%number%%",
-    "mainPage": "Pääsivu",
-    "utilityHelp": "Työkalut",
-    "infoHelp": "Infokomennot",
-    "projectsHelp": "Crowdin-projektit",
-    "commandInfo": "Komennon tiedot",
-    "commandInfoFor": "Tiedot komennolle ",
-    "staffOnly": "Tämä komento on vain ylläpidon käytössä ja sen tiedot on siksi piilotettu.\nOtathan yhteyttä ylläpitäjään, mikäli uskot tämän olevan virhe.",
-    "inDev": "Tämä komento on vasta kehitteillä ja tulee käyttöön myöhemmin!",
-    "seconds": "sekuntia",
-    "second": "sekunti",
-    "minutes": "minuuttia",
-    "cooldownField": "Odotusaika",
-    "8ball": {
-        "description": "Taikapallo, joka vastaa kaikkiin kysymyksiisi."
-    },
-    "feedback": {
-        "description": "Avaa GitHubin issues-sibun, jossa voit ilmiantaa botissa ilmeneviä ongelmia ja antaa palautetta."
-    },
-    "guidelines": {
-        "description": "Antaa linkin viralliselle palstalle, jossa kerrotaan Hypixelin kääntämisestä."
-    },
-    "help": {
-        "description": "Näyttää kaikki saatavilla olevat komennot ja muuta tietoa botista."
-    },
-    "hypixel": {
-        "description": "Antaa hyödyllistä tietoa Hypixelin Crowdin-projektista."
-    },
-    "hypixelstats": {
-        "description": "Näyttää haluamasi käyttäjän Hypixel-profiilin perustiedot."
-    },
-    "hypixelunverify": {
-        "description": "Irrottaa Discord-tilisi Minecraft-tilistäsi."
-    },
-    "hypixelverify": {
-        "description": "Yhdistää Discord-tilisi Minecraft-tiliisi."
-    },
-    "invite": {
-        "description": "Antaa palvelimen kutsulinkin. Käytäthän aina tätä kutsuessasi jonkun."
-    },
-    "language": {
-        "description": "Vaihtaa kielesi, näyttää käytössä olevan kielesi tai listaa kaikki saatavilla olevat kielet."
-    },
-    "languagestats": {
-        "description": "Näyttää kielen käännöstyön edistymisen kaikissa tukemissamme projekteissa."
-    },
-    "levels": {
-        "description": "Näyttää sinulle XP-pistetaulun."
-    },
-    "mention": {
-        "description": "Mainitsee kieliroolin ja lähettää valinnaisen viestin."
-    },
-    "minecraft": {
-        "description": "Etsii tietyn Minecraft-käyttäjän nimihistorian tai skinin. Komento on yhteensopiva komennon /hypixelverify kanssa, ja voit siis tarkastella tietyn käyttäjän tietoja, jos tämä on linkittänyt tilinsä. Parametriä `user` priorisoidaan parametrin `username` yli ja ne ovat molemmat valinnaisia, mikäli olet linkittänyt tilisi - muussa tapauksessa ainakin toinen vaaditaan."
-    },
-    "ping": {
-        "description": "Antaa botin viiveen."
-    },
-    "prefix": {
-        "description": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen. Saadaksesi etuliitteen, käytä komentoa `/prefix` ja syötä oman maasi lipun aluekoodi tai nimi. Voit lisätä niin monta lippua kuin haluat erottamalla ne välilyönneillä."
-    },
-    "profile": {
-        "description": "Antaa Crowdin-profiilisi linkin, jos se on tallennettu tietokantaamme. Jos näin ei ole, voit käyttää komentoa `/help verify` saadaksesi lisätietoa siitä, kuinka voit tallentaa profiilisi ja päivittää roolisi."
-    },
-    "projects": {
-        "description": "Antaa sinulle osoitteita ja tietoa kaikista käännösprojekteista, joita tällä palvelimella tuetaan."
-    },
-    "quickplay": {
-        "description": "Antaa hyödyllistä tietoa Quickplay-projektista."
-    },
-    "quote": {
-        "description": "Hakee (tai lisää) hauskan/oudon/viisaan lainauksen palvelimelta."
-    },
-    "rank": {
-        "description": "Kertoo oman tai haluamasi käyttäjän tämänhetkisen XP-määrän."
-    },
-    "skyblockaddons": {
-        "description": "Antaa hyödyllistä tietoa SkyblockAddons-projektista."
-    },
-    "thread": {
-        "description": "Antaa linkin viestiketjuun, jossa kerrotaan tästä palvelimesta."
-    },
-    "tip": {
-        "description": "Antaa satunnaisen palvelinta koskevan vinkin."
-    },
-    "translate": {
-        "description": "Antaa sinulle hyödyllistä tietoa Botin kääntämisestä."
-    },
-    "twitter": {
-        "description": "Antaa linkin viralliselle Hypixel Translators Communityn Twitter-sivulle."
-    },
-    "verify": {
-        "description": "Tarkistaa automaattisesti Crowdin-profiilisi päivitykset ja antaa sinulle näin oikeat sinulle kuuluvat roolit. Jos profiiliasi ei ole tallennettu tietokantaamme, voit liittää sen osaksi komentoa. Tarkistaaksesi, onko profiilisi tallennettu, käytä komentoa `/profile`. Varmista, että olet sallinut yksityisviestit tältä palvelimelta, jotta botti voi lähettää sinulle viestin."
-    }
+	"moduleName": "Tietoa",
+	"commandsListTooltip": "Tämän botin on tehnyt Hypixelin kääntäjien yhteisölle %%developer%%. Sen avoin lähdekoodi on saatavilla GitHubista [täältä]%%github%%. \nVoit auttaa kääntämään bottia seuraamalla ohjeita, jotka saat komennolla `/translate`.\n\nVoit suorittaa komennon `/help <komennon nimi>` saadaksesi tietää lisää valitusta komennosta.\nAlta löydät listan kaikista saatavilla olevista sivuista. Käytä viestin nappeja siirtyäksesi sivulta toiselle.",
+	"madeBy": "Botin on huolellisesti kasannut %%developer%%",
+	"pageNumber": "Sivu %%number%%",
+	"mainPage": "Pääsivu",
+	"utilityHelp": "Työkalut",
+	"infoHelp": "Infokomennot",
+	"projectsHelp": "Crowdin-projektit",
+	"commandInfo": "Komennon tiedot",
+	"commandInfoFor": "Tiedot komennolle ",
+	"staffOnly": "Tämä komento on vain ylläpidon käytössä ja sen tiedot on siksi piilotettu.\nOtathan yhteyttä ylläpitäjään, mikäli uskot tämän olevan virhe.",
+	"inDev": "Tämä komento on vasta kehitteillä ja tulee käyttöön myöhemmin!",
+	"seconds": "sekuntia",
+	"second": "sekunti",
+	"minutes": "minuuttia",
+	"cooldownField": "Odotusaika",
+	"8ball": {
+		"description": "Taikapallo, joka vastaa kaikkiin kysymyksiisi."
+	},
+	"feedback": {
+		"description": "Avaa GitHubin issues-sibun, jossa voit ilmiantaa botissa ilmeneviä ongelmia ja antaa palautetta."
+	},
+	"guidelines": {
+		"description": "Antaa linkin viralliselle palstalle, jossa kerrotaan Hypixelin kääntämisestä."
+	},
+	"help": {
+		"description": "Näyttää kaikki saatavilla olevat komennot ja muuta tietoa botista."
+	},
+	"hypixel": {
+		"description": "Antaa hyödyllistä tietoa Hypixelin Crowdin-projektista."
+	},
+	"hypixelstats": {
+		"description": "Näyttää haluamasi käyttäjän Hypixel-profiilin perustiedot."
+	},
+	"hypixelunverify": {
+		"description": "Irrottaa Discord-tilisi Minecraft-tilistäsi."
+	},
+	"hypixelverify": {
+		"description": "Yhdistää Discord-tilisi Minecraft-tiliisi."
+	},
+	"invite": {
+		"description": "Antaa palvelimen kutsulinkin. Käytäthän aina tätä kutsuessasi jonkun."
+	},
+	"language": {
+		"description": "Vaihtaa kielesi, näyttää käytössä olevan kielesi tai listaa kaikki saatavilla olevat kielet."
+	},
+	"languagestats": {
+		"description": "Näyttää kielen käännöstyön edistymisen kaikissa tukemissamme projekteissa."
+	},
+	"levels": {
+		"description": "Näyttää sinulle XP-pistetaulun."
+	},
+	"mention": {
+		"description": "Mainitsee kieliroolin ja lähettää valinnaisen viestin."
+	},
+	"minecraft": {
+		"description": "Etsii tietyn Minecraft-käyttäjän nimihistorian tai skinin. Komento on yhteensopiva komennon /hypixelverify kanssa, ja voit siis tarkastella tietyn käyttäjän tietoja, jos tämä on linkittänyt tilinsä. Parametriä `user` priorisoidaan parametrin `username` yli ja ne ovat molemmat valinnaisia, mikäli olet linkittänyt tilisi - muussa tapauksessa ainakin toinen vaaditaan."
+	},
+	"ping": {
+		"description": "Antaa botin viiveen."
+	},
+	"prefix": {
+		"description": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen. Saadaksesi etuliitteen, käytä komentoa `/prefix` ja syötä oman maasi lipun aluekoodi tai nimi. Voit lisätä niin monta lippua kuin haluat erottamalla ne välilyönneillä."
+	},
+	"profile": {
+		"description": "Antaa Crowdin-profiilisi linkin, jos se on tallennettu tietokantaamme. Jos näin ei ole, voit käyttää komentoa `/help verify` saadaksesi lisätietoa siitä, kuinka voit tallentaa profiilisi ja päivittää roolisi."
+	},
+	"projects": {
+		"description": "Antaa sinulle osoitteita ja tietoa kaikista käännösprojekteista, joita tällä palvelimella tuetaan."
+	},
+	"quickplay": {
+		"description": "Antaa hyödyllistä tietoa Quickplay-projektista."
+	},
+	"quote": {
+		"description": "Hakee (tai lisää) hauskan/oudon/viisaan lainauksen palvelimelta."
+	},
+	"rank": {
+		"description": "Kertoo oman tai haluamasi käyttäjän tämänhetkisen XP-määrän."
+	},
+	"skyblockaddons": {
+		"description": "Antaa hyödyllistä tietoa SkyblockAddons-projektista."
+	},
+	"thread": {
+		"description": "Antaa linkin viestiketjuun, jossa kerrotaan tästä palvelimesta."
+	},
+	"tip": {
+		"description": "Antaa satunnaisen palvelinta koskevan vinkin."
+	},
+	"translate": {
+		"description": "Antaa sinulle hyödyllistä tietoa Botin kääntämisestä."
+	},
+	"twitter": {
+		"description": "Antaa linkin viralliselle Hypixel Translators Communityn Twitter-sivulle."
+	},
+	"verify": {
+		"description": "Tarkistaa automaattisesti Crowdin-profiilisi päivitykset ja antaa sinulle näin oikeat sinulle kuuluvat roolit. Jos profiiliasi ei ole tallennettu tietokantaamme, voit liittää sen osaksi komentoa. Tarkistaaksesi, onko profiilisi tallennettu, käytä komentoa `/profile`. Varmista, että olet sallinut yksityisviestit tältä palvelimelta, jotta botti voi lähettää sinulle viestin."
+	}
 }
