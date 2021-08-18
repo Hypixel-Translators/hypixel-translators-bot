@@ -1,19 +1,19 @@
 {
-    "moduleName": "Statistika Minecraft",
-    "madeBy": "Perintah dibuat oleh %%developer%%",
-    "history": {
-        "firstName": "Nama pertama",
-        "nameHistoryFor": "Sejarah nama untuk %%username%%",
-        "userChangedName": "%%username%% telah mengganti nama mereka %%number%% kali.",
-        "youChangedName": "Anda telah mengganti nama anda %%number%% kali.",
-        "userChangedName1": "%%username%% telah mengganti nama mereka 1 kali.",
-        "youChangedName1": "Anda telah mengganti nama anda 1 kali.",
-        "userNeverChanged": "%%username%% belum pernah mengganti nama mereka.",
-        "youNeverChanged": "Anda belum pernah mengganti nama anda."
-    },
-    "skin": {
-        "yourSkin": "Inilah skin anda!",
-        "userSkin": "Inilah skin %%user%%!",
-        "isLinked": "Player ini sudah terhubung ke %%user%%"
-    }
+	"moduleName": "Statistika Minecraft",
+	"madeBy": "Perintah dibuat oleh %%developer%%",
+	"history": {
+		"firstName": "Nama pertama",
+		"nameHistoryFor": "Sejarah nama untuk %%username%%",
+		"userChangedName": "%%username%% telah mengganti nama mereka %%number%% kali.",
+		"youChangedName": "Anda telah mengganti nama anda %%number%% kali.",
+		"userChangedName1": "%%username%% telah mengganti nama mereka 1 kali.",
+		"youChangedName1": "Anda telah mengganti nama anda 1 kali.",
+		"userNeverChanged": "%%username%% belum pernah mengganti nama mereka.",
+		"youNeverChanged": "Anda belum pernah mengganti nama anda."
+	},
+	"skin": {
+		"yourSkin": "Inilah skin anda!",
+		"userSkin": "Inilah skin %%user%%!",
+		"isLinked": "Player ini sudah terhubung ke %%user%%"
+	}
 }
