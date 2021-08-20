@@ -31,7 +31,7 @@ export async function updateProjectStatus(client: Discord.Client, projectId: str
 	await fetch(`https://api.crowdin.com/api/v2/projects/${projectId}/languages/progress?limit=500`, settings)
 		.then(res => res.json())
 		.then(async json => {
-			if (!json.data) throw `We got no data from the API when trying to update Hypixel! Here's the response:\n${json}`
+			if (!json.data) return console.error(`We got no data from the API when trying to update Hypixel! Here's the response:\n`, json)
 			const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
 				status.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)!
 				return status

@@ -43,9 +43,9 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 			.setAuthor("Received message from staff")
 			.setFooter("Any messages you send here will be sent to staff upon confirmation.")
 	if (!url) {
-		const userDb: DbUser = await client.getUser(member.id)
+		const userDb = await client.getUser(member.id)
 		url = userDb.profile
-		if (userDb.profile === null) return removeAllRoles(member)
+		if (url === null) return removeAllRoles(member)
 		else if (!url) { //if user runs /verify and the profile is not stored on our DB or if the user sends the generic profile URL
 			//#region return message
 			member.roles.remove("569194996964786178", "Tried to verify but profile wasn't stored") // Verified
@@ -452,7 +452,7 @@ function removeAllRoles(member: Discord.GuildMember) {
 		r.name.endsWith(" Manager") ||
 		r.name.endsWith(" Veteran")
 	)
-	roles.forEach(async role => await member.roles.remove(role))
+	roles.forEach(async role => await member.roles.remove(role, "Removing all roles from user"))
 }
 
 let browser: puppeteer.Browser | null = null,
