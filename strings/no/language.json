@@ -1,7 +1,7 @@
 {
 	"moduleName": "Språk",
 	"changedToTitle": "Endret språket ditt til norsk!",
-	"didntChange": "Your language didn't change",
+	"didntChange": "Språket ditt ble ikke endret",
 	"alreadyThis": "This happened because you chose a language that already was your language preference.",
 	"notTranslated": "The language you tried to select isn't translated enough for it to be chosen. If you speak this language, you can find out how to help translate it by using `/translate`.",
 	"errorTitle": "Dette språket har ikke blitt lagt til enda!",
