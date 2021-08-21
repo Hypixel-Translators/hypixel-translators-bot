@@ -179,7 +179,7 @@ const command: Command = {
 					.setTitle(isOwnUser
 						? getString("skin.yourSkin")
 						: getString("skin.userSkin", { user: (await getPlayer(uuid)).name }))
-					.setDescription(uuidDb ? getString("skin.isLinked", { user: `<@!${uuidDb.id}>` }) : "")
+					.setDescription(uuidDb && !isOwnUser ? getString("skin.isLinked", { user: `<@!${uuidDb.id}>` }) : "")
 					.setImage(`https://crafatar.com/renders/body/${uuid}?overlay`)
 					.setFooter(`${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				await interaction.editReply({ embeds: [skinEmbed] })
