@@ -3,14 +3,14 @@
 	"commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
 	"madeBy": " | Bota s velkou péčí vytvořil %%developer%%",
 	"pageNumber": "Stránka %%number%%",
-	"mainPage": "Main Page",
+	"mainPage": "Hlavní stránka",
 	"utilityHelp": "Tools & Utilities",
 	"infoHelp": "Information Commands",
 	"projectsHelp": "Crowdin projekty",
 	"commandInfo": "Informace o příkazu",
 	"commandInfoFor": "Informace o příkazu ",
 	"staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-	"inDev": "This command is currently in development and will be available at a later date!",
+	"inDev": "Tento příkaz je momentálně ve vývoji a bude dostupný později!",
 	"seconds": " sekund/y",
 	"second": "sekunda",
 	"minutes": "minut/y",
@@ -28,19 +28,19 @@
 		"description": "Zobrazí ti všechny dostupné příkazy a další informace o botovi."
 	},
 	"hypixel": {
-		"description": "Gives you useful information regarding the Hypixel project."
+		"description": "Dá ti užitečné informace o Hypixel projektu."
 	},
 	"hypixelstats": {
 		"description": "Zobrazí ti základní Hypixel statistiky vybraného uživatele."
 	},
 	"hypixelunverify": {
-		"description": "Unlinks your Discord account from your Minecraft account."
+		"description": "Odpojí tvůj Discord účet od Minecraft účtu."
 	},
 	"hypixelverify": {
 		"description": "Links your Discord account with your Minecraft account."
 	},
 	"invite": {
-		"description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+		"description": "Dá ti pozvánku na server. Použij ji, prosím, kdykoli když budeš chtít někoho pozvat."
 	},
 	"language": {
 		"description": "Změní tvůj jazyk, zobrazí tvůj aktuální jazyk nebo zobrazí seznam dostupných jazyků."
