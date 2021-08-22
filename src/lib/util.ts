@@ -2,6 +2,8 @@
 import Discord from "discord.js"
 import { ObjectId } from "mongodb"
 import fetch from "node-fetch"
+import { client } from "../index"
+import { db } from "./dbclient"
 
 // source: https://github.com/Mee6/Mee6-documentation/blob/master/docs/levels_xp.md
 export const getXpNeeded = (lvl = NaN, xp = 0) => 5 * (lvl ** 2) + (50 * lvl) + 100 - xp
@@ -224,3 +226,68 @@ export async function restart(interaction?: Discord.CommandInteraction) {
 	})
 }
 
+export async function getActivePunishments(user: Discord.User): Promise<PunishmentLog[]> {
+	const punishExpireTimestamp = new Date().setDate(new Date().getDate() - 30), //Timestamp 30 days ago in ms
+		warnExpireTimestamp = new Date().setDate(new Date().getDate() - 7), //Timestamp 7 days ago in ms
+		verbalExpireTimestamp = new Date().setDate(new Date().getDate() - 1) //Timestamp 7 days ago in ms
+	return (await db.collection("punishments").find({ id: user.id }).toArray() as PunishmentLog[]).filter(punishment => {
+		if (punishment.revoked || !punishment.points) return false
+		else if (punishment.type === "VERBAL") return punishment.timestamp > verbalExpireTimestamp
+		else if (punishment.type === "WARN") return punishment.timestamp > warnExpireTimestamp
+		else if (punishment.expired) return punishment.endTimestamp! > punishExpireTimestamp
+		else return true
+	})
+}
+
+export function updateModlogFields(embed: Discord.MessageEmbed, modlog: PunishmentLog, modlogs?: PunishmentLog[]) {
+	embed.setAuthor("Log message", "", `https://discord.com/channels/549503328472530974/800820574405656587/${modlog.logMsg}`)
+	if (typeof modlog.duration === "number") {
+		embed.setFields(
+			{ name: "Case", value: `${modlog.case}`, inline: true },
+			{ name: "Moderator", value: `<@!${modlog.moderator}>`, inline: true },
+			{ name: "Applied on", value: `<t:${Math.round(modlog.timestamp / 1000)}:F>`, inline: true },
+
+			{ name: "Type", value: modlog.type, inline: true },
+			{ name: "Duration", value: modlog.duration ? `${modlog.duration} ${modlog.type === "BAN" ? "days" : "hours"}` : "Permanent", inline: true },
+			{ name: "Points", value: `${modlog.points ?? "None"}`, inline: true },
+
+			{ name: "Reason", value: modlog.reason, inline: true },
+			{ name: modlog.expired ? "Ended" : "Ends", value: modlog.endTimestamp ? `<t:${Math.round(modlog.endTimestamp / 1000)}:R>` : "Never", inline: true }
+		)
+	} else {
+		embed.setFields(
+			{ name: "Case", value: `${modlog.case}`, inline: true },
+			{ name: "Moderator", value: `<@!${modlog.moderator}>`, inline: true },
+			{ name: "Applied on", value: `<t:${Math.round(modlog.timestamp / 1000)}:F>`, inline: true },
+
+			{ name: "Type", value: modlog.type, inline: true },
+			{ name: "Points", value: `${modlog.points}`, inline: true },
+			{ name: "Reason", value: modlog.reason, inline: true },
+		)
+	}
+	if (modlogs)
+		embed.setFooter(
+			`Modlog ${modlogs.indexOf(modlog) + 1}/${modlogs.length} | ${embed.footer!.text?.includes(" | ") ? embed.footer!.text.split(" | ")[1] : embed.footer!.text
+			}`,
+			embed.footer!.iconURL
+		)
+	return embed
+}
+
+export interface PunishmentLog {
+	case: number
+	id: Discord.Snowflake
+	type: "VERBAL" | "WARN" | "MUTE" | "BAN" | "UNMUTE" | "UNBAN"
+	points?: PunishmentPoints
+	reason: string
+	timestamp: number
+	duration?: number
+	endTimestamp?: number
+	expired?: boolean,
+	revoked?: true
+	revokedBy?: Discord.Snowflake
+	moderator: Discord.Snowflake,
+	logMsg: Discord.Snowflake
+}
+
+export type PunishmentPoints = 1 | 2 | 3 | 4 | 5 | 6

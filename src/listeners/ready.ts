@@ -2,11 +2,16 @@ import { client, Command } from "../index"
 import stats from "../events/stats"
 import inactives from "../events/inactives"
 import crowdin from "../events/crowdinverify"
-import { listeningStatuses, watchingStatuses, playingStatuses } from "../config.json"
+import { listeningStatuses, watchingStatuses, playingStatuses, successColor } from "../config.json"
 import Discord from "discord.js"
-import { isEqual } from "lodash";
+import { isEqual } from "lodash"
+import { db } from "../lib/dbclient"
+import { PunishmentLog, restart } from "../lib/util"
 
 client.once("ready", async () => {
+	//Sometimes the client is ready before connecting to the db, therefore we need to stop the listener if this is the case to prevent errors
+	//In dbclient.ts the event is emitted again if the connection is made after the client is ready
+	if (!db) return
 	console.log(`Logged in as ${client.user!.tag}!`)
 	const guild = client.guilds.cache.get("549503328472530974")!
 
@@ -71,6 +76,97 @@ client.once("ready", async () => {
 		await inactives(client, false)
 		await crowdin(client, false)
 	}, 60_000)
+
+	//Check for active punishments and start a timeout to conclude them
+	const punishments: PunishmentLog[] = await db.collection("punishments").find({ expired: false }).toArray(),
+		punishmentsChannel = guild.channels.cache.get("800820574405656587") as Discord.TextChannel
+	for (const punishment of punishments) {
+		if (!punishment.endTimestamp) continue
+		const msLeft = punishment.endTimestamp! - Date.now()
+		// The setTimeout function doesn't accept values bigger than the 32-bit signed integer limit, so we need to check for that.
+		// Additionally, we restart the bot at least once every 2 days so no punishment will be left unexpired
+		if (msLeft > 2 ** 31 - 1) continue
+		setTimeout(async () => {
+			await db.collection("punishments").updateOne({ case: punishment.case }, { $set: { expired: true, endTimestamp: Date.now() } })
+			const caseNumber = (await db.collection("punishments").estimatedDocumentCount()) + 1
+			if (punishment.type === "MUTE") {
+				const member = guild.members.cache.get(punishment.id!),
+					user = await client.users.fetch(punishment.id)
+				const punishmentLog = new Discord.MessageEmbed()
+					.setColor(successColor as Discord.HexColorString)
+					.setAuthor(`Case ${caseNumber} | Unmute | ${user.tag}`, user.displayAvatarURL({ format: "png", dynamic: true }))
+					.addFields([
+						{ name: "User", value: user.toString(), inline: true },
+						{ name: "Moderator", value: client.user!.toString(), inline: true },
+						{ name: "Reason", value: "Expired" }
+					])
+					.setFooter(`ID: ${user.id}`)
+					.setTimestamp(),
+					msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
+				await db.collection("punishments").insertOne({
+					case: caseNumber,
+					id: user.id,
+					type: `UN${punishment.type}`,
+					reason: "Expired",
+					timestamp: Date.now(),
+					moderator: client.user.id,
+					logMsg: msg.id,
+				} as PunishmentLog)
+				if (!member) return console.log(`Couldn't find member with id ${punishment.id} in order to unmute them`)
+				else await member.roles.remove("645208834633367562", "Punishment expired") //Muted
+				const dmEmbed = new Discord.MessageEmbed()
+					.setColor(successColor as Discord.HexColorString)
+					.setAuthor("Punishment")
+					.setTitle(`Your mute on ${guild.name} has expired.`)
+					.setDescription("You will now be able to talk in chats again. If something's wrong, please respond in this DM.")
+					.setTimestamp()
+				await member.send({ embeds: [dmEmbed] })
+					.catch(() => console.log(`Couldn't DM user ${user.tag}, (${member.id}) about their unmute.`))
+			} else if (punishment.type === "BAN") {
+				const user = await guild.bans.remove(punishment.id!, "Punishment expired")
+					.catch(err => console.error(`Couldn't unban user with id ${punishment.id}. Here's the error:\n`, err)),
+					userFetched = await client.users.fetch(punishment.id),
+					punishmentLog = new Discord.MessageEmbed()
+						.setColor(successColor as Discord.HexColorString)
+						.setAuthor(`Case ${caseNumber} | Unban | ${userFetched.tag}`, userFetched.displayAvatarURL({ format: "png", dynamic: true }))
+						.addFields([
+							{ name: "User", value: userFetched.toString(), inline: true },
+							{ name: "Moderator", value: client.user!.toString(), inline: true },
+							{ name: "Reason", value: "Expired" }
+						])
+						.setFooter(`ID: ${userFetched.id}`)
+						.setTimestamp()
+				if (!user) punishmentLog.setDescription("Couldn't unban user from the server.")
+				else {
+					const dmEmbed = new Discord.MessageEmbed()
+						.setColor(successColor as Discord.HexColorString)
+						.setAuthor("Punishment")
+						.setTitle(`Your ban on ${guild.name} has expired.`)
+						.setDescription("You are welcome to join back using the invite in this message.")
+						.setTimestamp()
+					await user.send({ content: "https://discord.gg/rcT948A", embeds: [dmEmbed] })
+					.catch(() => console.log(`Couldn't DM user ${userFetched.tag}, (${user.id}) about their unban.`))
+				}
+				const msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
+				await db.collection("punishments").insertOne({
+					case: caseNumber,
+					id: userFetched.id,
+					type: `UN${punishment.type}`,
+					reason: "Expired",
+					timestamp: Date.now(),
+					moderator: client.user.id,
+					logMsg: msg.id,
+				} as PunishmentLog)
+			} else console.error(`For some reason a ${punishment.type} punishment wasn't expired. Case ${punishment.case}`)
+		}, msLeft)
+	}
+
+	// restart the bot every 2 days
+	setInterval(async () => {
+		console.log("Bot has been running for 2 days, restarting...");
+		(client.channels.cache.get("730042612647723058") as Discord.TextChannel).send("I have been running for 2 days straight, gonna restart...") //bot-development
+		await restart()
+	}, 172_800_000)
 })
 
 async function publishCommand(command: Command) {

@@ -1,0 +1,752 @@
+import Discord from "discord.js"
+import { errorColor, loadingColor, successColor } from "../../config.json"
+import { Command } from "../../index"
+import { db } from "../../lib/dbclient"
+import { getActivePunishments, PunishmentLog, PunishmentPoints } from "../../lib/util"
+
+const command: Command = {
+	name: "punishment",
+	description: "Punishes a user or calculates the punishment based on the amount of points given.",
+	options: [{
+		type: "SUB_COMMAND",
+		name: "give",
+		description: "Punish a user",
+		options: [{
+			type: "USER",
+			name: "user",
+			description: "The user to punish",
+			required: true
+		},
+		{
+			type: "INTEGER",
+			name: "points",
+			description: "How many points to give this member for this infraction",
+			required: true,
+			choices: [
+				{ name: "1", value: 1 },
+				{ name: "2", value: 2 },
+				{ name: "3", value: 3 },
+				{ name: "4", value: 4 },
+				{ name: "5", value: 5 },
+				{ name: "6", value: 6 }
+			]
+		},
+		{
+			type: "STRING",
+			name: "reason",
+			description: "The reason for this punishment",
+			required: true
+		}]
+	},
+	{
+		type: "SUB_COMMAND",
+		name: "calculate",
+		description: "Calculate a punishment for a user and evaluate permissions to apply it",
+		options: [{
+			type: "USER",
+			name: "user",
+			description: "The user to punish",
+			required: true
+		},
+		{
+			type: "INTEGER",
+			name: "points",
+			description: "How many points to give this member for this infraction",
+			required: true,
+			choices: [
+				{ name: "1", value: 1 },
+				{ name: "2", value: 2 },
+				{ name: "3", value: 3 },
+				{ name: "4", value: 4 },
+				{ name: "5", value: 5 },
+				{ name: "6", value: 6 }
+			]
+		}]
+	},
+	{
+		type: "SUB_COMMAND",
+		name: "status",
+		description: "Shows you a user's currently active points and punishments",
+		options: [{
+			type: "USER",
+			name: "user",
+			description: "The user to check standing for",
+			required: true
+		}]
+	},
+	{
+		type: "SUB_COMMAND",
+		name: "revoke",
+		description: "Revoke all active punishments the user has",
+		options: [{
+			type: "USER",
+			name: "user",
+			description: "The user to revoke punishments from",
+			required: true
+		},
+		{
+			type: "STRING",
+			name: "reason",
+			description: "The reason for revoking this user's punishment",
+			required: true
+		},
+		{
+			type: "BOOLEAN",
+			name: "senddm",
+			description: "Whether to send a DM to this user regarding the removal of their punishment",
+			required: true
+		}]
+	}],
+	roleWhitelist: ["768435276191891456"], //Discord Staff
+	channelWhitelist: ["624881429834366986", "551693960913879071"], //staff-bots admin-bots
+	async execute(interaction) {
+		const subCommand = interaction.options.getSubcommand(),
+			collection = db.collection<PunishmentLog>("punishments"),
+			user = interaction.options.getUser("user", true) as Discord.User,
+			member = interaction.options.getMember("user", false) as Discord.GuildMember | null,
+			points = interaction.options.getInteger("points", false) as PunishmentPoints | null,
+			punishment = await calculatePunishment(user, points ?? 1),
+			buttons = new Discord.MessageActionRow()
+				.addComponents(
+					new Discord.MessageButton()
+						.setCustomId("confirm")
+						.setLabel("Confirm")
+						.setStyle("SUCCESS")
+						.setEmoji("✅")
+						.setDisabled(),
+					new Discord.MessageButton()
+						.setCustomId("cancel")
+						.setLabel("Cancel")
+						.setStyle("DANGER")
+						.setEmoji("❎")
+						.setDisabled()
+				),
+			filter = (bInteraction: Discord.MessageComponentInteraction) => bInteraction.user.id === interaction.user.id,
+			caseNumber = (await collection.estimatedDocumentCount()) + 1,
+			punishmentsChannel = interaction.client.channels.cache.get("800820574405656587") as Discord.TextChannel
+		let reason = interaction.options.getString("reason")
+		if (reason) reason = reason.charAt(0).toUpperCase() + reason.slice(1)
+
+		if (subCommand === "give") {
+			await interaction.deferReply()
+
+			//Check for permissions to give the punishment
+			if (!checkPermissions(interaction.member as Discord.GuildMember, punishment)) throw "You don't have permission to give this punishment"
+			if (user.bot) throw "You cannot punish bots!"
+			if (member?.roles.cache.has("768435276191891456")) throw "You cannot punish this user!" //Discord Staff
+
+			//Apply the punishment
+			if (punishment.type === "VERBAL") {
+				if (!member) throw "Couldn't find that member! Are you sure they're on the server?"
+				const punishmentLog = new Discord.MessageEmbed()
+					.setColor(errorColor as Discord.HexColorString)
+					.setAuthor(`Case ${caseNumber} | Verbal Warning | ${points} point${points === 1 ? "" : "s"}`, user.displayAvatarURL({ format: "png", dynamic: true }))
+					.addFields([
+						{ name: "User", value: user.toString(), inline: true },
+						{ name: "Moderator", value: interaction.user.toString(), inline: true },
+						{ name: "Reason", value: reason! }
+					])
+					.setFooter(`ID: ${user.id}`)
+					.setTimestamp(),
+					msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
+
+				await collection.insertOne({
+					case: caseNumber,
+					id: user.id,
+					type: punishment.type,
+					points,
+					reason,
+					timestamp: Date.now(),
+					moderator: interaction.user.id,
+					logMsg: msg.id,
+				} as PunishmentLog)
+				const embed = new Discord.MessageEmbed()
+					.setColor(successColor as Discord.HexColorString)
+					.setAuthor("Punishments")
+					.setTitle("Successfully registered this verbal warning!")
+					.addFields(
+						{ name: "Member", value: user.toString(), inline: true },
+						{ name: "Points", value: points!.toString(), inline: true },
+						{ name: "Reason", value: reason! }
+					)
+					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				await interaction.editReply({ embeds: [embed] })
+			} else if (punishment.type === "WARN") {
+				const confirmEmbed = new Discord.MessageEmbed()
+					.setColor(loadingColor as Discord.HexColorString)
+					.setAuthor("Punishment")
+					.setTitle(`Are you sure you want to warn ${user.tag}?`)
+					.setDescription(reason!)
+					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] }) as Discord.Message
+
+				setTimeout(async () => {
+					buttons.components.map(b => b.setDisabled(false))
+					await interaction.editReply({ components: [buttons] })
+				}, 5_000)
+				const buttonInteraction = await msg.awaitMessageComponent({ filter, time: 65_000 })
+					.catch(async () => {
+						const embed = new Discord.MessageEmbed()
+							.setColor(errorColor as Discord.HexColorString)
+							.setAuthor("Punishments")
+							.setTitle("You didn't respond in time, so this user wasn't warned")
+							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						await interaction.editReply({ embeds: [embed], components: [] })
+					})
+				if (!buttonInteraction || !buttonInteraction.isButton()) return
+				if (buttonInteraction.customId === "confirm") {
+					await buttonInteraction.deferUpdate()
+
+					if (!member) throw "Couldn't find that member! Are you sure they're on the server?"
+
+					const punishmentLog = new Discord.MessageEmbed()
+						.setColor(errorColor as Discord.HexColorString)
+						.setAuthor(`Case ${caseNumber} | Warning | ${points} point${points === 1 ? "" : "s"}`, user.displayAvatarURL({ format: "png", dynamic: true }))
+						.addFields([
+							{ name: "User", value: user.toString(), inline: true },
+							{ name: "Moderator", value: interaction.user.toString(), inline: true },
+							{ name: "Reason", value: reason! }
+						])
+						.setFooter(`ID: ${user.id}`)
+						.setTimestamp(),
+						msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
+
+					await collection.insertOne({
+						case: caseNumber,
+						id: user.id,
+						type: punishment.type,
+						points,
+						reason,
+						timestamp: Date.now(),
+						moderator: interaction.user.id,
+						logMsg: msg.id,
+					} as PunishmentLog)
+					const dmEmbed = new Discord.MessageEmbed()
+						.setColor(errorColor as Discord.HexColorString)
+						.setAuthor("Punishment")
+						.setTitle(`You have been warned on ${interaction.guild!.name}`)
+						.setDescription(`**Reason:** ${reason}`)
+						.setTimestamp(),
+						embed = new Discord.MessageEmbed()
+							.setColor(successColor as Discord.HexColorString)
+							.setAuthor("Punishments")
+							.setTitle("Successfully warned this member!")
+							.addFields(
+								{ name: "Member", value: user.toString(), inline: true },
+								{ name: "Points", value: points!.toString(), inline: true },
+								{ name: "Reason", value: reason! },
+							)
+							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					await user.send({ embeds: [dmEmbed] })
+						.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
+						.catch(async err => {
+							console.log(`Couldn't DM user ${user.tag} about their warning, here's the error\n`, err)
+							embed
+								.setColor(errorColor as Discord.HexColorString)
+								.setDescription("Warning not sent because the user had DMs off")
+							await buttonInteraction.editReply({ embeds: [embed], components: [] })
+						})
+				} else if (buttonInteraction.customId === "cancel") {
+					const embed = new Discord.MessageEmbed()
+						.setColor(successColor as Discord.HexColorString)
+						.setAuthor("Punishments")
+						.setTitle("Successfully cancelled this punishment")
+						.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					await buttonInteraction.update({ embeds: [embed], components: [] })
+				}
+			} else if (punishment.type === "MUTE") {
+				const confirmEmbed = new Discord.MessageEmbed()
+					.setColor(loadingColor as Discord.HexColorString)
+					.setAuthor("Punishment")
+					.setTitle("Are you sure you want to mute this member?")
+					.setDescription(`Confirming this will mute ${user} for ${punishment.duration} hours with the following reason:\n\n${reason}`)
+					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] }) as Discord.Message
+
+				setTimeout(async () => {
+					buttons.components.map(b => b.setDisabled(false))
+					await interaction.editReply({ components: [buttons] })
+				}, 5_000)
+				const buttonInteraction = await msg.awaitMessageComponent({ filter, time: 65_000 })
+					.catch(async () => {
+						const embed = new Discord.MessageEmbed()
+							.setColor(errorColor as Discord.HexColorString)
+							.setAuthor("Punishments")
+							.setTitle("You didn't respond in time, so this user wasn't muted")
+							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						await interaction.editReply({ embeds: [embed], components: [] })
+					})
+				if (!buttonInteraction || !buttonInteraction.isButton()) return
+				if (buttonInteraction.customId === "confirm") {
+					await buttonInteraction.deferUpdate()
+					const endTimestamp = new Date().setHours(new Date().getHours() + punishment.duration!),
+						punishmentLog = new Discord.MessageEmbed()
+							.setColor(errorColor as Discord.HexColorString)
+							.setAuthor(`Case ${caseNumber} | Mute | ${points} point${points === 1 ? "" : "s"}`, user.displayAvatarURL({ format: "png", dynamic: true }))
+							.addFields(
+								{ name: "User", value: user.toString(), inline: true },
+								{ name: "Moderator", value: interaction.user.toString(), inline: true },
+								{ name: "Duration", value: `${punishment.duration} hours`, inline: true },
+								{ name: "Reason", value: reason! }
+							)
+							.setFooter(`ID: ${user.id}`)
+							.setTimestamp(),
+						msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
+
+					await collection.insertOne({
+						case: caseNumber,
+						id: user.id,
+						type: punishment.type,
+						points,
+						reason,
+						timestamp: Date.now(),
+						duration: punishment.duration,
+						endTimestamp,
+						expired: false,
+						moderator: interaction.user.id,
+						logMsg: msg.id,
+					} as PunishmentLog)
+
+					//Make sure the Muted role doesn't have these permissions on any channel
+					await interaction.guild!.channels.fetch()
+					interaction.guild!.channels.cache.forEach(async channel => {
+						if (channel.isThread()) return
+						await channel.permissionOverwrites.edit("645208834633367562", { SEND_MESSAGES: false, ADD_REACTIONS: false, SPEAK: false })
+					})
+
+					if (!member) throw "Couldn't find that member! Are you sure they're on the server?"
+					await member.roles.add("645208834633367562") //Muted
+
+					const dmEmbed = new Discord.MessageEmbed()
+						.setColor(errorColor as Discord.HexColorString)
+						.setAuthor("Punishment")
+						.setTitle(`You have been muted on ${interaction.guild!.name} for ${punishment.duration} hours`)
+						.setDescription(`**Reason:** ${reason}\n\nYour mute will expire on <t:${Math.round(endTimestamp / 1000)}:F> (<t:${Math.round(endTimestamp / 1000)}:R>)`)
+						.setTimestamp(),
+						embed = new Discord.MessageEmbed()
+							.setColor(successColor as Discord.HexColorString)
+							.setAuthor("Punishments")
+							.setTitle("Successfully muted this member!")
+							.addFields(
+								{ name: "Member", value: user.toString(), inline: true },
+								{ name: "Points", value: points!.toString(), inline: true },
+								{ name: "Duration", value: `${punishment.duration!.toString()} hours`, inline: true },
+								{ name: "Reason", value: reason! },
+							)
+							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					await user.send({ embeds: [dmEmbed] })
+						.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
+						.catch(async err => {
+							console.log(`Couldn't DM user ${user.tag} about their mute, here's the error\n`, err)
+							embed
+								.setColor(errorColor as Discord.HexColorString)
+								.setDescription("Message not send because the user had DMs off")
+							await buttonInteraction.editReply({ embeds: [embed], components: [] })
+						})
+				} else if (buttonInteraction.customId === "cancel") {
+					const embed = new Discord.MessageEmbed()
+						.setColor(successColor as Discord.HexColorString)
+						.setAuthor("Punishments")
+						.setTitle("Successfully cancelled this punishment")
+						.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					await buttonInteraction.update({ embeds: [embed], components: [] })
+				}
+			} else if (punishment.type === "BAN") {
+				const confirmEmbed = new Discord.MessageEmbed()
+					.setColor(loadingColor as Discord.HexColorString)
+					.setAuthor("Punishment")
+					.setTitle("Are you sure you want to ban this member?")
+					.setDescription(
+						`Confirming this will ban ${user} ${punishment.duration ? `for ${punishment.duration} days` : "permanently"
+						} with the following reason:\n\n${reason}${punishment.hasActivePunishment ? "\n\n⚠ This user currently has an active punishment! Think twice before confirming this." : ""
+						}`
+					)
+					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] }) as Discord.Message
+
+				setTimeout(async () => {
+					buttons.components.map(b => b.setDisabled(false))
+					await interaction.editReply({ components: [buttons] })
+				}, 5_000)
+				const buttonInteraction = await msg.awaitMessageComponent({ filter, time: 65_000 })
+					.catch(async () => {
+						const embed = new Discord.MessageEmbed()
+							.setColor(errorColor as Discord.HexColorString)
+							.setAuthor("Punishments")
+							.setTitle("You didn't respond in time, so this user wasn't banned")
+							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						await interaction.editReply({ embeds: [embed], components: [] })
+					})
+				if (!buttonInteraction || !buttonInteraction.isButton()) return
+				if (buttonInteraction.customId === "confirm") {
+					await buttonInteraction.deferUpdate()
+
+					// if (!member) throw "Couldn't find that member in order to ban them!"
+					// if (member.bannable) await member.ban({ reason: reason! })
+					// else throw "I cannot ban that member!"
+
+					const endTimestamp = punishment.duration ? new Date().setDate(new Date().getDate() + punishment.duration) : 0,
+						punishmentLog = new Discord.MessageEmbed()
+							.setColor(errorColor as Discord.HexColorString)
+							.setAuthor(`Case ${caseNumber} | Ban | ${points} point${points === 1 ? "" : "s"}`, user.displayAvatarURL({ format: "png", dynamic: true }))
+							.addFields(
+								{ name: "User", value: user.toString(), inline: true },
+								{ name: "Moderator", value: interaction.user.toString(), inline: true },
+								{ name: "Duration", value: punishment.duration ? `${punishment.duration} days` : "Permanent", inline: true },
+								{ name: "Reason", value: reason! }
+							)
+							.setFooter(`ID: ${user.id}`)
+							.setTimestamp(),
+						msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
+
+					if (punishment.hasActivePunishment)
+						await collection.updateMany(
+							{ id: user.id, expired: false },
+							{ $set: { expired: true, revoked: true, revokedBy: interaction.user.id, endTimestamp: Date.now() } }
+						)
+
+					if (punishment.duration) await collection.insertOne({
+						case: caseNumber,
+						id: user.id,
+						type: punishment.type,
+						points,
+						reason,
+						timestamp: Date.now(),
+						duration: punishment.duration,
+						endTimestamp,
+						expired: false,
+						moderator: interaction.user.id,
+						logMsg: msg.id
+					} as PunishmentLog)
+					else await collection.insertOne({
+						case: caseNumber,
+						id: user.id,
+						type: punishment.type,
+						points: points as PunishmentPoints,
+						reason: reason as string,
+						timestamp: Date.now(),
+						duration: punishment.duration,
+						expired: false,
+						moderator: interaction.user.id,
+						logMsg: msg.id
+					})
+
+					const dmEmbed = new Discord.MessageEmbed()
+						.setColor(errorColor as Discord.HexColorString)
+						.setAuthor("Punishment")
+						.setTitle(`You have been ${punishment.duration ? "" : "permanently "}banned from ${interaction.guild!.name} ${punishment.duration ? `for ${punishment.duration} days` : ""}`)
+						.setDescription(
+							`**Reason:** ${reason}\n\n${endTimestamp
+								? `This ban will expire on <t:${Math.round(endTimestamp / 1000)}:F> (<t:${Math.round(endTimestamp / 1000)}:R>)`
+								: "This is a permanent ban and will not expire"
+							}`
+						)
+						.setTimestamp(),
+						embed = new Discord.MessageEmbed()
+							.setColor(successColor as Discord.HexColorString)
+							.setAuthor("Punishments")
+							.setTitle("Successfully banned this member!")
+							.addFields(
+								{ name: "Member", value: user.toString(), inline: true },
+								{ name: "Points", value: points!.toString(), inline: true },
+								{ name: "Duration", value: `${punishment.duration ? `${punishment.duration!.toString()} days` : "Permanent"}`, inline: true },
+								{ name: "Reason", value: reason! }
+							)
+							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					await user.send({ embeds: [dmEmbed] })
+						.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
+						.catch(async err => {
+							console.log(`Couldn't warn user ${user.tag} about their ban, here's the error\n`, err)
+							embed
+								.setColor(errorColor as Discord.HexColorString)
+								.setDescription("Warning not sent because the user had DMs off")
+							await buttonInteraction.editReply({ embeds: [embed], components: [] })
+						})
+				} else if (buttonInteraction.customId === "cancel") {
+					const embed = new Discord.MessageEmbed()
+						.setColor(successColor as Discord.HexColorString)
+						.setAuthor("Punishments")
+						.setTitle("Successfully cancelled this punishment")
+						.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					await buttonInteraction.update({ embeds: [embed], components: [] })
+				}
+			}
+		} else if (subCommand === "status") {
+			const activePunishments = await getActivePunishments(user)
+			let activePoints = 0
+			activePunishments.forEach(punishment => {
+				activePoints = activePoints + (punishment.points ?? 0)
+			})
+
+			const embed = new Discord.MessageEmbed()
+				.setColor(activePoints ? errorColor as Discord.HexColorString : successColor as Discord.HexColorString)
+				.setAuthor("Punishments")
+				.setTitle(`${user.tag} currently has ${activePoints} point${activePoints === 1 ? "" : "s"}.`)
+				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			activePunishments.forEach(punishment => {
+				const durationString = punishment.duration ? `${punishment.duration}${punishment.type === "BAN" ? "d" : "h"} ` : "permanent ",
+					expireTimestamp =
+						punishment.type === "VERBAL"
+							? new Date(punishment.timestamp).setDate(new Date(punishment.timestamp).getDate() + 1)
+							: punishment.type === "WARN"
+								? new Date(punishment.timestamp).setDate(new Date(punishment.timestamp).getDate() + 7)
+								: new Date(punishment.endTimestamp!).setDate(new Date(punishment.endTimestamp!).getDate() + 30)
+				embed.addField(
+					`Case ${punishment.case}: ${punishment.endTimestamp ? durationString : ""}${punishment.type} (${punishment.points} points)`,
+					`${typeof punishment.duration === "number"
+						? punishment.duration
+							? `Ends <t:${Math.round(punishment.endTimestamp! / 1000)}:R>\n`
+							: "Never ends\n"
+						: ""
+					}${expireTimestamp ? `Expires <t:${Math.round(expireTimestamp / 1000)}:R>` : ""}`,
+					true
+				)
+			})
+			await interaction.reply({ embeds: [embed] })
+		} else if (subCommand === "calculate") {
+			const hasPermission = checkPermissions(interaction.member as Discord.GuildMember, punishment),
+				unexpiredPunishments = await getActivePunishments(user),
+				durationString = punishment.duration ? `${punishment.duration}${punishment.type === "BAN" ? "d" : "h"} ` : "permanent "
+
+			const embed = new Discord.MessageEmbed()
+				.setColor(hasPermission ? (successColor as Discord.HexColorString) : (errorColor as Discord.HexColorString))
+				.setAuthor("Punishments")
+				.setTitle(`Giving this member ${points} points will result in a ${["MUTE", "BAN"].includes(punishment.type) ? durationString : ""}${punishment.type}`)
+				.setDescription(
+					`You ${hasPermission ? "" : "don't "}have permission to issue this punishment.\n\n${unexpiredPunishments.length ? `Here are ${user}'s active punishments:` : `${user} has no active punishments at the moment`}`
+				)
+				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			unexpiredPunishments.forEach(punishment => {
+				const durationString = punishment.duration ? `${punishment.duration}${punishment.type === "BAN" ? "d" : "h"} ` : "permanent ",
+					expireTimestamp =
+						punishment.type === "VERBAL"
+							? new Date(punishment.timestamp).setDate(new Date(punishment.timestamp).getDate() + 1)
+							: punishment.type === "WARN"
+								? new Date(punishment.timestamp).setDate(new Date(punishment.timestamp).getDate() + 7)
+								: new Date(punishment.endTimestamp!).setDate(new Date(punishment.endTimestamp!).getDate() + 30)
+				embed.addField(
+					`Case ${punishment.case}: ${punishment.endTimestamp ? durationString : ""}${punishment.type} (${punishment.points} points)`,
+					`${typeof punishment.duration === "number"
+						? punishment.duration
+							? `Ends <t:${Math.round(punishment.endTimestamp! / 1000)}:R>\n`
+							: "Never ends\n"
+						: ""
+					}${expireTimestamp ? `Expires <t:${Math.round(expireTimestamp / 1000)}:R>` : ""}`,
+					true
+				)
+			})
+			await interaction.reply({ embeds: [embed] })
+		} else if (subCommand === "revoke") {
+			if (!(interaction.member as Discord.GuildMember).permissions.has("VIEW_AUDIT_LOG")) throw "noAccess"
+			const activePunishments = await collection.find({ id: user.id, expired: false }).toArray() as PunishmentLog[],
+				senddm = interaction.options.getBoolean("senddm", true)
+			if (activePunishments.length > 1)
+				return await interaction.reply({
+					content:
+						"Something went terribly wrong and this user has more than one active punishment! Please contact the developer and let them know about this.",
+					ephemeral: true
+				})
+			else if (!activePunishments.length) throw "This user has no active punishments!"
+			let activePoints = 0
+			activePunishments.forEach(punishment => {
+				activePoints = activePoints + (punishment.points ?? 0)
+			})
+			const embed = new Discord.MessageEmbed()
+				.setColor(loadingColor as Discord.HexColorString)
+				.setAuthor("Punishments")
+				.setTitle(`Are you sure you want to revoke ${user.tag}'s active ${activePunishments[0].type}?`)
+				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			activePunishments.forEach(punishment => {
+				const durationString = punishment.duration ? `${punishment.duration}${punishment.type === "BAN" ? "d" : "h"} ` : "permanent ",
+					expireTimestamp =
+						punishment.type === "VERBAL"
+							? new Date(punishment.timestamp).setDate(new Date(punishment.timestamp).getDate() + 1)
+							: punishment.type === "WARN"
+								? new Date(punishment.timestamp).setDate(new Date(punishment.timestamp).getDate() + 7)
+								: new Date(punishment.endTimestamp!).setDate(new Date(punishment.endTimestamp!).getDate() + 30)
+				embed.addField(
+					`Case ${punishment.case}: ${punishment.endTimestamp ? durationString : ""}${punishment.type} (${punishment.points} points)`,
+					`${typeof punishment.duration === "number"
+						? punishment.duration
+							? `Ends <t:${Math.round(punishment.endTimestamp! / 1000)}:R>\n`
+							: "Never ends\n"
+						: ""
+					}${expireTimestamp ? `Expires <t:${Math.round(expireTimestamp / 1000)}:R>` : ""}`,
+					true
+				)
+			})
+			const msg = await interaction.reply({ embeds: [embed], components: [buttons], fetchReply: true }) as Discord.Message
+
+			setTimeout(async () => {
+				buttons.components.map(b => b.setDisabled(false))
+				await interaction.editReply({ components: [buttons] })
+			}, 5_000)
+			const buttonInteraction = await msg.awaitMessageComponent({ filter, time: 65_000 })
+				.catch(async () => {
+					const embed = new Discord.MessageEmbed()
+						.setColor(errorColor as Discord.HexColorString)
+						.setAuthor("Punishments")
+						.setTitle("You didn't respond in time, so this user's punishments weren't revoked")
+						.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					await interaction.editReply({ embeds: [embed], components: [] })
+				})
+			if (!buttonInteraction || !buttonInteraction.isButton()) return
+			if (buttonInteraction.customId === "confirm") {
+				await buttonInteraction.deferUpdate()
+				const punishmentLog = new Discord.MessageEmbed()
+					.setColor(successColor as Discord.HexColorString)
+					.setAuthor(`Case ${caseNumber} | ${activePunishments[0].type === "BAN" ? "Unban" : "Unmute"} | ${user.tag}`, user.displayAvatarURL({ format: "png", dynamic: true }))
+					.addFields([
+						{ name: "User", value: user.toString(), inline: true },
+						{ name: "Moderator", value: interaction.user.toString(), inline: true },
+						{ name: "Reason", value: reason! }
+					])
+					.setFooter(`ID: ${user.id}`)
+					.setTimestamp(),
+					msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
+
+				await collection.updateOne({ case: activePunishments[0].case }, { $set: { revoked: true, revokedBy: interaction.user.id, expired: true, endTimestamp: Date.now() } })
+				await collection.insertOne({
+					case: caseNumber,
+					id: user.id,
+					type: `UN${activePunishments[0].type}`,
+					reason,
+					timestamp: Date.now(),
+					moderator: interaction.user.id,
+					logMsg: msg.id
+				} as PunishmentLog)
+
+				const dmEmbed = new Discord.MessageEmbed()
+					.setColor(successColor as Discord.HexColorString)
+					.setAuthor("Punishment")
+					.setTitle(`You have been un ${activePunishments[0].type === "BAN" ? "banned" : "muted"} from ${interaction.guild!.name}`)
+					.setDescription(`**Reason:** ${reason}`)
+					.setTimestamp(),
+					embed = new Discord.MessageEmbed()
+						.setColor(successColor as Discord.HexColorString)
+						.setAuthor("Punishments")
+						.setTitle("Successfully revoked this member's punishment!")
+						.addFields(
+							{ name: "Member", value: user.toString(), inline: true },
+							{ name: "Punishment type", value: activePunishments[0].type, inline: true },
+							{ name: "Reason", value: reason!, inline: true }
+						)
+						.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+
+				if (activePunishments[0].type === "BAN") await interaction.guild!.bans.remove(user.id, `${reason} | ${interaction.user.tag}`)
+					.catch(async err => {
+						embed.setDescription(`Failed to remove the ban: ${err}`)
+						await buttonInteraction.editReply({ embeds: [embed], components: [] })
+					})
+				else if (!member) embed.setDescription(`Failed to unmute ${user}, they may not be in the server`)
+				else if (activePunishments[0].type === "MUTE") await member.roles.remove("645208834633367562", `${reason} | ${interaction.user.tag}`)
+
+				if (senddm) await user.send({ embeds: [dmEmbed] })
+					.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
+					.catch(async err => {
+						console.log(`Couldn't DM user ${user.tag} about their revoked ${activePunishments[0].type}, here's the error\n`, err)
+						embed
+							.setColor(errorColor as Discord.HexColorString)
+							.setDescription("Warning not sent because the user had DMs off")
+						await buttonInteraction.editReply({ embeds: [embed], components: [] })
+					})
+				else await buttonInteraction.editReply({ embeds: [embed], components: [] })
+			} else if (buttonInteraction.customId === "cancel") {
+				const embed = new Discord.MessageEmbed()
+					.setColor(successColor as Discord.HexColorString)
+					.setAuthor("Punishments")
+					.setTitle("Successfully cancelled revoking this punishment")
+					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				await buttonInteraction.update({ embeds: [embed], components: [] })
+			}
+		}
+	}
+}
+
+async function calculatePunishment(user: Discord.User, points: PunishmentPoints): Promise<Punishment> {
+	const activePunishments = await getActivePunishments(user),
+		hasActivePunishment = activePunishments.some(p => p.expired === false),
+		guidelines = await db.collection("config").findOne({ name: "punishmentGuidelines" }) as PunishmentGuidelines
+
+	let activePoints = 0
+	activePunishments.forEach(p => (activePoints = (activePoints + p.points!) || activePoints))
+	if (activePunishments.some(p => p.type === "UNBAN" && p.moderator !== user.client.user!.id)) activePoints = activePoints - guidelines.points.tempBan
+	if (activePunishments.some(p => p.type === "UNMUTE" && p.moderator !== user.client.user!.id)) activePoints = activePoints - guidelines.points.mute
+	if (activePoints > guidelines.points.tempBan) activePoints = guidelines.points.tempBan
+	else if (activePoints < 0) activePoints = 0
+
+	if (activePoints + points === guidelines.points.verbalWarn) return { type: "VERBAL", hasActivePunishment }
+	else if (activePoints + points < guidelines.points.mute) return { type: "WARN", hasActivePunishment }
+	else if (activePoints + points === guidelines.points.mute) {
+		let duration: number = 0
+		switch (points) {
+			case 1:
+				duration = guidelines.durations.mute[0]
+				break
+			case 2:
+				duration = guidelines.durations.mute[1]
+				break
+			case 3:
+			case 4:
+				duration = guidelines.durations.mute[2]
+				break
+			default:
+				throw "You gave me weird points I don't know what to do please help"
+		}
+		return { type: "MUTE", duration, hasActivePunishment }
+	} else if (points === guidelines.points.permBan || activePoints === guidelines.points.tempBan) return { type: "BAN", duration: 0, hasActivePunishment }
+	else if (activePoints + points >= guidelines.points.tempBan) {
+		let duration: number = 0
+		switch (points) {
+			case 1:
+				duration = guidelines.durations.ban[0]
+				break
+			case 2:
+				duration = guidelines.durations.ban[1]
+				break
+			case 3:
+				duration = guidelines.durations.ban[2]
+				break
+			case 4:
+			case 5:
+				duration = guidelines.durations.ban[3]
+				break
+			default:
+				throw "You gave me weird points I don't know what to do please help"
+		}
+		return { type: "BAN", duration, hasActivePunishment }
+	} else {
+		console.log(activePoints, points)
+		throw "We somehow didn't plan for this scenario, please check the logs"
+	}
+}
+
+function checkPermissions(author: Discord.GuildMember, punishment: Punishment) {
+	if (punishment.type === "BAN" && !author.roles.cache.has("764442984119795732")) { //Discord Administrator
+		if (!author.roles.cache.has("621071221462663169")) return false //Discord Moderator
+		if (!punishment.duration) return false
+	}
+	return true
+}
+
+export default command
+
+interface Punishment {
+	type: "VERBAL" | "WARN" | "MUTE" | "BAN"
+	duration?: number
+	hasActivePunishment: boolean
+}
+
+interface PunishmentGuidelines {
+	name: string
+	points: {
+		verbalWarn: number
+		mute: number
+		tempBan: number
+		permBan: number
+	}
+	durations: {
+		mute: [number, number, number]
+		ban: [number, number, number, number]
+	}
+}

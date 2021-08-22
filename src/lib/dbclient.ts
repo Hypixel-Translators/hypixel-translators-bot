@@ -1,6 +1,6 @@
 import Discord from "discord.js"
 import { MongoClient, Db } from "mongodb"
-import { Command } from "../index"
+import { client, Command } from "../index"
 const url = process.env.MONGO_URL
 if (!url) throw "MONGO_URL not in .env"
 export const mongoClient = new MongoClient(url)
@@ -13,6 +13,8 @@ async function init() {
 			.then(mongoClient => {
 				db = mongoClient.db(process.env.DB_NAME)
 				console.log("Connected to MongoDB!")
+				//If the connection was made after the client was ready, we need to emit the event again
+				if (client.isReady()) client.emit("ready", client)
 				resolve(mongoClient)
 			})
 			.catch(reject)
@@ -36,7 +38,7 @@ export interface DbUser {
 	unverifiedTimestamp?: number
 }
 
-export class HTBClient extends Discord.Client {
+export class HTBClient extends Discord.Client<true> {
 	commands: Discord.Collection<string, Command> = new Discord.Collection()
 	cooldowns: Discord.Collection<string, Discord.Collection<Discord.Snowflake, number>> = new Discord.Collection()
 	async getUser(): Promise<undefined>
