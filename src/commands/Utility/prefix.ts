@@ -65,7 +65,7 @@ const command: Command = {
 							.setLabel(getString("pagination.cancel", "global"))
 					)
 			const msg = await interaction.reply({ embeds: [embed], components: [confirmButtons], fetchReply: true }) as Discord.Message,
-				collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
+				collector = msg.createMessageComponentCollector({ idle: this.cooldown! * 1000 })
 
 			confirmButtons.components.forEach(button => button.setDisabled(true))
 			collector.on("collect", async buttonInteraction => {
@@ -239,7 +239,7 @@ const command: Command = {
 			await interaction.editReply({ embeds: [noChangesEmbed], components: rows })
 			const msg = await interaction.fetchReply() as Discord.Message
 
-			const collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
+			const collector = msg.createMessageComponentCollector({ idle: this.cooldown! * 1000 })
 
 			collector.on("collect", async buttonInteraction => {
 				const userDb: DbUser = await client.getUser(buttonInteraction.user.id)

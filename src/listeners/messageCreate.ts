@@ -144,7 +144,7 @@ client.on("messageCreate", async message => {
 				.setFooter(getGlobalString("staffDm.confirmSend"))
 			if (message.attachments.size > 0) embed.setTitle(`${getGlobalString("staffDm.confirmation")} ${getGlobalString("staffDm.attachmentsWarn")}`)
 			const msg = await message.channel.send({ embeds: [embed], components: [controlButtons] }),
-				collector = msg.createMessageComponentCollector({ time: confirmTime * 1000 })
+				collector = msg.createMessageComponentCollector({ idle: confirmTime * 1000 })
 
 			let replied = false
 			collector.on("collect", async reaction => {

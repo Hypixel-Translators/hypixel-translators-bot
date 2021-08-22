@@ -38,7 +38,7 @@ const command: Command = {
 				.setColor(successColor as Discord.HexColorString)
 				.setAuthor("Log message", "", `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}`)
 				.setTitle(`Found ${modlogs.length} modlogs for ${userInput.tag}`)
-				.setDescription("Use the buttons below to cycle between modlogs. This menu will expire in 1 minute")
+				.setDescription("Use the buttons below to cycle between modlogs. This menu will expire after 1 minute of inactivity.")
 				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true })),
 				controlButtons = new Discord.MessageActionRow()
 					.addComponents(
@@ -64,7 +64,7 @@ const command: Command = {
 			updateModlogFields(embed, modlogs[0], modlogs)
 
 			const msg = await interaction.reply({ embeds: [embed], components: [controlButtons], fetchReply: true }) as Discord.Message,
-				collector = msg.createMessageComponentCollector({ time: 60_000 })
+				collector = msg.createMessageComponentCollector({ idle: 60_000 })
 
 			collector.on("collect", async buttonInteraction => {
 				if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: `You cannot interact with this menu! Execute /${this.name} yourself to do this.`, ephemeral: true })

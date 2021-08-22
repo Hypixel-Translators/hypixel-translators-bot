@@ -51,7 +51,7 @@ const command: Command = {
 					)
 			controlButtons = updateButtonColors(controlButtons, page, maxMembersArr)
 			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }) as Discord.Message,
-				collector = msg.createMessageComponentCollector({ time: 60_000 })
+				collector = msg.createMessageComponentCollector({ idle: 60_000 })
 
 			collector.on("collect", async buttonInteraction => {
 				if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: `You cannot interact with this menu! Execute /${this.name} yourself to do this.`, ephemeral: true })

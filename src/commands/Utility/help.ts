@@ -89,7 +89,7 @@ const command: Command = {
 			}))
 
 			const msg = await interaction.reply({ embeds: [pageEmbed], components: [pageMenu], fetchReply: true }) as Discord.Message,
-				collector = msg.createMessageComponentCollector({ time: this.cooldown! * 1000 })
+				collector = msg.createMessageComponentCollector({ idle: this.cooldown! * 1000 })
 
 			collector.on("collect", async componentInteraction => {
 				if (!componentInteraction.isSelectMenu()) return //this is just to set the typings properly, it won't actually trigger
