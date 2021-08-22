@@ -213,3 +213,14 @@ export interface Quote {
 	url?: string
 }
 
+export async function restart(interaction?: Discord.CommandInteraction) {
+	await fetch("https://api.heroku.com/apps/hypixel-translators/dynos", {
+		method: "DELETE",
+		headers: {
+			"User-Agent": `${interaction?.user.tag ?? client.user.tag}`,
+			Authorization: `Bearer ${process.env.HEROKU_API}`,
+			Accept: "application/vnd.heroku+json; version=3"
+		}
+	})
+}
+

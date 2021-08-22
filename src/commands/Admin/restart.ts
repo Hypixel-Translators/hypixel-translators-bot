@@ -1,7 +1,7 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
-import fetch from "node-fetch"
 import { Command } from "../../index"
+import { restart } from "../../lib/util"
 
 const command: Command = {
 	name: "restart",
@@ -17,15 +17,7 @@ const command: Command = {
 		await interaction.reply({ embeds: [embed] })
 		interaction.client.user!.setStatus("invisible")
 		setTimeout(async () => {
-			if (process.env.NODE_ENV === "production")
-				await fetch("https://api.heroku.com/apps/hypixel-translators/dynos", {
-					method: "DELETE",
-					headers: {
-						"User-Agent": `${interaction.user.tag}`,
-						Authorization: `Bearer ${process.env.HEROKU_API}`,
-						Accept: "application/vnd.heroku+json; version=3"
-					}
-				})
+			if (process.env.NODE_ENV === "production") await restart(interaction)
 			else process.exit()
 		}, 1000)
 	}
