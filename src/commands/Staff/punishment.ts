@@ -302,7 +302,7 @@ const command: Command = {
 						timestamp: Date.now(),
 						duration: punishment.duration,
 						endTimestamp,
-						expired: false,
+						ended: false,
 						moderator: interaction.user.id,
 						logMsg: msg.id,
 					} as PunishmentLog)
@@ -315,7 +315,7 @@ const command: Command = {
 					})
 
 					if (!member) throw "Couldn't find that member! Are you sure they're on the server?"
-					await member.roles.add("645208834633367562") //Muted
+					await member.roles.add("645208834633367562", `Muted by ${interaction.user.tag}`) //Muted
 
 					const dmEmbed = new Discord.MessageEmbed()
 						.setColor(errorColor as Discord.HexColorString)
@@ -381,9 +381,9 @@ const command: Command = {
 				if (buttonInteraction.customId === "confirm") {
 					await buttonInteraction.deferUpdate()
 
-					// if (!member) throw "Couldn't find that member in order to ban them!"
-					// if (member.bannable) await member.ban({ reason: reason! })
-					// else throw "I cannot ban that member!"
+					if (!member) throw "Couldn't find that member in order to ban them!"
+					if (member.bannable) await member.ban({ reason: reason! })
+					else throw "I cannot ban that member!"
 
 					const endTimestamp = punishment.duration ? new Date().setDate(new Date().getDate() + punishment.duration) : 0,
 						punishmentLog = new Discord.MessageEmbed()
@@ -401,8 +401,8 @@ const command: Command = {
 
 					if (punishment.hasActivePunishment)
 						await collection.updateMany(
-							{ id: user.id, expired: false },
-							{ $set: { expired: true, revoked: true, revokedBy: interaction.user.id, endTimestamp: Date.now() } }
+							{ id: user.id, ended: false },
+							{ $set: { ended: true, revoked: true, revokedBy: interaction.user.id, endTimestamp: Date.now() } }
 						)
 
 					if (punishment.duration) await collection.insertOne({
@@ -414,7 +414,7 @@ const command: Command = {
 						timestamp: Date.now(),
 						duration: punishment.duration,
 						endTimestamp,
-						expired: false,
+						ended: false,
 						moderator: interaction.user.id,
 						logMsg: msg.id
 					} as PunishmentLog)
@@ -426,7 +426,7 @@ const command: Command = {
 						reason: reason as string,
 						timestamp: Date.now(),
 						duration: punishment.duration,
-						expired: false,
+						ended: false,
 						moderator: interaction.user.id,
 						logMsg: msg.id
 					})
@@ -538,7 +538,7 @@ const command: Command = {
 			await interaction.reply({ embeds: [embed] })
 		} else if (subCommand === "revoke") {
 			if (!(interaction.member as Discord.GuildMember).permissions.has("VIEW_AUDIT_LOG")) throw "noAccess"
-			const activePunishments = await collection.find({ id: user.id, expired: false }).toArray() as PunishmentLog[],
+			const activePunishments = await collection.find({ id: user.id, ended: false }).toArray() as PunishmentLog[],
 				senddm = interaction.options.getBoolean("senddm", true)
 			if (activePunishments.length > 1)
 				return await interaction.reply({
@@ -605,7 +605,7 @@ const command: Command = {
 					.setTimestamp(),
 					msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
 
-				await collection.updateOne({ case: activePunishments[0].case }, { $set: { revoked: true, revokedBy: interaction.user.id, expired: true, endTimestamp: Date.now() } })
+				await collection.updateOne({ case: activePunishments[0].case }, { $set: { revoked: true, revokedBy: interaction.user.id, ended: true, endTimestamp: Date.now() } })
 				await collection.insertOne({
 					case: caseNumber,
 					id: user.id,
@@ -665,7 +665,7 @@ const command: Command = {
 
 async function calculatePunishment(user: Discord.User, points: PunishmentPoints): Promise<Punishment> {
 	const activePunishments = await getActivePunishments(user),
-		hasActivePunishment = activePunishments.some(p => p.expired === false),
+		hasActivePunishment = activePunishments.some(p => p.ended === false),
 		guidelines = await db.collection("config").findOne({ name: "punishmentGuidelines" }) as PunishmentGuidelines
 
 	let activePoints = 0

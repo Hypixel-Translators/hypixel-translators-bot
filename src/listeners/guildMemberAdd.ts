@@ -16,14 +16,14 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 				.catch(() => console.log(`Couldn't DM user ${newMember.user.tag}, probably because they have DMs off`))
 			await db.collection("users").insertOne({ id: newMember.id, lang: "en" })
 		}
-		const activePunishments: PunishmentLog[] = await db.collection("punishments").find({ id: newMember.id, expired: false }).toArray()
+		const activePunishments: PunishmentLog[] = await db.collection("punishments").find({ id: newMember.id, ended: false }).toArray()
 		if (!activePunishments.length) return
 		if (activePunishments.some(p => p.type === "MUTE")) await newMember.roles.add(["645208834633367562", "569194996964786178"], "User is muted") //Muted and Verified
 		else if (activePunishments.some(p => p.type === "BAN")) await newMember.ban({ reason: activePunishments.find(p => p.type === "BAN")!.reason })
 		else
 			console.error(
 				`There are non-expired punishments that shouldn't have a length for ${newMember.id}. Cases: ${activePunishments
-					.filter(p => !p.expired)
+					.filter(p => !p.ended)
 					.map(p => p.case)
 					.join(", ")}`,
 				activePunishments

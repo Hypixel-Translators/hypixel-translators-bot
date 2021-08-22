@@ -78,7 +78,7 @@ client.once("ready", async () => {
 	}, 60_000)
 
 	//Check for active punishments and start a timeout to conclude them
-	const punishments: PunishmentLog[] = await db.collection("punishments").find({ expired: false }).toArray(),
+	const punishments: PunishmentLog[] = await db.collection("punishments").find({ ended: false }).toArray(),
 		punishmentsChannel = guild.channels.cache.get("800820574405656587") as Discord.TextChannel
 	for (const punishment of punishments) {
 		if (!punishment.endTimestamp) continue
@@ -87,7 +87,7 @@ client.once("ready", async () => {
 		// Additionally, we restart the bot at least once every 2 days so no punishment will be left unexpired
 		if (msLeft > 2 ** 31 - 1) continue
 		setTimeout(async () => {
-			await db.collection("punishments").updateOne({ case: punishment.case }, { $set: { expired: true, endTimestamp: Date.now() } })
+			await db.collection("punishments").updateOne({ case: punishment.case }, { $set: { ended: true, endTimestamp: Date.now() } })
 			const caseNumber = (await db.collection("punishments").estimatedDocumentCount()) + 1
 			if (punishment.type === "MUTE") {
 				const member = guild.members.cache.get(punishment.id!),
@@ -98,7 +98,7 @@ client.once("ready", async () => {
 					.addFields([
 						{ name: "User", value: user.toString(), inline: true },
 						{ name: "Moderator", value: client.user!.toString(), inline: true },
-						{ name: "Reason", value: "Expired" }
+						{ name: "Reason", value: "Ended" }
 					])
 					.setFooter(`ID: ${user.id}`)
 					.setTimestamp(),
@@ -107,13 +107,13 @@ client.once("ready", async () => {
 					case: caseNumber,
 					id: user.id,
 					type: `UN${punishment.type}`,
-					reason: "Expired",
+					reason: "Ended",
 					timestamp: Date.now(),
 					moderator: client.user.id,
 					logMsg: msg.id,
 				} as PunishmentLog)
 				if (!member) return console.log(`Couldn't find member with id ${punishment.id} in order to unmute them`)
-				else await member.roles.remove("645208834633367562", "Punishment expired") //Muted
+				else await member.roles.remove("645208834633367562", "Punishment ended") //Muted
 				const dmEmbed = new Discord.MessageEmbed()
 					.setColor(successColor as Discord.HexColorString)
 					.setAuthor("Punishment")
@@ -123,7 +123,7 @@ client.once("ready", async () => {
 				await member.send({ embeds: [dmEmbed] })
 					.catch(() => console.log(`Couldn't DM user ${user.tag}, (${member.id}) about their unmute.`))
 			} else if (punishment.type === "BAN") {
-				const user = await guild.bans.remove(punishment.id!, "Punishment expired")
+				const user = await guild.bans.remove(punishment.id!, "Punishment ended")
 					.catch(err => console.error(`Couldn't unban user with id ${punishment.id}. Here's the error:\n`, err)),
 					userFetched = await client.users.fetch(punishment.id),
 					punishmentLog = new Discord.MessageEmbed()
@@ -132,7 +132,7 @@ client.once("ready", async () => {
 						.addFields([
 							{ name: "User", value: userFetched.toString(), inline: true },
 							{ name: "Moderator", value: client.user!.toString(), inline: true },
-							{ name: "Reason", value: "Expired" }
+							{ name: "Reason", value: "Ended" }
 						])
 						.setFooter(`ID: ${userFetched.id}`)
 						.setTimestamp()
@@ -145,14 +145,14 @@ client.once("ready", async () => {
 						.setDescription("You are welcome to join back using the invite in this message.")
 						.setTimestamp()
 					await user.send({ content: "https://discord.gg/rcT948A", embeds: [dmEmbed] })
-					.catch(() => console.log(`Couldn't DM user ${userFetched.tag}, (${user.id}) about their unban.`))
+						.catch(() => console.log(`Couldn't DM user ${userFetched.tag}, (${user.id}) about their unban.`))
 				}
 				const msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
 				await db.collection("punishments").insertOne({
 					case: caseNumber,
 					id: userFetched.id,
 					type: `UN${punishment.type}`,
-					reason: "Expired",
+					reason: "Ended",
 					timestamp: Date.now(),
 					moderator: client.user.id,
 					logMsg: msg.id,

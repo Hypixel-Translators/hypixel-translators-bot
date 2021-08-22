@@ -234,7 +234,7 @@ export async function getActivePunishments(user: Discord.User): Promise<Punishme
 		if (punishment.revoked || !punishment.points) return false
 		else if (punishment.type === "VERBAL") return punishment.timestamp > verbalExpireTimestamp
 		else if (punishment.type === "WARN") return punishment.timestamp > warnExpireTimestamp
-		else if (punishment.expired) return punishment.endTimestamp! > punishExpireTimestamp
+		else if (punishment.ended) return punishment.endTimestamp! > punishExpireTimestamp
 		else return true
 	})
 }
@@ -249,10 +249,10 @@ export function updateModlogFields(embed: Discord.MessageEmbed, modlog: Punishme
 
 			{ name: "Type", value: modlog.type, inline: true },
 			{ name: "Duration", value: modlog.duration ? `${modlog.duration} ${modlog.type === "BAN" ? "days" : "hours"}` : "Permanent", inline: true },
-			{ name: "Points", value: `${modlog.points ?? "None"}`, inline: true },
+			{ name: "Points", value: `${modlog.points ?? "N/A"}`, inline: true },
 
 			{ name: "Reason", value: modlog.reason, inline: true },
-			{ name: modlog.expired ? "Ended" : "Ends", value: modlog.endTimestamp ? `<t:${Math.round(modlog.endTimestamp / 1000)}:R>` : "Never", inline: true }
+			{ name: modlog.ended ? "Ended" : "Ends", value: modlog.endTimestamp ? `<t:${Math.round(modlog.endTimestamp / 1000)}:R>` : "Never", inline: true },
 		)
 	} else {
 		embed.setFields(
@@ -261,7 +261,7 @@ export function updateModlogFields(embed: Discord.MessageEmbed, modlog: Punishme
 			{ name: "Applied on", value: `<t:${Math.round(modlog.timestamp / 1000)}:F>`, inline: true },
 
 			{ name: "Type", value: modlog.type, inline: true },
-			{ name: "Points", value: `${modlog.points}`, inline: true },
+			{ name: "Points", value: `${modlog.points ?? "N/A"}`, inline: true },
 			{ name: "Reason", value: modlog.reason, inline: true },
 		)
 	}
@@ -283,7 +283,7 @@ export interface PunishmentLog {
 	timestamp: number
 	duration?: number
 	endTimestamp?: number
-	expired?: boolean,
+	ended?: boolean,
 	revoked?: true
 	revokedBy?: Discord.Snowflake
 	moderator: Discord.Snowflake,
