@@ -241,11 +241,17 @@ export async function getActivePunishments(user: Discord.User): Promise<Punishme
 
 export function updateModlogFields(embed: Discord.MessageEmbed, modlog: PunishmentLog, modlogs?: PunishmentLog[]) {
 	embed.setAuthor("Log message", "", `https://discord.com/channels/549503328472530974/800820574405656587/${modlog.logMsg}`)
+	const expireTimestamp =
+		modlog.type === "VERBAL"
+			? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 1)
+			: modlog.type === "WARN"
+				? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 7)
+				: new Date(modlog.endTimestamp ?? modlog.timestamp).setDate(new Date(modlog.endTimestamp ?? modlog.timestamp).getDate() + 30)
 	if (typeof modlog.duration === "number") {
 		embed.setFields(
-			{ name: "Case", value: `${modlog.case}`, inline: true },
 			{ name: "Moderator", value: `<@!${modlog.moderator}>`, inline: true },
 			{ name: "Applied on", value: `<t:${Math.round(modlog.timestamp / 1000)}:F>`, inline: true },
+			{ name: expireTimestamp > Date.now() ? "Expires" : "Expired", value: `<t:${Math.round(expireTimestamp / 1000)}:R>`, inline: true },
 
 			{ name: "Type", value: modlog.type, inline: true },
 			{ name: "Duration", value: modlog.duration ? `${modlog.duration} ${modlog.type === "BAN" ? "days" : "hours"}` : "Permanent", inline: true },
@@ -253,20 +259,22 @@ export function updateModlogFields(embed: Discord.MessageEmbed, modlog: Punishme
 
 			{ name: "Reason", value: modlog.reason, inline: true },
 			{ name: modlog.ended ? "Ended" : "Ends", value: modlog.endTimestamp ? `<t:${Math.round(modlog.endTimestamp / 1000)}:R>` : "Never", inline: true },
+			{ name: modlog.revoked ? "Revoked by" : "Revoked", value: modlog.revoked ? `<@!${modlog.revokedBy}>` : "No", inline: true }
 		)
 	} else {
 		embed.setFields(
-			{ name: "Case", value: `${modlog.case}`, inline: true },
 			{ name: "Moderator", value: `<@!${modlog.moderator}>`, inline: true },
 			{ name: "Applied on", value: `<t:${Math.round(modlog.timestamp / 1000)}:F>`, inline: true },
+			{ name: expireTimestamp > Date.now() ? "Expires" : "Expired", value: `<t:${Math.round(expireTimestamp / 1000)}:R>`, inline: true },
 
 			{ name: "Type", value: modlog.type, inline: true },
 			{ name: "Points", value: `${modlog.points ?? "N/A"}`, inline: true },
-			{ name: "Reason", value: modlog.reason, inline: true },
+			{ name: "Reason", value: modlog.reason, inline: true }
 		)
 	}
-	if (modlogs)
-		embed.setFooter(
+	if (modlogs) embed
+		.setDescription(`Case #${modlog.case}`)
+		.setFooter(
 			`Modlog ${modlogs.indexOf(modlog) + 1}/${modlogs.length} | ${embed.footer!.text?.includes(" | ") ? embed.footer!.text.split(" | ")[1] : embed.footer!.text
 			}`,
 			embed.footer!.iconURL

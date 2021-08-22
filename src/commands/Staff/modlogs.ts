@@ -25,12 +25,13 @@ const command: Command = {
 				.setAuthor("Modlogs")
 				.setTitle(`Couldn't find any modlogs for ${userInput.tag}`)
 				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-			await interaction.reply({ embeds: [embed] })
+			await interaction.reply({ embeds: [embed], ephemeral: true })
 		} else if (modlogs.length === 1) {
 			const embed = new Discord.MessageEmbed()
 				.setColor(successColor as Discord.HexColorString)
 				.setAuthor("Log message", "", `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}`)
 				.setTitle(`Found 1 modlog for ${userInput.tag}`)
+				.setDescription(`Case #${modlogs[0].case}`)
 				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			updateModlogFields(embed, modlogs[0])
 			await interaction.reply({ embeds: [embed] })
@@ -39,7 +40,7 @@ const command: Command = {
 				.setColor(successColor as Discord.HexColorString)
 				.setAuthor("Log message", "", `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}`)
 				.setTitle(`Found ${modlogs.length} modlogs for ${userInput.tag}`)
-				.setDescription("Use the buttons below to cycle between modlogs. This menu will expire after 1 minute of inactivity.")
+				.setDescription(`Case #${modlogs[0].case}`)
 				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true })),
 				controlButtons = new Discord.MessageActionRow()
 					.addComponents(
