@@ -14,6 +14,7 @@ const command: Command = {
 		required: true
 	}],
 	roleWhitelist: ["768435276191891456"], //Discord Staff
+	channelWhitelist: ["624881429834366986", "551693960913879071"], //staff-bots admin-bots
 	async execute(interaction) {
 		const userInput = interaction.options.getUser("user", true),
 			modlogs: PunishmentLog[] = await db.collection("punishments").find({ id: userInput.id }, { sort: { timestamp: -1 } }).toArray()

@@ -13,6 +13,7 @@ const command: Command = {
 		required: true
 	}],
 	roleWhitelist: ["768435276191891456"], //Discord Staff
+	channelWhitelist: ["624881429834366986", "551693960913879071"], //staff-bots admin-bots
 	async execute(interaction) {
 		const caseNumber = interaction.options.getInteger("case", true),
 			modLog = await db.collection("punishments").findOne({ case: caseNumber }) as PunishmentLog | undefined
