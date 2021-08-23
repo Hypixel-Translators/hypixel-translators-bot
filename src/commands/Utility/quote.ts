@@ -170,60 +170,58 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
 	const quoteId = interaction.options.getInteger("index", true),
 		newQuote = interaction.options.getString("quote", true)
 	if (!quoteId) throw "noQuote"
-	await collection.findOneAndUpdate({ id: quoteId }, { $set: { quote: newQuote } }).then(async r => {
-		if (r.value) {
-			const author = await Promise.all(r.value.author.map(async a => await client.users.fetch(a))),
-				embed = new Discord.MessageEmbed()
-					.setColor(successColor as Discord.HexColorString)
-					.setAuthor("Quote")
-					.setTitle(`Successfully edited quote #${quoteId}`)
-					.addFields(
-						{ name: "Old quote", value: r.value.quote },
-						{ name: "New quote", value: newQuote },
-						{ name: "Author", value: author.join(" and ") },
-						{ name: "Link", value: r.value.url || "None" }
-					)
-					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-			await interaction.reply({ embeds: [embed] })
-		} else {
-			const embed = new Discord.MessageEmbed()
-				.setColor(errorColor as Discord.HexColorString)
+	const result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { quote: newQuote } })
+	if (result.value) {
+		const author = await Promise.all(result.value.author.map(async a => await client.users.fetch(a))),
+			embed = new Discord.MessageEmbed()
+				.setColor(successColor as Discord.HexColorString)
 				.setAuthor("Quote")
-				.setTitle("Couldn't find a quote with that ID!")
+				.setTitle(`Successfully edited quote #${quoteId}`)
+				.addFields(
+					{ name: "Old quote", value: result.value.quote },
+					{ name: "New quote", value: newQuote },
+					{ name: "Author", value: author.join(" and ") },
+					{ name: "Link", value: result.value.url || "None" }
+				)
 				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-			await interaction.reply({ embeds: [embed], ephemeral: true })
-		}
-	})
+		await interaction.reply({ embeds: [embed] })
+	} else {
+		const embed = new Discord.MessageEmbed()
+			.setColor(errorColor as Discord.HexColorString)
+			.setAuthor("Quote")
+			.setTitle("Couldn't find a quote with that ID!")
+			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+		await interaction.reply({ embeds: [embed], ephemeral: true })
+	}
 }
 
 async function deleteQuote(interaction: Discord.CommandInteraction, collection: Collection<Quote>) {
 
 	const quoteId = interaction.options.getInteger("index", true)
 	if (quoteId <= 0) throw "noQuote"
-	collection.findOneAndDelete({ id: quoteId }).then(async r => {
-		if (r.value) {
-			const author = await Promise.all(r.value.author.map(async a => await client.users.fetch(a)))
-			await collection.updateMany({ id: { $gt: quoteId } }, { $inc: { id: -1 } })
-			const embed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
-				.setAuthor("Quote")
-				.setTitle(`Successfully deleted quote #${quoteId}`)
-				.addFields(
-					{ name: "Author", value: author.join(" and ") },
-					{ name: "Quote", value: r.value.quote },
-					{ name: "Link", value: r.value.url || "None" }
-				)
-				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-			await interaction.reply({ embeds: [embed] })
-		} else {
-			const embed = new Discord.MessageEmbed()
-				.setColor(errorColor as Discord.HexColorString)
-				.setAuthor("Quote")
-				.setTitle("Couldn't find a quote with that ID!")
-				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-			await interaction.reply({ embeds: [embed], ephemeral: true })
-		}
-	})
+	const result = await collection.findOneAndDelete({ id: quoteId })
+	if (result.value) {
+		const author = await Promise.all(result.value.author.map(async a => await client.users.fetch(a)))
+		await collection.updateMany({ id: { $gt: quoteId } }, { $inc: { id: -1 } })
+		const embed = new Discord.MessageEmbed()
+			.setColor(successColor as Discord.HexColorString)
+			.setAuthor("Quote")
+			.setTitle(`Successfully deleted quote #${quoteId}`)
+			.addFields(
+				{ name: "Author", value: author.join(" and ") },
+				{ name: "Quote", value: result.value.quote },
+				{ name: "Link", value: result.value.url || "None" }
+			)
+			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+		await interaction.reply({ embeds: [embed] })
+	} else {
+		const embed = new Discord.MessageEmbed()
+			.setColor(errorColor as Discord.HexColorString)
+			.setAuthor("Quote")
+			.setTitle("Couldn't find a quote with that ID!")
+			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+		await interaction.reply({ embeds: [embed], ephemeral: true })
+	}
 }
 
 async function linkQuote(interaction: Discord.CommandInteraction, collection: Collection<Quote>) {
@@ -231,30 +229,29 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
 		urlSplit = interaction.options.getString("url", true).split("/");
 	(client.channels.cache.get(urlSplit[5] as Discord.Snowflake) as Discord.TextChannel | undefined)?.messages.fetch(urlSplit[6] as Discord.Snowflake)
 		.then(async msg => {
-			await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } }).then(async r => {
-				if (r.value) {
-					const author = await Promise.all(r.value.author.map(a => client.users.fetch(a))),
-						embed = new Discord.MessageEmbed()
-							.setColor(successColor as Discord.HexColorString)
-							.setAuthor("Quote")
-							.setTitle(`Successfully linked quote #${quoteId}`)
-							.addFields(
-								{ name: "Old URL", value: r.value.url || "None" },
-								{ name: "New URL", value: msg.url },
-								{ name: "Quote", value: r.value.quote },
-								{ name: "Author", value: author.join(" and ") }
-							)
-							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-					await interaction.reply({ embeds: [embed] })
-				} else {
-					const embed = new Discord.MessageEmbed()
-						.setColor(errorColor as Discord.HexColorString)
+			const result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } })
+			if (result.value) {
+				const author = await Promise.all(result.value.author.map(a => client.users.fetch(a))),
+					embed = new Discord.MessageEmbed()
+						.setColor(successColor as Discord.HexColorString)
 						.setAuthor("Quote")
-						.setTitle("Couldn't find a quote with that ID!")
+						.setTitle(`Successfully linked quote #${quoteId}`)
+						.addFields(
+							{ name: "Old URL", value: result.value.url || "None" },
+							{ name: "New URL", value: msg.url },
+							{ name: "Quote", value: result.value.quote },
+							{ name: "Author", value: author.join(" and ") }
+						)
 						.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-					await interaction.reply({ embeds: [embed], ephemeral: true })
-				}
-			})
+				await interaction.reply({ embeds: [embed] })
+			} else {
+				const embed = new Discord.MessageEmbed()
+					.setColor(errorColor as Discord.HexColorString)
+					.setAuthor("Quote")
+					.setTitle("Couldn't find a quote with that ID!")
+					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				await interaction.reply({ embeds: [embed], ephemeral: true })
+			}
 		})
 		.catch(async () => {
 			const embed = new Discord.MessageEmbed()

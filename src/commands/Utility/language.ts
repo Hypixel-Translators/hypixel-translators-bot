@@ -88,8 +88,8 @@ const command: Command = {
 			fs.access(`./strings/${language}/language.json`, fs.constants.F_OK, async (err) => {
 				if (!err) {
 					if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, language) || language === "en") {
-						collection.updateOne({ id: interaction.user.id }, { $set: { lang: language } }).then(async r => {
-							if (r.modifiedCount) {
+						const result = await collection.updateOne({ id: interaction.user.id }, { $set: { lang: language } })
+							if (result.modifiedCount) {
 								executedBy = getString("executedBy", { user: interaction.user.tag }, "global", language)
 								const embed = new Discord.MessageEmbed()
 									.setColor(successColor as Discord.HexColorString)
@@ -107,7 +107,6 @@ const command: Command = {
 									.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 								return await interaction.reply({ embeds: [embed] })
 							}
-						})
 					} else {
 						const embed = new Discord.MessageEmbed()
 							.setColor(errorColor as Discord.HexColorString)

@@ -57,12 +57,10 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 				.then(async () => await verifyLogs.send(`${member} didn't send a valid profile URL. Let’s hope they work their way around with the message I just sent them.`))
 				.catch(async () => {
 					errorEmbed.setFooter("This message will be deleted in a minute")
-					await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
-						.then(msg => {
-							setTimeout(async () => {
-								if (!msg.deleted) await msg.delete()
-							}, 60_000)
-						})
+					const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
+					setTimeout(async () => {
+						if (!msg.deleted) await msg.delete()
+					}, 60_000)
 					await verifyLogs.send(`${member} didn't send a valid profile URL. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
 				})
 			else await verifyLogs.send(`The profile stored/provided for ${member} was invalid. Please fix this or ask them to fix this.`)
@@ -98,12 +96,10 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 				.then(async () => await verifyLogs.send(`${member} sent the wrong profile link (<${url}>). Let’s hope they work their way around with the message I just sent them.`))
 				.catch(async () => {
 					errorEmbed.setFooter("This message will be deleted in a minute")
-					await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
-						.then(msg => {
-							setTimeout(async () => {
-								if (!msg.deleted) await msg.delete()
-							}, 60_000)
-						})
+					const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
+					setTimeout(async () => {
+						if (!msg.deleted) await msg.delete()
+					}, 60_000)
 					await verifyLogs.send(`${member} sent the wrong profile link (<${url}>). Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
 				})
 			else if (sendLogs) await verifyLogs.send(`The profile stored/provided for ${member} was invalid (<${url}>). Please fix this or ask them to fix this.`)
@@ -122,12 +118,10 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 				.then(async () => await verifyLogs.send(`${member}'s profile (<${url}>) was private, I let them know about that.`))
 				.catch(async () => {
 					errorEmbed.setFooter("This message will be deleted in a minute")
-					await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
-						.then(msg => {
-							setTimeout(async () => {
-								if (!msg.deleted) await msg.delete()
-							}, 60_000)
-						})
+					const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
+					setTimeout(async () => {
+						if (!msg.deleted) await msg.delete()
+					}, 60_000)
 					await verifyLogs.send(`${member}'s profile was private (<${url}>), I let them know about that in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
 				})
 			else await verifyLogs.send(`${member}'s profile is private (<${url}>). Please ask them to change this.`)

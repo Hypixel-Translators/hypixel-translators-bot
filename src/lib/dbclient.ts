@@ -8,8 +8,8 @@ export const mongoClient = new MongoClient(url)
 export let db: Db
 
 async function init() {
-	return new Promise<MongoClient>((resolve, reject) => {
-		mongoClient.connect()
+	return new Promise<MongoClient>(async (resolve, reject) => {
+		await mongoClient.connect()
 			.then(mongoClient => {
 				db = mongoClient.db(process.env.DB_NAME)
 				console.log("Connected to MongoDB!")

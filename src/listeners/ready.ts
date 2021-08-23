@@ -42,8 +42,7 @@ client.once("ready", async () => {
 		})
 	}
 	//Set guild commands - these don't need checks since they update instantly
-	guild.commands.set(constructDiscordCommands())
-		.then(commands => commands.forEach(async command => await setPermissions(command)))
+	(await guild.commands.set(constructDiscordCommands())).forEach(async command => await setPermissions(command))
 
 	//Get server boosters and staff for the status
 	const boostersStaff: string[] = []

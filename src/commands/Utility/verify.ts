@@ -30,11 +30,8 @@ const command: Command = {
 			url = profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0]
 		await interaction.deferReply({ ephemeral: true })
 		if (!member.roles.cache.has("569194996964786178") && interaction.channelId == "569178590697095168" && !url) { //Verified and #verify
-			(interaction.channel as Discord.TextChannel).messages.fetch()
-				.then(async messages => {
-					const fiMessages = messages.filter(msgs => msgs.author.id === interaction.user.id)
-					await (interaction.channel as Discord.TextChannel).bulkDelete(fiMessages)
-				})
+			const fiMessages = (await (interaction.channel as Discord.TextChannel).messages.fetch()).filter(msgs => msgs.author.id === interaction.user.id)
+			await (interaction.channel as Discord.TextChannel).bulkDelete(fiMessages)
 			await member.roles.add("569194996964786178", "Manually verified through the command")
 			await member.roles.remove("756199836470214848", "Manually verified through the command") //Add Verified and remove Alerted
 			await db.collection("users").updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
@@ -76,12 +73,10 @@ const command: Command = {
 							.setDescription(`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us here. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`)
 							.setFooter("")
 						await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL ${url ? `(<${url}>) ` : ""}or there was no profile stored for them but they had DMs off so I couldn't tell them.`)
-						await verify.send({ content: `${interaction.user} you had DMs disabled, so here's our message:`, embeds: [embed] })
-							.then(msg => {
-								setTimeout(async () => {
-									if (!msg.deleted) await msg.delete()
-								}, 30_000)
-							})
+						const msg = await verify.send({ content: `${interaction.user} you had DMs disabled, so here's our message:`, embeds: [embed] })
+						setTimeout(async () => {
+							if (!msg.deleted) await msg.delete()
+						}, 30_000)
 						await interaction.editReply({ content: `Your request has been processed, check ${verify} for more info!` })
 					})
 				client.cooldowns.get(this.name)!.delete(interaction.user.id)

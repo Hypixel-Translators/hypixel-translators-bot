@@ -44,29 +44,27 @@ const command: Command = {
 				}
 			} else {
 				if (/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(profile)) {
-					await collection.findOneAndUpdate({ id: user.id }, { $set: { profile: profile } })
-						.then(async r => {
-							if (r.value!.profile !== profile) {
-								const embed = new Discord.MessageEmbed()
-									.setColor(successColor as Discord.HexColorString)
-									.setAuthor("User Profile")
-									.setTitle(`Successfully updated ${user.tag}'s Crowdin profile!`)
-									.addFields(
-										{ name: "Old profile", value: r.value!.profile || "None" },
-										{ name: "New profile", value: profile }
-									)
-									.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-								return await interaction.reply({ embeds: [embed], ephemeral: true })
-							} else {
-								const embed = new Discord.MessageEmbed()
-									.setColor(errorColor as Discord.HexColorString)
-									.setAuthor("User Profile")
-									.setTitle(`Couldn't update ${user.tag}'s Crowdin profile!`)
-									.setDescription("Their current profile is the same as the one you tried to add.")
-									.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-								return await interaction.reply({ embeds: [embed], ephemeral: true })
-							}
-						})
+					const result = await collection.findOneAndUpdate({ id: user.id }, { $set: { profile: profile } })
+					if (result.value!.profile !== profile) {
+						const embed = new Discord.MessageEmbed()
+							.setColor(successColor as Discord.HexColorString)
+							.setAuthor("User Profile")
+							.setTitle(`Successfully updated ${user.tag}'s Crowdin profile!`)
+							.addFields(
+								{ name: "Old profile", value: result.value!.profile || "None" },
+								{ name: "New profile", value: profile }
+							)
+							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						return await interaction.reply({ embeds: [embed], ephemeral: true })
+					} else {
+						const embed = new Discord.MessageEmbed()
+							.setColor(errorColor as Discord.HexColorString)
+							.setAuthor("User Profile")
+							.setTitle(`Couldn't update ${user.tag}'s Crowdin profile!`)
+							.setDescription("Their current profile is the same as the one you tried to add.")
+							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						return await interaction.reply({ embeds: [embed], ephemeral: true })
+					}
 				} else throw "wrongLink"
 			}
 		} else {

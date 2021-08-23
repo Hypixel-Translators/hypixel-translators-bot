@@ -110,10 +110,8 @@ client.on("messageCreate", async message => {
 		await message.react("798339571531382874") //icon_working
 		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
 		if (!message.deleted) await message.delete()
-		message.channel.messages.fetch().then(async messages => {
-			const fiMessages = messages.filter(msgs => msgs.author.id === message.author.id)
-			await (message.channel as Discord.TextChannel).bulkDelete(fiMessages)
-		})
+		const fiMessages = (await message.channel.messages.fetch()).filter(msgs => msgs.author.id === message.author.id)
+		await (message.channel as Discord.TextChannel).bulkDelete(fiMessages)
 	}
 
 	//Staff messaging system

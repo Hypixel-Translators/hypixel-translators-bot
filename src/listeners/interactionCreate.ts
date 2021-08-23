@@ -44,25 +44,13 @@ client.on("interactionCreate", async interaction => {
 				roleId = "801052623745974272" //Giveaway pings
 			} else return
 			if (member.roles.cache.has(roleId)) {
-				member.roles.remove(roleId, "Clicked the button in server-info")
-					.then(async () => {
-						await interaction.reply({ content: getString("roles.successTake", { role: `<@&${roleId}>` }), ephemeral: true })
-						console.log(`Took the ${interaction.guild!.roles.cache.get(roleId)!.name} role from ${interaction.user.tag}`)
-					})
-					.catch(async err => {
-						await interaction.reply({ content: getString("roles.errorTake", { role: `<@&${roleId}>` }), ephemeral: true })
-						console.error(`An error occured while trying to take the ${interaction.guild!.roles.cache.get(roleId)!.name} role from ${interaction.user.tag}. Here's the error:\n`, err)
-					})
+				await member.roles.remove(roleId, "Clicked the button in server-info")
+				await interaction.reply({ content: getString("roles.successTake", { role: `<@&${roleId}>` }), ephemeral: true })
+				console.log(`Took the ${interaction.guild!.roles.cache.get(roleId)!.name} role from ${interaction.user.tag}`)
 			} else {
-				member.roles.add(roleId, "Clicked the button in server-info")
-					.then(async () => {
-						await interaction.reply({ content: getString("roles.successGive", { role: `<@&${roleId}>` }), ephemeral: true })
-						console.log(`Gave the ${interaction.guild!.roles.cache.get(roleId)!.name} role to ${interaction.user.tag}`)
-					})
-					.catch(async err => {
-						await interaction.reply({ content: getString("roles.errorGive", { role: `<@&${roleId}>` }), ephemeral: true })
-						console.error(`An error occured while trying to give the ${interaction.guild!.roles.cache.get(roleId)!.name} role to ${interaction.user.tag}. Here's the error:\n`, err)
-					})
+				await member.roles.add(roleId, "Clicked the button in server-info")
+				await interaction.reply({ content: getString("roles.successGive", { role: `<@&${roleId}>` }), ephemeral: true })
+				console.log(`Gave the ${interaction.guild!.roles.cache.get(roleId)!.name} role to ${interaction.user.tag}`)
 			}
 		}
 	}

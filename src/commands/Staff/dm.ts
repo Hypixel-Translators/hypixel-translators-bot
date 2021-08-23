@@ -28,7 +28,7 @@ const command: Command = {
 				.setDescription(message)
 				.setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang))
 		await interaction.deferReply()
-		recipient.send({ embeds: [dm] })
+		await recipient.send({ embeds: [dm] })
 			.then(async () => {
 				const embed = new Discord.MessageEmbed()
 					.setColor(successColor as Discord.HexColorString)
