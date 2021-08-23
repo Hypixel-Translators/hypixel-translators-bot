@@ -430,12 +430,11 @@ async function veteranMedals(member: Discord.GuildMember, project: CrowdinProjec
 		}
 	)
 	if (role.name !== `${medals[years]} ${years == 1 ? `${years} Year` : `${years} Years`} Veteran`) role.setName(`${medals[years]} ${years == 1 ? `${years} Year` : `${years} Years`} Veteran`, "The name was wrong for some reason")
-	member.roles.cache.filter(r => r.name.includes(`${years - 1 == 1 ? `${years - 1} Year` : `${years - 1} Years`} Veteran`))
-		.forEach(async oldRole => {
-			if (oldRole.id !== role!.id) await member.roles.remove(role!, "Giving a new Veteran role") //why tf does this throw an error without the !
-		})
-
-	member.roles.add(role, `Been in the Hypixel project for ${years == 1 ? `${years} year` : `${years} years`}`)
+	if (!member.roles.cache.has(role.id)) {
+		member.roles.cache.filter(r => r.name.endsWith(" Veteran"))
+			.forEach(async oldRole => await member.roles.remove(oldRole.id, "Giving a new Veteran role"))
+		await member.roles.add(role.id, `Been on the Hypixel project for ${years == 1 ? `${years} year` : `${years} years`}`)
+	}
 	return role
 }
 
