@@ -134,6 +134,7 @@ const command: Command = {
 			if (!checkPermissions(interaction.member as Discord.GuildMember, punishment)) throw "You don't have permission to give this punishment"
 			if (user.bot) throw "You cannot punish bots!"
 			if (member?.roles.cache.has("768435276191891456")) throw "You cannot punish this user!" //Discord Staff
+			if (points! < (punishment.activePunishmentPoints ?? 0)) throw "You cannot punish this user with less points than they have!"
 
 			//Apply the punishment
 			if (punishment.type === "VERBAL") {
@@ -358,7 +359,7 @@ const command: Command = {
 					.setTitle("Are you sure you want to ban this member?")
 					.setDescription(
 						`Confirming this will ban ${user} ${punishment.duration ? `for ${punishment.duration} days` : "permanently"
-						} with the following reason:\n\n${reason}${punishment.hasActivePunishment ? "\n\n⚠ This user currently has an active punishment! Think twice before confirming this." : ""
+						} with the following reason:\n\n${reason}${punishment.activePunishmentPoints ? "\n\n⚠ This user currently has an active punishment! Think twice before confirming this." : ""
 						}`
 					)
 					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
@@ -399,7 +400,7 @@ const command: Command = {
 							.setTimestamp(),
 						msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
 
-					if (punishment.hasActivePunishment)
+					if (punishment.activePunishmentPoints)
 						await collection.updateMany(
 							{ id: user.id, ended: false },
 							{ $set: { ended: true, revoked: true, revokedBy: interaction.user.id, endTimestamp: Date.now() } }
@@ -665,7 +666,7 @@ const command: Command = {
 
 async function calculatePunishment(user: Discord.User, points: PunishmentPoints): Promise<Punishment> {
 	const activePunishments = await getActivePunishments(user),
-		hasActivePunishment = activePunishments.some(p => p.ended === false),
+		activePunishmentPoints = activePunishments.find(p => p.ended === false)?.points || null,
 		guidelines = await db.collection("config").findOne({ name: "punishmentGuidelines" }) as PunishmentGuidelines
 
 	let activePoints = 0
@@ -675,8 +676,8 @@ async function calculatePunishment(user: Discord.User, points: PunishmentPoints)
 	if (activePoints > guidelines.points.tempBan) activePoints = guidelines.points.tempBan
 	else if (activePoints < 0) activePoints = 0
 
-	if (activePoints + points === guidelines.points.verbalWarn) return { type: "VERBAL", hasActivePunishment }
-	else if (activePoints + points < guidelines.points.mute) return { type: "WARN", hasActivePunishment }
+	if (activePoints + points === guidelines.points.verbalWarn) return { type: "VERBAL", activePunishmentPoints }
+	else if (activePoints + points < guidelines.points.mute) return { type: "WARN", activePunishmentPoints }
 	else if (activePoints + points === guidelines.points.mute) {
 		let duration: number = 0
 		switch (points) {
@@ -693,8 +694,8 @@ async function calculatePunishment(user: Discord.User, points: PunishmentPoints)
 			default:
 				throw "You gave me weird points I don't know what to do please help"
 		}
-		return { type: "MUTE", duration, hasActivePunishment }
-	} else if (points === guidelines.points.permBan || activePoints === guidelines.points.tempBan) return { type: "BAN", duration: 0, hasActivePunishment }
+		return { type: "MUTE", duration, activePunishmentPoints }
+	} else if (points === guidelines.points.permBan || activePoints === guidelines.points.tempBan) return { type: "BAN", duration: 0, activePunishmentPoints }
 	else if (activePoints + points >= guidelines.points.tempBan) {
 		let duration: number = 0
 		switch (points) {
@@ -714,7 +715,7 @@ async function calculatePunishment(user: Discord.User, points: PunishmentPoints)
 			default:
 				throw "You gave me weird points I don't know what to do please help"
 		}
-		return { type: "BAN", duration, hasActivePunishment }
+		return { type: "BAN", duration, activePunishmentPoints }
 	} else {
 		console.log(activePoints, points)
 		throw "We somehow didn't plan for this scenario, please check the logs"
@@ -734,7 +735,7 @@ export default command
 interface Punishment {
 	type: "VERBAL" | "WARN" | "MUTE" | "BAN"
 	duration?: number
-	hasActivePunishment: boolean
+	activePunishmentPoints: PunishmentPoints | null
 }
 
 interface PunishmentGuidelines {
