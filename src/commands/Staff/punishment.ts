@@ -134,7 +134,7 @@ const command: Command = {
 			if (!checkPermissions(interaction.member as Discord.GuildMember, punishment)) throw "You don't have permission to give this punishment"
 			if (user.bot) throw "You cannot punish bots!"
 			if (member?.roles.cache.has("768435276191891456")) throw "You cannot punish this user!" //Discord Staff
-			if (points! < (punishment.activePunishmentPoints ?? 0)) throw "You cannot punish this user with less points than they have!"
+			if (points! <= (punishment.activePunishmentPoints ?? 0)) throw `This user currently has an active punishment with ${punishment.activePunishmentPoints} points, so you cannot give them a less severe punishment!`
 
 			//Apply the punishment
 			if (punishment.type === "VERBAL") {
