@@ -666,7 +666,7 @@ const command: Command = {
 
 async function calculatePunishment(user: Discord.User, points: PunishmentPoints): Promise<Punishment> {
 	const activePunishments = await getActivePunishments(user),
-		activePunishmentPoints = activePunishments.find(p => p.ended === false)?.points || null,
+		activePunishmentPoints = activePunishments.find(p => p.ended === false)?.points ?? null,
 		guidelines = await db.collection("config").findOne({ name: "punishmentGuidelines" }) as PunishmentGuidelines
 
 	let activePoints = 0
