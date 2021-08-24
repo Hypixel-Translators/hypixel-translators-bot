@@ -32,9 +32,7 @@
 	"roles": {
 		"noLevel": "Sinun tulee olla vähintään tasolla %%level%% saadaksesi tämän roolin! Voit tarkistaa nykyisen tasosi komennolla %%command%% kanavalla %%channel%%.",
 		"successGive": "Sinulle annettiin onnistuneesti rooli %%role%%!",
-		"errorGive": "Tapahtui virhe annettaessa sinulle roolia %%role%%. Ole hyvä ja lähetä minulle viesti, jotta ylläpito saa tietää tästä ongelmasta.",
-		"successTake": "Sinulta otettiin onnistuneesti rooli %%role%%!",
-		"errorTake": "Tapahtui virhe otettaessa sinulta roolia %%role%%. Ole hyvä ja lähetä minulle viesti, jotta ylläpito saa tietää tästä ongelmasta."
+		"successTake": "Sinulta otettiin onnistuneesti rooli %%role%%!"
 	},
 	"cooldown": "Odotusaika",
 	"secondLeft": "Ole hyvä ja odota vielä sekunti ennen kuin voit käyttää komentoa `%%command%%` uudelleen.",
