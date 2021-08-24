@@ -32,9 +32,7 @@
 	"roles": {
 		"noLevel": "¡Debes ser al menos nivel %%level%% de chat para recibir este rol! Puedes verificar tu nivel de chat actual usando %%command%% en %%channel%%.",
 		"successGive": "¡Se te dio con éxito el rol de %%role%%!",
-		"errorGive": "Hubo un problema al intentar darte el rol de %%role%%. Por favor, envíame un mensaje para informar al staff sobre esto.",
-		"successTake": "¡Se te quitó con éxito el rol %%role%%!",
-		"errorTake": "Hubo un problema al intentar quitarte el rol de %%role%%. Por favor, envíame un mensaje para informar al staff sobre esto."
+		"successTake": "¡Se te quitó con éxito el rol %%role%%!"
 	},
 	"cooldown": "Enfriamiento",
 	"secondLeft": "Por favor, espera otro segundo para volver a utilizar `/%%command%%`.",
