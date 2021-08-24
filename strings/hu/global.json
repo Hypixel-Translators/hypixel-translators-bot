@@ -32,9 +32,7 @@
 	"roles": {
 		"noLevel": "Legalább %%level%% szintűnek kell lenned, hogy megkaphasd ezt a rangot! A jelenlegi szintedet %%channel%% ben nézheted meg a %%command%% paranccsal.",
 		"successGive": "Sikeresen megkaptad a %%role%% rangot!",
-		"errorGive": "Hiba történt a %%role%% rang adása közben. Kérlek küldj nekem egy üzenetet hogy ezt tudassad velünk.",
-		"successTake": "%%role%% rang sikeresen eltávolítva rólad!",
-		"errorTake": "Hiba történt a %%role%% rang elvétele közben. Kérlek küldj nekem egy üzenetet hogy ezt tudassad velünk."
+		"successTake": "%%role%% rang sikeresen eltávolítva rólad!"
 	},
 	"cooldown": "Időköz",
 	"secondLeft": "Kérlek várj egy másodpercet hogy újra használd a `%%command%%` parancsot.",

@@ -32,9 +32,7 @@
 	"roles": {
 		"noLevel": "Anda setidaknya harus level chat %%level%% untuk menerima role ini! Anda dapat mengecek level chat anda dengan menjalankan perintah %%command%% di %%channel%%.",
 		"successGive": "Berhasil memberikan anda role %%role%%!",
-		"errorGive": "Terdapat suatu masalah saat sedang memberikan anda role %%role%%. Mohon kirim pesan ke saya untuk memberitahukan staf tentang masalah ini.",
-		"successTake": "Berhasil mengambil role %%role%% dari anda!",
-		"errorTake": "Terdapat suatu masalah saat sedang mengambil role %%role%% dari anda. Mohon kirim pesan ke saya untuk memberitahukan staf tentang masalah ini."
+		"successTake": "Berhasil mengambil role %%role%% dari anda!"
 	},
 	"cooldown": "Cooldown",
 	"secondLeft": "Mohon tunggu sedetik lagi untuk menjalankan `%%command%%` lagi.",

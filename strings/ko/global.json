@@ -32,9 +32,7 @@
 	"roles": {
 		"noLevel": "이 역할을 지급받기 위해서 Chat Level %%level%% 이 필요합니다. 현재 Chat Level을 확인하기 위해서는 %%command%%를 %%channel%%에서 입력해보세요.",
 		"successGive": "%%role%% 역할이 지급되었습니다!",
-		"errorGive": "%%role%% 역할을 지급하는 중, 문제가 생겼습니다. 이 메시지를 관리자에게 전송해 알려주세요.",
-		"successTake": "%%role%% 역할을 성공적으로 제거했습니다!",
-		"errorTake": "%%role%% 역할을 제거하는 중, 문제가 생겼습니다. 이 메시지를 관리자에게 전송해 알려주세요."
+		"successTake": "%%role%% 역할을 성공적으로 제거했습니다!"
 	},
 	"cooldown": "쿨다운",
 	"secondLeft": "`%%command%%`를 사용하기 위해서 1초 더 기다려주세요.",

@@ -32,9 +32,7 @@
 	"roles": {
 		"noLevel": "Precisas de ter, no mínimo, o nível %%level%% no chat para receber este cargo! Usa o comando %%command%% para veres o teu nível no canal %%channel%%.",
 		"successGive": "Recebeste o cargo %%role%%!",
-		"errorGive": "Ocorreu um erro ao tentar dar-te o cargo %%role%%. Envia-me uma mensagem para alertar a staff sobre isto.",
-		"successTake": "Ficaste sem o cargo %%role%%!",
-		"errorTake": "Ocorreu um erro ao tentar tirar-te o cargo %%role%%. Envia-me uma mensagem para alertar a staff sobre isto."
+		"successTake": "Ficaste sem o cargo %%role%%!"
 	},
 	"cooldown": "Tempo de espera",
 	"secondLeft": "Espera mais 1 segundo para usares `%%command%%` outra vez.",
