@@ -32,9 +32,7 @@
 	"roles": {
 		"noLevel": "Je moet ten minste chatniveau %%level%% zijn om die rol te ontvangen! Voer %%command%% uit in %%channel%% voor je huidige chatniveau.",
 		"successGive": "Rol %%role%% gegeven.",
-		"errorGive": "Er is iets misgegaan bij het geven van de rol %%role%%. Stuur me een bericht om staff op de hoogte te brengen.",
-		"successTake": "Rol %%role%% ontnomen.",
-		"errorTake": "Er is iets misgegaan bij het ontnemen van de rol %%role%%. Stuur me een bericht om staff op de hoogte te brengen."
+		"successTake": "Rol %%role%% ontnomen."
 	},
 	"cooldown": "Afkoeltijd",
 	"secondLeft": "Wacht nog een seconde voor je `%%command%%` weer gebruikt.",
