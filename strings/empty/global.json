@@ -32,9 +32,7 @@
 	"roles": {
 		"noLevel": "crwdns1455:0%%level%%crwdnd1455:0%%command%%crwdnd1455:0%%channel%%crwdne1455:0",
 		"successGive": "crwdns1457:0%%role%%crwdne1457:0",
-		"errorGive": "crwdns1459:0%%role%%crwdne1459:0",
-		"successTake": "crwdns1461:0%%role%%crwdne1461:0",
-		"errorTake": "crwdns1463:0%%role%%crwdne1463:0"
+		"successTake": "crwdns1461:0%%role%%crwdne1461:0"
 	},
 	"cooldown": "crwdns504:0crwdne504:0",
 	"secondLeft": "crwdns506:0%%command%%crwdne506:0",
