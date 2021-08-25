@@ -2,6 +2,6 @@
 	"errorNoPing": "Nie masz roli korektora tego języka, ",
 	"errorNoPingPr": "więc nie możesz jej oznaczyć.",
 	"errorNoPingTr": "więc nie możesz oznaczyć roli tłumacza.",
-	"errorNoPingAll": "więc nie możesz oznaczyć całego języka.",
-	"errorNoPingDisclaimer": " Jeżeli musisz, skontaktuj się z właścicielem serwera lub administratorem."
+	"errorNoPingAll": "więc nie możesz oznaczyć wszystkich ról tegoż języka.",
+	"errorNoPingDisclaimer": "Jeśli jest to konieczne, skontaktuj się z właścicielem serwera lub administratorem."
 }
