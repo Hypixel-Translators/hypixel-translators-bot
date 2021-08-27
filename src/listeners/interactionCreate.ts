@@ -243,7 +243,7 @@ client.on("interactionCreate", async interaction => {
 		const embed = new Discord.MessageEmbed()
 			.setColor(errorColor as Discord.HexColorString)
 			.setAuthor(getString("error", "global"))
-			.setTitle(error.interaction?.substring(0, 255) || error.toString().substring(0, 255))
+			.setTitle(error.message?.substring(0, 255) || error.toString().substring(0, 255))
 			.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 
 		//Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first
