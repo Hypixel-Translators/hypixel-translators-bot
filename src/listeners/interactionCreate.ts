@@ -127,7 +127,6 @@ client.on("interactionCreate", async interaction => {
 
 	/**
 	 * Gets a string or an object of strings for the correct language and replaces all variables if any
-	 *
 	 * @param {string} path Path to the string. Use dots to access strings inside objects
 	 * @param {Object} [variables] Object containing all the variables and their corresponding text to be replaced in the string.
 	 * @param {string} [cmd] The name of the file to get strings from. Defaults to the command being ran

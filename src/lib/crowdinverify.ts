@@ -31,10 +31,10 @@ const projectIDs: {
 
 /**
  * Verifies a guild member with their crowdin profile and gives them the appropriate project and veteran roles, if applicable.
- * @param member The guild member to verify
- * @param url The member's Crowdin profile URL
- * @param sendDms Whether to send DMs to the member or not. Also bypasses the Discord tag check
- * @param sendLogs Whether to send logs to the log channel or not
+ * @param {GuildMember} member The guild member to verify
+ * @param {string} url The member's Crowdin profile URL
+ * @param {boolean} sendDms Whether to send DMs to the member or not. Also bypasses the Discord tag check
+ * @param {boolean} sendLogs Whether to send logs to the log channel or not
  */
 async function crowdinVerify(member: Discord.GuildMember, url?: string | null, sendDms = false, sendLogs = true) {
 	const verifyLogs = member.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel,
@@ -285,7 +285,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 	if (sendDms) {
 		const highestRole = Object.assign({}, endingMessageProjects).Hypixel?.filter(r => r.color).sort((a, b) => b.position - a.position).shift()
 		if (highestRole) {
-			const lang = await langDb.findOne({ name: highestRole.name.replace(" Translator", "").replace(" Proofreader", "") }) as LangDbEntry | undefined
+			const lang = await langDb.findOne({ name: highestRole.name.replace(" Translator", "").replace(" Proofreader", "") })
 			if (lang) await usersColl.updateOne({ id: member.id, lang: { $eq: "en" } }, { $set: { lang: lang.code } })
 		}
 	}
@@ -511,7 +511,7 @@ async function getBrowser() {
 
 /**
  * Close connection, and close browser if there are no more connections.
- * @param uuid The connection ID
+ * @param {string} uuid The connection ID
  */
 async function closeConnection(uuid: string) {
 	//* Check if connection exists. If it does remove connection from connection list.

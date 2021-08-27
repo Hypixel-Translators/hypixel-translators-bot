@@ -204,6 +204,7 @@ async function getNameHistory(uuid: string): Promise<NameHistory[]> {
 	return json.reverse()
 }
 
+/** @see https://wiki.vg/Mojang_API#UUID_to_Name_History */
 interface NameHistory {
 	name: string
 	changedToAt?: number
