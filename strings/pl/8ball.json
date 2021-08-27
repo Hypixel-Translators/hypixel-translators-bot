@@ -6,25 +6,25 @@
 			"To pewne.",
 			"Zdecydowanie tak.",
 			"Bez wątpienia.",
-			"Tak - definitywnie.",
+			"Niewątpliwie.",
 			"Możesz na to liczyć.",
 			"Moim zdaniem tak.",
 			"Najprawdopodobniej.",
 			"Raczej tak.",
 			"Tak",
-			"Wszystko wskazuje, że tak."
+			"Wszystko wskazuje na to, że tak."
 		],
 		"inconclusive": [
 			"Twoje pytanie jest niejasne, spróbuj ponownie.",
-			"Zapytaj później.",
-			"Lepiej ci teraz nie mówić.",
+			"Zapytaj ponownie później.",
+			"Lepiej Ci teraz nie mówić.",
 			"Nie mogę teraz tego przewidzieć.",
-			"Skup się i zapytaj ponownie."
+			"Skup się i spytaj jeszcze raz."
 		],
 		"negative": [
 			"Nie licz na to.",
 			"Moja odpowiedź brzmi nie.",
-			"Moje źródła mówią nie.",
+			"Według moich źródeł — nie.",
 			"Nie wygląda to dobrze.",
 			"Wątpię."
 		]
