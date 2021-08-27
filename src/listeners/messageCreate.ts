@@ -116,10 +116,10 @@ client.on("messageCreate", async message => {
 
 	//Staff messaging system
 	const member = await message.client.guilds.cache.get("549503328472530974")!.members.cache.get(message.author.id)
-	if (message.author !== client.user && message.channel.type === "DM" && !member!.roles.cache.has("645208834633367562")) {
-		// Muted
-		const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
-		const hourCooldown = 48, // Hours to wait before asking for confirmation
+	if (message.author !== client.user && message.channel.type === "DM" && !member!.roles.cache.has("645208834633367562")) { // Muted
+		if (!message.content && message.stickers.size >= 0 && message.attachments.size === 0) return //we don't need stickers being sent to us
+		const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel,
+			hourCooldown = 48, // Hours to wait before asking for confirmation
 			confirmTime = 60, // 1 min
 			controlButtons = new Discord.MessageActionRow()
 				.addComponents(
