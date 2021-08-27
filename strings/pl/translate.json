@@ -6,14 +6,14 @@
 	"askTranslators": "Nie krępuj się spytać o cokolwiek na temat projektu na kanale %%botTranslators%%. Nie zapomnij wysłać odnośnika do tłumaczenia, do którego się odnosisz!",
 	"newCrowdin": "Jesteś nowy na Crowdinie?",
 	"checkGuide": "Zobacz nasz przewodnik z masą przydatnych narzędzi i wskazówek do Crowdin, aby zacząć! Możesz znaleźć go na kanale %%gettingStarted%%.",
-	"newTranslator": "Czy chciałbyś przetłumaczyć naszego bota na Twój język?",
+	"newTranslator": "Czy chciałbyś wziąć udział w tłumaczeniu naszego bota na swój język ojczysty?",
 	"join": "Bardzo chcielibyśmy mieć Ciebie w naszym projekcie! Tutaj znajdziesz, jak możesz do nas dołączyć:",
 	"openProject": "Po pierwsze, otwórz projekt na stronie Crowdin",
 	"howOpen": "Może to być zrobione poprzez ten [odnośnik](%%link%%).",
-	"clickLanguage": "Teraz, kliknij na język który chciałbyś przetłumaczyć",
-	"requestJoin": "Aby dołączyć do tego języka, kliknij \"Join\" i napisz krótką wiadomość dlaczego chciałbyś dołączyć do projektu.",
+	"clickLanguage": "Następnie kliknij na język, na który chciałbyś tłumaczyć",
+	"requestJoin": "Aby dołączyć do tego języka, naciśnij przycisk „Join” i napisz krótko, dlaczego chciałbyś dołączyć do projektu.",
 	"lastThing": "Jeszcze jedna sprawa",
-	"requestInfo": "Kiedy zatwierdzasz swoją prośbę, proszę zawrzeć swój tag (%%tag%%) lub swoje ID (%%id%%).\n**Jeżeli nie napiszesz przynajmniej jednej z tych rzeczy, będziesz odrzucony/a!**",
+	"requestInfo": "Pamiętaj, by zawrzeć w podaniu swój znacznik liczbowy (%%tag%%) lub swoje ID (%%id%%) na Discordzie.\n**Jeżeli nie podasz przynajmniej jednej z tych rzeczy, zostaniesz odrzucony/a!**",
 	"noLanguage": "Nie możesz znaleźć swojego języka?",
 	"langRequest": "Możliwe, że jeszcze nie obsługujemy twojego języka. W takim wypadku skontaktuj się z członkiem administracji."
 }
