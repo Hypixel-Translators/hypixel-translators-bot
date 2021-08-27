@@ -262,7 +262,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 	}
 
 	for (const [key, value] of Object.entries(highestLangRoles)) {
-		const lang = (await langDb.findOne({ id: key }) as LangDbEntry).name
+		const lang = (await langDb.findOne({ id: key }))!.name
 		value.projects.forEach(p => {
 			const role = member.guild!.roles.cache.find(r => r.name === `${lang} ${value.type}`)!
 			endingMessageProjects[p].push(role)
@@ -377,7 +377,7 @@ async function updateLanguageRoles(
 
 	const langDb = db.collection<LangDbEntry>("langdb")
 	for (const [key, value] of Object.entries(highestLangRoles)) {
-		activeRoles.push(`${(await langDb.findOne({ id: key }) as LangDbEntry).name} ${value.type}`)
+		activeRoles.push(`${(await langDb.findOne({ id: key }))!.name} ${value.type}`)
 	}
 
 	member.roles.cache.forEach(role => {

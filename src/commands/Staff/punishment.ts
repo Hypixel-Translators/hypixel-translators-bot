@@ -539,7 +539,7 @@ const command: Command = {
 			await interaction.reply({ embeds: [embed] })
 		} else if (subCommand === "revoke") {
 			if (!(interaction.member as Discord.GuildMember).permissions.has("VIEW_AUDIT_LOG")) throw "noAccess"
-			const activePunishments = await collection.find({ id: user.id, ended: false }).toArray() as PunishmentLog[],
+			const activePunishments = await collection.find({ id: user.id, ended: false }).toArray(),
 				senddm = interaction.options.getBoolean("senddm", true)
 			if (activePunishments.length > 1)
 				return await interaction.reply({

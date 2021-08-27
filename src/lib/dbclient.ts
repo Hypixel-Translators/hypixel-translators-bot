@@ -41,15 +41,15 @@ export interface DbUser {
 export class HTBClient extends Discord.Client<true> {
 	commands: Discord.Collection<string, Command> = new Discord.Collection()
 	cooldowns: Discord.Collection<string, Discord.Collection<Discord.Snowflake, number>> = new Discord.Collection()
-	async getUser(): Promise<undefined>
+	async getUser(): Promise<null>
 	async getUser(id: Discord.Snowflake): Promise<DbUser>
-	async getUser(id?: Discord.Snowflake): Promise<DbUser | undefined> {
-		if (!id) return
+	async getUser(id?: Discord.Snowflake) {
+		if (!id) return null
 		const collection = db.collection<DbUser>("users")
-		let user = await collection.findOne({ id: id }) as DbUser | undefined
+		let user = await collection.findOne({ id: id })
 		while (!user) {
 			await collection.insertOne({ id: id, lang: "en" })
-			user = await collection.findOne({ id: id }) as DbUser
+			user = await collection.findOne({ id: id })
 		}
 		return user
 	}

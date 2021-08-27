@@ -225,7 +225,7 @@ export async function restart(interaction?: Discord.CommandInteraction) {
 	})
 }
 
-export async function getActivePunishments(user: Discord.User): Promise<PunishmentLog[]> {
+export async function getActivePunishments(user: Discord.User) {
 	const punishExpireTimestamp = new Date().setDate(new Date().getDate() - 30), //Timestamp 30 days ago in ms
 		warnExpireTimestamp = new Date().setDate(new Date().getDate() - 7), //Timestamp 7 days ago in ms
 		verbalExpireTimestamp = new Date().setDate(new Date().getDate() - 1) //Timestamp 7 days ago in ms
