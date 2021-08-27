@@ -24,7 +24,7 @@ const command: Command = {
 		let rawLang = interaction.options.getString("language", false)?.toLowerCase()
 		if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !rawLang) rawLang = authorDb.lang
 		if (!rawLang) throw "noLang"
-		const langdb = await db.collection("langdb").find().toArray() as LangDbEntry[]
+		const langdb = await db.collection<LangDbEntry>("langdb").find().toArray()
 		let lang = langdb.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)!
 		lang ??= langdb.find(l => l.name.toLowerCase().includes(rawLang!))!
 		if (!lang || lang?.code === "en") throw "falseLang"

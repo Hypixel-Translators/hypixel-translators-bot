@@ -1,7 +1,7 @@
 import Discord from "discord.js"
 import { successColor, errorColor } from "../../config.json"
 import fetch, { FetchError } from "node-fetch"
-import { db } from "../../lib/dbclient"
+import { db, DbUser } from "../../lib/dbclient"
 import { fetchSettings, getUUID, updateRoles } from "../../lib/util"
 import { Command, GetStringFunction } from "../../index"
 
@@ -25,7 +25,8 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global") as string,
 			uuid = await getUUID(interaction.options.getString("username", true)),
-			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null
+			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
+			collection = db.collection<DbUser>("users")
 		if (!uuid) throw "noUser"
 
 		await interaction.deferReply()
@@ -46,7 +47,7 @@ const command: Command = {
 			throw "apiError"
 		}
 		if (json.links?.DISCORD === interaction.user.tag) {
-			const result = await db.collection("users").updateOne({ id: interaction.user.id }, { $set: { uuid: json.uuid } }),
+			const result = await collection.updateOne({ id: interaction.user.id }, { $set: { uuid: json.uuid } }),
 				role = await updateRoles(interaction.member as Discord.GuildMember, json) as Discord.Role
 			if (result.modifiedCount) {
 				const successEmbed = new Discord.MessageEmbed()
@@ -66,7 +67,7 @@ const command: Command = {
 				return await interaction.editReply({ embeds: [notChanged] })
 			}
 		} else if (memberInput && (interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732")) { //Discord Administrator
-			const result = await db.collection("users").updateOne({ id: memberInput.id }, { $set: { uuid: json.uuid } }),
+			const result = await collection.updateOne({ id: memberInput.id }, { $set: { uuid: json.uuid } }),
 				role = await updateRoles(memberInput, json) as Discord.Role
 			if (result.modifiedCount) {
 				const successEmbed = new Discord.MessageEmbed()

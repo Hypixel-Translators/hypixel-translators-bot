@@ -45,10 +45,11 @@ export class HTBClient extends Discord.Client<true> {
 	async getUser(id: Discord.Snowflake): Promise<DbUser>
 	async getUser(id?: Discord.Snowflake): Promise<DbUser | undefined> {
 		if (!id) return
-		let user = await db.collection("users").findOne({ id: id }) as DbUser | undefined
+		const collection = db.collection<DbUser>("users")
+		let user = await collection.findOne({ id: id }) as DbUser | undefined
 		while (!user) {
-			await db.collection("users").insertOne({ id: id, lang: "en" })
-			user = await db.collection("users").findOne({ id: id }) as DbUser
+			await collection.insertOne({ id: id, lang: "en" })
+			user = await collection.findOne({ id: id }) as DbUser
 		}
 		return user
 	}

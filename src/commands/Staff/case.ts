@@ -16,8 +16,9 @@ const command: Command = {
 	channelWhitelist: ["624881429834366986", "551693960913879071"], //staff-bots admin-bots
 	async execute(interaction) {
 		const caseNumber = interaction.options.getInteger("case", true),
-			modLog = await db.collection("punishments").findOne({ case: caseNumber }) as PunishmentLog | undefined
-		if (!modLog) throw `Couldn't find that case number! You must enter a number between 1 and ${await db.collection("punishments").estimatedDocumentCount()}`
+		collection = db.collection<PunishmentLog>("punishments"),
+			modLog = await collection.findOne({ case: caseNumber })
+		if (!modLog) throw `Couldn't find that case number! You must enter a number between 1 and ${await collection.estimatedDocumentCount()}`
 
 		const offender = interaction.guild!.members.cache.get(modLog.id) ?? await client.users.fetch(modLog.id),
 			embed = new Discord.MessageEmbed()

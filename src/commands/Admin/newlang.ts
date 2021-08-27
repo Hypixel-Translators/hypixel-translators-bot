@@ -4,6 +4,7 @@ import country from "countryjs"
 import { flag } from "country-emoji"
 import { db } from "../../lib/dbclient"
 import { Command } from "../../index"
+import { LangDbEntry } from "../../lib/util"
 
 const command: Command = {
 	name: "newlang",
@@ -25,7 +26,7 @@ const command: Command = {
 		await interaction.deferReply()
 		const lang = interaction.options.getString("code", true).toLowerCase(),
 			code = interaction.options.getString("code", true).toUpperCase(),
-			langdbEntry = await db.collection("langdb").findOne({ code: lang })
+			langdbEntry = await db.collection<LangDbEntry>("langdb").findOne({ code: lang })
 		let nationality = country.demonym(code)
 		if (!nationality) throw "Couldn't find that country!"
 		let emoji = flag(lang)

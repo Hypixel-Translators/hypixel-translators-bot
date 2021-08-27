@@ -77,7 +77,8 @@ client.once("ready", async () => {
 	}, 60_000)
 
 	//Check for active punishments and start a timeout to conclude them
-	const punishments: PunishmentLog[] = await db.collection("punishments").find({ ended: false }).toArray(),
+	const punishmentsColl = db.collection<PunishmentLog>("punishments"),
+		punishments = await punishmentsColl.find({ ended: false }).toArray(),
 		punishmentsChannel = guild.channels.cache.get("800820574405656587") as Discord.TextChannel
 	for (const punishment of punishments) {
 		if (!punishment.endTimestamp) continue
@@ -86,8 +87,8 @@ client.once("ready", async () => {
 		// Additionally, we restart the bot at least once every 2 days so no punishment will be left unexpired
 		if (msLeft > 2 ** 31 - 1) continue
 		setTimeout(async () => {
-			await db.collection("punishments").updateOne({ case: punishment.case }, { $set: { ended: true, endTimestamp: Date.now() } })
-			const caseNumber = (await db.collection("punishments").estimatedDocumentCount()) + 1
+			await punishmentsColl.updateOne({ case: punishment.case }, { $set: { ended: true, endTimestamp: Date.now() } })
+			const caseNumber = (await punishmentsColl.estimatedDocumentCount()) + 1
 			if (punishment.type === "MUTE") {
 				const member = guild.members.cache.get(punishment.id!),
 					user = await client.users.fetch(punishment.id)
@@ -102,7 +103,7 @@ client.once("ready", async () => {
 					.setFooter(`ID: ${user.id}`)
 					.setTimestamp(),
 					msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
-				await db.collection("punishments").insertOne({
+				await punishmentsColl.insertOne({
 					case: caseNumber,
 					id: user.id,
 					type: `UN${punishment.type}`,
@@ -147,7 +148,7 @@ client.once("ready", async () => {
 						.catch(() => console.log(`Couldn't DM user ${userFetched.tag}, (${user.id}) about their unban.`))
 				}
 				const msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
-				await db.collection("punishments").insertOne({
+				await punishmentsColl.insertOne({
 					case: caseNumber,
 					id: userFetched.id,
 					type: `UN${punishment.type}`,

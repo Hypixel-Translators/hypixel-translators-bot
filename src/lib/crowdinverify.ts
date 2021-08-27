@@ -26,7 +26,10 @@ const projectIDs: {
 		Verified: "569194996964786178",
 		logChannel: "662660931838410754",
 		verifyChannel: "569178590697095168"
-	}
+	},
+	langDb = db.collection<LangDbEntry>("langdb"),
+	usersColl = db.collection<DbUser>("users")
+
 
 /**
  * Verifies a guild member with their crowdin profile and gives them the appropriate project and veteran roles, if applicable.
@@ -49,7 +52,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		else if (!url) { //if user runs /verify and the profile is not stored on our DB or if the user sends the generic profile URL
 			//#region return message
 			member.roles.remove("569194996964786178", "Tried to verify but profile wasn't stored") // Verified
-			await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
+			await usersColl.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 			errorEmbed
 				.setDescription("Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!")
 				.setImage("https://i.imgur.com/7FVOSfT.png")
@@ -88,7 +91,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		if (!isPrivate && !isValid) { //if profile leads to a 404 page
 			//#region return message
 			member.roles.remove("569194996964786178", "Tried to verify with an invalid URL") // Verified
-			await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
+			await usersColl.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 			errorEmbed
 				.setDescription("Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!")
 				.setImage("https://i.imgur.com/7FVOSfT.png")
@@ -110,7 +113,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		} else if (sendLogs && isPrivate) { //if the profile is private
 			//#region return message
 			member.roles.remove("569194996964786178", "Tried to verify with a private profile") // Verified
-			await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
+			await usersColl.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 			errorEmbed
 				.setDescription("Hey there! We noticed you sent us your Crowdin profile, however, it was private so we couldn't check it. Please make it public, at least until you get verified, and send us your profile again on the channel. If you don't know how to, then go to your Crowdin profile settings (found [here](https://crowdin.com/settings#account)) and make sure the \"Private Profile\" setting is turned off (see the image below)\n\nIf you have any questions, be sure to send them to us!")
 				.setImage("https://i.imgur.com/YX8VLeu.png")
@@ -171,7 +174,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 	if (!projects) {
 		//#region return message
 		await member.roles.remove("569194996964786178", "Tried to verify with no Discord tag") // Verified
-		await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
+		await usersColl.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 		errorEmbed
 			.setDescription(`Hey there!\nWe noticed you sent us your Crowdin profile, however, you forgot to add your Discord tag to it! Just add ${member.user.tag} to your about section like shown in the image below. Once you've done so, send us the profile link again.\n\nIf you have any questions, be sure to send them to us!`)
 			.setImage("https://i.imgur.com/BM2bJ4W.png")
@@ -248,7 +251,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 
 	await member.roles.remove(UsefulIDs.Alerted, "User is now Verified")
 	await member.roles.add(UsefulIDs.Verified, "User is now Verified")
-	await db.collection("users").updateOne({ id: member.id }, { $set: { profile: url } })
+	await usersColl.updateOne({ id: member.id }, { $set: { profile: url } })
 
 	const endingMessageProjects: {
 		[name: string]: Discord.Role[]
@@ -258,9 +261,8 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		endingMessageProjects[key] = [role]
 	}
 
-	const coll = db.collection("langdb")
 	for (const [key, value] of Object.entries(highestLangRoles)) {
-		const lang = (await coll.findOne({ id: key }) as LangDbEntry).name
+		const lang = (await langDb.findOne({ id: key }) as LangDbEntry).name
 		value.projects.forEach(p => {
 			const role = member.guild!.roles.cache.find(r => r.name === `${lang} ${value.type}`)!
 			endingMessageProjects[p].push(role)
@@ -283,8 +285,8 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 	if (sendDms) {
 		const highestRole = Object.assign({}, endingMessageProjects).Hypixel?.filter(r => r.color).sort((a, b) => b.position - a.position).shift()
 		if (highestRole) {
-			const lang = await coll.findOne({ name: highestRole.name.replace(" Translator", "").replace(" Proofreader", "") }) as LangDbEntry | undefined
-			if (lang) await db.collection("users").updateOne({ id: member.id, lang: { $eq: "en" } }, { $set: { lang: lang.code } })
+			const lang = await langDb.findOne({ name: highestRole.name.replace(" Translator", "").replace(" Proofreader", "") }) as LangDbEntry | undefined
+			if (lang) await usersColl.updateOne({ id: member.id, lang: { $eq: "en" } }, { $set: { lang: lang.code } })
 		}
 	}
 
@@ -370,12 +372,11 @@ async function updateLanguageRoles(
 	},
 	member: Discord.GuildMember
 ) {
-	const coll = db.collection("langdb"),
-		activeRoles: string[] = [],
+	const activeRoles: string[] = [],
 		addedRoles: string[] = []
 
 	for (const [key, value] of Object.entries(highestLangRoles)) {
-		activeRoles.push(`${(await coll.findOne({ id: key }) as LangDbEntry).name} ${value.type}`)
+		activeRoles.push(`${(await langDb.findOne({ id: key }) as LangDbEntry).name} ${value.type}`)
 	}
 
 	member.roles.cache.forEach(role => {

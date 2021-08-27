@@ -24,8 +24,8 @@ const command: Command = {
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
 		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-			collection = db.collection("users"),
-			allUsers: DbUser[] = await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray(),
+			collection = db.collection<DbUser>("users"),
+			allUsers = await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray(),
 			inputMe = interaction.options.getBoolean("me", false),
 			inputPage = interaction.options.getInteger("page", false)
 

@@ -229,7 +229,7 @@ export async function getActivePunishments(user: Discord.User): Promise<Punishme
 	const punishExpireTimestamp = new Date().setDate(new Date().getDate() - 30), //Timestamp 30 days ago in ms
 		warnExpireTimestamp = new Date().setDate(new Date().getDate() - 7), //Timestamp 7 days ago in ms
 		verbalExpireTimestamp = new Date().setDate(new Date().getDate() - 1) //Timestamp 7 days ago in ms
-	return (await db.collection("punishments").find({ id: user.id }).toArray() as PunishmentLog[]).filter(punishment => {
+	return (await db.collection<PunishmentLog>("punishments").find({ id: user.id }).toArray()).filter(punishment => {
 		if (punishment.revoked || !punishment.points) return false
 		else if (punishment.type === "VERBAL") return punishment.timestamp > verbalExpireTimestamp
 		else if (punishment.type === "WARN") return punishment.timestamp > warnExpireTimestamp

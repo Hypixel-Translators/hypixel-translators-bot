@@ -6,7 +6,7 @@ export default async function updateVerified(client: HTBClient, manual: boolean,
 		h = d.getUTCHours(),
 		m = d.getUTCMinutes()
 	if ((h == 3 && m == 0) || manual) {
-		const verifiedUsers: DbUser[] = await db.collection("users").find({ profile: { $exists: true } }).limit(limit).toArray()
+		const verifiedUsers = await db.collection<DbUser>("users").find({ profile: { $exists: true } }).limit(limit).toArray()
 
 		async function verifyUser(n: number) {
 			const user = verifiedUsers[n],

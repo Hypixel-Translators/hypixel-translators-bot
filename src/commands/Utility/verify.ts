@@ -27,15 +27,16 @@ const command: Command = {
 			member = interaction.member as Discord.GuildMember,
 			profileUrl = interaction.options.getString("url", false),
 			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
-			url = profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0]
+			url = profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0],
+			collection = db.collection<DbUser>("users")
 		await interaction.deferReply({ ephemeral: true })
 		if (!member.roles.cache.has("569194996964786178") && interaction.channelId == "569178590697095168" && !url) { //Verified and #verify
 			const fiMessages = (await (interaction.channel as Discord.TextChannel).messages.fetch()).filter(msgs => msgs.author.id === interaction.user.id)
 			await (interaction.channel as Discord.TextChannel).bulkDelete(fiMessages)
 			await member.roles.add("569194996964786178", "Manually verified through the command")
 			await member.roles.remove("756199836470214848", "Manually verified through the command") //Add Verified and remove Alerted
-			await db.collection("users").updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
-			await db.collection("users").updateOne({ id: member.id, profile: { $exists: false } }, { $set: { profile: null } })
+			await collection.updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
+			await collection.updateOne({ id: member.id, profile: { $exists: false } }, { $set: { profile: null } })
 			await crowdinVerify(member, null)
 			await verifyLogs.send(`${interaction.user} manually verified themselves through the command`)
 			client.cooldowns.get(this.name)!.delete(interaction.user.id)
@@ -48,15 +49,15 @@ const command: Command = {
 			await crowdinVerify(memberInput, url, false)
 			await interaction.editReply("Your request has been processed. Check the logs")
 		} else {
-			const userDb: DbUser = await client.getUser(interaction.user.id)
+			const userDb = await client.getUser(interaction.user.id)
 			if (userDb.profile || profileUrl && /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) {
-				await db.collection("users").updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
+				await collection.updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
 				if ((interaction.member as Discord.GuildMember).roles.cache.has("569194996964786178")) await verifyLogs.send(`${interaction.user} is being reverified.`) //Verified
 				await crowdinVerify(member, url, true)
 				await interaction.editReply("Your profile has been processed. Check your DMs.")
 			} else {
 				await member.roles.remove("569194996964786178", "Unverified") // Verified
-				await db.collection("users").updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
+				await collection.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 				const embed = new Discord.MessageEmbed()
 					.setColor(errorColor as Discord.HexColorString)
 					.setAuthor("Manual verification")

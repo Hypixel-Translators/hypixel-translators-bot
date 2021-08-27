@@ -1,7 +1,7 @@
 import Discord from "discord.js"
 import { neutralColor, errorColor } from "../../config.json"
 import { client, Command, GetStringFunction } from "../../index"
-import { db } from "../../lib/dbclient"
+import { db, DbUser } from "../../lib/dbclient"
 import { getXpNeeded } from "../../lib/util"
 
 const command: Command = {
@@ -18,7 +18,7 @@ const command: Command = {
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
 		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-			collection = db.collection("users"),
+			collection = db.collection<DbUser>("users"),
 			user = interaction.options.getUser("user", false) ?? interaction.user
 
 		const userDb = await client.getUser(user.id)
