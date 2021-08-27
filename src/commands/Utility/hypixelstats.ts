@@ -93,7 +93,7 @@ const command: Command = {
 		const username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
 
 		//Update user's roles if they're verified
-		const uuidDb = await db.collection("users").findOne({ uuid: json.uuid })
+		const uuidDb = await db.collection<DbUser>("users").findOne({ uuid: json.uuid })
 		if (uuidDb) updateRoles(client.guilds.cache.get("549503328472530974")!.members.cache.get(uuidDb.id)!, json)
 
 		const stats = async () => {

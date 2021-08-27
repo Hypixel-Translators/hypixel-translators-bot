@@ -1,5 +1,5 @@
 import { client } from "../index"
-import { db } from "../lib/dbclient"
+import { db, DbUser } from "../lib/dbclient"
 import Discord from "discord.js"
 
 client.on("guildMemberRemove", async member => {
@@ -17,5 +17,5 @@ client.on("guildMemberRemove", async member => {
 		else await managers.send({ content: `${member.user!.tag} had the ${botRole} role and just left the server! Unfortunately, their profile wasn't registered on the database.`, allowedMentions: { roles: [] } })
 		console.log(`${member.user!.tag} left and had the ${botRole.name} role`)
 	}
-	if (!member.user!.bot) await db.collection("users").deleteOne({ id: member.id })
+	if (!member.user!.bot) await db.collection<DbUser>("users").deleteOne({ id: member.id })
 })

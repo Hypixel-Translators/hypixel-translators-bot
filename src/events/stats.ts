@@ -26,8 +26,8 @@ export async function execute(client: HTBClient, manual: boolean): Promise<void>
 }
 
 export async function updateProjectStatus(client: Discord.Client, projectId: string) {
-	const langdb = await db.collection("langdb").find().toArray() as LangDbEntry[],
-		projectDb = await db.collection("crowdin").findOne({ id: projectId }) as CrowdinProject,
+	const langdb = await db.collection<LangDbEntry>("langdb").find().toArray(),
+		projectDb = await db.collection<CrowdinProject>("crowdin").findOne({ id: projectId }) as CrowdinProject,
 		json = await fetch(`https://api.crowdin.com/api/v2/projects/${projectId}/languages/progress?limit=500`, settings).then(res => res.json())
 			.catch(err => console.error(`Crowdin API is down, couldn't update ${projectDb.name} language statistics. Here's the error:`, err))
 	if (!json) return
@@ -72,7 +72,7 @@ export async function updateProjectStatus(client: Discord.Client, projectId: str
 			await translatorsChannel.send(`> <a:partyBlob:769679132317057064> **New ${stringDiff == 1 ? "String" : "Strings"}!**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the ${projectDb.name} project.\n\nTranslate at <https://crowdin.com/translate/${projectDb.identifier}/all/en>`)
 		else if (stringCount > langStatus[0].data.phrases.total)
 			await translatorsChannel.send(`> <:vote_no:732298639736570007> **${stringDiff == 1 ? "String" : "Strings"} Removed**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`)
-		await db.collection("crowdin").updateOne({ id: projectDb.id }, { $set: { stringCount: langStatus[0].data.phrases.total } })
+		await db.collection<CrowdinProject>("crowdin").updateOne({ id: projectDb.id }, { $set: { stringCount: langStatus[0].data.phrases.total } })
 	}
 }
 

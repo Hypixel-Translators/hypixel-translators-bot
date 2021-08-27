@@ -1,6 +1,6 @@
 import Discord from "discord.js"
 import { successColor, errorColor } from "../../config.json"
-import { db } from "../../lib/dbclient"
+import { db, DbUser } from "../../lib/dbclient"
 import { Command, GetStringFunction } from "../../index"
 import { updateRoles } from "../../lib/util"
 
@@ -17,11 +17,12 @@ const command: Command = {
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
 	async execute(interaction, getString: GetStringFunction) {
 		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null
+			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
+			collection = db.collection<DbUser>("users")
 
 		if (memberInput && (interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732")) { //Discord Administrator
 			await updateRoles(memberInput)
-			const result = await db.collection("users").updateOne({ id: memberInput.id }, { $unset: { uuid: true } })
+			const result = await collection.updateOne({ id: memberInput.id }, { $unset: { uuid: true } })
 			if (result.modifiedCount) {
 				const embed = new Discord.MessageEmbed()
 					.setColor(successColor as Discord.HexColorString)
@@ -40,7 +41,7 @@ const command: Command = {
 			}
 		} else {
 			await updateRoles(interaction.member as Discord.GuildMember)
-			const result = await db.collection("users").updateOne({ id: interaction.user.id }, { $unset: { uuid: true } })
+			const result = await collection.updateOne({ id: interaction.user.id }, { $unset: { uuid: true } })
 			if (result.modifiedCount) {
 				const embed = new Discord.MessageEmbed()
 					.setColor(successColor as Discord.HexColorString)

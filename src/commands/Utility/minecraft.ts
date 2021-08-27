@@ -63,7 +63,7 @@ const command: Command = {
 		if (!userInput && !usernameInput && !authorDb?.uuid) throw "noUser"
 		if (!uuid) throw "falseUser"
 		const isOwnUser = uuid === authorDb?.uuid,
-			uuidDb = await db.collection("users").findOne({ uuid }) as DbUser | undefined
+			uuidDb = await db.collection<DbUser>("users").findOne({ uuid })
 
 		await interaction.deferReply()
 

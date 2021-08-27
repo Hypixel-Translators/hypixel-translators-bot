@@ -30,7 +30,7 @@ const command: Command = {
 		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
 			member = interaction.member as Discord.GuildMember,
 			nickNoPrefix = member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim(),
-			langdb: LangDbEntry[] = await db.collection("langdb").find().toArray()
+			langdb = await db.collection<LangDbEntry>("langdb").find().toArray()
 
 		if (interaction.options.getString("flags", false) && !member.roles.cache.hasAny("569839517444341771", "569839580971401236")) { //Hypixel Translator and Proofreader
 			const flagEmojis: (string | undefined)[] = []

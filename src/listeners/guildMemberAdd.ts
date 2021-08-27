@@ -1,5 +1,5 @@
 import { client } from "../index"
-import { db } from "../lib/dbclient"
+import { db, DbUser } from "../lib/dbclient"
 import Discord from "discord.js"
 import { registerFont, createCanvas, loadImage } from "canvas"
 import { PunishmentLog } from "../lib/util"
@@ -14,9 +14,9 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 		if (!newMember.user.bot) {
 			newMember.send(`Hey there and thanks for joining **${newMember.guild.name}**! In order to get access to the rest of the server, please verify yourself in <#569178590697095168>.`)
 				.catch(() => console.log(`Couldn't DM user ${newMember.user.tag}, probably because they have DMs off`))
-			await db.collection("users").insertOne({ id: newMember.id, lang: "en" })
+			await db.collection<DbUser>("users").insertOne({ id: newMember.id, lang: "en" })
 		}
-		const activePunishments: PunishmentLog[] = await db.collection("punishments").find({ id: newMember.id, ended: false }).toArray()
+		const activePunishments = await db.collection<PunishmentLog>("punishments").find({ id: newMember.id, ended: false }).toArray()
 		if (!activePunishments.length) return
 		if (activePunishments.some(p => p.type === "MUTE")) await newMember.roles.add(["645208834633367562", "569194996964786178"], "User is muted") //Muted and Verified
 		else if (activePunishments.some(p => p.type === "BAN")) await newMember.ban({ reason: activePunishments.find(p => p.type === "BAN")!.reason })

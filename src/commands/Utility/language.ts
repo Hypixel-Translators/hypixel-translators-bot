@@ -3,6 +3,7 @@ import Discord from "discord.js"
 import fs from "fs"
 import { db, DbUser } from "../../lib/dbclient"
 import { Command, GetStringFunction } from "../../index"
+import { LangDbEntry } from "../../lib/util"
 
 const command: Command = {
 	name: "language",
@@ -81,7 +82,7 @@ const command: Command = {
 		}
 		else if (subCommand === "set" && language) {
 			if (language === "se") language = "sv"
-			const langdb = await db.collection("langdb").find().toArray(),
+			const langdb = await db.collection<LangDbEntry>("langdb").find().toArray(),
 				langdbEntry = langdb.find(l => l.name.toLowerCase() === language)
 			if (langdbEntry) language = langdbEntry.code
 			if (language === "empty" && !member.roles.cache.has("764442984119795732")) language = "denied" //Discord Administrator
