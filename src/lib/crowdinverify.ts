@@ -26,9 +26,7 @@ const projectIDs: {
 		Verified: "569194996964786178",
 		logChannel: "662660931838410754",
 		verifyChannel: "569178590697095168"
-	},
-	langDb = db.collection<LangDbEntry>("langdb"),
-	usersColl = db.collection<DbUser>("users")
+	}
 
 
 /**
@@ -44,7 +42,9 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		errorEmbed = new Discord.MessageEmbed()
 			.setColor(errorColor as Discord.HexColorString)
 			.setAuthor("Received message from staff")
-			.setFooter("Any messages you send here will be sent to staff upon confirmation.")
+			.setFooter("Any messages you send here will be sent to staff upon confirmation."),
+		langDb = db.collection<LangDbEntry>("langdb"),
+		usersColl = db.collection<DbUser>("users")
 	if (!url) {
 		const userDb = await client.getUser(member.id)
 		url = userDb.profile
@@ -375,6 +375,7 @@ async function updateLanguageRoles(
 	const activeRoles: string[] = [],
 		addedRoles: string[] = []
 
+	const langDb = db.collection<LangDbEntry>("langdb")
 	for (const [key, value] of Object.entries(highestLangRoles)) {
 		activeRoles.push(`${(await langDb.findOne({ id: key }) as LangDbEntry).name} ${value.type}`)
 	}
