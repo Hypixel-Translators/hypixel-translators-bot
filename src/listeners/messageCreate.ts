@@ -145,16 +145,16 @@ client.on("messageCreate", async message => {
 				collector = msg.createMessageComponentCollector({ idle: confirmTime * 1000 })
 
 			let replied = false
-			collector.on("collect", async reaction => {
+			collector.on("collect", async buttonInteraction => {
 				replied = true
 				controlButtons.components.forEach(button => button.setDisabled(true))
-				if (reaction.customId === "cancel") {
+				if (buttonInteraction.customId === "cancel") {
 					embed
 						.setColor(errorColor as Discord.HexColorString)
 						.setTitle(getGlobalString("staffDm.dmCancelled"))
 						.setFooter(getGlobalString("staffDm.resendInfo"))
-					await msg.edit({ embeds: [embed], components: [controlButtons] })
-				} else if (reaction.customId === "confirm") await staffDm(msg, true)
+					await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
+				} else if (buttonInteraction.customId === "confirm") await staffDm(buttonInteraction)
 			})
 
 			collector.on("end", async () => {
@@ -167,11 +167,11 @@ client.on("messageCreate", async message => {
 					.setFooter(getGlobalString("staffDm.resendInfo"))
 				await msg.edit({ embeds: [timeOutEmbed], components: [controlButtons] })
 			})
-		} else await staffDm(message, false)
+		} else await staffDm(message)
 
-		async function staffDm(msg: Discord.Message, afterConfirm: boolean) {
-			if (afterConfirm) await db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: Date.now() } })
-			else await db.collection("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: message.createdTimestamp } })
+		async function staffDm(interactionOrMsg: Discord.MessageComponentInteraction | Discord.Message) {
+			const afterConfirm = interactionOrMsg instanceof Discord.MessageComponentInteraction
+			await db.collection<DbUser>("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: afterConfirm ? Date.now() : message.createdTimestamp } })
 			const staffMsg = new Discord.MessageEmbed()
 				.setColor(neutralColor as Discord.HexColorString)
 				.setAuthor("Incoming message from " + message.author.tag)
@@ -196,8 +196,8 @@ client.on("messageCreate", async message => {
 				dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent"))
 				await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg] })
 			} else await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg] })
-			if (afterConfirm) await msg.edit({ embeds: [dmEmbed], components: [controlButtons] })
-			else await msg.channel.send({ embeds: [dmEmbed] })
+			if (afterConfirm) await interactionOrMsg.update({ embeds: [dmEmbed], components: [controlButtons] })
+			else await interactionOrMsg.channel.send({ embeds: [dmEmbed] })
 		}
 	}
 
