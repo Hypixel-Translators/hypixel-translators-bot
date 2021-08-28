@@ -99,5 +99,5 @@ export async function generateWelcomeImage(member: Discord.GuildMember) {
 	ctx.restore()
 
 	//OUTPUT
-	return new Discord.MessageAttachment(canvas.toBuffer(), `${member.user.username} join.png`)
+	return new Discord.MessageAttachment(canvas.toBuffer(), `${userName.replaceAll('"', "")} join.png`) //Discord doesn't like quotation marks in filenames
 }
