@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import fetch, { FetchError } from "node-fetch"
 import { successColor, loadingColor, errorColor } from "../../config.json"
 import { Command, client, GetStringFunction } from "../../index"
-import { LangDbEntry, LanguageStatus } from "../../lib/util"
+import type { LangDbEntry, LanguageStatus } from "../../lib/util"
 const ctokenV2 = process.env.CTOKEN_V2!
 
 const command: Command = {

@@ -1,7 +1,7 @@
 import Discord from "discord.js"
 import { successColor, errorColor } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
-import { Command, GetStringFunction } from "../../index"
+import type { Command, GetStringFunction } from "../../index"
 import { updateRoles } from "../../lib/util"
 
 const command: Command = {

@@ -1,3 +1,4 @@
+//@ts-nocheck
 const { loadingColor, errorColor, successColor, neutralColor, listeningStatuses, watchingStatuses, playingStatuses } = require("../../config.json")
 const fetch = require("node-fetch")
 const { flag, code, name, countries } = require("country-emoji")
@@ -7,6 +8,7 @@ const { updateButtonColors, getUUID, updateRoles, getXpNeeded } = require("../..
 const { crowdinVerify } = require("../../lib/crowdinverify")
 const { leveling } = require("../../lib/leveling")
 const { generateWelcomeImage } = require("../../listeners/guildMemberAdd")
+//@ts-check
 import { db as mongoDb } from "../../lib/dbclient"
 import { transpile } from "typescript"
 import discord from "discord.js"
@@ -66,8 +68,10 @@ const command: Command = {
 				.setTitle("An error occured while executing that code. Here's the error stack")
 				.addFields(
 					{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun) },
+					{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "")) },
 					{ name: "Error", value: discord.Formatters.codeBlock(error.stack) },
-					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms` }
+					{ name: "Error Type", value: error.name, inline: true },
+					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
 				)
 				.setFooter(`Executed by ${me.user.tag}`, me.user.displayAvatarURL({ format: "png", dynamic: true }))
 			console.error(error)

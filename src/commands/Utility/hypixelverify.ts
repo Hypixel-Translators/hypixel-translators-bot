@@ -3,7 +3,7 @@ import { successColor, errorColor } from "../../config.json"
 import fetch, { FetchError } from "node-fetch"
 import { db, DbUser } from "../../lib/dbclient"
 import { fetchSettings, getUUID, updateRoles } from "../../lib/util"
-import { Command, GetStringFunction } from "../../index"
+import type { Command, GetStringFunction } from "../../index"
 
 const command: Command = {
 	name: "hypixelverify",

@@ -1,6 +1,6 @@
 import { client } from "../index"
 import { db } from "../lib/dbclient"
-import { EventDb } from "../lib/util"
+import type { EventDb } from "../lib/util"
 
 client.on("messageReactionRemove", async (reaction, user) => {
 	if (reaction.message.channel.type !== "DM" && !user.bot) {

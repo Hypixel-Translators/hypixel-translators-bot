@@ -1,6 +1,6 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
-import { Command, GetStringFunction } from "../../index"
+import type { Command, GetStringFunction } from "../../index"
 
 const command: Command = {
 	name: "feedback",

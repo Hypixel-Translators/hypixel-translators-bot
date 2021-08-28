@@ -1,6 +1,6 @@
 import Discord from "discord.js"
 import { neutralColor } from "../../config.json"
-import { Command, GetStringFunction } from "../../index"
+import type { Command, GetStringFunction } from "../../index"
 
 const command: Command = {
 	name: "tip",

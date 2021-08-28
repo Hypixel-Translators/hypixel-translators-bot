@@ -1,9 +1,9 @@
 import { errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import { db } from "../../lib/dbclient"
-import { Collection } from "mongodb"
+import type { Collection } from "mongodb"
 import { client, Command, GetStringFunction } from "../../index"
-import { Quote } from "../../lib/util"
+import type { Quote } from "../../lib/util"
 
 const command: Command = {
 	name: "quote",

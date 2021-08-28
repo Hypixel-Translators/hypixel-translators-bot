@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
-import { HTBClient } from "./dbclient"
-import { Command } from "../index"
+import type { HTBClient } from "./dbclient"
+import type { Command } from "../index"
 
 function findCommands(dir: string, pattern: string) {
 
@@ -27,7 +27,7 @@ export function setup(client: HTBClient) {
 		cmdFiles.forEach(file => {
 			const command: Command = require(file).default,
 				pathSplit = file.split("\\")
-			command.category = pathSplit[pathSplit.length - 2]
+			command.category = pathSplit.at(-2)!
 			client.commands.set(command.name, command)
 		})
 		console.log(`Loaded ${cmdFiles.length} commands.`)

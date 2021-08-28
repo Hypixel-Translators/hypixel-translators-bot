@@ -2,7 +2,7 @@ import { client } from "../index"
 import { db, DbUser } from "../lib/dbclient"
 import Discord from "discord.js"
 import { registerFont, createCanvas, loadImage } from "canvas"
-import { PunishmentLog } from "../lib/util"
+import type { PunishmentLog } from "../lib/util"
 
 // A regular member only actually joins once they accept the membership screening, therefore we need to use this event instead
 client.on("guildMemberUpdate", async (oldMember, newMember) => {

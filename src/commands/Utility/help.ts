@@ -1,7 +1,7 @@
 import Discord from "discord.js"
 import fs from "fs"
 import { Command, client, GetStringFunction } from "../../index"
-import { DbUser } from "../../lib/dbclient"
+import type { DbUser } from "../../lib/dbclient"
 
 const command: Command = {
 	name: "help",

@@ -2,8 +2,8 @@ import { errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import fs from "fs"
 import { db, DbUser } from "../../lib/dbclient"
-import { Command, GetStringFunction } from "../../index"
-import { LangDbEntry } from "../../lib/util"
+import type { Command, GetStringFunction } from "../../index"
+import type { LangDbEntry } from "../../lib/util"
 
 const command: Command = {
 	name: "language",
@@ -69,7 +69,7 @@ const command: Command = {
 			if (!member.roles.cache.has("764442984119795732")) return await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
 			const files = fs.readdirSync(stringsFolder)
 			if (!files.includes(language!)) throw "falseLang"
-			const langUsers = await collection.find({ lang: language }).toArray(),
+			const langUsers = await collection.find({ lang: language! }).toArray(),
 				users: string[] = []
 			langUsers.forEach(u => users.push(`<@!${u.id}>`))
 			const embed = new Discord.MessageEmbed()
@@ -89,7 +89,7 @@ const command: Command = {
 			fs.access(`./strings/${language}/language.json`, fs.constants.F_OK, async (err) => {
 				if (!err) {
 					if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, language) || language === "en") {
-						const result = await collection.updateOne({ id: interaction.user.id }, { $set: { lang: language } })
+						const result = await collection.updateOne({ id: interaction.user.id }, { $set: { lang: language! } })
 							if (result.modifiedCount) {
 								executedBy = getString("executedBy", { user: interaction.user.tag }, "global", language)
 								const embed = new Discord.MessageEmbed()

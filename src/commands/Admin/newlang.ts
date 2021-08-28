@@ -3,8 +3,8 @@ import Discord from "discord.js"
 import country from "countryjs"
 import { flag } from "country-emoji"
 import { db } from "../../lib/dbclient"
-import { Command } from "../../index"
-import { LangDbEntry } from "../../lib/util"
+import type { Command } from "../../index"
+import type { LangDbEntry } from "../../lib/util"
 
 const command: Command = {
 	name: "newlang",

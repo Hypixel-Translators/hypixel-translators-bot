@@ -1,5 +1,5 @@
 import { client, Command } from "../index"
-import { DbUser } from "../lib/dbclient"
+import type { DbUser } from "../lib/dbclient"
 import Discord from "discord.js"
 import { errorColor } from "../config.json"
 import fs from "fs"

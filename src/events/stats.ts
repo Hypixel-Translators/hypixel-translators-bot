@@ -1,9 +1,9 @@
 import { loadingColor, errorColor, successColor } from "../config.json"
 import Discord from "discord.js"
 import fetch from "node-fetch"
-import { HTBClient } from "../lib/dbclient"
+import type { HTBClient } from "../lib/dbclient"
 import { db } from "../lib/dbclient"
-import { CrowdinProject, LangDbEntry, LanguageStatus } from "../lib/util"
+import type { CrowdinProject, LangDbEntry, LanguageStatus } from "../lib/util"
 const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + process.env.CTOKEN_V2, "User-Agent": "Hypixel Translators Bot" }, timeout: 10_000 }
 
 export async function execute(client: HTBClient, manual: boolean): Promise<void> {

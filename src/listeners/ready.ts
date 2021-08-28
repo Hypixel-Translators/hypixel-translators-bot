@@ -218,7 +218,7 @@ function convertToDiscordCommand(command: Command): Discord.ChatInputApplication
 		name: command.name,
 		description: command.description,
 		defaultPermission: command.roleWhitelist || command.dev ? false : true,
-		options: command.options
+		options: command.options ?? []
 	}
 }
 

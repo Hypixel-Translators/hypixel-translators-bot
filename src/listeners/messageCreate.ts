@@ -1,7 +1,7 @@
 import { client } from "../index"
 import Discord from "discord.js"
 import fs from "fs"
-import { Stream } from "stream"
+import type { Stream } from "stream"
 import { crowdinVerify } from "../lib/crowdinverify"
 import { leveling } from "../lib/leveling"
 import { errorColor, successColor, neutralColor } from "../config.json"

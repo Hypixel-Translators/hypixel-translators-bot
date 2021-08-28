@@ -2,7 +2,7 @@ import Discord from "discord.js"
 import { successColor, loadingColor, errorColor } from "../config.json"
 import { client } from "../index"
 import { db } from "../lib/dbclient"
-import { EventDb, Quote } from "../lib/util"
+import type { EventDb, Quote } from "../lib/util"
 
 client.on("messageReactionAdd", async (reaction, user) => {
 	const channel = reaction.message.channel

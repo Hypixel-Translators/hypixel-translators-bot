@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import { Command } from "../../index"
+import type { Command } from "../../index"
 import { updateButtonColors } from "../../lib/util"
 
 const command: Command = {

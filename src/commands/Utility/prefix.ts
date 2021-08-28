@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import { flag } from "country-emoji"
 import { db, DbUser } from "../../lib/dbclient"
 import { client, Command, GetStringFunction } from "../../index"
-import { LangDbEntry } from "../../lib/util"
+import type { LangDbEntry } from "../../lib/util"
 
 const command: Command = {
 	name: "prefix",

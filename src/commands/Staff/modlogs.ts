@@ -1,6 +1,6 @@
 import Discord from "discord.js"
-import { Command } from "../../index"
-import { errorColor, successColor } from "../../config.json"
+import type { Command } from "../../index"
+import { successColor } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { PunishmentLog, updateButtonColors, updateModlogFields } from "../../lib/util"
 

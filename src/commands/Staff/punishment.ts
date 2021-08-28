@@ -1,6 +1,6 @@
 import Discord from "discord.js"
 import { errorColor, loadingColor, successColor } from "../../config.json"
-import { Command } from "../../index"
+import type { Command } from "../../index"
 import { db } from "../../lib/dbclient"
 import { getActivePunishments, PunishmentLog, PunishmentPoints } from "../../lib/util"
 
@@ -426,7 +426,7 @@ const command: Command = {
 						points: points as PunishmentPoints,
 						reason: reason as string,
 						timestamp: Date.now(),
-						duration: punishment.duration,
+						duration: punishment.duration!,
 						ended: false,
 						moderator: interaction.user.id,
 						logMsg: msg.id
