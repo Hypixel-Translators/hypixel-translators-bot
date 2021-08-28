@@ -6,6 +6,7 @@ const country = require("countryjs")
 const { updateButtonColors, getUUID, updateRoles, getXpNeeded } = require("../../lib/util")
 const { crowdinVerify } = require("../../lib/crowdinverify")
 const { leveling } = require("../../lib/leveling")
+const { generateWelcomeImage } = require("../../listeners/guildMemberAdd")
 import { db as mongoDb } from "../../lib/dbclient"
 import { transpile } from "typescript"
 import discord from "discord.js"

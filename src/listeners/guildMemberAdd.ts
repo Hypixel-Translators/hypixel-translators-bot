@@ -41,7 +41,7 @@ client.on("guildMemberAdd", async member => {
 	}
 })
 
-async function generateWelcomeImage(member: Discord.GuildMember) {
+export async function generateWelcomeImage(member: Discord.GuildMember) {
 	//Define assets and create canvas
 	registerFont("assets/Bitter-Regular.ttf", { family: "Bitter" })
 	registerFont("assets/Bitter-Bold.ttf", { family: "Bitter-Bold" })
