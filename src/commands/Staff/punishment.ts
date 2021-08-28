@@ -225,7 +225,7 @@ const command: Command = {
 					const dmEmbed = new Discord.MessageEmbed()
 						.setColor(errorColor as Discord.HexColorString)
 						.setAuthor("Punishment")
-						.setTitle(`You have been warned on ${interaction.guild!.name}`)
+						.setTitle(`You have been warned on the ${interaction.guild!.name}`)
 						.setDescription(`**Reason:** ${reason}`)
 						.setTimestamp(),
 						embed = new Discord.MessageEmbed()
@@ -321,7 +321,7 @@ const command: Command = {
 					const dmEmbed = new Discord.MessageEmbed()
 						.setColor(errorColor as Discord.HexColorString)
 						.setAuthor("Punishment")
-						.setTitle(`You have been muted on ${interaction.guild!.name} for ${punishment.duration} hours`)
+						.setTitle(`You have been muted on the ${interaction.guild!.name} for ${punishment.duration} hours`)
 						.setDescription(`**Reason:** ${reason}\n\nYour mute will expire on <t:${Math.round(endTimestamp / 1000)}:F> (<t:${Math.round(endTimestamp / 1000)}:R>)`)
 						.setTimestamp(),
 						embed = new Discord.MessageEmbed()
@@ -435,7 +435,7 @@ const command: Command = {
 					const dmEmbed = new Discord.MessageEmbed()
 						.setColor(errorColor as Discord.HexColorString)
 						.setAuthor("Punishment")
-						.setTitle(`You have been ${punishment.duration ? "" : "permanently "}banned from ${interaction.guild!.name} ${punishment.duration ? `for ${punishment.duration} days` : ""}`)
+						.setTitle(`You have been ${punishment.duration ? "" : "permanently "}banned from the ${interaction.guild!.name} ${punishment.duration ? `for ${punishment.duration} days` : ""}`)
 						.setDescription(
 							`**Reason:** ${reason}\n\n${endTimestamp
 								? `This ban will expire on <t:${Math.round(endTimestamp / 1000)}:F> (<t:${Math.round(endTimestamp / 1000)}:R>)`
@@ -620,7 +620,7 @@ const command: Command = {
 				const dmEmbed = new Discord.MessageEmbed()
 					.setColor(successColor as Discord.HexColorString)
 					.setAuthor("Punishment")
-					.setTitle(`You have been un ${activePunishments[0].type === "BAN" ? "banned" : "muted"} from ${interaction.guild!.name}`)
+					.setTitle(`You have been un ${activePunishments[0].type === "BAN" ? "banned" : "muted"} from the ${interaction.guild!.name}`)
 					.setDescription(`**Reason:** ${reason}`)
 					.setTimestamp(),
 					embed = new Discord.MessageEmbed()
