@@ -1,6 +1,5 @@
 //This file contains a bunch of functions used across the bot on multuple commands.
 import Discord from "discord.js"
-import { ObjectId } from "mongodb"
 import fetch from "node-fetch"
 import { client } from "../index"
 import { db } from "./dbclient"
@@ -183,7 +182,6 @@ export interface LanguageStatus {
 }
 
 export interface LangDbEntry {
-	_id: ObjectId,
 	name: string,
 	emoji: string,
 	color?: Discord.HexColorString,
@@ -193,7 +191,6 @@ export interface LangDbEntry {
 }
 
 export interface CrowdinProject {
-	_id: ObjectId
 	id: string
 	identifier: string
 	name: string
@@ -207,7 +204,6 @@ export interface EventDb {
 }
 
 export interface Quote {
-	_id: ObjectId
 	author: Discord.Snowflake[]
 	id: number
 	quote: string
