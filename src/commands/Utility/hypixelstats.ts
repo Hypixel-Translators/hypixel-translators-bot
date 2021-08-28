@@ -90,7 +90,7 @@ const command: Command = {
 			color = parseColorCode(json.rank_formatted)
 			rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
 		}
-		const username = json.username.split("_").join("\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
+		const username = json.username.replaceAll("_", "\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
 
 		//Update user's roles if they're verified
 		const uuidDb = await db.collection<DbUser>("users").findOne({ uuid: json.uuid })
@@ -170,14 +170,14 @@ const command: Command = {
 			const allowedGuildIDs = ["489529070913060867", "549503328472530974", "418938033325211649", "450878205294018560"] //Hypixel, our server, Quickplay Discord and Biscuit's Bakery
 			let discord: string | null = null
 			if (socialMedia.DISCORD) {
-				if (!socialMedia.DISCORD.includes("discord.gg")) discord = socialMedia.DISCORD.split("_").join("\\_")
+				if (!socialMedia.DISCORD.includes("discord.gg")) discord = socialMedia.DISCORD.replaceAll("_", "\\_")
 				else {
 					await interaction.client.fetchInvite(socialMedia.DISCORD)
 						.then(invite => {
-							if (allowedGuildIDs.includes((invite.channel as Discord.GuildChannel).guild?.id)) discord = `[${getString("link")}](${invite.url})` //invite.channel.guild is used here because invite.guild is not guaranteed according to the docs
+							if (allowedGuildIDs.includes(invite.guild?.id!)) discord = `[${getString("link")}](${invite.url})`
 							else {
 								discord = getString("blocked")
-								console.log(`Blocked the following Discord invite link in ${json.username}'s Hypixel profile: ${socialMedia.DISCORD} (led to ${(invite.channel as Discord.GuildChannel).guild?.name || invite.channel.name})`)
+								console.log(`Blocked the following Discord invite link in ${json.username}'s Hypixel profile: ${socialMedia.DISCORD} (led to ${invite.guild?.name || invite.channel.name})`)
 							}
 						})
 						.catch(() => {

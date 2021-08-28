@@ -69,10 +69,9 @@ const command: Command = {
 
 		switch (subCommand) {
 			case "history":
-				const nameHistory = await getNameHistory(uuid),
-					username = nameHistory[0].name.split("_").join("\\_")
-
-				nameHistory.forEach(e => e.name = e.name.split("_").join("\\_"))
+				const nameHistory = await getNameHistory(uuid)
+				nameHistory.forEach(e => e.name = e.name.replaceAll("_", "\\_"))
+				const username = nameHistory[0].name
 
 				let p = 0
 				const pages: NameHistory[][] = []
