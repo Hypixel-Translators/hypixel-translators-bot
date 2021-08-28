@@ -25,7 +25,7 @@ const command: Command = {
 		required: true
 	}],
 	async execute(interaction, getString: GetStringFunction) {
-		const me = interaction.member ?? interaction.user,
+		const me = interaction.member as discord.GuildMember,
 			guild = interaction.guild!,
 			channel = interaction.channel as discord.TextChannel,
 			db = mongoDb,
@@ -36,14 +36,42 @@ const command: Command = {
 		let evaled,
 			codeToRun = interaction.options.getString("code", true).replaceAll(/[“”]/gim, '"')
 		if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`
-		codeToRun = transpile(codeToRun)
+		const compiledCode = transpile(codeToRun)
 		try {
-			evaled = await eval(codeToRun)
-			await interaction.editReply(inspect(evaled).substring(0, 255))
+			evaled = await eval(compiledCode)
+			const typeofEvaled = typeof evaled,
+				embed = new discord.MessageEmbed()
+					.setColor(successColor)
+					.setAuthor("Evaluation")
+					.setTitle("The code was successful! Here's the output")
+					.addFields(
+						{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun) },
+						{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "")) },
+						{ name: "Output", value: discord.Formatters.codeBlock("js", inspect(evaled).substring(0, 1015)) },
+
+						{
+							name: "Output type",
+							value: typeofEvaled === "object" ? evaled.constructor.name : typeofEvaled,
+							inline: true
+						},
+						{ name: "Output length", value: `${inspect(evaled).length}`, inline: true },
+						{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
+					)
+			await interaction.editReply({ embeds: [embed] })
 			console.log(inspect(evaled))
 		} catch (error) {
+			const embed = new discord.MessageEmbed()
+				.setColor(errorColor)
+				.setAuthor("Evaluation")
+				.setTitle("An error occured while executing that code. Here's the error stack")
+				.addFields(
+					{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun) },
+					{ name: "Error", value: discord.Formatters.codeBlock(error.stack) },
+					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms` }
+				)
+				.setFooter(`Executed by ${me.user.tag}`, me.user.displayAvatarURL({ format: "png", dynamic: true }))
 			console.error(error)
-			await interaction.editReply(`Something went wrong. Here is the error:\n${error}`)
+			await interaction.editReply({ embeds: [embed] })
 		}
 	}
 }
