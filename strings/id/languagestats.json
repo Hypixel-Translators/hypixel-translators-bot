@@ -1,6 +1,6 @@
 {
 	"moduleName": "Statistika Bahasa",
-	"statsAll": "Inilah statistika untuk bahasa %%language%% dalam semua proyek yang saat ini kami dukung.",
+	"statsAll": "Inilah statistika untuk %%language%% dalam semua proyek yang saat ini kami dukung.",
 	"translated": "%%percentage%%% diterjemah (%%translated%%/%%total%% string)",
 	"approved": "%%percentage%%% disetujui (%%approved%%/%%total%% string)",
 	"languages": {
