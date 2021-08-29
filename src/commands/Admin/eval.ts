@@ -1,4 +1,3 @@
-//@ts-nocheck
 const { loadingColor, errorColor, successColor, neutralColor, listeningStatuses, watchingStatuses, playingStatuses } = require("../../config.json")
 const fetch = require("node-fetch")
 const { flag, code, name, countries } = require("country-emoji")
@@ -8,7 +7,6 @@ const { updateButtonColors, getUUID, updateRoles, getXpNeeded } = require("../..
 const { crowdinVerify } = require("../../lib/crowdinverify")
 const { leveling } = require("../../lib/leveling")
 const { generateWelcomeImage } = require("../../listeners/guildMemberAdd")
-//@ts-check
 import { db as mongoDb } from "../../lib/dbclient"
 import { transpile } from "typescript"
 import discord from "discord.js"
@@ -41,24 +39,23 @@ const command: Command = {
 		const compiledCode = transpile(codeToRun)
 		try {
 			evaled = await eval(compiledCode)
-			const typeofEvaled = typeof evaled,
-				embed = new discord.MessageEmbed()
-					.setColor(successColor)
-					.setAuthor("Evaluation")
-					.setTitle("The code was successful! Here's the output")
-					.addFields(
-						{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun) },
-						{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "")) },
-						{ name: "Output", value: discord.Formatters.codeBlock("js", inspect(evaled).substring(0, 1015)) },
+			const embed = new discord.MessageEmbed()
+				.setColor(successColor)
+				.setAuthor("Evaluation")
+				.setTitle("The code was successful! Here's the output")
+				.addFields(
+					{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun) },
+					{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "")) },
+					{ name: "Output", value: discord.Formatters.codeBlock("js", inspect(evaled).substring(0, 1015)) },
 
-						{
-							name: "Output type",
-							value: typeofEvaled === "object" ? evaled.constructor.name : typeofEvaled,
-							inline: true
-						},
-						{ name: "Output length", value: `${inspect(evaled).length}`, inline: true },
-						{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
-					)
+					{
+						name: "Output type",
+						value: evaled.constructor.name === "Array" ? `${evaled.constructor.name}<${evaled[0].constructor.name}>` : evaled.constructor.name,
+						inline: true
+					},
+					{ name: "Output length", value: `${inspect(evaled).length}`, inline: true },
+					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
+				)
 			await interaction.editReply({ embeds: [embed] })
 			console.log(inspect(evaled))
 		} catch (error) {
