@@ -44,8 +44,8 @@ const command: Command = {
 				.setAuthor("Evaluation")
 				.setTitle("The code was successful! Here's the output")
 				.addFields(
-					{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun) },
-					{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "")) },
+					{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun.substring(0, 1015)) },
+					{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
 					{ name: "Output", value: discord.Formatters.codeBlock("js", inspect(evaled).substring(0, 1015)) },
 
 					{
@@ -64,8 +64,8 @@ const command: Command = {
 				.setAuthor("Evaluation")
 				.setTitle("An error occured while executing that code. Here's the error stack")
 				.addFields(
-					{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun) },
-					{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "")) },
+					{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun.substring(0, 1015)) },
+					{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
 					{ name: "Error", value: discord.Formatters.codeBlock(error.stack) },
 					{ name: "Error Type", value: error.name, inline: true },
 					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
