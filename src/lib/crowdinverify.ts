@@ -251,7 +251,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 
 	await member.roles.remove(UsefulIDs.Alerted, "User is now Verified")
 	await member.roles.add(UsefulIDs.Verified, "User is now Verified")
-	await usersColl.updateOne({ id: member.id }, { $set: { profile: url } })
+	await usersColl.updateOne({ id: member.id }, { $set: { profile: url }, $unset: { unverifiedTimestamp: true } })
 
 	const endingMessageProjects: {
 		[name: string]: Discord.Role[]
