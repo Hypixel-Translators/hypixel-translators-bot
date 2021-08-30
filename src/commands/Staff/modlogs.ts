@@ -66,7 +66,7 @@ const command: Command = {
 			updateModlogFields(embed, modlogs[0], modlogs)
 
 			const msg = await interaction.reply({ embeds: [embed], components: [controlButtons], fetchReply: true }) as Discord.Message,
-				collector = msg.createMessageComponentCollector({ idle: 60_000 })
+				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: 60_000 })
 
 			collector.on("collect", async buttonInteraction => {
 				if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: `You cannot interact with this menu! Execute /${this.name} yourself to do this.`, ephemeral: true })

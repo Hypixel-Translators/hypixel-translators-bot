@@ -277,6 +277,27 @@ export function updateModlogFields(embed: Discord.MessageEmbed, modlog: Punishme
 	return embed
 }
 
+
+export function arrayEqual(a: any, b: any) {
+	if (a == b) return true
+
+	if (!Array.isArray(a) || !Array.isArray(b)) return false
+
+	// .concat() to not mutate arguments
+	let arr1 = a.concat().sort(),
+		arr2 = b.concat().sort()
+
+	// Remove duplicated values
+	arr1 = arr1.filter((item: string, index: number) => arr1.indexOf(item) == index)
+	arr2 = arr2.filter((item: string, pos: number) => arr2.indexOf(item) == pos)
+
+	for (let i = 0; i < arr1.length; i++) {
+		if (arr1[i] !== arr2[i]) return false
+	}
+
+	return true
+}
+
 export interface PunishmentLog {
 	case: number
 	id: Discord.Snowflake

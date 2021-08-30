@@ -6,7 +6,7 @@ import { crowdinVerify } from "../lib/crowdinverify"
 import { leveling } from "../lib/leveling"
 import { errorColor, successColor, neutralColor } from "../config.json"
 import { db, DbUser } from "../lib/dbclient"
-import { isEqual } from "lodash"
+import { arrayEqual } from "../lib/util"
 
 client.on("messageCreate", async message => {
 	//Delete pinned message and thread created messages
@@ -142,7 +142,7 @@ client.on("messageCreate", async message => {
 				.setFooter(getGlobalString("staffDm.confirmSend"))
 			if (message.attachments.size > 0) embed.setTitle(`${getGlobalString("staffDm.confirmation")} ${getGlobalString("staffDm.attachmentsWarn")}`)
 			const msg = await message.channel.send({ embeds: [embed], components: [controlButtons] }),
-				collector = msg.createMessageComponentCollector({ idle: confirmTime * 1000 })
+				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: confirmTime * 1000 })
 
 			let replied = false
 			collector.on("collect", async buttonInteraction => {
@@ -251,7 +251,7 @@ client.on("messageCreate", async message => {
 					return
 				} else {
 					string = strings[pathPart]
-					if (!string || (typeof string === "string" && !isEqual(string.match(/%%\w+%%/g)?.sort(), enStrings[pathPart].match(/%%\w+%%/g)?.sort()))) {
+					if (!string || (typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g)?.sort(), enStrings[pathPart].match(/%%\w+%%/g)?.sort()))) {
 						string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
 						if (!string) {
 							string = null //in case of fire

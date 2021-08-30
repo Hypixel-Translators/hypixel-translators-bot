@@ -3,7 +3,7 @@ import type { DbUser } from "../lib/dbclient"
 import Discord from "discord.js"
 import { errorColor } from "../config.json"
 import fs from "fs"
-import { isEqual } from "lodash"
+import { arrayEqual } from "../lib/util"
 
 client.on("interactionCreate", async interaction => {
 	const author: DbUser = await client.getUser(interaction.user.id),
@@ -166,7 +166,7 @@ client.on("interactionCreate", async interaction => {
 					return
 				} else {
 					string = strings[pathPart]
-					if (!string || (typeof string === "string" && !isEqual(string.match(/%%\w+%%/g)?.sort(), enStrings[pathPart].match(/%%\w+%%/g)?.sort()))) {
+					if (!string || (typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g)?.sort(), enStrings[pathPart].match(/%%\w+%%/g)?.sort()))) {
 						string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
 						if (!string) {
 							string = null //in case of fire

@@ -185,7 +185,7 @@ const command: Command = {
 					buttons.components.map(b => b.setDisabled(false))
 					await interaction.editReply({ components: [buttons] })
 				}, 5_000)
-				const buttonInteraction = await msg.awaitMessageComponent({ filter, time: 65_000 })
+				const buttonInteraction = await msg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 })
 					.catch(async () => {
 						const embed = new Discord.MessageEmbed()
 							.setColor(errorColor as Discord.HexColorString)
@@ -194,7 +194,7 @@ const command: Command = {
 							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 						await interaction.editReply({ embeds: [embed], components: [] })
 					})
-				if (!buttonInteraction || !buttonInteraction.isButton()) return
+				if (!buttonInteraction) return
 				if (buttonInteraction.customId === "confirm") {
 					await buttonInteraction.deferUpdate()
 
@@ -268,7 +268,7 @@ const command: Command = {
 					buttons.components.map(b => b.setDisabled(false))
 					await interaction.editReply({ components: [buttons] })
 				}, 5_000)
-				const buttonInteraction = await msg.awaitMessageComponent({ filter, time: 65_000 })
+				const buttonInteraction = await msg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 })
 					.catch(async () => {
 						const embed = new Discord.MessageEmbed()
 							.setColor(errorColor as Discord.HexColorString)
@@ -277,7 +277,7 @@ const command: Command = {
 							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 						await interaction.editReply({ embeds: [embed], components: [] })
 					})
-				if (!buttonInteraction || !buttonInteraction.isButton()) return
+				if (!buttonInteraction) return
 				if (buttonInteraction.customId === "confirm") {
 					await buttonInteraction.deferUpdate()
 					const endTimestamp = new Date().setHours(new Date().getHours() + punishment.duration!),
@@ -369,7 +369,7 @@ const command: Command = {
 					buttons.components.map(b => b.setDisabled(false))
 					await interaction.editReply({ components: [buttons] })
 				}, 5_000)
-				const buttonInteraction = await msg.awaitMessageComponent({ filter, time: 65_000 })
+				const buttonInteraction = await msg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 })
 					.catch(async () => {
 						const embed = new Discord.MessageEmbed()
 							.setColor(errorColor as Discord.HexColorString)
@@ -378,7 +378,7 @@ const command: Command = {
 							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 						await interaction.editReply({ embeds: [embed], components: [] })
 					})
-				if (!buttonInteraction || !buttonInteraction.isButton()) return
+				if (!buttonInteraction) return
 				if (buttonInteraction.customId === "confirm") {
 					await buttonInteraction.deferUpdate()
 
@@ -582,7 +582,7 @@ const command: Command = {
 				buttons.components.map(b => b.setDisabled(false))
 				await interaction.editReply({ components: [buttons] })
 			}, 5_000)
-			const buttonInteraction = await msg.awaitMessageComponent({ filter, time: 65_000 })
+			const buttonInteraction = await msg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 })
 				.catch(async () => {
 					const embed = new Discord.MessageEmbed()
 						.setColor(errorColor as Discord.HexColorString)
@@ -591,7 +591,7 @@ const command: Command = {
 						.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 					await interaction.editReply({ embeds: [embed], components: [] })
 				})
-			if (!buttonInteraction || !buttonInteraction.isButton()) return
+			if (!buttonInteraction) return
 			if (buttonInteraction.customId === "confirm") {
 				await buttonInteraction.deferUpdate()
 				const punishmentLog = new Discord.MessageEmbed()

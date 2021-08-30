@@ -63,7 +63,7 @@ const command: Command = {
 
 		await interaction.deferReply()
 		// make a request to the slothpixel api (hypixel api but we dont need an api key)
-		const json = await fetch(`https://api.slothpixel.me/api/players/${uuid}`, fetchSettings).then(res => res.json())
+		const playerJson = await fetch(`https://api.slothpixel.me/api/players/${uuid}`, fetchSettings).then(res => res.json())
 			.catch(e => {
 				if (e instanceof FetchError) {
 					console.error("Slothpixel is down, sending error.")
@@ -72,66 +72,66 @@ const command: Command = {
 			})
 
 		//Handle errors
-		if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"
-		else if (json.error === "Player has no Hypixel stats!") throw "noPlayer"
-		else if (json.error || !json.username) { // if other error we didn't plan for appeared
-			console.log(`Welp, we didn't plan for this to happen. Something went wrong when trying to get stats for ${uuid}, here's the error\n`, json.error)
+		if (playerJson.error === "Player does not exist" || playerJson.error === "Invalid username or UUID!") throw "falseUser"
+		else if (playerJson.error === "Player has no Hypixel stats!") throw "noPlayer"
+		else if (playerJson.error || !playerJson.username) { // if other error we didn't plan for appeared
+			console.log(`Welp, we didn't plan for this to happen. Something went wrong when trying to get stats for ${uuid}, here's the error\n`, playerJson.error)
 			throw "apiError"
 		}
 
 		//Define values used in both subcommands
 		let rank: string, // some ranks are just prefixes so this code accounts for that
 			color: Discord.HexColorString
-		if (json.prefix) {
-			color = parseColorCode(json.prefix)
-			rank = json.prefix.replace(/&([0-9]|[a-z])/g, "")
+		if (playerJson.prefix) {
+			color = parseColorCode(playerJson.prefix)
+			rank = playerJson.prefix.replace(/&([0-9]|[a-z])/g, "")
 		}
 		else {
-			color = parseColorCode(json.rank_formatted)
-			rank = json.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
+			color = parseColorCode(playerJson.rank_formatted)
+			rank = playerJson.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
 		}
-		const username = json.username.replaceAll("_", "\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
+		const username = playerJson.username.replaceAll("_", "\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
 
 		//Update user's roles if they're verified
-		const uuidDb = await db.collection<DbUser>("users").findOne({ uuid: json.uuid })
-		if (uuidDb) updateRoles(client.guilds.cache.get("549503328472530974")!.members.cache.get(uuidDb.id)!, json)
+		const uuidDb = await db.collection<DbUser>("users").findOne({ uuid: playerJson.uuid })
+		if (uuidDb) updateRoles(client.guilds.cache.get("549503328472530974")!.members.cache.get(uuidDb.id)!, playerJson)
 
 		const stats = async () => {
 			//Define each value
 			let online: string
-			if (json.online) online = getString("online")
+			if (playerJson.online) online = getString("online")
 			else online = getString("offline")
 
 			let last_seen: string
-			if (!json.last_game) last_seen = getString("lastGameHidden")
-			else last_seen = getString("lastSeen", { game: json.last_game.replace(/([A-Z]+)/g, " $1").trim() })
+			if (!playerJson.last_game) last_seen = getString("lastGameHidden")
+			else last_seen = getString("lastSeen", { game: playerJson.last_game.replace(/([A-Z]+)/g, " $1").trim() })
 
 			let lastLoginSelector: string
-			if (json.online) lastLoginSelector = "last_login"
+			if (playerJson.online) lastLoginSelector = "last_login"
 			else lastLoginSelector = "last_logout"
 
 			let locale: string = getString("region.dateLocale", "global")
 			if (locale.startsWith("crwdns")) locale = getString("region.dateLocale", "global", "en")
 
 			let lastLogin: string
-			if (json[lastLoginSelector]) lastLogin = `<t:${Math.round(new Date(json[lastLoginSelector]).getTime() / 1000)}:F>`
+			if (playerJson[lastLoginSelector]) lastLogin = `<t:${Math.round(new Date(playerJson[lastLoginSelector]).getTime() / 1000)}:F>`
 			else lastLogin = getString("lastLoginHidden")
 
 			let firstLogin: string
-			if (json.first_login) firstLogin = `<t:${Math.round(new Date(json.first_login).getTime() / 1000)}:F>`
+			if (playerJson.first_login) firstLogin = `<t:${Math.round(new Date(playerJson.first_login).getTime() / 1000)}:F>`
 			else firstLogin = getString("firstLoginHidden")
 
 			const statsEmbed = new Discord.MessageEmbed()
 				.setColor(color)
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${rank} ${username}`)
-				.setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
+				.setThumbnail(`https://mc-heads.net/body/${playerJson.uuid}/left`)
 				.setDescription(`${getString("description", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
 				.addFields(
-					{ name: getString("networkLevel"), value: Math.abs(json.level).toLocaleString(locale), inline: true },
-					{ name: getString("ap"), value: json.achievement_points.toLocaleString(locale), inline: true },
+					{ name: getString("networkLevel"), value: Math.abs(playerJson.level).toLocaleString(locale), inline: true },
+					{ name: getString("ap"), value: playerJson.achievement_points.toLocaleString(locale), inline: true },
 					{ name: getString("first_login"), value: firstLogin, inline: true },
-					{ name: getString("language"), value: getString(json.language), inline: true },
+					{ name: getString("language"), value: getString(playerJson.language), inline: true },
 					{ name: online, value: last_seen, inline: true },
 					{ name: getString(lastLoginSelector), value: lastLogin, inline: true }
 
@@ -141,7 +141,7 @@ const command: Command = {
 		}
 
 		const social = async () => {
-			const socialMedia = json.links
+			const socialMedia = playerJson.links
 
 			let twitter: string
 			if (socialMedia.TWITTER) {
@@ -177,12 +177,12 @@ const command: Command = {
 							if (allowedGuildIDs.includes(invite.guild?.id!)) discord = `[${getString("link")}](${invite.url})`
 							else {
 								discord = getString("blocked")
-								console.log(`Blocked the following Discord invite link in ${json.username}'s Hypixel profile: ${socialMedia.DISCORD} (led to ${invite.guild?.name || invite.channel.name})`)
+								console.log(`Blocked the following Discord invite link in ${playerJson.username}'s Hypixel profile: ${socialMedia.DISCORD} (led to ${invite.guild?.name || invite.channel.name})`)
 							}
 						})
 						.catch(() => {
 							discord = getString("notConnected")
-							console.log(`The following Discord invite link in ${json.username}\` profile was invalid: ${socialMedia.DISCORD}`)
+							console.log(`The following Discord invite link in ${playerJson.username}\` profile was invalid: ${socialMedia.DISCORD}`)
 						})
 				}
 			} else discord = getString("notConnected")
@@ -196,7 +196,7 @@ const command: Command = {
 				.setColor(color)
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${rank} ${username}`)
-				.setThumbnail(`https://mc-heads.net/body/${json.uuid}/left`)
+				.setThumbnail(`https://mc-heads.net/body/${playerJson.uuid}/left`)
 				.setDescription(`${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
 				.addFields(
 					{ name: "Twitter", value: twitter, inline: true },
@@ -232,21 +232,20 @@ const command: Command = {
 			.setCustomId("statType")
 		await interaction.editReply({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })
 		const msg = await interaction.fetchReply() as Discord.Message,
-			collector = msg.createMessageComponentCollector({ idle: this.cooldown! * 1000 })
+			collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
 
-		collector.on("collect", async componentInteraction => {
-			if (!componentInteraction.isSelectMenu()) return //this is just to set the typings properly, it won't actually trigger
-			const userDb: DbUser = await client.getUser(componentInteraction.user.id),
-				option = componentInteraction.values[0]
-			if (interaction.user.id !== componentInteraction.user.id)
-				return await componentInteraction.reply({
+		collector.on("collect", async menuInteraction => {
+			const userDb: DbUser = await client.getUser(menuInteraction.user.id),
+				option = menuInteraction.values[0]
+			if (interaction.user.id !== menuInteraction.user.id)
+				return await menuInteraction.reply({
 					content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang),
 					ephemeral: true
 				})
 			else if (option === "stats") embed = await stats()
 			else if (option === "social") embed = await social()
 			optionsSelect.options.forEach(o => o.default = option === o.value)
-			await componentInteraction.update({ embeds: [embed], components: [{ type: 1, components: [optionsSelect] }] })
+			await menuInteraction.update({ embeds: [embed], components: [{ type: 1, components: [optionsSelect] }] })
 		})
 
 		collector.on("end", async () => {

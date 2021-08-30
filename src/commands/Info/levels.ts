@@ -73,7 +73,7 @@ const command: Command = {
 
 			controlButtons = updateButtonColors(controlButtons, page, pages)
 			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }) as Discord.Message,
-				collector = msg.createMessageComponentCollector({ idle: this.cooldown! * 1000 })
+				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
 
 			collector.on("collect", async buttonInteraction => {
 				const userDb: DbUser = await client.getUser(buttonInteraction.user.id)

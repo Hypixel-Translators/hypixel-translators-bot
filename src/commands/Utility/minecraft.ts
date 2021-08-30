@@ -111,7 +111,7 @@ const command: Command = {
 					await interaction.editReply({ embeds: [pageEmbed], components: [controlButtons] })
 					const msg = await interaction.fetchReply() as Discord.Message
 
-					const collector = msg.createMessageComponentCollector({ idle: this.cooldown! * 1000 })
+					const collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
 
 					collector.on("collect", async buttonInteraction => {
 						const userDb: DbUser = await client.getUser(buttonInteraction.user.id)

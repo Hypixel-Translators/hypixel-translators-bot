@@ -4,7 +4,6 @@ import inactives from "../events/inactives"
 import crowdin from "../events/crowdinverify"
 import { listeningStatuses, watchingStatuses, playingStatuses, successColor } from "../config.json"
 import Discord from "discord.js"
-import { isEqual } from "lodash"
 import { db } from "../lib/dbclient"
 import { PunishmentLog, restart } from "../lib/util"
 
@@ -24,7 +23,7 @@ client.once("ready", async () => {
 				const discordCommand = globalCommands.find(c => c.name === command.name)!
 				//Chech if the command is published
 				if (!globalCommands.some(cmd => cmd.name === command.name)) await publishCommand(command)
-				else if (!commandEquals(discordCommand, command)) {
+				else if (!discordCommand.equals(command)) {
 					await discordCommand.edit(convertToDiscordCommand(command))
 					console.log(`Edited command ${command.name} since changes were found\n`, discordCommand, command)
 				}
@@ -220,29 +219,4 @@ function convertToDiscordCommand(command: Command): Discord.ChatInputApplication
 		defaultPermission: command.roleWhitelist || command.dev ? false : true,
 		options: command.options ?? []
 	}
-}
-
-const commandEquals = (discordCommand: Discord.ApplicationCommand, localCommand: Command) =>
-	discordCommand.name === localCommand.name &&
-	discordCommand.description === localCommand.description &&
-	isEqual(discordCommand.options, localCommand.options?.map(o => transformOption(o)) ?? [])
-
-function transformOption(option: Discord.ApplicationCommandOptionData): Discord.ApplicationCommandOptionData {
-	return {
-		type: option.type,
-		name: option.name,
-		description: option.description,
-		required:
-			option.type === "SUB_COMMAND" || option.type === "SUB_COMMAND_GROUP"
-				? option.required
-				: option.required ?? false,
-		choices:
-			option.type === "STRING" || option.type === "NUMBER" || option.type === "INTEGER"
-				? option.choices
-				: undefined,
-		options:
-			(option.type === "SUB_COMMAND" || option.type === "SUB_COMMAND_GROUP") && option.options
-				? option.options?.map(o => transformOption(o))
-				: undefined,
-	} as Discord.ApplicationCommandOptionData
 }

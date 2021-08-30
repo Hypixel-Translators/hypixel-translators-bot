@@ -89,17 +89,16 @@ const command: Command = {
 			}))
 
 			const msg = await interaction.reply({ embeds: [pageEmbed], components: [pageMenu], fetchReply: true }) as Discord.Message,
-				collector = msg.createMessageComponentCollector({ idle: this.cooldown! * 1000 })
+				collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
 
-			collector.on("collect", async componentInteraction => {
-				if (!componentInteraction.isSelectMenu()) return //this is just to set the typings properly, it won't actually trigger
-				const userDb: DbUser = await client.getUser(componentInteraction.user.id),
-					option = componentInteraction.values[0]
-				if (interaction.user.id !== componentInteraction.user.id) return await componentInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
+			collector.on("collect", async menuInteraction => {
+				const userDb: DbUser = await client.getUser(menuInteraction.user.id),
+					option = menuInteraction.values[0]
+				if (interaction.user.id !== menuInteraction.user.id) return await menuInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
 				else page = Number(option)
 				pageEmbed = fetchPage(page, pages, getString, executedBy, interaction) as Discord.MessageEmbed
 				(pageMenu.components[0] as Discord.MessageSelectMenu).options.forEach(o => o.default = option === o.value)
-				await componentInteraction.update({ embeds: [pageEmbed], components: [pageMenu] })
+				await menuInteraction.update({ embeds: [pageEmbed], components: [pageMenu] })
 			})
 
 			collector.on("end", async () => {
