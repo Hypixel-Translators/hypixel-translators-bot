@@ -30,7 +30,7 @@
 		"wrongLink": "Zły odnośnik!"
 	},
 	"roles": {
-		"noLevel": "You must be at least chat level %%level%% to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
+		"noLevel": "Musisz być przynajmniej na %%level%% poziomie czatu, aby otrzymać tę rolę. Możesz sprawdzić swój obecny poziom poprzez %%command%% na %%channel%%.",
 		"successGive": "Pomyślnie nadano Ci rolę %%role%%!",
 		"successTake": "Pomyślnie zabrano Ci rolę %%role%%!"
 	},
