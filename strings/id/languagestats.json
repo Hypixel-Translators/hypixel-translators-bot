@@ -5,7 +5,6 @@
 	"approved": "%%percentage%%% disetujui (%%approved%%/%%total%% string)",
 	"languages": {
 		"ar": "Bahasa Arab",
-		"bar": "Bavaria",
 		"bc": "Biscuitish",
 		"bg": "Bahasa Bulgaria",
 		"zhcn": "Bahasa Mandarin (Simpel)",
@@ -24,8 +23,8 @@
 		"hi": "Hindi",
 		"hu": "Bahasa Hungary",
 		"id": "Bahasa Indonesia",
-		"gaie": "Irlandia",
 		"ib": "Inhale Banana",
+		"gaie": "Irlandia",
 		"it": "Italia",
 		"ja": "Jepang",
 		"ko": "Korea",
@@ -33,6 +32,8 @@
 		"lt": "Lithuania",
 		"ms": "Melayu",
 		"no": "Norwegia",
+		"ow": "OwO",
+		"fa": "Bahasa Persia",
 		"enpt": "Inggris Bajak Laut",
 		"pl": "Polandia",
 		"pt": "Portugis",
@@ -48,7 +49,6 @@
 		"th": "Thailand",
 		"tr": "Turki",
 		"ua": "Ukraina",
-		"vi": "Bahasa Vietnam",
-		"ow": "OwO"
+		"vi": "Bahasa Vietnam"
 	}
 }
