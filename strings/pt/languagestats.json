@@ -5,7 +5,6 @@
 	"approved": "%%percentage%%% aprovado (%%approved%%/%%total%% frases)",
 	"languages": {
 		"ar": "Árabe",
-		"bar": "Bávaro",
 		"bc": "Biscuitish",
 		"bg": "Búlgaro",
 		"zhcn": "Chinês Simplificado",
@@ -24,8 +23,8 @@
 		"hi": "Hindi",
 		"hu": "Húngaro",
 		"id": "Indonésio",
-		"gaie": "Irlandês",
 		"ib": "Inhale Banana",
+		"gaie": "Irlandês",
 		"it": "Italiano",
 		"ja": "Japonês",
 		"ko": "Coreano",
@@ -33,6 +32,8 @@
 		"lt": "Lituano",
 		"ms": "Malaio",
 		"no": "Norueguês",
+		"ow": "OwO",
+		"fa": "Persa",
 		"enpt": "Inglês Pirata",
 		"pl": "Polaco",
 		"pt": "Português",
@@ -48,7 +49,6 @@
 		"th": "Tailandês",
 		"tr": "Turco",
 		"ua": "Ucraniano",
-		"vi": "Vietnamita",
-		"ow": "OwO"
+		"vi": "Vietnamita"
 	}
 }

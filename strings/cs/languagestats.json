@@ -5,7 +5,6 @@
 	"approved": "%%percentage%%% schváleno (%%approved%%/%%total%% stringů)",
 	"languages": {
 		"ar": "Arabština",
-		"bar": "Bavorština",
 		"bc": "Biscuitish",
 		"bg": "Bulharština",
 		"zhcn": "Čínština (zjednodušená)",
@@ -24,8 +23,8 @@
 		"hi": "Hindi",
 		"hu": "Maďarština",
 		"id": "Indonéština",
-		"gaie": "Irish",
 		"ib": "Inhale Banana",
+		"gaie": "Irish",
 		"it": "Italština",
 		"ja": "Japonština",
 		"ko": "Korejština",
@@ -33,6 +32,8 @@
 		"lt": "Lithuanian",
 		"ms": "Malajština",
 		"no": "Norština",
+		"ow": "OwO",
+		"fa": "Persian",
 		"enpt": "Pirátská angličtina",
 		"pl": "Polština",
 		"pt": "Portugalština",
@@ -48,7 +49,6 @@
 		"th": "Thajština",
 		"tr": "Turečtina",
 		"ua": "Ukrajinština",
-		"vi": "Vietnamese",
-		"ow": "OwO"
+		"vi": "Vietnamese"
 	}
 }

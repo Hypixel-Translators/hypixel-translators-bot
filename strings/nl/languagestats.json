@@ -5,7 +5,6 @@
 	"approved": "%%percentage%%% goedgekeurd (%%approved%%/%%total%% tekenreeksen)",
 	"languages": {
 		"ar": "Arabisch",
-		"bar": "Beiers",
 		"bc": "Biscuitish",
 		"bg": "Bulgaars",
 		"zhcn": "Vereenvoudigd Chinees",
@@ -24,8 +23,8 @@
 		"hi": "Hindi",
 		"hu": "Hongaars",
 		"id": "Indonesisch",
-		"gaie": "Iers",
 		"ib": "Inhale Banana",
+		"gaie": "Iers",
 		"it": "Italiaans",
 		"ja": "Japans",
 		"ko": "Koreaans",
@@ -33,6 +32,8 @@
 		"lt": "Litouws",
 		"ms": "Maleis",
 		"no": "Noors",
+		"ow": "OwO",
+		"fa": "Perzisch",
 		"enpt": "Piratenengels",
 		"pl": "Pools",
 		"pt": "Portugees",
@@ -48,7 +49,6 @@
 		"th": "Thais",
 		"tr": "Turks",
 		"ua": "Oekraïens",
-		"vi": "Vietnamees",
-		"ow": "OwO"
+		"vi": "Vietnamees"
 	}
 }

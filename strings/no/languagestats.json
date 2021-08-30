@@ -5,7 +5,6 @@
 	"approved": "%%percentage%%% akseptert (%%approved%%/%%total%% strenger)",
 	"languages": {
 		"ar": "Arabisk",
-		"bar": "Bairisk",
 		"bc": "Biscuitish",
 		"bg": "Bulgarsk",
 		"zhcn": "Kinesisk (forenklet)",
@@ -24,8 +23,8 @@
 		"hi": "Hindi",
 		"hu": "Ungarsk",
 		"id": "Indonesisk",
-		"gaie": "Irsk",
 		"ib": "Inhale Banana",
+		"gaie": "Irsk",
 		"it": "Italiensk",
 		"ja": "Japansk",
 		"ko": "Koreansk",
@@ -33,6 +32,8 @@
 		"lt": "Litauisk",
 		"ms": "Malaysisk",
 		"no": "Norsk",
+		"ow": "OwO",
+		"fa": "Persisk",
 		"enpt": "Pirat-engelsk",
 		"pl": "Polsk",
 		"pt": "Portugisisk",
@@ -48,7 +49,6 @@
 		"th": "Thai",
 		"tr": "Tyrkisk",
 		"ua": "Ukrainsk",
-		"vi": "Vietnamesisk",
-		"ow": "OwO"
+		"vi": "Vietnamesisk"
 	}
 }

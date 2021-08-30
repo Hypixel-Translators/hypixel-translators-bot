@@ -1,6 +1,6 @@
 {
 	"moduleName": "Statystyki Minecraft",
-	"madeBy": "Komenda stworzona przez %%developer%%",
+	"madeBy": "Polecenie stworzone przez %%developer%%",
 	"history": {
 		"firstName": "Pierwsza nazwa użytkownika",
 		"nameHistoryFor": "Wykaz nazw użytkownika (%%username%%)",

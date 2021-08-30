@@ -5,7 +5,6 @@
 	"approved": "crwdns1018:0%%percentage%%crwdnd1018:0%%approved%%crwdnd1018:0%%total%%crwdne1018:0",
 	"languages": {
 		"ar": "crwdns1020:0crwdne1020:0",
-		"bar": "crwdns1022:0crwdne1022:0",
 		"bc": "crwdns1024:0crwdne1024:0",
 		"bg": "crwdns1026:0crwdne1026:0",
 		"zhcn": "crwdns1028:0crwdne1028:0",
@@ -24,8 +23,8 @@
 		"hi": "crwdns1054:0crwdne1054:0",
 		"hu": "crwdns1056:0crwdne1056:0",
 		"id": "crwdns1058:0crwdne1058:0",
-		"gaie": "crwdns1060:0crwdne1060:0",
 		"ib": "crwdns1062:0crwdne1062:0",
+		"gaie": "crwdns1060:0crwdne1060:0",
 		"it": "crwdns1064:0crwdne1064:0",
 		"ja": "crwdns1066:0crwdne1066:0",
 		"ko": "crwdns1068:0crwdne1068:0",
@@ -33,6 +32,8 @@
 		"lt": "crwdns1072:0crwdne1072:0",
 		"ms": "crwdns1074:0crwdne1074:0",
 		"no": "crwdns1076:0crwdne1076:0",
+		"ow": "crwdns1110:0crwdne1110:0",
+		"fa": "crwdns2303:0crwdne2303:0",
 		"enpt": "crwdns1078:0crwdne1078:0",
 		"pl": "crwdns1080:0crwdne1080:0",
 		"pt": "crwdns1082:0crwdne1082:0",
@@ -48,7 +49,6 @@
 		"th": "crwdns1102:0crwdne1102:0",
 		"tr": "crwdns1104:0crwdne1104:0",
 		"ua": "crwdns1106:0crwdne1106:0",
-		"vi": "crwdns1108:0crwdne1108:0",
-		"ow": "crwdns1110:0crwdne1110:0"
+		"vi": "crwdns1108:0crwdne1108:0"
 	}
 }
