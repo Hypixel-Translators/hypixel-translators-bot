@@ -63,7 +63,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 								fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
 								thread = await channel.threads.create({
 									name: `Change rejected on ${stringId ? `string ${stringId}` : fileId === "all" ? "all files" : fileId ? `file ${fileId}` : "an unknown string"}`,
-									autoArchiveDuration: 1440,
+									autoArchiveDuration: 60,
 									reason: `${user.tag} rejected the change`
 								})
 							await thread.send({ content: `${reaction.message.author}, ${user}`, embeds: [embed] })
