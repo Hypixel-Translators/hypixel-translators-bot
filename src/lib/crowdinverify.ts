@@ -47,8 +47,8 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		usersColl = db.collection<DbUser>("users")
 	if (!url) {
 		const userDb = await client.getUser(member.id)
-		url = userDb.profile
-		if (url === null) return removeAllRoles(member)
+		if (typeof url === "undefined") url = userDb.profile
+		else if (url === null) return removeAllRoles(member)
 		else if (!url) { //if user runs /verify and the profile is not stored on our DB or if the user sends the generic profile URL
 			//#region return message
 			member.roles.remove("569194996964786178", "Tried to verify but profile wasn't stored") // Verified
