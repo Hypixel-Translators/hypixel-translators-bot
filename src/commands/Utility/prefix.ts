@@ -207,7 +207,7 @@ const command: Command = {
 			let p = 0
 			while (p < prefixButtons.length) components.push(prefixButtons.slice(p, p += 5))
 			components.push(controlButtons)
-			const rows = components.map(c => ({ type: 1, components: c }))
+			const rows = components.map(c => ({ type: "ACTION_ROW", components: c }) as const)
 
 			if (!userLangs.length) {
 				if (member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628") || member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))) { //Bot updates

@@ -245,12 +245,12 @@ const command: Command = {
 			else if (option === "stats") embed = await stats()
 			else if (option === "social") embed = await social()
 			optionsSelect.options.forEach(o => o.default = option === o.value)
-			await menuInteraction.update({ embeds: [embed], components: [{ type: 1, components: [optionsSelect] }] })
+			await menuInteraction.update({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })
 		})
 
 		collector.on("end", async () => {
 			optionsSelect.setDisabled(true)
-			await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"), components: [{ type: 1, components: [optionsSelect] }], embeds: [embed] })
+			await interaction.editReply({ content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"), components: [{ type: "ACTION_ROW", components: [optionsSelect] }], embeds: [embed] })
 		})
 	}
 }
