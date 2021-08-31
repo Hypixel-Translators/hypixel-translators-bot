@@ -72,7 +72,7 @@ export async function updateProjectStatus(client: Discord.Client, projectId: str
 		if (stringCount < langStatus[0].data.phrases.total)
 			await translatorsChannel.send(`> <a:partyBlob:769679132317057064> **New ${stringDiff == 1 ? "String" : "Strings"}!**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the ${projectDb.name} project.\n\nTranslate at <https://crowdin.com/translate/${projectDb.identifier}/all/en>`)
 		else if (stringCount > langStatus[0].data.phrases.total)
-			await translatorsChannel.send(`> <:vote_no:732298639736570007> **${stringDiff == 1 ? "String" : "Strings"} Removed**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`)
+			await translatorsChannel.send(`> <:vote_no:839262184882044931> **${stringDiff == 1 ? "String" : "Strings"} Removed**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`)
 		await crowdinDb.updateOne({ id: projectDb.id }, { $set: { stringCount: langStatus[0].data.phrases.total } })
 	}
 }

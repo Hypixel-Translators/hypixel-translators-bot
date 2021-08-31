@@ -37,7 +37,7 @@ const command: Command = {
 				{ number: 0, badge: "🏠", titleString: "mainPage" },
 				{ number: 1, badge: "🛠️", titleString: "utilityHelp" },
 				{ number: 2, badge: "ℹ️", titleString: "infoHelp" },
-				{ number: 3, badge: "<:crowdin:820381256016723988>", titleString: "projectsHelp" }
+				{ number: 3, badge: "<:crowdin:878439498717999196>", titleString: "projectsHelp" }
 			] as Page[]
 
 		let pageIndex = 1
