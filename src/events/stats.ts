@@ -1,10 +1,9 @@
 import { loadingColor, errorColor, successColor } from "../config.json"
 import Discord from "discord.js"
-import fetch from "node-fetch"
+import axios from "axios"
 import type { HTBClient } from "../lib/dbclient"
 import { db } from "../lib/dbclient"
-import type { CrowdinProject, LangDbEntry, LanguageStatus } from "../lib/util"
-const settings = { headers: { "Content-Type": "application/json", "Authorization": "Bearer " + process.env.CTOKEN_V2, "User-Agent": "Hypixel Translators Bot" }, timeout: 10_000 }
+import { crowdinFetchSettings, CrowdinProject, LangDbEntry, LanguageStatus } from "../lib/util"
 
 export async function execute(client: HTBClient, manual: boolean): Promise<void> {
 	const m = new Date().getUTCMinutes()
@@ -29,11 +28,11 @@ export async function updateProjectStatus(client: Discord.Client, projectId: str
 	const langdb = await db.collection<LangDbEntry>("langdb").find().toArray(),
 		crowdinDb = db.collection<CrowdinProject>("crowdin"),
 		projectDb = await crowdinDb.findOne({ id: projectId }) as CrowdinProject,
-		json = await fetch(`https://api.crowdin.com/api/v2/projects/${projectId}/languages/progress?limit=500`, settings).then(res => res.json())
+		json = await axios.get(`https://api.crowdin.com/api/v2/projects/${projectId}/languages/progress?limit=500`, crowdinFetchSettings)
 			.catch(err => console.error(`Crowdin API is down, couldn't update ${projectDb.name} language statistics. Here's the error:`, err))
-	if (!json) return
-	if (!json.data) return console.error(`We got no data from the API when trying to update Hypixel! Here's the response:\n`, json)
-	const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
+	if (!json?.data) return
+	if (!json.data?.data) return console.error(`We got no data from the API when trying to update Hypixel! Here's the response:\n`, json)
+	const langStatus: LanguageStatus[] = json.data.data.map((status: LanguageStatus) => {
 		status.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)!
 		return status
 	}).sort((a: LanguageStatus, b: LanguageStatus) => b.data.phrases.total - a.data.phrases.total),

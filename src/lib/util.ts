@@ -1,6 +1,6 @@
 //This file contains a bunch of functions used across the bot on multuple commands.
 import Discord from "discord.js"
-import fetch from "node-fetch"
+import axios from "axios"
 import { client } from "../index"
 import { db } from "./dbclient"
 
@@ -35,11 +35,16 @@ export function updateButtonColors(row: Discord.MessageActionRow, page: number, 
 	return row
 }
 
-export const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 30_000 }
+export const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 30_000 },
+	crowdinFetchSettings = {
+		headers: { "Content-Type": "application/json", Authorization: `Bearer ${process.env.CTOKEN_V2}`, "User-Agent": "Hypixel Translators Bot" },
+		timeout: 10_000
+	}
+
 
 export async function getUUID(username: string): Promise<string | undefined> {
-	return await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`, fetchSettings).then(res => res.json())
-		.then(json => json.id)
+	return await axios.get(`https://api.mojang.com/users/profiles/minecraft/${username}`, fetchSettings)
+		.then(json => json.data.id)
 		.catch(() => {
 			return
 		})
@@ -211,8 +216,7 @@ export interface Quote {
 }
 
 export async function restart(interaction?: Discord.CommandInteraction) {
-	await fetch("https://api.heroku.com/apps/hypixel-translators/dynos", {
-		method: "DELETE",
+	await axios.delete("https://api.heroku.com/apps/hypixel-translators/dynos", {
 		headers: {
 			"User-Agent": `${interaction?.user.tag ?? client.user.tag}`,
 			Authorization: `Bearer ${process.env.HEROKU_API}`,

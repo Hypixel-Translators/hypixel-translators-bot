@@ -1,6 +1,6 @@
 import Discord from "discord.js"
 import { successColor } from "../../config.json"
-import fetch from "node-fetch"
+import axios from "axios"
 import { db, DbUser } from "../../lib/dbclient"
 import { client, Command, GetStringFunction } from "../../index"
 import { fetchSettings, getUUID, updateButtonColors } from "../../lib/util"
@@ -190,17 +190,15 @@ const command: Command = {
 export default command
 
 async function getPlayer(uuid: string) {
-	const res = await fetch(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings),
-		json = await res.json()
+	const json = await axios.get(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings).then(res => res.data)
 	if (json.error) throw "falseUUID"
 	return json as UserProfile
 }
 
-async function getNameHistory(uuid: string): Promise<NameHistory[]> {
-	const res = await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`, fetchSettings),
-		json = await res.json()
+async function getNameHistory(uuid: string) {
+	const json = await axios.get(`https://api.mojang.com/user/profiles/${uuid}/names`, fetchSettings).then(res => res.data)
 	if (json.error) throw "falseUUID"
-	return json.reverse()
+	return json.reverse() as NameHistory[]
 }
 
 /** @see https://wiki.vg/Mojang_API#UUID_to_Name_History */
