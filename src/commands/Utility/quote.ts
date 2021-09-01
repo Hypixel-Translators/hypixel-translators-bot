@@ -100,7 +100,7 @@ const command: Command = {
 					.setAuthor("Quote")
 					.setTitle("A quote request has been submitted!")
 					.setDescription(`${quote}\n       - ${author}`)
-					.setFooter("Suggested by " + interaction.user.tag, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(`Suggested by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				await staffBots.send({ content: `/quote add quote:${quote} author:@${author.tag}`, embeds: [report] })
 				const embed = new Discord.MessageEmbed()
 					.setColor(successColor as Discord.HexColorString)

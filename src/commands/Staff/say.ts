@@ -28,7 +28,7 @@ const command: Command = {
 		if (!member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
 
 		if (member.permissions.has("MANAGE_ROLES")) await sendTo.send(message)
-		else await sendTo.send(">>> " + message)
+		else await sendTo.send(Discord.Formatters.blockQuote(message))
 		const embed = new Discord.MessageEmbed()
 			.setColor(successColor as Discord.HexColorString)
 			.setAuthor("Message")

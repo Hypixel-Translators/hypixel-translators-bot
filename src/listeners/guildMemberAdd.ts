@@ -84,7 +84,7 @@ export async function generateWelcomeImage(member: Discord.GuildMember) {
 
 	//Draw member count
 	ctx.font = "30px Bitter"
-	ctx.fillText("You're member #" + memberCount, 200, 132.5)
+	ctx.fillText(`You're member #${memberCount}`, 200, 132.5)
 
 	//ICON
 	//Draw a circle for the image to go into

@@ -174,7 +174,7 @@ client.on("messageCreate", async message => {
 			await db.collection<DbUser>("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: afterConfirm ? Date.now() : message.createdTimestamp } })
 			const staffMsg = new Discord.MessageEmbed()
 				.setColor(neutralColor as Discord.HexColorString)
-				.setAuthor("Incoming message from " + message.author.tag)
+				.setAuthor(`Incoming message from ${message.author.tag}`)
 				.setDescription(message.content)
 			const dmEmbed = new Discord.MessageEmbed()
 				.setColor(successColor as Discord.HexColorString)

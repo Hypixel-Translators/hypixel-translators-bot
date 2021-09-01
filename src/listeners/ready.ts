@@ -68,7 +68,7 @@ client.once("ready", async () => {
 			//Between 0% and 33% (inclusive)
 			const listenStatus = listeningStatuses[Math.floor(Math.random() * listeningStatuses.length)].replace("RANDOM_USER", pickedUser)
 			client.user!.setActivity({ name: listenStatus, type: "LISTENING" })
-		} else console.error("Couldn't set the status because the percentage is a weird number: " + toPick)
+		} else console.error(`Couldn't set the status because the percentage is a weird number: ${toPick}`)
 
 		await stats(client, false)
 		await inactives(client, false)

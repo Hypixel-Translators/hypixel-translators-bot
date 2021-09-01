@@ -43,7 +43,7 @@ const command: Command = {
 			position: 22,
 			permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
 			mentionable: false,
-			reason: "Added language " + nationality
+			reason: `Added language ${nationality}`
 		})
 		const proofreaderRole = await interaction.guild!.roles.create({
 			name: `${nationality} Proofreader`,
@@ -52,7 +52,7 @@ const command: Command = {
 			position: 49,
 			permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
 			mentionable: false,
-			reason: "Added language " + nationality
+			reason: `Added language ${nationality}`
 		})
 		const overwrites = [
 			{
@@ -90,34 +90,34 @@ const command: Command = {
 			type: "GUILD_CATEGORY",
 			permissionOverwrites: overwrites,
 			position: 9,
-			reason: "Added language " + nationality
+			reason: `Added language ${nationality}`
 		})
 		const translatorsChannel = await interaction.guild!.channels.create(`${nationality}-translators`, {
 			type: "GUILD_TEXT",
 			topic: `A text channel where you can discuss ${nationality!.charAt(0).toUpperCase() + nationality!.slice(1)} translations! ${emoji}\n\nTRANSLATION`,
 			parent: category,
 			permissionOverwrites: overwrites,
-			reason: "Added language " + nationality
+			reason: `Added language ${nationality}`
 		})
 		const proofreadersChannel = await interaction.guild!.channels.create(`${nationality}-proofreaders`, {
 			type: "GUILD_TEXT",
 			parent: category,
 			permissionOverwrites: pfOverwrites,
-			reason: "Added language " + nationality
+			reason: `Added language ${nationality}`
 		})
 		const translatorsVoice = await interaction.guild!.channels.create(`${nationality} Translators`, {
 			type: "GUILD_VOICE",
 			userLimit: 10,
 			parent: category,
 			permissionOverwrites: overwrites,
-			reason: "Added language " + nationality
+			reason: `Added language ${nationality}`
 		})
 		const proofreadersVoice = await interaction.guild!.channels.create(`${nationality} Proofreaders`, {
 			type: "GUILD_VOICE",
 			userLimit: 10,
 			parent: category,
 			permissionOverwrites: pfOverwrites,
-			reason: "Added language " + nationality
+			reason: `Added language ${nationality}`
 		})
 		const embed = new Discord.MessageEmbed()
 			.setColor(successColor as Discord.HexColorString)
