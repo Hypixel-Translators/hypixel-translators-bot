@@ -4,7 +4,6 @@ import fetch, { FetchError } from "node-fetch"
 import { successColor, loadingColor, errorColor } from "../../config.json"
 import { Command, client, GetStringFunction } from "../../index"
 import type { LangDbEntry, LanguageStatus } from "../../lib/util"
-import type { JsonData } from "../../events/stats"
 const ctokenV2 = process.env.CTOKEN_V2!
 
 const command: Command = {
@@ -35,7 +34,7 @@ const command: Command = {
 			quickplayData: LanguageStatus["data"] | null = null,
 			sbaData: LanguageStatus["data"] | null = null,
 			botData: LanguageStatus["data"] | null = null
-		const hypixelJson = await fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", settings).then(async res => (await res.json() as JsonData).data)
+		const hypixelJson: LanguageStatus[] = await fetch("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", settings).then(async res => (await res.json()).data)
 			.catch(e => {
 				if (e instanceof FetchError) {
 					console.error("Crowdin API is down, sending error.")
@@ -45,13 +44,13 @@ const command: Command = {
 
 		hypixelData = hypixelJson.find(language => language.data.languageId === lang.id)?.data ?? null
 
-		const quickplayJson = await fetch("https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500", settings).then(async res => (await res.json() as JsonData).data)
+		const quickplayJson: LanguageStatus[] = await fetch("https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500", settings).then(async res => (await res.json()).data)
 		quickplayData = quickplayJson.find(language => language.data.languageId === lang.id)?.data ?? null
 
-		const sbaJson = await fetch("https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500", settings).then(async res => (await res.json() as JsonData).data)
+		const sbaJson: LanguageStatus[] = await fetch("https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500", settings).then(async res => (await res.json()).data)
 		sbaData = sbaJson.find(language => language.data.languageId === lang.id)?.data ?? null
 
-		const botJson = await fetch("https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500", settings).then(async res => (await res.json() as JsonData).data)
+		const botJson: LanguageStatus[] = await fetch("https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500", settings).then(async res => (await res.json()).data)
 		botData = botJson.find(language => language.data.languageId === lang.id)?.data ?? null
 
 		let adapColour: Discord.HexColorString

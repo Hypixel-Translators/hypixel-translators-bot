@@ -192,19 +192,15 @@ export default command
 async function getPlayer(uuid: string) {
 	const res = await fetch(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings),
 		json = await res.json()
-	if ((json as APIError).error) throw "falseUUID"
+	if (json.error) throw "falseUUID"
 	return json as UserProfile
 }
 
-async function getNameHistory(uuid: string){
-	const json = (await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`, fetchSettings).then(res => res.json())) as NameHistory[] | APIError
-	if ((json as APIError).error) throw "falseUUID"
-	return (json as NameHistory[]).reverse()
-}
-
-interface APIError {
-	error: string
-	errorMessage: string
+async function getNameHistory(uuid: string): Promise<NameHistory[]> {
+	const res = await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`, fetchSettings),
+		json = await res.json()
+	if (json.error) throw "falseUUID"
+	return json.reverse()
 }
 
 /** @see https://wiki.vg/Mojang_API#UUID_to_Name_History */

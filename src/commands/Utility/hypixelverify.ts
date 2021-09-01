@@ -4,7 +4,6 @@ import fetch, { FetchError } from "node-fetch"
 import { db, DbUser } from "../../lib/dbclient"
 import { fetchSettings, getUUID, updateRoles } from "../../lib/util"
 import type { Command, GetStringFunction } from "../../index"
-import type { PlayerJson } from "./hypixelstats"
 
 const command: Command = {
 	name: "hypixelverify",
@@ -38,7 +37,7 @@ const command: Command = {
 					console.error("slothpixel is down, sending error.")
 					throw "apiError"
 				} else throw e
-			}) as PlayerJson
+			})
 
 		// Handle errors
 		if (json.error === "Player does not exist" || json.error === "Invalid username or UUID!") throw "falseUser"

@@ -69,7 +69,7 @@ const command: Command = {
 					console.error("Slothpixel is down, sending error.")
 					throw "apiError"
 				} else throw e
-			}) as PlayerJson
+			})
 
 		//Handle errors
 		if (playerJson.error === "Player does not exist" || playerJson.error === "Invalid username or UUID!") throw "falseUser"
@@ -90,17 +90,13 @@ const command: Command = {
 			color = parseColorCode(playerJson.rank_formatted)
 			rank = playerJson.rank_formatted.replace(/&([0-9]|[a-z])/g, "")
 		}
-
-		// change the nickname in a way that doesn't accidentally mess up the formatting in the embed
-		const username = playerJson.username.replaceAll("_", "\\_")
+		const username = playerJson.username.replaceAll("_", "\\_") // change the nickname in a way that doesn't accidentally mess up the formatting in the embed
 
 		//Update user's roles if they're verified
 		const uuidDb = await db.collection<DbUser>("users").findOne({ uuid: playerJson.uuid })
 		if (uuidDb) updateRoles(client.guilds.cache.get("549503328472530974")!.members.cache.get(uuidDb.id)!, playerJson)
 
-		const skinRender = `https://mc-heads.net/body/${playerJson.uuid}/left`
-
-		const stats = () => {
+		const stats = async () => {
 			//Define each value
 			let online: string
 			if (playerJson.online) online = getString("online")
@@ -110,13 +106,15 @@ const command: Command = {
 			if (!playerJson.last_game) last_seen = getString("lastGameHidden")
 			else last_seen = getString("lastSeen", { game: playerJson.last_game.replace(/([A-Z]+)/g, " $1").trim() })
 
-			const lastLoginLogout = playerJson.online ? playerJson.last_login : playerJson.last_logout
+			let lastLoginSelector: string
+			if (playerJson.online) lastLoginSelector = "last_login"
+			else lastLoginSelector = "last_logout"
 
 			let locale: string = getString("region.dateLocale", "global")
 			if (locale.startsWith("crwdns")) locale = getString("region.dateLocale", "global", "en")
 
 			let lastLogin: string
-			if (lastLoginLogout) lastLogin = `<t:${Math.round(new Date(lastLoginLogout).getTime() / 1000)}:F>`
+			if (playerJson[lastLoginSelector]) lastLogin = `<t:${Math.round(new Date(playerJson[lastLoginSelector]).getTime() / 1000)}:F>`
 			else lastLogin = getString("lastLoginHidden")
 
 			let firstLogin: string
@@ -127,22 +125,22 @@ const command: Command = {
 				.setColor(color)
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${rank} ${username}`)
-				.setThumbnail(skinRender)
-				.setDescription(`${getString("description", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""}${getString("updateNote")}\n${getString("otherStats")}`)
+				.setThumbnail(`https://mc-heads.net/body/${playerJson.uuid}/left`)
+				.setDescription(`${getString("description", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
 				.addFields(
 					{ name: getString("networkLevel"), value: Math.abs(playerJson.level).toLocaleString(locale), inline: true },
 					{ name: getString("ap"), value: playerJson.achievement_points.toLocaleString(locale), inline: true },
 					{ name: getString("first_login"), value: firstLogin, inline: true },
-
 					{ name: getString("language"), value: getString(playerJson.language), inline: true },
 					{ name: online, value: last_seen, inline: true },
-					{ name: getString(playerJson.online ? "last_login" : "last_logout"), value: lastLogin, inline: true }
+					{ name: getString(lastLoginSelector), value: lastLogin, inline: true }
+
 				)
 				.setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			return statsEmbed
 		}
 
-		const social = () => {
+		const social = async () => {
 			const socialMedia = playerJson.links
 
 			let twitter: string
@@ -174,7 +172,7 @@ const command: Command = {
 			if (socialMedia.DISCORD) {
 				if (!socialMedia.DISCORD.includes("discord.gg")) discord = socialMedia.DISCORD.replaceAll("_", "\\_")
 				else {
-					interaction.client.fetchInvite(socialMedia.DISCORD)
+					await interaction.client.fetchInvite(socialMedia.DISCORD)
 						.then(invite => {
 							if (allowedGuildIDs.includes(invite.guild?.id!)) discord = `[${getString("link")}](${invite.url})`
 							else {
@@ -198,8 +196,8 @@ const command: Command = {
 				.setColor(color)
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${rank} ${username}`)
-				.setThumbnail(skinRender)
-				.setDescription(`${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""}${getString("updateNote")}\n${getString("otherStats")}`)
+				.setThumbnail(`https://mc-heads.net/body/${playerJson.uuid}/left`)
+				.setDescription(`${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
 				.addFields(
 					{ name: "Twitter", value: twitter, inline: true },
 					{ name: "YouTube", value: youtube, inline: true },
@@ -257,55 +255,29 @@ const command: Command = {
 	}
 }
 
-function parseColorCode(color: string): Discord.HexColorString {
-	const colorCode: string = color.substring(1, 2).toLowerCase(),
-		colorsJson: {
-			[key: string]: Discord.HexColorString
-		} = {
-			"0": "#000000",
-			"1": "#0000AA",
-			"2": "#00AA00",
-			"3": "#00AAAA",
-			"4": "#AA0000",
-			"5": "#AA00AA",
-			"6": "#FFAA00",
-			"7": "#AAAAAA",
-			"8": "#555555",
-			"9": "#5555FF",
-			a: "#55FF55",
-			b: "#55FFFF",
-			c: "#FF5555",
-			d: "#FF55FF",
-			e: "#FFFF55",
-			f: "#FFFFFF"
-		}
+function parseColorCode(rank: string): Discord.HexColorString {
+	const colorCode: string = rank.substring(1, 2)
+	const colorsJson: {
+		[key: string]: Discord.HexColorString
+	} = {
+		"0": "#000000",
+		"1": "#0000AA",
+		"2": "#00AA00",
+		"3": "#00AAAA",
+		"4": "#AA0000",
+		"5": "#AA00AA",
+		"6": "#FFAA00",
+		"7": "#AAAAAA",
+		"8": "#555555",
+		"9": "#5555FF",
+		a: "#55FF55",
+		b: "#55FFFF",
+		c: "#FF5555",
+		d: "#FF55FF",
+		e: "#FFFF55",
+		f: "#FFFFFF"
+	}
 	return colorsJson[colorCode]
 }
 
 export default command
-
-export interface PlayerJson {
-	error?: string
-	uuid: string
-	username: string
-	online: boolean
-	rank: string
-	rank_formatted: string
-	prefix: string | null
-	level: number
-	achievement_points: number
-	first_login: number
-	last_login: number | null
-	last_logout: number | null
-	last_game: string | null
-	language: string
-	links: {
-		TWITTER: string | null
-		YOUTUBE: string | null
-		INSTAGRAM: string | null
-		TWITCH: string | null
-		DISCORD: string | null
-		HYPIXEL: string | null
-	}
-}
-

@@ -30,7 +30,7 @@ export async function updateProjectStatus(client: Discord.Client, projectId: str
 		crowdinDb = db.collection<CrowdinProject>("crowdin"),
 		projectDb = await crowdinDb.findOne({ id: projectId }) as CrowdinProject,
 		json = await fetch(`https://api.crowdin.com/api/v2/projects/${projectId}/languages/progress?limit=500`, settings).then(res => res.json())
-			.catch(err => console.error(`Crowdin API is down, couldn't update ${projectDb.name} language statistics. Here's the error:`, err)) as JsonData
+			.catch(err => console.error(`Crowdin API is down, couldn't update ${projectDb.name} language statistics. Here's the error:`, err))
 	if (!json) return
 	if (!json.data) return console.error(`We got no data from the API when trying to update Hypixel! Here's the response:\n`, json)
 	const langStatus: LanguageStatus[] = json.data.map((status: LanguageStatus) => {
@@ -79,6 +79,3 @@ export async function updateProjectStatus(client: Discord.Client, projectId: str
 
 export default execute
 
-export interface JsonData {
-	data: LanguageStatus[]
-}

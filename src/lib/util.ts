@@ -38,16 +38,11 @@ export function updateButtonColors(row: Discord.MessageActionRow, page: number, 
 export const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 30_000 }
 
 export async function getUUID(username: string): Promise<string | undefined> {
-	const json = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`, fetchSettings).then(res => res.json())
+	return await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`, fetchSettings).then(res => res.json())
+		.then(json => json.id)
 		.catch(() => {
 			return
-		}) as NameToUUID
-	return json?.id
-}
-
-interface NameToUUID {
-	name: string
-	id: string
+		})
 }
 
 export async function updateRoles(member: Discord.GuildMember, json?: JsonResponse) {
