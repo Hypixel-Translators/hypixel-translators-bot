@@ -14,6 +14,7 @@
 		"url": "git://github.com/Hypixel-Translators/hypixel-translators-bot.git"
 	},
 	"dependencies": {
+		"axios": "^0.21.1",
 		"canvas": "^2.8.0",
 		"country-emoji": "^1.5.6",
 		"countryjs": "^1.8.0",
