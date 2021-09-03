@@ -47,7 +47,9 @@ const command: Command = {
 					throw "apiError"
 				} else throw e
 			}),
-			guildJson = (await axios.get<GuildJson>(`https://api.slothpixel.me/api/guilds/${uuid}`, fetchSettings)).data
+			guildRes = await axios.get<GuildJson>(`https://api.slothpixel.me/api/guilds/${uuid}`, fetchSettings)
+				.catch(() => { return { data: { guild: null } } }),
+			guildJson = guildRes!.data
 
 		//Handle errors
 		if (playerJson.error === "Player does not exist" || playerJson.error === "Invalid username or UUID!") throw "falseUser"
@@ -77,7 +79,7 @@ const command: Command = {
 		if (uuidDb) updateRoles(client.guilds.cache.get("549503328472530974")!.members.cache.get(uuidDb.id)!, playerJson)
 
 		const skinRender = `https://mc-heads.net/body/${playerJson.uuid}/left`,
-			guildMaster = (await getMCProfile(guildJson.members.find(m => m.rank === "Guild Master")!.uuid))!.name
+			guildMaster = (await getMCProfile((guildJson as GuildJson).members?.find(m => m.rank === "Guild Master")!.uuid ?? ""))?.name
 
 		const stats = () => {
 			//Define each value
@@ -199,6 +201,7 @@ const command: Command = {
 		}
 
 		const guild = () => {
+			if (!guildJson.guild) return
 
 			const color = parseColorCode(guildJson.tag_color)
 
@@ -224,7 +227,7 @@ const command: Command = {
 						value: guildJson.ranks.map(rank => `${rank.name}`).join("\n"),
 						inline: true
 					},
-					{ name: getString("guildMaster"), value: guildMaster, inline: true },
+					{ name: getString("guildMaster"), value: guildMaster!, inline: true },
 					{
 						name: getString("userRank", { user: playerJson.username }),
 						value: guildJson.members.find(member => member.uuid === uuid)!.rank,
@@ -276,7 +279,7 @@ const command: Command = {
 				})
 			else if (option === "stats") embed = stats()
 			else if (option === "social") embed = social()
-			else if (option === "guild") embed = guild()
+			else if (option === "guild") embed = guild()!
 			optionsSelect.options.forEach(o => o.default = option === o.value)
 			await menuInteraction.update({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })
 		})
