@@ -205,7 +205,7 @@ const command: Command = {
 			const embed = new Discord.MessageEmbed()
 				.setColor(color === "#AAAAAA" ? "BLURPLE" : color)
 				.setAuthor(getString("moduleName"))
-				.setTitle(`${guildJson.name}${guildJson.tag ? ` [${guildJson.tag}]` : ""}`)
+				.setTitle(`${guildJson.name}${guildJson.tag ? ` [${guildJson.tag.replace(/&[a-f0-9k-or]/gi, "")}]` : ""}`)
 				.setThumbnail(skinRender)
 				.setDescription(
 					`${getString("guildDesc", {
