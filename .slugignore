@@ -1,0 +1,8 @@
+/.github
+/assets/flags
+.gitignore
+.mergify.yml
+.prettierrc.json
+LICENSE
+README.md
+crowdin.yml
