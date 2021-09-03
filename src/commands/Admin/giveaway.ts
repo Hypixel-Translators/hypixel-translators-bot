@@ -18,7 +18,7 @@ const command: Command = {
 	}],
 	roleWhitelist: ["764442984119795732"], //Discord Administrator
 	async execute(interaction) {
-		const giveawayMsg = await (interaction.channel as Discord.TextChannel).messages.fetch((interaction.options.getString("messageid", true) as Discord.Snowflake))
+		const giveawayMsg = await (interaction.channel as Discord.TextChannel).messages.fetch(interaction.options.getString("messageid", true))
 			.catch(async err => {
 				return await interaction.reply({ content: "Couldn't find that message! Here's the error:\n" + err, ephemeral: true })
 			}) as Discord.Message

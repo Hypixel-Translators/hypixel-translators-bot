@@ -227,7 +227,7 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
 async function linkQuote(interaction: Discord.CommandInteraction, collection: Collection<Quote>) {
 	const quoteId = interaction.options.getInteger("index", true),
 		urlSplit = interaction.options.getString("url", true).split("/");
-	(client.channels.cache.get(urlSplit[5] as Discord.Snowflake) as Discord.TextChannel | undefined)?.messages.fetch(urlSplit[6] as Discord.Snowflake)
+	(client.channels.cache.get(urlSplit[5]) as Discord.TextChannel | undefined)?.messages.fetch(urlSplit[6])
 		.then(async msg => {
 			const result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } })
 			if (result.value) {
