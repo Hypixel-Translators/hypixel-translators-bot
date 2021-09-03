@@ -66,8 +66,10 @@ const command: Command = {
 				.addFields(
 					{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun.substring(0, 1015)) },
 					{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
-					{ name: "Error", value: discord.Formatters.codeBlock(error.stack) },
+					{ name: "Error", value: discord.Formatters.codeBlock(error.stack.substring(0, 1017)) },
+
 					{ name: "Error Type", value: error.name, inline: true },
+					{ name: "Error length", value: `${error.stack.length}`, inline: true },
 					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
 				)
 				.setFooter(`Executed by ${me.user.tag}`, me.user.displayAvatarURL({ format: "png", dynamic: true }))
