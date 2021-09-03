@@ -52,9 +52,9 @@ client.on("messageCreate", async message => {
 	if (message.channel instanceof Discord.TextChannel && message.channel.name.endsWith("-review-strings")) {
 		if (!/https:\/\/crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) await message.delete()
 		else {
-			await message.react("839262196797669427") // vote_yes
-			await message.react("839262179416211477") // vote_maybe
-			await message.react("839262184882044931") // vote_no
+			await message.react("vote_yes:839262196797669427")
+			await message.react("vote_maybe:839262179416211477")
+			await message.react("vote_no:839262184882044931")
 		}
 	}
 
@@ -76,7 +76,7 @@ client.on("messageCreate", async message => {
 		) {
 			const langFix = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
 			if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
-				await message.react("839262184882044931") //vote_no
+				await message.react("vote_no:839262184882044931")
 				const embed = new Discord.MessageEmbed()
 					.setColor(errorColor as Discord.HexColorString)
 					.setAuthor(getGlobalString("errors.wrongLink"))
@@ -92,7 +92,7 @@ client.on("messageCreate", async message => {
 				await message.reply({ embeds: [embed] })
 				return
 			} else if (message.content !== langFix && message.channel.parentId === "549503328472530977") {
-				await message.react("839262184882044931") //vote_no
+				await message.react("vote_no:839262184882044931")
 				const embed = new Discord.MessageEmbed()
 					.setColor(errorColor as Discord.HexColorString)
 					.setAuthor(getGlobalString("errors.wrongLink"))
@@ -107,7 +107,7 @@ client.on("messageCreate", async message => {
 	//Crowdin verification system
 	if (/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel.id === "569178590697095168") {
 		//verify
-		await message.react("798339571531382874") //icon_working
+		await message.react("loading:882267041627766816")
 		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
 		if (!message.deleted) await message.delete()
 		const fiMessages = (await message.channel.messages.fetch()).filter(msgs => msgs.author.id === message.author.id)
@@ -204,8 +204,8 @@ client.on("messageCreate", async message => {
 	//Event role system
 	if (message.member?.roles.cache.has("764442984119795732") && message.mentions.roles.has("863430999122509824") && message.content.includes("\n\n")) { //Discord Administrator and Event
 		await db.collection("config").updateOne({ name: "event" }, { $push: { ids: message.id } })
-		await message.react("839262196797669427") // vote_yes
-		await message.react("839262184882044931") // vote_no
+		await message.react("vote_yes:839262196797669427")
+		await message.react("vote_no:839262184882044931")
 	}
 
 	//Function to get strings
