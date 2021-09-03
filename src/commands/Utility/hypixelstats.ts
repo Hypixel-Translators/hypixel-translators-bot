@@ -2,45 +2,23 @@ import Discord from "discord.js"
 import axios from "axios"
 import { db, DbUser } from "../../lib/dbclient"
 import { Command, client, GetStringFunction } from "../../index"
-import { fetchSettings, getUUID, updateRoles } from "../../lib/util"
+import { fetchSettings, getMCProfile, getUUID, updateRoles } from "../../lib/util"
 
 //Credits to marzeq
 const command: Command = {
 	name: "hypixelstats",
 	description: "Shows you basic Hypixel stats for the provided user.",
 	options: [{
-		type: "SUB_COMMAND",
-		name: "stats",
-		description: "Shows general statistics for the given user",
-		options: [{
-			type: "STRING",
-			name: "username",
-			description: "The IGN of the user to get statistics for. Can also be a UUID",
-			required: false
-		},
-		{
-			type: "USER",
-			name: "user",
-			description: "The server member to get statistics for. Only works if the user has verified themselves",
-			required: false
-		}]
+		type: "STRING",
+		name: "username",
+		description: "The IGN of the user to get statistics for. Can also be a UUID",
+		required: false
 	},
 	{
-		type: "SUB_COMMAND",
-		name: "social",
-		description: "Shows the user's linked social media",
-		options: [{
-			type: "STRING",
-			name: "username",
-			description: "The IGN of the user to get statistics for. Can also be a UUID",
-			required: false
-		},
-		{
-			type: "USER",
-			name: "user",
-			description: "The server member to get statistics for. Only works if the user has verified themselves",
-			required: false
-		}]
+		type: "USER",
+		name: "user",
+		description: "The server member to get statistics for. Only works if the user has verified themselves",
+		required: false
 	}],
 	cooldown: 120,
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
@@ -50,8 +28,7 @@ const command: Command = {
 			credits = getString("madeBy", { developer: interaction.client.users.cache.get("500669086947344384")!.tag }),
 			authorDb: DbUser = await client.getUser(interaction.user.id),
 			userInput = interaction.options.getUser("user", false),
-			usernameInput = interaction.options.getString("username", false),
-			subCommand = interaction.options.getSubcommand()
+			usernameInput = interaction.options.getString("username", false)
 		let uuid = authorDb.uuid
 		if (userInput) {
 			const userDb: DbUser = await client.getUser(userInput.id)
@@ -69,7 +46,8 @@ const command: Command = {
 					console.error("Slothpixel is down, sending error.")
 					throw "apiError"
 				} else throw e
-			})
+			}),
+			guildJson = (await axios.get<GuildJson>(`https://api.slothpixel.me/api/guilds/${uuid}`, fetchSettings)).data
 
 		//Handle errors
 		if (playerJson.error === "Player does not exist" || playerJson.error === "Invalid username or UUID!") throw "falseUser"
@@ -98,7 +76,8 @@ const command: Command = {
 		const uuidDb = await db.collection<DbUser>("users").findOne({ uuid: playerJson.uuid })
 		if (uuidDb) updateRoles(client.guilds.cache.get("549503328472530974")!.members.cache.get(uuidDb.id)!, playerJson)
 
-		const skinRender = `https://mc-heads.net/body/${playerJson.uuid}/left`
+		const skinRender = `https://mc-heads.net/body/${playerJson.uuid}/left`,
+			guildMaster = (await getMCProfile(guildJson.members.find(m => m.rank === "Guild Master")!.uuid))!.name
 
 		const stats = () => {
 			//Define each value
@@ -128,7 +107,11 @@ const command: Command = {
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${rank} ${username}`)
 				.setThumbnail(skinRender)
-				.setDescription(`${getString("description", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
+				.setDescription(
+					`${getString("description", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${
+						uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""
+					}${getString("updateNote")}\n${getString("otherStats")}`
+				)
 				.addFields(
 					{ name: getString("networkLevel"), value: Math.abs(playerJson.level).toLocaleString(locale), inline: true },
 					{ name: getString("ap"), value: playerJson.achievement_points.toLocaleString(locale), inline: true },
@@ -199,7 +182,10 @@ const command: Command = {
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${rank} ${username}`)
 				.setThumbnail(skinRender)
-				.setDescription(`${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""}${getString("updateNotice")}\n${getString("otherStats")}`)
+				.setDescription(
+					`${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""
+					}${getString("updateNote")}\n${getString("otherStats")}`
+				)
 				.addFields(
 					{ name: "Twitter", value: twitter, inline: true },
 					{ name: "YouTube", value: youtube, inline: true },
@@ -212,9 +198,45 @@ const command: Command = {
 			return socialEmbed
 		}
 
-		let embed: Discord.MessageEmbed = new Discord.MessageEmbed()
-		if (!subCommand || subCommand === "stats") embed = await stats()
-		else if (subCommand === "social") embed = await social()
+		const guild = () => {
+
+			const color = parseColorCode(guildJson.tag_color)
+
+			const embed = new Discord.MessageEmbed()
+				.setColor(color === "#AAAAAA" ? "BLURPLE" : color)
+				.setAuthor(getString("moduleName"))
+				.setTitle(`${guildJson.name}${guildJson.tag ? ` [${guildJson.tag}]` : ""}`)
+				.setThumbnail(skinRender)
+				.setDescription(
+					`${getString("guildDesc", {
+						player: playerJson.username,
+						guildName: guildJson.name,
+						link: `(https://api.slothpixel.me/api/guilds/${uuid})`
+					})}\n${getString("updateNote")}\n\n${guildJson.description ? `**${getString("guildDescHypixel")}**: ${guildJson.description}` : getString("noGuildDesc")}`
+				)
+				.addFields(
+					{ name: getString("guildLevel"), value: guildJson.level.toLocaleString(getString("region.dateLocale", "global")), inline: true },
+					{ name: getString("memberCount"), value: `${guildJson.members.length}/125`, inline: true },
+					{ name: getString("createdAt"), value: `<t:${Math.round(guildJson.created / 1000)}:F>`, inline: true },
+
+					{
+						name: getString("guildRanks"),
+						value: guildJson.ranks.map(rank => `${rank.name}`).join("\n"),
+						inline: true
+					},
+					{ name: getString("guildMaster"), value: guildMaster, inline: true },
+					{
+						name: getString("userRank", { user: playerJson.username }),
+						value: guildJson.members.find(member => member.uuid === uuid)!.rank,
+						inline: true
+					}
+				)
+				.setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+
+			return embed
+		}
+
+		let embed = stats()
 
 		const optionsSelect = new Discord.MessageSelectMenu()
 			.addOptions(
@@ -222,16 +244,24 @@ const command: Command = {
 					label: getString("stats"),
 					value: "stats",
 					emoji: "📊",
-					default: subCommand === "stats",
+					default: true,
 				},
 				{
 					label: getString("social"),
 					value: "social",
 					emoji: "twitter:821752918352068677",
-					default: subCommand === "social"
+					default: false
 				}
 			)
 			.setCustomId("statType")
+		if (guildJson.guild) optionsSelect.addOptions( //guild is only present as null, so this means the user has a guild
+			{
+				label: "Guild",
+				value: "guild",
+				emoji: "🏡",
+				default: false
+			}
+		)
 		await interaction.editReply({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })
 		const msg = await interaction.fetchReply() as Discord.Message,
 			collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
@@ -246,6 +276,7 @@ const command: Command = {
 				})
 			else if (option === "stats") embed = stats()
 			else if (option === "social") embed = social()
+			else if (option === "guild") embed = guild()
 			optionsSelect.options.forEach(o => o.default = option === o.value)
 			await menuInteraction.update({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })
 		})
@@ -306,5 +337,50 @@ export interface PlayerJson {
 		TWITCH: string | null
 		DISCORD: string | null
 		HYPIXEL: string | null
+	}
+}
+
+interface GuildJson {
+	guild: true | null
+	name: string
+	id: string
+	created: number
+	joinable: boolean
+	public: boolean
+	tag: string | null
+	tag_color: string
+	tag_formatted: string | null
+	legacy_ranking: number | null
+	exp: number
+	level: number
+	exp_by_game: {
+		[key: string]: number
+	}
+	exp_history: {
+		[key: string]: number
+	}
+	description: string | null
+	preferred_games: string[]
+	ranks: {
+		name: string
+		default?: boolean
+		tag?: string | null
+		created: number
+		priority: number
+	}[]
+	members: {
+		uuid: string
+		rank: string
+		joined: number
+		quest_participation: number
+		exp_history: {
+			[key: string]: number
+		}
+		muted_till: number | null
+	}[]
+	achievements: {
+		EXPERIENCE_KINGS: number
+		ONLINE_PLAYERS: number
+		WINNERS: number
 	}
 }

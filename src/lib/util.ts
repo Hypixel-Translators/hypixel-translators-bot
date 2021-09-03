@@ -50,6 +50,24 @@ export async function getUUID(username: string): Promise<string | undefined> {
 		})
 }
 
+export async function getMCProfile(uuid: string) {
+	return await axios.get<MinecraftProfile>(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings)
+		.then(json => json.data)
+		.catch(() => {
+			return
+		})
+}
+
+interface MinecraftProfile {
+	id: string
+	name: string
+	properties: {
+		name: string
+		value: string
+		signature?: string
+	}[]
+}
+
 export async function updateRoles(member: Discord.GuildMember, json?: JsonResponse) {
 	const roles: Discord.Snowflake[] = [
 		"816435344689987585", //Unranked
