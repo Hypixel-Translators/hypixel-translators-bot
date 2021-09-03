@@ -30,9 +30,9 @@
 		"wrongLink": "錯誤的連結！"
 	},
 	"roles": {
-		"noLevel": "You must be at least chat level %%level%% to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
-		"successGive": "Successfully gave you the %%role%% role!",
-		"successTake": "Successfully took the %%role%% role from you!"
+		"noLevel": "你的聊天等級需要至少為 %%level%% 級才能獲得該身份組！你可以在 %%channel%% 頻道中使用 %%command%% 指令查看目前的聊天等級。",
+		"successGive": "成功取得 %%role%% 身份組！",
+		"successTake": "成功移除 %%role%% 身份組！"
 	},
 	"cooldown": "冷卻時間",
 	"secondLeft": "請等待數秒後才再次使用 `%%command%%` 指令。",
