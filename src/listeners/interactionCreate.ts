@@ -246,8 +246,12 @@ client.on("interactionCreate", async interaction => {
 			.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 
 		//Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first
-		if (interaction.deferred) await interaction.editReply({ embeds: [embed], components: [] })
-		else if (!interaction.replied) await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
+		if (interaction.deferred) {
+			const errorMsg = await interaction.editReply({ embeds: [embed], components: [] }) as Discord.Message
+			setTimeout(async () => {
+				if (!errorMsg.deleted) await errorMsg.delete()
+			}, 10000)
+		} else if (!interaction.replied) await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
 		else if (interaction.replied) await interaction.followUp({ embeds: [embed], ephemeral: !error.stack, components: [] })
 			.catch(async err => {
 				await interaction.channel!.send({ embeds: [embed], components: [] })
