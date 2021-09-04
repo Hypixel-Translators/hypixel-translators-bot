@@ -48,9 +48,9 @@ client.on("messageCreate", async message => {
 	}
 
 	// Delete non-stringURL messages in review-strings
-	const stringURLRegex = /https:\/\/crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
+	const stringURLRegex = /(https:\/\/)?crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
 	if (message.channel instanceof Discord.TextChannel && message.channel.name.endsWith("-review-strings")) {
-		if (!/https:\/\/crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) await message.delete()
+		if (!/(https:\/\/)?crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) await message.delete()
 		else {
 			await message.react("vote_yes:839262196797669427")
 			await message.react("vote_maybe:839262179416211477")
@@ -66,7 +66,7 @@ client.on("messageCreate", async message => {
 		message.channel.type !== "DM" &&
 		message.content.toLowerCase().includes("/translate/hypixel/") &&
 		message.content.includes("://") &&
-		/https:\/\/(crowdin\.com|translate\.hypixel\.net)\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)
+		/(https:\/\/)?(crowdin\.com|translate\.hypixel\.net)\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)
 	) {
 		if (
 			message.channel.parentId === "549503328472530977" || //Hypixel Translations
@@ -93,11 +93,12 @@ client.on("messageCreate", async message => {
 				return
 			} else if (message.content !== langFix && message.channel.parentId === "549503328472530977") {
 				await message.react("vote_no:839262184882044931")
-				const embed = new Discord.MessageEmbed()
-					.setColor(errorColor as Discord.HexColorString)
-					.setAuthor(getGlobalString("errors.wrongLink"))
-					.setTitle(getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }))
-					.setDescription(`**${getGlobalString("correctLink")}**\n${langFix.match(stringURLRegex)![0]}`)
+				const correctLink = langFix.match(stringURLRegex)![0],
+					embed = new Discord.MessageEmbed()
+						.setColor(errorColor as Discord.HexColorString)
+						.setAuthor(getGlobalString("errors.wrongLink"))
+						.setTitle(getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }))
+						.setDescription(`**${getGlobalString("correctLink")}**\n${correctLink.startsWith("https://") ? correctLink : `https://${correctLink}`}`)
 				await message.reply({ embeds: [embed] })
 				return
 			}
@@ -105,7 +106,7 @@ client.on("messageCreate", async message => {
 	}
 
 	//Crowdin verification system
-	if (/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel.id === "569178590697095168") {
+	if (/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel.id === "569178590697095168") {
 		//verify
 		await message.react("loading:882267041627766816")
 		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
