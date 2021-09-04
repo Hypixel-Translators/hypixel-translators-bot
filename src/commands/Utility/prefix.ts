@@ -71,6 +71,7 @@ const command: Command = {
 			collector.on("collect", async buttonInteraction => {
 				const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) return await buttonInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
+				collector.stop("responded")
 				if (buttonInteraction.customId === "confirm") {
 					if (member.nickname !== (`[${prefix}] ${nickNoPrefix}`)) {
 						await member.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
@@ -110,9 +111,7 @@ const command: Command = {
 							.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 						await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 					}
-					prefix = "n"
 				} else if (buttonInteraction.customId === "cancel") {
-					prefix = "n"
 					const embed = new Discord.MessageEmbed()
 						.setColor(errorColor as Discord.HexColorString)
 						.setAuthor(getString("moduleName"))
@@ -122,11 +121,11 @@ const command: Command = {
 					await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 				}
 			})
-			collector.on("end", async () => {
-				if (prefix === "n") return
+			collector.on("end", async (_collected, reason) => {
+				if (reason === "responded") return
 				if (prefix) {
 					if (member.nickname !== (`[${prefix}] ${nickNoPrefix}`)) {
-						member.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
+						await member.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
 							.then(async () => {
 								const embed = new Discord.MessageEmbed()
 									.setColor(successColor as Discord.HexColorString)
@@ -237,9 +236,8 @@ const command: Command = {
 				.addField(getString("previewT"), getString("noChanges"))
 				.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [noChangesEmbed], components: rows })
-			const msg = await interaction.fetchReply() as Discord.Message
-
-			const collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
+			const msg = await interaction.fetchReply() as Discord.Message,
+				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
 
 			collector.on("collect", async buttonInteraction => {
 				const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
@@ -247,6 +245,7 @@ const command: Command = {
 				if (buttonInteraction.customId !== "cancel") components.at(-1)!.find(b => b.customId === "confirm")!.setDisabled(false)
 				if (buttonInteraction.customId === "confirm") {
 					components.forEach(buttons => buttons.forEach(button => button.setDisabled(true)))
+					collector.stop("responded")
 					if (prefixes) {
 						if (member.nickname !== (`[${prefixes}] ${nickNoPrefix}`)) {
 							await member.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
@@ -270,9 +269,7 @@ const command: Command = {
 									await buttonInteraction.update({ embeds: [embed], components: rows })
 									console.log(err.stack || err)
 								})
-							prefixes = "n"
 						} else {
-							prefixes = "n"
 							const embed = new Discord.MessageEmbed()
 								.setColor(errorColor as Discord.HexColorString)
 								.setAuthor(getString("moduleName"))
@@ -290,7 +287,7 @@ const command: Command = {
 					}
 				} else if (buttonInteraction.customId === "cancel") {
 					components.forEach(buttons => buttons.forEach(button => button.setDisabled(true)))
-					prefixes = "n"
+					collector.stop("responded")
 					const embed = new Discord.MessageEmbed()
 						.setColor(errorColor as Discord.HexColorString)
 						.setAuthor(getString("moduleName"))
@@ -313,8 +310,8 @@ const command: Command = {
 				}
 			})
 
-			collector.on("end", async () => {
-				if (prefixes === "n") return
+			collector.on("end", async (_collected, reason) => {
+				if (reason === "responded") return
 				components.forEach(buttons => buttons.forEach(button => button.setDisabled(true)))
 				if (prefixes.length > 0) {
 					if (member.nickname !== (`[${prefixes}] ${nickNoPrefix}`)) {
