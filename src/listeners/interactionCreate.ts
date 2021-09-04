@@ -129,27 +129,27 @@ client.on("interactionCreate", async interaction => {
 	 * Gets a string or an object of strings for the correct language and replaces all variables if any
 	 * @param {string} path Path to the string. Use dots to access strings inside objects
 	 * @param {Object} [variables] Object containing all the variables and their corresponding text to be replaced in the string.
-	 * @param {string} [cmd] The name of the file to get strings from. Defaults to the command being ran
+	 * @param {string} [file] The name of the file to get strings from. Defaults to the command being ran
 	 * @param {string} [lang] The language to get the string from. Defaults to the author's language preference.
 	 * @returns A clean string with all the variables replaced or an object of strings. Will return `null` if the path cannot be found.
 	 */
 	function getString(
 		path: string,
 		variables?: { [key: string]: string | number } | string,
-		cmd: string = command?.name ?? "global",
-		lang: string = author.lang ?? "en"
+		file = command?.name ?? "global",
+		lang = author.lang ?? "en"
 	): any {
 		if (typeof variables === "string") {
 			const languages = fs.readdirSync("./strings")
-			lang = languages.includes(cmd) ? cmd : author.lang ?? "en"
-			cmd = variables
+			lang = languages.includes(file) ? file : author.lang ?? "en"
+			file = variables
 		}
-		let enStrings = require(`../../strings/en/${cmd}.json`)
+		let enStrings = require(`../../strings/en/${file}.json`)
 		let strings: any
 		try {
-			strings = require(`../../strings/${lang}/${cmd}.json`)
+			strings = require(`../../strings/${lang}/${file}.json`)
 		} catch {
-			strings = require(`../../strings/en/${cmd}.json`)
+			strings = require(`../../strings/en/${file}.json`)
 		}
 		const pathSplit = path.split(".")
 		let string
@@ -171,7 +171,7 @@ client.on("interactionCreate", async interaction => {
 						if (!string) {
 							string = null //in case of fire
 							if (command!.category != "Admin" && command!.category != "Staff" && !path.includes(" "))
-								console.error(`Couldn't get string ${path} in English for ${cmd}, please fix this`)
+								console.error(`Couldn't get string ${path} in English for ${file}, please fix this`)
 						}
 					}
 					if (typeof string === "string" && variables) {

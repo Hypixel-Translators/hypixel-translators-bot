@@ -43,7 +43,7 @@ export interface Command extends Discord.ChatInputApplicationCommandData {
 	execute(interaction: Discord.CommandInteraction, getString?: GetStringFunction): Promise<any>
 }
 
-export type GetStringFunction = (path: string, variables?: { [key: string]: string | number } | string, cmd?: string, lang?: string) => any
+export type GetStringFunction = (path: string, variables?: { [key: string]: string | number } | string, file?: string, lang?: string) => any
 
 //Log in
 client.login(process.env.DISCORD_TOKEN)
