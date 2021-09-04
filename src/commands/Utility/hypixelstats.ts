@@ -110,7 +110,7 @@ const command: Command = {
 				.setTitle(`${rank} ${username}`)
 				.setThumbnail(skinRender)
 				.setDescription(
-					`${getString("description", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${
+					`${getString("statsDesc", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${
 						uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""
 					}${getString("updateNote")}\n${getString("otherStats")}`
 				)
