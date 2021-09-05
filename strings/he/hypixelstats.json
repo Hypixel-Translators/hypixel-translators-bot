@@ -1,6 +1,5 @@
 {
 	"moduleName": "סטטיסטיקות של השחקן",
-	"description": "הנה כמה סטטיסטיקות בהייפיקסל עבור %%username%%, הושגו [כאן]%%link%%.",
 	"statsDesc": "הנה כמה סטטיסטיקות בהייפיקסל עבור %%username%%, הושגו [כאן]%%link%%.",
 	"socialMedia": "הנה כמה חשבונות של רשתות חברתיות המקושרים ל%%username%%, הושגו [כאן]%%link%%.",
 	"guildDesc": "Here is some info about %%player%%'s guild, %%guildName%%, obtained [here]%%link%%",
