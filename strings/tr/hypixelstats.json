@@ -1,6 +1,5 @@
 {
 	"moduleName": "Oyuncu İstatistikleri",
-	"description": "%%username%% için elde edilen bazı Hypixel İstatistikleri [burada]%%link%%.",
 	"statsDesc": "%%username%% için elde edilen bazı Hypixel İstatistikleri [burada]%%link%%.",
 	"socialMedia": "%%username%% kullanıcısının sağladığı tüm sosyal profillerini [burada]%%link%% bulabilirsin.",
 	"guildDesc": "İşte [bu bağlantıdan elde edilen]%%link%%, %%player%% oyuncusunun bulunduğu %%guildName%% loncasının bazı bilgileri",
