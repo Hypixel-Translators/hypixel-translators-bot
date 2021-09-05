@@ -1,6 +1,5 @@
 {
 	"moduleName": "Spielerstatistiken",
-	"description": "Hier sind einige Hypixel-Statistiken für %%username%%, erhalten [hier]%%link%%.",
 	"statsDesc": "Hier sind einige Hypixel-Statistiken für %%username%%, erhalten [hier]%%link%%.",
 	"socialMedia": "Hier sind die verknüpften sozialen Medien für %%username%%, [hier]%%link%% erhalten.",
 	"guildDesc": "Here is some info about %%player%%'s guild, %%guildName%%, obtained [here]%%link%%",
