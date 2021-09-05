@@ -1,6 +1,5 @@
 {
 	"moduleName": "إحصائيات اللاعب",
-	"description": "فيما يلي بعض إحصائيات Hypixel لـ %%username%%، التي تم الحصول عليها من [هنا]%%link%%.",
 	"statsDesc": "فيما يلي بعض إحصائيات Hypixel لـ %%username%%، التي تم الحصول عليها من [هنا]%%link%%.",
 	"socialMedia": "فيما يلي حسابات التواصل الإجتماعي لـ %%username%%، التي تم الحصول عليها من [هنا]%%link%%.",
 	"guildDesc": "Here is some info about %%player%%'s guild, %%guildName%%, obtained [here]%%link%%",
