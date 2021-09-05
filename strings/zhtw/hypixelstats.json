@@ -1,6 +1,5 @@
 {
 	"moduleName": "玩家統計數據",
-	"description": "這是 %%username%% 的 Hypixel 統計數據，資料從[這裡]%%link%%獲取 。",
 	"statsDesc": "這是 %%username%% 的 Hypixel 統計數據，資料從[這裡]%%link%%獲取 。",
 	"socialMedia": "這是 %%username%% 已連結的社群媒體，資料從[這裡]%%link%%獲取 。",
 	"guildDesc": "Here is some info about %%player%%'s guild, %%guildName%%, obtained [here]%%link%%",

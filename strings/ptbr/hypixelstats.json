@@ -1,6 +1,5 @@
 {
 	"moduleName": "Estatísticas do jogador",
-	"description": "Aqui estão algumas estatísticas de %%username%%, obtidas [aqui]%%link%%.",
 	"statsDesc": "Aqui estão algumas estatísticas de %%username%%, obtidas [aqui]%%link%%.",
 	"socialMedia": "Aqui estão as redes sociais de %%username%%, obtidas [aqui]%%link%%.",
 	"guildDesc": "Aqui estão algumas informações da guild de %%player%%, %%guildName%%, obtidas [aqui]%%link%%",

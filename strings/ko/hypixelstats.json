@@ -1,6 +1,5 @@
 {
 	"moduleName": "플레이어 스탯",
-	"description": "%%username%%의 [Hypixel Stats 입니다.]%%link%% 링크를 클릭해서 확인해보세요.",
 	"statsDesc": "%%username%%의 [Hypixel Stats 입니다.]%%link%% 링크를 클릭해서 확인해보세요.",
 	"socialMedia": "%%username%%이 [연동한 SNS들입니다.]%%link%% 링크를 클릭해서 확인해보세요.",
 	"guildDesc": "Here is some info about %%player%%'s guild, %%guildName%%, obtained [here]%%link%%",

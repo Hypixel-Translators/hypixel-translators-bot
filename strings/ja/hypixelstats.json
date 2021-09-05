@@ -1,6 +1,5 @@
 {
 	"moduleName": "プレイヤーの統計",
-	"description": "%%username%%のHypixelの統計はこちらです。[こちら]%%link%% から取得しています。",
 	"statsDesc": "%%username%%のHypixelの統計はこちらです。[こちら]%%link%% から取得しています。",
 	"socialMedia": "%%username%%のリンク付けされたソーシャルメディアはこちらです。[こちら]%%link%% から取得しています。",
 	"guildDesc": "Here is some info about %%player%%'s guild, %%guildName%%, obtained [here]%%link%%",

@@ -1,6 +1,5 @@
 {
 	"moduleName": "Stats player",
-	"description": "Inilah beberapa stat Hypixel untuk %%username%%, terdapat dari [sini]%%link%%.",
 	"statsDesc": "Inilah beberapa stat Hypixel untuk %%username%%, terdapat dari [sini]%%link%%.",
 	"socialMedia": "Inilah media sosial yang terhubung untuk %%username%%, terdapat dari [sini]%%link%%.",
 	"guildDesc": "Inilah beberapa info mengenai guild %%player%%, %%guildName%%, terdapat dari [sini]%%link%%",
