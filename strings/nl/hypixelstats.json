@@ -1,6 +1,5 @@
 {
 	"moduleName": "Spelerstatistieken",
-	"description": "Hier zijn een aantal statistieken voor %%username%% van [deze site]%%link%%.",
 	"statsDesc": "Hier zijn een aantal statistieken voor %%username%% van [deze site]%%link%%.",
 	"socialMedia": "Hier zijn de gelinkte sociale media voor %%username%%, van [deze site]%%link%%.",
 	"guildDesc": "Hier is wat info over de guild van %%player%%, %%guildName%%, van [deze site]%%link%%",
