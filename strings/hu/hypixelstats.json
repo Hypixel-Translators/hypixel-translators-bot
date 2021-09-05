@@ -1,6 +1,5 @@
 {
 	"moduleName": "Játékos statisztikák",
-	"description": "Itt vannak %%username%% statisztikái, [innen]%%link%% szerezve.",
 	"statsDesc": "Itt vannak %%username%% statisztikái, [innen]%%link%% szerezve.",
 	"socialMedia": "Itt vannak %%username%% csatolt fiókjai, [innen]%%link%% szerezve.",
 	"guildDesc": "Here is some info about %%player%%'s guild, %%guildName%%, obtained [here]%%link%%",
