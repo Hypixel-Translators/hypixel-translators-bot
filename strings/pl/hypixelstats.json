@@ -1,6 +1,5 @@
 {
 	"moduleName": "Statystyki gracza",
-	"description": "Oto wybrane statystyki gracza %%username%% z Hypixela, otrzymane [tutaj]%%link%%.",
 	"statsDesc": "Oto wybrane statystyki gracza %%username%% z Hypixela, otrzymane [tutaj]%%link%%.",
 	"socialMedia": "Oto połączone media społecznościowe %%username%%, otrzymane [tutaj]%%link%%.",
 	"guildDesc": "Oto kilka informacji o gildii %%player%%, %%guildName%%, otrzymane [tutaj]%%link%%",
