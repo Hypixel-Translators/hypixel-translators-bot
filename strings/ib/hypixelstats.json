@@ -1,6 +1,5 @@
 {
 	"moduleName": "Plaier statz",
-	"description": "Hier ar som Hypickle statz for %%username%%, they have been get [hier]%%link%%.",
 	"statsDesc": "Hier ar som Hypickle statz for %%username%%, they have been get [hier]%%link%%.",
 	"socialMedia": "Hier ar som soshal media for %%username%%, they have been get [hier]%%link%%.",
 	"guildDesc": "Here is some info about %%player%%'s guild, %%guildName%%, obtained [here]%%link%%",
