@@ -21,7 +21,7 @@ const command: Command = {
 		description: "The user to verify. Admin-only",
 		required: false
 	}],
-	cooldown: 60,
+	cooldown: 600,
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
 	async execute(interaction, getString: GetStringFunction) {
 		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global") as string,

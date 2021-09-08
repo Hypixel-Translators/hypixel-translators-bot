@@ -1,7 +1,7 @@
 import Discord from "discord.js"
 import { successColor, errorColor } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
-import type { Command, GetStringFunction } from "../../index"
+import { client, Command, GetStringFunction } from "../../index"
 import { updateRoles } from "../../lib/util"
 
 const command: Command = {
@@ -41,6 +41,7 @@ const command: Command = {
 			}
 		} else {
 			await updateRoles(interaction.member as Discord.GuildMember)
+			client.cooldowns.get(this.name)!.delete(interaction.user.id)
 			const result = await collection.updateOne({ id: interaction.user.id }, { $unset: { uuid: true } })
 			if (result.modifiedCount) {
 				const embed = new Discord.MessageEmbed()
