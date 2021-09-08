@@ -40,9 +40,9 @@ export async function updateProjectStatus(client: Discord.Client, projectId: str
 			nextStatus.language.name.localeCompare(currentStatus.language.name)
 		)
 	const channel = client.channels.cache.find(channel => (channel as Discord.TextChannel).name === `${projectDb.shortName}-language-status`) as Discord.TextChannel,
-		messages = await channel.messages.fetch()
+		messages = await channel.messages.fetch(),
+		fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
 	let index = 0
-	const fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
 	fiMessages.forEach(async msg => {
 		const fullData = sortedSatus[index],
 			crowdinData = fullData.data

@@ -28,9 +28,8 @@ const command: Command = {
 		required: false
 	}],
 	async execute(interaction) {
-		//For some reason, newly created channels can be missing from cache, so this makes sure they're there to prevent crashes
-		await interaction.guild!.channels.fetch()
-		const sendTo = interaction.options.getChannel("channel", true) as Discord.TextChannel
+		const sendTo = interaction.options.getChannel("channel", true) as Discord.GuildChannel | Discord.ThreadChannel
+		if (!sendTo) throw "Couldn't resolve that channel!"
 		if (!sendTo.isText()) throw "You must provide a text channel to send messages in!"
 		let amount = interaction.options.getInteger("amount", true)
 		if (!amount) throw "You need to provide a number of messages to delete!"
