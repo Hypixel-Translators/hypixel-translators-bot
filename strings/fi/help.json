@@ -1,7 +1,6 @@
 {
 	"moduleName": "Tietoa",
 	"commandsListTooltip": "Tämän botin on tehnyt Hypixelin kääntäjien yhteisölle %%developer%%. Sen avoin lähdekoodi on saatavilla GitHubista [täältä]%%github%%. \nVoit auttaa kääntämään bottia seuraamalla ohjeita, jotka saat komennolla `/translate`.\n\nVoit suorittaa komennon `/help <komennon nimi>` saadaksesi tietää lisää valitusta komennosta.\nAlta löydät listan kaikista saatavilla olevista sivuista. Käytä viestin nappeja siirtyäksesi sivulta toiselle.",
-	"madeBy": "Botin on huolellisesti kasannut %%developer%%",
 	"pageNumber": "Sivu %%number%%",
 	"mainPage": "Pääsivu",
 	"utilityHelp": "Työkalut",
