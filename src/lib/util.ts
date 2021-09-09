@@ -327,7 +327,7 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 		? `${getString("tip", "global").toUpperCase()}: ${getString(
 			`tips.${keys[(keys.length * Math.random()) << 0]}`,
 			{
-				language: "/language set language:ib",
+				langIb: "/language set language:ib",
 				translate: "/translate",
 				prefix: "/prefix",
 				bots: "#bots",
@@ -346,7 +346,7 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 			newLang
 		)}`
 		: `${strings.tip.toUpperCase()}: ${strings.tips[keys[keys.length * Math.random() << 0]]
-			.replace("%%language%%", "/language set language:ib")
+			.replace("%%langIb%%", "/language set language:ib")
 			.replace("%%translate%%", "/translate")
 			.replace("%%prefix%%", "/prefix")
 			.replace("%%bots%%", "#bots")

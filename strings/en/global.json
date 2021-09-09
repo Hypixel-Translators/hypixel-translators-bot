@@ -45,7 +45,7 @@
 	"reminderLang": "Don't forget to also change your link to the %%format%% format.",
 	"tip": "Tip",
 	"tips": {
-		"ib": "Have you tried the Inhale Banana language? Change your language to it using %%language%%!",
+		"ib": "Have you tried the Inhale Banana language? Change your language to it using %%langIb%%!",
 		"translators": "I need translators! Find out how to become a bot translator by executing %%translate%%.",
 		"prefix": "Do you wanna have a cool prefix on your nickname? Execute %%prefix%% in %%bots%% and follow the instructions! Available to all Hypixel translators.",
 		"enen": "Please change your links to en-en!",
