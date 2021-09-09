@@ -25,7 +25,7 @@ const command: Command = {
 				.setAuthor("Modlogs")
 				.setTitle(`Couldn't find any modlogs for ${userInput.tag}`)
 				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-			await interaction.reply({ embeds: [embed], ephemeral: true })
+			await interaction.reply({ embeds: [embed] })
 		} else if (modlogs.length === 1) {
 			const embed = new Discord.MessageEmbed()
 				.setColor(successColor as Discord.HexColorString)
