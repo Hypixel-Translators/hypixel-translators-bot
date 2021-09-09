@@ -327,23 +327,39 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 		? getString(
 			`tips.${keys[(keys.length * Math.random()) << 0]}`,
 			{
-				botUpdates: "#bot-updates",
+				language: "/language set language:ib",
+				translate: "/translate",
+				prefix: "/prefix",
+				bots: "#bots",
 				gettingStarted: "#getting-started",
 				twitter: "https://twitter.com/HTranslators",
 				rules: "#rules",
 				serverInfo: "#server-info",
-				bots: "#bots"
+				hypixelstats: "/hypixelstats",
+				languagestats: "/languagestats",
+				verify: "/verify",
+				langList: "/language list",
+				botUpdates: "#bot-updates",
+				feedback: "/feedback"
 			},
 			"global",
 			newLang
 		)
 		: strings.tips[keys[keys.length * Math.random() << 0]]
-			.replace("%%botUpdates%%", "#bot-updates")
+			.replace("%%language%%", "/language set language:ib")
+			.replace("%%translate%%", "/translate")
+			.replace("%%prefix%%", "/prefix")
+			.replace("%%bots%%", "#bots")
 			.replace("%%gettingStarted%%", "#getting-started")
 			.replace("%%twitter%%", "https://twitter.com/HTranslators")
 			.replace("%%rules%%", "#rules")
 			.replace("%%serverInfo%%", "#server-info")
-			.replace("%%bots%%", "#bots")
+			.replace("%%hypixelstats%%", "/hypixelstats")
+			.replace("%%languagestats%%", "/languagestats")
+			.replace("%%verify%%", "/verify")
+			.replace("%%langList%%", "/language list")
+			.replace("%%botUpdates%%", "#bot-updates")
+			.replace("%%feedback%%", "/feedback")
 }
 
 export interface PunishmentLog {
