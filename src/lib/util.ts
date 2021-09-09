@@ -324,7 +324,7 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 		keys = getString ? Object.keys(getString("tips", "global")) : Object.keys(strings.tips)
 
 	return getString
-		? getString(
+		? `${getString("tip", "global").toUpperCase()}: ${getString(
 			`tips.${keys[(keys.length * Math.random()) << 0]}`,
 			{
 				language: "/language set language:ib",
@@ -344,8 +344,8 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 			},
 			"global",
 			newLang
-		)
-		: strings.tips[keys[keys.length * Math.random() << 0]]
+		)}`
+		: `${strings.tip.toUpperCase()}: ${strings.tips[keys[keys.length * Math.random() << 0]]
 			.replace("%%language%%", "/language set language:ib")
 			.replace("%%translate%%", "/translate")
 			.replace("%%prefix%%", "/prefix")
@@ -359,7 +359,7 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 			.replace("%%verify%%", "/verify")
 			.replace("%%langList%%", "/language list")
 			.replace("%%botUpdates%%", "#bot-updates")
-			.replace("%%feedback%%", "/feedback")
+			.replace("%%feedback%%", "/feedback")}`
 }
 
 export interface PunishmentLog {
