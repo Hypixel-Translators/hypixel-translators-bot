@@ -20,7 +20,6 @@ const command: Command = {
 		required: false
 	}],
 	cooldown: 300,
-	allowTip: false,
 	async execute(interaction) {
 		const verifyLogs = interaction.client.channels.cache.get("662660931838410754") as Discord.TextChannel,
 			verify = interaction.client.channels.cache.get("569178590697095168") as Discord.TextChannel,

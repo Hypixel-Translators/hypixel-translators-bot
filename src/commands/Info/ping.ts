@@ -1,6 +1,7 @@
 import { loadingColor, errorColor, successColor } from "../../config.json"
 import Discord from "discord.js"
 import type { Command, GetStringFunction } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "ping",
@@ -9,7 +10,7 @@ const command: Command = {
 	allowDM: true,
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+		const randomTip = generateTip(getString),
 			ping = Date.now() - interaction.createdTimestamp,
 			onlineSince = Math.round(interaction.client.readyTimestamp! / 1000)
 
@@ -35,7 +36,7 @@ const command: Command = {
 					timestampRelative: `<t:${onlineSince}:R>`
 				})}`
 			)
-			.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
 	}
 }

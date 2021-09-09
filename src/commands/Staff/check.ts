@@ -1,5 +1,6 @@
 import Discord from "discord.js"
 import { client, Command } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "check",
@@ -34,7 +35,7 @@ const command: Command = {
 		let userRoles: string
 		if (rolesCache.size !== 1) {
 			rolesCache.delete("549503328472530974")
-			userRoles = rolesCache.sort((a: Discord.Role, b: Discord.Role) => b.position - a.position).map((r: Discord.Role) => r).join(", ")
+			userRoles = rolesCache.sort((a, b) => b.position - a.position).map(r => r).join(", ")
 		} else userRoles = "No roles yet!"
 
 		const embed = new Discord.MessageEmbed()
@@ -48,7 +49,7 @@ const command: Command = {
 				{ name: "Roles", value: userRoles },
 			)
 			.setThumbnail(member.user.displayAvatarURL({ format: "png", dynamic: true }))
-			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		if (note) embed.addField("Note", note)
 		await interaction.reply({ embeds: [embed] })
 	}

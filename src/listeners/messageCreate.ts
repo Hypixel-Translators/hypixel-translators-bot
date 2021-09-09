@@ -140,7 +140,7 @@ client.on("messageCreate", async message => {
 				.setColor(neutralColor as Discord.HexColorString)
 				.setTitle(getGlobalString("staffDm.confirmation"))
 				.setDescription(message.content)
-				.setFooter(getGlobalString("staffDm.confirmSend"))
+				.setFooter(getGlobalString("staffDm.confirmSend"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
 			if (message.attachments.size > 0) embed.setTitle(`${getGlobalString("staffDm.confirmation")} ${getGlobalString("staffDm.attachmentsWarn")}`)
 			const msg = await message.channel.send({ embeds: [embed], components: [controlButtons] }),
 				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: confirmTime * 1000 })
@@ -153,7 +153,7 @@ client.on("messageCreate", async message => {
 					embed
 						.setColor(errorColor as Discord.HexColorString)
 						.setTitle(getGlobalString("staffDm.dmCancelled"))
-						.setFooter(getGlobalString("staffDm.resendInfo"))
+						.setFooter(getGlobalString("staffDm.resendInfo"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
 					await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
 				} else if (buttonInteraction.customId === "confirm") await staffDm(buttonInteraction)
 			})
@@ -165,7 +165,7 @@ client.on("messageCreate", async message => {
 					.setColor(errorColor as Discord.HexColorString)
 					.setAuthor(getGlobalString("staffDm.dmCancelled"))
 					.setDescription(message.content)
-					.setFooter(getGlobalString("staffDm.resendInfo"))
+					.setFooter(getGlobalString("staffDm.resendInfo"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
 				await msg.edit({ embeds: [timeOutEmbed], components: [controlButtons] })
 			})
 		} else await staffDm(message)
@@ -181,7 +181,7 @@ client.on("messageCreate", async message => {
 				.setColor(successColor as Discord.HexColorString)
 				.setAuthor(getGlobalString("staffDm.messageSent"))
 				.setDescription(message.content)
-				.setFooter(getGlobalString("staffDm.noConfirmWarn"))
+				.setFooter(getGlobalString("staffDm.noConfirmWarn"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
 			if (message.attachments.size > 1 || !(message.attachments.first()?.contentType?.startsWith("image") ?? true)) {
 				const images: (Discord.BufferResolvable | Stream)[] = []
 				message.attachments.forEach(file => images.push(file.attachment))

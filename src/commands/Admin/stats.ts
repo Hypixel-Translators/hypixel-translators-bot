@@ -2,6 +2,7 @@ import { successColor } from "../../config.json"
 import Discord from "discord.js"
 import { execute, updateProjectStatus } from "../../events/stats"
 import { Command, client } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "stats",
@@ -30,7 +31,7 @@ const command: Command = {
 						.setAuthor("Statistics updater")
 						.setTitle("All language statistics have been updated!")
 						.setDescription(`Check them out at ${interaction.guild!.channels.cache.find(c => c.name === "hypixel-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "bot-language-status")} and ${interaction.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`)
-						.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 					await interaction.editReply({ embeds: [allEmbed] })
 				})
 				.catch(err => { throw err })
@@ -58,7 +59,7 @@ const command: Command = {
 				.setAuthor("Statistics updater")
 				.setTitle(`The ${projectInput} language statistics have been updated!`)
 				.setDescription(`Check it out at ${interaction.guild!.channels.cache.find(c => c.name === `${projectInput}-language-status`)}!`)
-				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [projectEmbed] })
 			console.log(`Manually updated the ${projectInput} language statistics.`)
 		}

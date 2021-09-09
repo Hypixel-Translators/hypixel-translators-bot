@@ -3,8 +3,9 @@ import { successColor } from "../../config.json"
 import axios from "axios"
 import { db, DbUser } from "../../lib/dbclient"
 import { client, Command, GetStringFunction } from "../../index"
-import { fetchSettings, getUUID, updateButtonColors } from "../../lib/util"
+import { fetchSettings, generateTip, getUUID, updateButtonColors } from "../../lib/util"
 
+//Credits to marzeq for initial implementation
 const command: Command = {
 	name: "minecraft",
 	description: "Looks up a specific Minecraft player's name history or skin",
@@ -46,8 +47,7 @@ const command: Command = {
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-			credits = getString("madeBy", { developer: interaction.client.users.cache.get("500669086947344384")!.tag }),
+		const randomTip = generateTip(getString),
 			authorDb: DbUser = await client.getUser(interaction.user.id),
 			subCommand = interaction.options.getSubcommand(),
 			userInput = interaction.options.getUser("user", false),
@@ -152,8 +152,8 @@ const command: Command = {
 						.addFields(constructFields(pages[page]))
 						.setFooter(
 							pages.length == 1
-								? `${executedBy} | ${credits}`
-								: `${getString("pagination.page", { number: page + 1, total: pages.length }, "global")} | ${credits}`,
+								? randomTip
+								: getString("pagination.page", { number: page + 1, total: pages.length }, "global"),
 							interaction.user.displayAvatarURL({ format: "png", dynamic: true })
 						)
 				}
@@ -180,7 +180,7 @@ const command: Command = {
 						: getString("skin.userSkin", { user: (await getPlayer(uuid)).name }))
 					.setDescription(uuidDb && !isOwnUser ? getString("skin.isLinked", { user: `<@!${uuidDb.id}>` }) : "")
 					.setImage(`https://crafatar.com/renders/body/${uuid}?overlay`)
-					.setFooter(`${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				await interaction.editReply({ embeds: [skinEmbed] })
 				break
 		}

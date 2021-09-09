@@ -12,6 +12,7 @@ import { transpile } from "typescript"
 import discord from "discord.js"
 import { inspect } from "util"
 import { Command, client as Client, GetStringFunction } from "../../index"
+import { generateTip as randomTip } from "../../lib/util"
 
 const command: Command = {
 	name: "eval",
@@ -30,7 +31,8 @@ const command: Command = {
 			channel = interaction.channel as discord.TextChannel,
 			db = mongoDb,
 			Discord = discord,
-			client = Client
+			client = Client,
+			generateTip = randomTip
 
 		await interaction.deferReply()
 		let evaled,
@@ -72,7 +74,7 @@ const command: Command = {
 					{ name: "Error length", value: `${error.stack.length}`, inline: true },
 					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
 				)
-				.setFooter(`Executed by ${me.user.tag}`, me.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			console.error(error)
 			await interaction.editReply({ embeds: [embed] })
 		}

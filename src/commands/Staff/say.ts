@@ -1,6 +1,7 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
 import type { Command } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "say",
@@ -34,7 +35,7 @@ const command: Command = {
 			.setAuthor("Message")
 			.setTitle("Success! Message sent.")
 			.setDescription(`${sendTo}:\n${message}`)
-			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
 	}
 }

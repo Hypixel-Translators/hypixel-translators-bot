@@ -1,5 +1,6 @@
 import Discord from "discord.js"
 import type { Command } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "loa",
@@ -114,7 +115,7 @@ const command: Command = {
 				{ name: "To", value: `${endDay}/${endMonth}/${endYear}` },
 				{ name: "Reason", value: reason }
 			)
-			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		if (extraInfo) embed.addField("Extra info", extraInfo)
 		const doneRow = new Discord.MessageActionRow()
 			.addComponents(

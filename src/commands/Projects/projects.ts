@@ -1,6 +1,7 @@
 import { neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import type { Command, GetStringFunction } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "projects",
@@ -9,7 +10,7 @@ const command: Command = {
 	allowDM: true,
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
+		const randomTip = generateTip(getString)
 		if (interaction.guild?.id === "549503328472530974") {
 			const member = interaction.member as Discord.GuildMember
 			let joinedHypixel: string,
@@ -35,7 +36,7 @@ const command: Command = {
 					{ name: "SkyblockAddons", value: `${getString("projectInfo", { project: "**SkyblockAddons**", link: "https://crowdin.com/project/skyblockaddons", command: "`/skyblockaddons`" })}\n${joinedSba}` },
 					{ name: "Hypixel Translators Bot", value: `${getString("projectInfo", { project: "**Hypixel Translators Bot**", link: "https://crowdin.com/project/hypixel-translators-bot", command: "`/bot`" })}\n${joinedBot}` }
 				)
-				.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.reply({ embeds: [embed] })
 		} else {
 			const embed = new Discord.MessageEmbed()
@@ -49,7 +50,7 @@ const command: Command = {
 					{ name: "SkyblockAddons", value: getString("projectInfo", { project: "**SkyblockAddons**", link: "https://crowdin.com/project/skyblockaddons", command: "`/skyblockaddons`" }) },
 					{ name: "Hypixel Translators Bot", value: getString("projectInfo", { project: "**Hypixel Translators Bot**", link: "https://crowdin.com/project/hypixel-translators-bot", command: "`/bot`" }) }
 				)
-				.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.reply({ embeds: [embed] })
 		}
 	}

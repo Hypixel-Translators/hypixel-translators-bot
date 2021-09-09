@@ -2,6 +2,7 @@ import { db, DbUser } from "../../lib/dbclient"
 import { successColor, errorColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import { client, Command, GetStringFunction } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "profile",
@@ -32,14 +33,14 @@ const command: Command = {
 						.setAuthor("Crowdin Profile")
 						.setTitle(`Here's ${user.tag}'s Crowdin profile`)
 						.setDescription(userDb.profile)
-						.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 					return await interaction.reply({ embeds: [embed], ephemeral: true })
 				} else {
 					const embed = new Discord.MessageEmbed()
 						.setColor(errorColor as Discord.HexColorString)
 						.setAuthor("Crowdin Profile")
 						.setTitle(`Couldn't find ${user.tag}'s Crowdin profile on the database!`)
-						.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 					return await interaction.reply({ embeds: [embed], ephemeral: true })
 				}
 			} else {
@@ -54,7 +55,7 @@ const command: Command = {
 								{ name: "Old profile", value: result.value!.profile || "None" },
 								{ name: "New profile", value: profile }
 							)
-							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 						return await interaction.reply({ embeds: [embed], ephemeral: true })
 					} else {
 						const embed = new Discord.MessageEmbed()
@@ -62,13 +63,13 @@ const command: Command = {
 							.setAuthor("User Profile")
 							.setTitle(`Couldn't update ${user.tag}'s Crowdin profile!`)
 							.setDescription("Their current profile is the same as the one you tried to add.")
-							.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 						return await interaction.reply({ embeds: [embed], ephemeral: true })
 					}
 				} else throw "wrongLink"
 			}
 		} else {
-			const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+			const randomTip = generateTip(getString),
 				userDb = await client.getUser(interaction.user.id)
 			if (userDb.profile) {
 				const embed = new Discord.MessageEmbed()
@@ -76,7 +77,7 @@ const command: Command = {
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("profileSuccess"))
 					.setDescription(userDb.profile)
-					.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			} else {
 				const embed = new Discord.MessageEmbed()
@@ -84,7 +85,7 @@ const command: Command = {
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("noProfile"))
 					.setDescription(getString("howStore"))
-					.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
 		}

@@ -1,6 +1,7 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
 import type { Command, GetStringFunction } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "feedback",
@@ -9,14 +10,14 @@ const command: Command = {
 	allowDM: true,
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
+		const randomTip = generateTip(getString)
 		const embed = new Discord.MessageEmbed()
 			.setColor(successColor as Discord.HexColorString)
 			.setAuthor(getString("moduleName"))
 			.setTitle(getString("bugT"))
 			.setDescription(getString("bugD"))
 			.addField(getString("urgentT"), getString("urgentD"))
-			.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		const row = new Discord.MessageActionRow()
 			.addComponents(
 				new Discord.MessageButton()

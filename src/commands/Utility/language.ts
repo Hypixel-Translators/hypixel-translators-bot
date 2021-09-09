@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import fs from "fs"
 import { db, DbUser } from "../../lib/dbclient"
 import type { Command, GetStringFunction } from "../../index"
-import type { LangDbEntry } from "../../lib/util"
+import { generateTip, LangDbEntry } from "../../lib/util"
 
 const command: Command = {
 	name: "language",
@@ -35,11 +35,11 @@ const command: Command = {
 			required: true
 		}],
 	}],
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
+	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev
 	allowDM: true,
 	cooldown: 5,
 	async execute(interaction, getString: GetStringFunction) {
-		let executedBy: string = getString("executedBy", { user: interaction.user.tag }, "global")
+		let randomTip: string = generateTip(getString)
 		const collection = db.collection<DbUser>("users"),
 			stringsFolder = "./strings/",
 			member = interaction.member as Discord.GuildMember,
@@ -61,7 +61,7 @@ const command: Command = {
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("listTitle"))
 						.setDescription(langList.join("\n"))
-						.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 					await interaction.reply({ embeds: [embed] })
 				}
 			})
@@ -76,7 +76,7 @@ const command: Command = {
 				.setColor(neutralColor as Discord.HexColorString)
 				.setAuthor("Language")
 				.setTitle(`There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`)
-				.setFooter(`Executed By ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			if (language !== "en") embed.setDescription(users.join(", "))
 			await interaction.reply({ embeds: [embed] })
 		}
@@ -90,31 +90,31 @@ const command: Command = {
 				if (!err) {
 					if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, language) || language === "en") {
 						const result = await collection.updateOne({ id: interaction.user.id }, { $set: { lang: language! } })
-							if (result.modifiedCount) {
-								executedBy = getString("executedBy", { user: interaction.user.tag }, "global", language)
-								const embed = new Discord.MessageEmbed()
-									.setColor(successColor as Discord.HexColorString)
-									.setAuthor(getString("moduleName", this.name, language))
-									.setTitle(getString("changedToTitle", this.name, language))
-									.setDescription(getString("credits", this.name, language))
-									.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-								return await interaction.reply({ embeds: [embed] })
-							} else {
-								const embed = new Discord.MessageEmbed()
-									.setColor(errorColor as Discord.HexColorString)
-									.setAuthor(getString("moduleName", this.name, language))
-									.setTitle(getString("didntChange", this.name, language))
-									.setDescription(getString("alreadyThis", this.name, language))
-									.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-								return await interaction.reply({ embeds: [embed] })
-							}
+						if (result.modifiedCount) {
+							randomTip = generateTip(getString, language)
+							const embed = new Discord.MessageEmbed()
+								.setColor(successColor as Discord.HexColorString)
+								.setAuthor(getString("moduleName", this.name, language))
+								.setTitle(getString("changedToTitle", this.name, language))
+								.setDescription(getString("credits", this.name, language))
+								.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+							return await interaction.reply({ embeds: [embed] })
+						} else {
+							const embed = new Discord.MessageEmbed()
+								.setColor(errorColor as Discord.HexColorString)
+								.setAuthor(getString("moduleName", this.name, language))
+								.setTitle(getString("didntChange", this.name, language))
+								.setDescription(getString("alreadyThis", this.name, language))
+								.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+							return await interaction.reply({ embeds: [embed] })
+						}
 					} else {
 						const embed = new Discord.MessageEmbed()
 							.setColor(errorColor as Discord.HexColorString)
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("didntChange"))
 							.setDescription(getString("notTranslated"))
-							.setFooter(executedBy, interaction.user.displayAvatarURL())
+							.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 						return await interaction.reply({ embeds: [embed] })
 					}
 				} else {
@@ -126,7 +126,7 @@ const command: Command = {
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("errorTitle"))
 							.setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n${getString("suggestAdd")}`)
-							.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 						await interaction.reply({ embeds: [embed] })
 					})
 				}
@@ -140,7 +140,7 @@ const command: Command = {
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("current"))
 				.setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n\n${getString("credits")}`)
-				.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.reply({ embeds: [embed] })
 		}
 	}

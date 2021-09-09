@@ -3,13 +3,13 @@ import type { DbUser } from "../lib/dbclient"
 import Discord from "discord.js"
 import { errorColor } from "../config.json"
 import fs from "fs"
-import { arrayEqual } from "../lib/util"
+import { arrayEqual, generateTip } from "../lib/util"
 
 client.on("interactionCreate", async interaction => {
+	let command: Command | null = null
 	const author: DbUser = await client.getUser(interaction.user.id),
 		member = interaction.client.guilds.cache.get("549503328472530974")?.members.cache.get(interaction.user.id)!,
-		executedBy = getString("executedBy", { user: interaction.user.tag }, "global")
-	let command: Command | null = null
+		randomTip = generateTip(getString)
 	if (interaction.isButton() && !interaction.user.bot) {
 		// Staff LOA warning removal system
 		if (interaction.channelId === "836748153122324481" && interaction.customId == "done") {
@@ -90,7 +90,7 @@ client.on("interactionCreate", async interaction => {
 			.setColor(errorColor as Discord.HexColorString)
 			.setAuthor(getString("error", "global"))
 			.setTitle(getString("errors.dmError", "global"))
-			.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		return await interaction.reply({ embeds: [embed] })
 	}
 	//Cooldown system
@@ -112,7 +112,7 @@ client.on("interactionCreate", async interaction => {
 				.setColor(errorColor as Discord.HexColorString)
 				.setAuthor(getString("cooldown", "global"))
 				.setTitle(timeLeftS)
-				.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			return await interaction.reply({ embeds: [embed], ephemeral: true })
 		}
 	}
@@ -190,30 +190,6 @@ client.on("interactionCreate", async interaction => {
 	try {
 		// Run the command
 		await command.execute(interaction, getString)
-
-		// Try sending a tip
-		// This will only execute if the command is successful
-		const d = Math.random() * 100 // Get percentage
-
-		let reply: Discord.Message | null = null
-		if (!interaction.ephemeral && interaction.replied) reply = await interaction.fetchReply() as Discord.Message
-		if (command.allowTip !== false && !command.roleWhitelist && d <= 5) {
-			// Less than or equal to 5%
-			const keys = Object.keys(getString("tips", "global"))
-			const tip = getString(
-				`tips.${keys[(keys.length * Math.random()) << 0]}`,
-				{
-					botUpdates: "<#732587569744838777>",
-					gettingStarted: "<#699275092026458122>",
-					twitter: "<https://twitter.com/HTranslators>",
-					rules: "<#796159719617986610>",
-					serverInfo: "<#762341271611506708>",
-					bots: "<#549894938712866816>"
-				},
-				"global"
-			)
-			if (interaction.replied && reply) await interaction.channel!.send(`**${getString("tip", "global").toUpperCase()}:** ${tip}`)
-		}
 	} catch (error) {
 		if (!error.stack) error = getString(`errors.${error}`, "global") || error
 
@@ -243,7 +219,7 @@ client.on("interactionCreate", async interaction => {
 			.setColor(errorColor as Discord.HexColorString)
 			.setAuthor(getString("error", "global"))
 			.setTitle(error.message?.substring(0, 255) || error.toString().substring(0, 255))
-			.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 
 		//Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first
 		if (interaction.deferred) {

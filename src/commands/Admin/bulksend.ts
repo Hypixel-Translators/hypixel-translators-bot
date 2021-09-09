@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import type { Command } from "../../index"
 import { db } from "../../lib/dbclient"
 import { updateProjectStatus } from "../../events/stats"
-import type { CrowdinProject } from "../../lib/util"
+import { CrowdinProject, generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "bulksend",
@@ -40,7 +40,7 @@ const command: Command = {
 			.setAuthor("Bulk Send")
 			.setTitle(`Success! Message${amount === 1 ? "" : "s"} sent!`)
 			.setDescription(`${sendTo}`)
-			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.editReply({ embeds: [embed] })
 		if (interaction.options.getBoolean("update", false)) {
 			const project = await db.collection<CrowdinProject>("crowdin").findOne({ shortName: sendTo.name.split("-")[0] })

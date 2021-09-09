@@ -1,7 +1,7 @@
 //This file contains a bunch of functions used across the bot on multuple commands.
 import Discord from "discord.js"
 import axios from "axios"
-import { client } from "../index"
+import { client, GetStringFunction } from "../index"
 import { db } from "./dbclient"
 
 // source: https://github.com/Mee6/Mee6-documentation/blob/master/docs/levels_xp.md
@@ -292,8 +292,7 @@ export function updateModlogFields(embed: Discord.MessageEmbed, modlog: Punishme
 	if (modlogs) embed
 		.setDescription(`Case #${modlog.case}`)
 		.setFooter(
-			`Modlog ${modlogs.indexOf(modlog) + 1}/${modlogs.length} | ${embed.footer!.text?.includes(" | ") ? embed.footer!.text.split(" | ")[1] : embed.footer!.text
-			}`,
+			`Modlog ${modlogs.indexOf(modlog) + 1}/${modlogs.length}`,
 			embed.footer!.iconURL
 		)
 	return embed
@@ -318,6 +317,33 @@ export function arrayEqual(a: any, b: any) {
 	}
 
 	return true
+}
+
+export function generateTip(getString?: GetStringFunction, newLang?: string): string {
+	const strings = require("../../strings/en/global.json"),
+		keys = getString ? Object.keys(getString("tips", "global")) : Object.keys(strings.tips)
+
+	return getString
+		? getString(
+			`tips.${keys[(keys.length * Math.random()) << 0]}`,
+			{
+				botUpdates: "#bot-updates",
+				gettingStarted: "#getting-started",
+				twitter: "https://twitter.com/HTranslators",
+				rules: "#rules",
+				serverInfo: "#server-info",
+				bots: "#bots"
+			},
+			"global",
+			newLang
+		)
+		: strings.tips[keys[keys.length * Math.random() << 0]]
+			.replace("%%botUpdates%%", "#bot-updates")
+			.replace("%%gettingStarted%%", "#getting-started")
+			.replace("%%twitter%%", "https://twitter.com/HTranslators")
+			.replace("%%rules%%", "#rules")
+			.replace("%%serverInfo%%", "#server-info")
+			.replace("%%bots%%", "#bots")
 }
 
 export interface PunishmentLog {

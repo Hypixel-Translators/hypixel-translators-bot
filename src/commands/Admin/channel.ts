@@ -1,6 +1,7 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
 import type { Command } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "channel",
@@ -19,7 +20,8 @@ const command: Command = {
 		]
 	}],
 	async execute(interaction) {
-		const channelInput = interaction.options.getString("channel", false)
+		const channelInput = interaction.options.getString("channel", false),
+			randomTip = generateTip()
 		await interaction.deferReply()
 		if (channelInput === "info") {
 			await info(interaction)
@@ -28,7 +30,7 @@ const command: Command = {
 				.setAuthor("Channel updater")
 				.setTitle("Updated the information channel!")
 				.setDescription("Check it out at <#762341271611506708>!") //server-info
-				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [successEmbed] })
 		} else if (channelInput === "rules") {
 			await rules(interaction)
@@ -37,7 +39,7 @@ const command: Command = {
 				.setAuthor("Channel updater")
 				.setTitle("Updated the rules channel!")
 				.setDescription("Check it out at <#796159719617986610>!") //rules
-				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [successEmbed] })
 		} else if (channelInput === "verify") {
 			await verify(interaction)
@@ -46,7 +48,7 @@ const command: Command = {
 				.setAuthor("Channel updater")
 				.setTitle("Updated the verification channel!")
 				.setDescription("Check it out at <#569178590697095168>!") //verify
-				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [successEmbed] })
 		} else if (!channelInput) {
 			await info(interaction)
@@ -57,7 +59,7 @@ const command: Command = {
 				.setAuthor("Channel updater")
 				.setTitle("All channels have been updated!")
 				.setDescription("Check them out at <#762341271611506708>, <#796159719617986610> and <#569178590697095168>!") //server-info, rules and verify
-				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [successEmbed] })
 		}
 	}
@@ -100,7 +102,7 @@ async function info(interaction: Discord.CommandInteraction) {
 				{ name: "**Miscellaneous**", value: "<@&549894155174674432> - A role given to all bots in the Discord.\n<@&732586582787358781> - A role given to the current developer(s) of our bot.\n<@&618502156638617640> - A role given to people who have helped create art for this server.\n<@&766339653615484930> - A role given to the person who won the Trick'cord Treat contest in October 2020, <@!435546264432803840>\n<@&719263346909773864> - A role given to all of the people who've hosted giveaways in <#787050912005881876>!\n<@&557090185670557716> - A role given to all users that joined in the first 6 months of this server (August 28, 2019)." },
 				{ name: "**Self-roles**", value: `You can click on the buttons below to receive their corresponding roles, here's what they do:\n<@&646098170794868757> - Click on the "📊 Polls" button to be notified whenever a new poll is posted on <#646096405252800512>.\n<@&732615152246980628> - Click on the "🤖 Bot Updates" button to be notified whenever a new major update to ${interaction.client.user} is posted on <#732587569744838777>.\n<@&801052623745974272> - Click on the  "🎉 Giveaway Pings" button to be notified of future giveaways in <#787050912005881876>. Note that you must be at least chat level 5 to receive this role (you can check your level by doing /rank in <#549894938712866816>).` }
 			)
-			.setFooter("Need help? Ask your questions in #off-topic | Bot made with lots of care by QkeleQ10#6163")
+			.setFooter("Need help? Ask your questions in #off-topic")
 	await rolesMessage.edit({ content: null, embeds: [rolesEmbed] })
 }
 

@@ -1,7 +1,7 @@
 import Discord from "discord.js"
 import { client, Command } from "../../index"
 import { db } from "../../lib/dbclient"
-import { PunishmentLog, updateModlogFields } from "../../lib/util"
+import { generateTip, PunishmentLog, updateModlogFields } from "../../lib/util"
 
 const command: Command = {
 	name: "case",
@@ -16,7 +16,7 @@ const command: Command = {
 	channelWhitelist: ["624881429834366986", "551693960913879071"], //staff-bots admin-bots
 	async execute(interaction) {
 		const caseNumber = interaction.options.getInteger("case", true),
-		collection = db.collection<PunishmentLog>("punishments"),
+			collection = db.collection<PunishmentLog>("punishments"),
 			modLog = await collection.findOne({ case: caseNumber })
 		if (!modLog) throw `Couldn't find that case number! You must enter a number between 1 and ${await collection.estimatedDocumentCount()}`
 
@@ -26,7 +26,7 @@ const command: Command = {
 				.setAuthor("Punishment case")
 				.setTitle(`Here's case #${caseNumber}`)
 				.setDescription(`Offender: ${offender instanceof Discord.GuildMember ? offender : offender.tag}`)
-				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		updateModlogFields(embed, modLog)
 		await interaction.reply({ embeds: [embed] })
 	}

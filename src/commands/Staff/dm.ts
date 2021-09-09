@@ -1,6 +1,7 @@
 import Discord from "discord.js"
 import { errorColor, successColor, neutralColor } from "../../config.json"
 import { Command, client, GetStringFunction } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "dm",
@@ -26,7 +27,8 @@ const command: Command = {
 				.setColor(neutralColor as Discord.HexColorString)
 				.setAuthor(getString("incoming", this.name, recipientDb.lang))
 				.setDescription(message)
-				.setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang))
+				.setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang)),
+			randomTip = generateTip()
 		await interaction.deferReply()
 		await recipient.send({ embeds: [dm] })
 			.then(async () => {
@@ -35,7 +37,7 @@ const command: Command = {
 					.setAuthor("Direct Message")
 					.setTitle(`Sent message to ${recipient.tag}`)
 					.setDescription(message)
-					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				await interaction.editReply({ embeds: [embed] })
 			})
 			.catch(async error => {
@@ -44,7 +46,7 @@ const command: Command = {
 					.setAuthor("Direct Message")
 					.setTitle(`An error occured while trying to message ${recipient.tag}`)
 					.setDescription(error.toString())
-					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				await interaction.editReply({ embeds: [errorEmbed] })
 			})
 	}

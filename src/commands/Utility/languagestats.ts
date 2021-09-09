@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import axios from "axios"
 import { successColor, loadingColor, errorColor } from "../../config.json"
 import { Command, client, GetStringFunction } from "../../index"
-import { crowdinFetchSettings, LangDbEntry, LanguageStatus } from "../../lib/util"
+import { crowdinFetchSettings, generateTip, LangDbEntry, LanguageStatus } from "../../lib/util"
 const ctokenV2 = process.env.CTOKEN_V2!
 
 const command: Command = {
@@ -18,7 +18,7 @@ const command: Command = {
 	cooldown: 30,
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+		const randomTip = generateTip(getString),
 			authorDb = await client.getUser(interaction.user.id)
 		let rawLang = interaction.options.getString("language", false)?.toLowerCase()
 		if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !rawLang) rawLang = authorDb.lang
@@ -65,7 +65,7 @@ const command: Command = {
 			.setAuthor(getString("moduleName"))
 			.setTitle(`${lang.emoji} | ${getString(`languages.${lang.code}`)}`)
 			.setDescription(`${getString("statsAll", { language: getString(`languages.${lang.code}`) })}`)
-			.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		if (hypixelData)
 			embed.addField(
 				"Hypixel",

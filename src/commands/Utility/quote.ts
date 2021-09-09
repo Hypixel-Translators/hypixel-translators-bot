@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import { db } from "../../lib/dbclient"
 import type { Collection } from "mongodb"
 import { client, Command, GetStringFunction } from "../../index"
-import type { Quote } from "../../lib/util"
+import { generateTip, Quote } from "../../lib/util"
 
 const command: Command = {
 	name: "quote",
@@ -83,9 +83,9 @@ const command: Command = {
 	}],
 	cooldown: 5,
 	allowDM: true,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development 
+	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+		const randomTip = generateTip(getString),
 			collection = db.collection<Quote>("quotes"),
 			subCommand = interaction.options.getSubcommand()
 		let allowed = false
@@ -94,31 +94,31 @@ const command: Command = {
 			const quote = interaction.options.getString("quote", true),
 				author = interaction.options.getUser("author", true)
 			if (!allowed) {
-				const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel
-				const report = new Discord.MessageEmbed()
-					.setColor(neutralColor as Discord.HexColorString)
-					.setAuthor("Quote")
-					.setTitle("A quote request has been submitted!")
-					.setDescription(`${quote}\n       - ${author}`)
-					.setFooter(`Suggested by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel,
+					report = new Discord.MessageEmbed()
+						.setColor(neutralColor as Discord.HexColorString)
+						.setAuthor("Quote")
+						.setTitle("A quote request has been submitted!")
+						.setDescription(`${quote}\n       - ${author}`)
+						.setFooter(`Suggested by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				await staffBots.send({ content: `/quote add quote:${quote} author:@${author.tag}`, embeds: [report] })
 				const embed = new Discord.MessageEmbed()
 					.setColor(successColor as Discord.HexColorString)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("reqSub"))
 					.setDescription(`${quote}\n       - ${author}`)
-					.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				await interaction.reply({ embeds: [embed] })
 			} else await addQuote(interaction, quote, author, collection)
 		} else if (subCommand === "edit" && allowed) await editQuote(interaction, collection)
 		else if (subCommand === "delete" && allowed) await deleteQuote(interaction, collection)
 		else if (subCommand === "link" && allowed) await linkQuote(interaction, collection)
-		else if (subCommand === "get") await findQuote(executedBy, interaction, getString, collection)
+		else if (subCommand === "get") await findQuote(randomTip, interaction, getString, collection)
 		else await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
 	}
 }
 
-async function findQuote(executedBy: string, interaction: Discord.CommandInteraction, getString: GetStringFunction, collection: Collection<Quote>) {
+async function findQuote(randomTip: string, interaction: Discord.CommandInteraction, getString: GetStringFunction, collection: Collection<Quote>) {
 
 	const count = await collection.estimatedDocumentCount()
 
@@ -132,7 +132,7 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
 			.setAuthor(getString("moduleName"))
 			.setTitle(getString("invalidArg"))
 			.setDescription(getString("indexArg", { arg: quoteId!, max: count }))
-			.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		return await interaction.reply({ embeds: [embed], ephemeral: true })
 	}
 	console.log(`Quote with ID ${quoteId} was requested`)
@@ -142,7 +142,7 @@ async function findQuote(executedBy: string, interaction: Discord.CommandInterac
 			.setAuthor(getString("moduleName"))
 			.setTitle(quote.quote)
 			.setDescription(`      - ${author.join(" and ")}`)
-			.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 	if (quote.url) embed.addField(getString("msgUrl"), quote.url)
 	return await interaction.reply({ embeds: [embed] })
 }
@@ -161,7 +161,7 @@ async function addQuote(interaction: Discord.CommandInteraction, quote: string, 
 			{ name: "User", value: `${author}` },
 			{ name: "Quote number", value: `${quoteId}` }
 		)
-		.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+		.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 	await interaction.reply({ embeds: [embed] })
 }
 
@@ -183,14 +183,14 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
 					{ name: "Author", value: author.join(" and ") },
 					{ name: "Link", value: result.value.url || "None" }
 				)
-				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
 	} else {
 		const embed = new Discord.MessageEmbed()
 			.setColor(errorColor as Discord.HexColorString)
 			.setAuthor("Quote")
 			.setTitle("Couldn't find a quote with that ID!")
-			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed], ephemeral: true })
 	}
 }
@@ -212,14 +212,14 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
 				{ name: "Quote", value: result.value.quote },
 				{ name: "Link", value: result.value.url || "None" }
 			)
-			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
 	} else {
 		const embed = new Discord.MessageEmbed()
 			.setColor(errorColor as Discord.HexColorString)
 			.setAuthor("Quote")
 			.setTitle("Couldn't find a quote with that ID!")
-			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed], ephemeral: true })
 	}
 }
@@ -242,14 +242,14 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
 							{ name: "Quote", value: result.value.quote },
 							{ name: "Author", value: author.join(" and ") }
 						)
-						.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new Discord.MessageEmbed()
 					.setColor(errorColor as Discord.HexColorString)
 					.setAuthor("Quote")
 					.setTitle("Couldn't find a quote with that ID!")
-					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
 		})
@@ -259,7 +259,7 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
 				.setAuthor("Quote")
 				.setTitle("Couldn't find a message linked to that URL!")
 				.setDescription("Make sure you obtained it by coping the message URL directly and that I have permission to see that message.")
-				.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.reply({ embeds: [embed], ephemeral: true })
 		})
 }

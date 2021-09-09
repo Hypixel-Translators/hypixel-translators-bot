@@ -1,6 +1,6 @@
 import Discord from "discord.js"
 import type { Command } from "../../index"
-import { updateButtonColors } from "../../lib/util"
+import { generateTip, updateButtonColors } from "../../lib/util"
 
 const command: Command = {
 	name: "members",
@@ -84,7 +84,7 @@ const command: Command = {
 				.setAuthor("Members list")
 				.setTitle(`Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`)
 				.setDescription(membersArr.join(", "))
-				.setFooter(`${page !== undefined ? `Page ${page + 1}/${maxMembersArr.length} | ` : ""}Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(`${page !== undefined ? `Page ${page + 1}/${maxMembersArr.length}` : generateTip()}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		}
 	}
 }

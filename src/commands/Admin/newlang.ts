@@ -4,7 +4,7 @@ import country from "countryjs"
 import { flag } from "country-emoji"
 import { db } from "../../lib/dbclient"
 import type { Command } from "../../index"
-import type { LangDbEntry } from "../../lib/util"
+import { generateTip, LangDbEntry } from "../../lib/util"
 
 const command: Command = {
 	name: "newlang",
@@ -129,7 +129,7 @@ const command: Command = {
 				{ name: "Voice Channels", value: `${translatorsVoice} and ${proofreadersVoice}` },
 				{ name: "Roles", value: `${translatorRole} and ${proofreaderRole}` }
 			)
-			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.editReply({ embeds: [embed] })
 	}
 }

@@ -2,9 +2,9 @@ import Discord from "discord.js"
 import axios from "axios"
 import { db, DbUser } from "../../lib/dbclient"
 import { Command, client, GetStringFunction } from "../../index"
-import { fetchSettings, getMCProfile, getUUID, updateRoles } from "../../lib/util"
+import { fetchSettings, generateTip, getMCProfile, getUUID, updateRoles } from "../../lib/util"
 
-//Credits to marzeq
+//Credits to marzeq for initial implementation
 const command: Command = {
 	name: "hypixelstats",
 	description: "Shows you basic Hypixel stats for the provided user.",
@@ -21,11 +21,10 @@ const command: Command = {
 		required: false
 	}],
 	cooldown: 120,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
+	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-			credits = getString("madeBy", { developer: interaction.client.users.cache.get("500669086947344384")!.tag }),
+		const randomTip = generateTip(getString),
 			authorDb: DbUser = await client.getUser(interaction.user.id),
 			userInput = interaction.options.getUser("user", false),
 			usernameInput = interaction.options.getString("username", false)
@@ -110,8 +109,7 @@ const command: Command = {
 				.setTitle(`${rank} ${username}`)
 				.setThumbnail(skinRender)
 				.setDescription(
-					`${getString("statsDesc", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${
-						uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""
+					`${getString("statsDesc", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""
 					}${getString("updateNote")}\n${getString("otherStats")}`
 				)
 				.addFields(
@@ -123,7 +121,7 @@ const command: Command = {
 					{ name: online, value: last_seen, inline: true },
 					{ name: getString(playerJson.online ? "last_login" : "last_logout"), value: lastLogin, inline: true }
 				)
-				.setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			return statsEmbed
 		}
 
@@ -196,7 +194,7 @@ const command: Command = {
 					{ name: "Discord", value: discord!, inline: true },
 					{ name: "Hypixel Forums", value: forums, inline: true }
 				)
-				.setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			return socialEmbed
 		}
 
@@ -234,7 +232,7 @@ const command: Command = {
 						inline: true
 					}
 				)
-				.setFooter(`${executedBy} | ${credits}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 
 			return embed
 		}

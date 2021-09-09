@@ -2,6 +2,7 @@ import { successColor } from "../../config.json"
 import Discord from "discord.js"
 import crowdin from "../../events/crowdinverify"
 import { client, Command } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "crowdinverify",
@@ -22,7 +23,7 @@ const command: Command = {
 			.setAuthor("Role updater")
 			.setTitle("All verified users had their roles updated!")
 			.setDescription("Check the console for any errors that may have occured in the process")
-			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.editReply({ embeds: [embed] })
 			.catch(async () => {
 				await interaction.channel!.send({ content: "The interaction expired, so here's the embed so you don't feel sad", embeds: [embed] })

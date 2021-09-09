@@ -2,7 +2,7 @@ import Discord from "discord.js"
 import { neutralColor, errorColor } from "../../config.json"
 import { client, Command, GetStringFunction } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { getXpNeeded } from "../../lib/util"
+import { generateTip, getXpNeeded } from "../../lib/util"
 
 const command: Command = {
 	name: "rank",
@@ -17,7 +17,7 @@ const command: Command = {
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+		const randomTip = generateTip(getString),
 			collection = db.collection<DbUser>("users"),
 			user = interaction.options.getUser("user", false) ?? interaction.user
 
@@ -28,7 +28,7 @@ const command: Command = {
 				.setAuthor(getString("moduleName"))
 				.setTitle(user.id === interaction.user.id ? getString("youNotRanked") : getString("userNotRanked"))
 				.setDescription(getString("howRank"))
-				.setFooter(executedBy, interaction.user.displayAvatarURL())
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			return await interaction.reply({ embeds: [errorEmbed] })
 		}
 		const totalXp = getXpNeeded(userDb.levels?.level),
@@ -43,7 +43,7 @@ const command: Command = {
 			.setTitle(user.id === interaction.user.id ? getString("yourRank") : getString("userRank", { user: user.tag }))
 			.setDescription(user.id === interaction.user.id ? getString("youLevel", { level: userDb.levels.level, rank: ranking }) : getString("userLevel", { user: String(user), level: userDb.levels.level, rank: ranking }))
 			.addField(getString("textProgress", { currentXp: currentXp > 1000 ? `${(currentXp / 1000).toFixed(2)}${getString("thousand")}` : currentXp, xpNeeded: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp, messages: messageCount > 1000 ? `${(messageCount / 1000).toFixed(2)}${getString("thousand")}` : messageCount }), progressBar)
-			.setFooter(executedBy, interaction.user.displayAvatarURL())
+			.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
 	}
 }

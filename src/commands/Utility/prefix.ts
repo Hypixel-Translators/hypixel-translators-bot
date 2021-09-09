@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import { flag } from "country-emoji"
 import { db, DbUser } from "../../lib/dbclient"
 import { client, Command, GetStringFunction } from "../../index"
-import type { LangDbEntry } from "../../lib/util"
+import { generateTip, LangDbEntry } from "../../lib/util"
 
 const command: Command = {
 	name: "prefix",
@@ -27,7 +27,7 @@ const command: Command = {
 	],
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+		const randomTip = generateTip(getString),
 			member = interaction.member as Discord.GuildMember,
 			nickNoPrefix = member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim(),
 			langdb = await db.collection<LangDbEntry>("langdb").find().toArray()
@@ -50,7 +50,7 @@ const command: Command = {
 				.setTitle(getString("caution"))
 				.setDescription(`${getString("warning")}\n${getString("reactTimer", { cooldown: this.cooldown! })}`)
 				.addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
-				.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true })),
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true })),
 				confirmButtons = new Discord.MessageActionRow()
 					.addComponents(
 						new Discord.MessageButton()
@@ -81,14 +81,14 @@ const command: Command = {
 									.setAuthor(getString("moduleName"))
 									.setTitle(getString("saved"))
 									.addField(getString("newNickT"), `\`[${prefix}] ${nickNoPrefix}\``)
-									.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+									.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 								await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 								const staffAlert = new Discord.MessageEmbed()
 									.setColor(loadingColor as Discord.HexColorString)
 									.setAuthor("Prefix")
 									.setTitle("A user manually changed their prefix")
 									.setDescription(`${interaction.user} manually changed their prefix to include the following flag: ${prefix}\nMake sure they have the appropriate roles for this prefix and, if not, follow the appropriate procedure`)
-									.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+									.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 								await (interaction.client.channels.cache.get("624881429834366986") as Discord.TextChannel).send({ embeds: [staffAlert] }) //staff-bots
 							})
 							.catch(async err => {
@@ -98,7 +98,7 @@ const command: Command = {
 									.setTitle(getString("errors.error"))
 									.setDescription(err.toString())
 									.addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
-									.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+									.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 								await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 								console.log(err.stack || err)
 							})
@@ -108,7 +108,7 @@ const command: Command = {
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
 							.addField(getString("newNickT"), getString("noChanges"))
-							.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 						await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 					}
 				} else if (buttonInteraction.customId === "cancel") {
@@ -117,7 +117,7 @@ const command: Command = {
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
 						.addField(getString("newNickT"), getString("noChanges"))
-						.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 					await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 				}
 			})
@@ -132,7 +132,7 @@ const command: Command = {
 									.setAuthor(getString("moduleName"))
 									.setTitle(getString("saved"))
 									.addField(getString("newNickT"), `\`[${prefix}] ${nickNoPrefix}\``)
-									.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+									.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 								await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 							})
 							.catch(async err => {
@@ -142,7 +142,7 @@ const command: Command = {
 									.setTitle(getString("errors.error"))
 									.setDescription(err.toString())
 									.addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
-									.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+									.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 								await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 								console.log(err.stack || err)
 							})
@@ -152,7 +152,7 @@ const command: Command = {
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
 							.addField(getString("newNickT"), getString("noChanges"))
-							.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 						await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 					}
 				} else {
@@ -162,7 +162,7 @@ const command: Command = {
 						.setTitle(getString("errors.timedOut"))
 						.setDescription(getString("errors.timeOutCustom") + getString("errors.notSaved"))
 						.addField(getString("newNickT"), getString("noChanges"))
-						.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 					await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 				}
 			})
@@ -215,7 +215,7 @@ const command: Command = {
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("errors.trNoRoles"))
 						.setDescription(getString("customPrefix"))
-						.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 					client.cooldowns.get(this.name)!.delete(interaction.user.id)
 					return await interaction.editReply({ embeds: [embed] })
 				} else {
@@ -223,7 +223,7 @@ const command: Command = {
 						.setColor(errorColor as Discord.HexColorString)
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("errors.noLanguages"))
-						.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 					client.cooldowns.get(this.name)!.delete(interaction.user.id)
 					return await interaction.editReply({ embeds: [embed] })
 				}
@@ -234,7 +234,7 @@ const command: Command = {
 				.setTitle(getString("react"))
 				.setDescription(getString("reactTimer", { cooldown: this.cooldown! }))
 				.addField(getString("previewT"), getString("noChanges"))
-				.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [noChangesEmbed], components: rows })
 			const msg = await interaction.fetchReply() as Discord.Message,
 				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
@@ -255,7 +255,7 @@ const command: Command = {
 										.setAuthor(getString("moduleName"))
 										.setTitle(getString("saved"))
 										.addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
-										.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+										.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 									await buttonInteraction.update({ embeds: [embed], components: rows })
 								})
 								.catch(async err => {
@@ -265,7 +265,7 @@ const command: Command = {
 										.setTitle(getString("errors.error"))
 										.setDescription(err.toString())
 										.addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
-										.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+										.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 									await buttonInteraction.update({ embeds: [embed], components: rows })
 									console.log(err.stack || err)
 								})
@@ -274,7 +274,7 @@ const command: Command = {
 								.setColor(errorColor as Discord.HexColorString)
 								.setAuthor(getString("moduleName"))
 								.setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
-								.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+								.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 							await buttonInteraction.update({ embeds: [embed], components: rows })
 						}
 					} else {
@@ -282,7 +282,7 @@ const command: Command = {
 							.setColor(errorColor as Discord.HexColorString)
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("errors.confirmedNoFlags") + getString("errors.notSaved"))
-							.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 						await buttonInteraction.update({ embeds: [embed], components: rows })
 					}
 				} else if (buttonInteraction.customId === "cancel") {
@@ -292,7 +292,7 @@ const command: Command = {
 						.setColor(errorColor as Discord.HexColorString)
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
-						.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 					await buttonInteraction.update({ embeds: [embed], components: rows })
 				} else {
 					const clickedEntry = langdb.find(entry => entry.code === buttonInteraction.customId)!
@@ -305,7 +305,7 @@ const command: Command = {
 						.setTitle(getString("react"))
 						.setDescription(getString("reactTimer2", { cooldown: this.cooldown! }))
 						.addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
-						.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 					await buttonInteraction.update({ embeds: [embed], components: rows })
 				}
 			})
@@ -322,7 +322,7 @@ const command: Command = {
 									.setAuthor(getString("moduleName"))
 									.setTitle(getString("saved"))
 									.addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
-									.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+									.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 								await interaction.editReply({ embeds: [embed], components: rows })
 							})
 							.catch(async err => {
@@ -332,7 +332,7 @@ const command: Command = {
 									.setTitle(getString("errors.error"))
 									.setDescription(err.toString())
 									.addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
-									.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+									.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 								await interaction.editReply({ embeds: [embed], components: rows })
 								console.log(err.stack || err)
 							})
@@ -342,7 +342,7 @@ const command: Command = {
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
 							.addField(getString("newNickT"), getString("noChanges"))
-							.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 						await interaction.editReply({ embeds: [embed], components: rows })
 					}
 				} else {
@@ -352,7 +352,7 @@ const command: Command = {
 						.setTitle(getString("errors.timedOut"))
 						.setDescription(getString("errors.timeOut") + getString("errors.notSaved"))
 						.addField(getString("newNickT"), getString("noChanges"))
-						.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 					await interaction.editReply({ embeds: [embed], components: rows })
 				}
 			})

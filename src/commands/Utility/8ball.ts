@@ -1,6 +1,7 @@
 import Discord from "discord.js"
 import { successColor, loadingColor, errorColor } from "../../config.json"
 import type { Command, GetStringFunction } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "8ball",
@@ -12,10 +13,10 @@ const command: Command = {
 		required: true
 	}],
 	cooldown: 5,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
+	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+		const randomTip = generateTip(getString),
 			keys = Object.keys(getString("answers")),
 			answerType = keys[keys.length * Math.random() << 0] as "positive" | "inconclusive" | "negative",
 			answers = getString(`answers.${answerType}`),
@@ -24,7 +25,7 @@ const command: Command = {
 				.setAuthor(getString("moduleName"))
 				.setTitle(answer)
 				.addField(getString("question"), interaction.options.getString("question", true))
-				.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		if (answerType === "positive") embed.setColor(successColor as Discord.HexColorString)
 		else if (answerType === "inconclusive") embed.setColor(loadingColor as Discord.HexColorString)
 		else if (answerType === "negative") embed.setColor(errorColor as Discord.HexColorString)

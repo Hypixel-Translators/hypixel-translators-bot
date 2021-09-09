@@ -1,7 +1,7 @@
 import { successColor } from "../../config.json"
 import Discord from "discord.js"
 import type { Command } from "../../index"
-import { restart } from "../../lib/util"
+import { generateTip, restart } from "../../lib/util"
 
 const command: Command = {
 	name: "restart",
@@ -13,7 +13,7 @@ const command: Command = {
 			.setColor(successColor as Discord.HexColorString)
 			.setAuthor("Restart")
 			.setTitle("Restarting...")
-			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
 		interaction.client.user!.setStatus("invisible")
 		setTimeout(async () => {

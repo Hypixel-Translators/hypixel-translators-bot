@@ -31,7 +31,6 @@ setup(client)
 export interface Command extends Discord.ChatInputApplicationCommandData {
 	cooldown?: number
 	allowDM?: true
-	allowTip?: false
 	dev?: true
 	roleWhitelist?: Discord.Snowflake[]
 	roleBlacklist?: Discord.Snowflake[]

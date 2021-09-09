@@ -1,6 +1,7 @@
 import { neutralColor } from "../../config.json"
 import Discord from "discord.js"
 import { client, Command, GetStringFunction } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "translate",
@@ -9,7 +10,7 @@ const command: Command = {
 	allowDM: true,
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+		const randomTip = generateTip(getString),
 			member = client.guilds.cache.get("549503328472530974")!.members.resolve(interaction.user.id)
 		if (member?.roles.cache.find(role => role.name.startsWith("Bot ") && role.name !== "Bot Updates")) {
 			const embed = new Discord.MessageEmbed()
@@ -21,7 +22,7 @@ const command: Command = {
 					{ name: getString("question"), value: getString("askTranslators", { botTranslators: "<#749391414600925335>" }) },
 					{ name: getString("newCrowdin"), value: getString("checkGuide", { gettingStarted: "<#699275092026458122>" }) }
 				)
-				.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.reply({ embeds: [embed] })
 		} else {
 			const embed = new Discord.MessageEmbed()
@@ -35,7 +36,7 @@ const command: Command = {
 					{ name: getString("lastThing"), value: getString("requestInfo", { tag: interaction.user.tag, id: interaction.user.id }) },
 					{ name: getString("noLanguage"), value: getString("langRequest") }
 				)
-				.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.reply({ embeds: [embed] })
 		}
 	}

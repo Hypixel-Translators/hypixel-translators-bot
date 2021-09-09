@@ -2,6 +2,7 @@ import Discord from "discord.js"
 import fs from "fs"
 import { Command, client, GetStringFunction } from "../../index"
 import type { DbUser } from "../../lib/dbclient"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "help",
@@ -25,11 +26,10 @@ const command: Command = {
 		required: false
 	}],
 	cooldown: 60,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
+	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
-			madeBy = getString("madeBy", { developer: (await client.users.fetch("807917674477649943")).tag }) //QkeleQ10
+		const randomTip = generateTip(getString)
 
 		// Define categories to get commands from and all pages
 		const categories = ["Utility", "Info", "Projects"],
@@ -65,7 +65,7 @@ const command: Command = {
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${pages[0].badge} ${getString("mainPage")}`)
 				.setDescription(getString("commandsListTooltip", { developer: client.users.cache.get("240875059953139714")!.toString(), github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)" }))
-				.setFooter(`${executedBy} | ${madeBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			pages.forEach(page => {
 				if (page.number === 0) return
 				page1.addField(getString("pageNumber", { number: page.number, total: pages.length }), `${page.badge} ${getString(page.titleString)}`, true)
@@ -74,7 +74,7 @@ const command: Command = {
 			pages[0].embed = page1
 
 			//Determine which page to use
-			let pageEmbed = fetchPage(page, pages, getString, executedBy, interaction) as Discord.MessageEmbed
+			let pageEmbed = fetchPage(page, pages, getString, randomTip, interaction) as Discord.MessageEmbed
 			const pageMenu = new Discord.MessageActionRow()
 				.addComponents(
 					new Discord.MessageSelectMenu()
@@ -96,7 +96,7 @@ const command: Command = {
 					option = menuInteraction.values[0]
 				if (interaction.user.id !== menuInteraction.user.id) return await menuInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
 				else page = Number(option)
-				pageEmbed = fetchPage(page, pages, getString, executedBy, interaction) as Discord.MessageEmbed
+				pageEmbed = fetchPage(page, pages, getString, randomTip, interaction) as Discord.MessageEmbed
 				(pageMenu.components[0] as Discord.MessageSelectMenu).options.forEach(o => o.default = option === o.value)
 				await menuInteraction.update({ embeds: [pageEmbed], components: [pageMenu] })
 			})
@@ -125,7 +125,7 @@ const command: Command = {
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("commandInfoFor") + `\`/${command.name}\``)
 				.setDescription(cmdDesc || getString("staffOnly"))
-				.setFooter(`${executedBy} | ${madeBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			if (cmdDesc !== getString("inDev")) {
 				if (command.cooldown) {
 					if (command.cooldown >= 120) embed.addField(getString("cooldownField"), `${command.cooldown / 60} ${getString("minutes")}`, true)
@@ -138,7 +138,7 @@ const command: Command = {
 	}
 }
 
-function fetchPage(page: number, pages: Page[], getString: GetStringFunction, executedBy: string, interaction: Discord.CommandInteraction) {
+function fetchPage(page: number, pages: Page[], getString: GetStringFunction, randomTip: string, interaction: Discord.CommandInteraction) {
 	if (page > pages.length - 1) page = pages.length - 1
 	if (page < 0) page = 0
 	let pageEmbed: Discord.MessageEmbed
@@ -150,7 +150,7 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, ex
 				.setColor("BLURPLE")
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${pages[page].badge} ${getString(pages[page].titleString!)}`)
-				.setFooter(`${getString("pagination.page", { number: page + 1, total: pages.length }, "global")} | ${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(getString("pagination.page", { number: page + 1, total: pages.length }, "global"), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			pages[page].commands!.forEach(command => pageEmbed!.addField(`\`/${command}\``, getString(`${command}.description`)))
 		} else return console.error(`Help page ${page} has no embed fields specified!`)
 	} else return console.error(`Tried accessing help page ${page} but it doesn't exist in the pages array!`)

@@ -2,6 +2,7 @@ import { successColor } from "../../config.json"
 import Discord from "discord.js"
 import inactives from "../../events/inactives"
 import { Command, client } from "../../index"
+import { generateTip } from "../../lib/util"
 
 const command: Command = {
 	name: "inactives",
@@ -13,7 +14,7 @@ const command: Command = {
 			.setColor(successColor as Discord.HexColorString)
 			.setAuthor("Inactive checker")
 			.setTitle("All inactive members have been notified!")
-			.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
 	}
 }

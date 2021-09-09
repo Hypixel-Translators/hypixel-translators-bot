@@ -2,7 +2,7 @@ import Discord from "discord.js"
 import { successColor, errorColor } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { client, Command, GetStringFunction } from "../../index"
-import { updateRoles } from "../../lib/util"
+import { generateTip, updateRoles } from "../../lib/util"
 
 const command: Command = {
 	name: "hypixelunverify",
@@ -14,9 +14,9 @@ const command: Command = {
 		description: "The user to unverify. Admin-only",
 		required: false
 	}],
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev 
+	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+		const randomTip = generateTip(getString),
 			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
 			collection = db.collection<DbUser>("users")
 
@@ -28,7 +28,7 @@ const command: Command = {
 					.setColor(successColor as Discord.HexColorString)
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Successfully unverified ${memberInput.user.tag}`)
-					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new Discord.MessageEmbed()
@@ -36,7 +36,7 @@ const command: Command = {
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Couldn't unverify ${memberInput.user.tag}!`)
 					.setDescription("This happened because this user isn't verified yet.")
-					.setFooter(`Executed by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
 		} else {
@@ -48,7 +48,7 @@ const command: Command = {
 					.setColor(successColor as Discord.HexColorString)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("unverified"))
-					.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new Discord.MessageEmbed()
@@ -56,7 +56,7 @@ const command: Command = {
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("notUnverified"))
 					.setDescription(getString("whyNotUnverified"))
-					.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
 		}

@@ -2,7 +2,7 @@ import Discord from "discord.js"
 import { neutralColor, errorColor } from "../../config.json"
 import { client, Command, GetStringFunction } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { updateButtonColors } from "../../lib/util"
+import { generateTip, updateButtonColors } from "../../lib/util"
 
 const command: Command = {
 	name: "levels",
@@ -23,7 +23,7 @@ const command: Command = {
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
-		const executedBy = getString("executedBy", { user: interaction.user.tag }, "global"),
+		const randomTip = generateTip(getString),
 			collection = db.collection<DbUser>("users"),
 			allUsers = await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray(),
 			inputMe = interaction.options.getBoolean("me", false),
@@ -43,7 +43,7 @@ const command: Command = {
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("pageTitle"))
 				.setDescription(getString("pageNotExist"))
-				.setFooter(executedBy, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 			return await interaction.reply({ embeds: [embed] })
 		} else {
 			let controlButtons = new Discord.MessageActionRow()
@@ -69,7 +69,7 @@ const command: Command = {
 						.setCustomId("last")
 						.setLabel(getString("pagination.last", "global"))
 				),
-				pageEmbed: Discord.MessageEmbed = fetchPage(page, pages, getString, executedBy, interaction)
+				pageEmbed: Discord.MessageEmbed = fetchPage(page, pages, getString, randomTip, interaction)
 
 			controlButtons = updateButtonColors(controlButtons, page, pages)
 			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }) as Discord.Message,
@@ -88,7 +88,7 @@ const command: Command = {
 					page++
 					if (page > pages.length - 1) page = pages.length - 1
 				}
-				pageEmbed = fetchPage(page, pages, getString, executedBy, interaction)
+				pageEmbed = fetchPage(page, pages, getString, randomTip, interaction)
 				controlButtons = updateButtonColors(controlButtons, page, pages)
 				await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
 			})
@@ -102,14 +102,14 @@ const command: Command = {
 	}
 }
 
-function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction, executedBy: string, interaction: Discord.CommandInteraction) {
+function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction, randomTip: string, interaction: Discord.CommandInteraction) {
 	if (page > pages.length - 1) page = pages.length - 1
 	if (page < 0) page = 0
 	const pageEmbed = new Discord.MessageEmbed()
 		.setColor(neutralColor as Discord.HexColorString)
 		.setAuthor(getString("moduleName"))
 		.setTitle(getString("pageTitle"))
-		.setFooter(`${getString("pagination.page", { number: page + 1, total: pages.length }, "global")} | ${executedBy}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+		.setFooter(getString("pagination.page", { number: page + 1, total: pages.length }, "global"), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
 	for (let i = 0; i <= pages[page].length - 1; i++) {
 		// const user = interaction.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that
 		if (pages[page][i].levels) {
