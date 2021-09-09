@@ -36,8 +36,8 @@
 	},
 	"cooldown": "Časové omezení",
 	"secondLeft": "Please wait another second to use `%%command%%` again.",
-	"timeLeftT": "Počkej prosím ještě %%time%% sekund/y, abys mohl znovu použít `+%%command%%`.",
-	"minsLeftT": "Počkej prosím ještě %%time%% minut/y, abys mohl znovu použít `+%%command%%`.",
+	"timeLeftT": "Počkej prosím ještě %%time%% sekund/y, abys mohl znovu použít `%%command%%`.",
+	"minsLeftT": "Počkej prosím ještě %%time%% minut/y, abys mohl znovu použít `%%command%%`.",
 	"linkCorrectionDesc": "Prosím, příště změň svůj odkaz na formát %%format%%.",
 	"correctLink": "Zde je správný odkaz:",
 	"wrongStringURL": "Odkaz, který jsi poslal, je odkaz na editor, a ne na samotný string!",
@@ -45,21 +45,22 @@
 	"reminderLang": "Don't forget to also change your link to the %%format%% format.",
 	"tip": "Tip",
 	"tips": {
-		"ib": "Už jsi vyzkoušel jazyk vdechnutého banánu? Nastav si ho pomocí `/lang ib`!",
-		"translators": "Potřebuji překladatele! Zjisti, jak se stát překladatelem bota pomocí `/translate`.",
-		"prefix": "Do you wanna have a cool prefix on your nickname? Execute `/prefix` in %%bots%% and follow the instructions! Available to all Hypixel translators.",
-		"enen": "Prosím, změň své odkazy na en-en!",
+		"ib": "Už jsi vyzkoušel jazyk vdechnutého banánu? Nastav si ho pomocí %%langIb%%!",
+		"translators": "Potřebuji překladatele! Zjisti, jak se stát překladatelem bota pomocí %%translate%%.",
+		"prefix": "Do you wanna have a cool prefix on your nickname? Execute %%prefix%% in %%bots%% and follow the instructions! Available to all Hypixel translators.",
+		"enen": "Don't forget to change your string links to en-en!",
 		"xp": "Když píšeš, dostáváš každou minutu náhodný počet XP, díky kterému časem získáš vyšší úroveň.",
 		"guide": "Věděl jsi, že máme návod pro překladatele, jak začít s Crowdinem? Podívej se na něj v %%gettingStarted%%, obsahuje pár užitečných tipů!",
 		"twitter": "Sleduješ náš twitter účet? Podívej se na něj na %%twitter%%!",
 		"rulesInfo": "%%rules%% a %%serverInfo%% mají všechny informace, které potřebuješ vědět o tomto serveru!",
 		"fixTranslation": "Našel jsi chybu v překladu? Kontaktuj korektora svého jazyka nebo dej vědět lidem v kanále překladů.",
 		"pinnedInfo": "Věděl jsi, že většina kanálů má ty nejdůležitější informace připnuté? Měl by ses na ně podívat pokaždé, když nějaký kanál navštívíš!",
-		"hypixelStats": "Informace o konkrétním hráči na Hypixelu zobrazíš příkazem `/hypixelstats`!",
-		"languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute `/languagestats`!",
-		"rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute `/verify` to have your roles updated!",
-		"botTranslated": "Věděl jsi, že náš bot je k dispozici ve více jazycích? Zkus napsat `/language list`, pro zobrazení seznamu všech jazyků, které v současné době podporujeme, a možná najdeš právě ten svůj!",
-		"moreTips": "Potřebujeme více tipů! Navrhni je pomocí `/feedback`."
+		"hypixelStats": "Informace o konkrétním hráči na Hypixelu zobrazíš příkazem %%hypixelstats%%!",
+		"languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute %%languagestats%%!",
+		"rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute %%verify%% to have your roles updated!",
+		"botTranslated": "Věděl jsi, že náš bot je k dispozici ve více jazycích? Zkus napsat %%langList%%, pro zobrazení seznamu všech jazyků, které v současné době podporujeme, a možná najdeš právě ten svůj!",
+		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
+		"moreTips": "Potřebujeme více tipů! Navrhni je pomocí %%feedback%%."
 	},
 	"pagination": {
 		"first": "První stránka",
@@ -75,6 +76,5 @@
 	"region": {
 		"dateLocale": "cs-CZ",
 		"timeZone": "Europe/Prague"
-	},
-	"executedBy": "Provedeno uživatelem %%user%%"
+	}
 }
