@@ -84,7 +84,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		Possible scenarios:
 		private profile: isPrivate = true && isValid = false
 		public profile with no projects: isPrivate = false && isValid = true
-		404 page: isPrivate = false && isValid = false 
+		404 page: isPrivate = false && isValid = false
 		*/
 		await page.close()
 		closeConnection(browser.uuid)

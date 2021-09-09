@@ -1,5 +1,5 @@
-import { crowdinVerify } from "../lib/crowdinverify";
-import { db, DbUser, HTBClient } from "../lib/dbclient";
+import { crowdinVerify } from "../lib/crowdinverify"
+import { db, DbUser, HTBClient } from "../lib/dbclient"
 
 export default async function updateVerified(client: HTBClient, manual: boolean, limit = 0) {
 	const d = new Date(),
