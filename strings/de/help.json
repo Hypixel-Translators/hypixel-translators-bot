@@ -1,7 +1,6 @@
 {
 	"moduleName": "Information",
 	"commandsListTooltip": "Dieser Bot wurde für die Hypixel Translators Community erstellt und wird von %%developer%% verwaltet. Er ist Open Source und unser GitHub Repository kann [hier]%%github%% gefunden werden.\nDu kannst bei der Übersetzung des Bots helfen, indem du den Anweisungen in `/translate` folgst.\n\nDu kannst `/help <Name des Befehls>` ausführen, um mehr über einen bestimmten Befehl zu erfahren.\nUnten findest du eine Liste mit allen verfügbaren Seiten. Benutze die Buttons auf dieser Nachricht, um sie zu durchlaufen.",
-	"madeBy": "Der Bot wurde mit großer Sorgfalt von %%developer%% erstellt",
 	"pageNumber": "Seite %%number%%",
 	"mainPage": "Main Page",
 	"utilityHelp": "Werkzeuge & Hilfsmittel",
@@ -64,7 +63,7 @@
 		"description": "Gibt dir den passenden Präfix für deine Sprache(n). Um einen benutzerdefiniertes Präfix zu erhalten, führe `/prefix` aus und gebe den Regionalcode der Flagge deines Landes oder dessen Namen an. Du kannst so viele Flaggen hinzufügen wie du magst, getrennt durch ein Leerzeichen."
 	},
 	"profile": {
-		"description": "Gibt dir den Link zu deinem Crowdin-Profil, wenn er in unserer Datenbank gespeichert ist. Falls nicht, kannst du `/help reverify` ausführen, um zu erfahren, wie du dein Profil speicherst und deine Rollen aktualisierst."
+		"description": "Gibt dir den Link zu deinem Crowdin-Profil, wenn er in unserer Datenbank gespeichert ist. Falls nicht, kannst du `/help verify` ausführen, um zu erfahren, wie du dein Profil speicherst und deine Rollen aktualisierst."
 	},
 	"projects": {
 		"description": "Gibt dir Links und Informationen zu allen Übersetzungsprojekten, die wir auf dem Server unterstützen."
