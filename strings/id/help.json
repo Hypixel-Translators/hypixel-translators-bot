@@ -1,7 +1,6 @@
 {
 	"moduleName": "Informasi",
 	"commandsListTooltip": "Bot ini dibuat untuk Hypixel Translators Community dan dipertahankan oleh %%developer%%. Bot ini open-source dan repository GitHub kami dapat ditemukan [disini]%%github%%.\nAnda dapat membantu menerjemahkan bot dengan mengikuti instruksi perintah `/translate`.\n\nAnda dapat jalankan `/help <perintah>` untuk pelajari lebih lanjut mengenai perintah spesifik.\nDibawah ini anda dapat menemukan list halaman yang tersedia. Gunakan tombol-tombol di pesan ini untuk siklus melaluinya.",
-	"madeBy": "Bot terbuat dengan banyak perhatian oleh %%developer%%",
 	"pageNumber": "Halaman %%number%%",
 	"mainPage": "Halaman Utama",
 	"utilityHelp": "Alat & Utilitas",
