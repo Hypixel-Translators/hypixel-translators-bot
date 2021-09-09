@@ -1,6 +1,5 @@
 {
 	"moduleName": "마인크래프트 Stats",
-	"madeBy": "%%developer%%에 의해 명령어가 개발되었습니다.",
 	"history": {
 		"firstName": "이름",
 		"nameHistoryFor": "%%username%%의 이름 히스토리",
