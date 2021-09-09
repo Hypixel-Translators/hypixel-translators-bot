@@ -45,21 +45,22 @@
 	"reminderLang": "링크를 %%format%% 형태로 바꾸는걸 잊지 마세요.",
 	"tip": "팁",
 	"tips": {
-		"ib": "Inhale Banana 언어를 사용해보셨나요? `/language ib` 로 언어를 변경해보세요!",
-		"translators": "이 봇은 번역가들이 많이 필요합니다! `/translate` 명령어를 입력해서 봇 번역에 기여해보세요!",
-		"prefix": "Prefix를 이름 앞에 달아보고 싶으신가요? `/prefix` 를 %%bots%%에서 입력해서 도움말대로 해보세요! Hypixel 번역가라면 사용할 수 있어요!",
-		"enen": "링크를 en-en으로 수정해주세요.",
+		"ib": "Inhale Banana 언어를 사용해보셨나요? %%langIb%% 로 언어를 변경해보세요!",
+		"translators": "이 봇은 번역가들이 많이 필요합니다! %%translate 명령어를 입력해서 봇 번역에 기여해보세요!",
+		"prefix": "Prefix를 이름 앞에 달아보고 싶으신가요? %%prefix%% 를 %%bots%%에서 입력해서 도움말대로 해보세요! Hypixel 번역가라면 사용할 수 있어요!",
+		"enen": "Don't forget to change your string links to en-en!",
 		"xp": "유저가 1분마다 채팅을 칠 때, 랜덤하게 XP를 얻어서 레벨업 할 수 있습니다.",
 		"guide": "우리가 번역가들이 사용하는 Crowdin에 대한 가이드를 제공하고 있다는걸 아시고 계신가요? %%gettingStarted%%에서 유용한 팁들을 확인해 보세요!",
 		"twitter": "저희 트위터 팔로우, 잊지 않으셨죠? %%twitter%%에서 저희 트위터를 확인하실 수 있습니다!",
 		"rulesInfo": "%%rules%% 랑 %%serverInfo%%에 이 서버에 대한 모든 중요한 정보들이 담겨 있어요!",
 		"fixTranslation": "번역에 오류를 찾으셨나요? 해당하는 언어의 Proofreader에게 연락하시거나 알맞은 Translation Channel에서 사람들에게 알려주세요!",
 		"pinnedInfo": "거의 모든 채널의 중요한 정보는 고정메시지에 고정되어 있다는 사실을 아시고 계신가요? 가끔식 체크해주시는거, 잊지말긔!",
-		"hypixelStats": "`hypixelstats` 를 통해 특정 Hypixel 유저에 대한 정보를 알 수 있어요!",
-		"languageStats": "언어마다 번역률을 확인하실 수 있다는걸 아셨나요? `/languagestats`를 입력해보세요!",
-		"rolesChange": "Crowdin에서 새로운 역할을 획득하셨거나 저희가 지원하는 새로운 프로젝트에 참여하시고 계신가요? `/verify` 를 통해 역할을 업데이트해보세요!",
-		"botTranslated": "이 봇이 다양한 언어를 지원한다는걸 아시고 계셨나요? `/language list`를 입력해서 지원하는 언어를 확인해보세요!",
-		"moreTips": "저희는 다양한 팁들을 원해요! `/feedback`을 통해 팁들을 알려주세요!"
+		"hypixelStats": "%%hypixelstats%% 를 통해 특정 Hypixel 유저에 대한 정보를 알 수 있어요!",
+		"languageStats": "언어마다 번역률을 확인하실 수 있다는걸 아셨나요? %%languagestats%%를 입력해보세요!",
+		"rolesChange": "Crowdin에서 새로운 역할을 획득하셨거나 저희가 지원하는 새로운 프로젝트에 참여하시고 계신가요? %%verify%% 를 통해 역할을 업데이트해보세요!",
+		"botTranslated": "이 봇이 다양한 언어를 지원한다는걸 아시고 계셨나요? %%langList%%를 입력해서 지원하는 언어를 확인해보세요!",
+		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
+		"moreTips": "저희는 다양한 팁들을 원해요! %%feedback%%을 통해 팁들을 알려주세요!"
 	},
 	"pagination": {
 		"first": "첫 페이지",
@@ -75,6 +76,5 @@
 	"region": {
 		"dateLocale": "ko-KR",
 		"timeZone": "Asia/Seoul"
-	},
-	"executedBy": "실행 : %%user%%"
+	}
 }
