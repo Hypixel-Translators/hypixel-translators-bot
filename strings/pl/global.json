@@ -12,8 +12,8 @@
 	},
 	"error": "Błąd",
 	"errors": {
-		"dmError": "Przepraszamy, ale nie możesz wykonać tego polecenia w wiadomości prywatnej.",
-		"noCommand": "To polecenie nie istnieje!",
+		"dmError": "Przepraszamy, ale nie możesz wykonać tej komendy w wiadomości prywatnej.",
+		"noCommand": "Ta komenda nie istnieje!",
 		"noUser": "Nie określono użytkownika!",
 		"noLang": "Nie podano języka!",
 		"falseUser": "Użytkownik nie został odnaleziony!",
@@ -23,8 +23,8 @@
 		"falseUUID": "Nie udało się znaleźć gracza o takim UUID!",
 		"noPlayer": "Ten gracz nigdy nie wszedł na Hypixel!",
 		"notVerified": "Ten użytkownik nie połączył jeszcze swojego konta Hypixel!",
-		"disabled": "To polecenie zostało tymczasowo wyłączone.",
-		"noAccess": "Nie możesz użyć tego polecenia!",
+		"disabled": "Ta komenda została tymczasowo wyłączona.",
+		"noAccess": "Nie możesz użyć tej komendy!",
 		"noPermission": "Nie możesz używać tej komendy na tym kanale!",
 		"apiError": "Coś poszło nie tak podczas kontaktowania się z API!",
 		"wrongLink": "Zły odnośnik!"
@@ -45,8 +45,8 @@
 	"reminderLang": "Nie zapomnij również zmienić odnośnika na format %%format%%.",
 	"tip": "Wskazówka",
 	"tips": {
-		"ib": "Czy poznałeś/aś już język Inhale Banana? Wypróbuj go, używając polecenia `/lang ib`!",
-		"translators": "Potrzeba tłumaczy! Dowiedz się, jak zostać wziąć udział w tłumaczeniu bota, wykonując polecenie `/translate`.",
+		"ib": "Czy poznałeś/aś już język Inhale Banana? Wypróbuj go, używając komendy `/lang ib`!",
+		"translators": "Potrzeba tłumaczy! Dowiedz się, jak zostać wziąć udział w tłumaczeniu bota, wykonując komendę `/translate`.",
 		"prefix": "Czy chcesz mieć fajny prefiks przed swoim nickiem? Wpisz `/prefix` na %%bots%% i postępuj zgodnie z instrukcjami! Dostępne dla wszystkich tłumaczy Hypixel.",
 		"enen": "Pamiętaj, aby zmienić odnośniki na en-en!",
 		"xp": "Otrzymujesz losową ilość PD za każdą minutę rozmowy, co ostatecznie sprawi, że osiągniesz wyższy poziom.",
@@ -57,9 +57,9 @@
 		"pinnedInfo": "Czy wiedziałeś/aś, że na większości kanałów najważniejsze informacje są przypięte? Należy je sprawdzać za każdym razem, jak odwiedzasz kanały!",
 		"hypixelStats": "Możesz sprawdzić statystyki gracza z Hypixela wpisując `/hypixelstats <nazwa gracza> [social]`!",
 		"languageStats": "Czy wiesz, że możesz podejrzeć statystyki dla dowolnego języka we wszystkich naszych projektach? Wystarczy wykonać `/languagestats <język>`!",
-		"rolesChange": "Jeżeli otrzymałeś ostatnio nowe role na Crowdinie lub dołączyłeś do jednego ze wspieranych przez nas projektów, wykonaj polecenie `/verify`. Polecenie to zauktualizuje Twoje role.",
-		"botTranslated": "Czy wiesz, że nasz bot jest dostępny w wielu językach? Wykonaj polecenie `/language list`, by zobaczyć listę wszystkich języków, które obecnie obsługujemy.",
-		"moreTips": "Potrzebujemy wskazówek! Prześlij je za pomocą polecenia `/feedback`."
+		"rolesChange": "Jeżeli otrzymałeś ostatnio nowe role na Crowdinie lub dołączyłeś do jednego ze wspieranych przez nas projektów, wykonaj komendę `/verify`. Komenda ta zauktualizuje Twoje role!",
+		"botTranslated": "Czy wiesz, że nasz bot jest dostępny w wielu językach? Wykonaj komendę `/language list`, by zobaczyć listę wszystkich języków, które obecnie obsługujemy!",
+		"moreTips": "Potrzebujemy wskazówek! Prześlij je za pomocą komendy `/feedback`."
 	},
 	"pagination": {
 		"first": "Pierwsza strona",
