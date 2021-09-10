@@ -1,12 +1,12 @@
 {
-	"moduleName": "User level",
-	"yourRank": "Here's your rank",
-	"userRank": "Here's %%user%%'s rank",
-	"youNotRanked": "You're not ranked yet!",
-	"userNotRanked": "That user is not ranked yet!",
-	"howRank": "In order to be ranked you must talk in the chats!",
-	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Messages",
+	"moduleName": "سطح کاربر",
+	"yourRank": "این هم از رتبۀ شما",
+	"userRank": "اینم هم از رتبۀ کاربر %%user%%",
+	"youNotRanked": "شما هنوز رتبه‌ای ندارید!",
+	"userNotRanked": "این کاربر هنوز رتبه‌ای ندارد!",
+	"howRank": "برای دریافت رتبه باید در چت‌ها صحبت کنید!",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% پیام‌ها",
 	"thousand": "k",
-	"youLevel": "You're at level %%level%% and you're #%%rank%% on the leaderboard!",
-	"userLevel": "%%user%% is at level %%level%% and they're #%%rank%% on the leaderboard!"
+	"youLevel": "شما در سطح %%level%% و رتبۀ #%%rank%% در لیدربورد هستید!",
+	"userLevel": "کاربر %%user%% در سطح %%level%% و رتبۀ #%%rank%% در لیدربورد است!"
 }
