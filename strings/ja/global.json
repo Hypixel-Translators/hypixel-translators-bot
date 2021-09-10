@@ -59,7 +59,7 @@
 		"languageStats": "私たちの全プロジェクトの言語別の進捗を閲覧できるのを知っていますか？ %%languagestats%%を実行してください！",
 		"rolesChange": "我々がサポートしているプロジェクトで、最近Crowdinで新しい役割を手に入れたり、新しく参加しましたか？ %%verify%%を実行してロールを更新しましょう！",
 		"botTranslated": "我々のボットは複数の言語で利用できることをご存知ですか？ %%langList%%を実行して現在サポートしている言語一覧を確認してください。ご自身の言語が見つかるでしょう！",
-		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
+		"botUpdates": "ボットの大型アップデートや重要なニュースは%%botUpdates%%に投稿されますので、ぜひ確認してください！",
 		"moreTips": "更なるヒントを求めています！ %%feedback%%を使用して投稿してください。"
 	},
 	"pagination": {
