@@ -324,7 +324,7 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 		keys = getString ? Object.keys(getString("tips", "global")) : Object.keys(strings.tips)
 
 	return getString
-		? `${getString("tip", "global").toUpperCase()}: ${getString(
+		? `${getString("tip", "global", newLang).toUpperCase()}: ${getString(
 			`tips.${keys[(keys.length * Math.random()) << 0]}`,
 			{
 				langIb: "/language set language:ib",
