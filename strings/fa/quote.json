@@ -1,7 +1,7 @@
 {
-	"moduleName": "Quote",
-	"msgUrl": "Message URL",
-	"invalidArg": "Invalid argument!",
-	"indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%.",
-	"reqSub": "Your quote request has been submitted, thanks!"
+	"moduleName": "نقل قول",
+	"msgUrl": "لینک پیام",
+	"invalidArg": "آرگومان نامعتبر!",
+	"indexArg": "نقل قولی با شاخص %%arg%% وجود ندارد! لطفا عددی بین 1 تا %%max%% وارد کنید.",
+	"reqSub": "نقل قول شما ثبت شد، با تشکر!"
 }
