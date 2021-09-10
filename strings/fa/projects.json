@@ -1,9 +1,9 @@
 {
-	"moduleName": "Translation Projects",
-	"allProjects": "Here are all the projects we currently support on the server!",
-	"description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
-	"projectInfo": "You can find the link to the %%project%% project [here](%%link%%). For more information, execute %%command%%.",
-	"alreadyJoined": "You've already joined this project!",
-	"notJoined": "You haven't joined this project yet!",
-	"dmError": "We couldn't check whether you're already on these projects or not. In order to do this, you must execute the command on The Hypixel Translators Community Discord."
+	"moduleName": "پروژه‌های ترجمه",
+	"allProjects": "این‌ها پروژه‌هایی هستند که فعلاً از آنها در سرور پشتیبانی می‌کنیم!",
+	"description": "اگر در بعضی از این پروژه‌ها فعال هستید ولی رول مربوطه را ندارید، کامند `[verify [profileURL/` را اجرا کنید تا آنها را دریافت کنید!",
+	"projectInfo": "لینک پروژۀ %%project%% را می‌توانید [اینجا](%%link%%) بیابید. برای کسب اطلاعات بیشتر، کامند %%command%% را اجرا کنید.",
+	"alreadyJoined": "شما قبلاً در این پروژه عضو شده‌اید!",
+	"notJoined": "شما هنوز در این پروژه عضو نشده‌اید!",
+	"dmError": "ما نتوانستیم بررسی کنیم که آیا در این پروژه‌ها عضو هستید یا خیر! برای انجام این کار، باید این کامند را در دیسکورد Hypixel Translators Community اجرا کنید."
 }
