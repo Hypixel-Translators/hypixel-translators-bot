@@ -45,21 +45,22 @@
 	"reminderLang": "Vergiss nicht, auch deinen Link zum %%format%%-Format zu ändern.",
 	"tip": "Tipp",
 	"tips": {
-		"ib": "Hast du schon die Inhale Banana-Sprache ausprobiert? Ändere deine Sprache mit `/lang ib`!",
-		"translators": "Ich brauche Übersetzer! Finde heraus wie du ein Bot-Übersetzer werden kannst bei `/translate`.",
-		"prefix": "Möchtest du einen coolen Präfix vor deinem Benutzernamen haben? Führe `/prefix` in %%bots%% aus und folge den Anweisungen! Verfügbar für alle Hypixel- und Quickplay-Übersetzer.",
-		"enen": "Bitte ändere deine Links auf en-en!",
+		"ib": "Hast du schon die Inhale Banana-Sprache ausprobiert? Ändere deine Sprache mit %%langIb%%!",
+		"translators": "Ich brauche Übersetzer! Finde heraus wie du ein Bot-Übersetzer werden kannst bei %%translate%%.",
+		"prefix": "Möchtest du einen coolen Präfix vor deinem Benutzernamen haben? Führe %%prefix%% in %%bots%% aus und folge den Anweisungen! Verfügbar für alle Hypixel- und Quickplay-Übersetzer.",
+		"enen": "Don't forget to change your string links to en-en!",
 		"xp": "Du bekommst eine zufällige XP-Anzahl wenn du schreibst, wodurch du ein Level aufsteigst.",
 		"guide": "Wusstest du, dass wir einen Leitfaden für den Einstieg in Crowdin haben, der für alle Übersetzer verfügbar ist? Sieh ihn dir unter %%gettingStarted%% an, er enthält einige nützliche Tipps!",
 		"twitter": "Folgst du unserem Twitter-Account? Schau mal bei %%twitter%% vorbei!",
 		"rulesInfo": "%%rules%% und %%serverInfo%% haben alle Infos, die du über diesen Server brauchst!",
 		"fixTranslation": "Du hast einen Fehler in der Übersetzung gefunden? Dann kontaktiere einen Proofreader für die Sprache oder lasse es in dem Channel für Übersetzung wissen.",
 		"pinnedInfo": "Wusstest du, dass die meisten Kanäle wichtige Informationen angeheftet haben? Du solltest sie dir jedes Mal ansehen, wenn du einen besuchst!",
-		"hypixelStats": "Du kannst dir Informationen über einen bestimmten Spieler auf Hypixel ansehen, indem du `/hypixelstats` ausführst!",
-		"languageStats": "Wusstest du, dass du Statistiken für jede Sprache in allen unseren Projekten sehen kannst? Führe einfach `/languagestats` aus!",
-		"rolesChange": "Hast du kürzlich neue Rollen auf Crowdin erhalten oder einem der von uns unterstützten Projekte beigetreten? Führe `/verify` aus, um deine Rollen zu aktualisieren!",
-		"botTranslated": "Wusstest du, dass unser Bot in mehreren Sprachen verfügbar ist? Versuche `/language list` auszuführen, um eine Liste aller Sprachen zu sehen, die wir derzeit unterstützen, und du findest möglicherweise deine eigene!",
-		"moreTips": "Wir benötigen mehr Tipps! Sende sie mit ‘/feedback’ ein."
+		"hypixelStats": "Du kannst dir Informationen über einen bestimmten Spieler auf Hypixel ansehen, indem du %%hypixelstats%% ausführst!",
+		"languageStats": "Wusstest du, dass du Statistiken für jede Sprache in allen unseren Projekten sehen kannst? Führe einfach %%languagestats%% aus!",
+		"rolesChange": "Hast du kürzlich neue Rollen auf Crowdin erhalten oder einem der von uns unterstützten Projekte beigetreten? Führe %%verify%% aus, um deine Rollen zu aktualisieren!",
+		"botTranslated": "Wusstest du, dass unser Bot in mehreren Sprachen verfügbar ist? Versuche %%langList%% auszuführen, um eine Liste aller Sprachen zu sehen, die wir derzeit unterstützen, und du findest möglicherweise deine eigene!",
+		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
+		"moreTips": "Wir benötigen mehr Tipps! Sende sie mit %%feedback%% ein."
 	},
 	"pagination": {
 		"first": "Erste Seite",
@@ -75,6 +76,5 @@
 	"region": {
 		"dateLocale": "de-DE",
 		"timeZone": "Europe/Berlin"
-	},
-	"executedBy": "Ausgeführt von %%user%%"
+	}
 }

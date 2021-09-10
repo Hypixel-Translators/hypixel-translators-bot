@@ -1,16 +1,15 @@
 {
 	"moduleName": "Informacja",
 	"commandsListTooltip": "Ten bot został stworzony dla Społeczności Tłumaczy Hypixela. Użytkownik zajmujący się jego utrzymaniem to %%developer%%. Kod źródłowy bota jest publiczny, nasze repozytorium GitHub znajduje się [tutaj]%%github%%.\nMożesz pomóc w tłumaczeniu bota, postępując zgodnie z instrukcjami, które otrzymasz po wykonaniu komendy `/translate`\n\nMożesz wykonać `/help <nazwa komendy>`, aby uzyskać więcej informacji o danym poleceniu.\nPoniżej znajduje się lista wszystkich stron. Przewijanie stron odbywa się za pomocą przycisków pod tą wiadomością.",
-	"madeBy": "Bot stworzony z ogromną starannością przez %%developer%%",
 	"pageNumber": "Strona %%number%%",
 	"mainPage": "Strona główna",
 	"utilityHelp": "Narzędzia",
-	"infoHelp": "Komendy informacyjne",
+	"infoHelp": "Polecenia informacyjne",
 	"projectsHelp": "Projekty Crowdin",
-	"commandInfo": "Informacje o komendzie",
-	"commandInfoFor": "Informacje o komendzie dla ",
-	"staffOnly": "Ta komenda jest dostępna tylko dla administracji, a zatem jej informacje jest ukryte.\nJeżeli uważasz że to błąd, skontaktuj się z członkiem administracji.",
-	"inDev": "Ta komenda jest chwilowo w fazie rozwoju i będzie dostępna w późniejszym terminie!",
+	"commandInfo": "Szczegóły polecenia",
+	"commandInfoFor": "Szczegóły polecenia dla ",
+	"staffOnly": "To polecenie jest dostępne tylko dla administracji, a zatem jej szczegóły są ukryte.\nJeżeli uważasz że to błąd, skontaktuj się z członkiem administracji.",
+	"inDev": "To polecenie jest oebecnie w fazie rozwoju i nie jest jeszcze dostępne!",
 	"seconds": " sekund",
 	"second": "sekunda",
 	"minutes": "minuty",
@@ -25,7 +24,7 @@
 		"description": "Podaje odnośnik do oficjalnego wątku dotyczącego tłumaczeń Hypixela."
 	},
 	"help": {
-		"description": "Pokazuje wszystkie dostępne komendy i inne informacje o bocie."
+		"description": "Pokazuje wszystkie dostępne polecenia i inne informacje o bocie."
 	},
 	"hypixel": {
 		"description": "Zawiera przydatne informacje dotyczące projektu Hypixel."
@@ -64,7 +63,7 @@
 		"description": "Daje ci przedrostek odpowiedni dla twojego języka (lub języków). Aby go otrzymać, wpisz `/prefix` i podaj w parametrze `flags` kod flagi twojego kraju albo jej nazwę. Możesz dodać tyle flag, ile chcesz; pamiętaj, by odzielić je spacjami."
 	},
 	"profile": {
-		"description": "Podaje odnośnik do Twojego profilu Crowdin, jeśli jest on przechowywany w naszej bazie danych. W przeciwnym razie, możesz wykonać komendę `/help verify`, by dowiedzieć się, jak przechowywać swój profil i aktualizować swoje role."
+		"description": "Podaje odnośnik do Twojego profilu Crowdin, jeśli jest on przechowywany w naszej bazie danych. W przeciwnym razie, możesz wykonać polecenie `/help verify`, by dowiedzieć się, jak przechowywać swój profil i aktualizować swoje role."
 	},
 	"projects": {
 		"description": "Daje ci odnośniki i informacje o wszystkich projektach tłumaczeniowych, które wspieramy na serwerze."

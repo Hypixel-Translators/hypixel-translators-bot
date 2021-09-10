@@ -1,99 +1,98 @@
 {
-	"moduleName": "Information",
-	"commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
-	"madeBy": "Bot made with lots of care by %%developer%%",
-	"pageNumber": "Page %%number%%",
-	"mainPage": "Main Page",
-	"utilityHelp": "Tools & Utilities",
-	"infoHelp": "Information Commands",
-	"projectsHelp": "Crowdin Projects",
-	"commandInfo": "Command information",
-	"commandInfoFor": "Command information for ",
-	"staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-	"inDev": "This command is currently in development and will be available at a later date!",
-	"seconds": "seconds",
-	"second": "second",
-	"minutes": "minutes",
+	"moduleName": "اطلاعات",
+	"commandsListTooltip": "این بات برای کامیونیتی مترجمان هایپیکسل ساخته شده و توسط %%developer%% نگهداری می‌شود. این بات متن-باز است و ریپازیتوری گیت‌هاب آن در [here]%%github%% یافت می‌شود.\nبرای کمک در ترجمه این بات از کامند `/translate` استفاده کرده و از دستورالعمل‌ها پیروی کنید.\n\nبرای یادگیری و کسب اطلاعات بیشتر در مورد کامندی مشخص، می‌توانید کامند `/help <command>` را اجرا کنید.\nدر زیر می‌توانید لیست صفحات موجود را بیابید. برای چرخش در میان آنها، می‌توانید از دکمه‌های این پیام استفاده کنید.",
+	"pageNumber": "صفحۀ %%number%%",
+	"mainPage": "صفحه اصلی",
+	"utilityHelp": "ابزارها و وسایل",
+	"infoHelp": "کامندهای کسب اطلاعات",
+	"projectsHelp": "پروژه‌های کراودین",
+	"commandInfo": "اطلاعات کامند",
+	"commandInfoFor": "اطلاعات کامند برای ",
+	"staffOnly": "این کامند فقط برای استف در دسترس است و به همین دلیل اطلاعات آن مخفی است.\nاگر فکر می‌کنید خطایی وجود دارد، با یک استف در میان بگذارید.",
+	"inDev": "این کامند فعلاً در حال توسعه است و در آینده در دسترس قرار خواهد گرفت!",
+	"seconds": "ثانیه",
+	"second": "ثانیه",
+	"minutes": "دقیقه",
 	"cooldownField": "Cooldown",
 	"8ball": {
-		"description": "The Magic 8 Ball that will answer all your questions."
+		"description": "توپ جادویی که به همۀ سوال‌های شما جواب خواهد داد."
 	},
 	"feedback": {
-		"description": "Opens our GitHub issues page, where you can report problems and send feedback."
+		"description": "صفحۀ issues گیت‌هاب ما را باز خواهد کرد، جایی که می‌توانید اشکالات را گزارش دهید و نظرات خود را بیان کنید."
 	},
 	"guidelines": {
-		"description": "Gives you the link to the official thread regarding Hypixel translations."
+		"description": "لینک اطلاعات رسمی دربارۀ ترجمۀ Hypixel را به شما می‌دهد."
 	},
 	"help": {
-		"description": "Shows you all available commands and other info about the bot."
+		"description": "همۀ کامندهای موجود و اطلاعات دیگری دربارۀ ربات را به شما می‌دهد."
 	},
 	"hypixel": {
-		"description": "Gives you useful information regarding the Hypixel project."
+		"description": "اطلاعات مفیدی دربارۀ پروژۀ Hypixel به شما می‌دهد."
 	},
 	"hypixelstats": {
-		"description": "Shows you basic Hypixel stats for the provided user."
+		"description": "اطلاعات سادۀ کاربر مدنظر شما در هایپیکسل را به شما می‌دهد."
 	},
 	"hypixelunverify": {
-		"description": "Unlinks your Discord account from your Minecraft account."
+		"description": "اکانت دیسکورد شما را از اکانت ماینکرفت شما آنلینک می‌کند."
 	},
 	"hypixelverify": {
-		"description": "Links your Discord account with your Minecraft account."
+		"description": "اکانت دیسکورد شما را با اکانت ماینکرفت شما لینک می‌کند."
 	},
 	"invite": {
-		"description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
+		"description": "لینک دعوت به این سرور را به شما می‌دهد. لطفاً در مواقعی استفاده کنید که می‌خواهید کسی را دعوت کنید."
 	},
 	"language": {
-		"description": "Changes your language, shows your current one or a list of available languages."
+		"description": "زبان شما را تغییر می‌دهد، زبان فعلی شما یا لیست زبان‌های موجود را نشان می‌دهد."
 	},
 	"languagestats": {
-		"description": "Shows you the progress of a language on all the projects we currently support."
+		"description": "وضعیت یک زبان را در پروژه‌هایی که ما پشتیبانی می‌کنیم نشان می‌دهد."
 	},
 	"levels": {
-		"description": "Gives you the XP leaderboard."
+		"description": "لیدربورد تجربۀ افراد را به شما می‌دهد."
 	},
 	"mention": {
-		"description": "Mentions a language role with an optional message."
+		"description": "یک زبان و رول را با پیام اختیاری منشن می‌کند."
 	},
 	"minecraft": {
-		"description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+		"description": "تاریخچۀ نام یا اسکین یک بازیکن مشخص ماینکرفت را جستجو می‌کند. این کامند با کامند /hypixelverify سازگار است، اجازه می‌دهد اگر بازیکن مشخصی احراز هویت کرده باشد، اطلاعات او را جستجو کنید. پارامتر `user` همیشه بر `username` ارجحیت دارد و اگر احراز هویت کرده باشید، هر دو اختیاری هستند. در غیر این صورت وارد کردن حداقل یکی از آنها الزامی است."
 	},
 	"ping": {
-		"description": "Gives you the bot's ping."
+		"description": "پینگ بات را به شما می‌دهد."
 	},
 	"prefix": {
-		"description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+		"description": "پیشوند مناسب زبان(های) تان را به شما می‌دهد. برای دریافت پیشوند شخصی، `/prefix` را اجرا کنید و کد منطقه‌ای پرچم کشورتان یا نام کشورتان را در پارامتر `flags` وارد کنید. شما می‌توانید هر چقدر پرچم که با اسپیس جدا کرده‌اید را اضافه کنید."
 	},
 	"profile": {
-		"description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
+		"description": "لینک پروفایل کراودین‌تان را در صورت وجود در دیتابیس ما، به شما می‌دهد. اگر وجود نداشته باشد، می‌توانید کامند `/help verify` را استفاده کرده تا چگونگی ذخیره پروفایل‌تان و دریافت رول را مطالعه کنید."
 	},
 	"projects": {
-		"description": "Gives you links and information about all the translation projects we support on the server."
+		"description": "لینک‌ها و اطلاعاتی دربارۀ پروژه‌های ترجمه‌ای که ما در سرور پشتیبانی می‌کنیم به شما می‌دهد."
 	},
 	"quickplay": {
-		"description": "Gives you useful information regarding the Quickplay project."
+		"description": "اطلاعات مفیدی دربارۀ پروژۀ Quickplay به شما می‌دهد."
 	},
 	"quote": {
-		"description": "Gets (or adds) a funny/weird/wise quote from the server."
+		"description": "نقل قول بامزه، عجیب و غریب یا عاقلانه‌ای را از سرور دریافت(یا اضافه) می‌کند."
 	},
 	"rank": {
-		"description": "Gives you the current XP for yourself or any given user."
+		"description": "تجربۀ فعلی شما و یا هر کاربر دیگری را به شما می‌دهد."
 	},
 	"skyblockaddons": {
-		"description": "Gives you useful information regarding the SkyblockAddons project."
+		"description": "اطلاعات مفیدی دربارۀ پروژۀ SkyblockAddons به شما می‌دهد."
 	},
 	"thread": {
-		"description": "Gives you the link to the thread announcing this Discord server."
+		"description": "لینک مربوط به اعلانات این سرور دیسکورد را به شما می‌دهد."
 	},
 	"tip": {
-		"description": "Gives you a random tip regarding the server."
+		"description": "نکته‌ای شانسی دربارۀ سرور را به شما می‌دهد."
 	},
 	"translate": {
-		"description": "Gives you useful information on how to translate the Bot."
+		"description": "اطلاعاتی مفید دربارۀ چگونگی ترجمه این بات را به شما می‌دهد."
 	},
 	"twitter": {
-		"description": "Gives you the link to the official Hypixel Translators Community Twitter page."
+		"description": "لینک صفحۀ توییتر رسمی کامیونیتی مترجمان هایپیکسل را به شما می‌دهد."
 	},
 	"verify": {
-		"description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+		"description": "به صورت اتوماتیک تغییرات پروفایل کراودین شما را بررسی می‌کند و رول‌های مناسب را به شما می‌دهد. اگر پروفایل شما در دیتابیس ما موجود نباشد، می‌توانید آن را به صورت یک آرگومان در کامند وارد کنید. برای بررسی وجود پروفایل شما در دیتابیس، کامند `/profile` را اجرا کنید. توجه داشته باشید دریافت DM از این سرور باید برایتان فعال باشد که بات بتواند به شما پیام بدهد."
 	}
 }

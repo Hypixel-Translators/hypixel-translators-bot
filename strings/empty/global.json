@@ -45,9 +45,9 @@
 	"reminderLang": "crwdns1156:0%%format%%crwdne1156:0",
 	"tip": "crwdns516:0crwdne516:0",
 	"tips": {
-		"ib": "crwdns942:0crwdne942:0",
-		"translators": "crwdns944:0crwdne944:0",
-		"prefix": "crwdns946:0%%bots%%crwdne946:0",
+		"ib": "crwdns942:0%%langIb%%crwdne942:0",
+		"translators": "crwdns944:0%%translate%%crwdne944:0",
+		"prefix": "crwdns946:0%%prefix%%crwdnd946:0%%bots%%crwdne946:0",
 		"enen": "crwdns948:0crwdne948:0",
 		"xp": "crwdns950:0crwdne950:0",
 		"guide": "crwdns954:0%%gettingStarted%%crwdne954:0",
@@ -55,11 +55,12 @@
 		"rulesInfo": "crwdns958:0%%rules%%crwdnd958:0%%serverInfo%%crwdne958:0",
 		"fixTranslation": "crwdns960:0crwdne960:0",
 		"pinnedInfo": "crwdns962:0crwdne962:0",
-		"hypixelStats": "crwdns964:0crwdne964:0",
-		"languageStats": "crwdns1118:0crwdne1118:0",
-		"rolesChange": "crwdns1246:0crwdne1246:0",
-		"botTranslated": "crwdns1248:0crwdne1248:0",
-		"moreTips": "crwdns952:0crwdne952:0"
+		"hypixelStats": "crwdns964:0%%hypixelstats%%crwdne964:0",
+		"languageStats": "crwdns1118:0%%languagestats%%crwdne1118:0",
+		"rolesChange": "crwdns1246:0%%verify%%crwdne1246:0",
+		"botTranslated": "crwdns1248:0%%langList%%crwdne1248:0",
+		"botUpdates": "crwdns2327:0%%botUpdates%%crwdne2327:0",
+		"moreTips": "crwdns952:0%%feedback%%crwdne952:0"
 	},
 	"pagination": {
 		"first": "crwdns1388:0crwdne1388:0",
@@ -75,6 +76,5 @@
 	"region": {
 		"dateLocale": "crwdns1444:0crwdne1444:0",
 		"timeZone": "crwdns1446:0crwdne1446:0"
-	},
-	"executedBy": "crwdns540:0%%user%%crwdne540:0"
+	}
 }

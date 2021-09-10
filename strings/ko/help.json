@@ -1,7 +1,6 @@
 {
 	"moduleName": "정보",
 	"commandsListTooltip": "이 봇은 Hypixel Translators Community 를 위해 만들어졌으며, %%developer%% 들에 의해서 유지됩니다. 이 봇은 오픈소스이며, 깃허브 레포지토리는 [여기서]%%github%% 확인할 수 있습니다. \n`/translate`를 입력해서 봇 번역에 기여해보세요. \n\n`/help <명령어>` 를 입력해서 특정 명령어에 대한 도움말을 얻을 수 있습니다. \n아래에서 확인할 수 있는 명령어들을 확인해보세요. 이 메시지에 있는 버튼을 통해 페이지를 변경할 수 있습니다.",
-	"madeBy": "이 봇은 %%developer%% 의 많은 사랑과 정성으로 만들어졌습니다.",
 	"pageNumber": "페이지 %%number%%",
 	"mainPage": "메인 페이지",
 	"utilityHelp": "도구 및 유틸리티",

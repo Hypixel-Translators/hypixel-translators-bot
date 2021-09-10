@@ -2,5 +2,5 @@
 	"moduleName": "Weryfikacja Hypixel",
 	"unverified": "Pomyślnie odweryfikowałeś się!",
 	"notUnverified": "Nie udało się Ciebie odweryfikować!",
-	"whyNotUnverified": "Stało się tak dlatego, że jeszcze się nie zweryfikowałeś! Aby to zrobić, wykonaj polecenie `/hypixelverify <nazwa użytkownika>`."
+	"whyNotUnverified": "Stało się tak dlatego, że jeszcze się nie zweryfikowałeś! Aby to zrobić, polecenie `/hypixelverify <nazwa użytkownika>`."
 }

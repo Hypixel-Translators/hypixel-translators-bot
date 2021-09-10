@@ -1,6 +1,5 @@
 {
 	"moduleName": "Estadísticas de Minecraft",
-	"madeBy": "Comando desarrollado por %%developer%%",
 	"history": {
 		"firstName": "Primer nombre",
 		"nameHistoryFor": "Historial de nombres de %%username%%",

@@ -1,6 +1,5 @@
 {
 	"moduleName": "Статистика Minecraft",
-	"madeBy": "Автор команды %%developer%%",
 	"history": {
 		"firstName": "Первое имя",
 		"nameHistoryFor": "История имени игрока %%username%%",

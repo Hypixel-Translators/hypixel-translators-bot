@@ -45,21 +45,22 @@
 	"reminderLang": "Bağlantını %%format%% formatına değiştirmeyi unutma.",
 	"tip": "Tüyo",
 	"tips": {
-		"ib": "Henüz Muz dilini denemedin mi? Dilini `/language ib` komutu ile muz dili olarak güncelleyebilirsin!",
-		"translators": "Çevirmenlere ihtiyacım var! Nasıl bir bot çevirmeni olacağını `/translate` komutunu kullanarak öğren.",
-		"prefix": "Kullanıcı adının başında gözüken havalı bir ön ek ister misin? %%bots%% da `/prefix` komutunu kullan ve talimatları takip et! Tüm Hypixel çevirmenleri tarafından kullanılabilir.",
-		"enen": "Lütfen bağlantılarınızı en-en olarak değiştirin!",
+		"ib": "Have you tried the Inhale Banana language? Change your language to it using %%langIb%%!",
+		"translators": "Çevirmenlere ihtiyacım var! Nasıl bir bot çevirmeni olacağını %%translate%% komutunu kullanarak öğren.",
+		"prefix": "Kullanıcı adının başında gözüken havalı bir ön ek ister misin? %%bots%% da %%prefix%% komutunu kullan ve talimatları takip et! Tüm Hypixel çevirmenleri tarafından kullanılabilir.",
+		"enen": "Don't forget to change your string links to en-en!",
 		"xp": "Sohbet ederken her dakika rastgele miktarda deneyim puanı elde edersin, bu da seviyeni yükseltmeni sağlar.",
 		"guide": "Tüm çevirmenler için Crowdin'i nasıl kullanacağınıza dair bir rehberimiz olduğunu biliyor muydunuz? %%gettingStarted%%, buradan kontrol edin, bazı yararlı ipuçları var!",
 		"twitter": "Twitter hesabımızı henüz takip etmedin mi? Buradan edebilirsin %%twitter%%!",
 		"rulesInfo": "%%rules%% ve %%serverInfo%% bu sunucu hakkında ihtiyacınız olan tüm bilgilere sahip!",
 		"fixTranslation": "Çeviride bir hata mı buldun? Dilinin düzelticisine başvur veya çeviri kanalındaki insanlara bildir.",
 		"pinnedInfo": "Çoğu kanalın önemli bilgilere sahip olduğunu biliyor muydun? Bunlardan birini her ziyaret ettiğinde kontrol etmelisin!",
-		"hypixelStats": "`/hypixelstats` komutunu kullanarak Hypixel'deki belirli bir oyuncu hakkındaki bilgileri görüntüleyebilirsin!",
-		"languageStats": "Tüm projelerimizde, herhangi bir dil için istatistikleri görüntüleyebileceğini biliyor muydun? Sadece `/languagestats` komutunu kullanman yeterli!",
-		"rolesChange": "Son zamanlarda Crowdin'de yeni roller aldın veya desteklediğimiz projelerden birine mi katıldın? Rollerini güncellemek için `/verify` komutunu kullan!",
-		"botTranslated": "Botumuzun birden fazla dili desteklediğini biliyor muydun? Şu anda desteklediğimiz tüm dillerin bir listesini görmek için `/language list` komutunu kullanmayı dene!",
-		"moreTips": "Daha fazla tüyoya ihtiyacımız var! `/feedback` komutunu kullanarak bize tüyo gönderin."
+		"hypixelStats": "%%hypixelstats%% komutunu kullanarak Hypixel'deki belirli bir oyuncu hakkındaki bilgileri görüntüleyebilirsin!",
+		"languageStats": "Tüm projelerimizde, herhangi bir dil için istatistikleri görüntüleyebileceğini biliyor muydun? Sadece %%languagestats%% komutunu kullanman yeterli!",
+		"rolesChange": "Son zamanlarda Crowdin'de yeni roller aldın veya desteklediğimiz projelerden birine mi katıldın? Rollerini güncellemek için %%verify%% komutunu kullan!",
+		"botTranslated": "Botumuzun birden fazla dili desteklediğini biliyor muydun? Şu anda desteklediğimiz tüm dillerin bir listesini görmek için %%langList%% komutunu kullanmayı dene!",
+		"botUpdates": "Bota yapılan her büyük güncellemeyi veya bununla ilgili önemli haberleri %%botUpdates%% kanalında yayınlıyoruz, bi' kontrol et!",
+		"moreTips": "Daha fazla tüyoya ihtiyacımız var! %%feedback%% komutunu kullanarak bize tüyo gönderin."
 	},
 	"pagination": {
 		"first": "İlk sayfa",
@@ -75,6 +76,5 @@
 	"region": {
 		"dateLocale": "tr-TR",
 		"timeZone": "Europe/Istanbul"
-	},
-	"executedBy": "%%user%% tarafından yürütüldü"
+	}
 }

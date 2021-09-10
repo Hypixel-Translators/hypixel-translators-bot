@@ -29,7 +29,7 @@
 	"memberCount": "Número de membros",
 	"createdAt": "Criada em",
 	"guildRanks": "Cargos da Guild",
-	"guildMaster": "Guild Master",
+	"guildMaster": "Mestre da Guild",
 	"userRank": "Cargo de %%user%%",
 	"ENGLISH": "Inglês",
 	"EMPTY": "Empty",
@@ -57,6 +57,5 @@
 	"SWEDISH": "Sueco",
 	"THAI": "Tailandês",
 	"TURKISH": "Turco",
-	"UKRAINIAN": "Ucraniano",
-	"madeBy": "Comando feito por %%developer%%"
+	"UKRAINIAN": "Ucraniano"
 }

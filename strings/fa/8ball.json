@@ -1,32 +1,32 @@
 {
-	"moduleName": "Magic 8 ball",
-	"question": "Question",
+	"moduleName": "توپ جادویی",
+	"question": "سوال",
 	"answers": {
 		"positive": [
-			"It is certain.",
-			"It is decidedly so.",
-			"Without a doubt.",
-			"Yes – definitely.",
-			"You may rely on it.",
-			"As I see it, yes.",
-			"Most likely.",
-			"Outlook good.",
-			"Yes",
-			"Signs point to yes."
+			"مُسَلّم است.",
+			"قطعاً اینطوریه.",
+			"بدون شک.",
+			"بله – قطعاً.",
+			"میتونی روش حساب کنی.",
+			"اونطور که می‌بینم، بله.",
+			"به احتمال زیاد.",
+			"بنظر خوب می‌رسه.",
+			"بله",
+			"نشونه‌ها میگن بله."
 		],
 		"inconclusive": [
-			"Reply hazy, try again.",
-			"Ask again later.",
-			"Better not tell you now.",
-			"Cannot predict now.",
-			"Concentrate and ask again."
+			"پاسخ مبهم، مجدداً تلاش کنید.",
+			"بعداً دوباره سوال کن.",
+			"بهتره الان بهت نگم.",
+			"نمی‌تونم الآن پیش‌بینی کنم.",
+			"تمرکز کن و دوباره بپرس."
 		],
 		"negative": [
-			"Don't count on it.",
-			"My reply is no.",
-			"My sources say no.",
-			"Outlook not so good.",
-			"Very doubtful."
+			"روش حساب نکن.",
+			"جواب من نه هست.",
+			"منابع میگن نه.",
+			"به نظر خوب نمیاد.",
+			"خیلی مشکوکه."
 		]
 	}
 }

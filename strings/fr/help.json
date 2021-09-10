@@ -1,7 +1,6 @@
 {
 	"moduleName": "Information",
 	"commandsListTooltip": "Ce bot a été conçu pour la Communauté des Traducteurs d'Hypixel et est maintenu par %%developer%%. Il est open source et notre projet GitHub peut être trouvé [ici]%%github%%.\nTu peux aider à traduire le bot en suivant les instructions de la commande `/translate`.\n\nTu peux exécuter la commande `/help <commande>` pour en apprendre plus à propos d'une commande spécifique.\nTu trouveras ci-dessous une liste de toutes les pages disponibles. Utilises les boutons de ce message pour les parcourir.",
-	"madeBy": "Bot réalisé avec beaucoup de soin par %%developer%%",
 	"pageNumber": "Page %%number%%",
 	"mainPage": "Main Page",
 	"utilityHelp": "Outils & Utilitaires",

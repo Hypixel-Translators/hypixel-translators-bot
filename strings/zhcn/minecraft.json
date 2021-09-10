@@ -1,6 +1,5 @@
 {
 	"moduleName": "Minecraft 统计数据",
-	"madeBy": "命令由 %%developer%% 开发",
 	"history": {
 		"firstName": "初始游戏名",
 		"nameHistoryFor": "%%username%% 的曾用游戏名",

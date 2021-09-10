@@ -45,21 +45,22 @@
 	"reminderLang": "Jangan lupa juga untuk mengganti tautan ke format %%format%%.",
 	"tip": "Tip",
 	"tips": {
-		"ib": "Apakah anda sudah mencoba bahasa Inhale Banana? Ubah bahasa anda menjadi Inhale Banana dengan menjalankan `/language ib`!",
-		"translators": "Saya perlu penerjemah! Temukan caranya menjadi penerjemah bot dengan menjalankan `/translate`.",
-		"prefix": "Apakah anda ingin memiliki prefix keren di nama panggilan anda? Jalankan `/prefix` di %%bots%% dan ikuti instruksinya! Tersedia bagi semua penerjemah Hypixel.",
-		"enen": "Mohon ubah tautan anda menjadi en-en!",
+		"ib": "Apakah anda sudah mencoba bahasa Inhale Banana? Ubah bahasa anda menjadi Inhale Banana dengan menjalankan %%langIb%%!",
+		"translators": "Saya perlu penerjemah! Temukan caranya menjadi penerjemah bot dengan menjalankan %%translate%%.",
+		"prefix": "Apakah anda ingin memiliki prefix keren di nama panggilan anda? Jalankan %%prefix%% di %%bots%% dan ikuti instruksinya! Tersedia bagi semua penerjemah Hypixel.",
+		"enen": "Jangan lupa untuk mengganti tautan anda menjadi en-en!",
 		"xp": "Anda mendapat jumlah XP yang acak setiap menit saat anda chat, yang akhirnya akan membuat anda naik level.",
 		"guide": "Apakah anda tahu kami memiliki petunjuk untuk cara memulai memakai Crowdin, yang tersedia bagi semua penerjemah? Cek di %%gettingStarted%%, terdapat beberapa tip berguna!",
 		"twitter": "Apakah anda sudah mengikuti akun twitter kami? Cek di %%twitter%%!",
 		"rulesInfo": "%%rules%% dan %%serverInfo%% memiliki semua info yang anda perlu mengenai server ini!",
 		"fixTranslation": "Menemukan sebuah kesalahan di terjemahan? Kontak seorang korektor untuk bahasa anda atau beri tahu orang di channel terjemahan.",
 		"pinnedInfo": "Apakah anda tau sebagian besar channel memiliki informasi penting disematkan? Anda sebaiknya periksa setiap anda mengunjunginya!",
-		"hypixelStats": "Anda dapat melihat informasi mengenai player spesifik di Hypixel dengan menjalankan `/hypixelstats`!",
-		"languageStats": "Apakah anda tau bahwa anda dapat melihat statistika untuk bahasa apapun dalam proyek-proyek kami? Coba jalankan `/languagestats`!",
-		"rolesChange": "Apakah anda baru saja mendapat role baru di Crowdin atau mengikuti salah satu proyek yang kami dukung? Jalankan `/verify` untuk memperbarui role-role anda!",
-		"botTranslated": "Apakah anda tahu bot kami tersedia dalam banyak bahasa? Coba jalankan `/language list` untuk melihat list semua bahasa yang kami dukung dan anda mungkin dapat menemukan bahasa anda!",
-		"moreTips": "Kami memerlukan lebih banyak tip! Kirimkan mereka dengan menjalankan `/feedback`."
+		"hypixelStats": "Anda dapat melihat informasi mengenai player spesifik di Hypixel dengan menjalankan %%hypixelstats%%!",
+		"languageStats": "Apakah anda tau bahwa anda dapat melihat statistika untuk bahasa apapun dalam proyek-proyek kami? Coba jalankan %%languagestats%%!",
+		"rolesChange": "Apakah anda baru saja mendapat role baru di Crowdin atau mengikuti salah satu proyek yang kami dukung? Jalankan %%verify%% untuk memperbarui role-role anda!",
+		"botTranslated": "Apakah anda tahu bot kami tersedia dalam banyak bahasa? Coba jalankan %%langList%% untuk melihat list semua bahasa yang kami dukung dan anda mungkin dapat menemukan bahasa anda!",
+		"botUpdates": "Kami post semua update besar bot atau berita penting tentangnya di %%botUpdates%%, coba lihat!",
+		"moreTips": "Kami memerlukan lebih banyak tip! Kirimkan mereka dengan menjalankan %%feedback%%."
 	},
 	"pagination": {
 		"first": "Halaman pertama",
@@ -75,6 +76,5 @@
 	"region": {
 		"dateLocale": "id-ID",
 		"timeZone": "Asia/Jakarta"
-	},
-	"executedBy": "Dijalankan oleh %%user%%"
+	}
 }

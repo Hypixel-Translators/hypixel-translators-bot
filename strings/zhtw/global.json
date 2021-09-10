@@ -45,21 +45,22 @@
 	"reminderLang": "請不要忘記將連結修改為 %%format%% 格式。",
 	"tip": "提示",
 	"tips": {
-		"ib": "Have you tried the Inhale Banana language? Change your language to it using `/language ib`!",
-		"translators": "我需要翻譯員！執行 `/translate` 以了解如何成為本機器人的翻譯員。",
-		"prefix": "Do you wanna have a cool prefix on your nickname? Execute `/prefix` in %%bots%% and follow the instructions! Available to all Hypixel translators.",
-		"enen": "請將你發送的連結更改為 en-en！",
+		"ib": "Have you tried the Inhale Banana language? Change your language to it using %%langIb%%!",
+		"translators": "我需要翻譯員！執行 %%translate%% 以了解如何成為本機器人的翻譯員。",
+		"prefix": "Do you wanna have a cool prefix on your nickname? Execute %%prefix%% in %%bots%% and follow the instructions! Available to all Hypixel translators.",
+		"enen": "Don't forget to change your string links to en-en!",
 		"xp": "你在聊天時，每分鐘都會得到隨機數量的經驗，這會讓你提升等級。",
 		"guide": "你知道我們為所有翻譯員提供了 Crowdin 的使用教學嗎？請到 %%gettingStarted%% 查看。那裡有很多有用的提示！",
 		"twitter": "你關注了我們的 Twitter 帳號嗎？即刻到 %%twitter%% 查看！",
 		"rulesInfo": "%%rules%% 和 %%serverInfo%% 包含了關於這個伺服器的所有資訊！",
 		"fixTranslation": "找到了錯誤的翻譯？請向你的語言的校對員聯絡，或在翻譯頻道提出。",
 		"pinnedInfo": "你知道每個頻道都會釘選一些重要資訊嗎？請記得在進入頻道時查看已釘選的訊息！",
-		"hypixelStats": "你可以執行 `/hypixelstats` 來查看特定玩家在 Hypixel 上的資訊！",
-		"languageStats": "你知道你可以查看任何語言在我們支援的所有項目的統計數據嗎？只要執行 `/languagestats` 即可！",
-		"rolesChange": "你最近在 Crowdin 擔任了新的職務，或加入了我們支援的翻譯項目？執行 `/verify` 來更新你的身份組！",
-		"botTranslated": "你知道我們的機器人支援多國語言嗎？執行 `/language list` 即可查看我們目前支援的語言。你或者能找到你常用的語言！",
-		"moreTips": "我們需要更多提示！你可以使用 `/feedback` 來提交。"
+		"hypixelStats": "你可以執行 %%hypixelstats%% 來查看特定玩家在 Hypixel 上的資訊！",
+		"languageStats": "你知道你可以查看任何語言在我們支援的所有項目的統計數據嗎？只要執行 %%languagestats%% 即可！",
+		"rolesChange": "你最近在 Crowdin 擔任了新的職務，或加入了我們支援的翻譯項目？執行 %%verify%% 來更新你的身份組！",
+		"botTranslated": "你知道我們的機器人支援多國語言嗎？執行 %%langList%% 即可查看我們目前支援的語言。你或者能找到你常用的語言！",
+		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
+		"moreTips": "我們需要更多提示！你可以使用 %%feedback%% 來提交。"
 	},
 	"pagination": {
 		"first": "第一頁",
@@ -75,6 +76,5 @@
 	"region": {
 		"dateLocale": "zh-TW",
 		"timeZone": "Asia/Taipei"
-	},
-	"executedBy": "由 %%user%% 執行"
+	}
 }
