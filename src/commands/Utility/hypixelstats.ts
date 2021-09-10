@@ -88,7 +88,7 @@ const command: Command = {
 
 			let last_seen: string
 			if (!playerJson.last_game) last_seen = getString("lastGameHidden")
-			else last_seen = getString("lastSeen", { game: playerJson.last_game.replace(/([A-Z]+)/g, " $1").trim() })
+			else last_seen = getString("lastSeen", { game: playerJson.last_game })
 
 			const lastLoginLogout = playerJson.online ? playerJson.last_login : playerJson.last_logout
 
