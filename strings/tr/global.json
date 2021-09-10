@@ -45,10 +45,10 @@
 	"reminderLang": "Bağlantını %%format%% formatına değiştirmeyi unutma.",
 	"tip": "Tüyo",
 	"tips": {
-		"ib": "Have you tried the Inhale Banana language? Change your language to it using %%langIb%%!",
+		"ib": "Henüz Inhale Banana dilini denemedin mi? Dilini %%langIb%% komutu ile Inhale Banana dili olarak güncelleyebilirsin!",
 		"translators": "Çevirmenlere ihtiyacım var! Nasıl bir bot çevirmeni olacağını %%translate%% komutunu kullanarak öğren.",
 		"prefix": "Kullanıcı adının başında gözüken havalı bir ön ek ister misin? %%bots%% da %%prefix%% komutunu kullan ve talimatları takip et! Tüm Hypixel çevirmenleri tarafından kullanılabilir.",
-		"enen": "Don't forget to change your string links to en-en!",
+		"enen": "Lütfen dize bağlantılarını en-en olarak değiştirmeyi unutma!",
 		"xp": "Sohbet ederken her dakika rastgele miktarda deneyim puanı elde edersin, bu da seviyeni yükseltmeni sağlar.",
 		"guide": "Tüm çevirmenler için Crowdin'i nasıl kullanacağınıza dair bir rehberimiz olduğunu biliyor muydunuz? %%gettingStarted%%, buradan kontrol edin, bazı yararlı ipuçları var!",
 		"twitter": "Twitter hesabımızı henüz takip etmedin mi? Buradan edebilirsin %%twitter%%!",

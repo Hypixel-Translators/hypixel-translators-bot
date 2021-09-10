@@ -1,9 +1,9 @@
 {
-	"moduleName": "Hypixel Verification",
-	"success": "You successfully verified yourself as %%player%%!",
-	"role": "You were given the %%role%% role due to your rank on the server.",
-	"alreadyVerified": "You are already verified!",
-	"nameChangeDisclaimer": "Keep in mind that you do not need to verify yourself again if you change your name!",
-	"error": "We couldn't verify you because you didn't set your Discord on Hypixel properly!",
-	"tutorial": "In order to be verified, you must set your Discord on Hypixel to %%tag%% and wait up to 10 minutes to execute the command again. Follow the instructions in the video below if you don't know how to do this."
+	"moduleName": "احراز هویت هایپیکسل",
+	"success": "شما با موفقیت به عنوان %%player%% احراز هویت کردید!",
+	"role": "شما رول %%role%% را با توجه به رنک‌تان در سرور دریافت کردید.",
+	"alreadyVerified": "شما از قبل احراز هویت کرده‌اید!",
+	"nameChangeDisclaimer": "توجه داشته باشید اگر نام خود را تغییر دهید، نیازی به احراز هویت مجدد نیست!",
+	"error": "نتوانستیم شما را احراز هویت کنیم، زیرا دیسکوردتان را به درستی روی هایپیکسل ست نکرده‌اید!",
+	"tutorial": "برای احراز هویت، باید دیسکوردتان را روی هایپیکسل بر %%tag%% ست کنید و پس از 10 دقیقه کامند را مجدداً اجرا کنید. اگر نمی‌دانید چگونه اینکار را انجام دهید، دستورالعمل‌های ویدیوی زیر را دنبال کنید."
 }

@@ -48,7 +48,7 @@
 		"ib": "Heb je de Inhale Banana-taal geprobeerd? Verander je taal ernaar met %%langIb%%!",
 		"translators": "Ik heb vertalers nodig! Ontdek hoe je botvertaler wordt met %%translate%%.",
 		"prefix": "Wil je een cool voorvoegsel in je naam hebben? Voer %%prefix%% uit in %%bots%% en volg de aanwijzingen! Beschikbaar voor alle vertalers van Hypixel en Quickplay.",
-		"enen": "Don't forget to change your string links to en-en!",
+		"enen": "Verander koppelingen naar tekenreeksen naar en-en!",
 		"xp": "Wanneer je chat krijg je elke minuut een willekeurige hoeveelheid XP, waarmee je uiteindelijk meer levels krijgt.",
 		"guide": "Wist je dat we een gids hebben die uitlegt hoe je aan de slag gaat met Crowdin? Hij is beschikbaar voor vertalers in %%gettingStarted%%, het is best nuttig!",
 		"twitter": "Volg je ons al op Twitter? Neem een kijkje op %%twitter%%!",
@@ -59,7 +59,7 @@
 		"languageStats": "Wist je dat je voortgang in een taal kunt bekijken over al onze ondersteunde projecten? Probeer %%languagestats%%!",
 		"rolesChange": "Heb je onlangs nieuwe rollen gekregen op Crowdin of heb je deelgenomen aan één van de projecten die we ondersteunen? Gebruik %%verify%% om je rollen te laten updaten!",
 		"botTranslated": "Wist je dat onze bot in meerdere talen beschikbaar is? Typ %%langList%% om een lijst met alle talen die we momenteel ondersteunen (waaronder misschien die van jou) te laten zien!",
-		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
+		"botUpdates": "We plaatsen elke grote update en belangrijk nieuws in %%botUpdates%%, kijk er eens naar!",
 		"moreTips": "We hebben meer tips nodig! Stuur ze door met %%feedback%%."
 	},
 	"pagination": {

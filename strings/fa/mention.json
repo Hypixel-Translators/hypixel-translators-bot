@@ -1,7 +1,7 @@
 {
-	"errorNoPing": "You don't have that language's proofreader role, ",
-	"errorNoPingPr": "so you can't mention it.",
-	"errorNoPingTr": "so you can't mention its translator role.",
-	"errorNoPingAll": "so you can't mention the entire language.",
-	"errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to."
+	"errorNoPing": "شما رول تصحیح‌گر آن زبان را ندارید، ",
+	"errorNoPingPr": "پس نمی‌توانید آن را منشن کنید.",
+	"errorNoPingTr": "پس نمی‌توانید رول مترجم آن را منشن کنید.",
+	"errorNoPingAll": "پس نمی‌توانید کل آن زبان را منشن کنید.",
+	"errorNoPingDisclaimer": "اگر واقعا به آن نیاز دارید، با اونر سرور یا ادمین ارتباط برقرار کنید."
 }

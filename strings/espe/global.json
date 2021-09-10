@@ -48,7 +48,7 @@
 		"ib": "¿Has probado el idioma Inhale Banana? ¡Cambia tu idioma usando %%langIb%%!",
 		"translators": "¡Necesito traductores! Aprende sobre como ser un traductor usando %%translate%%.",
 		"prefix": "¿Quieres tener un prefijo genial en tu apodo? ¡Ejecuta %%prefix%% en %%bots%% y sigue las instrucciones! Disponible para todos los traductores de Hypixel.",
-		"enen": "Don't forget to change your string links to en-en!",
+		"enen": "¡No olvides cambiar tus link a en-en!",
 		"xp": "Obtienes cantidades aleatorias de XP cada minuto cuando estás chateando, lo que eventualmente te hará subir de nivel.",
 		"guide": "¿Sabías que tenemos una guía para empezar con Crowdin, disponible para todos los traductores? ¡Míralo en %%gettingStarted%%, tiene algunos consejos útiles!",
 		"twitter": "¿Has seguido nuestra cuenta de twitter? ¡Síguelo en aquí: %%twitter%%!",
@@ -59,7 +59,7 @@
 		"languageStats": "¿Sabías que puedes ver estadísticas de cualquier idioma en todos de nuestros proyectos? ¡Usa %%languagestats%%!",
 		"rolesChange": "¿Obtuviste recientemente nuevos roles en Crowdin o te uniste a uno de los proyectos que apoyamos? ¡Usa %%verify%% para actualizar tus roles!",
 		"botTranslated": "¿Sabías que nuestro bot está disponible en varios idiomas? ¡Intenta usar %%langList%% para ver una lista de todos los idiomas que tenemos actualmente y puedes encontrar el tuyo!",
-		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
+		"botUpdates": "¡Publicamos cada actualización o noticia importante del bot en %%botUpdates%%, échale un vistazo!",
 		"moreTips": "¡Necesitamos más consejos! Envíalos usando %%feedback%%."
 	},
 	"pagination": {

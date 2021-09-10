@@ -1,18 +1,18 @@
 {
-	"moduleName": "Minecraft Statistics",
+	"moduleName": "آمار ماینکرفت",
 	"history": {
-		"firstName": "First name",
-		"nameHistoryFor": "Name history for %%username%%",
-		"userChangedName": "%%username%% has changed their name %%number%% times.",
-		"youChangedName": "You have changed your name %%number%% times.",
-		"userChangedName1": "%%username%% has changed their name 1 time.",
-		"youChangedName1": "You have changed your name 1 time.",
-		"userNeverChanged": "%%username%% has never changed their name.",
-		"youNeverChanged": "You have never changed your name."
+		"firstName": "اولین نام",
+		"nameHistoryFor": "تاریخچۀ نام بازیکن %%username%%",
+		"userChangedName": "بازیکن %%username%% نام خود را %%number%% بار تغییر داده است.",
+		"youChangedName": "شما نام خود را %%number%% بار تغییر داده‌اید.",
+		"userChangedName1": "بازیکن %%username%% نام خود را 1 بار تغییر داده است.",
+		"youChangedName1": "شما نام خود را 1 بار تغییر داده‌اید.",
+		"userNeverChanged": "بازیکن %%username%% نام خود را هرگز تغییر نداده است.",
+		"youNeverChanged": "شما نام خود را هرگز تغییر نداده‌اید."
 	},
 	"skin": {
-		"yourSkin": "Here's your skin!",
-		"userSkin": "Here's %%user%%'s skin!",
-		"isLinked": "This player is linked to %%user%%"
+		"yourSkin": "این هم از اسکین شما!",
+		"userSkin": "این هم از اسکین %%user%%!",
+		"isLinked": "این بازیکن به کاربر %%user%% متصل شده است"
 	}
 }
