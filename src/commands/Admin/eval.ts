@@ -8,7 +8,7 @@ const { crowdinVerify } = require("../../lib/crowdinverify")
 const { leveling } = require("../../lib/leveling")
 const { generateWelcomeImage } = require("../../listeners/guildMemberAdd")
 import { db as mongoDb } from "../../lib/dbclient"
-import { transpile } from "typescript"
+import { transpile, getParsedCommandLineOfConfigFile, sys } from "typescript"
 import discord from "discord.js"
 import { inspect } from "util"
 import { Command, client as Client, GetStringFunction } from "../../index"
@@ -38,7 +38,19 @@ const command: Command = {
 		let evaled,
 			codeToRun = interaction.options.getString("code", true).replaceAll(/[“”]/gim, '"')
 		if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`
-		const compiledCode = transpile(codeToRun)
+
+		// this is stupid - https://github.com/microsoft/TypeScript/issues/45856
+		const options = getParsedCommandLineOfConfigFile(
+			"tsconfig.json",
+			{},
+			{
+				...sys,
+				onUnRecoverableConfigFileDiagnostic: console.error
+			})!.options
+		options.sourceMap = false
+		options.alwaysStrict = false
+
+		const compiledCode = transpile(codeToRun, options)
 		try {
 			evaled = await eval(compiledCode)
 			const embed = new discord.MessageEmbed()
