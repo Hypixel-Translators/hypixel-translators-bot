@@ -43,7 +43,7 @@ export const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot
 
 export async function getUUID(username: string): Promise<string | undefined> {
 	return await axios.get(`https://api.mojang.com/users/profiles/minecraft/${username}`, fetchSettings)
-		.then(json => json.data.id)
+		.then(data => data.data.id)
 		.catch(() => {
 			return
 		})
@@ -52,9 +52,7 @@ export async function getUUID(username: string): Promise<string | undefined> {
 export async function getMCProfile(uuid: string) {
 	return await axios.get<MinecraftProfile>(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings)
 		.then(json => json.data)
-		.catch(() => {
-			return
-		})
+		.catch(() => null)
 }
 
 interface MinecraftProfile {
@@ -67,7 +65,7 @@ interface MinecraftProfile {
 	}[]
 }
 
-export async function updateRoles(member: Discord.GuildMember, json?: JsonResponse) {
+export async function updateRoles(member: Discord.GuildMember, json?: GraphQLQuery["data"]["players"]["player"]) {
 	const roles: Discord.Snowflake[] = [
 		"816435344689987585", //Unranked
 		"808032608456802337", //VIP
@@ -179,9 +177,64 @@ export async function updateRoles(member: Discord.GuildMember, json?: JsonRespon
 	return role
 }
 
-interface JsonResponse { // Just declaring the variables we need
-	username: string,
-	rank: string
+export interface GraphQLQuery {
+	errors?: {
+		message: string
+		locations: {
+			line: number
+			column: number
+		}[]
+		path: string[]
+	}[]
+	data: {
+		players: {
+			player: {
+				uuid: string
+				username: string
+				online: boolean
+				rank: string
+				rank_formatted: string
+				prefix: string | null
+				level: number
+				achievement_points: number
+				first_login: number
+				last_login: number | null
+				last_logout: number | null
+				last_game: string | null
+				language: string
+				links: {
+					TWITTER: string | null
+					YOUTUBE: string | null
+					INSTAGRAM: string | null
+					TWITCH: string | null
+					DISCORD: string | null
+					HYPIXEL: string | null
+				}
+			}
+		}
+		guild: {
+			guild: true | null
+			name: string
+			created: number
+			tag: string | null
+			tag_color: string
+			level: number
+			description: string | null
+			guild_master: {
+				uuid: string
+				rank: string
+			}
+			members: {
+				uuid: string
+				rank: string
+			}[]
+
+			ranks: {
+				name: string
+			}[]
+
+		}
+	}
 }
 
 export interface LanguageStatus {

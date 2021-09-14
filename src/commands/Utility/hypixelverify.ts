@@ -2,9 +2,8 @@ import Discord from "discord.js"
 import { successColor, errorColor } from "../../config.json"
 import axios from "axios"
 import { db, DbUser } from "../../lib/dbclient"
-import { fetchSettings, generateTip, getUUID, updateRoles } from "../../lib/util"
+import { fetchSettings, generateTip, getUUID, updateRoles, GraphQLQuery } from "../../lib/util"
 import type { Command, GetStringFunction } from "../../index"
-import { PlayerJson } from "./hypixelstats"
 
 const command: Command = {
 	name: "hypixelverify",
@@ -32,7 +31,9 @@ const command: Command = {
 
 		await interaction.deferReply()
 		// make a response to the slothpixel api (hypixel api but we dont need an api key)
-		const json = await axios.get<PlayerJson>(`https://api.slothpixel.me/api/players/${uuid}`, fetchSettings).then(res => res.data)
+		const json = await axios
+			.get<GraphQLQuery["data"]["players"]["player"] & { error?: string }>(`https://api.slothpixel.me/api/players/${uuid}`, fetchSettings)
+			.then(res => res.data)
 			.catch(e => {
 				if (e.code === "ECONNABORTED") { //this means the request timed out
 					console.error("slothpixel is down, sending error.")

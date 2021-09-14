@@ -2,7 +2,7 @@ import Discord from "discord.js"
 import axios from "axios"
 import { db, DbUser } from "../../lib/dbclient"
 import { Command, client, GetStringFunction } from "../../index"
-import { fetchSettings, generateTip, getMCProfile, getUUID, updateRoles } from "../../lib/util"
+import { fetchSettings, generateTip, getMCProfile, getUUID, GraphQLQuery, updateRoles } from "../../lib/util"
 
 //Credits to marzeq for initial implementation
 const command: Command = {
@@ -39,22 +39,32 @@ const command: Command = {
 
 		await interaction.deferReply()
 		// make a request to the slothpixel api (hypixel api but we dont need an api key)
-		const playerJson = await axios.get<PlayerJson>(`https://api.slothpixel.me/api/players/${uuid}`, fetchSettings).then(res => res.data)
-			.catch(e => {
-				if (e.code === "ECONNABORTED") { //this means the request timed out
-					console.error("Slothpixel is down, sending error.")
-					throw "apiError"
-				} else throw e
-			}),
-			guildRes = await axios.get<GuildJson>(`https://api.slothpixel.me/api/guilds/${uuid}`, fetchSettings)
-				.catch(() => { return { data: { guild: null } } }),
-			guildJson = guildRes!.data
+		const graphqlQuery = await axios
+				.get<GraphQLQuery>("https://api.slothpixel.me/api/graphql", {
+					...fetchSettings,
+					data: { query: query.replaceAll("\t", "").replaceAll("\n", " "), variables: { uuid }, operationName: "HypixelStats" }
+				})
+				.then(res => res.data)
+				.catch(e => {
+					if (e.code === "ECONNABORTED") { //this means the request timed out
+						console.error("Slothpixel is down, sending error.")
+						throw "apiError"
+					} else throw e
+				}),
+			playerJson = graphqlQuery.data.players.player,
+			guildJson = graphqlQuery.data.guild
 
 		//Handle errors
-		if (playerJson.error === "Player does not exist" || playerJson.error === "Invalid username or UUID!") throw "falseUser"
-		else if (playerJson.error === "Player has no Hypixel stats!") throw "noPlayer"
-		else if (playerJson.error || !playerJson.username) { // if other error we didn't plan for appeared
-			console.log(`Welp, we didn't plan for this to happen. Something went wrong when trying to get stats for ${uuid}, here's the error\n`, playerJson.error)
+		if (graphqlQuery.errors?.find(e => e.message === "Player does not exist") || graphqlQuery.errors?.find(e => e.message === "Invalid username or UUID!"))
+			throw "falseUser"
+		else if (graphqlQuery.errors?.find(e => e.message === "Player has no Hypixel stats!")) throw "noPlayer"
+		else if (graphqlQuery.errors?.[0].message || !playerJson.username) { // if other error we didn't plan for appeared
+			console.log(
+				`Welp, we didn't plan for this to happen. Something went wrong when trying to get stats for ${uuid}, here's the error${graphqlQuery.errors?.length === 1 ? "" : "s"
+				}\n`,
+				graphqlQuery.errors!.map(e => e.message).join(", "),
+				graphqlQuery.errors
+			)
 			throw "apiError"
 		}
 
@@ -78,7 +88,7 @@ const command: Command = {
 		if (uuidDb) updateRoles(client.guilds.cache.get("549503328472530974")!.members.cache.get(uuidDb.id)!, playerJson)
 
 		const skinRender = `https://mc-heads.net/body/${playerJson.uuid}/left`,
-			guildMaster = (await getMCProfile((guildJson as GuildJson).members?.find(m => m.rank === "Guild Master")!.uuid ?? ""))?.name
+			guildMaster = (await getMCProfile(guildJson.guild_master?.uuid))?.name
 
 		const stats = () => {
 			//Define each value
@@ -222,7 +232,7 @@ const command: Command = {
 
 					{
 						name: getString("guildRanks"),
-						value: guildJson.ranks.map(rank => `${rank.name}`).join("\n"),
+						value: guildJson.ranks.map(rank => rank.name).join("\n"),
 						inline: true
 					},
 					{ name: getString("guildMaster"), value: guildMaster!, inline: true },
@@ -316,72 +326,52 @@ function parseColorCode(color: string): Discord.HexColorString {
 
 export default command
 
-export interface PlayerJson {
-	error?: string
-	uuid: string
-	username: string
-	online: boolean
-	rank: string
-	rank_formatted: string
-	prefix: string | null
-	level: number
-	achievement_points: number
-	first_login: number
-	last_login: number | null
-	last_logout: number | null
-	last_game: string | null
-	language: string
-	links: {
-		TWITTER: string | null
-		YOUTUBE: string | null
-		INSTAGRAM: string | null
-		TWITCH: string | null
-		DISCORD: string | null
-		HYPIXEL: string | null
-	}
-}
-
-interface GuildJson {
-	guild: true | null
-	name: string
-	id: string
-	created: number
-	joinable: boolean
-	public: boolean
-	tag: string | null
-	tag_color: string
-	tag_formatted: string | null
-	legacy_ranking: number | null
-	exp: number
-	level: number
-	exp_by_game: {
-		[key: string]: number
-	}
-	exp_history: {
-		[key: string]: number
-	}
-	description: string | null
-	preferred_games: string[]
-	ranks: {
-		name: string
-		default?: boolean
-		tag?: string | null
-		created: number
-		priority: number
-	}[]
-	members: {
-		uuid: string
-		rank: string
-		joined: number
-		quest_participation: number
-		exp_history: {
-			[key: string]: number
-		}
-		muted_till: number | null
-	}[]
-	achievements: {
-		EXPERIENCE_KINGS: number
-		ONLINE_PLAYERS: number
-		WINNERS: number
-	}
-}
+export const query = `
+				query HypixelStats($uuid: String!) {
+					players {
+						player(player_name: $uuid) {
+							uuid
+							username
+							online
+							rank
+							rank_formatted
+							prefix
+							level
+							achievement_points
+							first_login
+							last_login
+							last_logout
+							last_game
+							language
+							links {
+								TWITTER
+								YOUTUBE
+								INSTAGRAM
+								TWITCH
+								DISCORD
+								HYPIXEL
+							}
+						}
+					}
+					guild(player_name: $uuid) {
+						guild
+						name
+						created
+						tag
+						tag_color
+						level
+						description
+						guild_master {
+							uuid
+							rank
+						}
+						members {
+							uuid
+							rank
+						}
+						ranks {
+							name
+						}
+					}
+				}
+			`
