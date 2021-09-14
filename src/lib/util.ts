@@ -41,7 +41,6 @@ export const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot
 		timeout: 10_000
 	}
 
-
 export async function getUUID(username: string): Promise<string | undefined> {
 	return await axios.get(`https://api.mojang.com/users/profiles/minecraft/${username}`, fetchSettings)
 		.then(json => json.data.id)

@@ -71,7 +71,7 @@ const command: Command = {
 					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
 				)
 			await interaction.editReply({ embeds: [embed] })
-			console.log(inspect(evaled))
+			console.log(evaled)
 		} catch (error) {
 			const embed = new discord.MessageEmbed()
 				.setColor(errorColor)
