@@ -24,6 +24,7 @@ const command: Command = {
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
+		await interaction.deferReply()
 		const randomTip = generateTip(getString),
 			authorDb: DbUser = await client.getUser(interaction.user.id),
 			userInput = interaction.options.getUser("user", false),
@@ -37,7 +38,6 @@ const command: Command = {
 		else uuid = usernameInput ?? authorDb.uuid
 		if (!uuid) throw "noUser"
 
-		await interaction.deferReply()
 		// make a request to the slothpixel api (hypixel api but we dont need an api key)
 		const graphqlQuery = await axios
 				.get<GraphQLQuery>("https://api.slothpixel.me/api/graphql", {

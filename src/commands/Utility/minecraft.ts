@@ -47,6 +47,7 @@ const command: Command = {
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
+		await interaction.deferReply()
 		const randomTip = generateTip(getString),
 			authorDb: DbUser = await client.getUser(interaction.user.id),
 			subCommand = interaction.options.getSubcommand(),
@@ -64,8 +65,6 @@ const command: Command = {
 		if (!uuid) throw "falseUser"
 		const isOwnUser = uuid === authorDb?.uuid,
 			uuidDb = await db.collection<DbUser>("users").findOne({ uuid })
-
-		await interaction.deferReply()
 
 		switch (subCommand) {
 			case "history":

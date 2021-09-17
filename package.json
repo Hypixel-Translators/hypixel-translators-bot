@@ -18,7 +18,7 @@
 		"canvas": "^2.8.0",
 		"country-emoji": "^1.5.6",
 		"countryjs": "^1.8.0",
-		"discord.js": "^13.2.0-dev.1631318678.be8912a",
+		"discord.js": "^13.2.0-dev.1631923468.92f6471",
 		"mongodb": "^4.1.2",
 		"puppeteer": "^10.2.0",
 		"source-map-support": "^0.5.20",

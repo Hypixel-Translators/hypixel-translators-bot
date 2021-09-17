@@ -32,7 +32,6 @@ const command: Command = {
 		if (!sendTo) throw "Couldn't resolve that channel!"
 		if (!sendTo.isText()) throw "You must provide a text channel to send messages in!"
 		let amount = interaction.options.getInteger("amount", true)
-		if (!amount) throw "You need to provide a number of messages to delete!"
 		await interaction.deferReply()
 		for (amount; amount > 0; amount--) await sendTo.send("Language statistics will be here shortly!")
 		const embed = new Discord.MessageEmbed()

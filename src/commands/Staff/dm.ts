@@ -20,6 +20,7 @@ const command: Command = {
 	}],
 	roleWhitelist: ["768435276191891456"], //Discord Staff
 	async execute(interaction, getString: GetStringFunction) {
+		await interaction.deferReply()
 		const recipient = interaction.options.getUser("user", true),
 			recipientDb = await client.getUser(recipient.id),
 			message = interaction.options.getString("message", true).replaceAll("\\n", "\n"),
@@ -29,7 +30,6 @@ const command: Command = {
 				.setDescription(message)
 				.setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang)),
 			randomTip = generateTip()
-		await interaction.deferReply()
 		await recipient.send({ embeds: [dm] })
 			.then(async () => {
 				const embed = new Discord.MessageEmbed()

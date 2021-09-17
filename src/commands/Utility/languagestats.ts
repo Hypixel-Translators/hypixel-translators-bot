@@ -18,6 +18,7 @@ const command: Command = {
 	cooldown: 30,
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
 	async execute(interaction, getString: GetStringFunction) {
+		await interaction.deferReply()
 		const randomTip = generateTip(getString),
 			authorDb = await client.getUser(interaction.user.id)
 		let rawLang = interaction.options.getString("language", false)?.toLowerCase()
@@ -28,7 +29,6 @@ const command: Command = {
 		lang ??= langdb.find(l => l.name.toLowerCase().includes(rawLang!))!
 		if (!lang || lang?.code === "en") throw "falseLang"
 
-		await interaction.deferReply()
 		let hypixelData: LanguageStatus["data"] | null = null,
 			quickplayData: LanguageStatus["data"] | null = null,
 			sbaData: LanguageStatus["data"] | null = null,

@@ -23,13 +23,13 @@ const command: Command = {
 	cooldown: 600,
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev
 	async execute(interaction, getString: GetStringFunction) {
+		await interaction.deferReply()
 		const randomTip = generateTip(getString),
 			uuid = await getUUID(interaction.options.getString("username", true)),
 			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
 			collection = db.collection<DbUser>("users")
 		if (!uuid) throw "noUser"
 
-		await interaction.deferReply()
 		// make a response to the slothpixel api (hypixel api but we dont need an api key)
 		const json = await axios
 			.get<GraphQLQuery["data"]["players"]["player"] & { error?: string }>(`https://api.slothpixel.me/api/players/${uuid}`, fetchSettings)

@@ -228,11 +228,9 @@ export interface GraphQLQuery {
 				uuid: string
 				rank: string
 			}[]
-
 			ranks: {
 				name: string
 			}[]
-
 		}
 	}
 }
