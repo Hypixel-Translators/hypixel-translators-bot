@@ -1,10 +1,10 @@
 import { client } from "../index"
-import { db, DbUser, eventsToEmitAfterDbInit } from "../lib/dbclient"
+import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import Discord from "discord.js"
 
 client.on("guildMemberRemove", async member => {
 	if (!db) {
-		eventsToEmitAfterDbInit.push({ listener: "guildMemberRemove", args: [member] })
+		cancelledEvents.push({ listener: "guildMemberRemove", args: [member] })
 		return
 	}
 

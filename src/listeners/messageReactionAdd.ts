@@ -1,12 +1,12 @@
 import Discord from "discord.js"
 import { successColor, loadingColor, errorColor } from "../config.json"
 import { client } from "../index"
-import { db, eventsToEmitAfterDbInit } from "../lib/dbclient"
+import { db, cancelledEvents } from "../lib/dbclient"
 import type { EventDb, Quote } from "../lib/util"
 
 client.on("messageReactionAdd", async (reaction, user) => {
 	if (!db) {
-		eventsToEmitAfterDbInit.push({ listener: "messageReactionAdd", args: [reaction, user] })
+		cancelledEvents.push({ listener: "messageReactionAdd", args: [reaction, user] })
 		return
 	}
 

@@ -1,5 +1,5 @@
 import { client, Command } from "../index"
-import { db, DbUser, eventsToEmitAfterDbInit } from "../lib/dbclient"
+import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import Discord from "discord.js"
 import { errorColor } from "../config.json"
 import fs from "fs"
@@ -7,7 +7,7 @@ import { arrayEqual, generateTip } from "../lib/util"
 
 client.on("interactionCreate", async interaction => {
 	if (!db) {
-		eventsToEmitAfterDbInit.push({ listener: "interactionCreate", args: [interaction] })
+		cancelledEvents.push({ listener: "interactionCreate", args: [interaction] })
 		return
 	}
 

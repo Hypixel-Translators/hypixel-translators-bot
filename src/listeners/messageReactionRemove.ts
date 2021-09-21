@@ -1,10 +1,10 @@
 import { client } from "../index"
-import { db, eventsToEmitAfterDbInit } from "../lib/dbclient"
+import { db, cancelledEvents } from "../lib/dbclient"
 import type { EventDb } from "../lib/util"
 
 client.on("messageReactionRemove", async (reaction, user) => {
 	if (!db) {
-		eventsToEmitAfterDbInit.push({ listener: "messageReactionRemove", args: [reaction, user] })
+		cancelledEvents.push({ listener: "messageReactionRemove", args: [reaction, user] })
 		return
 	}
 

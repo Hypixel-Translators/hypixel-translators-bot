@@ -5,12 +5,12 @@ import type { Stream } from "stream"
 import { crowdinVerify } from "../lib/crowdinverify"
 import { leveling } from "../lib/leveling"
 import { errorColor, successColor, neutralColor } from "../config.json"
-import { db, DbUser, eventsToEmitAfterDbInit } from "../lib/dbclient"
+import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import { arrayEqual } from "../lib/util"
 
 client.on("messageCreate", async message => {
 	if (!db) {
-		eventsToEmitAfterDbInit.push({ listener: "messageCreate", args: [message] })
+		cancelledEvents.push({ listener: "messageCreate", args: [message] })
 		return
 	}
 	
