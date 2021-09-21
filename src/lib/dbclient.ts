@@ -7,7 +7,7 @@ export const mongoClient = new MongoClient(url)
 
 export let db: Db
 
-export const toCallAfterDbInit: Function[] = []
+export const eventsToEmitAfterDbInit: EventData[] = []
 
 async function init() {
 	return new Promise<MongoClient>(async (resolve, reject) => {
@@ -17,7 +17,7 @@ async function init() {
 				console.log("Connected to MongoDB!")
 				//If the connection was made after the client was ready, we need to emit the event again
 				if (client.isReady()) client.emit("ready", client)
-				for (const cb of toCallAfterDbInit) cb()
+				for (const event of eventsToEmitAfterDbInit) client.emit(event.listener, ...event.args)
 				resolve(mongoClient)
 			})
 			.catch(reject)
@@ -39,6 +39,11 @@ export interface DbUser {
 	}
 	staffMsgTimestamp?: number
 	unverifiedTimestamp?: number
+}
+
+interface EventData {
+	listener: string
+	args: any[]
 }
 
 export class HTBClient extends Discord.Client<true> {
