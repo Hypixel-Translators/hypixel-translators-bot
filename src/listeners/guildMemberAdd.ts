@@ -1,11 +1,16 @@
 import { client } from "../index"
-import { db, DbUser } from "../lib/dbclient"
+import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import Discord from "discord.js"
 import { registerFont, createCanvas, loadImage } from "canvas"
 import type { PunishmentLog } from "../lib/util"
 
 // A regular member only actually joins once they accept the membership screening, therefore we need to use this event instead
 client.on("guildMemberUpdate", async (oldMember, newMember) => {
+	if (!db) {
+		cancelledEvents.push({ listener: "guildMemberUpdate", args: [oldMember, newMember] })
+		return
+	}
+
 	if (newMember.guild.id !== "549503328472530974") return
 
 	if (Boolean(oldMember.pending) !== Boolean(newMember.pending) && !newMember.pending) {

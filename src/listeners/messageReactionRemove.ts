@@ -1,8 +1,13 @@
 import { client } from "../index"
-import { db } from "../lib/dbclient"
+import { db, cancelledEvents } from "../lib/dbclient"
 import type { EventDb } from "../lib/util"
 
 client.on("messageReactionRemove", async (reaction, user) => {
+	if (!db) {
+		cancelledEvents.push({ listener: "messageReactionRemove", args: [reaction, user] })
+		return
+	}
+
 	if (reaction.message.channel.type !== "DM" && !user.bot) {
 		if (reaction.emoji.name === "vote_yes") {
 			const eventDb = await db.collection("config").findOne({ name: "event" }) as EventDb

@@ -1,11 +1,16 @@
 import { client, Command } from "../index"
-import type { DbUser } from "../lib/dbclient"
+import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import Discord from "discord.js"
 import { errorColor } from "../config.json"
 import fs from "fs"
 import { arrayEqual, generateTip } from "../lib/util"
 
 client.on("interactionCreate", async interaction => {
+	if (!db) {
+		cancelledEvents.push({ listener: "interactionCreate", args: [interaction] })
+		return
+	}
+
 	let command: Command | null = null
 	const author: DbUser = await client.getUser(interaction.user.id),
 		member = interaction.client.guilds.cache.get("549503328472530974")?.members.cache.get(interaction.user.id)!,
@@ -234,6 +239,5 @@ client.on("interactionCreate", async interaction => {
 				console.error("Couldn't send a followUp on a replied interaction, here's the error", err)
 			})
 		else console.error("Couldn't send the error for some weird reason, here's some data to help you", interaction)
-
 	}
 })

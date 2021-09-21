@@ -5,10 +5,15 @@ import type { Stream } from "stream"
 import { crowdinVerify } from "../lib/crowdinverify"
 import { leveling } from "../lib/leveling"
 import { errorColor, successColor, neutralColor } from "../config.json"
-import { db, DbUser } from "../lib/dbclient"
+import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import { arrayEqual } from "../lib/util"
 
 client.on("messageCreate", async message => {
+	if (!db) {
+		cancelledEvents.push({ listener: "messageCreate", args: [message] })
+		return
+	}
+	
 	//Delete pinned message and thread created messages
 	if (
 		(message.type === "CHANNEL_PINNED_MESSAGE" && message.channel.type !== "DM") ||

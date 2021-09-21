@@ -1,8 +1,13 @@
 import { client } from "../index"
-import { db, DbUser } from "../lib/dbclient"
+import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import Discord from "discord.js"
 
 client.on("guildMemberRemove", async member => {
+	if (!db) {
+		cancelledEvents.push({ listener: "guildMemberRemove", args: [member] })
+		return
+	}
+
 	if (member.guild.id !== "549503328472530974" || member.pending) return
 	//Leave message
 	const joinLeave = client.channels.cache.get("549882021934137354") as Discord.TextChannel
