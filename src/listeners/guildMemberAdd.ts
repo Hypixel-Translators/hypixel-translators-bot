@@ -1,34 +1,39 @@
 import { client } from "../index"
-import { db, DbUser } from "../lib/dbclient"
+import { db, DbUser, toCallAfterDbInit } from "../lib/dbclient"
 import Discord from "discord.js"
 import { registerFont, createCanvas, loadImage } from "canvas"
 import type { PunishmentLog } from "../lib/util"
 
 // A regular member only actually joins once they accept the membership screening, therefore we need to use this event instead
 client.on("guildMemberUpdate", async (oldMember, newMember) => {
-	if (newMember.guild.id !== "549503328472530974") return
+	const functionBody = async () => {
+		if (newMember.guild.id !== "549503328472530974") return
 
-	if (Boolean(oldMember.pending) !== Boolean(newMember.pending) && !newMember.pending) {
-		await (newMember.guild.channels.cache.get("549882021934137354") as Discord.TextChannel).send({ content: `${newMember} just joined. Welcome! 🎉`, files: [await generateWelcomeImage(newMember)] }) //join-leave
+		if (Boolean(oldMember.pending) !== Boolean(newMember.pending) && !newMember.pending) {
+			await (newMember.guild.channels.cache.get("549882021934137354") as Discord.TextChannel).send({ content: `${newMember} just joined. Welcome! 🎉`, files: [await generateWelcomeImage(newMember)] }) //join-leave
 
-		if (!newMember.user.bot) {
-			newMember.send(`Hey there and thanks for joining the **${newMember.guild.name}**! In order to get access to the rest of the server, please verify yourself in <#569178590697095168>.`)
-				.catch(() => console.log(`Couldn't DM user ${newMember.user.tag}, probably because they have DMs off`))
-			await db.collection<DbUser>("users").insertOne({ id: newMember.id, lang: "en" })
+			if (!newMember.user.bot) {
+				newMember.send(`Hey there and thanks for joining the **${newMember.guild.name}**! In order to get access to the rest of the server, please verify yourself in <#569178590697095168>.`)
+					.catch(() => console.log(`Couldn't DM user ${newMember.user.tag}, probably because they have DMs off`))
+				await db.collection<DbUser>("users").insertOne({ id: newMember.id, lang: "en" })
+			}
+			const activePunishments = await db.collection<PunishmentLog>("punishments").find({ id: newMember.id, ended: false }).toArray()
+			if (!activePunishments.length) return
+			if (activePunishments.some(p => p.type === "MUTE")) await newMember.roles.add(["645208834633367562", "569194996964786178"], "User is muted") //Muted and Verified
+			else if (activePunishments.some(p => p.type === "BAN")) await newMember.ban({ reason: activePunishments.find(p => p.type === "BAN")!.reason })
+			else
+				console.error(
+					`There are non-expired punishments that shouldn't have a length for ${newMember.id}. Cases: ${activePunishments
+						.filter(p => !p.ended)
+						.map(p => p.case)
+						.join(", ")}`,
+					activePunishments
+				)
 		}
-		const activePunishments = await db.collection<PunishmentLog>("punishments").find({ id: newMember.id, ended: false }).toArray()
-		if (!activePunishments.length) return
-		if (activePunishments.some(p => p.type === "MUTE")) await newMember.roles.add(["645208834633367562", "569194996964786178"], "User is muted") //Muted and Verified
-		else if (activePunishments.some(p => p.type === "BAN")) await newMember.ban({ reason: activePunishments.find(p => p.type === "BAN")!.reason })
-		else
-			console.error(
-				`There are non-expired punishments that shouldn't have a length for ${newMember.id}. Cases: ${activePunishments
-					.filter(p => !p.ended)
-					.map(p => p.case)
-					.join(", ")}`,
-				activePunishments
-			)
 	}
+
+	if (!db) toCallAfterDbInit.push(functionBody)
+	else functionBody()
 })
 
 // Bots don't have membership screening, therefore we can use the regular event for them

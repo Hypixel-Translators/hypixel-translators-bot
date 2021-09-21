@@ -9,6 +9,7 @@ import { db, DbUser } from "../lib/dbclient"
 import { arrayEqual } from "../lib/util"
 
 client.on("messageCreate", async message => {
+	
 	//Delete pinned message and thread created messages
 	if (
 		(message.type === "CHANNEL_PINNED_MESSAGE" && message.channel.type !== "DM") ||

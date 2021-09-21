@@ -7,6 +7,8 @@ export const mongoClient = new MongoClient(url)
 
 export let db: Db
 
+export const toCallAfterDbInit: Function[] = []
+
 async function init() {
 	return new Promise<MongoClient>(async (resolve, reject) => {
 		await mongoClient.connect()
@@ -15,6 +17,7 @@ async function init() {
 				console.log("Connected to MongoDB!")
 				//If the connection was made after the client was ready, we need to emit the event again
 				if (client.isReady()) client.emit("ready", client)
+				for (const cb of toCallAfterDbInit) cb()
 				resolve(mongoClient)
 			})
 			.catch(reject)
