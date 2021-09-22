@@ -68,6 +68,25 @@ const command: Command = {
 					}
 				} else throw "wrongLink"
 			}
+		} else if ((interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732") && !user && profile) {
+			const profileUser = await db.collection<DbUser>("users").findOne({ profile: profile.toLowerCase() })
+			if (profileUser) {
+				const userObject = await client.users.fetch(profileUser.id),
+					embed = new Discord.MessageEmbed()
+						.setColor(neutralColor as Discord.HexColorString)
+						.setAuthor("Crowdin Profile")
+						.setTitle(`That profile belongs to ${userObject.tag}`)
+						.setDescription(`${userObject}: ${profileUser.profile!}`)
+						.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				return await interaction.reply({ embeds: [embed], ephemeral: true })
+			} else {
+				const embed = new Discord.MessageEmbed()
+					.setColor(errorColor as Discord.HexColorString)
+					.setAuthor("Crowdin Profile")
+					.setTitle("Couldn't find a user with that profile!")
+					.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				return await interaction.reply({ embeds: [embed], ephemeral: true })
+			}
 		} else {
 			const randomTip = generateTip(getString),
 				userDb = await client.getUser(interaction.user.id)
