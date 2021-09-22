@@ -53,23 +53,24 @@ const command: Command = {
 		const compiledCode = transpile(codeToRun, options)
 		try {
 			evaled = await eval(compiledCode)
-			const embed = new discord.MessageEmbed()
-				.setColor(successColor)
-				.setAuthor("Evaluation")
-				.setTitle("The code was successful! Here's the output")
-				.addFields(
-					{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun.substring(0, 1015)) },
-					{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
-					{ name: "Output", value: discord.Formatters.codeBlock("js", inspect(evaled).substring(0, 1015)) },
+			const inspected = inspect(evaled, { depth: 0, colors: true, maxArrayLength: 5, getters: true }),
+				embed = new discord.MessageEmbed()
+					.setColor(successColor)
+					.setAuthor("Evaluation")
+					.setTitle("The code was successful! Here's the output")
+					.addFields(
+						{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun.substring(0, 1015)) },
+						{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
+						{ name: "Output", value: discord.Formatters.codeBlock("js", inspected.substring(0, 1015)) },
 
-					{
-						name: "Output type",
-						value: evaled?.constructor.name === "Array" ? `${evaled.constructor.name}<${evaled[0]?.constructor.name}>` : evaled?.constructor.name ?? typeof evaled,
-						inline: true
-					},
-					{ name: "Output length", value: `${inspect(evaled).length}`, inline: true },
-					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
-				)
+						{
+							name: "Output type",
+							value: evaled?.constructor.name === "Array" ? `${evaled.constructor.name}<${evaled[0]?.constructor.name}>` : evaled?.constructor.name ?? typeof evaled,
+							inline: true
+						},
+						{ name: "Output length", value: `${inspected.length}`, inline: true },
+						{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
+					)
 			await interaction.editReply({ embeds: [embed] })
 			console.log(evaled)
 		} catch (error) {
