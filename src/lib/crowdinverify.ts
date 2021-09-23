@@ -48,10 +48,10 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 	if (!url) {
 		const userDb = await client.getUser(member.id)
 		if (typeof url === "undefined") url = userDb.profile
-		else if (url === null) return removeAllRoles(member)
-		else if (!url) { //if user runs /verify and the profile is not stored on our DB or if the user sends the generic profile URL
+		if (url === null) return removeAllRoles(member)
+		if (!url) { //if user runs /verify and the profile is not stored on our DB or if the user sends the generic profile URL
 			//#region return message
-			member.roles.remove("569194996964786178", "Tried to verify but profile wasn't stored") // Verified
+			await member.roles.remove("569194996964786178", "Tried to verify but profile wasn't stored") // Verified
 			await usersColl.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 			errorEmbed
 				.setDescription("Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!")
@@ -71,7 +71,9 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 			//#endregion
 		}
 	}
-	url = url!.toLowerCase().replace(/([a-z]{1,4}[.])?(crowdin[.]com)/gi, "$2")
+	if (url.startsWith("http://")) url = url.replace("http://", "https://")
+	else if (!url.startsWith("https://")) url = `https://${url}`
+	url = url.toLowerCase().replace(/([a-z]{1,4}[.])?(crowdin[.]com)/gi, "$2")
 	const browser = await getBrowser(),
 		page = await browser.pupBrowser.newPage()
 	try {
@@ -154,12 +156,12 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		aboutContent = await page.evaluate(element => element?.textContent, userAboutSelector) ?? "" as string
 	let projects: CrowdinProject[] | null = null
 	page.on("console", msg => console.log(msg.text()))
-	if (aboutContent.includes(member.user.tag) || !sendDms) projects = await page.evaluate((tag: string) => {
+	if (aboutContent.includes(member.user.tag) || !sendDms) projects = await page.evaluate(async (tag: string) => {
 		const now = Date.now()
 		let returnProjects = window.eval("crowdin.profile_projects.view.state.projects") as CrowdinProject[] | null
 		if (returnProjects) return returnProjects
 		console.log(`Projects were null for ${tag}, attempting to re-evaluate.`)
-		window.eval("crowdin.profile_projects.getProjectsInfo()")
+		await window.eval("crowdin.profile_projects.getProjectsInfo()")
 		let i = 0
 		while (returnProjects === null && i < 100) {
 			returnProjects = window.eval("crowdin.profile_projects.view.state.projects")
