@@ -5,11 +5,11 @@
 		"positive": [
 			"It is certain.",
 			"It is decidedly so.",
-			"Without a doubt.",
-			"Yes – definitely.",
-			"You may rely on it.",
-			"As I see it, yes.",
-			"Most likely.",
+			"Bezpochyby.",
+			"Ano, určitě.",
+			"Na to se můžeš spolehnout.",
+			"Jak tak vidím, tak ano.",
+			"Pravděpodobně.",
 			"Outlook good.",
 			"Ano",
 			"Signs point to yes."
@@ -18,13 +18,13 @@
 			"Reply hazy, try again.",
 			"Zeptej se později.",
 			"Raději ti to teď nebudu říkat.",
-			"Cannot predict now.",
+			"To teď nemohu předpovědět.",
 			"Soustřeď se a zeptej se znovu."
 		],
 		"negative": [
-			"Don't count on it.",
+			"S tím nepočítej.",
 			"Moje odpověď je ne.",
-			"My sources say no.",
+			"Moje zdroje říkají, že ne.",
 			"Outlook not so good.",
 			"Very doubtful."
 		]

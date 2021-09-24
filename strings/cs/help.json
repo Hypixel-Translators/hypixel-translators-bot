@@ -57,7 +57,7 @@
 		"description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
 	},
 	"ping": {
-		"description": "Gives you the bot's ping."
+		"description": "Zobrazí ti ping bota."
 	},
 	"prefix": {
 		"description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
@@ -81,7 +81,7 @@
 		"description": "Gives you useful information regarding the SkyblockAddons project."
 	},
 	"thread": {
-		"description": "Gives you the link to the thread announcing this Discord server."
+		"description": "Dá ti odkaz na vlákno oznamující tento Discord server."
 	},
 	"tip": {
 		"description": "Zobrazí ti náhodný tip ohledně serveru."

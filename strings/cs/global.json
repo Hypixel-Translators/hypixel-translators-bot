@@ -30,7 +30,7 @@
 		"wrongLink": "Špatný odkaz!"
 	},
 	"roles": {
-		"noLevel": "You must be at least chat level %%level%% to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
+		"noLevel": "Pro tuto roli musíš mít alespoň chat level %%level%%! Svůj aktuální chat level zjistíš pomocí %%command%% v %%channel%%.",
 		"successGive": "Successfully gave you the %%role%% role!",
 		"successTake": "Successfully took the %%role%% role from you!"
 	},
