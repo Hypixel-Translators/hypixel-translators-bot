@@ -59,7 +59,7 @@
 		"languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute %%languagestats%%!",
 		"rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute %%verify%% to have your roles updated!",
 		"botTranslated": "Věděl jsi, že náš bot je k dispozici ve více jazycích? Zkus napsat %%langList%%, pro zobrazení seznamu všech jazyků, které v současné době podporujeme, a možná najdeš právě ten svůj!",
-		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
+		"botUpdates": "Každou významnou aktualizaci bota nebo důležité novinky o něm zveřejňujeme v %%botUpdates%%, podívej se!",
 		"moreTips": "Potřebujeme více tipů! Navrhni je pomocí %%feedback%%."
 	},
 	"pagination": {
