@@ -4,11 +4,11 @@
 		"firstName": "First name",
 		"nameHistoryFor": "Name history for %%username%%",
 		"userChangedName": "%%username%% změnil své jméno %%number%% krát.",
-		"youChangedName": "You have changed your name %%number%% times.",
-		"userChangedName1": "%%username%% has changed their name 1 time.",
-		"youChangedName1": "You have changed your name 1 time.",
-		"userNeverChanged": "%%username%% has never changed their name.",
-		"youNeverChanged": "You have never changed your name."
+		"youChangedName": "Své jméno sis změnil %%number%% krát.",
+		"userChangedName1": "%%username%% si změnil své jméno 1 krát.",
+		"youChangedName1": "Své jméno sis změnil 1 krát.",
+		"userNeverChanged": "%%username%% si nikdy nezměnil své jméno.",
+		"youNeverChanged": "Nikdy sis nezměnil své jméno."
 	},
 	"skin": {
 		"yourSkin": "Zde je tvůj skin!",
