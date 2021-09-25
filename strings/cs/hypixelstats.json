@@ -1,6 +1,6 @@
 {
 	"moduleName": "Statistiky hráče",
-	"statsDesc": "Here are some Hypixel stats for %%username%%, obtained [here]%%link%%.",
+	"statsDesc": "Zde jsou Hypixel statistiky hráče %%username%% získané [zde]%%link%%.",
 	"socialMedia": "Here are the linked social media for %%username%%, obtained [here]%%link%%.",
 	"guildDesc": "Here is some info about %%player%%'s guild, %%guildName%%, obtained [here]%%link%%",
 	"guildDescHypixel": "Guild Description",
