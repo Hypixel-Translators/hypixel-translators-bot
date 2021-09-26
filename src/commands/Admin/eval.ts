@@ -57,7 +57,7 @@ const command: Command = {
 				embed = new discord.MessageEmbed()
 					.setColor(successColor)
 					.setAuthor("Evaluation")
-					.setTitle("The code was successful! Here's the output")
+					.setTitle("The code was executed successfully! Here's the output")
 					.addFields(
 						{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun.substring(0, 1015)) },
 						{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
