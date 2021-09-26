@@ -1,5 +1,10 @@
 name: Testing
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore:
+      - 'translations'
+  pull_request:
+
 jobs:
   Install:
     name: Install dependencies and compile
