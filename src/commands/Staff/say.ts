@@ -8,6 +8,7 @@ const command: Command = {
 	description: "Says something in a specific channel.",
 	options: [{
 		type: "CHANNEL",
+		channelTypes: ["GUILD_TEXT", "GUILD_NEWS", "GUILD_NEWS_THREAD", "GUILD_PRIVATE_THREAD", "GUILD_PUBLIC_THREAD"],
 		name: "channel",
 		description: "The channel to send the message in",
 		required: true
@@ -25,7 +26,6 @@ const command: Command = {
 			member = interaction.member as Discord.GuildMember,
 			message = interaction.options.getString("message", true)
 
-		if (!sendTo.isText()) throw "You need to provide a text channel for me to send messages in!"
 		if (!member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
 
 		if (member.permissions.has("MANAGE_ROLES")) await sendTo.send(message)

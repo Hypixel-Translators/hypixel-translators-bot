@@ -11,6 +11,7 @@ const command: Command = {
 	roleWhitelist: ["764442984119795732"], //Discord Administrator
 	options: [{
 		type: "CHANNEL",
+		channelTypes: ["GUILD_TEXT"],
 		name: "channel",
 		description: "The channel to send bulk messages in",
 		required: true
@@ -28,9 +29,8 @@ const command: Command = {
 		required: false
 	}],
 	async execute(interaction) {
-		const sendTo = interaction.options.getChannel("channel", true) as Discord.GuildChannel | Discord.ThreadChannel
+		const sendTo = interaction.options.getChannel("channel", true) as Discord.TextChannel
 		if (!sendTo) throw "Couldn't resolve that channel!"
-		if (!sendTo.isText()) throw "You must provide a text channel to send messages in!"
 		let amount = interaction.options.getInteger("amount", true)
 		await interaction.deferReply()
 		for (amount; amount > 0; amount--) await sendTo.send("Language statistics will be here shortly!")
