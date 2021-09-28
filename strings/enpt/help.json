@@ -15,7 +15,7 @@
 	"minutes": "minutes",
 	"cooldownField": "Cooldown",
 	"8ball": {
-		"description": "The Magic 8 Ball that will answer all your questions."
+		"description": "Th' Magic 8 Ball that will answer all yer questions."
 	},
 	"feedback": {
 		"description": "Opens our GitHub issues page, where you can report problems and send feedback."
@@ -42,7 +42,7 @@
 		"description": "Gives you an invite link to the server. Please use this whenever you want to invite someone."
 	},
 	"language": {
-		"description": "Changes your language, shows your current one or a list of available languages."
+		"description": "Changes yer language, shows yer current one or shows a list o' available languages."
 	},
 	"languagestats": {
 		"description": "Shows you the progress of a language on all the projects we currently support."
@@ -60,7 +60,7 @@
 		"description": "Gives you the bot's ping."
 	},
 	"prefix": {
-		"description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+		"description": "Gives ye th' appropriate prefix fer yer language(s)."
 	},
 	"profile": {
 		"description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
