@@ -89,15 +89,6 @@ client.on("interactionCreate", async interaction => {
 		return
 	}
 
-	//Stop and error if command is not allowed in DMs and command is sent in DMs
-	if (!command.allowDM && interaction.channel?.type === "DM" && !member?.permissions.has("ADMINISTRATOR")) {
-		const embed = new Discord.MessageEmbed()
-			.setColor(errorColor as Discord.HexColorString)
-			.setAuthor(getString("error", "global"))
-			.setTitle(getString("errors.dmError", "global"))
-			.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
-		return await interaction.reply({ embeds: [embed] })
-	}
 	//Cooldown system
 	if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Discord.Collection())
 	const now = Date.now(),
