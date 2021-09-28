@@ -111,7 +111,7 @@ client.on("messageCreate", async message => {
 	if (/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel.id === "569178590697095168") {
 		//verify
 		await message.react("loading:882267041627766816")
-		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
+		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
 		if (!message.deleted) await message.delete()
 		const fiMessages = (await message.channel.messages.fetch()).filter(msgs => msgs.author.id === message.author.id)
 		await (message.channel as Discord.TextChannel).bulkDelete(fiMessages)
