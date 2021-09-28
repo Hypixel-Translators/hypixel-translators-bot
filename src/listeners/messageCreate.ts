@@ -13,12 +13,9 @@ client.on("messageCreate", async message => {
 		cancelledEvents.push({ listener: "messageCreate", args: [message] })
 		return
 	}
-	
+
 	//Delete pinned message and thread created messages
-	if (
-		(message.type === "CHANNEL_PINNED_MESSAGE" && message.channel.type !== "DM") ||
-		(message.type === "THREAD_CREATED" && (message.channel as Discord.TextChannel).name.endsWith("-review-strings"))
-	) {
+	if (message.type === "THREAD_CREATED" && (message.channel as Discord.TextChannel).name.endsWith("-review-strings")) {
 		await message.delete()
 		return
 	}
