@@ -4,6 +4,5 @@
 	"description": "Pokud již na některém z těchto projektů jsi, ale ještě nemáš své role, napiš `/verify [profileURL]` a získej je!",
 	"projectInfo": "You can find the link to the %%project%% project [here](%%link%%). For more information, execute %%command%%.",
 	"alreadyJoined": "Už ses připojil k tomuto projektu!",
-	"notJoined": "K tomuto projektu ses ještě nepřidal!",
-	"dmError": "We couldn't check whether you're already on these projects or not. In order to do this, you must execute the command on The Hypixel Translators Community Discord."
+	"notJoined": "K tomuto projektu ses ještě nepřidal!"
 }

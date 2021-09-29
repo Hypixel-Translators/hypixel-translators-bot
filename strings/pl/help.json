@@ -5,7 +5,6 @@
 	"mainPage": "Strona główna",
 	"utilityHelp": "Narzędzia",
 	"infoHelp": "Polecenia informacyjne",
-	"projectsHelp": "Projekty Crowdin",
 	"commandInfo": "Szczegóły polecenia",
 	"commandInfoFor": "Szczegóły polecenia dla ",
 	"staffOnly": "To polecenie jest dostępne tylko dla administracji, a zatem jej szczegóły są ukryte.\nJeżeli uważasz że to błąd, skontaktuj się z członkiem administracji.",
@@ -20,14 +19,8 @@
 	"feedback": {
 		"description": "Otwórz naszą stronę GitHub z problemami, tam możesz zgłosić błędy i wysłać opinię."
 	},
-	"guidelines": {
-		"description": "Podaje odnośnik do oficjalnego wątku dotyczącego tłumaczeń Hypixela."
-	},
 	"help": {
 		"description": "Pokazuje wszystkie dostępne polecenia i inne informacje o bocie."
-	},
-	"hypixel": {
-		"description": "Zawiera przydatne informacje dotyczące projektu Hypixel."
 	},
 	"hypixelstats": {
 		"description": "Pokazuje ci podstawowe informacje danego gracza z Hypixela."
@@ -37,9 +30,6 @@
 	},
 	"hypixelverify": {
 		"description": "Łączy twoje konto Discord z kontem Minecraft."
-	},
-	"invite": {
-		"description": "Daje odnośnik z zaproszeniem do serwera. Użyj tego, gdy chcesz kogoś zaprosić."
 	},
 	"language": {
 		"description": "Zmienia Twój język, pokazuje bieżący lub pokazuje listę dostępnych języków."
@@ -68,29 +58,17 @@
 	"projects": {
 		"description": "Daje ci odnośniki i informacje o wszystkich projektach tłumaczeniowych, które wspieramy na serwerze."
 	},
-	"quickplay": {
-		"description": "Zawiera przydatne informacje dotyczące projektu Quickplay."
-	},
 	"quote": {
 		"description": "Pobiera (lub dodaje) śmieszny/dziwny/mądry cytat z serwera."
 	},
 	"rank": {
 		"description": "Podaje twoje obecne PD lub PD wybranego użytkownika."
 	},
-	"skyblockaddons": {
-		"description": "Zawiera przydatne informacje dotyczące projektu SkyblockAddons."
-	},
-	"thread": {
-		"description": "Podaje odnośnik do wątku ogłaszającego ten serwer Discord."
-	},
-	"tip": {
-		"description": "Podaje ci losową poradę na temat serwera."
+	"tag": {
+		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
 		"description": "Podaje ci przydatne informacje o tym, jak tłumaczyć Bota."
-	},
-	"twitter": {
-		"description": "Podaje odnośnik do oficjalnej strony Hypixel Translators Community na Twitterze."
 	},
 	"verify": {
 		"description": "Automatycznie sprawdza zmiany w Twoim profilu Crowdin i daje Ci odpowiednie role. Jeśli Twój profil nie jest przechowywany w naszej bazie danych, możesz podać go jako argument w poleceniu. Aby sprawdzić, czy Twój profil jest tam przechowywany, wykonaj polecenie `/profile`. Upewnij się, że masz włączone wiadomości prywatne z tego serwera, aby bot mógł wysłać Ci wiadomość."

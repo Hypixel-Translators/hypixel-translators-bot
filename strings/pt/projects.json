@@ -4,6 +4,5 @@
 	"description": "Se já estás num destes projetos mas ainda não tens os teus cargos, executa `/verify [link do perfil]` para os receberes!",
 	"projectInfo": "Podes encontrar o link para o projeto do %%project%% [aqui](%%link%%). Para mais informações, executa %%command%%.",
 	"alreadyJoined": "Já estás neste projeto!",
-	"notJoined": "Ainda não estás neste projeto!",
-	"dmError": "Não conseguimos verificar se já estás nestes projetos ou não. Para podermos fazer isto, terás de executar o comando no servidor da Comunidade de Tradutores do Hypixel."
+	"notJoined": "Ainda não estás neste projeto!"
 }

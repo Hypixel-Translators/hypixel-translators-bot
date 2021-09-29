@@ -5,7 +5,6 @@
 	"mainPage": "Main Page",
 	"utilityHelp": "כלים ושירותים",
 	"infoHelp": "פקודות הצגת מידע",
-	"projectsHelp": "פרוייקטים בCrowdin",
 	"commandInfo": "מידע לגבי הפקודה",
 	"commandInfoFor": "מידע לגבי הפקודה ",
 	"staffOnly": "הפקודה הזאת זמינה רק לחברי צוות ולכן, המידע על אודותיה הינו מוסתר.\nאנא פנו לחבר צוות אם הנכם מאמינים כי חלה טעות.",
@@ -20,14 +19,8 @@
 	"feedback": {
 		"description": "פותח את עמוד הבעיות שלנו בGitHub, שבו תוכל/י לדווח על בעיות ולשלוח חוות דעת."
 	},
-	"guidelines": {
-		"description": "נותן לך קישור לפוסט הרשמי שלנו בפורום בנוגע לקהילת מתרגמי הייפיקסל."
-	},
 	"help": {
 		"description": "מציג עבורך את כל הפקודות הזמינות ומידע אחר על הבוט הזה."
-	},
-	"hypixel": {
-		"description": "נותן לך מידע שימושי על פרויקט הייפיקסל."
 	},
 	"hypixelstats": {
 		"description": "מציג לך סטיסטיקות בסיסיות של הייפיקסל עבור המשתמש המבוקש."
@@ -37,9 +30,6 @@
 	},
 	"hypixelverify": {
 		"description": "Links your Discord account with your Minecraft account."
-	},
-	"invite": {
-		"description": "נותן לך קישור הזמנה לשרת. בבקשה השתמש/י בפקודה כאשר ברצונך להזמין אדם כלשהו לשרת."
 	},
 	"language": {
 		"description": "Changes your language, shows your current one or a list of available languages."
@@ -68,29 +58,17 @@
 	"projects": {
 		"description": "נותן לך קישור ומידע על כל הפרויקטים של התרגום שאנו תומכים בהם בשרת שלנו."
 	},
-	"quickplay": {
-		"description": "נותן לך מידע שימושי על פרויקט הQuickPlay."
-	},
 	"quote": {
 		"description": "מקבל (או מוסיף) ציטוט מצחיק/מוזר/משכיל מהשרת."
 	},
 	"rank": {
 		"description": "נותן לך את כמות נקודות הXP שלך או של כל משתמש אחר."
 	},
-	"skyblockaddons": {
-		"description": "נותן לך מידע שימושי בנוגע לפרויקט SkyblockAddons."
-	},
-	"thread": {
-		"description": "נותן לך קישור לפוסט בפורומים של הייפיקסל על שרת זה."
-	},
-	"tip": {
-		"description": "נותן לך טיפ רנדומלי על השרת."
+	"tag": {
+		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
 		"description": "נותן לך מידע שימושי על איך לתרגם את הבוט."
-	},
-	"twitter": {
-		"description": "נותן לך קישור לעמוד הרשמי של קהילת מתרגמי הייפיקסל בטוויטר."
 	},
 	"verify": {
 		"description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."

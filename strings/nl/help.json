@@ -5,7 +5,6 @@
 	"mainPage": "Hoofdpagina",
 	"utilityHelp": "Hulpmiddelen",
 	"infoHelp": "Informatieve commando's",
-	"projectsHelp": "Crowdin-projecten",
 	"commandInfo": "Commando-informatie",
 	"commandInfoFor": "Commando-informatie voor ",
 	"staffOnly": "De info voor dit commando is verborgen, omdat het alleen voor staff bestemd is. \nNeem contact op met een stafflid als je denkt dat dit een fout is.",
@@ -20,14 +19,8 @@
 	"feedback": {
 		"description": "Opent onze GitHub-issuespagina, waar je problemen kunt melden en feedback kunt geven."
 	},
-	"guidelines": {
-		"description": "Geeft je de link naar de officiële thread omtrent Hypixel-vertalingen."
-	},
 	"help": {
 		"description": "Geeft alle commando's en andere informatie over de bot weer."
-	},
-	"hypixel": {
-		"description": "Geeft je nuttige informatie omtrent het Hypixel-project."
 	},
 	"hypixelstats": {
 		"description": "Geeft je simpele Hypixel-statistieken voor de opgegeven speler."
@@ -37,9 +30,6 @@
 	},
 	"hypixelverify": {
 		"description": "Koppelt je Discord-account met je Minecraft-account."
-	},
-	"invite": {
-		"description": "Geeft je een uitnodigingslink voor deze server. Gebruik deze wanneer je iemand wilt uitnodigen."
 	},
 	"language": {
 		"description": "Verandert je taal, toont je huidige taal of geeft een lijst met alle beschikbare talen."
@@ -68,29 +58,17 @@
 	"projects": {
 		"description": "Geeft je links en informatie over alle vertalingsprojecten die we hier ondersteunen."
 	},
-	"quickplay": {
-		"description": "Geeft je nuttige informatie omtrent het Quickplay-project."
-	},
 	"quote": {
 		"description": "Geeft een grappig/raar/wijs citaat uit de server (of voegt er een toe)."
 	},
 	"rank": {
 		"description": "Geeft je jouw hoeveelheid XP of die van een andere gebruiker."
 	},
-	"skyblockaddons": {
-		"description": "Geeft je nuttige informatie omtrent het SkyblockAddons-project."
-	},
-	"thread": {
-		"description": "Geeft je de link naar de thread die deze Discordserver aankondigt."
-	},
-	"tip": {
-		"description": "Geeft je een willekeurige servertip."
+	"tag": {
+		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
 		"description": "Geeft je handige tips over het vertalen van de bot."
-	},
-	"twitter": {
-		"description": "Geeft je de link naar de officiële Hypixel-vertaalcommunity-Twitterpagina."
 	},
 	"verify": {
 		"description": "Controleert automatisch op wijzigingen in je Crowdin-profiel en geeft je de bijbehorende rollen. Als je profiel niet in onze database is opgeslagen, kun je het als argument opgeven in het commando. Om te controleren of je profiel is opgeslagen, kun je `/profile` uitvoeren. Zorg ervoor dat je privéberichten hebt ingeschakeld zodat de bot je een bericht kan sturen."

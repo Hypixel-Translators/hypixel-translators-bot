@@ -5,7 +5,6 @@
 	"mainPage": "首頁",
 	"utilityHelp": "實用工具",
 	"infoHelp": "訊息指令",
-	"projectsHelp": "Crowdin 項目",
 	"commandInfo": "指令資訊",
 	"commandInfoFor": "指令資訊：",
 	"staffOnly": "這個指令僅供管理員使用，因此有關訊息不公開顯示。如果你認為這是錯誤，請聯絡管理員。",
@@ -20,14 +19,8 @@
 	"feedback": {
 		"description": "開啟我們的 GitHub 議題頁面，你可以在那裡回報問題和發送回饋。"
 	},
-	"guidelines": {
-		"description": "給予你 Hypixel 官方發布之翻譯準則的連結。"
-	},
 	"help": {
 		"description": "顯示所有你可使用的指令及關於機器人的其他訊息。"
-	},
-	"hypixel": {
-		"description": "給予你有關 Hypixel 項目的實用訊息。"
 	},
 	"hypixelstats": {
 		"description": "顯示該使用者的 Hypixel 統計數據。"
@@ -37,9 +30,6 @@
 	},
 	"hypixelverify": {
 		"description": "將你的 Discord 帳戶連結至你的 Minecraft 帳號。 "
-	},
-	"invite": {
-		"description": "給予你一個伺服器邀請連結。請在你想要邀請他人時使用此連結。"
 	},
 	"language": {
 		"description": "更改語言、顯示你目前使用的語言或顯示可用的語言列表。"
@@ -68,29 +58,17 @@
 	"projects": {
 		"description": "給予你在伺服器上支援的所有翻譯項目之連結及相關訊息。"
 	},
-	"quickplay": {
-		"description": "給予你有關 Quickplay 項目的實用訊息。"
-	},
 	"quote": {
 		"description": "取得（或新增）一條在這個伺服器的有趣／神奇／睿智的引文。"
 	},
 	"rank": {
 		"description": "顯示你自己或任何使用者目前的 XP。"
 	},
-	"skyblockaddons": {
-		"description": "給予你有關 SkyblockAddons 項目的實用訊息。"
-	},
-	"thread": {
-		"description": "給予你有關此 Discord 伺服器介紹之頁面。"
-	},
-	"tip": {
-		"description": "隨機給予你一個與伺服器相關的提示。"
+	"tag": {
+		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
 		"description": "給予你有關 Hypixel Translators Bot 項目的實用訊息。"
-	},
-	"twitter": {
-		"description": "給予你 Hypixel Translators Community 的 Twitter 頁面連結。"
 	},
 	"verify": {
 		"description": "自動檢查你的 Crowdin 個人檔案的任何更改，並給予你適當的身分組。如果你的資料不在我們的資料庫裡，你可以在指令中將其作為參數提供給我們。如果你想確認你的個人檔案是否已經儲存，你可以執行 `/profile`。請確保你已允許來自本伺服器的私人訊息 (DM)，以便機器人可以直接發送訊息給你。"

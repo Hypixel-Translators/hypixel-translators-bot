@@ -5,7 +5,6 @@
 	"mainPage": "Main Page",
 	"utilityHelp": "Εργαλεία",
 	"infoHelp": "Πληροφορίες",
-	"projectsHelp": "Crowdin Projects",
 	"commandInfo": "Πληροφορίες Εντολής",
 	"commandInfoFor": "Πληροφορίες Εντολής για ",
 	"staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
@@ -20,14 +19,8 @@
 	"feedback": {
 		"description": "Ανοίγει τη σελίδα ζητημάτων GitHub, όπου μπορείς να αναφέρεις προβλήματα και να στείλεις σχόλια."
 	},
-	"guidelines": {
-		"description": "Gives you the link to the official thread regarding Hypixel translations."
-	},
 	"help": {
 		"description": "Σου δείχνει όλες τις διαθέσιμες εντολές και άλλες πληροφορίες σχετικά με το bot."
-	},
-	"hypixel": {
-		"description": "Gives you useful information regarding the Hypixel project."
 	},
 	"hypixelstats": {
 		"description": "Shows you basic Hypixel stats for the provided user."
@@ -37,9 +30,6 @@
 	},
 	"hypixelverify": {
 		"description": "Links your Discord account with your Minecraft account."
-	},
-	"invite": {
-		"description": "Σας δίνει έναν σύνδεσμο πρόσκλησης στον διακομιστή. Χρησιμοποιήστε αυτό όποτε θέλετε να προσκαλέσετε κάποιον."
 	},
 	"language": {
 		"description": "Changes your language, shows your current one or a list of available languages."
@@ -68,29 +58,17 @@
 	"projects": {
 		"description": "Gives you links and information about all the translation projects we support on the server."
 	},
-	"quickplay": {
-		"description": "Gives you useful information regarding the Quickplay project."
-	},
 	"quote": {
 		"description": "Παίρνει (ή προσθέτει) ένα αστείο/περίεργο/σοφό παράθεμα από τον διακομιστή."
 	},
 	"rank": {
 		"description": "Gives you the current XP for yourself or any given user."
 	},
-	"skyblockaddons": {
-		"description": "Gives you useful information regarding the SkyblockAddons project."
-	},
-	"thread": {
-		"description": "Gives you the link to the thread announcing this Discord server."
-	},
-	"tip": {
-		"description": "Gives you a random tip regarding the server."
+	"tag": {
+		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
 		"description": "Σου δίνει χρήσιμες πληροφορίες για το πώς να μεταφράσεις το Bot."
-	},
-	"twitter": {
-		"description": "Gives you the link to the official Hypixel Translators Community Twitter page."
 	},
 	"verify": {
 		"description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."

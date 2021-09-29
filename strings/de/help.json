@@ -5,7 +5,6 @@
 	"mainPage": "Main Page",
 	"utilityHelp": "Werkzeuge & Hilfsmittel",
 	"infoHelp": "Informationsbefehle",
-	"projectsHelp": "Crowdin-Projekte",
 	"commandInfo": "Befehlsinformationen",
 	"commandInfoFor": "Befehlsinformationen für ",
 	"staffOnly": "Dieser Befehl ist nur für Teammitglieder verfügbar und seine Informationen sind daher versteckt.\nBitte kontaktiere ein Teammitglied, wenn du glaubst, dass dies ein Fehler ist.",
@@ -20,14 +19,8 @@
 	"feedback": {
 		"description": "Öffnet unsere GitHub-Issues-Seite, wo du Probleme melden und Feedback senden kannst."
 	},
-	"guidelines": {
-		"description": "Hier findest du den Link zum offiziellen Thread bezüglich der Hypixel-Übersetzungen."
-	},
 	"help": {
 		"description": "Zeigt alle verfügbaren Befehle und andere Informationen über den Bot."
-	},
-	"hypixel": {
-		"description": "Liefert dir nützliche Informationen über das Hypixel-Projekt."
 	},
 	"hypixelstats": {
 		"description": "Zeigt dir grundlegende Hypixel-Statistiken für den angegebenen Benutzer."
@@ -37,9 +30,6 @@
 	},
 	"hypixelverify": {
 		"description": "Verbindet deinen Discord Account mit deinem Minecraft-Account."
-	},
-	"invite": {
-		"description": "Gibt dir einen Einladungslink zum Server. Bitte benutze diesen, wenn du jemanden einladen möchtest."
 	},
 	"language": {
 		"description": "Ändert deine Sprache, zeigt deine aktuelle Sprache oder eine Liste der verfügbaren Sprachen an."
@@ -68,29 +58,17 @@
 	"projects": {
 		"description": "Gibt dir Links und Informationen zu allen Übersetzungsprojekten, die wir auf dem Server unterstützen."
 	},
-	"quickplay": {
-		"description": "Liefert dir nützliche Informationen über das Quickplay-Projekt."
-	},
 	"quote": {
 		"description": "Ruft (oder fügt hinzu) ein lustiges/seltsames/weises Zitat vom Server ab."
 	},
 	"rank": {
 		"description": "Gibt dir die aktuellen XP für dich selbst oder einen bestimmten Benutzer an."
 	},
-	"skyblockaddons": {
-		"description": "Liefert dir nützliche Informationen über das SkyblockAddons-Projekt."
-	},
-	"thread": {
-		"description": "Hier findest du den Link zu dem Thread, der diesen Discord-Server ankündigt."
-	},
-	"tip": {
-		"description": "Gibt dir einen zufälligen Tipp bezüglich des Servers."
+	"tag": {
+		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
 		"description": "Gibt dir nützliche Informationen, wie du den Bot übersetzen kannst."
-	},
-	"twitter": {
-		"description": "Gibt dir den Link zur offiziellen Hypixel Translators Community Twitter-Seite."
 	},
 	"verify": {
 		"description": "Überprüft automatisch auf Änderungen in deinem Crowdin-Profil und gibt dir die entsprechenden Rollen. Wenn dein Profil nicht in unserer Datenbank gespeichert ist, wirst du gebeten, dein Profil erneut zu senden. Um zu überprüfen, ob dein Profil gespeichert ist, führe `/profile` aus. Stelle sicher, dass DMs auf diesem Server aktiviert sind, damit der Bot dir eine Nachricht senden kann."

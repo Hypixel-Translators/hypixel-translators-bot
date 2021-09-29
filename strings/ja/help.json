@@ -5,7 +5,6 @@
 	"mainPage": "メインページ",
 	"utilityHelp": "ツール＆ユーティリティ",
 	"infoHelp": "情報コマンド",
-	"projectsHelp": "Crowdinプロジェクト",
 	"commandInfo": "コマンド情報",
 	"commandInfoFor": "コマンド情報：",
 	"staffOnly": "このコマンドはスタッフ専用のため、詳細は表示されません。\nこれがエラーと思われる場合は、スタッフにご連絡ください。",
@@ -20,14 +19,8 @@
 	"feedback": {
 		"description": "GitHubのIssueページを開きます。こちらで問題の報告とフィードバックの送信ができます。"
 	},
-	"guidelines": {
-		"description": "Hypixel翻訳に関する公式スレッドへのリンクを表示します。"
-	},
 	"help": {
 		"description": "利用可能なすべてのコマンドやボットに関するその他の情報を表示します。"
-	},
-	"hypixel": {
-		"description": "Hypixelプロジェクトに関する便利な情報を表示します。"
 	},
 	"hypixelstats": {
 		"description": "指定したユーザーのHypixelの基本統計を表示します。"
@@ -37,9 +30,6 @@
 	},
 	"hypixelverify": {
 		"description": "DiscordアカウントとMinecraftアカウントを関連付けます。"
-	},
-	"invite": {
-		"description": "サーバーへの招待リンクを表示します。誰かを招待したい時に使用してください。"
 	},
 	"language": {
 		"description": "言語の変更、現在の言語の表示、利用可能な言語の一覧を表示します。"
@@ -68,29 +58,17 @@
 	"projects": {
 		"description": "このサーバーが支援しているすべての翻訳プロジェクトのリンクと情報を表示します。"
 	},
-	"quickplay": {
-		"description": "Quickplayプロジェクトに関する便利な情報を表示します。"
-	},
 	"quote": {
 		"description": "サーバーから面白い/奇妙な/賢い引用を取得（または追加）します。"
 	},
 	"rank": {
 		"description": "自分自身、または指定したユーザーの現在のXPを表示します。"
 	},
-	"skyblockaddons": {
-		"description": "SkyblockAddonsプロジェクトに関する便利な情報を表示します。"
-	},
-	"thread": {
-		"description": "このDiscordサーバーの告知スレッドへのリンクを表示します。"
-	},
-	"tip": {
-		"description": "サーバーに関するランダムなヒントを表示します。"
+	"tag": {
+		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
 		"description": "ボットを翻訳する方法の便利な情報を表示します。"
-	},
-	"twitter": {
-		"description": "公式のHypixel翻訳者コミュニティTwitterページへのリンクを表示します。"
 	},
 	"verify": {
 		"description": "Crowdinプロフィールの変更を自動で確認し、適切なロールを付与します。あなたのプロフィールが我々のデータベース上に保存されていない場合は、コマンドの引数として指定できます。プロフィールが保存されているかの確認は`/profile`を実行してください。その際ボットからのメッセージを受信できるように、このサーバーからのDMが有効になっているかを確認してください。"

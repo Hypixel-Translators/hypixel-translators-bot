@@ -5,7 +5,6 @@
 	"mainPage": "主页面",
 	"utilityHelp": "实用工具",
 	"infoHelp": "信息命令",
-	"projectsHelp": "Crowdin 项目",
 	"commandInfo": "命令信息",
 	"commandInfoFor": "命令信息：",
 	"staffOnly": "此命令仅限管理员使用，因此有关信息不公开显示。\n如果你认为存在错误，请联系管理员。",
@@ -20,14 +19,8 @@
 	"feedback": {
 		"description": "打开我们的 GitHub 议题页面，你可以在此页面上报告问题或发送反馈。"
 	},
-	"guidelines": {
-		"description": "获取有关 Hypixel 翻译的官方帖子链接。"
-	},
 	"help": {
 		"description": "显示所有可用的命令以及关于机器人的其他信息。"
-	},
-	"hypixel": {
-		"description": "获取有关 Hypixel 项目的实用信息。"
 	},
 	"hypixelstats": {
 		"description": "显示所请求的用户的 Hypixel 数据。"
@@ -37,9 +30,6 @@
 	},
 	"hypixelverify": {
 		"description": "将你的 Discord 账号与 Minecraft 账号关联。"
-	},
-	"invite": {
-		"description": "获取此服务器的邀请链接。请在邀请其他人时使用此链接。"
 	},
 	"language": {
 		"description": "更改你的语言，显示你的当前语言或可用语言列表。"
@@ -68,29 +58,17 @@
 	"projects": {
 		"description": "获取我们所支持的所有翻译项目的链接和信息。"
 	},
-	"quickplay": {
-		"description": "获取有关 Quickplay 项目的实用信息。"
-	},
 	"quote": {
 		"description": "获取（或添加）一条此服务器上的有趣/神奇/明智的话语。"
 	},
 	"rank": {
 		"description": "显示你当前的经验或特定用户的经验。"
 	},
-	"skyblockaddons": {
-		"description": "获取有关 SkyblockAddons 项目的实用信息。"
-	},
-	"thread": {
-		"description": "Gives you the link to the thread announcing this Discord server."
-	},
-	"tip": {
-		"description": "Gives you a random tip regarding the server."
+	"tag": {
+		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
 		"description": "Gives you useful information on how to translate the Bot."
-	},
-	"twitter": {
-		"description": "Gives you the link to the official Hypixel Translators Community Twitter page."
 	},
 	"verify": {
 		"description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."

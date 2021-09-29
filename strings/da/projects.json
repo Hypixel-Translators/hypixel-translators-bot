@@ -4,6 +4,5 @@
 	"description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
 	"projectInfo": "Du kan finde linket til %%project%%-projektet [her](%%link%%). Skriv %%command%% for mere information.",
 	"alreadyJoined": "Du deltager allerede i dette projekt!",
-	"notJoined": "Du har endnu ikke tilmeldt dig dette projekt!",
-	"dmError": "Vi kunne ikke kontrollere, om du allerede er på disse projekter eller ej. For at gøre dette, skal du udføre kommandoen på The Hypixel Translators Community Discord."
+	"notJoined": "Du har endnu ikke tilmeldt dig dette projekt!"
 }

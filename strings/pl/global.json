@@ -45,7 +45,7 @@
 	"tip": "Wskazówka",
 	"tips": {
 		"ib": "Czy poznałeś/aś już język Inhale Banana? Wypróbuj go, używając polecenia %%langIb%%!",
-		"translators": "Potrzeba tłumaczy! Dowiedz się, jak zostać wziąć udział w tłumaczeniu bota, wykonując komendę %%translate%%.",
+		"translators": "Potrzeba tłumaczy! Dowiedz się, jak wziąć udział w tłumaczeniu bota, wykonując polecenie %%translate%%.",
 		"prefix": "Czy chcesz mieć fajny prefiks przed swoim nickiem? Wpisz %%prefix%% na %%bots%% i postępuj zgodnie z instrukcjami! Dostępne dla wszystkich tłumaczy Hypixel.",
 		"enen": "Don't forget to change your string links to en-en!",
 		"xp": "Otrzymujesz losową ilość PD za każdą minutę rozmowy, co ostatecznie sprawi, że osiągniesz wyższy poziom.",
@@ -55,7 +55,7 @@
 		"fixTranslation": "Znalazłeś/aś błąd w tłumaczeniu? Skontaktuj się z korektorem swojego języka lub poinformuj o tym innych na kanale tłumaczeniowym.",
 		"pinnedInfo": "Czy wiesz, że na większości kanałów najważniejsze informacje są przypięte? Powinieneś/powinnaś je sprawdzać za każdym razem, gdy odwiedzasz dany kanał!",
 		"hypixelStats": "Możesz sprawdzić statystyki gracza z Hypixela wpisując %%hypixelstats%%!",
-		"languageStats": "Czy wiesz, że możesz podejrzeć statystyki dla dowolnego języka we wszystkich naszych projektach? Wystarczy wykonać %%languagestats%%!",
+		"languageStats": "Czy wiesz, że możesz podejrzeć statystyki dowolnego języka we wszystkich naszych projektach? Wystarczy wykonać polecenie %%languagestats%%!",
 		"rolesChange": "Jeżeli otrzymałeś ostatnio nowe role na Crowdinie lub dołączyłeś do jednego ze wspieranych przez nas projektów, wykonaj polecenie %%verify%%. Polecenie to zauktualizuje Twoje role.",
 		"botTranslated": "Czy wiesz, że nasz bot jest dostępny w wielu językach? Wykonaj polecenie %%langList%%, by zobaczyć spis wszystkich języków, które są przez nas obecnie obsługiwane.",
 		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
