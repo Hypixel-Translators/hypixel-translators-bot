@@ -20,8 +20,7 @@ const command: Command = {
 		choices: [
 			{ name: "Main page", value: 0 },
 			{ name: "Tools & Utilities", value: 1 },
-			{ name: "Information commands", value: 2 },
-			{ name: "Crowdin Projects", value: 3 }
+			{ name: "Information commands", value: 2 }
 		],
 		required: false
 	}],
@@ -32,12 +31,11 @@ const command: Command = {
 		const randomTip = generateTip(getString)
 
 		// Define categories to get commands from and all pages
-		const categories = ["Utility", "Info", "Projects"],
+		const categories = ["Utility", "Info"],
 			pages = [
 				{ number: 0, badge: "🏠", titleString: "mainPage" },
 				{ number: 1, badge: "🛠️", titleString: "utilityHelp" },
-				{ number: 2, badge: "ℹ️", titleString: "infoHelp" },
-				{ number: 3, badge: "<:crowdin:878439498717999196>", titleString: "projectsHelp" }
+				{ number: 2, badge: "ℹ️", titleString: "infoHelp" }
 			] as Page[]
 
 		let pageIndex = 1
@@ -45,8 +43,8 @@ const command: Command = {
 			const categoryCommands: string[] = []
 			fs.readdirSync(`./src/commands/${category}/`).forEach(command => categoryCommands.push(command.split(".").shift()!))
 			categoryCommands.forEach(cmd => {
-				if (client.commands.get(cmd)!.dev) categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
-				else if (!client.commands.get(cmd)!.allowDM && (interaction.channel as Discord.TextChannel | Discord.DMChannel).type === "DM") categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
+				if (client.commands.get(cmd)!.dev && interaction.channelId !== "730042612647723058") categoryCommands.splice(categoryCommands.indexOf(cmd), 1) //bot-development
+				else if (!client.commands.get(cmd)!.allowDM && interaction.channel!.type === "DM") categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
 			})
 			pages[pageIndex].commands = categoryCommands
 			pageIndex++
@@ -79,14 +77,15 @@ const command: Command = {
 				.addComponents(
 					new Discord.MessageSelectMenu()
 						.setCustomId("page")
+						.addOptions(pages.map(p => {
+							return {
+								label: getString(p.titleString),
+								value: `${p.number}`,
+								emoji: p.badge,
+								default: p.number === page
+							}
+						}))
 				)
-
-			pages.forEach(p => (pageMenu.components[0] as Discord.MessageSelectMenu).addOptions({
-				label: getString(p.titleString),
-				value: `${p.number}`,
-				emoji: p.badge,
-				default: p.number === page
-			}))
 
 			const msg = await interaction.reply({ embeds: [pageEmbed], components: [pageMenu], fetchReply: true }) as Discord.Message,
 				collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
