@@ -12,7 +12,6 @@
 	},
 	"error": "Fejl",
 	"errors": {
-		"dmError": "Beklager, men du kan ikke udføre denne kommando i private beskeder.",
 		"noCommand": "Denne kommando findes ikke!",
 		"noUser": "Du har ikke angivet en bruger!",
 		"noLang": "Du har ikke angivet et sprog!",
