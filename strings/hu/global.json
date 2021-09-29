@@ -12,7 +12,6 @@
 	},
 	"error": "Hiba",
 	"errors": {
-		"dmError": "Ezt a parancsot nem tudod privát üzenetekben végrehajtani.",
 		"noCommand": "Ez a parancs nem létezik!",
 		"noUser": "Meg kell adnod egy felhasználót!",
 		"noLang": "Nincs megadva a nyelv!",
