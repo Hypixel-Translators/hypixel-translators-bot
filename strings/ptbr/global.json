@@ -12,7 +12,6 @@
 	},
 	"error": "Erro",
 	"errors": {
-		"dmError": "Você só pode usar este comando em mensagens privadas.",
 		"noCommand": "Esse comando não existe!",
 		"noUser": "Você não informou um usuário!",
 		"noLang": "Você não informou um idioma!",

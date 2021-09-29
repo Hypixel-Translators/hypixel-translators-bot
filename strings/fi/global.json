@@ -12,7 +12,6 @@
 	},
 	"error": "Virhe",
 	"errors": {
-		"dmError": "Valitettavasti sinulla ei ole käyttää tätä komentoa yksityisviesteissä.",
 		"noCommand": "Tätä komentoa ei ole olemassa!",
 		"noUser": "Et syöttänyt käyttäjää!",
 		"noLang": "Et syöttänyt kieltä!",

@@ -12,7 +12,6 @@
 	},
 	"error": "错误",
 	"errors": {
-		"dmError": "抱歉，你不能在私信中执行此命令。",
 		"noCommand": "That command doesn't exist!",
 		"noUser": "你尚未提供用户名！",
 		"noLang": "You didn't provide a language!",

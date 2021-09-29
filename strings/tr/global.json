@@ -12,7 +12,6 @@
 	},
 	"error": "Hata",
 	"errors": {
-		"dmError": "Üzgünüm, ama bu komutu özel mesajlarda yürütemezsin.",
 		"noCommand": "Böyle bir komut yok!",
 		"noUser": "Bir kullanıcı sağlamadın!",
 		"noLang": "Bir dil belirtmedin!",

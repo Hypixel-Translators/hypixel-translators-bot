@@ -12,7 +12,6 @@
 	},
 	"error": "Chyba",
 	"errors": {
-		"dmError": "Omlouváme se, ale tento příkaz nelze provést v soukromých zprávách.",
 		"noCommand": "Tento příkaz neexistuje!",
 		"noUser": "Nezadal jsi jméno uživatele!",
 		"noLang": "Neuvedl jsi jazyk!",

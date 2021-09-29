@@ -12,7 +12,6 @@
 	},
 	"error": "Feil",
 	"errors": {
-		"dmError": "Beklager, men du kan ikke utføre denne kommandoen i private meldinger.",
 		"noCommand": "Den kommandoen finnes ikke!",
 		"noUser": "Du har ikke oppgitt en bruker!",
 		"noLang": "You didn't provide a language!",

@@ -12,7 +12,6 @@
 	},
 	"error": "Fout",
 	"errors": {
-		"dmError": "Sorry, maar je kunt dit commando niet uitvoeren in privéberichten.",
 		"noCommand": "Dat commando bestaat niet!",
 		"noUser": "Je hebt geen gebruiker opgegeven!",
 		"noLang": "Je hebt geen taal opgegeven!",

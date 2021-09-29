@@ -12,7 +12,6 @@
 	},
 	"error": "Σφάλμα",
 	"errors": {
-		"dmError": "Συγνώμη, αλλά δεν μπορείς να εκτελέσεις αυτή την εντολή στα προσωπικά μηνύματα.",
 		"noCommand": "Αυτή η εντολή δεν υπάρχει!",
 		"noUser": "You didn't provide a user!",
 		"noLang": "You didn't provide a language!",

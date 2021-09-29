@@ -12,7 +12,6 @@
 	},
 	"error": "Error",
 	"errors": {
-		"dmError": "Lo sentimos, pero no puedes ejecutar este comando en mensajes privados.",
 		"noCommand": "¡Ese comando no existe!",
 		"noUser": "¡No has introducido ningún usuario!",
 		"noLang": "¡No proporcionaste un idioma!",
