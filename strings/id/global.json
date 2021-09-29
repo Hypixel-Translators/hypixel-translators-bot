@@ -12,7 +12,6 @@
 	},
 	"error": "Eror",
 	"errors": {
-		"dmError": "Maaf, tetapi anda tidak dapat jalankan perintah ini di pesan privat.",
 		"noCommand": "Perintah itu tidak ada!",
 		"noUser": "Anda tidak memberikan seorang pengguna!",
 		"noLang": "Anda tidak memberikan suatu bahasa!",
