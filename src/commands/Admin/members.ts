@@ -15,7 +15,8 @@ const command: Command = {
 	channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-development admin-bots
 	async execute(interaction) {
 		const role = interaction.options.getRole("role", true) as Discord.Role,
-			tags: Discord.GuildMember[] = []
+			tags: Discord.GuildMember[] = [],
+			member = interaction.member as Discord.GuildMember
 
 		role.members.forEach(member => tags.push(member))
 
@@ -75,16 +76,15 @@ const command: Command = {
 				await interaction.editReply({ content: `This menu has timed out. If you wish to use it again, execute \`/${this.name}\`.`, embeds: [pageEmbed], components: [controlButtons] })
 			})
 
-		} else {
-			await interaction.reply({ embeds: [updatePage(maxMembersArr[0])] })
-		}
+		} else await interaction.reply({ embeds: [updatePage(maxMembersArr[0])] })
+
 		function updatePage(membersArr: Discord.GuildMember[], page?: number) {
 			return new Discord.MessageEmbed()
 				.setColor(color)
 				.setAuthor("Members list")
 				.setTitle(`Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`)
 				.setDescription(membersArr.join(", "))
-				.setFooter(`${page !== undefined ? `Page ${page + 1}/${maxMembersArr.length}` : generateTip()}`, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(`${page !== undefined ? `Page ${page + 1}/${maxMembersArr.length}` : generateTip()}`, member.displayAvatarURL({ format: "png", dynamic: true }))
 		}
 	}
 }

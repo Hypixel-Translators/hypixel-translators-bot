@@ -42,7 +42,7 @@ const command: Command = {
 		let randomTip: string = generateTip(getString)
 		const collection = db.collection<DbUser>("users"),
 			stringsFolder = "./strings/",
-			member = interaction.member as Discord.GuildMember,
+			member = interaction.member as Discord.GuildMember | null,
 			subCommand = interaction.options.getSubcommand()
 		let language = interaction.options.getString("language", subCommand === "stats")?.toLowerCase()
 
@@ -50,7 +50,7 @@ const command: Command = {
 			const files = fs.readdirSync(stringsFolder),
 				langList: string[] = []
 			files.forEach(async (element, index, array) => {
-				if (element === "empty" && !member.roles.cache.has("764442984119795732")) return //Discord Administrator
+				if (element === "empty" && !member?.roles.cache.has("764442984119795732")) return //Discord Administrator
 				let languageString: string
 				if (element === "empty") languageString = "Empty"
 				else languageString = getString(element)
@@ -61,12 +61,12 @@ const command: Command = {
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("listTitle"))
 						.setDescription(langList.join("\n"))
-						.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 					await interaction.reply({ embeds: [embed] })
 				}
 			})
 		} else if (subCommand === "stats") {
-			if (!member.roles.cache.has("764442984119795732")) return await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
+			if (!member?.roles.cache.has("764442984119795732")) return await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
 			const files = fs.readdirSync(stringsFolder)
 			if (!files.includes(language!)) throw "falseLang"
 			const langUsers = await collection.find({ lang: language! }).toArray(),
@@ -76,7 +76,7 @@ const command: Command = {
 				.setColor(neutralColor as Discord.HexColorString)
 				.setAuthor("Language")
 				.setTitle(`There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`)
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			if (language !== "en") embed.setDescription(users.join(", "))
 			await interaction.reply({ embeds: [embed] })
 		}
@@ -85,7 +85,7 @@ const command: Command = {
 			const langdb = await db.collection<LangDbEntry>("langdb").find().toArray(),
 				langdbEntry = langdb.find(l => l.name.toLowerCase() === language)
 			if (langdbEntry) language = langdbEntry.code
-			if (language === "empty" && !member.roles.cache.has("764442984119795732")) language = "denied" //Discord Administrator
+			if (language === "empty" && !member?.roles.cache.has("764442984119795732")) language = "denied" //Discord Administrator
 			fs.access(`./strings/${language}/language.json`, fs.constants.F_OK, async (err) => {
 				if (!err) {
 					if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, language) || language === "en") {
@@ -97,7 +97,7 @@ const command: Command = {
 								.setAuthor(getString("moduleName", this.name, language))
 								.setTitle(getString("changedToTitle", this.name, language))
 								.setDescription(getString("credits", this.name, language))
-								.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+								.setFooter(randomTip, (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 							return await interaction.reply({ embeds: [embed] })
 						} else {
 							const embed = new Discord.MessageEmbed()
@@ -105,7 +105,7 @@ const command: Command = {
 								.setAuthor(getString("moduleName", this.name, language))
 								.setTitle(getString("didntChange", this.name, language))
 								.setDescription(getString("alreadyThis", this.name, language))
-								.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+								.setFooter(randomTip, (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 							return await interaction.reply({ embeds: [embed] })
 						}
 					} else {
@@ -114,19 +114,19 @@ const command: Command = {
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("didntChange"))
 							.setDescription(getString("notTranslated"))
-							.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(randomTip, (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 						return await interaction.reply({ embeds: [embed] })
 					}
 				} else {
 					await fs.readdir(stringsFolder, async (_err, files) => {
 						const emptyIndex = files.indexOf("empty")
-						if (emptyIndex > -1 && !member.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
+						if (emptyIndex > -1 && !member?.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
 						const embed = new Discord.MessageEmbed()
 							.setColor(errorColor as Discord.HexColorString)
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("errorTitle"))
 							.setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n${getString("suggestAdd")}`)
-							.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(randomTip, (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 						await interaction.reply({ embeds: [embed] })
 					})
 				}
@@ -134,13 +134,13 @@ const command: Command = {
 		} else {
 			const files = fs.readdirSync(stringsFolder),
 				emptyIndex = files.indexOf("empty")
-			if (emptyIndex > -1 && !member.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
+			if (emptyIndex > -1 && !member?.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
 			const embed = new Discord.MessageEmbed()
 				.setColor(neutralColor as Discord.HexColorString)
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("current"))
 				.setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n\n${getString("credits")}`)
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.reply({ embeds: [embed] })
 		}
 	}

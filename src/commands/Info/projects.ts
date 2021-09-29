@@ -36,7 +36,7 @@ const command: Command = {
 					{ name: "SkyblockAddons", value: `${getString("projectInfo", { project: "**SkyblockAddons**", link: "https://crowdin.com/project/skyblockaddons", command: "`/skyblockaddons`" })}\n${joinedSba}` },
 					{ name: "Hypixel Translators Bot", value: `${getString("projectInfo", { project: "**Hypixel Translators Bot**", link: "https://crowdin.com/project/hypixel-translators-bot", command: "`/bot`" })}\n${joinedBot}` }
 				)
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.reply({ embeds: [embed] })
 		} else {
 			const embed = new Discord.MessageEmbed()

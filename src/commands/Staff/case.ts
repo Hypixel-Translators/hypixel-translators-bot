@@ -17,7 +17,9 @@ const command: Command = {
 	async execute(interaction) {
 		const caseNumber = interaction.options.getInteger("case", true),
 			collection = db.collection<PunishmentLog>("punishments"),
-			modLog = await collection.findOne({ case: caseNumber })
+			modLog = await collection.findOne({ case: caseNumber }),
+			member = interaction.member as Discord.GuildMember
+
 		if (!modLog) throw `Couldn't find that case number! You must enter a number between 1 and ${await collection.estimatedDocumentCount()}`
 
 		const offender = interaction.guild!.members.cache.get(modLog.id) ?? await client.users.fetch(modLog.id),
@@ -26,7 +28,7 @@ const command: Command = {
 				.setAuthor("Punishment case")
 				.setTitle(`Here's case #${caseNumber}`)
 				.setDescription(`Offender: ${offender instanceof Discord.GuildMember ? offender : offender.tag}`)
-				.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
 		updateModlogFields(embed, modLog)
 		await interaction.reply({ embeds: [embed] })
 	}

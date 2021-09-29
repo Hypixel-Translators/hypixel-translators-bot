@@ -26,6 +26,7 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
+			member = interaction.member as Discord.GuildMember | null ?? interaction.user,
 			authorDb: DbUser = await client.getUser(interaction.user.id),
 			userInput = interaction.options.getUser("user", false),
 			usernameInput = interaction.options.getString("username", false)
@@ -131,7 +132,7 @@ const command: Command = {
 					{ name: online, value: last_seen, inline: true },
 					{ name: getString(playerJson.online ? "last_login" : "last_logout"), value: lastLogin, inline: true }
 				)
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			return statsEmbed
 		}
 
@@ -204,7 +205,7 @@ const command: Command = {
 					{ name: "Discord", value: discord!, inline: true },
 					{ name: "Hypixel Forums", value: forums, inline: true }
 				)
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			return socialEmbed
 		}
 
@@ -242,7 +243,7 @@ const command: Command = {
 						inline: true
 					}
 				)
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 
 			return embed
 		}

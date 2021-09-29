@@ -16,7 +16,8 @@ const command: Command = {
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
-		const randomTip = generateTip(getString),
+		const member = interaction.member as Discord.GuildMember | null ?? interaction.user,
+			randomTip = generateTip(getString),
 			keys = Object.keys(getString("answers")),
 			answerType = keys[keys.length * Math.random() << 0] as "positive" | "inconclusive" | "negative",
 			answers = getString(`answers.${answerType}`),
@@ -25,7 +26,7 @@ const command: Command = {
 				.setAuthor(getString("moduleName"))
 				.setTitle(answer)
 				.addField(getString("question"), interaction.options.getString("question", true))
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 		if (answerType === "positive") embed.setColor(successColor as Discord.HexColorString)
 		else if (answerType === "inconclusive") embed.setColor(loadingColor as Discord.HexColorString)
 		else if (answerType === "negative") embed.setColor(errorColor as Discord.HexColorString)

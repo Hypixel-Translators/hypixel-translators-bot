@@ -85,7 +85,8 @@ const command: Command = {
 	channelWhitelist: ["624881429834366986"], //staff-bots
 	roleWhitelist: ["768435276191891456"], //Discord Staff
 	async execute(interaction) {
-		const loaChannel = interaction.client.channels.cache.get("836748153122324481") as Discord.TextChannel,
+		const member = interaction.member as Discord.GuildMember,
+			loaChannel = interaction.client.channels.cache.get("836748153122324481") as Discord.TextChannel,
 			startDay = interaction.options.getInteger("startday", true),
 			startMonth = interaction.options.getInteger("startmonth", true),
 			startYear = interaction.options.getInteger("startyear", true),
@@ -115,7 +116,7 @@ const command: Command = {
 				{ name: "To", value: `${endDay}/${endMonth}/${endYear}` },
 				{ name: "Reason", value: reason }
 			)
-			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
 		if (extraInfo) embed.addField("Extra info", extraInfo)
 		const doneRow = new Discord.MessageActionRow()
 			.addComponents(

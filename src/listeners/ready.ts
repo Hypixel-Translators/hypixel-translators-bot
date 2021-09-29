@@ -93,7 +93,7 @@ client.once("ready", async () => {
 					user = await client.users.fetch(punishment.id)
 				const punishmentLog = new Discord.MessageEmbed()
 					.setColor(successColor as Discord.HexColorString)
-					.setAuthor(`Case ${caseNumber} | Unmute | ${user.tag}`, user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setAuthor(`Case ${caseNumber} | Unmute | ${user.tag}`, (member ?? user).displayAvatarURL({ format: "png", dynamic: true }))
 					.addFields([
 						{ name: "User", value: user.toString(), inline: true },
 						{ name: "Moderator", value: client.user!.toString(), inline: true },

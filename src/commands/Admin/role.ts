@@ -16,7 +16,8 @@ const command: Command = {
     async execute(interaction) {
         const role = interaction.options.getRole("role", true) as Discord.Role,
             createdAt = Math.round(role.createdTimestamp / 1000),
-            permissions = role.permissions.toArray()
+            permissions = role.permissions.toArray(),
+            member = interaction.member as Discord.GuildMember
 
         let tags: Discord.EmbedFieldData | null = null
         if (role.tags) {
@@ -46,7 +47,7 @@ const command: Command = {
 
                 { name: "Permissions", value: permissions.includes("ADMINISTRATOR") ? "ADMINISTRATOR" : permissions.join(", ") }
             )
-            .setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+            .setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
         if (tags) embed.spliceFields(5, 1, tags)
 
         await interaction.reply({ embeds: [embed] })

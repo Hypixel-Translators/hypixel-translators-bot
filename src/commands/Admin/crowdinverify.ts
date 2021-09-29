@@ -15,7 +15,8 @@ const command: Command = {
 	}],
 	roleWhitelist: ["764442984119795732"], //Discord Administrator
 	async execute(interaction) {
-		const limit = interaction.options.getInteger("limit", false) ?? undefined
+		const limit = interaction.options.getInteger("limit", false) ?? undefined,
+			member = interaction.member as Discord.GuildMember
 		await interaction.deferReply()
 		await crowdin(client, true, limit)
 		const embed = new Discord.MessageEmbed()
@@ -23,7 +24,7 @@ const command: Command = {
 			.setAuthor("Role updater")
 			.setTitle("All verified users had their roles updated!")
 			.setDescription("Check the console for any errors that may have occured in the process")
-			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.editReply({ embeds: [embed] })
 			.catch(async () => {
 				await interaction.channel!.send({ content: "The interaction expired, so here's the embed so you don't feel sad", embeds: [embed] })

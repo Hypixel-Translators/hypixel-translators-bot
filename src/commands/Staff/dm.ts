@@ -21,7 +21,8 @@ const command: Command = {
 	roleWhitelist: ["768435276191891456"], //Discord Staff
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
-		const recipient = interaction.options.getUser("user", true),
+		const member = interaction.member as Discord.GuildMember,
+			recipient = interaction.options.getUser("user", true),
 			recipientDb = await client.getUser(recipient.id),
 			message = interaction.options.getString("message", true).replaceAll("\\n", "\n"),
 			dm = new Discord.MessageEmbed()
@@ -37,7 +38,7 @@ const command: Command = {
 					.setAuthor("Direct Message")
 					.setTitle(`Sent message to ${recipient.tag}`)
 					.setDescription(message)
-					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				await interaction.editReply({ embeds: [embed] })
 			})
 			.catch(async error => {
@@ -46,7 +47,7 @@ const command: Command = {
 					.setAuthor("Direct Message")
 					.setTitle(`An error occured while trying to message ${recipient.tag}`)
 					.setDescription(error.toString())
-					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				await interaction.editReply({ embeds: [errorEmbed] })
 			})
 	}

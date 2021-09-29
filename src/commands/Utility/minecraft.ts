@@ -49,6 +49,7 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
+			member = interaction.member as Discord.GuildMember | null ?? interaction.user,
 			authorDb: DbUser = await client.getUser(interaction.user.id),
 			subCommand = interaction.options.getSubcommand(),
 			userInput = interaction.options.getUser("user", false),
@@ -153,7 +154,7 @@ const command: Command = {
 							pages.length == 1
 								? randomTip
 								: getString("pagination.page", { number: page + 1, total: pages.length }, "global"),
-							interaction.user.displayAvatarURL({ format: "png", dynamic: true })
+							member.displayAvatarURL({ format: "png", dynamic: true })
 						)
 				}
 
@@ -179,7 +180,7 @@ const command: Command = {
 						: getString("skin.userSkin", { user: (await getPlayer(uuid)).name }))
 					.setDescription(uuidDb && !isOwnUser ? getString("skin.isLinked", { user: `<@!${uuidDb.id}>` }) : "")
 					.setImage(`https://crafatar.com/renders/body/${uuid}?overlay`)
-					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				await interaction.editReply({ embeds: [skinEmbed] })
 				break
 		}

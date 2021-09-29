@@ -21,7 +21,8 @@ const command: Command = {
 	}],
 	roleWhitelist: ["764442984119795732"], //Discord Administrator
 	async execute(interaction) {
-		const projectInput = interaction.options.getString("project", false)
+		const projectInput = interaction.options.getString("project", false),
+			member = interaction.member as Discord.GuildMember
 		await interaction.deferReply()
 		if (!projectInput) {
 			await execute(client, true)
@@ -31,7 +32,7 @@ const command: Command = {
 						.setAuthor("Statistics updater")
 						.setTitle("All language statistics have been updated!")
 						.setDescription(`Check them out at ${interaction.guild!.channels.cache.find(c => c.name === "hypixel-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "bot-language-status")} and ${interaction.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`)
-						.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
 					await interaction.editReply({ embeds: [allEmbed] })
 				})
 				.catch(err => { throw err })
@@ -59,7 +60,7 @@ const command: Command = {
 				.setAuthor("Statistics updater")
 				.setTitle(`The ${projectInput} language statistics have been updated!`)
 				.setDescription(`Check it out at ${interaction.guild!.channels.cache.find(c => c.name === `${projectInput}-language-status`)}!`)
-				.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [projectEmbed] })
 			console.log(`Manually updated the ${projectInput} language statistics.`)
 		}

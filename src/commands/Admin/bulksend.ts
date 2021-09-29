@@ -29,7 +29,8 @@ const command: Command = {
 		required: false
 	}],
 	async execute(interaction) {
-		const sendTo = interaction.options.getChannel("channel", true) as Discord.TextChannel
+		const sendTo = interaction.options.getChannel("channel", true) as Discord.TextChannel,
+		member = interaction.member as Discord.GuildMember
 		if (!sendTo) throw "Couldn't resolve that channel!"
 		let amount = interaction.options.getInteger("amount", true)
 		await interaction.deferReply()
@@ -39,7 +40,7 @@ const command: Command = {
 			.setAuthor("Bulk Send")
 			.setTitle(`Success! Message${amount === 1 ? "" : "s"} sent!`)
 			.setDescription(`${sendTo}`)
-			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.editReply({ embeds: [embed] })
 		if (interaction.options.getBoolean("update", false)) {
 			const project = await db.collection<CrowdinProject>("crowdin").findOne({ shortName: sendTo.name.split("-")[0] })

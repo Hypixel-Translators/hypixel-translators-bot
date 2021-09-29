@@ -11,6 +11,7 @@ const command: Command = {
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
+			member = interaction.member as Discord.GuildMember | null ?? interaction.user,
 			ping = Date.now() - interaction.createdTimestamp,
 			onlineSince = Math.round(interaction.client.readyTimestamp! / 1000)
 
@@ -36,7 +37,7 @@ const command: Command = {
 					timestampRelative: `<t:${onlineSince}:R>`
 				})}`
 			)
-			.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
 	}
 }

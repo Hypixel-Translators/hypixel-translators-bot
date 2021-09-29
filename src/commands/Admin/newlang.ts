@@ -26,7 +26,8 @@ const command: Command = {
 		await interaction.deferReply()
 		const lang = interaction.options.getString("code", true).toLowerCase(),
 			code = interaction.options.getString("code", true).toUpperCase(),
-			langdbEntry = await db.collection<LangDbEntry>("langdb").findOne({ code: lang })
+			langdbEntry = await db.collection<LangDbEntry>("langdb").findOne({ code: lang }),
+			member = interaction.member as Discord.GuildMember
 		let nationality = country.demonym(code)
 		if (!nationality) throw "Couldn't find that country!"
 		let emoji = flag(lang)
@@ -129,7 +130,7 @@ const command: Command = {
 				{ name: "Voice Channels", value: `${translatorsVoice} and ${proofreadersVoice}` },
 				{ name: "Roles", value: `${translatorRole} and ${proofreaderRole}` }
 			)
-			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.editReply({ embeds: [embed] })
 	}
 }

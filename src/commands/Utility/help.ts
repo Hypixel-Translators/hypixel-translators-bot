@@ -28,7 +28,8 @@ const command: Command = {
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
-		const randomTip = generateTip(getString)
+		const randomTip = generateTip(getString),
+			member = interaction.member as Discord.GuildMember | null
 
 		// Define categories to get commands from and all pages
 		const categories = ["Utility", "Info"],
@@ -63,7 +64,7 @@ const command: Command = {
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${pages[0].badge} ${getString("mainPage")}`)
 				.setDescription(getString("commandsListTooltip", { developer: client.users.cache.get("240875059953139714")!.toString(), github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)" }))
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 			pages.forEach(page => {
 				if (page.number === 0) return
 				page1.addField(getString("pageNumber", { number: page.number, total: pages.length }), `${page.badge} ${getString(page.titleString)}`, true)
@@ -113,18 +114,18 @@ const command: Command = {
 			let cmdDesc: string | undefined = undefined
 			if (command.category !== "Admin" && command.category !== "Staff") {
 				cmdDesc = getString(`${command.name}.description`)
-			} else if (command.category === "Staff" && (interaction.member as Discord.GuildMember | null)?.roles.cache.has("768435276191891456") || command.category === "Admin" && (interaction.member as Discord.GuildMember | null)?.roles.cache.has("764442984119795732")) {
+			} else if (command.category === "Staff" && member?.roles.cache.has("768435276191891456") || command.category === "Admin" && member?.roles.cache.has("764442984119795732")) {
 				cmdDesc = command.description
 			}
 
-			if (command.dev && !(interaction.member as Discord.GuildMember | null)?.roles.cache.has("768435276191891456")) cmdDesc = getString("inDev") // Discord Staff
+			if (command.dev && !member?.roles.cache.has("768435276191891456")) cmdDesc = getString("inDev") // Discord Staff
 
 			const embed = new Discord.MessageEmbed()
 				.setColor("BLURPLE")
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("commandInfoFor") + `\`/${command.name}\``)
 				.setDescription(cmdDesc || getString("staffOnly"))
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 			if (cmdDesc !== getString("inDev")) {
 				if (command.cooldown) {
 					if (command.cooldown >= 120) embed.addField(getString("cooldownField"), `${command.cooldown / 60} ${getString("minutes")}`, true)
@@ -149,7 +150,10 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, ra
 				.setColor("BLURPLE")
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${pages[page].badge} ${getString(pages[page].titleString!)}`)
-				.setFooter(getString("pagination.page", { number: page + 1, total: pages.length }, "global"), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(
+					getString("pagination.page", { number: page + 1, total: pages.length }, "global"),
+					((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
+				)
 			pages[page].commands!.forEach(command => pageEmbed!.addField(`\`/${command}\``, getString(`${command}.description`)))
 		} else return console.error(`Help page ${page} has no embed fields specified!`)
 	} else return console.error(`Tried accessing help page ${page} but it doesn't exist in the pages array!`)

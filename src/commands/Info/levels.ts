@@ -20,10 +20,11 @@ const command: Command = {
 		required: false
 	}],
 	cooldown: 60,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev 
+	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
+			member = interaction.member as Discord.GuildMember | null ?? interaction.user,
 			collection = db.collection<DbUser>("users"),
 			allUsers = await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray(),
 			inputMe = interaction.options.getBoolean("me", false),
@@ -43,7 +44,7 @@ const command: Command = {
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("pageTitle"))
 				.setDescription(getString("pageNotExist"))
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			return await interaction.reply({ embeds: [embed] })
 		} else {
 			let controlButtons = new Discord.MessageActionRow()
@@ -109,7 +110,10 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 		.setColor(neutralColor as Discord.HexColorString)
 		.setAuthor(getString("moduleName"))
 		.setTitle(getString("pageTitle"))
-		.setFooter(getString("pagination.page", { number: page + 1, total: pages.length }, "global"), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+		.setFooter(
+			getString("pagination.page", { number: page + 1, total: pages.length }, "global"),
+			(interaction.member as Discord.GuildMember | null ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
+		)
 	for (let i = 0; i <= pages[page].length - 1; i++) {
 		// const user = interaction.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that
 		if (pages[page][i].levels) {

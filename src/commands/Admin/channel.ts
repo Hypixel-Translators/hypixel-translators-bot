@@ -21,7 +21,8 @@ const command: Command = {
 	}],
 	async execute(interaction) {
 		const channelInput = interaction.options.getString("channel", false),
-			randomTip = generateTip()
+			randomTip = generateTip(),
+			member = interaction.member as Discord.GuildMember
 		await interaction.deferReply()
 		if (channelInput === "info") {
 			await info(interaction)
@@ -30,7 +31,7 @@ const command: Command = {
 				.setAuthor("Channel updater")
 				.setTitle("Updated the information channel!")
 				.setDescription("Check it out at <#762341271611506708>!") //server-info
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [successEmbed] })
 		} else if (channelInput === "rules") {
 			await rules(interaction)
@@ -39,7 +40,7 @@ const command: Command = {
 				.setAuthor("Channel updater")
 				.setTitle("Updated the rules channel!")
 				.setDescription("Check it out at <#796159719617986610>!") //rules
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [successEmbed] })
 		} else if (channelInput === "verify") {
 			await verify(interaction)
@@ -48,7 +49,7 @@ const command: Command = {
 				.setAuthor("Channel updater")
 				.setTitle("Updated the verification channel!")
 				.setDescription("Check it out at <#569178590697095168>!") //verify
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [successEmbed] })
 		} else if (!channelInput) {
 			await info(interaction)
@@ -59,7 +60,7 @@ const command: Command = {
 				.setAuthor("Channel updater")
 				.setTitle("All channels have been updated!")
 				.setDescription("Check them out at <#762341271611506708>, <#796159719617986610> and <#569178590697095168>!") //server-info, rules and verify
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [successEmbed] })
 		}
 	}

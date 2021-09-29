@@ -17,6 +17,7 @@ const command: Command = {
 	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
+			member = interaction.member as Discord.GuildMember,
 			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
 			collection = db.collection<DbUser>("users")
 
@@ -28,7 +29,7 @@ const command: Command = {
 					.setColor(successColor as Discord.HexColorString)
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Successfully unverified ${memberInput.user.tag}`)
-					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new Discord.MessageEmbed()
@@ -36,7 +37,7 @@ const command: Command = {
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Couldn't unverify ${memberInput.user.tag}!`)
 					.setDescription("This happened because this user isn't verified yet.")
-					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
 		} else {
@@ -48,7 +49,7 @@ const command: Command = {
 					.setColor(successColor as Discord.HexColorString)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("unverified"))
-					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new Discord.MessageEmbed()
@@ -56,7 +57,7 @@ const command: Command = {
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("notUnverified"))
 					.setDescription(getString("whyNotUnverified"))
-					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
 		}

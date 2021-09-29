@@ -9,11 +9,12 @@ const command: Command = {
 	roleWhitelist: ["764442984119795732"], //Discord Administrator
 	channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-dev admin-bots
 	async execute(interaction) {
-		const embed = new Discord.MessageEmbed()
-			.setColor(successColor as Discord.HexColorString)
-			.setAuthor("Restart")
-			.setTitle("Restarting...")
-			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+		const member = interaction.member as Discord.GuildMember,
+			embed = new Discord.MessageEmbed()
+				.setColor(successColor as Discord.HexColorString)
+				.setAuthor("Restart")
+				.setTitle("Restarting...")
+				.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
 		interaction.client.user!.setStatus("invisible")
 		setTimeout(async () => {

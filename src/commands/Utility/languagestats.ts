@@ -20,6 +20,7 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
+			member = interaction.member as Discord.GuildMember,
 			authorDb = await client.getUser(interaction.user.id)
 		let rawLang = interaction.options.getString("language", false)?.toLowerCase()
 		if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !rawLang) rawLang = authorDb.lang
@@ -58,14 +59,13 @@ const command: Command = {
 		else if (approvalProgress >= 50) adapColour = loadingColor as Discord.HexColorString
 		else adapColour = errorColor as Discord.HexColorString
 
-
 		const embed = new Discord.MessageEmbed()
 			.setColor(adapColour)
 			.setThumbnail(lang.flag)
 			.setAuthor(getString("moduleName"))
 			.setTitle(`${lang.emoji} | ${getString(`languages.${lang.code}`)}`)
 			.setDescription(`${getString("statsAll", { language: getString(`languages.${lang.code}`) })}`)
-			.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 		if (hypixelData)
 			embed.addField(
 				"Hypixel",

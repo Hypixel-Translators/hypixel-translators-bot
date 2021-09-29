@@ -16,7 +16,8 @@ const command: Command = {
 	roleWhitelist: ["768435276191891456"], //Discord Staff
 	channelWhitelist: ["624881429834366986", "551693960913879071"], //staff-bots admin-bots
 	async execute(interaction) {
-		const userInput = interaction.options.getUser("user", true),
+		const member = interaction.member as Discord.GuildMember,
+			userInput = interaction.options.getUser("user", true),
 			modlogs = await db.collection<PunishmentLog>("punishments").find({ id: userInput.id }, { sort: { timestamp: -1 } }).toArray(),
 			randomTip = generateTip()
 
@@ -25,7 +26,7 @@ const command: Command = {
 				.setColor("BLURPLE")
 				.setAuthor("Modlogs")
 				.setTitle(`Couldn't find any modlogs for ${userInput.tag}`)
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.reply({ embeds: [embed] })
 		} else if (modlogs.length === 1) {
 			const embed = new Discord.MessageEmbed()
@@ -33,7 +34,7 @@ const command: Command = {
 				.setAuthor("Log message", "", `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}`)
 				.setTitle(`Found 1 modlog for ${userInput.tag}`)
 				.setDescription(`Case #${modlogs[0].case}`)
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			updateModlogFields(embed, modlogs[0])
 			await interaction.reply({ embeds: [embed] })
 		} else {
@@ -42,7 +43,7 @@ const command: Command = {
 				.setAuthor("Log message", "", `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}`)
 				.setTitle(`Found ${modlogs.length} modlogs for ${userInput.tag}`)
 				.setDescription(`Case #${modlogs[0].case}`)
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true })),
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true })),
 				controlButtons = new Discord.MessageActionRow()
 					.addComponents(
 						new Discord.MessageButton()

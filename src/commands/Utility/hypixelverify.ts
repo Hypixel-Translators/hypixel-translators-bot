@@ -25,6 +25,7 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
+			member = interaction.member as Discord.GuildMember,
 			uuid = await getUUID(interaction.options.getString("username", true)),
 			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
 			collection = db.collection<DbUser>("users")
@@ -57,7 +58,7 @@ const command: Command = {
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("success", { player: json.username }))
 					.setDescription(getString("role", { role: role.toString() }))
-					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.editReply({ embeds: [successEmbed] })
 			} else {
 				const notChanged = new Discord.MessageEmbed()
@@ -65,7 +66,7 @@ const command: Command = {
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("alreadyVerified"))
 					.setDescription(getString("nameChangeDisclaimer"))
-					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.editReply({ embeds: [notChanged] })
 			}
 		} else if (memberInput && (interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732")) { //Discord Administrator
@@ -77,7 +78,7 @@ const command: Command = {
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Successfully verified ${memberInput.user.tag} as ${json.username}`)
 					.setDescription(`They were given the ${role} role due to their rank on the server.`)
-					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				if (json.links?.DISCORD !== memberInput.user.tag)
 					successEmbed.setDescription("⚠ This player's Discord is different from their user tag! I hope you know what you're doing.")
 				return await interaction.editReply({ embeds: [successEmbed] })
@@ -86,7 +87,7 @@ const command: Command = {
 					.setColor(errorColor as Discord.HexColorString)
 					.setAuthor("Hypixel Verification")
 					.setTitle("This user is already verified")
-					.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.editReply({ embeds: [notChanged] })
 			}
 		} else {
@@ -96,7 +97,7 @@ const command: Command = {
 				.setTitle(getString("error"))
 				.setDescription(getString("tutorial", { tag: interaction.user.tag }))
 				.setImage("https://i.imgur.com/JSeAHdG.gif")
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [errorEmbed] })
 		}
 	},

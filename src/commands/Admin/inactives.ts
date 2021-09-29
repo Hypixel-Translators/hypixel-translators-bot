@@ -9,12 +9,14 @@ const command: Command = {
 	description: "Checks for inactive unverified members (if applicable).",
 	roleWhitelist: ["764442984119795732"], //Discord Administrator
 	async execute(interaction) {
+		const member = interaction.member as Discord.GuildMember
+
 		await inactives(client, true)
 		const embed = new Discord.MessageEmbed()
 			.setColor(successColor as Discord.HexColorString)
 			.setAuthor("Inactive checker")
 			.setTitle("All inactive members have been notified!")
-			.setFooter(generateTip(), interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
 	}
 }

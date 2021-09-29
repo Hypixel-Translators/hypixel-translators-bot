@@ -108,7 +108,7 @@ client.on("interactionCreate", async interaction => {
 				.setColor(errorColor as Discord.HexColorString)
 				.setAuthor(getString("cooldown", "global"))
 				.setTitle(timeLeftS)
-				.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			return await interaction.reply({ embeds: [embed], ephemeral: true })
 		}
 	}
@@ -215,7 +215,7 @@ client.on("interactionCreate", async interaction => {
 			.setColor(errorColor as Discord.HexColorString)
 			.setAuthor(getString("error", "global"))
 			.setTitle(error.message?.substring(0, 255) || error.toString().substring(0, 255))
-			.setFooter(randomTip, interaction.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 
 		//Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first
 		if (interaction.deferred) {
