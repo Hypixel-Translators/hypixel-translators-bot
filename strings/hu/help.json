@@ -5,7 +5,6 @@
 	"mainPage": "Főoldal",
 	"utilityHelp": "Eszközök",
 	"infoHelp": "Információs parancsok",
-	"projectsHelp": "Crowdin Projects",
 	"commandInfo": "Parancs információ",
 	"commandInfoFor": "Parancs információ ehhez: ",
 	"staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
@@ -20,14 +19,8 @@
 	"feedback": {
 		"description": "Megnyitja a GitHub oldalunkat, ahol hibákat jelenthetsz és visszajelzést adhatsz."
 	},
-	"guidelines": {
-		"description": "Linket ad a hivatalos Hypixel fordításáról szóló poszthoz."
-	},
 	"help": {
 		"description": "Megmutatja az összes elérhető parancsot és információkat ad a robotról."
-	},
-	"hypixel": {
-		"description": "Hasznos információt ad a Hypixel projektről."
 	},
 	"hypixelstats": {
 		"description": "Shows you basic Hypixel stats for the provided user."
@@ -37,9 +30,6 @@
 	},
 	"hypixelverify": {
 		"description": "Links your Discord account with your Minecraft account."
-	},
-	"invite": {
-		"description": "Ad egy meghívót a szerverre. Kérlek ezt használd, ha meg szeretnél hívni valakit."
 	},
 	"language": {
 		"description": "Megváltoztatja a nyelved, megmutatja a mostanit, vagy ad egy listát az elérhető nyelvekről."
@@ -68,29 +58,17 @@
 	"projects": {
 		"description": "Gives you links and information about all the translation projects we support on the server."
 	},
-	"quickplay": {
-		"description": "Hasznos információt ad a Quickplay projektről."
-	},
 	"quote": {
 		"description": "Szerez (vagy hozz létre) egy vicces/fura/bölcs idézetet a szerverből."
 	},
 	"rank": {
 		"description": "Gives you the current XP for yourself or any given user."
 	},
-	"skyblockaddons": {
-		"description": "Hasznos információt ad a SkyblockAddons projektről."
-	},
-	"thread": {
-		"description": "Linket ad a Discordot bejelentő poszthoz."
-	},
-	"tip": {
-		"description": "Egy random tippet ad a szerverrel kapcsolatban."
+	"tag": {
+		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
 		"description": "Gives you useful information on how to translate the Bot."
-	},
-	"twitter": {
-		"description": "Megadja a linket a hivatalos Hypixel Translators Community Twitter oldalához."
 	},
 	"verify": {
 		"description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
