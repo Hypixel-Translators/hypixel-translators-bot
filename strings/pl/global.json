@@ -12,7 +12,6 @@
 	},
 	"error": "Błąd",
 	"errors": {
-		"dmError": "Przepraszamy, ale nie możesz wykonać tego polecenia w wiadomości prywatnej.",
 		"noCommand": "To polecenie nie istnieje!",
 		"noUser": "Nie określono użytkownika!",
 		"noLang": "Nie podano języka!",
