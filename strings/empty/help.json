@@ -5,7 +5,6 @@
 	"mainPage": "crwdns1451:0crwdne1451:0",
 	"utilityHelp": "crwdns556:0crwdne556:0",
 	"infoHelp": "crwdns558:0crwdne558:0",
-	"projectsHelp": "crwdns1264:0crwdne1264:0",
 	"commandInfo": "crwdns564:0crwdne564:0",
 	"commandInfoFor": "crwdns566:0crwdne566:0",
 	"staffOnly": "crwdns570:0crwdne570:0",
@@ -20,14 +19,8 @@
 	"feedback": {
 		"description": "crwdns1402:0crwdne1402:0"
 	},
-	"guidelines": {
-		"description": "crwdns632:0crwdne632:0"
-	},
 	"help": {
 		"description": "crwdns588:0crwdne588:0"
-	},
-	"hypixel": {
-		"description": "crwdns636:0crwdne636:0"
 	},
 	"hypixelstats": {
 		"description": "crwdns620:0crwdne620:0"
@@ -37,9 +30,6 @@
 	},
 	"hypixelverify": {
 		"description": "crwdns1184:0crwdne1184:0"
-	},
-	"invite": {
-		"description": "crwdns628:0crwdne628:0"
 	},
 	"language": {
 		"description": "crwdns612:0crwdne612:0"
@@ -68,29 +58,17 @@
 	"projects": {
 		"description": "crwdns858:0crwdne858:0"
 	},
-	"quickplay": {
-		"description": "crwdns640:0crwdne640:0"
-	},
 	"quote": {
 		"description": "crwdns596:0crwdne596:0"
 	},
 	"rank": {
 		"description": "crwdns1302:0crwdne1302:0"
 	},
-	"skyblockaddons": {
-		"description": "crwdns644:0crwdne644:0"
-	},
-	"thread": {
-		"description": "crwdns652:0crwdne652:0"
-	},
-	"tip": {
-		"description": "crwdns624:0crwdne624:0"
+	"tag": {
+		"description": "crwdns2329:0crwdne2329:0"
 	},
 	"translate": {
 		"description": "crwdns648:0crwdne648:0"
-	},
-	"twitter": {
-		"description": "crwdns656:0crwdne656:0"
 	},
 	"verify": {
 		"description": "crwdns1244:0crwdne1244:0"
