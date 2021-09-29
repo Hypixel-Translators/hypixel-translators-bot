@@ -12,7 +12,6 @@
 	},
 	"error": "Fehler",
 	"errors": {
-		"dmError": "Entschuldigung, du kannst diesen Befehl nicht in private Nachrichten ausführen.",
 		"noCommand": "Dieser Befehl existiert nicht!",
 		"noUser": "Du hast keine Nachricht angegeben!",
 		"noLang": "Du hast keine Sprache angegeben!",
