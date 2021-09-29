@@ -12,7 +12,6 @@
 	},
 	"error": "Mesgag but not gud",
 	"errors": {
-		"dmError": "U cant do dis in dms, idot.",
 		"noCommand": "Dat acomand existn't!",
 		"noUser": "Providd not uzer!",
 		"noLang": "Providd not langag!",
