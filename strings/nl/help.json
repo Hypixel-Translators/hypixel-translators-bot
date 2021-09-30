@@ -65,7 +65,7 @@
 		"description": "Geeft je jouw hoeveelheid XP of die van een andere gebruiker."
 	},
 	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
+		"description": "Stuurt een bericht, met de mogelijkheid om een specifiek lid te vermelden bij het verzenden."
 	},
 	"translate": {
 		"description": "Geeft je handige tips over het vertalen van de bot."
