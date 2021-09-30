@@ -2,7 +2,7 @@
 	"moduleName": "Статистика игрока",
 	"statsDesc": "Вот некоторые данные статистики Hypixel игрока %%username%%; получено [отсюда]%%link%%.",
 	"socialMedia": "Вот связанные социальные сети игрока %%username%%; получено [отсюда]%%link%%.",
-	"guildDesc": "Here is some info about %%player%%'s guild, %%guildName%%, obtained [here]%%link%%",
+	"guildDesc": "Вот некоторая информация о гильдии «%%guildName%%» игрока %%player%%; получено [отсюда]%%link%%",
 	"guildDescHypixel": "Описание гильдии",
 	"noGuildDesc": "У гильдии нет описания!",
 	"userVerified": "Этот игрок подтвержден как %%user%%.",
