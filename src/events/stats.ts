@@ -3,7 +3,7 @@ import Discord from "discord.js"
 import axios from "axios"
 import type { HTBClient } from "../lib/dbclient"
 import { db } from "../lib/dbclient"
-import { crowdinFetchSettings, CrowdinProject, LangDbEntry, LanguageStatus } from "../lib/util"
+import { crowdinFetchSettings, CrowdinProject, LangDbEntry, LanguageStatus, Stats } from "../lib/util"
 
 export async function execute(client: HTBClient, manual: boolean): Promise<void> {
 	const m = new Date().getUTCMinutes()
@@ -73,6 +73,7 @@ export async function updateProjectStatus(client: Discord.Client, projectId: str
 		else if (stringCount > langStatus[0].data.phrases.total)
 			await translatorsChannel.send(`> <:vote_no:839262184882044931> **${stringDiff == 1 ? "String" : "Strings"} Removed**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`)
 		await crowdinDb.updateOne({ id: projectDb.id }, { $set: { stringCount: langStatus[0].data.phrases.total } })
+		await db.collection<Stats>("stats").insertOne({ type: "STRINGS", name: projectDb.identifier, value: stringDiff })
 	}
 }
 

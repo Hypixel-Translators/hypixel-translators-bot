@@ -2,7 +2,7 @@ import Discord from "discord.js"
 import { successColor, loadingColor, errorColor } from "../config.json"
 import { client } from "../index"
 import { db, cancelledEvents } from "../lib/dbclient"
-import type { EventDb, Quote } from "../lib/util"
+import type { EventDb, Quote, Stats } from "../lib/util"
 
 client.on("messageReactionAdd", async (reaction, user) => {
 	if (!db) {
@@ -10,7 +10,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
 		return
 	}
 
-	const channel = reaction.message.channel
+	const channel = reaction.message.channel,
+		statsColl = db.collection<Stats>("stats")
 	if (channel instanceof Discord.ThreadChannel || channel.type === "DM" || user.bot) return
 	if (reaction.partial) reaction = await reaction.fetch()
 	if (reaction.message.partial) reaction.message = await reaction.message.fetch()
@@ -32,6 +33,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 					if ((await reaction.users.fetch()).has(user.id)) {
 						if (reaction.message.thread) await reaction.message.thread.setLocked(true, "String reviewed")
 						if (!reaction.message.deleted) await reaction.message.delete()
+						await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "APPROVED" })
 						console.log(`String reviewed in ${channel.name}`)
 					} else await reaction.message.reactions.cache.get("⏱")?.remove()
 				}, 10_000)
@@ -52,6 +54,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 						reason: `${user.tag} requested more details`
 					})
 				await thread.send({ content: `${user}`, embeds: [embed] })
+				await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "MORE_INFO" })
 			} else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {
 				await reaction.message.react("⏱")
 				const embed = new Discord.MessageEmbed()
@@ -73,6 +76,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 							})
 						await thread.send({ content: `${reaction.message.author}, ${user}`, embeds: [embed] })
 						if (!reaction.message.deleted) await reaction.message.delete()
+						await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "DENIED" })
 						console.log(`String rejected in ${channel.name}`)
 					} else await reaction.message.reactions.cache.get("⏱")?.remove()
 				}, 10_000)

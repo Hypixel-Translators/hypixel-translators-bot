@@ -3,7 +3,7 @@ import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import Discord from "discord.js"
 import { errorColor } from "../config.json"
 import fs from "fs"
-import { arrayEqual, generateTip } from "../lib/util"
+import { arrayEqual, generateTip, Stats } from "../lib/util"
 
 client.on("interactionCreate", async interaction => {
 	if (!db) {
@@ -14,7 +14,8 @@ client.on("interactionCreate", async interaction => {
 	let command: Command | null = null
 	const author: DbUser = await client.getUser(interaction.user.id),
 		member = interaction.client.guilds.cache.get("549503328472530974")?.members.cache.get(interaction.user.id)!,
-		randomTip = generateTip(getString)
+		randomTip = generateTip(getString),
+		statsColl = db.collection<Stats>("stats")
 	if (interaction.isButton() && !interaction.user.bot) {
 		// Staff LOA warning removal system
 		if (interaction.channelId === "836748153122324481" && interaction.customId == "done") {
@@ -85,6 +86,7 @@ client.on("interactionCreate", async interaction => {
 	//Give perm to admins and return if not allowed
 	if (member.roles.cache.has("764442984119795732")) allowed = true //Discord Administrator
 	if (!allowed) {
+		await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: "noAccess" })
 		await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
 		return
 	}
@@ -97,18 +99,23 @@ client.on("interactionCreate", async interaction => {
 	if (timestamps.has(interaction.user.id) && interaction.channelId !== "730042612647723058") { //bot-development
 		const expirationTime = timestamps.get(interaction.user.id)! + cooldownAmount
 		if (now < expirationTime) {
-			const timeLeft = (expirationTime - now) / 1000
-			let timeLeftS: string
-			if (Math.ceil(timeLeft) >= 120)
-				timeLeftS = getString("minsLeftT", { time: Math.ceil(timeLeft / 60), command: `/${interaction.commandName}` }, "global")
-			else if (Math.ceil(timeLeft) === 1) timeLeftS = getString("secondLeft", { command: `/${interaction.commandName}` }, "global")
-			else timeLeftS = getString("timeLeftT", { time: Math.ceil(timeLeft), command: `/${interaction.commandName}` }, "global")
+			await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: "cooldown" })
 
-			const embed = new Discord.MessageEmbed()
-				.setColor(errorColor as Discord.HexColorString)
-				.setAuthor(getString("cooldown", "global"))
-				.setTitle(timeLeftS)
-				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+			const timeLeft = Math.ceil((expirationTime - now) / 1000),
+				embed = new Discord.MessageEmbed()
+					.setColor(errorColor as Discord.HexColorString)
+					.setAuthor(getString("cooldown", "global"))
+					.setTitle(
+						getString(
+							timeLeft >= 120 ? "minsLeftT" : timeLeft === 1 ? "secondLeft" : "timeLeftT",
+							{
+								time: timeLeft >= 120 ? Math.ceil(timeLeft / 60) : timeLeft,
+								command: `/${interaction.commandName}`
+							},
+							"global"
+						)
+					)
+					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			return await interaction.reply({ embeds: [embed], ephemeral: true })
 		}
 	}
@@ -186,7 +193,13 @@ client.on("interactionCreate", async interaction => {
 	try {
 		// Run the command
 		await command.execute(interaction, getString)
+
+		//Store usage stats
+		await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id })
 	} catch (error) {
+		//Store usage stats
+		await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: `${error}` })
+
 		if (!error.stack) error = getString(`errors.${error}`, "global") || error
 
 		// Send error to bot-dev channel

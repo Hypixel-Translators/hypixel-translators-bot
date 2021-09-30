@@ -391,3 +391,12 @@ export interface PunishmentLog {
 }
 
 export type PunishmentPoints = 1 | 2 | 3 | 4 | 5 | 6
+
+export interface Stats {
+	type: "COMMAND" | "MESSAGE" | "STRINGS" | "VERIFY"
+	name: string
+	user?: Discord.Snowflake
+	value?: number
+	error?: boolean
+	errorMessage?: string
+}

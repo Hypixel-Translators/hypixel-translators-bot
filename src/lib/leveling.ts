@@ -1,7 +1,7 @@
 import { db, DbUser } from "./dbclient"
 import Discord from "discord.js"
 import { client } from "../index"
-import { getXpNeeded } from "./util"
+import { getXpNeeded, Stats } from "./util"
 const talkedRecently: Discord.Collection<Discord.Snowflake, number> = new Discord.Collection()
 
 export async function leveling(message: Discord.Message) {
@@ -18,8 +18,11 @@ export async function leveling(message: Discord.Message) {
 		if (isNaN(xpNeeded)) await collection.updateOne({ id: message.author.id }, { $inc: { "levels.level": 0, "levels.levelXp": 0, "levels.totalXp": 0, "levels.messageCount": 0 } })
 		//if user levels up
 		if (xpNeeded <= 0) {
-			const result = await collection.findOneAndUpdate({ id: message.author.id }, { $inc: { "levels.level": 1, "levels.totalXp": randomXp, "levels.messageCount": 1 }, $set: { "levels.levelXp": (-xpNeeded || 0) } })
-			await message.reply(`GG ${message.author}, you just advanced to level ${(result.value!.levels?.level ?? 0) + 1}! 🎉`)
+			const result = await collection.findOneAndUpdate({ id: message.author.id }, { $inc: { "levels.level": 1, "levels.totalXp": randomXp, "levels.messageCount": 1 }, $set: { "levels.levelXp": (-xpNeeded || 0) } }),
+				newLvl = (result.value!.levels?.level ?? 0) + 1
+
+			await message.reply(`GG ${message.author}, you just advanced to level ${newLvl}! 🎉`)
+			await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: `lvlUp`, value: newLvl, user: message.author.id })
 		} else await collection.updateOne({ id: message.author.id }, { $inc: { "levels.totalXp": randomXp, "levels.levelXp": randomXp, "levels.messageCount": 1 } })
 		talkedRecently.set(message.author.id, now)
 		return xpNeeded <= 0

@@ -6,7 +6,7 @@ import { crowdinVerify } from "../lib/crowdinverify"
 import { leveling } from "../lib/leveling"
 import { errorColor, successColor, neutralColor } from "../config.json"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
-import { arrayEqual } from "../lib/util"
+import { arrayEqual, Stats } from "../lib/util"
 
 client.on("messageCreate", async message => {
 	if (!db) {
@@ -85,16 +85,19 @@ client.on("messageCreate", async message => {
 					.setTitle(getGlobalString("wrongStringURL"))
 					.setDescription(getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }))
 					.setImage("https://i.imgur.com/eDZ8u9f.png")
-				if (message.content !== langFix && message.channel.parentId === "549503328472530977")
+				if (message.content !== langFix && message.channel.parentId === "549503328472530977") {
 					embed.setDescription(
 						`${getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" })}\n${getGlobalString("reminderLang", {
 							format: "`crowdin.com/translate/.../.../en-en#`"
 						})}`
 					)
+					await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "wrongBadLink", user: message.author.id })
+				} else await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "wrongLink", user: message.author.id })
 				await message.reply({ embeds: [embed] })
 				return
 			} else if (message.content !== langFix && message.channel.parentId === "549503328472530977") {
 				await message.react("vote_no:839262184882044931")
+				await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "badLink", user: message.author.id })
 				const correctLink = langFix.match(stringURLRegex)![0],
 					embed = new Discord.MessageEmbed()
 						.setColor(errorColor as Discord.HexColorString)
