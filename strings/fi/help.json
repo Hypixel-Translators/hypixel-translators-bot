@@ -65,7 +65,7 @@
 		"description": "Kertoo oman tai haluamasi käyttäjän tämänhetkisen XP-määrän."
 	},
 	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
+		"description": "Lähettää ilmoituksen haluamallesi käyttäjälle esiasetetulla viestillä."
 	},
 	"translate": {
 		"description": "Antaa sinulle hyödyllistä tietoa Botin kääntämisestä."

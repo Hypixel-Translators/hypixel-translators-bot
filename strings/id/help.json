@@ -65,7 +65,7 @@
 		"description": "Memberikan anda angka XP anda atau orang lain."
 	},
 	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
+		"description": "Mengirimkan pesan yang telah tersedia, juga memperbolehkan anda untuk memberitahukan seorang member saat mengirimkannya."
 	},
 	"translate": {
 		"description": "Memberikan anda informasi yang berguna mengenai cara menerjemahkan Bot."

@@ -65,7 +65,7 @@
 		"description": "Senin veya herhangi bir kullanıcının mevcut deneyim puanını gösterir."
 	},
 	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
+		"description": "Gönderirken belirli bir üyeyi bilgilendirmenize izin veren önceden ayarlanmış bir mesaj gönderir."
 	},
 	"translate": {
 		"description": "Botun nasıl çevrileceği hakkında size yararlı bilgiler verir."
