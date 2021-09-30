@@ -7,7 +7,7 @@
 	"errorTitle": "Ten język nie został jeszcze dodany!",
 	"errorDescription": "Twój język nie został zmieniony. Obecnie dostępne są te oto języki (nie oznacza to jednak, że ich tłumaczenia są gotowe):",
 	"suggestAdd": "Jeśli chcesz, aby ten język został dodany do bota, skontaktuj się z członkiem administracji.",
-	"current": "Your language preference is set to English.",
+	"current": "Twoje ustawienia językowe są ustawione na język polski.",
 	"listTitle": "Spis języków",
 	"listElement": "`%%code%%` | **%%language%%**",
 	"credits": "Znalazłeś/aś błąd? Zgłoś go, używając `/feedback`.",
