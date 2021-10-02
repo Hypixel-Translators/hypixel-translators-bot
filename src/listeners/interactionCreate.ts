@@ -2,7 +2,7 @@ import { client, Command } from "../index"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import Discord from "discord.js"
 import { errorColor } from "../config.json"
-import fs from "fs"
+import fs from "node:fs"
 import { arrayEqual, generateTip, Stats } from "../lib/util"
 
 client.on("interactionCreate", async interaction => {

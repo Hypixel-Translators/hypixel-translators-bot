@@ -1,6 +1,6 @@
 import { errorColor, successColor, neutralColor } from "../../config.json"
 import Discord from "discord.js"
-import fs from "fs"
+import fs from "node:fs"
 import { db, DbUser } from "../../lib/dbclient"
 import type { Command, GetStringFunction } from "../../index"
 import { generateTip, LangDbEntry } from "../../lib/util"

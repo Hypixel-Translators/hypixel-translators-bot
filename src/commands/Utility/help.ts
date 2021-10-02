@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import fs from "fs"
+import fs from "node:fs"
 import { Command, client, GetStringFunction } from "../../index"
 import type { DbUser } from "../../lib/dbclient"
 import { generateTip } from "../../lib/util"

@@ -10,7 +10,7 @@ const { generateWelcomeImage } = require("../../listeners/guildMemberAdd")
 import { db as mongoDb } from "../../lib/dbclient"
 import { transpile, getParsedCommandLineOfConfigFile, sys } from "typescript"
 import discord from "discord.js"
-import { inspect } from "util"
+import { inspect } from "node:util"
 import { Command, client as Client, GetStringFunction } from "../../index"
 import { generateTip as randomTip } from "../../lib/util"
 
