@@ -31,7 +31,11 @@ client.on("messageReactionAdd", async (reaction, user) => {
 				setTimeout(async () => {
 					// Check if the user hasn't removed their reaction
 					if ((await reaction.users.fetch()).has(user.id)) {
-						if (reaction.message.thread) await reaction.message.thread.setLocked(true, "String reviewed")
+						if (reaction.message.thread) {
+							// I cannot stress how stupid this is, but it won't work otherwise
+							if (reaction.message.thread.archived) await reaction.message.thread.setArchived(false, "Stupid workaround to lock this thread")
+							await reaction.message.thread.edit({ locked: true, archived: true }, "String reviewed")
+						}
 						if (!reaction.message.deleted) await reaction.message.delete()
 						await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "APPROVED" })
 						console.log(`String reviewed in ${channel.name}`)
@@ -62,11 +66,15 @@ client.on("messageReactionAdd", async (reaction, user) => {
 					.setAuthor(strings.moduleName)
 					.setTitle(strings.rejected.replace("%%user%%", user.tag))
 					.setDescription(`${reaction.message}`)
-					.setFooter(strings.rejectedBy.replace("%%user%%", user.tag), member.displayAvatarURL({ dynamic: true, format: "png", }))
+					.setFooter(strings.rejectedBy.replace("%%user%%", user.tag), member.displayAvatarURL({ dynamic: true, format: "png" }))
 				setTimeout(async () => {
 					// Check if the user hasn't removed their reaction
 					if ((await reaction.users.fetch()).has(user.id)) {
-						if (reaction.message.thread) await reaction.message.thread.setLocked(true, "String rejected")
+						if (reaction.message.thread) {
+							// I cannot stress how stupid this is, but it won't work otherwise
+							if (reaction.message.thread.archived) await reaction.message.thread.setArchived(false, "Stupid workaround to lock this thread")
+							await reaction.message.thread.edit({ locked: true, archived: true }, "String rejected")
+						}
 						const stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/gi)?.[0],
 							fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
 							thread = await channel.threads.create({
