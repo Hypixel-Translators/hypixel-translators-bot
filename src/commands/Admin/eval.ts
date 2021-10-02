@@ -53,7 +53,7 @@ const command: Command = {
 		const compiledCode = transpile(codeToRun, options)
 		try {
 			evaled = await eval(compiledCode)
-			const inspected = inspect(evaled, { depth: 0, maxArrayLength: 5, getters: true }),
+			const inspected = inspect(evaled, { depth: 1, getters: true }),
 				embed = new discord.MessageEmbed()
 					.setColor(successColor)
 					.setAuthor("Evaluation")
