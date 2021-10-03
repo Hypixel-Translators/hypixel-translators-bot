@@ -46,7 +46,7 @@ const command: Command = {
 					'The Hypixel Discord server can be found [here](<https://discord.gg/hypixel> "Hypixel Discord server") (useful for proofreaders).'
 				break
 			case "guidelines":
-				response = 'You can find the official guide for the Hypixel project [here](https://hypixel.net/translate/#post-7078208 "Guide to helping translate Hypixel").'
+				response = 'You can find the official guide for the Hypixel project [here](<https://hypixel.net/translate/#post-7078208> "Guide to helping translate Hypixel").'
 				break
 			case "proofreader":
 				response =
