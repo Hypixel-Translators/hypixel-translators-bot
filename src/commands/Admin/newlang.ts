@@ -44,6 +44,7 @@ const command: Command = {
 			position: 22,
 			permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
 			mentionable: false,
+			unicodeEmoji: langdbEntry?.emoji ?? null,
 			reason: `Added language ${nationality}`
 		})
 		const proofreaderRole = await interaction.guild!.roles.create({
@@ -53,6 +54,7 @@ const command: Command = {
 			position: 49,
 			permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
 			mentionable: false,
+			unicodeEmoji: langdbEntry?.emoji ?? null,
 			reason: `Added language ${nationality}`
 		})
 		const overwrites = [

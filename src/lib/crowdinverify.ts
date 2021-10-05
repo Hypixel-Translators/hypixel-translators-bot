@@ -435,12 +435,14 @@ async function veteranMedals(member: Discord.GuildMember, project: CrowdinProjec
 	if (!medals[years]) throw "We've ran out of veteran medals!"
 	role ??= await member.guild.roles.create(
 		{
-			name: `${medals[years]} ${years == 1 ? `${years} Year` : `${years} Years`} Veteran`,
+			name: `${years == 1 ? `${years} Year` : `${years} Years`} Veteran`,
 			position: member.guild.roles.cache.filter(r => r.name.includes(" Veteran")).sort((a, b) => b.position - a.position).first()!.position + 1,
-			reason: "New veteran role!"
+			reason: "New veteran role!",
+			unicodeEmoji: medals[years]
 		}
 	)
-	if (role.name !== `${medals[years]} ${years == 1 ? `${years} Year` : `${years} Years`} Veteran`) role.setName(`${medals[years]} ${years == 1 ? `${years} Year` : `${years} Years`} Veteran`, "The name was wrong for some reason")
+	if (role.name !== `${years == 1 ? `${years} Year` : `${years} Years`} Veteran`) await role.setName(`${years == 1 ? `${years} Year` : `${years} Years`} Veteran`, "The name was wrong for some reason")
+	if (role.unicodeEmoji !== medals[years]) await role.setUnicodeEmoji(medals[years], "The emoji was wrong for some reason")
 	if (!member.roles.cache.has(role.id)) {
 		member.roles.cache.filter(r => r.name.endsWith(" Veteran"))
 			.forEach(async oldRole => await member.roles.remove(oldRole.id, "Giving a new Veteran role"))
