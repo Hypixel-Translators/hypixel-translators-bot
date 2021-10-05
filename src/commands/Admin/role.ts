@@ -33,8 +33,9 @@ const command: Command = {
         }
         const embed = new Discord.MessageEmbed()
             .setColor(role.color || "BLURPLE")
+            .setThumbnail(role.iconURL({ format: "png", size: 4096 }) ?? "")
             .setAuthor("Role information")
-            .setTitle(role.name)
+            .setTitle(`${role.name} ${role.unicodeEmoji ?? ""}`)
             .setDescription(`${role} (ID: ${role.id})`)
             .addFields(
                 { name: "Mentionable", value: role.mentionable ? "Yes" : "No", inline: true },
