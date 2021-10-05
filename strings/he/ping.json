@@ -2,5 +2,5 @@
 	"moduleName": "פינג",
 	"pong": "%%pingEmote%% פונג!",
 	"message": "הפינג שלי הוא %%ping%%ms.",
-	"onlineSince": "Online since %%timestamp%% (%%timestampRelative%%)"
+	"onlineSince": "מחובר מאז (%%timestampRelative%%) %%timestamp%%"
 }
