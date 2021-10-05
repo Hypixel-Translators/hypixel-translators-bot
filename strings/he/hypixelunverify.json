@@ -2,5 +2,5 @@
 	"moduleName": "אימות Hypixel",
 	"unverified": "ביטול האימות שלך בוצע בהצלחה!",
 	"notUnverified": "לא היה באפשרותנו לבטל את אימותך!",
-	"whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `/hypixelverify <username>`."
+	"whyNotUnverified": "זה קרה מכיוון שעדיין לא אימתת את זהותך! בכדי לעשות זאת, בצע ` <שם משתמש> hypixelverify/`."
 }
