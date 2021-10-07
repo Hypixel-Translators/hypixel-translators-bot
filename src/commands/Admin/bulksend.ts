@@ -1,4 +1,4 @@
-import { successColor } from "../../config.json"
+import { successColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import type { Command } from "../../index"
 import { db } from "../../lib/dbclient"
@@ -8,7 +8,7 @@ import { CrowdinProject, generateTip } from "../../lib/util"
 const command: Command = {
 	name: "bulksend",
 	description: "Send messages in a channel, ready to be edited.",
-	roleWhitelist: ["764442984119795732"], //Discord Administrator
+	roleWhitelist: [ids.roles.admin],
 	options: [{
 		type: "CHANNEL",
 		channelTypes: ["GUILD_TEXT"],
@@ -30,7 +30,7 @@ const command: Command = {
 	}],
 	async execute(interaction) {
 		const sendTo = interaction.options.getChannel("channel", true) as Discord.TextChannel,
-		member = interaction.member as Discord.GuildMember
+			member = interaction.member as Discord.GuildMember
 		if (!sendTo) throw "Couldn't resolve that channel!"
 		let amount = interaction.options.getInteger("amount", true)
 		await interaction.deferReply()

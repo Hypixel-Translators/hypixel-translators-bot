@@ -1,6 +1,6 @@
 import Discord from "discord.js"
 import type { Command } from "../../index"
-import { successColor } from "../../config.json"
+import { successColor, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { generateTip, PunishmentLog, updateButtonColors, updateModlogFields } from "../../lib/util"
 
@@ -13,8 +13,8 @@ const command: Command = {
 		description: "The user to see the modlogs for",
 		required: true
 	}],
-	roleWhitelist: ["768435276191891456"], //Discord Staff
-	channelWhitelist: ["624881429834366986", "551693960913879071"], //staff-bots admin-bots
+	roleWhitelist: [ids.roles.staff],
+	channelWhitelist: [ids.channels.staffBots, ids.channels.adminBots],
 	async execute(interaction) {
 		const member = interaction.member as Discord.GuildMember,
 			userInput = interaction.options.getUser("user", true),

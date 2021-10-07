@@ -1,4 +1,4 @@
-import { successColor } from "../../config.json"
+import { successColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import type { Command } from "../../index"
 import { generateTip } from "../../lib/util"
@@ -20,7 +20,7 @@ const command: Command = {
 		required: true
 	}],
 	cooldown: 600,
-	roleWhitelist: ["768435276191891456"], //Discord Staff
+	roleWhitelist: [ids.roles.staff],
 	async execute(interaction) {
 		const sendTo = interaction.options.getChannel("channel", true) as (Discord.TextChannel | Discord.NewsChannel),
 			member = interaction.member as Discord.GuildMember,

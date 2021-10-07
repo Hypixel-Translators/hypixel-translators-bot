@@ -1,3 +1,4 @@
+import { ids } from "../../config.json"
 import Discord from "discord.js"
 import type { Command } from "../../index"
 
@@ -10,7 +11,7 @@ const command: Command = {
 		description: "The value to set the slowmode to, in seconds. Maximum 21600 (6 hours)",
 		required: true
 	}],
-	roleWhitelist: ["621071221462663169", "764442984119795732"], //Discord Moderator, Discord Administrator
+	roleWhitelist: [ids.roles.mod, ids.roles.admin],
 	async execute(interaction) {
 		const slowmode = interaction.options.getInteger("seconds", true)
 		if (slowmode > 21_600 || slowmode < 0) return await interaction.reply({ content: "You must give a number between 0 and 21.600!", ephemeral: true })

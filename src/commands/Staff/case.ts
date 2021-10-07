@@ -1,4 +1,5 @@
 import Discord from "discord.js"
+import { ids } from "../../config.json"
 import { client, Command } from "../../index"
 import { db } from "../../lib/dbclient"
 import { generateTip, PunishmentLog, updateModlogFields } from "../../lib/util"
@@ -12,8 +13,8 @@ const command: Command = {
 		description: "Case number",
 		required: true
 	}],
-	roleWhitelist: ["768435276191891456"], //Discord Staff
-	channelWhitelist: ["624881429834366986", "551693960913879071"], //staff-bots admin-bots
+	roleWhitelist: [ids.roles.staff],
+	channelWhitelist: [ids.channels.staffBots, ids.channels.adminBots],
 	async execute(interaction) {
 		const caseNumber = interaction.options.getInteger("case", true),
 			collection = db.collection<PunishmentLog>("punishments"),

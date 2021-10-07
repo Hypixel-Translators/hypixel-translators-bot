@@ -1,4 +1,4 @@
-import { successColor } from "../../config.json"
+import { successColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import country from "countryjs"
 import { flag } from "country-emoji"
@@ -21,7 +21,7 @@ const command: Command = {
 		description: "The HEX color code for this language's role (without the #)",
 		required: false
 	}],
-	roleWhitelist: ["764442984119795732"], //Discord Administrator
+	roleWhitelist: [ids.roles.admin],
 	async execute(interaction) {
 		await interaction.deferReply()
 		const lang = interaction.options.getString("code", true).toLowerCase(),
@@ -79,11 +79,11 @@ const command: Command = {
 				allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "MANAGE_THREADS", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"]
 			},
 			{
-				id: "551758391127834625", //Hypixel Manager
+				id: ids.roles.hypixelManager,
 				allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "MANAGE_THREADS", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"]
 			},
 			{
-				id: "764442984119795732", //Discord Administrator
+				id: ids.roles.admin,
 				allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "MANAGE_THREADS", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"]
 			}
 		] as Discord.OverwriteResolvable[]

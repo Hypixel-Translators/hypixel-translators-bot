@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import { successColor, loadingColor, errorColor } from "../../config.json"
+import { successColor, loadingColor, errorColor, ids } from "../../config.json"
 import type { Command, GetStringFunction } from "../../index"
 import { generateTip } from "../../lib/util"
 
@@ -13,7 +13,7 @@ const command: Command = {
 		required: true
 	}],
 	cooldown: 5,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
 		const member = interaction.member as Discord.GuildMember | null ?? interaction.user,

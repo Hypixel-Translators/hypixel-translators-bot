@@ -1,4 +1,4 @@
-const { loadingColor, errorColor, successColor, neutralColor, listeningStatuses, watchingStatuses, playingStatuses } = require("../../config.json")
+const { loadingColor, errorColor, successColor, neutralColor, listeningStatuses, watchingStatuses, playingStatuses, ids } = require("../../config.json")
 const axios = require("axios")
 const { flag, code, name, countries } = require("country-emoji")
 const fs = require("fs")
@@ -17,8 +17,8 @@ import { generateTip as randomTip } from "../../lib/util"
 const command: Command = {
 	name: "eval",
 	description: "Evals the specified code.",
-	roleWhitelist: ["620274909700161556"], //*
-	channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], // staff-bots bot-development admin-bots
+	roleWhitelist: [ids.roles.star],
+	channelWhitelist: [ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	options: [{
 		type: "STRING",
 		name: "code",

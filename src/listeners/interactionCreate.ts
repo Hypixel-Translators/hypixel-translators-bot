@@ -1,7 +1,7 @@
 import { client, Command } from "../index"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import Discord from "discord.js"
-import { errorColor } from "../config.json"
+import { errorColor, ids } from "../config.json"
 import fs from "node:fs"
 import { arrayEqual, generateTip, Stats } from "../lib/util"
 
@@ -13,12 +13,12 @@ client.on("interactionCreate", async interaction => {
 
 	let command: Command | null = null
 	const author: DbUser = await client.getUser(interaction.user.id),
-		member = interaction.client.guilds.cache.get("549503328472530974")?.members.cache.get(interaction.user.id)!,
+		member = interaction.client.guilds.cache.get(ids.guilds.main)?.members.cache.get(interaction.user.id)!,
 		randomTip = generateTip(getString),
 		statsColl = db.collection<Stats>("stats")
 	if (interaction.isButton() && !interaction.user.bot) {
 		// Staff LOA warning removal system
-		if (interaction.channelId === "836748153122324481" && interaction.customId == "done") {
+		if (interaction.channelId === ids.channels.loa && interaction.customId == "done") {
 			if ((interaction.message as Discord.Message).mentions.users.first()!.id !== interaction.user.id) {
 				await interaction.reply({ content: "You can only remove your own LOA warning!", ephemeral: true })
 				return
@@ -33,21 +33,21 @@ client.on("interactionCreate", async interaction => {
 				await interaction.reply({ content: "Successfully deleted this LOA! **Welcome back!**", ephemeral: true })
 				return
 			}
-		} else if (interaction.channelId === "762341271611506708") {
+		} else if (interaction.channelId === ids.channels.serverInfo) {
 			// Self-roles system
 			let roleId: Discord.Snowflake
-			if (interaction.customId === "polls") roleId = "646098170794868757" //Polls
-			else if (interaction.customId === "botUpdates") roleId = "732615152246980628" //Bot Updates
+			if (interaction.customId === "polls") roleId = ids.roles.polls
+			else if (interaction.customId === "botUpdates") roleId = ids.roles.botUpdates
 			else if (interaction.customId === "giveaways") {
 				const userDb = await client.getUser(interaction.user.id)
 				if ((userDb.levels?.level ?? 0) < 5) {
 					console.log(`${member.user.tag} tried to get the Giveaway pings role but they're level ${userDb.levels?.level ?? 0} lol`)
 					return await interaction.reply({
-						content: getString("roles.noLevel", { level: 5, command: "`/rank`", channel: "<#549894938712866816>" }),
+						content: getString("roles.noLevel", { level: 5, command: "`/rank`", channel: `<#${ids.channels.bots}>` }),
 						ephemeral: true
 					})
 				}
-				roleId = "801052623745974272" //Giveaway pings
+				roleId = ids.roles.giveawayPings
 			} else return
 			if (member.roles.cache.has(roleId)) {
 				await member.roles.remove(roleId, "Clicked the button in server-info")
@@ -68,7 +68,7 @@ client.on("interactionCreate", async interaction => {
 	if (interaction.channel?.type === "DM") console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
 
 	//Return if user is not verified
-	if (!member?.roles.cache.has("569194996964786178") && command.name !== "verify") { //Verified
+	if (!member?.roles.cache.has(ids.roles.verified) && command.name !== "verify") {
 		await interaction.reply({ content: "You must be verified to do this!", ephemeral: true })
 		return
 	}
@@ -84,7 +84,7 @@ client.on("interactionCreate", async interaction => {
 	}
 
 	//Give perm to admins and return if not allowed
-	if (member.roles.cache.has("764442984119795732")) allowed = true //Discord Administrator
+	if (member.roles.cache.has(ids.roles.admin)) allowed = true
 	if (!allowed) {
 		await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: "noAccess" })
 		await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
@@ -96,7 +96,7 @@ client.on("interactionCreate", async interaction => {
 	const now = Date.now(),
 		timestamps = client.cooldowns.get(command.name)!,
 		cooldownAmount = (command.cooldown || 3) * 1000
-	if (timestamps.has(interaction.user.id) && interaction.channelId !== "730042612647723058") { //bot-development
+	if (timestamps.has(interaction.user.id) && interaction.channelId !== ids.channels.botDev) {
 		const expirationTime = timestamps.get(interaction.user.id)! + cooldownAmount
 		if (now < expirationTime) {
 			await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: "cooldown" })
@@ -211,10 +211,10 @@ client.on("interactionCreate", async interaction => {
 					.setTitle(error.toString().substring(0, 255))
 					.setDescription(`\`\`\`${error.stack.substring(0, 2_047)}\`\`\``)
 					.setFooter("Check the console for more details")
-				await (interaction.client.channels.cache.get("730042612647723058") as Discord.TextChannel).send({ //bot-development
-					content: `<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@!240875059953139714>\nRan by: ${interaction.user}\nCommand: ${interaction.commandName}\nChannel: ${interaction.channel?.type !== "DM" && interaction.channel ? interaction.channel : "DM"}\nTime: <t:${Math.round(Date.now() / 1000)}:F>`,
+				await (interaction.client.channels.cache.get(ids.channels.botDev) as Discord.TextChannel).send({
+					content: `<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@!${ids.users.rodry}>\nRan by: ${interaction.user}\nCommand: ${interaction.commandName}\nChannel: ${interaction.channel?.type !== "DM" && interaction.channel ? interaction.channel : "DM"}\nTime: <t:${Math.round(Date.now() / 1000)}:F>`,
 					embeds: [embed]
-				}) //Rodry
+				})
 			}
 			console.error(
 				`Unexpected error with command ${interaction.commandName} on channel ${interaction.channel instanceof Discord.GuildChannel ? interaction.channel.name : interaction.channel!.type

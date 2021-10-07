@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import { successColor, errorColor } from "../../config.json"
+import { successColor, errorColor, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { client, Command, GetStringFunction } from "../../index"
 import { generateTip, updateRoles } from "../../lib/util"
@@ -14,14 +14,14 @@ const command: Command = {
 		description: "The user to unverify. Admin-only",
 		required: false
 	}],
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
 			member = interaction.member as Discord.GuildMember,
 			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
 			collection = db.collection<DbUser>("users")
 
-		if (memberInput && (interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732")) { //Discord Administrator
+		if (memberInput && (interaction.member as Discord.GuildMember).roles.cache.has(ids.roles.admin)) {
 			await updateRoles(memberInput)
 			const result = await collection.updateOne({ id: memberInput.id }, { $unset: { uuid: true } })
 			if (result.modifiedCount) {

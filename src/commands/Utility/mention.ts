@@ -1,3 +1,4 @@
+import { ids } from "../../config.json"
 import Discord from "discord.js"
 import type { Command, GetStringFunction } from "../../index"
 
@@ -28,8 +29,8 @@ const command: Command = {
 		required: false
 	}],
 	cooldown: 120,
-	roleWhitelist: ["569839580971401236", "764442984119795732"], //Hypixel Proofreader and Discord Administrator
-	channelBlacklist: ["621298919535804426", "619662798133133312", "712046319375482910", "644620638878695424", "550951034332381184", "549894938712866816", "713084081579098152"],
+	roleWhitelist: [ids.roles.hypixelPf, ids.roles.admin],
+	categoryBlacklist: [ids.categories.main],
 	async execute(interaction, getString: GetStringFunction) {
 		const roleType = interaction.options.getString("role", true) as "all" | "proofreader" | "translator",
 			lang = interaction.options.getString("language", true).toLowerCase(),

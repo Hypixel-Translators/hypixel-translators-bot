@@ -1,10 +1,9 @@
 import { db } from "../../lib/dbclient"
 import Discord from "discord.js"
 import axios from "axios"
-import { successColor, loadingColor, errorColor } from "../../config.json"
+import { successColor, loadingColor, errorColor, ids } from "../../config.json"
 import { Command, client, GetStringFunction } from "../../index"
 import { crowdinFetchSettings, generateTip, LangDbEntry, LanguageStatus } from "../../lib/util"
-const ctokenV2 = process.env.CTOKEN_V2!
 
 const command: Command = {
 	name: "languagestats",
@@ -16,7 +15,7 @@ const command: Command = {
 		required: false
 	}],
 	cooldown: 30,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),

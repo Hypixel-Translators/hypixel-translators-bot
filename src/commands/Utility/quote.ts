@@ -1,4 +1,4 @@
-import { errorColor, successColor, neutralColor } from "../../config.json"
+import { errorColor, successColor, neutralColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import { db } from "../../lib/dbclient"
 import type { Collection } from "mongodb"
@@ -83,7 +83,7 @@ const command: Command = {
 	}],
 	cooldown: 5,
 	allowDM: true,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
 			member = interaction.member as Discord.GuildMember | null ?? interaction.user,
@@ -95,7 +95,7 @@ const command: Command = {
 			const quote = interaction.options.getString("quote", true),
 				author = interaction.options.getUser("author", true)
 			if (!allowed) {
-				const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel,
+				const staffBots = client.channels.cache.get(ids.channels.staffBots) as Discord.TextChannel,
 					report = new Discord.MessageEmbed()
 						.setColor(neutralColor as Discord.HexColorString)
 						.setAuthor("Quote")

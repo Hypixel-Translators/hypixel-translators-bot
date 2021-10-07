@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import { errorColor, successColor, neutralColor } from "../../config.json"
+import { errorColor, successColor, neutralColor, ids } from "../../config.json"
 import { Command, client, GetStringFunction } from "../../index"
 import { generateTip } from "../../lib/util"
 
@@ -18,7 +18,7 @@ const command: Command = {
 		description: "The message to send",
 		required: true
 	}],
-	roleWhitelist: ["768435276191891456"], //Discord Staff
+	roleWhitelist: [ids.roles.staff],
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
 		const member = interaction.member as Discord.GuildMember,

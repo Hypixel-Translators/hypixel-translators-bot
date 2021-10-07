@@ -1,4 +1,5 @@
 //This file contains a bunch of functions used across the bot on multuple commands.
+import { ids } from "../config.json"
 import Discord from "discord.js"
 import axios from "axios"
 import { client, GetStringFunction } from "../index"
@@ -67,73 +68,73 @@ interface MinecraftProfile {
 
 export async function updateRoles(member: Discord.GuildMember, json?: GraphQLQuery["data"]["players"]["player"]) {
 	const roles: Discord.Snowflake[] = [
-		"816435344689987585", //Unranked
-		"808032608456802337", //VIP
-		"808032624215457823", //VIP+
-		"808032640631832637", //MVP
-		"808032657505255424", //MVP+
-		"808032672160153641", //MVP++
-		"808032689709514852", //YouTuber
-		"822787676482699297", //Hypixel Game Master
-		"624880339722174464", //Hypixel Admin
-		"715674953697198141"  //Hypixel Staff
+		ids.roles.unranked,
+		ids.roles.vip,
+		ids.roles.vipPlus,
+		ids.roles.mvp,
+		ids.roles.mvpPlus,
+		ids.roles.mvpPlusPlus,
+		ids.roles.youtuber,
+		ids.roles.hypixelGm,
+		ids.roles.hypixelAdmin,
+		ids.roles.hypixelStaff
 	]
 	if (!json) return await member.roles.remove(roles, "Unverified")
-	let role = member.guild.roles.cache.get("816435344689987585")!
+	let role = member.guild.roles.cache.get(ids.roles.unranked)!
 	switch (json.rank) {
 		case "ADMIN":
-			roles.splice(roles.indexOf("624880339722174464"), 1) // Hypixel Admin
-			roles.splice(roles.indexOf("715674953697198141"), 1) // Hypixel Staff
+			roles.splice(roles.indexOf(ids.roles.hypixelAdmin), 1)
+			roles.splice(roles.indexOf(ids.roles.hypixelStaff), 1)
 			await member.roles.remove(roles, "Updated roles")
-			await member.roles.add(["624880339722174464", "715674953697198141"], `Successfully verified as ${json.username}`) // Hypixel Admin and Hypixel Staff
-			role = member.guild.roles.cache.get("624880339722174464")!
+			await member.roles.add([ids.roles.hypixelAdmin, ids.roles.hypixelStaff], `Successfully verified as ${json.username}`)
+			role = member.guild.roles.cache.get(ids.roles.hypixelAdmin)!
 			break
 		case "GAME_MASTER":
-			roles.splice(roles.indexOf("822787676482699297"), 1) // Hypixel Game Master
-			roles.splice(roles.indexOf("715674953697198141"), 1) // Hypixel Staff
+			roles.splice(roles.indexOf(ids.roles.hypixelGm), 1)
+			roles.splice(roles.indexOf(ids.roles.hypixelStaff), 1)
 			await member.roles.remove(roles, "Updated roles")
-			await member.roles.add(["822787676482699297", "715674953697198141"], `Successfully verified as ${json.username}`) // Hypixel Game Master and Hypixel Staff
+			await member.roles.add([ids.roles.hypixelGm, ids.roles.hypixelStaff], `Successfully verified as ${json.username}`)
 			break
 		case "YOUTUBER":
-			roles.splice(roles.indexOf("808032689709514852"), 1) // YouTuber
+			roles.splice(roles.indexOf(ids.roles.youtuber), 1)
 			await member.roles.remove(roles, "Updated roles")
-			await member.roles.add("808032689709514852", `Successfully verified as ${json.username}`) // YouTuber
-			role = member.guild.roles.cache.get("808032689709514852")!
+			await member.roles.add(ids.roles.youtuber, `Successfully verified as ${json.username}`)
+			role = member.guild.roles.cache.get(ids.roles.youtuber)!
 			break
 		case "MVP_PLUS_PLUS":
-			roles.splice(roles.indexOf("808032672160153641"), 1) // MVP++
+			roles.splice(roles.indexOf(ids.roles.mvpPlusPlus), 1)
 			await member.roles.remove(roles, "Updated roles")
-			await member.roles.add("808032672160153641", `Successfully verified as ${json.username}`) // MVP++
-			role = member.guild.roles.cache.get("808032672160153641")!
+			await member.roles.add(ids.roles.mvpPlusPlus, `Successfully verified as ${json.username}`)
+			role = member.guild.roles.cache.get(ids.roles.mvpPlusPlus)!
 			break
 		case "MVP_PLUS":
-			roles.splice(roles.indexOf("808032657505255424"), 1) // MVP+
+			roles.splice(roles.indexOf(ids.roles.mvpPlus), 1)
 			await member.roles.remove(roles, "Updated roles")
-			await member.roles.add("808032657505255424", `Successfully verified as ${json.username}`) // MVP+
-			role = member.guild.roles.cache.get("808032657505255424")!
+			await member.roles.add(ids.roles.mvpPlus, `Successfully verified as ${json.username}`)
+			role = member.guild.roles.cache.get(ids.roles.mvpPlus)!
 			break
 		case "MVP":
-			roles.splice(roles.indexOf("808032640631832637"), 1) // MVP
+			roles.splice(roles.indexOf(ids.roles.mvp), 1)
 			await member.roles.remove(roles, "Updated roles")
-			await member.roles.add("808032640631832637", `Successfully verified as ${json.username}`) // MVP
-			role = member.guild.roles.cache.get("808032640631832637")!
+			await member.roles.add(ids.roles.mvp, `Successfully verified as ${json.username}`)
+			role = member.guild.roles.cache.get(ids.roles.mvp)!
 			break
 		case "VIP_PLUS":
-			roles.splice(roles.indexOf("808032624215457823"), 1) // VIP+
+			roles.splice(roles.indexOf(ids.roles.vipPlus), 1)
 			await member.roles.remove(roles, "Updated roles")
-			await member.roles.add("808032624215457823", `Successfully verified as ${json.username}`) // VIP+
-			role = member.guild.roles.cache.get("808032624215457823")!
+			await member.roles.add(ids.roles.vipPlus, `Successfully verified as ${json.username}`)
+			role = member.guild.roles.cache.get(ids.roles.vipPlus)!
 			break
 		case "VIP":
-			roles.splice(roles.indexOf("808032608456802337"), 1) // VIP
+			roles.splice(roles.indexOf(ids.roles.vip), 1)
 			await member.roles.remove(roles, "Updated roles")
-			await member.roles.add("808032608456802337", `Successfully verified as ${json.username}`) // VIP
-			role = member.guild.roles.cache.get("808032608456802337")!
+			await member.roles.add(ids.roles.vip, `Successfully verified as ${json.username}`)
+			role = member.guild.roles.cache.get(ids.roles.vip)!
 			break
 		default:
-			roles.splice(roles.indexOf("816435344689987585"), 1) // Unranked
+			roles.splice(roles.indexOf(ids.roles.unranked), 1)
 			await member.roles.remove(roles, "Updated roles")
-			await member.roles.add("816435344689987585", `Successfully verified as ${json.username}`) // Unranked
+			await member.roles.add(ids.roles.unranked, `Successfully verified as ${json.username}`)
 			break
 	}
 	return role

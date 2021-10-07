@@ -1,4 +1,4 @@
-import { successColor } from "../../config.json"
+import { successColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import type { Command } from "../../index"
 import { generateTip, restart } from "../../lib/util"
@@ -6,8 +6,8 @@ import { generateTip, restart } from "../../lib/util"
 const command: Command = {
 	name: "restart",
 	description: "Refresh the bot to apply changes and to fix errors.",
-	roleWhitelist: ["764442984119795732"], //Discord Administrator
-	channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-dev admin-bots
+	roleWhitelist: [ids.roles.admin],
+	channelWhitelist: [ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction) {
 		const member = interaction.member as Discord.GuildMember,
 			embed = new Discord.MessageEmbed()

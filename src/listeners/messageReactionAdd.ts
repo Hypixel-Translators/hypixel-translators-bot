@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import { successColor, loadingColor, errorColor } from "../config.json"
+import { successColor, loadingColor, errorColor, ids } from "../config.json"
 import { client } from "../index"
 import { db, cancelledEvents } from "../lib/dbclient"
 import type { EventDb, Quote, Stats } from "../lib/util"
@@ -16,10 +16,10 @@ client.on("messageReactionAdd", async (reaction, user) => {
 	if (reaction.partial) reaction = await reaction.fetch()
 	if (reaction.message.partial) reaction.message = await reaction.message.fetch()
 	if (user.partial) user = await user.fetch()
-	const member = client.guilds.cache.get("549503328472530974")!.members.cache.get(user.id)!
+	const member = client.guilds.cache.get(ids.guilds.main)!.members.cache.get(user.id)!
 	// Delete message when channel name ends with review-strings
 	if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content!)) {
-		if (reaction.message.guild!.members.resolve(user.id)!.roles.cache.has("569839580971401236")) {
+		if (reaction.message.guild!.members.resolve(user.id)!.roles.cache.has(ids.roles.hypixelPf)) {
 			let strings: { [key: string]: string }
 			try {
 				strings = require(`../../strings/${channel.name.split("-")[0]}/reviewStrings.json`)
@@ -92,7 +92,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 		} else await reaction.users.remove(user.id)
 	}
 	// Starboard system
-	else if (reaction.emoji.name === "⭐" && channel.permissionsFor("569194996964786178")!.has(["SEND_MESSAGES", "VIEW_CHANNEL"]) && reaction.count! >= 4 && !reaction.message.author!.bot && reaction.message.content) {
+	else if (reaction.emoji.name === "⭐" && channel.permissionsFor(ids.roles.verified)!.has(["SEND_MESSAGES", "VIEW_CHANNEL"]) && reaction.count! >= 4 && !reaction.message.author!.bot && reaction.message.content) {
 		const collection = db.collection<Quote>("quotes"),
 			urlQuote = await collection.findOne({ url: reaction.message.url })
 		if (!urlQuote) {
@@ -115,7 +115,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 		const eventDb = await db.collection("config").findOne({ name: "event" }) as EventDb
 		if (eventDb.ids.includes(reaction.message.id)) {
 			const member = reaction.message.guild!.members.cache.get(user.id)
-			if (member) await member.roles.add("863430999122509824") //Event
+			if (member) await member.roles.add(ids.roles.event)
 		}
 	}
 })

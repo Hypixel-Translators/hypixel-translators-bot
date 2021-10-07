@@ -1,4 +1,5 @@
 import Discord from "discord.js"
+import { ids } from "../../config.json"
 import type { Command } from "../../index"
 import { generateTip } from "../../lib/util"
 
@@ -82,11 +83,11 @@ const command: Command = {
 		required: false
 	}],
 	cooldown: 600,
-	channelWhitelist: ["624881429834366986"], //staff-bots
-	roleWhitelist: ["768435276191891456"], //Discord Staff
+	channelWhitelist: [ids.channels.staffBots],
+	roleWhitelist: [ids.roles.staff],
 	async execute(interaction) {
 		const member = interaction.member as Discord.GuildMember,
-			loaChannel = interaction.client.channels.cache.get("836748153122324481") as Discord.TextChannel,
+			loaChannel = interaction.client.channels.cache.get(ids.channels.loa) as Discord.TextChannel,
 			startDay = interaction.options.getInteger("startday", true),
 			startMonth = interaction.options.getInteger("startmonth", true),
 			startYear = interaction.options.getInteger("startyear", true),

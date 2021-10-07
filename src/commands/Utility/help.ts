@@ -1,5 +1,6 @@
 import Discord from "discord.js"
 import fs from "node:fs"
+import { ids } from "../../config.json"
 import { Command, client, GetStringFunction } from "../../index"
 import type { DbUser } from "../../lib/dbclient"
 import { generateTip } from "../../lib/util"
@@ -25,7 +26,7 @@ const command: Command = {
 		required: false
 	}],
 	cooldown: 60,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
@@ -44,7 +45,7 @@ const command: Command = {
 			const categoryCommands: string[] = []
 			fs.readdirSync(`./src/commands/${category}/`).forEach(command => categoryCommands.push(command.split(".").shift()!))
 			categoryCommands.forEach(cmd => {
-				if (client.commands.get(cmd)!.dev && interaction.channelId !== "730042612647723058") categoryCommands.splice(categoryCommands.indexOf(cmd), 1) //bot-development
+				if (client.commands.get(cmd)!.dev && interaction.channelId !== ids.channels.botDev) categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
 				else if (!client.commands.get(cmd)!.allowDM && interaction.channel!.type === "DM") categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
 			})
 			pages[pageIndex].commands = categoryCommands
@@ -63,7 +64,7 @@ const command: Command = {
 				.setColor("BLURPLE")
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${pages[0].badge} ${getString("mainPage")}`)
-				.setDescription(getString("commandsListTooltip", { developer: client.users.cache.get("240875059953139714")!.toString(), github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)" }))
+				.setDescription(getString("commandsListTooltip", { developer: client.users.cache.get(ids.users.rodry)!.toString(), github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)" }))
 				.setFooter(randomTip, (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 			pages.forEach(page => {
 				if (page.number === 0) return
@@ -114,11 +115,11 @@ const command: Command = {
 			let cmdDesc: string | undefined = undefined
 			if (command.category !== "Admin" && command.category !== "Staff") {
 				cmdDesc = getString(`${command.name}.description`)
-			} else if (command.category === "Staff" && member?.roles.cache.has("768435276191891456") || command.category === "Admin" && member?.roles.cache.has("764442984119795732")) {
+			} else if (command.category === "Staff" && member?.roles.cache.has(ids.roles.staff) || command.category === "Admin" && member?.roles.cache.has(ids.roles.admin)) {
 				cmdDesc = command.description
 			}
 
-			if (command.dev && !member?.roles.cache.has("768435276191891456")) cmdDesc = getString("inDev") // Discord Staff
+			if (command.dev && !member?.roles.cache.has(ids.roles.staff)) cmdDesc = getString("inDev")
 
 			const embed = new Discord.MessageEmbed()
 				.setColor("BLURPLE")

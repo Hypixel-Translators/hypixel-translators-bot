@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer"
 import Discord from "discord.js"
-import { errorColor } from "../config.json"
+import { errorColor, ids } from "../config.json"
 import { v4 } from "uuid"
 import { db, DbUser } from "../lib/dbclient"
 import { client } from "../index"
@@ -18,16 +18,7 @@ const projectIDs: {
 	"369653": { name: "Quickplay", langRoles: false },
 	"436418": { name: "Bot", langRoles: false },
 	"369493": { name: "SkyblockAddons", langRoles: false }
-},
-	UsefulIDs: {
-		[key: string]: Discord.Snowflake
-	} = {
-		Alerted: "756199836470214848",
-		Verified: "569194996964786178",
-		logChannel: "662660931838410754",
-		verifyChannel: "569178590697095168"
-	}
-
+}
 
 /**
  * Verifies a guild member with their crowdin profile and gives them the appropriate project and veteran roles, if applicable.
@@ -37,8 +28,8 @@ const projectIDs: {
  * @param {boolean} sendLogs Whether to send logs to the log channel or not
  */
 async function crowdinVerify(member: Discord.GuildMember, url?: string | null, sendDms = false, sendLogs = true) {
-	const verifyLogs = member.client.channels.cache.get(UsefulIDs.logChannel) as Discord.TextChannel,
-		verify = member.client.channels.cache.get(UsefulIDs.verifyChannel) as Discord.TextChannel,
+	const verifyLogs = member.client.channels.cache.get(ids.channels.verifyLogs) as Discord.TextChannel,
+		verify = member.client.channels.cache.get(ids.channels.verify) as Discord.TextChannel,
 		errorEmbed = new Discord.MessageEmbed()
 			.setColor(errorColor as Discord.HexColorString)
 			.setAuthor("Received message from staff")
@@ -53,7 +44,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		if (url === null) return removeAllRoles(member)
 		if (!url) { //if user runs /verify and the profile is not stored on our DB or if the user sends the generic profile URL
 			//#region return message
-			await member.roles.remove("569194996964786178", "Tried to verify but profile wasn't stored") // Verified
+			await member.roles.remove(ids.roles.verified, "Tried to verify but profile wasn't stored")
 			await usersColl.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 			errorEmbed
 				.setDescription("Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!")
@@ -66,7 +57,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 					setTimeout(async () => {
 						if (!msg.deleted) await msg.delete()
 					}, 60_000)
-					await verifyLogs.send(`${member} didn't send a valid profile URL. Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
+					await verifyLogs.send(`${member} didn't send a valid profile URL. Let’s hope they work their way around with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`)
 				})
 			else await verifyLogs.send(`The profile stored/provided for ${member} was invalid. Please fix this or ask them to fix this.`)
 			if (sendLogs) await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "invalidURL" })
@@ -95,7 +86,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		closeConnection(browser.uuid)
 		if (!isPrivate && !isValid) { //if profile leads to a 404 page
 			//#region return message
-			await member.roles.remove("569194996964786178", "Tried to verify with an invalid URL") // Verified
+			await member.roles.remove(ids.roles.verified, "Tried to verify with an invalid URL")
 			await usersColl.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 			errorEmbed
 				.setDescription("Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!")
@@ -108,7 +99,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 					setTimeout(async () => {
 						if (!msg.deleted) await msg.delete()
 					}, 60_000)
-					await verifyLogs.send(`${member} sent the wrong profile link (<${url}>). Let’s hope they work their way around with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
+					await verifyLogs.send(`${member} sent the wrong profile link (<${url}>). Let’s hope they work their way around with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`)
 				})
 			else if (sendLogs) await verifyLogs.send(`The profile stored/provided for ${member} was invalid (<${url}>). Please fix this or ask them to fix this.`)
 			else
@@ -117,7 +108,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 			//#endregion
 		} else if (sendLogs && isPrivate) { //if the profile is private
 			//#region return message
-			await member.roles.remove("569194996964786178", "Tried to verify with a private profile") // Verified
+			await member.roles.remove(ids.roles.verified, "Tried to verify with a private profile")
 			await usersColl.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 			errorEmbed
 				.setDescription("Hey there! We noticed you sent us your Crowdin profile, however, it was private so we couldn't check it. Please make it public, at least until you get verified, and send us your profile again on the channel. If you don't know how to, then go to your Crowdin profile settings (found [here](https://crowdin.com/settings#account)) and make sure the \"Private Profile\" setting is turned off (see the image below)\n\nIf you have any questions, be sure to send them to us!")
@@ -130,7 +121,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 					setTimeout(async () => {
 						if (!msg.deleted) await msg.delete()
 					}, 60_000)
-					await verifyLogs.send(`${member}'s profile was private (<${url}>), I let them know about that in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
+					await verifyLogs.send(`${member}'s profile was private (<${url}>), I let them know about that in <#${ids.channels.verify}> since they had DMs off.`)
 				})
 			else await verifyLogs.send(`${member}'s profile is private (<${url}>). Please ask them to change this.`)
 			if (sendLogs) await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "privateProfile" })
@@ -180,7 +171,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 
 	if (!projects) {
 		//#region return message
-		await member.roles.remove("569194996964786178", "Tried to verify with no Discord tag") // Verified
+		await member.roles.remove(ids.roles.verified, "Tried to verify with no Discord tag")
 		await usersColl.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 		errorEmbed
 			.setDescription(`Hey there!\nWe noticed you sent us your Crowdin profile, however, you forgot to add your Discord tag to it! Just add ${member.user.tag} to your about section like shown in the image below. Once you've done so, send us the profile link again.\n\nIf you have any questions, be sure to send them to us!`)
@@ -189,7 +180,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 			.then(async () => await verifyLogs.send(`${member} forgot to add their Discord to their profile (<${url}>). Let's hope they fix that with the message I just sent them.`))
 			.catch(async () => {
 				errorEmbed.setFooter("This message will be deleted in a minute")
-				await verifyLogs.send(`${member} forgot to add their Discord to their profile (<${url}>). Let's hope they fix that with the message I just sent in <#${UsefulIDs.verifyChannel}> since they had DMs off.`)
+				await verifyLogs.send(`${member} forgot to add their Discord to their profile (<${url}>). Let's hope they fix that with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`)
 				await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
 					.then(msg => {
 						setTimeout(async () => {
@@ -257,8 +248,8 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		.filter(pj => !joinedProjects.includes(pj))
 		.forEach(project => checkProjectRoles(project, member))
 
-	await member.roles.remove(UsefulIDs.Alerted, "User is now Verified")
-	await member.roles.add(UsefulIDs.Verified, "User is now Verified")
+	await member.roles.remove(ids.roles.alerted, "User is now Verified")
+	await member.roles.add(ids.roles.verified, "User is now Verified")
 	await usersColl.updateOne({ id: member.id }, { $set: { profile: url }, $unset: { unverifiedTimestamp: true } })
 
 	const endingMessageProjects: {

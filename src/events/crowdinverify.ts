@@ -1,4 +1,5 @@
 import { crowdinVerify } from "../lib/crowdinverify"
+import { ids } from "../config.json"
 import { db, DbUser, HTBClient } from "../lib/dbclient"
 
 export default async function updateVerified(client: HTBClient, manual: boolean, limit = 0) {
@@ -10,7 +11,7 @@ export default async function updateVerified(client: HTBClient, manual: boolean,
 
 		async function verifyUser(n: number) {
 			const user = verifiedUsers[n],
-				member = client.guilds.cache.get("549503328472530974")!.members.cache.get(user.id)
+				member = client.guilds.cache.get(ids.guilds.main)!.members.cache.get(user.id)
 			if (!member) return console.error(`Could not find guild member with ID ${user.id}`)
 			if (user.profile) await crowdinVerify(member, user.profile, false, false)
 			if (n + 1 < verifiedUsers.length) await verifyUser(n + 1)

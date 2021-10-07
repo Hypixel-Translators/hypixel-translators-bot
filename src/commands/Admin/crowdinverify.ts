@@ -1,4 +1,4 @@
-import { successColor } from "../../config.json"
+import { successColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import crowdin from "../../events/crowdinverify"
 import { client, Command } from "../../index"
@@ -13,7 +13,7 @@ const command: Command = {
 		description: "The amount of profiles to check. All by default",
 		required: false
 	}],
-	roleWhitelist: ["764442984119795732"], //Discord Administrator
+	roleWhitelist: [ids.roles.admin],
 	async execute(interaction) {
 		const limit = interaction.options.getInteger("limit", false) ?? undefined,
 			member = interaction.member as Discord.GuildMember

@@ -1,3 +1,4 @@
+import { ids } from "../../config.json"
 import fs from "node:fs"
 import path from "node:path"
 import Discord from "discord.js"
@@ -18,8 +19,8 @@ const command: Command = {
 		],
 		required: true
 	}],
-	roleWhitelist: ["764442984119795732"], //Discord Administrator
-	channelWhitelist: ["730042612647723058", "551693960913879071"], // bot-development admin-bots
+	roleWhitelist: [ids.roles.admin],
+	channelWhitelist: [ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction) {
 		let strings: HolidayStrings = require(`../../../strings/en/holidays.json`)
 		const dirPath = path.join(__dirname, "../../../strings"),
@@ -50,8 +51,8 @@ const command: Command = {
 			}
 			const announcement = holiday.join(" ")
 			if (announcement) {
-				const announcements = interaction.client.channels.cache.get("549503985501995011") as Discord.NewsChannel
-				await announcements.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`) //announcements
+				const announcements = interaction.client.channels.cache.get(ids.channels.announcements) as Discord.NewsChannel
+				await announcements.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`)
 					.then(msg => msg.crosspost())
 				await interaction.reply(`${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement sent! Here's each language's translation:\n${logMsg}`)
 				console.table(log)

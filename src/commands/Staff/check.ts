@@ -1,4 +1,5 @@
 import Discord from "discord.js"
+import { ids } from "../../config.json"
 import { client, Command } from "../../index"
 import { generateTip } from "../../lib/util"
 
@@ -11,8 +12,8 @@ const command: Command = {
 		description: "The user to check",
 		required: true
 	}],
-	roleWhitelist: ["768435276191891456", "551758391127834625", "748269219619274893", "645709877536096307", "752541221980733571"], //Discord Staff and Hypixel, SBA, QP and Bot managers
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "768160446368186428"], // bots staff-bots bot-development managers
+	roleWhitelist: [ids.roles.staff, ids.roles.hypixelManager, ids.roles.sbaManager, ids.roles.qpManager, ids.roles.botManager],
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.managers],
 	async execute(interaction) {
 		const memberInput = interaction.options.getMember("user", true) as Discord.GuildMember,
 			member = interaction.member as Discord.GuildMember
@@ -35,7 +36,7 @@ const command: Command = {
 			rolesCache = memberInput.roles.cache
 		let userRoles: string
 		if (rolesCache.size !== 1) {
-			rolesCache.delete("549503328472530974")
+			rolesCache.delete(ids.guilds.main)
 			userRoles = rolesCache.sort((a, b) => b.position - a.position).map(r => r).join(", ")
 		} else userRoles = "No roles yet!"
 

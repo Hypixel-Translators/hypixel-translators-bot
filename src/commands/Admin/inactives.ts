@@ -1,4 +1,4 @@
-import { successColor } from "../../config.json"
+import { successColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import inactives from "../../events/inactives"
 import { Command, client } from "../../index"
@@ -7,7 +7,7 @@ import { generateTip } from "../../lib/util"
 const command: Command = {
 	name: "inactives",
 	description: "Checks for inactive unverified members (if applicable).",
-	roleWhitelist: ["764442984119795732"], //Discord Administrator
+	roleWhitelist: [ids.roles.admin],
 	async execute(interaction) {
 		const member = interaction.member as Discord.GuildMember
 

@@ -1,3 +1,4 @@
+import { ids } from "../../config.json"
 import Discord from "discord.js"
 import type { Command } from "../../index"
 
@@ -16,7 +17,7 @@ const command: Command = {
 		description: "The amount of winners to pick. defaults to 1",
 		required: false
 	}],
-	roleWhitelist: ["764442984119795732"], //Discord Administrator
+	roleWhitelist: [ids.roles.admin],
 	async execute(interaction) {
 		const giveawayMsg = await (interaction.channel as Discord.TextChannel).messages.fetch(interaction.options.getString("messageid", true))
 			.catch(async err => {

@@ -1,4 +1,4 @@
-import { neutralColor } from "../../config.json"
+import { neutralColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import type { Command, GetStringFunction } from "../../index"
 import { generateTip } from "../../lib/util"
@@ -8,10 +8,10 @@ const command: Command = {
 	description: "Gives you links and information about all the translation projects we support on the server.",
 	cooldown: 120,
 	allowDM: true,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058", "551693960913879071"], // bots staff-bots bot-development admin-bots
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
-			member = interaction.client.guilds.cache.get("549503328472530974")!.members.cache.get(interaction.user.id)!
+			member = interaction.client.guilds.cache.get(ids.guilds.main)!.members.cache.get(interaction.user.id)!
 		let joinedHypixel: string,
 			joinedQuickplay: string,
 			joinedSba: string,

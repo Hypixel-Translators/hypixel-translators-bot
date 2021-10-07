@@ -1,5 +1,5 @@
 import { db, DbUser } from "../../lib/dbclient"
-import { successColor, errorColor, neutralColor } from "../../config.json"
+import { successColor, errorColor, neutralColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import { client, Command, GetStringFunction } from "../../index"
 import { generateTip } from "../../lib/util"
@@ -24,7 +24,7 @@ const command: Command = {
 			user = interaction.options.getUser("user", false),
 			profile = interaction.options.getString("profile", false),
 			member = interaction.member as Discord.GuildMember
-		if ((interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732") && user) { //Discord Administrator
+		if ((interaction.member as Discord.GuildMember).roles.cache.has(ids.roles.admin) && user) {
 			if (!profile) {
 				const userDb = await client.getUser(user?.id)
 				if (userDb.profile) {
@@ -68,7 +68,7 @@ const command: Command = {
 					}
 				} else throw "wrongLink"
 			}
-		} else if ((interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732") && !user && profile) {
+		} else if ((interaction.member as Discord.GuildMember).roles.cache.has(ids.roles.admin) && !user && profile) {
 			const profileUser = await db.collection<DbUser>("users").findOne({ profile: profile.toLowerCase() })
 			if (profileUser) {
 				const userObject = await client.users.fetch(profileUser.id),

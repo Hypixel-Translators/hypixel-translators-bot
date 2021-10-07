@@ -1,4 +1,4 @@
-import { errorColor, successColor, neutralColor } from "../../config.json"
+import { errorColor, successColor, neutralColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import fs from "node:fs"
 import { db, DbUser } from "../../lib/dbclient"
@@ -35,7 +35,7 @@ const command: Command = {
 			required: true
 		}],
 	}],
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	allowDM: true,
 	cooldown: 5,
 	async execute(interaction, getString: GetStringFunction) {
@@ -50,7 +50,7 @@ const command: Command = {
 			const files = fs.readdirSync(stringsFolder),
 				langList: string[] = []
 			files.forEach(async (element, index, array) => {
-				if (element === "empty" && !member?.roles.cache.has("764442984119795732")) return //Discord Administrator
+				if (element === "empty" && !member?.roles.cache.has(ids.roles.admin)) return
 				let languageString: string
 				if (element === "empty") languageString = "Empty"
 				else languageString = getString(element)
@@ -66,7 +66,7 @@ const command: Command = {
 				}
 			})
 		} else if (subCommand === "stats") {
-			if (!member?.roles.cache.has("764442984119795732")) return await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
+			if (!member?.roles.cache.has(ids.roles.admin)) return await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
 			const files = fs.readdirSync(stringsFolder)
 			if (!files.includes(language!)) throw "falseLang"
 			const langUsers = await collection.find({ lang: language! }).toArray(),
@@ -85,7 +85,7 @@ const command: Command = {
 			const langdb = await db.collection<LangDbEntry>("langdb").find().toArray(),
 				langdbEntry = langdb.find(l => l.name.toLowerCase() === language)
 			if (langdbEntry) language = langdbEntry.code
-			if (language === "empty" && !member?.roles.cache.has("764442984119795732")) language = "denied" //Discord Administrator
+			if (language === "empty" && !member?.roles.cache.has(ids.roles.admin)) language = "denied"
 			fs.access(`./strings/${language}/language.json`, fs.constants.F_OK, async (err) => {
 				if (!err) {
 					if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, language) || language === "en") {
@@ -120,7 +120,7 @@ const command: Command = {
 				} else {
 					await fs.readdir(stringsFolder, async (_err, files) => {
 						const emptyIndex = files.indexOf("empty")
-						if (emptyIndex > -1 && !member?.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
+						if (emptyIndex > -1 && !member?.roles.cache.has(ids.roles.admin)) files.splice(emptyIndex, 1)
 						const embed = new Discord.MessageEmbed()
 							.setColor(errorColor as Discord.HexColorString)
 							.setAuthor(getString("moduleName"))
@@ -134,7 +134,7 @@ const command: Command = {
 		} else {
 			const files = fs.readdirSync(stringsFolder),
 				emptyIndex = files.indexOf("empty")
-			if (emptyIndex > -1 && !member?.roles.cache.has("764442984119795732")) files.splice(emptyIndex, 1) //Discord Administrator
+			if (emptyIndex > -1 && !member?.roles.cache.has(ids.roles.admin)) files.splice(emptyIndex, 1)
 			const embed = new Discord.MessageEmbed()
 				.setColor(neutralColor as Discord.HexColorString)
 				.setAuthor(getString("moduleName"))

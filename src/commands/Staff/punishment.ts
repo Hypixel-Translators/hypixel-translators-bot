@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import { errorColor, loadingColor, successColor } from "../../config.json"
+import { errorColor, loadingColor, successColor, ids } from "../../config.json"
 import type { Command } from "../../index"
 import { db } from "../../lib/dbclient"
 import { generateTip, getActivePunishments, PunishmentLog, PunishmentPoints } from "../../lib/util"
@@ -97,8 +97,8 @@ const command: Command = {
 			required: true
 		}]
 	}],
-	roleWhitelist: ["768435276191891456"], //Discord Staff
-	channelWhitelist: ["624881429834366986", "551693960913879071"], //staff-bots admin-bots
+	roleWhitelist: [ids.roles.staff],
+	channelWhitelist: [ids.channels.staffBots, ids.channels.adminBots],
 	async execute(interaction) {
 		const member = interaction.member as Discord.GuildMember,
 			subCommand = interaction.options.getSubcommand(),
@@ -124,7 +124,7 @@ const command: Command = {
 				),
 			filter = (bInteraction: Discord.MessageComponentInteraction) => bInteraction.user.id === interaction.user.id,
 			caseNumber = (await collection.estimatedDocumentCount()) + 1,
-			punishmentsChannel = interaction.client.channels.cache.get("800820574405656587") as Discord.TextChannel,
+			punishmentsChannel = interaction.client.channels.cache.get(ids.channels.punishments) as Discord.TextChannel,
 			randomTip = generateTip()
 		let reason = interaction.options.getString("reason")
 		if (reason) reason = reason.charAt(0).toUpperCase() + reason.slice(1)
@@ -135,7 +135,7 @@ const command: Command = {
 			//Check for permissions to give the punishment
 			if (!checkPermissions(interaction.member as Discord.GuildMember, punishment)) throw "You don't have permission to give this punishment"
 			if (user.bot) throw "You cannot punish bots!"
-			if (memberInput?.roles.cache.has("768435276191891456")) throw "You cannot punish this user!" //Discord Staff
+			if (memberInput?.roles.cache.has(ids.roles.staff)) throw "You cannot punish this user!"
 			if (points! <= (punishment.activePunishmentPoints ?? 0)) throw `This user currently has an active punishment with ${punishment.activePunishmentPoints} points, so you cannot give them a less severe punishment!`
 
 			//Apply the punishment
@@ -314,11 +314,11 @@ const command: Command = {
 					await interaction.guild!.channels.fetch()
 					interaction.guild!.channels.cache.forEach(async channel => {
 						if (channel.isThread()) return
-						await channel.permissionOverwrites.edit("645208834633367562", { SEND_MESSAGES: false, ADD_REACTIONS: false, SPEAK: false })
+						await channel.permissionOverwrites.edit(ids.roles.muted, { SEND_MESSAGES: false, ADD_REACTIONS: false, SPEAK: false })
 					})
 
 					if (!memberInput) throw "Couldn't find that member! Are you sure they're on the server?"
-					await memberInput.roles.add("645208834633367562", `Muted by ${interaction.user.tag}`) //Muted
+					await memberInput.roles.add(ids.roles.muted, `Muted by ${interaction.user.tag}`)
 
 					const dmEmbed = new Discord.MessageEmbed()
 						.setColor(errorColor as Discord.HexColorString)
@@ -642,7 +642,7 @@ const command: Command = {
 						await buttonInteraction.editReply({ embeds: [embed], components: [] })
 					})
 				else if (!memberInput) embed.setDescription(`Failed to unmute ${user}, they may not be in the server`)
-				else if (activePunishments[0].type === "MUTE") await memberInput.roles.remove("645208834633367562", `${reason} | ${interaction.user.tag}`)
+				else if (activePunishments[0].type === "MUTE") await memberInput.roles.remove(ids.roles.muted, `${reason} | ${interaction.user.tag}`)
 
 				if (senddm) await user.send({ embeds: [dmEmbed] })
 					.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
@@ -725,8 +725,8 @@ async function calculatePunishment(user: Discord.User, points: PunishmentPoints)
 }
 
 function checkPermissions(author: Discord.GuildMember, punishment: Punishment) {
-	if (punishment.type === "BAN" && !author.roles.cache.has("764442984119795732")) { //Discord Administrator
-		if (!author.roles.cache.has("621071221462663169")) return false //Discord Moderator
+	if (punishment.type === "BAN" && !author.roles.cache.has(ids.roles.admin)) {
+		if (!author.roles.cache.has(ids.roles.mod)) return false
 		if (!punishment.duration) return false
 	}
 	return true

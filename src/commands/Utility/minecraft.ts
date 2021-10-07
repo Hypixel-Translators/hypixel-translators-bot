@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import { successColor } from "../../config.json"
+import { successColor, ids } from "../../config.json"
 import axios from "axios"
 import { db, DbUser } from "../../lib/dbclient"
 import { client, Command, GetStringFunction } from "../../index"
@@ -44,7 +44,7 @@ const command: Command = {
 		}]
 	}],
 	cooldown: 30,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()

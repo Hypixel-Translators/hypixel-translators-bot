@@ -1,5 +1,6 @@
 import Discord from "discord.js"
 import axios from "axios"
+import { ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { Command, client, GetStringFunction } from "../../index"
 import { fetchSettings, generateTip, getMCProfile, getUUID, GraphQLQuery, updateRoles } from "../../lib/util"
@@ -21,7 +22,7 @@ const command: Command = {
 		required: false
 	}],
 	cooldown: 120,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
@@ -41,17 +42,17 @@ const command: Command = {
 
 		// make a request to the slothpixel api (hypixel api but we dont need an api key)
 		const graphqlQuery = await axios
-				.get<GraphQLQuery>("https://api.slothpixel.me/api/graphql", {
-					...fetchSettings,
-					data: { query: query.replaceAll("\t", "").replaceAll("\n", " "), variables: { uuid }, operationName: "HypixelStats" }
-				})
-				.then(res => res.data)
-				.catch(e => {
-					if (e.code === "ECONNABORTED") { //this means the request timed out
-						console.error("Slothpixel is down, sending error.")
-						throw "apiError"
-					} else throw e
-				}),
+			.get<GraphQLQuery>("https://api.slothpixel.me/api/graphql", {
+				...fetchSettings,
+				data: { query: query.replaceAll("\t", "").replaceAll("\n", " "), variables: { uuid }, operationName: "HypixelStats" }
+			})
+			.then(res => res.data)
+			.catch(e => {
+				if (e.code === "ECONNABORTED") { //this means the request timed out
+					console.error("Slothpixel is down, sending error.")
+					throw "apiError"
+				} else throw e
+			}),
 			playerJson = graphqlQuery.data.players.player,
 			guildJson = graphqlQuery.data.guild
 
@@ -86,7 +87,7 @@ const command: Command = {
 
 		//Update user's roles if they're verified
 		const uuidDb = await db.collection<DbUser>("users").findOne({ uuid: playerJson.uuid })
-		if (uuidDb) updateRoles(client.guilds.cache.get("549503328472530974")!.members.cache.get(uuidDb.id)!, playerJson)
+		if (uuidDb) updateRoles(client.guilds.cache.get(ids.guilds.main)!.members.cache.get(uuidDb.id)!, playerJson)
 
 		const skinRender = `https://mc-heads.net/body/${playerJson.uuid}/left`,
 			guildMaster = (await getMCProfile(guildJson.guild_master?.uuid))?.name
@@ -163,7 +164,7 @@ const command: Command = {
 				else twitch = `[${getString("link")}](${socialMedia.TWITCH})`
 			} else twitch = getString("notConnected")
 
-			const allowedGuildIDs = ["489529070913060867", "549503328472530974", "418938033325211649", "450878205294018560"] //Hypixel, our server, Quickplay Discord and Biscuit's Bakery
+			const allowedGuildIDs = [ids.guilds.hypixel, ids.guilds.main, ids.guilds.quickplay, ids.guilds.biscuit]
 			let discord: string | null = null
 			if (socialMedia.DISCORD) {
 				if (!socialMedia.DISCORD.includes("discord.gg")) discord = socialMedia.DISCORD.replaceAll("_", "\\_")
@@ -373,6 +374,9 @@ export const query = `
 						ranks {
 							name
 						}
+					}
+					skyblock {
+						profiles(player_name: $uuid)
 					}
 				}
 			`

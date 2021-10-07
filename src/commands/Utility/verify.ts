@@ -1,3 +1,4 @@
+import { ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { crowdinVerify } from "../../lib/crowdinverify"
 import { errorColor } from "../../config.json"
@@ -21,19 +22,19 @@ const command: Command = {
 	}],
 	cooldown: 300,
 	async execute(interaction) {
-		const verifyLogs = interaction.client.channels.cache.get("662660931838410754") as Discord.TextChannel,
-			verify = interaction.client.channels.cache.get("569178590697095168") as Discord.TextChannel,
+		const verifyLogs = interaction.client.channels.cache.get(ids.channels.verifyLogs) as Discord.TextChannel,
+			verify = interaction.client.channels.cache.get(ids.channels.verify) as Discord.TextChannel,
 			member = interaction.member as Discord.GuildMember,
 			profileUrl = interaction.options.getString("url", false),
 			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
 			url = profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0],
 			collection = db.collection<DbUser>("users")
 		await interaction.deferReply({ ephemeral: true })
-		if (!member.roles.cache.has("569194996964786178") && interaction.channelId == "569178590697095168" && !url) { //Verified and #verify
+		if (!member.roles.cache.has(ids.roles.verified) && interaction.channelId == ids.channels.verify && !url) {
 			const fiMessages = (await (interaction.channel as Discord.TextChannel).messages.fetch()).filter(msgs => msgs.author.id === interaction.user.id)
 			await (interaction.channel as Discord.TextChannel).bulkDelete(fiMessages)
-			await member.roles.add("569194996964786178", "Manually verified through the command")
-			await member.roles.remove("756199836470214848", "Manually verified through the command") //Add Verified and remove Alerted
+			await member.roles.add(ids.roles.verified, "Manually verified through the command")
+			await member.roles.remove(ids.roles.alerted, "Manually verified through the command")
 			await collection.updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
 			await collection.updateOne({ id: member.id, profile: { $exists: false } }, { $set: { profile: null } })
 			await crowdinVerify(member, null)
@@ -43,7 +44,7 @@ const command: Command = {
 				content:
 					"You successfully verified yourself as a regular user! If you're a translator and didn't mean to do this, feel free to run the /verify command and make sure to include your profile URL in the `url` parameter, e.g. `/verify url:https://crowdin.com/profile/atotallyvaliduser`"
 			})
-		} else if (member.roles.cache.has("764442984119795732") && memberInput) { //Discord Administrator
+		} else if (member.roles.cache.has(ids.roles.admin) && memberInput) {
 			await verifyLogs.send({ content: `${memberInput} is being reverified (requested by ${interaction.user})`, allowedMentions: { users: [memberInput.id] } })
 			await crowdinVerify(memberInput, url, false)
 			await interaction.editReply("Your request has been processed. Check the logs")
@@ -51,11 +52,11 @@ const command: Command = {
 			const userDb = await client.getUser(interaction.user.id)
 			if (userDb.profile || profileUrl && /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) {
 				await collection.updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
-				if ((interaction.member as Discord.GuildMember).roles.cache.has("569194996964786178")) await verifyLogs.send(`${interaction.user} is being reverified.`) //Verified
+				if (member.roles.cache.has(ids.roles.verified)) await verifyLogs.send(`${interaction.user} is being reverified.`)
 				await crowdinVerify(member, url, true)
 				await interaction.editReply("Your profile has been processed. Check your DMs.")
 			} else {
-				await member.roles.remove("569194996964786178", "Unverified") // Verified
+				await member.roles.remove(ids.roles.verified, "Unverified")
 				await collection.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 				const embed = new Discord.MessageEmbed()
 					.setColor(errorColor as Discord.HexColorString)

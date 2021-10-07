@@ -1,4 +1,4 @@
-import { loadingColor, errorColor, successColor, neutralColor } from "../../config.json"
+import { loadingColor, errorColor, successColor, neutralColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import { flag } from "country-emoji"
 import { db, DbUser } from "../../lib/dbclient"
@@ -16,23 +16,23 @@ const command: Command = {
 	}],
 	cooldown: 30,
 	roleWhitelist: [
-		"749390356763902114", //Bot Translator
-		"645709843436404767", //Quickplay Translator
-		"748268753405476905", //SkyblockAddons Translator
-		"569839517444341771", //Hypixel Translator
-		"752519784238678097", //Bot Proofreader
-		"645709808745578496", //Quickplay Proofreader
-		"748269222181863506", //SkyblockAddons Proofreader
-		"569839580971401236"  //Hypixel Proofreader
+		ids.roles.botTranslator,
+		ids.roles.qpTranslator,
+		ids.roles.sbaTranslator,
+		ids.roles.hypixelTranslator,
+		ids.roles.botPf,
+		ids.roles.qpPf,
+		ids.roles.sbaPf,
+		ids.roles.hypixelPf
 	],
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-development
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
 			member = interaction.member as Discord.GuildMember,
 			nickNoPrefix = member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim(),
 			langdb = await db.collection<LangDbEntry>("langdb").find().toArray()
 
-		if (interaction.options.getString("flags", false) && !member.roles.cache.hasAny("569839517444341771", "569839580971401236")) { //Hypixel Translator and Proofreader
+		if (interaction.options.getString("flags", false) && !member.roles.cache.hasAny(ids.roles.hypixelTranslator, ids.roles.hypixelPf)) {
 			const flagEmojis: (string | undefined)[] = []
 			interaction.options.getString("flags", true).split(" ").forEach(emoji => {
 				if (emoji.toLowerCase() === "lol" || emoji.toLowerCase() === "lolcat") flagEmojis.push("😹")
@@ -89,7 +89,7 @@ const command: Command = {
 									.setTitle("A user manually changed their prefix")
 									.setDescription(`${interaction.user} manually changed their prefix to include the following flag: ${prefix}\nMake sure they have the appropriate roles for this prefix and, if not, follow the appropriate procedure`)
 									.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
-								await (interaction.client.channels.cache.get("624881429834366986") as Discord.TextChannel).send({ embeds: [staffAlert] }) //staff-bots
+								await (interaction.client.channels.cache.get(ids.channels.staffBots) as Discord.TextChannel).send({ embeds: [staffAlert] })
 							})
 							.catch(async err => {
 								const embed = new Discord.MessageEmbed()
@@ -209,7 +209,7 @@ const command: Command = {
 			const rows = components.map(c => ({ type: "ACTION_ROW", components: c }) as const)
 
 			if (!userLangs.length) {
-				if (member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== "732615152246980628") || member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))) { //Bot updates
+				if (member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== ids.roles.botUpdates) || member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))) {
 					const embed = new Discord.MessageEmbed()
 						.setColor(errorColor as Discord.HexColorString)
 						.setAuthor(getString("moduleName"))

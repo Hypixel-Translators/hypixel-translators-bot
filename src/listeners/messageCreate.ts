@@ -1,3 +1,4 @@
+import { ids } from "../config.json"
 import { client } from "../index"
 import Discord from "discord.js"
 import fs from "node:fs"
@@ -24,27 +25,26 @@ client.on("messageCreate", async message => {
 	if (message.author.bot) return
 
 	//Define command and leveling system
-	const noXp = [
-		"613015467984158742", //Important
-		"619190456911134750", //Archived
-		"748267955552518175", //Verification
-		"549894938712866816", //bots
-		"782267779008823326", //music
-		"622814312615903233" //staff-announcements
-	]
-	const noXpRoles = ["549894155174674432", "645208834633367562"] //Bot and Muted
-	client.channels.cache.filter(c => (c as Discord.TextChannel).name?.endsWith("review-strings")).forEach(c => noXp.push(c.id))
+	const noXpChannels = [
+		ids.categories.important,
+		ids.categories.archived,
+		ids.categories.verification,
+		ids.channels.bots,
+		ids.channels.staffAnnouncements
+	],
+		noXpRoles = [ids.roles.bot, ids.roles.muted]
+	client.channels.cache.filter(c => (c as Discord.TextChannel).name?.endsWith("review-strings")).forEach(c => noXpChannels.push(c.id))
 	if (
-		message.guild?.id === "549503328472530974" &&
-		!noXp.includes((message.channel as Discord.GuildChannel).parentId!) &&
-		!noXp.includes(message.channel.id!) &&
+		message.guild?.id === ids.guilds.main &&
+		!noXpChannels.includes((message.channel as Discord.GuildChannel).parentId!) &&
+		!noXpChannels.includes(message.channel.id!) &&
 		!message.member?.roles.cache.some(r => noXpRoles.includes(r.id))
 	)
 		await leveling(message)
 
 	//Publish message if sent in bot-updates or if it's a tweet
-	if (message.channel.id === "732587569744838777" || //bot-updates
-		message.channel.id === "618909521741348874" && !message.embeds[0]?.description?.startsWith("@")) { //twitter
+	if (message.channel.id === ids.channels.botUpdates ||
+		message.channel.id === ids.channels.twitter && !message.embeds[0]?.description?.startsWith("@")) {
 		await message.crosspost()
 		return
 	}
@@ -71,10 +71,10 @@ client.on("messageCreate", async message => {
 		/(https:\/\/)?(crowdin\.com|translate\.hypixel\.net)\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)
 	) {
 		if (
-			message.channel.parentId === "549503328472530977" || //Hypixel Translations
-			message.channel.parentId === "748585307825242322" || //SkyblockAddons Translations
-			message.channel.parentId === "763131996163407902" || //Bot Translations
-			message.channel.parentId === "646083561769926668"    //Quickplay translations
+			message.channel.parentId === ids.categories.hypixel ||
+			message.channel.parentId === ids.categories.sba ||
+			message.channel.parentId === ids.categories.bot ||
+			message.channel.parentId === ids.categories.quickplay
 		) {
 			const langFix = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
 			if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
@@ -85,7 +85,7 @@ client.on("messageCreate", async message => {
 					.setTitle(getGlobalString("wrongStringURL"))
 					.setDescription(getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }))
 					.setImage("https://i.imgur.com/eDZ8u9f.png")
-				if (message.content !== langFix && message.channel.parentId === "549503328472530977") {
+				if (message.content !== langFix && message.channel.parentId === ids.categories.hypixel) {
 					embed.setDescription(
 						`${getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" })}\n${getGlobalString("reminderLang", {
 							format: "`crowdin.com/translate/.../.../en-en#`"
@@ -95,7 +95,7 @@ client.on("messageCreate", async message => {
 				} else await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "wrongLink", user: message.author.id })
 				await message.reply({ embeds: [embed] })
 				return
-			} else if (message.content !== langFix && message.channel.parentId === "549503328472530977") {
+			} else if (message.content !== langFix && message.channel.parentId === ids.categories.hypixel) {
 				await message.react("vote_no:839262184882044931")
 				await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "badLink", user: message.author.id })
 				const correctLink = langFix.match(stringURLRegex)![0],
@@ -111,7 +111,7 @@ client.on("messageCreate", async message => {
 	}
 
 	//Crowdin verification system
-	if (/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel.id === "569178590697095168") {
+	if (/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel.id === ids.channels.verify) {
 		//verify
 		await message.react("loading:882267041627766816")
 		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
@@ -121,10 +121,10 @@ client.on("messageCreate", async message => {
 	}
 
 	//Staff messaging system
-	const member = await message.client.guilds.cache.get("549503328472530974")!.members.cache.get(message.author.id)
-	if (message.author !== client.user && message.channel.type === "DM" && !member!.roles.cache.has("645208834633367562")) { // Muted
+	const member = await message.client.guilds.cache.get(ids.guilds.main)!.members.cache.get(message.author.id)
+	if (message.author !== client.user && message.channel.type === "DM" && !member!.roles.cache.has(ids.roles.muted)) {
 		if (!message.content && message.stickers.size >= 0 && message.attachments.size === 0) return //we don't need stickers being sent to us
-		const staffBots = client.channels.cache.get("624881429834366986") as Discord.TextChannel,
+		const staffBots = client.channels.cache.get(ids.channels.staffBots) as Discord.TextChannel,
 			hourCooldown = 48, // Hours to wait before asking for confirmation
 			confirmTime = 60, // 1 min
 			controlButtons = new Discord.MessageActionRow()
@@ -208,7 +208,7 @@ client.on("messageCreate", async message => {
 	}
 
 	//Event role system
-	if (message.member?.roles.cache.has("764442984119795732") && message.mentions.roles.has("863430999122509824") && message.content.includes("\n\n")) { //Discord Administrator and Event
+	if (message.member?.roles.cache.has(ids.roles.admin) && message.mentions.roles.has(ids.roles.event) && message.content.includes("\n\n")) {
 		await db.collection("config").updateOne({ name: "event" }, { $push: { ids: message.id } })
 		await message.react("vote_yes:839262196797669427")
 		await message.react("vote_no:839262184882044931")

@@ -1,4 +1,4 @@
-import { successColor } from "../../config.json"
+import { successColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import { execute, updateProjectStatus } from "../../events/stats"
 import { Command, client } from "../../index"
@@ -19,7 +19,7 @@ const command: Command = {
 		],
 		required: false
 	}],
-	roleWhitelist: ["764442984119795732"], //Discord Administrator
+	roleWhitelist: [ids.roles.admin],
 	async execute(interaction) {
 		const projectInput = interaction.options.getString("project", false),
 			member = interaction.member as Discord.GuildMember

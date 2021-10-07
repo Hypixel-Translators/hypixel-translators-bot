@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import { neutralColor, errorColor } from "../../config.json"
+import { neutralColor, errorColor, ids } from "../../config.json"
 import { client, Command, GetStringFunction } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
 import { generateTip, updateButtonColors } from "../../lib/util"
@@ -20,7 +20,7 @@ const command: Command = {
 		required: false
 	}],
 	cooldown: 60,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),

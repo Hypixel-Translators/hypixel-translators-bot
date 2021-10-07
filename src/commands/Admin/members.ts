@@ -1,4 +1,5 @@
 import Discord from "discord.js"
+import { ids } from "../../config.json"
 import type { Command } from "../../index"
 import { generateTip, updateButtonColors } from "../../lib/util"
 
@@ -11,8 +12,8 @@ const command: Command = {
 		description: "The role to get members for",
 		required: true
 	}],
-	roleWhitelist: ["764442984119795732"], //Discord Administrator
-	channelWhitelist: ["624881429834366986", "730042612647723058", "551693960913879071"], //staff-bots bot-development admin-bots
+	roleWhitelist: [ids.roles.admin],
+	channelWhitelist: [ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction) {
 		const role = interaction.options.getRole("role", true) as Discord.Role,
 			tags: Discord.GuildMember[] = [],

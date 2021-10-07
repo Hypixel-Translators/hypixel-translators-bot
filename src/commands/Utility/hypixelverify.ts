@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import { successColor, errorColor } from "../../config.json"
+import { successColor, errorColor, ids } from "../../config.json"
 import axios from "axios"
 import { db, DbUser } from "../../lib/dbclient"
 import { fetchSettings, generateTip, getUUID, updateRoles, GraphQLQuery } from "../../lib/util"
@@ -21,7 +21,7 @@ const command: Command = {
 		required: false
 	}],
 	cooldown: 600,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], // bots staff-bots bot-dev
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
@@ -69,7 +69,7 @@ const command: Command = {
 					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.editReply({ embeds: [notChanged] })
 			}
-		} else if (memberInput && (interaction.member as Discord.GuildMember).roles.cache.has("764442984119795732")) { //Discord Administrator
+		} else if (memberInput && (interaction.member as Discord.GuildMember).roles.cache.has(ids.roles.admin)) {
 			const result = await collection.updateOne({ id: memberInput.id }, { $set: { uuid: json.uuid } }),
 				role = await updateRoles(memberInput, json) as Discord.Role
 			if (result.modifiedCount) {

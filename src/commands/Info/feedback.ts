@@ -1,4 +1,4 @@
-import { successColor } from "../../config.json"
+import { successColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import type { Command, GetStringFunction } from "../../index"
 import { generateTip } from "../../lib/util"
@@ -8,7 +8,7 @@ const command: Command = {
 	description: "Gives you instructions on how to give feedback towards the bot",
 	cooldown: 120,
 	allowDM: true,
-	channelWhitelist: ["549894938712866816", "624881429834366986", "730042612647723058"], //bots staff-bots bot-dev
+	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
 			member = interaction.member as Discord.GuildMember | null ?? interaction.user

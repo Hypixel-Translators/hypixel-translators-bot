@@ -1,4 +1,5 @@
 import type { Command } from "../../index"
+import { ids } from "../../config.json"
 
 const command: Command = {
 	name: "tag",
@@ -36,8 +37,8 @@ const command: Command = {
 
 		switch (tag) {
 			case "invite":
-				const vanityURLCode = await interaction.client.guilds.cache.get("549503328472530974")!.fetchVanityData().then(v => v.code).catch(() => null),
-					inviteURL = `https://discord.gg/${vanityURLCode || "rcT948A"}`
+				const vanityURLCode = await interaction.client.guilds.cache.get(ids.guilds.main)!.fetchVanityData().then(v => v.code).catch(() => null),
+					inviteURL = `https://discord.gg/${vanityURLCode ?? "rcT948A"}`
 				response = `You can use this link to invite others to the community: ${inviteURL}`
 				break
 			case "hypixel":

@@ -2,7 +2,7 @@ import { client, Command } from "../index"
 import stats from "../events/stats"
 import inactives from "../events/inactives"
 import crowdin from "../events/crowdinverify"
-import { listeningStatuses, watchingStatuses, playingStatuses, successColor } from "../config.json"
+import { listeningStatuses, watchingStatuses, playingStatuses, successColor, ids } from "../config.json"
 import Discord from "discord.js"
 import { db } from "../lib/dbclient"
 import { PunishmentLog, restart } from "../lib/util"
@@ -12,7 +12,7 @@ client.once("ready", async () => {
 	//In dbclient.ts the event is emitted again if the connection is made after the client is ready
 	if (!db) return
 	console.log(`Logged in as ${client.user!.tag}!`)
-	const guild = client.guilds.cache.get("549503328472530974")!
+	const guild = client.guilds.cache.get(ids.guilds.main)!
 
 	//Only update global commands in production
 	if (process.env.NODE_ENV === "production") {
@@ -51,7 +51,7 @@ client.once("ready", async () => {
 		await restart()
 	}
 	guild?.roles.premiumSubscriberRole!.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
-	guild?.roles.cache.get("768435276191891456")! //Discord Staff
+	guild?.roles.cache.get(ids.roles.staff)!
 		.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
 
 	//Change status and run events every minute
@@ -82,7 +82,7 @@ client.once("ready", async () => {
 	//Check for active punishments and start a timeout to conclude them
 	const punishmentsColl = db.collection<PunishmentLog>("punishments"),
 		punishments = await punishmentsColl.find({ ended: false }).toArray(),
-		punishmentsChannel = guild.channels.cache.get("800820574405656587") as Discord.TextChannel
+		punishmentsChannel = guild.channels.cache.get(ids.channels.punishments) as Discord.TextChannel
 	for (const punishment of punishments) {
 		if (!punishment.endTimestamp) continue
 		const msLeft = punishment.endTimestamp! - Date.now()
@@ -116,7 +116,7 @@ client.once("ready", async () => {
 					logMsg: msg.id,
 				} as PunishmentLog)
 				if (!member) return console.log(`Couldn't find member with id ${punishment.id} in order to unmute them`)
-				else await member.roles.remove("645208834633367562", "Punishment ended") //Muted
+				else await member.roles.remove(ids.roles.muted, "Punishment ended")
 				const dmEmbed = new Discord.MessageEmbed()
 					.setColor(successColor as Discord.HexColorString)
 					.setAuthor("Punishment")
@@ -167,7 +167,7 @@ client.once("ready", async () => {
 	// restart the bot every 2 days
 	setInterval(async () => {
 		console.log("Bot has been running for 2 days, restarting...");
-		(client.channels.cache.get("730042612647723058") as Discord.TextChannel).send("I have been running for 2 days straight, gonna restart...") //bot-development
+		(client.channels.cache.get(ids.channels.botDev) as Discord.TextChannel).send("I have been running for 2 days straight, gonna restart...")
 		await restart()
 	}, 172_800_000)
 })
@@ -183,7 +183,7 @@ async function setPermissions(command: Discord.ApplicationCommand<{ guild: Disco
 		clientCmd = client.commands.get(command.name)!
 	if (clientCmd.dev) permissions.push({
 		type: "ROLE",
-		id: "768435276191891456", //Discord Staff
+		id: ids.roles.staff,
 		permission: true
 	})
 	else {
@@ -204,7 +204,7 @@ async function setPermissions(command: Discord.ApplicationCommand<{ guild: Disco
 			})
 		})
 	}
-	if (permissions.length) await command.permissions.set({ permissions, guild: "549503328472530974" })
+	if (permissions.length) await command.permissions.set({ permissions, guild: ids.guilds.main })
 }
 
 function constructDiscordCommands() {
