@@ -65,7 +65,7 @@
 		"description": "自分自身、または指定したユーザーの現在のXPを表示します。"
 	},
 	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
+		"description": "プリセットメッセージを送信します。送信時、特定のメンバーに通知することができます。"
 	},
 	"translate": {
 		"description": "ボットを翻訳する方法の便利な情報を表示します。"
