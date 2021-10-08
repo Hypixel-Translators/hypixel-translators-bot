@@ -227,7 +227,7 @@ async function constructDiscordCommands(guild: Discord.Guild) {
 		globalCommands = await client.application.commands.fetch()
 	let clientCommands = client.commands
 	if (process.env.NODE_ENV === "production") clientCommands = clientCommands.filter(cmd => !cmd.allowDM)
-	clientCommands.filter(c => c.allowDM && globalCommands.get(c.name)?.equals(c, true) || !c.allowDM && guildCommands.get(c.name)?.equals(c, true)).forEach(c => returnCommands.push(convertToDiscordCommand(c)))
+	clientCommands.filter(c => (c.allowDM && globalCommands.get(c.name)?.equals(c, true) || !c.allowDM && guildCommands.get(c.name)?.equals(c, true)) ?? false).forEach(c => returnCommands.push(convertToDiscordCommand(c)))
 
 	return returnCommands
 }
