@@ -44,8 +44,7 @@ client.once("ready", async () => {
 	guild.commands.set(await constructDiscordCommands(guild))
 
 	// update permissions
-	guild.commands.permissions.set({ fullPermissions: await getPermissions(Array.from((await guild.commands.fetch()).values())) })
-	client.application!.commands.permissions.set({ fullPermissions: await getPermissions(Array.from(globalCommands.values())), guild: guild.id })
+	guild.commands.permissions.set({ fullPermissions: await getPermissions(Array.from((await guild.commands.fetch()).values()).concat(Array.from(globalCommands.values()))) })
 
 	//Get server boosters and staff for the status
 	const members = await guild.members.fetch()
