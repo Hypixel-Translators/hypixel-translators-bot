@@ -12,11 +12,11 @@ client.once("ready", async () => {
 	//In dbclient.ts the event is emitted again if the connection is made after the client is ready
 	if (!db) return
 	console.log(`Logged in as ${client.user!.tag}!`)
-	const guild = client.guilds.cache.get(ids.guilds.main)!
+	const guild = client.guilds.cache.get(ids.guilds.main)!,
+		globalCommands = await client.application!.commands.fetch()
 
 	//Only update global commands in production
 	if (process.env.NODE_ENV === "production") {
-		const globalCommands = await client.application!.commands.fetch()
 		client.commands.filter(c => !!c.allowDM).forEach(async command => {
 			if (!globalCommands) await publishCommand(command)
 			else {
@@ -41,7 +41,11 @@ client.once("ready", async () => {
 		})
 	}
 	//Set guild commands - these don't need checks since they update instantly
-	(await guild.commands.set(await constructDiscordCommands(guild))).forEach(async command => await setPermissions(command))
+	guild.commands.set(await constructDiscordCommands(guild))
+
+	// update permissions
+	guild.commands.permissions.set({ fullPermissions: await getPermissions(Array.from((await guild.commands.fetch()).values())) })
+	client.application!.commands.permissions.set({ fullPermissions: await getPermissions(Array.from(globalCommands.values())), guild: guild.id })
 
 	//Get server boosters and staff for the status
 	const members = await guild.members.fetch()
@@ -172,38 +176,50 @@ client.once("ready", async () => {
 })
 
 async function publishCommand(command: Command) {
-	const cmd = await client.application!.commands.create(convertToDiscordCommand(command))
-	await setPermissions(cmd)
+	client.application!.commands.create(convertToDiscordCommand(command))
 	console.log(`Published command ${command.name}!`)
 }
 
-async function setPermissions(command: Discord.ApplicationCommand<{ guild: Discord.GuildResolvable }>) {
-	const permissions: Discord.ApplicationCommandPermissionData[] = [],
-		clientCmd = client.commands.get(command.name)!
-	if (clientCmd.dev) permissions.push({
-		type: "ROLE",
-		id: ids.roles.staff,
-		permission: true
-	})
-	else {
-		clientCmd.roleWhitelist?.forEach(id => {
-			//Add whitelisted roles
-			permissions.push({
+async function getPermissions(commands: Discord.ApplicationCommand[]) {
+	const permissions: Discord.GuildApplicationCommandPermissionData[] = []
+	for (const command of commands) {
+		const clientCmd = client.commands.get(command.name)!
+
+		if (clientCmd.dev) permissions.push({
+			id: command.id,
+			permissions: [{
 				type: "ROLE",
-				id,
+				id: ids.roles.staff,
 				permission: true
-			})
+			}]
 		})
-		clientCmd.roleBlacklist?.forEach(id => {
-			//Add blacklisted roles
-			permissions.push({
-				type: "ROLE",
-				id,
-				permission: false
+		else {
+			clientCmd.roleWhitelist?.forEach(id => {
+				//Add whitelisted roles
+				permissions.push({
+					id: command.id,
+					permissions: [{
+						type: "ROLE",
+						id,
+						permission: true
+					}]
+				})
 			})
-		})
+			clientCmd.roleBlacklist?.forEach(id => {
+				//Add blacklisted roles
+				permissions.push({
+					id: command.id,
+					permissions: [{
+						type: "ROLE",
+						id,
+						permission: false
+					}]
+				})
+			})
+		}
 	}
-	if (permissions.length) await command.permissions.set({ permissions, guild: ids.guilds.main })
+
+	return permissions
 }
 
 async function constructDiscordCommands(guild: Discord.Guild) {
