@@ -41,7 +41,7 @@ client.once("ready", async () => {
 		})
 	}
 	//Set guild commands - these don't need checks since they update instantly
-	(await guild.commands.set(constructDiscordCommands())).forEach(async command => await setPermissions(command))
+	(await guild.commands.set(await constructDiscordCommands(guild))).forEach(async command => await setPermissions(command))
 
 	//Get server boosters and staff for the status
 	const members = await guild.members.fetch()
@@ -206,11 +206,16 @@ async function setPermissions(command: Discord.ApplicationCommand<{ guild: Disco
 	if (permissions.length) await command.permissions.set({ permissions, guild: ids.guilds.main })
 }
 
-function constructDiscordCommands() {
-	const returnCommands: Discord.ApplicationCommandData[] = []
+async function constructDiscordCommands(guild: Discord.Guild) {
+	const returnCommands: Discord.ApplicationCommandData[] = [],
+		guildCommands = await guild.commands.fetch(),
+		globalCommands = await client.application.commands!.fetch()
 	let clientCommands = client.commands
 	if (process.env.NODE_ENV === "production") clientCommands = clientCommands.filter(cmd => !cmd.allowDM)
-	clientCommands.forEach(c => returnCommands.push(convertToDiscordCommand(c)))
+	clientCommands.forEach(c => {
+		if ((c.allowDM && globalCommands.get(c.name)?.equals(c, true)) || (!c.allowDM && guildCommands.get(c.name)?.equals(c, true))) return
+		returnCommands.push(convertToDiscordCommand(c))
+	})
 
 	return returnCommands
 }
