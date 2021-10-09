@@ -11,25 +11,26 @@ client.once("ready", async () => {
 	//Sometimes the client is ready before connecting to the db, therefore we need to stop the listener if this is the case to prevent errors
 	//In dbclient.ts the event is emitted again if the connection is made after the client is ready
 	if (!db) return
-	console.log(`Logged in as ${client.user!.tag}!`)
+	console.log(`Logged in as ${client.user.tag}!`)
 	const guild = client.guilds.cache.get(ids.guilds.main)!,
-		globalCommands = await client.application!.commands.fetch()
-	let guildCommands = await guild.commands.fetch()
-
+	globalCommands = await client.application.commands.fetch()
+	//Set guild commands - these don't need checks since they update instantly
+	const guildCommands = await guild.commands.set(await constructDiscordCommands())
+	
 	//Only update global commands in production
 	client.commands.filter(c => Boolean(c.allowDM)).forEach(async command => {
 		const discordCommand = globalCommands.find(c => c.name === command.name)!
 		//Chech if the command is published
 		if (!globalCommands.some(cmd => cmd.name === command.name)) {
-			await client.application!.commands.create(convertToDiscordCommand(command))
+			await client.application.commands.create(convertToDiscordCommand(command))
 			console.log(`Published command ${command.name}!`)
 		} else if (!discordCommand.equals(command, true)) {
 			if (process.env.NODE_ENV === "production") {
 				await discordCommand.edit(convertToDiscordCommand(command))
 				console.log(`Edited command ${command.name} since changes were found\n`, discordCommand, command)
-			} else {
+			} else if (!guildCommands.find(c => c.name === command.name)?.equals(command, true)) {
 				await guild.commands.create(convertToDiscordCommand(command))
-				console.log(`Created global command ${command.name} on guild because changes were found in a dev environment.`)
+				console.log(`Created global command ${command.name} on guild because changes were found in a dev environment.\n`, discordCommand, command)
 			}
 		}
 	})
@@ -43,8 +44,6 @@ client.once("ready", async () => {
 			console.log(`Deleted command ${command.name} globally as it is no longer allowed in DMs`)
 		}
 	})
-	//Set guild commands - these don't need checks since they update instantly
-	guildCommands = await guild.commands.set(await constructDiscordCommands(guildCommands, globalCommands))
 
 	// update permissions
 	await guild.commands.permissions.set({ fullPermissions: await getPermissions(Array.from(guildCommands.values()).concat(Array.from(globalCommands.values()))) })
@@ -68,15 +67,15 @@ client.once("ready", async () => {
 		if (toPick > 66) {
 			//Higher than 66%
 			const playingStatus = playingStatuses[Math.floor(Math.random() * playingStatuses.length)].replace("RANDOM_USER", pickedUser)
-			client.user!.setActivity({ name: playingStatus, type: "PLAYING" })
+			client.user.setActivity({ name: playingStatus, type: "PLAYING" })
 		} else if (toPick <= 66 && toPick > 33) {
 			//Between 33% and 66% (inclusive)
 			const watchStatus = watchingStatuses[Math.floor(Math.random() * watchingStatuses.length)].replace("RANDOM_USER", pickedUser)
-			client.user!.setActivity({ name: watchStatus, type: "WATCHING" })
+			client.user.setActivity({ name: watchStatus, type: "WATCHING" })
 		} else if (toPick <= 33 && toPick > 0) {
 			//Between 0% and 33% (inclusive)
 			const listenStatus = listeningStatuses[Math.floor(Math.random() * listeningStatuses.length)].replace("RANDOM_USER", pickedUser)
-			client.user!.setActivity({ name: listenStatus, type: "LISTENING" })
+			client.user.setActivity({ name: listenStatus, type: "LISTENING" })
 		} else console.error(`Couldn't set the status because the percentage is a weird number: ${toPick}`)
 
 		await stats(client, false)
@@ -105,7 +104,7 @@ client.once("ready", async () => {
 					.setAuthor(`Case ${caseNumber} | Unmute | ${user.tag}`, (member ?? user).displayAvatarURL({ format: "png", dynamic: true }))
 					.addFields([
 						{ name: "User", value: user.toString(), inline: true },
-						{ name: "Moderator", value: client.user!.toString(), inline: true },
+						{ name: "Moderator", value: client.user.toString(), inline: true },
 						{ name: "Reason", value: "Ended" }
 					])
 					.setFooter(`ID: ${user.id}`)
@@ -139,7 +138,7 @@ client.once("ready", async () => {
 						.setAuthor(`Case ${caseNumber} | Unban | ${userFetched.tag}`, userFetched.displayAvatarURL({ format: "png", dynamic: true }))
 						.addFields([
 							{ name: "User", value: userFetched.toString(), inline: true },
-							{ name: "Moderator", value: client.user!.toString(), inline: true },
+							{ name: "Moderator", value: client.user.toString(), inline: true },
 							{ name: "Reason", value: "Ended" }
 						])
 						.setFooter(`ID: ${userFetched.id}`)
@@ -221,15 +220,12 @@ async function getPermissions(commands: Discord.ApplicationCommand[]) {
 	return permissions
 }
 
-async function constructDiscordCommands(
-	guildCommands: Discord.Collection<Discord.Snowflake, Discord.ApplicationCommand>,
-	globalCommands: Discord.Collection<Discord.Snowflake, Discord.ApplicationCommand>
-) {
-	const returnCommands: Discord.ApplicationCommandData[] = Array.from(guildCommands.values())
+async function constructDiscordCommands() {
+	const returnCommands: Discord.ApplicationCommandData[] = client.commands.filter(c => !c.allowDM).map(convertToDiscordCommand)
 	let clientCommands = client.commands
 	if (process.env.NODE_ENV === "production") clientCommands = clientCommands.filter(cmd => !cmd.allowDM)
 	clientCommands
-		.filter(c => (c.allowDM && globalCommands.get(c.name)?.equals(c, true)) ?? false)
+		.filter(command => (command.allowDM && client.application.commands.cache.get(command.name)?.equals(command, true)) ?? false)
 		.forEach(c => returnCommands.push(convertToDiscordCommand(c)))
 
 	return returnCommands
