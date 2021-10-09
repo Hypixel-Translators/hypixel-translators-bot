@@ -13,8 +13,8 @@ client.once("ready", async () => {
 	if (!db) return
 	console.log(`Logged in as ${client.user!.tag}!`)
 	const guild = client.guilds.cache.get(ids.guilds.main)!,
-		globalCommands = await client.application!.commands.fetch(),
-		guildCommands = await guild.commands.fetch()
+		globalCommands = await client.application!.commands.fetch()
+	let guildCommands = await guild.commands.fetch()
 
 	//Only update global commands in production
 	if (process.env.NODE_ENV === "production") {
@@ -42,7 +42,7 @@ client.once("ready", async () => {
 		})
 	}
 	//Set guild commands - these don't need checks since they update instantly
-	guild.commands.set(await constructDiscordCommands(guildCommands, globalCommands))
+	guildCommands = await guild.commands.set(await constructDiscordCommands(guildCommands, globalCommands))
 
 	// update permissions
 	guild.commands.permissions.set({ fullPermissions: await getPermissions(Array.from(guildCommands.values()).concat(Array.from(globalCommands.values()))) })
@@ -116,7 +116,7 @@ client.once("ready", async () => {
 					reason: "Ended",
 					timestamp: Date.now(),
 					moderator: client.user.id,
-					logMsg: msg.id,
+					logMsg: msg.id
 				} as PunishmentLog)
 				if (!member) return console.log(`Couldn't find member with id ${punishment.id} in order to unmute them`)
 				else await member.roles.remove(ids.roles.muted, "Punishment ended")
@@ -161,7 +161,7 @@ client.once("ready", async () => {
 					reason: "Ended",
 					timestamp: Date.now(),
 					moderator: client.user.id,
-					logMsg: msg.id,
+					logMsg: msg.id
 				} as PunishmentLog)
 			} else console.error(`For some reason a ${punishment.type} punishment wasn't expired. Case ${punishment.case}`)
 		}, msLeft)
@@ -176,7 +176,7 @@ client.once("ready", async () => {
 })
 
 async function publishCommand(command: Command) {
-	client.application!.commands.create(convertToDiscordCommand(command))
+	await client.application!.commands.create(convertToDiscordCommand(command))
 	console.log(`Published command ${command.name}!`)
 }
 
@@ -185,14 +185,15 @@ async function getPermissions(commands: Discord.ApplicationCommand[]) {
 	for (const command of commands) {
 		const clientCmd = client.commands.get(command.name)!
 
-		if (clientCmd.dev) permissions.push({
-			id: command.id,
-			permissions: [{
-				type: "ROLE",
-				id: ids.roles.staff,
-				permission: true
-			}]
-		})
+		if (clientCmd.dev)
+			permissions.push({
+				id: command.id,
+				permissions: [{
+					type: "ROLE",
+					id: ids.roles.staff,
+					permission: true
+				}]
+			})
 		else {
 			clientCmd.roleWhitelist?.forEach(id => {
 				//Add whitelisted roles
@@ -222,11 +223,16 @@ async function getPermissions(commands: Discord.ApplicationCommand[]) {
 	return permissions
 }
 
-async function constructDiscordCommands(guildCommands: Discord.Collection<string, Discord.ApplicationCommand>, globalCommands: Discord.Collection<string, Discord.ApplicationCommand>) {
+async function constructDiscordCommands(
+	guildCommands: Discord.Collection<Discord.Snowflake, Discord.ApplicationCommand>,
+	globalCommands: Discord.Collection<Discord.Snowflake, Discord.ApplicationCommand>
+) {
 	const returnCommands: Discord.ApplicationCommandData[] = []
 	let clientCommands = client.commands
 	if (process.env.NODE_ENV === "production") clientCommands = clientCommands.filter(cmd => !cmd.allowDM)
-	clientCommands.filter(c => (c.allowDM && globalCommands.get(c.name)?.equals(c, true) || !c.allowDM && guildCommands.get(c.name)?.equals(c, true)) ?? false).forEach(c => returnCommands.push(convertToDiscordCommand(c)))
+	clientCommands
+		.filter(c => ((c.allowDM && globalCommands.get(c.name)?.equals(c, true)) || (!c.allowDM && guildCommands.get(c.name)?.equals(c, true))) ?? false)
+		.forEach(c => returnCommands.push(convertToDiscordCommand(c)))
 
 	return returnCommands
 }
@@ -235,7 +241,7 @@ function convertToDiscordCommand(command: Command): Discord.ChatInputApplication
 	return {
 		name: command.name,
 		description: command.description,
-		defaultPermission: (command.roleWhitelist || command.dev) ? false : true,
+		defaultPermission: command.roleWhitelist || command.dev ? false : true,
 		options: command.options ?? []
 	}
 }
