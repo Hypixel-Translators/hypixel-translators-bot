@@ -13,7 +13,8 @@ client.once("ready", async () => {
 	if (!db) return
 	console.log(`Logged in as ${client.user!.tag}!`)
 	const guild = client.guilds.cache.get(ids.guilds.main)!,
-		globalCommands = await client.application!.commands.fetch()
+		globalCommands = await client.application!.commands.fetch(),
+		guildCommands = await guild.commands.fetch()
 
 	//Only update global commands in production
 	if (process.env.NODE_ENV === "production") {
@@ -41,10 +42,10 @@ client.once("ready", async () => {
 		})
 	}
 	//Set guild commands - these don't need checks since they update instantly
-	guild.commands.set(await constructDiscordCommands(guild))
+	guild.commands.set(await constructDiscordCommands(guildCommands, globalCommands))
 
 	// update permissions
-	guild.commands.permissions.set({ fullPermissions: await getPermissions(Array.from((await guild.commands.fetch()).values()).concat(Array.from(globalCommands.values()))) })
+	guild.commands.permissions.set({ fullPermissions: await getPermissions(Array.from(guildCommands.values()).concat(Array.from(globalCommands.values()))) })
 
 	//Get server boosters and staff for the status
 	const members = await guild.members.fetch()
@@ -221,10 +222,8 @@ async function getPermissions(commands: Discord.ApplicationCommand[]) {
 	return permissions
 }
 
-async function constructDiscordCommands(guild: Discord.Guild) {
-	const returnCommands: Discord.ApplicationCommandData[] = [],
-		guildCommands = await guild.commands.fetch(),
-		globalCommands = await client.application.commands.fetch()
+async function constructDiscordCommands(guildCommands: Discord.Collection<string, Discord.ApplicationCommand>, globalCommands: Discord.Collection<string, Discord.ApplicationCommand>) {
+	const returnCommands: Discord.ApplicationCommandData[] = []
 	let clientCommands = client.commands
 	if (process.env.NODE_ENV === "production") clientCommands = clientCommands.filter(cmd => !cmd.allowDM)
 	clientCommands.filter(c => (c.allowDM && globalCommands.get(c.name)?.equals(c, true) || !c.allowDM && guildCommands.get(c.name)?.equals(c, true)) ?? false).forEach(c => returnCommands.push(convertToDiscordCommand(c)))
