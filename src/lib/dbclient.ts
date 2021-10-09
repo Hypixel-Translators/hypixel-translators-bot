@@ -4,10 +4,8 @@ import { client, Command } from "../index"
 const url = process.env.MONGO_URL
 if (!url) throw "MONGO_URL not in .env"
 export const mongoClient = new MongoClient(url)
-
-export let db: Db
-
 export const cancelledEvents: EventData<keyof Discord.ClientEvents>[] = []
+export let db: Db
 
 async function init() {
 	return new Promise<MongoClient>(async (resolve, reject) => {
@@ -18,6 +16,7 @@ async function init() {
 				//If the connection was made after the client was ready, we need to emit the event again
 				if (client.isReady()) client.emit("ready", client)
 				for (const event of cancelledEvents) client.emit(event.listener, ...event.args)
+				if (cancelledEvents.length) console.log(`Emitted the following cancelled events: ${cancelledEvents.map(e => e.listener).join(", ")}`)
 				resolve(mongoClient)
 			})
 			.catch(reject)
