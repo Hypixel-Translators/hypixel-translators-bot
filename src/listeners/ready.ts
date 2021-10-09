@@ -17,35 +17,37 @@ client.once("ready", async () => {
 	let guildCommands = await guild.commands.fetch()
 
 	//Only update global commands in production
-	if (process.env.NODE_ENV === "production") {
-		client.commands.filter(c => !!c.allowDM).forEach(async command => {
-			if (!globalCommands) await publishCommand(command)
-			else {
-				const discordCommand = globalCommands.find(c => c.name === command.name)!
-				//Chech if the command is published
-				if (!globalCommands.some(cmd => cmd.name === command.name)) await publishCommand(command)
-				else if (!discordCommand.equals(command, true)) {
-					await discordCommand.edit(convertToDiscordCommand(command))
-					console.log(`Edited command ${command.name} since changes were found\n`, discordCommand, command)
-				}
+	client.commands.filter(c => Boolean(c.allowDM)).forEach(async command => {
+		const discordCommand = globalCommands.find(c => c.name === command.name)!
+		//Chech if the command is published
+		if (!globalCommands.some(cmd => cmd.name === command.name)) {
+			await client.application!.commands.create(convertToDiscordCommand(command))
+			console.log(`Published command ${command.name}!`)
+		} else if (!discordCommand.equals(command, true)) {
+			if (process.env.NODE_ENV === "production") {
+				await discordCommand.edit(convertToDiscordCommand(command))
+				console.log(`Edited command ${command.name} since changes were found\n`, discordCommand, command)
+			} else {
+				await guild.commands.create(convertToDiscordCommand(command))
+				console.log(`Created global command ${command.name} on guild because changes were found in a dev environment.`)
 			}
-		})
-		//Delete commands that have been removed locally
-		globalCommands.forEach(async command => {
-			if (!client.commands.get(command.name)) {
-				await command.delete()
-				console.log(`Deleted command ${command.name} as it was deleted locally.`)
-			} else if (!client.commands.get(command.name)?.allowDM) {
-				await command.delete()
-				console.log(`Deleted command ${command.name} globally as it is no longer allowed in DMs`)
-			}
-		})
-	}
+		}
+	})
+	//Delete commands that have been removed locally
+	globalCommands.forEach(async command => {
+		if (!client.commands.get(command.name)) {
+			await command.delete()
+			console.log(`Deleted command ${command.name} as it was deleted locally.`)
+		} else if (!client.commands.get(command.name)?.allowDM) {
+			await command.delete()
+			console.log(`Deleted command ${command.name} globally as it is no longer allowed in DMs`)
+		}
+	})
 	//Set guild commands - these don't need checks since they update instantly
 	guildCommands = await guild.commands.set(await constructDiscordCommands(guildCommands, globalCommands))
 
 	// update permissions
-	guild.commands.permissions.set({ fullPermissions: await getPermissions(Array.from(guildCommands.values()).concat(Array.from(globalCommands.values()))) })
+	await guild.commands.permissions.set({ fullPermissions: await getPermissions(Array.from(guildCommands.values()).concat(Array.from(globalCommands.values()))) })
 
 	//Get server boosters and staff for the status
 	const members = await guild.members.fetch()
@@ -175,10 +177,6 @@ client.once("ready", async () => {
 	}, 172_800_000)
 })
 
-async function publishCommand(command: Command) {
-	await client.application!.commands.create(convertToDiscordCommand(command))
-	console.log(`Published command ${command.name}!`)
-}
 
 async function getPermissions(commands: Discord.ApplicationCommand[]) {
 	const permissions: Discord.GuildApplicationCommandPermissionData[] = []
@@ -227,11 +225,11 @@ async function constructDiscordCommands(
 	guildCommands: Discord.Collection<Discord.Snowflake, Discord.ApplicationCommand>,
 	globalCommands: Discord.Collection<Discord.Snowflake, Discord.ApplicationCommand>
 ) {
-	const returnCommands: Discord.ApplicationCommandData[] = []
+	const returnCommands: Discord.ApplicationCommandData[] = Array.from(guildCommands.values())
 	let clientCommands = client.commands
 	if (process.env.NODE_ENV === "production") clientCommands = clientCommands.filter(cmd => !cmd.allowDM)
 	clientCommands
-		.filter(c => ((c.allowDM && globalCommands.get(c.name)?.equals(c, true)) || (!c.allowDM && guildCommands.get(c.name)?.equals(c, true))) ?? false)
+		.filter(c => (c.allowDM && globalCommands.get(c.name)?.equals(c, true)) ?? false)
 		.forEach(c => returnCommands.push(convertToDiscordCommand(c)))
 
 	return returnCommands
