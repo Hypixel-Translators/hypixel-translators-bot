@@ -44,18 +44,17 @@ client.once("ready", async () => {
 	(await guild.commands.set(constructDiscordCommands())).forEach(async command => await setPermissions(command))
 
 	//Get server boosters and staff for the status
-	const boostersStaff: string[] = [],
-		members = await guild.members.fetch()
+	const members = await guild.members.fetch()
 	if (members.size < 200) {
 		console.error("Didn't receive enough members! Restarting...")
 		await restart()
 	}
-	guild?.roles.premiumSubscriberRole!.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
-	guild?.roles.cache.get(ids.roles.staff)!
-		.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
 
 	//Change status and run events every minute
 	setInterval(async () => {
+		const boostersStaff: string[] = []
+		guild?.roles.premiumSubscriberRole?.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
+		guild?.roles.cache.get(ids.roles.staff)!.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
 		const pickedUser = boostersStaff[Math.floor(Math.random() * boostersStaff.length)],
 			toPick = Math.ceil(Math.random() * 100) //get percentage
 		// const statusType = client.user!.presence.activities[0].type
