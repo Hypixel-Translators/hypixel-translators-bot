@@ -11,37 +11,45 @@ client.on("ready", async () => {
 	//Sometimes the client is ready before connecting to the db, therefore we need to stop the listener if this is the case to prevent errors
 	//In dbclient.ts the event is emitted again if the connection is made after the client is ready
 	if (!db) return
-	console.log(`Logged in as ${client.user!.tag}!`)
-	const guild = client.guilds.cache.get(ids.guilds.main)!
+	console.log(`Logged in as ${client.user.tag}!`)
+	const guild = client.guilds.cache.get(ids.guilds.main)!,
+		globalCommands = await client.application.commands.fetch()
+
+	//Set guild commands - these don't need checks since they update instantly
+	await guild.commands.set(constructGuildCommands())
 
 	//Only update global commands in production
-	if (process.env.NODE_ENV === "production") {
-		const globalCommands = await client.application!.commands.fetch()
-		client.commands.filter(c => !!c.allowDM).forEach(async command => {
-			if (!globalCommands) await publishCommand(command)
-			else {
-				const discordCommand = globalCommands.find(c => c.name === command.name)!
-				//Chech if the command is published
-				if (!globalCommands.some(cmd => cmd.name === command.name)) await publishCommand(command)
-				else if (!discordCommand.equals(command, true)) {
-					await discordCommand.edit(convertToDiscordCommand(command))
-					console.log(`Edited command ${command.name} since changes were found\n`, discordCommand, command)
-				}
+	client.commands.filter(c => Boolean(c.allowDM)).forEach(async command => {
+		const discordCommand = globalCommands.find(c => c.name === command.name)
+		//Chech if the command is published
+		if (!discordCommand) {
+			await client.application.commands.create(convertToDiscordCommand(command))
+			console.log(`Published command ${command.name}!`)
+		} else if (!discordCommand.equals(command, true)) {
+			if (process.env.NODE_ENV === "production") {
+				await discordCommand.edit(convertToDiscordCommand(command))
+				console.log(discordCommand, command, `\nEdited command ${command.name} since changes were found`)
 			}
-		})
-		//Delete commands that have been removed locally
-		globalCommands.forEach(async command => {
-			if (!client.commands.get(command.name)) {
-				await command.delete()
-				console.log(`Deleted command ${command.name} as it was deleted locally.`)
-			} else if (!client.commands.get(command.name)?.allowDM) {
-				await command.delete()
-				console.log(`Deleted command ${command.name} globally as it is no longer allowed in DMs`)
-			}
-		})
-	}
-	//Set guild commands - these don't need checks since they update instantly
-	(await guild.commands.set(constructDiscordCommands())).forEach(async command => await setPermissions(command))
+		}
+	})
+
+	//Delete commands that have been removed locally
+	globalCommands.forEach(async command => {
+		if (!client.commands.get(command.name)) {
+			await command.delete()
+			console.log(`Deleted command ${command.name} as it was deleted locally.`)
+		} else if (!client.commands.get(command.name)?.allowDM) {
+			await command.delete()
+			console.log(`Deleted command ${command.name} globally as it is no longer allowed in DMs`)
+		}
+	})
+
+	//Update permissions
+	await guild.commands.permissions.set({
+		fullPermissions: getPermissions(
+			Array.from(guild.commands.cache.values()).concat(Array.from(client.application.commands.cache.values()))
+		)
+	})
 
 	//Get server boosters and staff for the status
 	const members = await guild.members.fetch()
@@ -62,15 +70,15 @@ client.on("ready", async () => {
 		if (toPick > 66) {
 			//Higher than 66%
 			const playingStatus = playingStatuses[Math.floor(Math.random() * playingStatuses.length)].replace("RANDOM_USER", pickedUser)
-			client.user!.setActivity({ name: playingStatus, type: "PLAYING" })
+			client.user.setActivity({ name: playingStatus, type: "PLAYING" })
 		} else if (toPick <= 66 && toPick > 33) {
 			//Between 33% and 66% (inclusive)
 			const watchStatus = watchingStatuses[Math.floor(Math.random() * watchingStatuses.length)].replace("RANDOM_USER", pickedUser)
-			client.user!.setActivity({ name: watchStatus, type: "WATCHING" })
+			client.user.setActivity({ name: watchStatus, type: "WATCHING" })
 		} else if (toPick <= 33 && toPick > 0) {
 			//Between 0% and 33% (inclusive)
 			const listenStatus = listeningStatuses[Math.floor(Math.random() * listeningStatuses.length)].replace("RANDOM_USER", pickedUser)
-			client.user!.setActivity({ name: listenStatus, type: "LISTENING" })
+			client.user.setActivity({ name: listenStatus, type: "LISTENING" })
 		} else console.error(`Couldn't set the status because the percentage is a weird number: ${toPick}`)
 
 		await stats(client, false)
@@ -99,7 +107,7 @@ client.on("ready", async () => {
 					.setAuthor(`Case ${caseNumber} | Unmute | ${user.tag}`, (member ?? user).displayAvatarURL({ format: "png", dynamic: true }))
 					.addFields([
 						{ name: "User", value: user.toString(), inline: true },
-						{ name: "Moderator", value: client.user!.toString(), inline: true },
+						{ name: "Moderator", value: client.user.toString(), inline: true },
 						{ name: "Reason", value: "Ended" }
 					])
 					.setFooter(`ID: ${user.id}`)
@@ -112,7 +120,7 @@ client.on("ready", async () => {
 					reason: "Ended",
 					timestamp: Date.now(),
 					moderator: client.user.id,
-					logMsg: msg.id,
+					logMsg: msg.id
 				} as PunishmentLog)
 				if (!member) return console.log(`Couldn't find member with id ${punishment.id} in order to unmute them`)
 				else await member.roles.remove(ids.roles.muted, "Punishment ended")
@@ -133,7 +141,7 @@ client.on("ready", async () => {
 						.setAuthor(`Case ${caseNumber} | Unban | ${userFetched.tag}`, userFetched.displayAvatarURL({ format: "png", dynamic: true }))
 						.addFields([
 							{ name: "User", value: userFetched.toString(), inline: true },
-							{ name: "Moderator", value: client.user!.toString(), inline: true },
+							{ name: "Moderator", value: client.user.toString(), inline: true },
 							{ name: "Reason", value: "Ended" }
 						])
 						.setFooter(`ID: ${userFetched.id}`)
@@ -157,7 +165,7 @@ client.on("ready", async () => {
 					reason: "Ended",
 					timestamp: Date.now(),
 					moderator: client.user.id,
-					logMsg: msg.id,
+					logMsg: msg.id
 				} as PunishmentLog)
 			} else console.error(`For some reason a ${punishment.type} punishment wasn't expired. Case ${punishment.case}`)
 		}, msLeft)
@@ -171,48 +179,55 @@ client.on("ready", async () => {
 	}, 172_800_000)
 })
 
-async function publishCommand(command: Command) {
-	const cmd = await client.application!.commands.create(convertToDiscordCommand(command))
-	await setPermissions(cmd)
-	console.log(`Published command ${command.name}!`)
-}
 
-async function setPermissions(command: Discord.ApplicationCommand<{ guild: Discord.GuildResolvable }>) {
-	const permissions: Discord.ApplicationCommandPermissionData[] = [],
-		clientCmd = client.commands.get(command.name)!
-	if (clientCmd.dev) permissions.push({
-		type: "ROLE",
-		id: ids.roles.staff,
-		permission: true
-	})
-	else {
-		clientCmd.roleWhitelist?.forEach(id => {
-			//Add whitelisted roles
+function getPermissions(commands: Discord.ApplicationCommand[]) {
+	const permissions: Discord.GuildApplicationCommandPermissionData[] = []
+	for (const command of commands) {
+		const clientCmd = client.commands.get(command.name)!
+
+		if (clientCmd.dev)
 			permissions.push({
-				type: "ROLE",
-				id,
-				permission: true
+				id: command.id,
+				permissions: [{
+					type: "ROLE",
+					id: ids.roles.staff,
+					permission: true
+				}]
 			})
-		})
-		clientCmd.roleBlacklist?.forEach(id => {
-			//Add blacklisted roles
-			permissions.push({
-				type: "ROLE",
-				id,
-				permission: false
+		else {
+			clientCmd.roleWhitelist?.forEach(id => {
+				//Add whitelisted roles
+				permissions.push({
+					id: command.id,
+					permissions: [{
+						type: "ROLE",
+						id,
+						permission: true
+					}]
+				})
 			})
-		})
+			clientCmd.roleBlacklist?.forEach(id => {
+				//Add blacklisted roles
+				permissions.push({
+					id: command.id,
+					permissions: [{
+						type: "ROLE",
+						id,
+						permission: false
+					}]
+				})
+			})
+		}
 	}
-	if (permissions.length) await command.permissions.set({ permissions, guild: ids.guilds.main })
+	return permissions
 }
 
-function constructDiscordCommands() {
-	const returnCommands: Discord.ApplicationCommandData[] = []
+function constructGuildCommands() {
 	let clientCommands = client.commands
-	if (process.env.NODE_ENV === "production") clientCommands = clientCommands.filter(cmd => !cmd.allowDM)
-	clientCommands.forEach(c => returnCommands.push(convertToDiscordCommand(c)))
-
-	return returnCommands
+	if (process.env.NODE_ENV === "production") return clientCommands.filter(c => !c.allowDM).map(convertToDiscordCommand)
+	return clientCommands
+		.filter(command => (command.allowDM && !client.application.commands.cache.find(c => c.name === command.name)?.equals(command, true)) ?? true)
+		.map(convertToDiscordCommand)
 }
 
 function convertToDiscordCommand(command: Command): Discord.ChatInputApplicationCommandData {
