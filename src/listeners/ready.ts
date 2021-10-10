@@ -49,7 +49,7 @@ client.once("ready", async () => {
 
 	//Update permissions
 	await guild.commands.permissions.set({
-		fullPermissions: await getPermissions(
+		fullPermissions: getPermissions(
 			Array.from(guild.commands.cache.values()).concat(Array.from(client.application.commands.cache.values()))
 		)
 	})
@@ -183,7 +183,7 @@ client.once("ready", async () => {
 })
 
 
-async function getPermissions(commands: Discord.ApplicationCommand[]) {
+function getPermissions(commands: Discord.ApplicationCommand[]) {
 	const permissions: Discord.GuildApplicationCommandPermissionData[] = []
 	for (const command of commands) {
 		const clientCmd = client.commands.get(command.name)!
@@ -222,7 +222,6 @@ async function getPermissions(commands: Discord.ApplicationCommand[]) {
 			})
 		}
 	}
-
 	return permissions
 }
 
