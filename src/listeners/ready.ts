@@ -13,27 +13,29 @@ client.once("ready", async () => {
 	if (!db) return
 	console.log(`Logged in as ${client.user.tag}!`)
 	const guild = client.guilds.cache.get(ids.guilds.main)!,
-	globalCommands = await client.application.commands.fetch()
+		globalCommands = await client.application.commands.fetch()
+
 	//Set guild commands - these don't need checks since they update instantly
-	const guildCommands = await guild.commands.set(await constructDiscordCommands())
-	
+	await guild.commands.set(await constructDiscordCommands())
+
 	//Only update global commands in production
 	client.commands.filter(c => Boolean(c.allowDM)).forEach(async command => {
-		const discordCommand = globalCommands.find(c => c.name === command.name)!
+		const discordCommand = globalCommands.find(c => c.name === command.name)
 		//Chech if the command is published
-		if (!globalCommands.some(cmd => cmd.name === command.name)) {
+		if (!discordCommand) {
 			await client.application.commands.create(convertToDiscordCommand(command))
 			console.log(`Published command ${command.name}!`)
 		} else if (!discordCommand.equals(command, true)) {
 			if (process.env.NODE_ENV === "production") {
 				await discordCommand.edit(convertToDiscordCommand(command))
-				console.log(`Edited command ${command.name} since changes were found\n`, discordCommand, command)
-			} else if (!guildCommands.find(c => c.name === command.name)?.equals(command, true)) {
+				console.log(discordCommand, command, `\nEdited command ${command.name} since changes were found`)
+			} else {
 				await guild.commands.create(convertToDiscordCommand(command))
-				console.log(`Created global command ${command.name} on guild because changes were found in a dev environment.\n`, discordCommand, command)
+				console.log(discordCommand, command, `\nCreated global command ${command.name} on guild because changes were found in a dev environment.`)
 			}
 		}
 	})
+
 	//Delete commands that have been removed locally
 	globalCommands.forEach(async command => {
 		if (!client.commands.get(command.name)) {
@@ -45,8 +47,12 @@ client.once("ready", async () => {
 		}
 	})
 
-	// update permissions
-	await guild.commands.permissions.set({ fullPermissions: await getPermissions(Array.from(guildCommands.values()).concat(Array.from(globalCommands.values()))) })
+	//Update permissions
+	await guild.commands.permissions.set({
+		fullPermissions: await getPermissions(
+			Array.from(guild.commands.cache.values()).concat(Array.from(client.application.commands.cache.values()))
+		)
+	})
 
 	//Get server boosters and staff for the status
 	const members = await guild.members.fetch()
