@@ -223,9 +223,8 @@ function getPermissions(commands: Discord.ApplicationCommand[]) {
 }
 
 function constructGuildCommands() {
-	let clientCommands = client.commands
-	if (process.env.NODE_ENV === "production") return clientCommands.filter(c => !c.allowDM).map(convertToDiscordCommand)
-	return clientCommands
+	if (process.env.NODE_ENV === "production") return client.commands.filter(c => !c.allowDM).map(convertToDiscordCommand)
+	return client.commands
 		.filter(command => (command.allowDM && !client.application.commands.cache.find(c => c.name === command.name)?.equals(command, true)) ?? true)
 		.map(convertToDiscordCommand)
 }
