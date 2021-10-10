@@ -28,7 +28,7 @@
 	},
 	"engines": {
 		"node": "16.x",
-		"npm": "7.x"
+		"npm": "8.x"
 	},
 	"devDependencies": {
 		"@types/countryjs": "^1.8.1",
