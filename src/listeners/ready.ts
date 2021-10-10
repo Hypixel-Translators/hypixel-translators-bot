@@ -16,7 +16,7 @@ client.once("ready", async () => {
 		globalCommands = await client.application.commands.fetch()
 
 	//Set guild commands - these don't need checks since they update instantly
-	await guild.commands.set(await constructDiscordCommands())
+	await guild.commands.set(constructGuildCommands())
 
 	//Only update global commands in production
 	client.commands.filter(c => Boolean(c.allowDM)).forEach(async command => {
@@ -29,9 +29,6 @@ client.once("ready", async () => {
 			if (process.env.NODE_ENV === "production") {
 				await discordCommand.edit(convertToDiscordCommand(command))
 				console.log(discordCommand, command, `\nEdited command ${command.name} since changes were found`)
-			} else {
-				await guild.commands.create(convertToDiscordCommand(command))
-				console.log(discordCommand, command, `\nCreated global command ${command.name} on guild because changes were found in a dev environment.`)
 			}
 		}
 	})
@@ -225,15 +222,12 @@ function getPermissions(commands: Discord.ApplicationCommand[]) {
 	return permissions
 }
 
-async function constructDiscordCommands() {
-	const returnCommands: Discord.ApplicationCommandData[] = client.commands.filter(c => !c.allowDM).map(convertToDiscordCommand)
+function constructGuildCommands() {
 	let clientCommands = client.commands
-	if (process.env.NODE_ENV === "production") clientCommands = clientCommands.filter(cmd => !cmd.allowDM)
-	clientCommands
-		.filter(command => (command.allowDM && client.application.commands.cache.get(command.name)?.equals(command, true)) ?? false)
-		.forEach(c => returnCommands.push(convertToDiscordCommand(c)))
-
-	return returnCommands
+	if (process.env.NODE_ENV === "production") return clientCommands.filter(c => !c.allowDM).map(convertToDiscordCommand)
+	return clientCommands
+		.filter(command => (command.allowDM && !client.application.commands.cache.find(c => c.name === command.name)?.equals(command, true)) ?? true)
+		.map(convertToDiscordCommand)
 }
 
 function convertToDiscordCommand(command: Command): Discord.ChatInputApplicationCommandData {
