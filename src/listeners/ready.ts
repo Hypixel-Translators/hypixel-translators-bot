@@ -7,7 +7,7 @@ import Discord from "discord.js"
 import { db } from "../lib/dbclient"
 import { PunishmentLog, restart } from "../lib/util"
 
-client.once("ready", async () => {
+client.on("ready", async () => {
 	//Sometimes the client is ready before connecting to the db, therefore we need to stop the listener if this is the case to prevent errors
 	//In dbclient.ts the event is emitted again if the connection is made after the client is ready
 	if (!db) return
