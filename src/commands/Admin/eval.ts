@@ -71,6 +71,7 @@ const command: Command = {
 						{ name: "Output length", value: `${inspected.length}`, inline: true },
 						{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
 					)
+					.setFooter(generateTip(), me.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [embed] })
 			console.log(evaled)
 		} catch (error) {
