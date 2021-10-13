@@ -234,7 +234,7 @@ client.on("interactionCreate", async interaction => {
 		if (interaction.deferred) {
 			const errorMsg = await interaction.editReply({ embeds: [embed], components: [] }) as Discord.Message
 			setTimeout(async () => {
-				if (!errorMsg.deleted) await errorMsg.delete()
+				if (!errorMsg.deleted && !interaction.ephemeral) await errorMsg.delete()
 			}, 10000)
 		} else if (!interaction.replied) await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
 		else if (interaction.replied) await interaction.followUp({ embeds: [embed], ephemeral: !error.stack, components: [] })
