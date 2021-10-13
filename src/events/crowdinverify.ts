@@ -1,8 +1,9 @@
 import { crowdinVerify } from "../lib/crowdinverify"
 import { ids } from "../config.json"
 import { db, DbUser, HTBClient } from "../lib/dbclient"
+import { client } from "../index"
 
-export default async function updateVerified(client: HTBClient, manual: boolean, limit = 0) {
+export default async function updateVerified(manual: boolean, limit = 0) {
 	const d = new Date(),
 		h = d.getUTCHours(),
 		m = d.getUTCMinutes()

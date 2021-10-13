@@ -18,7 +18,7 @@ const command: Command = {
 		const limit = interaction.options.getInteger("limit", false) ?? undefined,
 			member = interaction.member as Discord.GuildMember
 		await interaction.deferReply()
-		await crowdin(client, true, limit)
+		await crowdin(true, limit)
 		const embed = new Discord.MessageEmbed()
 			.setColor(successColor as Discord.HexColorString)
 			.setAuthor("Role updater")

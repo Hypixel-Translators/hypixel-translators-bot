@@ -81,9 +81,9 @@ client.on("ready", async () => {
 			client.user.setActivity({ name: listenStatus, type: "LISTENING" })
 		} else console.error(`Couldn't set the status because the percentage is a weird number: ${toPick}`)
 
-		await stats(client, false)
-		await inactives(client, false)
-		await crowdin(client, false)
+		await stats(false)
+		await inactives(false)
+		await crowdin(false)
 	}, 60_000)
 
 	//Check for active punishments and start a timeout to conclude them

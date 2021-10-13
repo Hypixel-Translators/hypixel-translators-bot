@@ -45,7 +45,7 @@ const command: Command = {
 		if (interaction.options.getBoolean("update", false)) {
 			const project = await db.collection<CrowdinProject>("crowdin").findOne({ shortName: sendTo.name.split("-")[0] })
 			if (!project) return await interaction.followUp("Couldn't update language statistics because the project was not found!")
-			await updateProjectStatus(interaction.client, project.id)
+			await updateProjectStatus(project.id)
 			await interaction.followUp(`Language statistics have been successfully updated on the ${project.name} project!`)
 		}
 	}

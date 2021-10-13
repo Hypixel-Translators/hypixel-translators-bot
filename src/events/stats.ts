@@ -1,28 +1,28 @@
 import { loadingColor, errorColor, successColor } from "../config.json"
 import Discord from "discord.js"
 import axios from "axios"
-import type { HTBClient } from "../lib/dbclient"
 import { db } from "../lib/dbclient"
 import { crowdinFetchSettings, CrowdinProject, LangDbEntry, LanguageStatus, Stats } from "../lib/util"
+import { client } from "../index"
 
-export async function execute(client: HTBClient, manual: boolean) {
+export async function execute(manual: boolean) {
 	const m = new Date().getUTCMinutes()
 	if (manual) {
-		await updateProjectStatus(client, "128098") //Hypixel
-		await updateProjectStatus(client, "369493") //SkyblockAddons
-		await updateProjectStatus(client, "369653") //Quickplay
-		await updateProjectStatus(client, "436418") //Bot
+		await updateProjectStatus("128098") //Hypixel
+		await updateProjectStatus("369493") //SkyblockAddons
+		await updateProjectStatus("369653") //Quickplay
+		await updateProjectStatus("436418") //Bot
 		console.log("All stats have been manually updated.")
 	} else if (m == 0 || m == 20 || m == 40) {
-		await updateProjectStatus(client, "128098") //Hypixel
-		await updateProjectStatus(client, "369493") //SkyblockAddons
+		await updateProjectStatus("128098") //Hypixel
+		await updateProjectStatus("369493") //SkyblockAddons
 	} else if (m == 10 || m == 30 || m == 50) {
-		await updateProjectStatus(client, "369653") //Quickplay
-		await updateProjectStatus(client, "436418") //Bot
+		await updateProjectStatus("369653") //Quickplay
+		await updateProjectStatus("436418") //Bot
 	}
 }
 
-export async function updateProjectStatus(client: Discord.Client, projectId: string) {
+export async function updateProjectStatus(projectId: string) {
 	const langdb = await db.collection<LangDbEntry>("langdb").find().toArray(),
 		crowdinDb = db.collection<CrowdinProject>("crowdin"),
 		projectDb = await crowdinDb.findOne({ id: projectId }) as CrowdinProject,

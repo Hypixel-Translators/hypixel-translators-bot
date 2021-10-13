@@ -25,7 +25,7 @@ const command: Command = {
 			member = interaction.member as Discord.GuildMember
 		await interaction.deferReply()
 		if (!projectInput) {
-			await execute(client, true)
+			await execute(true)
 				.then(async () => {
 					const allEmbed = new Discord.MessageEmbed()
 						.setColor(successColor as Discord.HexColorString)
@@ -39,19 +39,19 @@ const command: Command = {
 		} else {
 			switch (projectInput) {
 				case "hypixel": {
-					await updateProjectStatus(client, "128098")
+					await updateProjectStatus("128098")
 					break
 				}
 				case "quickplay": {
-					await updateProjectStatus(client, "369653")
+					await updateProjectStatus("369653")
 					break
 				}
 				case "sba": {
-					await updateProjectStatus(client, "369493")
+					await updateProjectStatus("369493")
 					break
 				}
 				case "bot": {
-					await updateProjectStatus(client, "436418")
+					await updateProjectStatus("436418")
 					break
 				}
 			}
