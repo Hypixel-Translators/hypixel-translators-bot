@@ -1,8 +1,8 @@
-import { loadingColor, errorColor, successColor } from "../config.json"
+import { loadingColor, errorColor, successColor, ids } from "../config.json"
 import Discord from "discord.js"
 import axios from "axios"
 import { db } from "../lib/dbclient"
-import { crowdinFetchSettings, CrowdinProject, LangDbEntry, LanguageStatus, Stats } from "../lib/util"
+import { closeConnection, crowdinFetchSettings, CrowdinProject, getBrowser, LangDbEntry, LanguageStatus, Stats } from "../lib/util"
 import { client } from "../index"
 
 export async function execute(manual: boolean) {
@@ -20,6 +20,7 @@ export async function execute(manual: boolean) {
 		await updateProjectStatus("369653") //Quickplay
 		await updateProjectStatus("436418") //Bot
 	}
+	await checkBuild()
 }
 
 export async function updateProjectStatus(projectId: string) {
@@ -73,6 +74,63 @@ export async function updateProjectStatus(projectId: string) {
 		await crowdinDb.updateOne({ id: projectDb.id }, { $set: { stringCount: langStatus[0].data.phrases.total } })
 		await db.collection<Stats>("stats").insertOne({ type: "STRINGS", name: projectDb.identifier, value: stringDiff })
 	}
+}
+
+async function checkBuild() {
+	const browser = await getBrowser(),
+		page = await browser.pupBrowser.newPage(),
+		collection = db.collection<CrowdinProject>("crowdin")
+	await page.goto("https://crowdin.com/project/hypixel/activity-stream")
+	await page.waitForSelector(".list-activity")
+	const lastBuild: CrowdinActivity = await page.evaluate(async () => {
+		window.eval('crowdin.activity.filters.filter_by_type = "1"') //filter by builds only to assure we get a build
+		await window.eval("crowdin.activity.refresh()") //refresh the activity stream to apply the new filter
+		await new Promise<void>(resolve => {
+			setInterval(() => {
+				const selector = window.eval('document.querySelector(".build_project")')
+				if (selector) resolve()
+			}, 100)
+		})
+		const activity = window.eval('crowdin.activity.data.filter(a => a.type === "build_project")[0]')
+		activity.author = window.eval("document.querySelector(\".user-link\").textContent")
+		return activity!
+	})
+	await page.close()
+	await closeConnection(browser.uuid)
+
+	const lastDbBuild = (await collection.findOne({ identifier: "hypixel" }))!.lastBuild!
+	if (lastBuild.timestamp > lastDbBuild) {
+		const embed = new Discord.MessageEmbed()
+			.setColor(successColor as Discord.HexColorString)
+			.setThumbnail(lastBuild.avatar)
+			.setAuthor("Build notifier")
+			.setTitle(`${lastBuild.author} just built the project!`)
+			.setDescription("You can expect to see updated translations on the network soon!")
+			.setTimestamp(lastBuild.timestamp * 1_000)
+			.setFooter("Built at")
+		await (client.channels.cache.get(ids.channels.hypixelTrs) as Discord.TextChannel).send({ embeds: [embed] })
+		await collection.updateOne({ identifier: "hypixel" }, { $set: { lastBuild: lastBuild.timestamp } })
+	}
+}
+
+interface CrowdinActivity {
+	after_build: number
+	avatar: string
+	before_build: number
+	count: string
+	date: string
+	datetime: string
+	icon_class: string
+	id: string
+	message: string
+	project_id: string
+	revision: string
+	time: string
+	timestamp: number
+	type: string
+	undo_able: boolean
+	user_id: string
+	author: string
 }
 
 export default execute

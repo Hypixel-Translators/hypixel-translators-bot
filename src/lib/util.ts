@@ -4,6 +4,8 @@ import Discord from "discord.js"
 import axios from "axios"
 import { client, GetStringFunction } from "../index"
 import { db } from "./dbclient"
+import puppeteer from "puppeteer"
+import { v4 } from "uuid"
 
 // source: https://github.com/Mee6/Mee6-documentation/blob/master/docs/levels_xp.md
 export const getXpNeeded = (lvl = NaN, xp = 0) => 5 * (lvl ** 2) + (50 * lvl) + 100 - xp
@@ -232,6 +234,7 @@ export interface CrowdinProject {
 	name: string
 	shortName: string
 	stringCount: number
+	lastBuild?: number
 }
 
 export interface EventDb {
@@ -400,4 +403,83 @@ export interface Stats {
 	value?: number
 	error?: boolean
 	errorMessage?: string
+}
+
+let browser: puppeteer.Browser | null = null,
+	interval: NodeJS.Timeout | null = null,
+	lastRequest = 0,
+	browserClosing = false,
+	browserOpening = false
+const activeConnections: string[] = []
+
+/**
+ * Returns the browser and a connection ID.
+ */
+export async function getBrowser() {
+	//* If browser is currently closing wait for it to fully close.
+	await new Promise<void>((resolve) => {
+		const timer = setInterval(() => {
+			if (!browserClosing) {
+				clearInterval(timer)
+				resolve()
+			}
+		}, 100)
+	})
+
+	lastRequest = Date.now()
+
+	//* Open a browser if there isn't one already.
+	await new Promise<void>((resolve) => {
+		const timer = setInterval(() => {
+			if (!browserOpening) {
+				clearInterval(timer)
+				resolve()
+			}
+		}, 100)
+	})
+	if (!browser) {
+		browserOpening = true
+		browser = await puppeteer.launch({
+			args: ["--no-sandbox"],
+			headless: process.env.NODE_ENV === "production" || process.platform === "linux"
+		})
+		browserOpening = false
+	}
+
+	//* Add closing interval if there isn't one already.
+	if (!interval) {
+		interval = setInterval(async () => {
+			if (lastRequest < Date.now() - 15 * 60 * 1000) {
+				await browser!.close()
+				browser = null
+				clearInterval(interval!)
+				interval = null
+			}
+		}, 5000)
+	}
+
+	//* Open new connection and return the browser with connection id.
+	const browserUUID = v4()
+	activeConnections.push(browserUUID)
+	return { pupBrowser: browser, uuid: browserUUID }
+}
+
+/**
+ * Close connection, and close browser if there are no more connections.
+ * @param {string} uuid The connection ID
+ */
+export async function closeConnection(uuid: string) {
+	//* Check if connection exists. If it does remove connection from connection list.
+	const index = activeConnections.indexOf(uuid)
+	if (index > -1) activeConnections.splice(index, 1)
+
+	//* Close browser if connection list is empty.
+	if (!activeConnections.length) {
+		browserClosing = true
+		await browser!.close()
+		browser = null
+		clearInterval(interval!)
+		interval = null
+		browserClosing = false
+	}
 }

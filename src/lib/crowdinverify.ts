@@ -4,7 +4,7 @@ import { errorColor, ids } from "../config.json"
 import { v4 } from "uuid"
 import { db, DbUser } from "../lib/dbclient"
 import { client } from "../index"
-import type { LangDbEntry, Stats } from "./util"
+import { closeConnection, getBrowser, LangDbEntry, Stats } from "./util"
 
 type ValidProjects = "Hypixel" | "Quickplay" | "Bot" | "SkyblockAddons"
 
@@ -153,18 +153,12 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 	let projects: CrowdinProject[] | null = null
 	page.on("console", msg => console.log(msg.text()))
 	if (aboutContent.includes(member.user.tag) || !sendDms) projects = await page.evaluate(async (tag: string) => {
-		const now = Date.now()
-		let returnProjects = window.eval("crowdin.profile_projects.view.state.projects") as CrowdinProject[] | null
-		if (returnProjects) return returnProjects
-		console.log(`Projects were null for ${tag}, attempting to re-evaluate.`)
-		await window.eval("crowdin.profile_projects.getProjectsInfo()")
-		let i = 0
-		while (returnProjects === null && i < 100) {
-			returnProjects = window.eval("crowdin.profile_projects.view.state.projects")
-			i++
-		}
-		console.log(`✅ Successfully fetched ${tag}'s profile after ${i} tries! Took ${Date.now() - now}ms`)
-		return returnProjects
+		return await new Promise<CrowdinProject[]>(resolve => {
+			setInterval(() => {
+				const projects = window.eval("crowdin.profile_projects.view.state.projects")
+				if (projects) resolve(projects)
+			}, 100)
+		})
 	}, member.user.tag)
 	await page.close()
 	await closeConnection(browser.uuid)
@@ -451,85 +445,6 @@ function removeAllRoles(member: Discord.GuildMember) {
 		r.name.endsWith(" Veteran")
 	)
 	roles.forEach(async role => await member.roles.remove(role, "Removing all roles from user"))
-}
-
-let browser: puppeteer.Browser | null = null,
-	interval: NodeJS.Timeout | null = null,
-	lastRequest = 0,
-	browserClosing = false,
-	browserOpening = false
-const activeConnections: string[] = []
-
-/**
- * Returns the browser and a connection ID.
- */
-async function getBrowser() {
-	//* If browser is currently closing wait for it to fully close.
-	await new Promise<void>((resolve) => {
-		const timer = setInterval(() => {
-			if (!browserClosing) {
-				clearInterval(timer)
-				resolve()
-			}
-		}, 100)
-	})
-
-	lastRequest = Date.now()
-
-	//* Open a browser if there isn't one already.
-	await new Promise<void>((resolve) => {
-		const timer = setInterval(() => {
-			if (!browserOpening) {
-				clearInterval(timer)
-				resolve()
-			}
-		}, 100)
-	})
-	if (!browser) {
-		browserOpening = true
-		browser = await puppeteer.launch({
-			args: ["--no-sandbox"],
-			headless: process.env.NODE_ENV === "production" || process.platform === "linux"
-		})
-		browserOpening = false
-	}
-
-	//* Add closing interval if there isn't one already.
-	if (!interval) {
-		interval = setInterval(async () => {
-			if (lastRequest < Date.now() - 15 * 60 * 1000) {
-				await browser!.close()
-				browser = null
-				clearInterval(interval!)
-				interval = null
-			}
-		}, 5000)
-	}
-
-	//* Open new connection and return the browser with connection id.
-	const browserUUID = v4()
-	activeConnections.push(browserUUID)
-	return { pupBrowser: browser, uuid: browserUUID }
-}
-
-/**
- * Close connection, and close browser if there are no more connections.
- * @param {string} uuid The connection ID
- */
-async function closeConnection(uuid: string) {
-	//* Check if connection exists. If it does remove connection from connection list.
-	const index = activeConnections.indexOf(uuid)
-	if (index > -1) activeConnections.splice(index, 1)
-
-	//* Close browser if connection list is empty.
-	if (!activeConnections.length) {
-		browserClosing = true
-		await browser!.close()
-		browser = null
-		clearInterval(interval!)
-		interval = null
-		browserClosing = false
-	}
 }
 
 interface CrowdinProject {
