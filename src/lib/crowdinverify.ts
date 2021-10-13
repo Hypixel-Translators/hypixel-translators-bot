@@ -330,11 +330,11 @@ async function updateProjectRoles(projectName: ValidProjects, member: Discord.Gu
 		if (role.name.includes("Translator") || role.name.includes("Proofreader")) addedProjectRoles.push(role.name)
 	})
 
-	let highestRole = "Translator"
+	let highestRole = "translator"
 	languages.forEach(language => {
 		if (language.role !== "Translator") {
-			if (language.role !== "Manager") highestRole = language.role
-			if (highestRole === "manager" || highestRole === "owner") highestRole = "Manager"
+			if (language.role !== "Manager") highestRole = language.role.toLowerCase()
+			if (highestRole === "manager" || highestRole === "owner") highestRole = "manager"
 		}
 	})
 
@@ -342,13 +342,13 @@ async function updateProjectRoles(projectName: ValidProjects, member: Discord.Gu
 		projectProofRole = member.guild.roles.cache.find(r => r.name === `${projectName} Proofreader`)!.id,
 		projectManagerRole = member.guild.roles.cache.find(r => r.name === `${projectName} Manager`)!.id
 
-	if (highestRole === "Translator") {
+	if (highestRole === "translator") {
 		await member.roles.remove(projectProofRole, "User no longer has this role on Crowdin")
 
 		await member.roles.remove(projectManagerRole, "User no longer has this role on Crowdin")
 
 		await member.roles.add(projectTransRole, "User has received this role on Crowdin")
-	} else if (highestRole === "Proofreader") {
+	} else if (highestRole === "proofreader") {
 		await member.roles.remove(projectTransRole, "User no longer has this role on Crowdin")
 
 		await member.roles.remove(projectManagerRole, "User no longer has this role on Crowdin")
