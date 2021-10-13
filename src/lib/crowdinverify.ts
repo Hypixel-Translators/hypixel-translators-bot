@@ -256,7 +256,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		[name: string]: Discord.Role[]
 	} = {}
 	for (const [key, value] of Object.entries(highestProjectRoles)) {
-		const role = member.guild!.roles.cache.find(r => r.name === `${key} ${value}`)!
+		const role = member.guild!.roles.cache.find(r => r.name.toLowerCase() === `${key} ${value}`.toLowerCase())!
 		endingMessageProjects[key] = [role]
 	}
 
@@ -267,6 +267,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 			endingMessageProjects[p].push(role)
 		})
 	}
+
 	const logEmbed = new Discord.MessageEmbed()
 		.setColor("BLURPLE")
 		.setTitle(`${member.user.tag} is now verified!`)
