@@ -20,10 +20,10 @@ export async function execute(manual: boolean) {
 		await updateProjectStatus("369653") //Quickplay
 		await updateProjectStatus("436418") //Bot
 	}
-	await checkBuild()
 }
 
 export async function updateProjectStatus(projectId: string) {
+	if (projectId === "128098") checkBuild()
 	const langdb = await db.collection<LangDbEntry>("langdb").find().toArray(),
 		crowdinDb = db.collection<CrowdinProject>("crowdin"),
 		projectDb = await crowdinDb.findOne({ id: projectId }) as CrowdinProject,
