@@ -1,7 +1,5 @@
-import puppeteer from "puppeteer"
 import Discord from "discord.js"
 import { errorColor, ids } from "../config.json"
-import { v4 } from "uuid"
 import { db, DbUser } from "../lib/dbclient"
 import { client } from "../index"
 import { closeConnection, getBrowser, LangDbEntry, Stats } from "./util"
@@ -202,6 +200,8 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 	projects
 		.filter(project => Object.keys(projectIDs).includes(project.id) && project.user_role !== "pending")
 		.forEach(async project => {
+			if (!project.contributed_languages?.length && !["owner", "manager"].includes(project.user_role) && projectIDs[project.id].langRoles)
+				return removeProjectRoles("Hypixel", member)
 			joinedProjects.push(projectIDs[project.id].name)
 
 			const role = project.contributed_languages?.length
@@ -240,7 +240,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 	Object.values(projectIDs)
 		.map(i => i.name)
 		.filter(pj => !joinedProjects.includes(pj))
-		.forEach(project => checkProjectRoles(project, member))
+		.forEach(project => removeProjectRoles(project, member))
 
 	await member.roles.remove(ids.roles.alerted, "User is now Verified")
 	await member.roles.add(ids.roles.verified, "User is now Verified")
@@ -400,7 +400,7 @@ async function updateLanguageRoles(
 		})
 }
 
-async function checkProjectRoles(projectName: ValidProjects, member: Discord.GuildMember) {
+async function removeProjectRoles(projectName: ValidProjects, member: Discord.GuildMember) {
 	const projectTransRole = member.guild.roles.cache.find(r => r.name === `${projectName} Translator`)!.id,
 		projectProofRole = member.guild.roles.cache.find(r => r.name === `${projectName} Proofreader`)!.id,
 		projectManagerRole = member.guild.roles.cache.find(r => r.name === `${projectName} Manager`)!.id
@@ -457,7 +457,7 @@ interface CrowdinProject {
 	last_activity_timestamp: number
 	joined_at_timestamp: number
 	last_seen_timestamp: number
-	user_role: string
+	user_role: "pending" | "translator" | "proofreader" | "manager" | "owner"
 	contributed_languages?: {
 		name: string
 		code: string
