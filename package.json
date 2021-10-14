@@ -32,7 +32,7 @@
 	},
 	"devDependencies": {
 		"@types/countryjs": "^1.8.1",
-		"@types/node": "^16.10.4",
+		"@types/node": "^16.10.9",
 		"@types/uuid": "^8.3.1",
 		"dotenv": "^10.0.0",
 		"rimraf": "^3.0.2"
