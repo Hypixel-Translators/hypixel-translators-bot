@@ -63,15 +63,29 @@ export async function updateProjectStatus(projectId: string) {
 		index++
 		await msg.edit({ content: null, embeds: [embed] })
 	})
-	const stringCount = projectDb.stringCount
-	if (stringCount != langStatus[0].data.phrases.total) {
+	const oldStringCount = projectDb.stringCount,
+		newStringCount = langStatus[0].data.phrases.total
+
+	if (oldStringCount != newStringCount) {
 		const translatorsChannel = client.channels.cache.find(c => (c as Discord.TextChannel).name == `${projectDb.shortName}-translators`) as Discord.TextChannel,
-			stringDiff = Math.abs(langStatus[0].data.phrases.total - stringCount)
-		if (stringCount < langStatus[0].data.phrases.total)
-			await translatorsChannel.send(`> <a:partyBlob:769679132317057064> **New ${stringDiff == 1 ? "String" : "Strings"}!**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the ${projectDb.name} project.\n\nTranslate at <https://crowdin.com/translate/${projectDb.identifier}/all/en>`)
-		else if (stringCount > langStatus[0].data.phrases.total)
-			await translatorsChannel.send(`> <:vote_no:839262184882044931> **${stringDiff == 1 ? "String" : "Strings"} Removed**\n${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`)
-		await crowdinDb.updateOne({ id: projectDb.id }, { $set: { stringCount: langStatus[0].data.phrases.total } })
+			stringDiff = Math.abs(newStringCount - oldStringCount)
+		if (oldStringCount < newStringCount) {
+			const embed = new Discord.MessageEmbed()
+				.setColor(successColor as Discord.HexColorString)
+				.setAuthor("New strings!")
+				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the ${projectDb.name} project.`)
+				.setDescription(`Translate at <https://crowdin.com/translate/${projectDb.identifier}/all/en>`)
+				.setFooter(`There are now ${newStringCount} strings on the project.`)
+			await translatorsChannel.send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}>` })
+		} else if (oldStringCount > newStringCount) {
+			const embed = new Discord.MessageEmbed()
+				.setColor(errorColor as Discord.HexColorString)
+				.setAuthor("Removed strings!")
+				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`)
+				.setFooter(`There are now ${newStringCount} strings on the project.`)
+			await translatorsChannel.send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}>` })
+		}
+		await crowdinDb.updateOne({ id: projectDb.id }, { $set: { stringCount: newStringCount } })
 		await db.collection<Stats>("stats").insertOne({ type: "STRINGS", name: projectDb.identifier, value: stringDiff })
 	}
 }
@@ -103,12 +117,12 @@ async function checkBuild() {
 		const embed = new Discord.MessageEmbed()
 			.setColor(successColor as Discord.HexColorString)
 			.setThumbnail(lastBuild.avatar)
-			.setAuthor("Build notifier")
+			.setAuthor("New build!")
 			.setTitle(`${lastBuild.author} just built the project!`)
 			.setDescription("You can expect to see updated translations on the network soon!")
 			.setTimestamp(lastBuild.timestamp * 1_000)
 			.setFooter("Built at")
-		await (client.channels.cache.get(ids.channels.hypixelTrs) as Discord.TextChannel).send({ embeds: [embed] })
+		await (client.channels.cache.get(ids.channels.hypixelTrs) as Discord.TextChannel).send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}>` })
 		await collection.updateOne({ identifier: "hypixel" }, { $set: { lastBuild: lastBuild.timestamp } })
 	}
 }
