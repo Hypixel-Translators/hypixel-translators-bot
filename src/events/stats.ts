@@ -63,27 +63,29 @@ export async function updateProjectStatus(projectId: string) {
 		index++
 		await msg.edit({ content: null, embeds: [embed] })
 	})
-	const stringCount = projectDb.stringCount
-	if (stringCount != langStatus[0].data.phrases.total) {
+	const oldStringCount = projectDb.stringCount,
+		newStringCount = langStatus[0].data.phrases.total
+
+	if (oldStringCount != newStringCount) {
 		const translatorsChannel = client.channels.cache.find(c => (c as Discord.TextChannel).name == `${projectDb.shortName}-translators`) as Discord.TextChannel,
-			stringDiff = Math.abs(langStatus[0].data.phrases.total - stringCount)
-		if (stringCount < langStatus[0].data.phrases.total) {
+			stringDiff = Math.abs(newStringCount - oldStringCount)
+		if (oldStringCount < newStringCount) {
 			const embed = new Discord.MessageEmbed()
 				.setColor(successColor as Discord.HexColorString)
 				.setAuthor("New strings!")
 				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the ${projectDb.name} project.`)
 				.setDescription(`Translate at <https://crowdin.com/translate/${projectDb.identifier}/all/en>`)
-				.setFooter(`There are now ${langStatus[0].data.phrases.total} strings on the project.`)
+				.setFooter(`There are now ${newStringCount} strings on the project.`)
 			await translatorsChannel.send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}>` })
-		} else if (stringCount > langStatus[0].data.phrases.total) {
+		} else if (oldStringCount > newStringCount) {
 			const embed = new Discord.MessageEmbed()
 				.setColor(errorColor as Discord.HexColorString)
 				.setAuthor("Removed strings!")
 				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`)
-				.setFooter(`There are now ${langStatus[0].data.phrases.total} strings on the project.`)
+				.setFooter(`There are now ${newStringCount} strings on the project.`)
 			await translatorsChannel.send({ embeds: [embed], content: `<@${ids.roles.crowdinUpdates}>` })
 		}
-		await crowdinDb.updateOne({ id: projectDb.id }, { $set: { stringCount: langStatus[0].data.phrases.total } })
+		await crowdinDb.updateOne({ id: projectDb.id }, { $set: { stringCount: newStringCount } })
 		await db.collection<Stats>("stats").insertOne({ type: "STRINGS", name: projectDb.identifier, value: stringDiff })
 	}
 }
