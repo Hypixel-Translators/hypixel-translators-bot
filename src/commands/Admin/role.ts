@@ -47,7 +47,7 @@ const command: Command = {
                 { name: "Position", value: `${role.position}`, inline: true },
                 { name: "HEX color", value: role.hexColor, inline: true },
 
-                { name: "Permissions", value: permissions.includes("ADMINISTRATOR") ? "ADMINISTRATOR" : permissions.join(", ") }
+                { name: "Permissions", value: permissions.includes("ADMINISTRATOR") ? "ADMINISTRATOR" : permissions.join(", ") || "None" }
             )
             .setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
         if (tags) embed.spliceFields(5, 1, tags)
