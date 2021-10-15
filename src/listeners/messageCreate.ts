@@ -21,6 +21,17 @@ client.on("messageCreate", async message => {
 		return
 	}
 
+	//Delete messages that contain empty spoilers (Discord bug)
+	if (message.content.includes("||||")) {
+		await message.delete()
+		const staffGeneral = client.channels.cache.get(ids.channels.staffGeneral) as Discord.TextChannel
+		await staffGeneral.send({
+			content: `${message.author}'s message in ${message.channel} was deleted because it contained an empty spoiler. Here's what it said:`,
+			embeds: [{ description: Discord.Util.escapeMarkdown(message.content) }]
+		})
+		return
+	}
+
 	//Stop if user is a bot
 	if (message.author.bot) return
 
