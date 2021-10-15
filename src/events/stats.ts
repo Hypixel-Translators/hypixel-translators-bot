@@ -73,15 +73,14 @@ export async function updateProjectStatus(projectId: string) {
 				.setAuthor("New strings!")
 				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the ${projectDb.name} project.`)
 				.setDescription(`Translate at <https://crowdin.com/translate/${projectDb.identifier}/all/en>`)
-				.setFooter(`There are a total of ${langStatus[0].data.phrases.total} strings.`)
-			await translatorsChannel.send({ embeds: [embed], content: `<@${ids.roles.crowdinUpdates}>` })
-		}
-		else if (stringCount > langStatus[0].data.phrases.total) {
+				.setFooter(`There are now ${langStatus[0].data.phrases.total} strings on the project.`)
+			await translatorsChannel.send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}>` })
+		} else if (stringCount > langStatus[0].data.phrases.total) {
 			const embed = new Discord.MessageEmbed()
 				.setColor(errorColor as Discord.HexColorString)
 				.setAuthor("Removed strings!")
 				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`)
-				.setFooter(`There are a total of ${langStatus[0].data.phrases.total} strings.`)
+				.setFooter(`There are now ${langStatus[0].data.phrases.total} strings on the project.`)
 			await translatorsChannel.send({ embeds: [embed], content: `<@${ids.roles.crowdinUpdates}>` })
 		}
 		await crowdinDb.updateOne({ id: projectDb.id }, { $set: { stringCount: langStatus[0].data.phrases.total } })
@@ -121,7 +120,7 @@ async function checkBuild() {
 			.setDescription("You can expect to see updated translations on the network soon!")
 			.setTimestamp(lastBuild.timestamp * 1_000)
 			.setFooter("Built at")
-		await (client.channels.cache.get(ids.channels.hypixelTrs) as Discord.TextChannel).send({ embeds: [embed], content: `<@${ids.roles.crowdinUpdates}>` })
+		await (client.channels.cache.get(ids.channels.hypixelTrs) as Discord.TextChannel).send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}>` })
 		await collection.updateOne({ identifier: "hypixel" }, { $set: { lastBuild: lastBuild.timestamp } })
 	}
 }
