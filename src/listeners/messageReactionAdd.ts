@@ -2,7 +2,7 @@ import Discord from "discord.js"
 import { successColor, loadingColor, errorColor, ids } from "../config.json"
 import { client } from "../index"
 import { db, cancelledEvents } from "../lib/dbclient"
-import type { EventDb, Quote, Stats } from "../lib/util"
+import type { EventDb, LangDbEntry, Quote, Stats } from "../lib/util"
 
 client.on("messageReactionAdd", async (reaction, user) => {
 	if (!db) {
@@ -19,7 +19,10 @@ client.on("messageReactionAdd", async (reaction, user) => {
 	const member = client.guilds.cache.get(ids.guilds.main)!.members.cache.get(user.id)!
 	// Delete message when channel name ends with review-strings
 	if (channel.name.endsWith("-review-strings") && /https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content!)) {
-		if (reaction.message.guild!.members.resolve(user.id)!.roles.cache.has(ids.roles.hypixelPf)) {
+		const language = await db.collection<LangDbEntry>("langdb").findOne({ code: channel.name.split("-")[0] }),
+			role = channel.guild!.roles.cache.find(r => r.name === `${language!.name} Proofreader`)
+		if (!role) return console.error(`Couldn't find the proofreader role for the ${channel} channel!`)
+		if (reaction.message.guild!.members.resolve(user.id)!.roles.cache.has(role.id)) {
 			let strings: { [key: string]: string }
 			try {
 				strings = require(`../../strings/${channel.name.split("-")[0]}/reviewStrings.json`)
