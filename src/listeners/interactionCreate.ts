@@ -38,6 +38,7 @@ client.on("interactionCreate", async interaction => {
 			let roleId: Discord.Snowflake
 			if (interaction.customId === "polls") roleId = ids.roles.polls
 			else if (interaction.customId === "botUpdates") roleId = ids.roles.botUpdates
+			else if (interaction.customId === "crowdinUpdates") roleId = ids.roles.crowdinUpdates
 			else if (interaction.customId === "giveaways") {
 				const userDb = await client.getUser(interaction.user.id)
 				if ((userDb.levels?.level ?? 0) < 5) {
