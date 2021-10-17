@@ -65,7 +65,7 @@
 		"description": "Te da la XP actual para ti o para cualquier usuario."
 	},
 	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
+		"description": "Envía un mensaje preestablecido, permitiéndote notificar a un miembro específico al enviarlo."
 	},
 	"translate": {
 		"description": "Te da información útil sobre como traducir al Bot."
