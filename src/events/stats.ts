@@ -90,13 +90,13 @@ export async function updateProjectStatus(projectId: string) {
 	}
 }
 
-async function checkBuild() {
+export async function checkBuild() {
 	const browser = await getBrowser(),
 		page = await browser.pupBrowser.newPage(),
 		collection = db.collection<CrowdinProject>("crowdin")
 	await page.goto("https://crowdin.com/project/hypixel/activity-stream")
 	await page.waitForSelector(".list-activity")
-	const lastBuild: CrowdinActivity = await page.evaluate(async () => {
+	const lastBuild: CrowdinBuildActivity = await page.evaluate(async () => {
 		window.eval('crowdin.activity.filters.filter_by_type = "1"') //filter by builds only to assure we get a build
 		await window.eval("crowdin.activity.refresh()") //refresh the activity stream to apply the new filter
 		await new Promise<void>(resolve => {
@@ -105,29 +105,29 @@ async function checkBuild() {
 				if (selector) resolve()
 			}, 100)
 		})
-		const activity = window.eval('crowdin.activity.data.filter(a => a.type === "build_project")[0]')
-		activity.author = window.eval("document.querySelector(\".user-link\").textContent")
-		return activity!
+		const activity = window.eval('crowdin.activity.data.filter(a => a.type === "build_project")[0]') as CrowdinBuildActivity
+		return activity
 	})
 	await page.close()
 	await closeConnection(browser.uuid)
 
 	const lastDbBuild = (await collection.findOne({ identifier: "hypixel" }))!.lastBuild!
 	if (lastBuild.timestamp > lastDbBuild) {
-		const embed = new Discord.MessageEmbed()
-			.setColor(successColor as Discord.HexColorString)
-			.setThumbnail(lastBuild.avatar)
-			.setAuthor("New build!")
-			.setTitle(`${lastBuild.author} just built the project!`)
-			.setDescription("You can expect to see updated translations on the network soon!")
-			.setTimestamp(lastBuild.timestamp * 1_000)
-			.setFooter("Built at")
+		const author = lastBuild.message.match(/>(.*)( \([^(]*\))?</)?.[1],
+			embed = new Discord.MessageEmbed()
+				.setColor(successColor as Discord.HexColorString)
+				.setThumbnail(lastBuild.avatar)
+				.setAuthor("New build!")
+				.setTitle(`${author} just built the project!`)
+				.setDescription("You can expect to see updated translations on the network soon!")
+				.setTimestamp(lastBuild.timestamp * 1_000)
+				.setFooter("Built at")
 		await (client.channels.cache.get(ids.channels.hypixelTrs) as Discord.TextChannel).send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}>` })
 		await collection.updateOne({ identifier: "hypixel" }, { $set: { lastBuild: lastBuild.timestamp } })
 	}
 }
 
-interface CrowdinActivity {
+interface CrowdinBuildActivity {
 	after_build: number
 	avatar: string
 	before_build: number
@@ -144,7 +144,6 @@ interface CrowdinActivity {
 	type: string
 	undo_able: boolean
 	user_id: string
-	author: string
 }
 
 export default execute
