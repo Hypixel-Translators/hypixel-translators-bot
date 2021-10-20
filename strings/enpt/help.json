@@ -1,14 +1,14 @@
 {
 	"moduleName": "Information",
-	"commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+	"commandsListTooltip": "'Tis bot was made fer th' Hypixel Translators Community an' be maintained by %%developer%%. It be open-source an' our GitHub repository can be found [here]%%github%%.\nYe can help translate th' bot by followin' th' instructions on th' `/translate` command.\n\nYe can execute `/help <command>` t' learn more about a specific command.\nBelow ye can find a list o' all th' available pages. Use th' buttons on 'tis message t' cycle through 'em.",
 	"pageNumber": "Page %%number%%",
 	"mainPage": "Main Page",
 	"utilityHelp": "Tools & Utilities",
 	"infoHelp": "Information Commands",
 	"commandInfo": "Command information",
 	"commandInfoFor": "Command information fer ",
-	"staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-	"inDev": "This command is currently in development and will be available at a later date!",
+	"staffOnly": "'Tis command be only available t' staff an' thus, its information be stashed away. Please contact a staff member if ye believe 'tis be an error.",
+	"inDev": "'Tis command be currently in development an' will be available at a later date!",
 	"seconds": "seconds",
 	"second": "second",
 	"minutes": "minutes",
@@ -17,16 +17,16 @@
 		"description": "Th' Magic 8 Ball that will answer all yer questions."
 	},
 	"feedback": {
-		"description": "Opens our GitHub issues page, where you can report problems and send feedback."
+		"description": "Opens our GitHub issues page, where ye can report problems an' send feedback."
 	},
 	"help": {
 		"description": "Shows ye all available commands an' other info about the bot."
 	},
 	"hypixelstats": {
-		"description": "Shows you basic Hypixel stats for the provided user."
+		"description": "Shows ye basic Hypixel stats fer th' provided pirate."
 	},
 	"hypixelunverify": {
-		"description": "Unlinks your Discord account from your Minecraft account."
+		"description": "Unlinks yer Discord account from yer Minecraft account."
 	},
 	"hypixelverify": {
 		"description": "Links your Discord account with your Minecraft account."
