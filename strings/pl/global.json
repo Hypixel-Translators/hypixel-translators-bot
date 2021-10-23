@@ -58,7 +58,7 @@
 		"languageStats": "Czy wiesz, że możesz podejrzeć statystyki dowolnego języka we wszystkich naszych projektach? Wystarczy wykonać polecenie %%languagestats%%!",
 		"rolesChange": "Jeżeli otrzymałeś ostatnio nowe role na Crowdinie lub dołączyłeś do jednego ze wspieranych przez nas projektów, wykonaj polecenie %%verify%%. Polecenie to zauktualizuje Twoje role.",
 		"botTranslated": "Czy wiesz, że nasz bot jest dostępny w wielu językach? Wykonaj polecenie %%langList%%, by zobaczyć spis wszystkich języków, które są przez nas obecnie obsługiwane.",
-		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
+		"botUpdates": "Publikujemy każdą większą aktualizację bota albo ważne wiadomości na %%botUpdates%%, zachęcamy Cię abyś odwiedził ten kanał!",
 		"moreTips": "Potrzebujemy wskazówek! Prześlij je za pomocą polecenia %%feedback%%."
 	},
 	"pagination": {

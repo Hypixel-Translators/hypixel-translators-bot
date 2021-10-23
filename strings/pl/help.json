@@ -65,7 +65,7 @@
 		"description": "Podaje twoje obecne PD lub PD wybranego użytkownika."
 	},
 	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
+		"description": "Wysyła konktetną wiadomość, pozwalając Ci powiadomić danego użytkownika po wysłaniu wiadomości."
 	},
 	"translate": {
 		"description": "Podaje ci przydatne informacje o tym, jak tłumaczyć Bota."
