@@ -68,7 +68,7 @@
 		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
-		"description": "Gives you useful information on how to translate the Bot."
+		"description": "获取有关机器人翻译的实用信息。"
 	},
 	"verify": {
 		"description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
