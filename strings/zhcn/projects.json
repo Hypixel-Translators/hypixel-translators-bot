@@ -1,8 +1,8 @@
 {
-	"moduleName": "Translation Projects",
-	"allProjects": "Here are all the projects we currently support on the server!",
+	"moduleName": "翻译项目",
+	"allProjects": "这些是我们目前在服务器上支持的所有项目！",
 	"description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
 	"projectInfo": "You can find the link to the %%project%% project [here](%%link%%). For more information, execute %%command%%.",
-	"alreadyJoined": "You've already joined this project!",
-	"notJoined": "You haven't joined this project yet!"
+	"alreadyJoined": "你已加入此项目！",
+	"notJoined": "你尚未加入此项目！"
 }
