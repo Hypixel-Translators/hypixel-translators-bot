@@ -65,12 +65,12 @@
 		"description": "显示你当前的经验或特定用户的经验。"
 	},
 	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
+		"description": "发送预设消息，允许你在发送此消息时通知某一特定用户。"
 	},
 	"translate": {
 		"description": "获取有关机器人翻译的实用信息。"
 	},
 	"verify": {
-		"description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+		"description": "自动检测你的 Crowdin 个人档案，并给予你对应的角色。如果你的档案未储存在我们的数据库中，则必须为命令提供参数来指定。如果想查看数据库中是否包含你的数据，请执行 `/profile` 命令。同时也请务必允许来自此服务器的私聊消息，以便机器人通过私聊发送信息。"
 	}
 }

@@ -3,23 +3,23 @@
 	"errors": {
 		"noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
 		"trNoRoles": "We noticed you're a translator but you don't have any language roles.",
-		"error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
+		"error": "更改昵称失败。你可以复制下面的昵称并自行更改。",
 		"confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
 		"cancelled": "You cancelled the changing of your nickname, ",
 		"alreadyThis": "You already have this nickname, ",
-		"timedOut": "Timed Out",
+		"timedOut": "超时",
 		"timeOut": "You didn't react with any flags, ",
-		"timeOutCustom": "You didn't confirm, ",
-		"notSaved": "so your prefix wasn't saved."
+		"timeOutCustom": "尚未确认，",
+		"notSaved": "因此前缀未保存。"
 	},
 	"customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
 	"caution": "Caution",
 	"warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
 	"react": "React with all flags you want to add to your prefix in order.",
-	"reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",
-	"reactTimer2": "You have less than %%cooldown%% seconds left. Hit ✅ to confirm or ❎ to cancel.",
-	"previewT": "Nickname preview",
-	"newNickT": "New nickname",
-	"noChanges": "No changes",
-	"saved": "Your prefix has been saved!"
+	"reactTimer": "你有 %%cooldown%% 秒的时间。点按 ❎ 以取消。",
+	"reactTimer2": "你还剩不到 %%cooldown%% 秒的时间。点按 ✅ 以确认或 ❎ 取消。",
+	"previewT": "昵称预览",
+	"newNickT": "新昵称",
+	"noChanges": "未修改",
+	"saved": "你的前缀已保存！"
 }
