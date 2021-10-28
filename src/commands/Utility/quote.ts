@@ -220,8 +220,8 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
 		urlSplit = interaction.options.getString("url", true).split("/");
 	(client.channels.cache.get(urlSplit[5]) as Discord.TextChannel | undefined)?.messages.fetch(urlSplit[6])
 		.then(async msg => {
-			const attachment = msg.attachments.map(a => a.url)[0]
-			const result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url, attachmentURL: attachment } })
+			const firstAttachment = msg.attachments.first()?.url
+			const result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url, attachmentURL: firstAttachment } })
 			if (result.value) {
 				const author = await Promise.all(result.value.author.map(a => client.users.fetch(a))),
 					embed = new Discord.MessageEmbed()
@@ -238,7 +238,7 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
 							generateTip(),
 							((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 						)
-				if (attachment) embed.setImage(attachment)
+				if (firstAttachment) embed.setImage(firstAttachment)
 				await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new Discord.MessageEmbed()
