@@ -2,6 +2,5 @@
 	"moduleName": "Citaat",
 	"msgUrl": "Bericht-URL",
 	"invalidArg": "Ongeldig argument!",
-	"indexArg": "Er bestaat geen citaat met index %%arg%%! Geef een nummer tussen 1 en %%max%%.",
-	"reqSub": "De citaattoevoegingsaanvraag is ingediend, bedankt!"
+	"indexArg": "Er bestaat geen citaat met index %%arg%%! Geef een nummer tussen 1 en %%max%%."
 }
