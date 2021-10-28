@@ -2,6 +2,5 @@
 	"moduleName": "Lainaus",
 	"msgUrl": "Viestin osoite",
 	"invalidArg": "Virheellinen argumentti!",
-	"indexArg": "Lainausta numerolla %%arg%% ei ole olemassa! Ole hyvä ja syötä numero välillä 1-%%max%%.",
-	"reqSub": "Lainausehdotuksesi on lähetetty, kiitos!"
+	"indexArg": "Lainausta numerolla %%arg%% ei ole olemassa! Ole hyvä ja syötä numero välillä 1-%%max%%."
 }
