@@ -22,7 +22,7 @@ const command: Command = {
 	{
 		type: "SUB_COMMAND",
 		name: "add",
-		description: "Adds/requests a new quote",
+		description: "Adds a new quote. Staff only",
 		options: [{
 			type: "STRING",
 			name: "quote",
@@ -34,6 +34,12 @@ const command: Command = {
 			name: "author",
 			description: "The author of this quote",
 			required: true
+		},
+		{
+			type: "STRING",
+			name: "url",
+			description: "The url of the message this quote came from",
+			required: false
 		}]
 	},
 	{
@@ -91,27 +97,8 @@ const command: Command = {
 			subCommand = interaction.options.getSubcommand()
 		let allowed = false
 		if ((interaction.member as Discord.GuildMember | undefined)?.permissions.has("VIEW_AUDIT_LOG")) allowed = true
-		if (subCommand === "add") {
-			const quote = interaction.options.getString("quote", true),
-				author = interaction.options.getUser("author", true)
-			if (!allowed) {
-				const staffBots = client.channels.cache.get(ids.channels.staffBots) as Discord.TextChannel,
-					report = new Discord.MessageEmbed()
-						.setColor(neutralColor as Discord.HexColorString)
-						.setAuthor("Quote")
-						.setTitle("A quote request has been submitted!")
-						.setDescription(`${quote}\n       - ${author}`)
-						.setFooter(`Suggested by ${interaction.user.tag}`, member.displayAvatarURL({ format: "png", dynamic: true }))
-				await staffBots.send({ content: `/quote add quote:${quote} author:@${author.tag}`, embeds: [report] })
-				const embed = new Discord.MessageEmbed()
-					.setColor(successColor as Discord.HexColorString)
-					.setAuthor(getString("moduleName"))
-					.setTitle(getString("reqSub"))
-					.setDescription(`${quote}\n       - ${author}`)
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
-				await interaction.reply({ embeds: [embed] })
-			} else await addQuote(interaction, quote, author, collection)
-		} else if (subCommand === "edit" && allowed) await editQuote(interaction, collection)
+		if (subCommand === "add" && allowed) await addQuote(interaction, collection)
+		else if (subCommand === "edit" && allowed) await editQuote(interaction, collection)
 		else if (subCommand === "delete" && allowed) await deleteQuote(interaction, collection)
 		else if (subCommand === "link" && allowed) await linkQuote(interaction, collection)
 		else if (subCommand === "get") await findQuote(randomTip, interaction, getString, collection)
@@ -148,9 +135,12 @@ async function findQuote(randomTip: string, interaction: Discord.CommandInteract
 	return await interaction.reply({ embeds: [embed] })
 }
 
-async function addQuote(interaction: Discord.CommandInteraction, quote: string, author: Discord.User, collection: Collection<Quote>) {
+async function addQuote(interaction: Discord.CommandInteraction, collection: Collection<Quote>) {
 
-	const quoteId = (await collection.estimatedDocumentCount()) + 1
+	const quoteId = (await collection.estimatedDocumentCount()) + 1,
+		quote = interaction.options.getString("quote", true),
+		author = interaction.options.getUser("author", true),
+		url = interaction.options.getString("url", false)
 
 	await collection.insertOne({ id: quoteId, quote: quote, author: [author.id] })
 	const embed = new Discord.MessageEmbed()
@@ -160,6 +150,7 @@ async function addQuote(interaction: Discord.CommandInteraction, quote: string, 
 		.setDescription(quote)
 		.addFields({ name: "User", value: `${author}` }, { name: "Quote number", value: `${quoteId}` })
 		.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
+	if (url) embed.addField("Message URL", url)
 	await interaction.reply({ embeds: [embed] })
 }
 
