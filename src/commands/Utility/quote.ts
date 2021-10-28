@@ -142,7 +142,8 @@ async function addQuote(interaction: Discord.CommandInteraction, collection: Col
 		author = interaction.options.getUser("author", true),
 		url = interaction.options.getString("url", false)
 
-	await collection.insertOne({ id: quoteId, quote: quote, author: [author.id] })
+	if (url) await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url })
+	else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id] })
 	const embed = new Discord.MessageEmbed()
 		.setColor(successColor as Discord.HexColorString)
 		.setAuthor("Quote")
