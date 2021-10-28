@@ -131,7 +131,7 @@ async function findQuote(randomTip: string, interaction: Discord.CommandInteract
 			.setTitle(quote.quote)
 			.setDescription(`      - ${author.join(" and ")}`)
 			.setFooter(randomTip, ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
-	if (quote.attachments?.length) embed.setImage(quote.attachments[0])
+	if (quote.attachmentURL) embed.setImage(quote.attachmentURL)
 	if (quote.url) embed.addField(getString("msgUrl"), quote.url)
 	return await interaction.reply({ embeds: [embed] })
 }

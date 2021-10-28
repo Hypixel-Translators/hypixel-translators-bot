@@ -100,9 +100,9 @@ client.on("messageReactionAdd", async (reaction, user) => {
 			urlQuote = await collection.findOne({ url: reaction.message.url })
 		if (!urlQuote) {
 			const id = await collection.estimatedDocumentCount() + 1,
-				attachments: string[] = reaction.message.attachments.map(a => a.url)
+				firstAttachment = reaction.message.attachments.map(a => a.url)[0]
 
-			await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url, attachments })
+			await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url, attachmentURL: firstAttachment })
 			const embed = new Discord.MessageEmbed()
 				.setColor(successColor as Discord.HexColorString)
 				.setAuthor("Starboard")
@@ -113,7 +113,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 					{ name: "Quote number", value: `${id}` },
 					{ name: "URL", value: reaction.message.url }
 				])
-			if (attachments.length) embed.setImage(attachments[0])
+				.setImage(firstAttachment)
 			await reaction.message.channel.send({ embeds: [embed] })
 		}
 	} else if (reaction.emoji.name === "vote_yes") {
