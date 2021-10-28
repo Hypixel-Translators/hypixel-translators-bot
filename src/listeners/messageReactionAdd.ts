@@ -113,7 +113,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 					{ name: "Quote number", value: `${id}` },
 					{ name: "URL", value: reaction.message.url }
 				])
-				.setImage(firstAttachment)
+			if (firstAttachment) embed.setImage(firstAttachment)
 			await reaction.message.channel.send({ embeds: [embed] })
 		}
 	} else if (reaction.emoji.name === "vote_yes") {
