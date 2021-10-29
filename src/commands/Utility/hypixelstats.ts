@@ -3,7 +3,7 @@ import axios from "axios"
 import { ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { Command, client, GetStringFunction } from "../../index"
-import { fetchSettings, generateTip, getMCProfile, getUUID, GraphQLQuery, updateRoles } from "../../lib/util"
+import { fetchSettings, generateTip, getMCProfile, getUUID, gql, GraphQLQuery, updateRoles } from "../../lib/util"
 
 //Credits to marzeq for initial implementation
 const command: Command = {
@@ -44,7 +44,7 @@ const command: Command = {
 		const graphqlQuery = await axios
 			.get<GraphQLQuery>("https://api.slothpixel.me/api/graphql", {
 				...fetchSettings,
-				data: { query: query.replaceAll("\t", "").replaceAll("\n", " "), variables: { uuid }, operationName: "HypixelStats" }
+				data: { query: query, variables: { uuid }, operationName: "HypixelStats" }
 			})
 			.then(res => res.data)
 			.catch(e => {
@@ -328,7 +328,7 @@ function parseColorCode(color: string): Discord.HexColorString {
 
 export default command
 
-export const query = `
+export const query = gql`
 				query HypixelStats($uuid: String!) {
 					players {
 						player(player_name: $uuid) {
