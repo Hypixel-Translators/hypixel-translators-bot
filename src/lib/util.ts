@@ -142,6 +142,15 @@ export async function updateRoles(member: Discord.GuildMember, json?: GraphQLQue
 	return role
 }
 
+// support for syntax highlighting inside graphql strings (with the right extensions) (also makes it a one liner)
+export function gql(cleanText: TemplateStringsArray, ...substitutions: any[]) {
+	let returnQuery = ""
+	for (let i = 0; i < cleanText.length; i++) {
+		returnQuery += cleanText[i] + (substitutions[i] ?? "")
+	}
+	return returnQuery.replaceAll("\t", "").replaceAll("\n", " ")
+}
+
 export interface GraphQLQuery {
 	errors?: {
 		message: string
