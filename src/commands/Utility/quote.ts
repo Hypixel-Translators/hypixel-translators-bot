@@ -155,7 +155,7 @@ async function addQuote(interaction: Discord.CommandInteraction, collection: Col
 
 
 	if (urlSplit) {
-		if (urlSplit.length > 6) {
+		if (urlSplit.length === 7) {
 			const message = await (client.channels.cache.get(urlSplit[5]) as Discord.TextChannel | undefined)?.messages.fetch(urlSplit[6])
 			if (message) {
 				if (message.attachments.size > 0) pictureUrl = message.attachments.first()?.url
@@ -167,6 +167,13 @@ async function addQuote(interaction: Discord.CommandInteraction, collection: Col
 					.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
+		} else {
+			const embed = new Discord.MessageEmbed()
+				.setColor(errorColor as Discord.HexColorString)
+				.setAuthor("Quote")
+				.setTitle("Message URL is invalid!")
+				.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
+			return await interaction.reply({ embeds: [embed], ephemeral: true })
 		}
 	}
 
