@@ -102,7 +102,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
 			const id = await collection.estimatedDocumentCount() + 1,
 				firstAttachment = reaction.message.attachments.first()?.url
 
-			await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url, imageURL: firstAttachment })
+			if (firstAttachment) await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url, imageURL: firstAttachment })
+			else await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url })
 			const embed = new Discord.MessageEmbed()
 				.setColor(successColor as Discord.HexColorString)
 				.setAuthor("Starboard")

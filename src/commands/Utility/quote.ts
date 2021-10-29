@@ -1,7 +1,7 @@
 import { errorColor, successColor, neutralColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import { db } from "../../lib/dbclient"
-import type { Collection } from "mongodb"
+import type { Collection, ModifyResult } from "mongodb"
 import { client, Command, GetStringFunction } from "../../index"
 import { generateTip, Quote } from "../../lib/util"
 
@@ -264,10 +264,10 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
 		urlSplit = interaction.options.getString("url", true).split("/");
 	(client.channels.cache.get(urlSplit[5]) as Discord.TextChannel | undefined)?.messages.fetch(urlSplit[6])
 		.then(async msg => {
-			const firstAttachment = msg.attachments.first()?.url,
-				setValues: any = { url: msg.url } // any is set here because otherwise typescript screams at us
-			if (firstAttachment) setValues.pictureUrl = firstAttachment
-			const result = await collection.findOneAndUpdate({ id: quoteId }, { $set: setValues })
+			const firstAttachment = msg.attachments.first()?.url
+			let result: ModifyResult<Quote>
+			if (firstAttachment) result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url, imageURL: firstAttachment } })
+			else result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } })
 			if (result.value) {
 				const author = await Promise.all(result.value.author.map(a => client.users.fetch(a))),
 					embed = new Discord.MessageEmbed()
