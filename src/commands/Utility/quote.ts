@@ -40,6 +40,12 @@ const command: Command = {
 			name: "url",
 			description: "The url of the message this quote came from",
 			required: false
+		},
+		{
+			type: "STRING",
+			name: "pictureUrl",
+			description: "The url of the picture to be included with this quote",
+			required: false
 		}]
 	},
 	{
@@ -143,6 +149,27 @@ async function addQuote(interaction: Discord.CommandInteraction, collection: Col
 		author = interaction.options.getUser("author", true),
 		url = interaction.options.getString("url", false)
 
+	let pictureUrl = interaction.options.getString("pictureUrl", false) ?? undefined
+
+	const urlSplit = url?.split("/")
+
+
+	if (urlSplit) {
+		if (urlSplit.length > 6) {
+			const message = await (client.channels.cache.get(urlSplit[5]) as Discord.TextChannel | undefined)?.messages.fetch(urlSplit[6])
+			if (message) {
+				if (message.attachments.size > 0) pictureUrl = message.attachments.first()?.url
+			} else {
+				const embed = new Discord.MessageEmbed()
+					.setColor(errorColor as Discord.HexColorString)
+					.setAuthor("Quote")
+					.setTitle("Coulnd't find a message with that URL!")
+					.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
+				return await interaction.reply({ embeds: [embed], ephemeral: true })
+			}
+		}
+	}
+
 	if (url) await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url })
 	else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id] })
 	const embed = new Discord.MessageEmbed()
@@ -153,6 +180,7 @@ async function addQuote(interaction: Discord.CommandInteraction, collection: Col
 		.addFields({ name: "User", value: `${author}` }, { name: "Quote number", value: `${quoteId}` })
 		.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 	if (url) embed.addField("Message URL", url)
+	if (pictureUrl) embed.setImage(pictureUrl)
 	await interaction.reply({ embeds: [embed] })
 }
 
