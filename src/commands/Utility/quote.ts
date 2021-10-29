@@ -131,6 +131,7 @@ async function findQuote(randomTip: string, interaction: Discord.CommandInteract
 			.setTitle(quote.quote)
 			.setDescription(`      - ${author.join(" and ")}`)
 			.setFooter(randomTip, ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
+	if (quote.attachments?.length) embed.setImage(quote.attachments[0])
 	if (quote.url) embed.addField(getString("msgUrl"), quote.url)
 	return await interaction.reply({ embeds: [embed] })
 }
@@ -219,7 +220,8 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
 		urlSplit = interaction.options.getString("url", true).split("/");
 	(client.channels.cache.get(urlSplit[5]) as Discord.TextChannel | undefined)?.messages.fetch(urlSplit[6])
 		.then(async msg => {
-			const result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } })
+			const attachments: string[] = msg.attachments.map(a => a.url)
+			const result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url, attachments } })
 			if (result.value) {
 				const author = await Promise.all(result.value.author.map(a => client.users.fetch(a))),
 					embed = new Discord.MessageEmbed()
@@ -236,6 +238,7 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
 							generateTip(),
 							((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 						)
+				if (attachments.length) embed.setImage(attachments[0])
 				await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new Discord.MessageEmbed()

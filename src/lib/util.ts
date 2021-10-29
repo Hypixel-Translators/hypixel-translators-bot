@@ -247,6 +247,7 @@ export interface Quote {
 	id: number
 	quote: string
 	url?: string
+	attachments?: string[]
 }
 
 export async function restart(interaction?: Discord.CommandInteraction) {
