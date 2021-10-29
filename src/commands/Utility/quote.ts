@@ -147,11 +147,10 @@ async function addQuote(interaction: Discord.CommandInteraction, collection: Col
 	const quoteId = (await collection.estimatedDocumentCount()) + 1,
 		quote = interaction.options.getString("quote", true),
 		author = interaction.options.getUser("author", true),
-		url = interaction.options.getString("url", false)
+		url = interaction.options.getString("url", false),
+		urlSplit = url?.split("/")
 
 	let pictureUrl = interaction.options.getString("pictureUrl", false)
-
-	const urlSplit = url?.split("/")
 
 	if (urlSplit) {
 		if (urlSplit.length === 7) {
