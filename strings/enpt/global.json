@@ -24,8 +24,8 @@
 		"notVerified": "That pirate has nah linked their Hypixel account yet!",
 		"disabled": "This command has been temporarily disabled.",
 		"noAccess": "Ye nah be allowed t' execute 'tis command!",
-		"noPermission": "You're not allowed to execute this command on this channel!",
-		"apiError": "Something went wrong while contacting the API!",
+		"noPermission": "Ye nah be allowed t' execute 'tis command on 'tis channel!",
+		"apiError": "Somethin' went wrong while contactin' th' API!",
 		"wrongLink": "Wrong link!"
 	},
 	"roles": {
@@ -40,12 +40,12 @@
 	"linkCorrectionDesc": "Please change yer link t' th' %%format%% format next time.",
 	"correctLink": "Here be th' correct link:",
 	"wrongStringURL": "Th' link ye sent be a link t' th' editor an' not th' string itself!",
-	"example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
-	"reminderLang": "Don't forget to also change your link to the %%format%% format.",
-	"tip": "Tip",
+	"example": "Click th' button shown on th' image below t' get th' correct string URL. It should look like 'tis: %%url%%",
+	"reminderLang": "Don't forget t' also change yer link t' th' %%format%% format.",
+	"tip": "Old Salt's Advice",
 	"tips": {
-		"ib": "Have you tried the Inhale Banana language? Change your language to it using %%langIb%%!",
-		"translators": "I need translators! Find out how to become a bot translator by executing %%translate%%.",
+		"ib": "Has ye tried th' Inhale Banana language? Change yer language t' it usin' %%langIb%%!",
+		"translators": "I need translators! Find out how t' become a bot translator by executin' %%translate%%.",
 		"prefix": "Do you wanna have a cool prefix on your nickname? Execute %%prefix%% in %%bots%% and follow the instructions! Available to all Hypixel translators.",
 		"enen": "Don't forget to change your string links to en-en!",
 		"xp": "You get random amounts of XP every minute when you're chatting, which will eventually make you level up.",
