@@ -1,4 +1,4 @@
-import { errorColor, successColor, neutralColor, ids } from "../../config.json"
+import { errorColor, successColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import { db } from "../../lib/dbclient"
 import type { Collection } from "mongodb"
@@ -38,7 +38,13 @@ const command: Command = {
 		{
 			type: "STRING",
 			name: "url",
-			description: "The url of the message this quote came from",
+			description: "The url of the message this quote came from. If the message has an image it will be included as well",
+			required: false
+		},
+		{
+			type: "STRING",
+			name: "image",
+			description: "The url of the image to be included with this quote. Has priority over url's image if provided",
 			required: false
 		}]
 	},
@@ -85,6 +91,12 @@ const command: Command = {
 			name: "url",
 			description: "The URL of the message to link this quote to",
 			required: true
+		},
+		{
+			type: "BOOLEAN",
+			name: "image",
+			description: "Whether or not to attach this message's image to the quote.",
+			required: false
 		}]
 	}],
 	cooldown: 5,
@@ -92,7 +104,6 @@ const command: Command = {
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
-			member = interaction.member as Discord.GuildMember | null ?? interaction.user,
 			collection = db.collection<Quote>("quotes"),
 			subCommand = interaction.options.getSubcommand()
 		let allowed = false
@@ -131,6 +142,7 @@ async function findQuote(randomTip: string, interaction: Discord.CommandInteract
 			.setTitle(quote.quote)
 			.setDescription(`      - ${author.join(" and ")}`)
 			.setFooter(randomTip, ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
+	if (quote.imageURL) embed.setImage(quote.imageURL)
 	if (quote.url) embed.addField(getString("msgUrl"), quote.url)
 	return await interaction.reply({ embeds: [embed] })
 }
@@ -140,19 +152,64 @@ async function addQuote(interaction: Discord.CommandInteraction, collection: Col
 	const quoteId = (await collection.estimatedDocumentCount()) + 1,
 		quote = interaction.options.getString("quote", true),
 		author = interaction.options.getUser("author", true),
-		url = interaction.options.getString("url", false)
+		url = interaction.options.getString("url", false),
+		urlSplit = url?.split("/")
 
-	if (url) await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url })
-	else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id] })
-	const embed = new Discord.MessageEmbed()
-		.setColor(successColor as Discord.HexColorString)
-		.setAuthor("Quote")
-		.setTitle("Success! The following quote has been added:")
-		.setDescription(quote)
-		.addFields({ name: "User", value: `${author}` }, { name: "Quote number", value: `${quoteId}` })
-		.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
-	if (url) embed.addField("Message URL", url)
-	await interaction.reply({ embeds: [embed] })
+	let pictureUrl = interaction.options.getString("image", false)
+
+	if (urlSplit) {
+		if (urlSplit.length === 7) {
+			(client.channels.cache.get(urlSplit[5]) as Discord.TextChannel | undefined)?.messages.fetch(urlSplit[6])
+				.then(async msg => {
+					if (msg.attachments.size > 0) pictureUrl ??= msg.attachments.first()!.url
+					const embed = new Discord.MessageEmbed()
+						.setColor(successColor as Discord.HexColorString)
+						.setAuthor("Quote")
+						.setTitle("Success! The following quote has been added:")
+						.setDescription(quote)
+						.addFields(
+							{ name: "User", value: `${author}` },
+							{ name: "Quote number", value: `${quoteId}` },
+							{ name: "URL", value: url! }
+						)
+						.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
+					if (pictureUrl) {
+						embed.setImage(pictureUrl)
+						await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url!, imageURL: pictureUrl })
+					} else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url! })
+					await interaction.reply({ embeds: [embed] })
+				})
+				.catch(async () => {
+					const embed = new Discord.MessageEmbed()
+						.setColor(errorColor as Discord.HexColorString)
+						.setAuthor("Quote")
+						.setTitle("Couldn't find a message linked to that URL!")
+						.setDescription("Make sure you obtained it by coping the message URL directly and that I have permission to see that message.")
+						.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
+					await interaction.reply({ embeds: [embed], ephemeral: true })
+				})
+		} else {
+			const embed = new Discord.MessageEmbed()
+				.setColor(errorColor as Discord.HexColorString)
+				.setAuthor("Quote")
+				.setTitle("Provided URL isn't a valid message URL!")
+				.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
+			return await interaction.reply({ embeds: [embed], ephemeral: true })
+		}
+	} else {
+		const embed = new Discord.MessageEmbed()
+			.setColor(successColor as Discord.HexColorString)
+			.setAuthor("Quote")
+			.setTitle("Success! The following quote has been added:")
+			.setDescription(quote)
+			.addFields({ name: "User", value: `${author}` }, { name: "Quote number", value: `${quoteId}` })
+			.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
+		if (pictureUrl) {
+			embed.setImage(pictureUrl)
+			await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], imageURL: pictureUrl })
+		} else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id] })
+		await interaction.reply({ embeds: [embed] })
+	}
 }
 
 async function editQuote(interaction: Discord.CommandInteraction, collection: Collection<Quote>) {
@@ -174,6 +231,7 @@ async function editQuote(interaction: Discord.CommandInteraction, collection: Co
 					{ name: "Link", value: result.value.url || "None" }
 				)
 				.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
+		if (result.value.imageURL) embed.setImage(result.value.imageURL)
 		await interaction.reply({ embeds: [embed] })
 	} else {
 		const embed = new Discord.MessageEmbed()
@@ -203,6 +261,7 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
 				{ name: "Link", value: result.value.url || "None" }
 			)
 			.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
+		if (result.value.imageURL) embed.setImage(result.value.imageURL)
 		await interaction.reply({ embeds: [embed] })
 	} else {
 		const embed = new Discord.MessageEmbed()
@@ -216,10 +275,14 @@ async function deleteQuote(interaction: Discord.CommandInteraction, collection: 
 
 async function linkQuote(interaction: Discord.CommandInteraction, collection: Collection<Quote>) {
 	const quoteId = interaction.options.getInteger("index", true),
-		urlSplit = interaction.options.getString("url", true).split("/");
+		urlSplit = interaction.options.getString("url", true).split("/"),
+		linkAttch = interaction.options.getBoolean("attachment", false);
 	(client.channels.cache.get(urlSplit[5]) as Discord.TextChannel | undefined)?.messages.fetch(urlSplit[6])
 		.then(async msg => {
-			const result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } })
+			const firstAttachment = msg.attachments.first()?.url
+			let result
+			if (linkAttch && firstAttachment) result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url, imageURL: firstAttachment } })
+			else result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } })
 			if (result.value) {
 				const author = await Promise.all(result.value.author.map(a => client.users.fetch(a))),
 					embed = new Discord.MessageEmbed()
@@ -236,6 +299,8 @@ async function linkQuote(interaction: Discord.CommandInteraction, collection: Co
 							generateTip(),
 							((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 						)
+				if (linkAttch && firstAttachment) embed.setImage(firstAttachment)
+				else if (result.value.imageURL) embed.setImage(result.value.imageURL)
 				await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new Discord.MessageEmbed()
