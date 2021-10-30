@@ -1,25 +1,25 @@
 {
 	"moduleName": "Prefix",
 	"errors": {
-		"noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
-		"trNoRoles": "We noticed you're a translator but you don't have any language roles.",
-		"error": "Failed to change nickname. You can copy the nickname below and apply it yourself.",
-		"confirmedNoFlags": "You confirmed but you didn't react to any flags, ",
-		"cancelled": "You cancelled the changing of your nickname, ",
-		"alreadyThis": "You already have this nickname, ",
+		"noLanguages": "Ye do nah seem t' have any language roles! Please contact an administrator if ye believe 'tis be an error.",
+		"trNoRoles": "We noticed ye're a translator but ye do nah have any language roles.",
+		"error": "Failed t' change nickname. Ye can copy th' nickname below an' apply it yerself.",
+		"confirmedNoFlags": "Ye confirmed but ye did nah react t' any flags, ",
+		"cancelled": "Ye cancelled th' changin' o' yer nickname, ",
+		"alreadyThis": "Ye already have 'tis nickname, ",
 		"timedOut": "Timed Out",
-		"timeOut": "You didn't react with any flags, ",
-		"timeOutCustom": "You didn't confirm, ",
-		"notSaved": "so your prefix wasn't saved."
+		"timeOut": "Ye have nah reacted with any flags, ",
+		"timeOutCustom": "Ye did nah confirm, ",
+		"notSaved": "so yer prefix was nah saved."
 	},
-	"customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
+	"customPrefix": "Feel free t' execute `/prefix <flags>` t' get yer desired prefix.",
 	"caution": "Caution",
-	"warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
-	"react": "React with all flags you want to add to your prefix in order.",
-	"reactTimer": "You have %%cooldown%% seconds. Hit ❎ to cancel.",
-	"reactTimer2": "You have less than %%cooldown%% seconds left. Hit ✅ to confirm or ❎ to cancel.",
+	"warning": "Setting yer prefix t' a language ye do nah translate will result in a warnin'. Do ye want t' change yer nickname anyway?",
+	"react": "React with all flags ye want t' add t' yer prefix in order.",
+	"reactTimer": "Ye 'ave %%cooldown%% seconds. Hit ❎ t' cancel.",
+	"reactTimer2": "Ye 'ave less than %%cooldown%% seconds left. Hit ✅ t' confirm or ❎ t' cancel.",
 	"previewT": "Nickname preview",
 	"newNickT": "New nickname",
 	"noChanges": "No changes",
-	"saved": "Your prefix has been saved!"
+	"saved": "Yer prefix has been saved!"
 }
