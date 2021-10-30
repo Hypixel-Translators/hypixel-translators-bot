@@ -1,4 +1,4 @@
-import { errorColor, successColor, neutralColor, ids } from "../../config.json"
+import { errorColor, successColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import { db } from "../../lib/dbclient"
 import type { Collection, ModifyResult } from "mongodb"
@@ -38,13 +38,13 @@ const command: Command = {
 		{
 			type: "STRING",
 			name: "url",
-			description: "The url of the message this quote came from",
+			description: "The url of the message this quote came from. If the message has an image it will be included as well",
 			required: false
 		},
 		{
 			type: "STRING",
 			name: "image",
-			description: "The url of the image to be included with this quote",
+			description: "The url of the image to be included with this quote. Has priority over url's image if provided",
 			required: false
 		}]
 	},
@@ -150,23 +150,25 @@ async function addQuote(interaction: Discord.CommandInteraction, collection: Col
 		url = interaction.options.getString("url", false),
 		urlSplit = url?.split("/")
 
-	let pictureUrl = interaction.options.getString("pictureUrl", false)
+	let pictureUrl = interaction.options.getString("image", false)
 
 	if (urlSplit) {
 		if (urlSplit.length === 7) {
 			(client.channels.cache.get(urlSplit[5]) as Discord.TextChannel | undefined)?.messages.fetch(urlSplit[6])
 				.then(async msg => {
-					if (msg.attachments.size > 0) pictureUrl = msg.attachments.first()?.url ?? null
-					if (url) await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url })
-					else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id] })
+					if (msg.attachments.size > 0) pictureUrl ??= msg.attachments.first()!.url
+					await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url! })
 					const embed = new Discord.MessageEmbed()
 						.setColor(successColor as Discord.HexColorString)
 						.setAuthor("Quote")
 						.setTitle("Success! The following quote has been added:")
 						.setDescription(quote)
-						.addFields({ name: "User", value: `${author}` }, { name: "Quote number", value: `${quoteId}` })
+						.addFields(
+							{ name: "User", value: `${author}` },
+							{ name: "Quote number", value: `${quoteId}` },
+							{ name: "URL", value: url! }
+						)
 						.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
-					if (url) embed.addField("Message URL", url)
 					if (pictureUrl) embed.setImage(pictureUrl)
 					await interaction.reply({ embeds: [embed] })
 				})
@@ -189,15 +191,19 @@ async function addQuote(interaction: Discord.CommandInteraction, collection: Col
 		}
 	} else {
 		const embed = new Discord.MessageEmbed()
-			.setColor(errorColor as Discord.HexColorString)
+			.setColor(successColor as Discord.HexColorString)
 			.setAuthor("Quote")
-			.setTitle("Provided URL isn't a valid URL!")
+			.setTitle("Success! The following quote has been added:")
+			.setDescription(quote)
+			.addFields({ name: "User", value: `${author}` }, { name: "Quote number", value: `${quoteId}` })
 			.setFooter(generateTip(), ((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
-		return await interaction.reply({ embeds: [embed], ephemeral: true })
+		if (pictureUrl) {
+			embed.setImage(pictureUrl)
+			await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], imageURL: pictureUrl })
+		} else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id] })
+		await interaction.reply({ embeds: [embed] })
 	}
 }
-
-
 
 async function editQuote(interaction: Discord.CommandInteraction, collection: Collection<Quote>) {
 
