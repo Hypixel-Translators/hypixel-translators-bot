@@ -195,27 +195,26 @@ function getPermissions(commands: Discord.ApplicationCommand[]) {
 				}]
 			})
 		else {
+			const commandPerms: Discord.ApplicationCommandPermissionData[] = []
+			//Add whitelisted roles
 			clientCmd.roleWhitelist?.forEach(id => {
-				//Add whitelisted roles
-				permissions.push({
-					id: command.id,
-					permissions: [{
-						type: "ROLE",
-						id,
-						permission: true
-					}]
+				commandPerms.push({
+					type: "ROLE",
+					id,
+					permission: true
 				})
 			})
+			//Add blacklisted roles
 			clientCmd.roleBlacklist?.forEach(id => {
-				//Add blacklisted roles
-				permissions.push({
-					id: command.id,
-					permissions: [{
-						type: "ROLE",
-						id,
-						permission: false
-					}]
+				commandPerms.push({
+					type: "ROLE",
+					id,
+					permission: false
 				})
+			})
+			permissions.push({
+				id: command.id,
+				permissions: commandPerms
 			})
 		}
 	}
