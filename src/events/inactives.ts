@@ -3,14 +3,7 @@ import { db, DbUser } from "../lib/dbclient"
 import Discord from "discord.js"
 import { client } from "../index"
 
-async function execute(manual: boolean) {
-	const d = new Date(),
-		h = d.getUTCHours(),
-		m = d.getUTCMinutes()
-	if ((h == 2 && m == 0) || manual) await check()
-}
-
-async function check() {
+export default async function check() {
 	const alert = new Date().getTime() - (7 * 24 * 60 * 60 * 1000)
 	//Get date 7 days ago                 d    h    m    s     ms
 	const verify = new Date().getTime() - (14 * 24 * 60 * 60 * 1000)
@@ -55,5 +48,3 @@ async function check() {
 			}
 		})
 }
-
-export default execute

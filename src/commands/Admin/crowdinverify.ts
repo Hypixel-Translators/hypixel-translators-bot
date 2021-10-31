@@ -1,7 +1,7 @@
 import { successColor, ids } from "../../config.json"
 import Discord from "discord.js"
 import crowdin from "../../events/crowdinverify"
-import { client, Command } from "../../index"
+import { Command } from "../../index"
 import { generateTip } from "../../lib/util"
 
 const command: Command = {
@@ -18,7 +18,7 @@ const command: Command = {
 		const limit = interaction.options.getInteger("limit", false) ?? undefined,
 			member = interaction.member as Discord.GuildMember
 		await interaction.deferReply()
-		await crowdin(true, limit)
+		await crowdin(limit)
 		const embed = new Discord.MessageEmbed()
 			.setColor(successColor as Discord.HexColorString)
 			.setAuthor("Role updater")

@@ -5,7 +5,7 @@ import { db } from "../lib/dbclient"
 import { closeConnection, crowdinFetchSettings, CrowdinProject, getBrowser, LangDbEntry, LanguageStatus, Stats } from "../lib/util"
 import { client } from "../index"
 
-export async function execute(manual: boolean) {
+export async function execute(manual = false) {
 	const m = new Date().getUTCMinutes()
 	if (manual) {
 		await updateProjectStatus("128098") //Hypixel
