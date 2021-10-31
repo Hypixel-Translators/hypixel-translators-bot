@@ -65,7 +65,10 @@ const command: Command = {
 
 						{
 							name: "Output type",
-							value: evaled?.constructor.name === "Array" ? `${evaled.constructor.name}<${evaled[0]?.constructor.name}>` : evaled?.constructor.name ?? typeof evaled,
+							value:
+								evaled?.constructor.name === "Array"
+									? `${evaled.constructor.name}<${evaled[0]?.constructor.name}>`
+									: evaled?.constructor.name ?? typeof evaled,
 							inline: true
 						},
 						{ name: "Output length", value: `${inspected.length}`, inline: true },

@@ -11,7 +11,7 @@ const command: Command = {
 	async execute(interaction) {
 		const member = interaction.member as Discord.GuildMember
 
-		await inactives(true)
+		await inactives()
 		const embed = new Discord.MessageEmbed()
 			.setColor(successColor as Discord.HexColorString)
 			.setAuthor("Inactive checker")

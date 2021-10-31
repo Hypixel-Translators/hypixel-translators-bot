@@ -4,6 +4,7 @@ import inactives from "../events/inactives"
 import crowdin from "../events/crowdinverify"
 import { listeningStatuses, watchingStatuses, playingStatuses, successColor, ids } from "../config.json"
 import Discord from "discord.js"
+import { CronJob } from "cron"
 import { db } from "../lib/dbclient"
 import { PunishmentLog, restart } from "../lib/util"
 
@@ -51,15 +52,15 @@ client.on("ready", async () => {
 		)
 	})
 
-	//Get server boosters and staff for the status
 	const members = await guild.members.fetch()
-	if (members.size < 200) {
+	if (members.size < guild.memberCount) {
 		console.error("Didn't receive enough members! Restarting...")
 		await restart()
 	}
 
 	//Change status and run events every minute
-	setInterval(async () => {
+	new CronJob("*/1 * * * *",async () => {
+		//Get server boosters and staff for the status
 		const boostersStaff: string[] = []
 		guild?.roles.premiumSubscriberRole?.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
 		guild?.roles.cache.get(ids.roles.staff)!.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
@@ -81,10 +82,14 @@ client.on("ready", async () => {
 			client.user.setActivity({ name: listenStatus, type: "LISTENING" })
 		} else console.error(`Couldn't set the status because the percentage is a weird number: ${toPick}`)
 
-		await stats(false)
-		await inactives(false)
-		await crowdin(false)
-	}, 60_000)
+	}).start()
+	//Run at 02:00
+	new CronJob("0 2 * * *", inactives).start()
+	//Run at 03:00
+	new CronJob("0 3 * * *", crowdin).start()
+	//Run on every 10th minute
+	new CronJob("*/10 * * * *", stats).start()
+
 
 	//Check for active punishments and start a timeout to conclude them
 	const punishmentsColl = db.collection<PunishmentLog>("punishments"),
