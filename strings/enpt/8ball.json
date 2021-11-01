@@ -1,32 +1,32 @@
 {
-	"moduleName": "Magic 8 ball",
+	"moduleName": "Magic 8 Ball",
 	"question": "Question",
 	"answers": {
 		"positive": [
-			"It is certain.",
-			"It is decidedly so.",
+			"'Tis certain.",
+			"'Tis decidedly so.",
 			"Without a doubt.",
-			"Yes – definitely.",
-			"You may rely on it.",
-			"As I see it, yes.",
+			"Aye – definitely.",
+			"Ye may rely on it.",
+			"As I see it, aye.",
 			"Most likely.",
 			"Outlook good.",
-			"Yes",
-			"Signs point to yes."
+			"Aye",
+			"Signs point t' aye."
 		],
 		"inconclusive": [
-			"Reply hazy, try again.",
+			"Reply be hazy, try again.",
 			"Ask again later.",
-			"Better not tell you now.",
-			"Cannot predict now.",
-			"Concentrate and ask again."
+			"Better not tell ye now.",
+			"Can nah predict now.",
+			"Concentrate n' ask again."
 		],
 		"negative": [
-			"Don't count on it.",
-			"My reply is no.",
-			"My sources say no.",
-			"Outlook not so good.",
-			"Very doubtful."
+			"Do nah count on it.",
+			"Me reply be nay.",
+			"Me sources say nay.",
+			"Outlook be not so mighty.",
+			"Mighty doubtful."
 		]
 	}
 }
