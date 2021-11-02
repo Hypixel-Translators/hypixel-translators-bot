@@ -12,7 +12,7 @@
 	"ap": "成就点数",
 	"online": "在线",
 	"offline": "离线",
-	"lastSeen": "Last seen in %%game%%",
+	"lastSeen": "下线前曾游玩%%game%%",
 	"language": "语言",
 	"first_login": "首次登录",
 	"last_login": "Online since",
