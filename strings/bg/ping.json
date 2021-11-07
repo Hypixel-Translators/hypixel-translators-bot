@@ -1,6 +1,6 @@
 {
-	"moduleName": "Ping",
-	"pong": "%%pingEmote%% Pong!",
-	"message": "My ping is %%ping%%ms.",
-	"onlineSince": "Online since %%timestamp%% (%%timestampRelative%%)"
+	"moduleName": "Латентност",
+	"pong": "%%pingEmote%% Понг!",
+	"message": "Моята латентност е %%ping%%ms.",
+	"onlineSince": "Олайн от %%timestamp%% (%%timestampRelative%%)"
 }
