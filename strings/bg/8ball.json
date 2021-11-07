@@ -1,32 +1,32 @@
 {
-	"moduleName": "Magic 8 ball",
-	"question": "Question",
+	"moduleName": "Магическа 8 топка",
+	"question": "Въпрос",
 	"answers": {
 		"positive": [
-			"It is certain.",
-			"It is decidedly so.",
-			"Without a doubt.",
-			"Yes – definitely.",
-			"You may rely on it.",
-			"As I see it, yes.",
-			"Most likely.",
-			"Outlook good.",
-			"Yes",
-			"Signs point to yes."
+			"Сигурно е.",
+			"Определено е така.",
+			"Без съмнение.",
+			"Да – със сигурност.",
+			"Може да му разчитате.",
+			"Както аз го виждам, да.",
+			"Най-вероятно.",
+			"Възгледа е добър.",
+			"Да",
+			"Знаците сочат към да."
 		],
 		"inconclusive": [
-			"Reply hazy, try again.",
-			"Ask again later.",
-			"Better not tell you now.",
-			"Cannot predict now.",
-			"Concentrate and ask again."
+			"Отговорът е мъглив, опитайте отново.",
+			"Попитайте по-късно.",
+			"По добре да не Ви казвам сега.",
+			"Не мога да предвидя сега.",
+			"Концентрирайте се и попитайте отново."
 		],
 		"negative": [
-			"Don't count on it.",
-			"My reply is no.",
-			"My sources say no.",
-			"Outlook not so good.",
-			"Very doubtful."
+			"Не му разчитайте.",
+			"Моят отговор е не.",
+			"Моите източници казват не.",
+			"Възгледа не е много добър.",
+			"Много съмнително."
 		]
 	}
 }
