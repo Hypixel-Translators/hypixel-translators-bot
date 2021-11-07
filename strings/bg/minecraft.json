@@ -1,18 +1,18 @@
 {
-	"moduleName": "Minecraft Statistics",
+	"moduleName": "Minecraft Статистики",
 	"history": {
-		"firstName": "First name",
-		"nameHistoryFor": "Name history for %%username%%",
-		"userChangedName": "%%username%% has changed their name %%number%% times.",
-		"youChangedName": "You have changed your name %%number%% times.",
-		"userChangedName1": "%%username%% has changed their name 1 time.",
-		"youChangedName1": "You have changed your name 1 time.",
-		"userNeverChanged": "%%username%% has never changed their name.",
-		"youNeverChanged": "You have never changed your name."
+		"firstName": "Първо име",
+		"nameHistoryFor": "История на имената на %%username%%",
+		"userChangedName": "%%username%% е променил името си %%number%% пъти.",
+		"youChangedName": "Вие сте променили името си %%number%% пъти.",
+		"userChangedName1": "%%username%% е променил името си 1 път.",
+		"youChangedName1": "Вие сте променили името си 1 път.",
+		"userNeverChanged": "%%username%% никога не е променял името си.",
+		"youNeverChanged": "Вие никога не сте променяли името си."
 	},
 	"skin": {
-		"yourSkin": "Here's your skin!",
-		"userSkin": "Here's %%user%%'s skin!",
-		"isLinked": "This player is linked to %%user%%"
+		"yourSkin": "Ето го skin-а Ви!",
+		"userSkin": "Ето го skin-а на %%user%%!",
+		"isLinked": "Този играч е свързан към %%user%%"
 	}
 }
