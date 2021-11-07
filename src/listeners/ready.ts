@@ -19,31 +19,31 @@ client.on("ready", async () => {
 	//Set guild commands - these don't need checks since they update instantly
 	await guild.commands.set(constructGuildCommands())
 
-	//Only update global commands in production
-	client.commands.filter(c => Boolean(c.allowDM)).forEach(async command => {
-		const discordCommand = globalCommands.find(c => c.name === command.name)
-		//Chech if the command is published
-		if (!discordCommand) {
-			await client.application.commands.create(convertToDiscordCommand(command))
-			console.log(`Published command ${command.name}!`)
-		} else if (!discordCommand.equals(command, true)) {
-			if (process.env.NODE_ENV === "production") {
+	if (process.env.NODE_ENV === "production") {
+		//Only update global commands in production
+		client.commands.filter(c => Boolean(c.allowDM)).forEach(async command => {
+			const discordCommand = globalCommands.find(c => c.name === command.name)
+			//Chech if the command is published
+			if (!discordCommand) {
+				await client.application.commands.create(convertToDiscordCommand(command))
+				console.log(`Published command ${command.name}!`)
+			} else if (!discordCommand.equals(command, true)) {
 				await discordCommand.edit(convertToDiscordCommand(command))
 				console.log(discordCommand, command, `\nEdited command ${command.name} since changes were found`)
 			}
-		}
-	})
+		})
 
-	//Delete commands that have been removed locally
-	globalCommands.forEach(async command => {
-		if (!client.commands.get(command.name)) {
-			await command.delete()
-			console.log(`Deleted command ${command.name} as it was deleted locally.`)
-		} else if (!client.commands.get(command.name)?.allowDM) {
-			await command.delete()
-			console.log(`Deleted command ${command.name} globally as it is no longer allowed in DMs`)
-		}
-	})
+		//Delete commands that have been removed locally
+		globalCommands.forEach(async command => {
+			if (!client.commands.get(command.name)) {
+				await command.delete()
+				console.log(`Deleted command ${command.name} as it was deleted locally.`)
+			} else if (!client.commands.get(command.name)?.allowDM) {
+				await command.delete()
+				console.log(`Deleted command ${command.name} globally as it is no longer allowed in DMs`)
+			}
+		})
+	}
 
 	//Update permissions
 	await guild.commands.permissions.set({
@@ -59,7 +59,7 @@ client.on("ready", async () => {
 	}
 
 	//Change status and run events every minute
-	new CronJob("*/1 * * * *",async () => {
+	new CronJob("*/1 * * * *", async () => {
 		//Get server boosters and staff for the status
 		const boostersStaff: string[] = []
 		guild?.roles.premiumSubscriberRole?.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))

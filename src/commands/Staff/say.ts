@@ -8,7 +8,7 @@ const command: Command = {
 	description: "Says something in a specific channel.",
 	options: [{
 		type: "CHANNEL",
-		channelTypes: ["GUILD_TEXT", "GUILD_NEWS", "GUILD_NEWS_THREAD", "GUILD_PRIVATE_THREAD", "GUILD_PUBLIC_THREAD"],
+		channelTypes: Discord.Constants.TextBasedChannelTypes,
 		name: "channel",
 		description: "The channel to send the message in",
 		required: true
