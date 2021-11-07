@@ -1,7 +1,7 @@
 {
-	"moduleName": "Translate the Bot",
+	"moduleName": "Oversett botten",
 	"alreadyTranslator": "Jeg ser du er allerede en oversetter. Her er hva du kanskje ser etter:",
-	"projectLink": "You can find the link to the project [here](%%link%%).",
+	"projectLink": "Du kan finne lenken til prosjektet [her](%%link%%).",
 	"question": "Har du et spørsmål?",
 	"askTranslators": "Feel free to ask anything about the project on %%botTranslators%%. Don't forget to send a link to the string you're referring to!",
 	"newCrowdin": "Ny til Crowdin?",
@@ -14,6 +14,6 @@
 	"requestJoin": "In order to join that language, you must hit \"Join\" and write a simple message on why you want to join the project.",
 	"lastThing": "Just one last thing",
 	"requestInfo": "When submitting your request, please make sure to include either your tag (%%tag%%) or your ID (%%id%%).\n**If you do not include at least one of these, you will be rejected!**",
-	"noLanguage": "Can't find your language?",
+	"noLanguage": "Kan du ikke finne språket ditt?",
 	"langRequest": "It is possible that we don't support your language yet. If that's the case, please contact an administrator asking them to add the language you want."
 }

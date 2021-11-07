@@ -1,7 +1,7 @@
 {
-	"errorNoPing": "You don't have that language's proofreader role, ",
-	"errorNoPingPr": "so you can't mention it.",
-	"errorNoPingTr": "so you can't mention its translator role.",
-	"errorNoPingAll": "so you can't mention the entire language.",
-	"errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to."
+	"errorNoPing": "Нямате ролята на коректор за този език, ",
+	"errorNoPingPr": "така че не можете да я споменавате.",
+	"errorNoPingTr": "така че не можете да споменавате ролята на преводачите на дадения език.",
+	"errorNoPingAll": "така че не можете да споменавате целия език.",
+	"errorNoPingDisclaimer": "Свържете се със собственика или администратора ако наистина се налага."
 }

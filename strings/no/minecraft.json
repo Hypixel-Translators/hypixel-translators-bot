@@ -11,8 +11,8 @@
 		"youNeverChanged": "Du har aldri endret navnet ditt."
 	},
 	"skin": {
-		"yourSkin": "Here's your skin!",
-		"userSkin": "Here's %%user%%'s skin!",
+		"yourSkin": "Her er skallet ditt!",
+		"userSkin": "Her er %%user%% sitt skall!",
 		"isLinked": "This player is linked to %%user%%"
 	}
 }
