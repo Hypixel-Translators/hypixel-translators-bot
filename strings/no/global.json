@@ -62,10 +62,10 @@
 		"moreTips": "We need more tips! Submit them using %%feedback%%."
 	},
 	"pagination": {
-		"first": "First page",
-		"previous": "Previous page",
-		"next": "Next page",
-		"last": "Last page",
+		"first": "Første side",
+		"previous": "Forrige side",
+		"next": "Neste side",
+		"last": "Siste side",
 		"confirm": "Bekreft",
 		"cancel": "Avbryt",
 		"page": "Page %%number%%/%%total%%",
