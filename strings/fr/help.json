@@ -2,7 +2,7 @@
 	"moduleName": "Information",
 	"commandsListTooltip": "Ce bot a été conçu pour la Communauté des Traducteurs d'Hypixel et est maintenu par %%developer%%. Il est open source et notre projet GitHub peut être trouvé [ici]%%github%%.\nTu peux aider à traduire le bot en suivant les instructions de la commande `/translate`.\n\nTu peux exécuter la commande `/help <commande>` pour en apprendre plus à propos d'une commande spécifique.\nTu trouveras ci-dessous une liste de toutes les pages disponibles. Utilises les boutons de ce message pour les parcourir.",
 	"pageNumber": "Page %%number%%",
-	"mainPage": "Main Page",
+	"mainPage": "Page principale",
 	"utilityHelp": "Outils & Utilitaires",
 	"infoHelp": "Commandes d'informations",
 	"commandInfo": "Information sur la commande",
@@ -65,7 +65,7 @@
 		"description": "T'affiches tes points d'expérience ou ceux d'un autre utilisateur donné."
 	},
 	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
+		"description": "Envoie un message prédéfini, permettant d'avertir un membre spécifique lors de son envoi."
 	},
 	"translate": {
 		"description": "Te donnes des informations utiles sur la façon de traduire le Bot."
