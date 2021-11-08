@@ -11,57 +11,67 @@ const command: Command = {
 		type: "SUB_COMMAND",
 		name: "give",
 		description: "Punish a user",
-		options: [{
-			type: "USER",
-			name: "user",
-			description: "The user to punish",
-			required: true
-		},
-		{
-			type: "INTEGER",
-			name: "points",
-			description: "How many points to give this member for this infraction",
-			required: true,
-			choices: [
-				{ name: "1", value: 1 },
-				{ name: "2", value: 2 },
-				{ name: "3", value: 3 },
-				{ name: "4", value: 4 },
-				{ name: "5", value: 5 },
-				{ name: "6", value: 6 }
-			]
-		},
-		{
-			type: "STRING",
-			name: "reason",
-			description: "The reason for this punishment",
-			required: true
-		}]
+		options: [
+			{
+				type: "USER",
+				name: "user",
+				description: "The user to punish",
+				required: true
+			},
+			{
+				type: "INTEGER",
+				name: "points",
+				description: "How many points to give this member for this infraction",
+				required: true,
+				choices: [
+					{ name: "1", value: 1 },
+					{ name: "2", value: 2 },
+					{ name: "3", value: 3 },
+					{ name: "4", value: 4 },
+					{ name: "5", value: 5 },
+					{ name: "6", value: 6 }
+				]
+			},
+			{
+				type: "STRING",
+				name: "reason",
+				description: "The reason for this punishment",
+				required: true
+			},
+			{
+				type: "NUMBER",
+				name: "duration",
+				description: "The duration of the punishment",
+				required: false
+			}
+		]
 	},
 	{
 		type: "SUB_COMMAND",
 		name: "calculate",
 		description: "Calculate a punishment for a user and evaluate permissions to apply it",
-		options: [{
-			type: "USER",
-			name: "user",
-			description: "The user to punish",
-			required: true
-		},
-		{
-			type: "INTEGER",
-			name: "points",
-			description: "How many points to give this member for this infraction",
-			required: true,
-			choices: [
-				{ name: "1", value: 1 },
-				{ name: "2", value: 2 },
-				{ name: "3", value: 3 },
-				{ name: "4", value: 4 },
-				{ name: "5", value: 5 },
-				{ name: "6", value: 6 }
-			]
-		}]
+		options: [
+			{
+				type: "USER",
+				name: "user",
+				description: "The user to punish",
+				required: true
+			},
+			{
+				type: "INTEGER",
+				name: "points",
+				description: "How many points to give this member for this infraction",
+				required: true,
+				choices: [
+					{ name: "1", value: 1 },
+					{ name: "2", value: 2 },
+					{ name: "3", value: 3 },
+					{ name: "4", value: 4 },
+					{ name: "5", value: 5 },
+					{ name: "6", value: 6 }
+				]
+			}
+		]
 	},
 	{
 		type: "SUB_COMMAND",
@@ -78,24 +88,26 @@ const command: Command = {
 		type: "SUB_COMMAND",
 		name: "revoke",
 		description: "Revoke all active punishments the user has",
-		options: [{
-			type: "USER",
-			name: "user",
-			description: "The user to revoke punishments from",
-			required: true
-		},
-		{
-			type: "STRING",
-			name: "reason",
-			description: "The reason for revoking this user's punishment",
-			required: true
-		},
-		{
-			type: "BOOLEAN",
-			name: "senddm",
-			description: "Whether to send a DM to this user regarding the removal of their punishment",
-			required: true
-		}]
+		options: [
+			{
+				type: "USER",
+				name: "user",
+				description: "The user to revoke punishments from",
+				required: true
+			},
+			{
+				type: "STRING",
+				name: "reason",
+				description: "The reason for revoking this user's punishment",
+				required: true
+			},
+			{
+				type: "BOOLEAN",
+				name: "senddm",
+				description: "Whether to send a DM to this user regarding the removal of their punishment",
+				required: true
+			}
+		]
 	}],
 	roleWhitelist: [ids.roles.staff],
 	channelWhitelist: [ids.channels.staffBots, ids.channels.adminBots],
@@ -106,6 +118,7 @@ const command: Command = {
 			user = interaction.options.getUser("user", true) as Discord.User,
 			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
 			points = interaction.options.getInteger("points", false) as PunishmentPoints | null,
+			duration = interaction.options.getNumber("duration", false),
 			punishment = await calculatePunishment(user, points ?? 1),
 			buttons = new Discord.MessageActionRow()
 				.addComponents(
@@ -126,6 +139,8 @@ const command: Command = {
 			caseNumber = (await collection.estimatedDocumentCount()) + 1,
 			punishmentsChannel = interaction.client.channels.cache.get(ids.channels.punishments) as Discord.TextChannel,
 			randomTip = generateTip()
+
+		if (duration) punishment.duration &&= duration
 		let reason = interaction.options.getString("reason")
 		if (reason) reason = reason.charAt(0).toUpperCase() + reason.slice(1)
 
