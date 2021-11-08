@@ -20,8 +20,8 @@ const command: Command = {
                 .setTitle(getString("alreadyTranslator"))
                 .setDescription(getString("projectLink", { link: "https://crowdin.com/project/hypixel-translators-bot" }))
                 .addFields(
-                    { name: getString("question"), value: getString("askTranslators", { botTranslators: "<#749391414600925335>" }) },
-                    { name: getString("newCrowdin"), value: getString("checkGuide", { gettingStarted: "<#699275092026458122>" }) }
+                    { name: getString("question"), value: getString("askTranslators", { botTranslators: `<#${ids.channels.botTranslators}>` }) },
+                    { name: getString("newCrowdin"), value: getString("checkGuide", { gettingStarted: `<#${ids.channels.gettingStarted}>` }) }
                 )
                 .setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
             await interaction.reply({ embeds: [embed] })
