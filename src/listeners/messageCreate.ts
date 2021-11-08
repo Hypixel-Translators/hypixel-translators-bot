@@ -53,9 +53,14 @@ client.on("messageCreate", async message => {
 	)
 		await leveling(message)
 
-	//Publish message if sent in bot-updates or if it's a tweet
-	if (message.channel.id === ids.channels.botUpdates ||
-		message.channel.id === ids.channels.twitter && !message.embeds[0]?.description?.startsWith("@")) {
+	//Publish message if sent in bot-updates or in a project-updates channel or if it's a tweet
+	if (message.channel.type === "GUILD_NEWS" &&
+		(
+			message.channel.id === ids.channels.botUpdates ||
+			(message.channel.id === ids.channels.twitter && !message.embeds[0]?.description?.startsWith("@")) ||
+			message.channel.name.endsWith("-project-updates")
+		)
+	) {
 		await message.crosspost()
 		return
 	}

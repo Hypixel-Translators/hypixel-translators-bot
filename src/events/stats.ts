@@ -76,16 +76,14 @@ export async function updateProjectStatus(projectId: string) {
 				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the ${projectDb.name} project.`)
 				.setDescription(`Translate at <https://crowdin.com/translate/${projectDb.identifier}/all/en>`)
 				.setFooter(`There are now ${newStringCount} strings on the project.`)
-			const msg = await updatesChannel.send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}> New strings!` })
-			await msg.crosspost()
+			await updatesChannel.send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}> New strings!` })
 		} else if (oldStringCount > newStringCount) {
 			const embed = new Discord.MessageEmbed()
 				.setColor(errorColor as Discord.HexColorString)
 				.setAuthor("Removed strings!")
 				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`)
 				.setFooter(`There are now ${newStringCount} strings on the project.`)
-			const msg = await updatesChannel.send({ embeds: [embed] })
-			await msg.crosspost()
+			await updatesChannel.send({ embeds: [embed] })
 		}
 		await crowdinDb.updateOne({ id: projectDb.id }, { $set: { stringCount: newStringCount } })
 		await db.collection<Stats>("stats").insertOne({ type: "STRINGS", name: projectDb.identifier, value: stringDiff })
@@ -124,8 +122,7 @@ export async function checkBuild() {
 				.setDescription("You can expect to see updated translations on the network soon!")
 				.setTimestamp(lastBuild.timestamp * 1_000)
 				.setFooter("Built at")
-		const msg = await (client.channels.cache.get(ids.channels.hypixelUpdates) as Discord.NewsChannel).send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}> New build!` })
-		await msg.crosspost()
+		await (client.channels.cache.get(ids.channels.hypixelUpdates) as Discord.NewsChannel).send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}> New build!` })
 		await collection.updateOne({ identifier: "hypixel" }, { $set: { lastBuild: lastBuild.timestamp } })
 	}
 }
