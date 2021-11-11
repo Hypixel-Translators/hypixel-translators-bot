@@ -1,5 +1,5 @@
 {
-	"moduleName": "Hypixel Verification",
+	"moduleName": "Hypixel Потвърждаване",
 	"unverified": "Вече не сте потвърдени!",
 	"notUnverified": "Премахването на потвърждението е неуспешно!",
 	"whyNotUnverified": "Това се случи защото не сте потвърдени все още! За да се потвърдите, използвайте командата `/hypixelverify <потребителско име>`."
