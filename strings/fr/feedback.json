@@ -1,8 +1,8 @@
 {
 	"moduleName": "Rapporter un bug",
 	"bugT": "Afficher et ajouter des bugs",
-	"bugD": "To show and make suggestions or bug reports, click on the button below!",
-	"urgentT": "C'est urgent?",
-	"urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention a staff member in a public channel, explaining the issue.",
+	"bugD": "Pour afficher et faire des suggestions ou des rapports de bugs, cliques sur le bouton ci-dessous !",
+	"urgentT": "C'est urgent ?",
+	"urgentD": "Si tu essaies de signaler un bug fatal ou si le bot a été indisponible sur une longue période sans préavis, merci d'en mentionner un membre de l'équipe dans un salon public, en expliquant le problème.",
 	"link": "Lien"
 }
