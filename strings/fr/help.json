@@ -17,7 +17,7 @@
 		"description": "La boule de cristal répondra à toutes vos questions."
 	},
 	"feedback": {
-		"description": "Ouvre notre page de problèmes GitHub, où tu peux signaler des bogues."
+		"description": "Ouvre notre page de tickets GitHub, où tu peux signaler des bugs et envoyer des commentaires."
 	},
 	"help": {
 		"description": "Te montre toutes les commandes disponibles et les informations générales sur le bot."
