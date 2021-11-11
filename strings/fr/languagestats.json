@@ -1,8 +1,8 @@
 {
-	"moduleName": "Language statistics",
-	"statsAll": "Here are the statistics for the %%language%% language on all the projects we currently support.",
-	"translated": "%%percentage%%% translated (%%translated%%/%%total%% strings)",
-	"approved": "%%percentage%%% approved (%%approved%%/%%total%% strings)",
+	"moduleName": "Statistiques de langue",
+	"statsAll": "Voici les statistiques de la langue %%language%% sur tous les projets que nous supportons actuellement.",
+	"translated": "%%percentage%%% traduit (%%translated%%/%%total%% phrases)",
+	"approved": "%%percentage%%% approuvé (%%approved%%/%%total%% phrases)",
 	"languages": {
 		"ar": "Arabe",
 		"bc": "Biscuitish",
@@ -41,7 +41,7 @@
 		"ro": "Roumain",
 		"ru": "Russe",
 		"srcs": "Serbe (Latin)",
-		"sl": "Slovenian",
+		"sl": "Slovénien",
 		"es": "Espagnol",
 		"esmx": "Espagnol, Mexique",
 		"espe": "Espagnol, Pérou",

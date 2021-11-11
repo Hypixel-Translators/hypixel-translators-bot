@@ -1,18 +1,18 @@
 {
-	"moduleName": "Minecraft Statistics",
+	"moduleName": "Statistiques Minecraft",
 	"history": {
-		"firstName": "First name",
-		"nameHistoryFor": "Name history for %%username%%",
-		"userChangedName": "%%username%% has changed their name %%number%% times.",
-		"youChangedName": "You have changed your name %%number%% times.",
-		"userChangedName1": "%%username%% has changed their name 1 time.",
-		"youChangedName1": "You have changed your name 1 time.",
-		"userNeverChanged": "%%username%% has never changed their name.",
-		"youNeverChanged": "You have never changed your name."
+		"firstName": "Premier nom d'utilisateur",
+		"nameHistoryFor": "Historique des noms d'utilisateurs pour %%username%%",
+		"userChangedName": "%%username%% a changé de nom d'utilisateur %%number%% fois.",
+		"youChangedName": "Tu as changé de nom d'utilisateur %%number%% fois.",
+		"userChangedName1": "%%username%% a changé son nom d'utilisateur 1 fois.",
+		"youChangedName1": "Tu as changé ton nom d'utilisateur 1 fois.",
+		"userNeverChanged": "%%username%% n'a jamais changé de nom d'utilisateur.",
+		"youNeverChanged": "Tu n'as jamais changé de nom d'utilisateur."
 	},
 	"skin": {
-		"yourSkin": "Here's your skin!",
-		"userSkin": "Here's %%user%%'s skin!",
-		"isLinked": "This player is linked to %%user%%"
+		"yourSkin": "Voici ton skin !",
+		"userSkin": "Voici le skin de %%user%% !",
+		"isLinked": "Ce joueur est lié à %%user%%"
 	}
 }
