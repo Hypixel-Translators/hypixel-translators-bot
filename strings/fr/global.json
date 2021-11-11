@@ -1,6 +1,6 @@
 {
 	"staffDm": {
-		"confirmSend": "If you confirm this, any messages you send here within the next 48 hours will be sent to staff without any confirmation.",
+		"confirmSend": "Si tu confirmes, tous les messages que tu envoies ici dans les 48 prochaines heures seront envoyés au staff sans aucune confirmation.",
 		"noConfirmWarn": "Tous les messages que tu envoie ici dans les 48 prochaines heures seront envoyés au staff sans aucune confirmation.",
 		"attachmentsWarn": "Les fichiers seront également inclus.",
 		"attachmentsSent": "Fichiers envoyés",
@@ -8,7 +8,7 @@
 		"confirmation": "Es tu sûr de vouloir envoyer ce message au staff ?",
 		"messageSent": "Le message a été envoyé à les staff",
 		"dmCancelled": "Ce message ne sera pas envoyé.",
-		"resendInfo": "If you still want to talk to staff, resend it and click the ✅ button to confirm."
+		"resendInfo": "Si tu veux toujours parler au staff, renvoie ton message et cliques sur le bouton ✅ pour confirmer."
 	},
 	"error": "Erreur",
 	"errors": {
@@ -29,48 +29,48 @@
 		"wrongLink": "Mauvais lien !"
 	},
 	"roles": {
-		"noLevel": "You must be at least chat level %%level%% to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
+		"noLevel": "Tu dois avoir au moins le niveau %%level%% pour recevoir ce rôle ! Tu peux vérifier ton niveau actuel en utilisant %%command%% dans %%channel%%.",
 		"successGive": "Tu as bien reçu le rôle %%role%% !",
 		"successTake": "Tu n'as plus le rôle %%role%% !"
 	},
 	"cooldown": "Temps de recharge",
-	"secondLeft": "Please wait another second to use `%%command%%` again.",
+	"secondLeft": "Merci d'attendre une petite seconde avant d'utiliser `%%command%%` à nouveau.",
 	"timeLeftT": "Attends encore %%time%% secondes avant d'utiliser `%%command%%` à nouveau.",
 	"minsLeftT": "Attends encore %%time%% minutes avant de d'utiliser `%%command%%` à nouveau.",
-	"linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
+	"linkCorrectionDesc": "Merci de changer ton lien vers au format %%format%% la prochaine fois.",
 	"correctLink": "Voici le bon lien:",
-	"wrongStringURL": "The link you sent is a link to the editor and not the string itself!",
+	"wrongStringURL": "Le lien que tu as envoyé est un lien vers l'éditeur et non la traduction en question !",
 	"example": "Cliques sur le bouton affiché sur l'image ci-dessous pour obtenir l'URL de la phrase correcte. Il devrait ressembler à ceci: %%url%%",
 	"reminderLang": "N'oublies pas également de modifier ton lien au format %%format%%.",
 	"tip": "Conseil",
 	"tips": {
 		"ib": "As-tu essayé la langue Inhale Banana? Changes ta langue en utilisant %%langIb%%!",
-		"translators": "I need translators! Find out how to become a bot translator by executing %%translate%%.",
-		"prefix": "Do you wanna have a cool prefix on your nickname? Execute %%prefix%% in %%bots%% and follow the instructions! Available to all Hypixel translators.",
-		"enen": "Don't forget to change your string links to en-en!",
+		"translators": "J'ai besoin de traducteurs ! Découvrez comment devenir traducteur du bot en exécutant %%translate%%.",
+		"prefix": "Veux-tu avoir un préfixe cool sur ton pseudo ? Exécutes %%prefix%% dans %%bots%% et suis les instructions données ! Disponible à tous les traducteurs d'Hypixel.",
+		"enen": "N'oublie pas de changer le lien de la traduction à en-en !",
 		"xp": "Tu obtiens des quantités d'XP aléatoires chaque minute lorsque tu discutes, ce qui tu fera monter de niveau.",
 		"guide": "Sais-tu que nous avons un guide sur la façon de commencer avec Crowdin, disponible pour tous les traducteurs? Regarde-le à %%gettingStarted%%, il a quelques conseils utiles!",
-		"twitter": "Have you followed our twitter account? Check it out at %%twitter%%!",
+		"twitter": "Est tu abonné a notre compte twitter ? Vérifie directement ici %%twitter%% !",
 		"rulesInfo": "%%rules%% et %%serverInfo%% ont toutes les infos dont tu as besoin à propos de ce serveur!",
 		"fixTranslation": "Tu as trouvé une erreur dans une traduction? Contacte un proofreader de ta langue ou faites-le savoir dans un canal de traduction.",
 		"pinnedInfo": "Sais-tu que les canals contiennent des informations importantes épinglées? Trouve-le lorsque tu visites un canal!",
-		"hypixelStats": "You can view information about a specific player on Hypixel by executing %%hypixelstats%%!",
-		"languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute %%languagestats%%!",
-		"rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute %%verify%% to have your roles updated!",
-		"botTranslated": "Did you know our bot is available in multiple languages? Try executing %%langList%% to see a list of all the languages we currently support and you may just find your own!",
-		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
-		"moreTips": "We need more tips! Submit them using %%feedback%%."
+		"hypixelStats": "Tu peux voir les informations sur un joueur spécifique sur Hypixel en exécutant %%hypixelstats%% !",
+		"languageStats": "Sais-tu que tu peux consulter les statistiques de n'importe quelle langue sur tous nos projets ? Il suffit d'exécuter %%languagestats%% !",
+		"rolesChange": "As-tu récemment obtenu de nouveaux rôles sur Crowdin ou as-tu rejoint l'un des projets que nous soutenons ? Exécutes %%verify%% pour que tes rôles soient mis à jour !",
+		"botTranslated": "Savais-tu que notre bot est disponible en plusieurs langues ? Essaie d'exécuter %%langList%% pour voir une liste de toutes les langues que nous supportons actuellement et tu pourrais bien trouver la tienne !",
+		"botUpdates": "Nous publions chaque mise à jour majeure du bot et des informations importantes dans %%botUpdates%%, viens y jeter un œil !",
+		"moreTips": "Nous avons besoin de plus de conseils! Envoies-les en utilisant %%feedback%%."
 	},
 	"pagination": {
-		"first": "First page",
-		"previous": "Previous page",
-		"next": "Next page",
-		"last": "Last page",
-		"confirm": "Confirm",
-		"cancel": "Cancel",
+		"first": "Première page",
+		"previous": "Page précédente",
+		"next": "Page suivante",
+		"last": "Dernière page",
+		"confirm": "Confirmer",
+		"cancel": "Annuler",
 		"page": "Page %%number%%/%%total%%",
-		"notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
-		"timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%."
+		"notYours": "Tu ne peux pas interagir avec ce menu! Exécutes %%command%% toi-même pour faire cela.",
+		"timeOut": "Ce menu a expiré. Si tu souhaites l'utiliser à nouveau, réexécutes %%command%%."
 	},
 	"region": {
 		"dateLocale": "fr-FR",
