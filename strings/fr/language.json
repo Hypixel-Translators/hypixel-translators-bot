@@ -10,7 +10,7 @@
 	"current": "Ta langue de préférence est définie à Français.",
 	"listTitle": "Liste des langues",
 	"listElement": "`%%code%%` | **%%language%%**",
-	"credits": "Tu as trouvé une erreur ? Signale-la en utilisant `/feedback`.",
+	"credits": "Tu as trouvé une erreur ? Signale là en utilisant `/feedback`.",
 	"ar": "Arabe",
 	"bg": "Bulgare",
 	"zhcn": "Chinois Simplifié",
