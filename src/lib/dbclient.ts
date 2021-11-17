@@ -1,5 +1,5 @@
 import Discord from "discord.js"
-import { MongoClient, Db } from "mongodb"
+import { MongoClient, Db, WithId } from "mongodb"
 import { client, Command } from "../index"
 const url = process.env.MONGO_URL
 if (!url) throw "MONGO_URL not in .env"
@@ -49,7 +49,7 @@ export class HTBClient extends Discord.Client<true> {
 	commands: Discord.Collection<string, Command> = new Discord.Collection()
 	cooldowns: Discord.Collection<string, Discord.Collection<Discord.Snowflake, number>> = new Discord.Collection()
 	async getUser(): Promise<null>
-	async getUser(id: Discord.Snowflake): Promise<DbUser>
+	async getUser(id: Discord.Snowflake): Promise<WithId<DbUser>>
 	async getUser(id?: Discord.Snowflake) {
 		if (!id) return null
 		const collection = db.collection<DbUser>("users")
