@@ -1,7 +1,7 @@
 const { loadingColor, errorColor, successColor, neutralColor, listeningStatuses, watchingStatuses, playingStatuses, ids } = require("../../config.json")
 const axios = require("axios")
 const { flag, code, name, countries } = require("country-emoji")
-const fs = require("fs")
+const fs = require("node:fs")
 const country = require("countryjs")
 const { updateButtonColors, getUUID, updateRoles, getXpNeeded } = require("../../lib/util")
 const { crowdinVerify } = require("../../lib/crowdinverify")
@@ -34,7 +34,7 @@ const command: Command = {
 			client = Client,
 			generateTip = randomTip
 
-		await interaction.deferReply()
+		await interaction.deferReply({ ephemeral: interaction.channelId !== ids.channels.botDev })
 		let evaled,
 			codeToRun = interaction.options.getString("code", true).replaceAll(/[“”]/gim, '"')
 		if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`
