@@ -5,10 +5,7 @@ import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import type { TextChannel } from "discord.js"
 
 client.on("guildMemberRemove", async member => {
-	if (!db) {
-		cancelledEvents.push({ listener: "guildMemberRemove", args: [member] })
-		return
-	}
+	if (!db) return void cancelledEvents.push({ listener: "guildMemberRemove", args: [member] })
 
 	if (member.guild.id !== ids.guilds.main || member.pending) return
 	//Leave message

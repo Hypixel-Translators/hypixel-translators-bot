@@ -6,10 +6,7 @@ import { db, cancelledEvents } from "../lib/dbclient"
 import type { EventDb, LangDbEntry, Quote, Stats } from "../lib/util"
 
 client.on("messageReactionAdd", async (reaction, user) => {
-	if (!db) {
-		cancelledEvents.push({ listener: "messageReactionAdd", args: [reaction, user] })
-		return
-	}
+	if (!db) return void cancelledEvents.push({ listener: "messageReactionAdd", args: [reaction, user] })
 
 	const channel = reaction.message.channel,
 		statsColl = db.collection<Stats>("stats")

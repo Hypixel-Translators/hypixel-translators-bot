@@ -5,10 +5,7 @@ import { db, cancelledEvents } from "../lib/dbclient"
 import type { EventDb } from "../lib/util"
 
 client.on("messageReactionRemove", async (reaction, user) => {
-	if (!db) {
-		cancelledEvents.push({ listener: "messageReactionRemove", args: [reaction, user] })
-		return
-	}
+	if (!db) return void cancelledEvents.push({ listener: "messageReactionRemove", args: [reaction, user] })
 
 	if (reaction.message.channel.type !== "DM" && !user.bot) {
 		if (reaction.emoji.name === "vote_yes") {

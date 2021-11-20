@@ -7,10 +7,7 @@ import { arrayEqual, generateTip, Stats } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
-	if (!db) {
-		cancelledEvents.push({ listener: "interactionCreate", args: [interaction] })
-		return
-	}
+	if (!db) return void cancelledEvents.push({ listener: "interactionCreate", args: [interaction] })
 
 	let command: Command | null = null
 	const author: DbUser = await client.getUser(interaction.user.id),
@@ -20,16 +17,17 @@ client.on("interactionCreate", async interaction => {
 	if (interaction.isButton() && !interaction.user.bot) {
 		// Staff LOA warning removal system
 		if (interaction.channelId === ids.channels.loa && interaction.customId == "done") {
-			if ((interaction.message as Message).mentions.users.first()!.id !== interaction.user.id) {
-				await interaction.reply({ content: "You can only remove your own LOA warning!", ephemeral: true })
-				return
-			}
+			if ((interaction.message as Message).mentions.users.first()!.id !== interaction.user.id)
+				return void (await interaction.reply({ content: "You can only remove your own LOA warning!", ephemeral: true }))
+
 			const endDateRaw = (interaction.message as Message).embeds[0].fields[1].value.split("/"),
 				endDate = new Date(Number(endDateRaw[2]), Number(endDateRaw[1]) - 1, Number(endDateRaw[0]))
-			if (endDate.getTime() > Date.now()) {
-				await interaction.reply({ content: "You can't end this LOA yet! If something changed, please contact the admins.", ephemeral: true })
-				return
-			} else {
+			if (endDate.getTime() > Date.now())
+				return void (await interaction.reply({
+					content: "You can't end this LOA yet! If something changed, please contact the admins.",
+					ephemeral: true
+				}))
+			else {
 				await (interaction.message as Message).delete()
 				await interaction.reply({ content: "Successfully deleted this LOA! **Welcome back!**", ephemeral: true })
 				return
@@ -70,10 +68,8 @@ client.on("interactionCreate", async interaction => {
 	if (interaction.channel?.type === "DM") console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
 
 	//Return if user is not verified
-	if (!member?.roles.cache.has(ids.roles.verified) && command.name !== "verify") {
-		await interaction.reply({ content: "You must be verified to do this!", ephemeral: true })
-		return
-	}
+	if (!member?.roles.cache.has(ids.roles.verified) && command.name !== "verify")
+		return void (await interaction.reply({ content: "You must be verified to do this!", ephemeral: true }))
 
 	let allowed = true
 

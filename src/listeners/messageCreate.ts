@@ -21,16 +21,10 @@ import { arrayEqual, Stats } from "../lib/util"
 import type { Stream } from "node:stream"
 
 client.on("messageCreate", async message => {
-	if (!db) {
-		cancelledEvents.push({ listener: "messageCreate", args: [message] })
-		return
-	}
+	if (!db) return void cancelledEvents.push({ listener: "messageCreate", args: [message] })
 
 	//Delete pinned message and thread created messages
-	if (message.type === "THREAD_CREATED" && (message.channel as TextChannel).name.endsWith("-review-strings")) {
-		await message.delete()
-		return
-	}
+	if (message.type === "THREAD_CREATED" && (message.channel as TextChannel).name.endsWith("-review-strings")) return void (await message.delete())
 
 	//Delete messages that contain empty spoilers (Discord bug)
 	if (message.content.includes("||||")) {
@@ -69,12 +63,9 @@ client.on("messageCreate", async message => {
 		(
 			message.channel.id === ids.channels.botUpdates ||
 			(message.channel.id === ids.channels.twitter && !message.embeds[0]?.description?.startsWith("@")) ||
-			message.channel.name.endsWith("-project-updates")
-		)
-	) {
-		await message.crosspost()
-		return
-	}
+			message.channel.name.endsWith("-project-updates"))
+	)
+		return void (await message.crosspost())
 
 	// Delete non-stringURL messages in review-strings
 	const stringURLRegex = /(https:\/\/)?crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi

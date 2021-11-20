@@ -8,10 +8,7 @@ import type { PunishmentLog } from "../lib/util"
 
 // A regular member only actually joins once they accept the membership screening, therefore we need to use this event instead
 client.on("guildMemberUpdate", async (oldMember, newMember) => {
-	if (!db) {
-		cancelledEvents.push({ listener: "guildMemberUpdate", args: [oldMember, newMember] })
-		return
-	}
+	if (!db) return void cancelledEvents.push({ listener: "guildMemberUpdate", args: [oldMember, newMember] })
 
 	if (newMember.guild.id !== ids.guilds.main) return
 
