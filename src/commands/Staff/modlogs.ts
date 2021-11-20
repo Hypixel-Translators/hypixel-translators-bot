@@ -31,7 +31,7 @@ const command: Command = {
 		} else if (modlogs.length === 1) {
 			const embed = new Discord.MessageEmbed()
 				.setColor(successColor as Discord.HexColorString)
-				.setAuthor("Log message", "", `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}`)
+				.setAuthor({ name: "Log message", url: `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}` })
 				.setTitle(`Found 1 modlog for ${userInput.tag}`)
 				.setDescription(`Case #${modlogs[0].case}`)
 				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
@@ -40,7 +40,7 @@ const command: Command = {
 		} else {
 			const embed = new Discord.MessageEmbed()
 				.setColor(successColor as Discord.HexColorString)
-				.setAuthor("Log message", "", `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}`)
+				.setAuthor({ name: "Log message", url: `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}` })
 				.setTitle(`Found ${modlogs.length} modlogs for ${userInput.tag}`)
 				.setDescription(`Case #${modlogs[0].case}`)
 				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true })),

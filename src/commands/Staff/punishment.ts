@@ -158,7 +158,10 @@ const command: Command = {
 				if (!memberInput) throw "Couldn't find that member! Are you sure they're on the server?"
 				const punishmentLog = new Discord.MessageEmbed()
 					.setColor(errorColor as Discord.HexColorString)
-					.setAuthor(`Case ${caseNumber} | Verbal Warning | ${points} point${points === 1 ? "" : "s"}`, user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setAuthor({
+						name: `Case ${caseNumber} | Verbal Warning | ${points} point${points === 1 ? "" : "s"}`,
+						iconURL: user.displayAvatarURL({ format: "png", dynamic: true })
+					})
 					.addFields([
 						{ name: "User", value: user.toString(), inline: true },
 						{ name: "Moderator", value: interaction.user.toString(), inline: true },
@@ -219,7 +222,10 @@ const command: Command = {
 
 					const punishmentLog = new Discord.MessageEmbed()
 						.setColor(errorColor as Discord.HexColorString)
-						.setAuthor(`Case ${caseNumber} | Warning | ${points} point${points === 1 ? "" : "s"}`, user.displayAvatarURL({ format: "png", dynamic: true }))
+						.setAuthor({
+							name: `Case ${caseNumber} | Warning | ${points} point${points === 1 ? "" : "s"}`,
+							iconURL: user.displayAvatarURL({ format: "png", dynamic: true })
+						})
 						.addFields([
 							{ name: "User", value: user.toString(), inline: true },
 							{ name: "Moderator", value: interaction.user.toString(), inline: true },
@@ -300,7 +306,10 @@ const command: Command = {
 					const endTimestamp = new Date().setHours(new Date().getHours() + punishment.duration!),
 						punishmentLog = new Discord.MessageEmbed()
 							.setColor(errorColor as Discord.HexColorString)
-							.setAuthor(`Case ${caseNumber} | Mute | ${points} point${points === 1 ? "" : "s"}`, user.displayAvatarURL({ format: "png", dynamic: true }))
+							.setAuthor({
+								name: `Case ${caseNumber} | Mute | ${points} point${points === 1 ? "" : "s"}`,
+								iconURL: user.displayAvatarURL({ format: "png", dynamic: true })
+							})
 							.addFields(
 								{ name: "User", value: user.toString(), inline: true },
 								{ name: "Moderator", value: interaction.user.toString(), inline: true },
@@ -406,7 +415,10 @@ const command: Command = {
 					const endTimestamp = punishment.duration ? new Date().setDate(new Date().getDate() + punishment.duration) : 0,
 						punishmentLog = new Discord.MessageEmbed()
 							.setColor(errorColor as Discord.HexColorString)
-							.setAuthor(`Case ${caseNumber} | Ban | ${points} point${points === 1 ? "" : "s"}`, user.displayAvatarURL({ format: "png", dynamic: true }))
+							.setAuthor({
+								name: `Case ${caseNumber} | Ban | ${points} point${points === 1 ? "" : "s"}`,
+								iconURL: user.displayAvatarURL({ format: "png", dynamic: true })
+							})
 							.addFields(
 								{ name: "User", value: user.toString(), inline: true },
 								{ name: "Moderator", value: interaction.user.toString(), inline: true },
@@ -613,7 +625,10 @@ const command: Command = {
 				await buttonInteraction.deferUpdate()
 				const punishmentLog = new Discord.MessageEmbed()
 					.setColor(successColor as Discord.HexColorString)
-					.setAuthor(`Case ${caseNumber} | ${activePunishments[0].type === "BAN" ? "Unban" : "Unmute"} | ${user.tag}`, user.displayAvatarURL({ format: "png", dynamic: true }))
+					.setAuthor({
+						name: `Case ${caseNumber} | ${activePunishments[0].type === "BAN" ? "Unban" : "Unmute"} | ${user.tag}`,
+						iconURL: user.displayAvatarURL({ format: "png", dynamic: true })
+					})
 					.addFields([
 						{ name: "User", value: user.toString(), inline: true },
 						{ name: "Moderator", value: interaction.user.toString(), inline: true },

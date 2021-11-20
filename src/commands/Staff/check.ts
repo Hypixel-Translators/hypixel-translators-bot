@@ -42,7 +42,7 @@ const command: Command = {
 
 		const embed = new Discord.MessageEmbed()
 			.setColor(color)
-			.setAuthor("User information", memberInput.user.displayAvatarURL({ format: "png", dynamic: true }))
+			.setAuthor({ name: "User information", iconURL: memberInput.user.displayAvatarURL({ format: "png", dynamic: true }) })
 			.setTitle(memberInput.user.tag)
 			.setDescription(`${memberInput} (ID: ${memberInput.id})`)
 			.addFields(

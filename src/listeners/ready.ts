@@ -109,7 +109,10 @@ client.on("ready", async () => {
 					user = await client.users.fetch(punishment.id)
 				const punishmentLog = new Discord.MessageEmbed()
 					.setColor(successColor as Discord.HexColorString)
-					.setAuthor(`Case ${caseNumber} | Unmute | ${user.tag}`, (member ?? user).displayAvatarURL({ format: "png", dynamic: true }))
+					.setAuthor({
+						name: `Case ${caseNumber} | Unmute | ${user.tag}`,
+						iconURL: (member ?? user).displayAvatarURL({ format: "png", dynamic: true })
+					})
 					.addFields([
 						{ name: "User", value: user.toString(), inline: true },
 						{ name: "Moderator", value: client.user.toString(), inline: true },
@@ -143,7 +146,10 @@ client.on("ready", async () => {
 					userFetched = await client.users.fetch(punishment.id),
 					punishmentLog = new Discord.MessageEmbed()
 						.setColor(successColor as Discord.HexColorString)
-						.setAuthor(`Case ${caseNumber} | Unban | ${userFetched.tag}`, userFetched.displayAvatarURL({ format: "png", dynamic: true }))
+						.setAuthor({
+							name: `Case ${caseNumber} | Unban | ${userFetched.tag}`,
+							iconURL: userFetched.displayAvatarURL({ format: "png", dynamic: true })
+						})
 						.addFields([
 							{ name: "User", value: userFetched.toString(), inline: true },
 							{ name: "Moderator", value: client.user.toString(), inline: true },
