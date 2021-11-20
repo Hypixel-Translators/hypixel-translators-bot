@@ -1,4 +1,4 @@
-import { EmbedFieldData, GuildMember, MessageEmbed, Role } from "discord.js"
+import { EmbedFieldData, MessageEmbed } from "discord.js"
 import { ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
 
@@ -16,10 +16,11 @@ const command: Command = {
     roleWhitelist: [ids.roles.admin],
     channelWhitelist: [ids.channels.botDev, ids.channels.adminBots],
     async execute(interaction) {
-        const role = interaction.options.getRole("role", true) as Role,
+        if (!interaction.inCachedGuild()) return
+        const role = interaction.options.getRole("role", true),
             createdAt = Math.round(role.createdTimestamp / 1000),
             permissions = role.permissions.toArray(),
-            member = interaction.member as GuildMember
+            member = interaction.member
 
         let tags: EmbedFieldData | null = null
         if (role.tags) {

@@ -9,7 +9,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
 
 	if (reaction.message.channel.type !== "DM" && !user.bot) {
 		if (reaction.emoji.name === "vote_yes") {
-			const eventDb = await db.collection("config").findOne<EventDb>({ name: "event" }) as EventDb
+			const eventDb = (await db.collection("config").findOne<EventDb>({ name: "event" }))!
 			if (eventDb.ids.includes(reaction.message.id)) {
 				const member = reaction.message.guild!.members.cache.get(user.id)
 				await member?.roles.remove(ids.roles.event)

@@ -1,4 +1,4 @@
-import { GuildMember, MessageActionRow, MessageButton, MessageEmbed, TextChannel } from "discord.js"
+import { MessageActionRow, MessageButton, MessageEmbed, TextChannel } from "discord.js"
 import { ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
 
@@ -87,8 +87,8 @@ const command: Command = {
 	channelWhitelist: [ids.channels.staffBots],
 	roleWhitelist: [ids.roles.staff],
 	async execute(interaction) {
-		const member = interaction.member as GuildMember,
-			loaChannel = interaction.client.channels.cache.get(ids.channels.loa) as TextChannel,
+		if (!interaction.inCachedGuild()) return
+		const loaChannel = interaction.client.channels.cache.get(ids.channels.loa) as TextChannel,
 			startDay = interaction.options.getInteger("startday", true),
 			startMonth = interaction.options.getInteger("startmonth", true),
 			startYear = interaction.options.getInteger("startyear", true),
@@ -118,7 +118,7 @@ const command: Command = {
 				{ name: "To", value: `${endDay}/${endMonth}/${endYear}` },
 				{ name: "Reason", value: reason }
 			)
-			.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 		if (extraInfo) embed.addField("Extra info", extraInfo)
 		const doneRow = new MessageActionRow()
 			.addComponents(

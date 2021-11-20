@@ -26,7 +26,7 @@ export async function updateProjectStatus(projectId: string) {
 	if (projectId === "128098") checkBuild()
 	const langdb = await db.collection<LangDbEntry>("langdb").find().toArray(),
 		crowdinDb = db.collection<CrowdinProject>("crowdin"),
-		projectDb = await crowdinDb.findOne({ id: projectId }) as CrowdinProject,
+		projectDb = (await crowdinDb.findOne({ id: projectId }))!,
 		json = await axios.get(`https://api.crowdin.com/api/v2/projects/${projectId}/languages/progress?limit=500`, crowdinFetchSettings)
 			.catch(err => console.error(`Crowdin API is down, couldn't update ${projectDb.name} language statistics. Here's the error:`, err))
 	if (!json?.data) return

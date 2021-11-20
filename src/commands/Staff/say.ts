@@ -1,4 +1,4 @@
-import { Constants, Formatters, GuildMember, GuildTextBasedChannel, HexColorString, MessageEmbed, NewsChannel, TextBasedChannels, TextChannel } from "discord.js"
+import { Constants, Formatters, GuildTextBasedChannel, HexColorString, MessageEmbed } from "discord.js"
 import { successColor, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
 
@@ -23,20 +23,20 @@ const command: Command = {
 	cooldown: 600,
 	roleWhitelist: [ids.roles.staff],
 	async execute(interaction) {
+		if (!interaction.inCachedGuild()) return
 		const sendTo = interaction.options.getChannel("channel", true) as GuildTextBasedChannel,
-			member = interaction.member as GuildMember,
 			message = interaction.options.getString("message", true)
 
-		if (!member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
+		if (!interaction.member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
 
-		if (member.permissions.has("MANAGE_ROLES")) await sendTo.send(message)
+		if (interaction.member.permissions.has("MANAGE_ROLES")) await sendTo.send(message)
 		else await sendTo.send(Formatters.blockQuote(message))
 		const embed = new MessageEmbed()
 			.setColor(successColor as HexColorString)
 			.setAuthor("Message")
 			.setTitle("Success! Message sent.")
 			.setDescription(`${sendTo}:\n${message}`)
-			.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
 	}
 }

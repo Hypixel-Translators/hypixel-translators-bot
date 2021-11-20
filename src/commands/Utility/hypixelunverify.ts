@@ -1,4 +1,4 @@
-import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
+import { HexColorString, MessageEmbed } from "discord.js"
 import { client } from "../../index"
 import { successColor, errorColor, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
@@ -18,12 +18,12 @@ const command: Command = {
 	}],
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	async execute(interaction, getString: GetStringFunction) {
+		if (!interaction.inCachedGuild()) return
 		const randomTip = generateTip(getString),
-			member = interaction.member as GuildMember,
-			memberInput = interaction.options.getMember("user", false) as GuildMember | null,
+			memberInput = interaction.options.getMember("user", false),
 			collection = db.collection<DbUser>("users")
 
-		if (memberInput && (interaction.member as GuildMember).roles.cache.has(ids.roles.admin)) {
+		if (memberInput && interaction.member.roles.cache.has(ids.roles.admin)) {
 			await updateRoles(memberInput)
 			const result = await collection.updateOne({ id: memberInput.id }, { $unset: { uuid: true } })
 			if (result.modifiedCount) {
@@ -31,7 +31,7 @@ const command: Command = {
 					.setColor(successColor as HexColorString)
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Successfully unverified ${memberInput.user.tag}`)
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new MessageEmbed()
@@ -39,11 +39,11 @@ const command: Command = {
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Couldn't unverify ${memberInput.user.tag}!`)
 					.setDescription("This happened because this user isn't verified yet.")
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
 		} else {
-			await updateRoles(interaction.member as GuildMember)
+			await updateRoles(interaction.member)
 			client.cooldowns.get(this.name)!.delete(interaction.user.id)
 			const result = await collection.updateOne({ id: interaction.user.id }, { $unset: { uuid: true } })
 			if (result.modifiedCount) {
@@ -51,7 +51,7 @@ const command: Command = {
 					.setColor(successColor as HexColorString)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("unverified"))
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new MessageEmbed()
@@ -59,7 +59,7 @@ const command: Command = {
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("notUnverified"))
 					.setDescription(getString("whyNotUnverified"))
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
 		}

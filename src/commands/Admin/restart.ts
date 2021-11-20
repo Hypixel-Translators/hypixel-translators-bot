@@ -1,4 +1,4 @@
-import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
+import { HexColorString, MessageEmbed } from "discord.js"
 import { successColor, ids } from "../../config.json"
 import { generateTip, restart } from "../../lib/util"
 
@@ -10,7 +10,8 @@ const command: Command = {
 	roleWhitelist: [ids.roles.admin],
 	channelWhitelist: [ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction) {
-		const member = interaction.member as GuildMember,
+		if (!interaction.inCachedGuild()) return
+		const member = interaction.member,
 			embed = new MessageEmbed()
 				.setColor(successColor as HexColorString)
 				.setAuthor("Restart")

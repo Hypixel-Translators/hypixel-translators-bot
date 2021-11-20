@@ -1,4 +1,4 @@
-import { ColorResolvable, GuildMember, Message, MessageActionRow, MessageButton, MessageEmbed, Role } from "discord.js"
+import { ColorResolvable, GuildMember, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
 import { ids } from "../../config.json"
 import { generateTip, updateButtonColors } from "../../lib/util"
 
@@ -16,9 +16,10 @@ const command: Command = {
 	roleWhitelist: [ids.roles.admin],
 	channelWhitelist: [ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction) {
-		const role = interaction.options.getRole("role", true) as Role,
+		if (!interaction.inCachedGuild()) return
+		const role = interaction.options.getRole("role", true),
 			tags: GuildMember[] = [],
-			member = interaction.member as GuildMember
+			member = interaction.member
 
 		role.members.forEach(member => tags.push(member))
 
@@ -53,7 +54,7 @@ const command: Command = {
 							.setLabel("Last page")
 					)
 			controlButtons = updateButtonColors(controlButtons, page, maxMembersArr)
-			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }) as Message,
+			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }),
 				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: 60_000 })
 
 			collector.on("collect", async buttonInteraction => {

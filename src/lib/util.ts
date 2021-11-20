@@ -1,6 +1,6 @@
 //This file contains a bunch of functions used across the bot on multuple commands.
 import axios from "axios"
-import { CommandInteraction, GuildMember, HexColorString, MessageActionRow, MessageButton, MessageEmbed, Snowflake, User } from "discord.js"
+import { CommandInteraction, GuildMember, HexColorString, MessageActionRow, MessageButton, MessageEmbed, Role, Snowflake, User } from "discord.js"
 import { Browser, launch } from "puppeteer"
 import { v4 } from "uuid"
 import { db } from "./dbclient"
@@ -70,7 +70,9 @@ interface MinecraftProfile {
 	}[]
 }
 
-export async function updateRoles(member: GuildMember, json?: GraphQLQuery["data"]["players"]["player"]) {
+export async function updateRoles(member: GuildMember): Promise<void>
+export async function updateRoles(member: GuildMember, json: GraphQLQuery["data"]["players"]["player"]): Promise<Role>
+export async function updateRoles(member: GuildMember, json?: GraphQLQuery["data"]["players"]["player"]): Promise<Role | void> {
 	const roles: Snowflake[] = [
 		ids.roles.unranked,
 		ids.roles.vip,
@@ -83,7 +85,7 @@ export async function updateRoles(member: GuildMember, json?: GraphQLQuery["data
 		ids.roles.hypixelAdmin,
 		ids.roles.hypixelStaff
 	]
-	if (!json) return await member.roles.remove(roles, "Unverified")
+	if (!json) return void (await member.roles.remove(roles, "Unverified"))
 	let role = member.guild.roles.cache.get(ids.roles.unranked)!
 	switch (json.rank) {
 		case "ADMIN":

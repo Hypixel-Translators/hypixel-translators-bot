@@ -1,4 +1,4 @@
-import { GuildMember, HexColorString, MessageEmbed, TextChannel } from "discord.js"
+import { HexColorString, MessageEmbed, TextChannel } from "discord.js"
 import { client } from "../../index"
 import { errorColor, ids } from "../../config.json"
 import { crowdinVerify } from "../../lib/crowdinverify"
@@ -23,42 +23,42 @@ const command: Command = {
 	}],
 	cooldown: 300,
 	async execute(interaction) {
+		if (!interaction.inCachedGuild()) return
 		const verifyLogs = interaction.client.channels.cache.get(ids.channels.verifyLogs) as TextChannel,
 			verify = interaction.client.channels.cache.get(ids.channels.verify) as TextChannel,
-			member = interaction.member as GuildMember,
 			profileUrl = interaction.options.getString("url", false),
-			memberInput = interaction.options.getMember("user", false) as GuildMember | null,
+			memberInput = interaction.options.getMember("user", false),
 			url = profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0],
 			collection = db.collection<DbUser>("users")
 		await interaction.deferReply({ ephemeral: true })
-		if (!member.roles.cache.has(ids.roles.verified) && interaction.channelId == ids.channels.verify && !url) {
-			const fiMessages = (await (interaction.channel as TextChannel).messages.fetch()).filter(msgs => msgs.author.id === interaction.user.id)
+		if (!interaction.member.roles.cache.has(ids.roles.verified) && interaction.channelId == ids.channels.verify && !url) {
+			const fiMessages = (await interaction.channel!.messages.fetch()).filter(msgs => msgs.author.id === interaction.user.id)
 			await (interaction.channel as TextChannel).bulkDelete(fiMessages)
-			await member.roles.add(ids.roles.verified, "Manually verified through the command")
-			await member.roles.remove(ids.roles.alerted, "Manually verified through the command")
-			await collection.updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
-			await collection.updateOne({ id: member.id, profile: { $exists: false } }, { $set: { profile: null } })
-			await crowdinVerify(member, null)
+			await interaction.member.roles.add(ids.roles.verified, "Manually verified through the command")
+			await interaction.member.roles.remove(ids.roles.alerted, "Manually verified through the command")
+			await collection.updateOne({ id: interaction.member.id }, { $unset: { unverifiedTimestamp: true } })
+			await collection.updateOne({ id: interaction.member.id, profile: { $exists: false } }, { $set: { profile: null } })
+			await crowdinVerify(interaction.member, null)
 			await verifyLogs.send(`${interaction.user} manually verified themselves through the command`)
 			client.cooldowns.get(this.name)!.delete(interaction.user.id)
 			await interaction.editReply({
 				content:
 					"You successfully verified yourself as a regular user! If you're a translator and didn't mean to do this, feel free to run the /verify command and make sure to include your profile URL in the `url` parameter, e.g. `/verify url:https://crowdin.com/profile/atotallyvaliduser`"
 			})
-		} else if (member.roles.cache.has(ids.roles.admin) && memberInput) {
+		} else if (interaction.member.roles.cache.has(ids.roles.admin) && memberInput) {
 			await verifyLogs.send({ content: `${memberInput} is being reverified (requested by ${interaction.user})`, allowedMentions: { users: [memberInput.id] } })
 			await crowdinVerify(memberInput, url, false)
 			await interaction.editReply("Your request has been processed. Check the logs")
 		} else {
 			const userDb = await client.getUser(interaction.user.id)
 			if (userDb.profile || profileUrl && /(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(profileUrl)) {
-				await collection.updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
-				if (member.roles.cache.has(ids.roles.verified)) await verifyLogs.send(`${interaction.user} is being reverified.`)
-				await crowdinVerify(member, url, true)
+				await collection.updateOne({ id: interaction.member.id }, { $unset: { unverifiedTimestamp: true } })
+				if (interaction.member.roles.cache.has(ids.roles.verified)) await verifyLogs.send(`${interaction.user} is being reverified.`)
+				await crowdinVerify(interaction.member, url, true)
 				await interaction.editReply("Your profile has been processed. Check your DMs.")
 			} else {
-				await member.roles.remove(ids.roles.verified, "Unverified")
-				await collection.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
+				await interaction.member.roles.remove(ids.roles.verified, "Unverified")
+				await collection.updateOne({ id: interaction.member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 				const embed = new MessageEmbed()
 					.setColor(errorColor as HexColorString)
 					.setAuthor("Manual verification")

@@ -14,13 +14,13 @@ client.on("interactionCreate", async interaction => {
 		member = interaction.client.guilds.cache.get(ids.guilds.main)?.members.cache.get(interaction.user.id)!,
 		randomTip = generateTip(getString),
 		statsColl = db.collection<Stats>("stats")
-	if (interaction.isButton() && !interaction.user.bot) {
+	if (interaction.isButton() && !interaction.user.bot && interaction.inCachedGuild()) {
 		// Staff LOA warning removal system
 		if (interaction.channelId === ids.channels.loa && interaction.customId == "done") {
-			if ((interaction.message as Message).mentions.users.first()!.id !== interaction.user.id)
+			if (interaction.message.mentions.users.first()!.id !== interaction.user.id)
 				return void (await interaction.reply({ content: "You can only remove your own LOA warning!", ephemeral: true }))
 
-			const endDateRaw = (interaction.message as Message).embeds[0].fields[1].value.split("/"),
+			const endDateRaw = interaction.message.embeds[0].fields[1].value.split("/"),
 				endDate = new Date(Number(endDateRaw[2]), Number(endDateRaw[1]) - 1, Number(endDateRaw[0]))
 			if (endDate.getTime() > Date.now())
 				return void (await interaction.reply({
@@ -28,7 +28,7 @@ client.on("interactionCreate", async interaction => {
 					ephemeral: true
 				}))
 			else {
-				await (interaction.message as Message).delete()
+				await interaction.message.delete()
 				await interaction.reply({ content: "Successfully deleted this LOA! **Welcome back!**", ephemeral: true })
 				return
 			}

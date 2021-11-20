@@ -1,6 +1,6 @@
 import { flag } from "country-emoji"
 import { demonym, name } from "countryjs"
-import { GuildMember, HexColorString, MessageEmbed, OverwriteResolvable } from "discord.js"
+import { HexColorString, MessageEmbed, OverwriteResolvable } from "discord.js"
 import { successColor, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { generateTip, LangDbEntry } from "../../lib/util"
@@ -24,11 +24,12 @@ const command: Command = {
 	}],
 	roleWhitelist: [ids.roles.admin],
 	async execute(interaction) {
+		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply()
 		const lang = interaction.options.getString("code", true).toLowerCase(),
 			code = interaction.options.getString("code", true).toUpperCase(),
 			langdbEntry = await db.collection<LangDbEntry>("langdb").findOne({ code: lang }),
-			member = interaction.member as GuildMember
+			member = interaction.member
 		let nationality = demonym(code)
 		if (!nationality) throw "Couldn't find that country!"
 		let emoji = flag(lang)

@@ -1,4 +1,4 @@
-import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
+import { HexColorString, MessageEmbed } from "discord.js"
 import { client } from "../../index"
 import { errorColor, successColor, neutralColor, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
@@ -22,9 +22,9 @@ const command: Command = {
 	}],
 	roleWhitelist: [ids.roles.staff],
 	async execute(interaction, getString: GetStringFunction) {
+		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply()
-		const member = interaction.member as GuildMember,
-			recipient = interaction.options.getUser("user", true),
+		const recipient = interaction.options.getUser("user", true),
 			recipientDb = await client.getUser(recipient.id),
 			message = interaction.options.getString("message", true).replaceAll("\\n", "\n"),
 			dm = new MessageEmbed()
@@ -40,7 +40,7 @@ const command: Command = {
 					.setAuthor("Direct Message")
 					.setTitle(`Sent message to ${recipient.tag}`)
 					.setDescription(message)
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				await interaction.editReply({ embeds: [embed] })
 			})
 			.catch(async error => {
@@ -49,7 +49,7 @@ const command: Command = {
 					.setAuthor("Direct Message")
 					.setTitle(`An error occured while trying to message ${recipient.tag}`)
 					.setDescription(error.toString())
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				await interaction.editReply({ embeds: [errorEmbed] })
 			})
 	}

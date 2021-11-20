@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
+import { HexColorString, MessageEmbed } from "discord.js"
 import { client } from "../../index"
 import { successColor, loadingColor, errorColor, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
@@ -19,10 +19,11 @@ const command: Command = {
 	cooldown: 30,
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction, getString: GetStringFunction) {
+		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
-			member = interaction.member as GuildMember,
 			authorDb = await client.getUser(interaction.user.id)
+
 		let rawLang = interaction.options.getString("language", false)?.toLowerCase()
 		if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !rawLang) rawLang = authorDb.lang
 		if (!rawLang) throw "noLang"
@@ -31,10 +32,10 @@ const command: Command = {
 		lang ??= langdb.find(l => l.name.toLowerCase().includes(rawLang!))!
 		if (!lang || lang?.code === "en") throw "falseLang"
 
-		let hypixelData: LanguageStatus["data"] | null = null,
-			quickplayData: LanguageStatus["data"] | null = null,
-			sbaData: LanguageStatus["data"] | null = null,
-			botData: LanguageStatus["data"] | null = null
+		let hypixelData: LanguageStatus["data"] | null,
+			quickplayData: LanguageStatus["data"] | null,
+			sbaData: LanguageStatus["data"] | null,
+			botData: LanguageStatus["data"] | null
 		const hypixelJson: LanguageStatus[] = await axios.get("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", crowdinFetchSettings).then(async res => res.data.data)
 			.catch(e => {
 				if (e.code === "ECONNABORTED") { //this means the request timed out
@@ -66,7 +67,7 @@ const command: Command = {
 			.setAuthor(getString("moduleName"))
 			.setTitle(`${lang.emoji} | ${getString(`languages.${lang.code}`)}`)
 			.setDescription(`${getString("statsAll", { language: getString(`languages.${lang.code}`) })}`)
-			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 		if (hypixelData)
 			embed.addField(
 				"Hypixel",

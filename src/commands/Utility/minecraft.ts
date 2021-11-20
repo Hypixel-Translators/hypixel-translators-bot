@@ -129,7 +129,7 @@ const command: Command = {
 							if (page > pages.length - 1) page = pages.length - 1
 						}
 						controlButtons = updateButtonColors(controlButtons, page, pages)
-						pageEmbed = fetchPage(page, pages) as MessageEmbed
+						pageEmbed = fetchPage(page, pages)
 						await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
 					})
 
@@ -192,9 +192,9 @@ const command: Command = {
 export default command
 
 async function getPlayer(uuid: string) {
-	const json = await axios.get(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings).then(res => res.data)
+	const json = await axios.get<UserProfile & {error?: string}>(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings).then(res => res.data)
 	if (json.error) throw "falseUUID"
-	return json as UserProfile
+	return json
 }
 
 async function getNameHistory(uuid: string) {

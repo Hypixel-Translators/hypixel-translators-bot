@@ -1,4 +1,4 @@
-import { GuildMember, HexColorString, MessageEmbed, TextChannel } from "discord.js"
+import { HexColorString, MessageEmbed, TextChannel } from "discord.js"
 import { successColor, ids } from "../../config.json"
 import { updateProjectStatus } from "../../events/stats"
 import { db } from "../../lib/dbclient"
@@ -30,8 +30,9 @@ const command: Command = {
 		required: false
 	}],
 	async execute(interaction) {
-		const sendTo = interaction.options.getChannel("channel", true) as TextChannel,
-			member = interaction.member as GuildMember
+		if (!interaction.inCachedGuild()) return
+		const sendTo = interaction.options.getChannel("channel", true) as TextChannel
+
 		if (!sendTo) throw "Couldn't resolve that channel!"
 		let amount = interaction.options.getInteger("amount", true)
 		await interaction.deferReply()
@@ -41,7 +42,7 @@ const command: Command = {
 			.setAuthor("Bulk Send")
 			.setTitle(`Success! Message${amount === 1 ? "" : "s"} sent!`)
 			.setDescription(`${sendTo}`)
-			.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.editReply({ embeds: [embed] })
 		if (interaction.options.getBoolean("update", false)) {
 			const project = await db.collection<CrowdinProject>("crowdin").findOne({ shortName: sendTo.name.split("-")[0] })

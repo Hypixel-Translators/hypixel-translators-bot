@@ -19,7 +19,6 @@ const command: Command = {
 	name: "eval",
 	description: "Evals the specified code.",
 	roleWhitelist: [ids.roles.star],
-	channelWhitelist: [ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	options: [{
 		type: "STRING",
 		name: "code",
@@ -27,9 +26,10 @@ const command: Command = {
 		required: true
 	}],
 	async execute(interaction, getString: GetStringFunction) {
-		const me = interaction.member as discord.GuildMember,
+		if (!interaction.inCachedGuild()) return
+		const me = interaction.member,
 			guild = interaction.guild!,
-			channel = interaction.channel as discord.TextChannel,
+			channel = interaction.channel,
 			db = mongoDb,
 			Discord = discord,
 			client = interaction.client,

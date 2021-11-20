@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GuildMember, HexColorString, MessageEmbed, Role } from "discord.js"
+import { HexColorString, MessageEmbed } from "discord.js"
 import { successColor, errorColor, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { fetchSettings, generateTip, getUUID, updateRoles, GraphQLQuery } from "../../lib/util"
@@ -24,11 +24,11 @@ const command: Command = {
 	cooldown: 600,
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	async execute(interaction, getString: GetStringFunction) {
+		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
-			member = interaction.member as GuildMember,
 			uuid = await getUUID(interaction.options.getString("username", true)),
-			memberInput = interaction.options.getMember("user", false) as GuildMember | null,
+			memberInput = interaction.options.getMember("user", false),
 			collection = db.collection<DbUser>("users")
 		if (!uuid) throw "noUser"
 
@@ -52,14 +52,14 @@ const command: Command = {
 		}
 		if (json.links?.DISCORD === interaction.user.tag) {
 			const result = await collection.updateOne({ id: interaction.user.id }, { $set: { uuid: json.uuid } }),
-				role = await updateRoles(interaction.member as GuildMember, json)
+				role = await updateRoles(interaction.member, json)
 			if (result.modifiedCount) {
 				const successEmbed = new MessageEmbed()
 					.setColor(successColor as HexColorString)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("success", { player: json.username }))
 					.setDescription(getString("role", { role: role.toString() }))
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.editReply({ embeds: [successEmbed] })
 			} else {
 				const notChanged = new MessageEmbed()
@@ -67,19 +67,19 @@ const command: Command = {
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("alreadyVerified"))
 					.setDescription(getString("nameChangeDisclaimer"))
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.editReply({ embeds: [notChanged] })
 			}
-		} else if (memberInput && (interaction.member as GuildMember).roles.cache.has(ids.roles.admin)) {
+		} else if (memberInput && interaction.member.roles.cache.has(ids.roles.admin)) {
 			const result = await collection.updateOne({ id: memberInput.id }, { $set: { uuid: json.uuid } }),
-				role = await updateRoles(memberInput, json) as Role
+				role = await updateRoles(memberInput, json)
 			if (result.modifiedCount) {
 				const successEmbed = new MessageEmbed()
 					.setColor(successColor as HexColorString)
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Successfully verified ${memberInput.user.tag} as ${json.username}`)
 					.setDescription(`They were given the ${role} role due to their rank on the server.`)
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				if (json.links?.DISCORD !== memberInput.user.tag)
 					successEmbed.setDescription("⚠ This player's Discord is different from their user tag! I hope you know what you're doing.")
 				return await interaction.editReply({ embeds: [successEmbed] })
@@ -88,7 +88,7 @@ const command: Command = {
 					.setColor(errorColor as HexColorString)
 					.setAuthor("Hypixel Verification")
 					.setTitle("This user is already verified")
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.editReply({ embeds: [notChanged] })
 			}
 		} else {
@@ -98,7 +98,7 @@ const command: Command = {
 				.setTitle(getString("error"))
 				.setDescription(getString("tutorial", { tag: interaction.user.tag }))
 				.setImage("https://i.imgur.com/JSeAHdG.gif")
-				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [errorEmbed] })
 		}
 	},

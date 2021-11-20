@@ -1,4 +1,4 @@
-import { ColorResolvable, GuildMember, MessageEmbed } from "discord.js"
+import { ColorResolvable, MessageEmbed } from "discord.js"
 import { client } from "../../index"
 import { ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
@@ -17,8 +17,8 @@ const command: Command = {
 	roleWhitelist: [ids.roles.staff, ids.roles.hypixelManager, ids.roles.sbaManager, ids.roles.qpManager, ids.roles.botManager],
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.managers],
 	async execute(interaction) {
-		const memberInput = interaction.options.getMember("user", true) as GuildMember,
-			member = interaction.member as GuildMember
+		if (!interaction.inCachedGuild()) return
+		const memberInput = interaction.options.getMember("user", true)
 
 		const userDb = await client.getUser(memberInput.id)
 		let note: string | undefined = undefined
@@ -53,7 +53,7 @@ const command: Command = {
 				{ name: "Roles", value: userRoles },
 			)
 			.setThumbnail(memberInput.user.displayAvatarURL({ format: "png", dynamic: true }))
-			.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 		if (note) embed.addField("Note", note)
 		await interaction.reply({ embeds: [embed] })
 	}

@@ -17,10 +17,10 @@ const command: Command = {
 	roleWhitelist: [ids.roles.staff],
 	channelWhitelist: [ids.channels.staffBots, ids.channels.adminBots],
 	async execute(interaction) {
+		if (!interaction.inCachedGuild()) return
 		const caseNumber = interaction.options.getInteger("case", true),
 			collection = db.collection<PunishmentLog>("punishments"),
-			modLog = await collection.findOne({ case: caseNumber }),
-			member = interaction.member as GuildMember
+			modLog = await collection.findOne({ case: caseNumber })
 
 		if (!modLog) throw `Couldn't find that case number! You must enter a number between 1 and ${await collection.estimatedDocumentCount()}`
 
@@ -30,7 +30,7 @@ const command: Command = {
 				.setAuthor("Punishment case")
 				.setTitle(`Here's case #${caseNumber}`)
 				.setDescription(`Offender: ${offender instanceof GuildMember ? offender : offender.tag}`)
-				.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 		updateModlogFields(embed, modLog)
 		await interaction.reply({ embeds: [embed] })
 	}

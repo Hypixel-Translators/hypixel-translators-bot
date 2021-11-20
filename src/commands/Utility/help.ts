@@ -36,11 +36,11 @@ const command: Command = {
 
 		// Define categories to get commands from and all pages
 		const categories = ["Utility", "Info"],
-			pages = [
+			pages: Page[] = [
 				{ number: 0, badge: "🏠", titleString: "mainPage" },
 				{ number: 1, badge: "🛠️", titleString: "utilityHelp" },
 				{ number: 2, badge: "ℹ️", titleString: "infoHelp" }
-			] as Page[]
+			]
 
 		let pageIndex = 1
 		categories.forEach(category => {
@@ -76,7 +76,7 @@ const command: Command = {
 			pages[0].embed = page1
 
 			//Determine which page to use
-			let pageEmbed = fetchPage(page, pages, getString, randomTip, interaction) as MessageEmbed
+			let pageEmbed = fetchPage(page, pages, getString, interaction)!
 			const pageMenu = new MessageActionRow()
 				.addComponents(
 					new MessageSelectMenu()
@@ -99,7 +99,7 @@ const command: Command = {
 					option = menuInteraction.values[0]
 				if (interaction.user.id !== menuInteraction.user.id) return await menuInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
 				else page = Number(option)
-				pageEmbed = fetchPage(page, pages, getString, randomTip, interaction) as MessageEmbed
+				pageEmbed = fetchPage(page, pages, getString, interaction)!;
 				(pageMenu.components[0] as MessageSelectMenu).options.forEach(o => o.default = option === o.value)
 				await menuInteraction.update({ embeds: [pageEmbed], components: [pageMenu] })
 			})
@@ -141,7 +141,7 @@ const command: Command = {
 	}
 }
 
-function fetchPage(page: number, pages: Page[], getString: GetStringFunction, randomTip: string, interaction: CommandInteraction) {
+function fetchPage(page: number, pages: Page[], getString: GetStringFunction, interaction: CommandInteraction) {
 	if (page > pages.length - 1) page = pages.length - 1
 	if (page < 0) page = 0
 	let pageEmbed: MessageEmbed
@@ -155,7 +155,7 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, ra
 				.setTitle(`${pages[page].badge} ${getString(pages[page].titleString!)}`)
 				.setFooter(
 					getString("pagination.page", { number: page + 1, total: pages.length }, "global"),
-					((interaction.member as GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
+					((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 				)
 			pages[page].commands!.forEach(command => pageEmbed!.addField(`\`/${command}\``, getString(`${command}.description`)))
 		} else return console.error(`Help page ${page} has no embed fields specified!`)

@@ -1,4 +1,4 @@
-import { GuildMember, HexColorString, Message, MessageActionRow, MessageButton, MessageComponentInteraction, MessageEmbed, TextChannel, User } from "discord.js"
+import { GuildMember, HexColorString, MessageActionRow, MessageButton, MessageComponentInteraction, MessageEmbed, TextChannel, User } from "discord.js"
 import { errorColor, loadingColor, successColor, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { generateTip, getActivePunishments, PunishmentLog, PunishmentPoints } from "../../lib/util"
@@ -113,11 +113,11 @@ const command: Command = {
 	roleWhitelist: [ids.roles.staff],
 	channelWhitelist: [ids.channels.staffBots, ids.channels.adminBots],
 	async execute(interaction) {
-		const member = interaction.member as GuildMember,
-			subCommand = interaction.options.getSubcommand(),
+		if (!interaction.inCachedGuild()) return
+		const subCommand = interaction.options.getSubcommand(),
 			collection = db.collection<PunishmentLog>("punishments"),
-			user = interaction.options.getUser("user", true) as User,
-			memberInput = interaction.options.getMember("user", false) as GuildMember | null,
+			user = interaction.options.getUser("user", true),
+			memberInput = interaction.options.getMember("user", false),
 			points = interaction.options.getInteger("points", false) as PunishmentPoints | null,
 			duration = interaction.options.getNumber("duration", false),
 			punishment = await calculatePunishment(user, points ?? 1),
@@ -149,7 +149,7 @@ const command: Command = {
 			await interaction.deferReply()
 
 			//Check for permissions to give the punishment
-			if (!checkPermissions(interaction.member as GuildMember, punishment)) throw "You don't have permission to give this punishment"
+			if (!checkPermissions(interaction.member, punishment)) throw "You don't have permission to give this punishment"
 			if (user.bot) throw "You cannot punish bots!"
 			if (memberInput?.roles.cache.has(ids.roles.staff)) throw "You cannot punish this user!"
 			if (points! <= (punishment.activePunishmentPoints ?? 0)) throw `This user currently has an active punishment with ${punishment.activePunishmentPoints} points, so you cannot give them a less severe punishment!`
@@ -191,7 +191,7 @@ const command: Command = {
 						{ name: "Points", value: points!.toString(), inline: true },
 						{ name: "Reason", value: reason! }
 					)
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				await interaction.editReply({ embeds: [embed] })
 			} else if (punishment.type === "WARN") {
 				const confirmEmbed = new MessageEmbed()
@@ -199,8 +199,8 @@ const command: Command = {
 					.setAuthor("Punishment")
 					.setTitle(`Are you sure you want to warn ${user.tag}?`)
 					.setDescription(reason!)
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
-				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] }) as Message
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] })
 
 				setTimeout(async () => {
 					buttons.components.map(b => b.setDisabled(false))
@@ -212,7 +212,7 @@ const command: Command = {
 							.setColor(errorColor as HexColorString)
 							.setAuthor("Punishments")
 							.setTitle("You didn't respond in time, so this user wasn't warned")
-							.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 						await interaction.editReply({ embeds: [embed], components: [] })
 					})
 				if (!buttonInteraction) return
@@ -261,7 +261,7 @@ const command: Command = {
 								{ name: "Points", value: points!.toString(), inline: true },
 								{ name: "Reason", value: reason! },
 							)
-							.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 					await user.send({ embeds: [dmEmbed] })
 						.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
 						.catch(async err => {
@@ -276,7 +276,7 @@ const command: Command = {
 						.setColor(successColor as HexColorString)
 						.setAuthor("Punishments")
 						.setTitle("Successfully cancelled this punishment")
-						.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 					await buttonInteraction.update({ embeds: [embed], components: [] })
 				}
 			} else if (punishment.type === "MUTE") {
@@ -285,8 +285,8 @@ const command: Command = {
 					.setAuthor("Punishment")
 					.setTitle("Are you sure you want to mute this member?")
 					.setDescription(`Confirming this will mute ${user} for ${punishment.duration} hours with the following reason:\n\n${reason}`)
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
-				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] }) as Message
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] })
 
 				setTimeout(async () => {
 					buttons.components.map(b => b.setDisabled(false))
@@ -298,7 +298,7 @@ const command: Command = {
 							.setColor(errorColor as HexColorString)
 							.setAuthor("Punishments")
 							.setTitle("You didn't respond in time, so this user wasn't muted")
-							.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 						await interaction.editReply({ embeds: [embed], components: [] })
 					})
 				if (!buttonInteraction) return
@@ -361,7 +361,7 @@ const command: Command = {
 								{ name: "Duration", value: `${punishment.duration!.toString()} hours`, inline: true },
 								{ name: "Reason", value: reason! },
 							)
-							.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 					await user.send({ embeds: [dmEmbed] })
 						.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
 						.catch(async err => {
@@ -376,7 +376,7 @@ const command: Command = {
 						.setColor(successColor as HexColorString)
 						.setAuthor("Punishments")
 						.setTitle("Successfully cancelled this punishment")
-						.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 					await buttonInteraction.update({ embeds: [embed], components: [] })
 				}
 			} else if (punishment.type === "BAN") {
@@ -389,8 +389,8 @@ const command: Command = {
 						} with the following reason:\n\n${reason}${punishment.activePunishmentPoints ? "\n\n⚠ This user currently has an active punishment! Think twice before confirming this." : ""
 						}`
 					)
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
-				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] }) as Message
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] })
 
 				setTimeout(async () => {
 					buttons.components.map(b => b.setDisabled(false))
@@ -402,7 +402,7 @@ const command: Command = {
 							.setColor(errorColor as HexColorString)
 							.setAuthor("Punishments")
 							.setTitle("You didn't respond in time, so this user wasn't banned")
-							.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 						await interaction.editReply({ embeds: [embed], components: [] })
 					})
 				if (!buttonInteraction) return
@@ -483,7 +483,7 @@ const command: Command = {
 								{ name: "Duration", value: `${punishment.duration ? `${punishment.duration!.toString()} days` : "Permanent"}`, inline: true },
 								{ name: "Reason", value: reason! }
 							)
-							.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+							.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 					await user.send({ embeds: [dmEmbed] })
 						.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
 						.catch(async err => {
@@ -498,7 +498,7 @@ const command: Command = {
 						.setColor(successColor as HexColorString)
 						.setAuthor("Punishments")
 						.setTitle("Successfully cancelled this punishment")
-						.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 					await buttonInteraction.update({ embeds: [embed], components: [] })
 				}
 			}
@@ -513,7 +513,7 @@ const command: Command = {
 				.setColor(activePoints ? errorColor as HexColorString : successColor as HexColorString)
 				.setAuthor("Punishments")
 				.setTitle(`${user.tag} currently has ${activePoints} point${activePoints === 1 ? "" : "s"}.`)
-				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 			activePunishments.forEach(punishment => {
 				const durationString = punishment.duration ? `${punishment.duration}${punishment.type === "BAN" ? "d" : "h"} ` : "permanent ",
 					expireTimestamp =
@@ -535,7 +535,7 @@ const command: Command = {
 			})
 			await interaction.reply({ embeds: [embed] })
 		} else if (subCommand === "calculate") {
-			const hasPermission = checkPermissions(interaction.member as GuildMember, punishment),
+			const hasPermission = checkPermissions(interaction.member, punishment),
 				unexpiredPunishments = await getActivePunishments(user),
 				durationString = punishment.duration ? `${punishment.duration}${punishment.type === "BAN" ? "d" : "h"} ` : "permanent "
 
@@ -546,7 +546,7 @@ const command: Command = {
 				.setDescription(
 					`You ${hasPermission ? "" : "don't "}have permission to issue this punishment.\n\n${unexpiredPunishments.length ? `Here are ${user}'s active punishments:` : `${user} has no active punishments at the moment`}`
 				)
-				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 			unexpiredPunishments.forEach(punishment => {
 				const durationString = punishment.duration ? `${punishment.duration}${punishment.type === "BAN" ? "d" : "h"} ` : "permanent ",
 					expireTimestamp =
@@ -568,7 +568,7 @@ const command: Command = {
 			})
 			await interaction.reply({ embeds: [embed] })
 		} else if (subCommand === "revoke") {
-			if (!(interaction.member as GuildMember).permissions.has("VIEW_AUDIT_LOG")) throw "noAccess"
+			if (!interaction.member.permissions.has("VIEW_AUDIT_LOG")) throw "noAccess"
 			const activePunishments = await collection.find({ id: user.id, ended: false }).toArray(),
 				senddm = interaction.options.getBoolean("senddm", true)
 			if (activePunishments.length > 1)
@@ -586,7 +586,7 @@ const command: Command = {
 				.setColor(loadingColor as HexColorString)
 				.setAuthor("Punishments")
 				.setTitle(`Are you sure you want to revoke ${user.tag}'s active ${activePunishments[0].type}?`)
-				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 			activePunishments.forEach(punishment => {
 				const durationString = punishment.duration ? `${punishment.duration}${punishment.type === "BAN" ? "d" : "h"} ` : "permanent ",
 					expireTimestamp =
@@ -606,7 +606,7 @@ const command: Command = {
 					true
 				)
 			})
-			const msg = await interaction.reply({ embeds: [embed], components: [buttons], fetchReply: true }) as Message
+			const msg = await interaction.reply({ embeds: [embed], components: [buttons], fetchReply: true })
 
 			setTimeout(async () => {
 				buttons.components.map(b => b.setDisabled(false))
@@ -618,7 +618,7 @@ const command: Command = {
 						.setColor(errorColor as HexColorString)
 						.setAuthor("Punishments")
 						.setTitle("You didn't respond in time, so this user's punishments weren't revoked")
-						.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 					await interaction.editReply({ embeds: [embed], components: [] })
 				})
 			if (!buttonInteraction) return
@@ -665,7 +665,7 @@ const command: Command = {
 							{ name: "Punishment type", value: activePunishments[0].type, inline: true },
 							{ name: "Reason", value: reason!, inline: true }
 						)
-						.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 
 				if (activePunishments[0].type === "BAN") await interaction.guild!.bans.remove(user.id, `${reason} | ${interaction.user.tag}`)
 					.catch(async err => {
@@ -690,7 +690,7 @@ const command: Command = {
 					.setColor(successColor as HexColorString)
 					.setAuthor("Punishments")
 					.setTitle("Successfully cancelled revoking this punishment")
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				await buttonInteraction.update({ embeds: [embed], components: [] })
 			}
 		}
@@ -700,7 +700,7 @@ const command: Command = {
 async function calculatePunishment(user: User, points: PunishmentPoints): Promise<Punishment> {
 	const activePunishments = await getActivePunishments(user),
 		activePunishmentPoints = activePunishments.find(p => p.ended === false)?.points ?? null,
-		guidelines = await db.collection("config").findOne<PunishmentGuidelines>({ name: "punishmentGuidelines" }) as PunishmentGuidelines
+		guidelines = (await db.collection("config").findOne<PunishmentGuidelines>({ name: "punishmentGuidelines" }))!
 
 	let activePoints = 0
 	activePunishments.forEach(p => (activePoints = (activePoints + p.points!) || activePoints))

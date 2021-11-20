@@ -1,4 +1,4 @@
-import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
+import { HexColorString, MessageEmbed } from "discord.js"
 import { successColor, ids } from "../../config.json"
 import crowdinVerify from "../../events/crowdinverify"
 import { generateTip } from "../../lib/util"
@@ -16,8 +16,9 @@ const command: Command = {
 	}],
 	roleWhitelist: [ids.roles.admin],
 	async execute(interaction) {
-		const limit = interaction.options.getInteger("limit", false) ?? undefined,
-			member = interaction.member as GuildMember
+		if (!interaction.inCachedGuild()) return
+		const limit = interaction.options.getInteger("limit", false) ?? undefined
+
 		await interaction.deferReply()
 		await crowdinVerify(limit)
 		const embed = new MessageEmbed()
@@ -25,7 +26,7 @@ const command: Command = {
 			.setAuthor("Role updater")
 			.setTitle("All verified users had their roles updated!")
 			.setDescription("Check the console for any errors that may have occured in the process")
-			.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
+			.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.editReply({ embeds: [embed] })
 			.catch(async () => {
 				await interaction.channel!.send({ content: "The interaction expired, so here's the embed so you don't feel sad", embeds: [embed] })

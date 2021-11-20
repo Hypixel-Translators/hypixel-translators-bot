@@ -1,4 +1,4 @@
-import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
+import { HexColorString, MessageEmbed } from "discord.js"
 import { successColor, ids } from "../../config.json"
 import { stats, updateProjectStatus } from "../../events/stats"
 import { generateTip } from "../../lib/util"
@@ -22,9 +22,9 @@ const command: Command = {
 	}],
 	roleWhitelist: [ids.roles.admin],
 	async execute(interaction) {
-		const projectInput = interaction.options.getString("project", false),
-			member = interaction.member as GuildMember
+		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply()
+		const projectInput = interaction.options.getString("project", false)
 		if (!projectInput) {
 			await stats(true)
 				.then(async () => {
@@ -39,7 +39,7 @@ const command: Command = {
 								c => c.name === "bot-language-status"
 							)} and ${interaction.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`
 						)
-						.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 					await interaction.editReply({ embeds: [allEmbed] })
 				})
 				.catch(err => { throw err })
@@ -67,7 +67,7 @@ const command: Command = {
 				.setAuthor("Statistics updater")
 				.setTitle(`The ${projectInput} language statistics have been updated!`)
 				.setDescription(`Check it out at ${interaction.guild!.channels.cache.find(c => c.name === `${projectInput}-language-status`)}!`)
-				.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
+				.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.editReply({ embeds: [projectEmbed] })
 			console.log(`Manually updated the ${projectInput} language statistics.`)
 		}
