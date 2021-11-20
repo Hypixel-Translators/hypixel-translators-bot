@@ -1,7 +1,8 @@
-import Discord from "discord.js"
-import { successColor, loadingColor, errorColor, ids } from "../config.json"
+import { HexColorString, MessageEmbed, ThreadChannel } from "discord.js"
 import { client } from "../index"
+import { successColor, loadingColor, errorColor, ids } from "../config.json"
 import { db, cancelledEvents } from "../lib/dbclient"
+
 import type { EventDb, LangDbEntry, Quote, Stats } from "../lib/util"
 
 client.on("messageReactionAdd", async (reaction, user) => {
@@ -12,7 +13,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
 	const channel = reaction.message.channel,
 		statsColl = db.collection<Stats>("stats")
-	if (channel instanceof Discord.ThreadChannel || channel.type === "DM" || user.bot) return
+	if (channel instanceof ThreadChannel || channel.type === "DM" || user.bot) return
 	if (reaction.partial) reaction = await reaction.fetch()
 	if (reaction.message.partial) reaction.message = await reaction.message.fetch()
 	if (user.partial) user = await user.fetch()
@@ -46,8 +47,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
 				}, 10_000)
 			} else if (reaction.emoji.name === "vote_maybe" && reaction.message.author!.id !== user.id) {
 				await reaction.users.remove(user.id)
-				const embed = new Discord.MessageEmbed()
-					.setColor(loadingColor as Discord.HexColorString)
+				const embed = new MessageEmbed()
+					.setColor(loadingColor as HexColorString)
 					.setAuthor(strings.moduleName)
 					.setTitle(strings.requestDetails.replace("%%user%%", user.tag))
 					.setDescription(`${reaction.message}`)
@@ -64,8 +65,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
 				await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "MORE_INFO" })
 			} else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {
 				await reaction.message.react("⏱")
-				const embed = new Discord.MessageEmbed()
-					.setColor(errorColor as Discord.HexColorString)
+				const embed = new MessageEmbed()
+					.setColor(errorColor as HexColorString)
 					.setAuthor(strings.moduleName)
 					.setTitle(strings.rejected.replace("%%user%%", user.tag))
 					.setDescription(`${reaction.message}`)
@@ -104,8 +105,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
 			if (firstAttachment) await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url, imageURL: firstAttachment })
 			else await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url })
-			const embed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
+			const embed = new MessageEmbed()
+				.setColor(successColor as HexColorString)
 				.setAuthor("Starboard")
 				.setTitle(`The following quote reached ${reaction.count} ⭐ reactions and was added!`)
 				.setDescription(reaction.message.content)

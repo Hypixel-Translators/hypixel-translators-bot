@@ -1,7 +1,8 @@
+import { HexColorString, MessageEmbed } from "discord.js"
 import { neutralColor, ids } from "../../config.json"
-import Discord from "discord.js"
-import { client, Command, GetStringFunction } from "../../index"
 import { generateTip } from "../../lib/util"
+
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
     name: "translate",
@@ -11,11 +12,11 @@ const command: Command = {
     channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
     async execute(interaction, getString: GetStringFunction) {
         const randomTip = generateTip(getString),
-            member = client.guilds.cache.get("549503328472530974")!.members.resolve(interaction.user.id)!
+            member = interaction.client.guilds.cache.get("549503328472530974")!.members.resolve(interaction.user.id)!
 
         if (member.roles.cache.find(role => role.name.startsWith("Bot ") && role.name !== "Bot Updates")) {
-            const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor as Discord.HexColorString)
+            const embed = new MessageEmbed()
+                .setColor(neutralColor as HexColorString)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("alreadyTranslator"))
                 .setDescription(getString("projectLink", { link: "https://crowdin.com/project/hypixel-translators-bot" }))
@@ -26,8 +27,8 @@ const command: Command = {
                 .setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
             await interaction.reply({ embeds: [embed] })
         } else {
-            const embed = new Discord.MessageEmbed()
-                .setColor(neutralColor as Discord.HexColorString)
+            const embed = new MessageEmbed()
+                .setColor(neutralColor as HexColorString)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("newTranslator"))
                 .setDescription(getString("join"))

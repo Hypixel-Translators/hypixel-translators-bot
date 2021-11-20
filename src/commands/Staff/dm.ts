@@ -1,7 +1,9 @@
-import Discord from "discord.js"
+import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
+import { client } from "../../index"
 import { errorColor, successColor, neutralColor, ids } from "../../config.json"
-import { Command, client, GetStringFunction } from "../../index"
 import { generateTip } from "../../lib/util"
+
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "dm",
@@ -21,20 +23,20 @@ const command: Command = {
 	roleWhitelist: [ids.roles.staff],
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
-		const member = interaction.member as Discord.GuildMember,
+		const member = interaction.member as GuildMember,
 			recipient = interaction.options.getUser("user", true),
 			recipientDb = await client.getUser(recipient.id),
 			message = interaction.options.getString("message", true).replaceAll("\\n", "\n"),
-			dm = new Discord.MessageEmbed()
-				.setColor(neutralColor as Discord.HexColorString)
+			dm = new MessageEmbed()
+				.setColor(neutralColor as HexColorString)
 				.setAuthor(getString("incoming", this.name, recipientDb.lang))
 				.setDescription(message)
 				.setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang)),
 			randomTip = generateTip()
 		await recipient.send({ embeds: [dm] })
 			.then(async () => {
-				const embed = new Discord.MessageEmbed()
-					.setColor(successColor as Discord.HexColorString)
+				const embed = new MessageEmbed()
+					.setColor(successColor as HexColorString)
 					.setAuthor("Direct Message")
 					.setTitle(`Sent message to ${recipient.tag}`)
 					.setDescription(message)
@@ -42,8 +44,8 @@ const command: Command = {
 				await interaction.editReply({ embeds: [embed] })
 			})
 			.catch(async error => {
-				const errorEmbed = new Discord.MessageEmbed()
-					.setColor(errorColor as Discord.HexColorString)
+				const errorEmbed = new MessageEmbed()
+					.setColor(errorColor as HexColorString)
 					.setAuthor("Direct Message")
 					.setTitle(`An error occured while trying to message ${recipient.tag}`)
 					.setDescription(error.toString())

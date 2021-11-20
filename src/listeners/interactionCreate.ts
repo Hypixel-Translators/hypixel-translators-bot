@@ -1,10 +1,11 @@
-import { client, Command } from "../index"
-import { db, DbUser, cancelledEvents } from "../lib/dbclient"
-import Discord from "discord.js"
+import { readdirSync } from "node:fs"
+import { Collection, GuildChannel, HexColorString, Message, MessageEmbed, Snowflake, TextChannel } from "discord.js"
+import { client } from "../index"
 import { errorColor, ids } from "../config.json"
-import fs from "node:fs"
+import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import { arrayEqual, generateTip, Stats } from "../lib/util"
 
+import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
 	if (!db) {
 		cancelledEvents.push({ listener: "interactionCreate", args: [interaction] })
@@ -19,23 +20,23 @@ client.on("interactionCreate", async interaction => {
 	if (interaction.isButton() && !interaction.user.bot) {
 		// Staff LOA warning removal system
 		if (interaction.channelId === ids.channels.loa && interaction.customId == "done") {
-			if ((interaction.message as Discord.Message).mentions.users.first()!.id !== interaction.user.id) {
+			if ((interaction.message as Message).mentions.users.first()!.id !== interaction.user.id) {
 				await interaction.reply({ content: "You can only remove your own LOA warning!", ephemeral: true })
 				return
 			}
-			const endDateRaw = (interaction.message as Discord.Message).embeds[0].fields[1].value.split("/"),
+			const endDateRaw = (interaction.message as Message).embeds[0].fields[1].value.split("/"),
 				endDate = new Date(Number(endDateRaw[2]), Number(endDateRaw[1]) - 1, Number(endDateRaw[0]))
 			if (endDate.getTime() > Date.now()) {
 				await interaction.reply({ content: "You can't end this LOA yet! If something changed, please contact the admins.", ephemeral: true })
 				return
 			} else {
-				await (interaction.message as Discord.Message).delete()
+				await (interaction.message as Message).delete()
 				await interaction.reply({ content: "Successfully deleted this LOA! **Welcome back!**", ephemeral: true })
 				return
 			}
 		} else if (interaction.channelId === ids.channels.serverInfo) {
 			// Self-roles system
-			let roleId: Discord.Snowflake
+			let roleId: Snowflake
 			if (interaction.customId === "polls") roleId = ids.roles.polls
 			else if (interaction.customId === "botUpdates") roleId = ids.roles.botUpdates
 			else if (interaction.customId === "crowdinUpdates") roleId = ids.roles.crowdinUpdates
@@ -77,7 +78,7 @@ client.on("interactionCreate", async interaction => {
 	let allowed = true
 
 	//Channel Blacklist and whitelist systems
-	if (interaction.channel instanceof Discord.GuildChannel) {
+	if (interaction.channel instanceof GuildChannel) {
 		if (command.categoryBlacklist && command.categoryBlacklist.includes(interaction.channel!.parentId!)) allowed = false
 		else if (command.channelBlacklist && command.channelBlacklist.includes(interaction.channelId)) allowed = false
 		else if (command.categoryWhitelist && !command.categoryWhitelist.includes(interaction.channel!.parentId!)) allowed = false
@@ -93,7 +94,7 @@ client.on("interactionCreate", async interaction => {
 	}
 
 	//Cooldown system
-	if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Discord.Collection())
+	if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Collection())
 	const now = Date.now(),
 		timestamps = client.cooldowns.get(command.name)!,
 		cooldownAmount = (command.cooldown || 3) * 1000
@@ -103,8 +104,8 @@ client.on("interactionCreate", async interaction => {
 			await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: "cooldown" })
 
 			const timeLeft = Math.ceil((expirationTime - now) / 1000),
-				embed = new Discord.MessageEmbed()
-					.setColor(errorColor as Discord.HexColorString)
+				embed = new MessageEmbed()
+					.setColor(errorColor as HexColorString)
 					.setAuthor(getString("cooldown", "global"))
 					.setTitle(
 						getString(
@@ -144,7 +145,7 @@ client.on("interactionCreate", async interaction => {
 		lang = author.lang ?? "en"
 	): any {
 		if (typeof variables === "string") {
-			const languages = fs.readdirSync("./strings")
+			const languages = readdirSync("./strings")
 			lang = languages.includes(file) ? file : author.lang ?? "en"
 			file = variables
 		}
@@ -206,34 +207,34 @@ client.on("interactionCreate", async interaction => {
 		// Send error to bot-dev channel
 		if (error.stack) {
 			if (process.env.NODE_ENV === "production") {
-				const embed = new Discord.MessageEmbed()
-					.setColor(errorColor as Discord.HexColorString)
+				const embed = new MessageEmbed()
+					.setColor(errorColor as HexColorString)
 					.setAuthor("Unexpected error!")
 					.setTitle(error.toString().substring(0, 255))
 					.setDescription(`\`\`\`${error.stack.substring(0, 2_047)}\`\`\``)
 					.setFooter("Check the console for more details")
-				await (interaction.client.channels.cache.get(ids.channels.botDev) as Discord.TextChannel).send({
+				await (interaction.client.channels.cache.get(ids.channels.botDev) as TextChannel).send({
 					content: `<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@!${ids.users.rodry}>\nRan by: ${interaction.user}\nCommand: ${interaction.commandName}\nChannel: ${interaction.channel?.type !== "DM" && interaction.channel ? interaction.channel : "DM"}\nTime: <t:${Math.round(Date.now() / 1000)}:F>`,
 					embeds: [embed]
 				})
 			}
 			console.error(
-				`Unexpected error with command ${interaction.commandName} on channel ${interaction.channel instanceof Discord.GuildChannel ? interaction.channel.name : interaction.channel!.type
+				`Unexpected error with command ${interaction.commandName} on channel ${interaction.channel instanceof GuildChannel ? interaction.channel.name : interaction.channel!.type
 				} executed by ${interaction.user.tag}. Here's the error:\n${error.stack}`
 			)
 		}
 
 		//Handle errors
 		timestamps.delete(interaction.user.id)
-		const embed = new Discord.MessageEmbed()
-			.setColor(errorColor as Discord.HexColorString)
+		const embed = new MessageEmbed()
+			.setColor(errorColor as HexColorString)
 			.setAuthor(getString("error", "global"))
 			.setTitle(error.message?.substring(0, 255) || error.toString().substring(0, 255))
 			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 
 		//Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first
 		if (interaction.deferred) {
-			const errorMsg = await interaction.editReply({ embeds: [embed], components: [] }) as Discord.Message
+			const errorMsg = await interaction.editReply({ embeds: [embed], components: [] }) as Message
 			setTimeout(async () => {
 				if (!errorMsg.deleted && !interaction.ephemeral) await errorMsg.delete()
 			}, 10000)

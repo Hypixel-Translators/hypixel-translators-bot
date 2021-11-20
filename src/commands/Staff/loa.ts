@@ -1,7 +1,8 @@
-import Discord from "discord.js"
+import { GuildMember, MessageActionRow, MessageButton, MessageEmbed, TextChannel } from "discord.js"
 import { ids } from "../../config.json"
-import type { Command } from "../../index"
 import { generateTip } from "../../lib/util"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "loa",
@@ -86,8 +87,8 @@ const command: Command = {
 	channelWhitelist: [ids.channels.staffBots],
 	roleWhitelist: [ids.roles.staff],
 	async execute(interaction) {
-		const member = interaction.member as Discord.GuildMember,
-			loaChannel = interaction.client.channels.cache.get(ids.channels.loa) as Discord.TextChannel,
+		const member = interaction.member as GuildMember,
+			loaChannel = interaction.client.channels.cache.get(ids.channels.loa) as TextChannel,
 			startDay = interaction.options.getInteger("startday", true),
 			startMonth = interaction.options.getInteger("startmonth", true),
 			startYear = interaction.options.getInteger("startyear", true),
@@ -109,7 +110,7 @@ const command: Command = {
 		else if (endDate.getTime() <= today.getTime() || startDate.getTime() <= today.getTime())
 			return await interaction.reply({ content: "The end and start date must both be after today!", ephemeral: true })
 
-		const embed = new Discord.MessageEmbed()
+		const embed = new MessageEmbed()
 			.setColor("BLURPLE")
 			.setTitle(`${interaction.user.tag} is going away for some time!`)
 			.addFields(
@@ -119,9 +120,9 @@ const command: Command = {
 			)
 			.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
 		if (extraInfo) embed.addField("Extra info", extraInfo)
-		const doneRow = new Discord.MessageActionRow()
+		const doneRow = new MessageActionRow()
 			.addComponents(
-				new Discord.MessageButton()
+				new MessageButton()
 					.setStyle("SUCCESS")
 					.setLabel("End LOA")
 					.setEmoji("✅")

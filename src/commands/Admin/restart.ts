@@ -1,7 +1,8 @@
+import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
 import { successColor, ids } from "../../config.json"
-import Discord from "discord.js"
-import type { Command } from "../../index"
 import { generateTip, restart } from "../../lib/util"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "restart",
@@ -9,14 +10,13 @@ const command: Command = {
 	roleWhitelist: [ids.roles.admin],
 	channelWhitelist: [ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction) {
-		const member = interaction.member as Discord.GuildMember,
-			embed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
+		const member = interaction.member as GuildMember,
+			embed = new MessageEmbed()
+				.setColor(successColor as HexColorString)
 				.setAuthor("Restart")
 				.setTitle("Restarting...")
 				.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
-		interaction.client.user!.setStatus("invisible")
 		setTimeout(async () => {
 			if (process.env.NODE_ENV === "production") await restart(interaction)
 			else process.exit()

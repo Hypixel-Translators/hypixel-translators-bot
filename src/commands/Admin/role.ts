@@ -1,7 +1,8 @@
-import Discord from "discord.js"
+import { EmbedFieldData, GuildMember, MessageEmbed, Role } from "discord.js"
 import { ids } from "../../config.json"
-import type { Command } from "../../index"
 import { generateTip } from "../../lib/util"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
     name: "role",
@@ -15,12 +16,12 @@ const command: Command = {
     roleWhitelist: [ids.roles.admin],
     channelWhitelist: [ids.channels.botDev, ids.channels.adminBots],
     async execute(interaction) {
-        const role = interaction.options.getRole("role", true) as Discord.Role,
+        const role = interaction.options.getRole("role", true) as Role,
             createdAt = Math.round(role.createdTimestamp / 1000),
             permissions = role.permissions.toArray(),
-            member = interaction.member as Discord.GuildMember
+            member = interaction.member as GuildMember
 
-        let tags: Discord.EmbedFieldData | null = null
+        let tags: EmbedFieldData | null = null
         if (role.tags) {
             if (role.tags.botId) tags = { name: "This role is managed by", value: `<@!${role.tags.botId}>`, inline: true }
             else if (role.tags.integrationId)
@@ -32,7 +33,7 @@ const command: Command = {
                 }
             else if (role.tags.premiumSubscriberRole) tags = { name: "Premium Subscriber Role", value: "True", inline: true }
         }
-        const embed = new Discord.MessageEmbed()
+        const embed = new MessageEmbed()
             .setColor(role.color || "BLURPLE")
             .setThumbnail(role.iconURL({ format: "png", size: 4096 }) ?? "")
             .setAuthor("Role information")

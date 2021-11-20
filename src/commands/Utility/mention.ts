@@ -1,6 +1,7 @@
 import { ids } from "../../config.json"
-import Discord from "discord.js"
-import type { Command, GetStringFunction } from "../../index"
+
+import type { GuildMember } from "discord.js"
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "mention",
@@ -34,7 +35,7 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		const roleType = interaction.options.getString("role", true) as "all" | "proofreader" | "translator",
 			lang = interaction.options.getString("language", true).toLowerCase(),
-			member = interaction.member as Discord.GuildMember
+			member = interaction.member as GuildMember
 		let roleName = lang.charAt(0).toUpperCase() + lang.slice(1),
 			message = interaction.options.getString("message", false)
 		message ??= "<a:bongoping:614477510423478275>"

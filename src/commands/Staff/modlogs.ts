@@ -1,8 +1,9 @@
-import Discord from "discord.js"
-import type { Command } from "../../index"
+import { GuildMember, HexColorString, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
 import { successColor, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { generateTip, PunishmentLog, updateButtonColors, updateModlogFields } from "../../lib/util"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "modlogs",
@@ -16,21 +17,21 @@ const command: Command = {
 	roleWhitelist: [ids.roles.staff],
 	channelWhitelist: [ids.channels.staffBots, ids.channels.adminBots],
 	async execute(interaction) {
-		const member = interaction.member as Discord.GuildMember,
+		const member = interaction.member as GuildMember,
 			userInput = interaction.options.getUser("user", true),
 			modlogs = await db.collection<PunishmentLog>("punishments").find({ id: userInput.id }, { sort: { timestamp: -1 } }).toArray(),
 			randomTip = generateTip()
 
 		if (!modlogs.length) {
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 				.setColor("BLURPLE")
 				.setAuthor("Modlogs")
 				.setTitle(`Couldn't find any modlogs for ${userInput.tag}`)
 				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			await interaction.reply({ embeds: [embed] })
 		} else if (modlogs.length === 1) {
-			const embed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
+			const embed = new MessageEmbed()
+				.setColor(successColor as HexColorString)
 				.setAuthor({ name: "Log message", url: `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}` })
 				.setTitle(`Found 1 modlog for ${userInput.tag}`)
 				.setDescription(`Case #${modlogs[0].case}`)
@@ -38,27 +39,27 @@ const command: Command = {
 			updateModlogFields(embed, modlogs[0])
 			await interaction.reply({ embeds: [embed] })
 		} else {
-			const embed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
+			const embed = new MessageEmbed()
+				.setColor(successColor as HexColorString)
 				.setAuthor({ name: "Log message", url: `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}` })
 				.setTitle(`Found ${modlogs.length} modlogs for ${userInput.tag}`)
 				.setDescription(`Case #${modlogs[0].case}`)
 				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true })),
-				controlButtons = new Discord.MessageActionRow()
+				controlButtons = new MessageActionRow()
 					.addComponents(
-						new Discord.MessageButton()
+						new MessageButton()
 							.setEmoji("⏮️")
 							.setCustomId("first")
 							.setLabel("First log"),
-						new Discord.MessageButton()
+						new MessageButton()
 							.setEmoji("◀️")
 							.setCustomId("previous")
 							.setLabel("Previous log"),
-						new Discord.MessageButton()
+						new MessageButton()
 							.setEmoji("▶️")
 							.setCustomId("next")
 							.setLabel("Next log"),
-						new Discord.MessageButton()
+						new MessageButton()
 							.setEmoji("⏭️")
 							.setCustomId("last")
 							.setLabel("Last log")
@@ -67,7 +68,7 @@ const command: Command = {
 			updateButtonColors(controlButtons, log, modlogs)
 			updateModlogFields(embed, modlogs[0], modlogs)
 
-			const msg = await interaction.reply({ embeds: [embed], components: [controlButtons], fetchReply: true }) as Discord.Message,
+			const msg = await interaction.reply({ embeds: [embed], components: [controlButtons], fetchReply: true }) as Message,
 				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: 60_000 })
 
 			collector.on("collect", async buttonInteraction => {

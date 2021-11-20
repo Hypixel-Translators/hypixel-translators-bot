@@ -1,19 +1,20 @@
+import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
 import { successColor, ids } from "../../config.json"
-import Discord from "discord.js"
 import inactives from "../../events/inactives"
-import { Command, client } from "../../index"
 import { generateTip } from "../../lib/util"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "inactives",
 	description: "Checks for inactive unverified members (if applicable).",
 	roleWhitelist: [ids.roles.admin],
 	async execute(interaction) {
-		const member = interaction.member as Discord.GuildMember
+		const member = interaction.member as GuildMember
 
 		await inactives()
-		const embed = new Discord.MessageEmbed()
-			.setColor(successColor as Discord.HexColorString)
+		const embed = new MessageEmbed()
+			.setColor(successColor as HexColorString)
 			.setAuthor("Inactive checker")
 			.setTitle("All inactive members have been notified!")
 			.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))

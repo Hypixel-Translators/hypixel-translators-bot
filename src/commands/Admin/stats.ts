@@ -1,8 +1,9 @@
+import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
 import { successColor, ids } from "../../config.json"
-import Discord from "discord.js"
-import { execute, updateProjectStatus } from "../../events/stats"
-import { Command, client } from "../../index"
+import { stats, updateProjectStatus } from "../../events/stats"
 import { generateTip } from "../../lib/util"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "stats",
@@ -22,16 +23,22 @@ const command: Command = {
 	roleWhitelist: [ids.roles.admin],
 	async execute(interaction) {
 		const projectInput = interaction.options.getString("project", false),
-			member = interaction.member as Discord.GuildMember
+			member = interaction.member as GuildMember
 		await interaction.deferReply()
 		if (!projectInput) {
-			await execute(true)
+			await stats(true)
 				.then(async () => {
-					const allEmbed = new Discord.MessageEmbed()
-						.setColor(successColor as Discord.HexColorString)
+					const allEmbed = new MessageEmbed()
+						.setColor(successColor as HexColorString)
 						.setAuthor("Statistics updater")
 						.setTitle("All language statistics have been updated!")
-						.setDescription(`Check them out at ${interaction.guild!.channels.cache.find(c => c.name === "hypixel-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${interaction.guild!.channels.cache.find(c => c.name === "bot-language-status")} and ${interaction.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`)
+						.setDescription(
+							`Check them out at ${interaction.guild!.channels.cache.find(
+								c => c.name === "hypixel-language-status"
+							)}, ${interaction.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${interaction.guild!.channels.cache.find(
+								c => c.name === "bot-language-status"
+							)} and ${interaction.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`
+						)
 						.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
 					await interaction.editReply({ embeds: [allEmbed] })
 				})
@@ -55,8 +62,8 @@ const command: Command = {
 					break
 				}
 			}
-			const projectEmbed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
+			const projectEmbed = new MessageEmbed()
+				.setColor(successColor as HexColorString)
 				.setAuthor("Statistics updater")
 				.setTitle(`The ${projectInput} language statistics have been updated!`)
 				.setDescription(`Check it out at ${interaction.guild!.channels.cache.find(c => c.name === `${projectInput}-language-status`)}!`)

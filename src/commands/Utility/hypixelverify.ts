@@ -1,9 +1,10 @@
-import Discord from "discord.js"
-import { successColor, errorColor, ids } from "../../config.json"
 import axios from "axios"
+import { GuildMember, HexColorString, MessageEmbed, Role } from "discord.js"
+import { successColor, errorColor, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { fetchSettings, generateTip, getUUID, updateRoles, GraphQLQuery } from "../../lib/util"
-import type { Command, GetStringFunction } from "../../index"
+
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "hypixelverify",
@@ -25,9 +26,9 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
-			member = interaction.member as Discord.GuildMember,
+			member = interaction.member as GuildMember,
 			uuid = await getUUID(interaction.options.getString("username", true)),
-			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
+			memberInput = interaction.options.getMember("user", false) as GuildMember | null,
 			collection = db.collection<DbUser>("users")
 		if (!uuid) throw "noUser"
 
@@ -51,30 +52,30 @@ const command: Command = {
 		}
 		if (json.links?.DISCORD === interaction.user.tag) {
 			const result = await collection.updateOne({ id: interaction.user.id }, { $set: { uuid: json.uuid } }),
-				role = await updateRoles(interaction.member as Discord.GuildMember, json) as Discord.Role
+				role = await updateRoles(interaction.member as GuildMember, json)
 			if (result.modifiedCount) {
-				const successEmbed = new Discord.MessageEmbed()
-					.setColor(successColor as Discord.HexColorString)
+				const successEmbed = new MessageEmbed()
+					.setColor(successColor as HexColorString)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("success", { player: json.username }))
 					.setDescription(getString("role", { role: role.toString() }))
 					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.editReply({ embeds: [successEmbed] })
 			} else {
-				const notChanged = new Discord.MessageEmbed()
-					.setColor(errorColor as Discord.HexColorString)
+				const notChanged = new MessageEmbed()
+					.setColor(errorColor as HexColorString)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("alreadyVerified"))
 					.setDescription(getString("nameChangeDisclaimer"))
 					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.editReply({ embeds: [notChanged] })
 			}
-		} else if (memberInput && (interaction.member as Discord.GuildMember).roles.cache.has(ids.roles.admin)) {
+		} else if (memberInput && (interaction.member as GuildMember).roles.cache.has(ids.roles.admin)) {
 			const result = await collection.updateOne({ id: memberInput.id }, { $set: { uuid: json.uuid } }),
-				role = await updateRoles(memberInput, json) as Discord.Role
+				role = await updateRoles(memberInput, json) as Role
 			if (result.modifiedCount) {
-				const successEmbed = new Discord.MessageEmbed()
-					.setColor(successColor as Discord.HexColorString)
+				const successEmbed = new MessageEmbed()
+					.setColor(successColor as HexColorString)
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Successfully verified ${memberInput.user.tag} as ${json.username}`)
 					.setDescription(`They were given the ${role} role due to their rank on the server.`)
@@ -83,16 +84,16 @@ const command: Command = {
 					successEmbed.setDescription("⚠ This player's Discord is different from their user tag! I hope you know what you're doing.")
 				return await interaction.editReply({ embeds: [successEmbed] })
 			} else {
-				const notChanged = new Discord.MessageEmbed()
-					.setColor(errorColor as Discord.HexColorString)
+				const notChanged = new MessageEmbed()
+					.setColor(errorColor as HexColorString)
 					.setAuthor("Hypixel Verification")
 					.setTitle("This user is already verified")
 					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.editReply({ embeds: [notChanged] })
 			}
 		} else {
-			const errorEmbed = new Discord.MessageEmbed()
-				.setColor(errorColor as Discord.HexColorString)
+			const errorEmbed = new MessageEmbed()
+				.setColor(errorColor as HexColorString)
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("error"))
 				.setDescription(getString("tutorial", { tag: interaction.user.tag }))

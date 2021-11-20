@@ -1,7 +1,8 @@
+import { CommandInteraction, GuildMember, HexColorString, MessageEmbed, TextChannel } from "discord.js"
 import { successColor, ids } from "../../config.json"
-import Discord from "discord.js"
-import type { Command } from "../../index"
 import { generateTip } from "../../lib/util"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "channel",
@@ -23,12 +24,12 @@ const command: Command = {
 		if (!interaction.inCachedGuild()) return
 		const channelInput = interaction.options.getString("channel", false),
 			randomTip = generateTip(),
-			member = interaction.member as Discord.GuildMember
+			member = interaction.member as GuildMember
 		await interaction.deferReply()
 		if (channelInput === "info") {
 			await info(interaction)
-			const successEmbed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
+			const successEmbed = new MessageEmbed()
+				.setColor(successColor as HexColorString)
 				.setAuthor("Channel updater")
 				.setTitle("Updated the information channel!")
 				.setDescription(`Check it out at <#${ids.channels.serverInfo}>!`)
@@ -36,8 +37,8 @@ const command: Command = {
 			await interaction.editReply({ embeds: [successEmbed] })
 		} else if (channelInput === "rules") {
 			await rules(interaction)
-			const successEmbed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
+			const successEmbed = new MessageEmbed()
+				.setColor(successColor as HexColorString)
 				.setAuthor("Channel updater")
 				.setTitle("Updated the rules channel!")
 				.setDescription(`Check it out at ${interaction.guild.rulesChannel}!`)
@@ -45,8 +46,8 @@ const command: Command = {
 			await interaction.editReply({ embeds: [successEmbed] })
 		} else if (channelInput === "verify") {
 			await verify(interaction)
-			const successEmbed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
+			const successEmbed = new MessageEmbed()
+				.setColor(successColor as HexColorString)
 				.setAuthor("Channel updater")
 				.setTitle("Updated the verification channel!")
 				.setDescription(`Check it out at <#${ids.channels.verify}>!`)
@@ -56,8 +57,8 @@ const command: Command = {
 			await info(interaction)
 			await verify(interaction)
 			await rules(interaction)
-			const successEmbed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
+			const successEmbed = new MessageEmbed()
+				.setColor(successColor as HexColorString)
 				.setAuthor("Channel updater")
 				.setTitle("All channels have been updated!")
 				.setDescription(`Check them out at <#${ids.channels.serverInfo}>, ${interaction.guild!.rulesChannel} and <#${ids.channels.verify}>!`)
@@ -67,10 +68,10 @@ const command: Command = {
 	}
 }
 
-async function info(interaction: Discord.CommandInteraction) {
-	const serverInfo = interaction.client.channels.cache.get(ids.channels.serverInfo) as Discord.TextChannel,
+async function info(interaction: CommandInteraction) {
+	const serverInfo = interaction.client.channels.cache.get(ids.channels.serverInfo) as TextChannel,
 		channelsMessage = await serverInfo.messages.fetch("800415708851732491"),
-		channelsEmbed = new Discord.MessageEmbed()
+		channelsEmbed = new MessageEmbed()
 			.setColor("#0022ff")
 			.setTitle("Channels")
 			.setDescription("Each channel has important information pinned in it. We highly recommend checking it out.")
@@ -82,7 +83,7 @@ async function info(interaction: Discord.CommandInteraction) {
 	await channelsMessage.edit({ content: null, embeds: [channelsEmbed] })
 
 	const botsMessage = await serverInfo.messages.fetch("800415710508744744"),
-		botsEmbed = new Discord.MessageEmbed()
+		botsEmbed = new MessageEmbed()
 			.setColor("#0055ff")
 			.setTitle("Bots")
 			.setDescription(`Information about all bots on this server can be found here. The character inside the [] in their nickname indicates their prefix. Use [prefix]help in <#${ids.channels.bots}> to know more about them.`)
@@ -93,7 +94,7 @@ async function info(interaction: Discord.CommandInteraction) {
 	await botsMessage.edit({ content: null, embeds: [botsEmbed] })
 
 	const rolesMessage = await serverInfo.messages.fetch("800415711864029204"),
-		rolesEmbed = new Discord.MessageEmbed()
+		rolesEmbed = new MessageEmbed()
 			.setColor("#0077ff")
 			.setTitle("Roles")
 			.setDescription("Every role has a meaning behind it. Find out what they all are below!")
@@ -108,9 +109,9 @@ async function info(interaction: Discord.CommandInteraction) {
 	await rolesMessage.edit({ content: null, embeds: [rolesEmbed] })
 }
 
-async function rules(interaction: Discord.CommandInteraction) {
+async function rules(interaction: CommandInteraction) {
 	const rulesMessage = await interaction.guild!.rulesChannel!.messages.fetch("800412977220026398"),
-		rulesEmbed = new Discord.MessageEmbed()
+		rulesEmbed = new MessageEmbed()
 			.setColor("BLURPLE")
 			.setTitle("Server Rules")
 			.setDescription("Welcome  to the rules channel! In this channel, you will find every rule on this discord server. Please do not break any of the rules listed below or there will be consequences.")
@@ -129,9 +130,9 @@ async function rules(interaction: Discord.CommandInteraction) {
 	await rulesMessage.edit({ content: null, embeds: [rulesEmbed] })
 }
 
-async function verify(interaction: Discord.CommandInteraction) {
-	const verifyMessage = await (interaction.client.channels.cache.get(ids.channels.verify) as Discord.TextChannel).messages.fetch("787366444970541056"),
-		verifyEmbed = new Discord.MessageEmbed()
+async function verify(interaction: CommandInteraction) {
+	const verifyMessage = await (interaction.client.channels.cache.get(ids.channels.verify) as TextChannel).messages.fetch("787366444970541056"),
+		verifyEmbed = new MessageEmbed()
 			.setColor("BLURPLE")
 			.setAuthor("Welcome!")
 			.setThumbnail(interaction.guild!.iconURL({ format: "png", dynamic: true })!)

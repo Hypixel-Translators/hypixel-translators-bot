@@ -1,20 +1,22 @@
 //Setup dotenv and define client
 if (!process.env.MONGO_URL) require("dotenv").config()
 import "source-map-support/register"
-import Discord from "discord.js"
+import { Intents, Options } from "discord.js"
 import { HTBClient } from "./lib/dbclient"
+import { setup } from "./lib/imports"
+
 export const client = new HTBClient({
 	partials: ["USER", "CHANNEL", "GUILD_MEMBER", "MESSAGE", "REACTION"],
 	intents: [
-		Discord.Intents.FLAGS.GUILDS,
-		Discord.Intents.FLAGS.GUILD_MEMBERS,
-		Discord.Intents.FLAGS.GUILD_VOICE_STATES,
-		Discord.Intents.FLAGS.GUILD_MESSAGES,
-		Discord.Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-		Discord.Intents.FLAGS.DIRECT_MESSAGES,
-		Discord.Intents.FLAGS.DIRECT_MESSAGE_REACTIONS
+		Intents.FLAGS.GUILDS,
+		Intents.FLAGS.GUILD_MEMBERS,
+		Intents.FLAGS.GUILD_VOICE_STATES,
+		Intents.FLAGS.GUILD_MESSAGES,
+		Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+		Intents.FLAGS.DIRECT_MESSAGES,
+		Intents.FLAGS.DIRECT_MESSAGE_REACTIONS
 	],
-	makeCache: Discord.Options.cacheWithLimits({
+	makeCache: Options.cacheWithLimits({
 		GuildStickerManager: 0
 	}),
 	allowedMentions: { parse: ["roles", "users"] },
@@ -23,26 +25,9 @@ export const client = new HTBClient({
 		activities: [{ name: "/help", type: "WATCHING" }]
 	}
 })
+
 //Import commands and events
-import { setup } from "./lib/imports"
 setup(client)
-
-//Command interface
-export interface Command extends Discord.ChatInputApplicationCommandData {
-	cooldown?: number
-	allowDM?: true
-	dev?: true
-	roleWhitelist?: Discord.Snowflake[]
-	roleBlacklist?: Discord.Snowflake[]
-	channelBlacklist?: Discord.Snowflake[]
-	channelWhitelist?: Discord.Snowflake[]
-	categoryWhitelist?: Discord.Snowflake[]
-	categoryBlacklist?: Discord.Snowflake[]
-	category?: string
-	execute(interaction: Discord.CommandInteraction, getString?: GetStringFunction): Promise<any>
-}
-
-export type GetStringFunction = (path: string, variables?: { [key: string]: string | number } | string, file?: string, lang?: string) => any
 
 //Log in
 client.login(process.env.DISCORD_TOKEN)

@@ -1,11 +1,11 @@
-import { loadingColor, errorColor, successColor, ids } from "../config.json"
-import Discord from "discord.js"
 import axios from "axios"
+import { HexColorString, MessageEmbed, NewsChannel, TextChannel } from "discord.js"
+import { client } from "../index"
+import { loadingColor, errorColor, successColor, ids } from "../config.json"
 import { db } from "../lib/dbclient"
 import { closeConnection, crowdinFetchSettings, CrowdinProject, getBrowser, LangDbEntry, LanguageStatus, Stats } from "../lib/util"
-import { client } from "../index"
 
-export async function execute(manual = false) {
+export async function stats(manual = false) {
 	const m = new Date().getUTCMinutes()
 	if (manual) {
 		await updateProjectStatus("128098") //Hypixel
@@ -38,7 +38,7 @@ export async function updateProjectStatus(projectId: string) {
 		sortedSatus = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) =>
 			nextStatus.language.name.localeCompare(currentStatus.language.name)
 		)
-	const channel = client.channels.cache.find(channel => (channel as Discord.TextChannel).name === `${projectDb.shortName}-language-status`) as Discord.TextChannel,
+	const channel = client.channels.cache.find(channel => (channel as TextChannel).name === `${projectDb.shortName}-language-status`) as TextChannel,
 		messages = await channel.messages.fetch(),
 		fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
 	let index = 0
@@ -46,13 +46,13 @@ export async function updateProjectStatus(projectId: string) {
 		const fullData = sortedSatus[index],
 			crowdinData = fullData.data
 
-		let adapColour: Discord.HexColorString
+		let adapColour: HexColorString
 		if (projectDb.identifier === "hypixel") adapColour = fullData.language.color!
-		else if (crowdinData.approvalProgress > 89) adapColour = successColor as Discord.HexColorString
-		else if (crowdinData.approvalProgress > 49) adapColour = loadingColor as Discord.HexColorString
-		else adapColour = errorColor as Discord.HexColorString
+		else if (crowdinData.approvalProgress > 89) adapColour = successColor as HexColorString
+		else if (crowdinData.approvalProgress > 49) adapColour = loadingColor as HexColorString
+		else adapColour = errorColor as HexColorString
 
-		const embed = new Discord.MessageEmbed()
+		const embed = new MessageEmbed()
 			.setColor(adapColour)
 			.setTitle(`${fullData.language.emoji || "<:icon_question:882267041904607232>"} | ${fullData.language.name}`)
 			.setThumbnail(fullData.language.flag)
@@ -67,19 +67,19 @@ export async function updateProjectStatus(projectId: string) {
 		newStringCount = langStatus[0].data.phrases.total
 
 	if (oldStringCount != newStringCount) {
-		const updatesChannel = client.channels.cache.find(c => (c as Discord.NewsChannel).name == `${projectDb.shortName}-project-updates`) as Discord.NewsChannel,
+		const updatesChannel = client.channels.cache.find(c => (c as NewsChannel).name == `${projectDb.shortName}-project-updates`) as NewsChannel,
 			stringDiff = Math.abs(newStringCount - oldStringCount)
 		if (oldStringCount < newStringCount) {
-			const embed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
+			const embed = new MessageEmbed()
+				.setColor(successColor as HexColorString)
 				.setAuthor("New strings!")
 				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the ${projectDb.name} project.`)
 				.setDescription(`Translate at <https://crowdin.com/translate/${projectDb.identifier}/all/en>`)
 				.setFooter(`There are now ${newStringCount} strings on the project.`)
 			await updatesChannel.send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}> New strings!` })
 		} else if (oldStringCount > newStringCount) {
-			const embed = new Discord.MessageEmbed()
-				.setColor(errorColor as Discord.HexColorString)
+			const embed = new MessageEmbed()
+				.setColor(errorColor as HexColorString)
 				.setAuthor("Removed strings!")
 				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`)
 				.setFooter(`There are now ${newStringCount} strings on the project.`)
@@ -114,15 +114,15 @@ export async function checkBuild() {
 	const lastDbBuild = (await collection.findOne({ identifier: "hypixel" }))!.lastBuild!
 	if (lastBuild.timestamp > lastDbBuild) {
 		const author = lastBuild.message.match(/>(.*)( \([^(]*\))?</)?.[1],
-			embed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
+			embed = new MessageEmbed()
+				.setColor(successColor as HexColorString)
 				.setThumbnail(lastBuild.avatar)
 				.setAuthor("New build!")
 				.setTitle(`${author} just built the project!`)
 				.setDescription("You can expect to see updated translations on the network soon!")
 				.setTimestamp(lastBuild.timestamp * 1_000)
 				.setFooter("Built at")
-		await (client.channels.cache.get(ids.channels.hypixelUpdates) as Discord.NewsChannel).send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}> New build!` })
+		await (client.channels.cache.get(ids.channels.hypixelUpdates) as NewsChannel).send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}> New build!` })
 		await collection.updateOne({ identifier: "hypixel" }, { $set: { lastBuild: lastBuild.timestamp } })
 	}
 }
@@ -146,5 +146,5 @@ interface CrowdinBuildActivity {
 	user_id: string
 }
 
-export default execute
+export default stats
 

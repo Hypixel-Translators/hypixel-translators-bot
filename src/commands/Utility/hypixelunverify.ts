@@ -1,8 +1,10 @@
-import Discord from "discord.js"
+import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
+import { client } from "../../index"
 import { successColor, errorColor, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
-import { client, Command, GetStringFunction } from "../../index"
 import { generateTip, updateRoles } from "../../lib/util"
+
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "hypixelunverify",
@@ -17,23 +19,23 @@ const command: Command = {
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
-			member = interaction.member as Discord.GuildMember,
-			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
+			member = interaction.member as GuildMember,
+			memberInput = interaction.options.getMember("user", false) as GuildMember | null,
 			collection = db.collection<DbUser>("users")
 
-		if (memberInput && (interaction.member as Discord.GuildMember).roles.cache.has(ids.roles.admin)) {
+		if (memberInput && (interaction.member as GuildMember).roles.cache.has(ids.roles.admin)) {
 			await updateRoles(memberInput)
 			const result = await collection.updateOne({ id: memberInput.id }, { $unset: { uuid: true } })
 			if (result.modifiedCount) {
-				const embed = new Discord.MessageEmbed()
-					.setColor(successColor as Discord.HexColorString)
+				const embed = new MessageEmbed()
+					.setColor(successColor as HexColorString)
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Successfully unverified ${memberInput.user.tag}`)
 					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed] })
 			} else {
-				const embed = new Discord.MessageEmbed()
-					.setColor(errorColor as Discord.HexColorString)
+				const embed = new MessageEmbed()
+					.setColor(errorColor as HexColorString)
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Couldn't unverify ${memberInput.user.tag}!`)
 					.setDescription("This happened because this user isn't verified yet.")
@@ -41,19 +43,19 @@ const command: Command = {
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
 		} else {
-			await updateRoles(interaction.member as Discord.GuildMember)
+			await updateRoles(interaction.member as GuildMember)
 			client.cooldowns.get(this.name)!.delete(interaction.user.id)
 			const result = await collection.updateOne({ id: interaction.user.id }, { $unset: { uuid: true } })
 			if (result.modifiedCount) {
-				const embed = new Discord.MessageEmbed()
-					.setColor(successColor as Discord.HexColorString)
+				const embed = new MessageEmbed()
+					.setColor(successColor as HexColorString)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("unverified"))
 					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed] })
 			} else {
-				const embed = new Discord.MessageEmbed()
-					.setColor(errorColor as Discord.HexColorString)
+				const embed = new MessageEmbed()
+					.setColor(errorColor as HexColorString)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("notUnverified"))
 					.setDescription(getString("whyNotUnverified"))

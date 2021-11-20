@@ -1,7 +1,8 @@
 import { ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import type Discord from "discord.js"
-import type { Command } from "../../index"
+
+import type { CategoryChannel } from "discord.js"
+import type { Command } from "../../lib/imports"
 import type { LangDbEntry } from "../../lib/util"
 
 const command: Command = {
@@ -21,7 +22,7 @@ const command: Command = {
             langDbEntry = await db.collection<LangDbEntry>("langdb").findOne({ code: language })
         if (!langDbEntry) throw "Couldn't find the language you were looking for! Make sure to pass its code in the language option."
 
-        const category = interaction.guild.channels.cache.find(c => c.name.endsWith(langDbEntry.emoji) && c.type === "GUILD_CATEGORY") as Discord.CategoryChannel,
+        const category = interaction.guild.channels.cache.find(c => c.name.endsWith(langDbEntry.emoji) && c.type === "GUILD_CATEGORY") as CategoryChannel,
             pfRole = interaction.guild.roles.cache.find(r => r.name === `${langDbEntry.name} Proofreader`)!
         if (category.children.some(c => c.name.endsWith("-review-strings"))) throw "This language already has a review strings channel!"
 

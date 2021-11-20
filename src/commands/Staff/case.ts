@@ -1,8 +1,9 @@
-import Discord from "discord.js"
+import { GuildMember, MessageEmbed } from "discord.js"
 import { ids } from "../../config.json"
-import { client, Command } from "../../index"
 import { db } from "../../lib/dbclient"
 import { generateTip, PunishmentLog, updateModlogFields } from "../../lib/util"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "case",
@@ -19,16 +20,16 @@ const command: Command = {
 		const caseNumber = interaction.options.getInteger("case", true),
 			collection = db.collection<PunishmentLog>("punishments"),
 			modLog = await collection.findOne({ case: caseNumber }),
-			member = interaction.member as Discord.GuildMember
+			member = interaction.member as GuildMember
 
 		if (!modLog) throw `Couldn't find that case number! You must enter a number between 1 and ${await collection.estimatedDocumentCount()}`
 
-		const offender = interaction.guild!.members.cache.get(modLog.id) ?? await client.users.fetch(modLog.id),
-			embed = new Discord.MessageEmbed()
+		const offender = interaction.guild!.members.cache.get(modLog.id) ?? await interaction.client.users.fetch(modLog.id),
+			embed = new MessageEmbed()
 				.setColor("BLURPLE")
 				.setAuthor("Punishment case")
 				.setTitle(`Here's case #${caseNumber}`)
-				.setDescription(`Offender: ${offender instanceof Discord.GuildMember ? offender : offender.tag}`)
+				.setDescription(`Offender: ${offender instanceof GuildMember ? offender : offender.tag}`)
 				.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
 		updateModlogFields(embed, modLog)
 		await interaction.reply({ embeds: [embed] })

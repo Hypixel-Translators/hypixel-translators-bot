@@ -1,7 +1,8 @@
+import { HexColorString, MessageEmbed } from "discord.js"
 import { neutralColor, ids } from "../../config.json"
-import Discord from "discord.js"
-import type { Command, GetStringFunction } from "../../index"
 import { generateTip } from "../../lib/util"
+
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "projects",
@@ -32,8 +33,8 @@ const command: Command = {
 		if (member.roles.cache.find(role => role.name === "Bot Translator" || role.name === "Bot Proofreader" || role.name === "Bot Manager"))
 			joinedBot = `<:vote_yes:839262196797669427> **${getString("alreadyJoined")}**`
 		else joinedBot = `<:vote_no:839262184882044931> **${getString("notJoined")}**`
-		const embed = new Discord.MessageEmbed()
-			.setColor(neutralColor as Discord.HexColorString)
+		const embed = new MessageEmbed()
+			.setColor(neutralColor as HexColorString)
 			.setAuthor(getString("moduleName"))
 			.setTitle(getString("allProjects"))
 			.setDescription(getString("description"))

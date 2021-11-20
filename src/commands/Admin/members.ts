@@ -1,7 +1,8 @@
-import Discord from "discord.js"
+import { ColorResolvable, GuildMember, Message, MessageActionRow, MessageButton, MessageEmbed, Role } from "discord.js"
 import { ids } from "../../config.json"
-import type { Command } from "../../index"
 import { generateTip, updateButtonColors } from "../../lib/util"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "members",
@@ -15,44 +16,44 @@ const command: Command = {
 	roleWhitelist: [ids.roles.admin],
 	channelWhitelist: [ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction) {
-		const role = interaction.options.getRole("role", true) as Discord.Role,
-			tags: Discord.GuildMember[] = [],
-			member = interaction.member as Discord.GuildMember
+		const role = interaction.options.getRole("role", true) as Role,
+			tags: GuildMember[] = [],
+			member = interaction.member as GuildMember
 
 		role.members.forEach(member => tags.push(member))
 
-		const maxMembersArr: Discord.GuildMember[][] = []
+		const maxMembersArr: GuildMember[][] = []
 		let p = 0
 		while (p < tags.length) {
 			maxMembersArr.push(tags.slice(p, p += 85)) //89 is max for now
 		}
 
-		let color: Discord.ColorResolvable = role.hexColor
+		let color: ColorResolvable = role.hexColor
 		if (color === "#000000") color = "BLURPLE"
 		if (maxMembersArr.length > 1) {
 			let page = 0,
 				pageEmbed = updatePage(maxMembersArr[page], page),
-				controlButtons = new Discord.MessageActionRow()
+				controlButtons = new MessageActionRow()
 					.addComponents(
-						new Discord.MessageButton()
+						new MessageButton()
 							.setEmoji("⏮️")
 							.setCustomId("first")
 							.setLabel("First page"),
-						new Discord.MessageButton()
+						new MessageButton()
 							.setEmoji("◀️")
 							.setCustomId("previous")
 							.setLabel("Previous page"),
-						new Discord.MessageButton()
+						new MessageButton()
 							.setEmoji("▶️")
 							.setCustomId("next")
 							.setLabel("Next page"),
-						new Discord.MessageButton()
+						new MessageButton()
 							.setEmoji("⏭️")
 							.setCustomId("last")
 							.setLabel("Last page")
 					)
 			controlButtons = updateButtonColors(controlButtons, page, maxMembersArr)
-			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }) as Discord.Message,
+			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }) as Message,
 				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: 60_000 })
 
 			collector.on("collect", async buttonInteraction => {
@@ -79,8 +80,8 @@ const command: Command = {
 
 		} else await interaction.reply({ embeds: [updatePage(maxMembersArr[0])] })
 
-		function updatePage(membersArr: Discord.GuildMember[], page?: number) {
-			return new Discord.MessageEmbed()
+		function updatePage(membersArr: GuildMember[], page?: number) {
+			return new MessageEmbed()
 				.setColor(color)
 				.setAuthor("Members list")
 				.setTitle(`Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`)

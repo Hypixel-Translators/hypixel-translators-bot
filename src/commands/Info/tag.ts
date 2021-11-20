@@ -1,5 +1,6 @@
-import type { Command } from "../../index"
 import { ids } from "../../config.json"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "tag",

@@ -1,7 +1,9 @@
-import Discord from "discord.js"
+import { ColorResolvable, GuildMember, MessageEmbed } from "discord.js"
+import { client } from "../../index"
 import { ids } from "../../config.json"
-import { client, Command } from "../../index"
 import { generateTip } from "../../lib/util"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "check",
@@ -15,8 +17,8 @@ const command: Command = {
 	roleWhitelist: [ids.roles.staff, ids.roles.hypixelManager, ids.roles.sbaManager, ids.roles.qpManager, ids.roles.botManager],
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.managers],
 	async execute(interaction) {
-		const memberInput = interaction.options.getMember("user", true) as Discord.GuildMember,
-			member = interaction.member as Discord.GuildMember
+		const memberInput = interaction.options.getMember("user", true) as GuildMember,
+			member = interaction.member as GuildMember
 
 		const userDb = await client.getUser(memberInput.id)
 		let note: string | undefined = undefined
@@ -29,7 +31,7 @@ const command: Command = {
 		else if (memberInput.roles.cache.find(r => r.name === "Hypixel Staff")) note = "Hypixel Staff Member"
 		else if (userDb?.profile) note = userDb.profile
 
-		let color: Discord.ColorResolvable = memberInput.displayHexColor
+		let color: ColorResolvable = memberInput.displayHexColor
 		if (color === "#000000") color = "BLURPLE"
 		const joinedAgo = Math.round(memberInput.joinedAt!.getTime() / 1000),
 			createdAgo = Math.round(memberInput.user.createdAt.getTime() / 1000),
@@ -40,7 +42,7 @@ const command: Command = {
 			userRoles = rolesCache.sort((a, b) => b.position - a.position).map(r => r).join(", ")
 		} else userRoles = "No roles yet!"
 
-		const embed = new Discord.MessageEmbed()
+		const embed = new MessageEmbed()
 			.setColor(color)
 			.setAuthor({ name: "User information", iconURL: memberInput.user.displayAvatarURL({ format: "png", dynamic: true }) })
 			.setTitle(memberInput.user.tag)

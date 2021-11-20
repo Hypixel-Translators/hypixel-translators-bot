@@ -1,9 +1,11 @@
-import Discord from "discord.js"
-import { successColor, ids } from "../../config.json"
 import axios from "axios"
+import { EmbedFieldData, GuildMember, HexColorString, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { client } from "../../index"
+import { successColor, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
-import { client, Command, GetStringFunction } from "../../index"
 import { fetchSettings, generateTip, getUUID, updateButtonColors } from "../../lib/util"
+
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 //Credits to marzeq for initial implementation
 const command: Command = {
@@ -49,7 +51,7 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
-			member = interaction.member as Discord.GuildMember | null ?? interaction.user,
+			member = interaction.member as GuildMember | null ?? interaction.user,
 			authorDb: DbUser = await client.getUser(interaction.user.id),
 			subCommand = interaction.options.getSubcommand(),
 			userInput = interaction.options.getUser("user", false),
@@ -81,24 +83,24 @@ const command: Command = {
 					const nameHistoryEmbed = fetchPage(0, pages)
 					await interaction.editReply({ embeds: [nameHistoryEmbed] })
 				} else {
-					let controlButtons = new Discord.MessageActionRow()
+					let controlButtons = new MessageActionRow()
 						.addComponents(
-							new Discord.MessageButton()
+							new MessageButton()
 								.setStyle("SUCCESS")
 								.setEmoji("⏮️")
 								.setCustomId("first")
 								.setLabel(getString("pagination.first", "global")),
-							new Discord.MessageButton()
+							new MessageButton()
 								.setStyle("SUCCESS")
 								.setEmoji("◀️")
 								.setCustomId("previous")
 								.setLabel(getString("pagination.previous", "global")),
-							new Discord.MessageButton()
+							new MessageButton()
 								.setStyle("SUCCESS")
 								.setEmoji("▶️")
 								.setCustomId("next")
 								.setLabel(getString("pagination.next", "global")),
-							new Discord.MessageButton()
+							new MessageButton()
 								.setStyle("SUCCESS")
 								.setEmoji("⏭️")
 								.setCustomId("last")
@@ -109,7 +111,7 @@ const command: Command = {
 
 					controlButtons = updateButtonColors(controlButtons, page, pages)
 					await interaction.editReply({ embeds: [pageEmbed], components: [controlButtons] })
-					const msg = await interaction.fetchReply() as Discord.Message
+					const msg = await interaction.fetchReply() as Message
 
 					const collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
 
@@ -127,7 +129,7 @@ const command: Command = {
 							if (page > pages.length - 1) page = pages.length - 1
 						}
 						controlButtons = updateButtonColors(controlButtons, page, pages)
-						pageEmbed = fetchPage(page, pages) as Discord.MessageEmbed
+						pageEmbed = fetchPage(page, pages) as MessageEmbed
 						await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
 					})
 
@@ -138,8 +140,8 @@ const command: Command = {
 				}
 
 				function fetchPage(page: number, pages: NameHistory[][]) {
-					return new Discord.MessageEmbed()
-						.setColor(successColor as Discord.HexColorString)
+					return new MessageEmbed()
+						.setColor(successColor as HexColorString)
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("history.nameHistoryFor", { username }))
 						.setDescription(
@@ -159,7 +161,7 @@ const command: Command = {
 				}
 
 				function constructFields(array: NameHistory[]) {
-					const fields: Discord.EmbedFieldData[] = []
+					const fields: EmbedFieldData[] = []
 					array.forEach(name =>
 						fields.push({
 							name: name.name,
@@ -172,8 +174,8 @@ const command: Command = {
 
 				break
 			case "skin":
-				const skinEmbed = new Discord.MessageEmbed()
-					.setColor(successColor as Discord.HexColorString)
+				const skinEmbed = new MessageEmbed()
+					.setColor(successColor as HexColorString)
 					.setAuthor(getString("moduleName"))
 					.setTitle(isOwnUser
 						? getString("skin.yourSkin")

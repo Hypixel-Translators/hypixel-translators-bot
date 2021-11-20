@@ -1,10 +1,13 @@
-import Discord from "discord.js"
+import { Client, ClientEvents, Collection, Snowflake } from "discord.js"
 import { MongoClient, Db, WithId } from "mongodb"
-import { client, Command } from "../index"
+import { client } from "../index"
+
+import type { Command } from "./imports"
+
 const url = process.env.MONGO_URL
 if (!url) throw "MONGO_URL not in .env"
 export const mongoClient = new MongoClient(url)
-export const cancelledEvents: EventData<keyof Discord.ClientEvents>[] = []
+export const cancelledEvents: EventData<keyof ClientEvents>[] = []
 export let db: Db
 
 async function init() {
@@ -26,7 +29,7 @@ async function init() {
 init()
 
 export interface DbUser {
-	id: Discord.Snowflake
+	id: Snowflake
 	lang: string
 	profile?: string | null
 	uuid?: string
@@ -40,17 +43,17 @@ export interface DbUser {
 	unverifiedTimestamp?: number
 }
 
-interface EventData<T extends keyof Discord.ClientEvents> {
+interface EventData<T extends keyof ClientEvents> {
 	listener: T
-	args: Discord.ClientEvents[T]
+	args: ClientEvents[T]
 }
 
-export class HTBClient extends Discord.Client<true> {
-	commands: Discord.Collection<string, Command> = new Discord.Collection()
-	cooldowns: Discord.Collection<string, Discord.Collection<Discord.Snowflake, number>> = new Discord.Collection()
+export class HTBClient extends Client<true> {
+	commands: Collection<string, Command> = new Collection()
+	cooldowns: Collection<string, Collection<Snowflake, number>> = new Collection()
 	async getUser(): Promise<null>
-	async getUser(id: Discord.Snowflake): Promise<WithId<DbUser>>
-	async getUser(id?: Discord.Snowflake) {
+	async getUser(id: Snowflake): Promise<WithId<DbUser>>
+	async getUser(id?: Snowflake) {
 		if (!id) return null
 		const collection = db.collection<DbUser>("users")
 		let user = await collection.findOne({ id: id })

@@ -1,8 +1,9 @@
-import { ids } from "../../config.json"
-import fs from "node:fs"
+import { readdir } from "node:fs"
 import path from "node:path"
-import Discord from "discord.js"
-import type { Command } from "../../index"
+import { ids } from "../../config.json"
+
+import type { NewsChannel } from "discord.js"
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "holidays",
@@ -28,8 +29,8 @@ const command: Command = {
 			holiday: string[] = [],
 			log: { [Language: string]: string } = {}
 		holiday.push(strings[holidayName])
-		fs.readdir(dirPath, async (err, langs) => {
-			if (err) return console.error(`Unable to scan directory.\n${err.stack || err}`)
+		readdir(dirPath, async (err, langs) => {
+			if (err) return console.error(`Unable to scan directory.\n${err.stack ?? err}`)
 			langs.forEach(lang => {
 				if (lang === "empty") return
 				try {
@@ -51,7 +52,7 @@ const command: Command = {
 			}
 			const announcement = holiday.join(" ")
 			if (announcement) {
-				const announcements = interaction.client.channels.cache.get(ids.channels.announcements) as Discord.NewsChannel
+				const announcements = interaction.client.channels.cache.get(ids.channels.announcements) as NewsChannel
 				await announcements.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`)
 					.then(msg => msg.crosspost())
 				await interaction.reply(`${holidayName.charAt(0).toUpperCase() + holidayName.slice(1)} announcement sent! Here's each language's translation:\n${logMsg}`)

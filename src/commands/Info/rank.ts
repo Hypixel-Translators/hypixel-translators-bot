@@ -1,8 +1,10 @@
-import Discord from "discord.js"
+import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
+import { client } from "../../index"
 import { neutralColor, errorColor, ids } from "../../config.json"
-import { client, Command, GetStringFunction } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
 import { generateTip, getXpNeeded } from "../../lib/util"
+
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "rank",
@@ -20,12 +22,12 @@ const command: Command = {
 		const randomTip = generateTip(getString),
 			collection = db.collection<DbUser>("users"),
 			user = interaction.options.getUser("user", false) ?? interaction.user,
-			member = interaction.member as Discord.GuildMember | null ?? interaction.user
+			member = interaction.member as GuildMember | null ?? interaction.user
 
 		const userDb = await client.getUser(user.id)
 		if (!userDb.levels) {
-			const errorEmbed = new Discord.MessageEmbed()
-				.setColor(errorColor as Discord.HexColorString)
+			const errorEmbed = new MessageEmbed()
+				.setColor(errorColor as HexColorString)
 				.setAuthor(getString("moduleName"))
 				.setTitle(user.id === interaction.user.id ? getString("youNotRanked") : getString("userNotRanked"))
 				.setDescription(getString("howRank"))
@@ -38,8 +40,8 @@ const command: Command = {
 			currentXp = userDb.levels.levelXp,
 			messageCount = userDb.levels.messageCount
 
-		const embed = new Discord.MessageEmbed()
-			.setColor(neutralColor as Discord.HexColorString)
+		const embed = new MessageEmbed()
+			.setColor(neutralColor as HexColorString)
 			.setAuthor(getString("moduleName"))
 			.setTitle(user.id === interaction.user.id ? getString("yourRank") : getString("userRank", { user: user.tag }))
 			.setDescription(user.id === interaction.user.id ? getString("youLevel", { level: userDb.levels.level, rank: ranking }) : getString("userLevel", { user: String(user), level: userDb.levels.level, rank: ranking }))

@@ -1,10 +1,11 @@
-import { successColor, ids } from "../../config.json"
-import Discord from "discord.js"
-import country from "countryjs"
 import { flag } from "country-emoji"
+import { demonym, name } from "countryjs"
+import { GuildMember, HexColorString, MessageEmbed, OverwriteResolvable } from "discord.js"
+import { successColor, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import type { Command } from "../../index"
 import { generateTip, LangDbEntry } from "../../lib/util"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "newlang",
@@ -27,8 +28,8 @@ const command: Command = {
 		const lang = interaction.options.getString("code", true).toLowerCase(),
 			code = interaction.options.getString("code", true).toUpperCase(),
 			langdbEntry = await db.collection<LangDbEntry>("langdb").findOne({ code: lang }),
-			member = interaction.member as Discord.GuildMember
-		let nationality = country.demonym(code)
+			member = interaction.member as GuildMember
+		let nationality = demonym(code)
 		if (!nationality) throw "Couldn't find that country!"
 		let emoji = flag(lang)
 		if (langdbEntry) {
@@ -39,7 +40,7 @@ const command: Command = {
 		console.log(nationality)
 		const translatorRole = await interaction.guild!.roles.create({
 			name: `${nationality} Translator`,
-			color: `${interaction.options.getString("color", false) as Discord.HexColorString | null || "#000000"}`,
+			color: `${interaction.options.getString("color", false) as HexColorString | null ?? "#000000"}`,
 			hoist: false,
 			position: 22,
 			permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
@@ -49,7 +50,7 @@ const command: Command = {
 		})
 		const proofreaderRole = await interaction.guild!.roles.create({
 			name: `${nationality} Proofreader`,
-			color: `${interaction.options.getString("color", false) as Discord.HexColorString | null || "#000000"}`,
+			color: `${interaction.options.getString("color", false) as HexColorString | null ?? "#000000"}`,
 			hoist: false,
 			position: 49,
 			permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
@@ -86,10 +87,10 @@ const command: Command = {
 				id: ids.roles.admin,
 				allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "MANAGE_THREADS", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"]
 			}
-		] as Discord.OverwriteResolvable[]
+		] as OverwriteResolvable[]
 		const pfOverwrites = Array.from(overwrites)
 		pfOverwrites.splice(3, 1)
-		const category = await interaction.guild!.channels.create(`${country.name(code)} ${emoji}`, {
+		const category = await interaction.guild!.channels.create(`${name(code)} ${emoji}`, {
 			type: "GUILD_CATEGORY",
 			permissionOverwrites: overwrites,
 			position: 9,
@@ -122,10 +123,10 @@ const command: Command = {
 			permissionOverwrites: pfOverwrites,
 			reason: `Added language ${nationality}`
 		})
-		const embed = new Discord.MessageEmbed()
-			.setColor(successColor as Discord.HexColorString)
+		const embed = new MessageEmbed()
+			.setColor(successColor as HexColorString)
 			.setAuthor("Channel creator")
-			.setTitle(`Successfully created the new ${country.name(code)} category, channels and roles!`)
+			.setTitle(`Successfully created the new ${name(code)} category, channels and roles!`)
 			.setDescription("Make sure their names were set correctly, put them in their correct positions, check the role colors and don't forget to translate the channel topic!")
 			.addFields(
 				{ name: "Text Channels", value: `${translatorsChannel} and ${proofreadersChannel}` },

@@ -1,7 +1,8 @@
+import { GuildMember, HexColorString, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
 import { successColor, ids } from "../../config.json"
-import Discord from "discord.js"
-import type { Command, GetStringFunction } from "../../index"
 import { generateTip } from "../../lib/util"
+
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "feedback",
@@ -11,18 +12,18 @@ const command: Command = {
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
-			member = interaction.member as Discord.GuildMember | null ?? interaction.user
+			member = interaction.member as GuildMember | null ?? interaction.user
 
-		const embed = new Discord.MessageEmbed()
-			.setColor(successColor as Discord.HexColorString)
+		const embed = new MessageEmbed()
+			.setColor(successColor as HexColorString)
 			.setAuthor(getString("moduleName"))
 			.setTitle(getString("bugT"))
 			.setDescription(getString("bugD"))
 			.addField(getString("urgentT"), getString("urgentD"))
 			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
-		const row = new Discord.MessageActionRow()
+		const row = new MessageActionRow()
 			.addComponents(
-				new Discord.MessageButton()
+				new MessageButton()
 					.setLabel(getString("link"))
 					.setStyle("LINK")
 					.setURL("https://github.com/Hypixel-Translators/hypixel-translators-bot/issues")

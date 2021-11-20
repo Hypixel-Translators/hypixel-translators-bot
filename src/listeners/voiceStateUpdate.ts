@@ -1,10 +1,10 @@
-import Discord from "discord.js"
-import { ids } from "../config.json"
+import { MessageEmbed, TextChannel } from "discord.js"
 import { client } from "../index"
+import { ids } from "../config.json"
 
 client.on("voiceStateUpdate", async (oldState, newState) => {
 	if (newState.guild.id === ids.guilds.main && !newState.member?.user.bot) {
-		const logs = client.channels.cache.get(ids.channels.logs) as Discord.TextChannel,
+		const logs = client.channels.cache.get(ids.channels.logs) as TextChannel,
 			successColor = "#43B581",
 			errorColor = "#FF470F"
 
@@ -15,7 +15,7 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
 			await newState.member!.roles.remove(ids.roles.voice, "Left a voice channel")
 
 		if (!!oldState.serverMute != !!newState.serverMute) { // Convert to boolean to prevent null != false from triggering the condition
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 				.setColor(newState.serverMute ? errorColor : successColor)
 				.setAuthor({ name: newState.member!.user.tag, iconURL: newState.member!.displayAvatarURL({ format: "png", dynamic: true }) })
 				.setDescription(`**${newState.member} was server ${newState.serverMute ? "muted" : "unmuted"} in ${newState.channel?.name}**`)
@@ -23,7 +23,7 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
 				.setTimestamp()
 			await logs.send({ embeds: [embed] })
 		} else if (!!oldState.serverDeaf != !!newState.serverDeaf) {
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 				.setColor(newState.serverDeaf ? errorColor : successColor)
 				.setAuthor({ name: newState.member!.user.tag, iconURL: newState.member!.displayAvatarURL({ format: "png", dynamic: true }) })
 				.setDescription(`**${newState.member} was server ${newState.serverDeaf ? "deafened" : "undeafened"} in ${newState.channel?.name}**`)

@@ -1,8 +1,8 @@
-import Discord from "discord.js"
-import { errorColor, ids } from "../config.json"
-import { db, DbUser } from "../lib/dbclient"
-import { client } from "../index"
+import { GuildMember, HexColorString, MessageEmbed, Role, TextChannel } from "discord.js"
+import { db, DbUser } from "./dbclient"
 import { closeConnection, getBrowser, LangDbEntry, Stats } from "./util"
+import { client } from "../index"
+import { errorColor, ids } from "../config.json"
 
 type ValidProjects = "Hypixel" | "Quickplay" | "Bot" | "SkyblockAddons"
 
@@ -25,11 +25,11 @@ const projectIDs: {
  * @param {boolean} sendDms Whether to send DMs to the member or not. Also bypasses the Discord tag check
  * @param {boolean} sendLogs Whether to send logs to the log channel or not
  */
-async function crowdinVerify(member: Discord.GuildMember, url?: string | null, sendDms = false, sendLogs = true) {
-	const verifyLogs = member.client.channels.cache.get(ids.channels.verifyLogs) as Discord.TextChannel,
-		verify = member.client.channels.cache.get(ids.channels.verify) as Discord.TextChannel,
-		errorEmbed = new Discord.MessageEmbed()
-			.setColor(errorColor as Discord.HexColorString)
+async function crowdinVerify(member: GuildMember, url?: string | null, sendDms = false, sendLogs = true) {
+	const verifyLogs = member.client.channels.cache.get(ids.channels.verifyLogs) as TextChannel,
+		verify = member.client.channels.cache.get(ids.channels.verify) as TextChannel,
+		errorEmbed = new MessageEmbed()
+			.setColor(errorColor as HexColorString)
 			.setAuthor("Received message from staff")
 			.setFooter("Any messages you send here will be sent to staff upon confirmation."),
 		langDb = db.collection<LangDbEntry>("langdb"),
@@ -125,12 +125,12 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 			if (sendLogs) await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "privateProfile" })
 			//#endregion
 		} else {
-			const dmEmbed = new Discord.MessageEmbed()
+			const dmEmbed = new MessageEmbed()
 				.setColor("BLURPLE")
 				.setAuthor("Received message from staff")
 				.setDescription("Hey there!\nYou have successfully verified your Crowdin account!\nSadly you didn't receive any roles because you don't translate for any of the projects we currently support.\nWhen you have started translating you can refresh your roles by running `/verify`\nIf you wanna know more about all the projects we currently support, run `/projects` here.")
 				.setFooter("Any messages you send here will be sent to staff upon confirmation."),
-				logEmbed = new Discord.MessageEmbed()
+				logEmbed = new MessageEmbed()
 					.setColor("BLURPLE")
 					.setTitle(`${member.user.tag} is now verified!`)
 					.setDescription(`${member} has not received any roles. They do not translate for any of the projects.`)
@@ -194,7 +194,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		highestProjectRoles: {
 			[name: string]: string
 		} = {},
-		veteranRole: Discord.Role | undefined //yes we have to use var here
+		veteranRole: Role | undefined //yes we have to use var here
 	const joinedProjects: string[] = []
 
 	projects
@@ -247,7 +247,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 	await usersColl.updateOne({ id: member.id }, { $set: { profile: url }, $unset: { unverifiedTimestamp: true } })
 
 	const endingMessageProjects: {
-		[name: string]: Discord.Role[]
+		[name: string]: Role[]
 	} = {}
 	for (const [key, value] of Object.entries(highestProjectRoles)) {
 		const role = member.guild!.roles.cache.find(r => r.name.toLowerCase() === `${key} ${value}`.toLowerCase())!
@@ -262,7 +262,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 		})
 	}
 
-	const logEmbed = new Discord.MessageEmbed()
+	const logEmbed = new MessageEmbed()
 		.setColor("BLURPLE")
 		.setTitle(`${member.user.tag} is now verified!`)
 		.setDescription(Object.keys(endingMessageProjects).length
@@ -288,7 +288,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 	logEmbed.addField("Profile", url)
 
 	//#region return message
-	const dmEmbed = new Discord.MessageEmbed()
+	const dmEmbed = new MessageEmbed()
 		.setColor("BLURPLE")
 		.setAuthor("Received message from staff")
 		.setDescription(`Hey there!\nYou have successfully verified your Crowdin account${Object.keys(endingMessageProjects).length
@@ -310,7 +310,7 @@ async function crowdinVerify(member: Discord.GuildMember, url?: string | null, s
 
 export { crowdinVerify }
 
-async function updateProjectRoles(projectName: ValidProjects, member: Discord.GuildMember, project: CrowdinProject) {
+async function updateProjectRoles(projectName: ValidProjects, member: GuildMember, project: CrowdinProject) {
 	const languages = project.contributed_languages?.length
 		? project.contributed_languages.map(lang => {
 			return {
@@ -365,7 +365,7 @@ async function updateLanguageRoles(
 			projects: ValidProjects[]
 		}
 	},
-	member: Discord.GuildMember
+	member: GuildMember
 ) {
 	const activeRoles: string[] = [],
 		addedRoles: string[] = []
@@ -400,7 +400,7 @@ async function updateLanguageRoles(
 		})
 }
 
-async function removeProjectRoles(projectName: ValidProjects, member: Discord.GuildMember) {
+async function removeProjectRoles(projectName: ValidProjects, member: GuildMember) {
 	const projectTransRole = member.guild.roles.cache.find(r => r.name === `${projectName} Translator`)!.id,
 		projectProofRole = member.guild.roles.cache.find(r => r.name === `${projectName} Proofreader`)!.id,
 		projectManagerRole = member.guild.roles.cache.find(r => r.name === `${projectName} Manager`)!.id
@@ -412,7 +412,7 @@ async function removeProjectRoles(projectName: ValidProjects, member: Discord.Gu
 	await member.roles.remove(projectManagerRole, "User is no longer in this Crowdin project")
 }
 
-async function veteranMedals(member: Discord.GuildMember, project: CrowdinProject) {
+async function veteranMedals(member: GuildMember, project: CrowdinProject) {
 	const medals = ["👻", "🥇", "🥈", "🥉", "🏅", "🎖️", "🏆", "💎", "💠", "⭐", "🌟", "👑"],
 		years = Math.floor((Date.now() - project.joined_at_timestamp * 1000) / (1000 * 60 * 60 * 24 * 365))
 	if (years == 0) return
@@ -437,7 +437,7 @@ async function veteranMedals(member: Discord.GuildMember, project: CrowdinProjec
 	return role
 }
 
-function removeAllRoles(member: Discord.GuildMember) {
+function removeAllRoles(member: GuildMember) {
 	const roles = member.roles.cache.filter(r =>
 		r.name.endsWith(" Translator") ||
 		r.name.endsWith(" Proofreader") ||

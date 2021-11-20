@@ -1,9 +1,10 @@
+import { GuildMember, HexColorString, MessageEmbed, TextChannel } from "discord.js"
 import { successColor, ids } from "../../config.json"
-import Discord from "discord.js"
-import type { Command } from "../../index"
-import { db } from "../../lib/dbclient"
 import { updateProjectStatus } from "../../events/stats"
+import { db } from "../../lib/dbclient"
 import { CrowdinProject, generateTip } from "../../lib/util"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "bulksend",
@@ -29,14 +30,14 @@ const command: Command = {
 		required: false
 	}],
 	async execute(interaction) {
-		const sendTo = interaction.options.getChannel("channel", true) as Discord.TextChannel,
-			member = interaction.member as Discord.GuildMember
+		const sendTo = interaction.options.getChannel("channel", true) as TextChannel,
+			member = interaction.member as GuildMember
 		if (!sendTo) throw "Couldn't resolve that channel!"
 		let amount = interaction.options.getInteger("amount", true)
 		await interaction.deferReply()
 		for (amount; amount > 0; amount--) await sendTo.send("Language statistics will be here shortly!")
-		const embed = new Discord.MessageEmbed()
-			.setColor(successColor as Discord.HexColorString)
+		const embed = new MessageEmbed()
+			.setColor(successColor as HexColorString)
 			.setAuthor("Bulk Send")
 			.setTitle(`Success! Message${amount === 1 ? "" : "s"} sent!`)
 			.setDescription(`${sendTo}`)

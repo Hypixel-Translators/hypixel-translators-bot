@@ -1,9 +1,10 @@
+import { access, constants, readdir, readdirSync } from "node:fs"
+import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
 import { errorColor, successColor, neutralColor, ids } from "../../config.json"
-import Discord from "discord.js"
-import fs from "node:fs"
 import { db, DbUser } from "../../lib/dbclient"
-import type { Command, GetStringFunction } from "../../index"
 import { generateTip, LangDbEntry } from "../../lib/util"
+
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "language",
@@ -42,12 +43,12 @@ const command: Command = {
 		let randomTip: string = generateTip(getString)
 		const collection = db.collection<DbUser>("users"),
 			stringsFolder = "./strings/",
-			member = interaction.member as Discord.GuildMember | null,
+			member = interaction.member as GuildMember | null,
 			subCommand = interaction.options.getSubcommand()
 		let language = interaction.options.getString("language", subCommand === "stats")?.toLowerCase()
 
 		if (subCommand === "list") {
-			const files = fs.readdirSync(stringsFolder),
+			const files = readdirSync(stringsFolder),
 				langList: string[] = []
 			files.forEach(async (element, index, array) => {
 				if (element === "empty" && !member?.roles.cache.has(ids.roles.admin)) return
@@ -56,8 +57,8 @@ const command: Command = {
 				else languageString = getString(element)
 				langList.push(getString("listElement", { code: element, language: languageString || "Unknown" }))
 				if (index === array.length - 1) {
-					const embed = new Discord.MessageEmbed()
-						.setColor(neutralColor as Discord.HexColorString)
+					const embed = new MessageEmbed()
+						.setColor(neutralColor as HexColorString)
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("listTitle"))
 						.setDescription(langList.join("\n"))
@@ -67,13 +68,13 @@ const command: Command = {
 			})
 		} else if (subCommand === "stats") {
 			if (!member?.roles.cache.has(ids.roles.admin)) return await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
-			const files = fs.readdirSync(stringsFolder)
+			const files = readdirSync(stringsFolder)
 			if (!files.includes(language!)) throw "falseLang"
 			const langUsers = await collection.find({ lang: language! }).toArray(),
 				users: string[] = []
 			langUsers.forEach(u => users.push(`<@!${u.id}>`))
-			const embed = new Discord.MessageEmbed()
-				.setColor(neutralColor as Discord.HexColorString)
+			const embed = new MessageEmbed()
+				.setColor(neutralColor as HexColorString)
 				.setAuthor("Language")
 				.setTitle(`There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`)
 				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
@@ -86,22 +87,22 @@ const command: Command = {
 				langdbEntry = langdb.find(l => l.name.toLowerCase() === language)
 			if (langdbEntry) language = langdbEntry.code
 			if (language === "empty" && !member?.roles.cache.has(ids.roles.admin)) language = "denied"
-			fs.access(`./strings/${language}/language.json`, fs.constants.F_OK, async (err) => {
+			access(`./strings/${language}/language.json`, constants.F_OK, async (err) => {
 				if (!err) {
 					if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, language) || language === "en") {
 						const result = await collection.updateOne({ id: interaction.user.id }, { $set: { lang: language! } })
 						if (result.modifiedCount) {
 							randomTip = generateTip(getString, language)
-							const embed = new Discord.MessageEmbed()
-								.setColor(successColor as Discord.HexColorString)
+							const embed = new MessageEmbed()
+								.setColor(successColor as HexColorString)
 								.setAuthor(getString("moduleName", this.name, language))
 								.setTitle(getString("changedToTitle", this.name, language))
 								.setDescription(getString("credits", this.name, language))
 								.setFooter(randomTip, (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 							return await interaction.reply({ embeds: [embed] })
 						} else {
-							const embed = new Discord.MessageEmbed()
-								.setColor(errorColor as Discord.HexColorString)
+							const embed = new MessageEmbed()
+								.setColor(errorColor as HexColorString)
 								.setAuthor(getString("moduleName", this.name, language))
 								.setTitle(getString("didntChange", this.name, language))
 								.setDescription(getString("alreadyThis", this.name, language))
@@ -109,8 +110,8 @@ const command: Command = {
 							return await interaction.reply({ embeds: [embed] })
 						}
 					} else {
-						const embed = new Discord.MessageEmbed()
-							.setColor(errorColor as Discord.HexColorString)
+						const embed = new MessageEmbed()
+							.setColor(errorColor as HexColorString)
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("didntChange"))
 							.setDescription(getString("notTranslated"))
@@ -118,11 +119,11 @@ const command: Command = {
 						return await interaction.reply({ embeds: [embed] })
 					}
 				} else {
-					await fs.readdir(stringsFolder, async (_err, files) => {
+					readdir(stringsFolder, async (_err, files) => {
 						const emptyIndex = files.indexOf("empty")
 						if (emptyIndex > -1 && !member?.roles.cache.has(ids.roles.admin)) files.splice(emptyIndex, 1)
-						const embed = new Discord.MessageEmbed()
-							.setColor(errorColor as Discord.HexColorString)
+						const embed = new MessageEmbed()
+							.setColor(errorColor as HexColorString)
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("errorTitle"))
 							.setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n${getString("suggestAdd")}`)
@@ -132,11 +133,11 @@ const command: Command = {
 				}
 			})
 		} else {
-			const files = fs.readdirSync(stringsFolder),
+			const files = readdirSync(stringsFolder),
 				emptyIndex = files.indexOf("empty")
 			if (emptyIndex > -1 && !member?.roles.cache.has(ids.roles.admin)) files.splice(emptyIndex, 1)
-			const embed = new Discord.MessageEmbed()
-				.setColor(neutralColor as Discord.HexColorString)
+			const embed = new MessageEmbed()
+				.setColor(neutralColor as HexColorString)
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("current"))
 				.setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n\n${getString("credits")}`)

@@ -1,8 +1,10 @@
-import Discord from "discord.js"
+import { CommandInteraction, GuildMember, HexColorString, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { client } from "../../index"
 import { neutralColor, errorColor, ids } from "../../config.json"
-import { client, Command, GetStringFunction } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
 import { generateTip, updateButtonColors } from "../../lib/util"
+
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "levels",
@@ -24,7 +26,7 @@ const command: Command = {
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
-			member = interaction.member as Discord.GuildMember | null ?? interaction.user,
+			member = interaction.member as GuildMember | null ?? interaction.user,
 			collection = db.collection<DbUser>("users"),
 			allUsers = await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray(),
 			inputMe = interaction.options.getBoolean("me", false),
@@ -39,41 +41,41 @@ const command: Command = {
 		else if (inputPage) page = inputPage - 1
 
 		if (page >= pages.length || page < 0) {
-			const embed = new Discord.MessageEmbed()
-				.setColor(errorColor as Discord.HexColorString)
+			const embed = new MessageEmbed()
+				.setColor(errorColor as HexColorString)
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("pageTitle"))
 				.setDescription(getString("pageNotExist"))
 				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			return await interaction.reply({ embeds: [embed] })
 		} else {
-			let controlButtons = new Discord.MessageActionRow()
+			let controlButtons = new MessageActionRow()
 				.addComponents(
-					new Discord.MessageButton()
+					new MessageButton()
 						.setStyle("SUCCESS")
 						.setEmoji("⏮️")
 						.setCustomId("first")
 						.setLabel(getString("pagination.first", "global")),
-					new Discord.MessageButton()
+					new MessageButton()
 						.setStyle("SUCCESS")
 						.setEmoji("◀️")
 						.setCustomId("previous")
 						.setLabel(getString("pagination.previous", "global")),
-					new Discord.MessageButton()
+					new MessageButton()
 						.setStyle("SUCCESS")
 						.setEmoji("▶️")
 						.setCustomId("next")
 						.setLabel(getString("pagination.next", "global")),
-					new Discord.MessageButton()
+					new MessageButton()
 						.setStyle("SUCCESS")
 						.setEmoji("⏭️")
 						.setCustomId("last")
 						.setLabel(getString("pagination.last", "global"))
 				),
-				pageEmbed: Discord.MessageEmbed = fetchPage(page, pages, getString, randomTip, interaction)
+				pageEmbed: MessageEmbed = fetchPage(page, pages, getString, randomTip, interaction)
 
 			controlButtons = updateButtonColors(controlButtons, page, pages)
-			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }) as Discord.Message,
+			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }) as Message,
 				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
 
 			collector.on("collect", async buttonInteraction => {
@@ -103,16 +105,16 @@ const command: Command = {
 	}
 }
 
-function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction, randomTip: string, interaction: Discord.CommandInteraction) {
+function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction, randomTip: string, interaction: CommandInteraction) {
 	if (page > pages.length - 1) page = pages.length - 1
 	if (page < 0) page = 0
-	const pageEmbed = new Discord.MessageEmbed()
-		.setColor(neutralColor as Discord.HexColorString)
+	const pageEmbed = new MessageEmbed()
+		.setColor(neutralColor as HexColorString)
 		.setAuthor(getString("moduleName"))
 		.setTitle(getString("pageTitle"))
 		.setFooter(
 			getString("pagination.page", { number: page + 1, total: pages.length }, "global"),
-			(interaction.member as Discord.GuildMember | null ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
+			(interaction.member as GuildMember | null ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 		)
 	for (let i = 0; i <= pages[page].length - 1; i++) {
 		// const user = interaction.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that

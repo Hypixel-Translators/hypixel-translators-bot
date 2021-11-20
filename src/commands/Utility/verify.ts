@@ -1,9 +1,10 @@
-import { ids } from "../../config.json"
-import { db, DbUser } from "../../lib/dbclient"
+import { GuildMember, HexColorString, MessageEmbed, TextChannel } from "discord.js"
+import { client } from "../../index"
+import { errorColor, ids } from "../../config.json"
 import { crowdinVerify } from "../../lib/crowdinverify"
-import { errorColor } from "../../config.json"
-import Discord from "discord.js"
-import { Command, client } from "../../index"
+import { db, DbUser } from "../../lib/dbclient"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "verify",
@@ -22,17 +23,17 @@ const command: Command = {
 	}],
 	cooldown: 300,
 	async execute(interaction) {
-		const verifyLogs = interaction.client.channels.cache.get(ids.channels.verifyLogs) as Discord.TextChannel,
-			verify = interaction.client.channels.cache.get(ids.channels.verify) as Discord.TextChannel,
-			member = interaction.member as Discord.GuildMember,
+		const verifyLogs = interaction.client.channels.cache.get(ids.channels.verifyLogs) as TextChannel,
+			verify = interaction.client.channels.cache.get(ids.channels.verify) as TextChannel,
+			member = interaction.member as GuildMember,
 			profileUrl = interaction.options.getString("url", false),
-			memberInput = interaction.options.getMember("user", false) as Discord.GuildMember | null,
+			memberInput = interaction.options.getMember("user", false) as GuildMember | null,
 			url = profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0],
 			collection = db.collection<DbUser>("users")
 		await interaction.deferReply({ ephemeral: true })
 		if (!member.roles.cache.has(ids.roles.verified) && interaction.channelId == ids.channels.verify && !url) {
-			const fiMessages = (await (interaction.channel as Discord.TextChannel).messages.fetch()).filter(msgs => msgs.author.id === interaction.user.id)
-			await (interaction.channel as Discord.TextChannel).bulkDelete(fiMessages)
+			const fiMessages = (await (interaction.channel as TextChannel).messages.fetch()).filter(msgs => msgs.author.id === interaction.user.id)
+			await (interaction.channel as TextChannel).bulkDelete(fiMessages)
 			await member.roles.add(ids.roles.verified, "Manually verified through the command")
 			await member.roles.remove(ids.roles.alerted, "Manually verified through the command")
 			await collection.updateOne({ id: member.id }, { $unset: { unverifiedTimestamp: true } })
@@ -58,8 +59,8 @@ const command: Command = {
 			} else {
 				await member.roles.remove(ids.roles.verified, "Unverified")
 				await collection.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
-				const embed = new Discord.MessageEmbed()
-					.setColor(errorColor as Discord.HexColorString)
+				const embed = new MessageEmbed()
+					.setColor(errorColor as HexColorString)
 					.setAuthor("Manual verification")
 					.setTitle("You were successfully unverified!")
 					.setDescription(`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us on the ${verify} channel. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`)

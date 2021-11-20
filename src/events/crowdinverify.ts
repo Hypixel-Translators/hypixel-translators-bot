@@ -1,7 +1,7 @@
-import { crowdinVerify } from "../lib/crowdinverify"
-import { ids } from "../config.json"
-import { db, DbUser } from "../lib/dbclient"
 import { client } from "../index"
+import { ids } from "../config.json"
+import { crowdinVerify } from "../lib/crowdinverify"
+import { db, DbUser } from "../lib/dbclient"
 
 export default async function updateVerified(limit = 0) {
 		const verifiedUsers = await db.collection<DbUser>("users").find({ profile: { $exists: true } }).limit(limit).toArray()

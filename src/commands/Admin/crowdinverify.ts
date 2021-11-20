@@ -1,8 +1,9 @@
+import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
 import { successColor, ids } from "../../config.json"
-import Discord from "discord.js"
-import crowdin from "../../events/crowdinverify"
-import { Command } from "../../index"
+import crowdinVerify from "../../events/crowdinverify"
 import { generateTip } from "../../lib/util"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "crowdinverify",
@@ -16,11 +17,11 @@ const command: Command = {
 	roleWhitelist: [ids.roles.admin],
 	async execute(interaction) {
 		const limit = interaction.options.getInteger("limit", false) ?? undefined,
-			member = interaction.member as Discord.GuildMember
+			member = interaction.member as GuildMember
 		await interaction.deferReply()
-		await crowdin(limit)
-		const embed = new Discord.MessageEmbed()
-			.setColor(successColor as Discord.HexColorString)
+		await crowdinVerify(limit)
+		const embed = new MessageEmbed()
+			.setColor(successColor as HexColorString)
 			.setAuthor("Role updater")
 			.setTitle("All verified users had their roles updated!")
 			.setDescription("Check the console for any errors that may have occured in the process")

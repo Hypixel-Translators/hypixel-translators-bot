@@ -1,9 +1,11 @@
-import Discord from "discord.js"
-import fs from "node:fs"
+import { readdirSync } from "node:fs"
+import { CommandInteraction, GuildMember, Message, MessageActionRow, MessageEmbed, MessageSelectMenu } from "discord.js"
+import { client } from "../../index"
 import { ids } from "../../config.json"
-import { Command, client, GetStringFunction } from "../../index"
-import type { DbUser } from "../../lib/dbclient"
 import { generateTip } from "../../lib/util"
+
+import type { DbUser } from "../../lib/dbclient"
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "help",
@@ -30,7 +32,7 @@ const command: Command = {
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
-			member = interaction.member as Discord.GuildMember | null
+			member = interaction.member as GuildMember | null
 
 		// Define categories to get commands from and all pages
 		const categories = ["Utility", "Info"],
@@ -43,7 +45,7 @@ const command: Command = {
 		let pageIndex = 1
 		categories.forEach(category => {
 			const categoryCommands: string[] = []
-			fs.readdirSync(`./src/commands/${category}/`).forEach(command => categoryCommands.push(command.split(".").shift()!))
+			readdirSync(`./src/commands/${category}/`).forEach(command => categoryCommands.push(command.split(".").shift()!))
 			categoryCommands.forEach(cmd => {
 				if (client.commands.get(cmd)!.dev && interaction.channelId !== ids.channels.botDev) categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
 				else if (!client.commands.get(cmd)!.allowDM && interaction.channel!.type === "DM") categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
@@ -60,7 +62,7 @@ const command: Command = {
 			let page = 0
 			if (pageInput) page = pageInput
 
-			const page1 = new Discord.MessageEmbed()
+			const page1 = new MessageEmbed()
 				.setColor("BLURPLE")
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${pages[0].badge} ${getString("mainPage")}`)
@@ -74,10 +76,10 @@ const command: Command = {
 			pages[0].embed = page1
 
 			//Determine which page to use
-			let pageEmbed = fetchPage(page, pages, getString, randomTip, interaction) as Discord.MessageEmbed
-			const pageMenu = new Discord.MessageActionRow()
+			let pageEmbed = fetchPage(page, pages, getString, randomTip, interaction) as MessageEmbed
+			const pageMenu = new MessageActionRow()
 				.addComponents(
-					new Discord.MessageSelectMenu()
+					new MessageSelectMenu()
 						.setCustomId("page")
 						.addOptions(pages.map(p => {
 							return {
@@ -89,7 +91,7 @@ const command: Command = {
 						}))
 				)
 
-			const msg = await interaction.reply({ embeds: [pageEmbed], components: [pageMenu], fetchReply: true }) as Discord.Message,
+			const msg = await interaction.reply({ embeds: [pageEmbed], components: [pageMenu], fetchReply: true }) as Message,
 				collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
 
 			collector.on("collect", async menuInteraction => {
@@ -97,8 +99,8 @@ const command: Command = {
 					option = menuInteraction.values[0]
 				if (interaction.user.id !== menuInteraction.user.id) return await menuInteraction.reply({ content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang), ephemeral: true })
 				else page = Number(option)
-				pageEmbed = fetchPage(page, pages, getString, randomTip, interaction) as Discord.MessageEmbed
-				(pageMenu.components[0] as Discord.MessageSelectMenu).options.forEach(o => o.default = option === o.value)
+				pageEmbed = fetchPage(page, pages, getString, randomTip, interaction) as MessageEmbed
+				(pageMenu.components[0] as MessageSelectMenu).options.forEach(o => o.default = option === o.value)
 				await menuInteraction.update({ embeds: [pageEmbed], components: [pageMenu] })
 			})
 
@@ -121,7 +123,7 @@ const command: Command = {
 
 			if (command.dev && !member?.roles.cache.has(ids.roles.staff)) cmdDesc = getString("inDev")
 
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 				.setColor("BLURPLE")
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("commandInfoFor") + `\`/${command.name}\``)
@@ -139,21 +141,21 @@ const command: Command = {
 	}
 }
 
-function fetchPage(page: number, pages: Page[], getString: GetStringFunction, randomTip: string, interaction: Discord.CommandInteraction) {
+function fetchPage(page: number, pages: Page[], getString: GetStringFunction, randomTip: string, interaction: CommandInteraction) {
 	if (page > pages.length - 1) page = pages.length - 1
 	if (page < 0) page = 0
-	let pageEmbed: Discord.MessageEmbed
+	let pageEmbed: MessageEmbed
 
 	if (pages[page]) {
 		if (pages[page].embed) pageEmbed = pages[page].embed!
 		else if (pages[page].commands) {
-			pageEmbed = new Discord.MessageEmbed()
+			pageEmbed = new MessageEmbed()
 				.setColor("BLURPLE")
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${pages[page].badge} ${getString(pages[page].titleString!)}`)
 				.setFooter(
 					getString("pagination.page", { number: page + 1, total: pages.length }, "global"),
-					((interaction.member as Discord.GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
+					((interaction.member as GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 				)
 			pages[page].commands!.forEach(command => pageEmbed!.addField(`\`/${command}\``, getString(`${command}.description`)))
 		} else return console.error(`Help page ${page} has no embed fields specified!`)
@@ -167,7 +169,7 @@ interface Page {
 	commands?: string[]
 	badge: string
 	titleString: string
-	embed?: Discord.MessageEmbed
+	embed?: MessageEmbed
 }
 
 export default command

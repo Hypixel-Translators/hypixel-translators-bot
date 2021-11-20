@@ -1,36 +1,38 @@
 //This file contains a bunch of functions used across the bot on multuple commands.
-import { ids } from "../config.json"
-import Discord from "discord.js"
 import axios from "axios"
-import { client, GetStringFunction } from "../index"
-import { db } from "./dbclient"
-import puppeteer from "puppeteer"
+import { CommandInteraction, GuildMember, HexColorString, MessageActionRow, MessageButton, MessageEmbed, Snowflake, User } from "discord.js"
+import { Browser, launch } from "puppeteer"
 import { v4 } from "uuid"
+import { db } from "./dbclient"
+import { client } from "../index"
+import { ids } from "../config.json"
+
+import type { GetStringFunction } from "./imports"
 
 // source: https://github.com/Mee6/Mee6-documentation/blob/master/docs/levels_xp.md
 export const getXpNeeded = (lvl = NaN, xp = 0) => 5 * (lvl ** 2) + (50 * lvl) + 100 - xp
 
-export function updateButtonColors(row: Discord.MessageActionRow, page: number, pages: any[]) {
+export function updateButtonColors(row: MessageActionRow, page: number, pages: any[]) {
 	if (page == 0) {
 		row.components.forEach(button => {
-			if (button.customId === "first" || button.customId === "previous") (button as Discord.MessageButton)
+			if (button.customId === "first" || button.customId === "previous") (button as MessageButton)
 				.setStyle("SECONDARY")
 				.setDisabled(true)
-			else (button as Discord.MessageButton)
+			else (button as MessageButton)
 				.setStyle("SUCCESS")
 				.setDisabled(false)
 		})
 	} else if (page == pages.length - 1) {
 		row.components.forEach(button => {
-			if (button.customId === "last" || button.customId === "next") (button as Discord.MessageButton)
+			if (button.customId === "last" || button.customId === "next") (button as MessageButton)
 				.setStyle("SECONDARY")
 				.setDisabled(true)
-			else (button as Discord.MessageButton)
+			else (button as MessageButton)
 				.setStyle("SUCCESS")
 				.setDisabled(false)
 		})
 	} else {
-		row.components.forEach(button => (button as Discord.MessageButton)
+		row.components.forEach(button => (button as MessageButton)
 			.setStyle("SUCCESS")
 			.setDisabled(false)
 		)
@@ -68,8 +70,8 @@ interface MinecraftProfile {
 	}[]
 }
 
-export async function updateRoles(member: Discord.GuildMember, json?: GraphQLQuery["data"]["players"]["player"]) {
-	const roles: Discord.Snowflake[] = [
+export async function updateRoles(member: GuildMember, json?: GraphQLQuery["data"]["players"]["player"]) {
+	const roles: Snowflake[] = [
 		ids.roles.unranked,
 		ids.roles.vip,
 		ids.roles.vipPlus,
@@ -231,7 +233,7 @@ export interface LanguageStatus {
 export interface LangDbEntry {
 	name: string,
 	emoji: string,
-	color?: Discord.HexColorString,
+	color?: HexColorString,
 	code: string,
 	id: string
 	flag: string
@@ -248,18 +250,18 @@ export interface CrowdinProject {
 
 export interface EventDb {
 	name: "event"
-	ids: Discord.Snowflake[]
+	ids: Snowflake[]
 }
 
 export interface Quote {
-	author: Discord.Snowflake[]
+	author: Snowflake[]
 	id: number
 	quote: string
 	url?: string
 	imageURL?: string
 }
 
-export async function restart(interaction?: Discord.CommandInteraction) {
+export async function restart(interaction?: CommandInteraction) {
 	await axios.delete("https://api.heroku.com/apps/hypixel-translators/dynos", {
 		headers: {
 			"User-Agent": `${interaction?.user.tag ?? client.user.tag}`,
@@ -269,7 +271,7 @@ export async function restart(interaction?: Discord.CommandInteraction) {
 	})
 }
 
-export async function getActivePunishments(user: Discord.User) {
+export async function getActivePunishments(user: User) {
 	const punishExpireTimestamp = new Date().setDate(new Date().getDate() - 30), //Timestamp 30 days ago in ms
 		warnExpireTimestamp = new Date().setDate(new Date().getDate() - 7), //Timestamp 7 days ago in ms
 		verbalExpireTimestamp = new Date().setDate(new Date().getDate() - 1) //Timestamp 7 days ago in ms
@@ -282,7 +284,7 @@ export async function getActivePunishments(user: Discord.User) {
 	})
 }
 
-export function updateModlogFields(embed: Discord.MessageEmbed, modlog: PunishmentLog, modlogs?: PunishmentLog[]) {
+export function updateModlogFields(embed: MessageEmbed, modlog: PunishmentLog, modlogs?: PunishmentLog[]) {
 	embed.setAuthor({ name: "Log message", url: `https://discord.com/channels/549503328472530974/800820574405656587/${modlog.logMsg}` })
 	const expireTimestamp =
 		modlog.type === "VERBAL"
@@ -390,7 +392,7 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 
 export interface PunishmentLog {
 	case: number
-	id: Discord.Snowflake
+	id: Snowflake
 	type: "VERBAL" | "WARN" | "MUTE" | "BAN" | "UNMUTE" | "UNBAN"
 	points?: PunishmentPoints
 	reason: string
@@ -399,9 +401,9 @@ export interface PunishmentLog {
 	endTimestamp?: number
 	ended?: boolean,
 	revoked?: true
-	revokedBy?: Discord.Snowflake
-	moderator: Discord.Snowflake,
-	logMsg: Discord.Snowflake
+	revokedBy?: Snowflake
+	moderator: Snowflake,
+	logMsg: Snowflake
 }
 
 export type PunishmentPoints = 1 | 2 | 3 | 4 | 5 | 6
@@ -409,13 +411,13 @@ export type PunishmentPoints = 1 | 2 | 3 | 4 | 5 | 6
 export interface Stats {
 	type: "COMMAND" | "MESSAGE" | "STRINGS" | "VERIFY"
 	name: string
-	user?: Discord.Snowflake
+	user?: Snowflake
 	value?: number
 	error?: boolean
 	errorMessage?: string
 }
 
-let browser: puppeteer.Browser | null = null,
+let browser: Browser | null = null,
 	interval: NodeJS.Timeout | null = null,
 	lastRequest = 0,
 	browserClosing = false,
@@ -449,7 +451,7 @@ export async function getBrowser() {
 	})
 	if (!browser) {
 		browserOpening = true
-		browser = await puppeteer.launch({
+		browser = await launch({
 			args: ["--no-sandbox"],
 			headless: process.env.NODE_ENV === "production" || process.platform === "linux"
 		})

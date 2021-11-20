@@ -1,10 +1,11 @@
+import { Collection, Message, Snowflake } from "discord.js"
 import { db, DbUser } from "./dbclient"
-import Discord from "discord.js"
-import { client } from "../index"
 import { getXpNeeded, Stats } from "./util"
-const talkedRecently: Discord.Collection<Discord.Snowflake, number> = new Discord.Collection()
+import { client } from "../index"
 
-export async function leveling(message: Discord.Message) {
+const talkedRecently: Collection<Snowflake, number> = new Collection()
+
+export async function leveling(message: Message) {
 	const collection = db.collection<DbUser>("users"),
 		now = Date.now(),
 		lastMsg = talkedRecently.get(message.author.id)

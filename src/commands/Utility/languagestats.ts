@@ -1,9 +1,11 @@
-import { db } from "../../lib/dbclient"
-import Discord from "discord.js"
 import axios from "axios"
+import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
+import { client } from "../../index"
 import { successColor, loadingColor, errorColor, ids } from "../../config.json"
-import { Command, client, GetStringFunction } from "../../index"
+import { db } from "../../lib/dbclient"
 import { crowdinFetchSettings, generateTip, LangDbEntry, LanguageStatus } from "../../lib/util"
+
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "languagestats",
@@ -19,7 +21,7 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
-			member = interaction.member as Discord.GuildMember,
+			member = interaction.member as GuildMember,
 			authorDb = await client.getUser(interaction.user.id)
 		let rawLang = interaction.options.getString("language", false)?.toLowerCase()
 		if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !rawLang) rawLang = authorDb.lang
@@ -52,13 +54,13 @@ const command: Command = {
 		const botJson: LanguageStatus[] = await axios.get("https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500", crowdinFetchSettings).then(async res => res.data.data)
 		botData = botJson.find(language => language.data.languageId === lang.id)?.data ?? null
 
-		let adapColour: Discord.HexColorString
+		let adapColour: HexColorString
 		const approvalProgress = Math.max(hypixelData?.approvalProgress ?? 0, quickplayData?.approvalProgress ?? 0, sbaData?.approvalProgress ?? 0, botData?.approvalProgress ?? 0)
-		if (approvalProgress >= 90) adapColour = successColor as Discord.HexColorString
-		else if (approvalProgress >= 50) adapColour = loadingColor as Discord.HexColorString
-		else adapColour = errorColor as Discord.HexColorString
+		if (approvalProgress >= 90) adapColour = successColor as HexColorString
+		else if (approvalProgress >= 50) adapColour = loadingColor as HexColorString
+		else adapColour = errorColor as HexColorString
 
-		const embed = new Discord.MessageEmbed()
+		const embed = new MessageEmbed()
 			.setColor(adapColour)
 			.setThumbnail(lang.flag)
 			.setAuthor(getString("moduleName"))

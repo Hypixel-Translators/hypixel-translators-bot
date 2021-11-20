@@ -1,15 +1,16 @@
-import fs from "node:fs"
-import path from "node:path"
+import { readdirSync, statSync } from "node:fs"
+import { resolve } from "node:path"
+import { ChatInputApplicationCommandData, Snowflake, CommandInteraction } from "discord.js"
+
 import type { HTBClient } from "./dbclient"
-import type { Command } from "../index"
 
 function findCommands(dir: string, pattern: string) {
 
 	let results: string[] = []
-	fs.readdirSync(dir).forEach(innerPath => {
+	readdirSync(dir).forEach(innerPath => {
 
-		innerPath = path.resolve(dir, innerPath)
-		const stat = fs.statSync(innerPath)
+		innerPath = resolve(dir, innerPath)
+		const stat = statSync(innerPath)
 
 		if (stat.isDirectory()) results = results.concat(findCommands(innerPath, pattern))
 		else if (stat.isFile() && innerPath.endsWith(pattern)) results.push(innerPath)
@@ -34,11 +35,25 @@ export function setup(client: HTBClient) {
 	}
 
 	//Setup listeners
-	fs.readdir("./dist/listeners", (err, files) => {
-		if (err) console.error(err)
-		const listeners = files.filter(f => f.endsWith(".js"))
-		if (listeners.length <= 0) return console.log("There are no events to load...")
-		listeners.forEach(file => require(`../listeners/${file}`))
-		console.log(`Loaded ${listeners.length} events.`)
-	})
+	const listeners = readdirSync("./dist/listeners").filter(f => f.endsWith(".js"))
+	if (listeners.length <= 0) return console.log("There are no events to load...")
+	listeners.forEach(file => require(`../listeners/${file}`))
+	console.log(`Loaded ${listeners.length} events.`)
 }
+
+//Command interface
+export interface Command extends ChatInputApplicationCommandData {
+	cooldown?: number
+	allowDM?: true
+	dev?: true
+	roleWhitelist?: Snowflake[]
+	roleBlacklist?: Snowflake[]
+	channelBlacklist?: Snowflake[]
+	channelWhitelist?: Snowflake[]
+	categoryWhitelist?: Snowflake[]
+	categoryBlacklist?: Snowflake[]
+	category?: string
+	execute(interaction: CommandInteraction, getString?: GetStringFunction): Promise<any>
+}
+
+export type GetStringFunction = (path: string, variables?: { [key: string]: string | number } | string, file?: string, lang?: string) => any

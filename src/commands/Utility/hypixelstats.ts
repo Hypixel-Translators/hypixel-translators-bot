@@ -1,9 +1,11 @@
-import Discord from "discord.js"
 import axios from "axios"
+import { GuildMember, HexColorString, Message, MessageEmbed, MessageSelectMenu } from "discord.js"
+import { client } from "../../index"
 import { ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
-import { Command, client, GetStringFunction } from "../../index"
 import { fetchSettings, generateTip, getMCProfile, getUUID, gql, GraphQLQuery, updateRoles } from "../../lib/util"
+
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 //Credits to marzeq for initial implementation
 const command: Command = {
@@ -27,7 +29,7 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
-			member = interaction.member as Discord.GuildMember | null ?? interaction.user,
+			member = interaction.member as GuildMember | null ?? interaction.user,
 			authorDb: DbUser = await client.getUser(interaction.user.id),
 			userInput = interaction.options.getUser("user", false),
 			usernameInput = interaction.options.getString("username", false)
@@ -72,7 +74,7 @@ const command: Command = {
 
 		//Define values used in both subcommands
 		let rank: string, // some ranks are just prefixes so this code accounts for that
-			color: Discord.HexColorString
+			color: HexColorString
 		if (playerJson.prefix) {
 			color = parseColorCode(playerJson.prefix)
 			rank = playerJson.prefix.replace(/&([0-9]|[a-z])/g, "")
@@ -115,7 +117,7 @@ const command: Command = {
 			if (playerJson.first_login) firstLogin = `<t:${Math.round(new Date(playerJson.first_login).getTime() / 1000)}:F>`
 			else firstLogin = getString("firstLoginHidden")
 
-			const statsEmbed = new Discord.MessageEmbed()
+			const statsEmbed = new MessageEmbed()
 				.setColor(color)
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${rank} ${username}`)
@@ -189,7 +191,7 @@ const command: Command = {
 				if (!socialMedia.HYPIXEL.startsWith("https://")) forums = `[${getString("link")}](https://${socialMedia.HYPIXEL})`
 				else forums = `[${getString("link")}](${socialMedia.HYPIXEL})`
 			} else forums = getString("notConnected")
-			const socialEmbed = new Discord.MessageEmbed()
+			const socialEmbed = new MessageEmbed()
 				.setColor(color)
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${rank} ${username}`)
@@ -215,7 +217,7 @@ const command: Command = {
 
 			const color = parseColorCode(guildJson.tag_color)
 
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 				.setColor(color === "#AAAAAA" ? "BLURPLE" : color)
 				.setAuthor(getString("moduleName"))
 				.setTitle(`${guildJson.name}${guildJson.tag ? ` [${guildJson.tag.replace(/&[a-f0-9k-or]/gi, "")}]` : ""}`)
@@ -251,7 +253,7 @@ const command: Command = {
 
 		let embed = stats()
 
-		const optionsSelect = new Discord.MessageSelectMenu()
+		const optionsSelect = new MessageSelectMenu()
 			.addOptions(
 				{
 					label: getString("stats"),
@@ -276,7 +278,7 @@ const command: Command = {
 			}
 		)
 		await interaction.editReply({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })
-		const msg = await interaction.fetchReply() as Discord.Message,
+		const msg = await interaction.fetchReply() as Message,
 			collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
 
 		collector.on("collect", async menuInteraction => {
@@ -301,10 +303,10 @@ const command: Command = {
 	}
 }
 
-function parseColorCode(color: string): Discord.HexColorString {
+function parseColorCode(color: string): HexColorString {
 	const colorCode: string = color.substring(1, 2).toLowerCase(),
 		colorsJson: {
-			[key: string]: Discord.HexColorString
+			[key: string]: HexColorString
 		} = {
 			"0": "#000000",
 			"1": "#0000AA",

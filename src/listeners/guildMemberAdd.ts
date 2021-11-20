@@ -1,8 +1,9 @@
-import { ids } from "../config.json"
-import { client } from "../index"
-import { db, DbUser, cancelledEvents } from "../lib/dbclient"
-import Discord from "discord.js"
 import { registerFont, createCanvas, loadImage } from "canvas"
+import { GuildMember, MessageAttachment, TextChannel } from "discord.js"
+import { client } from "../index"
+import { ids } from "../config.json"
+import { db, DbUser, cancelledEvents } from "../lib/dbclient"
+
 import type { PunishmentLog } from "../lib/util"
 
 // A regular member only actually joins once they accept the membership screening, therefore we need to use this event instead
@@ -15,7 +16,7 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 	if (newMember.guild.id !== ids.guilds.main) return
 
 	if (Boolean(oldMember.pending) !== Boolean(newMember.pending) && !newMember.pending) {
-		await (newMember.guild.channels.cache.get(ids.channels.joinLeave) as Discord.TextChannel).send({ content: `${newMember} just joined. Welcome! 🎉`, files: [await generateWelcomeImage(newMember)] })
+		await (newMember.guild.channels.cache.get(ids.channels.joinLeave) as TextChannel).send({ content: `${newMember} just joined. Welcome! 🎉`, files: [await generateWelcomeImage(newMember)] })
 
 		if (!newMember.user.bot) {
 			newMember.send(`Hey there and thanks for joining the **${newMember.guild.name}**! In order to get access to the rest of the server, please verify yourself in <#${ids.channels.verify}>.`)
@@ -42,12 +43,12 @@ client.on("guildMemberAdd", async member => {
 	if (member.guild.id !== ids.guilds.main) return
 
 	if (member.user.bot) {
-		await (member.guild.channels.cache.get(ids.channels.joinLeave) as Discord.TextChannel).send({ content: `${member} just joined. Welcome! 🎉`, files: [await generateWelcomeImage(member)] })
+		await (member.guild.channels.cache.get(ids.channels.joinLeave) as TextChannel).send({ content: `${member} just joined. Welcome! 🎉`, files: [await generateWelcomeImage(member)] })
 		await member.roles.add(ids.roles.bot)
 	}
 })
 
-export async function generateWelcomeImage(member: Discord.GuildMember) {
+export async function generateWelcomeImage(member: GuildMember) {
 	//Define assets and create canvas
 	registerFont("assets/Bitter-Regular.ttf", { family: "Bitter" })
 	registerFont("assets/Bitter-Bold.ttf", { family: "Bitter-Bold" })
@@ -105,5 +106,5 @@ export async function generateWelcomeImage(member: Discord.GuildMember) {
 	ctx.restore()
 
 	//OUTPUT
-	return new Discord.MessageAttachment(canvas.toBuffer(), `${userName.replaceAll('"', "")} join.png`) //Discord doesn't like quotation marks in filenames
+	return new MessageAttachment(canvas.toBuffer(), `${userName.replaceAll('"', "")} join.png`) //Discord doesn't like quotation marks in filenames
 }

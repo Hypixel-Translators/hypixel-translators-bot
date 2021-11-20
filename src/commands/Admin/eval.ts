@@ -1,18 +1,19 @@
-const { loadingColor, errorColor, successColor, neutralColor, listeningStatuses, watchingStatuses, playingStatuses, ids } = require("../../config.json")
+const fs = require("node:fs")
 const axios = require("axios")
 const { flag, code, name, countries } = require("country-emoji")
-const fs = require("node:fs")
 const country = require("countryjs")
-const { updateButtonColors, getUUID, updateRoles, getXpNeeded } = require("../../lib/util")
+const { loadingColor, errorColor, successColor, neutralColor, listeningStatuses, watchingStatuses, playingStatuses, ids } = require("../../config.json")
 const { crowdinVerify } = require("../../lib/crowdinverify")
 const { leveling } = require("../../lib/leveling")
+const { updateButtonColors, getUUID, updateRoles, getXpNeeded } = require("../../lib/util")
 const { generateWelcomeImage } = require("../../listeners/guildMemberAdd")
-import { db as mongoDb } from "../../lib/dbclient"
-import { transpile, getParsedCommandLineOfConfigFile, sys } from "typescript"
-import discord from "discord.js"
 import { inspect } from "node:util"
-import { Command, client as Client, GetStringFunction } from "../../index"
+import discord from "discord.js"
+import { transpile, getParsedCommandLineOfConfigFile, sys } from "typescript"
+import { db as mongoDb } from "../../lib/dbclient"
 import { generateTip as randomTip } from "../../lib/util"
+
+import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "eval",
@@ -31,7 +32,7 @@ const command: Command = {
 			channel = interaction.channel as discord.TextChannel,
 			db = mongoDb,
 			Discord = discord,
-			client = Client,
+			client = interaction.client,
 			generateTip = randomTip
 
 		await interaction.deferReply({ ephemeral: interaction.channelId !== ids.channels.botDev })

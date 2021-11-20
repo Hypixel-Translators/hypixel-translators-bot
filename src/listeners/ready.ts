@@ -1,12 +1,22 @@
-import { client, Command } from "../index"
+import { CronJob } from "cron"
+import {
+	ApplicationCommand,
+	ApplicationCommandPermissionData,
+	ChatInputApplicationCommandData,
+	GuildApplicationCommandPermissionData,
+	HexColorString,
+	MessageEmbed,
+	TextChannel
+} from "discord.js"
+import { client } from "../index"
+import { listeningStatuses, watchingStatuses, playingStatuses, successColor, ids } from "../config.json"
 import stats from "../events/stats"
 import inactives from "../events/inactives"
 import crowdin from "../events/crowdinverify"
-import { listeningStatuses, watchingStatuses, playingStatuses, successColor, ids } from "../config.json"
-import Discord from "discord.js"
-import { CronJob } from "cron"
 import { db } from "../lib/dbclient"
 import { PunishmentLog, restart } from "../lib/util"
+
+import type { Command } from "../lib/imports"
 
 client.on("ready", async () => {
 	//Sometimes the client is ready before connecting to the db, therefore we need to stop the listener if this is the case to prevent errors
@@ -94,7 +104,7 @@ client.on("ready", async () => {
 	//Check for active punishments and start a timeout to conclude them
 	const punishmentsColl = db.collection<PunishmentLog>("punishments"),
 		punishments = await punishmentsColl.find({ ended: false }).toArray(),
-		punishmentsChannel = guild.channels.cache.get(ids.channels.punishments) as Discord.TextChannel
+		punishmentsChannel = guild.channels.cache.get(ids.channels.punishments) as TextChannel
 	for (const punishment of punishments) {
 		if (!punishment.endTimestamp) continue
 		const msLeft = punishment.endTimestamp! - Date.now()
@@ -107,8 +117,8 @@ client.on("ready", async () => {
 			if (punishment.type === "MUTE") {
 				const member = guild.members.cache.get(punishment.id!),
 					user = await client.users.fetch(punishment.id)
-				const punishmentLog = new Discord.MessageEmbed()
-					.setColor(successColor as Discord.HexColorString)
+				const punishmentLog = new MessageEmbed()
+					.setColor(successColor as HexColorString)
 					.setAuthor({
 						name: `Case ${caseNumber} | Unmute | ${user.tag}`,
 						iconURL: (member ?? user).displayAvatarURL({ format: "png", dynamic: true })
@@ -132,8 +142,8 @@ client.on("ready", async () => {
 				} as PunishmentLog)
 				if (!member) return console.log(`Couldn't find member with id ${punishment.id} in order to unmute them`)
 				else await member.roles.remove(ids.roles.muted, "Punishment ended")
-				const dmEmbed = new Discord.MessageEmbed()
-					.setColor(successColor as Discord.HexColorString)
+				const dmEmbed = new MessageEmbed()
+					.setColor(successColor as HexColorString)
 					.setAuthor("Punishment")
 					.setTitle(`Your mute on the ${guild.name} has expired.`)
 					.setDescription("You will now be able to talk in chats again. If something's wrong, please respond in this DM.")
@@ -144,8 +154,8 @@ client.on("ready", async () => {
 				const user = await guild.bans.remove(punishment.id!, "Punishment ended")
 					.catch(err => console.error(`Couldn't unban user with id ${punishment.id}. Here's the error:\n`, err)),
 					userFetched = await client.users.fetch(punishment.id),
-					punishmentLog = new Discord.MessageEmbed()
-						.setColor(successColor as Discord.HexColorString)
+					punishmentLog = new MessageEmbed()
+						.setColor(successColor as HexColorString)
 						.setAuthor({
 							name: `Case ${caseNumber} | Unban | ${userFetched.tag}`,
 							iconURL: userFetched.displayAvatarURL({ format: "png", dynamic: true })
@@ -159,8 +169,8 @@ client.on("ready", async () => {
 						.setTimestamp()
 				if (!user) punishmentLog.setDescription("Couldn't unban user from the server.")
 				else {
-					const dmEmbed = new Discord.MessageEmbed()
-						.setColor(successColor as Discord.HexColorString)
+					const dmEmbed = new MessageEmbed()
+						.setColor(successColor as HexColorString)
 						.setAuthor("Punishment")
 						.setTitle(`Your ban on the ${guild.name} has expired.`)
 						.setDescription("You are welcome to join back using the invite in this message.")
@@ -185,14 +195,14 @@ client.on("ready", async () => {
 	// restart the bot every 2 days
 	setInterval(async () => {
 		console.log("Bot has been running for 2 days, restarting...");
-		(client.channels.cache.get(ids.channels.botDev) as Discord.TextChannel).send("I have been running for 2 days straight, gonna restart...")
+		(client.channels.cache.get(ids.channels.botDev) as TextChannel).send("I have been running for 2 days straight, gonna restart...")
 		await restart()
 	}, 172_800_000)
 })
 
 
-function getPermissions(commands: Discord.ApplicationCommand[]) {
-	const permissions: Discord.GuildApplicationCommandPermissionData[] = []
+function getPermissions(commands: ApplicationCommand[]) {
+	const permissions: GuildApplicationCommandPermissionData[] = []
 	for (const command of commands) {
 		const clientCmd = client.commands.get(command.name)!
 
@@ -206,7 +216,7 @@ function getPermissions(commands: Discord.ApplicationCommand[]) {
 				}]
 			})
 		else {
-			const commandPerms: Discord.ApplicationCommandPermissionData[] = []
+			const commandPerms: ApplicationCommandPermissionData[] = []
 			//Add whitelisted roles
 			clientCmd.roleWhitelist?.forEach(id => {
 				commandPerms.push({
@@ -239,7 +249,7 @@ function constructGuildCommands() {
 		.map(convertToDiscordCommand)
 }
 
-function convertToDiscordCommand(command: Command): Discord.ChatInputApplicationCommandData {
+function convertToDiscordCommand(command: Command): ChatInputApplicationCommandData {
 	return {
 		name: command.name,
 		description: command.description,

@@ -1,6 +1,6 @@
 import { ids } from "../../config.json"
-import Discord from "discord.js"
-import type { Command } from "../../index"
+
+import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "giveaway",
@@ -8,7 +8,7 @@ const command: Command = {
 	options: [{
 		type: "STRING",
 		name: "messageid",
-		description: "The ID of the message to fetch winners from",
+		description: "The ID of the message on this channel to fetch winners from",
 		required: true
 	},
 	{
@@ -19,14 +19,15 @@ const command: Command = {
 	}],
 	roleWhitelist: [ids.roles.admin],
 	async execute(interaction) {
-		const giveawayMsg = await (interaction.channel as Discord.TextChannel).messages.fetch(interaction.options.getString("messageid", true))
+		const giveawayMsg = await interaction.channel!.messages.fetch(interaction.options.getString("messageid", true))
 			.catch(async err => {
-				return await interaction.reply({ content: "Couldn't find that message! Here's the error:\n" + err, ephemeral: true })
-			}) as Discord.Message
+				return void (await interaction.reply({ content: `Couldn't find that message! Here's the error:\n${err}`, ephemeral: true }))
+			})
+		if (!giveawayMsg) return
 		const users = await giveawayMsg.reactions.cache.get("🎉")?.users.fetch()
 		if (!users) return await interaction.reply({ content: "That message doesn't have any 🎉 reactions.", ephemeral: true })
-		const winners: (Discord.User | undefined)[] = users.random(interaction.options.getInteger("winners", false) || 1)
-		await interaction.reply(`Congratulations to ${winners.filter(user => user).join(", ")}`)
+		const winners = users.random(interaction.options.getInteger("winners", false) || 1)
+		await interaction.reply(`Congratulations to ${winners.filter(Boolean).join(", ")}!`)
 	}
 }
 

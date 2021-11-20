@@ -1,13 +1,24 @@
-import { ids } from "../config.json"
+import { readdirSync } from "node:fs"
+import {
+	BufferResolvable,
+	GuildChannel,
+	HexColorString,
+	Message,
+	MessageActionRow,
+	MessageButton,
+	MessageComponentInteraction,
+	MessageEmbed,
+	TextChannel,
+	Util
+} from "discord.js"
 import { client } from "../index"
-import Discord from "discord.js"
-import fs from "node:fs"
-import type { Stream } from "node:stream"
+import { errorColor, successColor, neutralColor, ids } from "../config.json"
 import { crowdinVerify } from "../lib/crowdinverify"
-import { leveling } from "../lib/leveling"
-import { errorColor, successColor, neutralColor } from "../config.json"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
+import { leveling } from "../lib/leveling"
 import { arrayEqual, Stats } from "../lib/util"
+
+import type { Stream } from "node:stream"
 
 client.on("messageCreate", async message => {
 	if (!db) {
@@ -16,7 +27,7 @@ client.on("messageCreate", async message => {
 	}
 
 	//Delete pinned message and thread created messages
-	if (message.type === "THREAD_CREATED" && (message.channel as Discord.TextChannel).name.endsWith("-review-strings")) {
+	if (message.type === "THREAD_CREATED" && (message.channel as TextChannel).name.endsWith("-review-strings")) {
 		await message.delete()
 		return
 	}
@@ -24,10 +35,10 @@ client.on("messageCreate", async message => {
 	//Delete messages that contain empty spoilers (Discord bug)
 	if (message.content.includes("||||")) {
 		await message.delete()
-		const staffGeneral = client.channels.cache.get(ids.channels.staffGeneral) as Discord.TextChannel
+		const staffGeneral = client.channels.cache.get(ids.channels.staffGeneral) as TextChannel
 		await staffGeneral.send({
 			content: `${message.author}'s message in ${message.channel} was deleted because it contained an empty spoiler. Here's what it said:`,
-			embeds: [{ description: Discord.Util.escapeMarkdown(message.content) }]
+			embeds: [{ description: Util.escapeMarkdown(message.content) }]
 		})
 		return
 	}
@@ -44,10 +55,10 @@ client.on("messageCreate", async message => {
 		ids.channels.staffAnnouncements
 	],
 		noXpRoles = [ids.roles.bot, ids.roles.muted]
-	client.channels.cache.filter(c => (c as Discord.TextChannel).name?.endsWith("review-strings")).forEach(c => noXpChannels.push(c.id))
+	client.channels.cache.filter(c => (c as TextChannel).name?.endsWith("review-strings")).forEach(c => noXpChannels.push(c.id))
 	if (
 		message.guild?.id === ids.guilds.main &&
-		!noXpChannels.includes((message.channel as Discord.GuildChannel).parentId!) &&
+		!noXpChannels.includes((message.channel as GuildChannel).parentId!) &&
 		!noXpChannels.includes(message.channel.id!) &&
 		!message.member?.roles.cache.some(r => noXpRoles.includes(r.id))
 	)
@@ -67,7 +78,7 @@ client.on("messageCreate", async message => {
 
 	// Delete non-stringURL messages in review-strings
 	const stringURLRegex = /(https:\/\/)?crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
-	if (message.channel instanceof Discord.TextChannel && message.channel.name.endsWith("-review-strings")) {
+	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings")) {
 		if (!/(https:\/\/)?crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) await message.delete()
 		else {
 			await message.react("vote_yes:839262196797669427")
@@ -95,8 +106,8 @@ client.on("messageCreate", async message => {
 			const langFix = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
 			if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
 				await message.react("vote_no:839262184882044931")
-				const embed = new Discord.MessageEmbed()
-					.setColor(errorColor as Discord.HexColorString)
+				const embed = new MessageEmbed()
+					.setColor(errorColor as HexColorString)
 					.setAuthor(getGlobalString("errors.wrongLink"))
 					.setTitle(getGlobalString("wrongStringURL"))
 					.setDescription(getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }))
@@ -115,8 +126,8 @@ client.on("messageCreate", async message => {
 				await message.react("vote_no:839262184882044931")
 				await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "badLink", user: message.author.id })
 				const correctLink = langFix.match(stringURLRegex)![0],
-					embed = new Discord.MessageEmbed()
-						.setColor(errorColor as Discord.HexColorString)
+					embed = new MessageEmbed()
+						.setColor(errorColor as HexColorString)
 						.setAuthor(getGlobalString("errors.wrongLink"))
 						.setTitle(getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }))
 						.setDescription(`**${getGlobalString("correctLink")}**\n${correctLink.startsWith("https://") ? correctLink : `https://${correctLink}`}`)
@@ -133,32 +144,32 @@ client.on("messageCreate", async message => {
 		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
 		if (!message.deleted) await message.delete()
 		const fiMessages = (await message.channel.messages.fetch()).filter(msgs => msgs.author.id === message.author.id)
-		await (message.channel as Discord.TextChannel).bulkDelete(fiMessages)
+		await (message.channel as TextChannel).bulkDelete(fiMessages)
 	}
 
 	//Staff messaging system
-	const member = await message.client.guilds.cache.get(ids.guilds.main)!.members.cache.get(message.author.id)
+	const member = message.client.guilds.cache.get(ids.guilds.main)!.members.cache.get(message.author.id)
 	if (message.author !== client.user && message.channel.type === "DM" && !member!.roles.cache.has(ids.roles.muted)) {
 		if (!message.content && message.stickers.size >= 0 && message.attachments.size === 0) return //we don't need stickers being sent to us
-		const staffBots = client.channels.cache.get(ids.channels.staffBots) as Discord.TextChannel,
+		const staffBots = client.channels.cache.get(ids.channels.staffBots) as TextChannel,
 			hourCooldown = 48, // Hours to wait before asking for confirmation
 			confirmTime = 60, // 1 min
-			controlButtons = new Discord.MessageActionRow()
+			controlButtons = new MessageActionRow()
 				.addComponents(
-					new Discord.MessageButton()
+					new MessageButton()
 						.setStyle("SUCCESS")
 						.setCustomId("confirm")
 						.setEmoji("✅")
 						.setLabel(getGlobalString("pagination.confirm")),
-					new Discord.MessageButton()
+					new MessageButton()
 						.setStyle("DANGER")
 						.setCustomId("cancel")
 						.setEmoji("❎")
 						.setLabel(getGlobalString("pagination.cancel"))
 				)
 		if (!author.staffMsgTimestamp || author.staffMsgTimestamp + hourCooldown * 60 * 60 * 1000 < message.createdTimestamp) {
-			const embed = new Discord.MessageEmbed()
-				.setColor(neutralColor as Discord.HexColorString)
+			const embed = new MessageEmbed()
+				.setColor(neutralColor as HexColorString)
 				.setTitle(getGlobalString("staffDm.confirmation"))
 				.setDescription(message.content)
 				.setFooter(getGlobalString("staffDm.confirmSend"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
@@ -172,7 +183,7 @@ client.on("messageCreate", async message => {
 				controlButtons.components.forEach(button => button.setDisabled(true))
 				if (buttonInteraction.customId === "cancel") {
 					embed
-						.setColor(errorColor as Discord.HexColorString)
+						.setColor(errorColor as HexColorString)
 						.setTitle(getGlobalString("staffDm.dmCancelled"))
 						.setFooter(getGlobalString("staffDm.resendInfo"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
 					await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
@@ -182,8 +193,8 @@ client.on("messageCreate", async message => {
 			collector.on("end", async () => {
 				if (replied) return
 				controlButtons.components.forEach(button => button.setDisabled(true))
-				const timeOutEmbed = new Discord.MessageEmbed()
-					.setColor(errorColor as Discord.HexColorString)
+				const timeOutEmbed = new MessageEmbed()
+					.setColor(errorColor as HexColorString)
 					.setAuthor(getGlobalString("staffDm.dmCancelled"))
 					.setDescription(message.content)
 					.setFooter(getGlobalString("staffDm.resendInfo"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
@@ -191,20 +202,20 @@ client.on("messageCreate", async message => {
 			})
 		} else await staffDm(message)
 
-		async function staffDm(interactionOrMsg: Discord.MessageComponentInteraction | Discord.Message) {
-			const afterConfirm = interactionOrMsg instanceof Discord.MessageComponentInteraction
+		async function staffDm(interactionOrMsg: MessageComponentInteraction | Message) {
+			const afterConfirm = interactionOrMsg instanceof MessageComponentInteraction
 			await db.collection<DbUser>("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: afterConfirm ? Date.now() : message.createdTimestamp } })
-			const staffMsg = new Discord.MessageEmbed()
-				.setColor(neutralColor as Discord.HexColorString)
+			const staffMsg = new MessageEmbed()
+				.setColor(neutralColor as HexColorString)
 				.setAuthor(`Incoming message from ${message.author.tag}`)
 				.setDescription(message.content)
-			const dmEmbed = new Discord.MessageEmbed()
-				.setColor(successColor as Discord.HexColorString)
+			const dmEmbed = new MessageEmbed()
+				.setColor(successColor as HexColorString)
 				.setAuthor(getGlobalString("staffDm.messageSent"))
 				.setDescription(message.content)
 				.setFooter(getGlobalString("staffDm.noConfirmWarn"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
 			if (message.attachments.size > 1 || !(message.attachments.first()?.contentType?.startsWith("image") ?? true)) {
-				const images: (Discord.BufferResolvable | Stream)[] = []
+				const images: (BufferResolvable | Stream)[] = []
 				message.attachments.forEach(file => images.push(file.attachment))
 				staffMsg.setTitle("View attachments")
 				dmEmbed.setTitle(getGlobalString("staffDm.attachmentsSent"))
@@ -246,7 +257,7 @@ client.on("messageCreate", async message => {
 		lang = author.lang ?? "en"
 	): any {
 		if (typeof variables === "string") {
-			const languages = fs.readdirSync("./strings")
+			const languages = readdirSync("./strings")
 			lang = languages.includes(file) ? file : author.lang ?? "en"
 			file = variables
 		}

@@ -1,6 +1,7 @@
-import { ids } from "../config.json"
 import { client } from "../index"
+import { ids } from "../config.json"
 import { db, cancelledEvents } from "../lib/dbclient"
+
 import type { EventDb } from "../lib/util"
 
 client.on("messageReactionRemove", async (reaction, user) => {

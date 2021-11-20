@@ -1,7 +1,8 @@
+import { client } from "../index"
 import { ids } from "../config.json"
 import { db, DbUser } from "../lib/dbclient"
-import Discord from "discord.js"
-import { client } from "../index"
+
+import type { TextChannel } from "discord.js"
 
 export default async function check() {
 	const alert = new Date().getTime() - (7 * 24 * 60 * 60 * 1000)
@@ -13,7 +14,7 @@ export default async function check() {
 		.filter(m => !m.user.bot && !m.roles.cache.has(ids.roles.verified))
 		.forEach(async member => { //Get all members from the cache
 			await member.fetch() //fetch the member
-			const verifyLogs = client.channels.cache.get(ids.channels.verifyLogs) as Discord.TextChannel,
+			const verifyLogs = client.channels.cache.get(ids.channels.verifyLogs) as TextChannel,
 				userDb: DbUser = await client.getUser(member.id)
 			if (member.roles.cache.has(ids.roles.alerted)) {
 				if (Number(userDb.unverifiedTimestamp) <= verify || member.joinedTimestamp! <= verify) {
