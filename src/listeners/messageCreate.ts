@@ -168,9 +168,8 @@ client.on("messageCreate", async message => {
 			const msg = await message.channel.send({ embeds: [embed], components: [controlButtons] }),
 				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: confirmTime * 1000 })
 
-			let replied = false
 			collector.on("collect", async buttonInteraction => {
-				replied = true
+				collector.stop("responded")
 				controlButtons.components.forEach(button => button.setDisabled(true))
 				if (buttonInteraction.customId === "cancel") {
 					embed
@@ -181,8 +180,8 @@ client.on("messageCreate", async message => {
 				} else if (buttonInteraction.customId === "confirm") await staffDm(buttonInteraction)
 			})
 
-			collector.on("end", async () => {
-				if (replied) return
+			collector.on("end", async (_, reason) => {
+				if (reason === "responded") return
 				controlButtons.components.forEach(button => button.setDisabled(true))
 				const timeOutEmbed = new MessageEmbed()
 					.setColor(errorColor as HexColorString)
