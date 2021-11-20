@@ -55,7 +55,7 @@ const command: Command = {
 				let languageString: string
 				if (element === "empty") languageString = "Empty"
 				else languageString = getString(element)
-				langList.push(getString("listElement", { code: element, language: languageString || "Unknown" }))
+				langList.push(getString("listElement", { code: element, language: languageString ?? "Unknown" }))
 				if (index === array.length - 1) {
 					const embed = new MessageEmbed()
 						.setColor(neutralColor as HexColorString)

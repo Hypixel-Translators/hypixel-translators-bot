@@ -102,7 +102,7 @@ const command: Command = {
 									.addField(getString("previewT"), `\`[${prefix}] ${nickNoPrefix}\``)
 									.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 								await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
-								console.log(err.stack || err)
+								console.log(err.stack ?? err)
 							})
 					} else {
 						const embed = new MessageEmbed()
@@ -269,7 +269,7 @@ const command: Command = {
 										.addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
 										.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 									await buttonInteraction.update({ embeds: [embed], components: rows })
-									console.log(err.stack || err)
+									console.log(err.stack ?? err)
 								})
 						} else {
 							const embed = new MessageEmbed()
@@ -336,7 +336,7 @@ const command: Command = {
 									.addField(getString("previewT"), `\`[${prefixes}] ${nickNoPrefix}\``)
 									.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 								await interaction.editReply({ embeds: [embed], components: rows })
-								console.log(err.stack || err)
+								console.log(err.stack ?? err)
 							})
 					} else {
 						const embed = new MessageEmbed()

@@ -229,7 +229,7 @@ async function editQuote(interaction: CommandInteraction, collection: Collection
 					{ name: "Old quote", value: result.value.quote },
 					{ name: "New quote", value: newQuote },
 					{ name: "Author", value: author.join(" and ") },
-					{ name: "Link", value: result.value.url || "None" }
+					{ name: "Link", value: result.value.url ?? "None" }
 				)
 				.setFooter(generateTip(), ((interaction.member as GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 		if (result.value.imageURL) embed.setImage(result.value.imageURL)
@@ -259,7 +259,7 @@ async function deleteQuote(interaction: CommandInteraction, collection: Collecti
 			.addFields(
 				{ name: "Author", value: author.join(" and ") },
 				{ name: "Quote", value: result.value.quote },
-				{ name: "Link", value: result.value.url || "None" }
+				{ name: "Link", value: result.value.url ?? "None" }
 			)
 			.setFooter(generateTip(), ((interaction.member as GuildMember) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 		if (result.value.imageURL) embed.setImage(result.value.imageURL)
@@ -291,7 +291,7 @@ async function linkQuote(interaction: CommandInteraction, collection: Collection
 						.setAuthor("Quote")
 						.setTitle(`Successfully linked quote #${quoteId}`)
 						.addFields(
-							{ name: "Old URL", value: result.value.url || "None" },
+							{ name: "Old URL", value: result.value.url ?? "None" },
 							{ name: "New URL", value: msg.url },
 							{ name: "Quote", value: result.value.quote },
 							{ name: "Author", value: author.join(" and ") }

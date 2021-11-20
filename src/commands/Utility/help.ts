@@ -127,7 +127,7 @@ const command: Command = {
 				.setColor("BLURPLE")
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("commandInfoFor") + `\`/${command.name}\``)
-				.setDescription(cmdDesc || getString("staffOnly"))
+				.setDescription(cmdDesc ?? getString("staffOnly"))
 				.setFooter(randomTip, (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
 			if (cmdDesc !== getString("inDev")) {
 				if (command.cooldown) {

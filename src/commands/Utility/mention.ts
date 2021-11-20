@@ -83,14 +83,14 @@ const command: Command = {
 		if (!role) throw "falseRole"
 		if (roleType === "proofreader") {
 			const toPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Proofreader`)
-			if (member.roles.cache.find(role => role.name === `${roleName} Proofreader` || member.permissions.has("MANAGE_ROLES"))) {
+			if (member.roles.cache.find(role => role.name === `${roleName} Proofreader`) || member.permissions.has("MANAGE_ROLES")) {
 				await interaction.reply(`**${interaction.user}**: ${toPing} ${message}`)
 			} else {
 				await interaction.reply({ content: `${getString("errorNoPing")}${getString("errorNoPingPr")} ${getString("errorNoPingDisclaimer")}`, ephemeral: true })
 			}
 		} else if (roleType === "translator") {
 			const toPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Translator`)
-			if (member.roles.cache.find(role => role.name === `${roleName} Proofreader` || member.permissions.has("MANAGE_ROLES"))) {
+			if (member.roles.cache.find(role => role.name === `${roleName} Proofreader`) || member.permissions.has("MANAGE_ROLES")) {
 				await interaction.reply(`**${interaction.user}**: ${toPing} ${message}`)
 			} else {
 				await interaction.reply({ content: `${getString("errorNoPing")}${getString("errorNoPingTr")} ${getString("errorNoPingDisclaimer")}`, ephemeral: true })
@@ -98,7 +98,7 @@ const command: Command = {
 		} else if (roleType === "all") {
 			const translatorPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Translator`),
 				proofreaderPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Proofreader`)
-			if (member.roles.cache.find(role => role.name === `${roleName} Proofreader` || member.permissions.has("MANAGE_ROLES"))) {
+			if (member.roles.cache.find(role => role.name === `${roleName} Proofreader`) || member.permissions.has("MANAGE_ROLES")) {
 				await interaction.reply(`**${interaction.user}**: ${translatorPing} ${proofreaderPing} ${message}`)
 			} else {
 				await interaction.reply({ content: `${getString("errorNoPing")}${getString("errorNoPingAll")} ${getString("errorNoPingDisclaimer")}`, ephemeral: true })

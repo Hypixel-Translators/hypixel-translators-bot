@@ -97,7 +97,7 @@ client.on("interactionCreate", async interaction => {
 	if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Collection())
 	const now = Date.now(),
 		timestamps = client.cooldowns.get(command.name)!,
-		cooldownAmount = (command.cooldown || 3) * 1000
+		cooldownAmount = (command.cooldown ?? 0) * 1000
 	if (timestamps.has(interaction.user.id) && interaction.channelId !== ids.channels.botDev) {
 		const expirationTime = timestamps.get(interaction.user.id)! + cooldownAmount
 		if (now < expirationTime) {
@@ -202,7 +202,7 @@ client.on("interactionCreate", async interaction => {
 		//Store usage stats
 		await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: `${error}` })
 
-		if (!error.stack) error = getString(`errors.${error}`, "global") || error
+		if (!error.stack) error = getString(`errors.${error}`, "global") ?? error
 
 		// Send error to bot-dev channel
 		if (error.stack) {
@@ -229,7 +229,7 @@ client.on("interactionCreate", async interaction => {
 		const embed = new MessageEmbed()
 			.setColor(errorColor as HexColorString)
 			.setAuthor(getString("error", "global"))
-			.setTitle(error.message?.substring(0, 255) || error.toString().substring(0, 255))
+			.setTitle((error.message ?? error).substring(0, 255))
 			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 
 		//Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first

@@ -54,7 +54,7 @@ const command: Command = {
 							.setAuthor("User Profile")
 							.setTitle(`Successfully updated ${user.tag}'s Crowdin profile!`)
 							.addFields(
-								{ name: "Old profile", value: result.value!.profile || "None" },
+								{ name: "Old profile", value: result.value!.profile ?? "None" },
 								{ name: "New profile", value: profile }
 							)
 							.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))

@@ -59,7 +59,7 @@ const command: Command = {
 			guildJson = graphqlQuery.data.guild
 
 		//Handle errors
-		if (graphqlQuery.errors?.find(e => e.message === "Player does not exist") || graphqlQuery.errors?.find(e => e.message === "Invalid username or UUID!"))
+		if (graphqlQuery.errors?.find(e => e.message === "Player does not exist" || e.message === "Invalid username or UUID!"))
 			throw "falseUser"
 		else if (graphqlQuery.errors?.find(e => e.message === "Player has no Hypixel stats!")) throw "noPlayer"
 		else if (graphqlQuery.errors?.[0].message || !playerJson.username) { // if other error we didn't plan for appeared
@@ -176,7 +176,7 @@ const command: Command = {
 							if (allowedGuildIDs.includes(invite.guild?.id!)) discord = `[${getString("link")}](${invite.url})`
 							else {
 								discord = getString("blocked")
-								console.log(`Blocked the following Discord invite link in ${playerJson.username}'s Hypixel profile: ${socialMedia.DISCORD} (led to ${invite.guild?.name || invite.channel.name})`)
+								console.log(`Blocked the following Discord invite link in ${playerJson.username}'s Hypixel profile: ${socialMedia.DISCORD} (led to ${invite.guild?.name ?? invite.channel.name})`)
 							}
 						})
 						.catch(() => {

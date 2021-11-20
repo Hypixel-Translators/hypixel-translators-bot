@@ -54,7 +54,7 @@ export async function updateProjectStatus(projectId: string) {
 
 		const embed = new MessageEmbed()
 			.setColor(adapColour)
-			.setTitle(`${fullData.language.emoji || "<:icon_question:882267041904607232>"} | ${fullData.language.name}`)
+			.setTitle(`${fullData.language.emoji ?? "<:icon_question:882267041904607232>"} | ${fullData.language.name}`)
 			.setThumbnail(fullData.language.flag)
 			.setDescription(`${crowdinData.translationProgress}% translated (${crowdinData.phrases.translated}/${crowdinData.phrases.total} strings)\n**${crowdinData.approvalProgress}% approved (${crowdinData.phrases.approved}/${crowdinData.phrases.total} strings)**`)
 			.addField("Translate at", `https://crowdin.com/project/${projectDb.identifier}/${fullData.language.id}`)
