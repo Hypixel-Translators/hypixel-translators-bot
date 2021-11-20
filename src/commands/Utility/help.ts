@@ -81,14 +81,14 @@ const command: Command = {
 				.addComponents(
 					new MessageSelectMenu()
 						.setCustomId("page")
-						.addOptions(pages.map(p => {
-							return {
+						.addOptions(
+							pages.map(p => ({
 								label: getString(p.titleString),
 								value: `${p.number}`,
 								emoji: p.badge,
 								default: p.number === page
-							}
-						}))
+							}))
+						)
 				)
 
 			const msg = await interaction.reply({ embeds: [pageEmbed], components: [pageMenu], fetchReply: true }) as Message,

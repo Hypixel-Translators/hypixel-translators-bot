@@ -205,12 +205,10 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 			joinedProjects.push(projectIDs[project.id].name)
 
 			const role = project.contributed_languages?.length
-				? project.contributed_languages.map(lang => {
-					return {
-						lang: lang.code,
-						role: lang.user_role.name
-					}
-				})
+				? project.contributed_languages.map(lang => ({
+					lang: lang.code,
+					role: lang.user_role.name
+				}))
 				: [{ role: project.user_role }]
 			let highestRole = "Translator"
 			role.forEach(role => {
@@ -312,12 +310,10 @@ export { crowdinVerify }
 
 async function updateProjectRoles(projectName: ValidProjects, member: GuildMember, project: CrowdinProject) {
 	const languages = project.contributed_languages?.length
-		? project.contributed_languages.map(lang => {
-			return {
-				lang: lang.code,
-				role: lang.user_role.name
-			}
-		})
+		? project.contributed_languages.map(lang => ({
+			lang: lang.code,
+			role: lang.user_role.name
+		}))
 		: [{ role: project.user_role }],
 		addedProjectRoles = []
 
