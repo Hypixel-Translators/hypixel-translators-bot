@@ -1,7 +1,7 @@
 //This file contains a bunch of functions used across the bot on multuple commands.
 import axios from "axios"
 import { CommandInteraction, GuildMember, HexColorString, MessageActionRow, MessageButton, MessageEmbed, Role, Snowflake, User } from "discord.js"
-import { Browser, launch } from "puppeteer"
+import puppeteer from "puppeteer"
 import { v4 } from "uuid"
 import { db } from "./dbclient"
 import { client } from "../index"
@@ -419,7 +419,7 @@ export interface Stats {
 	errorMessage?: string
 }
 
-let browser: Browser | null = null,
+let browser: puppeteer.Browser | null = null,
 	interval: NodeJS.Timeout | null = null,
 	lastRequest = 0,
 	browserClosing = false,
@@ -453,7 +453,7 @@ export async function getBrowser() {
 	})
 	if (!browser) {
 		browserOpening = true
-		browser = await launch({
+		browser = await puppeteer.launch({
 			args: ["--no-sandbox"],
 			headless: process.env.NODE_ENV === "production" || process.platform === "linux"
 		})
@@ -461,16 +461,14 @@ export async function getBrowser() {
 	}
 
 	//* Add closing interval if there isn't one already.
-	if (!interval) {
-		interval = setInterval(async () => {
-			if (lastRequest < Date.now() - 15 * 60 * 1000) {
-				await browser!.close()
-				browser = null
-				clearInterval(interval!)
-				interval = null
-			}
-		}, 5000)
-	}
+	interval ??= setInterval(async () => {
+		if (lastRequest < Date.now() - 15 * 60 * 1000) {
+			await browser!.close()
+			browser = null
+			clearInterval(interval!)
+			interval = null
+		}
+	}, 5000)
 
 	//* Open new connection and return the browser with connection id.
 	const browserUUID = v4()
