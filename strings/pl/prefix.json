@@ -17,7 +17,7 @@
 	"warning": "Ustawienie twojego przedrostka na język, którego nie tłumaczysz spowoduje ostrzeżenie. Czy nadal chcesz zmienić swój nick?",
 	"react": "Dodaj reakcje wszystkich flag, które chciałbyś dodać do swojego prefiksu w odpowiedniej kolejności.",
 	"reactTimer": "Masz %%cooldown%% sekund, aby anulować poprzez wciśnięcie ❎.",
-	"reactTimer2": "Pozostało Ci mniej niż %%cooldown%% sekund. Naciśnij ✅, aby potwierdzić lub ❎ aby anulować.",
+	"reactTimer2": "Pozostało Ci mniej niż %%cooldown%% sekund. Naciśnij ✅, aby potwierdzić lub ❎, aby anulować.",
 	"previewT": "Podgląd pseudonimu",
 	"newNickT": "Nowy pseudonim",
 	"noChanges": "Bez zmian",
