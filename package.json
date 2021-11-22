@@ -23,7 +23,7 @@
 		"discord.js": "^13.4.0-dev.1637237217.802a5ac",
 		"mongodb": "^4.2.0",
 		"puppeteer": "^11.0.0",
-		"source-map-support": "^0.5.20",
+		"source-map-support": "^0.5.21",
 		"typescript": "^4.5.2",
 		"uuid": "^8.3.2"
 	},
