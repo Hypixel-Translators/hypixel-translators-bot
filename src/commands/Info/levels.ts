@@ -121,7 +121,7 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 		if (pages[page][i].levels) {
 			const totalXp = pages[page][i].levels!.totalXp
 			let formattedXp: string
-			if (totalXp >= 1000000) formattedXp = `${(totalXp / 1000000).toFixed(2)}${getString("thousand")}`
+			if (totalXp >= 1000000) formattedXp = `${(totalXp / 1000000).toFixed(2)}${getString("million")}`
 			else if (totalXp >= 1000) formattedXp = `${(totalXp / 1000).toFixed(2)}${getString("thousand")}`
 			else formattedXp = totalXp.toString()
 			pageEmbed.addField(
