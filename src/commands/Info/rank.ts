@@ -40,12 +40,28 @@ const command: Command = {
 			currentXp = userDb.levels.levelXp,
 			messageCount = userDb.levels.messageCount
 
+		let currentXpFormatted: string,
+			xpNeededFormatted: string,
+			messagesFormatted: string
+
+		if (currentXp >= 1_000_000) currentXpFormatted = `${(currentXp / 1_000_000).toFixed(2)}${getString("million")}`
+		else if (currentXp >= 1000) currentXpFormatted = `${(currentXp / 1000).toFixed(2)}${getString("thousand")}`
+		else currentXpFormatted = `${currentXp}`
+
+		if (totalXp >= 1_000_000) xpNeededFormatted = `${(totalXp / 1_000_000).toFixed(2)}${getString("million")}`
+		else if (totalXp >= 1000) xpNeededFormatted = `${(totalXp / 1000).toFixed(2)}${getString("thousand")}`
+		else xpNeededFormatted = `${totalXp}`
+
+		if (messageCount >= 1_000_000) messagesFormatted = `${(messageCount / 1_000_000).toFixed(2)}${getString("million")}`
+		else if (messageCount >= 1000) messagesFormatted = `${(messageCount / 1000).toFixed(2)}${getString("thousand")}`
+		else messagesFormatted = `${messageCount}`
+
 		const embed = new MessageEmbed()
 			.setColor(colors.neutral)
 			.setAuthor(getString("moduleName"))
 			.setTitle(user.id === interaction.user.id ? getString("yourRank") : getString("userRank", { user: user.tag }))
 			.setDescription(user.id === interaction.user.id ? getString("youLevel", { level: userDb.levels.level, rank: ranking }) : getString("userLevel", { user: String(user), level: userDb.levels.level, rank: ranking }))
-			.addField(getString("textProgress", { currentXp: currentXp > 1000 ? `${(currentXp / 1000).toFixed(2)}${getString("thousand")}` : currentXp, xpNeeded: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp, messages: messageCount > 1000 ? `${(messageCount / 1000).toFixed(2)}${getString("thousand")}` : messageCount }), progressBar)
+			.addField(getString("textProgress", { currentXp: currentXpFormatted, xpNeeded: xpNeededFormatted, messages: messagesFormatted }), progressBar)
 			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
 	}
