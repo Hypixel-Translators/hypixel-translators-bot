@@ -4,5 +4,6 @@
 	"level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
 	"youIndicator": "YOU",
 	"thousand": "k",
+	"million": "m",
 	"unranked": "#%%rank%% Unranked"
 }

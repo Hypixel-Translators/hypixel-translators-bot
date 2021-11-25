@@ -120,11 +120,15 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 		// const user = interaction.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that
 		if (pages[page][i].levels) {
 			const totalXp = pages[page][i].levels!.totalXp
+			let formattedXp: string
+			if (totalXp >= 1000000) formattedXp = `${(totalXp / 1000000).toFixed(2)}${getString("thousand")}`
+			else if (totalXp >= 1000) formattedXp = `${(totalXp / 1000).toFixed(2)}${getString("thousand")}`
+			else formattedXp = totalXp.toString()
 			pageEmbed.addField(
 				getString("level", {
 					rank: i + 1 + page * 24,
 					level: pages[page][i].levels!.level,
-					xp: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp
+					xp: formattedXp
 				}),
 				`<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
 				true
