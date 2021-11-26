@@ -20,7 +20,7 @@
 		"country-emoji": "^1.5.6",
 		"countryjs": "^1.8.0",
 		"cron": "^1.8.2",
-		"discord.js": "^13.4.0-dev.1637712337.9f3bf29",
+		"discord.js": "^13.4.0-dev.1637841784.54f937d",
 		"mongodb": "^4.2.0",
 		"puppeteer": "^11.0.0",
 		"source-map-support": "^0.5.21",
