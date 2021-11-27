@@ -3,7 +3,7 @@ import { client } from "../index"
 import { successColor, loadingColor, errorColor, ids } from "../config.json"
 import { db, cancelledEvents } from "../lib/dbclient"
 
-import type { EventDb, LangDbEntry, Quote, Stats } from "../lib/util"
+import type { LangDbEntry, Quote, Stats } from "../lib/util"
 
 client.on("messageReactionAdd", async (reaction, user) => {
 	if (!db) return void cancelledEvents.push({ listener: "messageReactionAdd", args: [reaction, user] })
@@ -114,12 +114,6 @@ client.on("messageReactionAdd", async (reaction, user) => {
 				])
 			if (firstAttachment) embed.setImage(firstAttachment)
 			await reaction.message.channel.send({ embeds: [embed] })
-		}
-	} else if (reaction.emoji.name === "vote_yes") {
-		const eventDb = (await db.collection("config").findOne<EventDb>({ name: "event" }))!
-		if (eventDb.ids.includes(reaction.message.id)) {
-			const member = reaction.message.guild!.members.cache.get(user.id)
-			if (member) await member.roles.add(ids.roles.event)
 		}
 	}
 })

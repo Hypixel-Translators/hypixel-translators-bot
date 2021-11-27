@@ -250,11 +250,6 @@ export interface CrowdinProject {
 	lastBuild?: number
 }
 
-export interface EventDb {
-	name: "event"
-	ids: Snowflake[]
-}
-
 export interface Quote {
 	author: Snowflake[]
 	id: number

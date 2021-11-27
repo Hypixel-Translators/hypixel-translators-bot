@@ -224,13 +224,6 @@ client.on("messageCreate", async message => {
 		}
 	}
 
-	//Event role system
-	if (message.member?.roles.cache.has(ids.roles.admin) && message.mentions.roles.has(ids.roles.event) && message.content.includes("\n\n")) {
-		await db.collection("config").updateOne({ name: "event" }, { $push: { ids: message.id } })
-		await message.react("vote_yes:839262196797669427")
-		await message.react("vote_no:839262184882044931")
-	}
-
 	//Function to get strings
 	/**
 	 * Gets a string or an object of strings for the correct language and replaces all variables if any
