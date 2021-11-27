@@ -369,6 +369,14 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 			.replace("%%feedback%%", "/feedback")}`
 }
 
+export function parseToNumberString(num: number, getString: GetStringFunction): string {
+	if (num >= 1_000_000)
+		return `${Number((num / 1_000_000).toFixed(2)).toLocaleString(getString("region.locale", "global"))}${getString("numberStrings.million", "global")}`
+	if (num >= 1000)
+		return `${Number((num / 1000).toFixed(2)).toLocaleString(getString("region.locale", "global"))}${getString("numberStrings.thousand", "global")}`
+	return `${num}`
+}
+
 export interface PunishmentLog {
 	case: number
 	id: Snowflake
