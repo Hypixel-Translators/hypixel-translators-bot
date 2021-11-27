@@ -1,5 +1,5 @@
-import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
-import { loadingColor, errorColor, successColor, ids } from "../../config.json"
+import { GuildMember, MessageEmbed } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -17,17 +17,17 @@ const command: Command = {
 			onlineSince = Math.round(interaction.client.readyTimestamp! / 1000)
 
 		//Contributed by marzeq. Original idea by Rodry
-		let color: HexColorString
-		if (ping < 0) { //if ping is negative the color is red
-			color = errorColor as HexColorString
+		let color: number
+		if (ping < 0) {
+			color = colors.error
 			console.log("Something went terribly wrong and the ping is negative. Come pick me up I'm scared.")
-		} else if (ping <= 200) { //if ping is less than 200 the color is green
-			color = successColor as HexColorString
-		} else if (ping <= 400) { //if the ping is between 200 and 400 the color is yellow
-			color = loadingColor as HexColorString
-		} else { //if ping is higher than 400 the color is red
-			color = errorColor as HexColorString
-		}
+		} else if (ping <= 200)
+			color = colors.success
+		else if (ping <= 400)
+			color = colors.loading
+		else
+			color = colors.error
+
 		const embed = new MessageEmbed()
 			.setColor(color)
 			.setAuthor(getString("moduleName"))

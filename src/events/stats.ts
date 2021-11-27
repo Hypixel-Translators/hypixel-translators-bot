@@ -1,7 +1,7 @@
 import axios from "axios"
-import { HexColorString, MessageEmbed, NewsChannel, TextChannel } from "discord.js"
+import { MessageEmbed, NewsChannel, TextChannel } from "discord.js"
 import { client } from "../index"
-import { loadingColor, errorColor, successColor, ids } from "../config.json"
+import { colors, ids } from "../config.json"
 import { db } from "../lib/dbclient"
 import { closeConnection, crowdinFetchSettings, CrowdinProject, getBrowser, LangDbEntry, LanguageStatus, Stats } from "../lib/util"
 
@@ -46,11 +46,11 @@ export async function updateProjectStatus(projectId: string) {
 		const fullData = sortedSatus[index],
 			crowdinData = fullData.data
 
-		let adapColour: HexColorString
+		let adapColour: number
 		if (projectDb.identifier === "hypixel") adapColour = fullData.language.color!
-		else if (crowdinData.approvalProgress > 89) adapColour = successColor as HexColorString
-		else if (crowdinData.approvalProgress > 49) adapColour = loadingColor as HexColorString
-		else adapColour = errorColor as HexColorString
+		else if (crowdinData.approvalProgress > 89) adapColour = colors.success
+		else if (crowdinData.approvalProgress > 49) adapColour = colors.loading
+		else adapColour = colors.error
 
 		const embed = new MessageEmbed()
 			.setColor(adapColour)
@@ -71,7 +71,7 @@ export async function updateProjectStatus(projectId: string) {
 			stringDiff = Math.abs(newStringCount - oldStringCount)
 		if (oldStringCount < newStringCount) {
 			const embed = new MessageEmbed()
-				.setColor(successColor as HexColorString)
+				.setColor(colors.success)
 				.setAuthor("New strings!")
 				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the ${projectDb.name} project.`)
 				.setDescription(`Translate at <https://crowdin.com/translate/${projectDb.identifier}/all/en>`)
@@ -79,7 +79,7 @@ export async function updateProjectStatus(projectId: string) {
 			await updatesChannel.send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}> New strings!` })
 		} else if (oldStringCount > newStringCount) {
 			const embed = new MessageEmbed()
-				.setColor(errorColor as HexColorString)
+				.setColor(colors.error)
 				.setAuthor("Removed strings!")
 				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`)
 				.setFooter(`There are now ${newStringCount} strings on the project.`)
@@ -115,7 +115,7 @@ export async function checkBuild() {
 	if (lastBuild.timestamp > lastDbBuild) {
 		const author = lastBuild.message.match(/>(.*)( \([^(]*\))?</)?.[1],
 			embed = new MessageEmbed()
-				.setColor(successColor as HexColorString)
+				.setColor(colors.success)
 				.setThumbnail(lastBuild.avatar)
 				.setAuthor("New build!")
 				.setTitle(`${author} just built the project!`)

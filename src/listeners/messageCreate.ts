@@ -2,7 +2,6 @@ import { readdirSync } from "node:fs"
 import {
 	BufferResolvable,
 	GuildChannel,
-	HexColorString,
 	Message,
 	MessageActionRow,
 	MessageButton,
@@ -12,7 +11,7 @@ import {
 	Util
 } from "discord.js"
 import { client } from "../index"
-import { errorColor, successColor, neutralColor, ids } from "../config.json"
+import { colors, ids } from "../config.json"
 import { crowdinVerify } from "../lib/crowdinverify"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import { leveling } from "../lib/leveling"
@@ -98,7 +97,7 @@ client.on("messageCreate", async message => {
 			if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
 				await message.react("vote_no:839262184882044931")
 				const embed = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor(getGlobalString("errors.wrongLink"))
 					.setTitle(getGlobalString("wrongStringURL"))
 					.setDescription(getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }))
@@ -118,7 +117,7 @@ client.on("messageCreate", async message => {
 				await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "badLink", user: message.author.id })
 				const correctLink = langFix.match(stringURLRegex)![0],
 					embed = new MessageEmbed()
-						.setColor(errorColor as HexColorString)
+						.setColor(colors.error)
 						.setAuthor(getGlobalString("errors.wrongLink"))
 						.setTitle(getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }))
 						.setDescription(`**${getGlobalString("correctLink")}**\n${correctLink.startsWith("https://") ? correctLink : `https://${correctLink}`}`)
@@ -160,7 +159,7 @@ client.on("messageCreate", async message => {
 				)
 		if (!author.staffMsgTimestamp || author.staffMsgTimestamp + hourCooldown * 60 * 60 * 1000 < message.createdTimestamp) {
 			const embed = new MessageEmbed()
-				.setColor(neutralColor as HexColorString)
+				.setColor(colors.neutral)
 				.setTitle(getGlobalString("staffDm.confirmation"))
 				.setDescription(message.content)
 				.setFooter(getGlobalString("staffDm.confirmSend"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
@@ -173,7 +172,7 @@ client.on("messageCreate", async message => {
 				controlButtons.components.forEach(button => button.setDisabled(true))
 				if (buttonInteraction.customId === "cancel") {
 					embed
-						.setColor(errorColor as HexColorString)
+						.setColor(colors.error)
 						.setTitle(getGlobalString("staffDm.dmCancelled"))
 						.setFooter(getGlobalString("staffDm.resendInfo"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
 					await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
@@ -184,7 +183,7 @@ client.on("messageCreate", async message => {
 				if (reason === "responded") return
 				controlButtons.components.forEach(button => button.setDisabled(true))
 				const timeOutEmbed = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor(getGlobalString("staffDm.dmCancelled"))
 					.setDescription(message.content)
 					.setFooter(getGlobalString("staffDm.resendInfo"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
@@ -196,11 +195,11 @@ client.on("messageCreate", async message => {
 			const afterConfirm = interactionOrMsg instanceof MessageComponentInteraction
 			await db.collection<DbUser>("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: afterConfirm ? Date.now() : message.createdTimestamp } })
 			const staffMsg = new MessageEmbed()
-				.setColor(neutralColor as HexColorString)
+				.setColor(colors.neutral)
 				.setAuthor(`Incoming message from ${message.author.tag}`)
 				.setDescription(message.content)
 			const dmEmbed = new MessageEmbed()
-				.setColor(successColor as HexColorString)
+				.setColor(colors.success)
 				.setAuthor(getGlobalString("staffDm.messageSent"))
 				.setDescription(message.content)
 				.setFooter(getGlobalString("staffDm.noConfirmWarn"), message.author.displayAvatarURL({ format: "png", dynamic: true }))

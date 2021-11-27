@@ -1,6 +1,6 @@
 import axios from "axios"
-import { HexColorString, MessageEmbed } from "discord.js"
-import { successColor, errorColor, ids } from "../../config.json"
+import { MessageEmbed } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { fetchSettings, generateTip, getUUID, updateRoles, GraphQLQuery } from "../../lib/util"
 
@@ -55,7 +55,7 @@ const command: Command = {
 				role = await updateRoles(interaction.member, json)
 			if (result.modifiedCount) {
 				const successEmbed = new MessageEmbed()
-					.setColor(successColor as HexColorString)
+					.setColor(colors.success)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("success", { player: json.username }))
 					.setDescription(getString("role", { role: role.toString() }))
@@ -63,7 +63,7 @@ const command: Command = {
 				return await interaction.editReply({ embeds: [successEmbed] })
 			} else {
 				const notChanged = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("alreadyVerified"))
 					.setDescription(getString("nameChangeDisclaimer"))
@@ -75,7 +75,7 @@ const command: Command = {
 				role = await updateRoles(memberInput, json)
 			if (result.modifiedCount) {
 				const successEmbed = new MessageEmbed()
-					.setColor(successColor as HexColorString)
+					.setColor(colors.success)
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Successfully verified ${memberInput.user.tag} as ${json.username}`)
 					.setDescription(`They were given the ${role} role due to their rank on the server.`)
@@ -85,7 +85,7 @@ const command: Command = {
 				return await interaction.editReply({ embeds: [successEmbed] })
 			} else {
 				const notChanged = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor("Hypixel Verification")
 					.setTitle("This user is already verified")
 					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
@@ -93,7 +93,7 @@ const command: Command = {
 			}
 		} else {
 			const errorEmbed = new MessageEmbed()
-				.setColor(errorColor as HexColorString)
+				.setColor(colors.error)
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("error"))
 				.setDescription(getString("tutorial", { tag: interaction.user.tag }))

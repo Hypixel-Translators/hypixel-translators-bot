@@ -1,6 +1,6 @@
-import { HexColorString, MessageEmbed, TextChannel } from "discord.js"
+import { MessageEmbed, TextChannel } from "discord.js"
 import { client } from "../../index"
-import { errorColor, ids } from "../../config.json"
+import { colors, ids } from "../../config.json"
 import { crowdinVerify } from "../../lib/crowdinverify"
 import { db, DbUser } from "../../lib/dbclient"
 
@@ -60,7 +60,7 @@ const command: Command = {
 				await interaction.member.roles.remove(ids.roles.verified, "Unverified")
 				await collection.updateOne({ id: interaction.member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 				const embed = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor("Manual verification")
 					.setTitle("You were successfully unverified!")
 					.setDescription(`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us on the ${verify} channel. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`)

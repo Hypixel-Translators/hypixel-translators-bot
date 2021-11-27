@@ -1,6 +1,6 @@
-import { HexColorString, MessageEmbed } from "discord.js"
+import { MessageEmbed } from "discord.js"
 import { client } from "../../index"
-import { errorColor, successColor, neutralColor, ids } from "../../config.json"
+import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -28,7 +28,7 @@ const command: Command = {
 			recipientDb = await client.getUser(recipient.id),
 			message = interaction.options.getString("message", true).replaceAll("\\n", "\n"),
 			dm = new MessageEmbed()
-				.setColor(neutralColor as HexColorString)
+				.setColor(colors.neutral)
 				.setAuthor(getString("incoming", this.name, recipientDb.lang))
 				.setDescription(message)
 				.setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang)),
@@ -36,7 +36,7 @@ const command: Command = {
 		await recipient.send({ embeds: [dm] })
 			.then(async () => {
 				const embed = new MessageEmbed()
-					.setColor(successColor as HexColorString)
+					.setColor(colors.success)
 					.setAuthor("Direct Message")
 					.setTitle(`Sent message to ${recipient.tag}`)
 					.setDescription(message)
@@ -45,7 +45,7 @@ const command: Command = {
 			})
 			.catch(async error => {
 				const errorEmbed = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor("Direct Message")
 					.setTitle(`An error occured while trying to message ${recipient.tag}`)
 					.setDescription(error.toString())

@@ -1,5 +1,5 @@
-import { HexColorString, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
-import { successColor, ids } from "../../config.json"
+import { MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { generateTip, PunishmentLog, updateButtonColors, updateModlogFields } from "../../lib/util"
 
@@ -31,7 +31,7 @@ const command: Command = {
 			await interaction.reply({ embeds: [embed] })
 		} else if (modlogs.length === 1) {
 			const embed = new MessageEmbed()
-				.setColor(successColor as HexColorString)
+				.setColor(colors.success)
 				.setAuthor({ name: "Log message", url: `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}` })
 				.setTitle(`Found 1 modlog for ${userInput.tag}`)
 				.setDescription(`Case #${modlogs[0].case}`)
@@ -40,7 +40,7 @@ const command: Command = {
 			await interaction.reply({ embeds: [embed] })
 		} else {
 			const embed = new MessageEmbed()
-				.setColor(successColor as HexColorString)
+				.setColor(colors.success)
 				.setAuthor({ name: "Log message", url: `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}` })
 				.setTitle(`Found ${modlogs.length} modlogs for ${userInput.tag}`)
 				.setDescription(`Case #${modlogs[0].case}`)

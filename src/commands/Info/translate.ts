@@ -1,5 +1,5 @@
-import { HexColorString, MessageEmbed } from "discord.js"
-import { neutralColor, ids } from "../../config.json"
+import { MessageEmbed } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -16,7 +16,7 @@ const command: Command = {
 
         if (member.roles.cache.find(role => role.name.startsWith("Bot ") && role.name !== "Bot Updates")) {
             const embed = new MessageEmbed()
-                .setColor(neutralColor as HexColorString)
+                .setColor(colors.neutral)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("alreadyTranslator"))
                 .setDescription(getString("projectLink", { link: "https://crowdin.com/project/hypixel-translators-bot" }))
@@ -28,7 +28,7 @@ const command: Command = {
             await interaction.reply({ embeds: [embed] })
         } else {
             const embed = new MessageEmbed()
-                .setColor(neutralColor as HexColorString)
+                .setColor(colors.neutral)
                 .setAuthor(getString("moduleName"))
                 .setTitle(getString("newTranslator"))
                 .setDescription(getString("join"))

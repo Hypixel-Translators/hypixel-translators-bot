@@ -1,7 +1,7 @@
 import { flag } from "country-emoji"
-import { HexColorString, MessageActionRow, MessageButton, MessageEmbed, TextChannel } from "discord.js"
+import { MessageActionRow, MessageButton, MessageEmbed, TextChannel } from "discord.js"
 import { client } from "../../index"
-import { loadingColor, errorColor, successColor, neutralColor, ids } from "../../config.json"
+import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { generateTip, LangDbEntry } from "../../lib/util"
 
@@ -47,7 +47,7 @@ const command: Command = {
 
 			let prefix = flagEmojis.join("-")
 			const embed = new MessageEmbed()
-				.setColor(neutralColor as HexColorString)
+				.setColor(colors.neutral)
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("caution"))
 				.setDescription(`${getString("warning")}\n${getString("reactTimer", { cooldown: this.cooldown! })}`)
@@ -79,14 +79,14 @@ const command: Command = {
 						await interaction.member.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
 							.then(async () => {
 								const embed = new MessageEmbed()
-									.setColor(successColor as HexColorString)
+									.setColor(colors.success)
 									.setAuthor(getString("moduleName"))
 									.setTitle(getString("saved"))
 									.addField(getString("newNickT"), `\`[${prefix}] ${nickNoPrefix}\``)
 									.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 								await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 								const staffAlert = new MessageEmbed()
-									.setColor(loadingColor as HexColorString)
+									.setColor(colors.loading)
 									.setAuthor("Prefix")
 									.setTitle("A user manually changed their prefix")
 									.setDescription(`${interaction.user} manually changed their prefix to include the following flag: ${prefix}\nMake sure they have the appropriate roles for this prefix and, if not, follow the appropriate procedure`)
@@ -95,7 +95,7 @@ const command: Command = {
 							})
 							.catch(async err => {
 								const embed = new MessageEmbed()
-									.setColor(errorColor as HexColorString)
+									.setColor(colors.error)
 									.setAuthor(getString("moduleName"))
 									.setTitle(getString("errors.error"))
 									.setDescription(err.toString())
@@ -106,7 +106,7 @@ const command: Command = {
 							})
 					} else {
 						const embed = new MessageEmbed()
-							.setColor(successColor as HexColorString)
+							.setColor(colors.success)
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
 							.addField(getString("newNickT"), getString("noChanges"))
@@ -115,7 +115,7 @@ const command: Command = {
 					}
 				} else if (buttonInteraction.customId === "cancel") {
 					const embed = new MessageEmbed()
-						.setColor(errorColor as HexColorString)
+						.setColor(colors.error)
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
 						.addField(getString("newNickT"), getString("noChanges"))
@@ -130,7 +130,7 @@ const command: Command = {
 						await interaction.member.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
 							.then(async () => {
 								const embed = new MessageEmbed()
-									.setColor(successColor as HexColorString)
+									.setColor(colors.success)
 									.setAuthor(getString("moduleName"))
 									.setTitle(getString("saved"))
 									.addField(getString("newNickT"), `\`[${prefix}] ${nickNoPrefix}\``)
@@ -139,7 +139,7 @@ const command: Command = {
 							})
 							.catch(async err => {
 								const embed = new MessageEmbed()
-									.setColor(errorColor as HexColorString)
+									.setColor(colors.error)
 									.setAuthor(getString("moduleName"))
 									.setTitle(getString("errors.error"))
 									.setDescription(err.toString())
@@ -150,7 +150,7 @@ const command: Command = {
 							})
 					} else {
 						const embed = new MessageEmbed()
-							.setColor(successColor as HexColorString)
+							.setColor(colors.success)
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
 							.addField(getString("newNickT"), getString("noChanges"))
@@ -159,7 +159,7 @@ const command: Command = {
 					}
 				} else {
 					const embed = new MessageEmbed()
-						.setColor(errorColor as HexColorString)
+						.setColor(colors.error)
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("errors.timedOut"))
 						.setDescription(getString("errors.timeOutCustom") + getString("errors.notSaved"))
@@ -213,7 +213,7 @@ const command: Command = {
 			if (!userLangs.length) {
 				if (interaction.member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== ids.roles.botUpdates) || interaction.member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))) {
 					const embed = new MessageEmbed()
-						.setColor(errorColor as HexColorString)
+						.setColor(colors.error)
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("errors.trNoRoles"))
 						.setDescription(getString("customPrefix"))
@@ -222,7 +222,7 @@ const command: Command = {
 					return await interaction.editReply({ embeds: [embed] })
 				} else {
 					const embed = new MessageEmbed()
-						.setColor(errorColor as HexColorString)
+						.setColor(colors.error)
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("errors.noLanguages"))
 						.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
@@ -231,7 +231,7 @@ const command: Command = {
 				}
 			}
 			const noChangesEmbed = new MessageEmbed()
-				.setColor(neutralColor as HexColorString)
+				.setColor(colors.neutral)
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("react"))
 				.setDescription(getString("reactTimer", { cooldown: this.cooldown! }))
@@ -252,7 +252,7 @@ const command: Command = {
 							await interaction.member.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
 								.then(async () => {
 									const embed = new MessageEmbed()
-										.setColor(successColor as HexColorString)
+										.setColor(colors.success)
 										.setAuthor(getString("moduleName"))
 										.setTitle(getString("saved"))
 										.addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
@@ -261,7 +261,7 @@ const command: Command = {
 								})
 								.catch(async err => {
 									const embed = new MessageEmbed()
-										.setColor(errorColor as HexColorString)
+										.setColor(colors.error)
 										.setAuthor(getString("moduleName"))
 										.setTitle(getString("errors.error"))
 										.setDescription(err.toString())
@@ -272,7 +272,7 @@ const command: Command = {
 								})
 						} else {
 							const embed = new MessageEmbed()
-								.setColor(errorColor as HexColorString)
+								.setColor(colors.error)
 								.setAuthor(getString("moduleName"))
 								.setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
 								.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
@@ -280,7 +280,7 @@ const command: Command = {
 						}
 					} else {
 						const embed = new MessageEmbed()
-							.setColor(errorColor as HexColorString)
+							.setColor(colors.error)
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("errors.confirmedNoFlags") + getString("errors.notSaved"))
 							.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
@@ -290,7 +290,7 @@ const command: Command = {
 					components.forEach(buttons => buttons.forEach(button => button.setDisabled(true)))
 					collector.stop("responded")
 					const embed = new MessageEmbed()
-						.setColor(errorColor as HexColorString)
+						.setColor(colors.error)
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("errors.cancelled") + getString("errors.notSaved"))
 						.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
@@ -301,7 +301,7 @@ const command: Command = {
 					else prefixes = `${clickedEntry.emoji}`
 					components.find(button => button.find(b => b.customId === buttonInteraction.customId)?.setDisabled(true).setStyle("SECONDARY"))
 					const embed = new MessageEmbed()
-						.setColor(neutralColor as HexColorString)
+						.setColor(colors.neutral)
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("react"))
 						.setDescription(getString("reactTimer2", { cooldown: this.cooldown! }))
@@ -319,7 +319,7 @@ const command: Command = {
 						interaction.member.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
 							.then(async () => {
 								const embed = new MessageEmbed()
-									.setColor(successColor as HexColorString)
+									.setColor(colors.success)
 									.setAuthor(getString("moduleName"))
 									.setTitle(getString("saved"))
 									.addField(getString("newNickT"), `\`[${prefixes}] ${nickNoPrefix}\``)
@@ -328,7 +328,7 @@ const command: Command = {
 							})
 							.catch(async err => {
 								const embed = new MessageEmbed()
-									.setColor(errorColor as HexColorString)
+									.setColor(colors.error)
 									.setAuthor(getString("moduleName"))
 									.setTitle(getString("errors.error"))
 									.setDescription(err.toString())
@@ -339,7 +339,7 @@ const command: Command = {
 							})
 					} else {
 						const embed = new MessageEmbed()
-							.setColor(successColor as HexColorString)
+							.setColor(colors.success)
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("errors.alreadyThis") + getString("errors.notSaved"))
 							.addField(getString("newNickT"), getString("noChanges"))
@@ -348,7 +348,7 @@ const command: Command = {
 					}
 				} else {
 					const embed = new MessageEmbed()
-						.setColor(errorColor as HexColorString)
+						.setColor(colors.error)
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("errors.timedOut"))
 						.setDescription(getString("errors.timeOut") + getString("errors.notSaved"))

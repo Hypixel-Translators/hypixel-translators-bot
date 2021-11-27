@@ -1,8 +1,8 @@
-import { GuildMember, HexColorString, MessageEmbed, Role, TextChannel } from "discord.js"
+import { GuildMember, MessageEmbed, Role, TextChannel } from "discord.js"
 import { db, DbUser } from "./dbclient"
 import { closeConnection, getBrowser, LangDbEntry, Stats } from "./util"
 import { client } from "../index"
-import { errorColor, ids } from "../config.json"
+import { colors, ids } from "../config.json"
 
 type ValidProjects = "Hypixel" | "Quickplay" | "Bot" | "SkyblockAddons"
 
@@ -29,7 +29,7 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 	const verifyLogs = member.client.channels.cache.get(ids.channels.verifyLogs) as TextChannel,
 		verify = member.client.channels.cache.get(ids.channels.verify) as TextChannel,
 		errorEmbed = new MessageEmbed()
-			.setColor(errorColor as HexColorString)
+			.setColor(colors.error)
 			.setAuthor("Received message from staff")
 			.setFooter("Any messages you send here will be sent to staff upon confirmation."),
 		langDb = db.collection<LangDbEntry>("langdb"),

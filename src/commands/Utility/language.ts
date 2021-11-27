@@ -1,6 +1,6 @@
 import { access, constants, readdir, readdirSync } from "node:fs"
-import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
-import { errorColor, successColor, neutralColor, ids } from "../../config.json"
+import { GuildMember, MessageEmbed } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { generateTip, LangDbEntry } from "../../lib/util"
 
@@ -58,7 +58,7 @@ const command: Command = {
 				langList.push(getString("listElement", { code: element, language: languageString ?? "Unknown" }))
 				if (index === array.length - 1) {
 					const embed = new MessageEmbed()
-						.setColor(neutralColor as HexColorString)
+						.setColor(colors.neutral)
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("listTitle"))
 						.setDescription(langList.join("\n"))
@@ -74,7 +74,7 @@ const command: Command = {
 				users: string[] = []
 			langUsers.forEach(u => users.push(`<@!${u.id}>`))
 			const embed = new MessageEmbed()
-				.setColor(neutralColor as HexColorString)
+				.setColor(colors.neutral)
 				.setAuthor("Language")
 				.setTitle(`There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`)
 				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
@@ -94,7 +94,7 @@ const command: Command = {
 						if (result.modifiedCount) {
 							randomTip = generateTip(getString, language)
 							const embed = new MessageEmbed()
-								.setColor(successColor as HexColorString)
+								.setColor(colors.success)
 								.setAuthor(getString("moduleName", this.name, language))
 								.setTitle(getString("changedToTitle", this.name, language))
 								.setDescription(getString("credits", this.name, language))
@@ -102,7 +102,7 @@ const command: Command = {
 							return await interaction.reply({ embeds: [embed] })
 						} else {
 							const embed = new MessageEmbed()
-								.setColor(errorColor as HexColorString)
+								.setColor(colors.error)
 								.setAuthor(getString("moduleName", this.name, language))
 								.setTitle(getString("didntChange", this.name, language))
 								.setDescription(getString("alreadyThis", this.name, language))
@@ -111,7 +111,7 @@ const command: Command = {
 						}
 					} else {
 						const embed = new MessageEmbed()
-							.setColor(errorColor as HexColorString)
+							.setColor(colors.error)
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("didntChange"))
 							.setDescription(getString("notTranslated"))
@@ -123,7 +123,7 @@ const command: Command = {
 						const emptyIndex = files.indexOf("empty")
 						if (emptyIndex > -1 && !member?.roles.cache.has(ids.roles.admin)) files.splice(emptyIndex, 1)
 						const embed = new MessageEmbed()
-							.setColor(errorColor as HexColorString)
+							.setColor(colors.error)
 							.setAuthor(getString("moduleName"))
 							.setTitle(getString("errorTitle"))
 							.setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n${getString("suggestAdd")}`)
@@ -137,7 +137,7 @@ const command: Command = {
 				emptyIndex = files.indexOf("empty")
 			if (emptyIndex > -1 && !member?.roles.cache.has(ids.roles.admin)) files.splice(emptyIndex, 1)
 			const embed = new MessageEmbed()
-				.setColor(neutralColor as HexColorString)
+				.setColor(colors.neutral)
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("current"))
 				.setDescription(`${getString("errorDescription")}\n\`${files.join("`, `")}\`\n\n${getString("credits")}`)

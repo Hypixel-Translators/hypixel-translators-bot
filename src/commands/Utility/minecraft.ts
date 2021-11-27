@@ -1,7 +1,7 @@
 import axios from "axios"
-import { EmbedFieldData, GuildMember, HexColorString, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { EmbedFieldData, GuildMember, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
 import { client } from "../../index"
-import { successColor, ids } from "../../config.json"
+import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { fetchSettings, generateTip, getUUID, updateButtonColors } from "../../lib/util"
 
@@ -141,7 +141,7 @@ const command: Command = {
 
 				function fetchPage(page: number, pages: NameHistory[][]) {
 					return new MessageEmbed()
-						.setColor(successColor as HexColorString)
+						.setColor(colors.success)
 						.setAuthor(getString("moduleName"))
 						.setTitle(getString("history.nameHistoryFor", { username }))
 						.setDescription(
@@ -175,7 +175,7 @@ const command: Command = {
 				break
 			case "skin":
 				const skinEmbed = new MessageEmbed()
-					.setColor(successColor as HexColorString)
+					.setColor(colors.success)
 					.setAuthor(getString("moduleName"))
 					.setTitle(isOwnUser
 						? getString("skin.yourSkin")

@@ -1,5 +1,5 @@
-import { CommandInteraction, HexColorString, MessageEmbed, TextChannel } from "discord.js"
-import { successColor, ids } from "../../config.json"
+import { CommandInteraction, MessageEmbed, TextChannel } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
@@ -29,7 +29,7 @@ const command: Command = {
 		if (channelInput === "info") {
 			await info(interaction)
 			const successEmbed = new MessageEmbed()
-				.setColor(successColor as HexColorString)
+				.setColor(colors.success)
 				.setAuthor("Channel updater")
 				.setTitle("Updated the information channel!")
 				.setDescription(`Check it out at <#${ids.channels.serverInfo}>!`)
@@ -38,7 +38,7 @@ const command: Command = {
 		} else if (channelInput === "rules") {
 			await rules(interaction)
 			const successEmbed = new MessageEmbed()
-				.setColor(successColor as HexColorString)
+				.setColor(colors.success)
 				.setAuthor("Channel updater")
 				.setTitle("Updated the rules channel!")
 				.setDescription(`Check it out at ${interaction.guild.rulesChannel}!`)
@@ -47,7 +47,7 @@ const command: Command = {
 		} else if (channelInput === "verify") {
 			await verify(interaction)
 			const successEmbed = new MessageEmbed()
-				.setColor(successColor as HexColorString)
+				.setColor(colors.success)
 				.setAuthor("Channel updater")
 				.setTitle("Updated the verification channel!")
 				.setDescription(`Check it out at <#${ids.channels.verify}>!`)
@@ -58,7 +58,7 @@ const command: Command = {
 			await verify(interaction)
 			await rules(interaction)
 			const successEmbed = new MessageEmbed()
-				.setColor(successColor as HexColorString)
+				.setColor(colors.success)
 				.setAuthor("Channel updater")
 				.setTitle("All channels have been updated!")
 				.setDescription(`Check them out at <#${ids.channels.serverInfo}>, ${interaction.guild!.rulesChannel} and <#${ids.channels.verify}>!`)

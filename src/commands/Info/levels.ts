@@ -1,6 +1,6 @@
-import { CommandInteraction, GuildMember, HexColorString, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { CommandInteraction, GuildMember, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
 import { client } from "../../index"
-import { neutralColor, errorColor, ids } from "../../config.json"
+import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { generateTip, updateButtonColors } from "../../lib/util"
 
@@ -42,7 +42,7 @@ const command: Command = {
 
 		if (page >= pages.length || page < 0) {
 			const embed = new MessageEmbed()
-				.setColor(errorColor as HexColorString)
+				.setColor(colors.error)
 				.setAuthor(getString("moduleName"))
 				.setTitle(getString("pageTitle"))
 				.setDescription(getString("pageNotExist"))
@@ -109,7 +109,7 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 	if (page > pages.length - 1) page = pages.length - 1
 	if (page < 0) page = 0
 	const pageEmbed = new MessageEmbed()
-		.setColor(neutralColor as HexColorString)
+		.setColor(colors.neutral)
 		.setAuthor(getString("moduleName"))
 		.setTitle(getString("pageTitle"))
 		.setFooter(

@@ -1,7 +1,7 @@
 import { readdirSync } from "node:fs"
-import { Collection, GuildChannel, HexColorString, Message, MessageEmbed, Snowflake, TextChannel } from "discord.js"
+import { Collection, GuildChannel, Message, MessageEmbed, Snowflake, TextChannel } from "discord.js"
 import { client } from "../index"
-import { errorColor, ids } from "../config.json"
+import { colors, ids } from "../config.json"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import { arrayEqual, generateTip, Stats } from "../lib/util"
 
@@ -101,7 +101,7 @@ client.on("interactionCreate", async interaction => {
 
 			const timeLeft = Math.ceil((expirationTime - now) / 1000),
 				embed = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor(getString("cooldown", "global"))
 					.setTitle(
 						getString(
@@ -204,7 +204,7 @@ client.on("interactionCreate", async interaction => {
 		if (error.stack) {
 			if (process.env.NODE_ENV === "production") {
 				const embed = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor("Unexpected error!")
 					.setTitle(error.toString().substring(0, 255))
 					.setDescription(`\`\`\`${error.stack.substring(0, 2_047)}\`\`\``)
@@ -223,7 +223,7 @@ client.on("interactionCreate", async interaction => {
 		//Handle errors
 		timestamps.delete(interaction.user.id)
 		const embed = new MessageEmbed()
-			.setColor(errorColor as HexColorString)
+			.setColor(colors.error)
 			.setAuthor(getString("error", "global"))
 			.setTitle((error.message ?? error).substring(0, 255))
 			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))

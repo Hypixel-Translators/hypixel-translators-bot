@@ -4,12 +4,11 @@ import {
 	ApplicationCommandPermissionData,
 	ChatInputApplicationCommandData,
 	GuildApplicationCommandPermissionData,
-	HexColorString,
 	MessageEmbed,
 	TextChannel
 } from "discord.js"
 import { client } from "../index"
-import { listeningStatuses, watchingStatuses, playingStatuses, successColor, ids } from "../config.json"
+import { colors, listeningStatuses, watchingStatuses, playingStatuses, ids } from "../config.json"
 import stats from "../events/stats"
 import inactives from "../events/inactives"
 import crowdin from "../events/crowdinverify"
@@ -118,7 +117,7 @@ client.on("ready", async () => {
 				const member = guild.members.cache.get(punishment.id!),
 					user = await client.users.fetch(punishment.id)
 				const punishmentLog = new MessageEmbed()
-					.setColor(successColor as HexColorString)
+					.setColor(colors.success)
 					.setAuthor({
 						name: `Case ${caseNumber} | Unmute | ${user.tag}`,
 						iconURL: (member ?? user).displayAvatarURL({ format: "png", dynamic: true })
@@ -143,7 +142,7 @@ client.on("ready", async () => {
 				if (!member) return console.log(`Couldn't find member with id ${punishment.id} in order to unmute them`)
 				else await member.roles.remove(ids.roles.muted, "Punishment ended")
 				const dmEmbed = new MessageEmbed()
-					.setColor(successColor as HexColorString)
+					.setColor(colors.success)
 					.setAuthor("Punishment")
 					.setTitle(`Your mute on the ${guild.name} has expired.`)
 					.setDescription("You will now be able to talk in chats again. If something's wrong, please respond in this DM.")
@@ -155,7 +154,7 @@ client.on("ready", async () => {
 					.catch(err => console.error(`Couldn't unban user with id ${punishment.id}. Here's the error:\n`, err)),
 					userFetched = await client.users.fetch(punishment.id),
 					punishmentLog = new MessageEmbed()
-						.setColor(successColor as HexColorString)
+						.setColor(colors.success)
 						.setAuthor({
 							name: `Case ${caseNumber} | Unban | ${userFetched.tag}`,
 							iconURL: userFetched.displayAvatarURL({ format: "png", dynamic: true })
@@ -170,7 +169,7 @@ client.on("ready", async () => {
 				if (!user) punishmentLog.setDescription("Couldn't unban user from the server.")
 				else {
 					const dmEmbed = new MessageEmbed()
-						.setColor(successColor as HexColorString)
+						.setColor(colors.success)
 						.setAuthor("Punishment")
 						.setTitle(`Your ban on the ${guild.name} has expired.`)
 						.setDescription("You are welcome to join back using the invite in this message.")

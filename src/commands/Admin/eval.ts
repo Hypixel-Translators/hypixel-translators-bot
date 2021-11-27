@@ -2,7 +2,7 @@ const fs = require("node:fs")
 const axios = require("axios")
 const { flag, code, name, countries } = require("country-emoji")
 const country = require("countryjs")
-const { loadingColor, errorColor, successColor, neutralColor, listeningStatuses, watchingStatuses, playingStatuses, ids } = require("../../config.json")
+const { colors, listeningStatuses, watchingStatuses, playingStatuses, ids } = require("../../config.json")
 const { crowdinVerify } = require("../../lib/crowdinverify")
 const { leveling } = require("../../lib/leveling")
 const { updateButtonColors, getUUID, updateRoles, getXpNeeded } = require("../../lib/util")
@@ -56,7 +56,7 @@ const command: Command = {
 			evaled = await eval(compiledCode)
 			const inspected = inspect(evaled, { depth: 1, getters: true }),
 				embed = new discord.MessageEmbed()
-					.setColor(successColor)
+					.setColor(colors.success)
 					.setAuthor("Evaluation")
 					.setTitle("The code was executed successfully! Here's the output")
 					.addFields(
@@ -80,7 +80,7 @@ const command: Command = {
 			console.log(evaled)
 		} catch (error) {
 			const embed = new discord.MessageEmbed()
-				.setColor(errorColor)
+				.setColor(colors.error)
 				.setAuthor("Evaluation")
 				.setTitle("An error occured while executing that code. Here's the error stack")
 				.addFields(

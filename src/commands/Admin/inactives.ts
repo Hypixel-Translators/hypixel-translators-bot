@@ -1,5 +1,5 @@
-import { HexColorString, MessageEmbed } from "discord.js"
-import { successColor, ids } from "../../config.json"
+import { MessageEmbed } from "discord.js"
+import { colors, ids } from "../../config.json"
 import inactives from "../../events/inactives"
 import { generateTip } from "../../lib/util"
 
@@ -14,7 +14,7 @@ const command: Command = {
 
 		await inactives()
 		const embed = new MessageEmbed()
-			.setColor(successColor as HexColorString)
+			.setColor(colors.success)
 			.setAuthor("Inactive checker")
 			.setTitle("All inactive members have been notified!")
 			.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))

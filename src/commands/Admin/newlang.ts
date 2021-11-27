@@ -1,7 +1,7 @@
 import { flag } from "country-emoji"
 import { demonym, name } from "countryjs"
 import { HexColorString, MessageEmbed, OverwriteResolvable } from "discord.js"
-import { successColor, ids } from "../../config.json"
+import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { generateTip, LangDbEntry } from "../../lib/util"
 
@@ -125,7 +125,7 @@ const command: Command = {
 			reason: `Added language ${nationality}`
 		})
 		const embed = new MessageEmbed()
-			.setColor(successColor as HexColorString)
+			.setColor(colors.success)
 			.setAuthor("Channel creator")
 			.setTitle(`Successfully created the new ${name(code)} category, channels and roles!`)
 			.setDescription("Make sure their names were set correctly, put them in their correct positions, check the role colors and don't forget to translate the channel topic!")

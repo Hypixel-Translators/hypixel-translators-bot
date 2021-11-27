@@ -1,5 +1,5 @@
-import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
-import { successColor, loadingColor, errorColor, ids } from "../../config.json"
+import { GuildMember, MessageEmbed } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -28,9 +28,9 @@ const command: Command = {
 				.setTitle(answer)
 				.addField(getString("question"), interaction.options.getString("question", true))
 				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
-		if (answerType === "positive") embed.setColor(successColor as HexColorString)
-		else if (answerType === "inconclusive") embed.setColor(loadingColor as HexColorString)
-		else if (answerType === "negative") embed.setColor(errorColor as HexColorString)
+		if (answerType === "positive") embed.setColor(colors.success)
+		else if (answerType === "inconclusive") embed.setColor(colors.loading)
+		else if (answerType === "negative") embed.setColor(colors.error)
 		else console.error("Help the 8ball answer type is weird")
 		await interaction.reply({ embeds: [embed] })
 	}

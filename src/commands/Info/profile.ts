@@ -1,6 +1,6 @@
-import { GuildMember, HexColorString, MessageEmbed } from "discord.js"
+import { GuildMember, MessageEmbed } from "discord.js"
 import { client } from "../../index"
-import { successColor, errorColor, neutralColor, ids } from "../../config.json"
+import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { generateTip } from "../../lib/util"
 
@@ -32,7 +32,7 @@ const command: Command = {
 				const userDb = await client.getUser(user?.id)
 				if (userDb.profile) {
 					const embed = new MessageEmbed()
-						.setColor(neutralColor as HexColorString)
+						.setColor(colors.neutral)
 						.setAuthor("Crowdin Profile")
 						.setTitle(`Here's ${user.tag}'s Crowdin profile`)
 						.setDescription(userDb.profile)
@@ -40,7 +40,7 @@ const command: Command = {
 					return await interaction.reply({ embeds: [embed], ephemeral: true })
 				} else {
 					const embed = new MessageEmbed()
-						.setColor(errorColor as HexColorString)
+						.setColor(colors.error)
 						.setAuthor("Crowdin Profile")
 						.setTitle(`Couldn't find ${user.tag}'s Crowdin profile on the database!`)
 						.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
@@ -51,7 +51,7 @@ const command: Command = {
 					const result = await collection.findOneAndUpdate({ id: user.id }, { $set: { profile: profile } })
 					if (result.value!.profile !== profile) {
 						const embed = new MessageEmbed()
-							.setColor(successColor as HexColorString)
+							.setColor(colors.success)
 							.setAuthor("User Profile")
 							.setTitle(`Successfully updated ${user.tag}'s Crowdin profile!`)
 							.addFields(
@@ -62,7 +62,7 @@ const command: Command = {
 						return await interaction.reply({ embeds: [embed], ephemeral: true })
 					} else {
 						const embed = new MessageEmbed()
-							.setColor(errorColor as HexColorString)
+							.setColor(colors.error)
 							.setAuthor("User Profile")
 							.setTitle(`Couldn't update ${user.tag}'s Crowdin profile!`)
 							.setDescription("Their current profile is the same as the one you tried to add.")
@@ -76,7 +76,7 @@ const command: Command = {
 			if (profileUser) {
 				const userObject = await client.users.fetch(profileUser.id),
 					embed = new MessageEmbed()
-						.setColor(neutralColor as HexColorString)
+						.setColor(colors.neutral)
 						.setAuthor("Crowdin Profile")
 						.setTitle(`That profile belongs to ${userObject.tag}`)
 						.setDescription(`${userObject}: ${profileUser.profile!}`)
@@ -84,7 +84,7 @@ const command: Command = {
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			} else {
 				const embed = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor("Crowdin Profile")
 					.setTitle("Couldn't find a user with that profile!")
 					.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
@@ -95,7 +95,7 @@ const command: Command = {
 				userDb = await client.getUser(interaction.user.id)
 			if (userDb.profile) {
 				const embed = new MessageEmbed()
-					.setColor(neutralColor as HexColorString)
+					.setColor(colors.neutral)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("profileSuccess"))
 					.setDescription(userDb.profile)
@@ -103,7 +103,7 @@ const command: Command = {
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			} else {
 				const embed = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("noProfile"))
 					.setDescription(getString("howStore"))

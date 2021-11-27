@@ -1,5 +1,5 @@
-import { HexColorString, MessageEmbed } from "discord.js"
-import { neutralColor, ids } from "../../config.json"
+import { MessageEmbed } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -34,7 +34,7 @@ const command: Command = {
 			joinedBot = `<:vote_yes:839262196797669427> **${getString("alreadyJoined")}**`
 		else joinedBot = `<:vote_no:839262184882044931> **${getString("notJoined")}**`
 		const embed = new MessageEmbed()
-			.setColor(neutralColor as HexColorString)
+			.setColor(colors.neutral)
 			.setAuthor(getString("moduleName"))
 			.setTitle(getString("allProjects"))
 			.setDescription(getString("description"))

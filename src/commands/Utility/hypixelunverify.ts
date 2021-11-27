@@ -1,6 +1,6 @@
-import { HexColorString, MessageEmbed } from "discord.js"
+import { MessageEmbed } from "discord.js"
 import { client } from "../../index"
-import { successColor, errorColor, ids } from "../../config.json"
+import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { generateTip, updateRoles } from "../../lib/util"
 
@@ -28,14 +28,14 @@ const command: Command = {
 			const result = await collection.updateOne({ id: memberInput.id }, { $unset: { uuid: true } })
 			if (result.modifiedCount) {
 				const embed = new MessageEmbed()
-					.setColor(successColor as HexColorString)
+					.setColor(colors.success)
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Successfully unverified ${memberInput.user.tag}`)
 					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor("Hypixel Verification")
 					.setTitle(`Couldn't unverify ${memberInput.user.tag}!`)
 					.setDescription("This happened because this user isn't verified yet.")
@@ -48,14 +48,14 @@ const command: Command = {
 			const result = await collection.updateOne({ id: interaction.user.id }, { $unset: { uuid: true } })
 			if (result.modifiedCount) {
 				const embed = new MessageEmbed()
-					.setColor(successColor as HexColorString)
+					.setColor(colors.success)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("unverified"))
 					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				return await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor(getString("moduleName"))
 					.setTitle(getString("notUnverified"))
 					.setDescription(getString("whyNotUnverified"))

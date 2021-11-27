@@ -1,5 +1,5 @@
-import { HexColorString, MessageEmbed } from "discord.js"
-import { successColor, ids } from "../../config.json"
+import { MessageEmbed } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { stats, updateProjectStatus } from "../../events/stats"
 import { generateTip } from "../../lib/util"
 
@@ -29,7 +29,7 @@ const command: Command = {
 			await stats(true)
 				.then(async () => {
 					const allEmbed = new MessageEmbed()
-						.setColor(successColor as HexColorString)
+						.setColor(colors.success)
 						.setAuthor("Statistics updater")
 						.setTitle("All language statistics have been updated!")
 						.setDescription(
@@ -63,7 +63,7 @@ const command: Command = {
 				}
 			}
 			const projectEmbed = new MessageEmbed()
-				.setColor(successColor as HexColorString)
+				.setColor(colors.success)
 				.setAuthor("Statistics updater")
 				.setTitle(`The ${projectInput} language statistics have been updated!`)
 				.setDescription(`Check it out at ${interaction.guild!.channels.cache.find(c => c.name === `${projectInput}-language-status`)}!`)

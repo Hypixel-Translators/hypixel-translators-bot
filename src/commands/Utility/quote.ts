@@ -1,5 +1,5 @@
-import { CommandInteraction, GuildMember, HexColorString, MessageEmbed, TextChannel } from "discord.js"
-import { errorColor, successColor, ids } from "../../config.json"
+import { CommandInteraction, GuildMember, MessageEmbed, TextChannel } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { generateTip, Quote } from "../../lib/util"
 
@@ -128,7 +128,7 @@ async function findQuote(randomTip: string, interaction: CommandInteraction, get
 	const quote = await collection.findOne({ id: quoteId })
 	if (!quote) {
 		const embed = new MessageEmbed()
-			.setColor(errorColor as HexColorString)
+			.setColor(colors.error)
 			.setAuthor(getString("moduleName"))
 			.setTitle(getString("invalidArg"))
 			.setDescription(getString("indexArg", { arg: quoteId!, max: count }))
@@ -138,7 +138,7 @@ async function findQuote(randomTip: string, interaction: CommandInteraction, get
 	console.log(`Quote with ID ${quoteId} was requested`)
 	const author = await Promise.all(quote.author.map(async a => interaction.guild!.members.cache.get(a)?.toString() ?? (await interaction.client.users.fetch(a)).tag)),
 		embed = new MessageEmbed()
-			.setColor(successColor as HexColorString)
+			.setColor(colors.success)
 			.setAuthor(getString("moduleName"))
 			.setTitle(quote.quote)
 			.setDescription(`      - ${author.join(" and ")}`)
@@ -164,7 +164,7 @@ async function addQuote(interaction: CommandInteraction, collection: Collection<
 				.then(async msg => {
 					if (msg.attachments.size > 0) pictureUrl ??= msg.attachments.first()!.url
 					const embed = new MessageEmbed()
-						.setColor(successColor as HexColorString)
+						.setColor(colors.success)
 						.setAuthor("Quote")
 						.setTitle("Success! The following quote has been added:")
 						.setDescription(quote)
@@ -182,7 +182,7 @@ async function addQuote(interaction: CommandInteraction, collection: Collection<
 				})
 				.catch(async () => {
 					const embed = new MessageEmbed()
-						.setColor(errorColor as HexColorString)
+						.setColor(colors.error)
 						.setAuthor("Quote")
 						.setTitle("Couldn't find a message linked to that URL!")
 						.setDescription("Make sure you obtained it by coping the message URL directly and that I have permission to see that message.")
@@ -191,7 +191,7 @@ async function addQuote(interaction: CommandInteraction, collection: Collection<
 				})
 		} else {
 			const embed = new MessageEmbed()
-				.setColor(errorColor as HexColorString)
+				.setColor(colors.error)
 				.setAuthor("Quote")
 				.setTitle("Provided URL isn't a valid message URL!")
 				.setFooter(generateTip(), ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
@@ -199,7 +199,7 @@ async function addQuote(interaction: CommandInteraction, collection: Collection<
 		}
 	} else {
 		const embed = new MessageEmbed()
-			.setColor(successColor as HexColorString)
+			.setColor(colors.success)
 			.setAuthor("Quote")
 			.setTitle("Success! The following quote has been added:")
 			.setDescription(quote)
@@ -222,7 +222,7 @@ async function editQuote(interaction: CommandInteraction, collection: Collection
 	if (result.value) {
 		const author = await Promise.all(result.value.author.map(async a => await interaction.client.users.fetch(a))),
 			embed = new MessageEmbed()
-				.setColor(successColor as HexColorString)
+				.setColor(colors.success)
 				.setAuthor("Quote")
 				.setTitle(`Successfully edited quote #${quoteId}`)
 				.addFields(
@@ -236,7 +236,7 @@ async function editQuote(interaction: CommandInteraction, collection: Collection
 		await interaction.reply({ embeds: [embed] })
 	} else {
 		const embed = new MessageEmbed()
-			.setColor(errorColor as HexColorString)
+			.setColor(colors.error)
 			.setAuthor("Quote")
 			.setTitle("Couldn't find a quote with that ID!")
 			.setFooter(generateTip(), ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
@@ -253,7 +253,7 @@ async function deleteQuote(interaction: CommandInteraction, collection: Collecti
 		const author = await Promise.all(result.value.author.map(async a => await interaction.client.users.fetch(a)))
 		await collection.updateMany({ id: { $gt: quoteId } }, { $inc: { id: -1 } })
 		const embed = new MessageEmbed()
-			.setColor(successColor as HexColorString)
+			.setColor(colors.success)
 			.setAuthor("Quote")
 			.setTitle(`Successfully deleted quote #${quoteId}`)
 			.addFields(
@@ -266,7 +266,7 @@ async function deleteQuote(interaction: CommandInteraction, collection: Collecti
 		await interaction.reply({ embeds: [embed] })
 	} else {
 		const embed = new MessageEmbed()
-			.setColor(errorColor as HexColorString)
+			.setColor(colors.error)
 			.setAuthor("Quote")
 			.setTitle("Couldn't find a quote with that ID!")
 			.setFooter(generateTip(), ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
@@ -287,7 +287,7 @@ async function linkQuote(interaction: CommandInteraction, collection: Collection
 			if (result.value) {
 				const author = await Promise.all(result.value.author.map(a => interaction.client.users.fetch(a))),
 					embed = new MessageEmbed()
-						.setColor(successColor as HexColorString)
+						.setColor(colors.success)
 						.setAuthor("Quote")
 						.setTitle(`Successfully linked quote #${quoteId}`)
 						.addFields(
@@ -305,7 +305,7 @@ async function linkQuote(interaction: CommandInteraction, collection: Collection
 				await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor("Quote")
 					.setTitle("Couldn't find a quote with that ID!")
 					.setFooter(
@@ -317,7 +317,7 @@ async function linkQuote(interaction: CommandInteraction, collection: Collection
 		})
 		.catch(async () => {
 			const embed = new MessageEmbed()
-				.setColor(errorColor as HexColorString)
+				.setColor(colors.error)
 				.setAuthor("Quote")
 				.setTitle("Couldn't find a message linked to that URL!")
 				.setDescription("Make sure you obtained it by coping the message URL directly and that I have permission to see that message.")

@@ -1,5 +1,5 @@
-import { Constants, Formatters, GuildTextBasedChannel, HexColorString, MessageEmbed } from "discord.js"
-import { successColor, ids } from "../../config.json"
+import { Constants, Formatters, GuildTextBasedChannel, MessageEmbed } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
@@ -32,7 +32,7 @@ const command: Command = {
 		if (interaction.member.permissions.has("MANAGE_ROLES")) await sendTo.send(message)
 		else await sendTo.send(Formatters.blockQuote(message))
 		const embed = new MessageEmbed()
-			.setColor(successColor as HexColorString)
+			.setColor(colors.success)
 			.setAuthor("Message")
 			.setTitle("Success! Message sent.")
 			.setDescription(`${sendTo}:\n${message}`)

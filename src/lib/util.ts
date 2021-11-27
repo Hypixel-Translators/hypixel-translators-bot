@@ -1,6 +1,6 @@
 //This file contains a bunch of functions used across the bot on multuple commands.
 import axios from "axios"
-import { CommandInteraction, GuildMember, HexColorString, MessageActionRow, MessageButton, MessageEmbed, Role, Snowflake, User } from "discord.js"
+import { CommandInteraction, GuildMember, MessageActionRow, MessageButton, MessageEmbed, Role, Snowflake, User } from "discord.js"
 import puppeteer from "puppeteer"
 import { v4 } from "uuid"
 import { db } from "./dbclient"
@@ -235,7 +235,7 @@ export interface LanguageStatus {
 export interface LangDbEntry {
 	name: string,
 	emoji: string,
-	color?: HexColorString,
+	color?: number,
 	code: string,
 	id: string
 	flag: string

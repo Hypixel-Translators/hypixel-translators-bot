@@ -1,5 +1,5 @@
-import { HexColorString, MessageEmbed } from "discord.js"
-import { successColor, ids } from "../../config.json"
+import { MessageEmbed } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { generateTip, restart } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
@@ -13,7 +13,7 @@ const command: Command = {
 		if (!interaction.inCachedGuild()) return
 		const member = interaction.member,
 			embed = new MessageEmbed()
-				.setColor(successColor as HexColorString)
+				.setColor(colors.success)
 				.setAuthor("Restart")
 				.setTitle("Restarting...")
 				.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))

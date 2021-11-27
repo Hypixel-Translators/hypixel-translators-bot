@@ -1,6 +1,6 @@
-import { HexColorString, MessageEmbed, ThreadChannel } from "discord.js"
+import { MessageEmbed, ThreadChannel } from "discord.js"
 import { client } from "../index"
-import { successColor, loadingColor, errorColor, ids } from "../config.json"
+import { colors, ids } from "../config.json"
 import { db, cancelledEvents } from "../lib/dbclient"
 
 import type { LangDbEntry, Quote, Stats } from "../lib/util"
@@ -45,7 +45,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 			} else if (reaction.emoji.name === "vote_maybe" && reaction.message.author!.id !== user.id) {
 				await reaction.users.remove(user.id)
 				const embed = new MessageEmbed()
-					.setColor(loadingColor as HexColorString)
+					.setColor(colors.loading)
 					.setAuthor(strings.moduleName)
 					.setTitle(strings.requestDetails.replace("%%user%%", user.tag))
 					.setDescription(`${reaction.message}`)
@@ -63,7 +63,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 			} else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {
 				await reaction.message.react("⏱")
 				const embed = new MessageEmbed()
-					.setColor(errorColor as HexColorString)
+					.setColor(colors.error)
 					.setAuthor(strings.moduleName)
 					.setTitle(strings.rejected.replace("%%user%%", user.tag))
 					.setDescription(`${reaction.message}`)
@@ -103,7 +103,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 			if (firstAttachment) await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url, imageURL: firstAttachment })
 			else await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url })
 			const embed = new MessageEmbed()
-				.setColor(successColor as HexColorString)
+				.setColor(colors.success)
 				.setAuthor("Starboard")
 				.setTitle(`The following quote reached ${reaction.count} ⭐ reactions and was added!`)
 				.setDescription(reaction.message.content)

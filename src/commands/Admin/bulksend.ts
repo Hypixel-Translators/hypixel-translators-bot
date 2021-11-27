@@ -1,5 +1,5 @@
-import { HexColorString, MessageEmbed, TextChannel } from "discord.js"
-import { successColor, ids } from "../../config.json"
+import { MessageEmbed, TextChannel } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { updateProjectStatus } from "../../events/stats"
 import { db } from "../../lib/dbclient"
 import { CrowdinProject, generateTip } from "../../lib/util"
@@ -38,7 +38,7 @@ const command: Command = {
 		await interaction.deferReply()
 		for (amount; amount > 0; amount--) await sendTo.send("Language statistics will be here shortly!")
 		const embed = new MessageEmbed()
-			.setColor(successColor as HexColorString)
+			.setColor(colors.success)
 			.setAuthor("Bulk Send")
 			.setTitle(`Success! Message${amount === 1 ? "" : "s"} sent!`)
 			.setDescription(`${sendTo}`)

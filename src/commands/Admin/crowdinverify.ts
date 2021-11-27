@@ -1,5 +1,5 @@
-import { HexColorString, MessageEmbed } from "discord.js"
-import { successColor, ids } from "../../config.json"
+import { MessageEmbed } from "discord.js"
+import { colors, ids } from "../../config.json"
 import crowdinVerify from "../../events/crowdinverify"
 import { generateTip } from "../../lib/util"
 
@@ -22,7 +22,7 @@ const command: Command = {
 		await interaction.deferReply()
 		await crowdinVerify(limit)
 		const embed = new MessageEmbed()
-			.setColor(successColor as HexColorString)
+			.setColor(colors.success)
 			.setAuthor("Role updater")
 			.setTitle("All verified users had their roles updated!")
 			.setDescription("Check the console for any errors that may have occured in the process")

@@ -1,5 +1,5 @@
-import { GuildMember, HexColorString, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
-import { successColor, ids } from "../../config.json"
+import { GuildMember, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -15,7 +15,7 @@ const command: Command = {
 			member = interaction.member as GuildMember | null ?? interaction.user
 
 		const embed = new MessageEmbed()
-			.setColor(successColor as HexColorString)
+			.setColor(colors.success)
 			.setAuthor(getString("moduleName"))
 			.setTitle(getString("bugT"))
 			.setDescription(getString("bugD"))

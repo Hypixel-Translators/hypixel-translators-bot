@@ -1,7 +1,7 @@
 import axios from "axios"
-import { HexColorString, MessageEmbed } from "discord.js"
+import { MessageEmbed } from "discord.js"
 import { client } from "../../index"
-import { successColor, loadingColor, errorColor, ids } from "../../config.json"
+import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { crowdinFetchSettings, generateTip, LangDbEntry, LanguageStatus } from "../../lib/util"
 
@@ -55,11 +55,11 @@ const command: Command = {
 		const botJson: LanguageStatus[] = await axios.get("https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500", crowdinFetchSettings).then(async res => res.data.data)
 		botData = botJson.find(language => language.data.languageId === lang.id)?.data ?? null
 
-		let adapColour: HexColorString
+		let adapColour: number
 		const approvalProgress = Math.max(hypixelData?.approvalProgress ?? 0, quickplayData?.approvalProgress ?? 0, sbaData?.approvalProgress ?? 0, botData?.approvalProgress ?? 0)
-		if (approvalProgress >= 90) adapColour = successColor as HexColorString
-		else if (approvalProgress >= 50) adapColour = loadingColor as HexColorString
-		else adapColour = errorColor as HexColorString
+		if (approvalProgress >= 90) adapColour = colors.success
+		else if (approvalProgress >= 50) adapColour = colors.loading
+		else adapColour = colors.error
 
 		const embed = new MessageEmbed()
 			.setColor(adapColour)
