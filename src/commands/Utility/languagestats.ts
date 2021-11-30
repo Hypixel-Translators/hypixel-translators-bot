@@ -1,9 +1,8 @@
-import axios from "axios"
 import { MessageEmbed } from "discord.js"
-import { client } from "../../index"
+import { client, crowdin } from "../../index"
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { crowdinFetchSettings, generateTip, LangDbEntry, LanguageStatus } from "../../lib/util"
+import { generateTip, LangDbEntry } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -30,13 +29,9 @@ const command: Command = {
 		const langdb = await db.collection<LangDbEntry>("langdb").find().toArray()
 		let lang = langdb.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)!
 		lang ??= langdb.find(l => l.name.toLowerCase().includes(rawLang!))!
-		if (!lang || lang?.code === "en") throw "falseLang"
+		if (!lang || lang.code === "en") throw "falseLang"
 
-		let hypixelData: LanguageStatus["data"] | null,
-			quickplayData: LanguageStatus["data"] | null,
-			sbaData: LanguageStatus["data"] | null,
-			botData: LanguageStatus["data"] | null
-		const hypixelJson: LanguageStatus[] = await axios.get("https://api.crowdin.com/api/v2/projects/128098/languages/progress?limit=500", crowdinFetchSettings).then(async res => res.data.data)
+		const hypixelData = await (crowdin.translationStatusApi.getProjectProgress(128098, 500)).then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null)
 			.catch(e => {
 				if (e.code === "ECONNABORTED") { //this means the request timed out
 					console.error("Crowdin API is down, sending error.")
@@ -44,16 +39,11 @@ const command: Command = {
 				} else throw e
 			})
 
-		hypixelData = hypixelJson.find(language => language.data.languageId === lang.id)?.data ?? null
+		const quickplayData = await (crowdin.translationStatusApi.getProjectProgress(369653, 500)).then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null)
 
-		const quickplayJson: LanguageStatus[] = await axios.get("https://api.crowdin.com/api/v2/projects/369653/languages/progress?limit=500", crowdinFetchSettings).then(async res => res.data.data)
-		quickplayData = quickplayJson.find(language => language.data.languageId === lang.id)?.data ?? null
+		const sbaData = await (crowdin.translationStatusApi.getProjectProgress(369493, 500)).then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null)
 
-		const sbaJson: LanguageStatus[] = await axios.get("https://api.crowdin.com/api/v2/projects/369493/languages/progress?limit=500", crowdinFetchSettings).then(async res => res.data.data)
-		sbaData = sbaJson.find(language => language.data.languageId === lang.id)?.data ?? null
-
-		const botJson: LanguageStatus[] = await axios.get("https://api.crowdin.com/api/v2/projects/436418/languages/progress?limit=500", crowdinFetchSettings).then(async res => res.data.data)
-		botData = botJson.find(language => language.data.languageId === lang.id)?.data ?? null
+		const botData = await (crowdin.translationStatusApi.getProjectProgress(436418, 500)).then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null)
 
 		let adapColour: number
 		const approvalProgress = Math.max(hypixelData?.approvalProgress ?? 0, quickplayData?.approvalProgress ?? 0, sbaData?.approvalProgress ?? 0, botData?.approvalProgress ?? 0)

@@ -1,5 +1,6 @@
 //Setup dotenv and define client
 if (!process.env.MONGO_URL) require("dotenv").config()
+import Crowdin from "@crowdin/crowdin-api-client"
 import "source-map-support/register"
 import { Intents, Options } from "discord.js"
 import { HTBClient } from "./lib/dbclient"
@@ -25,7 +26,15 @@ export const client = new HTBClient({
 		status: process.env.NODE_ENV === "production" ? "online" : "dnd",
 		activities: [{ name: "/help", type: "WATCHING" }]
 	}
-})
+}),
+	crowdin = new Crowdin(
+		{
+			token: process.env.CTOKEN_V2!
+		},
+		{
+			userAgent: "Hypixel Translators Bot"
+		}
+	)
 
 //Import commands and events
 setup(client)

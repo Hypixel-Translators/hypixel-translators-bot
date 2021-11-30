@@ -1,39 +1,37 @@
-import axios from "axios"
 import { MessageEmbed, NewsChannel, TextChannel } from "discord.js"
-import { client } from "../index"
+import { client, crowdin } from "../index"
 import { colors, ids } from "../config.json"
 import { db } from "../lib/dbclient"
-import { closeConnection, crowdinFetchSettings, CrowdinProject, getBrowser, LangDbEntry, LanguageStatus, Stats } from "../lib/util"
+import { closeConnection, CrowdinProject, getBrowser, LangDbEntry, LanguageStatus, Stats } from "../lib/util"
 
 export async function stats(manual = false) {
 	const m = new Date().getUTCMinutes()
 	if (manual) {
-		await updateProjectStatus("128098") //Hypixel
-		await updateProjectStatus("369493") //SkyblockAddons
-		await updateProjectStatus("369653") //Quickplay
-		await updateProjectStatus("436418") //Bot
+		await updateProjectStatus(128098) //Hypixel
+		await updateProjectStatus(369493) //SkyblockAddons
+		await updateProjectStatus(369653) //Quickplay
+		await updateProjectStatus(436418) //Bot
 		console.log("All stats have been manually updated.")
 	} else if (m == 0 || m == 20 || m == 40) {
-		await updateProjectStatus("128098") //Hypixel
-		await updateProjectStatus("369493") //SkyblockAddons
+		await updateProjectStatus(128098) //Hypixel
+		await updateProjectStatus(369493) //SkyblockAddons
 	} else if (m == 10 || m == 30 || m == 50) {
-		await updateProjectStatus("369653") //Quickplay
-		await updateProjectStatus("436418") //Bot
+		await updateProjectStatus(369653) //Quickplay
+		await updateProjectStatus(436418) //Bot
 	}
 }
 
-export async function updateProjectStatus(projectId: string) {
-	if (projectId === "128098") checkBuild()
+export async function updateProjectStatus(projectId: number) {
+	if (projectId === 128098) checkBuild()
 	const langdb = await db.collection<LangDbEntry>("langdb").find().toArray(),
 		crowdinDb = db.collection<CrowdinProject>("crowdin"),
 		projectDb = (await crowdinDb.findOne({ id: projectId }))!,
-		json = await axios.get(`https://api.crowdin.com/api/v2/projects/${projectId}/languages/progress?limit=500`, crowdinFetchSettings)
+		json = await crowdin.translationStatusApi.getProjectProgress(projectId, 500)
 			.catch(err => console.error(`Crowdin API is down, couldn't update ${projectDb.name} language statistics. Here's the error:`, err))
-	if (!json?.data) return
-	if (!json.data?.data) return console.error(`We got no data from the API when trying to update Hypixel! Here's the response:\n`, json)
-	const langStatus: LanguageStatus[] = json.data.data.map((status: LanguageStatus) => {
-		status.language = langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)!
-		return status
+	if (!json?.data) return console.error(`We got no data from the API when trying to update Hypixel! Here's the response:\n`, json)
+	const langStatus: LanguageStatus[] = json.data.map(status => {
+		Object.defineProperty(status, "language", { value: langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)! })
+		return status as LanguageStatus
 	}).sort((a: LanguageStatus, b: LanguageStatus) => b.data.phrases.total - a.data.phrases.total),
 		sortedSatus = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) =>
 			nextStatus.language.name.localeCompare(currentStatus.language.name)

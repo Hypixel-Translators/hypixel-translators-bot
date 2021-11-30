@@ -46,19 +46,19 @@ const command: Command = {
 		} else {
 			switch (projectInput) {
 				case "hypixel": {
-					await updateProjectStatus("128098")
+					await updateProjectStatus(128098)
 					break
 				}
 				case "quickplay": {
-					await updateProjectStatus("369653")
+					await updateProjectStatus(369653)
 					break
 				}
 				case "sba": {
-					await updateProjectStatus("369493")
+					await updateProjectStatus(369493)
 					break
 				}
 				case "bot": {
-					await updateProjectStatus("436418")
+					await updateProjectStatus(436418)
 					break
 				}
 			}

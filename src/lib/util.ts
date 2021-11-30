@@ -7,6 +7,7 @@ import { db } from "./dbclient"
 import { client } from "../index"
 import { ids } from "../config.json"
 
+import type { ResponseObject, TranslationStatusModel } from "@crowdin/crowdin-api-client"
 import type { GetStringFunction } from "./imports"
 
 // source: https://github.com/Mee6/Mee6-documentation/blob/master/docs/levels_xp.md
@@ -40,11 +41,7 @@ export function updateButtonColors(row: MessageActionRow, page: number, pages: a
 	return row
 }
 
-export const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 30_000 },
-	crowdinFetchSettings = {
-		headers: { "Content-Type": "application/json", Authorization: `Bearer ${process.env.CTOKEN_V2}`, "User-Agent": "Hypixel Translators Bot" },
-		timeout: 10_000
-	}
+export const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 30_000 }
 
 export async function getUUID(username: string): Promise<string | undefined> {
 	return await axios.get(`https://api.mojang.com/users/profiles/minecraft/${username}`, fetchSettings)
@@ -213,22 +210,7 @@ export interface GraphQLQuery {
 	}
 }
 
-export interface LanguageStatus {
-	data: {
-		languageId: string,
-		words: {
-			total: number,
-			translated: number,
-			approved: number
-		},
-		phrases: {
-			total: number,
-			translated: number,
-			approved: number
-		},
-		translationProgress: number,
-		approvalProgress: number
-	},
+export interface LanguageStatus extends ResponseObject<TranslationStatusModel.LanguageProgress> {
 	language: LangDbEntry
 }
 
@@ -242,7 +224,7 @@ export interface LangDbEntry {
 }
 
 export interface CrowdinProject {
-	id: string
+	id: number
 	identifier: string
 	name: string
 	shortName: string
