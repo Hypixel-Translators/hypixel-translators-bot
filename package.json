@@ -22,7 +22,7 @@
 		"cron": "^1.8.2",
 		"discord.js": "github:iShibi/discord.js#feat-guild-event",
 		"mongodb": "^4.2.0",
-		"puppeteer": "^12.0.0",
+		"puppeteer": "^12.0.1",
 		"source-map-support": "^0.5.21",
 		"typescript": "^4.5.2",
 		"uuid": "^8.3.2"
