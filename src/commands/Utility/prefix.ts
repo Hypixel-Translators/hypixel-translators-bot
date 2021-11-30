@@ -1,4 +1,4 @@
-import { flag } from "country-emoji"
+import { getEmoji } from "language-flag-colors"
 import { MessageActionRow, MessageButton, MessageEmbed, TextChannel } from "discord.js"
 import { client } from "../../index"
 import { colors, ids } from "../../config.json"
@@ -35,15 +35,15 @@ const command: Command = {
 			langdb = await db.collection<LangDbEntry>("langdb").find().toArray()
 
 		if (interaction.options.getString("flags", false) && !interaction.member.roles.cache.hasAny(ids.roles.hypixelTranslator, ids.roles.hypixelPf)) {
-			const flagEmojis: (string | undefined)[] = []
+			const flagEmojis: (string | null)[] = []
 			interaction.options.getString("flags", true).split(" ").forEach(emoji => {
 				if (emoji.toLowerCase() === "lol" || emoji.toLowerCase() === "lolcat") flagEmojis.push("😹")
 				else if (emoji.toLowerCase() === "enpt" || emoji.toLowerCase() === "pirate") flagEmojis.push("☠")
 				else if (emoji.toLowerCase() === "ib" || emoji.toLowerCase() === "banana") flagEmojis.push("🍌")
 				else if (emoji.toLowerCase() === "bc" || emoji.toLowerCase() === "biscuitish") flagEmojis.push("🍪")
-				else flagEmojis.push(flag(emoji))
+				else flagEmojis.push(getEmoji(emoji))
 			})
-			if (!flagEmojis.length || flagEmojis.includes(undefined)) throw "falseFlag"
+			if (!flagEmojis.length || flagEmojis.includes(null)) throw "falseFlag"
 
 			let prefix = flagEmojis.join("-")
 			const embed = new MessageEmbed()

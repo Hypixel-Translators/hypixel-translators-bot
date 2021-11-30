@@ -1,7 +1,6 @@
 const fs = require("node:fs")
 const axios = require("axios")
-const { flag, code, name, countries } = require("country-emoji")
-const country = require("countryjs")
+const flagColors = require("language-flag-colors")
 const { crowdin } = require("../../index")
 const { colors, listeningStatuses, watchingStatuses, playingStatuses, ids } = require("../../config.json")
 const { crowdinVerify } = require("../../lib/crowdinverify")

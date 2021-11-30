@@ -18,10 +18,9 @@
 		"@crowdin/crowdin-api-client": "^1.12.3",
 		"axios": "^0.24.0",
 		"canvas": "^2.8.0",
-		"country-emoji": "^1.5.6",
-		"countryjs": "^1.8.0",
 		"cron": "^1.8.2",
 		"discord.js": "github:iShibi/discord.js#feat-guild-event",
+		"language-flag-colors": "^1.1.1",
 		"mongodb": "^4.2.0",
 		"puppeteer": "^12.0.1",
 		"source-map-support": "^0.5.21",
@@ -33,7 +32,6 @@
 		"npm": "8.x"
 	},
 	"devDependencies": {
-		"@types/countryjs": "^1.8.1",
 		"@types/cron": "^1.7.3",
 		"@types/uuid": "^8.3.3",
 		"dotenv": "^10.0.0",

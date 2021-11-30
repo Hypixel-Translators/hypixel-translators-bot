@@ -1,6 +1,6 @@
-import { flag } from "country-emoji"
-import { demonym, name } from "countryjs"
 import { HexColorString, MessageEmbed, OverwriteResolvable } from "discord.js"
+import { getLanguage } from "language-flag-colors"
+import { crowdin } from "../../index"
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { generateTip, LangDbEntry } from "../../lib/util"
@@ -26,38 +26,34 @@ const command: Command = {
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply()
-		const lang = interaction.options.getString("code", true).toLowerCase(),
-			code = interaction.options.getString("code", true).toUpperCase(),
-			langdbEntry = await db.collection<LangDbEntry>("langdb").findOne({ code: lang }),
+		const lang = interaction.options.getString("code", true),
+			langdbEntry = (await db.collection<LangDbEntry>("langdb").findOne({ code: lang }))!,
 			member = interaction.member
-		let nationality = demonym(code)
-		if (!nationality) throw "Couldn't find that country!"
-		let emoji = flag(lang)
+		let { country, emoji } = getLanguage(langdbEntry.id)!
 		if (langdbEntry) {
-			nationality = langdbEntry.name
 			emoji = langdbEntry.emoji
 		}
 		console.log(lang)
-		console.log(nationality)
+		const { data: language } = await crowdin.languagesApi.getLanguage(langdbEntry.id)
 		const translatorRole = await interaction.guild!.roles.create({
-			name: `${nationality} Translator`,
+			name: `${language.name} Translator`,
 			color: `${interaction.options.getString("color", false) as HexColorString | null ?? "#000000"}`,
 			hoist: false,
 			position: 22,
 			permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
 			mentionable: false,
 			unicodeEmoji: langdbEntry?.emoji ?? null,
-			reason: `Added language ${nationality}`
+			reason: `Added language ${language.name}`
 		})
 		const proofreaderRole = await interaction.guild!.roles.create({
-			name: `${nationality} Proofreader`,
+			name: `${language.name} Proofreader`,
 			color: `${interaction.options.getString("color", false) as HexColorString | null ?? "#000000"}`,
 			hoist: false,
 			position: 49,
 			permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
 			mentionable: false,
 			unicodeEmoji: langdbEntry?.emoji ?? null,
-			reason: `Added language ${nationality}`
+			reason: `Added language ${language.name}`
 		})
 		const overwrites = [
 			{
@@ -91,43 +87,43 @@ const command: Command = {
 		] as OverwriteResolvable[]
 		const pfOverwrites = Array.from(overwrites)
 		pfOverwrites.splice(3, 1)
-		const category = await interaction.guild!.channels.create(`${name(code)} ${emoji}`, {
+		const category = await interaction.guild!.channels.create(`${country} ${emoji}`, {
 			type: "GUILD_CATEGORY",
 			permissionOverwrites: overwrites,
 			position: 9,
-			reason: `Added language ${nationality}`
+			reason: `Added language ${language.name}`
 		})
-		const translatorsChannel = await interaction.guild!.channels.create(`${nationality}-translators`, {
+		const translatorsChannel = await interaction.guild!.channels.create(`${language.name}-translators`, {
 			type: "GUILD_TEXT",
-			topic: `A text channel where you can discuss ${nationality!.charAt(0).toUpperCase() + nationality!.slice(1)} translations! ${emoji}\n\nTRANSLATION`,
+			topic: `A text channel where you can discuss ${language.name} translations! ${emoji}\n\nTRANSLATION`,
 			parent: category,
 			permissionOverwrites: overwrites,
-			reason: `Added language ${nationality}`
+			reason: `Added language ${language.name}`
 		})
-		const proofreadersChannel = await interaction.guild!.channels.create(`${nationality}-proofreaders`, {
+		const proofreadersChannel = await interaction.guild!.channels.create(`${language.name}-proofreaders`, {
 			type: "GUILD_TEXT",
 			parent: category,
 			permissionOverwrites: pfOverwrites,
-			reason: `Added language ${nationality}`
+			reason: `Added language ${language.name}`
 		})
-		const translatorsVoice = await interaction.guild!.channels.create(`${nationality} Translators`, {
+		const translatorsVoice = await interaction.guild!.channels.create(`${language.name} Translators`, {
 			type: "GUILD_VOICE",
 			userLimit: 10,
 			parent: category,
 			permissionOverwrites: overwrites,
-			reason: `Added language ${nationality}`
+			reason: `Added language ${language.name}`
 		})
-		const proofreadersVoice = await interaction.guild!.channels.create(`${nationality} Proofreaders`, {
+		const proofreadersVoice = await interaction.guild!.channels.create(`${language.name} Proofreaders`, {
 			type: "GUILD_VOICE",
 			userLimit: 10,
 			parent: category,
 			permissionOverwrites: pfOverwrites,
-			reason: `Added language ${nationality}`
+			reason: `Added language ${language.name}`
 		})
 		const embed = new MessageEmbed()
 			.setColor(colors.success)
 			.setAuthor("Channel creator")
-			.setTitle(`Successfully created the new ${name(code)} category, channels and roles!`)
+			.setTitle(`Successfully created the new ${country} category, channels and roles!`)
 			.setDescription("Make sure their names were set correctly, put them in their correct positions, check the role colors and don't forget to translate the channel topic!")
 			.addFields(
 				{ name: "Text Channels", value: `${translatorsChannel} and ${proofreadersChannel}` },
