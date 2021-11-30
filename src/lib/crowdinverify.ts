@@ -122,7 +122,7 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 					await verifyLogs.send(`${member}'s profile was private (<${url}>), I let them know about that in <#${ids.channels.verify}> since they had DMs off.`)
 				})
 			else await verifyLogs.send(`${member}'s profile is private (<${url}>). Please ask them to change this.`)
-			if (sendLogs) await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "privateProfile" })
+			await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "privateProfile" })
 			//#endregion
 		} else {
 			const dmEmbed = new MessageEmbed()

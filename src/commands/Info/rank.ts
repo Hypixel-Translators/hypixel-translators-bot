@@ -34,8 +34,8 @@ const command: Command = {
 				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 			return await interaction.reply({ embeds: [errorEmbed] })
 		}
-		const totalXp = getXpNeeded(userDb.levels?.level),
-			progressBar = generateProgressBar(userDb.levels?.levelXp, totalXp),
+		const totalXp = getXpNeeded(userDb.levels.level),
+			progressBar = generateProgressBar(userDb.levels.levelXp, totalXp),
 			ranking = (await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray()).map(u => u.id).indexOf(user.id) + 1,
 			currentXp = userDb.levels.levelXp,
 			messageCount = userDb.levels.messageCount

@@ -72,7 +72,7 @@ const command: Command = {
 						.setCustomId("last")
 						.setLabel(getString("pagination.last", "global"))
 				),
-				pageEmbed: MessageEmbed = fetchPage(page, pages, getString, randomTip, interaction)
+				pageEmbed: MessageEmbed = fetchPage(page, pages, getString, interaction)
 
 			controlButtons = updateButtonColors(controlButtons, page, pages)
 			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }) as Message,
@@ -91,7 +91,7 @@ const command: Command = {
 					page++
 					if (page > pages.length - 1) page = pages.length - 1
 				}
-				pageEmbed = fetchPage(page, pages, getString, randomTip, interaction)
+				pageEmbed = fetchPage(page, pages, getString, interaction)
 				controlButtons = updateButtonColors(controlButtons, page, pages)
 				await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
 			})
@@ -105,7 +105,7 @@ const command: Command = {
 	}
 }
 
-function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction, randomTip: string, interaction: CommandInteraction) {
+function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction, interaction: CommandInteraction) {
 	if (page > pages.length - 1) page = pages.length - 1
 	if (page < 0) page = 0
 	const pageEmbed = new MessageEmbed()

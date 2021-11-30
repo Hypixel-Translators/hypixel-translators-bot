@@ -57,16 +57,16 @@ const command: Command = {
 			userInput = interaction.options.getUser("user", false),
 			usernameInput = interaction.options.getString("username", false)
 
-		let uuid = authorDb.uuid
+		let uuid: string | undefined
 		if (userInput) {
 			const userInputDb = await client.getUser(userInput.id)
 			if (userInputDb!.uuid) uuid = userInputDb!.uuid
 			else throw "notVerified"
 		} else if (usernameInput && usernameInput.length < 32) uuid = await getUUID(usernameInput)
 		else uuid = usernameInput ?? authorDb.uuid
-		if (!userInput && !usernameInput && !authorDb?.uuid) throw "noUser"
+		if (!userInput && !usernameInput && !authorDb.uuid) throw "noUser"
 		if (!uuid) throw "falseUser"
-		const isOwnUser = uuid === authorDb?.uuid,
+		const isOwnUser = uuid === authorDb.uuid,
 			uuidDb = await db.collection<DbUser>("users").findOne({ uuid })
 
 		switch (subCommand) {
@@ -192,7 +192,7 @@ const command: Command = {
 export default command
 
 async function getPlayer(uuid: string) {
-	const json = await axios.get<UserProfile & {error?: string}>(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings).then(res => res.data)
+	const json = await axios.get<UserProfile & { error?: string }>(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings).then(res => res.data)
 	if (json.error) throw "falseUUID"
 	return json
 }

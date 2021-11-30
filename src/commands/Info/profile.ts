@@ -29,7 +29,7 @@ const command: Command = {
 
 		if (interaction.member.roles.cache.has(ids.roles.admin) && user) {
 			if (!profile) {
-				const userDb = await client.getUser(user?.id)
+				const userDb = await client.getUser(user.id)
 				if (userDb.profile) {
 					const embed = new MessageEmbed()
 						.setColor(colors.neutral)

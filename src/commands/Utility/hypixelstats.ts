@@ -38,7 +38,7 @@ const command: Command = {
 			const userDb: DbUser = await client.getUser(userInput.id)
 			if (userDb.uuid) uuid = userDb.uuid
 			else throw "notVerified"
-		} else if (usernameInput && usernameInput?.length < 32) uuid = await getUUID(usernameInput)
+		} else if (usernameInput && usernameInput.length < 32) uuid = await getUUID(usernameInput)
 		else uuid = usernameInput ?? authorDb.uuid
 		if (!uuid) throw "noUser"
 
