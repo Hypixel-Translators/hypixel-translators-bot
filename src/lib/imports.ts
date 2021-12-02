@@ -4,7 +4,7 @@ import { ChatInputApplicationCommandData, Snowflake, CommandInteraction } from "
 
 import type { HTBClient } from "./dbclient"
 
-function findCommands(dir: string, pattern: string) {
+ export function findCommands(dir: string, pattern: string) {
 
 	let results: string[] = []
 	readdirSync(dir).forEach(innerPath => {
