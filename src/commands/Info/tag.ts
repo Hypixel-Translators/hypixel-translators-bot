@@ -84,7 +84,7 @@ const command: Command = {
 				break
 		}
 
-		if (target) response = `*Tag suggestion for ${target}:*\n`.concat(response)
+		if (target) response = `*Tag suggestion for ${target}:*\n${response}`
 		await interaction.reply(response)
 	}
 }
