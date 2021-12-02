@@ -1,10 +1,10 @@
 import { readdirSync, statSync } from "node:fs"
 import { resolve } from "node:path"
-import { ChatInputApplicationCommandData, Snowflake, CommandInteraction } from "discord.js"
 
+import type { ChatInputApplicationCommandData, Snowflake, CommandInteraction } from "discord.js"
 import type { HTBClient } from "./dbclient"
 
- export function findCommands(dir: string, pattern: string) {
+export function findCommands(dir: string, pattern: string) {
 
 	let results: string[] = []
 	readdirSync(dir).forEach(innerPath => {
@@ -27,7 +27,8 @@ export function setup(client: HTBClient) {
 	else {
 		cmdFiles.forEach(file => {
 			const command: Command = require(file).default,
-				pathSplit = file.split("\\")
+				// Windows uses \ as the path separator, everything else uses /
+				pathSplit = file.split(process.platform === "win32" ? "\\" : "/")
 			command.category = pathSplit.at(-2)! as "Admin" | "Staff" | "Utility" | "Info"
 			client.commands.set(command.name, command)
 		})
