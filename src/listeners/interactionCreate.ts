@@ -1,66 +1,24 @@
 import { readdirSync } from "node:fs"
-import { Collection, GuildChannel, Message, MessageEmbed, Snowflake, TextChannel } from "discord.js"
+import { Collection, GuildChannel, Message, MessageEmbed, TextChannel } from "discord.js"
 import { client } from "../index"
 import { colors, ids } from "../config.json"
+import handleButtonInteractions from "../interactions/buttons"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import { arrayEqual, generateTip, Stats } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
 	if (!db) return void cancelledEvents.push({ listener: "interactionCreate", args: [interaction] })
+	if (interaction.user.bot) return
 
+	if (interaction.isButton() && interaction.inCachedGuild()) return void (await handleButtonInteractions(interaction, getString))
 	let command: Command | null = null
 	const author: DbUser = await client.getUser(interaction.user.id),
 		member = interaction.client.guilds.cache.get(ids.guilds.main)?.members.cache.get(interaction.user.id)!,
 		randomTip = generateTip(getString),
 		statsColl = db.collection<Stats>("stats")
-	if (interaction.isButton() && !interaction.user.bot && interaction.inCachedGuild()) {
-		// Staff LOA warning removal system
-		if (interaction.channelId === ids.channels.loa && interaction.customId == "done") {
-			if (interaction.message.mentions.users.first()!.id !== interaction.user.id)
-				return void (await interaction.reply({ content: "You can only remove your own LOA warning!", ephemeral: true }))
 
-			const endDateRaw = interaction.message.embeds[0].fields[1].value.split("/"),
-				endDate = new Date(Number(endDateRaw[2]), Number(endDateRaw[1]) - 1, Number(endDateRaw[0]))
-			if (endDate.getTime() > Date.now())
-				return void (await interaction.reply({
-					content: "You can't end this LOA yet! If something changed, please contact the admins.",
-					ephemeral: true
-				}))
-			else {
-				await interaction.message.delete()
-				await interaction.reply({ content: "Successfully deleted this LOA! **Welcome back!**", ephemeral: true })
-				return
-			}
-		} else if (interaction.channelId === ids.channels.serverInfo) {
-			// Self-roles system
-			let roleId: Snowflake
-			if (interaction.customId === "polls") roleId = ids.roles.polls
-			else if (interaction.customId === "botUpdates") roleId = ids.roles.botUpdates
-			else if (interaction.customId === "crowdinUpdates") roleId = ids.roles.crowdinUpdates
-			else if (interaction.customId === "giveaways") {
-				const userDb = await client.getUser(interaction.user.id)
-				if ((userDb.levels?.level ?? 0) < 5) {
-					console.log(`${member.user.tag} tried to get the Giveaway pings role but they're level ${userDb.levels?.level ?? 0} lol`)
-					return await interaction.reply({
-						content: getString("roles.noLevel", { level: 5, command: "`/rank`", channel: `<#${ids.channels.bots}>` }),
-						ephemeral: true
-					})
-				}
-				roleId = ids.roles.giveawayPings
-			} else return
-			if (member.roles.cache.has(roleId)) {
-				await member.roles.remove(roleId, "Clicked the button in server-info")
-				await interaction.reply({ content: getString("roles.successTake", { role: `<@&${roleId}>` }), ephemeral: true })
-				console.log(`Took the ${interaction.guild!.roles.cache.get(roleId)!.name} role from ${interaction.user.tag}`)
-			} else {
-				await member.roles.add(roleId, "Clicked the button in server-info")
-				await interaction.reply({ content: getString("roles.successGive", { role: `<@&${roleId}>` }), ephemeral: true })
-				console.log(`Gave the ${interaction.guild!.roles.cache.get(roleId)!.name} role to ${interaction.user.tag}`)
-			}
-		}
-	}
-	if (!interaction.isCommand() || interaction.user.bot) return
+	if (!interaction.isCommand()) return
 
 	command = client.commands.get(interaction.commandName)!
 
@@ -235,11 +193,10 @@ client.on("interactionCreate", async interaction => {
 				if (!errorMsg.deleted && !interaction.ephemeral) await errorMsg.delete()
 			}, 10000)
 		} else if (!interaction.replied) await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
-		else if (interaction.replied) await interaction.followUp({ embeds: [embed], ephemeral: !error.stack, components: [] })
+		else await interaction.followUp({ embeds: [embed], ephemeral: !error.stack, components: [] })
 			.catch(async err => {
 				await interaction.channel!.send({ embeds: [embed], components: [] })
 				console.error("Couldn't send a followUp on a replied interaction, here's the error", err)
 			})
-		else console.error("Couldn't send the error for some weird reason, here's some data to help you", interaction)
 	}
 })
