@@ -14,7 +14,8 @@ const command: Command = {
 		type: "STRING",
 		name: "command",
 		description: "The command to get information for",
-		required: false
+		required: false,
+		autocomplete: true
 	},
 	{
 		type: "INTEGER",

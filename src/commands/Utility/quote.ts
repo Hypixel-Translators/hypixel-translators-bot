@@ -17,7 +17,8 @@ const command: Command = {
 			type: "INTEGER",
 			name: "index",
 			description: "The index of the quote you want to see",
-			required: false
+			required: false,
+			autocomplete: true
 		}]
 	},
 	{
@@ -57,7 +58,8 @@ const command: Command = {
 			type: "INTEGER",
 			name: "index",
 			description: "The index of the quote to edit",
-			required: true
+			required: true,
+			autocomplete: true
 		},
 		{
 			type: "STRING",
@@ -74,7 +76,8 @@ const command: Command = {
 			type: "INTEGER",
 			name: "index",
 			description: "The index of the quote to delete",
-			required: true
+			required: true,
+			autocomplete: true
 		}]
 	},
 	{
@@ -85,7 +88,8 @@ const command: Command = {
 			type: "INTEGER",
 			name: "index",
 			description: "The index of the quote to link",
-			required: true
+			required: true,
+			autocomplete: true
 		},
 		{
 			type: "STRING",

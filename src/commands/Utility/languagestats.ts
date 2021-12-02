@@ -13,7 +13,8 @@ const command: Command = {
 		type: "STRING",
 		name: "language",
 		description: "The language to get progress statistics for. Required if your language is set to English.",
-		required: false
+		required: false,
+		autocomplete: true
 	}],
 	cooldown: 30,
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],

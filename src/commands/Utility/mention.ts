@@ -9,7 +9,8 @@ const command: Command = {
 		type: "STRING",
 		name: "language",
 		description: "The language to mention",
-		required: true
+		required: true,
+		autocomplete: true
 	},
 	{
 		type: "STRING",

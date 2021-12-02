@@ -17,7 +17,8 @@ const command: Command = {
 			type: "STRING",
 			name: "language",
 			description: "The new language you want to set",
-			required: false
+			required: false,
+			autocomplete: true
 		}]
 	},
 	{
@@ -33,7 +34,8 @@ const command: Command = {
 			type: "STRING",
 			name: "language",
 			description: "The language to get usage statistics for",
-			required: true
+			required: true,
+			autocomplete: true
 		}],
 	}],
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],

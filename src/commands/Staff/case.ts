@@ -12,7 +12,8 @@ const command: Command = {
 		type: "INTEGER",
 		name: "case",
 		description: "Case number",
-		required: true
+		required: true,
+		autocomplete: true
 	}],
 	roleWhitelist: [ids.roles.staff],
 	channelWhitelist: [ids.channels.staffBots, ids.channels.adminBots],

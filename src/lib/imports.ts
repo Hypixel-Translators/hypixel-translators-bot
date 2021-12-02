@@ -28,7 +28,7 @@ export function setup(client: HTBClient) {
 		cmdFiles.forEach(file => {
 			const command: Command = require(file).default,
 				pathSplit = file.split("\\")
-			command.category = pathSplit.at(-2)!
+			command.category = pathSplit.at(-2)! as "Admin" | "Staff" | "Utility" | "Info"
 			client.commands.set(command.name, command)
 		})
 		console.log(`Loaded ${cmdFiles.length} commands.`)
@@ -52,7 +52,7 @@ export interface Command extends ChatInputApplicationCommandData {
 	channelWhitelist?: Snowflake[]
 	categoryWhitelist?: Snowflake[]
 	categoryBlacklist?: Snowflake[]
-	category?: string
+	category?: "Admin" | "Staff" | "Utility" | "Info"
 	execute(interaction: CommandInteraction, getString?: GetStringFunction): Promise<any>
 }
 

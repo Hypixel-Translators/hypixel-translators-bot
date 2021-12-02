@@ -12,7 +12,8 @@ const command: Command = {
         type: "STRING",
         name: "language",
         description: "The code of the language to create the review strings channel for",
-        required: true
+        required: true,
+        autocomplete: true
     }],
     roleWhitelist: [ids.roles.admin],
     async execute(interaction) {

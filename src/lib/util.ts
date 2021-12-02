@@ -215,12 +215,13 @@ export interface LanguageStatus extends ResponseObject<TranslationStatusModel.La
 }
 
 export interface LangDbEntry {
-	name: string,
-	emoji: string,
-	color?: number,
-	code: string,
+	name: string
+	emoji: string
+	color?: number
+	code: string
 	id: string
 	flag: string
+	botLang?: true
 }
 
 export interface CrowdinProject {
