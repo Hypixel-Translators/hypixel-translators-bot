@@ -7,7 +7,7 @@
 	"infoHelp": "Bilgi komutları",
 	"commandInfo": "Komut bilgisi",
 	"commandInfoFor": "Komut bilgisi: ",
-	"staffOnly": "Bu komut sadece yetkililer tarafından kullanılabilir ve bu nedenle bilgi gizlidir.\nBunun bir hata olduğunu düşünüyorsan lütfen bir yetkiliyle iletişime geç.",
+	"staffOnly": "Bu komut sadece yetkililer tarafından kullanılabilir; bu nedenle komut bilgileri gösterilemiyor.\nBunun bir hata olduğunu düşünüyorsan lütfen bir yetkiliyle iletişime geç.",
 	"inDev": "Bu komut şimdilik bakımdadır ve ilerki zamanlarda kullanılabilir olacaktır!",
 	"seconds": " saniye",
 	"second": "saniye",
