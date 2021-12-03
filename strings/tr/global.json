@@ -42,7 +42,7 @@
 	"wrongStringURL": "Gönderdiğin bağlantı dizenin kendisine değil, editöre yönlendiren bir bağlantıdır!",
 	"example": "Doğru dize bağlantısını kopyalamak için aşağıdaki resimde gösterilen butona tıkla. Doğru bağlantı böyle olmalı: %%url%%",
 	"reminderLang": "Bağlantını %%format%% formatına değiştirmeyi unutma.",
-	"tip": "Tüyo",
+	"tip": "Bilgi",
 	"tips": {
 		"ib": "Henüz Inhale Banana dilini denemedin mi? Dilini %%langIb%% komutu ile Inhale Banana dili olarak güncelleyebilirsin!",
 		"translators": "Çevirmenlere ihtiyacım var! Nasıl bir bot çevirmeni olacağını %%translate%% komutunu kullanarak öğren.",
@@ -53,13 +53,13 @@
 		"twitter": "Twitter hesabımızı henüz takip etmedin mi? Buradan edebilirsin %%twitter%%!",
 		"rulesInfo": "%%rules%% ve %%serverInfo%% bu sunucu hakkında ihtiyacınız olan tüm bilgilere sahip!",
 		"fixTranslation": "Çeviride bir hata mı buldun? Dilinin düzelticisine başvur veya çeviri kanalındaki insanlara bildir.",
-		"pinnedInfo": "Çoğu kanalın önemli bilgilere sahip olduğunu biliyor muydun? Bunlardan birini her ziyaret ettiğinde kontrol etmelisin!",
+		"pinnedInfo": "Çoğu kanalda önemli bilgilerin sabitlendiğini biliyor muydun? Bunları kanalları her ziyaret ettiğinde kontrol etmelisin!",
 		"hypixelStats": "%%hypixelstats%% komutunu kullanarak Hypixel'deki belirli bir oyuncu hakkındaki bilgileri görüntüleyebilirsin!",
 		"languageStats": "Tüm projelerimizde, herhangi bir dil için istatistikleri görüntüleyebileceğini biliyor muydun? Sadece %%languagestats%% komutunu kullanman yeterli!",
 		"rolesChange": "Son zamanlarda Crowdin'de yeni roller aldın veya desteklediğimiz projelerden birine mi katıldın? Rollerini güncellemek için %%verify%% komutunu kullan!",
 		"botTranslated": "Botumuzun birden fazla dili desteklediğini biliyor muydun? Şu anda desteklediğimiz tüm dillerin bir listesini görmek için %%langList%% komutunu kullanmayı dene!",
 		"botUpdates": "Bota yapılan her büyük güncellemeyi veya bununla ilgili önemli haberleri %%botUpdates%% kanalında yayınlıyoruz, bi' kontrol et!",
-		"moreTips": "Daha fazla tüyoya ihtiyacımız var! %%feedback%% komutunu kullanarak bize tüyo gönderin."
+		"moreTips": "Daha fazla bilgiye ihtiyacımız var! %%feedback%% komutunu kullanarak bize bilgi gönderebilirsiniz."
 	},
 	"pagination": {
 		"first": "İlk sayfa",
