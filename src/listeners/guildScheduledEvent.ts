@@ -14,5 +14,4 @@ client.on("guildScheduledEventUserAdd", async (event, user) => {
 client.on("guildScheduledEventUserRemove", async (event, user) => {
     const member = event.guild!.members.cache.get(user.id)
     await member?.roles.remove(ids.roles.event, `Removed interest in event ${event.name}`)
-
 })

@@ -11,10 +11,10 @@ import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
 	if (!db) return void cancelledEvents.push({ listener: "interactionCreate", args: [interaction] })
 	if (interaction.user.bot) return
+	let command: Command | null = null
 
 	if (interaction.isButton() && interaction.inCachedGuild()) return void (await handleButtonInteractions(interaction, getString))
 	else if (interaction.isAutocomplete()) return void (await handleAutocompleteInteractions(interaction))
-	let command: Command | null = null
 	const author: DbUser = await client.getUser(interaction.user.id),
 		member = interaction.client.guilds.cache.get(ids.guilds.main)?.members.cache.get(interaction.user.id)!,
 		randomTip = generateTip(getString),
