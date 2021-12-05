@@ -2,7 +2,7 @@ import { CommandInteraction, GuildMember, Message, MessageActionRow, MessageButt
 import { client } from "../../index"
 import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
-import { generateTip, updateButtonColors } from "../../lib/util"
+import { generateTip, parseToNumberString, updateButtonColors } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -119,12 +119,13 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 	for (let i = 0; i <= pages[page].length - 1; i++) {
 		// const user = interaction.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that
 		if (pages[page][i].levels) {
-			const totalXp = pages[page][i].levels!.totalXp
+			const totalXp = pages[page][i].levels!.totalXp,
+				formattedXp = parseToNumberString(totalXp, getString)
 			pageEmbed.addField(
 				getString("level", {
 					rank: i + 1 + page * 24,
 					level: pages[page][i].levels!.level,
-					xp: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp
+					xp: formattedXp
 				}),
 				`<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
 				true

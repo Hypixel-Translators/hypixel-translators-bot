@@ -2,7 +2,7 @@ import { GuildMember, MessageEmbed } from "discord.js"
 import { client } from "../../index"
 import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
-import { generateTip, getXpNeeded } from "../../lib/util"
+import { generateTip, getXpNeeded, parseToNumberString } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -40,12 +40,16 @@ const command: Command = {
 			currentXp = userDb.levels.levelXp,
 			messageCount = userDb.levels.messageCount
 
+		const currentXpFormatted = parseToNumberString(currentXp, getString),
+			xpNeededFormatted = parseToNumberString(totalXp, getString),
+			messageCountFormatted = parseToNumberString(messageCount, getString)
+
 		const embed = new MessageEmbed()
 			.setColor(colors.neutral)
 			.setAuthor(getString("moduleName"))
 			.setTitle(user.id === interaction.user.id ? getString("yourRank") : getString("userRank", { user: user.tag }))
 			.setDescription(user.id === interaction.user.id ? getString("youLevel", { level: userDb.levels.level, rank: ranking }) : getString("userLevel", { user: String(user), level: userDb.levels.level, rank: ranking }))
-			.addField(getString("textProgress", { currentXp: currentXp > 1000 ? `${(currentXp / 1000).toFixed(2)}${getString("thousand")}` : currentXp, xpNeeded: totalXp > 1000 ? `${(totalXp / 1000).toFixed(2)}${getString("thousand")}` : totalXp, messages: messageCount > 1000 ? `${(messageCount / 1000).toFixed(2)}${getString("thousand")}` : messageCount }), progressBar)
+			.addField(getString("textProgress", { currentXp: currentXpFormatted, xpNeeded: xpNeededFormatted, messages: messageCountFormatted }), progressBar)
 			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
 		await interaction.reply({ embeds: [embed] })
 	}
