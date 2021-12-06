@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "zh-CN",
 		"timeZone": "Asia/Shanghai"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }
