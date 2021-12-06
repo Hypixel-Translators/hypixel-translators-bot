@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "ja-JP",
 		"timeZone": "Asia/Tokyo"
+	},
+	"numberStrings": {
+		"thousand": "千",
+		"million": "百万"
 	}
 }
