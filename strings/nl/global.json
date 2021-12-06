@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "nl-NL",
 		"timeZone": "Europe/Amsterdam"
+	},
+	"numberStrings": {
+		"thousand": " duizend",
+		"million": " miljoen"
 	}
 }
