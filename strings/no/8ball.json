@@ -3,21 +3,21 @@
 	"question": "Spørsmål",
 	"answers": {
 		"positive": [
-			"It is certain.",
-			"It is decidedly so.",
-			"Without a doubt.",
-			"Yes – definitely.",
-			"You may rely on it.",
-			"As I see it, yes.",
-			"Most likely.",
-			"Outlook good.",
+			"Det er sikkert.",
+			"Det er bestemt slik.",
+			"Uten tvil.",
+			"Ja – definitivt.",
+			"Du kan stole på det.",
+			"Slik jeg ser det, ja.",
+			"Mest sannsynlig.",
+			"Bra utfall.",
 			"Ja",
-			"Signs point to yes."
+			"Tegnene peker mot ja."
 		],
 		"inconclusive": [
 			"Svar uklart, prøv igjen.",
 			"Spør igjen senere.",
-			"Better not tell you now.",
+			"Bedre å ikke fortelle deg nå.",
 			"Kan ikke forutsi nå.",
 			"Konsentrer og spør igjen."
 		],
@@ -25,8 +25,8 @@
 			"Ikke regn med det.",
 			"Mitt svar er nei.",
 			"Mine kilder sier nei.",
-			"Outlook not so good.",
-			"Very doubtful."
+			"Utfallet er ikke så bra.",
+			"Veldig tvilsomt."
 		]
 	}
 }

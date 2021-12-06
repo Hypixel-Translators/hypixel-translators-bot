@@ -14,19 +14,19 @@
 	"errors": {
 		"noCommand": "Den kommandoen finnes ikke!",
 		"noUser": "Du har ikke oppgitt en bruker!",
-		"noLang": "You didn't provide a language!",
+		"noLang": "Du har ikke oppgitt et språk!",
 		"falseUser": "Den brukeren kunne ikke bli funnet!",
-		"falseFlag": "That flag couldn't be found!",
-		"falseLang": "That language couldn't be found!",
-		"falseRole": "That role couldn't be found!",
-		"falseUUID": "Couldn't find a player with that UUID!",
+		"falseFlag": "Det flagget ble ikke funnet!",
+		"falseLang": "Det språket ble ikke funnet!",
+		"falseRole": "Den rollen ble ikke funnet!",
+		"falseUUID": "Kunne ikke finne en spiller med den UUID-en!",
 		"noPlayer": "That player has never joined Hypixel!",
 		"notVerified": "That user hasn't linked their Hypixel account yet!",
 		"disabled": "Denne kommandoen har blitt midlertidig deaktivert.",
 		"noAccess": "Du har ikke tillatelse til å bruke denne kommandoen!",
 		"noPermission": "You're not allowed to execute this command on this channel!",
 		"apiError": "Something went wrong while contacting the API!",
-		"wrongLink": "Wrong link!"
+		"wrongLink": "Feil lenke!"
 	},
 	"roles": {
 		"noLevel": "You must be at least chat level %%level%% to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
@@ -38,7 +38,7 @@
 	"timeLeftT": "Please wait another %%time%% seconds to use `%%command%%` again.",
 	"minsLeftT": "Please wait another %%time%% minutes to use `%%command%%` again.",
 	"linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
-	"correctLink": "Here's the correct link:",
+	"correctLink": "Her er den korrekte lenken:",
 	"wrongStringURL": "The link you sent is a link to the editor and not the string itself!",
 	"example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
 	"reminderLang": "Don't forget to also change your link to the %%format%% format.",
@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "no-NO",
 		"timeZone": "Europe/Oslo"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": " mill."
 	}
 }

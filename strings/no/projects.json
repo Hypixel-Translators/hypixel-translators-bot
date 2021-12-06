@@ -1,5 +1,5 @@
 {
-	"moduleName": "Translation Projects",
+	"moduleName": "Oversettelsesprosjekter",
 	"allProjects": "Here are all the projects we currently support on the server!",
 	"description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
 	"projectInfo": "You can find the link to the %%project%% project [here](%%link%%). For more information, execute %%command%%.",

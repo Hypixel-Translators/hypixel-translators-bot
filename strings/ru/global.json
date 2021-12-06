@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "ru-RU",
 		"timeZone": "Europe/Moscow"
+	},
+	"numberStrings": {
+		"thousand": " тыс.",
+		"million": " млн"
 	}
 }

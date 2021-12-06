@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "it-IT",
 		"timeZone": "Europe/Rome"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }

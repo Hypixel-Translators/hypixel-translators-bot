@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "fi-FI",
 		"timeZone": "Europe/Helsinki"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }

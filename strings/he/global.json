@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "he-IL",
 		"timeZone": "Asia/Jerusalem"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }

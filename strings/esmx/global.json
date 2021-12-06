@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "es-MX",
 		"timeZone": "America/Mexico_City"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }

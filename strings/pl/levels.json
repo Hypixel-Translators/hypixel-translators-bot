@@ -1,8 +1,7 @@
 {
 	"moduleName": "Ranking PD",
 	"pageTitle": "Oto ranking PD!",
-	"level": "#%%rank%% | Poziom %%level%% | PD: %%xp%%",
+	"level": "Miejsce %%rank%%. | Poziom %%level%%. | PD: %%xp%%",
 	"youIndicator": "TY",
-	"thousand": " tys.",
 	"unranked": "#%%rank%% Nieklasyfikowany"
 }

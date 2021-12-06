@@ -2,7 +2,7 @@
 	"moduleName": "Språk",
 	"changedToTitle": "Endret språket ditt til norsk!",
 	"didntChange": "Språket ditt ble ikke endret",
-	"alreadyThis": "This happened because you chose a language that already was your language preference.",
+	"alreadyThis": "Dette skjedde fordi du valgte et språk som allerede var standardspråket ditt.",
 	"notTranslated": "Språket du prøvde å velge er ikke oversatt nok til å bli valgt. Hvis du snakker dette språket, kan du finne ut hvordan du kan hjelpe til med å oversette det ved å bruke `/translate`.",
 	"errorTitle": "Dette språket har ikke blitt lagt til enda!",
 	"errorDescription": "Språket ditt har ikke blitt endret. Disse språkene er tilgjengelig for øyeblikket (det betyr ikke at de er fullstendig oversatt):",

@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "ko-KR",
 		"timeZone": "Asia/Seoul"
+	},
+	"numberStrings": {
+		"thousand": "천",
+		"million": "M"
 	}
 }

@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "tr-TR",
 		"timeZone": "Europe/Istanbul"
+	},
+	"numberStrings": {
+		"thousand": "bin",
+		"million": "M"
 	}
 }

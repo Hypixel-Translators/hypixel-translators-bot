@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "es-PE",
 		"timeZone": "America/Lima"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }

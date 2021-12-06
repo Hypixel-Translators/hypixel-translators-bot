@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "da-DK",
 		"timeZone": "Europe/Copenhagen"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }

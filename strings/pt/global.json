@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "pt-PT",
 		"timeZone": "Europe/Lisbon"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }

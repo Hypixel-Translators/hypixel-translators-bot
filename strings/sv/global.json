@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "sv-SE",
 		"timeZone": "Europe/Stockholm"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }

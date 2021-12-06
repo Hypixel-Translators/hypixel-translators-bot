@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "id-ID",
 		"timeZone": "Asia/Jakarta"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }
