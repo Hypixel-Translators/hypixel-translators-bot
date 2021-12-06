@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "ar-SA",
 		"timeZone": "Asia/Riyadh"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }
