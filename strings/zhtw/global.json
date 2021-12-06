@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "zh-TW",
 		"timeZone": "Asia/Taipei"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }
