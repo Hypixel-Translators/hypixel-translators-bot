@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "ms-MY",
 		"timeZone": "Asia/Kuala_Lumpur"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }
