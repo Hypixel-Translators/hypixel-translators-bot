@@ -1,19 +1,19 @@
 {
 	"moduleName": "Prefiks",
 	"errors": {
-		"noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
+		"noLanguages": "Det ser ikke ut som du har noen språkroller! Vennligst ta kontakt med en administrator hvis du mener dette er en feil.",
 		"trNoRoles": "We noticed you're a translator but you don't have any language roles.",
 		"error": "Kunne ikke endre kallenavn. Du kan kopiere kallenavnet under og ta det i bruk selv.",
 		"confirmedNoFlags": "Du bekreftet, men du la ikke til en reaksjon på noen flagg, ",
 		"cancelled": "Du avbrytet endringen av kallenavnet ditt, ",
 		"alreadyThis": "Du har allerede dette kallenavnet, ",
 		"timedOut": "Timed Out",
-		"timeOut": "You didn't react with any flags, ",
-		"timeOutCustom": "You didn't confirm, ",
+		"timeOut": "Du har ikke reagert med et flagg, ",
+		"timeOutCustom": "Du bekreftet ikke, ",
 		"notSaved": "så din prefiks ble ikke lagret."
 	},
 	"customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
-	"caution": "Caution",
+	"caution": "Merk",
 	"warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
 	"react": "Reager med de flaggene du vil ha i prefiksen din i rekkefølge.",
 	"reactTimer": "Du har %%cooldown%% sekunder. Trykk på ❎ for å avbryte.",
