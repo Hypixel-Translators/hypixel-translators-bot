@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "pt-BR",
 		"timeZone": "America/Sao_Paulo"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }
