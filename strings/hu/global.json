@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "hu-HU",
 		"timeZone": "Europe/Budapest"
+	},
+	"numberStrings": {
+		"thousand": "e",
+		"million": "M"
 	}
 }
