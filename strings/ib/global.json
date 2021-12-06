@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "en-GB",
 		"timeZone": "Europe/London"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }
