@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "bg-BG",
 		"timeZone": "Europe/Sofia"
+	},
+	"numberStrings": {
+		"thousand": "хил.",
+		"million": "М"
 	}
 }
