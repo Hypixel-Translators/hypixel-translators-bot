@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "uk-UA",
 		"timeZone": "Europe/Kiev"
+	},
+	"numberStrings": {
+		"thousand": "тис.",
+		"million": "M"
 	}
 }
