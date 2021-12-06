@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "cs-CZ",
 		"timeZone": "Europe/Prague"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }
