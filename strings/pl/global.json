@@ -48,7 +48,7 @@
 		"translators": "Potrzeba tłumaczy! Dowiedz się, jak wziąć udział w tłumaczeniu bota, wykonując polecenie %%translate%%.",
 		"prefix": "Czy chcesz mieć fajny prefiks przed swoim nickiem? Wpisz %%prefix%% na %%bots%% i postępuj zgodnie z instrukcjami! Dostępne dla wszystkich tłumaczy Hypixel.",
 		"enen": "Pamiętaj, aby zmienić odnośniki na en-en!",
-		"xp": "Otrzymujesz losową ilość PD za każdą minutę rozmowy, co ostatecznie sprawi, że osiągniesz wyższy poziom.",
+		"xp": "Otrzymujesz losową liczbę PD za każdą minutę rozmowy, dzięki czemu z czasem osiągniesz wyższy poziom.",
 		"guide": "Czy wiedziałeś/aś, że mamy poradnik jak zacząć z Crowdin, dostępny dla wszystkich tłumaczy? Sprawdź go na %%gettingStarted%%, zawiera kilka przydatnych wskazówek!",
 		"twitter": "Czy zaobserwowałeś/aś już nasze konto na Twitterze? Sprawdź je na %%twitter%%!",
 		"rulesInfo": "Na kanałach %%rules%% i %%serverInfo%% znajdują się wszystkie potrzebne informacje o tym serwerze!",
@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "pl-PL",
 		"timeZone": "Europe/Warsaw"
+	},
+	"numberStrings": {
+		"thousand": " tys",
+		"million": " mln"
 	}
 }
