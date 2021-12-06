@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "de-DE",
 		"timeZone": "Europe/Berlin"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
 	}
 }
