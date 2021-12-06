@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "el-GR",
 		"timeZone": "Europe/Athens"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "Εκ"
 	}
 }
