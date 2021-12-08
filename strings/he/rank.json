@@ -6,7 +6,6 @@
 	"userNotRanked": "למשתמש זה אין עדיין דרגה!",
 	"howRank": "בכדי לקבל דרגה עליך לדבר בצ'אטים!",
 	"textProgress": "הודעות %%currentXp%%/%%xpNeeded%% | %%messages%%",
-	"thousand": "k",
 	"youLevel": "את/ה ברמה %%level%% ואת/ה #%%rank%% בטבלת המובילים!",
 	"userLevel": "%%user%% נמצא/ת ברמה %%level%% והוא/היא #%%rank%% בטבלת המובילים!"
 }
