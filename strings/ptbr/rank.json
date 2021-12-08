@@ -6,7 +6,6 @@
 	"userNotRanked": "Esse usuário não possui EXP!",
 	"howRank": "Você deve falar no chat para receber EXP!",
 	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% mensagens",
-	"thousand": "k",
 	"youLevel": "Você está no nível %%level%% e está em %%rank%%º lugar no pódio!",
 	"userLevel": "%%user%% está no nível %%level%% e está em %%rank%%º lugar no pódio!"
 }
