@@ -3,6 +3,5 @@
 	"pageTitle": "Tady je XP žebříček!",
 	"level": "#%%rank%% | Úroveň %%level%% | XP: %%xp%%",
 	"youIndicator": "TY",
-	"thousand": "k",
 	"unranked": "#%%rank%% Nezařazený"
 }
