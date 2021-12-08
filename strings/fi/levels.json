@@ -3,6 +3,5 @@
 	"pageTitle": "Tässä on XP-pistetaulu!",
 	"level": "#%%rank%% | Taso %%level%% | XP: %%xp%%",
 	"youIndicator": "SINÄ",
-	"thousand": "k",
 	"unranked": "#%%rank%% Ei-tilastoitu"
 }
