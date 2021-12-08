@@ -3,6 +3,5 @@
 	"pageTitle": "Ето я XP класацията!",
 	"level": "#%%rank%% | Ниво %%level%% | XP: %%xp%%",
 	"youIndicator": "ВИЕ",
-	"thousand": "хил.",
 	"unranked": "#%%rank%% Не сте класирани"
 }
