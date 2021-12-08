@@ -75,5 +75,9 @@
 	"region": {
 		"dateLocale": "crwdns1444:0crwdne1444:0",
 		"timeZone": "crwdns1446:0crwdne1446:0"
+	},
+	"numberStrings": {
+		"thousand": "crwdns2331:0crwdne2331:0",
+		"million": "crwdns2333:0crwdne2333:0"
 	}
 }

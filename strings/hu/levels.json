@@ -3,6 +3,5 @@
 	"pageTitle": "Itt az XP ranglista!",
 	"level": "#%%rank%% | %%level%%. szint | XP: %%xp%%",
 	"youIndicator": "TE",
-	"thousand": "e",
 	"unranked": "#%%rank%% Rangtalan"
 }

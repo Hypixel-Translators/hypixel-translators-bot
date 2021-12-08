@@ -3,6 +3,5 @@
 	"pageTitle": "Вот таблица лидеров по опыту!",
 	"level": "%%rank%% место | %%level%% уровень | %%xp%% опыта",
 	"youIndicator": "ВЫ",
-	"thousand": " тыс.",
 	"unranked": "%%rank%% место | Ранга нет"
 }

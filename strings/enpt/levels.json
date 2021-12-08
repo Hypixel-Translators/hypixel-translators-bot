@@ -3,6 +3,5 @@
 	"pageTitle": "Here be th' XP leaderboard!",
 	"level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
 	"youIndicator": "YE",
-	"thousand": "k",
 	"unranked": "#%%rank%% Unranked"
 }

@@ -6,7 +6,6 @@
 	"userNotRanked": "Cet utilisateur n'est pas encore classé !",
 	"howRank": "Pour être classé, tu dois parler dans les salons textuels !",
 	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Messages",
-	"thousand": "k",
 	"youLevel": "Tu as atteint le niveau %%level%% et tu es #%%rank%% dans le classement!",
 	"userLevel": "%%user%% est au niveau %%level%% et il est #%%rank%% dans le classement!"
 }

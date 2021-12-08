@@ -6,7 +6,6 @@
 	"userNotRanked": "Pengguna tersebut belum mendapat rank!",
 	"howRank": "Agar anda bisa mendapat rank anda harus berbicara di chats!",
 	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Pesan",
-	"thousand": "k",
 	"youLevel": "Anda berada di level %%level%% dan #%%rank%% di papan peringkat!",
 	"userLevel": "%%user%% berada di level %%level%% dan mereka #%%rank%% di papan peringkat!"
 }

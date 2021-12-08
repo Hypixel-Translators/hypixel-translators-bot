@@ -3,6 +3,5 @@
 	"pageTitle": "¡Aquí está la tabla de clasificación de XP!",
 	"level": "#%%rank%% | Nivel %%level%% | XP: %%xp%%",
 	"youIndicator": "USTED",
-	"thousand": "k",
 	"unranked": "#%%rank%% Sin clasificar"
 }
