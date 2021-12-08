@@ -3,6 +3,5 @@
 	"pageTitle": "¡Aquí está el podio de XP!",
 	"level": "#%%rank%% | Nivel %%level%% | XP: %%xp%%",
 	"youIndicator": "TÚ",
-	"thousand": "k",
 	"unranked": "#%%rank%% Sin clasificar"
 }
