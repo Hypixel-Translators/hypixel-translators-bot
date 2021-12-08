@@ -3,6 +3,5 @@
 	"pageTitle": "Voici le classement d'expérience !",
 	"level": "#%%rank%% | Niveau %%level%% | XP: %%xp%%",
 	"youIndicator": "TOI",
-	"thousand": "k",
 	"unranked": "#%%rank%% Non classé"
 }
