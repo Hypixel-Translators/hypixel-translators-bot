@@ -1,14 +1,14 @@
 {
 	"staffDm": {
-		"confirmSend": "If you confirm this, any messages you send here within the next 48 hours will be sent to staff without any confirmation.",
-		"noConfirmWarn": "Any messages you send here within the next 48 hours will be sent to staff without any confirmation.",
+		"confirmSend": "一旦你點擊確認，你在接下來的 48 小時內發送的訊息均會在未經確認的情況下直接發送給工作人員。",
+		"noConfirmWarn": "在接下來的 48 小時內發送的訊息均會在未經確認的情況下直接發送給工作人員。",
 		"attachmentsWarn": "附件也會包括在內。",
 		"attachmentsSent": "附件已發送",
 		"attachmentSent": "附件已發送",
 		"confirmation": "你確定要向工作人員發送這個訊息嗎？",
 		"messageSent": "向工作人員發送訊息",
 		"dmCancelled": "這個訊息未有發送。",
-		"resendInfo": "If you still want to talk to staff, resend it and click the ✅ button to confirm."
+		"resendInfo": "如果你仍然需要與工作人員交談，請重新發送訊息，然後點擊 ✅ 按鈕以確認發送。"
 	},
 	"error": "錯誤",
 	"errors": {
@@ -47,7 +47,7 @@
 		"ib": "Have you tried the Inhale Banana language? Change your language to it using %%langIb%%!",
 		"translators": "我需要翻譯員！執行 %%translate%% 以了解如何成為本機器人的翻譯員。",
 		"prefix": "Do you wanna have a cool prefix on your nickname? Execute %%prefix%% in %%bots%% and follow the instructions! Available to all Hypixel translators.",
-		"enen": "Don't forget to change your string links to en-en!",
+		"enen": "請不要忘記將你要發送的連結更改為 en-en！",
 		"xp": "你在聊天時，每分鐘都會得到隨機數量的經驗，這會讓你提升等級。",
 		"guide": "你知道我們為所有翻譯員提供了 Crowdin 的使用教學嗎？請到 %%gettingStarted%% 查看。那裡有很多有用的提示！",
 		"twitter": "你關注了我們的 Twitter 帳號嗎？即刻到 %%twitter%% 查看！",
@@ -58,7 +58,7 @@
 		"languageStats": "你知道你可以查看任何語言在我們支援的所有項目的統計數據嗎？只要執行 %%languagestats%% 即可！",
 		"rolesChange": "你最近在 Crowdin 擔任了新的職務，或加入了我們支援的翻譯項目？執行 %%verify%% 來更新你的身份組！",
 		"botTranslated": "你知道我們的機器人支援多國語言嗎？執行 %%langList%% 即可查看我們目前支援的語言。你或者能找到你常用的語言！",
-		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
+		"botUpdates": "%%botUpdates%% 頻道會發布機器人的重大更新和與其相關的重要新聞，去看一看吧！",
 		"moreTips": "我們需要更多提示！你可以使用 %%feedback%% 來提交。"
 	},
 	"pagination": {

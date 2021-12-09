@@ -7,7 +7,7 @@
 			"It is decidedly so.",
 			"毫無疑問。",
 			"當然是的。",
-			"You may rely on it.",
+			"你或許可以相信它。",
 			"As I see it, yes.",
 			"大概是這樣。",
 			"Outlook good.",
@@ -17,12 +17,12 @@
 		"inconclusive": [
 			"Reply hazy, try again.",
 			"請在稍後再問一次。",
-			"Better not tell you now.",
-			"Cannot predict now.",
-			"Concentrate and ask again."
+			"我現在才不要告訴你呢。",
+			"我現在無法預測。",
+			"集中精神，然後再問一次吧。"
 		],
 		"negative": [
-			"Don't count on it.",
+			"不要指望它了。",
 			"我的回覆是「不」。",
 			"My sources say no.",
 			"Outlook not so good.",

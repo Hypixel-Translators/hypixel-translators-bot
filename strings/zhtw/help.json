@@ -65,7 +65,7 @@
 		"description": "顯示你自己或任何使用者目前的 XP。"
 	},
 	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
+		"description": "發送預設訊息，並讓你在發送時通知特定使用者。"
 	},
 	"translate": {
 		"description": "給予你有關 Hypixel Translators Bot 項目的實用訊息。"
