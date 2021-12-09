@@ -1,8 +1,8 @@
 {
 	"moduleName": "Oyuncu İstatistikleri",
-	"statsDesc": "%%username%% için elde edilen bazı Hypixel İstatistikleri [burada]%%link%%.",
+	"statsDesc": "[İşte]%%link%% %%username%% için elde edilen bazı Hypixel İstatistikleri.",
 	"socialMedia": "%%username%% kullanıcısının hesabına bağladı tüm sosyal profiller. Bilgiler [bu siteden]%%link%% alınmıştır.",
-	"guildDesc": "İşte [bu bağlantıdan elde edilen]%%link%%, %%player%% oyuncusunun bulunduğu %%guildName%% loncasının bazı bilgileri",
+	"guildDesc": "[İşte]%%link%% %%player%% oyuncusunun bulunduğu %%guildName%% loncasının bazı bilgileri",
 	"guildDescHypixel": "Lonca Açıklaması",
 	"noGuildDesc": "Bu loncanın bir açıklaması bulunmuyor!",
 	"userVerified": "Bu oyuncu %%user%% olarak doğrulandı.",
