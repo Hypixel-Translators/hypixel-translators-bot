@@ -25,9 +25,8 @@ const command: Command = {
 
 		const maxMembersArr: GuildMember[][] = []
 		let p = 0
-		while (p < tags.length) {
+		while (p < tags.length)
 			maxMembersArr.push(tags.slice(p, p += 85)) //89 is max for now
-		}
 
 		let color: ColorResolvable = role.hexColor
 		if (color === "#000000") color = "BLURPLE"
@@ -82,12 +81,20 @@ const command: Command = {
 		} else await interaction.reply({ embeds: [updatePage(maxMembersArr[0])] })
 
 		function updatePage(membersArr: GuildMember[], page?: number) {
-			return new MessageEmbed()
-				.setColor(color)
-				.setAuthor("Members list")
-				.setTitle(`Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`)
-				.setDescription(membersArr.join(", "))
-				.setFooter(`${page !== undefined ? `Page ${page + 1}/${maxMembersArr.length}` : generateTip()}`, member.displayAvatarURL({ format: "png", dynamic: true }))
+			if (membersArr.length) {
+				return new MessageEmbed()
+					.setColor(color)
+					.setAuthor("Members list")
+					.setTitle(`Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`)
+					.setDescription(membersArr.join(", "))
+					.setFooter(`${page !== undefined ? `Page ${page + 1}/${maxMembersArr.length}` : generateTip()}`, member.displayAvatarURL({ format: "png", dynamic: true }))
+			} else {
+				return new MessageEmbed()
+					.setColor(color)
+					.setAuthor("Members list")
+					.setTitle(`There are no members with the ${role.name} role on the server at the moment.`)
+					.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
+			}
 		}
 	}
 }
