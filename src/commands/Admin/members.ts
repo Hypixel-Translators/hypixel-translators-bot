@@ -81,7 +81,7 @@ const command: Command = {
 		} else await interaction.reply({ embeds: [updatePage(maxMembersArr[0])] })
 
 		function updatePage(membersArr: GuildMember[], page?: number) {
-			if (membersArr.length) {
+			if (membersArr?.length) {
 				return new MessageEmbed()
 					.setColor(color)
 					.setAuthor("Members list")
