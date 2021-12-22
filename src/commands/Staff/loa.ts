@@ -1,6 +1,5 @@
 import { MessageActionRow, MessageButton, MessageEmbed, TextChannel } from "discord.js"
 import { ids } from "../../config.json"
-import { generateTip } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
 
@@ -112,13 +111,13 @@ const command: Command = {
 
 		const embed = new MessageEmbed()
 			.setColor("BLURPLE")
-			.setTitle(`${interaction.user.tag} is going away for some time!`)
+			.setAuthor({ name: interaction.user.tag, iconURL: interaction.member.displayAvatarURL() })
+			.setTitle(`${interaction.member.displayName} is going away for some time!`)
 			.addFields(
 				{ name: "From", value: `${startDay}/${startMonth}/${startYear}` },
 				{ name: "To", value: `${endDay}/${endMonth}/${endYear}` },
 				{ name: "Reason", value: reason }
 			)
-			.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 		if (extraInfo) embed.addField("Extra info", extraInfo)
 		const doneRow = new MessageActionRow()
 			.addComponents(
