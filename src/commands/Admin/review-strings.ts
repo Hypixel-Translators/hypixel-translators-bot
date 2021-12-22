@@ -36,6 +36,7 @@ const command: Command = {
             { reason: "Removing permission to manage messages from proofreaders" }
         )
         await reviewStrings.setPosition(1, { reason: "Fixing the position" })
+        //@ts-ignore
         await reviewStrings.send(
             "Welcome to the review-strings channel! Here you will be able to send string URLs for proofreaders to review. Proofreaders will, then, react with either <:vote_yes:732298639749152769>, <:vote_maybe:839262179416211477> or <:vote_no:732298639736570007> depending on whether they accept your suggestion, want more details, or deny it. If you have any questions or if you notice something isn't working, please let the staff team know!"
         )

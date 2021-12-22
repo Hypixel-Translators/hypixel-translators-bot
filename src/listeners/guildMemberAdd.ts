@@ -1,7 +1,7 @@
 import { registerFont, createCanvas, loadImage } from "canvas"
-import { GuildMember, MessageAttachment, TextChannel } from "discord.js"
+import { GuildMember, MessageAttachment, MessageEmbed, TextChannel } from "discord.js"
 import { client } from "../index"
-import { ids } from "../config.json"
+import { colors, ids } from "../config.json"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 
 import type { PunishmentLog } from "../lib/util"
@@ -12,6 +12,7 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 
 	if (newMember.guild.id !== ids.guilds.main) return
 
+	//If a new member accepts membership screening
 	if (Boolean(oldMember.pending) !== Boolean(newMember.pending) && !newMember.pending) {
 		await (newMember.guild.channels.cache.get(ids.channels.joinLeave) as TextChannel).send({ content: `${newMember} just joined. Welcome! 🎉`, files: [await generateWelcomeImage(newMember)] })
 
@@ -20,18 +21,44 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 				.catch(() => console.log(`Couldn't DM user ${newMember.user.tag}, probably because they have DMs off`))
 			await db.collection<DbUser>("users").insertOne({ id: newMember.id, lang: "en" })
 		}
-		const activePunishments = await db.collection<PunishmentLog>("punishments").find({ id: newMember.id, ended: false }).toArray()
-		if (!activePunishments.length) return
-		if (activePunishments.some(p => p.type === "MUTE")) await newMember.roles.add([ids.roles.muted, ids.roles.verified], "User is muted")
-		else if (activePunishments.some(p => p.type === "BAN")) await newMember.ban({ reason: activePunishments.find(p => p.type === "BAN")!.reason })
-		else
-			console.error(
-				`There are non-expired punishments that shouldn't have a length for ${newMember.id}. Cases: ${activePunishments
-					.filter(p => !p.ended)
-					.map(p => p.case)
-					.join(", ")}`,
-				activePunishments
-			)
+	}
+
+	//If a member gets unmuted
+	if (oldMember.communicationDisabledUntilTimestamp && !newMember.communicationDisabledUntilTimestamp) {
+		const punishmentsColl = db.collection<PunishmentLog>("punishments"),
+			punishmentsChannel = newMember.guild.channels.cache.get(ids.channels.punishments) as TextChannel,
+			caseNumber = (await punishmentsColl.countDocuments()) + 1
+		const punishmentLog = new MessageEmbed()
+			.setColor(colors.success)
+			.setAuthor({
+				name: `Case ${caseNumber} | Unmute | ${newMember.user.tag}`,
+				iconURL: newMember.displayAvatarURL({ format: "png", dynamic: true })
+			})
+			.addFields([
+				{ name: "User", value: newMember.toString(), inline: true },
+				{ name: "Moderator", value: client.user.toString(), inline: true },
+				{ name: "Reason", value: "Ended" }
+			])
+			.setFooter(`ID: ${newMember.id}`)
+			.setTimestamp(),
+			msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
+		await punishmentsColl.insertOne({
+			case: caseNumber,
+			id: newMember.id,
+			type: `UNMUTE`,
+			reason: "Ended",
+			timestamp: Date.now(),
+			moderator: client.user.id,
+			logMsg: msg.id
+		} as PunishmentLog)
+		const dmEmbed = new MessageEmbed()
+			.setColor(colors.success)
+			.setAuthor("Punishment")
+			.setTitle(`Your mute on the ${newMember.guild.name} has expired.`)
+			.setDescription("You will now be able to talk in chats again. If something's wrong, please respond in this DM.")
+			.setTimestamp()
+		await newMember.send({ embeds: [dmEmbed] })
+			.catch(() => console.log(`Couldn't DM user ${newMember.user.tag}, (${newMember.id}) about their unmute.`))
 	}
 })
 

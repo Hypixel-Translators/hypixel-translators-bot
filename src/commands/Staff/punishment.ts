@@ -40,7 +40,7 @@ const command: Command = {
 				required: true
 			},
 			{
-				type: "NUMBER",
+				type: "INTEGER",
 				name: "duration",
 				description: "The duration of the punishment",
 				required: false
@@ -265,7 +265,7 @@ const command: Command = {
 					await user.send({ embeds: [dmEmbed] })
 						.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
 						.catch(async err => {
-							console.log(`Couldn't DM user ${user.tag} about their warning, here's the error\n`, err)
+							console.log(`Couldn't DM user ${user.tag} about their warning, here's the error\n${err}`)
 							embed
 								.setColor(colors.error)
 								.setDescription("Warning not sent because the user had DMs off")
@@ -320,6 +320,7 @@ const command: Command = {
 							.setFooter(`ID: ${user.id}`)
 							.setTimestamp(),
 						msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
+						console.log(endTimestamp)
 
 					await collection.insertOne({
 						case: caseNumber,
@@ -335,15 +336,10 @@ const command: Command = {
 						logMsg: msg.id,
 					} as PunishmentLog)
 
-					//Make sure the Muted role doesn't have these permissions on any channel
-					await interaction.guild!.channels.fetch()
-					interaction.guild!.channels.cache.forEach(async channel => {
-						if (channel.isThread()) return
-						await channel.permissionOverwrites.edit(ids.roles.muted, { SEND_MESSAGES: false, ADD_REACTIONS: false, SPEAK: false })
-					})
-
 					if (!memberInput) throw "Couldn't find that member! Are you sure they're on the server?"
-					await memberInput.roles.add(ids.roles.muted, `Muted by ${interaction.user.tag}`)
+					//punishment.duration is a value in hours for mutes, convert it to ms
+					if (memberInput.moderatable) await memberInput.disableCommunicationUntil(endTimestamp, `${reason} | ${interaction.user.tag}`)
+					else throw "I cannot mute that member!"
 
 					const dmEmbed = new MessageEmbed()
 						.setColor(colors.error)
@@ -365,7 +361,7 @@ const command: Command = {
 					await user.send({ embeds: [dmEmbed] })
 						.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
 						.catch(async err => {
-							console.log(`Couldn't DM user ${user.tag} about their mute, here's the error\n`, err)
+							console.log(`Couldn't DM user ${user.tag} about their mute, here's the error\n${err}`)
 							embed
 								.setColor(colors.error)
 								.setDescription("Message not send because the user had DMs off")
@@ -487,7 +483,7 @@ const command: Command = {
 					await user.send({ embeds: [dmEmbed] })
 						.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
 						.catch(async err => {
-							console.log(`Couldn't warn user ${user.tag} about their ban, here's the error\n`, err)
+							console.log(`Couldn't warn user ${user.tag} about their ban, here's the error\n${err}`)
 							embed
 								.setColor(colors.error)
 								.setDescription("Warning not sent because the user had DMs off")
@@ -673,12 +669,12 @@ const command: Command = {
 						await buttonInteraction.editReply({ embeds: [embed], components: [] })
 					})
 				else if (!memberInput) embed.setDescription(`Failed to unmute ${user}, they may not be in the server`)
-				else if (activePunishments[0].type === "MUTE") await memberInput.roles.remove(ids.roles.muted, `${reason} | ${interaction.user.tag}`)
+				else if (activePunishments[0].type === "MUTE") await memberInput.disableCommunicationUntil(null, `${reason} | ${interaction.user.tag}`)
 
 				if (senddm) await user.send({ embeds: [dmEmbed] })
 					.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
 					.catch(async err => {
-						console.log(`Couldn't DM user ${user.tag} about their revoked ${activePunishments[0].type}, here's the error\n`, err)
+						console.log(`Couldn't DM user ${user.tag} about their revoked ${activePunishments[0].type}, here's the error\n${err}`)
 						embed
 							.setColor(colors.error)
 							.setDescription("Warning not sent because the user had DMs off")

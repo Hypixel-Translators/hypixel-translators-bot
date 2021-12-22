@@ -47,7 +47,7 @@ client.on("messageCreate", async message => {
 		ids.channels.bots,
 		ids.channels.staffAnnouncements
 	],
-		noXpRoles = [ids.roles.bot, ids.roles.muted]
+		noXpRoles = [ids.roles.bot]
 	client.channels.cache.filter(c => (c as TextChannel).name?.endsWith("review-strings")).forEach(c => noXpChannels.push(c.id))
 	if (
 		message.guild?.id === ids.guilds.main &&
@@ -138,8 +138,7 @@ client.on("messageCreate", async message => {
 	}
 
 	//Staff messaging system
-	const member = message.client.guilds.cache.get(ids.guilds.main)!.members.cache.get(message.author.id)
-	if (message.author !== client.user && message.channel.type === "DM" && !member!.roles.cache.has(ids.roles.muted)) {
+	if (message.author !== client.user && message.channel.type === "DM") {
 		if (!message.content && message.stickers.size >= 0 && message.attachments.size === 0) return //we don't need stickers being sent to us
 		const staffBots = client.channels.cache.get(ids.channels.staffBots) as TextChannel,
 			hourCooldown = 48, // Hours to wait before asking for confirmation
