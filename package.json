@@ -20,7 +20,7 @@
 		"canvas": "^2.8.0",
 		"cron": "^1.8.2",
 		"discord.js": "^13.4.0",
-		"language-flag-colors": "^1.1.1",
+		"language-flag-colors": "^1.2.0",
 		"mongodb": "^4.2.2",
 		"puppeteer": "^13.0.1",
 		"source-map-support": "^0.5.21",
