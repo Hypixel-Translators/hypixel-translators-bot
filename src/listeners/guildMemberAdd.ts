@@ -1,10 +1,8 @@
 import { registerFont, createCanvas, loadImage } from "canvas"
-import { GuildMember, MessageAttachment, MessageEmbed, TextChannel } from "discord.js"
+import { GuildMember, MessageAttachment, TextChannel } from "discord.js"
 import { client } from "../index"
-import { colors, ids } from "../config.json"
+import { ids } from "../config.json"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
-
-import type { PunishmentLog } from "../lib/util"
 
 // A regular member only actually joins once they accept the membership screening, therefore we need to use this event instead
 client.on("guildMemberUpdate", async (oldMember, newMember) => {
@@ -23,43 +21,6 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 		}
 	}
 
-	//If a member gets unmuted
-	if (oldMember.communicationDisabledUntilTimestamp && !newMember.communicationDisabledUntilTimestamp) {
-		const punishmentsColl = db.collection<PunishmentLog>("punishments"),
-			punishmentsChannel = newMember.guild.channels.cache.get(ids.channels.punishments) as TextChannel,
-			caseNumber = (await punishmentsColl.countDocuments()) + 1
-		const punishmentLog = new MessageEmbed()
-			.setColor(colors.success)
-			.setAuthor({
-				name: `Case ${caseNumber} | Unmute | ${newMember.user.tag}`,
-				iconURL: newMember.displayAvatarURL({ format: "png", dynamic: true })
-			})
-			.addFields([
-				{ name: "User", value: newMember.toString(), inline: true },
-				{ name: "Moderator", value: client.user.toString(), inline: true },
-				{ name: "Reason", value: "Ended" }
-			])
-			.setFooter(`ID: ${newMember.id}`)
-			.setTimestamp(),
-			msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
-		await punishmentsColl.insertOne({
-			case: caseNumber,
-			id: newMember.id,
-			type: `UNMUTE`,
-			reason: "Ended",
-			timestamp: Date.now(),
-			moderator: client.user.id,
-			logMsg: msg.id
-		} as PunishmentLog)
-		const dmEmbed = new MessageEmbed()
-			.setColor(colors.success)
-			.setAuthor("Punishment")
-			.setTitle(`Your mute on the ${newMember.guild.name} has expired.`)
-			.setDescription("You will now be able to talk in chats again. If something's wrong, please respond in this DM.")
-			.setTimestamp()
-		await newMember.send({ embeds: [dmEmbed] })
-			.catch(() => console.log(`Couldn't DM user ${newMember.user.tag}, (${newMember.id}) about their unmute.`))
-	}
 })
 
 // Bots don't have membership screening, therefore we can use the regular event for them

@@ -99,10 +99,9 @@ client.on("ready", async () => {
 	//Run on every 10th minute
 	new CronJob("*/10 * * * *", stats).start()
 
-
 	//Check for active punishments and start a timeout to conclude them
 	const punishmentsColl = db.collection<PunishmentLog>("punishments"),
-		punishments = await punishmentsColl.find({ ended: false, type: "BAN" }).toArray(),
+		punishments = await punishmentsColl.find({ ended: false }).toArray(),
 		punishmentsChannel = guild.channels.cache.get(ids.channels.punishments) as TextChannel
 	for (const punishment of punishments) {
 		if (!punishment.endTimestamp) continue
@@ -113,6 +112,41 @@ client.on("ready", async () => {
 		setTimeout(async () => {
 			await punishmentsColl.updateOne({ case: punishment.case }, { $set: { ended: true, endTimestamp: Date.now() } })
 			const caseNumber = (await punishmentsColl.estimatedDocumentCount()) + 1
+			if (punishment.type === "MUTE") {
+				const member = guild.members.cache.get(punishment.id!),
+					user = await client.users.fetch(punishment.id)
+				const punishmentLog = new MessageEmbed()
+					.setColor(colors.success)
+					.setAuthor({
+						name: `Case ${caseNumber} | Unmute | ${user.tag}`,
+						iconURL: (member ?? user).displayAvatarURL({ format: "png", dynamic: true })
+					})
+					.addFields([
+						{ name: "User", value: user.toString(), inline: true },
+						{ name: "Moderator", value: client.user.toString(), inline: true },
+						{ name: "Reason", value: "Ended" }
+					])
+					.setFooter(`ID: ${user.id}`)
+					.setTimestamp(),
+					msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
+				await punishmentsColl.insertOne({
+					case: caseNumber,
+					id: user.id,
+					type: `UN${punishment.type}`,
+					reason: "Ended",
+					timestamp: Date.now(),
+					moderator: client.user.id,
+					logMsg: msg.id
+				} as PunishmentLog)
+				const dmEmbed = new MessageEmbed()
+					.setColor(colors.success)
+					.setAuthor("Punishment")
+					.setTitle(`Your mute on the ${guild.name} has expired.`)
+					.setDescription("You will now be able to talk in chats again. If something's wrong, please respond in this DM.")
+					.setTimestamp()
+				await user.send({ embeds: [dmEmbed] })
+					.catch(() => console.log(`Couldn't DM user ${user.tag}, (${user.id}) about their unmute.`))
+			} else if (punishment.type === "BAN") {
 				const user = await guild.bans.remove(punishment.id!, "Punishment ended")
 					.catch(err => console.error(`Couldn't unban user with id ${punishment.id}. Here's the error:\n`, err)),
 					userFetched = await client.users.fetch(punishment.id),
@@ -144,12 +178,13 @@ client.on("ready", async () => {
 				await punishmentsColl.insertOne({
 					case: caseNumber,
 					id: userFetched.id,
-					type: `UNBAN`,
+					type: `UN${punishment.type}`,
 					reason: "Ended",
 					timestamp: Date.now(),
 					moderator: client.user.id,
 					logMsg: msg.id
 				} as PunishmentLog)
+			} else console.error(`For some reason a ${punishment.type} punishment wasn't expired. Case ${punishment.case}`)
 		}, msLeft)
 	}
 
