@@ -1,4 +1,4 @@
-import { GuildMember, MessageEmbed } from "discord.js"
+import { MessageEmbed } from "discord.js"
 import { client } from "../../index"
 import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
@@ -25,7 +25,7 @@ const command: Command = {
 		if (!interaction.inCachedGuild()) return
 		const collection = db.collection<DbUser>("users"),
 			user = interaction.options.getUser("user", false),
-			profile = interaction.options.getString("profile", false)
+			profile = interaction.options.getString("profile", false)?.toLowerCase()
 
 		if (interaction.member.roles.cache.has(ids.roles.admin) && user) {
 			if (!profile) {
@@ -71,8 +71,8 @@ const command: Command = {
 					}
 				} else throw "wrongLink"
 			}
-		} else if ((interaction.member as GuildMember).roles.cache.has(ids.roles.admin) && !user && profile) {
-			const profileUser = await db.collection<DbUser>("users").findOne({ profile: profile.toLowerCase() })
+		} else if (interaction.member.roles.cache.has(ids.roles.admin) && !user && profile) {
+			const profileUser = await db.collection<DbUser>("users").findOne({ profile: profile })
 			if (profileUser) {
 				const userObject = await client.users.fetch(profileUser.id),
 					embed = new MessageEmbed()
