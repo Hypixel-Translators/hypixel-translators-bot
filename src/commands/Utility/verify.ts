@@ -1,3 +1,4 @@
+import { setTimeout } from "node:timers/promises"
 import { MessageEmbed, TextChannel } from "discord.js"
 import { client } from "../../index"
 import { colors, ids } from "../../config.json"
@@ -76,10 +77,9 @@ const command: Command = {
 							.setFooter("")
 						await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL ${url ? `(<${url}>) ` : ""}or there was no profile stored for them but they had DMs off so I couldn't tell them.`)
 						const msg = await verify.send({ content: `${interaction.user} you had DMs disabled, so here's our message:`, embeds: [embed] })
-						setTimeout(async () => {
-							if (!msg.deleted) await msg.delete()
-						}, 30_000)
 						await interaction.editReply({ content: `Your request has been processed, check ${verify} for more info!` })
+						await setTimeout(30_000)
+						if (!msg.deleted) await msg.delete()
 					})
 				client.cooldowns.get(this.name)!.delete(interaction.user.id)
 			}

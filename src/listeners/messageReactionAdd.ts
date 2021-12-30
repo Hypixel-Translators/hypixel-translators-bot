@@ -1,3 +1,4 @@
+import { setTimeout } from "node:timers/promises"
 import { MessageEmbed, ThreadChannel } from "discord.js"
 import { client } from "../index"
 import { colors, ids } from "../config.json"
@@ -29,19 +30,18 @@ client.on("messageReactionAdd", async (reaction, user) => {
 			}
 			if (reaction.emoji.name === "vote_yes" && reaction.message.author!.id !== user.id) {
 				await reaction.message.react("⏱")
-				setTimeout(async () => {
-					// Check if the user hasn't removed their reaction
-					if ((await reaction.users.fetch()).has(user.id)) {
-						if (reaction.message.thread) {
-							// I cannot stress how stupid this is, but it won't work otherwise
-							if (reaction.message.thread.archived) await reaction.message.thread.setArchived(false, "Stupid workaround to lock this thread")
-							await reaction.message.thread.edit({ locked: true, archived: true }, "String reviewed")
-						}
-						if (!reaction.message.deleted) await reaction.message.delete()
-						await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "APPROVED" })
-						console.log(`String reviewed in ${channel.name}`)
-					} else await reaction.message.reactions.cache.get("⏱")?.remove()
-				}, 10_000)
+				await setTimeout(10_000)
+				// Check if the user hasn't removed their reaction
+				if ((await reaction.users.fetch()).has(user.id)) {
+					if (reaction.message.thread) {
+						// I cannot stress how stupid this is, but it won't work otherwise
+						if (reaction.message.thread.archived) await reaction.message.thread.setArchived(false, "Stupid workaround to lock this thread")
+						await reaction.message.thread.edit({ locked: true, archived: true }, "String reviewed")
+					}
+					if (!reaction.message.deleted) await reaction.message.delete()
+					await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "APPROVED" })
+					console.log(`String reviewed in ${channel.name}`)
+				} else await reaction.message.reactions.cache.get("⏱")?.remove()
 			} else if (reaction.emoji.name === "vote_maybe" && reaction.message.author!.id !== user.id) {
 				await reaction.users.remove(user.id)
 				const embed = new MessageEmbed()
@@ -68,27 +68,26 @@ client.on("messageReactionAdd", async (reaction, user) => {
 					.setTitle(strings.rejected.replace("%%user%%", user.tag))
 					.setDescription(`${reaction.message}`)
 					.setFooter(strings.rejectedBy.replace("%%user%%", user.tag), member.displayAvatarURL({ dynamic: true, format: "png" }))
-				setTimeout(async () => {
-					// Check if the user hasn't removed their reaction
-					if ((await reaction.users.fetch()).has(user.id)) {
-						if (reaction.message.thread) {
-							// I cannot stress how stupid this is, but it won't work otherwise
-							if (reaction.message.thread.archived) await reaction.message.thread.setArchived(false, "Stupid workaround to lock this thread")
-							await reaction.message.thread.edit({ locked: true, archived: true }, "String rejected")
-						}
-						const stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/gi)?.[0],
-							fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
-							thread = await channel.threads.create({
-								name: `Change rejected on ${stringId ? `string ${stringId}` : fileId === "all" ? "all files" : fileId ? `file ${fileId}` : "an unknown string"}`,
-								autoArchiveDuration: 60,
-								reason: `${user.tag} rejected the change`
-							})
-						await thread.send({ content: `${reaction.message.author}, ${user}`, embeds: [embed] })
-						if (!reaction.message.deleted) await reaction.message.delete()
-						await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "DENIED" })
-						console.log(`String rejected in ${channel.name}`)
-					} else await reaction.message.reactions.cache.get("⏱")?.remove()
-				}, 10_000)
+				await setTimeout(10_000)
+				// Check if the user hasn't removed their reaction
+				if ((await reaction.users.fetch()).has(user.id)) {
+					if (reaction.message.thread) {
+						// I cannot stress how stupid this is, but it won't work otherwise
+						if (reaction.message.thread.archived) await reaction.message.thread.setArchived(false, "Stupid workaround to lock this thread")
+						await reaction.message.thread.edit({ locked: true, archived: true }, "String rejected")
+					}
+					const stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/gi)?.[0],
+						fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
+						thread = await channel.threads.create({
+							name: `Change rejected on ${stringId ? `string ${stringId}` : fileId === "all" ? "all files" : fileId ? `file ${fileId}` : "an unknown string"}`,
+							autoArchiveDuration: 60,
+							reason: `${user.tag} rejected the change`
+						})
+					await thread.send({ content: `${reaction.message.author}, ${user}`, embeds: [embed] })
+					await reaction.message.delete().catch(() => null)
+					await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "DENIED" })
+					console.log(`String rejected in ${channel.name}`)
+				} else await reaction.message.reactions.cache.get("⏱")?.remove()
 			} else await reaction.users.remove(user.id)
 		} else await reaction.users.remove(user.id)
 	}

@@ -1,4 +1,6 @@
 //This file contains a bunch of functions used across the bot on multuple commands.
+import process from "node:process"
+import { setInterval } from "node:timers"
 import axios from "axios"
 import { CommandInteraction, GuildMember, MessageActionRow, MessageButton, MessageEmbed, Role, Snowflake, User } from "discord.js"
 import puppeteer from "puppeteer"

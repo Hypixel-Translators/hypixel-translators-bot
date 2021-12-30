@@ -1,3 +1,4 @@
+import { setInterval } from "node:timers"
 import { MessageEmbed, NewsChannel, TextChannel } from "discord.js"
 import { client, crowdin } from "../index"
 import { colors, ids } from "../config.json"

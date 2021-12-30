@@ -1,3 +1,4 @@
+import process from "node:process"
 import { Client, ClientEvents, Collection, Snowflake } from "discord.js"
 import { MongoClient, Db, WithId } from "mongodb"
 import { client } from "../index"

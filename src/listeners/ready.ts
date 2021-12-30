@@ -1,3 +1,5 @@
+import process from "node:process"
+import { setInterval, setTimeout } from "node:timers"
 import { CronJob } from "cron"
 import {
 	ApplicationCommand,

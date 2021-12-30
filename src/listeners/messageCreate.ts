@@ -78,7 +78,7 @@ client.on("messageCreate", async message => {
 	}
 
 	//Get the author from the database
-	const author: DbUser = await client.getUser(message.author.id)
+	const author = await client.getUser(message.author.id)
 
 	//Link correction system
 	if (

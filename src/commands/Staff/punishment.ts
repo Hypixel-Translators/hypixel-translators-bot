@@ -1,4 +1,5 @@
-import { GuildMember, MessageActionRow, MessageButton, MessageComponentInteraction, MessageEmbed, TextChannel, User } from "discord.js"
+import { setTimeout } from "node:timers/promises"
+import { ButtonInteraction, GuildMember, MessageActionRow, MessageButton, MessageEmbed, TextChannel, User } from "discord.js"
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { generateTip, getActivePunishments, PunishmentLog, PunishmentPoints } from "../../lib/util"
@@ -136,7 +137,7 @@ const command: Command = {
 						.setEmoji("❎")
 						.setDisabled()
 				),
-			filter = (bInteraction: MessageComponentInteraction) => bInteraction.user.id === interaction.user.id,
+			filter = (bInteraction: ButtonInteraction) => bInteraction.user.id === interaction.user.id,
 			caseNumber = (await collection.estimatedDocumentCount()) + 1,
 			punishmentsChannel = interaction.client.channels.cache.get(ids.channels.punishments) as TextChannel,
 			randomTip = generateTip()
@@ -202,10 +203,9 @@ const command: Command = {
 					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] })
 
-				setTimeout(async () => {
-					buttons.components.map(b => b.setDisabled(false))
-					await interaction.editReply({ components: [buttons] })
-				}, 5_000)
+				await setTimeout(5_000)
+				buttons.components.map(b => b.setDisabled(false))
+				await interaction.editReply({ components: [buttons] })
 				const buttonInteraction = await msg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 })
 					.catch(async () => {
 						const embed = new MessageEmbed()
@@ -288,10 +288,9 @@ const command: Command = {
 					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] })
 
-				setTimeout(async () => {
-					buttons.components.map(b => b.setDisabled(false))
-					await interaction.editReply({ components: [buttons] })
-				}, 5_000)
+				await setTimeout(5_000)
+				buttons.components.map(b => b.setDisabled(false))
+				await interaction.editReply({ components: [buttons] })
 				const buttonInteraction = await msg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 })
 					.catch(async () => {
 						const embed = new MessageEmbed()
@@ -388,10 +387,9 @@ const command: Command = {
 					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
 				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] })
 
-				setTimeout(async () => {
-					buttons.components.map(b => b.setDisabled(false))
-					await interaction.editReply({ components: [buttons] })
-				}, 5_000)
+				await setTimeout(5_000)
+				buttons.components.map(b => b.setDisabled(false))
+				await interaction.editReply({ components: [buttons] })
 				const buttonInteraction = await msg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 })
 					.catch(async () => {
 						const embed = new MessageEmbed()
@@ -604,10 +602,9 @@ const command: Command = {
 			})
 			const msg = await interaction.reply({ embeds: [embed], components: [buttons], fetchReply: true })
 
-			setTimeout(async () => {
-				buttons.components.map(b => b.setDisabled(false))
-				await interaction.editReply({ components: [buttons] })
-			}, 5_000)
+			await setTimeout(5_000)
+			buttons.components.map(b => b.setDisabled(false))
+			await interaction.editReply({ components: [buttons] })
 			const buttonInteraction = await msg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 })
 				.catch(async () => {
 					const embed = new MessageEmbed()

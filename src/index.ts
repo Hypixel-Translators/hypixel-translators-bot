@@ -1,3 +1,4 @@
+import process from "node:process"
 //Setup dotenv and define client
 if (!process.env.MONGO_URL) require("dotenv").config()
 import Crowdin from "@crowdin/crowdin-api-client"

@@ -1,3 +1,4 @@
+import process from "node:process"
 import { client } from "../index"
 import { mongoClient } from "../lib/dbclient"
 
