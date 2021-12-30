@@ -1,7 +1,7 @@
 import process from "node:process"
 import { setInterval } from "node:timers"
 import { setTimeout } from "node:timers/promises"
-import { CronJob } from "cron"
+import { schedule } from "node-cron"
 import {
 	ApplicationCommand,
 	ApplicationCommandPermissionData,
@@ -71,7 +71,7 @@ client.on("ready", async () => {
 	}
 
 	//Change status and run events every minute
-	new CronJob("*/1 * * * *", async () => {
+	schedule("*/1 * * * *", async () => {
 		//Get server boosters and staff for the status
 		const boostersStaff: string[] = []
 		guild?.roles.premiumSubscriberRole?.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
@@ -96,20 +96,20 @@ client.on("ready", async () => {
 
 	}).start()
 	//Run at 02:00
-	new CronJob("0 2 * * *", inactives).start()
+	schedule("0 2 * * *", inactives).start()
 	//Run at 03:00
-	new CronJob("0 3 * * *", crowdin).start()
+	schedule("0 3 * * *", crowdin).start()
 	//Run on every 10th minute
-	new CronJob("*/10 * * * *", stats).start()
+	schedule("*/10 * * * *", stats).start()
 	//Holiday messages
 	//Easter: midday UTC on a Sunday
-	new CronJob(`0 12 ${easter(new Date().getFullYear()).join(" ")} 0`, () => sendHolidayMessage("easter"))
+	schedule(`0 12 ${easter(new Date().getFullYear()).join(" ")} 0`, () => sendHolidayMessage("easter"))
 	//Halloween: 10pm UTC on the 31st of October
-	new CronJob("0 22 31 10 *", () => sendHolidayMessage("halloween"))
+	schedule("0 22 31 10 *", () => sendHolidayMessage("halloween"))
 	//Christmas: midnight UTC on the 25th of December
-	new CronJob("0 0 25 12 *", () => sendHolidayMessage("christmas"))
+	schedule("0 0 25 12 *", () => sendHolidayMessage("christmas"))
 	//New Year: midnight UTC on the 1st of January
-	new CronJob("0 0 1 1 *", () => sendHolidayMessage("newYear"))
+	schedule("0 0 1 1 *", () => sendHolidayMessage("newYear"))
 
 	//Check for active punishments and start a timeout to conclude them
 	const punishmentsColl = db.collection<PunishmentLog>("punishments"),
