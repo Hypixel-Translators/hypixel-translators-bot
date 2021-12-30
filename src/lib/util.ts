@@ -2,7 +2,7 @@
 import process from "node:process"
 import { setInterval } from "node:timers"
 import axios from "axios"
-import { CommandInteraction, GuildMember, MessageActionRow, MessageButton, MessageEmbed, Role, Snowflake, User } from "discord.js"
+import { Client, CommandInteraction, GuildMember, MessageActionRow, MessageButton, MessageEmbed, Role, Snowflake, User } from "discord.js"
 import puppeteer from "puppeteer"
 import { v4 } from "uuid"
 import { db } from "./dbclient"
@@ -143,6 +143,17 @@ export async function updateRoles(member: GuildMember, json?: GraphQLQuery["data
 			break
 	}
 	return role
+}
+
+export async function getInviteLink(client: Client) {
+	const guild = client.guilds.cache.get(ids.guilds.main)!,
+		inviteCode =
+			(await guild
+				.fetchVanityData()
+				.then(v => v.code)
+				.catch(() => null)) ??
+			(await guild.invites.fetch().then(invites => invites.find(i => i.channelId === ids.channels.verify)!.code))!
+	return `https://discord.gg/${inviteCode}`
 }
 
 // support for syntax highlighting inside graphql strings (with the right extensions) (also makes it a one liner)

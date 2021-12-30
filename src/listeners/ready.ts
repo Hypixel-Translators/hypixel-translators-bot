@@ -16,7 +16,7 @@ import stats from "../events/stats"
 import inactives from "../events/inactives"
 import crowdin from "../events/crowdinverify"
 import { db } from "../lib/dbclient"
-import { PunishmentLog, restart } from "../lib/util"
+import { getInviteLink, PunishmentLog, restart } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 
@@ -214,7 +214,7 @@ export async function awaitBan(punishment: PunishmentLog) {
 			.setTitle(`Your ban on the ${guild.name} has expired.`)
 			.setDescription("You are welcome to join back using the invite in this message.")
 			.setTimestamp()
-		await user.send({ content: "https://discord.gg/rcT948A", embeds: [dmEmbed] })
+		await user.send({ content: await getInviteLink(client), embeds: [dmEmbed] })
 			.catch(() => console.log(`Couldn't DM user ${userFetched?.tag ?? "Deleted User#0000"}, (${user.id}) about their unban.`))
 	}
 	const msg = await punishmentsChannel.send({ embeds: [punishmentLog] })

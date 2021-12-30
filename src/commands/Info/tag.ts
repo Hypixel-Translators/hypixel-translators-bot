@@ -1,6 +1,5 @@
-import { ids } from "../../config.json"
-
 import type { Command } from "../../lib/imports"
+import { getInviteLink } from "../../lib/util"
 
 const command: Command = {
 	name: "tag",
@@ -38,9 +37,7 @@ const command: Command = {
 
 		switch (tag) {
 			case "invite":
-				const vanityURLCode = await interaction.client.guilds.cache.get(ids.guilds.main)!.fetchVanityData().then(v => v.code).catch(() => null),
-					inviteURL = `https://discord.gg/${vanityURLCode ?? "rcT948A"}`
-				response = `You can use this link to invite others to the community: ${inviteURL}`
+				response = `You can use this link to invite others to the community: ${await getInviteLink(interaction.client)}`
 				break
 			case "hypixel":
 				response = 'Click [here](<https://crowdin.com/project/hypixel> "Hypixel Crowdin project") to access the Hypixel Crowdin project.\n' +
