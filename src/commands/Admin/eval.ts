@@ -4,13 +4,13 @@ const flagColors = require("language-flag-colors")
 const { crowdin } = require("../../index")
 const { colors, listeningStatuses, watchingStatuses, playingStatuses, ids } = require("../../config.json")
 const { crowdinVerify } = require("../../lib/crowdinverify")
+const { db } = require("../../lib/dbclient")
 const { leveling } = require("../../lib/leveling")
-const { updateButtonColors, getUUID, updateRoles, getXpNeeded } = require("../../lib/util")
+const util = require("../../lib/util")
 const { generateWelcomeImage } = require("../../listeners/guildMemberAdd")
 import { inspect } from "node:util"
 import discord from "discord.js"
 import { transpile, getParsedCommandLineOfConfigFile, sys } from "typescript"
-import { db as mongoDb } from "../../lib/dbclient"
 import { generateTip as randomTip } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -30,7 +30,6 @@ const command: Command = {
 		const me = interaction.member,
 			guild = interaction.guild!,
 			channel = interaction.channel,
-			db = mongoDb,
 			Discord = discord,
 			client = interaction.client,
 			generateTip = randomTip

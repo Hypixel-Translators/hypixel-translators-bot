@@ -1,8 +1,9 @@
 //This file contains a bunch of functions used across the bot on multuple commands.
+import { readdirSync } from "node:fs"
 import process from "node:process"
 import { setInterval } from "node:timers"
 import axios from "axios"
-import { Client, CommandInteraction, GuildMember, MessageActionRow, MessageButton, MessageEmbed, Role, Snowflake, User } from "discord.js"
+import { Client, CommandInteraction, GuildMember, MessageActionRow, MessageButton, MessageEmbed, NewsChannel, Role, Snowflake, TextChannel, User } from "discord.js"
 import puppeteer from "puppeteer"
 import { v4 } from "uuid"
 import { db } from "./dbclient"
@@ -222,6 +223,45 @@ export async function restart(interaction?: CommandInteraction) {
 	})
 }
 
+export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "christmas" | "newYear") {
+	let strings: HolidayStrings | null = require(`../../strings/en/holidays.json`)
+	const holiday: string[] = [],
+		log: { [Language: string]: string } = {}
+	holiday.push(strings![holidayName])
+	readdirSync("./strings").forEach(lang => {
+		if (lang === "empty") return
+		try {
+			strings = require(`../../strings/${lang}/holidays.json`)
+		} catch {
+			strings = null
+		}
+		if (!strings) return
+		if (!holiday.includes(strings[holidayName])) {
+			holiday.push(strings[holidayName])
+			log[lang] = strings[holidayName]
+		}
+	})
+	let logMsg = ""
+	for (const lang in log) {
+		if (!log.hasOwnProperty.call(log, lang)) {
+			continue
+		}
+
+		logMsg = logMsg.concat(`${lang}: ${log[lang]}\n`)
+	}
+	const announcement = holiday.join(" "),
+		announcements = client.channels.cache.get(ids.channels.announcements) as NewsChannel,
+		adminBots = client.channels.cache.get(ids.channels.adminBots) as TextChannel,
+		holidayNameFormatted = holidayName.charAt(0).toUpperCase() + holidayName.slice(1).replace(/([A-Z])/, " $1")
+	if (announcement) {
+		await announcements.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`)
+			.then(msg => msg.crosspost())
+		await adminBots.send(`${holidayNameFormatted} announcement sent! Here's each language's translation:\n${logMsg}`)
+		console.table(log)
+		console.log(`Sent the ${holidayNameFormatted} announcement`)
+	} else return await adminBots.send(`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`)
+}
+
 export function updateButtonColors(row: MessageActionRow, page: number, pages: any[]) {
 	if (page == 0) {
 		row.components.forEach(button => {
@@ -437,6 +477,13 @@ export interface GraphQLQuery {
 			}[]
 		}
 	}
+}
+
+interface HolidayStrings {
+	easter: string
+	halloween: string
+	christmas: string
+	newYear: string
 }
 
 export interface LangDbEntry {

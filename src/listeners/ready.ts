@@ -16,7 +16,7 @@ import stats from "../events/stats"
 import inactives from "../events/inactives"
 import crowdin from "../events/crowdinverify"
 import { db } from "../lib/dbclient"
-import { getInviteLink, PunishmentLog, restart } from "../lib/util"
+import { getInviteLink, PunishmentLog, restart, sendHolidayMessage } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 
@@ -101,6 +101,15 @@ client.on("ready", async () => {
 	new CronJob("0 3 * * *", crowdin).start()
 	//Run on every 10th minute
 	new CronJob("*/10 * * * *", stats).start()
+	//Holiday messages
+	//Easter: midday UTC on a Sunday
+	new CronJob(`0 12 ${easter(new Date().getFullYear()).join(" ")} 0`, () => sendHolidayMessage("easter"))
+	//Halloween: 10pm UTC on the 31st of October
+	new CronJob("0 22 31 10 *", () => sendHolidayMessage("halloween"))
+	//Christmas: midnight UTC on the 25th of December
+	new CronJob("0 0 25 12 *", () => sendHolidayMessage("christmas"))
+	//New Year: midnight UTC on the 1st of January
+	new CronJob("0 0 1 1 *", () => sendHolidayMessage("newYear"))
 
 	//Check for active punishments and start a timeout to conclude them
 	const punishmentsColl = db.collection<PunishmentLog>("punishments"),
@@ -284,4 +293,21 @@ function convertToDiscordCommand(command: Command): ChatInputApplicationCommandD
 		defaultPermission: command.roleWhitelist || command.dev ? false : true,
 		options: command.options ?? []
 	}
+}
+
+// I have no clue how this works, I just know that it works
+export function easter(year: number) {
+	const century = Math.floor(year / 100),
+		goldenNumber = year - 19 * Math.floor(year / 19),
+		k = Math.floor((century - 17) / 25)
+	let i = century - Math.floor(century / 4) - Math.floor((century - k) / 3) + 19 * goldenNumber + 15
+	i = i - 30 * Math.floor((i / 30))
+	i = i - Math.floor(i / 28) * (1 - Math.floor(i / 28) * Math.floor(29 / (i + 1)) * Math.floor((21 - goldenNumber) / 11))
+	let j = year + Math.floor(year / 4) + i + 2 - century + Math.floor(century / 4)
+	j = j - 7 * Math.floor(j / 7)
+	const l = i - j,
+		month = 3 + Math.floor((l + 40) / 44),
+		day = l + 28 - 31 * Math.floor(month / 4)
+
+	return [day, month] as const
 }
