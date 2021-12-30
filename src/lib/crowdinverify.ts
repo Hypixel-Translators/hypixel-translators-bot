@@ -1,4 +1,3 @@
-import { setInterval } from "node:timers"
 import { setTimeout } from "node:timers/promises"
 import { GuildMember, MessageEmbed, Role, TextChannel } from "discord.js"
 import { db, DbUser } from "./dbclient"
