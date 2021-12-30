@@ -3,7 +3,9 @@ import { ButtonInteraction, GuildMember, MessageActionRow, MessageButton, Messag
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { generateTip, getActivePunishments, PunishmentLog, PunishmentPoints } from "../../lib/util"
+import { awaitBan, awaitMute } from "../../listeners/ready"
 
+import type { WithId } from "mongodb"
 import type { Command } from "../../lib/imports"
 
 const command: Command = {
@@ -319,9 +321,8 @@ const command: Command = {
 							.setFooter(`ID: ${user.id}`)
 							.setTimestamp(),
 						msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
-						console.log(endTimestamp)
 
-					await collection.insertOne({
+					const punishmentDb = (await collection.insertOne({
 						case: caseNumber,
 						id: user.id,
 						type: punishment.type,
@@ -333,7 +334,7 @@ const command: Command = {
 						ended: false,
 						moderator: interaction.user.id,
 						logMsg: msg.id,
-					} as PunishmentLog)
+					} as PunishmentLog).then(result => collection.findOne({ _id: result.insertedId })))!
 
 					if (!memberInput) throw "Couldn't find that member! Are you sure they're on the server?"
 					//punishment.duration is a value in hours for mutes, convert it to ms
@@ -366,6 +367,7 @@ const command: Command = {
 								.setDescription("Message not send because the user had DMs off")
 							await buttonInteraction.editReply({ embeds: [embed], components: [] })
 						})
+					awaitMute(punishmentDb)
 				} else if (buttonInteraction.customId === "cancel") {
 					const embed = new MessageEmbed()
 						.setColor(colors.success)
@@ -430,7 +432,8 @@ const command: Command = {
 							{ $set: { ended: true, revoked: true, revokedBy: interaction.user.id, endTimestamp: Date.now() } }
 						)
 
-					if (punishment.duration) await collection.insertOne({
+					let punishmentDb: WithId<PunishmentLog>
+					if (punishment.duration) punishmentDb = (await collection.insertOne({
 						case: caseNumber,
 						id: user.id,
 						type: punishment.type,
@@ -442,8 +445,8 @@ const command: Command = {
 						ended: false,
 						moderator: interaction.user.id,
 						logMsg: msg.id
-					} as PunishmentLog)
-					else await collection.insertOne({
+					} as PunishmentLog).then(result => collection.findOne({ _id: result.insertedId })))!
+					else punishmentDb = (await collection.insertOne({
 						case: caseNumber,
 						id: user.id,
 						type: punishment.type,
@@ -454,7 +457,7 @@ const command: Command = {
 						ended: false,
 						moderator: interaction.user.id,
 						logMsg: msg.id
-					})
+					}).then(result => collection.findOne({ _id: result.insertedId })))!
 
 					const dmEmbed = new MessageEmbed()
 						.setColor(colors.error)
@@ -487,6 +490,7 @@ const command: Command = {
 								.setDescription("Warning not sent because the user had DMs off")
 							await buttonInteraction.editReply({ embeds: [embed], components: [] })
 						})
+					awaitBan(punishmentDb)
 				} else if (buttonInteraction.customId === "cancel") {
 					const embed = new MessageEmbed()
 						.setColor(colors.success)
