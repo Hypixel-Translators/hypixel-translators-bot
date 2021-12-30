@@ -52,8 +52,10 @@ export interface Command extends ChatInputApplicationCommandData {
 	channelWhitelist?: Snowflake[]
 	categoryWhitelist?: Snowflake[]
 	categoryBlacklist?: Snowflake[]
-	category?: "Admin" | "Staff" | "Utility" | "Info"
+	category?: Category
 	execute(interaction: CommandInteraction, getString?: GetStringFunction): Promise<any>
 }
+
+export type Category = "Admin" | "Staff" | "Utility" | "Info"
 
 export type GetStringFunction = (path: string, variables?: { [key: string]: string | number } | string, file?: string, lang?: string) => any
