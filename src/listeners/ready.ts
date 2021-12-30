@@ -96,11 +96,11 @@ client.on("ready", async () => {
 
 	}).start()
 	//Run at 02:00
-	schedule("0 2 * * *", inactives).start()
+	schedule("0 2 * * *", () => inactives()).start()
 	//Run at 03:00
-	schedule("0 3 * * *", crowdin).start()
+	schedule("0 3 * * *", () => crowdin()).start()
 	//Run on every 10th minute
-	schedule("*/10 * * * *", stats).start()
+	schedule("*/10 * * * *", () => stats()).start()
 	//Holiday messages
 	//Easter: midday UTC on a Sunday
 	schedule(`0 12 ${easter(new Date().getFullYear()).join(" ")} 0`, () => sendHolidayMessage("easter"))
