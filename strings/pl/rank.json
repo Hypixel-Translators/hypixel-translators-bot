@@ -6,6 +6,6 @@
 	"userNotRanked": "Ten użytkownik nie jest jeszcze w rankingu!",
 	"howRank": "Aby być w rankingu, musisz pisać na czatach!",
 	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% wiadomości",
-	"youLevel": "Twój poziom wynosi %%level%%, jesteś %%rank%%. w rankingu!",
-	"userLevel": "%%user%% ma poziom %%level%%., jest %%rank%%. w rankingu!"
+	"youLevel": "Twój poziom wynosi %%level%%, jesteś %%rank%% w rankingu!",
+	"userLevel": "%%user%% ma poziom %%level%%., jest %%rank%% w rankingu!"
 }
