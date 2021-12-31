@@ -325,10 +325,10 @@ export function updateModlogFields(embed: MessageEmbed, modlog: PunishmentLog, m
 	}
 	if (modlogs) embed
 		.setDescription(`Case #${modlog.case}`)
-		.setFooter(
-			`Modlog ${modlogs.indexOf(modlog) + 1}/${modlogs.length}`,
-			embed.footer!.iconURL
-		)
+		.setFooter({
+			text: `Modlog ${modlogs.indexOf(modlog) + 1}/${modlogs.length}`,
+			iconURL: embed.footer!.iconURL!
+		})
 	return embed
 }
 

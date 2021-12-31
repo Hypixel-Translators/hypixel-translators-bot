@@ -14,20 +14,23 @@ const command: Command = {
 		const randomTip = generateTip(getString),
 			member = interaction.member as GuildMember | null ?? interaction.user
 
-		const embed = new MessageEmbed()
-			.setColor(colors.success)
-			.setAuthor(getString("moduleName"))
-			.setTitle(getString("bugT"))
-			.setDescription(getString("bugD"))
-			.addField(getString("urgentT"), getString("urgentD"))
-			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
-		const row = new MessageActionRow()
-			.addComponents(
-				new MessageButton()
-					.setLabel(getString("link"))
-					.setStyle("LINK")
-					.setURL("https://github.com/Hypixel-Translators/hypixel-translators-bot/issues")
-			)
+		const embed = new MessageEmbed({
+			color: colors.success,
+			author: { name: getString("moduleName") },
+			title: getString("bugT"),
+			description: getString("bugD"),
+			fields: [{ name: getString("urgentT"), value: getString("urgentD") }],
+			footer: { text: randomTip, iconURL: member?.displayAvatarURL({ format: "png", dynamic: true }) }
+		})
+		const row = new MessageActionRow({
+			components: [
+				new MessageButton({
+					style: "LINK",
+					label: getString("link"),
+					url: "https://github.com/Hypixel-Translators/hypixel-translators-bot/issues"
+				})
+			]
+		})
 		await interaction.reply({ components: [row], embeds: [embed] })
 	}
 }

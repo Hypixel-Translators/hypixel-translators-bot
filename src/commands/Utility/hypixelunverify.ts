@@ -27,19 +27,21 @@ const command: Command = {
 			await updateRoles(memberInput)
 			const result = await collection.updateOne({ id: memberInput.id }, { $unset: { uuid: true } })
 			if (result.modifiedCount) {
-				const embed = new MessageEmbed()
-					.setColor(colors.success)
-					.setAuthor("Hypixel Verification")
-					.setTitle(`Successfully unverified ${memberInput.user.tag}`)
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const embed = new MessageEmbed({
+					color: colors.success,
+					author: { name: "Hypixel Verification" },
+					title: `Successfully unverified ${memberInput.user.tag}`,
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 				return await interaction.reply({ embeds: [embed] })
 			} else {
-				const embed = new MessageEmbed()
-					.setColor(colors.error)
-					.setAuthor("Hypixel Verification")
-					.setTitle(`Couldn't unverify ${memberInput.user.tag}!`)
-					.setDescription("This happened because this user isn't verified yet.")
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const embed = new MessageEmbed({
+					color: colors.error,
+					author: { name: "Hypixel Verification" },
+					title: `Couldn't unverify ${memberInput.user.tag}!`,
+					description: "This happened because this user isn't verified yet.",
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
 		} else {
@@ -47,19 +49,21 @@ const command: Command = {
 			client.cooldowns.get(this.name)!.delete(interaction.user.id)
 			const result = await collection.updateOne({ id: interaction.user.id }, { $unset: { uuid: true } })
 			if (result.modifiedCount) {
-				const embed = new MessageEmbed()
-					.setColor(colors.success)
-					.setAuthor(getString("moduleName"))
-					.setTitle(getString("unverified"))
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const embed = new MessageEmbed({
+					color: colors.success,
+					author: { name: getString("moduleName") },
+					title: getString("unverified"),
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 				return await interaction.reply({ embeds: [embed] })
 			} else {
-				const embed = new MessageEmbed()
-					.setColor(colors.error)
-					.setAuthor(getString("moduleName"))
-					.setTitle(getString("notUnverified"))
-					.setDescription(getString("whyNotUnverified"))
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const embed = new MessageEmbed({
+					color: colors.error,
+					author: { name: getString("moduleName") },
+					title: getString("notUnverified"),
+					description: getString("whyNotUnverified"),
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
 		}

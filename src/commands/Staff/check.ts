@@ -42,18 +42,19 @@ const command: Command = {
 			userRoles = rolesCache.sort((a, b) => b.position - a.position).map(r => r).join(", ")
 		} else userRoles = "No roles yet!"
 
-		const embed = new MessageEmbed()
-			.setColor(color)
-			.setAuthor({ name: "User information", iconURL: memberInput.user.displayAvatarURL({ format: "png", dynamic: true }) })
-			.setTitle(memberInput.user.tag)
-			.setDescription(`${memberInput} (ID: ${memberInput.id})`)
-			.addFields(
+		const embed = new MessageEmbed({
+			color,
+			author: { name: "User information", iconURL: memberInput.user.displayAvatarURL({ format: "png", dynamic: true }) },
+			title: memberInput.user.tag,
+			description: `${memberInput} (ID: ${memberInput.id})`,
+			fields: [
 				{ name: "Joined on", value: `<t:${joinedAgo}:F> (<t:${joinedAgo}:R>)`, inline: true },
 				{ name: "Account created on", value: `<t:${createdAgo}:F> (<t:${createdAgo}:R>)`, inline: true },
 				{ name: "Roles", value: userRoles },
-			)
-			.setThumbnail(memberInput.user.displayAvatarURL({ format: "png", dynamic: true }))
-			.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+			],
+			thumbnail: { url: memberInput.displayAvatarURL({ format: "png", dynamic: true }) },
+			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+		})
 		if (note) embed.addField("Note", note)
 		await interaction.reply({ embeds: [embed] })
 	}

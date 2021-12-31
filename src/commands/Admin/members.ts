@@ -33,26 +33,36 @@ const command: Command = {
 		if (maxMembersArr.length > 1) {
 			let page = 0,
 				pageEmbed = updatePage(maxMembersArr[page], page),
-				controlButtons = new MessageActionRow()
-					.addComponents(
-						new MessageButton()
-							.setEmoji("⏮️")
-							.setCustomId("first")
-							.setLabel("First page"),
-						new MessageButton()
-							.setEmoji("◀️")
-							.setCustomId("previous")
-							.setLabel("Previous page"),
-						new MessageButton()
-							.setEmoji("▶️")
-							.setCustomId("next")
-							.setLabel("Next page"),
-						new MessageButton()
-							.setEmoji("⏭️")
-							.setCustomId("last")
-							.setLabel("Last page")
-					)
-			controlButtons = updateButtonColors(controlButtons, page, maxMembersArr)
+				controlButtons = new MessageActionRow({
+					components: [
+						new MessageButton({
+							style: "SECONDARY",
+							emoji: "⏮️",
+							customId: "first",
+							label: "First page",
+							disabled: true
+						}),
+						new MessageButton({
+							style: "SUCCESS",
+							emoji: "◀️",
+							customId: "previous",
+							label: "Previous page",
+						}),
+						new MessageButton({
+							style: "SUCCESS",
+							emoji: "▶️",
+							customId: "next",
+							label: "Next page",
+						}),
+						new MessageButton({
+							style: "SECONDARY",
+							emoji: "⏭️",
+							customId: "last",
+							label: "Last page",
+							disabled: true
+						})
+					]
+				})
 			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }),
 				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: 60_000 })
 
@@ -82,18 +92,20 @@ const command: Command = {
 
 		function updatePage(membersArr: GuildMember[], page?: number) {
 			if (membersArr?.length) {
-				return new MessageEmbed()
-					.setColor(color)
-					.setAuthor("Members list")
-					.setTitle(`Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`)
-					.setDescription(membersArr.join(", "))
-					.setFooter(`${page !== undefined ? `Page ${page + 1}/${maxMembersArr.length}` : generateTip()}`, member.displayAvatarURL({ format: "png", dynamic: true }))
+				return new MessageEmbed({
+					color,
+					author: { name: "Members list" },
+					title: `Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`,
+					description: membersArr.join(", "),
+					footer: { text: `${page !== undefined ? `Page ${page + 1}/${maxMembersArr.length}` : generateTip()}`, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 			} else {
-				return new MessageEmbed()
-					.setColor(color)
-					.setAuthor("Members list")
-					.setTitle(`There are no members with the ${role.name} role on the server at the moment.`)
-					.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
+				return new MessageEmbed({
+					color,
+					author: { name: "Members list" },
+					title: `There are no members with the ${role.name} role on the server at the moment.`,
+					footer: { text: generateTip(), iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 			}
 		}
 	}

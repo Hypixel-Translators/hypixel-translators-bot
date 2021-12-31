@@ -21,12 +21,13 @@ const command: Command = {
 
 		await interaction.deferReply()
 		await crowdinVerify(limit)
-		const embed = new MessageEmbed()
-			.setColor(colors.success)
-			.setAuthor("Role updater")
-			.setTitle("All verified users had their roles updated!")
-			.setDescription("Check the console for any errors that may have occured in the process")
-			.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+		const embed = new MessageEmbed({
+			color: colors.success,
+			author: { name: "Role updater" },
+			title: "All verified users had their roles updated!",
+			description: "Check the console for any errors that may have occured in the process",
+			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+		})
 		await interaction.editReply({ embeds: [embed] })
 			.catch(async () => {
 				await interaction.channel!.send({ content: "The interaction expired, so here's the embed so you don't feel sad", embeds: [embed] })

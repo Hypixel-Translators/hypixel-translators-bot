@@ -23,15 +23,16 @@ const command: Command = {
 			answerType = keys[keys.length * Math.random() << 0] as "positive" | "inconclusive" | "negative",
 			answers = getString(`answers.${answerType}`),
 			answer = answers[Math.floor(Math.random() * answers.length)],
-			embed = new MessageEmbed()
-				.setAuthor(getString("moduleName"))
-				.setTitle(answer)
-				.addField(getString("question"), interaction.options.getString("question", true))
-				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
-		if (answerType === "positive") embed.setColor(colors.success)
-		else if (answerType === "inconclusive") embed.setColor(colors.loading)
-		else if (answerType === "negative") embed.setColor(colors.error)
-		else console.error("Help the 8ball answer type is weird")
+			color = answerType === "positive" ? colors.success : answerType === "inconclusive" ? colors.loading : colors.error,
+			embed = new MessageEmbed({
+				color,
+				author: { name: getString("moduleName") },
+				title: answer,
+				fields: [
+					{ name: getString("question"), value: interaction.options.getString("question", true)}
+				],
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 		await interaction.reply({ embeds: [embed] })
 	}
 }

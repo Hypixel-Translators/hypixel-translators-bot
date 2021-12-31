@@ -31,12 +31,13 @@ const command: Command = {
 
 		if (interaction.member.permissions.has("MANAGE_ROLES")) await sendTo.send(message)
 		else await sendTo.send(Formatters.blockQuote(message))
-		const embed = new MessageEmbed()
-			.setColor(colors.success)
-			.setAuthor("Message")
-			.setTitle("Success! Message sent.")
-			.setDescription(`${sendTo}:\n${message}`)
-			.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+		const embed = new MessageEmbed({
+			color: colors.success,
+			author: { name: "Message" },
+			title: "Success! Message sent.",
+			description: `${sendTo}:\n${message}`,
+			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+		})
 		await interaction.reply({ embeds: [embed] })
 	}
 }

@@ -117,16 +117,14 @@ const command: Command = {
 			if (playerJson.first_login) firstLogin = `<t:${Math.round(new Date(playerJson.first_login).getTime() / 1000)}:F>`
 			else firstLogin = getString("firstLoginHidden")
 
-			const statsEmbed = new MessageEmbed()
-				.setColor(color)
-				.setAuthor(getString("moduleName"))
-				.setTitle(`${rank} ${username}`)
-				.setThumbnail(skinRender)
-				.setDescription(
-					`${getString("statsDesc", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""
-					}${getString("updateNote")}\n${getString("otherStats")}`
-				)
-				.addFields(
+			const statsEmbed = new MessageEmbed({
+				color,
+				author: { name: getString("moduleName") },
+				title: `${rank} ${username}`,
+				thumbnail: { url: skinRender },
+				description: `${getString("statsDesc", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""
+					}${getString("updateNote")}\n${getString("otherStats")}`,
+				fields: [
 					{ name: getString("networkLevel"), value: Math.abs(playerJson.level).toLocaleString(locale), inline: true },
 					{ name: getString("ap"), value: playerJson.achievement_points.toLocaleString(locale), inline: true },
 					{ name: getString("first_login"), value: firstLogin, inline: true },
@@ -134,8 +132,9 @@ const command: Command = {
 					{ name: getString("language"), value: getString(playerJson.language), inline: true },
 					{ name: online, value: last_seen, inline: true },
 					{ name: getString(playerJson.online ? "last_login" : "last_logout"), value: lastLogin, inline: true }
-				)
-				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+				],
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true })}
+			})
 			return statsEmbed
 		}
 
@@ -191,24 +190,23 @@ const command: Command = {
 				if (!socialMedia.HYPIXEL.startsWith("https://")) forums = `[${getString("link")}](https://${socialMedia.HYPIXEL})`
 				else forums = `[${getString("link")}](${socialMedia.HYPIXEL})`
 			} else forums = getString("notConnected")
-			const socialEmbed = new MessageEmbed()
-				.setColor(color)
-				.setAuthor(getString("moduleName"))
-				.setTitle(`${rank} ${username}`)
-				.setThumbnail(skinRender)
-				.setDescription(
-					`${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""
-					}${getString("updateNote")}\n${getString("otherStats")}`
-				)
-				.addFields(
+			const socialEmbed = new MessageEmbed({
+				color,
+				author: { name: getString("moduleName") },
+				title: `${rank} ${username}`,
+				thumbnail: { url: skinRender },
+				description: `${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""
+					}${getString("updateNote")}\n${getString("otherStats")}`,
+				fields: [
 					{ name: "Twitter", value: twitter, inline: true },
 					{ name: "YouTube", value: youtube, inline: true },
 					{ name: "Instagram", value: instagram, inline: true },
 					{ name: "Twitch", value: twitch, inline: true },
 					{ name: "Discord", value: discord!, inline: true },
 					{ name: "Hypixel Forums", value: forums, inline: true }
-				)
-				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+				],
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true })}
+			})
 			return socialEmbed
 		}
 
@@ -217,20 +215,24 @@ const command: Command = {
 
 			const color = parseColorCode(guildJson.tag_color)
 
-			const embed = new MessageEmbed()
-				.setColor(color === "#AAAAAA" ? "BLURPLE" : color)
-				.setAuthor(getString("moduleName"))
-				.setTitle(`${guildJson.name}${guildJson.tag ? ` [${guildJson.tag.replace(/&[a-f0-9k-or]/gi, "")}]` : ""}`)
-				.setThumbnail(skinRender)
-				.setDescription(
-					`${getString("guildDesc", {
-						player: playerJson.username,
-						guildName: guildJson.name,
-						link: `(https://api.slothpixel.me/api/guilds/${uuid})`
-					})}\n${getString("updateNote")}\n\n${guildJson.description ? `**${getString("guildDescHypixel")}**: ${guildJson.description}` : getString("noGuildDesc")}`
-				)
-				.addFields(
-					{ name: getString("guildLevel"), value: guildJson.level.toLocaleString(getString("region.dateLocale", "global")), inline: true },
+			const embed = new MessageEmbed({
+				color: color === "#AAAAAA" ? "BLURPLE" : color,
+				author: { name: getString("moduleName") },
+				title: `${guildJson.name}${guildJson.tag ? ` [${guildJson.tag.replace(/&[a-f0-9k-or]/gi, "")}]` : ""}`,
+				thumbnail: { url: skinRender },
+				description: `${getString("guildDesc", {
+					player: playerJson.username,
+					guildName: guildJson.name,
+					link: `(https://api.slothpixel.me/api/guilds/${uuid})`
+				})}\n${getString("updateNote")}\n\n${
+					guildJson.description ? `**${getString("guildDescHypixel")}**: ${guildJson.description}` : getString("noGuildDesc")
+				}`,
+				fields: [
+					{
+						name: getString("guildLevel"),
+						value: guildJson.level.toLocaleString(getString("region.dateLocale", "global")),
+						inline: true
+					},
 					{ name: getString("memberCount"), value: `${guildJson.members.length}/125`, inline: true },
 					{ name: getString("createdAt"), value: `<t:${Math.round(guildJson.created / 1000)}:F>`, inline: true },
 
@@ -245,16 +247,18 @@ const command: Command = {
 						value: guildJson.members.find(member => member.uuid === uuid)!.rank,
 						inline: true
 					}
-				)
-				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+				],
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true })}
+			})
 
 			return embed
 		}
 
 		let embed = stats()
 
-		const optionsSelect = new MessageSelectMenu()
-			.addOptions(
+		const optionsSelect = new MessageSelectMenu({
+			customId: "statType",
+			options: [
 				{
 					label: getString("stats"),
 					value: "stats",
@@ -267,9 +271,9 @@ const command: Command = {
 					emoji: "twitter:821752918352068677",
 					default: false
 				}
-			)
-			.setCustomId("statType")
-		if (guildJson.guild) optionsSelect.addOptions( //guild is only present as null, so this means the user has a guild
+			]
+		})
+		if (guildJson.guild) optionsSelect.addOptions(
 			{
 				label: "Guild",
 				value: "guild",

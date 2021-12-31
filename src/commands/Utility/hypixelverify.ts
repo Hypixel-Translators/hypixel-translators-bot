@@ -54,51 +54,58 @@ const command: Command = {
 			const result = await collection.updateOne({ id: interaction.user.id }, { $set: { uuid: json.uuid } }),
 				role = await updateRoles(interaction.member, json)
 			if (result.modifiedCount) {
-				const successEmbed = new MessageEmbed()
-					.setColor(colors.success)
-					.setAuthor(getString("moduleName"))
-					.setTitle(getString("success", { player: json.username }))
-					.setDescription(getString("role", { role: role.toString() }))
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const successEmbed = new MessageEmbed({
+					color: colors.success,
+					author: { name: getString("moduleName") },
+					title: getString("success", { player: json.username }),
+					description: getString("role", { role: `${role}` }),
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 				return await interaction.editReply({ embeds: [successEmbed] })
 			} else {
-				const notChanged = new MessageEmbed()
-					.setColor(colors.error)
-					.setAuthor(getString("moduleName"))
-					.setTitle(getString("alreadyVerified"))
-					.setDescription(getString("nameChangeDisclaimer"))
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const notChanged = new MessageEmbed({
+					color: colors.error,
+					author: { name: getString("moduleName") },
+					title: getString("alreadyVerified"),
+					description: getString("nameChangeDisclaimer"),
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 				return await interaction.editReply({ embeds: [notChanged] })
 			}
 		} else if (memberInput && interaction.member.roles.cache.has(ids.roles.admin)) {
 			const result = await collection.updateOne({ id: memberInput.id }, { $set: { uuid: json.uuid } }),
 				role = await updateRoles(memberInput, json)
 			if (result.modifiedCount) {
-				const successEmbed = new MessageEmbed()
-					.setColor(colors.success)
-					.setAuthor("Hypixel Verification")
-					.setTitle(`Successfully verified ${memberInput.user.tag} as ${json.username}`)
-					.setDescription(`They were given the ${role} role due to their rank on the server.`)
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
-				if (json.links?.DISCORD !== memberInput.user.tag)
-					successEmbed.setDescription("⚠ This player's Discord is different from their user tag! I hope you know what you're doing.")
+				const successEmbed = new MessageEmbed({
+					color: colors.success,
+					author: { name: "Hypixel Verification" },
+					title: `Successfully verified ${memberInput.user.tag} as ${json.username}`,
+					description: `They were given the ${role} role due to their rank on the server.${
+						json.links?.DISCORD !== memberInput.user.tag
+							? "\n\n⚠ This player's Discord is different from their user tag! I hope you know what you're doing."
+							: ""
+					}`,
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 				return await interaction.editReply({ embeds: [successEmbed] })
 			} else {
-				const notChanged = new MessageEmbed()
-					.setColor(colors.error)
-					.setAuthor("Hypixel Verification")
-					.setTitle("This user is already verified")
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const notChanged = new MessageEmbed({
+					color: colors.error,
+					author: { name: "Hypixel Verification" },
+					title: "This user is already verified",
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 				return await interaction.editReply({ embeds: [notChanged] })
 			}
 		} else {
-			const errorEmbed = new MessageEmbed()
-				.setColor(colors.error)
-				.setAuthor(getString("moduleName"))
-				.setTitle(getString("error"))
-				.setDescription(getString("tutorial", { tag: interaction.user.tag }))
-				.setImage("https://i.imgur.com/JSeAHdG.gif")
-				.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+			const errorEmbed = new MessageEmbed({
+				color: colors.error,
+				author: { name: getString("moduleName") },
+				title: getString("error"),
+				description: getString("tutorial", { tag: interaction.user.tag }),
+				image: { url: "https://i.imgur.com/JSeAHdG.gif"},
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 			await interaction.editReply({ embeds: [errorEmbed] })
 		}
 	},

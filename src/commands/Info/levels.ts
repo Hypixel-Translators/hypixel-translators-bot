@@ -41,38 +41,44 @@ const command: Command = {
 		else if (inputPage) page = inputPage - 1
 
 		if (page >= pages.length || page < 0) {
-			const embed = new MessageEmbed()
-				.setColor(colors.error)
-				.setAuthor(getString("moduleName"))
-				.setTitle(getString("pageTitle"))
-				.setDescription(getString("pageNotExist"))
-				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+			const embed = new MessageEmbed({
+				color: colors.error,
+				author: { name: getString("moduleName") },
+				title: getString("pageTitle"),
+				description: getString("pageNotExist"),
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 			return await interaction.reply({ embeds: [embed] })
 		} else {
-			let controlButtons = new MessageActionRow()
-				.addComponents(
-					new MessageButton()
-						.setStyle("SUCCESS")
-						.setEmoji("⏮️")
-						.setCustomId("first")
-						.setLabel(getString("pagination.first", "global")),
-					new MessageButton()
-						.setStyle("SUCCESS")
-						.setEmoji("◀️")
-						.setCustomId("previous")
-						.setLabel(getString("pagination.previous", "global")),
-					new MessageButton()
-						.setStyle("SUCCESS")
-						.setEmoji("▶️")
-						.setCustomId("next")
-						.setLabel(getString("pagination.next", "global")),
-					new MessageButton()
-						.setStyle("SUCCESS")
-						.setEmoji("⏭️")
-						.setCustomId("last")
-						.setLabel(getString("pagination.last", "global"))
-				),
-				pageEmbed: MessageEmbed = fetchPage(page, pages, getString, interaction)
+			let controlButtons = new MessageActionRow({
+				components: [
+					new MessageButton({
+						style: "SUCCESS",
+						emoji: "⏮️",
+						customId: "first",
+						label: getString("pagination.first", "global")
+					}),
+					new MessageButton({
+						style: "SUCCESS",
+						emoji: "◀️",
+						customId: "previous",
+						label: getString("pagination.previous", "global")
+					}),
+					new MessageButton({
+						style: "SUCCESS",
+						emoji: "▶️",
+						customId: "next",
+						label: getString("pagination.next", "global")
+					}),
+					new MessageButton({
+						style: "SUCCESS",
+						emoji: "⏭️",
+						customId: "last",
+						label: getString("pagination.last", "global")
+					})
+				]
+			}),
+				pageEmbed = fetchPage(page, pages, getString, interaction)
 
 			controlButtons = updateButtonColors(controlButtons, page, pages)
 			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }) as Message,
@@ -108,14 +114,16 @@ const command: Command = {
 function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction, interaction: CommandInteraction) {
 	if (page > pages.length - 1) page = pages.length - 1
 	if (page < 0) page = 0
-	const pageEmbed = new MessageEmbed()
-		.setColor(colors.neutral)
-		.setAuthor(getString("moduleName"))
-		.setTitle(getString("pageTitle"))
-		.setFooter(
-			getString("pagination.page", { number: page + 1, total: pages.length }, "global"),
-			(interaction.member as GuildMember | null ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
-		)
+	const pageEmbed = new MessageEmbed({
+		color: colors.neutral,
+		author: { name: getString("moduleName") },
+		title: getString("pageTitle"),
+		footer: {
+			text: getString("pagination.page", { number: page + 1, total: pages.length }, "global"),
+			iconURL:
+				((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
+		}
+	})
 	for (let i = 0; i <= pages[page].length - 1; i++) {
 		// const user = interaction.client.users.cache.get(pages[page][i].id)! //Get the user if we ever decide to change that
 		if (pages[page][i].levels) {
