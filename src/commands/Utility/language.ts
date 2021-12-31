@@ -84,16 +84,9 @@ const command: Command = {
 			langUsers.forEach(u => users.push(`<@!${u.id}>`))
 			const embed = new MessageEmbed({
 				color: colors.neutral,
-				author: {
-					name: getString("Language")
-				},
-				title: `There ${
-					langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`
-				} using that language at the moment.`,
-				footer: {
-					text: randomTip,
-					iconURL: member.displayAvatarURL({ format: "png", dynamic: true })
-				}
+				author: { name: "Language" },
+				title: `There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`,
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
 			})
 
 			if (language !== "en") embed.setDescription(users.join(", "))
@@ -118,10 +111,7 @@ const command: Command = {
 								author: { name: getString("moduleName", this.name, language) },
 								title: getString("changedToTitle", this.name, language),
 								description: getString("credits", this.name, language),
-								footer: {
-									text: randomTip,
-									iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
-								}
+								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) }
 							})
 							return await interaction.reply({ embeds: [embed] })
 						} else {
@@ -130,10 +120,7 @@ const command: Command = {
 								author: { name: getString("moduleName", this.name, language) },
 								title: getString("didntChange", language),
 								description: getString("alreadyThis", this.name, language),
-								footer: {
-									text: randomTip,
-									iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
-								}
+								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) }
 							})
 							return await interaction.reply({ embeds: [embed] })
 						}
@@ -141,12 +128,9 @@ const command: Command = {
 						const embed = new MessageEmbed({
 							color: colors.error,
 							author: { name: getString("moduleName") },
-							title: getString("moduleName"),
+							title: getString("didntChange"),
 							description: getString("notTranslated"),
-							footer: {
-								text: randomTip,
-								iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
-							}
+							footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) }
 						})
 						return await interaction.reply({ embeds: [embed] })
 					}
@@ -159,10 +143,7 @@ const command: Command = {
 							author: { name: getString("moduleName") },
 							title: getString("errorTitle"),
 							description: `${getString("errorDescription")}\n\`${files.join("`, `")}\`\n${getString("suggestAdd")}`,
-							footer: {
-								text: randomTip,
-								iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
-							}
+							footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) }
 						})
 						await interaction.reply({ embeds: [embed] })
 					})
@@ -177,10 +158,7 @@ const command: Command = {
 				author: { name: getString("moduleName") },
 				title: getString("current"),
 				description: `${getString("errorDescription")}\n\`${files.join("`, `")}\`\n\n${getString("credits")}`,
-				footer: {
-					text: randomTip,
-					iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
-				}
+				footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) }
 			})
 			await interaction.reply({ embeds: [embed] })
 		}

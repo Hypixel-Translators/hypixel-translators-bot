@@ -134,9 +134,7 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 					color: "BLURPLE",
 					title: `${member.user.tag} is now verified!`,
 					description: `${member} has not received any roles. They do not translate for any of the projects.`,
-					fields: [
-						{ name: "Profile", value: url }
-					]
+					fields: [{ name: "Profile", value: url }]
 				})
 			if (sendDms) await member.send({ embeds: [dmEmbed] })
 				.then(async () => await verifyLogs.send({ embeds: [logEmbed] }))

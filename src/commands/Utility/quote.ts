@@ -156,10 +156,15 @@ async function findQuote(randomTip: string, interaction: CommandInteraction, get
 	}
 	console.log(`Quote with ID ${quoteId} was requested`)
 	const author = await Promise.all(
-		quote.author.map(
-			async a => interaction.guild!.members.cache.get(a)?.toString() ?? (await interaction.client.users.fetch(a)).tag
-		)
-	),
+			quote.author.map(
+				a =>
+					interaction.guild!.members.cache.get(a)?.toString() ??
+					interaction.client.users
+						.fetch(a)
+						.then(u => u.tag)
+						.catch(() => "Deleted User#0000")
+			)
+		),
 		embed = new MessageEmbed({
 			color: colors.success,
 			author: { name: getString("moduleName") },
@@ -186,54 +191,41 @@ async function addQuote(interaction: CommandInteraction, collection: Collection<
 
 	if (urlSplit) {
 		if (urlSplit.length === 7) {
-			; (interaction.client.channels.cache.get(urlSplit[5]) as TextChannel | undefined)?.messages
-				.fetch(urlSplit[6])
-				.then(async msg => {
-					if (msg.attachments.size > 0) pictureUrl ??= msg.attachments.first()!.url
-					const embed = new MessageEmbed({
-						color: colors.success,
-						author: { name: "Quote" },
-						title: "Success! The following quote has been added:",
-						description: quote,
-						fields: [
-							{
-								name: "User",
-								value: `${author}`
-							},
-							{ name: "Quote number", value: `${quoteId}` },
-							{ name: "URL", value: url! }
-						],
-						footer: {
-							text: generateTip(),
-							iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({
-								format: "png",
-								dynamic: true
-							})
-						}
-					})
-					if (pictureUrl) {
-						embed.setImage(pictureUrl)
-						await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url!, imageURL: pictureUrl })
-					} else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url! })
-					await interaction.reply({ embeds: [embed] })
+			const msg = await (interaction.client.channels.cache.get(urlSplit[5]) as TextChannel | undefined)?.messages.fetch(urlSplit[6]).catch(() => null)
+			if (!msg) {
+				const embed = new MessageEmbed({
+					color: colors.error,
+					author: { name: "Quote" },
+					title: "Couldn't find a message linked to that URL!",
+					description: "Make sure you obtained it by coping the message URL directly and that I have permission to see that message.",
+					footer: {
+						text: generateTip(),
+						iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
+					}
 				})
-				.catch(async () => {
-					const embed = new MessageEmbed({
-						color: colors.error,
-						author: { name: "Quote" },
-						title: "Couldn't find a message linked to that URL!",
-						description:
-							"Make sure you obtained it by coping the message URL directly and that I have permission to see that message.",
-						footer: {
-							text: generateTip(),
-							iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({
-								format: "png",
-								dynamic: true
-							})
-						}
-					})
-					await interaction.reply({ embeds: [embed], ephemeral: true })
-				})
+				return await interaction.reply({ embeds: [embed], ephemeral: true })
+			}
+			if (msg.attachments.size > 0) pictureUrl ??= msg.attachments.first()!.url
+			const embed = new MessageEmbed({
+				color: colors.success,
+				author: { name: "Quote" },
+				title: "Success! The following quote has been added:",
+				description: quote,
+				fields: [
+					{ name: "User", value: `${author}` },
+					{ name: "Quote number", value: `${quoteId}` },
+					{ name: "URL", value: url! }
+				],
+				footer: {
+					text: generateTip(),
+					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
+				}
+			})
+			if (pictureUrl) {
+				embed.setImage(pictureUrl)
+				await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url!, imageURL: pictureUrl })
+			} else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url! })
+			await interaction.reply({ embeds: [embed] })
 		} else {
 			const embed = new MessageEmbed({
 				color: colors.error,
@@ -241,10 +233,7 @@ async function addQuote(interaction: CommandInteraction, collection: Collection<
 				title: "Provided URL isn't a valid message URL!",
 				footer: {
 					text: generateTip(),
-					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({
-						format: "png",
-						dynamic: true
-					})
+					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 				}
 			})
 			return await interaction.reply({ embeds: [embed], ephemeral: true })
@@ -261,10 +250,7 @@ async function addQuote(interaction: CommandInteraction, collection: Collection<
 			],
 			footer: {
 				text: generateTip(),
-				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({
-					format: "png",
-					dynamic: true
-				})
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 			}
 		})
 		if (pictureUrl) {
@@ -281,7 +267,16 @@ async function editQuote(interaction: CommandInteraction, collection: Collection
 	if (!quoteId) throw "noQuote"
 	const result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { quote: newQuote } })
 	if (result.value) {
-		const author = await Promise.all(result.value.author.map(async a => await interaction.client.users.fetch(a))),
+		const author = await Promise.all(
+			result.value.author.map(
+				a =>
+					interaction.guild!.members.cache.get(a)?.toString() ??
+					interaction.client.users
+						.fetch(a)
+						.then(u => u.tag)
+						.catch(() => "Deleted User#0000")
+			)
+		),
 			embed = new MessageEmbed({
 				color: colors.success,
 				author: { name: "Quote" },
@@ -294,10 +289,7 @@ async function editQuote(interaction: CommandInteraction, collection: Collection
 				],
 				footer: {
 					text: generateTip(),
-					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({
-						format: "png",
-						dynamic: true
-					})
+					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 				}
 			})
 		if (result.value.imageURL) embed.setImage(result.value.imageURL)
@@ -309,10 +301,7 @@ async function editQuote(interaction: CommandInteraction, collection: Collection
 			title: "Couldn't find a quote with that ID!",
 			footer: {
 				text: generateTip(),
-				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({
-					format: "png",
-					dynamic: true
-				})
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 			}
 		})
 		await interaction.reply({ embeds: [embed], ephemeral: true })
@@ -324,7 +313,16 @@ async function deleteQuote(interaction: CommandInteraction, collection: Collecti
 	if (quoteId <= 0) throw "noQuote"
 	const result = await collection.findOneAndDelete({ id: quoteId })
 	if (result.value) {
-		const author = await Promise.all(result.value.author.map(async a => await interaction.client.users.fetch(a)))
+		const author = await Promise.all(
+			result.value.author.map(
+				a =>
+					interaction.guild!.members.cache.get(a)?.toString() ??
+					interaction.client.users
+						.fetch(a)
+						.then(u => u.tag)
+						.catch(() => "Deleted User#0000")
+			)
+		)
 		await collection.updateMany({ id: { $gt: quoteId } }, { $inc: { id: -1 } })
 		const embed = new MessageEmbed({
 			color: colors.success,
@@ -337,10 +335,7 @@ async function deleteQuote(interaction: CommandInteraction, collection: Collecti
 			],
 			footer: {
 				text: generateTip(),
-				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({
-					format: "png",
-					dynamic: true
-				})
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 			}
 		})
 		if (result.value.imageURL) embed.setImage(result.value.imageURL)
@@ -352,10 +347,7 @@ async function deleteQuote(interaction: CommandInteraction, collection: Collecti
 			title: "Couldn't find a quote with that ID!",
 			footer: {
 				text: generateTip(),
-				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({
-					format: "png",
-					dynamic: true
-				})
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 			}
 		})
 		await interaction.reply({ embeds: [embed], ephemeral: true })
@@ -365,70 +357,68 @@ async function deleteQuote(interaction: CommandInteraction, collection: Collecti
 async function linkQuote(interaction: CommandInteraction, collection: Collection<Quote>) {
 	const quoteId = interaction.options.getInteger("index", true),
 		urlSplit = interaction.options.getString("url", true).split("/"),
-		linkAttch = interaction.options.getBoolean("attachment", false);
-	(interaction.client.channels.cache.get(urlSplit[5]) as TextChannel | undefined)?.messages.fetch(urlSplit[6])
-		.then(async msg => {
-			const firstAttachment = msg.attachments.first()?.url
-			let result
-			if (linkAttch && firstAttachment)
-				result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url, imageURL: firstAttachment } })
-			else result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } })
-			if (result.value) {
-				const author = await Promise.all(result.value.author.map(a => interaction.client.users.fetch(a))),
-					embed = new MessageEmbed({
-						color: colors.success,
-						author: { name: "Quote" },
-						title: `Successfully linked quote #${quoteId}`,
-						fields: [
-							{ name: "Old URL", value: result.value.url ?? "None" },
-							{ name: "New URL", value: msg.url },
-							{ name: "Quote", value: result.value.quote },
-							{ name: "Author", value: author.join(" and ") }
-						],
-						footer: {
-							text: generateTip(),
-							iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({
-								format: "png",
-								dynamic: true
-							})
-						}
-					}
-					)
-				if (linkAttch && firstAttachment) embed.setImage(firstAttachment)
-				else if (result.value.imageURL) embed.setImage(result.value.imageURL)
-				await interaction.reply({ embeds: [embed] })
-			} else {
-				const embed = new MessageEmbed({
-					color: colors.error,
-					author: { name: "Quote"},
-					title: "Couldn't find a quote with that ID!",
-					footer: {
-						text: generateTip(),
-						iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({
-							format: "png",
-							dynamic: true
-						})
-					}
-				})
-				await interaction.reply({ embeds: [embed], ephemeral: true })
+		linkAttch = interaction.options.getBoolean("attachment", false)
+	const msg = await (interaction.client.channels.cache.get(urlSplit[5]) as TextChannel | undefined)?.messages.fetch(urlSplit[6]).catch(() => null)
+	if (!msg) {
+		const embed = new MessageEmbed({
+			color: colors.error,
+			author: { name: "Quote" },
+			title: "Couldn't find a message linked to that URL!",
+			description: "Make sure you obtained it by coping the message URL directly and that I have permission to see that message.",
+			footer: {
+				text: generateTip(),
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 			}
 		})
-		.catch(async () => {
-			const embed = new MessageEmbed({
-				color: colors.error,
+		return await interaction.reply({ embeds: [embed], ephemeral: true })
+	}
+	const firstAttachment = msg.attachments.first()?.url
+	let result
+	if (linkAttch && firstAttachment)
+		result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url, imageURL: firstAttachment } })
+	else result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } })
+	if (result.value) {
+		const author = await Promise.all(
+			result.value.author.map(
+				a =>
+					interaction.guild!.members.cache.get(a)?.toString() ??
+					interaction.client.users
+						.fetch(a)
+						.then(u => u.tag)
+						.catch(() => "Deleted User#0000")
+			)
+		),
+			embed = new MessageEmbed({
+				color: colors.success,
 				author: { name: "Quote" },
-				title: "Couldn't find a quote with that ID!",
-				description: "Make sure you obtained it by coping the message URL directly and that I have permission to see that message.",
+				title: `Successfully linked quote #${quoteId}`,
+				fields: [
+					{ name: "Old URL", value: result.value.url ?? "None" },
+					{ name: "New URL", value: msg.url },
+					{ name: "Quote", value: result.value.quote },
+					{ name: "Author", value: author.join(" and ") }
+				],
 				footer: {
 					text: generateTip(),
-					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({
-						format: "png",
-						dynamic: true
-					})
+					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
 				}
-			})
-			await interaction.reply({ embeds: [embed], ephemeral: true })
+			}
+			)
+		if (linkAttch && firstAttachment) embed.setImage(firstAttachment)
+		else if (result.value.imageURL) embed.setImage(result.value.imageURL)
+		await interaction.reply({ embeds: [embed] })
+	} else {
+		const embed = new MessageEmbed({
+			color: colors.error,
+			author: { name: "Quote" },
+			title: "Couldn't find a quote with that ID!",
+			footer: {
+				text: generateTip(),
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
+			}
 		})
+		await interaction.reply({ embeds: [embed], ephemeral: true })
+	}
 }
 
 export default command

@@ -133,7 +133,7 @@ const command: Command = {
 					{ name: online, value: last_seen, inline: true },
 					{ name: getString(playerJson.online ? "last_login" : "last_logout"), value: lastLogin, inline: true }
 				],
-				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true })}
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
 			})
 			return statsEmbed
 		}
@@ -205,7 +205,7 @@ const command: Command = {
 					{ name: "Discord", value: discord!, inline: true },
 					{ name: "Hypixel Forums", value: forums, inline: true }
 				],
-				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true })}
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
 			})
 			return socialEmbed
 		}
@@ -224,9 +224,7 @@ const command: Command = {
 					player: playerJson.username,
 					guildName: guildJson.name,
 					link: `(https://api.slothpixel.me/api/guilds/${uuid})`
-				})}\n${getString("updateNote")}\n\n${
-					guildJson.description ? `**${getString("guildDescHypixel")}**: ${guildJson.description}` : getString("noGuildDesc")
-				}`,
+				})}\n${getString("updateNote")}\n\n${guildJson.description ? `**${getString("guildDescHypixel")}**: ${guildJson.description}` : getString("noGuildDesc")}`,
 				fields: [
 					{
 						name: getString("guildLevel"),
@@ -248,7 +246,7 @@ const command: Command = {
 						inline: true
 					}
 				],
-				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true })}
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
 			})
 
 			return embed

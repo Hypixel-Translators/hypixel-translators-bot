@@ -33,7 +33,7 @@ const command: Command = {
 		} else if (modlogs.length === 1) {
 			const embed = new MessageEmbed({
 				color: colors.success,
-				author: { name: "Log message", url: `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}` },
+				author: { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}` },
 				title: `Found 1 modlog for ${userInput.tag}`,
 				description: `Case #${modlogs[0].case}`,
 				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
@@ -43,7 +43,7 @@ const command: Command = {
 		} else {
 			const embed = new MessageEmbed({
 				color: colors.success,
-				author: { name: "Log message", url: `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}` },
+				author: { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}` },
 				title: `Found ${modlogs.length} modlogs for ${userInput.tag}`,
 				description: `Case #${modlogs[0].case}`,
 				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }

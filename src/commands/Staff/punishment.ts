@@ -486,15 +486,14 @@ const command: Command = {
 					const dmEmbed = new MessageEmbed({
 						color: colors.error,
 						author: { name: "Punishments" },
-						title: `You have been ${punishment.duration ? "" : "permanently "}banned from the ${interaction.guild!.name} ${punishment.duration ? `for ${punishment.duration} days` : ""
-							}`,
+						title: `You have been ${punishment.duration ? "" : "permanently "}banned from the ${interaction.guild!.name} ${punishment.duration ? `for ${punishment.duration} days` : ""}`,
 						description: `**Reason:** ${reason}\n\n${endTimestamp
 							? `This ban will expire on <t:${Math.round(endTimestamp / 1000)}:F> (<t:${Math.round(
 								endTimestamp / 1000
 							)}:R>)`
 							: "This is a permanent ban and will not expire"
 							}`,
-						timestamp: Date.now(),
+						timestamp: Date.now()
 					}),
 						embed = new MessageEmbed({
 							color: colors.success,
@@ -508,9 +507,9 @@ const command: Command = {
 									value: `${punishment.duration ? `${punishment.duration!.toString()} days` : "Permanent"}`,
 									inline: true
 								},
-								{ name: "Reason", value: reason! },
+								{ name: "Reason", value: reason! }
 							],
-							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
 						})
 					await user.send({ embeds: [dmEmbed] })
 						.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
@@ -699,7 +698,7 @@ const command: Command = {
 				const dmEmbed = new MessageEmbed({
 					color: colors.success,
 					author: { name: "Punishments" },
-					title: `You have been un ${activePunishments[0].type === "BAN" ? "banned" : "muted"} from the ${interaction.guild!.name}`,
+					title: `You have been un${activePunishments[0].type === "BAN" ? "banned" : "muted"} from the ${interaction.guild!.name}`,
 					description: `**Reason:** ${reason}`,
 					timestamp: Date.now()
 				}),

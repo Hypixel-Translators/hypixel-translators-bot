@@ -291,7 +291,7 @@ export function updateButtonColors(row: MessageActionRow, page: number, pages: a
 }
 
 export function updateModlogFields(embed: MessageEmbed, modlog: PunishmentLog, modlogs?: PunishmentLog[]) {
-	embed.setAuthor({ name: "Log message", url: `https://discord.com/channels/549503328472530974/800820574405656587/${modlog.logMsg}` })
+	embed.setAuthor({ name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlog.logMsg}` })
 	const expireTimestamp =
 		modlog.type === "VERBAL"
 			? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 1)

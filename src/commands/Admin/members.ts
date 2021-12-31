@@ -32,7 +32,7 @@ const command: Command = {
 		if (color === "#000000") color = "BLURPLE"
 		if (maxMembersArr.length > 1) {
 			let page = 0,
-				pageEmbed = updatePage(maxMembersArr[page], page),
+				pageEmbed = updatePage(maxMembersArr[page], page + 1),
 				controlButtons = new MessageActionRow({
 					components: [
 						new MessageButton({
@@ -79,7 +79,7 @@ const command: Command = {
 					if (page > maxMembersArr.length - 1) page = maxMembersArr.length - 1
 				}
 				controlButtons = updateButtonColors(controlButtons, page, maxMembersArr)
-				pageEmbed = updatePage(maxMembersArr[page], page)
+				pageEmbed = updatePage(maxMembersArr[page], page + 1)
 				await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
 			})
 
@@ -97,7 +97,10 @@ const command: Command = {
 					author: { name: "Members list" },
 					title: `Here are all the ${tags.length} members with the ${role.name} role on the server at the moment.`,
 					description: membersArr.join(", "),
-					footer: { text: `${page !== undefined ? `Page ${page + 1}/${maxMembersArr.length}` : generateTip()}`, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+					footer: {
+						text: `${page ? `Page ${page}/${maxMembersArr.length}` : generateTip()}`,
+						iconURL: member.displayAvatarURL({ format: "png", dynamic: true })
+					}
 				})
 			} else {
 				return new MessageEmbed({

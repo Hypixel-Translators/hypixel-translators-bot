@@ -64,8 +64,7 @@ const command: Command = {
 				color: colors.success,
 				author: { name: "Channel updater" },
 				title: "Updated all channels!",
-				description: `Check them out at <#${ids.channels.serverInfo}>, ${interaction.guild!.rulesChannel} and <#${ids.channels.verify
-					}>!`,
+				description: `Check them out at <#${ids.channels.serverInfo}>, ${interaction.guild!.rulesChannel} and <#${ids.channels.verify}>!`,
 				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
 			})
 			await interaction.editReply({ embeds: [successEmbed] })

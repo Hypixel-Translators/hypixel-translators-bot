@@ -201,8 +201,7 @@ export async function awaitBan(punishment: PunishmentLog) {
 		punishmentsColl = db.collection<PunishmentLog>("punishments"),
 		punishmentsChannel = guild.channels.cache.get(ids.channels.punishments) as TextChannel,
 		caseNumber = (await punishmentsColl.estimatedDocumentCount()) + 1,
-		user = await guild.bans
-			.remove(punishment.id!, "Punishment ended")
+		user = await guild.bans.remove(punishment.id!, "Punishment ended")
 			.catch(err => console.error(`Couldn't unban user with id ${punishment.id}. Here's the error:\n`, err)),
 		userFetched = await client.users.fetch(punishment.id).catch(() => null),
 		punishmentLog = new MessageEmbed({
