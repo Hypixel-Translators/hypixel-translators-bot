@@ -38,20 +38,24 @@ client.on("messageReactionAdd", async (reaction, user) => {
 						if (reaction.message.thread.archived) await reaction.message.thread.setArchived(false, "Stupid workaround to lock this thread")
 						await reaction.message.thread.edit({ locked: true, archived: true }, "String reviewed")
 					}
-					if (!reaction.message.deleted) await reaction.message.delete()
+					await reaction.message.delete().catch(() => null)
 					await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "APPROVED" })
 					console.log(`String reviewed in ${channel.name}`)
 				} else await reaction.message.reactions.cache.get("⏱")?.remove()
 			} else if (reaction.emoji.name === "vote_maybe" && reaction.message.author!.id !== user.id) {
 				await reaction.users.remove(user.id)
-				const embed = new MessageEmbed()
-					.setColor(colors.loading)
-					.setAuthor(strings.moduleName)
-					.setTitle(strings.requestDetails.replace("%%user%%", user.tag))
-					.setDescription(`${reaction.message}`)
-					.addField(strings.message, `[${strings.clickHere}](${reaction.message.url})`)
-					.setFooter(strings.requestedBy.replace("%%user%%", user.tag), member.displayAvatarURL({ dynamic: true, format: "png", }))
-				const stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/gi)?.[0],
+				const embed = new MessageEmbed({
+					color: colors.loading,
+					author: { name: strings.moduleName },
+					title: strings.requestDetails.replace("%%user%%", user.tag),
+					description: reaction.message.content,
+					fields: [{ name: strings.message, value: `[${strings.clickHere}](${reaction.message.url})` }],
+					footer: {
+						text: strings.requestedBy.replace("%%user%%", user.tag),
+						iconURL: member.displayAvatarURL({ dynamic: true, format: "png" })
+					}
+				}),
+					stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/gi)?.[0],
 					fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
 					thread = await reaction.message.startThread({
 						name: `More details requested on ${stringId ? `string ${stringId}` : fileId === "all" ? "all files" : fileId ? `file ${fileId}` : "an unknown string"}`,
@@ -62,12 +66,16 @@ client.on("messageReactionAdd", async (reaction, user) => {
 				await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "MORE_INFO" })
 			} else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {
 				await reaction.message.react("⏱")
-				const embed = new MessageEmbed()
-					.setColor(colors.error)
-					.setAuthor(strings.moduleName)
-					.setTitle(strings.rejected.replace("%%user%%", user.tag))
-					.setDescription(`${reaction.message}`)
-					.setFooter(strings.rejectedBy.replace("%%user%%", user.tag), member.displayAvatarURL({ dynamic: true, format: "png" }))
+				const embed = new MessageEmbed({
+					color: colors.error,
+					author: { name: strings.moduleName },
+					title: strings.rejected.replace("%%user%%", user.tag),
+					description: reaction.message.content,
+					footer: {
+						text: strings.rejectedBy.replace("%%user%%", user.tag),
+						iconURL: member.displayAvatarURL({ dynamic: true, format: "png" })
+					}
+				})
 				await setTimeout(10_000)
 				// Check if the user hasn't removed their reaction
 				if ((await reaction.users.fetch()).has(user.id)) {
@@ -101,16 +109,17 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
 			if (firstAttachment) await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url, imageURL: firstAttachment })
 			else await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url })
-			const embed = new MessageEmbed()
-				.setColor(colors.success)
-				.setAuthor("Starboard")
-				.setTitle(`The following quote reached ${reaction.count} ⭐ reactions and was added!`)
-				.setDescription(reaction.message.content)
-				.addFields([
+			const embed = new MessageEmbed({
+				color: colors.success,
+				author: { name: "Starboard" },
+				title: `The following quote reached ${reaction.count} ⭐ reactions and was added!`,
+				description: reaction.message.content,
+				fields: [
 					{ name: "User", value: `${reaction.message.author}` },
 					{ name: "Quote number", value: `${id}` },
 					{ name: "URL", value: reaction.message.url }
-				])
+				]
+			})
 			if (firstAttachment) embed.setImage(firstAttachment)
 			await reaction.message.channel.send({ embeds: [embed] })
 		}

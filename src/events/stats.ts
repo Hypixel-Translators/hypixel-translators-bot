@@ -44,20 +44,23 @@ export async function updateProjectStatus(projectId: number) {
 		const fullData = sortedSatus[index],
 			crowdinData = fullData.data
 
-		let adapColour: number
-		if (projectDb.identifier === "hypixel") adapColour = fullData.language.color!
-		else if (crowdinData.approvalProgress > 89) adapColour = colors.success
-		else if (crowdinData.approvalProgress > 49) adapColour = colors.loading
-		else adapColour = colors.error
+		let color: number
+		if (projectDb.identifier === "hypixel") color = fullData.language.color!
+		else if (crowdinData.approvalProgress > 89) color = colors.success
+		else if (crowdinData.approvalProgress > 49) color = colors.loading
+		else color = colors.error
 
-		const embed = new MessageEmbed()
-			.setColor(adapColour)
-			.setTitle(`${fullData.language.emoji ?? "<:icon_question:882267041904607232>"} | ${fullData.language.name}`)
-			.setThumbnail(fullData.language.flag)
-			.setDescription(`${crowdinData.translationProgress}% translated (${crowdinData.phrases.translated}/${crowdinData.phrases.total} strings)\n**${crowdinData.approvalProgress}% approved (${crowdinData.phrases.approved}/${crowdinData.phrases.total} strings)**`)
-			.addField("Translate at", `https://crowdin.com/project/${projectDb.identifier}/${fullData.language.id}`)
-			.setFooter("Last update")
-			.setTimestamp()
+		const embed = new MessageEmbed({
+			color,
+			title: `${fullData.language.emoji ?? "<:icon_question:882267041904607232>"} | ${fullData.language.name}`,
+			thumbnail: { url: fullData.language.flag },
+			description: `${crowdinData.translationProgress}% translated (${crowdinData.phrases.translated}/${crowdinData.phrases.total} strings)\n**${crowdinData.approvalProgress}% approved (${crowdinData.phrases.approved}/${crowdinData.phrases.total} strings)**`,
+			fields: [
+				{ name: "Translate at", value: `https://crowdin.com/project/${projectDb.identifier}/${fullData.language.id}` }
+			],
+			footer: { text: "Last update" },
+			timestamp: Date.now()
+		})
 		index++
 		await msg.edit({ content: null, embeds: [embed] })
 	})
@@ -68,19 +71,21 @@ export async function updateProjectStatus(projectId: number) {
 		const updatesChannel = client.channels.cache.find(c => (c as NewsChannel).name == `${projectDb.shortName}-project-updates`) as NewsChannel,
 			stringDiff = Math.abs(newStringCount - oldStringCount)
 		if (oldStringCount < newStringCount) {
-			const embed = new MessageEmbed()
-				.setColor(colors.success)
-				.setAuthor("New strings!")
-				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the ${projectDb.name} project.`)
-				.setDescription(`Translate at <https://crowdin.com/translate/${projectDb.identifier}/all/en>`)
-				.setFooter(`There are now ${newStringCount} strings on the project.`)
+			const embed = new MessageEmbed({
+				color: colors.success,
+				author: { name: "New strings!" },
+				title: `${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the ${projectDb.name} project.`,
+				description: `Translate at <https://crowdin.com/translate/${projectDb.identifier}/all/en>`,
+				footer: { text: `There are now ${newStringCount} strings on the project.` },
+			})
 			await updatesChannel.send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}> New strings!` })
 		} else if (oldStringCount > newStringCount) {
-			const embed = new MessageEmbed()
-				.setColor(colors.error)
-				.setAuthor("Removed strings!")
-				.setTitle(`${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`)
-				.setFooter(`There are now ${newStringCount} strings on the project.`)
+			const embed = new MessageEmbed({
+				color: colors.error,
+				author: { name: "Removed strings!" },
+				title: `${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`,
+				footer: { text: `There are now ${newStringCount} strings on the project.` },
+			})
 			await updatesChannel.send({ embeds: [embed] })
 		}
 		await crowdinDb.updateOne({ id: projectDb.id }, { $set: { stringCount: newStringCount } })
@@ -112,14 +117,15 @@ export async function checkBuild() {
 	const lastDbBuild = (await collection.findOne({ identifier: "hypixel" }))!.lastBuild!
 	if (lastBuild.timestamp > lastDbBuild) {
 		const author = lastBuild.message.match(/>(.*)( \([^(]*\))?</)?.[1],
-			embed = new MessageEmbed()
-				.setColor(colors.success)
-				.setThumbnail(lastBuild.avatar)
-				.setAuthor("New build!")
-				.setTitle(`${author} just built the project!`)
-				.setDescription("You can expect to see updated translations on the network soon!")
-				.setTimestamp(lastBuild.timestamp * 1_000)
-				.setFooter("Built at")
+			embed = new MessageEmbed({
+				color: colors.success,
+				thumbnail: { url: lastBuild.avatar },
+				author: { name: "New build!" },
+				title: `${author} just built the project!`,
+				description: "You can expect to see updated translations on the network soon!",
+				timestamp: lastBuild.timestamp * 1_000,
+				footer: { text: "Built at" }
+			})
 		await (client.channels.cache.get(ids.channels.hypixelUpdates) as NewsChannel).send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}> New build!` })
 		await collection.updateOne({ identifier: "hypixel" }, { $set: { lastBuild: lastBuild.timestamp } })
 	}

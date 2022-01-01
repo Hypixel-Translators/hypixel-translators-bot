@@ -15,30 +15,32 @@ const command: Command = {
             member = interaction.client.guilds.cache.get("549503328472530974")!.members.resolve(interaction.user.id)!
 
         if (member.roles.cache.find(role => role.name.startsWith("Bot ") && role.name !== "Bot Updates")) {
-            const embed = new MessageEmbed()
-                .setColor(colors.neutral)
-                .setAuthor(getString("moduleName"))
-                .setTitle(getString("alreadyTranslator"))
-                .setDescription(getString("projectLink", { link: "https://crowdin.com/project/hypixel-translators-bot" }))
-                .addFields(
+            const embed = new MessageEmbed({
+                color: colors.neutral,
+                author: { name: getString("moduleName") },
+                title: getString("alreadyTranslator"),
+                description: getString("projectLink", { link: "https://crowdin.com/project/hypixel-translators-bot" }),
+                fields: [
                     { name: getString("question"), value: getString("askTranslators", { botTranslators: `<#${ids.channels.botTranslators}>` }) },
                     { name: getString("newCrowdin"), value: getString("checkGuide", { gettingStarted: `<#${ids.channels.gettingStarted}>` }) }
-                )
-                .setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+                ],
+                footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+            })
             await interaction.reply({ embeds: [embed] })
         } else {
-            const embed = new MessageEmbed()
-                .setColor(colors.neutral)
-                .setAuthor(getString("moduleName"))
-                .setTitle(getString("newTranslator"))
-                .setDescription(getString("join"))
-                .addFields(
+            const embed = new MessageEmbed({
+                color: colors.neutral,
+                author: { name: getString("moduleName") },
+                title: getString("newTranslator"),
+                description: getString("join"),
+                fields: [
                     { name: getString("openProject"), value: getString("howOpen", { link: "https://crowdin.com/project/hypixel-translators-bot" }) },
                     { name: getString("clickLanguage"), value: getString("requestJoin") },
                     { name: getString("lastThing"), value: getString("requestInfo", { tag: interaction.user.tag, id: interaction.user.id }) },
                     { name: getString("noLanguage"), value: getString("langRequest") }
-                )
-                .setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+                ],
+                footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+            })
             await interaction.reply({ embeds: [embed] })
         }
     }

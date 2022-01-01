@@ -27,29 +27,32 @@ const command: Command = {
 		const recipient = interaction.options.getUser("user", true),
 			recipientDb = await client.getUser(recipient.id),
 			message = interaction.options.getString("message", true).replaceAll("\\n", "\n"),
-			dm = new MessageEmbed()
-				.setColor(colors.neutral)
-				.setAuthor(getString("incoming", this.name, recipientDb.lang))
-				.setDescription(message)
-				.setFooter(getString("incomingDisclaimer", this.name, recipientDb.lang)),
+			dm = new MessageEmbed({
+				color: colors.neutral,
+				author: getString("incoming", this.name, recipientDb.lang),
+				description: message,
+				footer: { text: getString("incomingDisclaimer", this.name, recipientDb.lang) }
+			}),
 			randomTip = generateTip()
 		await recipient.send({ embeds: [dm] })
 			.then(async () => {
-				const embed = new MessageEmbed()
-					.setColor(colors.success)
-					.setAuthor("Direct Message")
-					.setTitle(`Sent message to ${recipient.tag}`)
-					.setDescription(message)
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const embed = new MessageEmbed({
+					color: colors.success,
+					author: { name: "Direct Message" },
+					title: `Sent message to ${recipient.tag}`,
+					description: message,
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 				await interaction.editReply({ embeds: [embed] })
 			})
 			.catch(async error => {
-				const errorEmbed = new MessageEmbed()
-					.setColor(colors.error)
-					.setAuthor("Direct Message")
-					.setTitle(`An error occured while trying to message ${recipient.tag}`)
-					.setDescription(error.toString())
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const errorEmbed = new MessageEmbed({
+					color: colors.error,
+					author: { name: "Direct Message" },
+					title: `An error occured while trying to message ${recipient.tag}`,
+					description: `${error}`,
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 				await interaction.editReply({ embeds: [errorEmbed] })
 			})
 	}

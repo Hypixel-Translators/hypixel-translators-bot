@@ -141,19 +141,20 @@ export async function awaitMute(punishment: PunishmentLog) {
 		caseNumber = (await punishmentsColl.estimatedDocumentCount()) + 1,
 		member = guild.members.cache.get(punishment.id!),
 		user = await client.users.fetch(punishment.id),
-		punishmentLog = new MessageEmbed()
-			.setColor(colors.success)
-			.setAuthor({
+		punishmentLog = new MessageEmbed({
+			color: colors.success,
+			author: {
 				name: `Case ${caseNumber} | Unmute | ${user.tag}`,
 				iconURL: (member ?? user).displayAvatarURL({ format: "png", dynamic: true })
-			})
-			.addFields([
+			},
+			fields: [
 				{ name: "User", value: user.toString(), inline: true },
 				{ name: "Moderator", value: client.user.toString(), inline: true },
 				{ name: "Reason", value: "Ended" }
-			])
-			.setFooter(`ID: ${user.id}`)
-			.setTimestamp(),
+			],
+			footer: { text: `ID: ${user.id}` },
+			timestamp: Date.now()
+		}),
 		msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
 	await punishmentsColl.bulkWrite([
 		{
@@ -181,12 +182,13 @@ export async function awaitMute(punishment: PunishmentLog) {
 			}
 		}
 	])
-	const dmEmbed = new MessageEmbed()
-		.setColor(colors.success)
-		.setAuthor("Punishment")
-		.setTitle(`Your mute on the ${guild.name} has expired.`)
-		.setDescription("You will now be able to talk in chats again. If something's wrong, please respond in this DM.")
-		.setTimestamp()
+	const dmEmbed = new MessageEmbed({
+		color: colors.success,
+		author: { name: "Punishment" },
+		title: `Your mute on the ${guild.name} has expired.`,
+		description: "You will now be able to talk in chats again. If something's wrong, please respond in this DM.",
+		timestamp: Date.now()
+	})
 	await user.send({ embeds: [dmEmbed] })
 		.catch(() => console.log(`Couldn't DM user ${user.tag}, (${user.id}) about their unmute.`))
 }
@@ -202,27 +204,29 @@ export async function awaitBan(punishment: PunishmentLog) {
 		user = await guild.bans.remove(punishment.id!, "Punishment ended")
 			.catch(err => console.error(`Couldn't unban user with id ${punishment.id}. Here's the error:\n`, err)),
 		userFetched = await client.users.fetch(punishment.id).catch(() => null),
-		punishmentLog = new MessageEmbed()
-			.setColor(colors.success)
-			.setAuthor({
+		punishmentLog = new MessageEmbed({
+			color: colors.success,
+			author: {
 				name: `Case ${caseNumber} | Unban | ${userFetched?.tag ?? "Deleted User#0000"}`,
 				iconURL: userFetched?.displayAvatarURL({ format: "png", dynamic: true }) ?? client.user.defaultAvatarURL
-			})
-			.addFields([
+			},
+			fields: [
 				{ name: "User", value: `<@${punishment.id}>`, inline: true },
 				{ name: "Moderator", value: client.user.toString(), inline: true },
 				{ name: "Reason", value: "Ended" }
-			])
-			.setFooter(`ID: ${punishment.id}`)
-			.setTimestamp()
+			],
+			footer: { text: `ID: ${punishment.id}` },
+			timestamp: Date.now()
+		})
 	if (!user) punishmentLog.setDescription("Couldn't unban user from the server.")
 	else {
-		const dmEmbed = new MessageEmbed()
-			.setColor(colors.success)
-			.setAuthor("Punishment")
-			.setTitle(`Your ban on the ${guild.name} has expired.`)
-			.setDescription("You are welcome to join back using the invite in this message.")
-			.setTimestamp()
+		const dmEmbed = new MessageEmbed({
+			color: colors.success,
+			author: { name: "Punishment" },
+			title: `Your ban on the ${guild.name} has expired.`,
+			description: "You are welcome to join back using the invite in this message.",
+			timestamp: Date.now()
+		})
 		await user.send({ content: await getInviteLink(client), embeds: [dmEmbed] })
 			.catch(() => console.log(`Couldn't DM user ${userFetched?.tag ?? "Deleted User#0000"}, (${user.id}) about their unban.`))
 	}

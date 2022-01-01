@@ -46,19 +46,20 @@ const command: Command = {
 
 		const botData = await (crowdin.translationStatusApi.getProjectProgress(436418, 500)).then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null)
 
-		let adapColour: number
+		let color: number
 		const approvalProgress = Math.max(hypixelData?.approvalProgress ?? 0, quickplayData?.approvalProgress ?? 0, sbaData?.approvalProgress ?? 0, botData?.approvalProgress ?? 0)
-		if (approvalProgress >= 90) adapColour = colors.success
-		else if (approvalProgress >= 50) adapColour = colors.loading
-		else adapColour = colors.error
+		if (approvalProgress >= 90) color = colors.success
+		else if (approvalProgress >= 50) color = colors.loading
+		else color = colors.error
 
-		const embed = new MessageEmbed()
-			.setColor(adapColour)
-			.setThumbnail(lang.flag)
-			.setAuthor(getString("moduleName"))
-			.setTitle(`${lang.emoji} | ${getString(`languages.${lang.code}`)}`)
-			.setDescription(`${getString("statsAll", { language: getString(`languages.${lang.code}`) })}`)
-			.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+		const embed = new MessageEmbed({
+			color,
+			thumbnail: { url: lang.flag },
+			author: { name: getString("moduleName") },
+			title: `${lang.emoji} | ${getString(`languages.${lang.code}`)}`,
+			description: `${getString("statsAll", { language: getString(`languages.${lang.code}`) })}`,
+			footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+		})
 		if (hypixelData)
 			embed.addField(
 				"Hypixel",

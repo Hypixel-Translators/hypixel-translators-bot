@@ -28,17 +28,16 @@ const command: Command = {
 		else
 			color = colors.error
 
-		const embed = new MessageEmbed()
-			.setColor(color)
-			.setAuthor(getString("moduleName"))
-			.setTitle(getString("pong", { pingEmote: "<:ping:620954198493888512>" }))
-			.setDescription(
-				`${getString("message", { ping: ping })}\n\n${getString("onlineSince", {
-					timestamp: `<t:${onlineSince}>`,
-					timestampRelative: `<t:${onlineSince}:R>`
-				})}`
-			)
-			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+		const embed = new MessageEmbed({
+			color,
+			author: { name: getString("moduleName") },
+			title: getString("pong", { pingEmote: "<:ping:620954198493888512>" }),
+			description: `${getString("message", { ping: ping })}\n\n${getString("onlineSince", {
+				timestamp: `<t:${onlineSince}>`,
+				timestampRelative: `<t:${onlineSince}:R>`
+			})}`,
+			footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+		})
 		await interaction.reply({ embeds: [embed] })
 	}
 }

@@ -96,12 +96,13 @@ client.on("messageCreate", async message => {
 			const langFix = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
 			if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
 				await message.react("vote_no:839262184882044931")
-				const embed = new MessageEmbed()
-					.setColor(colors.error)
-					.setAuthor(getGlobalString("errors.wrongLink"))
-					.setTitle(getGlobalString("wrongStringURL"))
-					.setDescription(getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }))
-					.setImage("https://i.imgur.com/eDZ8u9f.png")
+				const embed = new MessageEmbed({
+					color: colors.error,
+					author: { name: getGlobalString("errors.wrongLink") },
+					title: getGlobalString("wrongStringURL"),
+					description: getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }),
+					image: { url: "https://i.imgur.com/eDZ8u9f.png" }
+				})
 				if (message.content !== langFix && message.channel.parentId === ids.categories.hypixel) {
 					embed.setDescription(
 						`${getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" })}\n${getGlobalString("reminderLang", {
@@ -116,11 +117,12 @@ client.on("messageCreate", async message => {
 				await message.react("vote_no:839262184882044931")
 				await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "badLink", user: message.author.id })
 				const correctLink = langFix.match(stringURLRegex)![0],
-					embed = new MessageEmbed()
-						.setColor(colors.error)
-						.setAuthor(getGlobalString("errors.wrongLink"))
-						.setTitle(getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }))
-						.setDescription(`**${getGlobalString("correctLink")}**\n${correctLink.startsWith("https://") ? correctLink : `https://${correctLink}`}`)
+					embed = new MessageEmbed({
+						color: colors.error,
+						author: { name: getGlobalString("errors.wrongLink") },
+						title: getGlobalString("linkCorrectionDesc", { format: "`crowdin.com/translate/hypixel/.../en-en#`" }),
+						description: `**${getGlobalString("correctLink")}**\n${correctLink.startsWith("https://") ? correctLink : `https://${correctLink}`}`,
+					})
 				await message.reply({ embeds: [embed] })
 				return
 			}
@@ -132,7 +134,7 @@ client.on("messageCreate", async message => {
 		//verify
 		await message.react("loading:882267041627766816")
 		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
-		if (!message.deleted) await message.delete()
+		await message.delete().catch(() => null)
 		const fiMessages = (await message.channel.messages.fetch()).filter(msgs => msgs.author.id === message.author.id)
 		await (message.channel as TextChannel).bulkDelete(fiMessages)
 	}
@@ -143,25 +145,29 @@ client.on("messageCreate", async message => {
 		const staffBots = client.channels.cache.get(ids.channels.staffBots) as TextChannel,
 			hourCooldown = 48, // Hours to wait before asking for confirmation
 			confirmTime = 60, // 1 min
-			controlButtons = new MessageActionRow()
-				.addComponents(
-					new MessageButton()
-						.setStyle("SUCCESS")
-						.setCustomId("confirm")
-						.setEmoji("✅")
-						.setLabel(getGlobalString("pagination.confirm")),
-					new MessageButton()
-						.setStyle("DANGER")
-						.setCustomId("cancel")
-						.setEmoji("❎")
-						.setLabel(getGlobalString("pagination.cancel"))
-				)
+			controlButtons = new MessageActionRow({
+				components: [
+					new MessageButton({
+						style: "SUCCESS",
+						customId: "confirm",
+						emoji: "✅",
+						label: getGlobalString("pagination.confirm")
+					}),
+					new MessageButton({
+						style: "DANGER",
+						customId: "cancel",
+						emoji: "❎",
+						label: getGlobalString("pagination.cancel")
+					})
+				]
+			})
 		if (!author.staffMsgTimestamp || author.staffMsgTimestamp + hourCooldown * 60 * 60 * 1000 < message.createdTimestamp) {
-			const embed = new MessageEmbed()
-				.setColor(colors.neutral)
-				.setTitle(getGlobalString("staffDm.confirmation"))
-				.setDescription(message.content)
-				.setFooter(getGlobalString("staffDm.confirmSend"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
+			const embed = new MessageEmbed({
+				color: colors.neutral,
+				title: getGlobalString("staffDm.confirmation"),
+				description: message.content,
+				footer: { text: getGlobalString("staffDm.confirmSend"), iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 			if (message.attachments.size > 0) embed.setTitle(`${getGlobalString("staffDm.confirmation")} ${getGlobalString("staffDm.attachmentsWarn")}`)
 			const msg = await message.channel.send({ embeds: [embed], components: [controlButtons] }),
 				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: confirmTime * 1000 })
@@ -173,7 +179,10 @@ client.on("messageCreate", async message => {
 					embed
 						.setColor(colors.error)
 						.setTitle(getGlobalString("staffDm.dmCancelled"))
-						.setFooter(getGlobalString("staffDm.resendInfo"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
+						.setFooter({
+							text: getGlobalString("staffDm.resendInfo"),
+							iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true })
+						})
 					await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
 				} else if (buttonInteraction.customId === "confirm") await staffDm(buttonInteraction)
 			})
@@ -181,11 +190,12 @@ client.on("messageCreate", async message => {
 			collector.on("end", async (_, reason) => {
 				if (reason === "responded") return
 				controlButtons.components.forEach(button => button.setDisabled(true))
-				const timeOutEmbed = new MessageEmbed()
-					.setColor(colors.error)
-					.setAuthor(getGlobalString("staffDm.dmCancelled"))
-					.setDescription(message.content)
-					.setFooter(getGlobalString("staffDm.resendInfo"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
+				const timeOutEmbed = new MessageEmbed({
+					color: colors.error,
+					author: getGlobalString("staffDm.dmCancelled"),
+					description: message.content,
+					footer: { text: getGlobalString("staffDm.resendInfo"), iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 				await msg.edit({ embeds: [timeOutEmbed], components: [controlButtons] })
 			})
 		} else await staffDm(message)
@@ -193,15 +203,17 @@ client.on("messageCreate", async message => {
 		async function staffDm(interactionOrMsg: MessageComponentInteraction | Message) {
 			const afterConfirm = interactionOrMsg instanceof MessageComponentInteraction
 			await db.collection<DbUser>("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: afterConfirm ? Date.now() : message.createdTimestamp } })
-			const staffMsg = new MessageEmbed()
-				.setColor(colors.neutral)
-				.setAuthor(`Incoming message from ${message.author.tag}`)
-				.setDescription(message.content)
-			const dmEmbed = new MessageEmbed()
-				.setColor(colors.success)
-				.setAuthor(getGlobalString("staffDm.messageSent"))
-				.setDescription(message.content)
-				.setFooter(getGlobalString("staffDm.noConfirmWarn"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
+			const staffMsg = new MessageEmbed({
+				color: colors.neutral,
+				author: { name: `Incoming message from ${message.author.tag}` },
+				description: message.content,
+			}),
+				dmEmbed = new MessageEmbed({
+					color: colors.success,
+					author: getGlobalString("staffDm.messageSent"),
+					description: message.content,
+					footer: { text: getGlobalString("staffDm.noConfirmWarn"), iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 			if (message.attachments.size > 1 || !(message.attachments.first()?.contentType?.startsWith("image") ?? true)) {
 				const images: (BufferResolvable | Stream)[] = []
 				message.attachments.forEach(file => images.push(file.attachment))

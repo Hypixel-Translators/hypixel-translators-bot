@@ -63,12 +63,16 @@ const command: Command = {
 			let page = 0
 			if (pageInput) page = pageInput
 
-			const page1 = new MessageEmbed()
-				.setColor("BLURPLE")
-				.setAuthor(getString("moduleName"))
-				.setTitle(`${pages[0].badge} ${getString("mainPage")}`)
-				.setDescription(getString("commandsListTooltip", { developer: client.users.cache.get(ids.users.rodry)!.toString(), github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)" }))
-				.setFooter(randomTip, (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
+			const page1 = new MessageEmbed({
+				color: "BLURPLE",
+				author: { name: getString("moduleName") },
+				title: `${pages[0].badge} ${getString("mainPage")}`,
+				description: getString("commandsListTooltip", {
+					developer: client.users.cache.get(ids.users.rodry)!.toString(),
+					github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)"
+				}),
+				footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 			pages.forEach(page => {
 				if (page.number === 0) return
 				page1.addField(getString("pageNumber", { number: page.number, total: pages.length }), `${page.badge} ${getString(page.titleString)}`, true)
@@ -78,19 +82,19 @@ const command: Command = {
 
 			//Determine which page to use
 			let pageEmbed = fetchPage(page, pages, getString, interaction)!
-			const pageMenu = new MessageActionRow()
-				.addComponents(
-					new MessageSelectMenu()
-						.setCustomId("page")
-						.addOptions(
-							pages.map(p => ({
-								label: getString(p.titleString),
-								value: `${p.number}`,
-								emoji: p.badge,
-								default: p.number === page
-							}))
-						)
-				)
+			const pageMenu = new MessageActionRow({
+				components: [
+					new MessageSelectMenu({
+						customId: "page",
+						options: pages.map(p => ({
+							label: getString(p.titleString),
+							value: `${p.number}`,
+							emoji: p.badge,
+							default: p.number === page
+						}))
+					})
+				]
+			})
 
 			const msg = await interaction.reply({ embeds: [pageEmbed], components: [pageMenu], fetchReply: true }) as Message,
 				collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
@@ -118,18 +122,22 @@ const command: Command = {
 			let cmdDesc: string | undefined = undefined
 			if (command.category !== "Admin" && command.category !== "Staff") {
 				cmdDesc = getString(`${command.name}.description`)
-			} else if (command.category === "Staff" && member?.roles.cache.has(ids.roles.staff) || command.category === "Admin" && member?.roles.cache.has(ids.roles.admin)) {
+			} else if (
+				(command.category === "Staff" && member?.roles.cache.has(ids.roles.staff)) ||
+				(command.category === "Admin" && member?.roles.cache.has(ids.roles.admin))
+			)
 				cmdDesc = command.description
-			}
+
 
 			if (command.dev && !member?.roles.cache.has(ids.roles.staff)) cmdDesc = getString("inDev")
 
-			const embed = new MessageEmbed()
-				.setColor("BLURPLE")
-				.setAuthor(getString("moduleName"))
-				.setTitle(getString("commandInfoFor") + `\`/${command.name}\``)
-				.setDescription(cmdDesc ?? getString("staffOnly"))
-				.setFooter(randomTip, (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }))
+			const embed = new MessageEmbed({
+				color: "BLURPLE",
+				author: { name: getString("moduleName") },
+				title: getString("commandInfoFor") + `\`/${command.name}\``,
+				description: cmdDesc ?? getString("staffOnly"),
+				footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 			if (cmdDesc !== getString("inDev")) {
 				if (command.cooldown) {
 					if (command.cooldown >= 120) embed.addField(getString("cooldownField"), `${command.cooldown / 60} ${getString("minutes")}`, true)
@@ -150,14 +158,17 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, in
 	if (pages[page]) {
 		if (pages[page].embed) pageEmbed = pages[page].embed!
 		else if (pages[page].commands) {
-			pageEmbed = new MessageEmbed()
-				.setColor("BLURPLE")
-				.setAuthor(getString("moduleName"))
-				.setTitle(`${pages[page].badge} ${getString(pages[page].titleString!)}`)
-				.setFooter(
-					getString("pagination.page", { number: page + 1, total: pages.length }, "global"),
-					((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
-				)
+			pageEmbed = new MessageEmbed({
+				color: "BLURPLE",
+				author: { name: getString("moduleName") },
+				title: `${pages[page].badge} ${getString(pages[page].titleString!)}`,
+				footer: {
+					text: getString("pagination.page", {
+						number: page + 1, total: pages.length
+					}, "global"),
+					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true })
+				}
+			})
 			pages[page].commands!.forEach(command => pageEmbed!.addField(`\`/${command}\``, getString(`${command}.description`)))
 		} else return console.error(`Help page ${page} has no embed fields specified!`)
 	} else return console.error(`Tried accessing help page ${page} but it doesn't exist in the pages array!`)

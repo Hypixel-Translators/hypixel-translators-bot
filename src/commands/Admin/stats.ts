@@ -27,22 +27,19 @@ const command: Command = {
 		const projectInput = interaction.options.getString("project", false)
 		if (!projectInput) {
 			await stats(true)
-				.then(async () => {
-					const allEmbed = new MessageEmbed()
-						.setColor(colors.success)
-						.setAuthor("Statistics updater")
-						.setTitle("All language statistics have been updated!")
-						.setDescription(
-							`Check them out at ${interaction.guild!.channels.cache.find(
-								c => c.name === "hypixel-language-status"
-							)}, ${interaction.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${interaction.guild!.channels.cache.find(
-								c => c.name === "bot-language-status"
-							)} and ${interaction.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`
-						)
-						.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
-					await interaction.editReply({ embeds: [allEmbed] })
-				})
 				.catch(err => { throw err })
+			const allEmbed = new MessageEmbed({
+				color: colors.success,
+				author: { name: "Statistics updater" },
+				title: "All statistics channels have been updated!",
+				description: `Check them out at ${interaction.guild!.channels.cache.find(
+					c => c.name === "hypixel-language-status"
+				)}, ${interaction.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${interaction.guild!.channels.cache.find(
+					c => c.name === "bot-language-status"
+				)} and ${interaction.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`,
+				footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+			})
+			await interaction.editReply({ embeds: [allEmbed] })
 		} else {
 			switch (projectInput) {
 				case "hypixel": {
@@ -62,12 +59,13 @@ const command: Command = {
 					break
 				}
 			}
-			const projectEmbed = new MessageEmbed()
-				.setColor(colors.success)
-				.setAuthor("Statistics updater")
-				.setTitle(`The ${projectInput} language statistics have been updated!`)
-				.setDescription(`Check it out at ${interaction.guild!.channels.cache.find(c => c.name === `${projectInput}-language-status`)}!`)
-				.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+			const projectEmbed = new MessageEmbed({
+				color: colors.success,
+				author: { name: "Statistics updater" },
+				title: `The ${projectInput} language statistics have been updated!`,
+				description: `Check them out at ${interaction.guild!.channels.cache.find(c => c.name === `${projectInput}-language-status`)}!`,
+				footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 			await interaction.editReply({ embeds: [projectEmbed] })
 			console.log(`Manually updated the ${projectInput} language statistics.`)
 		}

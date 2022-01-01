@@ -98,6 +98,7 @@ const command: Command = {
 			extraInfo = interaction.options.getString("extrainfo", false),
 			startDate = new Date(startYear, startMonth - 1, startDay),
 			endDate = new Date(endYear, endMonth - 1, endDay),
+			//I promise this makes sense
 			today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate())
 
 		if (startDay > 31 || endDay > 31)
@@ -109,24 +110,27 @@ const command: Command = {
 		else if (endDate.getTime() <= today.getTime() || startDate.getTime() <= today.getTime())
 			return await interaction.reply({ content: "The end and start date must both be after today!", ephemeral: true })
 
-		const embed = new MessageEmbed()
-			.setColor("BLURPLE")
-			.setAuthor({ name: interaction.user.tag, iconURL: interaction.member.displayAvatarURL() })
-			.setTitle(`${interaction.member.displayName} is going away for some time!`)
-			.addFields(
+		const embed = new MessageEmbed({
+			color: "BLURPLE",
+			author: { name: interaction.user.tag, iconURL: interaction.member.displayAvatarURL() },
+			title: `${interaction.member.displayName} is going away for some time!`,
+			fields: [
 				{ name: "From", value: `${startDay}/${startMonth}/${startYear}` },
 				{ name: "To", value: `${endDay}/${endMonth}/${endYear}` },
 				{ name: "Reason", value: reason }
-			)
+			]
+		})
 		if (extraInfo) embed.addField("Extra info", extraInfo)
-		const doneRow = new MessageActionRow()
-			.addComponents(
-				new MessageButton()
-					.setStyle("SUCCESS")
-					.setLabel("End LOA")
-					.setEmoji("✅")
-					.setCustomId("done")
-			)
+		const doneRow = new MessageActionRow({
+			components: [
+				new MessageButton({
+					style: "SUCCESS",
+					label: "End LOA",
+					emoji: "✅",
+					customId: "done"
+				})
+			]
+		})
 		await loaChannel.send({ content: interaction.user.toString(), embeds: [embed], components: [doneRow] })
 		await interaction.reply({ content: `Successfully reported your LOA in ${loaChannel}! Once it's over, please delete it by clicking the button on the message.`, ephemeral: true })
 	}

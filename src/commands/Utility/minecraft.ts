@@ -1,5 +1,5 @@
 import axios from "axios"
-import { EmbedFieldData, GuildMember, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { GuildMember, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
 import { client } from "../../index"
 import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
@@ -83,29 +83,34 @@ const command: Command = {
 					const nameHistoryEmbed = fetchPage(0, pages)
 					await interaction.editReply({ embeds: [nameHistoryEmbed] })
 				} else {
-					let controlButtons = new MessageActionRow()
-						.addComponents(
-							new MessageButton()
-								.setStyle("SUCCESS")
-								.setEmoji("⏮️")
-								.setCustomId("first")
-								.setLabel(getString("pagination.first", "global")),
-							new MessageButton()
-								.setStyle("SUCCESS")
-								.setEmoji("◀️")
-								.setCustomId("previous")
-								.setLabel(getString("pagination.previous", "global")),
-							new MessageButton()
-								.setStyle("SUCCESS")
-								.setEmoji("▶️")
-								.setCustomId("next")
-								.setLabel(getString("pagination.next", "global")),
-							new MessageButton()
-								.setStyle("SUCCESS")
-								.setEmoji("⏭️")
-								.setCustomId("last")
-								.setLabel(getString("pagination.last", "global"))
-						),
+					let controlButtons = new MessageActionRow({
+						components: [
+							new MessageButton({
+								style: "SUCCESS",
+								customId: "first",
+								emoji: "⏮️",
+								label: getString("pagination.first", "global")
+							}),
+							new MessageButton({
+								style: "SUCCESS",
+								customId: "previous",
+								emoji: "◀️",
+								label: getString("pagination.previous", "global")
+							}),
+							new MessageButton({
+								style: "SUCCESS",
+								customId: "next",
+								emoji: "▶️",
+								label: getString("pagination.next", "global")
+							}),
+							new MessageButton({
+								style: "SUCCESS",
+								customId: "last",
+								emoji: "⏭️",
+								label: getString("pagination.last", "global")
+							})
+						]
+					}),
 						page = 0,
 						pageEmbed = fetchPage(page, pages)
 
@@ -140,49 +145,45 @@ const command: Command = {
 				}
 
 				function fetchPage(page: number, pages: NameHistory[][]) {
-					return new MessageEmbed()
-						.setColor(colors.success)
-						.setAuthor(getString("moduleName"))
-						.setTitle(getString("history.nameHistoryFor", { username }))
-						.setDescription(
-							nameHistory.length - 1
-								? nameHistory.length - 1 == 1
-									? getString(isOwnUser ? "history.youChangedName1" : "history.userChangedName1", { username })
-									: getString(isOwnUser ? "history.youChangedName" : "history.userChangedName", { username, number: nameHistory.length - 1 })
-								: getString(isOwnUser ? "history.youNeverChanged" : "history.userNeverChanged", { username })
-						)
-						.addFields(constructFields(pages[page]))
-						.setFooter(
-							pages.length == 1
+					return new MessageEmbed({
+						color: colors.success,
+						author: { name: getString("moduleName") },
+						title: getString("history.nameHistoryFor", { username }),
+						description: nameHistory.length - 1
+							? nameHistory.length - 1 == 1
+								? getString(isOwnUser ? "history.youChangedName1" : "history.userChangedName1", { username })
+								: getString(isOwnUser ? "history.youChangedName" : "history.userChangedName", { username, number: nameHistory.length - 1 })
+							: getString(isOwnUser ? "history.youNeverChanged" : "history.userNeverChanged", { username }),
+						fields: constructFields(pages[page]),
+						footer: {
+							text: pages.length == 1
 								? randomTip
 								: getString("pagination.page", { number: page + 1, total: pages.length }, "global"),
-							member.displayAvatarURL({ format: "png", dynamic: true })
-						)
+							iconURL: member.displayAvatarURL({ format: "png", dynamic: true })
+						}
+					})
 				}
 
 				function constructFields(array: NameHistory[]) {
-					const fields: EmbedFieldData[] = []
-					array.forEach(name =>
-						fields.push({
-							name: name.name,
-							value: name.changedToAt ? `<t:${Math.round(new Date(name.changedToAt!).getTime() / 1000)}:F>` : getString("history.firstName"),
-							inline: true
-						})
-					)
-					return fields
+					return array.map(name => ({
+						name: name.name,
+						value: name.changedToAt ? `<t:${Math.round(new Date(name.changedToAt!).getTime() / 1000)}:F>` : getString("history.firstName"),
+						inline: true
+					}))
 				}
 
 				break
 			case "skin":
-				const skinEmbed = new MessageEmbed()
-					.setColor(colors.success)
-					.setAuthor(getString("moduleName"))
-					.setTitle(isOwnUser
+				const skinEmbed = new MessageEmbed({
+					color: colors.success,
+					author: { name: getString("moduleName") },
+					title: isOwnUser
 						? getString("skin.yourSkin")
-						: getString("skin.userSkin", { user: (await getPlayer(uuid)).name }))
-					.setDescription(uuidDb && !isOwnUser ? getString("skin.isLinked", { user: `<@!${uuidDb.id}>` }) : "")
-					.setImage(`https://crafatar.com/renders/body/${uuid}?overlay`)
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+						: getString("skin.userSkin", { user: (await getPlayer(uuid)).name }),
+					description: uuidDb && !isOwnUser ? getString("skin.isLinked", { user: `<@!${uuidDb.id}>` }) : "",
+					image: { url: `https://crafatar.com/renders/body/${uuid}?overlay` },
+					footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 				await interaction.editReply({ embeds: [skinEmbed] })
 				break
 		}

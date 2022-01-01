@@ -23,47 +23,62 @@ const command: Command = {
 			randomTip = generateTip()
 
 		if (!modlogs.length) {
-			const embed = new MessageEmbed()
-				.setColor("BLURPLE")
-				.setAuthor("Modlogs")
-				.setTitle(`Couldn't find any modlogs for ${userInput.tag}`)
-				.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+			const embed = new MessageEmbed({
+				color: "BLURPLE",
+				author: { name: "Modlogs" },
+				title: `Couldn't find any modlogs for ${userInput.tag}`,
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 			await interaction.reply({ embeds: [embed] })
 		} else if (modlogs.length === 1) {
-			const embed = new MessageEmbed()
-				.setColor(colors.success)
-				.setAuthor({ name: "Log message", url: `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}` })
-				.setTitle(`Found 1 modlog for ${userInput.tag}`)
-				.setDescription(`Case #${modlogs[0].case}`)
-				.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+			const embed = new MessageEmbed({
+				color: colors.success,
+				author: { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}` },
+				title: `Found 1 modlog for ${userInput.tag}`,
+				description: `Case #${modlogs[0].case}`,
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 			updateModlogFields(embed, modlogs[0])
 			await interaction.reply({ embeds: [embed] })
 		} else {
-			const embed = new MessageEmbed()
-				.setColor(colors.success)
-				.setAuthor({ name: "Log message", url: `https://discord.com/channels/549503328472530974/800820574405656587/${modlogs[0].logMsg}` })
-				.setTitle(`Found ${modlogs.length} modlogs for ${userInput.tag}`)
-				.setDescription(`Case #${modlogs[0].case}`)
-				.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true })),
-				controlButtons = new MessageActionRow()
-					.addComponents(
-						new MessageButton()
-							.setEmoji("⏮️")
-							.setCustomId("first")
-							.setLabel("First log"),
-						new MessageButton()
-							.setEmoji("◀️")
-							.setCustomId("previous")
-							.setLabel("Previous log"),
-						new MessageButton()
-							.setEmoji("▶️")
-							.setCustomId("next")
-							.setLabel("Next log"),
-						new MessageButton()
-							.setEmoji("⏭️")
-							.setCustomId("last")
-							.setLabel("Last log")
-					)
+			const embed = new MessageEmbed({
+				color: colors.success,
+				author: { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}` },
+				title: `Found ${modlogs.length} modlogs for ${userInput.tag}`,
+				description: `Case #${modlogs[0].case}`,
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+			}),
+				controlButtons = new MessageActionRow({
+					components: [
+						new MessageButton({
+							style: "SECONDARY",
+							emoji: "⏮️",
+							customId: "first",
+							label: "First log",
+							disabled: true
+						}),
+						new MessageButton({
+							style: "SUCCESS",
+							emoji: "◀️",
+							customId: "previous",
+							label: "Previous log",
+						}),
+						new MessageButton({
+							style: "SUCCESS",
+							emoji: "▶️",
+							customId: "next",
+							label: "Next log",
+						}),
+						new MessageButton({
+							style: "SECONDARY",
+							emoji: "⏭️",
+							customId: "last",
+							label: "Last log",
+							disabled: true
+						})
+					]
+				})
+
 			let log = 0
 			updateButtonColors(controlButtons, log, modlogs)
 			updateModlogFields(embed, modlogs[0], modlogs)

@@ -13,11 +13,12 @@ const command: Command = {
 		if (!interaction.inCachedGuild()) return
 
 		await inactives()
-		const embed = new MessageEmbed()
-			.setColor(colors.success)
-			.setAuthor("Inactive checker")
-			.setTitle("All inactive members have been notified!")
-			.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+		const embed = new MessageEmbed({
+			color: colors.success,
+			author: { name: "Inactive checker" },
+			title: "All inactive members have been notified!",
+			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+		})
 		await interaction.reply({ embeds: [embed] })
 	}
 }

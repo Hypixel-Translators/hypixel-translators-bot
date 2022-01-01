@@ -26,16 +26,16 @@ const command: Command = {
 
 		const userDb = await client.getUser(user.id)
 		if (!userDb.levels) {
-			const errorEmbed = new MessageEmbed()
-				.setColor(colors.error)
-				.setAuthor(getString("moduleName"))
-				.setTitle(user.id === interaction.user.id ? getString("youNotRanked") : getString("userNotRanked"))
-				.setDescription(getString("howRank"))
-				.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+			const errorEmbed = new MessageEmbed({
+				color: colors.error,
+				author: { name: getString("moduleName") },
+				title: user.id === interaction.user.id ? getString("youNotRanked") : getString("userNotRanked"),
+				description: getString("howRank"),
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 			return await interaction.reply({ embeds: [errorEmbed] })
 		}
 		const totalXp = getXpNeeded(userDb.levels.level),
-			progressBar = generateProgressBar(userDb.levels.levelXp, totalXp),
 			ranking = (await collection.find({}, { sort: { "levels.totalXp": -1, "id": 1 } }).toArray()).map(u => u.id).indexOf(user.id) + 1,
 			currentXp = userDb.levels.levelXp,
 			messageCount = userDb.levels.messageCount
@@ -44,13 +44,19 @@ const command: Command = {
 			xpNeededFormatted = parseToNumberString(totalXp, getString),
 			messageCountFormatted = parseToNumberString(messageCount, getString)
 
-		const embed = new MessageEmbed()
-			.setColor(colors.neutral)
-			.setAuthor(getString("moduleName"))
-			.setTitle(user.id === interaction.user.id ? getString("yourRank") : getString("userRank", { user: user.tag }))
-			.setDescription(user.id === interaction.user.id ? getString("youLevel", { level: userDb.levels.level, rank: ranking }) : getString("userLevel", { user: String(user), level: userDb.levels.level, rank: ranking }))
-			.addField(getString("textProgress", { currentXp: currentXpFormatted, xpNeeded: xpNeededFormatted, messages: messageCountFormatted }), progressBar)
-			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+		const embed = new MessageEmbed({
+			color: colors.neutral,
+			author: { name: getString("moduleName") },
+			title: user.id === interaction.user.id ? getString("yourRank") : getString("userRank", { user: user.tag }),
+			description: user.id === interaction.user.id
+				? getString("youLevel", { level: userDb.levels.level, rank: ranking })
+				: getString("userLevel", { user: `${user}`, level: userDb.levels.level, rank: ranking }),
+			fields: [{
+				name: getString("textProgress", { currentXp: currentXpFormatted, xpNeeded: xpNeededFormatted, messages: messageCountFormatted }),
+				value: generateProgressBar(userDb.levels.levelXp, totalXp),
+			}],
+			footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+		})
 		await interaction.reply({ embeds: [embed] })
 	}
 }

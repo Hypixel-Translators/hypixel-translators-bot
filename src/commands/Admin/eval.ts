@@ -54,11 +54,11 @@ const command: Command = {
 		try {
 			evaled = await eval(compiledCode)
 			const inspected = inspect(evaled, { depth: 1, getters: true }),
-				embed = new discord.MessageEmbed()
-					.setColor(colors.success)
-					.setAuthor("Evaluation")
-					.setTitle("The code was executed successfully! Here's the output")
-					.addFields(
+				embed = new discord.MessageEmbed({
+					color: colors.success,
+					author: { name: "Evaluation" },
+					title: "The code was executed successfully! Here's the output",
+					fields: [
 						{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun.substring(0, 1015)) },
 						{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
 						{ name: "Output", value: discord.Formatters.codeBlock("js", inspected.substring(0, 1015)) },
@@ -73,16 +73,17 @@ const command: Command = {
 						},
 						{ name: "Output length", value: `${inspected.length}`, inline: true },
 						{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
-					)
-					.setFooter(generateTip(), me.displayAvatarURL({ format: "png", dynamic: true }))
+					],
+					footer: { text: generateTip(), iconURL: me.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 			await interaction.editReply({ embeds: [embed] })
 			console.log(evaled)
 		} catch (error) {
-			const embed = new discord.MessageEmbed()
-				.setColor(colors.error)
-				.setAuthor("Evaluation")
-				.setTitle("An error occured while executing that code. Here's the error stack")
-				.addFields(
+			const embed = new discord.MessageEmbed({
+				color: colors.error,
+				author: { name: "Evaluation" },
+				title: "An error occured while executing that code. Here's the error stack",
+				fields: [
 					{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun.substring(0, 1015)) },
 					{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
 					{ name: "Error", value: discord.Formatters.codeBlock(error.stack.substring(0, 1017)) },
@@ -90,8 +91,9 @@ const command: Command = {
 					{ name: "Error Type", value: error.name, inline: true },
 					{ name: "Error length", value: `${error.stack.length}`, inline: true },
 					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
-				)
-				.setFooter(generateTip(), me.displayAvatarURL({ format: "png", dynamic: true }))
+				],
+				footer: { text: generateTip(), iconURL: me.displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 			console.error(error)
 			await interaction.editReply({ embeds: [embed] })
 		}

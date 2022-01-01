@@ -60,12 +60,13 @@ const command: Command = {
 			} else {
 				await interaction.member.roles.remove(ids.roles.verified, "Unverified")
 				await collection.updateOne({ id: interaction.member.id }, { $set: { unverifiedTimestamp: Date.now() } })
-				const embed = new MessageEmbed()
-					.setColor(colors.error)
-					.setAuthor("Manual verification")
-					.setTitle("You were successfully unverified!")
-					.setDescription(`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us on the ${verify} channel. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`)
-					.setFooter("Any messages you send here will be sent to staff upon confirmation.")
+				const embed = new MessageEmbed({
+					color: colors.error,
+					author: { name: "Manual verification" },
+					title: "You were successfully unverified!",
+					description: `Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us on the ${verify} channel. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`,
+					footer: { text: "Any messages you send here will be sent to staff upon confirmation." }
+				})
 				await interaction.user.send({ embeds: [embed] })
 					.then(async () => {
 						await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL ${url ? `(<${url}>) ` : ""}or there was no profile stored for them.`)
@@ -74,12 +75,12 @@ const command: Command = {
 					.catch(async () => {
 						embed
 							.setDescription(`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us here. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`)
-							.setFooter("")
+							.setFooter({ text: "" })
 						await verifyLogs.send(`${interaction.user} tried to verify with an invalid profile URL ${url ? `(<${url}>) ` : ""}or there was no profile stored for them but they had DMs off so I couldn't tell them.`)
 						const msg = await verify.send({ content: `${interaction.user} you had DMs disabled, so here's our message:`, embeds: [embed] })
 						await interaction.editReply({ content: `Your request has been processed, check ${verify} for more info!` })
 						await setTimeout(30_000)
-						if (!msg.deleted) await msg.delete()
+						await msg.delete().catch(() => null)
 					})
 				client.cooldowns.get(this.name)!.delete(interaction.user.id)
 			}

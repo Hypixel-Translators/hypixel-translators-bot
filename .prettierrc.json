@@ -4,6 +4,6 @@
 	"useTabs": true,
 	"semi": false,
 	"proseWrap": "never",
-	"printWidth": 140,
+	"printWidth": 150,
 	"arrowParens": "avoid"
 }

@@ -120,17 +120,18 @@ const command: Command = {
 			permissionOverwrites: pfOverwrites,
 			reason: `Added language ${language.name}`
 		})
-		const embed = new MessageEmbed()
-			.setColor(colors.success)
-			.setAuthor("Channel creator")
-			.setTitle(`Successfully created the new ${country} category, channels and roles!`)
-			.setDescription("Make sure their names were set correctly, put them in their correct positions, check the role colors and don't forget to translate the channel topic!")
-			.addFields(
+		const embed = new MessageEmbed({
+			color: colors.success,
+			author: { name: "Channel creator" },
+			title: `Successfully created the new ${country} category, channels and roles!`,
+			description: "Make sure their names were set correctly, put them in their correct positions, check the role colors and don't forget to translate the channel topic!",
+			fields: [
 				{ name: "Text Channels", value: `${translatorsChannel} and ${proofreadersChannel}` },
 				{ name: "Voice Channels", value: `${translatorsVoice} and ${proofreadersVoice}` },
 				{ name: "Roles", value: `${translatorRole} and ${proofreaderRole}` }
-			)
-			.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
+			],
+			footer: { text: generateTip(), iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+		})
 		await interaction.editReply({ embeds: [embed] })
 	}
 }

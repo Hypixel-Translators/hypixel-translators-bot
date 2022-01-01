@@ -33,12 +33,12 @@ const command: Command = {
 		if (member.roles.cache.find(role => role.name === "Bot Translator" || role.name === "Bot Proofreader" || role.name === "Bot Manager"))
 			joinedBot = `<:vote_yes:839262196797669427> **${getString("alreadyJoined")}**`
 		else joinedBot = `<:vote_no:839262184882044931> **${getString("notJoined")}**`
-		const embed = new MessageEmbed()
-			.setColor(colors.neutral)
-			.setAuthor(getString("moduleName"))
-			.setTitle(getString("allProjects"))
-			.setDescription(getString("description"))
-			.addFields(
+		const embed = new MessageEmbed({
+			color: colors.neutral,
+			author: { name: getString("moduleName") },
+			title: getString("allProjects"),
+			description: getString("description"),
+			fields: [
 				{
 					name: "Hypixel",
 					value: `${getString("projectInfo", {
@@ -71,8 +71,9 @@ const command: Command = {
 						command: "`/tag bot`"
 					})}\n${joinedBot}`
 				}
-			)
-			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+			],
+			footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+		})
 		await interaction.reply({ embeds: [embed] })
 	}
 }

@@ -124,21 +124,24 @@ const command: Command = {
 			points = interaction.options.getInteger("points", false) as PunishmentPoints | null,
 			duration = interaction.options.getNumber("duration", false),
 			punishment = await calculatePunishment(user, points ?? 1),
-			buttons = new MessageActionRow()
-				.addComponents(
-					new MessageButton()
-						.setCustomId("confirm")
-						.setLabel("Confirm")
-						.setStyle("SUCCESS")
-						.setEmoji("✅")
-						.setDisabled(),
-					new MessageButton()
-						.setCustomId("cancel")
-						.setLabel("Cancel")
-						.setStyle("DANGER")
-						.setEmoji("❎")
-						.setDisabled()
-				),
+			buttons = new MessageActionRow({
+				components: [
+					new MessageButton({
+						style: "SUCCESS",
+						customId: "confirm",
+						label: "Confirm",
+						emoji: "✅",
+						disabled: true
+					}),
+					new MessageButton({
+						style: "DANGER",
+						customId: "cancel",
+						label: "Cancel",
+						emoji: "❎",
+						disabled: true
+					})
+				]
+			}),
 			filter = (bInteraction: ButtonInteraction) => bInteraction.user.id === interaction.user.id,
 			caseNumber = (await collection.estimatedDocumentCount()) + 1,
 			punishmentsChannel = interaction.client.channels.cache.get(ids.channels.punishments) as TextChannel,
@@ -160,19 +163,20 @@ const command: Command = {
 			//Apply the punishment
 			if (punishment.type === "VERBAL") {
 				if (!memberInput) throw "Couldn't find that member! Are you sure they're on the server?"
-				const punishmentLog = new MessageEmbed()
-					.setColor(colors.error)
-					.setAuthor({
+				const punishmentLog = new MessageEmbed({
+					color: colors.error,
+					author: {
 						name: `Case ${caseNumber} | Verbal Warning | ${points} point${points === 1 ? "" : "s"}`,
 						iconURL: user.displayAvatarURL({ format: "png", dynamic: true })
-					})
-					.addFields([
+					},
+					fields: [
 						{ name: "User", value: user.toString(), inline: true },
 						{ name: "Moderator", value: interaction.user.toString(), inline: true },
 						{ name: "Reason", value: reason! }
-					])
-					.setFooter(`ID: ${user.id}`)
-					.setTimestamp(),
+					],
+					footer: { text: `ID: ${user.id}` },
+					timestamp: Date.now()
+				}),
 					msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
 
 				await collection.insertOne({
@@ -185,57 +189,61 @@ const command: Command = {
 					moderator: interaction.user.id,
 					logMsg: msg.id,
 				} as PunishmentLog)
-				const embed = new MessageEmbed()
-					.setColor(colors.success)
-					.setAuthor("Punishments")
-					.setTitle("Successfully registered this verbal warning!")
-					.addFields(
+				const embed = new MessageEmbed({
+					color: colors.success,
+					author: { name: "Punishments" },
+					title: "Successfully registered this verbal warning!",
+					fields: [
 						{ name: "Member", value: user.toString(), inline: true },
 						{ name: "Points", value: points!.toString(), inline: true },
 						{ name: "Reason", value: reason! }
-					)
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+					],
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				})
 				await interaction.editReply({ embeds: [embed] })
 			} else if (punishment.type === "WARN") {
-				const confirmEmbed = new MessageEmbed()
-					.setColor(colors.loading)
-					.setAuthor("Punishment")
-					.setTitle(`Are you sure you want to warn ${user.tag}?`)
-					.setDescription(reason!)
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
-				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] })
+				if (!memberInput) throw "Couldn't find that member! Are you sure they're on the server?"
+				const confirmEmbed = new MessageEmbed({
+					color: colors.loading,
+					author: { name: "Punishments" },
+					title: `Are you sure you want to warn ${user.tag}?`,
+					description: reason!,
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				}),
+					msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] })
 
 				await setTimeout(5_000)
 				buttons.components.map(b => b.setDisabled(false))
 				await interaction.editReply({ components: [buttons] })
 				const buttonInteraction = await msg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 })
-					.catch(async () => {
-						const embed = new MessageEmbed()
-							.setColor(colors.error)
-							.setAuthor("Punishments")
-							.setTitle("You didn't respond in time, so this user wasn't warned")
-							.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
-						await interaction.editReply({ embeds: [embed], components: [] })
+					.catch(async () => null)
+				if (!buttonInteraction) {
+					const embed = new MessageEmbed({
+						color: colors.error,
+						author: { name: "Punishments" },
+						title: "You didn't respond in time, so this user wasn't warned",
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 					})
-				if (!buttonInteraction) return
+					await interaction.editReply({ embeds: [embed], components: [] })
+					return
+				}
 				if (buttonInteraction.customId === "confirm") {
 					await buttonInteraction.deferUpdate()
 
-					if (!memberInput) throw "Couldn't find that member! Are you sure they're on the server?"
-
-					const punishmentLog = new MessageEmbed()
-						.setColor(colors.error)
-						.setAuthor({
+					const punishmentLog = new MessageEmbed({
+						color: colors.error,
+						author: {
 							name: `Case ${caseNumber} | Warning | ${points} point${points === 1 ? "" : "s"}`,
 							iconURL: user.displayAvatarURL({ format: "png", dynamic: true })
-						})
-						.addFields([
+						},
+						fields: [
 							{ name: "User", value: user.toString(), inline: true },
 							{ name: "Moderator", value: interaction.user.toString(), inline: true },
 							{ name: "Reason", value: reason! }
-						])
-						.setFooter(`ID: ${user.id}`)
-						.setTimestamp(),
+						],
+						footer: { text: `ID: ${user.id}` },
+						timestamp: Date.now()
+					}),
 						msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
 
 					await collection.insertOne({
@@ -248,22 +256,24 @@ const command: Command = {
 						moderator: interaction.user.id,
 						logMsg: msg.id,
 					} as PunishmentLog)
-					const dmEmbed = new MessageEmbed()
-						.setColor(colors.error)
-						.setAuthor("Punishment")
-						.setTitle(`You have been warned on the ${interaction.guild!.name}`)
-						.setDescription(`**Reason:** ${reason}`)
-						.setTimestamp(),
-						embed = new MessageEmbed()
-							.setColor(colors.success)
-							.setAuthor("Punishments")
-							.setTitle("Successfully warned this member!")
-							.addFields(
+					const dmEmbed = new MessageEmbed({
+						color: colors.error,
+						author: { name: "Punishment" },
+						title: `You have been warned on the ${interaction.guild!.name}`,
+						description: `**Reason:** ${reason}`,
+						timestamp: Date.now()
+					}),
+						embed = new MessageEmbed({
+							color: colors.success,
+							author: { name: "Punishments" },
+							title: "Successfully warned this member!",
+							fields: [
 								{ name: "Member", value: user.toString(), inline: true },
 								{ name: "Points", value: points!.toString(), inline: true },
 								{ name: "Reason", value: reason! },
-							)
-							.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+							],
+							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						})
 					await user.send({ embeds: [dmEmbed] })
 						.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
 						.catch(async err => {
@@ -274,52 +284,57 @@ const command: Command = {
 							await buttonInteraction.editReply({ embeds: [embed], components: [] })
 						})
 				} else if (buttonInteraction.customId === "cancel") {
-					const embed = new MessageEmbed()
-						.setColor(colors.success)
-						.setAuthor("Punishments")
-						.setTitle("Successfully cancelled this punishment")
-						.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+					const embed = new MessageEmbed({
+						color: colors.success,
+						author: { name: "Punishments" },
+						title: "Successfully cancelled this punishment",
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					})
 					await buttonInteraction.update({ embeds: [embed], components: [] })
 				}
 			} else if (punishment.type === "MUTE") {
-				const confirmEmbed = new MessageEmbed()
-					.setColor(colors.loading)
-					.setAuthor("Punishment")
-					.setTitle("Are you sure you want to mute this member?")
-					.setDescription(`Confirming this will mute ${user} for ${punishment.duration} hours with the following reason:\n\n${reason}`)
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const confirmEmbed = new MessageEmbed({
+					color: colors.loading,
+					author: { name: "Punishments" },
+					title: "Are you sure you want to mute this member?",
+					description: `Confirming this will mute ${user} for ${punishment.duration} hours with the following reason:\n\n${reason}`,
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				})
 				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] })
 
 				await setTimeout(5_000)
 				buttons.components.map(b => b.setDisabled(false))
 				await interaction.editReply({ components: [buttons] })
 				const buttonInteraction = await msg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 })
-					.catch(async () => {
-						const embed = new MessageEmbed()
-							.setColor(colors.error)
-							.setAuthor("Punishments")
-							.setTitle("You didn't respond in time, so this user wasn't muted")
-							.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
-						await interaction.editReply({ embeds: [embed], components: [] })
+					.catch(async () => null)
+				if (!buttonInteraction) {
+					const embed = new MessageEmbed({
+						color: colors.error,
+						author: { name: "Punishments" },
+						title: "You didn't respond in time, so this user wasn't muted",
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 					})
-				if (!buttonInteraction) return
+					await interaction.editReply({ embeds: [embed], components: [] })
+					return
+				}
 				if (buttonInteraction.customId === "confirm") {
 					await buttonInteraction.deferUpdate()
 					const endTimestamp = new Date().setHours(new Date().getHours() + punishment.duration!),
-						punishmentLog = new MessageEmbed()
-							.setColor(colors.error)
-							.setAuthor({
+						punishmentLog = new MessageEmbed({
+							color: colors.error,
+							author: {
 								name: `Case ${caseNumber} | Mute | ${points} point${points === 1 ? "" : "s"}`,
 								iconURL: user.displayAvatarURL({ format: "png", dynamic: true })
-							})
-							.addFields(
+							},
+							fields: [
 								{ name: "User", value: user.toString(), inline: true },
 								{ name: "Moderator", value: interaction.user.toString(), inline: true },
 								{ name: "Duration", value: `${punishment.duration} hours`, inline: true },
 								{ name: "Reason", value: reason! }
-							)
-							.setFooter(`ID: ${user.id}`)
-							.setTimestamp(),
+							],
+							footer: { text: `ID: ${user.id}` },
+							timestamp: Date.now()
+						}),
 						msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
 
 					const punishmentDb = (await collection.insertOne({
@@ -341,23 +356,27 @@ const command: Command = {
 					if (memberInput.moderatable) await memberInput.disableCommunicationUntil(endTimestamp, `${reason} | ${interaction.user.tag}`)
 					else throw "I cannot mute that member!"
 
-					const dmEmbed = new MessageEmbed()
-						.setColor(colors.error)
-						.setAuthor("Punishment")
-						.setTitle(`You have been muted on the ${interaction.guild!.name} for ${punishment.duration} hours`)
-						.setDescription(`**Reason:** ${reason}\n\nYour mute will expire on <t:${Math.round(endTimestamp / 1000)}:F> (<t:${Math.round(endTimestamp / 1000)}:R>)`)
-						.setTimestamp(),
-						embed = new MessageEmbed()
-							.setColor(colors.success)
-							.setAuthor("Punishments")
-							.setTitle("Successfully muted this member!")
-							.addFields(
+					const dmEmbed = new MessageEmbed({
+						color: colors.error,
+						author: { name: "Punishment" },
+						title: `You have been muted on the ${interaction.guild!.name} for ${punishment.duration} hours`,
+						description: `**Reason:** ${reason}\n\nYour mute will expire on <t:${Math.round(
+							endTimestamp / 1000
+						)}:F> (<t:${Math.round(endTimestamp / 1000)}:R>)`,
+						timestamp: Date.now(),
+					}),
+						embed = new MessageEmbed({
+							color: colors.success,
+							author: { name: "Punishments" },
+							title: "Successfully muted this member!",
+							fields: [
 								{ name: "Member", value: user.toString(), inline: true },
 								{ name: "Points", value: points!.toString(), inline: true },
 								{ name: "Duration", value: `${punishment.duration!.toString()} hours`, inline: true },
-								{ name: "Reason", value: reason! },
-							)
-							.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+								{ name: "Reason", value: reason! }
+							],
+							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						})
 					await user.send({ embeds: [dmEmbed] })
 						.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
 						.catch(async err => {
@@ -369,39 +388,43 @@ const command: Command = {
 						})
 					awaitMute(punishmentDb)
 				} else if (buttonInteraction.customId === "cancel") {
-					const embed = new MessageEmbed()
-						.setColor(colors.success)
-						.setAuthor("Punishments")
-						.setTitle("Successfully cancelled this punishment")
-						.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+					const embed = new MessageEmbed({
+						color: colors.success,
+						author: { name: "Punishments" },
+						title: "Successfully cancelled this punishment",
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					})
 					await buttonInteraction.update({ embeds: [embed], components: [] })
 				}
 			} else if (punishment.type === "BAN") {
-				const confirmEmbed = new MessageEmbed()
-					.setColor(colors.loading)
-					.setAuthor("Punishment")
-					.setTitle("Are you sure you want to ban this member?")
-					.setDescription(
-						`Confirming this will ban ${user} ${punishment.duration ? `for ${punishment.duration} days` : "permanently"
-						} with the following reason:\n\n${reason}${punishment.activePunishmentPoints ? "\n\n⚠ This user currently has an active punishment! Think twice before confirming this." : ""
-						}`
-					)
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const confirmEmbed = new MessageEmbed({
+					color: colors.loading,
+					author: { name: "Punishments" },
+					title: "Are you sure you want to ban this member?",
+					description: `Confirming this will ban ${user} ${punishment.duration ? `for ${punishment.duration} days` : "permanently"
+						} with the following reason:\n\n${reason}${punishment.activePunishmentPoints
+							? "\n\n⚠ This user currently has an active punishment! Think twice before confirming this."
+							: ""
+						}`,
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				})
 				const msg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] })
 
 				await setTimeout(5_000)
 				buttons.components.map(b => b.setDisabled(false))
 				await interaction.editReply({ components: [buttons] })
 				const buttonInteraction = await msg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 })
-					.catch(async () => {
-						const embed = new MessageEmbed()
-							.setColor(colors.error)
-							.setAuthor("Punishments")
-							.setTitle("You didn't respond in time, so this user wasn't banned")
-							.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
-						await interaction.editReply({ embeds: [embed], components: [] })
+					.catch(async () => null)
+				if (!buttonInteraction) {
+					const embed = new MessageEmbed({
+						color: colors.error,
+						author: { name: "Punishments" },
+						title: "You didn't respond in time, so this user wasn't banned",
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 					})
-				if (!buttonInteraction) return
+					await interaction.editReply({ embeds: [embed], components: [] })
+					return
+				}
 				if (buttonInteraction.customId === "confirm") {
 					await buttonInteraction.deferUpdate()
 
@@ -410,20 +433,21 @@ const command: Command = {
 					else throw "I cannot ban that member!"
 
 					const endTimestamp = punishment.duration ? new Date().setDate(new Date().getDate() + punishment.duration) : 0,
-						punishmentLog = new MessageEmbed()
-							.setColor(colors.error)
-							.setAuthor({
+						punishmentLog = new MessageEmbed({
+							color: colors.error,
+							author: {
 								name: `Case ${caseNumber} | Ban | ${points} point${points === 1 ? "" : "s"}`,
 								iconURL: user.displayAvatarURL({ format: "png", dynamic: true })
-							})
-							.addFields(
+							},
+							fields: [
 								{ name: "User", value: user.toString(), inline: true },
 								{ name: "Moderator", value: interaction.user.toString(), inline: true },
 								{ name: "Duration", value: punishment.duration ? `${punishment.duration} days` : "Permanent", inline: true },
 								{ name: "Reason", value: reason! }
-							)
-							.setFooter(`ID: ${user.id}`)
-							.setTimestamp(),
+							],
+							footer: { text: `ID: ${user.id}` },
+							timestamp: Date.now()
+						}),
 						msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
 
 					if (punishment.activePunishmentPoints)
@@ -459,28 +483,34 @@ const command: Command = {
 						logMsg: msg.id
 					}).then(result => collection.findOne({ _id: result.insertedId })))!
 
-					const dmEmbed = new MessageEmbed()
-						.setColor(colors.error)
-						.setAuthor("Punishment")
-						.setTitle(`You have been ${punishment.duration ? "" : "permanently "}banned from the ${interaction.guild!.name} ${punishment.duration ? `for ${punishment.duration} days` : ""}`)
-						.setDescription(
-							`**Reason:** ${reason}\n\n${endTimestamp
-								? `This ban will expire on <t:${Math.round(endTimestamp / 1000)}:F> (<t:${Math.round(endTimestamp / 1000)}:R>)`
-								: "This is a permanent ban and will not expire"
-							}`
-						)
-						.setTimestamp(),
-						embed = new MessageEmbed()
-							.setColor(colors.success)
-							.setAuthor("Punishments")
-							.setTitle("Successfully banned this member!")
-							.addFields(
+					const dmEmbed = new MessageEmbed({
+						color: colors.error,
+						author: { name: "Punishments" },
+						title: `You have been ${punishment.duration ? "" : "permanently "}banned from the ${interaction.guild!.name} ${punishment.duration ? `for ${punishment.duration} days` : ""}`,
+						description: `**Reason:** ${reason}\n\n${endTimestamp
+							? `This ban will expire on <t:${Math.round(endTimestamp / 1000)}:F> (<t:${Math.round(
+								endTimestamp / 1000
+							)}:R>)`
+							: "This is a permanent ban and will not expire"
+							}`,
+						timestamp: Date.now()
+					}),
+						embed = new MessageEmbed({
+							color: colors.success,
+							author: { name: "Punishments" },
+							title: "Successfully banned this member!",
+							fields: [
 								{ name: "Member", value: user.toString(), inline: true },
 								{ name: "Points", value: points!.toString(), inline: true },
-								{ name: "Duration", value: `${punishment.duration ? `${punishment.duration!.toString()} days` : "Permanent"}`, inline: true },
+								{
+									name: "Duration",
+									value: `${punishment.duration ? `${punishment.duration!.toString()} days` : "Permanent"}`,
+									inline: true
+								},
 								{ name: "Reason", value: reason! }
-							)
-							.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+							],
+							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+						})
 					await user.send({ embeds: [dmEmbed] })
 						.then(async () => await buttonInteraction.editReply({ embeds: [embed], components: [] }))
 						.catch(async err => {
@@ -492,11 +522,12 @@ const command: Command = {
 						})
 					awaitBan(punishmentDb)
 				} else if (buttonInteraction.customId === "cancel") {
-					const embed = new MessageEmbed()
-						.setColor(colors.success)
-						.setAuthor("Punishments")
-						.setTitle("Successfully cancelled this punishment")
-						.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+					const embed = new MessageEmbed({
+						color: colors.success,
+						author: { name: "Punishments" },
+						title: "Successfully cancelled this punishment",
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					})
 					await buttonInteraction.update({ embeds: [embed], components: [] })
 				}
 			}
@@ -507,11 +538,12 @@ const command: Command = {
 				activePoints = activePoints + (punishment.points ?? 0)
 			})
 
-			const embed = new MessageEmbed()
-				.setColor(activePoints ? colors.error : colors.success)
-				.setAuthor("Punishments")
-				.setTitle(`${user.tag} currently has ${activePoints} point${activePoints === 1 ? "" : "s"}.`)
-				.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+			const embed = new MessageEmbed({
+				color: activePoints ? colors.error : colors.success,
+				author: { name: "Punishments" },
+				title: `${user.tag} currently has ${activePoints} point${activePoints === 1 ? "" : "s"}.`,
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+			})
 			activePunishments.forEach(punishment => {
 				const durationString = punishment.duration ? `${punishment.duration}${punishment.type === "BAN" ? "d" : "h"} ` : "permanent ",
 					expireTimestamp =
@@ -537,14 +569,17 @@ const command: Command = {
 				unexpiredPunishments = await getActivePunishments(user),
 				durationString = punishment.duration ? `${punishment.duration}${punishment.type === "BAN" ? "d" : "h"} ` : "permanent "
 
-			const embed = new MessageEmbed()
-				.setColor(hasPermission ? (colors.success) : (colors.error))
-				.setAuthor("Punishments")
-				.setTitle(`Giving this member ${points} points will result in a ${["MUTE", "BAN"].includes(punishment.type) ? durationString : ""}${punishment.type}`)
-				.setDescription(
-					`You ${hasPermission ? "" : "don't "}have permission to issue this punishment.\n\n${unexpiredPunishments.length ? `Here are ${user}'s active punishments:` : `${user} has no active punishments at the moment`}`
-				)
-				.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+			const embed = new MessageEmbed({
+				color: hasPermission ? colors.success : colors.error,
+				author: { name: "Punishments" },
+				title: `Giving this member ${points} points will result in a ${["MUTE", "BAN"].includes(punishment.type) ? durationString : ""
+					}${punishment.type}`,
+				description: `You ${hasPermission ? "" : "don't "}have permission to issue this punishment.\n\n${unexpiredPunishments.length
+					? `Here are ${user}'s active punishments:`
+					: `${user} has no active punishments at the moment`
+					}`,
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 			unexpiredPunishments.forEach(punishment => {
 				const durationString = punishment.duration ? `${punishment.duration}${punishment.type === "BAN" ? "d" : "h"} ` : "permanent ",
 					expireTimestamp =
@@ -580,11 +615,12 @@ const command: Command = {
 			activePunishments.forEach(punishment => {
 				activePoints = activePoints + (punishment.points ?? 0)
 			})
-			const embed = new MessageEmbed()
-				.setColor(colors.loading)
-				.setAuthor("Punishments")
-				.setTitle(`Are you sure you want to revoke ${user.tag}'s active ${activePunishments[0].type}?`)
-				.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+			const embed = new MessageEmbed({
+				color: colors.loading,
+				author: { name: "Punishments" },
+				title: `Are you sure you want to revoke ${user.tag}'s active ${activePunishments[0].type}?`,
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 			activePunishments.forEach(punishment => {
 				const durationString = punishment.duration ? `${punishment.duration}${punishment.type === "BAN" ? "d" : "h"} ` : "permanent ",
 					expireTimestamp =
@@ -610,59 +646,73 @@ const command: Command = {
 			buttons.components.map(b => b.setDisabled(false))
 			await interaction.editReply({ components: [buttons] })
 			const buttonInteraction = await msg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 })
-				.catch(async () => {
-					const embed = new MessageEmbed()
-						.setColor(colors.error)
-						.setAuthor("Punishments")
-						.setTitle("You didn't respond in time, so this user's punishments weren't revoked")
-						.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
-					await interaction.editReply({ embeds: [embed], components: [] })
+				.catch(async () => null)
+			if (!buttonInteraction) {
+				const embed = new MessageEmbed({
+					color: colors.error,
+					author: { name: "Punishments" },
+					title: "You didn't respond in time, so this user's punishments weren't revoked",
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
 				})
-			if (!buttonInteraction) return
+				await interaction.editReply({ embeds: [embed], components: [] })
+				return
+			}
 			if (buttonInteraction.customId === "confirm") {
 				await buttonInteraction.deferUpdate()
-				const punishmentLog = new MessageEmbed()
-					.setColor(colors.success)
-					.setAuthor({
+				const punishmentLog = new MessageEmbed({
+					color: colors.success,
+					author: {
 						name: `Case ${caseNumber} | ${activePunishments[0].type === "BAN" ? "Unban" : "Unmute"} | ${user.tag}`,
 						iconURL: user.displayAvatarURL({ format: "png", dynamic: true })
-					})
-					.addFields([
-						{ name: "User", value: user.toString(), inline: true },
-						{ name: "Moderator", value: interaction.user.toString(), inline: true },
+					},
+					fields: [
+						{ name: "User", value: `${user}`, inline: true },
+						{ name: "Moderator", value: `${interaction.user}`, inline: true },
 						{ name: "Reason", value: reason! }
-					])
-					.setFooter(`ID: ${user.id}`)
-					.setTimestamp(),
+					],
+					footer: { text: `ID: ${user.id}` },
+					timestamp: Date.now()
+				}),
 					msg = await punishmentsChannel.send({ embeds: [punishmentLog] })
 
-				await collection.updateOne({ case: activePunishments[0].case }, { $set: { revoked: true, revokedBy: interaction.user.id, ended: true, endTimestamp: Date.now() } })
-				await collection.insertOne({
-					case: caseNumber,
-					id: user.id,
-					type: `UN${activePunishments[0].type}`,
-					reason,
-					timestamp: Date.now(),
-					moderator: interaction.user.id,
-					logMsg: msg.id
-				} as PunishmentLog)
+				await collection.bulkWrite([{
+					updateOne: {
+						filter: { case: activePunishments[0].case },
+						update: { $set: { revoked: true, revokedBy: interaction.user.id, ended: true, endTimestamp: Date.now() } }
+					}
+				},
+				{
+					insertOne: {
+						document: {
+							case: caseNumber,
+							id: user.id,
+							type: `UN${activePunishments[0].type}`,
+							reason,
+							timestamp: Date.now(),
+							moderator: interaction.user.id,
+							logMsg: msg.id
+						} as PunishmentLog
+					}
+				}])
 
-				const dmEmbed = new MessageEmbed()
-					.setColor(colors.success)
-					.setAuthor("Punishment")
-					.setTitle(`You have been un ${activePunishments[0].type === "BAN" ? "banned" : "muted"} from the ${interaction.guild!.name}`)
-					.setDescription(`**Reason:** ${reason}`)
-					.setTimestamp(),
-					embed = new MessageEmbed()
-						.setColor(colors.success)
-						.setAuthor("Punishments")
-						.setTitle("Successfully revoked this member's punishment!")
-						.addFields(
+				const dmEmbed = new MessageEmbed({
+					color: colors.success,
+					author: { name: "Punishments" },
+					title: `You have been un${activePunishments[0].type === "BAN" ? "banned" : "muted"} from the ${interaction.guild!.name}`,
+					description: `**Reason:** ${reason}`,
+					timestamp: Date.now()
+				}),
+					embed = new MessageEmbed({
+						color: colors.success,
+						author: { name: "Punishments" },
+						title: "Successfully revoked this member's punishment!",
+						fields: [
 							{ name: "Member", value: user.toString(), inline: true },
 							{ name: "Punishment type", value: activePunishments[0].type, inline: true },
 							{ name: "Reason", value: reason!, inline: true }
-						)
-						.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+						],
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+					})
 
 				if (activePunishments[0].type === "BAN") await interaction.guild!.bans.remove(user.id, `${reason} | ${interaction.user.tag}`)
 					.catch(async err => {
@@ -683,11 +733,12 @@ const command: Command = {
 					})
 				else await buttonInteraction.editReply({ embeds: [embed], components: [] })
 			} else if (buttonInteraction.customId === "cancel") {
-				const embed = new MessageEmbed()
-					.setColor(colors.success)
-					.setAuthor("Punishments")
-					.setTitle("Successfully cancelled revoking this punishment")
-					.setFooter(randomTip, interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+				const embed = new MessageEmbed({
+					color: colors.success,
+					author: { name: "Punishments" },
+					title: "Successfully cancelled revoking this punishment",
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 				await buttonInteraction.update({ embeds: [embed], components: [] })
 			}
 		}

@@ -34,13 +34,13 @@ const command: Command = {
                 }
             else if (role.tags.premiumSubscriberRole) tags = { name: "Premium Subscriber Role", value: "True", inline: true }
         }
-        const embed = new MessageEmbed()
-            .setColor(role.color || "BLURPLE")
-            .setThumbnail(role.iconURL({ format: "png", size: 4096 }) ?? "")
-            .setAuthor("Role information")
-            .setTitle(`${role.name} ${role.unicodeEmoji ?? ""}`)
-            .setDescription(`${role} (ID: ${role.id})`)
-            .addFields(
+        const embed = new MessageEmbed({
+            color: role.color || "BLURPLE",
+            thumbnail: { url: role.iconURL({ format: "png", size: 4096 }) ?? "" },
+            author: { name: "Role information"},
+            title: `${role.name} ${role.unicodeEmoji ?? ""}`,
+            description: `${role} (ID: ${role.id})`,
+            fields: [
                 { name: "Mentionable", value: role.mentionable ? "Yes" : "No", inline: true },
                 { name: "Hoisted", value: role.hoist ? "Yes" : "No", inline: true },
                 { name: "Created at", value: `<t:${createdAt}:F> (<t:${createdAt}:R>)`, inline: true },
@@ -50,8 +50,9 @@ const command: Command = {
                 { name: "HEX color", value: role.hexColor, inline: true },
 
                 { name: "Permissions", value: permissions.includes("ADMINISTRATOR") ? "ADMINISTRATOR" : permissions.join(", ") || "None" }
-            )
-            .setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
+            ],
+            footer: { text: generateTip(), iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+        })
         if (tags) embed.spliceFields(5, 1, tags)
 
         await interaction.reply({ embeds: [embed] })

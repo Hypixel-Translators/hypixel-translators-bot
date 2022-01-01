@@ -31,18 +31,19 @@ const command: Command = {
 	}],
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return
-		const channel = interaction.options.getChannel("channel", true) as TextChannel
+		const channel = interaction.options.getChannel("channel", true) as TextChannel,
+			amount = interaction.options.getInteger("amount", true)
 
 		if (!channel) throw "Couldn't resolve that channel!"
-		let amount = interaction.options.getInteger("amount", true)
 		await interaction.deferReply()
 		for (let i = amount; i > 0; i--) await channel.send("Language statistics will be here shortly!")
-		const embed = new MessageEmbed()
-			.setColor(colors.success)
-			.setAuthor("Bulk Send")
-			.setTitle(`Success! Message${amount === 1 ? "" : "s"} sent!`)
-			.setDescription(`${channel}`)
-			.setFooter(generateTip(), interaction.member.displayAvatarURL({ format: "png", dynamic: true }))
+		const embed = new MessageEmbed({
+			color: colors.success,
+			author: { name: "Bulk Send" },
+			title: `Success! Message${amount === 1 ? "" : "s"} sent!`,
+			description: `${channel}`,
+			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+		})
 		await interaction.editReply({ embeds: [embed] })
 		if (interaction.options.getBoolean("update", false)) {
 			const project = await db.collection<CrowdinProject>("crowdin").findOne({ shortName: channel.name.split("-")[0] })

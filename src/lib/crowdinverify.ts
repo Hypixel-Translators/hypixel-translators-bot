@@ -29,10 +29,11 @@ const projectIDs: {
 async function crowdinVerify(member: GuildMember, url?: string | null, sendDms = false, sendLogs = true) {
 	const verifyLogs = member.client.channels.cache.get(ids.channels.verifyLogs) as TextChannel,
 		verify = member.client.channels.cache.get(ids.channels.verify) as TextChannel,
-		errorEmbed = new MessageEmbed()
-			.setColor(colors.error)
-			.setAuthor("Received message from staff")
-			.setFooter("Any messages you send here will be sent to staff upon confirmation."),
+		errorEmbed = new MessageEmbed({
+			color: colors.error,
+			author: { name: "Received message from staff" },
+			footer: { text: "Any messages you send here will be sent to staff upon confirmation." }
+		}),
 		langDb = db.collection<LangDbEntry>("langdb"),
 		usersColl = db.collection<DbUser>("users"),
 		statsColl = db.collection<Stats>("stats"),
@@ -51,10 +52,10 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 			if (sendDms) member.send({ embeds: [errorEmbed] })
 				.then(async () => await verifyLogs.send(`${member} didn't send a valid profile URL. Let's hope they work their way around with the message I just sent them.`))
 				.catch(async () => {
-					errorEmbed.setFooter("This message will be deleted in a minute")
+					errorEmbed.setFooter({ text: "This message will be deleted in a minute" })
 					const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
 					await setTimeout(60_000)
-					if (!msg.deleted) await msg.delete()
+					await msg.delete().catch(() => null)
 					await verifyLogs.send(`${member} didn't send a valid profile URL. Let's hope they work their way around with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`)
 				})
 			else await verifyLogs.send(`The profile stored/provided for ${member} was invalid. Please fix this or ask them to fix this.`)
@@ -92,10 +93,10 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 			if (sendDms) await member.send({ embeds: [errorEmbed] })
 				.then(async () => await verifyLogs.send(`${member} sent the wrong profile link (<${url}>). Let's hope they work their way around with the message I just sent them.`))
 				.catch(async () => {
-					errorEmbed.setFooter("This message will be deleted in a minute")
+					errorEmbed.setFooter({ text: "This message will be deleted in a minute" })
 					const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
 					await setTimeout(60_000)
-					if (!msg.deleted) await msg.delete()
+					await msg.delete().catch(() => null)
 					await verifyLogs.send(`${member} sent the wrong profile link (<${url}>). Let's hope they work their way around with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`)
 				})
 			else if (sendLogs) await verifyLogs.send(`The profile stored/provided for ${member} was invalid (<${url}>). Please fix this or ask them to fix this.`)
@@ -113,30 +114,32 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 			if (sendDms) await member.send({ embeds: [errorEmbed] })
 				.then(async () => await verifyLogs.send(`${member}'s profile (<${url}>) was private, I let them know about that.`))
 				.catch(async () => {
-					errorEmbed.setFooter("This message will be deleted in a minute")
+					errorEmbed.setFooter({ text: "This message will be deleted in a minute" })
 					const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
 					await setTimeout(60_000)
-					if (!msg.deleted) await msg.delete()
+					await msg.delete().catch(() => null)
 					await verifyLogs.send(`${member}'s profile was private (<${url}>), I let them know about that in <#${ids.channels.verify}> since they had DMs off.`)
 				})
 			else await verifyLogs.send(`${member}'s profile is private (<${url}>). Please ask them to change this.`)
 			await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "privateProfile" })
 			//#endregion
 		} else {
-			const dmEmbed = new MessageEmbed()
-				.setColor("BLURPLE")
-				.setAuthor("Received message from staff")
-				.setDescription("Hey there!\nYou have successfully verified your Crowdin account!\nSadly you didn't receive any roles because you don't translate for any of the projects we currently support.\nWhen you have started translating you can refresh your roles by running `/verify`\nIf you wanna know more about all the projects we currently support, run `/projects` here.")
-				.setFooter("Any messages you send here will be sent to staff upon confirmation."),
-				logEmbed = new MessageEmbed()
-					.setColor("BLURPLE")
-					.setTitle(`${member.user.tag} is now verified!`)
-					.setDescription(`${member} has not received any roles. They do not translate for any of the projects.`)
-					.addField("Profile", url)
+			const dmEmbed = new MessageEmbed({
+				color: "BLURPLE",
+				author: { name: "Received message from staff" },
+				description: "Hey there!\nYou have successfully verified your Crowdin account!\nSadly you didn't receive any roles because you don't translate for any of the projects we currently support.\nWhen you have started translating you can refresh your roles by running `/verify`\nIf you wanna know more about all the projects we currently support, run `/projects` here.",
+				footer: { text: "Any messages you send here will be sent to staff upon confirmation." }
+			}),
+				logEmbed = new MessageEmbed({
+					color: "BLURPLE",
+					title: `${member.user.tag} is now verified!`,
+					description: `${member} has not received any roles. They do not translate for any of the projects.`,
+					fields: [{ name: "Profile", value: url }]
+				})
 			if (sendDms) await member.send({ embeds: [dmEmbed] })
 				.then(async () => await verifyLogs.send({ embeds: [logEmbed] }))
 				.catch(async () => {
-					logEmbed.setFooter("Message not sent because user had DMs off")
+					logEmbed.setFooter({ text: "Message not sent because user had DMs off" })
 					await verifyLogs.send({ embeds: [logEmbed] })
 				})
 			else if (sendLogs) await verifyLogs.send({ embeds: [logEmbed] })
@@ -169,11 +172,11 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 		if (sendDms) await member.send({ embeds: [errorEmbed] })
 			.then(async () => await verifyLogs.send(`${member} forgot to add their Discord to their profile (<${url}>). Let's hope they fix that with the message I just sent them.`))
 			.catch(async () => {
-				errorEmbed.setFooter("This message will be deleted in a minute")
+				errorEmbed.setFooter({ text: "This message will be deleted in a minute" })
 				await verifyLogs.send(`${member} forgot to add their Discord to their profile (<${url}>). Let's hope they fix that with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`)
 				const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
 				await setTimeout(60_000)
-				if (!msg.deleted) await msg.delete()
+				await msg.delete().catch(() => null)
 			})
 		if (sendLogs) await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "missingDiscordTag" })
 		return
@@ -255,12 +258,13 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 		})
 	}
 
-	const logEmbed = new MessageEmbed()
-		.setColor("BLURPLE")
-		.setTitle(`${member.user.tag} is now verified!`)
-		.setDescription(Object.keys(endingMessageProjects).length
+	const logEmbed = new MessageEmbed({
+		color: "BLURPLE",
+		title: `${member.user.tag} is now verified!`,
+		description: Object.keys(endingMessageProjects).length
 			? `${member} has received the following roles:`
-			: `${member} has not received any roles. They do not translate for any of the projects.`)
+			: `${member} has not received any roles. They do not translate for any of the projects.`
+	})
 
 	if (Object.keys(endingMessageProjects).length) {
 		for (const [k, v] of Object.entries(endingMessageProjects)) {
@@ -281,19 +285,20 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 	logEmbed.addField("Profile", url)
 
 	//#region return message
-	const dmEmbed = new MessageEmbed()
-		.setColor("BLURPLE")
-		.setAuthor("Received message from staff")
-		.setDescription(`Hey there!\nYou have successfully verified your Crowdin account${Object.keys(endingMessageProjects).length
+	const dmEmbed = new MessageEmbed({
+		color: "BLURPLE",
+		author: { name: "Received message from staff" },
+		description: `Hey there!\nYou have successfully verified your Crowdin account${Object.keys(endingMessageProjects).length
 			? " and you also received the corresponding roles on our Discord server! Make sure to check out <#699275092026458122> if you want to learn more about Crowdin." //getting-started
 			: "!\nSadly you didn't receive any roles because you don't translate for any of the projects we currently support.\nWhen you have started translating you can refresh your roles by running `/verify`"
-			}\nIf you wanna know more about all the projects we currently support, run \`/projects\` here.`)
-		.setFooter("Any messages you send here will be sent to staff upon confirmation.")
+			}\nIf you wanna know more about all the projects we currently support, run \`/projects\` here.`,
+		footer: { text: "Any messages you send here will be sent to staff upon confirmation." }
+	})
 
 	if (sendDms) member.send({ embeds: [dmEmbed] })
 		.then(async () => await verifyLogs.send({ embeds: [logEmbed] }))
 		.catch(async () => {
-			logEmbed.setFooter("Message not sent because user had DMs off")
+			logEmbed.setFooter({ text: "Message not sent because user had DMs off" })
 			await verifyLogs.send({ embeds: [logEmbed] })
 		})
 	else if (sendLogs) await verifyLogs.send({ embeds: [logEmbed] })
@@ -370,11 +375,8 @@ async function updateLanguageRoles(
 		if (role.name.includes("Translator") || role.name.includes("Proofreader")) addedRoles.push(role.name)
 	})
 
-	activeRoles
-		.filter(pj => !addedRoles.includes(pj))
-		.forEach(async p => {
-			await member.roles.add(member.guild.roles.cache.find(r => r.name === p)!.id, "User has received this role on Crowdin")
-		})
+	activeRoles.filter(pj => !addedRoles.includes(pj)).map(r => member.guild.roles.cache.find(role => role.name === r))
+	await member.roles.add(activeRoles, "User has received this role on Crowdin")
 
 	addedRoles
 		.filter(r => !activeRoles.includes(r))

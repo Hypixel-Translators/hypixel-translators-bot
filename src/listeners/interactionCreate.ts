@@ -2,7 +2,7 @@ import { readdirSync } from "node:fs"
 import process from "node:process"
 //Cannot use promisified setTimeout here
 import { setTimeout } from "node:timers"
-import { Collection, GuildChannel, Message, MessageEmbed, TextChannel } from "discord.js"
+import { Collection, Formatters, GuildChannel, Message, MessageEmbed, TextChannel } from "discord.js"
 import { client } from "../index"
 import { colors, ids } from "../config.json"
 import handleButtonInteractions from "../interactions/buttons"
@@ -63,20 +63,19 @@ client.on("interactionCreate", async interaction => {
 			await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: "cooldown" })
 
 			const timeLeft = Math.ceil((expirationTime - now) / 1000),
-				embed = new MessageEmbed()
-					.setColor(colors.error)
-					.setAuthor(getString("cooldown", "global"))
-					.setTitle(
-						getString(
-							timeLeft >= 120 ? "minsLeftT" : timeLeft === 1 ? "secondLeft" : "timeLeftT",
-							{
-								time: timeLeft >= 120 ? Math.ceil(timeLeft / 60) : timeLeft,
-								command: `/${interaction.commandName}`
-							},
-							"global"
-						)
-					)
-					.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+				embed = new MessageEmbed({
+					color: colors.error,
+					author: { name: getString("cooldown", "global") },
+					title: getString(
+						timeLeft >= 120 ? "minsLeftT" : timeLeft === 1 ? "secondLeft" : "timeLeftT",
+						{
+							time: timeLeft >= 120 ? Math.ceil(timeLeft / 60) : timeLeft,
+							command: `/${interaction.commandName}`
+						},
+						"global"
+					),
+					footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+				})
 			return await interaction.reply({ embeds: [embed], ephemeral: true })
 		}
 	}
@@ -164,12 +163,13 @@ client.on("interactionCreate", async interaction => {
 		// Send error to bot-dev channel
 		if (error.stack) {
 			if (process.env.NODE_ENV === "production") {
-				const embed = new MessageEmbed()
-					.setColor(colors.error)
-					.setAuthor("Unexpected error!")
-					.setTitle(error.toString().substring(0, 255))
-					.setDescription(`\`\`\`${error.stack.substring(0, 2_047)}\`\`\``)
-					.setFooter("Check the console for more details")
+				const embed = new MessageEmbed({
+					color: colors.error,
+					author: { name: "Unexpected error!" },
+					title: error.toString().substring(0, 255),
+					description: Formatters.codeBlock(error.stack.substring(0, 2_047)),
+					footer: { text: "Check the console for more details" }
+				})
 				await (interaction.client.channels.cache.get(ids.channels.botDev) as TextChannel).send({
 					content: `<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@!${ids.users.rodry}>\nRan by: ${interaction.user}\nCommand: ${interaction.commandName}\nChannel: ${interaction.channel?.type !== "DM" && interaction.channel ? interaction.channel : "DM"}\nTime: <t:${Math.round(Date.now() / 1000)}:F>`,
 					embeds: [embed]
@@ -183,17 +183,18 @@ client.on("interactionCreate", async interaction => {
 
 		//Handle errors
 		timestamps.delete(interaction.user.id)
-		const embed = new MessageEmbed()
-			.setColor(colors.error)
-			.setAuthor(getString("error", "global"))
-			.setTitle((error.message ?? error).substring(0, 255))
-			.setFooter(randomTip, member.displayAvatarURL({ format: "png", dynamic: true }))
+		const embed = new MessageEmbed({
+			color: colors.error,
+			author: { name: getString("error", "global") },
+			title: (error.message ?? error).substring(0, 255),
+			footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+		})
 
 		//Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first
 		if (interaction.deferred) {
 			const errorMsg = await interaction.editReply({ embeds: [embed], components: [] }) as Message
 			setTimeout(async () => {
-				if (!errorMsg.deleted && !interaction.ephemeral) await errorMsg.delete()
+				if (!interaction.ephemeral) await errorMsg.delete().catch(() => null)
 			}, 10_000)
 		} else if (!interaction.replied) await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
 		else await interaction.followUp({ embeds: [embed], ephemeral: !error.stack, components: [] })

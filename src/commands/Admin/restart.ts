@@ -1,5 +1,4 @@
 import process from "node:process"
-import { setTimeout } from "node:timers/promises"
 import { MessageEmbed } from "discord.js"
 import { colors, ids } from "../../config.json"
 import { generateTip, restart } from "../../lib/util"
@@ -14,13 +13,13 @@ const command: Command = {
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return
 		const member = interaction.member,
-			embed = new MessageEmbed()
-				.setColor(colors.success)
-				.setAuthor("Restart")
-				.setTitle("Restarting...")
-				.setFooter(generateTip(), member.displayAvatarURL({ format: "png", dynamic: true }))
+			embed = new MessageEmbed({
+				color: colors.success,
+				author: { name: "Restart" },
+				title: "Restarting...",
+				footer: { text: generateTip(), iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+			})
 		await interaction.reply({ embeds: [embed] })
-		await setTimeout(1000)
 		if (process.env.NODE_ENV === "production") await restart(interaction)
 		else process.exit()
 	}
