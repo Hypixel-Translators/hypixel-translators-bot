@@ -29,7 +29,7 @@ const command: Command = {
 		const lang = interaction.options.getString("code", true),
 			langdbEntry = (await db.collection<LangDbEntry>("langdb").findOne({ code: lang }))!,
 			member = interaction.member
-		let { country, emoji } = getLanguage(langdbEntry.id)!
+		let { country, flag: { emoji } } = getLanguage(langdbEntry.id)!
 		if (langdbEntry) {
 			emoji = langdbEntry.emoji
 		}

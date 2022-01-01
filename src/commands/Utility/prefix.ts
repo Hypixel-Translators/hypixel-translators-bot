@@ -44,7 +44,7 @@ const command: Command = {
 				else if (emoji.toLowerCase() === "enpt" || emoji.toLowerCase() === "pirate") flagEmojis.push("☠")
 				else if (emoji.toLowerCase() === "ib" || emoji.toLowerCase() === "banana") flagEmojis.push("🍌")
 				else if (emoji.toLowerCase() === "bc" || emoji.toLowerCase() === "biscuitish") flagEmojis.push("🍪")
-				else flagEmojis.push(getEmoji(emoji))
+				else flagEmojis.push(getEmoji(emoji)!)
 			})
 			if (!flagEmojis.length || flagEmojis.includes(null)) throw "falseFlag"
 
