@@ -1,6 +1,7 @@
 import { readdirSync } from "node:fs"
 import process from "node:process"
-import { setTimeout } from "node:timers/promises"
+//Cannot use promisified setTimeout here
+import { setTimeout } from "node:timers"
 import { Collection, GuildChannel, Message, MessageEmbed, TextChannel } from "discord.js"
 import { client } from "../index"
 import { colors, ids } from "../config.json"
@@ -83,8 +84,7 @@ client.on("interactionCreate", async interaction => {
 	//Set cooldown if not administrator
 	if (!member?.permissions.has("MANAGE_ROLES")) {
 		timestamps.set(interaction.user.id, now)
-		await setTimeout(cooldownAmount)
-		timestamps.delete(interaction.user.id)
+		setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount)
 	}
 
 	/**
@@ -192,8 +192,9 @@ client.on("interactionCreate", async interaction => {
 		//Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first
 		if (interaction.deferred) {
 			const errorMsg = await interaction.editReply({ embeds: [embed], components: [] }) as Message
-			await setTimeout(10_000)
-			if (!errorMsg.deleted && !interaction.ephemeral) await errorMsg.delete()
+			setTimeout(() => {
+				if (!errorMsg.deleted && !interaction.ephemeral) await errorMsg.delete()
+			}, 10_000)
 		} else if (!interaction.replied) await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
 		else await interaction.followUp({ embeds: [embed], ephemeral: !error.stack, components: [] })
 			.catch(async err => {
