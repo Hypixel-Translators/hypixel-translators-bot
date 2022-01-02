@@ -1,60 +1,60 @@
 name: Bug report
 description: Create a report to help us improve
-labels: 'Bug'
+labels: "Bug"
 assignees: ImRodry
-body: 
-  - type: markdown
-    attributes:
-      value: |
-        Test the bot at https://discord.gg/rcT948A
-  - type: textarea
-    id: description
-    attributes:
-      label: Issue Description
-      description: |
-        Describe the issue in as much detail as possible.
-        
-        Tip: You can attach images or log files by clicking this area and then dragging files into it.
-      placeholder: |
-        Issue: 
-        Steps to reproduce the issue:
-        1. do this
-        2. do that
-        3. observe this result
-    validations:
-      required: true
-  - type: input
-    id: expected
-    attributes:
-      label: Expected result
-      description: |
-        What result did you expect to see when you followed the steps above?
-    validations:
-      required: true
-  - type: input
-    id: actual
-    attributes:
-      label: Actual result
-      description: |
-        A clear and concise description of what actually happened when you reproduced the steps above.
-    validations:
-      required: true
-  - type: textarea
-    id: roles
-    attributes:
-      label: Your roles on the server
-      description: |
-        List all the roles you have on the server. You can also attach a screenshot of the roles you have.
-        
-        Tip: You can attach images or log files by clicking this area and then dragging files into it.
-      placeholder: |
-        - Hypixel Translator
-        - Portuguese Translator
-    validations:
-      required: true
-  - type: textarea
-    id: extra
-    attributes:
-      label: Additional context
-      description: |
-        Add any other information about the problem here.
+body:
+    - type: markdown
+      attributes:
+          value: |
+              Test the bot at https://discord.gg/rcT948A
+    - type: textarea
+      id: description
+      attributes:
+          label: Issue Description
+          description: |
+              Describe the issue in as much detail as possible.
+
+              Tip: You can attach images or log files by clicking this area and then dragging files into it.
+          placeholder: |
+              Issue:
+              Steps to reproduce the issue:
+              1. do this
+              2. do that
+              3. observe this result
+      validations:
+          required: true
+    - type: input
+      id: expected
+      attributes:
+          label: Expected result
+          description: |
+              What result did you expect to see when you followed the steps above?
+      validations:
+          required: true
+    - type: input
+      id: actual
+      attributes:
+          label: Actual result
+          description: |
+              A clear and concise description of what actually happened when you reproduced the steps above.
+      validations:
+          required: true
+    - type: textarea
+      id: roles
+      attributes:
+          label: Your roles on the server
+          description: |
+              List all the roles you have on the server. You can also attach a screenshot of the roles you have.
+
+              Tip: You can attach images or log files by clicking this area and then dragging files into it.
+          placeholder: |
+              - Hypixel Translator
+              - Portuguese Translator
+      validations:
+          required: true
+    - type: textarea
+      id: extra
+      attributes:
+          label: Additional context
+          description: |
+              Add any other information about the problem here.
