@@ -57,15 +57,11 @@ const command: Command = {
 		})
 		const overwrites = [
 			{
-				id: interaction.guild!.roles.everyone.id,
+				id: interaction.guild!.id,
 				deny: ["VIEW_CHANNEL", "CONNECT"]
 			},
 			{
-				id: interaction.guild!.roles.cache.find(role => role.name === "Muted")!.id,
-				deny: ["SEND_MESSAGES", "ADD_REACTIONS", "SPEAK"]
-			},
-			{
-				id: interaction.guild!.roles.cache.find(role => role.name === "Bot")!.id,
+				id: ids.roles.bot,
 				allow: ["VIEW_CHANNEL", "SEND_MESSAGES", "CONNECT", "SPEAK"]
 			},
 			{
