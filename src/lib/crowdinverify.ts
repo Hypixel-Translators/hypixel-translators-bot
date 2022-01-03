@@ -375,7 +375,7 @@ async function updateLanguageRoles(
 		if (role.name.includes("Translator") || role.name.includes("Proofreader")) addedRoles.push(role.name)
 	})
 
-	activeRoles.filter(pj => !addedRoles.includes(pj)).map(r => member.guild.roles.cache.find(role => role.name === r))
+	activeRoles = activeRoles.filter(pj => !addedRoles.includes(pj)).map(r => member.guild.roles.cache.find(role => role.name === r)!.id)
 	await member.roles.add(activeRoles, "User has received this role on Crowdin")
 
 	addedRoles
