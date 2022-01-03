@@ -30,7 +30,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^16.11.17",
-		"@types/node-cron": "^3.0.0",
+		"@types/node-cron": "^3.0.1",
 		"@types/uuid": "^8.3.3",
 		"dotenv": "^10.0.0",
 		"rimraf": "^3.0.2"
