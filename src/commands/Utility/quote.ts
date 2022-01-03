@@ -1,7 +1,7 @@
 import { CommandInteraction, GuildMember, MessageEmbed, TextChannel } from "discord.js"
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { generateTip, Quote } from "../../lib/util"
+import { generateTip, getUserMention, Quote } from "../../lib/util"
 
 import type { Collection } from "mongodb"
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -155,16 +155,7 @@ async function findQuote(randomTip: string, interaction: CommandInteraction, get
 		return await interaction.reply({ embeds: [embed], ephemeral: true })
 	}
 	console.log(`Quote with ID ${quoteId} was requested`)
-	const author = await Promise.all(
-			quote.author.map(
-				a =>
-					interaction.guild!.members.cache.get(a)?.toString() ??
-					interaction.client.users
-						.fetch(a)
-						.then(u => u.tag)
-						.catch(() => "Deleted User#0000")
-			)
-		),
+	const author = await Promise.all(quote.author.map(id => getUserMention(id, interaction.guild!))),
 		embed = new MessageEmbed({
 			color: colors.success,
 			author: { name: getString("moduleName") },
@@ -267,16 +258,7 @@ async function editQuote(interaction: CommandInteraction, collection: Collection
 	if (!quoteId) throw "noQuote"
 	const result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { quote: newQuote } })
 	if (result.value) {
-		const author = await Promise.all(
-			result.value.author.map(
-				a =>
-					interaction.guild!.members.cache.get(a)?.toString() ??
-					interaction.client.users
-						.fetch(a)
-						.then(u => u.tag)
-						.catch(() => "Deleted User#0000")
-			)
-		),
+		const author = await Promise.all(result.value.author.map(id => getUserMention(id, interaction.guild!))),
 			embed = new MessageEmbed({
 				color: colors.success,
 				author: { name: "Quote" },
@@ -314,14 +296,7 @@ async function deleteQuote(interaction: CommandInteraction, collection: Collecti
 	const result = await collection.findOneAndDelete({ id: quoteId })
 	if (result.value) {
 		const author = await Promise.all(
-			result.value.author.map(
-				a =>
-					interaction.guild!.members.cache.get(a)?.toString() ??
-					interaction.client.users
-						.fetch(a)
-						.then(u => u.tag)
-						.catch(() => "Deleted User#0000")
-			)
+			result.value.author.map(id => getUserMention(id, interaction.guild!))
 		)
 		await collection.updateMany({ id: { $gt: quoteId } }, { $inc: { id: -1 } })
 		const embed = new MessageEmbed({
@@ -379,14 +354,7 @@ async function linkQuote(interaction: CommandInteraction, collection: Collection
 	else result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } })
 	if (result.value) {
 		const author = await Promise.all(
-			result.value.author.map(
-				a =>
-					interaction.guild!.members.cache.get(a)?.toString() ??
-					interaction.client.users
-						.fetch(a)
-						.then(u => u.tag)
-						.catch(() => "Deleted User#0000")
-			)
+			result.value.author.map(id => getUserMention(id, interaction.guild!))
 		),
 			embed = new MessageEmbed({
 				color: colors.success,

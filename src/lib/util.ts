@@ -3,7 +3,7 @@ import { readdirSync } from "node:fs"
 import process from "node:process"
 import { setInterval } from "node:timers"
 import axios from "axios"
-import { Client, CommandInteraction, GuildMember, MessageActionRow, MessageButton, MessageEmbed, NewsChannel, Role, Snowflake, TextChannel, User } from "discord.js"
+import { Client, CommandInteraction, Guild, GuildMember, MessageActionRow, MessageButton, MessageEmbed, NewsChannel, Role, Snowflake, TextChannel, User } from "discord.js"
 import puppeteer from "puppeteer"
 import { v4 } from "uuid"
 import { db } from "./dbclient"
@@ -183,6 +183,14 @@ export async function getMCProfile(uuid: string) {
 	return await axios.get<MinecraftProfile>(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings)
 		.then(json => json.data)
 		.catch(() => null)
+}
+
+export async function getUserMention(id: Snowflake, guild: Guild) {
+	return guild.members.cache.get(id)?.toString() ??
+		guild.client.users
+			.fetch(id)
+			.then(u => u.tag)
+			.catch(() => "Deleted User#0000")
 }
 
 export async function getUUID(username: string): Promise<string | undefined> {

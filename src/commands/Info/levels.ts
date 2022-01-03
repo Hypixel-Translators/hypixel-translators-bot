@@ -2,7 +2,7 @@ import { CommandInteraction, GuildMember, Message, MessageActionRow, MessageButt
 import { client } from "../../index"
 import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
-import { generateTip, parseToNumberString, updateButtonColors } from "../../lib/util"
+import { generateTip, getUserMention, parseToNumberString, updateButtonColors } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -135,13 +135,13 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 					level: pages[page][i].levels!.level,
 					xp: formattedXp
 				}),
-				`<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
+				`${getUserMention(pages[page][i].id, interaction.guild!)}${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
 				true
 			)
 		} else
 			pageEmbed.addField(
 				getString("unranked", { rank: i + 1 + page * 24 }),
-				`<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
+				`${getUserMention(pages[page][i].id, interaction.guild!)}${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
 				true
 			)
 	}
