@@ -50,10 +50,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-4.2.0.tgz#667bfc6186ae7c9e0b45a08960c551437176e1ca"
   integrity sha512-VkE3KLBmJwcCaVARtQpfuKcKv8gcBmUubrfHGF84dXuuW6jgsRYxPtzcIhPyK9WAPpRt2/xY6zkD9MnRaJzSyw==
 
-"@types/node-cron@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@types/node-cron/-/node-cron-3.0.0.tgz#f946cefb5c05c64f460090f6be97bd50460c8898"
-  integrity sha512-RNBIyVwa/1v2r8/SqK8tadH2sJlFRAo5Ghac/cOcCv4Kp94m0I03UmAh9WVhCqS9ZdB84dF3x47p9aTw8E4c4A==
+"@types/node-cron@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@types/node-cron/-/node-cron-3.0.1.tgz#e01a874d4c2aa1a02ebc64cfd1cd8ebdbad7a996"
+  integrity sha512-BkMHHonDT8NJUE/pQ3kr5v2GLDKm5or9btLBoBx4F2MB2cuqYC748LYMDC55VlrLI5qZZv+Qgc3m4P3dBPcmeg==
 
 "@types/node-fetch@^2.5.12":
   version "2.5.12"
