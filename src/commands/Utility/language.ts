@@ -2,7 +2,7 @@ import { access, constants, readdir, readdirSync } from "node:fs"
 import { GuildMember, MessageEmbed } from "discord.js"
 import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
-import { generateTip, LangDbEntry } from "../../lib/util"
+import { generateTip, MongoLanguage } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -93,9 +93,9 @@ const command: Command = {
 			await interaction.reply({ embeds: [embed] })
 		} else if (subCommand === "set" && language) {
 			if (language === "se") language = "sv"
-			const langdb = await db.collection<LangDbEntry>("langdb").find().toArray(),
-				langdbEntry = langdb.find(l => l.name.toLowerCase() === language)
-			if (langdbEntry) language = langdbEntry.code
+			const languages = await db.collection<MongoLanguage>("languages").find().toArray(),
+				mongoLanguage = languages.find(l => l.name.toLowerCase() === language)
+			if (mongoLanguage) language = mongoLanguage.code
 			if (language === "empty" && !member?.roles.cache.has(ids.roles.admin)) language = "denied"
 			access(`./strings/${language}/language.json`, constants.F_OK, async err => {
 				if (!err) {

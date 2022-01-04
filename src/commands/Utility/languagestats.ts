@@ -2,7 +2,7 @@ import { MessageEmbed } from "discord.js"
 import { client, crowdin } from "../../index"
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { generateTip, LangDbEntry } from "../../lib/util"
+import { generateTip, MongoLanguage } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -27,9 +27,10 @@ const command: Command = {
 		let rawLang = interaction.options.getString("language", false)?.toLowerCase()
 		if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !rawLang) rawLang = authorDb.lang
 		if (!rawLang) throw "noLang"
-		const langdb = await db.collection<LangDbEntry>("langdb").find().toArray()
-		let lang = langdb.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)!
-		lang ??= langdb.find(l => l.name.toLowerCase().includes(rawLang!))!
+		const languages = await db.collection<MongoLanguage>("languages").find().toArray()
+		let lang =
+			languages.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)! ??
+			languages.find(l => l.name.toLowerCase().includes(rawLang!))!
 		if (!lang || lang.code === "en") throw "falseLang"
 
 		const hypixelData = await (crowdin.translationStatusApi.getProjectProgress(128098, 500)).then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null)

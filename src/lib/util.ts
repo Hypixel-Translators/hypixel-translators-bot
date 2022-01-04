@@ -486,7 +486,7 @@ interface HolidayStrings {
 	newYear: string
 }
 
-export interface LangDbEntry {
+export interface MongoLanguage {
 	name: string
 	emoji: string
 	color?: number
@@ -497,7 +497,7 @@ export interface LangDbEntry {
 }
 
 export interface LanguageStatus extends ResponseObject<TranslationStatusModel.LanguageProgress> {
-	language: LangDbEntry
+	language: MongoLanguage
 }
 
 interface MinecraftProfile {

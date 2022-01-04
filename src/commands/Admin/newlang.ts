@@ -3,7 +3,7 @@ import { getLanguage } from "language-flag-colors"
 import { crowdin } from "../../index"
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { generateTip, LangDbEntry } from "../../lib/util"
+import { generateTip, MongoLanguage } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
 
@@ -21,10 +21,10 @@ const command: Command = {
 		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply()
 		const lang = interaction.options.getString("code", true),
-			langdbEntry = (await db.collection<LangDbEntry>("langdb").findOne({ code: lang }))!,
-			member = interaction.member
-		const { country, flag: { emoji, primaryColor: { hex: color } } } = getLanguage(langdbEntry.id)!,
-			{ data: language } = await crowdin.languagesApi.getLanguage(langdbEntry.id),
+			{ ids: { osxLocale: id }, country, flag: { emoji, primaryColor: { hex: color } } } = getLanguage(lang)!,
+			mongoLanguage = (await db.collection<MongoLanguage>("languages").findOne({ code: id })),
+			member = interaction.member,
+			{ data: language } = await crowdin.languagesApi.getLanguage(id),
 			translatorRole = await interaction.guild!.roles.create({
 				name: `${language.name} Translator`,
 				color,
@@ -32,7 +32,7 @@ const command: Command = {
 				position: 22,
 				permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
 				mentionable: false,
-				unicodeEmoji: langdbEntry?.emoji ?? null,
+				unicodeEmoji: mongoLanguage?.emoji ?? null,
 				reason: `Added language ${language.name}`
 			}),
 			proofreaderRole = await interaction.guild!.roles.create({
@@ -42,7 +42,7 @@ const command: Command = {
 				position: 49,
 				permissions: ["VIEW_CHANNEL", "CHANGE_NICKNAME", "SEND_MESSAGES", "ADD_REACTIONS", "USE_EXTERNAL_EMOJIS", "READ_MESSAGE_HISTORY", "CONNECT", "SPEAK", "STREAM", "USE_VAD"],
 				mentionable: false,
-				unicodeEmoji: langdbEntry?.emoji ?? null,
+				unicodeEmoji: mongoLanguage?.emoji ?? null,
 				reason: `Added language ${language.name}`
 			}),
 			overwrites: OverwriteResolvable[] = [

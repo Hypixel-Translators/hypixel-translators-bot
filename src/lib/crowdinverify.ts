@@ -1,7 +1,7 @@
 import { setTimeout } from "node:timers/promises"
 import { GuildMember, MessageEmbed, Role, TextChannel } from "discord.js"
 import { db, DbUser } from "./dbclient"
-import { closeConnection, getBrowser, LangDbEntry, Stats } from "./util"
+import { closeConnection, getBrowser, MongoLanguage, Stats } from "./util"
 import { client } from "../index"
 import { colors, ids } from "../config.json"
 
@@ -34,7 +34,7 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 			author: { name: "Received message from staff" },
 			footer: { text: "Any messages you send here will be sent to staff upon confirmation." }
 		}),
-		langDb = db.collection<LangDbEntry>("langdb"),
+		languages = db.collection<MongoLanguage>("languages"),
 		usersColl = db.collection<DbUser>("users"),
 		statsColl = db.collection<Stats>("stats"),
 		verifyType = sendDms ? "SELF" : sendLogs ? "STAFF" : "AUTO"
@@ -251,7 +251,7 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 	}
 
 	for (const [key, value] of Object.entries(highestLangRoles)) {
-		const lang = (await langDb.findOne({ id: key }))!.name
+		const lang = (await languages.findOne({ id: key }))!.name
 		value.projects.forEach(p => {
 			const role = member.guild!.roles.cache.find(r => r.name === `${lang} ${value.type}`)!
 			endingMessageProjects[p].push(role)
@@ -276,7 +276,7 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 	if (sendDms) {
 		const highestRole = Object.assign({}, endingMessageProjects).Hypixel?.filter(r => r.color).sort((a, b) => b.position - a.position).shift()
 		if (highestRole) {
-			const lang = await langDb.findOne({ name: highestRole.name.replace(" Translator", "").replace(" Proofreader", "") })
+			const lang = await languages.findOne({ name: highestRole.name.replace(" Translator", "").replace(" Proofreader", "") })
 			if (lang) await usersColl.updateOne({ id: member.id, lang: { $eq: "en" } }, { $set: { lang: lang.code } })
 		}
 	}
@@ -366,9 +366,9 @@ async function updateLanguageRoles(
 	const activeRoles: string[] = [],
 		addedRoles: string[] = []
 
-	const langDb = db.collection<LangDbEntry>("langdb")
+	const languages = db.collection<MongoLanguage>("languages")
 	for (const [key, value] of Object.entries(highestLangRoles)) {
-		activeRoles.push(`${(await langDb.findOne({ id: key }))!.name} ${value.type}`)
+		activeRoles.push(`${(await languages.findOne({ id: key }))!.name} ${value.type}`)
 	}
 
 	member.roles.cache.forEach(role => {

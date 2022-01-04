@@ -3,13 +3,13 @@ import { ids } from "../config.json"
 import { db } from "../lib/dbclient"
 
 import type { AutocompleteInteraction, GuildMember } from "discord.js"
-import type { LangDbEntry, PunishmentLog, Quote } from "../lib/util"
+import type { MongoLanguage, PunishmentLog, Quote } from "../lib/util"
 
 export default async function handleAutocompleteInteractions(interaction: AutocompleteInteraction) {
     const { name, value } = interaction.options.getFocused(true)
     if (name === "language" && typeof value === "string") {
-        const languages = await db.collection<LangDbEntry>("langdb").find().toArray()
-        let results: LangDbEntry[] = [],
+        const languages = await db.collection<MongoLanguage>("languages").find().toArray()
+        let results: MongoLanguage[] = [],
             language = languages.find(
                 l =>
                     l.name.toLowerCase() === value.toLowerCase() ||

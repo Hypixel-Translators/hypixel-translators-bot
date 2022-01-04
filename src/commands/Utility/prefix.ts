@@ -3,7 +3,7 @@ import { MessageActionRow, MessageButton, MessageEmbed, TextChannel } from "disc
 import { client } from "../../index"
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { generateTip, LangDbEntry } from "../../lib/util"
+import { generateTip, MongoLanguage } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -32,7 +32,7 @@ const command: Command = {
 		if (!interaction.inCachedGuild()) return
 		const randomTip = generateTip(getString),
 			nickNoPrefix = interaction.member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim(),
-			langdb = await db.collection<LangDbEntry>("langdb").find().toArray()
+			languages = await db.collection<MongoLanguage>("languages").find().toArray()
 
 		if (
 			interaction.options.getString("flags", false) &&
@@ -190,15 +190,15 @@ const command: Command = {
 			})
 		} else {
 			await interaction.deferReply()
-			let userLangs: LangDbEntry[] = [],
+			let userLangs: MongoLanguage[] = [],
 				prefixes = ""
 
 			interaction.member.roles.cache.forEach(r => {
 				const roleName = r.name.split(" ")
 				roleName.splice(roleName.length - 1, 1)
 				const role = roleName.join(" "),
-					langdbEntry = langdb.find(l => l.name === role)
-				if (langdbEntry) userLangs.push(langdbEntry)
+					mongoLanguage = languages.find(l => l.name === role)
+				if (mongoLanguage) userLangs.push(mongoLanguage)
 			})
 			userLangs = userLangs.reverse()
 			const prefixButtons = userLangs.map(
@@ -335,7 +335,7 @@ const command: Command = {
 					})
 					await buttonInteraction.update({ embeds: [embed], components: rows })
 				} else {
-					const clickedEntry = langdb.find(entry => entry.code === buttonInteraction.customId)!
+					const clickedEntry = languages.find(entry => entry.code === buttonInteraction.customId)!
 					if (prefixes) prefixes = `${prefixes}-${clickedEntry.emoji}`
 					else prefixes = `${clickedEntry.emoji}`
 					components.find(button =>

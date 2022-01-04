@@ -3,7 +3,7 @@ import { db } from "../../lib/dbclient"
 
 import type { CategoryChannel } from "discord.js"
 import type { Command } from "../../lib/imports"
-import type { LangDbEntry } from "../../lib/util"
+import type { MongoLanguage } from "../../lib/util"
 
 const command: Command = {
     name: "review-strings",
@@ -20,14 +20,14 @@ const command: Command = {
         if (!interaction.inCachedGuild()) return
         await interaction.deferReply()
         const language = interaction.options.getString("language", true),
-            langDbEntry = await db.collection<LangDbEntry>("langdb").findOne({ code: language })
-        if (!langDbEntry) throw "Couldn't find the language you were looking for! Make sure to pass its code in the language option."
+            mongoLanguage = await db.collection<MongoLanguage>("languages").findOne({ code: language })
+        if (!mongoLanguage) throw "Couldn't find the language you were looking for! Make sure to pass its code in the language option."
 
-        const category = interaction.guild.channels.cache.find(c => c.name.endsWith(langDbEntry.emoji) && c.type === "GUILD_CATEGORY") as CategoryChannel,
-            pfRole = interaction.guild.roles.cache.find(r => r.name === `${langDbEntry.name} Proofreader`)!
+        const category = interaction.guild.channels.cache.find(c => c.name.endsWith(mongoLanguage.emoji) && c.type === "GUILD_CATEGORY") as CategoryChannel,
+            pfRole = interaction.guild.roles.cache.find(r => r.name === `${mongoLanguage.name} Proofreader`)!
         if (category.children.some(c => c.name.endsWith("-review-strings"))) throw "This language already has a review strings channel!"
 
-        const reviewStrings = await category.createChannel(`${langDbEntry.code}-review-strings`, {
+        const reviewStrings = await category.createChannel(`${mongoLanguage.code}-review-strings`, {
             reason: `Requested by ${interaction.user.tag}`
         })
         await reviewStrings.permissionOverwrites.edit(

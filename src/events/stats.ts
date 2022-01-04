@@ -2,7 +2,7 @@ import { MessageEmbed, NewsChannel, TextChannel } from "discord.js"
 import { client, crowdin } from "../index"
 import { colors, ids } from "../config.json"
 import { db } from "../lib/dbclient"
-import { closeConnection, CrowdinProject, getBrowser, LangDbEntry, LanguageStatus, Stats } from "../lib/util"
+import { closeConnection, CrowdinProject, getBrowser, MongoLanguage, LanguageStatus, Stats } from "../lib/util"
 
 export async function stats(manual = false) {
 	const m = new Date().getUTCMinutes()
@@ -23,20 +23,20 @@ export async function stats(manual = false) {
 
 export async function updateProjectStatus(projectId: number) {
 	if (projectId === 128098) checkBuild()
-	const langdb = await db.collection<LangDbEntry>("langdb").find().toArray(),
-		crowdinDb = db.collection<CrowdinProject>("crowdin"),
-		projectDb = (await crowdinDb.findOne({ id: projectId }))!,
+	const languages = await db.collection<MongoLanguage>("languages").find().toArray(),
+		projects = db.collection<CrowdinProject>("crowdin"),
+		mongoProject = (await projects.findOne({ id: projectId }))!,
 		json = await crowdin.translationStatusApi.getProjectProgress(projectId, 500)
-			.catch(err => console.error(`Crowdin API is down, couldn't update ${projectDb.name} language statistics. Here's the error:`, err))
+			.catch(err => console.error(`Crowdin API is down, couldn't update ${mongoProject.name} language statistics. Here's the error:`, err))
 	if (!json?.data) return console.error(`We got no data from the API when trying to update Hypixel! Here's the response:\n`, json)
 	const langStatus: LanguageStatus[] = json.data.map(status => {
-		Object.defineProperty(status, "language", { value: langdb.find(l => l.code === status.data.languageId || l.id === status.data.languageId)! })
+		Object.defineProperty(status, "language", { value: languages.find(l => l.code === status.data.languageId || l.id === status.data.languageId)! })
 		return status as LanguageStatus
 	}).sort((a: LanguageStatus, b: LanguageStatus) => b.data.phrases.total - a.data.phrases.total),
 		sortedSatus = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) =>
 			nextStatus.language.name.localeCompare(currentStatus.language.name)
 		)
-	const channel = client.channels.cache.find(channel => (channel as TextChannel).name === `${projectDb.shortName}-language-status`) as TextChannel,
+	const channel = client.channels.cache.find(channel => (channel as TextChannel).name === `${mongoProject.shortName}-language-status`) as TextChannel,
 		messages = await channel.messages.fetch(),
 		fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
 	let index = 0
@@ -45,7 +45,7 @@ export async function updateProjectStatus(projectId: number) {
 			crowdinData = fullData.data
 
 		let color: number
-		if (projectDb.identifier === "hypixel") color = fullData.language.color!
+		if (mongoProject.identifier === "hypixel") color = fullData.language.color!
 		else if (crowdinData.approvalProgress > 89) color = colors.success
 		else if (crowdinData.approvalProgress > 49) color = colors.loading
 		else color = colors.error
@@ -56,7 +56,7 @@ export async function updateProjectStatus(projectId: number) {
 			thumbnail: { url: fullData.language.flag },
 			description: `${crowdinData.translationProgress}% translated (${crowdinData.phrases.translated}/${crowdinData.phrases.total} strings)\n**${crowdinData.approvalProgress}% approved (${crowdinData.phrases.approved}/${crowdinData.phrases.total} strings)**`,
 			fields: [
-				{ name: "Translate at", value: `https://crowdin.com/project/${projectDb.identifier}/${fullData.language.id}` }
+				{ name: "Translate at", value: `https://crowdin.com/project/${mongoProject.identifier}/${fullData.language.id}` }
 			],
 			footer: { text: "Last update" },
 			timestamp: Date.now()
@@ -64,18 +64,18 @@ export async function updateProjectStatus(projectId: number) {
 		index++
 		await msg.edit({ content: null, embeds: [embed] })
 	})
-	const oldStringCount = projectDb.stringCount,
+	const oldStringCount = mongoProject.stringCount,
 		newStringCount = langStatus[0].data.phrases.total
 
 	if (oldStringCount != newStringCount) {
-		const updatesChannel = client.channels.cache.find(c => (c as NewsChannel).name == `${projectDb.shortName}-project-updates`) as NewsChannel,
+		const updatesChannel = client.channels.cache.find(c => (c as NewsChannel).name == `${mongoProject.shortName}-project-updates`) as NewsChannel,
 			stringDiff = Math.abs(newStringCount - oldStringCount)
 		if (oldStringCount < newStringCount) {
 			const embed = new MessageEmbed({
 				color: colors.success,
 				author: { name: "New strings!" },
-				title: `${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the ${projectDb.name} project.`,
-				description: `Translate at <https://crowdin.com/translate/${projectDb.identifier}/all/en>`,
+				title: `${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been added to the ${mongoProject.name} project.`,
+				description: `Translate at <https://crowdin.com/translate/${mongoProject.identifier}/all/en>`,
 				footer: { text: `There are now ${newStringCount} strings on the project.` },
 			})
 			await updatesChannel.send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}> New strings!` })
@@ -83,13 +83,13 @@ export async function updateProjectStatus(projectId: number) {
 			const embed = new MessageEmbed({
 				color: colors.error,
 				author: { name: "Removed strings!" },
-				title: `${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${projectDb.name} project.`,
+				title: `${stringDiff} ${stringDiff == 1 ? "string has" : "strings have"} been removed from the ${mongoProject.name} project.`,
 				footer: { text: `There are now ${newStringCount} strings on the project.` },
 			})
 			await updatesChannel.send({ embeds: [embed] })
 		}
-		await crowdinDb.updateOne({ id: projectDb.id }, { $set: { stringCount: newStringCount } })
-		await db.collection<Stats>("stats").insertOne({ type: "STRINGS", name: projectDb.identifier, value: stringDiff })
+		await projects.updateOne({ id: mongoProject.id }, { $set: { stringCount: newStringCount } })
+		await db.collection<Stats>("stats").insertOne({ type: "STRINGS", name: mongoProject.identifier, value: stringDiff })
 	}
 }
 
