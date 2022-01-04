@@ -363,8 +363,8 @@ async function updateLanguageRoles(
 	},
 	member: GuildMember
 ) {
-	let activeRoles: string[] = []
-	const addedRoles: string[] = []
+	const activeRoles: string[] = [],
+		addedRoles: string[] = []
 
 	const langDb = db.collection<LangDbEntry>("langdb")
 	for (const [key, value] of Object.entries(highestLangRoles)) {
@@ -375,8 +375,11 @@ async function updateLanguageRoles(
 		if (role.name.includes("Translator") || role.name.includes("Proofreader")) addedRoles.push(role.name)
 	})
 
-	activeRoles = activeRoles.filter(pj => !addedRoles.includes(pj)).map(r => member.guild.roles.cache.find(role => role.name === r)!.id)
-	await member.roles.add(activeRoles, "User has received this role on Crowdin")
+	activeRoles
+		.filter(pj => !addedRoles.includes(pj))
+		.forEach(async p =>
+			await member.roles.add(member.guild.roles.cache.find(r => r.name === p)!.id, "User has received this role on Crowdin")
+		)
 
 	addedRoles
 		.filter(r => !activeRoles.includes(r))
