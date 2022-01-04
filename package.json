@@ -29,7 +29,7 @@
 		"node": "16.x"
 	},
 	"devDependencies": {
-		"@types/node": "^16.11.17",
+		"@types/node": "^16.11.18",
 		"@types/node-cron": "^3.0.1",
 		"@types/uuid": "^8.3.3",
 		"dotenv": "^10.0.0",
