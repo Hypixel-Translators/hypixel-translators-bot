@@ -90,7 +90,7 @@ const command: Command = {
 					{ name: "Error", value: discord.Formatters.codeBlock((error.stack ?? inspect(error)).substring(0, 1017)) },
 
 					{ name: "Error Type", value: error.name, inline: true },
-					{ name: "Error length", value: `${error.stack.length}`, inline: true },
+					{ name: "Error length", value: `${(error.stack ?? inspect(error)).length}`, inline: true },
 					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
 				],
 				footer: { text: generateTip(), iconURL: me.displayAvatarURL({ format: "png", dynamic: true }) }
