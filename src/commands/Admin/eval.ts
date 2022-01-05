@@ -87,7 +87,7 @@ const command: Command = {
 				fields: [
 					{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun.substring(0, 1015)) },
 					{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
-					{ name: "Error", value: discord.Formatters.codeBlock(error.stack.substring(0, 1017)) },
+					{ name: "Error", value: discord.Formatters.codeBlock((error.stack ?? inspect(error)).substring(0, 1017)) },
 
 					{ name: "Error Type", value: error.name, inline: true },
 					{ name: "Error length", value: `${error.stack.length}`, inline: true },
