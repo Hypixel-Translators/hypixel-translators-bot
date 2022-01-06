@@ -89,7 +89,7 @@ const command: Command = {
 					{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
 					{ name: "Error", value: discord.Formatters.codeBlock((error.stack ?? inspect(error)).substring(0, 1017)) },
 
-					{ name: "Error Type", value: error.name, inline: true },
+					{ name: "Error Type", value: error.name ?? "Custom", inline: true },
 					{ name: "Error length", value: `${(error.stack ?? inspect(error)).length}`, inline: true },
 					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
 				],
