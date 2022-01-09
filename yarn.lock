@@ -95,6 +95,11 @@
   resolved "https://registry.yarnpkg.com/@sapphire/async-queue/-/async-queue-1.1.9.tgz#ce69611c8753c4affd905a7ef43061c7eb95c01b"
   integrity sha512-CbXaGwwlEMq+l1TRu01FJCvySJ1CEFKFclHT48nIfNeZXaAAmmwwy7scUKmYHPUa3GhoMp6Qr1B3eAJux6XgOQ==
 
+"@sapphire/snowflake@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/snowflake/-/snowflake-3.0.0.tgz#ff64900d69e3a687fdbb9023be91b1092cc7cc1b"
+  integrity sha512-YVYXvpWe8fVs2P9mvvsMXByXCcSPcsgUhuKwA+SSlJk1VO7EW1vWjlgGozGj0tPOhsuaeAj1EjPbkCmNKiSRLA==
+
 "@sindresorhus/is@^4.2.0":
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-4.2.1.tgz#b88b5724283db80b507cd612caee9a1947412a20"
@@ -577,22 +582,23 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
-discord-api-types@^0.26.0:
+discord-api-types@^0.26.0, discord-api-types@^0.26.1:
   version "0.26.1"
   resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.26.1.tgz#726f766ddc37d60da95740991d22cb6ef2ed787b"
   integrity sha512-T5PdMQ+Y1MEECYMV5wmyi9VEYPagEDEi4S0amgsszpWY0VB9JJ/hEvM6BgLhbdnKky4gfmZEXtEEtojN8ZKJQQ==
 
-discord.js@^13.5.0:
-  version "13.5.0"
-  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-13.5.0.tgz#f9ca9e629f2de0fb138e8c916fa93e40d70631f5"
-  integrity sha512-K+ZcB0f+wA1ZzDhz3hlaAi4Ap7jSvVEUZ+U29T4DMoiNNUv22F4vu1byrOq8GyyLLDFiZ3iSudea0MvSHu3fQA==
+discord.js@^14.0.0-dev.1641681176.e07c374:
+  version "14.0.0-dev.1641681176.e07c374"
+  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-14.0.0-dev.1641681176.e07c374.tgz#dade8cd334894e2a4265df721817dfb93cbee77a"
+  integrity sha512-XrMXaOipCMSQinccmqObTyagVsArLo2sKUeVKcxKWxuSLvGKj9//R7e9R4Y2wuwrJgyI8nH5ndFlJgyh++Ty0Q==
   dependencies:
     "@discordjs/builders" "^0.11.0"
     "@discordjs/collection" "^0.4.0"
     "@sapphire/async-queue" "^1.1.9"
+    "@sapphire/snowflake" "^3.0.0"
     "@types/node-fetch" "^2.5.12"
     "@types/ws" "^8.2.2"
-    discord-api-types "^0.26.0"
+    discord-api-types "^0.26.1"
     form-data "^4.0.0"
     node-fetch "^2.6.1"
     ws "^8.4.0"

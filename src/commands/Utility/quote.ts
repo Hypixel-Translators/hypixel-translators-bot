@@ -1,4 +1,4 @@
-import { CommandInteraction, GuildMember, MessageEmbed, TextChannel } from "discord.js"
+import { ChatInputCommandInteraction, GuildMember, MessageEmbed, TextChannel } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
@@ -135,7 +135,7 @@ const command: Command = {
 	},
 }
 
-async function findQuote(randomTip: string, interaction: CommandInteraction, getString: GetStringFunction, collection: Collection<Quote>) {
+async function findQuote(randomTip: string, interaction: ChatInputCommandInteraction, getString: GetStringFunction, collection: Collection<Quote>) {
 	const count = await collection.estimatedDocumentCount()
 
 	let quoteId = interaction.options.getInteger("index", false)
@@ -181,7 +181,7 @@ async function findQuote(randomTip: string, interaction: CommandInteraction, get
 	return await interaction.reply({ embeds: [embed] })
 }
 
-async function addQuote(interaction: CommandInteraction, collection: Collection<Quote>) {
+async function addQuote(interaction: ChatInputCommandInteraction, collection: Collection<Quote>) {
 	const quoteId = (await collection.estimatedDocumentCount()) + 1,
 		quote = interaction.options.getString("quote", true),
 		author = interaction.options.getUser("author", true),
@@ -262,7 +262,7 @@ async function addQuote(interaction: CommandInteraction, collection: Collection<
 	}
 }
 
-async function editQuote(interaction: CommandInteraction, collection: Collection<Quote>) {
+async function editQuote(interaction: ChatInputCommandInteraction, collection: Collection<Quote>) {
 	const quoteId = interaction.options.getInteger("index", true),
 		newQuote = interaction.options.getString("quote", true)
 	if (!quoteId) throw "noQuote"
@@ -309,7 +309,7 @@ async function editQuote(interaction: CommandInteraction, collection: Collection
 	}
 }
 
-async function deleteQuote(interaction: CommandInteraction, collection: Collection<Quote>) {
+async function deleteQuote(interaction: ChatInputCommandInteraction, collection: Collection<Quote>) {
 	const quoteId = interaction.options.getInteger("index", true)
 	if (quoteId <= 0) throw "noQuote"
 	const result = await collection.findOneAndDelete({ id: quoteId })
@@ -355,7 +355,7 @@ async function deleteQuote(interaction: CommandInteraction, collection: Collecti
 	}
 }
 
-async function linkQuote(interaction: CommandInteraction, collection: Collection<Quote>) {
+async function linkQuote(interaction: ChatInputCommandInteraction, collection: Collection<Quote>) {
 	const quoteId = interaction.options.getInteger("index", true),
 		urlSplit = interaction.options.getString("url", true).split("/"),
 		linkAttch = interaction.options.getBoolean("attachment", false),

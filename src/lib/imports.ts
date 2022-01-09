@@ -2,7 +2,7 @@ import { readdirSync, statSync } from "node:fs"
 import { resolve, sep } from "node:path"
 
 import type { HTBClient } from "./dbclient"
-import type { ChatInputApplicationCommandData, Snowflake, CommandInteraction } from "discord.js"
+import type { ChatInputApplicationCommandData, Snowflake, ChatInputCommandInteraction } from "discord.js"
 
 export function findCommands(dir: string, pattern: string) {
 	let results: string[] = []
@@ -50,7 +50,7 @@ export interface Command extends ChatInputApplicationCommandData {
 	categoryWhitelist?: Snowflake[]
 	categoryBlacklist?: Snowflake[]
 	category?: Category
-	execute(interaction: CommandInteraction, getString?: GetStringFunction): Promise<void>
+	execute(interaction: ChatInputCommandInteraction, getString?: GetStringFunction): Promise<void>
 }
 
 export type Category = "Admin" | "Staff" | "Utility" | "Info"

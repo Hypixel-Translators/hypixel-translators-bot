@@ -5,7 +5,7 @@ import { setInterval } from "node:timers"
 
 import axios from "axios"
 import {
-	CommandInteraction,
+	ChatInputCommandInteraction,
 	GuildMember,
 	MessageActionRow,
 	MessageButton,
@@ -231,7 +231,7 @@ export function parseToNumberString(num: number, getString: GetStringFunction): 
 	return `${num}`
 }
 
-export async function restart(interaction?: CommandInteraction) {
+export async function restart(interaction?: ChatInputCommandInteraction) {
 	await axios.delete("https://api.heroku.com/apps/hypixel-translators/dynos", {
 		headers: {
 			"User-Agent": `${interaction?.user.tag ?? client.user.tag}`,

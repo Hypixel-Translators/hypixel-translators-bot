@@ -1,4 +1,4 @@
-import { CommandInteraction, MessageEmbed, TextChannel } from "discord.js"
+import { ChatInputCommandInteraction, MessageEmbed, TextChannel } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
@@ -75,7 +75,7 @@ const command: Command = {
 	},
 }
 
-async function info(interaction: CommandInteraction<"cached">) {
+async function info(interaction: ChatInputCommandInteraction<"cached">) {
 	const serverInfo = interaction.client.channels.cache.get(ids.channels.serverInfo) as TextChannel,
 		channelsMessage = await serverInfo.messages.fetch("800415708851732491"),
 		channelsEmbed = new MessageEmbed({
@@ -157,7 +157,7 @@ async function info(interaction: CommandInteraction<"cached">) {
 	await serverInfo.messages.edit("800415711864029204", { content: null, embeds: [rolesEmbed] })
 }
 
-async function rules(interaction: CommandInteraction<"cached">) {
+async function rules(interaction: ChatInputCommandInteraction<"cached">) {
 	const rulesEmbed = new MessageEmbed({
 		color: "BLURPLE",
 		title: "Server Rules",
@@ -212,7 +212,7 @@ async function rules(interaction: CommandInteraction<"cached">) {
 	await interaction.guild!.rulesChannel!.messages.edit("800412977220026398", { content: null, embeds: [rulesEmbed] })
 }
 
-async function verify(interaction: CommandInteraction<"cached">) {
+async function verify(interaction: ChatInputCommandInteraction<"cached">) {
 	const verifyEmbed = new MessageEmbed({
 		color: "BLURPLE",
 		author: { name: "Welcome!" },

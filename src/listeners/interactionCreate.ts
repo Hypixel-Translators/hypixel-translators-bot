@@ -25,7 +25,7 @@ client.on("interactionCreate", async interaction => {
 	if (interaction.isButton() && interaction.inCachedGuild()) return void (await handleButtonInteractions(interaction, getString))
 	else if (interaction.isAutocomplete()) return void (await handleAutocompleteInteractions(interaction))
 
-	if (!interaction.isCommand()) return
+	if (!interaction.isChatInputCommand()) return
 
 	command = client.commands.get(interaction.commandName)!
 

@@ -1,4 +1,4 @@
-import { CommandInteraction, GuildMember, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { ChatInputCommandInteraction, GuildMember, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
@@ -121,7 +121,7 @@ const command: Command = {
 	},
 }
 
-function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction, interaction: CommandInteraction) {
+function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction, interaction: ChatInputCommandInteraction) {
 	if (page > pages.length - 1) page = pages.length - 1
 	if (page < 0) page = 0
 	const pageEmbed = new MessageEmbed({

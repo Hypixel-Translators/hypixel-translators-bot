@@ -1,6 +1,6 @@
 import { readdirSync } from "node:fs"
 
-import { CommandInteraction, GuildMember, Message, MessageActionRow, MessageEmbed, MessageSelectMenu } from "discord.js"
+import { ChatInputCommandInteraction, GuildMember, Message, MessageActionRow, MessageEmbed, MessageSelectMenu } from "discord.js"
 
 import { ids } from "../../config.json"
 import { client } from "../../index"
@@ -155,7 +155,7 @@ const command: Command = {
 	},
 }
 
-function fetchPage(page: number, pages: Page[], getString: GetStringFunction, interaction: CommandInteraction) {
+function fetchPage(page: number, pages: Page[], getString: GetStringFunction, interaction: ChatInputCommandInteraction) {
 	if (page > pages.length - 1) page = pages.length - 1
 	if (page < 0) page = 0
 	let pageEmbed: MessageEmbed
