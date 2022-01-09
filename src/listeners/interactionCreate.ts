@@ -1,12 +1,14 @@
 import { readdirSync } from "node:fs"
 import process from "node:process"
-//Cannot use promisified setTimeout here
+// Cannot use promisified setTimeout here
 import { setTimeout } from "node:timers"
+
 import { Collection, Formatters, GuildChannel, Message, MessageEmbed, TextChannel } from "discord.js"
-import { client } from "../index"
+
 import { colors, ids } from "../config.json"
-import handleButtonInteractions from "../interactions/buttons"
+import { client } from "../index"
 import handleAutocompleteInteractions from "../interactions/autocomplete"
+import handleButtonInteractions from "../interactions/buttons"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import { arrayEqual, generateTip, Stats } from "../lib/util"
 
@@ -16,7 +18,7 @@ client.on("interactionCreate", async interaction => {
 	if (interaction.user.bot) return
 	let command: Command | null = null
 	const author: DbUser = await client.getUser(interaction.user.id),
-		member = interaction.client.guilds.cache.get(ids.guilds.main)?.members.cache.get(interaction.user.id)!,
+		member = interaction.client.guilds.cache.get(ids.guilds.main)!.members.cache.get(interaction.user.id)!,
 		randomTip = generateTip(getString),
 		statsColl = db.collection<Stats>("stats")
 
@@ -27,16 +29,16 @@ client.on("interactionCreate", async interaction => {
 
 	command = client.commands.get(interaction.commandName)!
 
-	//Log if command is ran in DMs
+	// Log if command is ran in DMs
 	if (interaction.channel?.type === "DM") console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
 
-	//Return if user is not verified
+	// Return if user is not verified
 	if (!member?.roles.cache.has(ids.roles.verified) && command.name !== "verify")
 		return void (await interaction.reply({ content: "You must be verified to do this!", ephemeral: true }))
 
 	let allowed = true
 
-	//Channel Blacklist and whitelist systems
+	// Channel Blacklist and whitelist systems
 	if (interaction.channel instanceof GuildChannel) {
 		if (command.categoryBlacklist && command.categoryBlacklist.includes(interaction.channel!.parentId!)) allowed = false
 		else if (command.channelBlacklist && command.channelBlacklist.includes(interaction.channelId)) allowed = false
@@ -44,7 +46,7 @@ client.on("interactionCreate", async interaction => {
 		else if (command.channelWhitelist && !command.channelWhitelist.includes(interaction.channelId)) allowed = false
 	}
 
-	//Give perm to admins and return if not allowed
+	// Give perm to admins and return if not allowed
 	if (member.roles.cache.has(ids.roles.admin)) allowed = true
 	if (!allowed) {
 		await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: "noAccess" })
@@ -52,7 +54,7 @@ client.on("interactionCreate", async interaction => {
 		return
 	}
 
-	//Cooldown system
+	// Cooldown system
 	if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Collection())
 	const now = Date.now(),
 		timestamps = client.cooldowns.get(command.name)!,
@@ -70,17 +72,17 @@ client.on("interactionCreate", async interaction => {
 						timeLeft >= 120 ? "minsLeftT" : timeLeft === 1 ? "secondLeft" : "timeLeftT",
 						{
 							time: timeLeft >= 120 ? Math.ceil(timeLeft / 60) : timeLeft,
-							command: `/${interaction.commandName}`
+							command: `/${interaction.commandName}`,
 						},
-						"global"
+						"global",
 					),
-					footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+					footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 			return await interaction.reply({ embeds: [embed], ephemeral: true })
 		}
 	}
 
-	//Set cooldown if not administrator
+	// Set cooldown if not administrator
 	if (!member?.permissions.has("MANAGE_ROLES")) {
 		timestamps.set(interaction.user.id, now)
 		setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount)
@@ -98,15 +100,16 @@ client.on("interactionCreate", async interaction => {
 		path: string,
 		variables?: { [key: string]: string | number } | string,
 		file = command?.name ?? "global",
-		lang = author.lang ?? "en"
+		lang = author.lang ?? "en",
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	): any {
 		if (typeof variables === "string") {
-			const languages = readdirSync("./strings")
-			lang = languages.includes(file) ? file : author.lang ?? "en"
+			lang = readdirSync("./strings").includes(file) ? file : author.lang ?? "en"
 			file = variables
 		}
 		let enStrings = require(`../../strings/en/${file}.json`)
-		let strings: any
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		let strings: Record<string, any>
 		try {
 			strings = require(`../../strings/${lang}/${file}.json`)
 		} catch {
@@ -121,25 +124,24 @@ client.on("interactionCreate", async interaction => {
 				else jsonElement = enStrings[pathPart]
 
 				if (typeof jsonElement === "object" && pathSplit.indexOf(pathPart) !== pathSplit.length - 1) {
-					//check if the string isn't an object nor the end of the path
+					// Check if the string isn't an object nor the end of the path
 					if (strings[pathPart]) strings = strings[pathPart]
 					enStrings = enStrings[pathPart]
-					return
 				} else {
 					string = strings[pathPart]
-					if (!string || (typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g)?.sort(), enStrings[pathPart].match(/%%\w+%%/g)?.sort()))) {
-						string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
+					if (
+						!string ||
+						(typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g)?.sort(), enStrings[pathPart].match(/%%\w+%%/g)?.sort()))
+					) {
+						string = enStrings[pathPart] // If the string hasn't been added yet or if the variables changed
 						if (!string) {
-							string = null //in case of fire
-							if (command!.category != "Admin" && command!.category != "Staff" && !path.includes(" "))
+							string = null // In case of fire
+							if (command!.category !== "Admin" && command!.category !== "Staff" && !path.includes(" "))
 								console.error(`Couldn't get string ${path} in English for ${file}, please fix this`)
 						}
 					}
-					if (typeof string === "string" && variables) {
-						for (const [variable, text] of Object.entries(variables)) {
-							string = string.replace(`%%${variable}%%`, String(text))
-						}
-					}
+					if (typeof string === "string" && variables)
+						for (const [variable, text] of Object.entries(variables)) string = string.replace(`%%${variable}%%`, String(text))
 				}
 			} else if (strings) string = strings
 			else string = enStrings
@@ -147,15 +149,15 @@ client.on("interactionCreate", async interaction => {
 		return string
 	}
 
-	//Run command and handle errors
+	// Run command and handle errors
 	try {
 		// Run the command
 		await command.execute(interaction, getString)
 
-		//Store usage stats
+		// Store usage stats
 		await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id })
 	} catch (error) {
-		//Store usage stats
+		// Store usage stats
 		await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: `${error}` })
 
 		if (!error.stack) error = getString(`errors.${error}`, "global") ?? error
@@ -168,39 +170,45 @@ client.on("interactionCreate", async interaction => {
 					author: { name: "Unexpected error!" },
 					title: error.toString().substring(0, 255),
 					description: Formatters.codeBlock(error.stack.substring(0, 2_047)),
-					footer: { text: "Check the console for more details" }
+					footer: { text: "Check the console for more details" },
 				})
 				await (interaction.client.channels.cache.get(ids.channels.botDev) as TextChannel).send({
-					content: `<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@!${ids.users.rodry}>\nRan by: ${interaction.user}\nCommand: ${interaction.commandName}\nChannel: ${interaction.channel?.type !== "DM" && interaction.channel ? interaction.channel : "DM"}\nTime: <t:${Math.round(Date.now() / 1000)}:F>`,
-					embeds: [embed]
+					content: `<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@!${ids.users.rodry}>\nRan by: ${
+						interaction.user
+					}\nCommand: ${interaction.commandName}\nChannel: ${
+						interaction.channel?.type !== "DM" && interaction.channel ? interaction.channel : "DM"
+					}\nTime: <t:${Math.round(Date.now() / 1000)}:F>`,
+					embeds: [embed],
 				})
 			}
 			console.error(
-				`Unexpected error with command ${interaction.commandName} on channel ${interaction.channel instanceof GuildChannel ? interaction.channel.name : interaction.channel!.type
-				} executed by ${interaction.user.tag}. Here's the error:\n${error.stack}`
+				`Unexpected error with command ${interaction.commandName} on channel ${
+					interaction.channel instanceof GuildChannel ? interaction.channel.name : interaction.channel!.type
+				} executed by ${interaction.user.tag}. Here's the error:\n${error.stack}`,
 			)
 		}
 
-		//Handle errors
+		// Handle errors
 		timestamps.delete(interaction.user.id)
 		const embed = new MessageEmbed({
 			color: colors.error,
 			author: { name: getString("error", "global") },
 			title: (error.message ?? error).substring(0, 255),
-			footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+			footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
 		})
 
-		//Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first
+		// Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first
 		if (interaction.deferred) {
-			const errorMsg = await interaction.editReply({ embeds: [embed], components: [] }) as Message
+			const errorMsg = (await interaction.editReply({ embeds: [embed], components: [] })) as Message
 			setTimeout(async () => {
 				if (!interaction.ephemeral) await errorMsg.delete().catch(() => null)
 			}, 10_000)
 		} else if (!interaction.replied) await interaction.reply({ embeds: [embed], ephemeral: !error.stack, components: [] })
-		else await interaction.followUp({ embeds: [embed], ephemeral: !error.stack, components: [] })
-			.catch(async err => {
+		else {
+			await interaction.followUp({ embeds: [embed], ephemeral: !error.stack, components: [] }).catch(async err => {
 				await interaction.channel!.send({ embeds: [embed], components: [] })
 				console.error("Couldn't send a followUp on a replied interaction, here's the error", err)
 			})
+		}
 	}
 })

@@ -4,3 +4,4 @@ node_modules/
 dist/
 .vscode/
 src/listeners/debug.ts
+yarn-error.log

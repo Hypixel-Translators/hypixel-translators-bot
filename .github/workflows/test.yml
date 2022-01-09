@@ -1,23 +1,23 @@
 name: Testing
 on:
-  push:
-    branches-ignore:
-      - 'translations'
-  pull_request:
+    push:
+        branches-ignore:
+            - "translations"
+    pull_request:
 
 jobs:
-  Install:
-    name: Install dependencies and compile
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    Install:
+        name: Install dependencies and compile
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
 
-      - name: Install Node v16
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          cache: "yarn"
+            - name: Install Node v16
+              uses: actions/setup-node@v2
+              with:
+                  node-version: 16
+                  cache: "yarn"
 
-      - name: Install dependencies
-        run: yarn
+            - name: Install dependencies
+              run: yarn

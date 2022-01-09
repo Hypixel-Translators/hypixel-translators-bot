@@ -5,6 +5,9 @@
 	"main": "dist/index",
 	"license": "MIT",
 	"scripts": {
+		"pretty": "prettier --write src",
+		"lint": "eslint --fix src",
+		"lint:ci": "eslint src",
 		"compile": "rimraf dist/ && tsc -w",
 		"postinstall": "tsc"
 	},
@@ -32,7 +35,16 @@
 		"@types/node": "^16.11.19",
 		"@types/node-cron": "^3.0.1",
 		"@types/uuid": "^8.3.4",
+		"@typescript-eslint/eslint-plugin": "^5.6.0",
+		"@typescript-eslint/parser": "^5.8.1",
 		"dotenv": "^10.0.0",
+		"eslint": "^8.6.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-import-resolver-typescript": "^2.5.0",
+		"eslint-plugin-import": "^2.25.3",
+		"eslint-plugin-no-one-time-vars": "^2.1.1",
+		"eslint-plugin-prettier": "^4.0.0",
+		"prettier": "^2.5.1",
 		"rimraf": "^3.0.2"
 	}
 }

@@ -1,6 +1,7 @@
 import { MessageEmbed, TextChannel } from "discord.js"
-import { client } from "../index"
+
 import { ids } from "../config.json"
+import { client } from "../index"
 
 client.on("voiceStateUpdate", async (oldState, newState) => {
 	if (newState.guild.id === ids.guilds.main && !newState.member?.user.bot) {
@@ -14,27 +15,26 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
 		else if ((!newState.channel || newState.channelId === newState.guild.afkChannelId) && newState.member!.roles.cache.has(ids.roles.voice))
 			await newState.member!.roles.remove(ids.roles.voice, "Left a voice channel")
 
-		if (!!oldState.serverMute != !!newState.serverMute) { // Convert to boolean to prevent null != false from triggering the condition
+		if (!!oldState.serverMute !== !!newState.serverMute) {
+			// Convert to boolean to prevent null !== false from triggering the condition
 			const embed = new MessageEmbed({
 				color: newState.serverMute ? errorColor : successColor,
 				author: {
 					name: newState.member!.user.tag,
-					iconURL: newState.member!.displayAvatarURL({ format: "png", dynamic: true })
+					iconURL: newState.member!.displayAvatarURL({ format: "png", dynamic: true }),
 				},
 				description: `**${newState.member} was server ${newState.serverMute ? "muted" : "unmuted"} in ${newState.channel?.name}**`,
 				timestamp: Date.now(),
-				footer: { text: `ID: ${newState.member!.id}` }
+				footer: { text: `ID: ${newState.member!.id}` },
 			})
 			await logs.send({ embeds: [embed] })
-		} else if (!!oldState.serverDeaf != !!newState.serverDeaf) {
+		} else if (!!oldState.serverDeaf !== !!newState.serverDeaf) {
 			const embed = new MessageEmbed({
 				color: newState.serverDeaf ? errorColor : successColor,
 				author: { name: newState.member!.user.tag, iconURL: newState.member!.displayAvatarURL({ format: "png", dynamic: true }) },
-				description: `**${newState.member} was server ${newState.serverDeaf ? "deafened" : "undeafened"} in ${
-					newState.channel?.name
-				}**`,
+				description: `**${newState.member} was server ${newState.serverDeaf ? "deafened" : "undeafened"} in ${newState.channel?.name}**`,
 				timestamp: Date.now(),
-				footer: { text: `ID: ${newState.member!.id}` }
+				footer: { text: `ID: ${newState.member!.id}` },
 			})
 			await logs.send({ embeds: [embed] })
 		}

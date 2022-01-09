@@ -1,6 +1,8 @@
 import process from "node:process"
+
 import { Client, ClientEvents, Collection, Snowflake } from "discord.js"
 import { MongoClient, Db, WithId } from "mongodb"
+
 import { client } from "../index"
 
 import type { Command } from "./imports"
@@ -11,23 +13,14 @@ export const mongoClient = new MongoClient(url)
 export const cancelledEvents: EventData<keyof ClientEvents>[] = []
 export let db: Db
 
-async function init() {
-	return new Promise<MongoClient>(async (resolve, reject) => {
-		await mongoClient.connect()
-			.then(mongoClient => {
-				db = mongoClient.db(process.env.DB_NAME)
-				console.log("Connected to MongoDB!")
-				//If the connection was made after the client was ready, we need to emit the event again
-				if (client.isReady()) client.emit("ready", client)
-				for (const event of cancelledEvents) client.emit(event.listener, ...event.args)
-				if (cancelledEvents.length) console.log(`Emitted the following cancelled events: ${cancelledEvents.map(e => e.listener).join(", ")}`)
-				resolve(mongoClient)
-			})
-			.catch(reject)
-	})
-}
-
-init()
+mongoClient.connect().then(() => {
+	db = mongoClient.db(process.env.DB_NAME)
+	console.log("Connected to MongoDB!")
+	// If the connection was made after the client was ready, we need to emit the event again
+	if (client.isReady()) client.emit("ready", client)
+	for (const event of cancelledEvents) client.emit(event.listener, ...event.args)
+	if (cancelledEvents.length) console.log(`Emitted the following cancelled events: ${cancelledEvents.map(e => e.listener).join(", ")}`)
+})
 
 export interface DbUser {
 	id: Snowflake

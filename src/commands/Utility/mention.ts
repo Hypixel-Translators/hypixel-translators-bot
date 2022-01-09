@@ -5,30 +5,32 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 const command: Command = {
 	name: "mention",
 	description: "Mentions a language role with a message.",
-	options: [{
-		type: "STRING",
-		name: "language",
-		description: "The language to mention",
-		required: true,
-		autocomplete: true
-	},
-	{
-		type: "STRING",
-		name: "role",
-		description: "The role to mention",
-		choices: [
-			{ name: "Both roles", value: "all" },
-			{ name: "Proofreader", value: "proofreader" },
-			{ name: "Translator", value: "translator" }
-		],
-		required: true
-	},
-	{
-		type: "STRING",
-		name: "message",
-		description: "The message to send with the mention.",
-		required: false
-	}],
+	options: [
+		{
+			type: "STRING",
+			name: "language",
+			description: "The language to mention",
+			required: true,
+			autocomplete: true,
+		},
+		{
+			type: "STRING",
+			name: "role",
+			description: "The role to mention",
+			choices: [
+				{ name: "Both roles", value: "all" },
+				{ name: "Proofreader", value: "proofreader" },
+				{ name: "Translator", value: "translator" },
+			],
+			required: true,
+		},
+		{
+			type: "STRING",
+			name: "message",
+			description: "The message to send with the mention.",
+			required: false,
+		},
+	],
 	cooldown: 120,
 	roleWhitelist: [ids.roles.hypixelPf, ids.roles.admin],
 	categoryBlacklist: [ids.categories.main],
@@ -75,37 +77,43 @@ const command: Command = {
 			Tr: "Turkish",
 			Ua: "Ukrainian",
 			Enpt: "Pirate English",
-			Pirate: "Pirate English"
+			Pirate: "Pirate English",
 		}
 
 		if (langs[roleName]) roleName = langs[roleName]
-		const role = interaction.guild!.roles.cache.find(x => x.name === (`${roleName} Proofreader`))
+		const [pfRole, trRole] = interaction
+				.guild!.roles.cache.filter(r => r.name.startsWith(roleName))
+				.partition(r => r.name.endsWith(" Proofreader"))
+				.map(r => r.first()!),
+			hasPerm = interaction.member.roles.cache.has(pfRole?.id) || interaction.member.permissions.has("MANAGE_ROLES")
 
-		if (!role) throw "falseRole"
+		if (!pfRole) throw "falseRole"
 		if (roleType === "proofreader") {
-			const toPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Proofreader`)
-			if (interaction.member.roles.cache.find(role => role.name === `${roleName} Proofreader`) || interaction.member.permissions.has("MANAGE_ROLES")) {
-				await interaction.reply(`**${interaction.user}**: ${toPing} ${message}`)
-			} else {
-				await interaction.reply({ content: `${getString("errorNoPing")}${getString("errorNoPingPr")} ${getString("errorNoPingDisclaimer")}`, ephemeral: true })
+			if (hasPerm) await interaction.reply(`**${interaction.user}**: ${pfRole} ${message}`)
+			else {
+				await interaction.reply({
+					content: `${getString("errorNoPing")}${getString("errorNoPingPr")} ${getString("errorNoPingDisclaimer")}`,
+					ephemeral: true,
+				})
 			}
 		} else if (roleType === "translator") {
-			const toPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Translator`)
-			if (interaction.member.roles.cache.find(role => role.name === `${roleName} Proofreader`) || interaction.member.permissions.has("MANAGE_ROLES")) {
-				await interaction.reply(`**${interaction.user}**: ${toPing} ${message}`)
-			} else {
-				await interaction.reply({ content: `${getString("errorNoPing")}${getString("errorNoPingTr")} ${getString("errorNoPingDisclaimer")}`, ephemeral: true })
+			if (hasPerm) await interaction.reply(`**${interaction.user}**: ${trRole} ${message}`)
+			else {
+				await interaction.reply({
+					content: `${getString("errorNoPing")}${getString("errorNoPingTr")} ${getString("errorNoPingDisclaimer")}`,
+					ephemeral: true,
+				})
 			}
 		} else if (roleType === "all") {
-			const translatorPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Translator`),
-				proofreaderPing = interaction.guild!.roles.cache.find(role => role.name === `${roleName} Proofreader`)
-			if (interaction.member.roles.cache.find(role => role.name === `${roleName} Proofreader`) || interaction.member.permissions.has("MANAGE_ROLES")) {
-				await interaction.reply(`**${interaction.user}**: ${translatorPing} ${proofreaderPing} ${message}`)
-			} else {
-				await interaction.reply({ content: `${getString("errorNoPing")}${getString("errorNoPingAll")} ${getString("errorNoPingDisclaimer")}`, ephemeral: true })
+			if (hasPerm) await interaction.reply(`**${interaction.user}**: ${trRole} ${pfRole} ${message}`)
+			else {
+				await interaction.reply({
+					content: `${getString("errorNoPing")}${getString("errorNoPingAll")} ${getString("errorNoPingDisclaimer")}`,
+					ephemeral: true,
+				})
 			}
 		} else throw "falseRole"
-	}
+	},
 }
 
 export default command

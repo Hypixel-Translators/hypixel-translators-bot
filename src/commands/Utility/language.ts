@@ -1,5 +1,7 @@
 import { access, constants, readdir, readdirSync } from "node:fs"
+
 import { GuildMember, MessageEmbed } from "discord.js"
+
 import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
 import { generateTip, MongoLanguage } from "../../lib/util"
@@ -20,14 +22,14 @@ const command: Command = {
 					name: "language",
 					description: "The new language you want to set",
 					required: false,
-					autocomplete: true
-				}
-			]
+					autocomplete: true,
+				},
+			],
 		},
 		{
 			type: "SUB_COMMAND",
 			name: "list",
-			description: "Gives you a list of all the available languages"
+			description: "Gives you a list of all the available languages",
 		},
 		{
 			type: "SUB_COMMAND",
@@ -39,10 +41,10 @@ const command: Command = {
 					name: "language",
 					description: "The language to get usage statistics for",
 					required: true,
-					autocomplete: true
-				}
-			]
-		}
+					autocomplete: true,
+				},
+			],
+		},
 	],
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	allowDM: true,
@@ -69,7 +71,7 @@ const command: Command = {
 						color: colors.neutral,
 						author: { name: getString("moduleName") },
 						title: getString("listTitle"),
-						description: langList.join("\n")
+						description: langList.join("\n"),
 					})
 					await interaction.reply({ embeds: [embed] })
 				}
@@ -86,7 +88,7 @@ const command: Command = {
 				color: colors.neutral,
 				author: { name: "Language" },
 				title: `There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`,
-				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
 			})
 
 			if (language !== "en") embed.setDescription(users.join(", "))
@@ -99,10 +101,7 @@ const command: Command = {
 			if (language === "empty" && !member?.roles.cache.has(ids.roles.admin)) language = "denied"
 			access(`./strings/${language}/language.json`, constants.F_OK, async err => {
 				if (!err) {
-					if (
-						getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, language) ||
-						language === "en"
-					) {
+					if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, language) || language === "en") {
 						const result = await collection.updateOne({ id: interaction.user.id }, { $set: { lang: language! } })
 						if (result.modifiedCount) {
 							randomTip = generateTip(getString, language)
@@ -111,7 +110,7 @@ const command: Command = {
 								author: { name: getString("moduleName", this.name, language) },
 								title: getString("changedToTitle", this.name, language),
 								description: getString("credits", this.name, language),
-								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) }
+								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 							})
 							return await interaction.reply({ embeds: [embed] })
 						} else {
@@ -120,7 +119,7 @@ const command: Command = {
 								author: { name: getString("moduleName", this.name, language) },
 								title: getString("didntChange", language),
 								description: getString("alreadyThis", this.name, language),
-								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) }
+								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 							})
 							return await interaction.reply({ embeds: [embed] })
 						}
@@ -130,7 +129,7 @@ const command: Command = {
 							author: { name: getString("moduleName") },
 							title: getString("didntChange"),
 							description: getString("notTranslated"),
-							footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) }
+							footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 						})
 						return await interaction.reply({ embeds: [embed] })
 					}
@@ -143,7 +142,7 @@ const command: Command = {
 							author: { name: getString("moduleName") },
 							title: getString("errorTitle"),
 							description: `${getString("errorDescription")}\n\`${files.join("`, `")}\`\n${getString("suggestAdd")}`,
-							footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) }
+							footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 						})
 						await interaction.reply({ embeds: [embed] })
 					})
@@ -158,11 +157,11 @@ const command: Command = {
 				author: { name: getString("moduleName") },
 				title: getString("current"),
 				description: `${getString("errorDescription")}\n\`${files.join("`, `")}\`\n\n${getString("credits")}`,
-				footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) }
+				footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 			})
 			await interaction.reply({ embeds: [embed] })
 		}
-	}
+	},
 }
 
 export default command

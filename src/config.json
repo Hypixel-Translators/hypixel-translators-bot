@@ -23,15 +23,7 @@
 		"RANDOM_USER's messages",
 		"project statistics"
 	],
-	"playingStatuses": [
-		"with commands",
-		"with RANDOM_USER",
-		"Crowdin",
-		"Hypixel",
-		"Quickplay",
-		"SkyblockAddons",
-		"with myself"
-	],
+	"playingStatuses": ["with commands", "with RANDOM_USER", "Crowdin", "Hypixel", "Quickplay", "SkyblockAddons", "with myself"],
 	"ids": {
 		"guilds": {
 			"main": "549503328472530974",

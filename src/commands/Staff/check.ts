@@ -1,6 +1,7 @@
 import { ColorResolvable, MessageEmbed } from "discord.js"
-import { client } from "../../index"
+
 import { ids } from "../../config.json"
+import { client } from "../../index"
 import { generateTip } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
@@ -8,20 +9,22 @@ import type { Command } from "../../lib/imports"
 const command: Command = {
 	name: "check",
 	description: "Shows information about the specified user.",
-	options: [{
-		type: "USER",
-		name: "user",
-		description: "The user to check",
-		required: true
-	}],
+	options: [
+		{
+			type: "USER",
+			name: "user",
+			description: "The user to check",
+			required: true,
+		},
+	],
 	roleWhitelist: [ids.roles.staff, ids.roles.hypixelManager, ids.roles.sbaManager, ids.roles.qpManager, ids.roles.botManager],
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.managers],
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return
-		const memberInput = interaction.options.getMember("user", true)
+		const memberInput = interaction.options.getMember("user", true),
+			userDb = await client.getUser(memberInput.id)
 
-		const userDb = await client.getUser(memberInput.id)
-		let note: string | undefined = undefined
+		let note: string | undefined
 		if (memberInput.id === interaction.guild!.ownerId) note = "Discord Owner"
 		else if (memberInput.roles.cache.find(r => r.name === "Discord Owner")) note = "Discord Co-Owner"
 		else if (memberInput.roles.cache.find(r => r.name === "Discord Administrator")) note = "Discord Administrator"
@@ -39,7 +42,10 @@ const command: Command = {
 		let userRoles: string
 		if (rolesCache.size !== 1) {
 			rolesCache.delete(ids.guilds.main)
-			userRoles = rolesCache.sort((a, b) => b.position - a.position).map(r => r).join(", ")
+			userRoles = rolesCache
+				.sort((a, b) => b.position - a.position)
+				.map(r => r)
+				.join(", ")
 		} else userRoles = "No roles yet!"
 
 		const embed = new MessageEmbed({
@@ -57,7 +63,7 @@ const command: Command = {
 		})
 		if (note) embed.addField("Note", note)
 		await interaction.reply({ embeds: [embed] })
-	}
+	},
 }
 
 export default command

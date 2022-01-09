@@ -1,23 +1,37 @@
-//This file contains a bunch of functions used across the bot on multuple commands.
+// This file contains a bunch of functions used across the bot on multuple commands.
 import { readdirSync } from "node:fs"
 import process from "node:process"
 import { setInterval } from "node:timers"
+
 import axios from "axios"
-import { Client, CommandInteraction, GuildMember, MessageActionRow, MessageButton, MessageEmbed, NewsChannel, Role, Snowflake, TextChannel, User } from "discord.js"
+import {
+	CommandInteraction,
+	GuildMember,
+	MessageActionRow,
+	MessageButton,
+	MessageEmbed,
+	NewsChannel,
+	Role,
+	Snowflake,
+	TextChannel,
+	User,
+} from "discord.js"
 import puppeteer from "puppeteer"
 import { v4 } from "uuid"
+
 import { db } from "./dbclient"
-import { client } from "../index"
+
 import { ids } from "../config.json"
+import { client } from "../index"
 
-import type { ResponseObject, TranslationStatusModel } from "@crowdin/crowdin-api-client"
 import type { GetStringFunction } from "./imports"
+import type { ResponseObject, TranslationStatusModel } from "@crowdin/crowdin-api-client"
 
-//#region Variables
+// #region Variables
 
 export const fetchSettings = { headers: { "User-Agent": "Hypixel Translators Bot" }, timeout: 30_000 }
 
-//Browser-related variables, not exported
+// Browser-related variables, not exported
 let browser: puppeteer.Browser | null = null,
 	interval: NodeJS.Timeout | null = null,
 	lastRequest = 0,
@@ -25,12 +39,12 @@ let browser: puppeteer.Browser | null = null,
 	browserOpening = false
 const activeConnections: string[] = []
 
-//#endregion
+// #endregion
 
-//#region Functions
+// #region Functions
 
-export function arrayEqual(a: any, b: any) {
-	if (a == b) return true
+export function arrayEqual(a: unknown, b: unknown) {
+	if (a === b) return true
 
 	if (!Array.isArray(a) || !Array.isArray(b)) return false
 
@@ -39,12 +53,10 @@ export function arrayEqual(a: any, b: any) {
 		arr2 = b.concat().sort()
 
 	// Remove duplicated values
-	arr1 = arr1.filter((item: string, index: number) => arr1.indexOf(item) == index)
-	arr2 = arr2.filter((item: string, pos: number) => arr2.indexOf(item) == pos)
+	arr1 = arr1.filter((item: string, index: number) => arr1.indexOf(item) === index)
+	arr2 = arr2.filter((item: string, pos: number) => arr2.indexOf(item) === pos)
 
-	for (let i = 0; i < arr1.length; i++) {
-		if (arr1[i] !== arr2[i]) return false
-	}
+	for (let i = 0; i < arr1.length; i++) if (arr1[i] !== arr2[i]) return false
 
 	return true
 }
@@ -71,47 +83,47 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 
 	return getString
 		? `${getString("tip", "global", newLang).toUpperCase()}: ${getString(
-			`tips.${keys[(keys.length * Math.random()) << 0]}`,
-			{
-				langIb: "/language set language:ib",
-				translate: "/translate",
-				prefix: "/prefix",
-				bots: "#bots",
-				gettingStarted: "#getting-started",
-				twitter: "https://twitter.com/HTranslators",
-				rules: "#rules",
-				serverInfo: "#server-info",
-				hypixelstats: "/hypixelstats",
-				languagestats: "/languagestats",
-				verify: "/verify",
-				langList: "/language list",
-				botUpdates: "#bot-updates",
-				feedback: "/feedback"
-			},
-			"global",
-			newLang
-		)}`
-		: `${strings.tip.toUpperCase()}: ${strings.tips[keys[keys.length * Math.random() << 0]]
-			.replace("%%langIb%%", "/language set language:ib")
-			.replace("%%translate%%", "/translate")
-			.replace("%%prefix%%", "/prefix")
-			.replace("%%bots%%", "#bots")
-			.replace("%%gettingStarted%%", "#getting-started")
-			.replace("%%twitter%%", "https://twitter.com/HTranslators")
-			.replace("%%rules%%", "#rules")
-			.replace("%%serverInfo%%", "#server-info")
-			.replace("%%hypixelstats%%", "/hypixelstats")
-			.replace("%%languagestats%%", "/languagestats")
-			.replace("%%verify%%", "/verify")
-			.replace("%%langList%%", "/language list")
-			.replace("%%botUpdates%%", "#bot-updates")
-			.replace("%%feedback%%", "/feedback")}`
+				`tips.${keys[(keys.length * Math.random()) << 0]}`,
+				{
+					langIb: "/language set language:ib",
+					translate: "/translate",
+					prefix: "/prefix",
+					bots: "#bots",
+					gettingStarted: "#getting-started",
+					twitter: "https://twitter.com/HTranslators",
+					rules: "#rules",
+					serverInfo: "#server-info",
+					hypixelstats: "/hypixelstats",
+					languagestats: "/languagestats",
+					verify: "/verify",
+					langList: "/language list",
+					botUpdates: "#bot-updates",
+					feedback: "/feedback",
+				},
+				"global",
+				newLang,
+		  )}`
+		: `${strings.tip.toUpperCase()}: ${strings.tips[keys[(keys.length * Math.random()) << 0]]
+				.replace("%%langIb%%", "/language set language:ib")
+				.replace("%%translate%%", "/translate")
+				.replace("%%prefix%%", "/prefix")
+				.replace("%%bots%%", "#bots")
+				.replace("%%gettingStarted%%", "#getting-started")
+				.replace("%%twitter%%", "https://twitter.com/HTranslators")
+				.replace("%%rules%%", "#rules")
+				.replace("%%serverInfo%%", "#server-info")
+				.replace("%%hypixelstats%%", "/hypixelstats")
+				.replace("%%languagestats%%", "/languagestats")
+				.replace("%%verify%%", "/verify")
+				.replace("%%langList%%", "/language list")
+				.replace("%%botUpdates%%", "#bot-updates")
+				.replace("%%feedback%%", "/feedback")}`
 }
 
 export async function getActivePunishments(user: User) {
-	const punishExpireTimestamp = new Date().setDate(new Date().getDate() - 30), //Timestamp 30 days ago in ms
-		warnExpireTimestamp = new Date().setDate(new Date().getDate() - 7), //Timestamp 7 days ago in ms
-		verbalExpireTimestamp = new Date().setDate(new Date().getDate() - 1) //Timestamp 7 days ago in ms
+	const punishExpireTimestamp = new Date().setDate(new Date().getDate() - 30), // Timestamp 30 days ago in ms
+		warnExpireTimestamp = new Date().setDate(new Date().getDate() - 7), // Timestamp 7 days ago in ms
+		verbalExpireTimestamp = new Date().setDate(new Date().getDate() - 1) // Timestamp 7 days ago in ms
 	return (await db.collection<PunishmentLog>("punishments").find({ id: user.id }).toArray()).filter(punishment => {
 		if (punishment.revoked || !punishment.points) return false
 		else if (punishment.type === "VERBAL") return punishment.timestamp > verbalExpireTimestamp
@@ -123,7 +135,7 @@ export async function getActivePunishments(user: User) {
 
 export async function getBrowser() {
 	//* If browser is currently closing wait for it to fully close.
-	await new Promise<void>((resolve) => {
+	await new Promise<void>(resolve => {
 		const timer = setInterval(() => {
 			if (!browserClosing) {
 				clearInterval(timer)
@@ -135,7 +147,7 @@ export async function getBrowser() {
 	lastRequest = Date.now()
 
 	//* Open a browser if there isn't one already.
-	await new Promise<void>((resolve) => {
+	await new Promise<void>(resolve => {
 		const timer = setInterval(() => {
 			if (!browserOpening) {
 				clearInterval(timer)
@@ -147,7 +159,7 @@ export async function getBrowser() {
 		browserOpening = true
 		browser = await puppeteer.launch({
 			args: ["--no-sandbox"],
-			headless: process.env.NODE_ENV === "production" || process.platform === "linux"
+			headless: process.env.NODE_ENV === "production" || process.platform === "linux",
 		})
 		browserOpening = false
 	}
@@ -168,48 +180,54 @@ export async function getBrowser() {
 	return { pupBrowser: browser, uuid: browserUUID }
 }
 
-export async function getInviteLink(client: Client) {
+export async function getInviteLink() {
 	const guild = client.guilds.cache.get(ids.guilds.main)!,
 		inviteCode =
 			(await guild
 				.fetchVanityData()
 				.then(v => v.code)
-				.catch(() => null)) ??
-			(await guild.invites.fetch().then(invites => invites.find(i => i.channelId === ids.channels.verify)!.code))!
+				.catch(() => null)) ?? (await guild.invites.fetch().then(invites => invites.find(i => i.channelId === ids.channels.verify)!.code))!
 	return `https://discord.gg/${inviteCode}`
 }
 
 export async function getMCProfile(uuid: string) {
-	return await axios.get<MinecraftProfile>(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings)
+	return await axios
+		.get<MinecraftProfile>(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings)
 		.then(json => json.data)
 		.catch(() => null)
 }
 
 export async function getUUID(username: string): Promise<string | undefined> {
-	return await axios.get(`https://api.mojang.com/users/profiles/minecraft/${username}`, fetchSettings)
+	return await axios
+		.get(`https://api.mojang.com/users/profiles/minecraft/${username}`, fetchSettings)
 		.then(data => data.data.id)
-		.catch(() => {
-			return
-		})
+		.catch(() => null)
 }
 
-// source: https://github.com/Mee6/Mee6-documentation/blob/master/docs/levels_xp.md
-export const getXpNeeded = (lvl = NaN, xp = 0) => 5 * (lvl ** 2) + (50 * lvl) + 100 - xp
+// Source: https://github.com/Mee6/Mee6-documentation/blob/master/docs/levels_xp.md
+export const getXpNeeded = (lvl = NaN, xp = 0) => 5 * lvl ** 2 + 50 * lvl + 100 - xp
 
-// support for syntax highlighting inside graphql strings (with the right extensions) (also makes it a one liner)
-export function gql(cleanText: TemplateStringsArray, ...substitutions: any[]) {
+// Support for syntax highlighting inside graphql strings (with the right extensions) (also makes it a one liner)
+export function gql(cleanText: TemplateStringsArray, ...substitutions: unknown[]) {
 	let returnQuery = ""
-	for (let i = 0; i < cleanText.length; i++) {
-		returnQuery += cleanText[i] + (substitutions[i] ?? "")
-	}
+	for (let i = 0; i < cleanText.length; i++) returnQuery += cleanText[i] + (substitutions[i] ?? "")
+
 	return returnQuery.replaceAll("\t", "").replaceAll("\n", " ")
 }
 
 export function parseToNumberString(num: number, getString: GetStringFunction): string {
-	if (num >= 1_000_000)
-		return `${Number((num / 1_000_000).toFixed(2)).toLocaleString(getString("region.dateLocale", "global"))}${getString("numberStrings.million", "global")}`
-	if (num >= 1000)
-		return `${Number((num / 1000).toFixed(2)).toLocaleString(getString("region.dateLocale", "global"))}${getString("numberStrings.thousand", "global")}`
+	if (num >= 1_000_000) {
+		return `${Number((num / 1_000_000).toFixed(2)).toLocaleString(getString("region.dateLocale", "global"))}${getString(
+			"numberStrings.million",
+			"global",
+		)}`
+	}
+	if (num >= 1000) {
+		return `${Number((num / 1000).toFixed(2)).toLocaleString(getString("region.dateLocale", "global"))}${getString(
+			"numberStrings.thousand",
+			"global",
+		)}`
+	}
 	return `${num}`
 }
 
@@ -218,13 +236,13 @@ export async function restart(interaction?: CommandInteraction) {
 		headers: {
 			"User-Agent": `${interaction?.user.tag ?? client.user.tag}`,
 			Authorization: `Bearer ${process.env.HEROKU_API}`,
-			Accept: "application/vnd.heroku+json; version=3"
-		}
+			Accept: "application/vnd.heroku+json; version=3",
+		},
 	})
 }
 
 export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "christmas" | "newYear") {
-	let strings: HolidayStrings | null = require(`../../strings/en/holidays.json`)
+	let strings: HolidayStrings | null = require("../../strings/en/holidays.json")
 	const holiday: string[] = [],
 		log: { [Language: string]: string } = {}
 	holiday.push(strings![holidayName])
@@ -243,9 +261,7 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 	})
 	let logMsg = ""
 	for (const lang in log) {
-		if (!log.hasOwnProperty.call(log, lang)) {
-			continue
-		}
+		if (!Object.prototype.hasOwnProperty.call(log, lang)) continue
 
 		logMsg = logMsg.concat(`${lang}: ${log[lang]}\n`)
 	}
@@ -254,39 +270,27 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 		adminBots = client.channels.cache.get(ids.channels.adminBots) as TextChannel,
 		holidayNameFormatted = holidayName.charAt(0).toUpperCase() + holidayName.slice(1).replace(/([A-Z])/, " $1")
 	if (announcement) {
-		await announcements.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`)
-			.then(msg => msg.crosspost())
+		await announcements.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`).then(msg => msg.crosspost())
 		await adminBots.send(`${holidayNameFormatted} announcement sent! Here's each language's translation:\n${logMsg}`)
 		console.table(log)
 		console.log(`Sent the ${holidayNameFormatted} announcement`)
-	} else return await adminBots.send(`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`)
+	} else
+		return await adminBots.send(`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`)
 }
 
-export function updateButtonColors(row: MessageActionRow, page: number, pages: any[]) {
-	if (page == 0) {
+export function updateButtonColors(row: MessageActionRow, page: number, pages: unknown[]) {
+	if (page === 0) {
 		row.components.forEach(button => {
-			if (button.customId === "first" || button.customId === "previous") (button as MessageButton)
-				.setStyle("SECONDARY")
-				.setDisabled(true)
-			else (button as MessageButton)
-				.setStyle("SUCCESS")
-				.setDisabled(false)
+			if (button.customId === "first" || button.customId === "previous") (button as MessageButton).setStyle("SECONDARY").setDisabled(true)
+			else (button as MessageButton).setStyle("SUCCESS").setDisabled(false)
 		})
-	} else if (page == pages.length - 1) {
+	} else if (page === pages.length - 1) {
 		row.components.forEach(button => {
-			if (button.customId === "last" || button.customId === "next") (button as MessageButton)
-				.setStyle("SECONDARY")
-				.setDisabled(true)
-			else (button as MessageButton)
-				.setStyle("SUCCESS")
-				.setDisabled(false)
+			if (button.customId === "last" || button.customId === "next") (button as MessageButton).setStyle("SECONDARY").setDisabled(true)
+			else (button as MessageButton).setStyle("SUCCESS").setDisabled(false)
 		})
-	} else {
-		row.components.forEach(button => (button as MessageButton)
-			.setStyle("SUCCESS")
-			.setDisabled(false)
-		)
-	}
+	} else row.components.forEach(button => (button as MessageButton).setStyle("SUCCESS").setDisabled(false))
+
 	return row
 }
 
@@ -296,8 +300,8 @@ export function updateModlogFields(embed: MessageEmbed, modlog: PunishmentLog, m
 		modlog.type === "VERBAL"
 			? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 1)
 			: modlog.type === "WARN"
-				? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 7)
-				: new Date(modlog.endTimestamp ?? modlog.timestamp).setDate(new Date(modlog.endTimestamp ?? modlog.timestamp).getDate() + 30)
+			? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 7)
+			: new Date(modlog.endTimestamp ?? modlog.timestamp).setDate(new Date(modlog.endTimestamp ?? modlog.timestamp).getDate() + 30)
 	if (typeof modlog.duration === "number") {
 		embed.setFields(
 			{ name: "Moderator", value: `<@!${modlog.moderator}>`, inline: true },
@@ -309,8 +313,12 @@ export function updateModlogFields(embed: MessageEmbed, modlog: PunishmentLog, m
 			{ name: "Points", value: `${modlog.points ?? "N/A"}`, inline: true },
 
 			{ name: "Reason", value: modlog.reason, inline: true },
-			{ name: modlog.ended ? "Ended" : "Ends", value: modlog.endTimestamp ? `<t:${Math.round(modlog.endTimestamp / 1000)}:R>` : "Never", inline: true },
-			{ name: modlog.revoked ? "Revoked by" : "Revoked", value: modlog.revoked ? `<@!${modlog.revokedBy}>` : "No", inline: true }
+			{
+				name: modlog.ended ? "Ended" : "Ends",
+				value: modlog.endTimestamp ? `<t:${Math.round(modlog.endTimestamp / 1000)}:R>` : "Never",
+				inline: true,
+			},
+			{ name: modlog.revoked ? "Revoked by" : "Revoked", value: modlog.revoked ? `<@!${modlog.revokedBy}>` : "No", inline: true },
 		)
 	} else {
 		embed.setFields(
@@ -320,15 +328,15 @@ export function updateModlogFields(embed: MessageEmbed, modlog: PunishmentLog, m
 
 			{ name: "Type", value: modlog.type, inline: true },
 			{ name: "Points", value: `${modlog.points ?? "N/A"}`, inline: true },
-			{ name: "Reason", value: modlog.reason, inline: true }
+			{ name: "Reason", value: modlog.reason, inline: true },
 		)
 	}
-	if (modlogs) embed
-		.setDescription(`Case #${modlog.case}`)
-		.setFooter({
+	if (modlogs) {
+		embed.setDescription(`Case #${modlog.case}`).setFooter({
 			text: `Modlog ${modlogs.indexOf(modlog) + 1}/${modlogs.length}`,
-			iconURL: embed.footer!.iconURL!
+			iconURL: embed.footer!.iconURL!,
 		})
+	}
 	return embed
 }
 
@@ -345,7 +353,7 @@ export async function updateRoles(member: GuildMember, json?: GraphQLQuery["data
 		ids.roles.youtuber,
 		ids.roles.hypixelGm,
 		ids.roles.hypixelAdmin,
-		ids.roles.hypixelStaff
+		ids.roles.hypixelStaff,
 	]
 	if (!json) return void (await member.roles.remove(roles, "Unverified"))
 	let role = member.guild.roles.cache.get(ids.roles.unranked)!
@@ -408,9 +416,9 @@ export async function updateRoles(member: GuildMember, json?: GraphQLQuery["data
 	return role
 }
 
-//#endregion
+// #endregion
 
-//#region Interfaces/Types
+// #region Interfaces/Types
 
 export interface CrowdinProject {
 	id: number
@@ -519,10 +527,10 @@ export interface PunishmentLog {
 	timestamp: number
 	duration?: number
 	endTimestamp?: number
-	ended?: boolean,
+	ended?: boolean
 	revoked?: true
 	revokedBy?: Snowflake
-	moderator: Snowflake,
+	moderator: Snowflake
 	logMsg: Snowflake
 }
 
@@ -545,4 +553,4 @@ export interface Stats {
 	errorMessage?: string
 }
 
-//#endregion
+// #endregion

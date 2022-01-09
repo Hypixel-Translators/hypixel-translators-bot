@@ -1,15 +1,20 @@
-const fs = require("node:fs")
-const axios = require("axios")
-const flagColors = require("language-flag-colors")
-const { crowdin } = require("../../index")
-const { colors, listeningStatuses, watchingStatuses, playingStatuses, ids } = require("../../config.json")
-const { crowdinVerify } = require("../../lib/crowdinverify")
-const { leveling } = require("../../lib/leveling")
-const util = require("../../lib/util")
-const { generateWelcomeImage } = require("../../listeners/guildMemberAdd")
+/* eslint-disable import/order */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+const fs = require("node:fs"),
+	axios = require("axios"),
+	flagColors = require("language-flag-colors"),
+	{ colors, listeningStatuses, watchingStatuses, playingStatuses, ids } = require("../../config.json"),
+	{ crowdin } = require("../../index"),
+	{ crowdinVerify } = require("../../lib/crowdinverify"),
+	{ leveling } = require("../../lib/leveling"),
+	util = require("../../lib/util"),
+	{ generateWelcomeImage } = require("../../listeners/guildMemberAdd")
+
 import { inspect } from "node:util"
+
 import discord from "discord.js"
 import { transpile, getParsedCommandLineOfConfigFile, sys } from "typescript"
+
 import { db as mongoDb } from "../../lib/dbclient"
 import { generateTip as randomTip } from "../../lib/util"
 
@@ -19,18 +24,19 @@ const command: Command = {
 	name: "eval",
 	description: "Evals the specified code.",
 	roleWhitelist: [ids.roles.star],
-	options: [{
-		type: "STRING",
-		name: "code",
-		description: "The code to run",
-		required: true
-	}],
+	options: [
+		{
+			type: "STRING",
+			name: "code",
+			description: "The code to run",
+			required: true,
+		},
+	],
 	async execute(interaction, getString: GetStringFunction) {
 		if (!interaction.inCachedGuild()) return
 		const me = interaction.member,
 			guild = interaction.guild!,
-			channel = interaction.channel,
-			client = interaction.client,
+			{ channel, client } = interaction,
 			Discord = discord,
 			db = mongoDb,
 			generateTip = randomTip
@@ -40,14 +46,15 @@ const command: Command = {
 			codeToRun = interaction.options.getString("code", true).replaceAll(/[“”]/gim, '"')
 		if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`
 
-		// this is stupid - https://github.com/microsoft/TypeScript/issues/45856
-		const options = getParsedCommandLineOfConfigFile(
+		// This is stupid - https://github.com/microsoft/TypeScript/issues/45856
+		const { options } = getParsedCommandLineOfConfigFile(
 			"tsconfig.json",
 			{},
 			{
 				...sys,
-				onUnRecoverableConfigFileDiagnostic: console.error
-			})!.options
+				onUnRecoverableConfigFileDiagnostic: console.error,
+			},
+		)!
 		options.sourceMap = false
 		options.alwaysStrict = false
 
@@ -70,12 +77,12 @@ const command: Command = {
 								evaled?.constructor?.name === "Array"
 									? `${evaled.constructor.name}<${evaled[0]?.constructor.name}>`
 									: evaled?.constructor?.name ?? typeof evaled,
-							inline: true
+							inline: true,
 						},
 						{ name: "Output length", value: `${inspected.length}`, inline: true },
-						{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
+						{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true },
 					],
-					footer: { text: generateTip(), iconURL: me.displayAvatarURL({ format: "png", dynamic: true }) }
+					footer: { text: generateTip(), iconURL: me.displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 			await interaction.editReply({ embeds: [embed] })
 			console.log(evaled)
@@ -91,14 +98,14 @@ const command: Command = {
 
 					{ name: "Error Type", value: error.name ?? "Custom", inline: true },
 					{ name: "Error length", value: `${(error.stack ?? inspect(error)).length}`, inline: true },
-					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true }
+					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true },
 				],
-				footer: { text: generateTip(), iconURL: me.displayAvatarURL({ format: "png", dynamic: true }) }
+				footer: { text: generateTip(), iconURL: me.displayAvatarURL({ format: "png", dynamic: true }) },
 			})
 			console.error(error)
 			await interaction.editReply({ embeds: [embed] })
 		}
-	}
+	},
 }
 
 export default command

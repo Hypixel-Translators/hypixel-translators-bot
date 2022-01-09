@@ -1,6 +1,7 @@
 import { MessageEmbed } from "discord.js"
-import { client } from "../../index"
+
 import { colors, ids } from "../../config.json"
+import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
 import { generateTip, updateRoles } from "../../lib/util"
 
@@ -10,12 +11,14 @@ const command: Command = {
 	name: "hypixelunverify",
 	description: "Unlinks your Discord account from your Hypixel player",
 	cooldown: 60,
-	options: [{
-		type: "USER",
-		name: "user",
-		description: "The user to unverify. Admin-only",
-		required: false
-	}],
+	options: [
+		{
+			type: "USER",
+			name: "user",
+			description: "The user to unverify. Admin-only",
+			required: false,
+		},
+	],
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	async execute(interaction, getString: GetStringFunction) {
 		if (!interaction.inCachedGuild()) return
@@ -31,7 +34,7 @@ const command: Command = {
 					color: colors.success,
 					author: { name: "Hypixel Verification" },
 					title: `Successfully unverified ${memberInput.user.tag}`,
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 				return await interaction.reply({ embeds: [embed] })
 			} else {
@@ -40,7 +43,7 @@ const command: Command = {
 					author: { name: "Hypixel Verification" },
 					title: `Couldn't unverify ${memberInput.user.tag}!`,
 					description: "This happened because this user isn't verified yet.",
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
@@ -53,7 +56,7 @@ const command: Command = {
 					color: colors.success,
 					author: { name: getString("moduleName") },
 					title: getString("unverified"),
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 				return await interaction.reply({ embeds: [embed] })
 			} else {
@@ -62,12 +65,12 @@ const command: Command = {
 					author: { name: getString("moduleName") },
 					title: getString("notUnverified"),
 					description: getString("whyNotUnverified"),
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
 		}
-	}
+	},
 }
 
 export default command
