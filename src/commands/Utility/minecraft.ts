@@ -119,7 +119,6 @@ const command: Command = {
 						pageEmbed = fetchPage(page)
 
 					controlButtons = updateButtonColors(controlButtons, page, pages)
-					// eslint-disable-next-line no-one-time-vars/no-one-time-vars
 					const msg = (await interaction.editReply({ embeds: [pageEmbed], components: [controlButtons] })) as Message,
 						collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
 
