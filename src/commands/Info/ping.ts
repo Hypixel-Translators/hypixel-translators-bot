@@ -1,4 +1,5 @@
 import { GuildMember, MessageEmbed } from "discord.js"
+
 import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
 
@@ -11,22 +12,17 @@ const command: Command = {
 	allowDM: true,
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction, getString: GetStringFunction) {
-		const randomTip = generateTip(getString),
-			member = interaction.member as GuildMember | null ?? interaction.user,
-			ping = Date.now() - interaction.createdTimestamp,
+		const ping = Date.now() - interaction.createdTimestamp,
 			onlineSince = Math.round(interaction.client.readyTimestamp! / 1000)
 
-		//Contributed by marzeq. Original idea by Rodry
+		// Contributed by marzeq. Original idea by Rodry
 		let color: number
 		if (ping < 0) {
 			color = colors.error
 			console.log("Something went terribly wrong and the ping is negative. Come pick me up I'm scared.")
-		} else if (ping <= 200)
-			color = colors.success
-		else if (ping <= 400)
-			color = colors.loading
-		else
-			color = colors.error
+		} else if (ping <= 200) color = colors.success
+		else if (ping <= 400) color = colors.loading
+		else color = colors.error
 
 		const embed = new MessageEmbed({
 			color,
@@ -34,12 +30,15 @@ const command: Command = {
 			title: getString("pong", { pingEmote: "<:ping:620954198493888512>" }),
 			description: `${getString("message", { ping: ping })}\n\n${getString("onlineSince", {
 				timestamp: `<t:${onlineSince}>`,
-				timestampRelative: `<t:${onlineSince}:R>`
+				timestampRelative: `<t:${onlineSince}:R>`,
 			})}`,
-			footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) }
+			footer: {
+				text: generateTip(getString),
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+			},
 		})
 		await interaction.reply({ embeds: [embed] })
-	}
+	},
 }
 
 export default command

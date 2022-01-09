@@ -5,6 +5,7 @@
 	"main": "dist/index",
 	"license": "MIT",
 	"scripts": {
+		"pretty": "prettier --write src",
 		"lint": "eslint --fix src",
 		"lint:ci": "eslint src",
 		"compile": "rimraf dist/ && tsc -w",

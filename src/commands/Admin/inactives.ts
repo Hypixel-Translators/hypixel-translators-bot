@@ -1,4 +1,5 @@
 import { MessageEmbed } from "discord.js"
+
 import { colors, ids } from "../../config.json"
 import inactives from "../../events/inactives"
 import { generateTip } from "../../lib/util"
@@ -17,10 +18,10 @@ const command: Command = {
 			color: colors.success,
 			author: { name: "Inactive checker" },
 			title: "All inactive members have been notified!",
-			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 		})
 		await interaction.reply({ embeds: [embed] })
-	}
+	},
 }
 
 export default command

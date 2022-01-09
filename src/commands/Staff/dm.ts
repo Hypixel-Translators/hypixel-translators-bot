@@ -1,6 +1,7 @@
 import { MessageEmbed } from "discord.js"
-import { client } from "../../index"
+
 import { colors, ids } from "../../config.json"
+import { client } from "../../index"
 import { generateTip } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -8,18 +9,20 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 const command: Command = {
 	name: "dm",
 	description: "Sends the user a private message.",
-	options: [{
-		type: "USER",
-		name: "user",
-		description: "The user to DM",
-		required: true
-	},
-	{
-		type: "STRING",
-		name: "message",
-		description: "The message to send",
-		required: true
-	}],
+	options: [
+		{
+			type: "USER",
+			name: "user",
+			description: "The user to DM",
+			required: true,
+		},
+		{
+			type: "STRING",
+			name: "message",
+			description: "The message to send",
+			required: true,
+		},
+	],
 	roleWhitelist: [ids.roles.staff],
 	async execute(interaction, getString: GetStringFunction) {
 		if (!interaction.inCachedGuild()) return
@@ -31,17 +34,18 @@ const command: Command = {
 				color: colors.neutral,
 				author: getString("incoming", this.name, recipientDb.lang),
 				description: message,
-				footer: { text: getString("incomingDisclaimer", this.name, recipientDb.lang) }
+				footer: { text: getString("incomingDisclaimer", this.name, recipientDb.lang) },
 			}),
 			randomTip = generateTip()
-		await recipient.send({ embeds: [dm] })
+		await recipient
+			.send({ embeds: [dm] })
 			.then(async () => {
 				const embed = new MessageEmbed({
 					color: colors.success,
 					author: { name: "Direct Message" },
 					title: `Sent message to ${recipient.tag}`,
 					description: message,
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 				await interaction.editReply({ embeds: [embed] })
 			})
@@ -51,11 +55,11 @@ const command: Command = {
 					author: { name: "Direct Message" },
 					title: `An error occured while trying to message ${recipient.tag}`,
 					description: `${error}`,
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 				await interaction.editReply({ embeds: [errorEmbed] })
 			})
-	}
+	},
 }
 
 export default command

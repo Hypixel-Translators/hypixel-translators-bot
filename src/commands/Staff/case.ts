@@ -1,4 +1,5 @@
 import { GuildMember, MessageEmbed } from "discord.js"
+
 import { ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
 import { generateTip, PunishmentLog, updateModlogFields } from "../../lib/util"
@@ -8,13 +9,15 @@ import type { Command } from "../../lib/imports"
 const command: Command = {
 	name: "case",
 	description: "Gives you information about any given case.",
-	options: [{
-		type: "INTEGER",
-		name: "case",
-		description: "Case number",
-		required: true,
-		autocomplete: true
-	}],
+	options: [
+		{
+			type: "INTEGER",
+			name: "case",
+			description: "Case number",
+			required: true,
+			autocomplete: true,
+		},
+	],
 	roleWhitelist: [ids.roles.staff],
 	channelWhitelist: [ids.channels.staffBots, ids.channels.adminBots],
 	async execute(interaction) {
@@ -25,17 +28,17 @@ const command: Command = {
 
 		if (!modLog) throw `Couldn't find that case number! You must enter a number between 1 and ${await collection.estimatedDocumentCount()}`
 
-		const offender = interaction.guild!.members.cache.get(modLog.id) ?? await interaction.client.users.fetch(modLog.id),
+		const offender = interaction.guild!.members.cache.get(modLog.id) ?? (await interaction.client.users.fetch(modLog.id)),
 			embed = new MessageEmbed({
 				color: "BLURPLE",
 				author: { name: "Punishment case" },
 				title: `Here's case #${caseNumber}`,
 				description: `Offender: ${offender instanceof GuildMember ? offender : offender.tag}`,
-				footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) }
+				footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 			})
 		updateModlogFields(embed, modLog)
 		await interaction.reply({ embeds: [embed] })
-	}
+	},
 }
 
 export default command

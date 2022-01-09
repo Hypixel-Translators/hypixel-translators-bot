@@ -1,4 +1,5 @@
 import { readdirSync } from "node:fs"
+
 import {
 	BufferResolvable,
 	GuildChannel,
@@ -8,10 +9,11 @@ import {
 	MessageComponentInteraction,
 	MessageEmbed,
 	TextChannel,
-	Util
+	Util,
 } from "discord.js"
-import { client } from "../index"
+
 import { colors, ids } from "../config.json"
+import { client } from "../index"
 import { crowdinVerify } from "../lib/crowdinverify"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import { leveling } from "../lib/leveling"
@@ -22,31 +24,30 @@ import type { Stream } from "node:stream"
 client.on("messageCreate", async message => {
 	if (!db) return void cancelledEvents.push({ listener: "messageCreate", args: [message] })
 
-	//Delete pinned message and thread created messages
+	// Delete pinned message and thread created messages
 	if (message.type === "THREAD_CREATED" && (message.channel as TextChannel).name.endsWith("-review-strings")) return void (await message.delete())
 
-	//Delete messages that contain empty spoilers (Discord bug)
+	// Delete messages that contain empty spoilers (Discord bug)
 	if (message.content.includes("||||")) {
 		await message.delete()
-		const staffGeneral = client.channels.cache.get(ids.channels.staffGeneral) as TextChannel
-		await staffGeneral.send({
+		await (client.channels.cache.get(ids.channels.staffGeneral) as TextChannel).send({
 			content: `${message.author}'s message in ${message.channel} was deleted because it contained an empty spoiler. Here's what it said:`,
-			embeds: [{ description: Util.escapeMarkdown(message.content) }]
+			embeds: [{ description: Util.escapeMarkdown(message.content) }],
 		})
 		return
 	}
 
-	//Stop if user is a bot
+	// Stop if user is a bot
 	if (message.author.bot) return
 
-	//Define command and leveling system
+	// Define command and leveling system
 	const noXpChannels = [
-		ids.categories.important,
-		ids.categories.archived,
-		ids.categories.verification,
-		ids.channels.bots,
-		ids.channels.staffAnnouncements
-	],
+			ids.categories.important,
+			ids.categories.archived,
+			ids.categories.verification,
+			ids.channels.bots,
+			ids.channels.staffAnnouncements,
+		],
 		noXpRoles = [ids.roles.bot]
 	client.channels.cache.filter(c => (c as TextChannel).name?.endsWith("review-strings")).forEach(c => noXpChannels.push(c.id))
 	if (
@@ -57,10 +58,10 @@ client.on("messageCreate", async message => {
 	)
 		await leveling(message)
 
-	//Publish message if sent in bot-updates or in a project-updates channel or if it's a tweet
-	if (message.channel.type === "GUILD_NEWS" &&
-		(
-			message.channel.id === ids.channels.botUpdates ||
+	// Publish message if sent in bot-updates or in a project-updates channel or if it's a tweet
+	if (
+		message.channel.type === "GUILD_NEWS" &&
+		(message.channel.id === ids.channels.botUpdates ||
 			(message.channel.id === ids.channels.twitter && !message.embeds[0]?.description?.startsWith("@")) ||
 			message.channel.name.endsWith("-project-updates"))
 	)
@@ -69,7 +70,8 @@ client.on("messageCreate", async message => {
 	// Delete non-stringURL messages in review-strings
 	const stringURLRegex = /(https:\/\/)?crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
 	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings")) {
-		if (!/(https:\/\/)?crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) await message.delete()
+		if (!/(https:\/\/)?crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content))
+			await message.delete()
 		else {
 			await message.react("vote_yes:839262196797669427")
 			await message.react("vote_maybe:839262179416211477")
@@ -77,10 +79,10 @@ client.on("messageCreate", async message => {
 		}
 	}
 
-	//Get the author from the database
+	// Get the author from the database
 	const author = await client.getUser(message.author.id)
 
-	//Link correction system
+	// Link correction system
 	if (
 		message.channel.type !== "DM" &&
 		message.content.toLowerCase().includes("/translate/hypixel/") &&
@@ -101,13 +103,13 @@ client.on("messageCreate", async message => {
 					author: { name: getGlobalString("errors.wrongLink") },
 					title: getGlobalString("wrongStringURL"),
 					description: getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" }),
-					image: { url: "https://i.imgur.com/eDZ8u9f.png" }
+					image: { url: "https://i.imgur.com/eDZ8u9f.png" },
 				})
 				if (message.content !== langFix && message.channel.parentId === ids.categories.hypixel) {
 					embed.setDescription(
 						`${getGlobalString("example", { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" })}\n${getGlobalString("reminderLang", {
-							format: "`crowdin.com/translate/.../.../en-en#`"
-						})}`
+							format: "`crowdin.com/translate/.../.../en-en#`",
+						})}`,
 					)
 					await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "wrongBadLink", user: message.author.id })
 				} else await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "wrongLink", user: message.author.id })
@@ -129,48 +131,44 @@ client.on("messageCreate", async message => {
 		}
 	}
 
-	//Crowdin verification system
+	// Crowdin verification system
 	if (/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel.id === ids.channels.verify) {
-		//verify
 		await message.react("loading:882267041627766816")
 		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
 		await message.delete().catch(() => null)
-		const fiMessages = (await message.channel.messages.fetch()).filter(msgs => msgs.author.id === message.author.id)
-		await (message.channel as TextChannel).bulkDelete(fiMessages)
+		await (message.channel as TextChannel).bulkDelete((await message.channel.messages.fetch()).filter(msgs => msgs.author.id === message.author.id))
 	}
 
-	//Staff messaging system
+	// Staff messaging system
 	if (message.author !== client.user && message.channel.type === "DM") {
-		if (!message.content && message.stickers.size >= 0 && message.attachments.size === 0) return //we don't need stickers being sent to us
+		if (!message.content && message.stickers.size >= 0 && message.attachments.size === 0) return // We don't need stickers being sent to us
 		const staffBots = client.channels.cache.get(ids.channels.staffBots) as TextChannel,
-			hourCooldown = 48, // Hours to wait before asking for confirmation
-			confirmTime = 60, // 1 min
 			controlButtons = new MessageActionRow({
 				components: [
 					new MessageButton({
 						style: "SUCCESS",
 						customId: "confirm",
 						emoji: "✅",
-						label: getGlobalString("pagination.confirm")
+						label: getGlobalString("pagination.confirm"),
 					}),
 					new MessageButton({
 						style: "DANGER",
 						customId: "cancel",
 						emoji: "❎",
-						label: getGlobalString("pagination.cancel")
-					})
-				]
+						label: getGlobalString("pagination.cancel"),
+					}),
+				],
 			})
-		if (!author.staffMsgTimestamp || author.staffMsgTimestamp + hourCooldown * 60 * 60 * 1000 < message.createdTimestamp) {
+		if (!author.staffMsgTimestamp || author.staffMsgTimestamp + 48 * 60 * 60 * 1000 < message.createdTimestamp) {
 			const embed = new MessageEmbed({
 				color: colors.neutral,
 				title: getGlobalString("staffDm.confirmation"),
 				description: message.content,
-				footer: { text: getGlobalString("staffDm.confirmSend"), iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }) }
+				footer: { text: getGlobalString("staffDm.confirmSend"), iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }) },
 			})
 			if (message.attachments.size > 0) embed.setTitle(`${getGlobalString("staffDm.confirmation")} ${getGlobalString("staffDm.attachmentsWarn")}`)
 			const msg = await message.channel.send({ embeds: [embed], components: [controlButtons] }),
-				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: confirmTime * 1000 })
+				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: 60_000 })
 
 			collector.on("collect", async buttonInteraction => {
 				collector.stop("responded")
@@ -181,7 +179,7 @@ client.on("messageCreate", async message => {
 						.setTitle(getGlobalString("staffDm.dmCancelled"))
 						.setFooter({
 							text: getGlobalString("staffDm.resendInfo"),
-							iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true })
+							iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }),
 						})
 					await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
 				} else if (buttonInteraction.customId === "confirm") await staffDm(buttonInteraction)
@@ -194,7 +192,7 @@ client.on("messageCreate", async message => {
 					color: colors.error,
 					author: getGlobalString("staffDm.dmCancelled"),
 					description: message.content,
-					footer: { text: getGlobalString("staffDm.resendInfo"), iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }) }
+					footer: { text: getGlobalString("staffDm.resendInfo"), iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 				await msg.edit({ embeds: [timeOutEmbed], components: [controlButtons] })
 			})
@@ -202,17 +200,19 @@ client.on("messageCreate", async message => {
 
 		async function staffDm(interactionOrMsg: MessageComponentInteraction | Message) {
 			const afterConfirm = interactionOrMsg instanceof MessageComponentInteraction
-			await db.collection<DbUser>("users").updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: afterConfirm ? Date.now() : message.createdTimestamp } })
+			await db
+				.collection<DbUser>("users")
+				.updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: afterConfirm ? Date.now() : message.createdTimestamp } })
 			const staffMsg = new MessageEmbed({
-				color: colors.neutral,
-				author: { name: `Incoming message from ${message.author.tag}` },
-				description: message.content,
-			}),
+					color: colors.neutral,
+					author: { name: `Incoming message from ${message.author.tag}` },
+					description: message.content,
+				}),
 				dmEmbed = new MessageEmbed({
 					color: colors.success,
 					author: getGlobalString("staffDm.messageSent"),
 					description: message.content,
-					footer: { text: getGlobalString("staffDm.noConfirmWarn"), iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }) }
+					footer: { text: getGlobalString("staffDm.noConfirmWarn"), iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 			if (message.attachments.size > 1 || !(message.attachments.first()?.contentType?.startsWith("image") ?? true)) {
 				const images: (BufferResolvable | Stream)[] = []
@@ -223,9 +223,7 @@ client.on("messageCreate", async message => {
 				await message.channel.send({ embeds: [dmEmbed] })
 				return
 			} else if (message.attachments.size > 0) {
-				staffMsg
-					.setTitle("View attachment")
-					.setImage(message.attachments.first()!.url)
+				staffMsg.setTitle("View attachment").setImage(message.attachments.first()!.url)
 				dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent"))
 				await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg] })
 			} else await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg] })
@@ -234,7 +232,7 @@ client.on("messageCreate", async message => {
 		}
 	}
 
-	//Function to get strings
+	// Function to get strings
 	/**
 	 * Gets a string or an object of strings for the correct language and replaces all variables if any
 	 * @param {string} path Path to the string. Use dots to access strings inside objects
@@ -243,20 +241,16 @@ client.on("messageCreate", async message => {
 	 * @param {string} [lang] The language to get the string from. Defaults to the author's language preference.
 	 * @returns A clean string with all the variables replaced or an object of strings. Will return `null` if the path cannot be found.
 	 */
-	function getGlobalString(
-		path: string,
-		variables?: { [key: string]: string | number } | string,
-		file = "global",
-		lang = author.lang ?? "en"
-	): any {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	function getGlobalString(path: string, variables?: { [key: string]: string | number } | string, file = "global", lang = author.lang ?? "en"): any {
 		if (typeof variables === "string") {
-			const languages = readdirSync("./strings")
-			lang = languages.includes(file) ? file : author.lang ?? "en"
+			lang = readdirSync("./strings").includes(file) ? file : author.lang ?? "en"
 			file = variables
 		}
 		const command = client.commands.get(file)
 		let enStrings = require(`../../strings/en/${file}.json`)
-		let strings: any
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		let strings: Record<string, any>
 		try {
 			strings = require(`../../strings/${lang}/${file}.json`)
 		} catch {
@@ -271,25 +265,24 @@ client.on("messageCreate", async message => {
 				else jsonElement = enStrings[pathPart]
 
 				if (typeof jsonElement === "object" && pathSplit.indexOf(pathPart) !== pathSplit.length - 1) {
-					//check if the string isn't an object nor the end of the path
+					// Check if the string isn't an object nor the end of the path
 					if (strings[pathPart]) strings = strings[pathPart]
 					enStrings = enStrings[pathPart]
-					return
 				} else {
 					string = strings[pathPart]
-					if (!string || (typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g)?.sort(), enStrings[pathPart].match(/%%\w+%%/g)?.sort()))) {
-						string = enStrings[pathPart] //if the string hasn't been added yet or if the variables changed
+					if (
+						!string ||
+						(typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g)?.sort(), enStrings[pathPart].match(/%%\w+%%/g)?.sort()))
+					) {
+						string = enStrings[pathPart] // If the string hasn't been added yet or if the variables changed
 						if (!string) {
-							string = null //in case of fire
-							if (command?.category != "Admin" && command?.category != "Staff" && !path.includes(" "))
+							string = null // In case of fire
+							if (command?.category !== "Admin" && command?.category !== "Staff" && !path.includes(" "))
 								console.error(`Couldn't get string ${path} in English for ${file}, please fix this`)
 						}
 					}
-					if (typeof string === "string" && variables) {
-						for (const [variable, text] of Object.entries(variables)) {
-							string = string.replace(`%%${variable}%%`, String(text))
-						}
-					}
+					if (typeof string === "string" && variables)
+						for (const [variable, text] of Object.entries(variables)) string = string.replace(`%%${variable}%%`, String(text))
 				}
 			} else if (strings) string = strings
 			else string = enStrings
