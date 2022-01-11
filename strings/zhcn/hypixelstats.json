@@ -16,7 +16,7 @@
 	"language": "语言",
 	"first_login": "首次登录",
 	"last_login": "Online since",
-	"last_logout": "最后一次上线",
+	"last_logout": "最后一次在线",
 	"link": "链接",
 	"notConnected": "未绑定",
 	"blocked": "已屏蔽服务器链接",
