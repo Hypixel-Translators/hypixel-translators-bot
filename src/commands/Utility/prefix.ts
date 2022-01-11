@@ -4,7 +4,7 @@ import { getEmoji } from "language-flag-colors"
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db } from "../../lib/dbclient"
-import { generateTip, MongoLanguage } from "../../lib/util"
+import { discordLocaleToBotLocale, generateTip, MongoLanguage } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -84,7 +84,7 @@ const command: Command = {
 				const userDb = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) {
 					return await buttonInteraction.reply({
-						content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang),
+						content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang ?? discordLocaleToBotLocale(interaction.locale)),
 						ephemeral: true,
 					})
 				}
@@ -275,7 +275,7 @@ const command: Command = {
 				const userDb = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) {
 					return await buttonInteraction.reply({
-						content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang),
+						content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang ?? discordLocaleToBotLocale(interaction.locale)),
 						ephemeral: true,
 					})
 				}

@@ -3,7 +3,7 @@ import { ChatInputCommandInteraction, GuildMember, Message, MessageActionRow, Me
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { generateTip, parseToNumberString, updateButtonColors } from "../../lib/util"
+import { discordLocaleToBotLocale, generateTip, parseToNumberString, updateButtonColors } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -29,9 +29,9 @@ const command: Command = {
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
 		const allUsers = await db
-				.collection<DbUser>("users")
-				.find({}, { sort: { "levels.totalXp": -1, id: 1 } })
-				.toArray(),
+			.collection<DbUser>("users")
+			.find({}, { sort: { "levels.totalXp": -1, id: 1 } })
+			.toArray(),
 			inputMe = interaction.options.getBoolean("me", false),
 			inputPage = interaction.options.getInteger("page", false),
 			pages: DbUser[][] = [] // Inner arrays are of length 24
@@ -56,33 +56,33 @@ const command: Command = {
 			return await interaction.reply({ embeds: [embed] })
 		} else {
 			let controlButtons = new MessageActionRow({
-					components: [
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "⏮️",
-							customId: "first",
-							label: getString("pagination.first", "global"),
-						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "◀️",
-							customId: "previous",
-							label: getString("pagination.previous", "global"),
-						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "▶️",
-							customId: "next",
-							label: getString("pagination.next", "global"),
-						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "⏭️",
-							customId: "last",
-							label: getString("pagination.last", "global"),
-						}),
-					],
-				}),
+				components: [
+					new MessageButton({
+						style: "SUCCESS",
+						emoji: "⏮️",
+						customId: "first",
+						label: getString("pagination.first", "global"),
+					}),
+					new MessageButton({
+						style: "SUCCESS",
+						emoji: "◀️",
+						customId: "previous",
+						label: getString("pagination.previous", "global"),
+					}),
+					new MessageButton({
+						style: "SUCCESS",
+						emoji: "▶️",
+						customId: "next",
+						label: getString("pagination.next", "global"),
+					}),
+					new MessageButton({
+						style: "SUCCESS",
+						emoji: "⏭️",
+						customId: "last",
+						label: getString("pagination.last", "global"),
+					}),
+				],
+			}),
 				pageEmbed = fetchPage(page, pages, getString, interaction)
 
 			controlButtons = updateButtonColors(controlButtons, page, pages)
@@ -93,7 +93,7 @@ const command: Command = {
 				const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) {
 					return await buttonInteraction.reply({
-						content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang),
+						content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang ?? discordLocaleToBotLocale(interaction.locale)),
 						ephemeral: true,
 					})
 				} else if (buttonInteraction.customId === "first") page = 0

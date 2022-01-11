@@ -24,7 +24,7 @@ mongoClient.connect().then(() => {
 
 export interface DbUser {
 	id: Snowflake
-	lang: string
+	lang: string | null
 	profile?: string | null
 	uuid?: string
 	levels?: {
