@@ -28,6 +28,7 @@ export async function updateProjectStatus(projectId: number) {
 		projects = db.collection<CrowdinProject>("crowdin"),
 		mongoProject = (await projects.findOne({ id: projectId }))!,
 		json = await crowdin.translationStatusApi
+			.withFetchAll()
 			.getProjectProgress(projectId, 500)
 			.catch(err => console.error(`Crowdin API is down, couldn't update ${mongoProject.name} language statistics. Here's the error:`, err))
 	if (!json?.data) return console.error("We got no data from the API when trying to update Hypixel! Here's the response:\n", json)

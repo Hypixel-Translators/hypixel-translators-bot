@@ -36,6 +36,7 @@ const command: Command = {
 		if (!lang || lang.code === "en") throw "falseLang"
 
 		const hypixelData = await crowdin.translationStatusApi
+				.withFetchAll()
 				.getProjectProgress(128098, 500)
 				.then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null)
 				.catch(e => {
@@ -46,12 +47,15 @@ const command: Command = {
 					} else throw e
 				}),
 			quickplayData = await crowdin.translationStatusApi
+				.withFetchAll()
 				.getProjectProgress(369653, 500)
 				.then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null),
 			sbaData = await crowdin.translationStatusApi
+				.withFetchAll()
 				.getProjectProgress(369493, 500)
 				.then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null),
 			botData = await crowdin.translationStatusApi
+				.withFetchAll()
 				.getProjectProgress(436418, 500)
 				.then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null)
 
