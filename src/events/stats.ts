@@ -8,28 +8,25 @@ import { closeConnection, CrowdinProject, getBrowser, MongoLanguage, LanguageSta
 export async function stats(manual = false) {
 	const m = new Date().getUTCMinutes()
 	if (manual) {
-		await updateProjectStatus(128098) // Hypixel
-		await updateProjectStatus(369493) // SkyblockAddons
-		await updateProjectStatus(369653) // Quickplay
-		await updateProjectStatus(436418) // Bot
+		for (const id of Object.values(ids.projects)) await updateProjectStatus(id)
 		console.log("All stats have been manually updated.")
-	} else if (m === 0 || m === 20 || m === 40) {
-		await updateProjectStatus(128098) // Hypixel
-		await updateProjectStatus(369493) // SkyblockAddons
+	} else if ([0, 20, 40].includes(m)) {
+		await updateProjectStatus(ids.projects.hypixel)
+		await updateProjectStatus(ids.projects.sba)
 	} else if (m === 10 || m === 30 || m === 50) {
-		await updateProjectStatus(369653) // Quickplay
-		await updateProjectStatus(436418) // Bot
+		await updateProjectStatus(ids.projects.quickplay)
+		await updateProjectStatus(ids.projects.bot)
 	}
 }
 
 export async function updateProjectStatus(projectId: number) {
-	if (projectId === 128098) checkBuild()
+	if (projectId === ids.projects.hypixel) checkBuild()
 	const languages = await db.collection<MongoLanguage>("languages").find().toArray(),
 		projects = db.collection<CrowdinProject>("crowdin"),
 		mongoProject = (await projects.findOne({ id: projectId }))!,
 		json = await crowdin.translationStatusApi
 			.withFetchAll()
-			.getProjectProgress(projectId, 500)
+			.getProjectProgress(projectId)
 			.catch(err => console.error(`Crowdin API is down, couldn't update ${mongoProject.name} language statistics. Here's the error:`, err))
 	if (!json?.data) return console.error("We got no data from the API when trying to update Hypixel! Here's the response:\n", json)
 	const langStatus: LanguageStatus[] = json.data
@@ -39,10 +36,8 @@ export async function updateProjectStatus(projectId: number) {
 				})
 				return status as LanguageStatus
 			})
-			.sort((a: LanguageStatus, b: LanguageStatus) => b.data.phrases.total - a.data.phrases.total),
-		sortedSatus = Array.from(langStatus).sort((currentStatus: LanguageStatus, nextStatus: LanguageStatus) =>
-			nextStatus.language.name.localeCompare(currentStatus.language.name),
-		),
+			.sort((a, b) => b.data.phrases.total - a.data.phrases.total),
+		sortedSatus = Array.from(langStatus).sort((currentStatus, nextStatus) => nextStatus.language.name.localeCompare(currentStatus.language.name)),
 		channel = client.channels.cache.find(c => (c as TextChannel).name === `${mongoProject.shortName}-language-status`) as TextChannel,
 		messages = await channel.messages.fetch(),
 		fiMessages = messages.filter(msg => msg.author.id === client.user!.id)

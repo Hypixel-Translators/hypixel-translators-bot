@@ -289,7 +289,7 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 					}
 				})
 			}
-			if (project.id === "128098") veteranRole = await veteranMedals(member, project) // Hypixel project
+			if (project.id === String(ids.projects.hypixel)) veteranRole = await veteranMedals(member, project)
 		})
 
 	updateLanguageRoles(highestLangRoles, member)

@@ -27,7 +27,7 @@ const command: Command = {
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply()
-		const projectInput = interaction.options.getString("project", false)
+		const projectInput = interaction.options.getString("project", false) as "hypixel" | "quickplay" | "sba" | "bot"
 		if (!projectInput) {
 			await stats(true).catch(err => {
 				throw err
@@ -45,24 +45,8 @@ const command: Command = {
 			})
 			await interaction.editReply({ embeds: [allEmbed] })
 		} else {
-			switch (projectInput) {
-				case "hypixel": {
-					await updateProjectStatus(128098)
-					break
-				}
-				case "quickplay": {
-					await updateProjectStatus(369653)
-					break
-				}
-				case "sba": {
-					await updateProjectStatus(369493)
-					break
-				}
-				case "bot": {
-					await updateProjectStatus(436418)
-					break
-				}
-			}
+			await updateProjectStatus(ids.projects[projectInput])
+
 			const projectEmbed = new MessageEmbed({
 				color: colors.success,
 				author: { name: "Statistics updater" },

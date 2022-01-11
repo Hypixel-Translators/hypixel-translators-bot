@@ -37,7 +37,7 @@ const command: Command = {
 
 		const hypixelData = await crowdin.translationStatusApi
 				.withFetchAll()
-				.getProjectProgress(128098, 500)
+				.getProjectProgress(ids.projects.hypixel)
 				.then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null)
 				.catch(e => {
 					if (e.code === "ECONNABORTED") {
@@ -48,15 +48,15 @@ const command: Command = {
 				}),
 			quickplayData = await crowdin.translationStatusApi
 				.withFetchAll()
-				.getProjectProgress(369653, 500)
+				.getProjectProgress(ids.projects.quickplay)
 				.then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null),
 			sbaData = await crowdin.translationStatusApi
 				.withFetchAll()
-				.getProjectProgress(369493, 500)
+				.getProjectProgress(ids.projects.sba)
 				.then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null),
 			botData = await crowdin.translationStatusApi
 				.withFetchAll()
-				.getProjectProgress(436418, 500)
+				.getProjectProgress(ids.projects.bot)
 				.then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null)
 
 		let color: number
