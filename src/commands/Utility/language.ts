@@ -136,7 +136,7 @@ const command: Command = {
 				} else {
 					readdir(stringsFolder, async (_err, files) => {
 						const emptyIndex = files.indexOf("empty")
-						if (emptyIndex > -1 && !member?.roles.cache.has(ids.roles.admin)) files.splice(emptyIndex, 1)
+						if (~emptyIndex && !member?.roles.cache.has(ids.roles.admin)) files.splice(emptyIndex, 1)
 						const embed = new MessageEmbed({
 							color: colors.error,
 							author: { name: getString("moduleName") },
@@ -151,7 +151,7 @@ const command: Command = {
 		} else {
 			const files = readdirSync(stringsFolder),
 				emptyIndex = files.indexOf("empty")
-			if (emptyIndex > -1 && !member?.roles.cache.has(ids.roles.admin)) files.splice(emptyIndex, 1)
+			if (~emptyIndex && !member?.roles.cache.has(ids.roles.admin)) files.splice(emptyIndex, 1)
 			const embed = new MessageEmbed({
 				color: colors.neutral,
 				author: { name: getString("moduleName") },

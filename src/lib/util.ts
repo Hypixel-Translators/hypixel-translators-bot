@@ -64,7 +64,7 @@ export function arrayEqual(a: unknown, b: unknown) {
 export async function closeConnection(uuid: string) {
 	//* Check if connection exists. If it does, remove connection from connection list.
 	const index = activeConnections.indexOf(uuid)
-	if (index > -1) activeConnections.splice(index, 1)
+	if (~index) activeConnections.splice(index, 1)
 
 	//* Close browser if connection list is empty.
 	if (!activeConnections.length) {
