@@ -28,6 +28,11 @@ const command: Command = {
 		},
 		{
 			type: "SUB_COMMAND",
+			name: "reset",
+			description: "Resets your language",
+		},
+		{
+			type: "SUB_COMMAND",
 			name: "list",
 			description: "Gives you a list of all the available languages",
 		},
@@ -148,6 +153,28 @@ const command: Command = {
 					})
 				}
 			})
+		} else if (subCommand === "reset") {
+			const result = await collection.updateOne({ id: interaction.user.id }, { $unset: { lang: true } })
+			if (result.modifiedCount) {
+				randomTip = generateTip(getString, language)
+				const embed = new MessageEmbed({
+					color: colors.success,
+					author: { name: getString("moduleName", this.name, language) },
+					title: getString("resetTitle", this.name, language),
+					description: getString("credits", this.name, language),
+					footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
+				})
+				return await interaction.reply({ embeds: [embed] })
+			} else {
+				const embed = new MessageEmbed({
+					color: colors.error,
+					author: { name: getString("moduleName", this.name, language) },
+					title: getString("didntChange", language),
+					description: getString("notSet", this.name, language),
+					footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
+				})
+				return await interaction.reply({ embeds: [embed] })
+			}
 		} else {
 			const files = readdirSync(stringsFolder),
 				emptyIndex = files.indexOf("empty")

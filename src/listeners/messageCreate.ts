@@ -17,7 +17,7 @@ import { client } from "../index"
 import { crowdinVerify } from "../lib/crowdinverify"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
 import { leveling } from "../lib/leveling"
-import { arrayEqual, Stats } from "../lib/util"
+import { arrayEqual, locales, Stats } from "../lib/util"
 
 import type { Stream } from "node:stream"
 
@@ -244,7 +244,7 @@ client.on("messageCreate", async message => {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	function getGlobalString(path: string, variables?: { [key: string]: string | number } | string, file = "global", lang = author.lang ?? "en"): any {
 		if (typeof variables === "string") {
-			lang = readdirSync("./strings").includes(file) ? file : author.lang ?? "en"
+			lang = locales.includes(file) ? file : author.lang ?? "en"
 			file = variables
 		}
 		const command = client.commands.get(file)

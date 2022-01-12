@@ -2,7 +2,7 @@ import { MessageEmbed } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
-import { generateTip } from "../../lib/util"
+import { discordLocaleToBotLocale, generateTip } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -32,7 +32,7 @@ const command: Command = {
 			message = interaction.options.getString("message", true).replaceAll("\\n", "\n"),
 			dm = new MessageEmbed({
 				color: colors.neutral,
-				author: getString("incoming", this.name, recipientDb.lang),
+				author: getString("incoming", this.name, recipientDb.lang ?? discordLocaleToBotLocale(interaction.locale)),
 				description: message,
 				footer: { text: getString("incomingDisclaimer", this.name, recipientDb.lang) },
 			}),
@@ -45,7 +45,7 @@ const command: Command = {
 					author: { name: "Direct Message" },
 					title: `Sent message to ${recipient.tag}`,
 					description: message,
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: getString("incomingDisclaimer", this.name, recipientDb.lang ?? discordLocaleToBotLocale(interaction.locale)) },
 				})
 				await interaction.editReply({ embeds: [embed] })
 			})

@@ -231,6 +231,18 @@ export function parseToNumberString(num: number, getString: GetStringFunction): 
 	return `${num}`
 }
 
+export const locales = readdirSync("./strings")
+
+export function discordLocaleToBotLocale(discordLocale: string): string {
+	if (discordLocale === "uk") discordLocale = "ua"
+	const localeWithCountryCode = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a, b) => (b ? a + b.toLowerCase() : a)),
+		locale = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a) => a)
+
+	if (locales.includes(localeWithCountryCode)) return localeWithCountryCode
+	else if (locales.includes(locale)) return locale
+	else return "en"
+}
+
 export async function restart(interaction?: ChatInputCommandInteraction) {
 	await axios.delete("https://api.heroku.com/apps/hypixel-translators/dynos", {
 		headers: {
