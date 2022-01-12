@@ -21,7 +21,6 @@ const command: Command = {
 					type: "STRING",
 					name: "language",
 					description: "The new language you want to set",
-					required: false,
 					autocomplete: true,
 				},
 			],
@@ -60,7 +59,7 @@ const command: Command = {
 			stringsFolder = "./strings/",
 			member = interaction.member as GuildMember | null,
 			subCommand = interaction.options.getSubcommand()
-		let language = interaction.options.getString("language", subCommand === "stats")?.toLowerCase()
+		let language = interaction.options.getString("language", ["set", "stats"].includes(subCommand))?.toLowerCase()
 
 		if (subCommand === "list") {
 			const files = readdirSync(stringsFolder),
@@ -98,7 +97,7 @@ const command: Command = {
 
 			if (language !== "en") embed.setDescription(users.join(", "))
 			await interaction.reply({ embeds: [embed] })
-		} else if (subCommand === "set" && language) {
+		} else if (subCommand === "set") {
 			if (language === "se") language = "sv"
 			const languages = await db.collection<MongoLanguage>("languages").find().toArray(),
 				mongoLanguage = languages.find(l => l.name.toLowerCase() === language)
@@ -176,18 +175,6 @@ const command: Command = {
 				})
 				await interaction.reply({ embeds: [embed] })
 			}
-		} else {
-			const files = readdirSync(stringsFolder),
-				emptyIndex = files.indexOf("empty")
-			if (~emptyIndex && !member?.roles.cache.has(ids.roles.admin)) files.splice(emptyIndex, 1)
-			const embed = new MessageEmbed({
-				color: colors.neutral,
-				author: { name: getString("moduleName") },
-				title: getString("current"),
-				description: `${getString("errorDescription")}\n\`${files.join("`, `")}\`\n\n${getString("credits")}`,
-				footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
-			})
-			await interaction.reply({ embeds: [embed] })
 		}
 	},
 }
