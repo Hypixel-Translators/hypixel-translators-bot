@@ -52,7 +52,7 @@ export class HTBClient extends Client<true> {
 		const collection = db.collection<DbUser>("users")
 		let user = await collection.findOne({ id: id })
 		while (!user) {
-			await collection.insertOne({ id: id, lang: "en" })
+			await collection.insertOne({ id: id })
 			user = await collection.findOne({ id: id })
 		}
 		return user

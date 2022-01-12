@@ -24,11 +24,11 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply()
-		const authorDb = await client.getUser(interaction.user.id)
+		const authorDb = await client.getUser(interaction.user.id),
+			discordLocale = transformDiscordLocale(interaction.locale)
 
 		let rawLang = interaction.options.getString("language", false)?.toLowerCase()
-		if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !rawLang && !authorDb.lang && transformDiscordLocale(interaction.locale) !== "en")
-			rawLang = authorDb.lang ?? transformDiscordLocale(interaction.locale)
+		if ([!"en", "empty"].includes(authorDb.lang!) && discordLocale !== "en") rawLang ??= authorDb.lang ?? discordLocale
 		if (!rawLang) throw "noLang"
 		const languages = await db.collection<MongoLanguage>("languages").find().toArray(),
 			lang =
