@@ -19,8 +19,8 @@ client.on("interactionCreate", async interaction => {
 	let command: Command | null = null
 	const author: DbUser = await client.getUser(interaction.user.id),
 		member = interaction.client.guilds.cache.get(ids.guilds.main)!.members.cache.get(interaction.user.id)!,
-		randomTip = generateTip(getString),
 		langFromLocale = author.lang ?? transformDiscordLocale(interaction.locale),
+		randomTip = generateTip(getString),
 		statsColl = db.collection<Stats>("stats")
 
 	if (interaction.isButton() && interaction.inCachedGuild()) return void (await handleButtonInteractions(interaction, getString))
