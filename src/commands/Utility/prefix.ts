@@ -84,7 +84,12 @@ const command: Command = {
 				const userDb = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) {
 					return await buttonInteraction.reply({
-						content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang ?? discordLocaleToBotLocale(interaction.locale)),
+						content: getString(
+							"pagination.notYours",
+							{ command: `/${this.name}` },
+							"global",
+							userDb.lang ?? discordLocaleToBotLocale(interaction.locale),
+						),
 						ephemeral: true,
 					})
 				}
@@ -275,7 +280,12 @@ const command: Command = {
 				const userDb = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) {
 					return await buttonInteraction.reply({
-						content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang ?? discordLocaleToBotLocale(interaction.locale)),
+						content: getString(
+							"pagination.notYours",
+							{ command: `/${this.name}` },
+							"global",
+							userDb.lang ?? discordLocaleToBotLocale(interaction.locale),
+						),
 						ephemeral: true,
 					})
 				}

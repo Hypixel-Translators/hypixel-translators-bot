@@ -27,7 +27,8 @@ const command: Command = {
 		const authorDb = await client.getUser(interaction.user.id)
 
 		let rawLang = interaction.options.getString("language", false)?.toLowerCase()
-		if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !rawLang && (!authorDb.lang && discordLocaleToBotLocale(interaction.locale) === "en")) rawLang = authorDb.lang ?? discordLocaleToBotLocale(interaction.locale)
+		if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !rawLang && !authorDb.lang && discordLocaleToBotLocale(interaction.locale) === "en")
+			rawLang = authorDb.lang ?? discordLocaleToBotLocale(interaction.locale)
 		if (!rawLang) throw "noLang"
 		const languages = await db.collection<MongoLanguage>("languages").find().toArray(),
 			lang =

@@ -126,7 +126,12 @@ const command: Command = {
 						const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
 						if (interaction.user.id !== buttonInteraction.user.id) {
 							return await buttonInteraction.reply({
-								content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang ?? discordLocaleToBotLocale(interaction.locale)),
+								content: getString(
+									"pagination.notYours",
+									{ command: `/${this.name}` },
+									"global",
+									userDb.lang ?? discordLocaleToBotLocale(interaction.locale),
+								),
 								ephemeral: true,
 							})
 						} else if (buttonInteraction.customId === "first") page = 0

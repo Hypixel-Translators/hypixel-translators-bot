@@ -295,7 +295,12 @@ const command: Command = {
 				option = menuInteraction.values[0]
 			if (interaction.user.id !== menuInteraction.user.id) {
 				return await menuInteraction.reply({
-					content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang ?? discordLocaleToBotLocale(interaction.locale)),
+					content: getString(
+						"pagination.notYours",
+						{ command: `/${this.name}` },
+						"global",
+						userDb.lang ?? discordLocaleToBotLocale(interaction.locale),
+					),
 					ephemeral: true,
 				})
 			} else if (option === "stats") embed = stats()

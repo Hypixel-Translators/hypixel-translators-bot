@@ -83,41 +83,41 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 
 	return getString
 		? `${getString("tip", "global", newLang).toUpperCase()}: ${getString(
-			`tips.${keys[(keys.length * Math.random()) << 0]}`,
-			{
-				langIb: "/language set language:ib",
-				translate: "/translate",
-				prefix: "/prefix",
-				bots: "#bots",
-				gettingStarted: "#getting-started",
-				twitter: "https://twitter.com/HTranslators",
-				rules: "#rules",
-				serverInfo: "#server-info",
-				hypixelstats: "/hypixelstats",
-				languagestats: "/languagestats",
-				verify: "/verify",
-				langList: "/language list",
-				botUpdates: "#bot-updates",
-				feedback: "/feedback",
-			},
-			"global",
-			newLang,
-		)}`
+				`tips.${keys[(keys.length * Math.random()) << 0]}`,
+				{
+					langIb: "/language set language:ib",
+					translate: "/translate",
+					prefix: "/prefix",
+					bots: "#bots",
+					gettingStarted: "#getting-started",
+					twitter: "https://twitter.com/HTranslators",
+					rules: "#rules",
+					serverInfo: "#server-info",
+					hypixelstats: "/hypixelstats",
+					languagestats: "/languagestats",
+					verify: "/verify",
+					langList: "/language list",
+					botUpdates: "#bot-updates",
+					feedback: "/feedback",
+				},
+				"global",
+				newLang,
+		  )}`
 		: `${strings.tip.toUpperCase()}: ${strings.tips[keys[(keys.length * Math.random()) << 0]]
-			.replace("%%langIb%%", "/language set language:ib")
-			.replace("%%translate%%", "/translate")
-			.replace("%%prefix%%", "/prefix")
-			.replace("%%bots%%", "#bots")
-			.replace("%%gettingStarted%%", "#getting-started")
-			.replace("%%twitter%%", "https://twitter.com/HTranslators")
-			.replace("%%rules%%", "#rules")
-			.replace("%%serverInfo%%", "#server-info")
-			.replace("%%hypixelstats%%", "/hypixelstats")
-			.replace("%%languagestats%%", "/languagestats")
-			.replace("%%verify%%", "/verify")
-			.replace("%%langList%%", "/language list")
-			.replace("%%botUpdates%%", "#bot-updates")
-			.replace("%%feedback%%", "/feedback")}`
+				.replace("%%langIb%%", "/language set language:ib")
+				.replace("%%translate%%", "/translate")
+				.replace("%%prefix%%", "/prefix")
+				.replace("%%bots%%", "#bots")
+				.replace("%%gettingStarted%%", "#getting-started")
+				.replace("%%twitter%%", "https://twitter.com/HTranslators")
+				.replace("%%rules%%", "#rules")
+				.replace("%%serverInfo%%", "#server-info")
+				.replace("%%hypixelstats%%", "/hypixelstats")
+				.replace("%%languagestats%%", "/languagestats")
+				.replace("%%verify%%", "/verify")
+				.replace("%%langList%%", "/language list")
+				.replace("%%botUpdates%%", "#bot-updates")
+				.replace("%%feedback%%", "/feedback")}`
 }
 
 export async function getActivePunishments(user: User) {
@@ -231,8 +231,6 @@ export function parseToNumberString(num: number, getString: GetStringFunction): 
 	return `${num}`
 }
 
-export const localeList = ["ar", "bg", "cs", "da", "de", "el", "empty", "en", "enpt", "es", "esmx", "espe", "fa", "fi", "fil", "fr", "he", "hi", "hu", "ib", "id", "it", "ja", "ko", "ms", "nl", "no", "pl", "pt", "ptbr", "ro", "ru", "sv", "th", "tr", "ua", "zhcn", "zhtw"]
-
 export function discordLocaleToBotLocale(discordLocale: string): string {
 	if (discordLocale === "en-US" || discordLocale === "en-GB") discordLocale = "en"
 	else if (discordLocale === "es-ES") discordLocale = "es"
@@ -241,7 +239,7 @@ export function discordLocaleToBotLocale(discordLocale: string): string {
 
 	discordLocale = discordLocale.replace(/([a-z]{2})(?:-([A-Z]{2}))?/, (_, a, b) => (b ? a + b.toLowerCase() : a))
 
-	if (localeList.includes(discordLocale)) return discordLocale
+	if (readdirSync("./strings").includes(discordLocale)) return discordLocale
 	else return "en"
 }
 
@@ -314,8 +312,8 @@ export function updateModlogFields(embed: MessageEmbed, modlog: PunishmentLog, m
 		modlog.type === "VERBAL"
 			? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 1)
 			: modlog.type === "WARN"
-				? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 7)
-				: new Date(modlog.endTimestamp ?? modlog.timestamp).setDate(new Date(modlog.endTimestamp ?? modlog.timestamp).getDate() + 30)
+			? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 7)
+			: new Date(modlog.endTimestamp ?? modlog.timestamp).setDate(new Date(modlog.endTimestamp ?? modlog.timestamp).getDate() + 30)
 	if (typeof modlog.duration === "number") {
 		embed.setFields(
 			{ name: "Moderator", value: `<@!${modlog.moderator}>`, inline: true },

@@ -154,7 +154,7 @@ const command: Command = {
 				}
 			})
 		} else if (subCommand === "reset") {
-			const result = await collection.updateOne({ id: interaction.user.id }, { $set: { lang: null } })
+			const result = await collection.updateOne({ id: interaction.user.id }, { $unset: { lang: true } })
 			if (result.modifiedCount) {
 				randomTip = generateTip(getString, language)
 				const embed = new MessageEmbed({
