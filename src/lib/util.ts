@@ -79,11 +79,12 @@ export async function closeConnection(uuid: string) {
 
 export function transformDiscordLocale(discordLocale: string): string {
 	if (discordLocale === "uk") discordLocale = "ua"
-	const localeWithCountryCode = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a, b) => (b ? a + b.toLowerCase() : a)),
-		locale = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a) => a)
+	const localeWithCountryCode = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a, b) => (b ? `${a}${b.toLowerCase()}` : a)),
+		locale = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, "$1"),
+		locales = readdirSync("./strings")
 
-	if (readdirSync("./strings").includes(localeWithCountryCode)) return localeWithCountryCode
-	else if (readdirSync("./strings").includes(locale)) return locale
+	if (locales.includes(localeWithCountryCode)) return localeWithCountryCode
+	else if (locales.includes(locale)) return locale
 	else return "en"
 }
 

@@ -164,7 +164,7 @@ const command: Command = {
 					description: getString("credits", this.name, language),
 					footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 				})
-				return await interaction.reply({ embeds: [embed] })
+				await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new MessageEmbed({
 					color: colors.error,
@@ -173,7 +173,7 @@ const command: Command = {
 					description: getString("notSet", this.name, language),
 					footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 				})
-				return await interaction.reply({ embeds: [embed] })
+				await interaction.reply({ embeds: [embed] })
 			}
 		} else {
 			const files = readdirSync(stringsFolder),

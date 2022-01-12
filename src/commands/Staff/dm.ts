@@ -45,7 +45,7 @@ const command: Command = {
 					author: { name: "Direct Message" },
 					title: `Sent message to ${recipient.tag}`,
 					description: message,
-					footer: { text: getString("incomingDisclaimer", this.name, recipientDb.lang) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 				await interaction.editReply({ embeds: [embed] })
 			})
