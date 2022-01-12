@@ -100,7 +100,7 @@ client.on("interactionCreate", async interaction => {
 		path: string,
 		variables?: Record<string, string | number> | string,
 		file = command?.name ?? "global",
-		langs: string | string[] = [author.lang, interaction.locale.split("-")[0]],
+		langs: string | string[] = [author.lang, interaction.locale],
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	): any {
 		const supportedLangs = readdirSync("./strings")
@@ -111,8 +111,11 @@ client.on("interactionCreate", async interaction => {
 		if (typeof langs === "string") langs = [langs]
 		let lang: string
 		for (const l of langs) {
-			if (supportedLangs.includes(l)) {
-				lang = l
+			if (supportedLangs.includes(l.split("-")[0])) {
+				lang = l.split("-")[0]
+				break
+			} else if (supportedLangs.includes(l.replace("-", "").toLowerCase())) {
+				lang = l.replace("-", "").toLowerCase()
 				break
 			}
 		}
