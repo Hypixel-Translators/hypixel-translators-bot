@@ -20,6 +20,7 @@ client.on("interactionCreate", async interaction => {
 	const author: DbUser = await client.getUser(interaction.user.id),
 		member = interaction.client.guilds.cache.get(ids.guilds.main)!.members.cache.get(interaction.user.id)!,
 		randomTip = generateTip(getString),
+		langFromLocale = author.lang ?? transformDiscordLocale(interaction.locale),
 		statsColl = db.collection<Stats>("stats")
 
 	if (interaction.isButton() && interaction.inCachedGuild()) return void (await handleButtonInteractions(interaction, getString))
@@ -87,8 +88,6 @@ client.on("interactionCreate", async interaction => {
 		timestamps.set(interaction.user.id, now)
 		setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount)
 	}
-
-	const langFromLocale = author.lang ?? transformDiscordLocale(interaction.locale)
 
 	/**
 	 * Gets a string or an object of strings for the correct language and replaces all variables if any

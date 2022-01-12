@@ -170,7 +170,7 @@ const command: Command = {
 				const embed = new MessageEmbed({
 					color: colors.error,
 					author: { name: getString("moduleName", this.name, newLanguage) },
-					title: getString("didntChange", newLanguage),
+					title: getString("didntChange", this.name, newLanguage),
 					description: getString("notSet", this.name, newLanguage),
 					footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 				})
