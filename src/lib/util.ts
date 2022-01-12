@@ -78,7 +78,7 @@ export async function closeConnection(uuid: string) {
 }
 
 export function transformDiscordLocale(discordLocale: string): string {
-	if (discordLocale === "uk") discordLocale = "ua"
+	if (discordLocale === "uk") return "ua"
 	const localeWithCountryCode = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a, b) => (b ? `${a}${b.toLowerCase()}` : a)),
 		locale = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, "$1"),
 		locales = readdirSync("./strings")
