@@ -77,6 +77,16 @@ export async function closeConnection(uuid: string) {
 	}
 }
 
+export function transformDiscordLocale(discordLocale: string): string {
+	if (discordLocale === "uk") discordLocale = "ua"
+	const localeWithCountryCode = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a, b) => (b ? a + b.toLowerCase() : a)),
+		locale = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a) => a)
+
+	if (readdirSync("./strings").includes(localeWithCountryCode)) return localeWithCountryCode
+	else if (readdirSync("./strings").includes(locale)) return locale
+	else return "en"
+}
+
 export function generateTip(getString?: GetStringFunction, newLang?: string): string {
 	const strings = require("../../strings/en/global.json"),
 		keys = getString ? Object.keys(getString("tips", "global")) : Object.keys(strings.tips)
@@ -229,18 +239,6 @@ export function parseToNumberString(num: number, getString: GetStringFunction): 
 		)}`
 	}
 	return `${num}`
-}
-
-export const locales = readdirSync("./strings")
-
-export function discordLocaleToBotLocale(discordLocale: string): string {
-	if (discordLocale === "uk") discordLocale = "ua"
-	const localeWithCountryCode = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a, b) => (b ? a + b.toLowerCase() : a)),
-		locale = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a) => a)
-
-	if (locales.includes(localeWithCountryCode)) return localeWithCountryCode
-	else if (locales.includes(locale)) return locale
-	else return "en"
 }
 
 export async function restart(interaction?: ChatInputCommandInteraction) {

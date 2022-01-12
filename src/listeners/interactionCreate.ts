@@ -1,3 +1,4 @@
+import { readdirSync } from "node:fs"
 import process from "node:process"
 // Cannot use promisified setTimeout here
 import { setTimeout } from "node:timers"
@@ -9,7 +10,7 @@ import { client } from "../index"
 import handleAutocompleteInteractions from "../interactions/autocomplete"
 import handleButtonInteractions from "../interactions/buttons"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
-import { arrayEqual, discordLocaleToBotLocale, generateTip, locales, Stats } from "../lib/util"
+import { arrayEqual, transformDiscordLocale, generateTip, Stats } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
@@ -87,7 +88,7 @@ client.on("interactionCreate", async interaction => {
 		setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount)
 	}
 
-	const langFromLocale = author.lang ?? discordLocaleToBotLocale(interaction.locale)
+	const langFromLocale = author.lang ?? transformDiscordLocale(interaction.locale)
 
 	/**
 	 * Gets a string or an object of strings for the correct language and replaces all variables if any
@@ -105,7 +106,7 @@ client.on("interactionCreate", async interaction => {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	): any {
 		if (typeof variables === "string") {
-			lang = locales.includes(file) ? file : langFromLocale
+			lang = readdirSync("./strings").includes(file) ? file : langFromLocale
 			file = variables
 		}
 		let enStrings = require(`../../strings/en/${file}.json`)

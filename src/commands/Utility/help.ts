@@ -4,7 +4,7 @@ import { ChatInputCommandInteraction, GuildMember, Message, MessageActionRow, Me
 
 import { ids } from "../../config.json"
 import { client } from "../../index"
-import { discordLocaleToBotLocale, generateTip } from "../../lib/util"
+import { generateTip } from "../../lib/util"
 
 import type { DbUser } from "../../lib/dbclient"
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -105,12 +105,7 @@ const command: Command = {
 					option = menuInteraction.values[0]
 				if (interaction.user.id !== menuInteraction.user.id) {
 					return await menuInteraction.reply({
-						content: getString(
-							"pagination.notYours",
-							{ command: `/${this.name}` },
-							"global",
-							userDb.lang ?? discordLocaleToBotLocale(interaction.locale),
-						),
+						content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang),
 						ephemeral: true,
 					})
 				} else pageNum = Number(option)
