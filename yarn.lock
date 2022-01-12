@@ -96,9 +96,9 @@
   integrity sha512-CbXaGwwlEMq+l1TRu01FJCvySJ1CEFKFclHT48nIfNeZXaAAmmwwy7scUKmYHPUa3GhoMp6Qr1B3eAJux6XgOQ==
 
 "@sapphire/snowflake@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/snowflake/-/snowflake-3.0.0.tgz#ff64900d69e3a687fdbb9023be91b1092cc7cc1b"
-  integrity sha512-YVYXvpWe8fVs2P9mvvsMXByXCcSPcsgUhuKwA+SSlJk1VO7EW1vWjlgGozGj0tPOhsuaeAj1EjPbkCmNKiSRLA==
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@sapphire/snowflake/-/snowflake-3.0.1.tgz#400602940d1c5dc12f71e104972a1ace7c6c6b74"
+  integrity sha512-v+wCC2q9DK3OhG7Vcdt/8A/INAYiyhlMD5snakmXGBN1usLBwSGJVJBjDHv4VGI5C9YYl4UdW5Ovr3arvYsJXQ==
 
 "@sindresorhus/is@^4.2.0":
   version "4.2.1"
@@ -587,10 +587,10 @@ discord-api-types@^0.26.0, discord-api-types@^0.26.1:
   resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.26.1.tgz#726f766ddc37d60da95740991d22cb6ef2ed787b"
   integrity sha512-T5PdMQ+Y1MEECYMV5wmyi9VEYPagEDEi4S0amgsszpWY0VB9JJ/hEvM6BgLhbdnKky4gfmZEXtEEtojN8ZKJQQ==
 
-discord.js@^14.0.0-dev.1641731090.e38d799:
-  version "14.0.0-dev.1641731090.e38d799"
-  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-14.0.0-dev.1641731090.e38d799.tgz#f369fabb9ed70b49fe2648d848b8e9640c04fe5a"
-  integrity sha512-xcDaSUvi0ZdYoOkTRGOhGpDjK/tJ2ywid6VX1CMqNf75iN4Ym6PdhbXjQkzsvQn/aFZ8FQunw5E9qkWBAP47DA==
+discord.js@^14.0.0-dev.1641945998.1479e40:
+  version "14.0.0-dev.1641945998.1479e40"
+  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-14.0.0-dev.1641945998.1479e40.tgz#5e3706cd987138ead084976290a0402b10380814"
+  integrity sha512-s1q6QGv5NG+4J5Qsuo3N6KKwdHTBHFyDWX8x3zqQJ6S633ijkNvx7YMbn0xfOOZ3H3mQlvPIhIVVAYwhE2OQ6A==
   dependencies:
     "@discordjs/builders" "^0.11.0"
     "@discordjs/collection" "^0.4.0"
@@ -883,9 +883,9 @@ fast-diff@^1.1.2:
   integrity sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
 
 fast-glob@^3.2.9:
-  version "3.2.9"
-  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.9.tgz#8f55f664b68a236bd29fa165817fc44f2b11faba"
-  integrity sha512-MBwILhhD92sziIrMQwpqcuGERF+BH99ei2a3XsGJuqEKcSycAL+w0HWokFenZXona+kjFr82Lf71eTxNRC06XQ==
+  version "3.2.10"
+  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.10.tgz#2734f83baa7f43b7fd41e13bc34438f4ffe284ee"
+  integrity sha512-s9nFhFnvR63wls6/kM88kQqDhMu0AfdjqouE2l5GVQPbqLgyFjjU5ry/r2yKsJxpb9Py1EYNqieFrmMaX4v++A==
   dependencies:
     "@nodelib/fs.stat" "^2.0.2"
     "@nodelib/fs.walk" "^1.2.3"
@@ -960,9 +960,9 @@ flatted@^3.1.0:
   integrity sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==
 
 follow-redirects@^1.14.0, follow-redirects@^1.14.4:
-  version "1.14.6"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.6.tgz#8cfb281bbc035b3c067d6cd975b0f6ade6e855cd"
-  integrity sha512-fhUl5EwSJbbl8AR+uYL2KQDxLkdSjZGR36xy46AO7cOMTrCMON6Sa28FmAnC2tRTDbd/Uuzz3aJBv7EBN7JH8A==
+  version "1.14.7"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.7.tgz#2004c02eb9436eee9a21446a6477debf17e81685"
+  integrity sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==
 
 form-data@^3.0.0:
   version "3.0.1"
