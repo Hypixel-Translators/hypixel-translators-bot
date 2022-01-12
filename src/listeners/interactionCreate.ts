@@ -1,4 +1,3 @@
-import { readdirSync } from "node:fs"
 import process from "node:process"
 // Cannot use promisified setTimeout here
 import { setTimeout } from "node:timers"

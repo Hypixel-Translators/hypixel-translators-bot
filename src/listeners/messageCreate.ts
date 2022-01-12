@@ -1,5 +1,3 @@
-import { readdirSync } from "node:fs"
-
 import {
 	BufferResolvable,
 	GuildChannel,
