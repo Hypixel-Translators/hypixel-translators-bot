@@ -98,23 +98,28 @@ client.on("interactionCreate", async interaction => {
 	 */
 	function getString(
 		path: string,
-		variables?: { [key: string]: string | number } | string,
+		variables?: Record<string, string | number> | string,
 		file = command?.name ?? "global",
-		lang = author.lang ?? "en",
+		langs: string | string[] = [author.lang, interaction.locale.split("-")[0]],
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	): any {
+		const supportedLangs = readdirSync("./strings")
 		if (typeof variables === "string") {
-			lang = readdirSync("./strings").includes(file) ? file : author.lang ?? "en"
+			if (supportedLangs.includes(file)) langs = file
 			file = variables
 		}
-		let enStrings = require(`../../strings/en/${file}.json`)
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		let strings: Record<string, any>
-		try {
-			strings = require(`../../strings/${lang}/${file}.json`)
-		} catch {
-			strings = require(`../../strings/en/${file}.json`)
+		if (typeof langs === "string") langs = [langs]
+		let lang: string
+		for (const l of langs) {
+			if (supportedLangs.includes(l)) {
+				lang = l
+				break
+			}
 		}
+		lang ??= "en"
+		let enStrings = require(`../../strings/en/${file}.json`)
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any, one-var
+		let strings: Record<string, any> = require(`../../strings/${lang}/${file}.json`)
 		const pathSplit = path.split(".")
 		let string
 		pathSplit.forEach(pathPart => {
