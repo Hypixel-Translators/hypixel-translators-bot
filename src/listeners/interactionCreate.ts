@@ -111,11 +111,11 @@ client.on("interactionCreate", async interaction => {
 		if (typeof langs === "string") langs = [langs]
 		let lang: string
 		for (const l of langs) {
-			if (supportedLangs.includes(l.split("-")[0])) {
-				lang = l.split("-")[0]
-				break
-			} else if (supportedLangs.includes(l.replace("-", "").toLowerCase())) {
+			if (supportedLangs.includes(l.replace("-", "").toLowerCase())) {
 				lang = l.replace("-", "").toLowerCase()
+				break
+			} else if (supportedLangs.includes(l.split("-")[0])) {
+				lang = l.split("-")[0]
 				break
 			}
 		}
