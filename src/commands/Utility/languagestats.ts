@@ -3,7 +3,7 @@ import { MessageEmbed } from "discord.js"
 import { colors, ids } from "../../config.json"
 import { client, crowdin } from "../../index"
 import { db } from "../../lib/dbclient"
-import { generateTip, MongoLanguage } from "../../lib/util"
+import { transformDiscordLocale, generateTip, MongoLanguage } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -24,10 +24,11 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply()
-		const authorDb = await client.getUser(interaction.user.id)
+		const authorDb = await client.getUser(interaction.user.id),
+			discordLocale = transformDiscordLocale(interaction.locale)
 
 		let rawLang = interaction.options.getString("language", false)?.toLowerCase()
-		if (authorDb.lang !== "en" && authorDb.lang !== "empty" && !rawLang) rawLang = authorDb.lang
+		if ([!"en", "empty"].includes(authorDb.lang!) && discordLocale !== "en") rawLang ??= authorDb.lang ?? discordLocale
 		if (!rawLang) throw "noLang"
 		const languages = await db.collection<MongoLanguage>("languages").find().toArray(),
 			lang =

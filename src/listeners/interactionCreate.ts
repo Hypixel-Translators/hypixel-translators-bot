@@ -10,7 +10,7 @@ import { client } from "../index"
 import handleAutocompleteInteractions from "../interactions/autocomplete"
 import handleButtonInteractions from "../interactions/buttons"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
-import { arrayEqual, generateTip, Stats } from "../lib/util"
+import { arrayEqual, transformDiscordLocale, generateTip, Stats } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
@@ -19,6 +19,7 @@ client.on("interactionCreate", async interaction => {
 	let command: Command | null = null
 	const author: DbUser = await client.getUser(interaction.user.id),
 		member = interaction.client.guilds.cache.get(ids.guilds.main)!.members.cache.get(interaction.user.id)!,
+		langFromLocale = author.lang ?? transformDiscordLocale(interaction.locale),
 		randomTip = generateTip(getString),
 		statsColl = db.collection<Stats>("stats")
 
@@ -100,11 +101,11 @@ client.on("interactionCreate", async interaction => {
 		path: string,
 		variables?: { [key: string]: string | number } | string,
 		file = command?.name ?? "global",
-		lang = author.lang ?? "en",
+		lang = langFromLocale,
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	): any {
 		if (typeof variables === "string") {
-			lang = readdirSync("./strings").includes(file) ? file : author.lang ?? "en"
+			lang = readdirSync("./strings").includes(file) ? file : langFromLocale
 			file = variables
 		}
 		let enStrings = require(`../../strings/en/${file}.json`)

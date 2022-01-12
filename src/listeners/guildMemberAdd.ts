@@ -24,7 +24,7 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 					`Hey there and thanks for joining the **${newMember.guild.name}**! In order to get access to the rest of the server, please verify yourself in <#${ids.channels.verify}>.`,
 				)
 				.catch(() => console.log(`Couldn't DM user ${newMember.user.tag}, probably because they have DMs off`))
-			await db.collection<DbUser>("users").insertOne({ id: newMember.id, lang: "en" })
+			await db.collection<DbUser>("users").insertOne({ id: newMember.id })
 		}
 	}
 })

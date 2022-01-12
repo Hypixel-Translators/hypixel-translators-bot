@@ -4,7 +4,7 @@ import { GuildMember, MessageEmbed } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
-import { generateTip, MongoLanguage } from "../../lib/util"
+import { generateTip, MongoLanguage, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -25,6 +25,11 @@ const command: Command = {
 					autocomplete: true,
 				},
 			],
+		},
+		{
+			type: "SUB_COMMAND",
+			name: "reset",
+			description: "Resets your language",
 		},
 		{
 			type: "SUB_COMMAND",
@@ -148,6 +153,29 @@ const command: Command = {
 					})
 				}
 			})
+		} else if (subCommand === "reset") {
+			const result = await collection.updateOne({ id: interaction.user.id }, { $unset: { lang: true } }),
+				newLanguage = transformDiscordLocale(interaction.locale) // This is because now that language is not set, we can try to get the locale from discord
+			if (result.modifiedCount) {
+				randomTip = generateTip(getString, newLanguage)
+				const embed = new MessageEmbed({
+					color: colors.success,
+					author: { name: getString("moduleName", this.name, newLanguage) },
+					title: getString("resetTitle", this.name, newLanguage),
+					description: getString("credits", this.name, newLanguage),
+					footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
+				})
+				await interaction.reply({ embeds: [embed] })
+			} else {
+				const embed = new MessageEmbed({
+					color: colors.error,
+					author: { name: getString("moduleName", this.name, newLanguage) },
+					title: getString("didntChange", this.name, newLanguage),
+					description: getString("notSet", this.name, newLanguage),
+					footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
+				})
+				await interaction.reply({ embeds: [embed] })
+			}
 		} else {
 			const files = readdirSync(stringsFolder),
 				emptyIndex = files.indexOf("empty")
