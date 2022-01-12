@@ -10,7 +10,7 @@ import { client } from "../index"
 import handleAutocompleteInteractions from "../interactions/autocomplete"
 import handleButtonInteractions from "../interactions/buttons"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
-import { arrayEqual, discordLocaleToBotLocale, generateTip, Stats } from "../lib/util"
+import { arrayEqual, discordLocaleToBotLocale, generateTip, locales, Stats } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
@@ -106,7 +106,7 @@ client.on("interactionCreate", async interaction => {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	): any {
 		if (typeof variables === "string") {
-			lang = readdirSync("./strings").includes(file) ? file : langFromLocale
+			lang = locales.includes(file) ? file : langFromLocale
 			file = variables
 		}
 		let enStrings = require(`../../strings/en/${file}.json`)

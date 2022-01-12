@@ -231,15 +231,15 @@ export function parseToNumberString(num: number, getString: GetStringFunction): 
 	return `${num}`
 }
 
+export const locales = readdirSync("./strings")
+
 export function discordLocaleToBotLocale(discordLocale: string): string {
-	if (discordLocale === "en-US" || discordLocale === "en-GB") discordLocale = "en"
-	else if (discordLocale === "es-ES") discordLocale = "es"
-	else if (discordLocale === "sv-SE") discordLocale = "sv"
-	else if (discordLocale === "uk") discordLocale = "ua"
+	if (discordLocale === "uk") discordLocale = "ua"
+	const localeWithCountryCode = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a, b) => (b ? a + b.toLowerCase() : a)),
+		locale = discordLocale.replace(/([a-z]+)?/, (_, a) => a)
 
-	discordLocale = discordLocale.replace(/([a-z]{2})(?:-([A-Z]{2}))?/, (_, a, b) => (b ? a + b.toLowerCase() : a))
-
-	if (readdirSync("./strings").includes(discordLocale)) return discordLocale
+	if (locales.includes(localeWithCountryCode)) return localeWithCountryCode
+	else if (locales.includes(locale)) return locale
 	else return "en"
 }
 
@@ -258,7 +258,7 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 	const holiday: string[] = [],
 		log: { [Language: string]: string } = {}
 	holiday.push(strings![holidayName])
-	readdirSync("./strings").forEach(lang => {
+	locales.forEach(lang => {
 		if (lang === "empty") return
 		try {
 			strings = require(`../../strings/${lang}/holidays.json`)
