@@ -9,6 +9,7 @@
 	"errorTitle": "That language hasn't been added yet!",
 	"errorDescription": "Your language hasn't been changed. These languages are currently available (this doesn't mean they're translated):",
 	"suggestAdd": "If you'd like to have this language added to the bot, please contact an administrator.",
+	"current": "Your language preference is set to English.",
 	"listTitle": "List of languages",
 	"listElement": "`%%code%%` | **%%language%%**",
 	"credits": "Found an issue? Report it using `/feedback`.",
