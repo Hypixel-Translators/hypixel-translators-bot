@@ -21,6 +21,7 @@ const command: Command = {
 					type: "STRING",
 					name: "language",
 					description: "The new language you want to set",
+					required: true,
 					autocomplete: true,
 				},
 			],
