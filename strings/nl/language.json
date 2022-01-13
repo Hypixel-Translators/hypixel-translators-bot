@@ -1,10 +1,10 @@
 {
 	"moduleName": "Taal",
 	"changedToTitle": "Taal veranderd naar het Nederlands!",
-	"resetTitle": "Reset your language!",
+	"resetTitle": "Taal gereset!",
 	"didntChange": "Je taal is niet veranderd",
 	"alreadyThis": "Dit is gebeurd omdat je je huidige voorkeurstaal selecteerde.",
-	"notSet": "This happened because you hadn't set a language to begin with.",
+	"notSet": "Dit gebeurde omdat je geen taal hebt gekozen.",
 	"notTranslated": "Je kunt de gekozen taal niet selecteren omdat deze niet ver genoeg vertaald is. Als je deze taal spreekt, kun je meehelpen aan de vertaling via `/translate`.",
 	"errorTitle": "Die taal is nog niet toegevoegd!",
 	"errorDescription": "Je taal is niet veranderd. Deze talen zijn momenteel beschikbaar (dit betekent niet dat ze vertaald zijn):",
