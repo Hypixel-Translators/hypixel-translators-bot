@@ -1,10 +1,10 @@
 {
 	"moduleName": "Dil",
 	"changedToTitle": "Diliniz Türkçe olarak değiştirildi!",
-	"resetTitle": "Reset your language!",
+	"resetTitle": "Dilini sıfırla!",
 	"didntChange": "Dilin değişmedi",
 	"alreadyThis": "Bunun nedeni, zaten tercihin olan bir dili tekrar seçmendir.",
-	"notSet": "This happened because you hadn't set a language to begin with.",
+	"notSet": "Bu, başlangıç için bir dil belirlemediğin için oldu.",
 	"notTranslated": "Seçmeye çalıştığın dil henüz kullanılabilir olacak kadar çevrilmemiş. Eğer bu dili konuşuyorsan, `/translate` komutunu kullanarak çeviriye nasıl yardımcı olabileceğini öğrenebilirsin.",
 	"errorTitle": "Bu dil henüz eklenmedi!",
 	"errorDescription": "Dilin değişmedi. Şu an bu diller mevcut (bu, onların çevrildiği anlamına gelmez):",
