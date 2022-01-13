@@ -1,10 +1,10 @@
 {
 	"moduleName": "Bahasa",
 	"changedToTitle": "Mengganti bahasa anda menjadi Bahasa Indonesia!",
-	"resetTitle": "Reset your language!",
+	"resetTitle": "Bahasa telah diatur ulang!",
 	"didntChange": "Bahasa anda tidak berubah",
 	"alreadyThis": "Ini terjadi karena anda telah memilih bahasa yang tadinya sudah anda pakai.",
-	"notSet": "This happened because you hadn't set a language to begin with.",
+	"notSet": "Ini terjadi karena anda belum mengatur bahasa dari awal.",
 	"notTranslated": "Bahasa yang anda pilih belum cukup diterjemahkan untuk dipilih. Jika anda berbicara bahasa ini, anda bisa mencari tahu cara untuk bantu terjemahkan dengan menggunakan `/translate`.",
 	"errorTitle": "Bahasa itu belum di tambahkan!",
 	"errorDescription": "Bahasa anda belum berubah. Bahasa ini yang saat ini tersedia (ini tidak berarti mereka telah diterjemahkan):",

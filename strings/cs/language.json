@@ -1,10 +1,10 @@
 {
 	"moduleName": "Jazyk",
 	"changedToTitle": "Tvůj jazyk byl změněn na češtinu!",
-	"resetTitle": "Reset your language!",
+	"resetTitle": "Tvůj jazyk byl resetován!",
 	"didntChange": "Tvůj jazyk se nezměnil",
 	"alreadyThis": "Toto se stalo, protože jazyk, který jsi zvolil, už jsi měl nastavený.",
-	"notSet": "This happened because you hadn't set a language to begin with.",
+	"notSet": "Toto se stalo, protože sis nezvolil výchozí jazyk.",
 	"notTranslated": "The language you tried to select isn't translated enough for it to be chosen. If you speak this language, you can find out how to help translate it by using `/translate`.",
 	"errorTitle": "Tento jazyk zatím nebyl přidán!",
 	"errorDescription": "Tvůj jazyk nebyl změněn. Momentálně jsou dostupné tyto jazyky (to neznamená, že jsou přeložené):",
