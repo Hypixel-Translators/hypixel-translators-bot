@@ -1,10 +1,10 @@
 {
 	"moduleName": "Kieli",
 	"changedToTitle": "Kieleksesi vaihdettiin suomi!",
-	"resetTitle": "Reset your language!",
+	"resetTitle": "Nollaa kielesi!",
 	"didntChange": "Kielesi ei vaihtunut",
 	"alreadyThis": "Tämä tapahtui, koska valitsit kielen, joka oli jo käytössäsi.",
-	"notSet": "This happened because you hadn't set a language to begin with.",
+	"notSet": "Tämä tapahtui, koska et ollut asettanut kieltä.",
 	"notTranslated": "Kieltä, jonka yritit valita ei ole käännetty tarpeeksi, jotta sitä voisi käyttää. Jos puhut kyseistä kieltä, voit toki ottaa selvää kuinka voisit auttaa sen kääntämisessä käyttämällä komentoa `/translate`.",
 	"errorTitle": "Tätä kieltä ei ole vielä lisätty!",
 	"errorDescription": "Kieltäsi ei vaihdettu. Tällä hetkellä saatavilla olevat kielet (käännöstä ei välttämättä löydy):",
