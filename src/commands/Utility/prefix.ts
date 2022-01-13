@@ -56,7 +56,7 @@ const command: Command = {
 					color: colors.neutral,
 					author: { name: getString("moduleName") },
 					title: getString("caution"),
-					description: `${getString("warning")}\n${getString("reactTimer", { cooldown: this.cooldown! })}`,
+					description: `${getString("warning")}\n${getString("reactTimer", { variables: { cooldown: this.cooldown! } })}`,
 					fields: [{ name: getString("previewT"), value: `\`[${prefix}] ${nickNoPrefix}\`` }],
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 				}),
@@ -65,13 +65,13 @@ const command: Command = {
 						new MessageButton({
 							customId: "confirm",
 							style: "SUCCESS",
-							label: getString("pagination.confirm", "global"),
+							label: getString("pagination.confirm", { file: "global" }),
 							emoji: "✅",
 						}),
 						new MessageButton({
 							customId: "cancel",
 							style: "DANGER",
-							label: getString("pagination.cancel", "global"),
+							label: getString("pagination.cancel", { file: "global" }),
 							emoji: "❎",
 						}),
 					],
@@ -84,7 +84,7 @@ const command: Command = {
 				const userDb = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) {
 					return await buttonInteraction.reply({
-						content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang),
+						content: getString("pagination.notYours", { variables: { command: `/${this.name}` }, file: "global", lang: userDb.lang }),
 						ephemeral: true,
 					})
 				}
@@ -223,14 +223,14 @@ const command: Command = {
 					style: "SUCCESS",
 					customId: "confirm",
 					emoji: "✅",
-					label: getString("pagination.confirm", "global"),
+					label: getString("pagination.confirm", { file: "global" }),
 					disabled: true,
 				}),
 				new MessageButton({
 					style: "DANGER",
 					customId: "cancel",
 					emoji: "❎",
-					label: getString("pagination.cancel", "global"),
+					label: getString("pagination.cancel", { file: "global" }),
 				}),
 			])
 			const rows = components.map(c => ({ type: "ACTION_ROW", components: c } as const))
@@ -264,7 +264,7 @@ const command: Command = {
 					color: colors.neutral,
 					author: { name: getString("moduleName") },
 					title: getString("react"),
-					description: getString("reactTimer", { cooldown: this.cooldown! }),
+					description: getString("reactTimer", { variables: { cooldown: this.cooldown! } }),
 					fields: [{ name: getString("previewT"), value: getString("noChanges") }],
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 				}),
@@ -275,7 +275,7 @@ const command: Command = {
 				const userDb = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) {
 					return await buttonInteraction.reply({
-						content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang),
+						content: getString("pagination.notYours", { variables: { command: `/${this.name}` }, file: "global", lang: userDb.lang }),
 						ephemeral: true,
 					})
 				}
@@ -356,7 +356,7 @@ const command: Command = {
 						color: colors.neutral,
 						author: { name: getString("moduleName") },
 						title: getString("react"),
-						description: getString("reactTimer2", { cooldown: this.cooldown! }),
+						description: getString("reactTimer2", { variables: { cooldown: this.cooldown! } }),
 						fields: [{ name: getString("previewT"), value: `\`[${prefixes}] ${nickNoPrefix}\`` }],
 						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 					})

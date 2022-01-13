@@ -93,25 +93,25 @@ const command: Command = {
 									style: "SUCCESS",
 									customId: "first",
 									emoji: "⏮️",
-									label: getString("pagination.first", "global"),
+									label: getString("pagination.first", { file: "global" }),
 								}),
 								new MessageButton({
 									style: "SUCCESS",
 									customId: "previous",
 									emoji: "◀️",
-									label: getString("pagination.previous", "global"),
+									label: getString("pagination.previous", { file: "global" }),
 								}),
 								new MessageButton({
 									style: "SUCCESS",
 									customId: "next",
 									emoji: "▶️",
-									label: getString("pagination.next", "global"),
+									label: getString("pagination.next", { file: "global" }),
 								}),
 								new MessageButton({
 									style: "SUCCESS",
 									customId: "last",
 									emoji: "⏭️",
-									label: getString("pagination.last", "global"),
+									label: getString("pagination.last", { file: "global" }),
 								}),
 							],
 						}),
@@ -126,7 +126,7 @@ const command: Command = {
 						const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
 						if (interaction.user.id !== buttonInteraction.user.id) {
 							return await buttonInteraction.reply({
-								content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang),
+								content: getString("pagination.notYours", { variables: { command: `/${this.name}` }, file: "global", lang: userDb.lang }),
 								ephemeral: true,
 							})
 						} else if (buttonInteraction.customId === "first") page = 0
@@ -146,7 +146,7 @@ const command: Command = {
 					collector.on("end", async () => {
 						controlButtons.components.forEach(button => button.setDisabled(true))
 						await interaction.editReply({
-							content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"),
+							content: getString("pagination.timeOut", { variables: { command: `\`/${this.name}\`` }, file: "global" }),
 							embeds: [pageEmbed],
 							components: [controlButtons],
 						})
@@ -157,16 +157,21 @@ const command: Command = {
 					return new MessageEmbed({
 						color: colors.success,
 						author: { name: getString("moduleName") },
-						title: getString("history.nameHistoryFor", { username }),
+						title: getString("history.nameHistoryFor", { variables: { username } }),
 						description:
 							nameHistory.length - 1
 								? nameHistory.length - 1 === 1
-									? getString(isOwnUser ? "history.youChangedName1" : "history.userChangedName1", { username })
-									: getString(isOwnUser ? "history.youChangedName" : "history.userChangedName", { username, number: nameHistory.length - 1 })
-								: getString(isOwnUser ? "history.youNeverChanged" : "history.userNeverChanged", { username }),
+									? getString(isOwnUser ? "history.youChangedName1" : "history.userChangedName1", { variables: { username } })
+									: getString(isOwnUser ? "history.youChangedName" : "history.userChangedName", {
+											variables: { username, number: nameHistory.length - 1 },
+									  })
+								: getString(isOwnUser ? "history.youNeverChanged" : "history.userNeverChanged", { variables: { username } }),
 						fields: constructFields(pages[page]),
 						footer: {
-							text: pages.length === 1 ? randomTip : getString("pagination.page", { number: page + 1, total: pages.length }, "global"),
+							text:
+								pages.length === 1
+									? randomTip
+									: getString("pagination.page", { variables: { number: page + 1, total: pages.length }, file: "global" }),
 							iconURL: member.displayAvatarURL({ format: "png", dynamic: true }),
 						},
 					})
@@ -185,8 +190,8 @@ const command: Command = {
 				const skinEmbed = new MessageEmbed({
 					color: colors.success,
 					author: { name: getString("moduleName") },
-					title: isOwnUser ? getString("skin.yourSkin") : getString("skin.userSkin", { user: (await getPlayer(uuid)).name }),
-					description: uuidDb && !isOwnUser ? getString("skin.isLinked", { user: `<@!${uuidDb.id}>` }) : "",
+					title: isOwnUser ? getString("skin.yourSkin") : getString("skin.userSkin", { variables: { user: (await getPlayer(uuid)).name } }),
+					description: uuidDb && !isOwnUser ? getString("skin.isLinked", { variables: { user: `<@!${uuidDb.id}>` } }) : "",
 					image: { url: `https://crafatar.com/renders/body/${uuid}?overlay` },
 					footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
 				})

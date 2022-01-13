@@ -131,7 +131,7 @@ const command: Command = {
 		else if (subCommand === "delete" && allowed) await deleteQuote(interaction, collection)
 		else if (subCommand === "link" && allowed) await linkQuote(interaction, collection)
 		else if (subCommand === "get") await findQuote(randomTip, interaction, getString, collection)
-		else await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
+		else await interaction.reply({ content: getString("errors.noAccess", { file: "global" }), ephemeral: true })
 	},
 }
 
@@ -147,7 +147,7 @@ async function findQuote(randomTip: string, interaction: ChatInputCommandInterac
 			color: colors.error,
 			author: { name: getString("moduleName") },
 			title: getString("invalidArg"),
-			description: getString("indexArg", { arg: quoteId!, max: count }),
+			description: getString("indexArg", { variables: { arg: quoteId!, max: count } }),
 			footer: {
 				text: randomTip,
 				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),

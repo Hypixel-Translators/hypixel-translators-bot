@@ -43,33 +43,41 @@ const command: Command = {
 				{
 					name: "Hypixel",
 					value: `${getString("projectInfo", {
-						project: "**Hypixel**",
-						link: "https://crowdin.com/project/hypixel",
-						command: "`/tag hypixel`",
+						variables: {
+							project: "**Hypixel**",
+							link: "https://crowdin.com/project/hypixel",
+							command: "`/tag hypixel`",
+						},
 					})}\n${joinedHypixel}`,
 				},
 				{
 					name: "Quickplay",
 					value: `${getString("projectInfo", {
-						project: "**Quickplay**",
-						link: "https://crowdin.com/project/quickplay",
-						command: "`/tag quickplay`",
+						variables: {
+							project: "**Quickplay**",
+							link: "https://crowdin.com/project/quickplay",
+							command: "`/tag quickplay`",
+						},
 					})}\n${joinedQuickplay}`,
 				},
 				{
 					name: "SkyblockAddons",
 					value: `${getString("projectInfo", {
-						project: "**SkyblockAddons**",
-						link: "https://crowdin.com/project/skyblockaddons",
-						command: "`/tag skyblockaddons`",
+						variables: {
+							project: "**SkyblockAddons**",
+							link: "https://crowdin.com/project/skyblockaddons",
+							command: "`/tag skyblockaddons`",
+						},
 					})}\n${joinedSba}`,
 				},
 				{
 					name: "Hypixel Translators Bot",
 					value: `${getString("projectInfo", {
-						project: "**Hypixel Translators Bot**",
-						link: "https://crowdin.com/project/hypixel-translators-bot",
-						command: "`/tag bot`",
+						variables: {
+							project: "**Hypixel Translators Bot**",
+							link: "https://crowdin.com/project/hypixel-translators-bot",
+							command: "`/tag bot`",
+						},
 					})}\n${joinedBot}`,
 				},
 			],

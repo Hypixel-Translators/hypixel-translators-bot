@@ -43,17 +43,19 @@ const command: Command = {
 			embed = new MessageEmbed({
 				color: colors.neutral,
 				author: { name: getString("moduleName") },
-				title: user.id === interaction.user.id ? getString("yourRank") : getString("userRank", { user: user.tag }),
+				title: user.id === interaction.user.id ? getString("yourRank") : getString("userRank", { variables: { user: user.tag } }),
 				description:
 					user.id === interaction.user.id
-						? getString("youLevel", { level: userDb.levels.level, rank: ranking })
-						: getString("userLevel", { user: `${user}`, level: userDb.levels.level, rank: ranking }),
+						? getString("youLevel", { variables: { level: userDb.levels.level, rank: ranking } })
+						: getString("userLevel", { variables: { user: `${user}`, level: userDb.levels.level, rank: ranking } }),
 				fields: [
 					{
 						name: getString("textProgress", {
-							currentXp: parseToNumberString(userDb.levels.levelXp, getString),
-							xpNeeded: parseToNumberString(totalXp, getString),
-							messages: parseToNumberString(userDb.levels.messageCount, getString),
+							variables: {
+								currentXp: parseToNumberString(userDb.levels.levelXp, getString),
+								xpNeeded: parseToNumberString(totalXp, getString),
+								messages: parseToNumberString(userDb.levels.messageCount, getString),
+							},
 						}),
 						value: generateProgressBar(userDb.levels.levelXp, totalXp),
 					},

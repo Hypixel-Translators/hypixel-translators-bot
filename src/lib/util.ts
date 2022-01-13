@@ -90,12 +90,11 @@ export function transformDiscordLocale(discordLocale: string): string {
 
 export function generateTip(getString?: GetStringFunction, newLang?: string): string {
 	const strings = require("../../strings/en/global.json"),
-		keys = getString ? Object.keys(getString("tips", "global")) : Object.keys(strings.tips)
+		keys = getString ? Object.keys(getString("tips", { file: "global" })) : Object.keys(strings.tips)
 
 	return getString
-		? `${getString("tip", "global", newLang).toUpperCase()}: ${getString(
-				`tips.${keys[(keys.length * Math.random()) << 0]}`,
-				{
+		? `${getString("tip", { file: "global", lang: newLang }).toUpperCase()}: ${getString(`tips.${keys[(keys.length * Math.random()) << 0]}`, {
+				variables: {
 					langIb: "/language set language:ib",
 					translate: "/translate",
 					prefix: "/prefix",
@@ -111,9 +110,9 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 					botUpdates: "#bot-updates",
 					feedback: "/feedback",
 				},
-				"global",
-				newLang,
-		  )}`
+				file: "global",
+				lang: newLang,
+		  })}`
 		: `${strings.tip.toUpperCase()}: ${strings.tips[keys[(keys.length * Math.random()) << 0]]
 				.replace("%%langIb%%", "/language set language:ib")
 				.replace("%%translate%%", "/translate")
@@ -228,15 +227,19 @@ export function gql(cleanText: TemplateStringsArray, ...substitutions: unknown[]
 
 export function parseToNumberString(num: number, getString: GetStringFunction): string {
 	if (num >= 1_000_000) {
-		return `${Number((num / 1_000_000).toFixed(2)).toLocaleString(getString("region.dateLocale", "global"))}${getString(
+		return `${Number((num / 1_000_000).toFixed(2)).toLocaleString(getString("region.dateLocale", { file: "global" }))}${getString(
 			"numberStrings.million",
-			"global",
+			{
+				file: "global",
+			},
 		)}`
 	}
 	if (num >= 1000) {
-		return `${Number((num / 1000).toFixed(2)).toLocaleString(getString("region.dateLocale", "global"))}${getString(
+		return `${Number((num / 1000).toFixed(2)).toLocaleString(getString("region.dateLocale", { file: "global" }))}${getString(
 			"numberStrings.thousand",
-			"global",
+			{
+				file: "global",
+			},
 		)}`
 	}
 	return `${num}`

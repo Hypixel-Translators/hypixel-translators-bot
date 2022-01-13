@@ -105,12 +105,12 @@ const command: Command = {
 
 				let lastSeen: string
 				if (!playerJson.last_game) lastSeen = getString("lastGameHidden")
-				else lastSeen = getString("lastSeen", { game: playerJson.last_game })
+				else lastSeen = getString("lastSeen", { variables: { game: playerJson.last_game } })
 
 				const lastLoginLogout = playerJson.online ? playerJson.last_login : playerJson.last_logout
 
-				let locale: string = getString("region.dateLocale", "global")
-				if (locale.startsWith("crwdns")) locale = getString("region.dateLocale", "global", "en")
+				let locale: string = getString("region.dateLocale", { file: "global" })
+				if (locale.startsWith("crwdns")) locale = getString("region.dateLocale", { file: "global", lang: "en" })
 
 				let lastLogin: string
 				if (lastLoginLogout) lastLogin = `<t:${Math.round(new Date(lastLoginLogout).getTime() / 1000)}:F>`
@@ -125,8 +125,8 @@ const command: Command = {
 					author: { name: getString("moduleName") },
 					title: `${rank} ${username}`,
 					thumbnail: { url: skinRender },
-					description: `${getString("statsDesc", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${
-						uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""
+					description: `${getString("statsDesc", { variables: { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` } })}\n${
+						uuidDb ? `${getString("userVerified", { variables: { user: `<@!${uuidDb.id}>` } })}\n` : ""
 					}${getString("updateNote")}\n${getString("otherStats")}`,
 					fields: [
 						{ name: getString("networkLevel"), value: Math.abs(playerJson.level).toLocaleString(locale), inline: true },
@@ -203,9 +203,11 @@ const command: Command = {
 					author: { name: getString("moduleName") },
 					title: `${rank} ${username}`,
 					thumbnail: { url: skinRender },
-					description: `${getString("socialMedia", { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` })}\n${
-						uuidDb ? `${getString("userVerified", { user: `<@!${uuidDb.id}>` })}\n` : ""
-					}${getString("updateNote")}\n${getString("otherStats")}`,
+					description: `${getString("socialMedia", {
+						variables: { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` },
+					})}\n${uuidDb ? `${getString("userVerified", { variables: { user: `<@!${uuidDb.id}>` } })}\n` : ""}${getString("updateNote")}\n${getString(
+						"otherStats",
+					)}`,
 					fields: [
 						{ name: "Twitter", value: twitter, inline: true },
 						{ name: "YouTube", value: youtube, inline: true },
@@ -227,16 +229,18 @@ const command: Command = {
 					title: `${guildJson.name}${guildJson.tag ? ` [${guildJson.tag.replace(/&[a-f0-9k-or]/gi, "")}]` : ""}`,
 					thumbnail: { url: skinRender },
 					description: `${getString("guildDesc", {
-						player: playerJson.username,
-						guildName: guildJson.name,
-						link: `(https://api.slothpixel.me/api/guilds/${uuid})`,
+						variables: {
+							player: playerJson.username,
+							guildName: guildJson.name,
+							link: `(https://api.slothpixel.me/api/guilds/${uuid})`,
+						},
 					})}\n${getString("updateNote")}\n\n${
 						guildJson.description ? `**${getString("guildDescHypixel")}**: ${guildJson.description}` : getString("noGuildDesc")
 					}`,
 					fields: [
 						{
 							name: getString("guildLevel"),
-							value: guildJson.level.toLocaleString(getString("region.dateLocale", "global")),
+							value: guildJson.level.toLocaleString(getString("region.dateLocale", { file: "global" })),
 							inline: true,
 						},
 						{ name: getString("memberCount"), value: `${guildJson.members.length}/125`, inline: true },
@@ -249,7 +253,7 @@ const command: Command = {
 						},
 						{ name: getString("guildMaster"), value: guildMaster!, inline: true },
 						{
-							name: getString("userRank", { user: playerJson.username }),
+							name: getString("userRank", { variables: { user: playerJson.username } }),
 							value: guildJson.members.find(guildMember => guildMember.uuid === uuid)!.rank,
 							inline: true,
 						},
@@ -295,7 +299,7 @@ const command: Command = {
 				option = menuInteraction.values[0]
 			if (interaction.user.id !== menuInteraction.user.id) {
 				return await menuInteraction.reply({
-					content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang),
+					content: getString("pagination.notYours", { variables: { command: `/${this.name}` }, file: "global", lang: userDb.lang }),
 					ephemeral: true,
 				})
 			} else if (option === "stats") embed = stats()
@@ -308,7 +312,7 @@ const command: Command = {
 		collector.on("end", async () => {
 			optionsSelect.setDisabled(true)
 			await interaction.editReply({
-				content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"),
+				content: getString("pagination.timeOut", { variables: { command: `\`/${this.name}\`` }, file: "global" }),
 				components: [{ type: "ACTION_ROW", components: [optionsSelect] }],
 				embeds: [embed],
 			})

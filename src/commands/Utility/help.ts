@@ -70,14 +70,20 @@ const command: Command = {
 				author: { name: getString("moduleName") },
 				title: `${pages[0].badge} ${getString("mainPage")}`,
 				description: getString("commandsListTooltip", {
-					developer: client.users.cache.get(ids.users.rodry)!.toString(),
-					github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)",
+					variables: {
+						developer: client.users.cache.get(ids.users.rodry)!.toString(),
+						github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)",
+					},
 				}),
 				footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 			})
 			pages.forEach(page => {
 				if (page.number === 0) return
-				page1.addField(getString("pageNumber", { number: page.number, total: pages.length }), `${page.badge} ${getString(page.titleString)}`, true)
+				page1.addField(
+					getString("pageNumber", { variables: { number: page.number, total: pages.length } }),
+					`${page.badge} ${getString(page.titleString)}`,
+					true,
+				)
 			})
 
 			pages[0].embed = page1
@@ -105,7 +111,7 @@ const command: Command = {
 					option = menuInteraction.values[0]
 				if (interaction.user.id !== menuInteraction.user.id) {
 					return await menuInteraction.reply({
-						content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang),
+						content: getString("pagination.notYours", { variables: { command: `/${this.name}` }, file: "global", lang: userDb.lang }),
 						ephemeral: true,
 					})
 				} else pageNum = Number(option)
@@ -117,7 +123,7 @@ const command: Command = {
 			collector.on("end", async () => {
 				pageMenu.components.forEach(component => component.setDisabled(true))
 				await interaction.editReply({
-					content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"),
+					content: getString("pagination.timeOut", { variables: { command: `\`/${this.name}\`` }, file: "global" }),
 					embeds: [pageEmbed],
 					components: [pageMenu],
 				})
@@ -168,14 +174,13 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, in
 				author: { name: getString("moduleName") },
 				title: `${pages[page].badge} ${getString(pages[page].titleString!)}`,
 				footer: {
-					text: getString(
-						"pagination.page",
-						{
+					text: getString("pagination.page", {
+						variables: {
 							number: page + 1,
 							total: pages.length,
 						},
-						"global",
-					),
+						file: "global",
+					}),
 					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
 				},
 			})

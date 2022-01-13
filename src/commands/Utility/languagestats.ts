@@ -76,20 +76,24 @@ const command: Command = {
 			thumbnail: { url: lang.flag },
 			author: { name: getString("moduleName") },
 			title: `${lang.emoji} | ${getString(`languages.${lang.code}`)}`,
-			description: `${getString("statsAll", { language: getString(`languages.${lang.code}`) })}`,
+			description: `${getString("statsAll", { variables: { language: getString(`languages.${lang.code}`) } })}`,
 			footer: { text: generateTip(getString), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 		})
 		if (hypixelData) {
 			embed.addField(
 				"Hypixel",
 				`${getString("translated", {
-					percentage: hypixelData.translationProgress,
-					translated: hypixelData.phrases.translated,
-					total: hypixelData.phrases.total,
+					variables: {
+						percentage: hypixelData.translationProgress,
+						translated: hypixelData.phrases.translated,
+						total: hypixelData.phrases.total,
+					},
 				})}\n${getString("approved", {
-					percentage: hypixelData.approvalProgress,
-					approved: hypixelData.phrases.approved,
-					total: hypixelData.phrases.total,
+					variables: {
+						percentage: hypixelData.approvalProgress,
+						approved: hypixelData.phrases.approved,
+						total: hypixelData.phrases.total,
+					},
 				})}`,
 			)
 		}
@@ -97,13 +101,17 @@ const command: Command = {
 			embed.addField(
 				"Quickplay",
 				`${getString("translated", {
-					percentage: quickplayData.translationProgress,
-					translated: quickplayData.phrases.translated,
-					total: quickplayData.phrases.total,
+					variables: {
+						percentage: quickplayData.translationProgress,
+						translated: quickplayData.phrases.translated,
+						total: quickplayData.phrases.total,
+					},
 				})}\n${getString("approved", {
-					percentage: quickplayData.approvalProgress,
-					approved: quickplayData.phrases.approved,
-					total: quickplayData.phrases.total,
+					variables: {
+						percentage: quickplayData.approvalProgress,
+						approved: quickplayData.phrases.approved,
+						total: quickplayData.phrases.total,
+					},
 				})}`,
 			)
 		}
@@ -111,13 +119,17 @@ const command: Command = {
 			embed.addField(
 				"SkyblockAddons",
 				`${getString("translated", {
-					percentage: sbaData.translationProgress,
-					translated: sbaData.phrases.translated,
-					total: sbaData.phrases.total,
+					variables: {
+						percentage: sbaData.translationProgress,
+						translated: sbaData.phrases.translated,
+						total: sbaData.phrases.total,
+					},
 				})}\n${getString("approved", {
-					percentage: sbaData.approvalProgress,
-					approved: sbaData.phrases.approved,
-					total: sbaData.phrases.total,
+					variables: {
+						percentage: sbaData.approvalProgress,
+						approved: sbaData.phrases.approved,
+						total: sbaData.phrases.total,
+					},
 				})}`,
 			)
 		}
@@ -125,10 +137,14 @@ const command: Command = {
 			embed.addField(
 				"Hypixel Translators Bot",
 				`${getString("translated", {
-					percentage: botData.translationProgress,
-					translated: botData.phrases.translated,
-					total: botData.phrases.total,
-				})}\n${getString("approved", { percentage: botData.approvalProgress, approved: botData.phrases.approved, total: botData.phrases.total })}`,
+					variables: {
+						percentage: botData.translationProgress,
+						translated: botData.phrases.translated,
+						total: botData.phrases.total,
+					},
+				})}\n${getString("approved", {
+					variables: { percentage: botData.approvalProgress, approved: botData.phrases.approved, total: botData.phrases.total },
+				})}`,
 			)
 		}
 		await interaction.editReply({ embeds: [embed] })

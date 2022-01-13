@@ -1,4 +1,3 @@
-import { readdirSync } from "node:fs"
 import process from "node:process"
 // Cannot use promisified setTimeout here
 import { setTimeout } from "node:timers"
@@ -19,7 +18,6 @@ client.on("interactionCreate", async interaction => {
 	let command: Command | null = null
 	const author: DbUser = await client.getUser(interaction.user.id),
 		member = interaction.client.guilds.cache.get(ids.guilds.main)!.members.cache.get(interaction.user.id)!,
-		langFromLocale = author.lang ?? transformDiscordLocale(interaction.locale),
 		randomTip = generateTip(getString),
 		statsColl = db.collection<Stats>("stats")
 
@@ -51,7 +49,7 @@ client.on("interactionCreate", async interaction => {
 	if (member.roles.cache.has(ids.roles.admin)) allowed = true
 	if (!allowed) {
 		await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: "noAccess" })
-		await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
+		await interaction.reply({ content: getString("errors.noAccess", { file: "global" }), ephemeral: true })
 		return
 	}
 
@@ -68,15 +66,14 @@ client.on("interactionCreate", async interaction => {
 			const timeLeft = Math.ceil((expirationTime - now) / 1000),
 				embed = new MessageEmbed({
 					color: colors.error,
-					author: { name: getString("cooldown", "global") },
-					title: getString(
-						timeLeft >= 120 ? "minsLeftT" : timeLeft === 1 ? "secondLeft" : "timeLeftT",
-						{
+					author: { name: getString("cooldown", { file: "global" }) },
+					title: getString(timeLeft >= 120 ? "minsLeftT" : timeLeft === 1 ? "secondLeft" : "timeLeftT", {
+						variables: {
 							time: timeLeft >= 120 ? Math.ceil(timeLeft / 60) : timeLeft,
 							command: `/${interaction.commandName}`,
 						},
-						"global",
-					),
+						file: "global",
+					}),
 					footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 			return await interaction.reply({ embeds: [embed], ephemeral: true })
@@ -91,23 +88,22 @@ client.on("interactionCreate", async interaction => {
 
 	/**
 	 * Gets a string or an object of strings for the correct language and replaces all variables if any
-	 * @param {string} path Path to the string. Use dots to access strings inside objects
-	 * @param {Object} [variables] Object containing all the variables and their corresponding text to be replaced in the string.
-	 * @param {string} [file] The name of the file to get strings from. Defaults to the command being ran
-	 * @param {string} [lang] The language to get the string from. Defaults to the author's language preference.
+	 * @param path Path to the string. Use dots to access strings inside objects
+	 * @param options Additional options for getting the string
+	 * @param options.variables Object containing all the variables and their corresponding text to be replaced in the string.
+	 * @param options.file The name of the file to get strings from. Defaults to the command being ran
+	 * @param options.lang The language to get the string from. Defaults to the author's language preference or their Discord locale.
 	 * @returns A clean string with all the variables replaced or an object of strings. Will return `null` if the path cannot be found.
 	 */
 	function getString(
 		path: string,
-		variables?: { [key: string]: string | number } | string,
-		file = command?.name ?? "global",
-		lang = langFromLocale,
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	): any {
-		if (typeof variables === "string") {
-			lang = readdirSync("./strings").includes(file) ? file : langFromLocale
-			file = variables
-		}
+		{
+			variables,
+			file = command?.name ?? "global",
+			lang = author.lang ?? transformDiscordLocale(interaction.locale),
+		}: { variables?: Record<string, string | number>; file?: string; lang?: string } = {},
+	): // eslint-disable-next-line @typescript-eslint/no-explicit-any
+	any {
 		let enStrings = require(`../../strings/en/${file}.json`)
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		let strings: Record<string, any>
@@ -161,7 +157,7 @@ client.on("interactionCreate", async interaction => {
 		// Store usage stats
 		await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: `${error}` })
 
-		if (!error.stack) error = getString(`errors.${error}`, "global") ?? error
+		if (!error.stack) error = getString(`errors.${error}`, { file: "global" }) ?? error
 
 		// Send error to bot-dev channel
 		if (error.stack) {
@@ -193,7 +189,7 @@ client.on("interactionCreate", async interaction => {
 		timestamps.delete(interaction.user.id)
 		const embed = new MessageEmbed({
 			color: colors.error,
-			author: { name: getString("error", "global") },
+			author: { name: getString("error", { file: "global" }) },
 			title: (error.message ?? error).substring(0, 255),
 			footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
 		})

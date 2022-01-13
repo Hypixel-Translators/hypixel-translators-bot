@@ -70,7 +70,7 @@ const command: Command = {
 				let languageString: string
 				if (element === "empty") languageString = "Empty"
 				else languageString = getString(element)
-				langList.push(getString("listElement", { code: element, language: languageString ?? "Unknown" }))
+				langList.push(getString("listElement", { variables: { code: element, language: languageString ?? "Unknown" } }))
 				if (index === array.length - 1) {
 					const embed = new MessageEmbed({
 						color: colors.neutral,
@@ -83,10 +83,10 @@ const command: Command = {
 			})
 		} else if (subCommand === "stats") {
 			if (!member?.roles.cache.has(ids.roles.admin))
-				return await interaction.reply({ content: getString("errors.noAccess", "global"), ephemeral: true })
+				return await interaction.reply({ content: getString("errors.noAccess", { file: "global" }), ephemeral: true })
 			const files = readdirSync(stringsFolder)
 			if (!files.includes(language!)) throw "falseLang"
-			const langUsers = await collection.find({ lang: language! }).toArray(),
+			const langUsers = await collection.find({ lang: language }).toArray(),
 				users: string[] = []
 			langUsers.forEach(u => users.push(`<@!${u.id}>`))
 			const embed = new MessageEmbed({
@@ -106,24 +106,24 @@ const command: Command = {
 			if (language === "empty" && !member?.roles.cache.has(ids.roles.admin)) language = "denied"
 			access(`./strings/${language}/language.json`, constants.F_OK, async err => {
 				if (!err) {
-					if (getString("changedToTitle", this.name, "en") !== getString("changedToTitle", this.name, language) || language === "en") {
-						const result = await collection.updateOne({ id: interaction.user.id }, { $set: { lang: language! } })
+					if (getString("changedToTitle", { lang: "en" }) !== getString("changedToTitle", { lang: language }) || language === "en") {
+						const result = await collection.updateOne({ id: interaction.user.id }, { $set: { lang: language } })
 						if (result.modifiedCount) {
 							randomTip = generateTip(getString, language)
 							const embed = new MessageEmbed({
 								color: colors.success,
-								author: { name: getString("moduleName", this.name, language) },
-								title: getString("changedToTitle", this.name, language),
-								description: getString("credits", this.name, language),
+								author: { name: getString("moduleName", { lang: language }) },
+								title: getString("changedToTitle", { lang: language }),
+								description: getString("credits", { lang: language }),
 								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 							})
 							return await interaction.reply({ embeds: [embed] })
 						} else {
 							const embed = new MessageEmbed({
 								color: colors.error,
-								author: { name: getString("moduleName", this.name, language) },
-								title: getString("didntChange", language),
-								description: getString("alreadyThis", this.name, language),
+								author: { name: getString("moduleName", { lang: language }) },
+								title: getString("didntChange", { lang: language }),
+								description: getString("alreadyThis", { lang: language }),
 								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 							})
 							return await interaction.reply({ embeds: [embed] })
@@ -160,18 +160,18 @@ const command: Command = {
 				randomTip = generateTip(getString, newLanguage)
 				const embed = new MessageEmbed({
 					color: colors.success,
-					author: { name: getString("moduleName", this.name, newLanguage) },
-					title: getString("resetTitle", this.name, newLanguage),
-					description: getString("credits", this.name, newLanguage),
+					author: { name: getString("moduleName", { lang: newLanguage }) },
+					title: getString("resetTitle", { lang: newLanguage }),
+					description: getString("credits", { lang: newLanguage }),
 					footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 				await interaction.reply({ embeds: [embed] })
 			} else {
 				const embed = new MessageEmbed({
 					color: colors.error,
-					author: { name: getString("moduleName", this.name, newLanguage) },
-					title: getString("didntChange", this.name, newLanguage),
-					description: getString("notSet", this.name, newLanguage),
+					author: { name: getString("moduleName", { lang: newLanguage }) },
+					title: getString("didntChange", { lang: newLanguage }),
+					description: getString("notSet", { lang: newLanguage }),
 					footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 				await interaction.reply({ embeds: [embed] })

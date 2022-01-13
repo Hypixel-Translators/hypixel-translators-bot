@@ -62,8 +62,8 @@ const command: Command = {
 				const successEmbed = new MessageEmbed({
 					color: colors.success,
 					author: { name: getString("moduleName") },
-					title: getString("success", { player: json.username }),
-					description: getString("role", { role: `${role}` }),
+					title: getString("success", { variables: { player: json.username } }),
+					description: getString("role", { variables: { role: `${role}` } }),
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 				})
 				await interaction.editReply({ embeds: [successEmbed] })
@@ -107,7 +107,7 @@ const command: Command = {
 				color: colors.error,
 				author: { name: getString("moduleName") },
 				title: getString("error"),
-				description: getString("tutorial", { tag: interaction.user.tag }),
+				description: getString("tutorial", { variables: { tag: interaction.user.tag } }),
 				image: { url: "https://i.imgur.com/JSeAHdG.gif" },
 				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 			})

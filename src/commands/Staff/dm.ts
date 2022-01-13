@@ -32,9 +32,9 @@ const command: Command = {
 			message = interaction.options.getString("message", true).replaceAll("\\n", "\n"),
 			dm = new MessageEmbed({
 				color: colors.neutral,
-				author: getString("incoming", this.name, recipientDb.lang),
+				author: getString("incoming", { lang: recipientDb.lang }),
 				description: message,
-				footer: { text: getString("incomingDisclaimer", this.name, recipientDb.lang) },
+				footer: { text: getString("incomingDisclaimer", { lang: recipientDb.lang }) },
 			}),
 			randomTip = generateTip()
 		await recipient

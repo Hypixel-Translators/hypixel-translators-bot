@@ -27,10 +27,12 @@ const command: Command = {
 		const embed = new MessageEmbed({
 			color,
 			author: { name: getString("moduleName") },
-			title: getString("pong", { pingEmote: "<:ping:620954198493888512>" }),
-			description: `${getString("message", { ping: ping })}\n\n${getString("onlineSince", {
-				timestamp: `<t:${onlineSince}>`,
-				timestampRelative: `<t:${onlineSince}:R>`,
+			title: getString("pong", { variables: { pingEmote: "<:ping:620954198493888512>" } }),
+			description: `${getString("message", { variables: { ping: ping } })}\n\n${getString("onlineSince", {
+				variables: {
+					timestamp: `<t:${onlineSince}>`,
+					timestampRelative: `<t:${onlineSince}:R>`,
+				},
 			})}`,
 			footer: {
 				text: generateTip(getString),

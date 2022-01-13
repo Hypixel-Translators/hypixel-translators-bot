@@ -20,10 +20,10 @@ const command: Command = {
 				color: colors.neutral,
 				author: { name: getString("moduleName") },
 				title: getString("alreadyTranslator"),
-				description: getString("projectLink", { link: "https://crowdin.com/project/hypixel-translators-bot" }),
+				description: getString("projectLink", { variables: { link: "https://crowdin.com/project/hypixel-translators-bot" } }),
 				fields: [
-					{ name: getString("question"), value: getString("askTranslators", { botTranslators: `<#${ids.channels.botTranslators}>` }) },
-					{ name: getString("newCrowdin"), value: getString("checkGuide", { gettingStarted: `<#${ids.channels.gettingStarted}>` }) },
+					{ name: getString("question"), value: getString("askTranslators", { variables: { botTranslators: `<#${ids.channels.botTranslators}>` } }) },
+					{ name: getString("newCrowdin"), value: getString("checkGuide", { variables: { gettingStarted: `<#${ids.channels.gettingStarted}>` } }) },
 				],
 				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
 			})
@@ -35,9 +35,12 @@ const command: Command = {
 				title: getString("newTranslator"),
 				description: getString("join"),
 				fields: [
-					{ name: getString("openProject"), value: getString("howOpen", { link: "https://crowdin.com/project/hypixel-translators-bot" }) },
+					{
+						name: getString("openProject"),
+						value: getString("howOpen", { variables: { link: "https://crowdin.com/project/hypixel-translators-bot" } }),
+					},
 					{ name: getString("clickLanguage"), value: getString("requestJoin") },
-					{ name: getString("lastThing"), value: getString("requestInfo", { tag: interaction.user.tag, id: interaction.user.id }) },
+					{ name: getString("lastThing"), value: getString("requestInfo", { variables: { tag: interaction.user.tag, id: interaction.user.id } }) },
 					{ name: getString("noLanguage"), value: getString("langRequest") },
 				],
 				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },

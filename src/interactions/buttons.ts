@@ -31,7 +31,7 @@ export default async function handleButtonInteractions(interaction: ButtonIntera
 			if ((userDb.levels?.level ?? 0) < 5) {
 				console.log(`${interaction.member.user.tag} tried to get the Giveaway pings role but they're level ${userDb.levels?.level ?? 0} lol`)
 				return await interaction.reply({
-					content: getString("roles.noLevel", { level: 5, command: "`/rank`", channel: `<#${ids.channels.bots}>` }),
+					content: getString("roles.noLevel", { variables: { level: 5, command: "`/rank`", channel: `<#${ids.channels.bots}>` } }),
 					ephemeral: true,
 				})
 			}
@@ -39,11 +39,11 @@ export default async function handleButtonInteractions(interaction: ButtonIntera
 		} else return
 		if (interaction.member.roles.cache.has(roleId)) {
 			await interaction.member.roles.remove(roleId, "Clicked the button in server-info")
-			await interaction.reply({ content: getString("roles.successTake", { role: `<@&${roleId}>` }), ephemeral: true })
+			await interaction.reply({ content: getString("roles.successTake", { variables: { role: `<@&${roleId}>` } }), ephemeral: true })
 			console.log(`Took the ${interaction.guild!.roles.cache.get(roleId)!.name} role from ${interaction.user.tag}`)
 		} else {
 			await interaction.member.roles.add(roleId, "Clicked the button in server-info")
-			await interaction.reply({ content: getString("roles.successGive", { role: `<@&${roleId}>` }), ephemeral: true })
+			await interaction.reply({ content: getString("roles.successGive", { variables: { role: `<@&${roleId}>` } }), ephemeral: true })
 			console.log(`Gave the ${interaction.guild!.roles.cache.get(roleId)!.name} role to ${interaction.user.tag}`)
 		}
 	}

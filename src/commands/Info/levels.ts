@@ -61,25 +61,25 @@ const command: Command = {
 							style: "SUCCESS",
 							emoji: "⏮️",
 							customId: "first",
-							label: getString("pagination.first", "global"),
+							label: getString("pagination.first", { file: "global" }),
 						}),
 						new MessageButton({
 							style: "SUCCESS",
 							emoji: "◀️",
 							customId: "previous",
-							label: getString("pagination.previous", "global"),
+							label: getString("pagination.previous", { file: "global" }),
 						}),
 						new MessageButton({
 							style: "SUCCESS",
 							emoji: "▶️",
 							customId: "next",
-							label: getString("pagination.next", "global"),
+							label: getString("pagination.next", { file: "global" }),
 						}),
 						new MessageButton({
 							style: "SUCCESS",
 							emoji: "⏭️",
 							customId: "last",
-							label: getString("pagination.last", "global"),
+							label: getString("pagination.last", { file: "global" }),
 						}),
 					],
 				}),
@@ -93,7 +93,7 @@ const command: Command = {
 				const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) {
 					return await buttonInteraction.reply({
-						content: getString("pagination.notYours", { command: `/${this.name}` }, "global", userDb.lang),
+						content: getString("pagination.notYours", { variables: { command: `/${this.name}` }, file: "global", lang: userDb.lang }),
 						ephemeral: true,
 					})
 				} else if (buttonInteraction.customId === "first") page = 0
@@ -113,7 +113,7 @@ const command: Command = {
 			collector.on("end", async () => {
 				controlButtons.components.forEach(button => button.setDisabled(true))
 				await interaction.editReply({
-					content: getString("pagination.timeOut", { command: `\`/${this.name}\`` }, "global"),
+					content: getString("pagination.timeOut", { variables: { command: `\`/${this.name}\`` }, file: "global" }),
 					components: [controlButtons],
 				})
 			})
@@ -129,7 +129,7 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 		author: { name: getString("moduleName") },
 		title: getString("pageTitle"),
 		footer: {
-			text: getString("pagination.page", { number: page + 1, total: pages.length }, "global"),
+			text: getString("pagination.page", { variables: { number: page + 1, total: pages.length }, file: "global" }),
 			iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
 		},
 	})
@@ -139,16 +139,18 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 		if (pages[page][i].levels) {
 			pageEmbed.addField(
 				getString("level", {
-					rank: i + 1 + page * 24,
-					level: pages[page][i].levels!.level,
-					xp: parseToNumberString(pages[page][i].levels!.totalXp, getString),
+					variables: {
+						rank: i + 1 + page * 24,
+						level: pages[page][i].levels!.level,
+						xp: parseToNumberString(pages[page][i].levels!.totalXp, getString),
+					},
 				}),
 				`<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
 				true,
 			)
 		} else {
 			pageEmbed.addField(
-				getString("unranked", { rank: i + 1 + page * 24 }),
+				getString("unranked", { variables: { rank: i + 1 + page * 24 } }),
 				`<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
 				true,
 			)

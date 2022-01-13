@@ -55,5 +55,8 @@ export interface Command extends ChatInputApplicationCommandData {
 
 export type Category = "Admin" | "Staff" | "Utility" | "Info"
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type GetStringFunction = (path: string, variables?: { [key: string]: string | number } | string, file?: string, lang?: string) => any
+export type GetStringFunction = (
+	path: string,
+	{ variables, file, lang }?: { variables?: Record<string, string | number>; file?: string; lang?: string },
+) => // eslint-disable-next-line @typescript-eslint/no-explicit-any
+any
