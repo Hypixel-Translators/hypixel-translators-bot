@@ -88,24 +88,22 @@ client.on("messageCreate", async message => {
 		else {
 			urlsWithComments[0] = `${commentAtStart} ${urlsWithComments[0]}`
 
-			let reactToMessages = [message]
-			if (urlsWithComments.length > 1) {
-				reactToMessages = []
+			if (urlsWithComments.length === 1) {
+				await message.react("vote_yes:839262196797669427")
+				await message.react("vote_maybe:839262179416211477")
+				await message.react("vote_no:839262184882044931")
+			} else {
 				for (const url of urlsWithComments) {
-					reactToMessages.push(
-						await message.channel.send({
-							content: `<@${message.author.id}>: ${url}`,
-							allowedMentions: {
-								users: []
-							}
-						})
-					)
+					const msg = await message.channel.send({
+						content: `<@${message.author.id}>: ${url}`,
+						allowedMentions: {
+							users: []
+						}
+					})
+					await msg.react("vote_yes:839262196797669427")
+					await msg.react("vote_maybe:839262179416211477")
+					await msg.react("vote_no:839262184882044931")
 				}
-			}
-			for (const msg of reactToMessages) {
-				await msg.react("vote_yes:839262196797669427")
-				await msg.react("vote_maybe:839262179416211477")
-				await msg.react("vote_no:839262184882044931")
 			}
 		}
 	}
