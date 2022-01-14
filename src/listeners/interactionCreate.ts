@@ -48,8 +48,8 @@ client.on("interactionCreate", async interaction => {
 	// Give perm to admins and return if not allowed
 	if (member.roles.cache.has(ids.roles.admin)) allowed = true
 	if (!allowed) {
-		await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: "noAccess" })
-		await interaction.reply({ content: getString("errors.noAccess", { file: "global" }), ephemeral: true })
+		await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: "noPermission" })
+		await interaction.reply({ content: getString("errors.noPermission", { file: "global" }), ephemeral: true })
 		return
 	}
 
