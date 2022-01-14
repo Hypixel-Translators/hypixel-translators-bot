@@ -108,11 +108,11 @@ async function info(interaction: ChatInputCommandInteraction<"cached">) {
 	const botsEmbed = new MessageEmbed({
 		color: "#0055FF",
 		title: "Bots",
-		description: `Information about all bots on this server can be found here. The character inside the [] in their nickname indicates their prefix. Use [prefix]help in <#${ids.channels.bots}> to know more about them.`,
+		description: `Information about all bots on this server can be found here. They all support slash commands, so you can type \`/\` in <#${ids.channels.bots}> to see all their commands.`,
 		fields: [
 			{
 				name: "**Bots**",
-				value: `${interaction.client.user} - Our personalised bot! It is currently maintained by <@!240875059953139714> and has a bunch of useful features.\n<@!155149108183695360> - This is Dyno. He is used for moderation purposes and nothing else, so don't mind him.\n<@!472911936951156740> - VoiceMaster allows you to create custom voice channels by joining the <#880889993629941830> channel and you can use <#${ids.channels.bots}> to customise them.\n<@!819778342818414632> - Activities is a bot that, despite appearing as offline, lets you play games and do other fun things in voice chats! Try running the \`/activity\` command to try them out.`,
+				value: `${interaction.client.user} - Our personalised bot! It is currently maintained by <@!240875059953139714> and has a bunch of useful features.\n<@!155149108183695360> - This is Dyno. He is used for moderation purposes and nothing else, so don't mind him.\n<@!472911936951156740> - VoiceMaster allows you to create custom voice channels by joining the <#880889993629941830> channel and you can use <#${ids.channels.bots}> to customise them.\n<@!819778342818414632> - Activities is a bot that lets you play games and do other fun things in voice chats! Try running the \`/activity\` command to try them out.`,
 			},
 			{
 				name: "**How to verify link your Crowdin profile with our bot**",
