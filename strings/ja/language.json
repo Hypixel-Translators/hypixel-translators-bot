@@ -1,10 +1,10 @@
 {
 	"moduleName": "言語",
 	"changedToTitle": "言語を日本語に変更しました！",
-	"resetTitle": "Reset your language!",
+	"resetTitle": "言語がリセットされました！",
 	"didntChange": "言語が変更されませんでした",
 	"alreadyThis": "既に設定している言語を選択したためです。",
-	"notSet": "This happened because you hadn't set a language to begin with.",
+	"notSet": "最初に言語を設定しなかったため発生しました。",
 	"notTranslated": "選択しようとした言語は十分に翻訳されていません。あなたがこの言語を話す場合、`/translate`を使用して翻訳を手伝う方法を確認できます。",
 	"errorTitle": "この言語はまだ追加されていません！",
 	"errorDescription": "言語が変更されませんでした。現在以下の言語が利用可能です（翻訳されているとは限りません）：",
