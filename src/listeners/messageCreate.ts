@@ -244,7 +244,6 @@ client.on("messageCreate", async message => {
 	 * @param options.lang The language to get the string from. Defaults to the author's language preference or "en".
 	 * @returns A clean string with all the variables replaced or an object of strings. Will return `null` if the path cannot be found.
 	 */
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	function getGlobalString(
 		path: string,
 		{ variables, file = "global", lang = author.lang ?? "en" }: { variables?: Record<string, string | number>; file?: string; lang?: string } = {},
