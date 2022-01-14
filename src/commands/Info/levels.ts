@@ -3,7 +3,7 @@ import { ChatInputCommandInteraction, GuildMember, Message, MessageActionRow, Me
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { generateTip, parseToNumberString, updateButtonColors } from "../../lib/util"
+import { generateTip, parseToNumberString, transformDiscordLocale, updateButtonColors } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -93,7 +93,11 @@ const command: Command = {
 				const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) {
 					return await buttonInteraction.reply({
-						content: getString("pagination.notYours", { variables: { command: `/${this.name}` }, file: "global", lang: userDb.lang }),
+						content: getString("pagination.notYours", {
+							variables: { command: `/${this.name}` },
+							file: "global",
+							lang: userDb.lang ?? transformDiscordLocale(buttonInteraction.locale),
+						}),
 						ephemeral: true,
 					})
 				} else if (buttonInteraction.customId === "first") page = 0

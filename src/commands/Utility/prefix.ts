@@ -4,7 +4,7 @@ import { getEmoji } from "language-flag-colors"
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db } from "../../lib/dbclient"
-import { generateTip, MongoLanguage } from "../../lib/util"
+import { generateTip, MongoLanguage, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -84,7 +84,11 @@ const command: Command = {
 				const userDb = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) {
 					return await buttonInteraction.reply({
-						content: getString("pagination.notYours", { variables: { command: `/${this.name}` }, file: "global", lang: userDb.lang }),
+						content: getString("pagination.notYours", {
+							variables: { command: `/${this.name}` },
+							file: "global",
+							lang: userDb.lang ?? transformDiscordLocale(buttonInteraction.locale),
+						}),
 						ephemeral: true,
 					})
 				}
@@ -275,7 +279,11 @@ const command: Command = {
 				const userDb = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) {
 					return await buttonInteraction.reply({
-						content: getString("pagination.notYours", { variables: { command: `/${this.name}` }, file: "global", lang: userDb.lang }),
+						content: getString("pagination.notYours", {
+							variables: { command: `/${this.name}` },
+							file: "global",
+							lang: userDb.lang ?? transformDiscordLocale(buttonInteraction.locale),
+						}),
 						ephemeral: true,
 					})
 				}

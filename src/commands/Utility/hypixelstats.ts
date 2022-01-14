@@ -4,7 +4,7 @@ import { GuildMember, HexColorString, Message, MessageEmbed, MessageSelectMenu }
 import { ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { fetchSettings, generateTip, getMCProfile, getUUID, gql, GraphQLQuery, updateRoles } from "../../lib/util"
+import { fetchSettings, generateTip, getMCProfile, getUUID, gql, GraphQLQuery, transformDiscordLocale, updateRoles } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -299,7 +299,11 @@ const command: Command = {
 				option = menuInteraction.values[0]
 			if (interaction.user.id !== menuInteraction.user.id) {
 				return await menuInteraction.reply({
-					content: getString("pagination.notYours", { variables: { command: `/${this.name}` }, file: "global", lang: userDb.lang }),
+					content: getString("pagination.notYours", {
+						variables: { command: `/${this.name}` },
+						file: "global",
+						lang: userDb.lang ?? transformDiscordLocale(menuInteraction.locale),
+					}),
 					ephemeral: true,
 				})
 			} else if (option === "stats") embed = stats()
