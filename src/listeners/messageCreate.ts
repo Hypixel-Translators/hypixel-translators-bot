@@ -67,13 +67,46 @@ client.on("messageCreate", async message => {
 
 	// Delete non-stringURL messages in review-strings
 	const stringURLRegex = /(https:\/\/)?crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
+
 	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings")) {
-		if (!/(https:\/\/)?crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content))
-			await message.delete()
+		let contentSplit = message.content.split(" "),
+			areUrls = contentSplit.map(w => stringURLRegex.test(w))
+
+		const commentAtStart = areUrls[0] ? "" : contentSplit.slice(0, areUrls.indexOf(true) + 1).join(" "),
+			urlsWithComments: string[] = [],
+			removedWords = commentAtStart.split(" ").length
+
+		areUrls = areUrls.slice(removedWords)
+		contentSplit = contentSplit.slice(removedWords)
+
+		for (let i = 0; i < areUrls.length; i++) {
+			if (areUrls[i]) urlsWithComments.push(contentSplit[i])
+			else urlsWithComments[urlsWithComments.length - 1] += ` ${contentSplit[i]}`
+		}
+
+		if (!urlsWithComments.length) await message.delete()
 		else {
-			await message.react("vote_yes:839262196797669427")
-			await message.react("vote_maybe:839262179416211477")
-			await message.react("vote_no:839262184882044931")
+			urlsWithComments[0] = `${commentAtStart} ${urlsWithComments[0]}`
+
+			let reactToMessages = [message]
+			if (urlsWithComments.length > 1) {
+				reactToMessages = []
+				for (const url of urlsWithComments) {
+					reactToMessages.push(
+						await message.channel.send({
+							content: `<@${message.author.id}>: ${url}`,
+							allowedMentions: {
+								users: []
+							}
+						})
+					)
+				}
+			}
+			for (const msg of reactToMessages) {
+				await msg.react("vote_yes:839262196797669427")
+				await msg.react("vote_maybe:839262179416211477")
+				await msg.react("vote_no:839262184882044931")
+			}
 		}
 	}
 
