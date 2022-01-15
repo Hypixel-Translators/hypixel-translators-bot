@@ -24,7 +24,9 @@ client.on("messageReactionAdd", async (reaction, user) => {
 		/https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content!)
 	) {
 		const language = await db.collection<MongoLanguage>("languages").findOne({ code: channel.name.split("-")[0] }),
-			role = channel.guild!.roles.cache.find(r => r.name === `${language!.name} Proofreader`)
+			role = channel.guild!.roles.cache.find(r => r.name === `${language!.name} Proofreader`),
+			reactedToOwn = reaction.message.author.bot ? reaction.message.content.includes(user.id) : reaction.message.author.id === user.id
+
 		if (!role) return console.error(`Couldn't find the proofreader role for the ${channel} channel!`)
 		if (reaction.message.guild!.members.resolve(user.id)!.roles.cache.has(role.id)) {
 			let strings: { [key: string]: string }
@@ -33,7 +35,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 			} catch {
 				strings = require("../../strings/en/reviewStrings.json")
 			}
-			if (reaction.emoji.name === "vote_yes" && reaction.message.author!.id !== user.id) {
+			if (reaction.emoji.name === "vote_yes" && !reactedToOwn) {
 				await reaction.message.react("⏱")
 				await setTimeout(10_000)
 				// Check if the user hasn't removed their reaction
@@ -47,7 +49,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 					await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "APPROVED" })
 					console.log(`String reviewed in ${channel.name}`)
 				} else await reaction.message.reactions.cache.get("⏱")?.remove()
-			} else if (reaction.emoji.name === "vote_maybe" && reaction.message.author!.id !== user.id) {
+			} else if (reaction.emoji.name === "vote_maybe" && !reactedToOwn) {
 				await reaction.users.remove(user.id)
 				const embed = new MessageEmbed({
 						color: colors.loading,
@@ -71,7 +73,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 					})
 				await thread.send({ content: `${user}`, embeds: [embed] })
 				await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "MORE_INFO" })
-			} else if (reaction.emoji.name === "vote_no" && reaction.message.author!.id !== user.id) {
+			} else if (reaction.emoji.name === "vote_no" && !reactedToOwn) {
 				await reaction.message.react("⏱")
 				const embed = new MessageEmbed({
 					color: colors.error,
