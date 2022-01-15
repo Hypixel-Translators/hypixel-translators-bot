@@ -72,7 +72,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 						autoArchiveDuration: 1440,
 						reason: `${user.tag} requested more details`,
 					})
-				await thread.send({ content: `${user}`, embeds: [embed] })
+				await thread.send({ content: `${user}${reaction.message.author.bot ? `, ${reaction.message.content.split(":")[0]}` : ""}`, embeds: [embed] })
 				await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "MORE_INFO" })
 			} else if (reaction.emoji.name === "vote_no") {
 				await reaction.message.react("⏱")
@@ -103,7 +103,10 @@ client.on("messageReactionAdd", async (reaction, user) => {
 							autoArchiveDuration: 60,
 							reason: `${user.tag} rejected the change`,
 						})
-					await thread.send({ content: `${reaction.message.author}, ${user}`, embeds: [embed] })
+					await thread.send({
+						content: `${reaction.message.author.bot ? reaction.message.content.split(":")[0] : reaction.message.author}, ${user}`,
+						embeds: [embed],
+					})
 					await reaction.message.delete().catch(() => null)
 					await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "DENIED" })
 					console.log(`String rejected in ${channel.name}`)
