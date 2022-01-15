@@ -100,7 +100,7 @@ client.on("messageCreate", async message => {
 					await msg.react("vote_maybe:839262179416211477")
 					await msg.react("vote_no:839262184882044931")
 				}
-				await message.delete()
+				await message.delete().catch(() => null)
 			}
 		}
 	}
