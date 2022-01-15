@@ -66,7 +66,7 @@ client.on("messageCreate", async message => {
 		return void (await message.crosspost())
 
 	// Delete non-stringURL messages in review-strings
-	const stringURLRegex = /(https:\/\/)?crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
+	const stringURLRegex = /(https:\/\/)?crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/i
 
 	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings") && !message.author.bot) {
 		if (!stringURLRegex.test(message.content)) await message.delete().catch(() => null)
@@ -76,7 +76,7 @@ client.on("messageCreate", async message => {
 			await message.react("vote_no:839262184882044931")
 		} else {
 			const urlsWithComments: string[] = [],
-				contentSplit = message.content.split(" "),
+				contentSplit = message.content.split(/\s/).filter(Boolean),
 				areUrls = contentSplit.map(w => stringURLRegex.test(w))
 
 			let commentAtStart = "",
