@@ -66,14 +66,19 @@ client.on("messageCreate", async message => {
 		return void (await message.crosspost())
 
 	// Delete non-stringURL messages in review-strings
-	const stringURLRegex = /(https:\/\/)?crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
+	const stringURLRegex = /(https:\/\/)?crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
 
-	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings")) {
-		if (stringURLRegex.test(message.content)) {
-			const urlsWithComments: string[] = [],
-				contentSplit = message.content.split(" "),
-				areUrls = contentSplit.map(w => stringURLRegex.test(w))
+	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings") && !message.author.bot) {
+		const urlsWithComments: string[] = [],
+			contentSplit = message.content.split(" "),
+			areUrls = contentSplit.map(w => stringURLRegex.test(w))
 
+		if (areUrls.filter(u => u).length === 0) await message.delete().catch(() => null)
+		else if (areUrls.filter(u => u).length === 1) {
+			await message.react("vote_yes:839262196797669427")
+			await message.react("vote_maybe:839262179416211477")
+			await message.react("vote_no:839262184882044931")
+		} else {
 			let commentAtStart = "",
 				encounteredUrl = areUrls[0]
 
@@ -87,24 +92,16 @@ client.on("messageCreate", async message => {
 				else commentAtStart += `${i ? " " : ""}${contentSplit[i]}`
 			}
 
-			if (urlsWithComments.length === 1) {
-				await message.react("vote_yes:839262196797669427")
-				await message.react("vote_maybe:839262179416211477")
-				await message.react("vote_no:839262184882044931")
-			} else {
-				for (const url of urlsWithComments) {
-					const msg = await message.channel.send({
-						content: `<@${message.author.id}>: ${url}`,
-						allowedMentions: {
-							users: [],
-						},
-					})
-					await msg.react("vote_yes:839262196797669427")
-					await msg.react("vote_maybe:839262179416211477")
-					await msg.react("vote_no:839262184882044931")
-				}
-				await message.delete().catch(() => null)
+			for (const url of urlsWithComments) {
+				const msg = await message.channel.send({
+					content: `<@${message.author.id}>: ${url}`,
+					allowedMentions: { users: [] },
+				})
+				await msg.react("vote_yes:839262196797669427")
+				await msg.react("vote_maybe:839262179416211477")
+				await msg.react("vote_no:839262184882044931")
 			}
+			await message.delete().catch(() => null)
 		}
 	}
 

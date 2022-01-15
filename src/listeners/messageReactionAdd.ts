@@ -35,7 +35,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
 			} catch {
 				strings = require("../../strings/en/reviewStrings.json")
 			}
-			if (reaction.emoji.name === "vote_yes" && !reactedToOwn) {
+			if (reactedToOwn) await reaction.users.remove(user.id)
+			else if (reaction.emoji.name === "vote_yes") {
 				await reaction.message.react("⏱")
 				await setTimeout(10_000)
 				// Check if the user hasn't removed their reaction
@@ -49,7 +50,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 					await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "APPROVED" })
 					console.log(`String reviewed in ${channel.name}`)
 				} else await reaction.message.reactions.cache.get("⏱")?.remove()
-			} else if (reaction.emoji.name === "vote_maybe" && !reactedToOwn) {
+			} else if (reaction.emoji.name === "vote_maybe") {
 				await reaction.users.remove(user.id)
 				const embed = new MessageEmbed({
 						color: colors.loading,
@@ -73,7 +74,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 					})
 				await thread.send({ content: `${user}`, embeds: [embed] })
 				await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "MORE_INFO" })
-			} else if (reaction.emoji.name === "vote_no" && !reactedToOwn) {
+			} else if (reaction.emoji.name === "vote_no") {
 				await reaction.message.react("⏱")
 				const embed = new MessageEmbed({
 					color: colors.error,
@@ -107,7 +108,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 					await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "DENIED" })
 					console.log(`String rejected in ${channel.name}`)
 				} else await reaction.message.reactions.cache.get("⏱")?.remove()
-			} else await reaction.users.remove(user.id)
+			}
 		} else await reaction.users.remove(user.id)
 	} else if (
 		// Starboard system
