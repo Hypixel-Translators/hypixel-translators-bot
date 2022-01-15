@@ -69,24 +69,23 @@ client.on("messageCreate", async message => {
 	const stringURLRegex = /(https:\/\/)?crowdin\.com\/translate\/hypixel\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
 
 	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings")) {
-		let contentSplit = message.content.split(" "),
-			areUrls = contentSplit.map(w => stringURLRegex.test(w))
+		if (stringURLRegex.test(message.content)) {
+			const urlsWithComments: string[] = [],
+				contentSplit = message.content.split(" "),
+				areUrls = contentSplit.map(w => stringURLRegex.test(w))
 
-		const commentAtStart = areUrls[0] ? "" : contentSplit.slice(0, areUrls.indexOf(true) + 1).join(" "),
-			urlsWithComments: string[] = [],
-			removedWords = commentAtStart.split(" ").length
+			let commentAtStart = "",
+				encounteredUrl = areUrls[0]
 
-		areUrls = areUrls.slice(removedWords)
-		contentSplit = contentSplit.slice(removedWords)
-
-		for (let i = 0; i < areUrls.length; i++) {
-			if (areUrls[i]) urlsWithComments.push(contentSplit[i])
-			else urlsWithComments[urlsWithComments.length - 1] += ` ${contentSplit[i]}`
-		}
-
-		if (!urlsWithComments.length) await message.delete()
-		else {
-			urlsWithComments[0] = `${commentAtStart} ${urlsWithComments[0]}`
+			for (let i = 0; i < areUrls.length; i++) {
+				if (areUrls[i]) {
+					if (!encounteredUrl) {
+						urlsWithComments.push(`${commentAtStart} ${contentSplit[i]}`)
+						encounteredUrl = true
+					} else urlsWithComments.push(contentSplit[i])
+				} else if (encounteredUrl) urlsWithComments[urlsWithComments.length - 1] += ` ${contentSplit[i]}`
+				else commentAtStart += `${i ? " " : ""}${contentSplit[i]}`
+			}
 
 			if (urlsWithComments.length === 1) {
 				await message.react("vote_yes:839262196797669427")
@@ -97,8 +96,8 @@ client.on("messageCreate", async message => {
 					const msg = await message.channel.send({
 						content: `<@${message.author.id}>: ${url}`,
 						allowedMentions: {
-							users: []
-						}
+							users: [],
+						},
 					})
 					await msg.react("vote_yes:839262196797669427")
 					await msg.react("vote_maybe:839262179416211477")
