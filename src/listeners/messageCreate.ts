@@ -66,7 +66,7 @@ client.on("messageCreate", async message => {
 		return void (await message.crosspost())
 
 	// Delete non-stringURL messages in review-strings
-	const stringURLRegex = /(https:\/\/)?crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/i
+	const stringURLRegex = /(?:https:\/\/)?crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
 
 	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings") && !message.author.bot) {
 		if (!stringURLRegex.test(message.content)) await message.delete().catch(() => null)
@@ -75,26 +75,14 @@ client.on("messageCreate", async message => {
 			await message.react("vote_maybe:839262179416211477")
 			await message.react("vote_no:839262184882044931")
 		} else {
-			const urlsWithComments: string[] = [],
-				contentSplit = message.content.split(/\s/).filter(Boolean),
-				areUrls = contentSplit.map(w => stringURLRegex.test(w))
+			const rawText = message.content.split(stringURLRegex),
+				urls = message.content.match(stringURLRegex)!
 
-			let commentAtStart = "",
-				encounteredUrl = areUrls[0]
-
-			for (let i = 0; i < areUrls.length; i++) {
-				if (areUrls[i]) {
-					if (!encounteredUrl) {
-						urlsWithComments.push(`${commentAtStart} ${contentSplit[i]}`)
-						encounteredUrl = true
-					} else urlsWithComments.push(contentSplit[i])
-				} else if (encounteredUrl) urlsWithComments[urlsWithComments.length - 1] += ` ${contentSplit[i]}`
-				else commentAtStart += `${i ? " " : ""}${contentSplit[i]}`
-			}
-
-			for (const url of urlsWithComments) {
+			for (let i = 0; i < urls.length; i++) {
+				let firstText: string | null = null
+				if (urls.length !== rawText.length && i === 0) firstText = rawText.shift()!
 				const msg = await message.channel.send({
-					content: `<@${message.author.id}>: ${url}`,
+					content: `<@${message.author.id}>: ${i === 0 && firstText ? firstText : ""}${urls[i]}${rawText[i]}`,
 					allowedMentions: { users: [] },
 				})
 				await msg.react("vote_yes:839262196797669427")
