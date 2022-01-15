@@ -71,19 +71,20 @@ client.on("messageCreate", async message => {
 	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings")) {
 		if (stringURLRegex.test(message.content)) {
 			const urlsWithComments: string[] = [],
-				contentSplit = message.content.split(" ")
+				contentSplit = message.content.split(" "),
+				areUrls = contentSplit.map(w => stringURLRegex.test(w))
 
 			let commentAtStart = "",
-				encounteredUrl = stringURLRegex.test(contentSplit[0])
+				encounteredUrl = areUrls[0]
 
-			for (const word of contentSplit) {
-				if (stringURLRegex.test(word)) {
+			for (let i = 0; i < areUrls.length; i++) {
+				if (areUrls[i]) {
 					if (!encounteredUrl) {
-						urlsWithComments.push(`${commentAtStart}${word}`)
+						urlsWithComments.push(`${commentAtStart} ${contentSplit[i]}`)
 						encounteredUrl = true
-					} else urlsWithComments.push(word)
-				} else if (encounteredUrl) urlsWithComments[urlsWithComments.length - 1] += ` ${word}`
-				else commentAtStart += `${word} `
+					} else urlsWithComments.push(contentSplit[i])
+				} else if (encounteredUrl) urlsWithComments[urlsWithComments.length - 1] += ` ${contentSplit[i]}`
+				else commentAtStart += `${i ? " " : ""}${contentSplit[i]}`
 			}
 
 			if (urlsWithComments.length === 1) {
@@ -94,7 +95,9 @@ client.on("messageCreate", async message => {
 				for (const url of urlsWithComments) {
 					const msg = await message.channel.send({
 						content: `<@${message.author.id}>: ${url}`,
-						allowedMentions: { users: [] },
+						allowedMentions: {
+							users: [],
+						},
 					})
 					await msg.react("vote_yes:839262196797669427")
 					await msg.react("vote_maybe:839262179416211477")
