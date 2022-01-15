@@ -35,6 +35,40 @@ client.on("messageCreate", async message => {
 		return
 	}
 
+	// Publish message if sent in bot-updates or in a project-updates channel or if it's a tweet
+	if (
+		message.channel.type === "GUILD_NEWS" &&
+		(message.channel.id === ids.channels.botUpdates ||
+			(message.channel.id === ids.channels.twitter && !message.embeds[0]?.description?.startsWith("@")) ||
+			message.channel.name.endsWith("-project-updates"))
+	)
+		return void (await message.crosspost())
+
+	// Delete non-stringURL messages in review-strings
+	const stringURLRegex = /(?:https:\/\/)?crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
+
+	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings")) {
+		if (!stringURLRegex.test(message.content)) await message.delete().catch(() => null)
+		else if (message.content.match(stringURLRegex)!.length === 1) {
+			await message.react("vote_yes:839262196797669427")
+			await message.react("vote_maybe:839262179416211477")
+			await message.react("vote_no:839262184882044931")
+		} else {
+			const rawText = message.content.split(stringURLRegex),
+				urls = message.content.match(stringURLRegex)!
+
+			for (let i = 0; i < urls.length; i++) {
+				let firstText: string | null = null
+				if (urls.length !== rawText.length && i === 0) firstText = rawText.shift()!
+				await message.channel.send({
+					content: `<@${message.author.id}>: ${i === 0 && firstText ? firstText : ""}${urls[i]}${rawText[i]}`,
+					allowedMentions: { users: [] },
+				})
+			}
+			await message.delete().catch(() => null)
+		}
+	}
+
 	// Stop if user is a bot
 	if (message.author.bot) return
 
@@ -55,43 +89,6 @@ client.on("messageCreate", async message => {
 		!message.member?.roles.cache.some(r => noXpRoles.includes(r.id))
 	)
 		await leveling(message)
-
-	// Publish message if sent in bot-updates or in a project-updates channel or if it's a tweet
-	if (
-		message.channel.type === "GUILD_NEWS" &&
-		(message.channel.id === ids.channels.botUpdates ||
-			(message.channel.id === ids.channels.twitter && !message.embeds[0]?.description?.startsWith("@")) ||
-			message.channel.name.endsWith("-project-updates"))
-	)
-		return void (await message.crosspost())
-
-	// Delete non-stringURL messages in review-strings
-	const stringURLRegex = /(?:https:\/\/)?crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
-
-	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings") && !message.author.bot) {
-		if (!stringURLRegex.test(message.content)) await message.delete().catch(() => null)
-		else if (message.content.match(stringURLRegex)!.length === 1) {
-			await message.react("vote_yes:839262196797669427")
-			await message.react("vote_maybe:839262179416211477")
-			await message.react("vote_no:839262184882044931")
-		} else {
-			const rawText = message.content.split(stringURLRegex),
-				urls = message.content.match(stringURLRegex)!
-
-			for (let i = 0; i < urls.length; i++) {
-				let firstText: string | null = null
-				if (urls.length !== rawText.length && i === 0) firstText = rawText.shift()!
-				const msg = await message.channel.send({
-					content: `<@${message.author.id}>: ${i === 0 && firstText ? firstText : ""}${urls[i]}${rawText[i]}`,
-					allowedMentions: { users: [] },
-				})
-				await msg.react("vote_yes:839262196797669427")
-				await msg.react("vote_maybe:839262179416211477")
-				await msg.react("vote_no:839262184882044931")
-			}
-			await message.delete().catch(() => null)
-		}
-	}
 
 	// Get the author from the database
 	const author = await client.getUser(message.author.id)
