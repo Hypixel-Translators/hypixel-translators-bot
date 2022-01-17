@@ -1,10 +1,10 @@
 {
 	"moduleName": "Language",
 	"changedToTitle": "Changed yer language t' Pirate English!",
-	"resetTitle": "Reset your language!",
+	"resetTitle": "Reset yer language!",
 	"didntChange": "Yer language didn't change",
 	"alreadyThis": "'Tis happened because ye chose a language that already was yer language preference.",
-	"notSet": "This happened because you hadn't set a language to begin with.",
+	"notSet": "'Tis happened 'cause ye had nah set a language t' begin with.",
 	"notTranslated": "Th' language ye tried t' select nay be translated enough fer it t' be chosen. If ye speak 'tis language, ye can find out how t' help translate it by usin' `/translate`.",
 	"errorTitle": "That language has nah been added yet!",
 	"errorDescription": "Yer language hasn't been changed. These languages be currently available ('tis doesn't mean they be translated):",
