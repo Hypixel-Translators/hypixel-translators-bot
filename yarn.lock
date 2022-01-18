@@ -1306,10 +1306,10 @@ json5@^1.0.1:
   dependencies:
     minimist "^1.2.0"
 
-language-flag-colors@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/language-flag-colors/-/language-flag-colors-2.0.1.tgz#664b56ee974132b0b11229ae27b5bf80e45e0103"
-  integrity sha512-6snEKpbHbICNgUWrP2ZVNNMQQto3txFsig/Ly8lsZ3oX8RkQLUaAfx3crxM8Sz4Y3/50WXLZAbhgblw/UYqEyw==
+language-flag-colors@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/language-flag-colors/-/language-flag-colors-2.0.4.tgz#bc1a0937bb51bd774ab91428561256f0f3334960"
+  integrity sha512-y12RS5WtcqxIUN+0piQJMNyJgR+rTNjnYg/BmZYieIfyeXPs1QyvLz6dHfvLh6nl7cwHPVAigyThSTwkrJkdAQ==
 
 levn@^0.4.1:
   version "0.4.1"
