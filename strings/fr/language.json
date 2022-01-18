@@ -1,10 +1,10 @@
 {
 	"moduleName": "Langue",
 	"changedToTitle": "J'ai changé ta langue à Français!",
-	"resetTitle": "Reset your language!",
+	"resetTitle": "Langue réinitialisée !",
 	"didntChange": "Ta langue n'a pas été modifiée",
 	"alreadyThis": "Cela s'est produit parce que tu as choisi une langue qui est déjà ta langue de prédilection.",
-	"notSet": "This happened because you hadn't set a language to begin with.",
+	"notSet": "Cela s'est produit car tu n'as pas choisi de langue pour commencer.",
 	"notTranslated": "La langue que tu as essayé de sélectionner n'est pas assez traduite pour être choisie. Si tu parles cette langue, tu peux trouver comment aider à la traduire en utilisant `/translate`.",
 	"errorTitle": "Cette langue n'a pas encore été ajoutée !",
 	"errorDescription": "Ta langue n'a pas été changée. Ces langues sont actuellement disponibles (cela ne signifie pas qu'elles sont traduites):",
