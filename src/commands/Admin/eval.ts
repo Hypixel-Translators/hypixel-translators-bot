@@ -7,6 +7,7 @@ const fs = require("node:fs"),
 	{ crowdin } = require("../../index"),
 	{ crowdinVerify } = require("../../lib/crowdinverify"),
 	{ leveling } = require("../../lib/leveling"),
+	{ mongoClient } = require("../../lib/dbclient"),
 	util = require("../../lib/util"),
 	{ generateWelcomeImage } = require("../../listeners/guildMemberAdd")
 
