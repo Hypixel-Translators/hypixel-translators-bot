@@ -25,6 +25,8 @@ client.on("messageCreate", async message => {
 	// Delete pinned message and thread created messages
 	if (message.type === "THREAD_CREATED" && (message.channel as TextChannel).name.endsWith("-review-strings")) return void (await message.delete())
 
+	if (message.system) return
+
 	// Delete messages that contain empty spoilers (Discord bug)
 	if (message.content.includes("||||")) {
 		await message.delete()
