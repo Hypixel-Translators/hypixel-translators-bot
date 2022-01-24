@@ -69,7 +69,7 @@ client.on("interactionCreate", async interaction => {
 				title: getString("timeLeft", {
 					variables: {
 						timestamp: `<t:${Math.floor(expirationTime / 1000)}:R>`,
-						command: `/${interaction.commandName}`,
+						command: `\`/${interaction.commandName}\``,
 					},
 					file: "global",
 				}),
