@@ -68,7 +68,7 @@ client.on("interactionCreate", async interaction => {
 				author: { name: getString("cooldown", { file: "global" }) },
 				title: getString("timeLeft", {
 					variables: {
-						timestamp: Math.floor(expirationTime / 1000),
+						timestamp: `<t:${Math.floor(expirationTime / 1000)}:R>`,
 						command: `/${interaction.commandName}`,
 					},
 					file: "global",
