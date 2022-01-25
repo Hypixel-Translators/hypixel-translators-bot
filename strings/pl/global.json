@@ -34,9 +34,7 @@
 		"successTake": "Pomyślnie zabrano Ci rolę %%role%%!"
 	},
 	"cooldown": "Czas odnawiania",
-	"secondLeft": "Poczekaj sekundę, aby ponownie użyć `%%command%%`.",
-	"timeLeftT": "Poczekaj kolejne %%time%% sekund, aby ponownie użyć `%%command%%`.",
-	"minsLeftT": "Poczekaj kolejne %%time%% minut, aby ponownie użyć `%%command%%`.",
+	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
 	"linkCorrectionDesc": "Następnym razem zmień odnośnik na format %%format%%.",
 	"correctLink": "Oto prawidłowy odnośnik:",
 	"wrongStringURL": "Wysłany odnośnik jest odnośnikiem do edytora, a nie do samego ciągu!",

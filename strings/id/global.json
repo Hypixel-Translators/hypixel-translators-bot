@@ -34,9 +34,7 @@
 		"successTake": "Berhasil mengambil role %%role%% dari anda!"
 	},
 	"cooldown": "Cooldown",
-	"secondLeft": "Mohon tunggu sedetik lagi untuk menjalankan `%%command%%` lagi.",
-	"timeLeftT": "Mohon tunggu %%time%% detik lagi untuk menjalankan `%%command%%` lagi.",
-	"minsLeftT": "Mohon tunggu %%time%% menit lagi untuk menjalankan `%%command%%` again.",
+	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
 	"linkCorrectionDesc": "Mohon ubah tautan anda ke format %%format%% lain kali.",
 	"correctLink": "Inilah tautan yang benar:",
 	"wrongStringURL": "Tautan yang anda kirim adalah link ke editor dan bukan string itu sendiri!",

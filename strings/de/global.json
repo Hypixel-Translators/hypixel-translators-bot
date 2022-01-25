@@ -34,9 +34,7 @@
 		"successTake": "Successfully took the %%role%% role from you!"
 	},
 	"cooldown": "Abklingzeit",
-	"secondLeft": "Bitte warte noch eine Sekunde, um `%%command%%` erneut zu benutzen.",
-	"timeLeftT": "Bitte warte noch %%time%% Sekunden, um den Befehl `%%command%%` erneut zu benutzen.",
-	"minsLeftT": "Bitte warte weitere %%time%% Minuten, um `%%command%%` erneut zu verwenden.",
+	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
 	"linkCorrectionDesc": "Bitte ändere deinen Link nächstes Mal zum %%format%%-Format.",
 	"correctLink": "Here's the correct link:",
 	"wrongStringURL": "Der von dir gesendete Link ist ein Link zum Editor und nicht der String selbst!",

@@ -34,9 +34,7 @@
 		"successTake": "O cargo %%role%% foi removido de você!"
 	},
 	"cooldown": "Tempo de recarga",
-	"secondLeft": "Por favor, aguarde um segundo para usar `%%command%%` novamente.",
-	"timeLeftT": "Por favor, aguarde %%time%% segundos para usar `%%command%%` novamente.",
-	"minsLeftT": "Por favor, aguarde %%time%% minutos para usar `%%command%%` novamente.",
+	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
 	"linkCorrectionDesc": "Por favor, da próxima vez altere o formato do link para %%format%%.",
 	"correctLink": "Aqui está o link correto:",
 	"wrongStringURL": "O link que você enviou é um link para o editor e não a linha!",

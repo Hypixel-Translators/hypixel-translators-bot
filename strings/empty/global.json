@@ -34,9 +34,7 @@
 		"successTake": "crwdns1461:0%%role%%crwdne1461:0"
 	},
 	"cooldown": "crwdns504:0crwdne504:0",
-	"secondLeft": "crwdns506:0%%command%%crwdne506:0",
-	"timeLeftT": "crwdns508:0%%time%%crwdnd508:0%%command%%crwdne508:0",
-	"minsLeftT": "crwdns510:0%%time%%crwdnd510:0%%command%%crwdne510:0",
+	"timeLeft": "crwdns2353:0%%command%%crwdnd2353:0%%timestamp%%crwdne2353:0",
 	"linkCorrectionDesc": "crwdns514:0%%format%%crwdne514:0",
 	"correctLink": "crwdns1450:0crwdne1450:0",
 	"wrongStringURL": "crwdns1152:0crwdne1152:0",

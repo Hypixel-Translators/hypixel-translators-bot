@@ -34,9 +34,7 @@
 		"successTake": "%%role%% 역할을 성공적으로 제거했습니다!"
 	},
 	"cooldown": "쿨다운",
-	"secondLeft": "`%%command%%`를 사용하기 위해서 1초 더 기다려주세요.",
-	"timeLeftT": "`%%command%%`를 사용하기 위해서 %%time%%초 더 기다려주세요.",
-	"minsLeftT": "`%%command%%`를 사용하기 위해서 %%time%%분 더 기다려주세요.",
+	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
 	"linkCorrectionDesc": "앞으로는 링크를 %%format%% 형태로 바꿔주시기 바랍니다.",
 	"correctLink": "올바른 링크 형태 : ",
 	"wrongStringURL": "보내주신 링크는 에디터로의 링크이며, 스트링에 대한 링크가 아닙니다.",

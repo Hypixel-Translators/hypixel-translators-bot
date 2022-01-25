@@ -34,9 +34,7 @@
 		"successTake": "%%role%% rang sikeresen eltávolítva rólad!"
 	},
 	"cooldown": "Időköz",
-	"secondLeft": "Kérlek várj egy másodpercet hogy újra használd a `%%command%%` parancsot.",
-	"timeLeftT": "Kérlek várj %%time%% másodpercet hogy újra használd a `%%command%%` parancsot.",
-	"minsLeftT": "Kérlek várj %%time%% percet hogy újra használd a `%%command%%` parancsot.",
+	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
 	"linkCorrectionDesc": "Kérlek máskor változtassad meg a linkedet %%format%% formátumba.",
 	"correctLink": "Here's the correct link:",
 	"wrongStringURL": "A küldött link csak a szerkesztőhöz vezet, és nem egy szöveg!",
