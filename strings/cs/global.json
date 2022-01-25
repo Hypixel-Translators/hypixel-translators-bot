@@ -34,9 +34,7 @@
 		"successTake": "Successfully took the %%role%% role from you!"
 	},
 	"cooldown": "Časové omezení",
-	"secondLeft": "Please wait another second to use `%%command%%` again.",
-	"timeLeftT": "Počkej prosím ještě %%time%% sekund/y, abys mohl znovu použít `%%command%%`.",
-	"minsLeftT": "Počkej prosím ještě %%time%% minut/y, abys mohl znovu použít `%%command%%`.",
+	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
 	"linkCorrectionDesc": "Prosím, příště změň svůj odkaz na formát %%format%%.",
 	"correctLink": "Zde je správný odkaz:",
 	"wrongStringURL": "Odkaz, který jsi poslal, je odkaz na editor, a ne na samotný string!",
