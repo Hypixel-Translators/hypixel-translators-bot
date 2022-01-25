@@ -34,9 +34,7 @@
 		"successTake": "正常に%%role%%ロールが剥奪されました！"
 	},
 	"cooldown": "クールダウン",
-	"secondLeft": "再度`%%command%%`を使用するには数秒お待ちください。",
-	"timeLeftT": "もう一度`%%command%%`を使用するにはあと%%time%%秒お待ちください。",
-	"minsLeftT": "もう一度`%%command%%`を使用するにはあと%%time%%分お待ちください。",
+	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
 	"linkCorrectionDesc": "次回はリンクの型を%%format%%に変更してください。",
 	"correctLink": "こちらが正しいリンクです：",
 	"wrongStringURL": "送信されたリンクは、文字列自体のものではなく編集画面へのリンクです！",
