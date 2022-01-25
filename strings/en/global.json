@@ -34,7 +34,6 @@
 		"successTake": "Successfully took the %%role%% role from you!"
 	},
 	"cooldown": "Cooldown",
-	"secondLeft": "Please wait another second to use `%%command%%` again.",
 	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
 	"linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
 	"correctLink": "Here's the correct link:",
