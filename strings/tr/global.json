@@ -34,9 +34,7 @@
 		"successTake": "Başarıyla senden %%role%% rolü alındı!"
 	},
 	"cooldown": "Bekleme Süresi",
-	"secondLeft": "Lütfen `%%command%%` komutunu tekrar kullanmak için biraz daha bekle.",
-	"timeLeftT": "`%%command%%` komutunu kullanmak için lütfen %%time%% saniye bekle.",
-	"minsLeftT": "`%%command%%` komutunu tekrar kullanmak için lütfen %%time%% dakika daha bekleyin.",
+	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
 	"linkCorrectionDesc": "Lütfen, bağlantını bir dahaki sefere %%format%% formatında gönder.",
 	"correctLink": "İşte doğru bağlantı:",
 	"wrongStringURL": "Gönderdiğin bağlantı dizenin kendisine değil, editöre yönlendiren bir bağlantıdır!",
