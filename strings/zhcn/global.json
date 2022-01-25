@@ -34,9 +34,7 @@
 		"successTake": "Successfully took the %%role%% role from you!"
 	},
 	"cooldown": "冷却时间",
-	"secondLeft": "Please wait another second to use `%%command%%` again.",
-	"timeLeftT": "Please wait another %%time%% seconds to use `%%command%%` again.",
-	"minsLeftT": "Please wait another %%time%% minutes to use `%%command%%` again.",
+	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
 	"linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
 	"correctLink": "Here's the correct link:",
 	"wrongStringURL": "The link you sent is a link to the editor and not the string itself!",
