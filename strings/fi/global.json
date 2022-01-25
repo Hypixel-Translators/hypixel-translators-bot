@@ -34,9 +34,7 @@
 		"successTake": "Sinulta otettiin onnistuneesti rooli %%role%%!"
 	},
 	"cooldown": "Odotusaika",
-	"secondLeft": "Ole hyvä ja odota vielä sekunti ennen kuin voit käyttää komentoa `%%command%%` uudelleen.",
-	"timeLeftT": "Ole hyvä ja odota vielä %%time%% sekuntia ennen kuin voit käyttää komentoa `%%command%%` uudelleen.",
-	"minsLeftT": "Ole hyvä ja odota vielä %%time%% minuuttia ennen kuin voit käyttää komentoa `%%command%%` uudelleen.",
+	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
 	"linkCorrectionDesc": "Vaihdathan osoitteen ensi kerralla muotoon %%format%%.",
 	"correctLink": "Tässä oikea linkki:",
 	"wrongStringURL": "Lähettämäsi linkki ohjaa muokkaajaan eikä itse käännettävään tekstiin!",
