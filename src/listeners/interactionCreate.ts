@@ -63,19 +63,18 @@ client.on("interactionCreate", async interaction => {
 		if (now < expirationTime) {
 			await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: "cooldown" })
 
-			const timeLeft = Math.ceil((expirationTime - now) / 1000),
-				embed = new MessageEmbed({
-					color: colors.error,
-					author: { name: getString("cooldown", { file: "global" }) },
-					title: getString(timeLeft >= 120 ? "minsLeftT" : timeLeft === 1 ? "secondLeft" : "timeLeftT", {
-						variables: {
-							time: timeLeft >= 120 ? Math.ceil(timeLeft / 60) : timeLeft,
-							command: `/${interaction.commandName}`,
-						},
-						file: "global",
-					}),
-					footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
-				})
+			const embed = new MessageEmbed({
+				color: colors.error,
+				author: { name: getString("cooldown", { file: "global" }) },
+				title: getString("timeLeft", {
+					variables: {
+						timestamp: `<t:${Math.ceil(expirationTime / 1000)}:R>`,
+						command: `\`/${interaction.commandName}\``,
+					},
+					file: "global",
+				}),
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+			})
 			return await interaction.reply({ embeds: [embed], ephemeral: true })
 		}
 	}
