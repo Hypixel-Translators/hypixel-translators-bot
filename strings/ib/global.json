@@ -34,9 +34,7 @@
 		"successTake": "Successfully took the %%role%% role from you!"
 	},
 	"cooldown": "Time to get cold and not hot",
-	"secondLeft": "Please wait another second to use `%%command%%` again.",
-	"timeLeftT": "Please wait another %%time%% seconds to use `%%command%%` again.",
-	"minsLeftT": "Please wait another %%time%% minutes to use `%%command%%` again.",
+	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
 	"linkCorrectionDesc": "Ples chang ur lonk too de %%format%% format next tims.",
 	"correctLink": "Here's the correct link:",
 	"wrongStringURL": "The lonk u send is a lonk too the editr and not the string istelf!",
