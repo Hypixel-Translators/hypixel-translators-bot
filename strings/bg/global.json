@@ -34,7 +34,7 @@
 		"successTake": "Успешно бе премахната ролята %%role%% от вас!"
 	},
 	"cooldown": "Време за изчакване",
-	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
+	"timeLeft": "Ще може да използвате %%command%% отново %%timestamp%%.",
 	"linkCorrectionDesc": "Моля променете формата на линка на %%format%% формат следващият път.",
 	"correctLink": "Ето го правилния линк:",
 	"wrongStringURL": "Линка който пратихте е линка към редактора, а не самата линия!",
