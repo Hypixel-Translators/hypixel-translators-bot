@@ -34,7 +34,7 @@
 		"successTake": "¡Se te quitó con éxito el rol %%role%%!"
 	},
 	"cooldown": "Enfriamiento",
-	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
+	"timeLeft": "Podrás usar %%command%% otra vez %%timestamp%%.",
 	"linkCorrectionDesc": "Cambia tu link al formato de %%format%% para la próxima.",
 	"correctLink": "Aquí está el link correcto:",
 	"wrongStringURL": "¡El link que enviaste es un link al editor y no al string!",
