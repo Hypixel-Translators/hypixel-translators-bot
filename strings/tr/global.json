@@ -34,7 +34,7 @@
 		"successTake": "Başarıyla senden %%role%% rolü alındı!"
 	},
 	"cooldown": "Bekleme Süresi",
-	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
+	"timeLeft": "%%command%% komutunu %%timestamp%% sonra tekrar kullanabilirsin.",
 	"linkCorrectionDesc": "Lütfen, bağlantını bir dahaki sefere %%format%% formatında gönder.",
 	"correctLink": "İşte doğru bağlantı:",
 	"wrongStringURL": "Gönderdiğin bağlantı dizenin kendisine değil, editöre yönlendiren bir bağlantıdır!",
