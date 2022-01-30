@@ -34,7 +34,7 @@
 		"successTake": "Tu n'as plus le rôle %%role%% !"
 	},
 	"cooldown": "Temps de recharge",
-	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
+	"timeLeft": "Tu pourras réutiliser %%command%% dans %%timestamp%%.",
 	"linkCorrectionDesc": "Merci de changer ton lien vers au format %%format%% la prochaine fois.",
 	"correctLink": "Voici le bon lien:",
 	"wrongStringURL": "Le lien que tu as envoyé est un lien vers l'éditeur et non la traduction en question !",
