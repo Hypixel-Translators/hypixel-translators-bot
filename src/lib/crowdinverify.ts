@@ -29,7 +29,7 @@ const projectIDs: {
  * @param sendDms Whether to send DMs to the member or not. Also bypasses the Discord tag check
  * @param sendLogs Whether to send logs to the log channel or not
  */
-async function crowdinVerify(member: GuildMember, url?: string | null, sendDms = false, sendLogs = true) {
+export async function crowdinVerify(member: GuildMember, url?: string | null, sendDms = false, sendLogs = true) {
 	const verifyLogs = member.client.channels.cache.get(ids.channels.verifyLogs) as TextChannel,
 		verify = member.client.channels.cache.get(ids.channels.verify) as TextChannel,
 		errorEmbed = new MessageEmbed({
@@ -67,11 +67,11 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 					.catch(async () => {
 						errorEmbed.setFooter({ text: "This message will be deleted in a minute" })
 						const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
-						await setTimeout(60_000)
-						await msg.delete().catch(() => null)
 						await verifyLogs.send(
 							`${member} didn't send a valid profile URL. Let's hope they work their way around with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`,
 						)
+						await setTimeout(60_000)
+						await msg.delete().catch(() => null)
 					})
 			} else await verifyLogs.send(`The profile stored/provided for ${member} was invalid. Please fix this or ask them to fix this.`)
 			if (sendLogs) await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "invalidURL" })
@@ -122,11 +122,11 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 					.catch(async () => {
 						errorEmbed.setFooter({ text: "This message will be deleted in a minute" })
 						const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
-						await setTimeout(60_000)
-						await msg.delete().catch(() => null)
 						await verifyLogs.send(
 							`${member} sent the wrong profile link (<${url}>). Let's hope they work their way around with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`,
 						)
+						await setTimeout(60_000)
+						await msg.delete().catch(() => null)
 					})
 			} else if (sendLogs)
 				await verifyLogs.send(`The profile stored/provided for ${member} was invalid (<${url}>). Please fix this or ask them to fix this.`)
@@ -154,11 +154,11 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 					.catch(async () => {
 						errorEmbed.setFooter({ text: "This message will be deleted in a minute" })
 						const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
-						await setTimeout(60_000)
-						await msg.delete().catch(() => null)
 						await verifyLogs.send(
 							`${member}'s profile was private (<${url}>), I let them know about that in <#${ids.channels.verify}> since they had DMs off.`,
 						)
+						await setTimeout(60_000)
+						await msg.delete().catch(() => null)
 					})
 			} else await verifyLogs.send(`${member}'s profile is private (<${url}>). Please ask them to change this.`)
 			await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "privateProfile" })
@@ -227,10 +227,10 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 				)
 				.catch(async () => {
 					errorEmbed.setFooter({ text: "This message will be deleted in a minute" })
+					const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
 					await verifyLogs.send(
 						`${member} forgot to add their Discord to their profile (<${url}>). Let's hope they fix that with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`,
 					)
-					const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [errorEmbed] })
 					await setTimeout(60_000)
 					await msg.delete().catch(() => null)
 				})
@@ -367,8 +367,6 @@ async function crowdinVerify(member: GuildMember, url?: string | null, sendDms =
 	if (sendLogs) await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id })
 	// #endregion
 }
-
-export { crowdinVerify }
 
 async function updateProjectRoles(projectName: ValidProjects, member: GuildMember, project: CrowdinProject) {
 	const languages = project.contributed_languages?.length
