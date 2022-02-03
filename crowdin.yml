@@ -1,3 +1,4 @@
+pull_request_title: 'chore(strings): update translations'
 files:
     - source: /strings/en/*.json
       translation: /strings/%osx_locale%/%original_file_name%
