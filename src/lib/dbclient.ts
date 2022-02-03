@@ -14,7 +14,7 @@ export const cancelledEvents: EventData<keyof ClientEvents>[] = []
 export let db: Db
 
 mongoClient.connect().then(() => {
-	db = mongoClient.db(process.env.DB_NAME)
+	db = mongoClient.db()
 	console.log("Connected to MongoDB!")
 	// If the connection was made after the client was ready, we need to emit the event again
 	if (client.isReady()) client.emit("ready", client)
