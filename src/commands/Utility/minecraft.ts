@@ -70,8 +70,12 @@ const command: Command = {
 			else throw "notVerified"
 		} else if (usernameInput && usernameInput.length < 32) uuid = await getUUID(usernameInput)
 		else uuid = usernameInput ?? authorDb.uuid
+		const isValidUUID = await axios
+			.get(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings)
+			.then(res => !!res.data?.id)
+			.catch(() => null)
 		if (!userInput && !usernameInput && !authorDb.uuid) throw "noUser"
-		if (!uuid) throw "falseUser"
+		if (!(uuid && isValidUUID)) throw "falseUser"
 		const isOwnUser = uuid === authorDb.uuid,
 			uuidDb = await db.collection<DbUser>("users").findOne({ uuid })
 
