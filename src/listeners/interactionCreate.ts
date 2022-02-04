@@ -171,7 +171,7 @@ client.on("interactionCreate", async interaction => {
 				await (interaction.client.channels.cache.get(ids.channels.botDev) as TextChannel).send({
 					content: `<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@!${ids.users.rodry}>\nRan by: ${
 						interaction.user
-					}\nCommand: ${interaction.commandName}\nChannel: ${
+					}\nCommand: \`${interaction}\`\nChannel: ${
 						interaction.channel?.type !== "DM" && interaction.channel ? interaction.channel : "DM"
 					}\nTime: <t:${Math.round(Date.now() / 1000)}:F>`,
 					embeds: [embed],
