@@ -1,8 +1,8 @@
-import { ids } from "../config.json"
+import { Formatters, MessageEmbed, TextChannel } from "discord.js"
+
+import { colors, ids } from "../config.json"
 import { client } from "../index"
 import { db, DbUser, cancelledEvents } from "../lib/dbclient"
-
-import type { TextChannel } from "discord.js"
 
 client.on("guildMemberRemove", async member => {
 	if (!db) return void cancelledEvents.push({ listener: "guildMemberRemove", args: [member] })
@@ -31,5 +31,20 @@ client.on("guildMemberRemove", async member => {
 		}
 		console.log(`${member.user!.tag} left and had the ${botRole.name} role`)
 	}
-	if (!member.user!.bot) await db.collection<DbUser>("users").deleteOne({ id: member.id })
+	if (!member.user!.bot) {
+		const oldData = await db.collection<DbUser>("users").findOneAndDelete({ id: member.id }),
+			embed = new MessageEmbed({
+				color: colors.error,
+				author: { name: "Member Left", iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+				description: `${member} (${member.user.tag}) just left the server. Here's their DB data:\n\n${Formatters.codeBlock(
+					"json",
+					// Dirty fix for getting data that can be pasted into the DB.
+					JSON.stringify(Object.assign(oldData, { _id: { $oid: oldData.value!._id } }), null, 2),
+				)}`,
+				footer: { text: `ID: ${member.id}` },
+				timestamp: Date.now(),
+			})
+
+		await (member.guild.channels.cache.get(ids.channels.logs) as TextChannel).send({ embeds: [embed] })
+	}
 })
