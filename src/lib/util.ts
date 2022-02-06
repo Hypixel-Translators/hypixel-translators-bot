@@ -207,10 +207,10 @@ export async function getMCProfile(uuid: string) {
 		.catch(() => null)
 }
 
-export async function getUUID(username: string): Promise<string | undefined> {
+export async function getUUID(username: string): Promise<string | null> {
 	return await axios
 		.get(`https://api.mojang.com/users/profiles/minecraft/${username}`, fetchSettings)
-		.then(data => data.data.id)
+		.then(data => data.data.id ?? null)
 		.catch(() => null)
 }
 

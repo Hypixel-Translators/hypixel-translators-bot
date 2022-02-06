@@ -59,17 +59,17 @@ const command: Command = {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
 			member = (interaction.member as GuildMember | null) ?? interaction.user,
-			authorDb: DbUser = await client.getUser(interaction.user.id),
+			authorDb = await client.getUser(interaction.user.id),
 			userInput = interaction.options.getUser("user", false),
 			usernameInput = interaction.options.getString("username", false)
 
-		let uuid: string | undefined
+		let uuid: string | null
 		if (userInput) {
 			const userInputDb = await client.getUser(userInput.id)
 			if (userInputDb!.uuid) ({ uuid } = userInputDb)
 			else throw "notVerified"
 		} else if (usernameInput && usernameInput.length < 32) uuid = await getUUID(usernameInput)
-		else uuid = usernameInput ?? authorDb.uuid
+		else uuid = usernameInput ?? authorDb.uuid ?? null
 		if (!userInput && !usernameInput && !authorDb.uuid) throw "noUser"
 		if (!uuid) throw "falseUser"
 		const isOwnUser = uuid === authorDb.uuid,
@@ -216,9 +216,11 @@ async function getPlayer(uuid: string) {
 }
 
 async function getNameHistory(uuid: string) {
-	const json = await axios.get(`https://api.mojang.com/user/profiles/${uuid}/names`, fetchSettings).then(res => res.data)
-	if (json.error) throw "falseUUID"
-	return json.reverse() as NameHistory[]
+	const json = await axios
+		.get<NameHistory[] | MCAPIError>(`https://api.mojang.com/user/profiles/${uuid}/names`, fetchSettings)
+		.then(res => res.data || null)
+	if (!json || "error" in json) throw "falseUUID"
+	return json.reverse()
 }
 
 /** @see https://wiki.vg/Mojang_API#UUID_to_Name_History */
@@ -236,4 +238,9 @@ interface UserProfile {
 		name: string
 		value: string
 	}[]
+}
+
+interface MCAPIError {
+	error: string
+	errorMessage: string
 }

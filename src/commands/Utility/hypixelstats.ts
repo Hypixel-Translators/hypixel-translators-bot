@@ -36,14 +36,16 @@ const command: Command = {
 			authorDb: DbUser = await client.getUser(interaction.user.id),
 			userInput = interaction.options.getUser("user", false),
 			usernameInput = interaction.options.getString("username", false)
-		let { uuid } = authorDb
+
+		let uuid: string | null
 		if (userInput) {
-			const userDb: DbUser = await client.getUser(userInput.id)
-			if (userDb.uuid) ({ uuid } = userDb)
+			const userInputDb = await client.getUser(userInput.id)
+			if (userInputDb!.uuid) ({ uuid } = userInputDb)
 			else throw "notVerified"
 		} else if (usernameInput && usernameInput.length < 32) uuid = await getUUID(usernameInput)
-		else uuid = usernameInput ?? authorDb.uuid
-		if (!uuid) throw "noUser"
+		else uuid = usernameInput ?? authorDb.uuid ?? null
+		if (!userInput && !usernameInput && !authorDb.uuid) throw "noUser"
+		if (!uuid) throw "falseUser"
 
 		// Make a request to the slothpixel api (hypixel api but we dont need an api key)
 		const graphqlQuery = await axios
