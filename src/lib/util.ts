@@ -77,17 +77,6 @@ export async function closeConnection(uuid: string) {
 	}
 }
 
-export function transformDiscordLocale(discordLocale: string): string {
-	if (discordLocale === "uk") return "ua"
-	const localeWithCountryCode = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a, b) => (b ? `${a}${b.toLowerCase()}` : a)),
-		locale = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, "$1"),
-		locales = readdirSync("./strings")
-
-	if (locales.includes(localeWithCountryCode)) return localeWithCountryCode
-	else if (locales.includes(locale)) return locale
-	else return "en"
-}
-
 export function generateTip(getString?: GetStringFunction, newLang?: string): string {
 	const strings = require("../../strings/en/global.json"),
 		keys = getString ? Object.keys(getString("tips", { file: "global" })) : Object.keys(strings.tips)
@@ -290,6 +279,17 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 		console.log(`Sent the ${holidayNameFormatted} announcement`)
 	} else
 		return await adminBots.send(`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`)
+}
+
+export function transformDiscordLocale(discordLocale: string): string {
+	if (discordLocale === "uk") return "ua"
+	const localeWithCountryCode = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a, b) => (b ? `${a}${b.toLowerCase()}` : a)),
+		locale = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, "$1"),
+		locales = readdirSync("./strings")
+
+	if (locales.includes(localeWithCountryCode)) return localeWithCountryCode
+	else if (locales.includes(locale)) return locale
+	else return "en"
 }
 
 export function updateButtonColors(row: MessageActionRow, page: number, pages: unknown[]) {
