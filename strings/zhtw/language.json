@@ -1,10 +1,10 @@
 {
 	"moduleName": "語言",
 	"changedToTitle": "已經將你的語言更改為繁體中文！",
-	"resetTitle": "Reset your language!",
+	"resetTitle": "已重設你的語言設定！",
 	"didntChange": "你沒有更改語言",
 	"alreadyThis": "這是因為你選擇的語言已經是你的偏好語言。",
-	"notSet": "This happened because you hadn't set a language to begin with.",
+	"notSet": "出現此狀況是因為你尚未設定語言。",
 	"notTranslated": "你所選擇的語言因翻譯程度不足而無法使用。如果你在使用這個語言的話，你可以使用 `/translate` 指令來協助翻譯。",
 	"errorTitle": "該語言目前尚未加入！",
 	"errorDescription": "你的語言未被更改。以下是目前可用的語言（它們可能尚未翻譯）：",
