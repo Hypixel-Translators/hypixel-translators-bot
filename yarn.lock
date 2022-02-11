@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@crowdin/crowdin-api-client@^1.13.0":
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/@crowdin/crowdin-api-client/-/crowdin-api-client-1.13.0.tgz#813d6f75d0fd39b291bb41dbc3e405c2baeb5774"
-  integrity sha512-roNORo2V4r4NAGr/rehJG09+KIeuqbz6G2dlilYohB7s+wxggJFmQsMmeFjq2q5EL8g1EjZPbW3/+l6SOd9fyA==
+"@crowdin/crowdin-api-client@^1.14.0":
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/@crowdin/crowdin-api-client/-/crowdin-api-client-1.14.0.tgz#cf1137e2a10b625beea08cfbe0a913a98a7195ee"
+  integrity sha512-FYo5mxvz/Zv4Si2ccMaQVzwMiHcLsHZzuN6wiqrUC/raYm2iFlZEuCJ9rtT1Cy75QHrngjq6a04wcUArWNGsgQ==
   dependencies:
     axios "0.21.3"
 
