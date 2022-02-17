@@ -36,10 +36,14 @@ const command: Command = {
 	categoryBlacklist: [ids.categories.main],
 	async execute(interaction, getString: GetStringFunction) {
 		if (!interaction.inCachedGuild()) return
-		const roleType = interaction.options.getString("role", true) as "all" | "proofreader" | "translator",
-			lang = interaction.options.getString("language", true).toLowerCase()
+		const roleType = interaction.options.getString("role", true) as "all" | "proofreader" | "translator"
 
-		let roleName = lang.charAt(0).toUpperCase() + lang.slice(1),
+		let roleName = interaction.options
+				.getString("language", true)
+				.toLowerCase()
+				.split(" ")
+				.map(l => l.charAt(0).toUpperCase() + l.slice(1))
+				.join(" "),
 			message = interaction.options.getString("message", false)
 		message ??= "<a:bongoping:614477510423478275>"
 
