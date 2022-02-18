@@ -36,87 +36,38 @@ const command: Command = {
 	categoryBlacklist: [ids.categories.main],
 	async execute(interaction, getString: GetStringFunction) {
 		if (!interaction.inCachedGuild()) return
-		const roleType = interaction.options.getString("role", true) as "all" | "proofreader" | "translator"
-
-		let roleName = interaction.options
+		await interaction.deferReply({ ephemeral: true })
+		const roleName = interaction.options
 				.getString("language", true)
 				.toLowerCase()
 				.split(" ")
 				.map(l => l.charAt(0).toUpperCase() + l.slice(1))
 				.join(" "),
-			message = interaction.options.getString("message", false)
-		message ??= "<a:bongoping:614477510423478275>"
-
-		const langs: { [key: string]: string } = {
-			Chinesesimplified: "Chinese Simplified",
-			"Chinese-simplified": "Chinese Simplified",
-			Zhcn: "Chinese Simplified",
-			Chinesetraditional: "Chinese Traditional",
-			"Chinese-traditional": "Chinese Traditional",
-			Zhtw: "Chinese Traditional",
-			Lolcat: "LOLCAT",
-			Lol: "LOLCAT",
-			Bg: "Bulgarian",
-			Cs: "Czech",
-			Da: "Danish",
-			Nl: "Dutch",
-			Fi: "Finnish",
-			Fr: "French",
-			De: "German",
-			El: "Greek",
-			It: "Italian",
-			Ja: "Japanese",
-			Ko: "Korean",
-			Ms: "Malay",
-			No: "Norwegian",
-			Pl: "Polish",
-			Pt: "Portuguese",
-			Ptbr: "Portuguese Brazilian",
-			Brazilian: "Portuguese Brazilian",
-			Ru: "Russian",
-			Es: "Spanish",
-			Sv: "Swedish",
-			Se: "Swedish",
-			Th: "Thai",
-			Tr: "Turkish",
-			Ua: "Ukrainian",
-			Enpt: "Pirate English",
-			Pirate: "Pirate English",
-		}
-
-		if (langs[roleName]) roleName = langs[roleName]
-		const [pfRole, trRole] = interaction
+			message = interaction.options.getString("message", false) ?? "<a:bongoping:614477510423478275>",
+			[pfRole, trRole] = interaction
 				.guild!.roles.cache.filter(r => r.name.startsWith(roleName))
 				.partition(r => r.name.endsWith(" Proofreader"))
 				.map(r => r.first()!),
 			hasPerm = interaction.member.roles.cache.has(pfRole?.id) || interaction.member.permissions.has("MANAGE_ROLES")
 
 		if (!pfRole) throw "falseRole"
-		if (roleType === "proofreader") {
-			if (hasPerm) await interaction.reply(`**${interaction.user}**: ${pfRole} ${message}`)
-			else {
-				await interaction.reply({
-					content: `${getString("errorNoPing")}${getString("errorNoPingPr")} ${getString("errorNoPingDisclaimer")}`,
-					ephemeral: true,
-				})
-			}
-		} else if (roleType === "translator") {
-			if (hasPerm) await interaction.reply(`**${interaction.user}**: ${trRole} ${message}`)
-			else {
-				await interaction.reply({
-					content: `${getString("errorNoPing")}${getString("errorNoPingTr")} ${getString("errorNoPingDisclaimer")}`,
-					ephemeral: true,
-				})
-			}
-		} else if (roleType === "all") {
-			if (hasPerm) await interaction.reply(`**${interaction.user}**: ${trRole} ${pfRole} ${message}`)
-			else {
-				await interaction.reply({
-					content: `${getString("errorNoPing")}${getString("errorNoPingAll")} ${getString("errorNoPingDisclaimer")}`,
-					ephemeral: true,
-				})
-			}
-		} else throw "falseRole"
+		switch (interaction.options.getString("role", true) as "all" | "proofreader" | "translator") {
+			case "translator":
+				if (hasPerm) await interaction.channel!.send(`**${interaction.user}**: ${trRole} ${message}`)
+				else await interaction.editReply(`${getString("errorNoPing")}${getString("errorNoPingTr")} ${getString("errorNoPingDisclaimer")}`)
+				break
+			case "proofreader":
+				if (hasPerm) await interaction.channel!.send(`**${interaction.user}**: ${pfRole} ${message}`)
+				else await interaction.editReply(`${getString("errorNoPing")}${getString("errorNoPingPr")} ${getString("errorNoPingDisclaimer")}`)
+				break
+			case "all":
+				if (hasPerm) await interaction.channel!.send(`**${interaction.user}**: ${trRole} ${pfRole} ${message}`)
+				else await interaction.editReply(`${getString("errorNoPing")}${getString("errorNoPingAll")} ${getString("errorNoPingDisclaimer")}`)
+				break
+			default:
+				throw "falseRole"
+		}
+		if (hasPerm) await interaction.editReply(getString("success"))
 	},
 }
 
