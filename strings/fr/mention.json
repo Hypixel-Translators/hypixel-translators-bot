@@ -3,5 +3,6 @@
 	"errorNoPingPr": "donc tu ne peux pas le mentionner.",
 	"errorNoPingTr": "donc tu ne peux pas mentionner son rôle de translator.",
 	"errorNoPingAll": "donc tu ne peux pas mentionner toute la langue.",
-	"errorNoPingDisclaimer": "Contacte le propriétaire ou 'administrateur du serveur si tu en as vraiment besion."
+	"errorNoPingDisclaimer": "Contacte le propriétaire ou 'administrateur du serveur si tu en as vraiment besion.",
+	"success": "Message sent successfully!"
 }
