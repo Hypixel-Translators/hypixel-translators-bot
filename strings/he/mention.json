@@ -3,5 +3,6 @@
 	"errorNoPingPr": "אז אינך יכול/ה לתייג אותו/ה.",
 	"errorNoPingTr": "אז אינך יכול/ה לתייג את role המתרגם שלו.",
 	"errorNoPingAll": "אז אינך יכול/ה לתייג את השפה כולה.",
-	"errorNoPingDisclaimer": "פנה לבעלים של השרת או לאדמין אם את/ה ממש צריך/ה."
+	"errorNoPingDisclaimer": "פנה לבעלים של השרת או לאדמין אם את/ה ממש צריך/ה.",
+	"success": "Message sent successfully!"
 }

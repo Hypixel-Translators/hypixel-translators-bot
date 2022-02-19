@@ -3,5 +3,6 @@
 	"errorNoPingPr": "yani ondan bahsedemezsin.",
 	"errorNoPingTr": "yani onun çevirmen rolünden bahsedemezsin.",
 	"errorNoPingAll": "yani bütün dilden bahsedemezsin.",
-	"errorNoPingDisclaimer": "Gerçekten gerekiyorsa sunucu sahibi veya yöneticisiyle iletişime geç."
+	"errorNoPingDisclaimer": "Gerçekten gerekiyorsa sunucu sahibi veya yöneticisiyle iletişime geç.",
+	"success": "Mesaj başarıyla gönderildi!"
 }

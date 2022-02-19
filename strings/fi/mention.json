@@ -3,5 +3,6 @@
 	"errorNoPingPr": "joten et voi mainita sitä.",
 	"errorNoPingTr": "joten et voi mainita sen kääntäjän roolia.",
 	"errorNoPingAll": "joten et voi mainita koko kieltä.",
-	"errorNoPingDisclaimer": "Ota yhteyttä palvelimen omistajaan tai ylläpitäjään, mikäli se on todella tarpeen."
+	"errorNoPingDisclaimer": "Ota yhteyttä palvelimen omistajaan tai ylläpitäjään, mikäli se on todella tarpeen.",
+	"success": "Viesti on lähetetty onnistuneesti!"
 }

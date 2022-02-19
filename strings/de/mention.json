@@ -3,5 +3,6 @@
 	"errorNoPingPr": "du kannst es nicht erwähnen.",
 	"errorNoPingTr": "also kannst du seine Rolle als Übersetzer nicht erwähnen.",
 	"errorNoPingAll": "also kannst du nicht die gesamte Sprache erwähnen.",
-	"errorNoPingDisclaimer": "Kontaktiere den Server Besitzer oder Administrator, falls du wirklich Hilfe benötigst."
+	"errorNoPingDisclaimer": "Kontaktiere den Server Besitzer oder Administrator, falls du wirklich Hilfe benötigst.",
+	"success": "Message sent successfully!"
 }
