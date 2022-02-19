@@ -3,5 +3,6 @@
 	"errorNoPingPr": "dus je kunt het niet vermelden.",
 	"errorNoPingTr": "dus je kunt de vertalersrol niet vermelden.",
 	"errorNoPingAll": "dus je kunt de hele taal niet vermelden.",
-	"errorNoPingDisclaimer": "Neem contact op met de servereigenaar of -beheerder als het echt nodig is."
+	"errorNoPingDisclaimer": "Neem contact op met de servereigenaar of -beheerder als het echt nodig is.",
+	"success": "Bericht verzonden!"
 }
