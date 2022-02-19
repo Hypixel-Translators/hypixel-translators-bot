@@ -3,5 +3,6 @@
 	"errorNoPingPr": "takže ji nemůžeš zmínit.",
 	"errorNoPingTr": "takže nemůžeš zmínit jeho roli překladatele.",
 	"errorNoPingAll": "takže nemůžeš zmínit celý jazyk.",
-	"errorNoPingDisclaimer": "Pokud to opravdu potřebuješ, obrať se na majitele serveru nebo admina."
+	"errorNoPingDisclaimer": "Pokud to opravdu potřebuješ, obrať se na majitele serveru nebo admina.",
+	"success": "Message sent successfully!"
 }
