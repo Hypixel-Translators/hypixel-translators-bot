@@ -3,5 +3,6 @@
 	"errorNoPingPr": "لذلك لا تستطيع منشنتها.",
 	"errorNoPingTr": "لذلك لا تستطيع منشن رتبة المترجم الخاصة بها.",
 	"errorNoPingAll": "لذلك لا تستطيع منشن اللغة بأكملها.",
-	"errorNoPingDisclaimer": "تواصل مع صاحب السيرفر أو مسؤول اذا كنت تحتاج حقًا."
+	"errorNoPingDisclaimer": "تواصل مع صاحب السيرفر أو مسؤول اذا كنت تحتاج حقًا.",
+	"success": "Message sent successfully!"
 }
