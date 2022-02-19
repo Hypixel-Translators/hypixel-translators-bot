@@ -3,5 +3,6 @@
 	"errorNoPingPr": "így nem tudod megemlíteni.",
 	"errorNoPingTr": "így nem tudod megemlíteni a fordítóit.",
 	"errorNoPingAll": "így nem említheted meg az egész nyelvet.",
-	"errorNoPingDisclaimer": "Üzenj a szerver tulajdonosának vagy egy adminisztrátornak ha nagyon fontos."
+	"errorNoPingDisclaimer": "Üzenj a szerver tulajdonosának vagy egy adminisztrátornak ha nagyon fontos.",
+	"success": "Message sent successfully!"
 }
