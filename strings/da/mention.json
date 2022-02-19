@@ -3,5 +3,6 @@
 	"errorNoPingPr": "så du ikke kan nævne det.",
 	"errorNoPingTr": "så du ikke kan nævne dens oversætterrolle.",
 	"errorNoPingAll": "så du ikke kan nævne hele sproget.",
-	"errorNoPingDisclaimer": "Kontakt serverejeren eller en administrator, hvis du virkelig har brug for det."
+	"errorNoPingDisclaimer": "Kontakt serverejeren eller en administrator, hvis du virkelig har brug for det.",
+	"success": "Message sent successfully!"
 }
