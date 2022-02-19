@@ -3,5 +3,6 @@
 	"errorNoPingPr": "so u cant menton it.",
 	"errorNoPingTr": "zo u cannoto menton tramslayor rol.",
 	"errorNoPingAll": "zo u cannoto menton whol langag.",
-	"errorNoPingDisclaimer": "Contacc servar owner or admon if u really wants."
+	"errorNoPingDisclaimer": "Contacc servar owner or admon if u really wants.",
+	"success": "Message sent successfully!"
 }
