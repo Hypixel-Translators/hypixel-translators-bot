@@ -13,6 +13,8 @@ const command: Command = {
 			name: "startday",
 			description: "The day in which your LOA will start",
 			required: true,
+			minValue: 1,
+			maxValue: 31,
 		},
 		{
 			type: "INTEGER",
@@ -39,12 +41,16 @@ const command: Command = {
 			name: "startyear",
 			description: "The year in which your LOA will start",
 			required: true,
+			minValue: new Date().getFullYear(),
+			maxValue: new Date().getFullYear() + 1,
 		},
 		{
 			type: "INTEGER",
 			name: "endday",
 			description: "The day in which your LOA will end",
 			required: true,
+			minValue: 1,
+			maxValue: 31,
 		},
 		{
 			type: "INTEGER",
@@ -71,6 +77,8 @@ const command: Command = {
 			name: "endyear",
 			description: "The year in which your LOA will end",
 			required: true,
+			minValue: new Date().getFullYear(),
+			maxValue: new Date().getFullYear() + 1,
 		},
 		{
 			type: "STRING",
