@@ -4,5 +4,5 @@
 	"errorNoPingTr": "その翻訳者ロールにメンションできません。",
 	"errorNoPingAll": "言語全体にメンションできません。",
 	"errorNoPingDisclaimer": "必要であれば、サーバーの所有者または管理者にご連絡ください。",
-	"success": "Message sent successfully!"
+	"success": "メッセージが送信されました！"
 }
