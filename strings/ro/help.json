@@ -1,76 +1,76 @@
 {
-	"moduleName": "Information",
-	"commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
-	"pageNumber": "Page %%number%%",
-	"mainPage": "Main Page",
-	"utilityHelp": "Tools & Utilities",
-	"infoHelp": "Information Commands",
-	"commandInfo": "Command information",
-	"commandInfoFor": "Command information for ",
-	"staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
-	"inDev": "This command is currently in development and will be available at a later date!",
-	"seconds": "seconds",
-	"second": "second",
-	"minutes": "minutes",
+	"moduleName": "Informații",
+	"commandsListTooltip": "Acest bot a fost creat pentru Comunitatea de Traducători Hypixel și este susținută de %%developer%%. Este open-source și depozitul nostru GitHub poate fi găsit [here]%%github%%.\nPoți ajuta cu traducerea botului urmând instrucțiunile pe comanda `/translate`.\n\nPoți executa `/help <command>` pentru a vedea mai multe despre o comandă specifică.\nMai jos poți găsi o listă cu toate paginile disponsibile. Folosește butoanele de pe acest mesaj pentru a trece prin ele.",
+	"pageNumber": "Pagina %%number%%",
+	"mainPage": "Pagina Principală",
+	"utilityHelp": "Instrumente ți Ulități",
+	"infoHelp": "Comenzi de informații",
+	"commandInfo": "Comandă informații",
+	"commandInfoFor": "Comandă informații pentru ",
+	"staffOnly": "Această comandă este disponibilă doar staff-ului și astfel, informația sa este ascunsă.\nTe rog contactează un membru staff dacă consideri că asta este o eroare.",
+	"inDev": "Această comandă este momentan în dezvoltare și va fi disponibilă la o dată mai îndepărtată!",
+	"seconds": "secunde",
+	"second": "secundă",
+	"minutes": "minute",
 	"cooldownField": "Cooldown",
 	"8ball": {
-		"description": "The Magic 8 Ball that will answer all your questions."
+		"description": "Mingea Magică care îți va răspunde la toate întrebările."
 	},
 	"feedback": {
-		"description": "Opens our GitHub issues page, where you can report problems and send feedback."
+		"description": "Deschide pagină noastră Github de probleme, unde poți raporta probleme și trimite feedback."
 	},
 	"help": {
-		"description": "Shows you all available commands and other info about the bot."
+		"description": "Îți arată toate comenzile disponibile și alte informații despre bot."
 	},
 	"hypixelstats": {
-		"description": "Shows you basic Hypixel stats for the provided user."
+		"description": "Îți arată statistici de bază Hypixel pentru utilizatorul dat."
 	},
 	"hypixelunverify": {
-		"description": "Unlinks your Discord account from your Minecraft account."
+		"description": "Deconectează contul tău de Discord de contul tău de Minecraft."
 	},
 	"hypixelverify": {
-		"description": "Links your Discord account with your Minecraft account."
+		"description": "Îți conectează contul Discord cu contul tău de Minecraft."
 	},
 	"language": {
-		"description": "Changes your language, shows your current one or a list of available languages."
+		"description": "Îți schimbă limba, arată limba curentă sau o listă de limbi disponibile."
 	},
 	"languagestats": {
-		"description": "Shows you the progress of a language on all the projects we currently support."
+		"description": "Îți arată progresul unei limbi pe toate proiectele pe care le suportăm în prezent."
 	},
 	"levels": {
-		"description": "Gives you the XP leaderboard."
+		"description": "Îți dă clasamentul XP."
 	},
 	"mention": {
-		"description": "Mentions a language role with an optional message."
+		"description": "Menționează un rol lingvistic cu un mesaj opțional."
 	},
 	"minecraft": {
-		"description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+		"description": "Caută numele și istoria skinurilor a unui jucător specific. Această comandă este compatibilă cu /hypixelverify, permițându-te să cauți informațiile unui utilizator specific dacă sunt verificate. Parametrul `user` va avea întotdeauna prioritate faţă de `username` şi sunt amândouă opţionale dacă ești verificat, altfel, cel puţin unul este necesar."
 	},
 	"ping": {
-		"description": "Gives you the bot's ping."
+		"description": "Îți dă ping-ul botului."
 	},
 	"prefix": {
-		"description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+		"description": "Îți dă prefixul potrivit pentru limba sau limbile tale. În ordine ca să primești un prefix custom, execută `/prefix` și îți furnizează codul regional pentru steagul tării tale sau numele pe parametrul `flags`. Poți adăuga câte steaguri dorești, separate de un spațiu."
 	},
 	"profile": {
-		"description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
+		"description": "Îți dă link-ul către profilul dacă este stocată pe baza noastră de date. Dacă nu e, poți executa `/help verify` pentru a învăța cum să îți stochezi profilul și să îți stochezi rolurile."
 	},
 	"projects": {
-		"description": "Gives you links and information about all the translation projects we support on the server."
+		"description": "Îți dă link-uri și informații despre toate proiectele de traducere sprijinite de noi pe server."
 	},
 	"quote": {
-		"description": "Gets (or adds) a funny/weird/wise quote from the server."
+		"description": "Ia (sau adaugă) un citat amuzant/ciudat/înțelept de pe server."
 	},
 	"rank": {
-		"description": "Gives you the current XP for yourself or any given user."
+		"description": "Îți dă XP-ul curent pentru tine sau orice alt utilizator."
 	},
 	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
+		"description": "Îți trimite un mesaj presetat, care îți permite să notifici un anumit membru când îl trimiți."
 	},
 	"translate": {
-		"description": "Gives you useful information on how to translate the Bot."
+		"description": "Îți dă informații utile despre cum să traduci Botul."
 	},
 	"verify": {
-		"description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+		"description": "Verifică automat pentru modificări pe profilul tău Crowdin și îți oferă rolurile adecvate. Dacă profilul tău nu este stocat în baza noastră de date, îl poți furniza ca un argument în comandă. Pentru a verifica dacă profilul tău este stocat, execută `/profile`. Asigură că ai DM-urile activate de pe acest server, astfel încât bot-ul să îți poată trimite un mesaj."
 	}
 }
