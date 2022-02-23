@@ -1,9 +1,9 @@
 import axios from "axios"
-import { MessageEmbed } from "discord.js"
+import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js"
 
 import { colors, ids } from "../../config.json"
-import { db, DbUser } from "../../lib/dbclient"
-import { fetchSettings, generateTip, getUUID, updateRoles, GraphQLQuery } from "../../lib/util"
+import { db, type DbUser } from "../../lib/dbclient"
+import { fetchSettings, generateTip, getUUID, updateRoles, type GraphQLQuery } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -12,13 +12,13 @@ const command: Command = {
 	description: "Links your Discord account with your Hypixel player",
 	options: [
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "username",
 			description: "Your Hypixel IGN. Must have your Discord linked in-game",
 			required: true,
 		},
 		{
-			type: "USER",
+			type: ApplicationCommandOptionType.User,
 			name: "user",
 			description: "The user to verify. Admin-only",
 			required: false,
@@ -31,7 +31,7 @@ const command: Command = {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
 			uuid = await getUUID(interaction.options.getString("username", true)),
-			memberInput = interaction.options.getMember("user", false),
+			memberInput = interaction.options.getMember("user"),
 			collection = db.collection<DbUser>("users")
 		if (!uuid) throw "noUser"
 
@@ -59,21 +59,21 @@ const command: Command = {
 			const result = await collection.updateOne({ id: interaction.user.id }, { $set: { uuid: json.uuid } }),
 				role = await updateRoles(interaction.member, json)
 			if (result.modifiedCount) {
-				const successEmbed = new MessageEmbed({
+				const successEmbed = new EmbedBuilder({
 					color: colors.success,
 					author: { name: getString("moduleName") },
 					title: getString("success", { variables: { player: json.username } }),
 					description: getString("role", { variables: { role: `${role}` } }),
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
 				await interaction.editReply({ embeds: [successEmbed] })
 			} else {
-				const notChanged = new MessageEmbed({
+				const notChanged = new EmbedBuilder({
 					color: colors.error,
 					author: { name: getString("moduleName") },
 					title: getString("alreadyVerified"),
 					description: getString("nameChangeDisclaimer"),
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
 				await interaction.editReply({ embeds: [notChanged] })
 			}
@@ -81,7 +81,7 @@ const command: Command = {
 			const result = await collection.updateOne({ id: memberInput.id }, { $set: { uuid: json.uuid } }),
 				role = await updateRoles(memberInput, json)
 			if (result.modifiedCount) {
-				const successEmbed = new MessageEmbed({
+				const successEmbed = new EmbedBuilder({
 					color: colors.success,
 					author: { name: "Hypixel Verification" },
 					title: `Successfully verified ${memberInput.user.tag} as ${json.username}`,
@@ -90,26 +90,26 @@ const command: Command = {
 							? "\n\n⚠ This player's Discord is different from their user tag! I hope you know what you're doing."
 							: ""
 					}`,
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
 				await interaction.editReply({ embeds: [successEmbed] })
 			} else {
-				const notChanged = new MessageEmbed({
+				const notChanged = new EmbedBuilder({
 					color: colors.error,
 					author: { name: "Hypixel Verification" },
 					title: "This user is already verified",
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
 				await interaction.editReply({ embeds: [notChanged] })
 			}
 		} else {
-			const errorEmbed = new MessageEmbed({
+			const errorEmbed = new EmbedBuilder({
 				color: colors.error,
 				author: { name: getString("moduleName") },
 				title: getString("error"),
 				description: getString("tutorial", { variables: { tag: interaction.user.tag } }),
 				image: { url: "https://i.imgur.com/JSeAHdG.gif" },
-				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})
 			await interaction.editReply({ embeds: [errorEmbed] })
 		}

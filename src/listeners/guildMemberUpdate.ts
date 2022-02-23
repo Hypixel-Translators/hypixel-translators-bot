@@ -1,4 +1,4 @@
-import { GuildMember, MessageEmbed, PartialGuildMember, TextChannel } from "discord.js"
+import { EmbedBuilder, GuildMember, PartialGuildMember, TextChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"
@@ -23,12 +23,12 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 })
 
 async function sendRevertAlert(oldMember: GuildMember | PartialGuildMember, newMember: GuildMember) {
-	const embed = new MessageEmbed({
+	const embed = new EmbedBuilder({
 			color: colors.error,
 			author: { name: "Received a message from staff" },
 			description: `Hey there!\nWe noticed you changed your nickname to include a new prefix, however it didn't comply with our rule about nicknames (rule 4).\nWe've reset your nickname back to the old one, however, if you'd like, you can fix your new nickname (${newMember.nickname}) and apply it again. If you have any questions or believe this is a bug, please contact the staff team.`,
 		}),
-		staffEmbed = new MessageEmbed({
+		staffEmbed = new EmbedBuilder({
 			color: colors.loading,
 			title: "Member nickname reverted",
 			description: `I noticed that ${newMember}'s new nickname: \`${newMember.nickname}\` didn't follow our rules, so I reverted it back to \`${oldMember.nickname}\`. Make sure this is correct and, if it isn't, feel free to undo.`,
@@ -50,13 +50,13 @@ async function sendRevertAlert(oldMember: GuildMember | PartialGuildMember, newM
 }
 
 async function sendRemoveAlert(newMember: GuildMember) {
-	const embed = new MessageEmbed({
+	const embed = new EmbedBuilder({
 			color: colors.error,
 			author: { name: "Received a message from staff" },
 			description:
 				"Hey there!\nWe noticed your nickname included a prefix but didn't include country flags nor allowed language codes (rule 4).\nDue to this, we've reset your nickname entirely. If you have any questions or believe this is a bug, please contact the staff team.",
 		}),
-		staffEmbed = new MessageEmbed({
+		staffEmbed = new EmbedBuilder({
 			color: colors.loading,
 			title: "Member nickname removed",
 			description: `I noticed that ${newMember}'s new nickname: \`${newMember.nickname}\` didn't follow our rules, and neither did their old one, so I removed their nickname entirely. Make sure this is correct and, if it isn't, feel free to undo.`,

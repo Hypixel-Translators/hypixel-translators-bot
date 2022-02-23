@@ -1,3 +1,5 @@
+import { ApplicationCommandOptionType } from "discord.js"
+
 import { getInviteLink } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
@@ -7,7 +9,7 @@ const command: Command = {
 	description: "Sends a preset message, allowing you to notify a specific member when sending it.",
 	options: [
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "tag",
 			description: "The tag you want to see",
 			choices: [
@@ -24,7 +26,7 @@ const command: Command = {
 			required: true,
 		},
 		{
-			type: "USER",
+			type: ApplicationCommandOptionType.User,
 			name: "target",
 			description: "The user to mention with this tag",
 			required: false,

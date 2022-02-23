@@ -1,6 +1,6 @@
 import { setTimeout } from "node:timers/promises"
 
-import { MessageEmbed, ThreadChannel } from "discord.js"
+import { EmbedBuilder, ThreadChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"
@@ -13,7 +13,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
 	const { channel } = reaction.message,
 		statsColl = db.collection<Stats>("stats")
-	if (channel instanceof ThreadChannel || channel.type === "DM" || user.bot) return
+	if (channel instanceof ThreadChannel || channel.isDMBased() || user.bot) return
 	if (reaction.partial) reaction = await reaction.fetch()
 	if (reaction.message.partial) reaction.message = await reaction.message.fetch()
 	if (user.partial) user = await user.fetch()
@@ -52,7 +52,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 				} else await reaction.message.reactions.cache.get("⏱")?.remove()
 			} else if (reaction.emoji.name === "vote_maybe") {
 				await reaction.users.remove(user.id)
-				const embed = new MessageEmbed({
+				const embed = new EmbedBuilder({
 						color: colors.loading,
 						author: { name: strings.moduleName },
 						title: strings.requestDetails.replace("%%user%%", user.tag),
@@ -60,7 +60,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 						fields: [{ name: strings.message, value: `[${strings.clickHere}](${reaction.message.url})` }],
 						footer: {
 							text: strings.requestedBy.replace("%%user%%", user.tag),
-							iconURL: member.displayAvatarURL({ dynamic: true, format: "png" }),
+							iconURL: member.displayAvatarURL({ extension: "png" }),
 						},
 					}),
 					stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/gi)?.[0],
@@ -76,14 +76,14 @@ client.on("messageReactionAdd", async (reaction, user) => {
 				await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "MORE_INFO" })
 			} else if (reaction.emoji.name === "vote_no") {
 				await reaction.message.react("⏱")
-				const embed = new MessageEmbed({
+				const embed = new EmbedBuilder({
 					color: colors.error,
 					author: { name: strings.moduleName },
 					title: strings.rejected.replace("%%user%%", user.tag),
 					description: reaction.message.content,
 					footer: {
 						text: strings.rejectedBy.replace("%%user%%", user.tag),
-						iconURL: member.displayAvatarURL({ dynamic: true, format: "png" }),
+						iconURL: member.displayAvatarURL({ extension: "png" }),
 					},
 				})
 				await setTimeout(10_000)
@@ -116,7 +116,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 	} else if (
 		// Starboard system
 		reaction.emoji.name === "⭐" &&
-		channel.permissionsFor(ids.roles.verified)!.has(["SEND_MESSAGES", "VIEW_CHANNEL"]) &&
+		channel.permissionsFor(ids.roles.verified)!.has(["SendMessages", "ViewChannel"]) &&
 		!reaction.message.author!.bot &&
 		reaction.message.content
 	) {
@@ -138,7 +138,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 					})
 				} else
 					await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url })
-				const embed = new MessageEmbed({
+				const embed = new EmbedBuilder({
 					color: colors.success,
 					author: { name: "Starboard" },
 					title: `The following quote reached ${reaction.count} ⭐ reactions and was added!`,

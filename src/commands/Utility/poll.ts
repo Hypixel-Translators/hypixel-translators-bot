@@ -1,4 +1,15 @@
-import { ButtonInteraction, MessageActionRow, MessageButton, MessageEmbed, TextBasedChannel, type Snowflake } from "discord.js"
+import {
+	ActionRowBuilder,
+	ApplicationCommandOptionType,
+	ButtonBuilder,
+	ButtonInteraction,
+	ButtonStyle,
+	Colors,
+	ComponentType,
+	EmbedBuilder,
+	TextBasedChannel,
+	type Snowflake,
+} from "discord.js"
 import { ObjectId } from "mongodb"
 
 import { colors, ids } from "../../config.json"
@@ -13,67 +24,67 @@ const command: Command = {
 	description: "Creates or manages polls on the server. Available to Hypixel Proofreaders and above",
 	options: [
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "start",
 			description: "Starts a poll in the current channel",
 			options: [
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "question",
 					description: "The question of the poll",
 					required: true,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "option1",
 					description: "The first option in the poll",
 					required: true,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "option2",
 					description: "The second option in the poll",
 					required: true,
 				},
 				{
-					type: "NUMBER",
+					type: ApplicationCommandOptionType.Number,
 					name: "time",
 					description: "How long before this poll is automatically closed and results are published (in hours).",
 					required: false,
 					maxValue: 720,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "option3",
 					description: "The third option in the poll",
 					required: false,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "option4",
 					description: "The fourth option in the poll",
 					required: false,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "option5",
 					description: "The fifth option in the poll",
 					required: false,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "option6",
 					description: "The sixth option in the poll",
 					required: false,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "option7",
 					description: "The seventh option in the poll",
 					required: false,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "option8",
 					description: "The eigth option in the poll",
 					required: false,
@@ -81,18 +92,18 @@ const command: Command = {
 			],
 		},
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "end",
 			description: "End a poll given its message ID",
 			options: [
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "message_id",
 					description: "The ID of the message containing the poll",
 					required: true,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "channel_id",
 					description: "The ID of the channel the poll was posted in, if not the current one",
 					required: false,
@@ -100,18 +111,18 @@ const command: Command = {
 			],
 		},
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "show",
 			description: "Shows the current results of a poll without ending it. Only available to the creator of the poll",
 			options: [
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "message_id",
 					description: "The ID of the message containing the poll",
 					required: true,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "channel_id",
 					description: "The ID of the channel the poll was posted in, if not the current one",
 					required: false,
@@ -140,23 +151,23 @@ const command: Command = {
 				time = interaction.options.getNumber("time", false),
 				endTimestamp = time && Math.round(Date.now() + time * 3_600_000),
 				discordEndTimestamp = endTimestamp && Math.round(endTimestamp / 1000),
-				embed = new MessageEmbed({
-					color: "BLURPLE",
+				embed = new EmbedBuilder({
+					color: Colors.Blurple,
 					title: question,
 					description: `${discordEndTimestamp ? `This poll will end on <t:${discordEndTimestamp}:F> (<t:${discordEndTimestamp}:R>)\n\n` : ""}${options
 						.map((o, i) => `${numberEmojis[i + 1]} ${o.value}`)
 						.join("\n\n")}`,
-					footer: { text: `Poll by ${interaction.user.tag}`, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: `Poll by ${interaction.user.tag}`, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					timestamp: Date.now(),
 				}),
-				buttons = options.map((o, i) => new MessageButton({ customId: o.name, emoji: numberEmojis[i + 1], style: "SECONDARY" })),
-				components: MessageButton[][] = []
+				buttons = options.map((o, i) => new ButtonBuilder({ customId: o.name, emoji: numberEmojis[i + 1], style: ButtonStyle.Secondary })),
+				components: ButtonBuilder[][] = []
 			let p = 0
 			// Try to split buttons evenly across the rows
 			while (p < buttons.length) components.push(buttons.slice(p, (p += buttons.length <= 5 ? 5 : Math.ceil(buttons.length / 2))))
 			const msg = await interaction.channel!.send({
 					embeds: [embed],
-					components: components.map(b => new MessageActionRow({ components: b })),
+					components: components.map(b => new ActionRowBuilder<ButtonBuilder>({ components: b })),
 				}),
 				dbData: Poll = {
 					messageId: msg.id,
@@ -190,24 +201,24 @@ const command: Command = {
 			let buttonInt: ButtonInteraction | null = null
 			if (pollDb.endTimestamp) {
 				const discordEndTimestamp = Math.round(pollDb.endTimestamp / 1000),
-					embed = new MessageEmbed({
+					embed = new EmbedBuilder({
 						color: colors.error,
 						title: getString("endingWarning"),
 						description: getString("endingWarningDesc", {
 							variables: { fullTime: `<t:${discordEndTimestamp}:F>`, relativeTime: `<t:${discordEndTimestamp}:R>` },
 						}),
 					}),
-					buttons = new MessageActionRow({
+					buttons = new ActionRowBuilder<ButtonBuilder>({
 						components: [
-							new MessageButton({
+							new ButtonBuilder({
 								customId: "confirm",
-								style: "SUCCESS",
+								style: ButtonStyle.Success,
 								emoji: "✅",
 								label: getString("pagination.confirm", { file: "global" }),
 							}),
-							new MessageButton({
+							new ButtonBuilder({
 								customId: "cancel",
-								style: "DANGER",
+								style: ButtonStyle.Danger,
 								emoji: "❌",
 								label: getString("pagination.cancel", { file: "global" }),
 							}),
@@ -215,12 +226,12 @@ const command: Command = {
 					}),
 					msg = await interaction.editReply({ embeds: [embed], components: [buttons] }),
 					buttonInteraction = await msg
-						.awaitMessageComponent<"BUTTON">({
+						.awaitMessageComponent<ComponentType.Button>({
 							time: 60_000,
 							filter: int => int.user.id === interaction.user.id,
 						})
 						.catch(async () => {
-							const cancelEmbed = new MessageEmbed({
+							const cancelEmbed = new EmbedBuilder({
 								color: colors.error,
 								title: getString("didntReply"),
 								description: getString("endScheduled", {
@@ -236,7 +247,7 @@ const command: Command = {
 					await buttonInteraction.deferUpdate()
 					buttonInt = buttonInteraction
 				} else {
-					const successEmbed = new MessageEmbed({
+					const successEmbed = new EmbedBuilder({
 						color: colors.success,
 						title: getString("successCancelEnd"),
 						description: getString("endScheduled", {
@@ -248,8 +259,8 @@ const command: Command = {
 				if (!buttonInt) return
 			}
 			const totalVoteCount = pollDb.options.reduce((acc, o) => acc + o.votes.length, 0),
-				embed = new MessageEmbed({
-					color: "BLURPLE",
+				embed = new EmbedBuilder({
+					color: Colors.Blurple,
 					title: pollDb.question,
 					description: totalVoteCount
 						? `A total of ${totalVoteCount} ${totalVoteCount === 1 ? "person" : "people"} voted on this poll!`
@@ -268,7 +279,9 @@ const command: Command = {
 					embeds: [embed],
 					content: `<@${pollDb.authorId}> your poll just ended. Check out the results below!`,
 				}),
-				linkButton = new MessageActionRow({ components: [new MessageButton({ style: "LINK", url: msg.url, label: "See results" })] })
+				linkButton = new ActionRowBuilder<ButtonBuilder>({
+					components: [new ButtonBuilder({ style: ButtonStyle.Link, url: msg.url, label: "See results" })],
+				})
 			await collection.updateOne({ messageId, channelId: channel.id }, { $set: { ended: true } })
 			await message.edit({ content: "This poll has ended!", components: [linkButton] })
 			await (buttonInt ?? interaction).editReply({ content: getString("successEnd"), embeds: [], components: [] })
@@ -285,8 +298,8 @@ const command: Command = {
 			if (pollDb.authorId !== interaction.user.id && !interaction.member.roles.cache.has(ids.roles.admin))
 				return void (await interaction.editReply(getString("errorNotOwner")))
 			const totalVoteCount = pollDb.options.reduce((acc, o) => acc + o.votes.length, 0),
-				embed = new MessageEmbed({
-					color: "BLURPLE",
+				embed = new EmbedBuilder({
+					color: Colors.Blurple,
 					title: pollDb.question,
 					description: `**${getString("totalVotes")}**: ${totalVoteCount}\n**${getString("createdOn")}**: <t:${Math.round(
 						new ObjectId(pollDb._id).getTimestamp().getTime() / 1000,

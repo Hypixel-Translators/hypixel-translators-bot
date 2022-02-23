@@ -1,7 +1,7 @@
 import process from "node:process"
 
-import { Client, ClientEvents, Collection, Snowflake } from "discord.js"
-import { MongoClient, Db, WithId } from "mongodb"
+import { Client, type ClientEvents, Collection, type Snowflake } from "discord.js"
+import { MongoClient, type Db, type WithId } from "mongodb"
 
 import { client } from "../index"
 
@@ -9,8 +9,10 @@ import type { Command } from "./imports"
 
 const url = process.env.MONGO_URL
 if (!url) throw "MONGO_URL not in .env"
-export const mongoClient = new MongoClient(url)
-export const cancelledEvents: EventData<keyof ClientEvents>[] = []
+
+export const mongoClient = new MongoClient(url),
+	cancelledEvents: EventData<keyof ClientEvents>[] = []
+
 export let db: Db
 
 mongoClient.connect().then(() => {

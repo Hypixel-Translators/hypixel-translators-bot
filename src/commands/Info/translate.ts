@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js"
+import { EmbedBuilder } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
@@ -16,7 +16,7 @@ const command: Command = {
 			member = interaction.client.guilds.cache.get("549503328472530974")!.members.resolve(interaction.user.id)!
 
 		if (member.roles.cache.find(role => role.name.startsWith("Bot ") && role.name !== "Bot Updates")) {
-			const embed = new MessageEmbed({
+			const embed = new EmbedBuilder({
 				color: colors.neutral,
 				author: { name: getString("moduleName") },
 				title: getString("alreadyTranslator"),
@@ -25,11 +25,11 @@ const command: Command = {
 					{ name: getString("question"), value: getString("askTranslators", { variables: { botTranslators: `<#${ids.channels.botTranslators}>` } }) },
 					{ name: getString("newCrowdin"), value: getString("checkGuide", { variables: { gettingStarted: `<#${ids.channels.gettingStarted}>` } }) },
 				],
-				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 			})
 			await interaction.reply({ embeds: [embed] })
 		} else {
-			const embed = new MessageEmbed({
+			const embed = new EmbedBuilder({
 				color: colors.neutral,
 				author: { name: getString("moduleName") },
 				title: getString("newTranslator"),
@@ -43,7 +43,7 @@ const command: Command = {
 					{ name: getString("lastThing"), value: getString("requestInfo", { variables: { tag: interaction.user.tag, id: interaction.user.id } }) },
 					{ name: getString("noLanguage"), value: getString("langRequest") },
 				],
-				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 			})
 			await interaction.reply({ embeds: [embed] })
 		}

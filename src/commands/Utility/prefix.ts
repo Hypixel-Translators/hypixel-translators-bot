@@ -1,10 +1,10 @@
-import { MessageActionRow, MessageButton, MessageEmbed, TextChannel } from "discord.js"
+import { ActionRowBuilder, ButtonBuilder, EmbedBuilder, type TextChannel, ButtonStyle, ApplicationCommandOptionType, ComponentType } from "discord.js"
 import { getEmoji } from "language-flag-colors"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db } from "../../lib/dbclient"
-import { generateTip, MongoLanguage, transformDiscordLocale } from "../../lib/util"
+import { generateTip, type MongoLanguage, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -13,7 +13,7 @@ const command: Command = {
 	description: "Gives the author the appropriate prefix for their language(s).",
 	options: [
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "flags",
 			description: "The flags to be applied to your prefix, separated with spaces.",
 			required: false,
@@ -52,32 +52,32 @@ const command: Command = {
 			if (!flagEmojis.length || flagEmojis.includes(null)) throw "falseFlag"
 
 			const prefix = flagEmojis.join("-"),
-				confirmEmbed = new MessageEmbed({
+				confirmEmbed = new EmbedBuilder({
 					color: colors.neutral,
 					author: { name: getString("moduleName") },
 					title: getString("caution"),
 					description: `${getString("warning")}\n${getString("reactTimer", { variables: { cooldown: this.cooldown! } })}`,
 					fields: [{ name: getString("previewT"), value: `\`[${prefix}] ${nickNoPrefix}\`` }],
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				}),
-				confirmButtons = new MessageActionRow({
+				confirmButtons = new ActionRowBuilder<ButtonBuilder>({
 					components: [
-						new MessageButton({
+						new ButtonBuilder({
 							customId: "confirm",
-							style: "SUCCESS",
+							style: ButtonStyle.Success,
 							label: getString("pagination.confirm", { file: "global" }),
-							emoji: "✅",
+							emoji: { name: "✅" },
 						}),
-						new MessageButton({
+						new ButtonBuilder({
 							customId: "cancel",
-							style: "DANGER",
+							style: ButtonStyle.Danger,
 							label: getString("pagination.cancel", { file: "global" }),
-							emoji: "❎",
+							emoji: { name: "❎" },
 						}),
 					],
 				}),
 				msg = await interaction.reply({ embeds: [confirmEmbed], components: [confirmButtons], fetchReply: true }),
-				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
+				collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: this.cooldown! * 1000 })
 
 			confirmButtons.components.forEach(button => button.setDisabled())
 			collector.on("collect", async buttonInteraction => {
@@ -98,52 +98,52 @@ const command: Command = {
 						await interaction.member
 							.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
 							.then(async () => {
-								const embed = new MessageEmbed({
+								const embed = new EmbedBuilder({
 									color: colors.success,
 									author: { name: getString("moduleName") },
 									title: getString("saved"),
 									fields: [{ name: getString("newNickT"), value: `\`[${prefix}] ${nickNoPrefix}\`` }],
-									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 								})
 								await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
-								const staffAlert = new MessageEmbed({
+								const staffAlert = new EmbedBuilder({
 									color: colors.loading,
 									author: { name: "Prefix" },
 									title: "A user manually changed their prefix",
 									description: `${interaction.user} manually changed their prefix to include the following flag: ${prefix}\nMake sure they have the appropriate roles for this prefix and, if not, follow the appropriate procedure`,
-									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 								})
 								await (interaction.client.channels.cache.get(ids.channels.staffBots) as TextChannel).send({ embeds: [staffAlert] })
 							})
 							.catch(async err => {
-								const embed = new MessageEmbed({
+								const embed = new EmbedBuilder({
 									color: colors.error,
 									author: { name: getString("moduleName") },
 									title: getString("errors.error"),
 									description: err.toString(),
 									fields: [{ name: getString("previewT"), value: `\`[${prefix}] ${nickNoPrefix}\`` }],
-									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 								})
 								await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 								console.log(err.stack ?? err)
 							})
 					} else {
-						const embed = new MessageEmbed({
+						const embed = new EmbedBuilder({
 							color: colors.success,
 							author: { name: getString("moduleName") },
 							title: getString("errors.alreadyThis") + getString("errors.notSaved"),
 							fields: [{ name: getString("newNickT"), value: getString("noChanges") }],
-							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 						})
 						await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 					}
 				} else if (buttonInteraction.customId === "cancel") {
-					const embed = new MessageEmbed({
+					const embed = new EmbedBuilder({
 						color: colors.error,
 						author: { name: getString("moduleName") },
 						title: getString("errors.cancelled") + getString("errors.notSaved"),
 						fields: [{ name: getString("newNickT"), value: getString("noChanges") }],
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 					await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 				}
@@ -155,45 +155,45 @@ const command: Command = {
 						await interaction.member
 							.setNickname(`[${prefix}] ${nickNoPrefix}`, "Used the prefix command")
 							.then(async () => {
-								const embed = new MessageEmbed({
+								const embed = new EmbedBuilder({
 									color: colors.success,
 									author: { name: getString("moduleName") },
 									title: getString("saved"),
 									fields: [{ name: getString("newNickT"), value: `\`[${prefix}] ${nickNoPrefix}\`` }],
-									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 								})
 								await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 							})
 							.catch(async err => {
-								const embed = new MessageEmbed({
+								const embed = new EmbedBuilder({
 									color: colors.error,
 									author: { name: getString("moduleName") },
 									title: getString("errors.error"),
 									description: err.toString(),
 									fields: [{ name: getString("previewT"), value: `\`[${prefix}] ${nickNoPrefix}\`` }],
-									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 								})
 								await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 								console.log(err.stack ?? err)
 							})
 					} else {
-						const embed = new MessageEmbed({
+						const embed = new EmbedBuilder({
 							color: colors.success,
 							author: { name: getString("moduleName") },
 							title: getString("errors.alreadyThis") + getString("errors.notSaved"),
 							fields: [{ name: getString("newNickT"), value: getString("noChanges") }],
-							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 						})
 						await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 					}
 				} else {
-					const embed = new MessageEmbed({
+					const embed = new EmbedBuilder({
 						color: colors.error,
 						author: { name: getString("moduleName") },
 						title: getString("errors.timedOut"),
 						description: getString("errors.timeOutCustom") + getString("errors.notSaved"),
 						fields: [{ name: getString("newNickT"), value: getString("noChanges") }],
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 					await interaction.editReply({ embeds: [embed], components: [confirmButtons] })
 				}
@@ -211,11 +211,11 @@ const command: Command = {
 			})
 			userLangs = userLangs.reverse()
 			let p = 0,
-				rows: MessageActionRow[] = Array(5).fill(new MessageActionRow())
-			const components: Map<string, MessageButton> = new Map()
+				rows: ActionRowBuilder<ButtonBuilder>[] = Array(5).fill(new ActionRowBuilder())
+			const components: Map<string, ButtonBuilder> = new Map()
 			userLangs.forEach(entry => {
-				const button = new MessageButton({
-					style: "SUCCESS",
+				const button = new ButtonBuilder({
+					style: ButtonStyle.Success,
 					customId: entry.code,
 					emoji: entry.emoji,
 				})
@@ -225,57 +225,57 @@ const command: Command = {
 			})
 			rows = rows.filter(r => r.components.length)
 
-			const confirmButton = new MessageButton({
-					style: "SUCCESS",
+			const confirmButton = new ButtonBuilder({
+					style: ButtonStyle.Success,
 					customId: "confirm",
-					emoji: "✅",
+					emoji: { name: "✅" },
 					label: getString("pagination.confirm", { file: "global" }),
 					disabled: true,
 				}),
-				cancelButton = new MessageButton({
-					style: "DANGER",
+				cancelButton = new ButtonBuilder({
+					style: ButtonStyle.Danger,
 					customId: "cancel",
-					emoji: "❎",
+					emoji: { name: "❎" },
 					label: getString("pagination.cancel", { file: "global" }),
 				})
 
-			rows.push(new MessageActionRow({ components: [confirmButton, cancelButton] }))
+			rows.push(new ActionRowBuilder({ components: [confirmButton, cancelButton] }))
 
 			if (!userLangs.length) {
 				if (
 					interaction.member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== ids.roles.botUpdates) ||
 					interaction.member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))
 				) {
-					const embed = new MessageEmbed({
+					const embed = new EmbedBuilder({
 						color: colors.error,
 						author: { name: getString("moduleName") },
 						title: getString("errors.trNoRoles"),
 						description: getString("customPrefix"),
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 					client.cooldowns.get(this.name)!.delete(interaction.user.id)
 					return void (await interaction.editReply({ embeds: [embed] }))
 				} else {
-					const embed = new MessageEmbed({
+					const embed = new EmbedBuilder({
 						color: colors.error,
 						author: { name: getString("moduleName") },
 						title: getString("errors.noLanguages"),
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 					client.cooldowns.get(this.name)!.delete(interaction.user.id)
 					return void (await interaction.editReply({ embeds: [embed] }))
 				}
 			}
-			const noChangesEmbed = new MessageEmbed({
+			const noChangesEmbed = new EmbedBuilder({
 					color: colors.neutral,
 					author: { name: getString("moduleName") },
 					title: getString("react"),
 					description: getString("reactTimer", { variables: { cooldown: this.cooldown! } }),
 					fields: [{ name: getString("previewT"), value: getString("noChanges") }],
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				}),
 				msg = await interaction.editReply({ embeds: [noChangesEmbed], components: rows }),
-				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
+				collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: this.cooldown! * 1000 })
 
 			collector.on("collect", async buttonInteraction => {
 				const userDb = await client.getUser(buttonInteraction.user.id)
@@ -298,67 +298,67 @@ const command: Command = {
 							await interaction.member
 								.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
 								.then(async () => {
-									const embed = new MessageEmbed({
+									const embed = new EmbedBuilder({
 										color: colors.success,
 										author: { name: getString("moduleName") },
 										title: getString("saved"),
 										fields: [{ name: getString("newNickT"), value: `\`[${prefixes}] ${nickNoPrefix}\`` }],
-										footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+										footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 									})
 									await buttonInteraction.update({ embeds: [embed], components: rows })
 								})
 								.catch(async err => {
-									const embed = new MessageEmbed({
+									const embed = new EmbedBuilder({
 										color: colors.error,
 										author: { name: getString("moduleName") },
 										title: getString("errors.error"),
 										description: err.toString(),
 										fields: [{ name: getString("previewT"), value: `\`[${prefixes}] ${nickNoPrefix}\`` }],
-										footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+										footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 									})
 									await buttonInteraction.update({ embeds: [embed], components: rows })
 									console.log(err.stack ?? err)
 								})
 						} else {
-							const embed = new MessageEmbed({
+							const embed = new EmbedBuilder({
 								color: colors.error,
 								author: { name: getString("moduleName") },
 								title: getString("errors.alreadyThis") + getString("errors.notSaved"),
-								footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+								footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 							})
 							await buttonInteraction.update({ embeds: [embed], components: rows })
 						}
 					} else {
-						const embed = new MessageEmbed({
+						const embed = new EmbedBuilder({
 							color: colors.error,
 							author: { name: getString("moduleName") },
 							title: getString("errors.confirmedNoFlags") + getString("errors.notSaved"),
-							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 						})
 						await buttonInteraction.update({ embeds: [embed], components: rows })
 					}
 				} else if (buttonInteraction.customId === "cancel") {
 					components.forEach(buttons => buttons.setDisabled())
 					collector.stop("responded")
-					const embed = new MessageEmbed({
+					const embed = new EmbedBuilder({
 						color: colors.error,
 						author: { name: getString("moduleName") },
 						title: getString("errors.cancelled") + getString("errors.notSaved"),
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 					await buttonInteraction.update({ embeds: [embed], components: rows })
 				} else {
 					const clickedEntry = languages.find(entry => entry.code === buttonInteraction.customId)!
 					if (prefixes) prefixes = `${prefixes}-${clickedEntry.emoji}`
 					else prefixes = `${clickedEntry.emoji}`
-					components.get(buttonInteraction.customId)?.setDisabled().setStyle("SECONDARY")
-					const embed = new MessageEmbed({
+					components.get(buttonInteraction.customId)?.setDisabled().setStyle(ButtonStyle.Secondary)
+					const embed = new EmbedBuilder({
 						color: colors.neutral,
 						author: { name: getString("moduleName") },
 						title: getString("react"),
 						description: getString("reactTimer2", { variables: { cooldown: this.cooldown! } }),
 						fields: [{ name: getString("previewT"), value: `\`[${prefixes}] ${nickNoPrefix}\`` }],
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 					await buttonInteraction.update({ embeds: [embed], components: rows })
 				}
@@ -372,45 +372,45 @@ const command: Command = {
 						interaction.member
 							.setNickname(`[${prefixes}] ${nickNoPrefix}`, "Used the prefix command")
 							.then(async () => {
-								const embed = new MessageEmbed({
+								const embed = new EmbedBuilder({
 									color: colors.success,
 									author: { name: getString("moduleName") },
 									title: getString("saved"),
 									fields: [{ name: getString("newNickT"), value: `\`[${prefixes}] ${nickNoPrefix}\`` }],
-									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 								})
 								await interaction.editReply({ embeds: [embed], components: rows })
 							})
 							.catch(async err => {
-								const embed = new MessageEmbed({
+								const embed = new EmbedBuilder({
 									color: colors.error,
 									author: { name: getString("moduleName") },
 									title: getString("errors.error"),
 									description: err.toString(),
 									fields: [{ name: getString("previewT"), value: `\`[${prefixes}] ${nickNoPrefix}\`` }],
-									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+									footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 								})
 								await interaction.editReply({ embeds: [embed], components: rows })
 								console.log(err.stack ?? err)
 							})
 					} else {
-						const embed = new MessageEmbed({
+						const embed = new EmbedBuilder({
 							color: colors.success,
 							author: { name: getString("moduleName") },
 							title: getString("errors.alreadyThis") + getString("errors.notSaved"),
 							fields: [{ name: getString("newNickT"), value: getString("noChanges") }],
-							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 						})
 						await interaction.editReply({ embeds: [embed], components: rows })
 					}
 				} else {
-					const embed = new MessageEmbed({
+					const embed = new EmbedBuilder({
 						color: colors.error,
 						author: { name: getString("moduleName") },
 						title: getString("errors.timedOut"),
 						description: getString("errors.timeOut") + getString("errors.notSaved"),
 						fields: [{ name: getString("newNickT"), value: getString("noChanges") }],
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 					await interaction.editReply({ embeds: [embed], components: rows })
 				}

@@ -1,4 +1,4 @@
-import { MessageEmbed, TextChannel } from "discord.js"
+import { EmbedBuilder, type TextChannel } from "discord.js"
 
 import { ids } from "../config.json"
 import { client } from "../index"
@@ -6,8 +6,8 @@ import { client } from "../index"
 client.on("voiceStateUpdate", async (oldState, newState) => {
 	if (newState.guild.id === ids.guilds.main && !newState.member?.user.bot) {
 		const logs = client.channels.cache.get(ids.channels.logs) as TextChannel,
-			successColor = "#43B581",
-			errorColor = "#FF470F"
+			successColor = 0x43b581,
+			errorColor = 0xff470f
 
 		// Give users access to #no-mic
 		if (newState.channel && !newState.member!.roles.cache.has(ids.roles.voice) && newState.channelId !== newState.guild.afkChannelId)
@@ -17,11 +17,11 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
 
 		if (!!oldState.serverMute !== !!newState.serverMute) {
 			// Convert to boolean to prevent null !== false from triggering the condition
-			const embed = new MessageEmbed({
+			const embed = new EmbedBuilder({
 				color: newState.serverMute ? errorColor : successColor,
 				author: {
 					name: newState.member!.user.tag,
-					iconURL: newState.member!.displayAvatarURL({ format: "png", dynamic: true }),
+					iconURL: newState.member!.displayAvatarURL({ extension: "png" }),
 				},
 				description: `**${newState.member} was server ${newState.serverMute ? "muted" : "unmuted"} in ${newState.channel?.name}**`,
 				timestamp: Date.now(),
@@ -29,9 +29,9 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
 			})
 			await logs.send({ embeds: [embed] })
 		} else if (!!oldState.serverDeaf !== !!newState.serverDeaf) {
-			const embed = new MessageEmbed({
+			const embed = new EmbedBuilder({
 				color: newState.serverDeaf ? errorColor : successColor,
-				author: { name: newState.member!.user.tag, iconURL: newState.member!.displayAvatarURL({ format: "png", dynamic: true }) },
+				author: { name: newState.member!.user.tag, iconURL: newState.member!.displayAvatarURL({ extension: "png" }) },
 				description: `**${newState.member} was server ${newState.serverDeaf ? "deafened" : "undeafened"} in ${newState.channel?.name}**`,
 				timestamp: Date.now(),
 				footer: { text: `ID: ${newState.member!.id}` },

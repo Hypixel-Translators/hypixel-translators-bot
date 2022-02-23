@@ -1,8 +1,8 @@
-import { GuildMember, MessageEmbed } from "discord.js"
+import { type GuildMember, EmbedBuilder, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
-import { db, DbUser } from "../../lib/dbclient"
+import { db, type DbUser } from "../../lib/dbclient"
 import { generateProgressBar, generateTip, getXpNeeded, parseToNumberString } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -12,7 +12,7 @@ const command: Command = {
 	description: "Gives you the current xp for yourself or any given user.",
 	options: [
 		{
-			type: "USER",
+			type: ApplicationCommandOptionType.User,
 			name: "user",
 			description: "The user to get the rank for",
 			required: false,
@@ -28,12 +28,12 @@ const command: Command = {
 			userDb = await client.getUser(user.id)
 
 		if (!userDb.levels) {
-			const errorEmbed = new MessageEmbed({
+			const errorEmbed = new EmbedBuilder({
 				color: colors.error,
 				author: { name: getString("moduleName") },
 				title: user.id === interaction.user.id ? getString("youNotRanked") : getString("userNotRanked"),
 				description: getString("howRank"),
-				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 			})
 			return await interaction.reply({ embeds: [errorEmbed] })
 		}
@@ -47,7 +47,7 @@ const command: Command = {
 				)
 					.map(u => u.id)
 					.indexOf(user.id) + 1,
-			embed = new MessageEmbed({
+			embed = new EmbedBuilder({
 				color: colors.neutral,
 				author: { name: getString("moduleName") },
 				title: user.id === interaction.user.id ? getString("yourRank") : getString("userRank", { variables: { user: user.tag } }),
@@ -67,7 +67,7 @@ const command: Command = {
 						value: generateProgressBar(userDb.levels.levelXp, totalXp),
 					},
 				],
-				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 			})
 		await interaction.reply({ embeds: [embed] })
 	},

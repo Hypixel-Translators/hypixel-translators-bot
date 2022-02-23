@@ -1,4 +1,4 @@
-import { GuildMember, MessageEmbed } from "discord.js"
+import { type GuildMember, EmbedBuilder } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
@@ -24,7 +24,7 @@ const command: Command = {
 		else if (ping <= 400) color = colors.loading
 		else color = colors.error
 
-		const embed = new MessageEmbed({
+		const embed = new EmbedBuilder({
 			color,
 			author: { name: getString("moduleName") },
 			title: getString("pong", { variables: { pingEmote: "<:ping:620954198493888512>" } }),
@@ -36,7 +36,7 @@ const command: Command = {
 			})}`,
 			footer: {
 				text: generateTip(getString),
-				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 			},
 		})
 		await interaction.reply({ embeds: [embed] })

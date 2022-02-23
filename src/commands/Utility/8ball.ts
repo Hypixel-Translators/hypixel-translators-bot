@@ -1,4 +1,4 @@
-import { GuildMember, MessageEmbed } from "discord.js"
+import { type GuildMember, EmbedBuilder, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
@@ -10,7 +10,7 @@ const command: Command = {
 	description: "The Magic 8 Ball that will answer all your questions.",
 	options: [
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "question",
 			description: "The question to ask the bot",
 			required: true,
@@ -24,14 +24,14 @@ const command: Command = {
 			answerType = keys[(keys.length * Math.random()) << 0] as "positive" | "inconclusive" | "negative",
 			answers = getString(`answers.${answerType}`),
 			color = answerType === "positive" ? colors.success : answerType === "inconclusive" ? colors.loading : colors.error,
-			embed = new MessageEmbed({
+			embed = new EmbedBuilder({
 				color,
 				author: { name: getString("moduleName") },
 				title: answers[Math.floor(Math.random() * answers.length)],
 				fields: [{ name: getString("question"), value: interaction.options.getString("question", true) }],
 				footer: {
 					text: generateTip(getString),
-					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 				},
 			})
 		await interaction.reply({ embeds: [embed] })

@@ -1,10 +1,10 @@
 import axios from "axios"
-import { GuildMember, HexColorString, Message, MessageEmbed, MessageSelectMenu } from "discord.js"
+import { type GuildMember, type Message, EmbedBuilder, SelectMenuBuilder, ComponentType, ApplicationCommandOptionType, Colors } from "discord.js"
 
 import { ids } from "../../config.json"
 import { client } from "../../index"
-import { db, DbUser } from "../../lib/dbclient"
-import { fetchSettings, generateTip, getMCProfile, getUUID, gql, GraphQLQuery, transformDiscordLocale, updateRoles } from "../../lib/util"
+import { db, type DbUser } from "../../lib/dbclient"
+import { fetchSettings, generateTip, getMCProfile, getUUID, gql, type GraphQLQuery, transformDiscordLocale, updateRoles } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -14,13 +14,13 @@ const command: Command = {
 	description: "Shows you basic Hypixel stats for the provided user.",
 	options: [
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "username",
 			description: "The IGN of the user to get statistics for. Can also be a UUID",
 			required: false,
 		},
 		{
-			type: "USER",
+			type: ApplicationCommandOptionType.User,
 			name: "user",
 			description: "The server member to get statistics for. Only works if the user has verified themselves",
 			required: false,
@@ -81,7 +81,7 @@ const command: Command = {
 
 		// Define values used in both subcommands
 		let rank: string, // Some ranks are just prefixes so this code accounts for that
-			color: HexColorString
+			color: number
 		if (guildJson.tag_color) color = parseColorCode(guildJson.tag_color)
 		if (playerJson.prefix) {
 			color = parseColorCode(playerJson.prefix)
@@ -122,7 +122,7 @@ const command: Command = {
 				if (playerJson.first_login) firstLogin = `<t:${Math.round(new Date(playerJson.first_login).getTime() / 1000)}:F>`
 				else firstLogin = getString("firstLoginHidden")
 
-				const statsEmbed = new MessageEmbed({
+				const statsEmbed = new EmbedBuilder({
 					color,
 					author: { name: getString("moduleName") },
 					title: `${rank} ${username}`,
@@ -139,7 +139,7 @@ const command: Command = {
 						{ name: online, value: lastSeen, inline: true },
 						{ name: getString(playerJson.online ? "last_login" : "last_logout"), value: lastLogin, inline: true },
 					],
-					footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 				})
 				return statsEmbed
 			},
@@ -183,7 +183,7 @@ const command: Command = {
 									discord = getString("blocked")
 									console.log(
 										`Blocked the following Discord invite link in ${playerJson.username}'s Hypixel profile: ${socialMedia.DISCORD} (led to ${
-											invite.guild?.name ?? invite.channel.name
+											invite.guild?.name ?? invite.channel?.name ?? "an unknown channel"
 										})`,
 									)
 								}
@@ -200,7 +200,7 @@ const command: Command = {
 					if (!socialMedia.HYPIXEL.startsWith("https://")) forums = `[${getString("link")}](https://${socialMedia.HYPIXEL})`
 					else forums = `[${getString("link")}](${socialMedia.HYPIXEL})`
 				} else forums = getString("notConnected")
-				const socialEmbed = new MessageEmbed({
+				const socialEmbed = new EmbedBuilder({
 					color,
 					author: { name: getString("moduleName") },
 					title: `${rank} ${username}`,
@@ -218,15 +218,15 @@ const command: Command = {
 						{ name: "Discord", value: discord!, inline: true },
 						{ name: "Hypixel Forums", value: forums, inline: true },
 					],
-					footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 				})
 				return socialEmbed
 			},
 			guild = () => {
 				if (!guildJson.guild) return
 
-				const embed = new MessageEmbed({
-					color: color === "#AAAAAA" ? "BLURPLE" : color,
+				const embed = new EmbedBuilder({
+					color: color === 0xaaaaaa ? Colors.Blurple : color,
 					author: { name: getString("moduleName") },
 					title: `${guildJson.name}${guildJson.tag ? ` [${guildJson.tag.replace(/&[a-f0-9k-or]/gi, "")}]` : ""}`,
 					thumbnail: { url: skinRender },
@@ -260,7 +260,7 @@ const command: Command = {
 							inline: true,
 						},
 					],
-					footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 				})
 
 				return embed
@@ -270,7 +270,7 @@ const command: Command = {
 			selectedMenu = "stats"
 		const createMenu = (selected: string) => {
 				const isSelected = (value: string) => selected === value,
-					menu = new MessageSelectMenu({
+					menu = new SelectMenuBuilder({
 						customId: "statType",
 						options: [
 							{
@@ -300,9 +300,9 @@ const command: Command = {
 			},
 			msg = (await interaction.editReply({
 				embeds: [embed],
-				components: [{ type: "ACTION_ROW", components: [createMenu(selectedMenu)] }],
+				components: [{ type: ComponentType.ActionRow, components: [createMenu(selectedMenu)] }],
 			})) as Message,
-			collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
+			collector = msg.createMessageComponentCollector<ComponentType.SelectMenu>({ idle: this.cooldown! * 1000 })
 
 		collector.on("collect", async menuInteraction => {
 			const userDb = await client.getUser(menuInteraction.user.id)
@@ -322,40 +322,40 @@ const command: Command = {
 			else if (selectedMenu === "guild") embed = guild()!
 			await menuInteraction.update({
 				embeds: [embed],
-				components: [{ type: "ACTION_ROW", components: [createMenu(selectedMenu)] }],
+				components: [{ type: ComponentType.ActionRow, components: [createMenu(selectedMenu)] }],
 			})
 		})
 
 		collector.on("end", async () => {
 			await interaction.editReply({
 				content: getString("pagination.timeOut", { variables: { command: `\`/${this.name}\`` }, file: "global" }),
-				components: [{ type: "ACTION_ROW", components: [createMenu(selectedMenu).setDisabled()] }],
+				components: [{ type: ComponentType.ActionRow, components: [createMenu(selectedMenu).setDisabled()] }],
 				embeds: [embed],
 			})
 		})
 	},
 }
 
-function parseColorCode(color: string): HexColorString {
+function parseColorCode(color: string): number {
 	const colorsJson: {
-		[key: string]: HexColorString
+		[key: string]: number
 	} = {
-		0: "#000000",
-		1: "#0000AA",
-		2: "#00AA00",
-		3: "#00AAAA",
-		4: "#AA0000",
-		5: "#AA00AA",
-		6: "#FFAA00",
-		7: "#AAAAAA",
-		8: "#555555",
-		9: "#5555FF",
-		a: "#55FF55",
-		b: "#55FFFF",
-		c: "#FF5555",
-		d: "#FF55FF",
-		e: "#FFFF55",
-		f: "#FFFFFF",
+		0: 0x000000,
+		1: 0x0000aa,
+		2: 0x00aa00,
+		3: 0x00aaaa,
+		4: 0xaa0000,
+		5: 0xaa00aa,
+		6: 0xffaa00,
+		7: 0xaaaaaa,
+		8: 0x555555,
+		9: 0x5555ff,
+		a: 0x55ff55,
+		b: 0x55ffff,
+		c: 0xff5555,
+		d: 0xff55ff,
+		e: 0xffff55,
+		f: 0xffffff,
 	}
 	return colorsJson[color.substring(1, 2).toLowerCase()]
 }

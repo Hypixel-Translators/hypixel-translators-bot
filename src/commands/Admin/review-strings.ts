@@ -1,16 +1,17 @@
+import { ApplicationCommandOptionType, type CategoryChannel } from "discord.js"
+
 import { ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
 
 import type { Command } from "../../lib/imports"
 import type { MongoLanguage } from "../../lib/util"
-import type { CategoryChannel } from "discord.js"
 
 const command: Command = {
 	name: "review-strings",
 	description: "Creates a new review strings channel for the desired language",
 	options: [
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "language",
 			description: "The code of the language to create the review strings channel for",
 			required: true,
@@ -24,17 +25,15 @@ const command: Command = {
 		const mongoLanguage = await db.collection<MongoLanguage>("languages").findOne({ code: interaction.options.getString("language", true) })
 		if (!mongoLanguage) throw "Couldn't find the language you were looking for! Make sure to pass its code in the language option."
 
-		const category = interaction.guild.channels.cache.find(
-			c => c.name.endsWith(mongoLanguage.emoji) && c.type === "GUILD_CATEGORY",
-		) as CategoryChannel
-		if (category.children.some(c => c.name.endsWith("-review-strings"))) throw "This language already has a review strings channel!"
+		const category = interaction.guild.channels.cache.find(c => c.name.endsWith(mongoLanguage.emoji) && c.isCategory()) as CategoryChannel
+		if (category.children.cache.some(c => c.name.endsWith("-review-strings"))) throw "This language already has a review strings channel!"
 
-		const reviewStrings = await category.createChannel(`${mongoLanguage.code}-review-strings`, {
+		const reviewStrings = await category.children.create(`${mongoLanguage.code}-review-strings`, {
 			reason: `Requested by ${interaction.user.tag}`,
 		})
 		await reviewStrings.permissionOverwrites.edit(
 			interaction.guild.roles.cache.find(r => r.name === `${mongoLanguage.name} Proofreader`)!.id,
-			{ MANAGE_MESSAGES: null },
+			{ ManageMessages: null },
 			{ reason: "Removing permission to manage messages from proofreaders" },
 		)
 		await reviewStrings.setPosition(1, { reason: "Fixing the position" })

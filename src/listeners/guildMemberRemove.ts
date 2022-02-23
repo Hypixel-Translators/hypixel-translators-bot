@@ -1,8 +1,8 @@
-import { Formatters, MessageEmbed, TextChannel } from "discord.js"
+import { Formatters, EmbedBuilder, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"
-import { db, DbUser, cancelledEvents } from "../lib/dbclient"
+import { db, type DbUser, cancelledEvents } from "../lib/dbclient"
 
 client.on("guildMemberRemove", async member => {
 	if (!db) return void cancelledEvents.push({ listener: "guildMemberRemove", args: [member] })
@@ -33,9 +33,9 @@ client.on("guildMemberRemove", async member => {
 	}
 	if (!member.user!.bot) {
 		const oldData = await db.collection<DbUser>("users").findOneAndDelete({ id: member.id }),
-			embed = new MessageEmbed({
+			embed = new EmbedBuilder({
 				color: colors.error,
-				author: { name: "Member Left", iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+				author: { name: "Member Left", iconURL: member.displayAvatarURL({ extension: "png" }) },
 				description: `${member} (${member.user.tag}) just left the server. Here's their DB data:\n\n${Formatters.codeBlock(
 					"json",
 					// Dirty fix for getting data that can be pasted into the DB.

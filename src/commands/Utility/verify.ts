@@ -1,11 +1,11 @@
 import { setTimeout } from "node:timers/promises"
 
-import { MessageEmbed, TextChannel } from "discord.js"
+import { ApplicationCommandOptionType, EmbedBuilder, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { crowdinVerify } from "../../lib/crowdinverify"
-import { db, DbUser } from "../../lib/dbclient"
+import { db, type DbUser } from "../../lib/dbclient"
 
 import type { Command } from "../../lib/imports"
 
@@ -14,13 +14,13 @@ const command: Command = {
 	description: "Verifies and gives you your corresponding roles",
 	options: [
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "url",
 			description: 'The URL to your Crowdin profile. Must have your Discord tag in your "About me" section.',
 			required: false,
 		},
 		{
-			type: "USER",
+			type: ApplicationCommandOptionType.User,
 			name: "user",
 			description: "The user to manually verify. Admin only",
 			required: false,
@@ -32,7 +32,7 @@ const command: Command = {
 		const verifyLogs = interaction.client.channels.cache.get(ids.channels.verifyLogs) as TextChannel,
 			verify = interaction.client.channels.cache.get(ids.channels.verify) as TextChannel,
 			profileUrl = interaction.options.getString("url", false),
-			memberInput = interaction.options.getMember("user", false),
+			memberInput = interaction.options.getMember("user"),
 			url = profileUrl?.match(/(?:https?:\/\/)?(?:[a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0],
 			collection = db.collection<DbUser>("users")
 		await interaction.deferReply({ ephemeral: true })
@@ -67,7 +67,7 @@ const command: Command = {
 			} else {
 				await interaction.member.roles.remove(ids.roles.verified, "Unverified")
 				await collection.updateOne({ id: interaction.member.id }, { $set: { unverifiedTimestamp: Date.now() } })
-				const embed = new MessageEmbed({
+				const embed = new EmbedBuilder({
 					color: colors.error,
 					author: { name: "Manual verification" },
 					title: "You were successfully unverified!",

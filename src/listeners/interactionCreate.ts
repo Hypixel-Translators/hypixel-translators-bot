@@ -2,7 +2,7 @@ import process from "node:process"
 // Cannot use promisified setTimeout here
 import { setTimeout } from "node:timers"
 
-import { Collection, Formatters, GuildChannel, type Message, MessageEmbed, type TextChannel } from "discord.js"
+import { Collection, Formatters, GuildChannel, type Message, EmbedBuilder, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"
@@ -21,15 +21,15 @@ client.on("interactionCreate", async interaction => {
 		randomTip = generateTip(getString),
 		statsColl = db.collection<Stats>("stats")
 
-	if (interaction.isButton() && interaction.inCachedGuild()) return void (await handleButtonInteractions(interaction, getString))
-	else if (interaction.isAutocomplete()) return void (await handleAutocompleteInteractions(interaction))
+	if (interaction.isButton() && interaction.inCachedGuild()) return await handleButtonInteractions(interaction, getString)
+	else if (interaction.isAutocomplete()) return await handleAutocompleteInteractions(interaction)
 
 	if (!interaction.isChatInputCommand()) return
 
 	command = client.commands.get(interaction.commandName)!
 
 	// Log if command is ran in DMs
-	if (interaction.channel?.type === "DM") console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
+	if (interaction.channel?.isDMBased()) console.log(`${interaction.user.tag} used command ${interaction.commandName} in DMs`)
 
 	// Return if user is not verified
 	if (!member?.roles.cache.has(ids.roles.verified) && command.name !== "verify")
@@ -63,7 +63,7 @@ client.on("interactionCreate", async interaction => {
 		if (now < expirationTime) {
 			await statsColl.insertOne({ type: "COMMAND", name: command.name, user: interaction.user.id, error: true, errorMessage: "cooldown" })
 
-			const embed = new MessageEmbed({
+			const embed = new EmbedBuilder({
 				color: colors.error,
 				author: { name: getString("cooldown", { file: "global" }) },
 				title: getString("timeLeft", {
@@ -73,14 +73,14 @@ client.on("interactionCreate", async interaction => {
 					},
 					file: "global",
 				}),
-				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 			})
 			return await interaction.reply({ embeds: [embed], ephemeral: true })
 		}
 	}
 
 	// Set cooldown if not administrator
-	if (!member?.permissions.has("MANAGE_ROLES")) {
+	if (!member?.permissions.has("ManageRoles")) {
 		timestamps.set(interaction.user.id, now)
 		setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount)
 	}
@@ -161,7 +161,7 @@ client.on("interactionCreate", async interaction => {
 		// Send error to bot-dev channel
 		if (error.stack) {
 			if (process.env.NODE_ENV === "production") {
-				const embed = new MessageEmbed({
+				const embed = new EmbedBuilder({
 					color: colors.error,
 					author: { name: "Unexpected error!" },
 					title: error.toString().substring(0, 255),
@@ -172,7 +172,7 @@ client.on("interactionCreate", async interaction => {
 					content: `<:aaaAAAAAAAAAAARGHGFGGHHHHHHHHHHH:831565459421659177> ERROR INCOMING, PLEASE FIX <@!${ids.users.rodry}>\nRan by: ${
 						interaction.user
 					}\nCommand: \`${interaction}\`\nChannel: ${
-						interaction.channel?.type !== "DM" && interaction.channel ? interaction.channel : "DM"
+						!interaction.channel?.isDMBased() && interaction.channel ? interaction.channel : "DM"
 					}\nTime: <t:${Math.round(Date.now() / 1000)}:F>`,
 					embeds: [embed],
 				})
@@ -186,11 +186,11 @@ client.on("interactionCreate", async interaction => {
 
 		// Handle errors
 		timestamps.delete(interaction.user.id)
-		const embed = new MessageEmbed({
+		const embed = new EmbedBuilder({
 			color: colors.error,
 			author: { name: getString("error", { file: "global" }) },
 			title: (error.message ?? error).substring(0, 255),
-			footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+			footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 		})
 
 		// Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first
