@@ -1,6 +1,6 @@
 import { access, constants, readdir, readdirSync } from "node:fs"
 
-import { GuildMember, MessageEmbed } from "discord.js"
+import { GuildMember, Embed, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { db, DbUser } from "../../lib/dbclient"
@@ -13,12 +13,12 @@ const command: Command = {
 	description: "Changes your language, shows your current one or a list of available languages.",
 	options: [
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "set",
 			description: "Sets your language to a new one. Leave empty to see your current language",
 			options: [
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "language",
 					description: "The new language you want to set",
 					required: true,
@@ -27,22 +27,22 @@ const command: Command = {
 			],
 		},
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "reset",
 			description: "Resets your language",
 		},
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "list",
 			description: "Gives you a list of all the available languages",
 		},
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "stats",
 			description: "Gives you usage statistics for a given language. Admin only",
 			options: [
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "language",
 					description: "The language to get usage statistics for",
 					required: true,
@@ -72,7 +72,7 @@ const command: Command = {
 				else languageString = getString(element)
 				langList.push(getString("listElement", { variables: { code: element, language: languageString ?? "Unknown" } }))
 				if (index === array.length - 1) {
-					const embed = new MessageEmbed({
+					const embed = new Embed({
 						color: colors.neutral,
 						author: { name: getString("moduleName") },
 						title: getString("listTitle"),
@@ -89,11 +89,11 @@ const command: Command = {
 			const langUsers = await collection.find({ lang: language }).toArray(),
 				users: string[] = []
 			langUsers.forEach(u => users.push(`<@!${u.id}>`))
-			const embed = new MessageEmbed({
+			const embed = new Embed({
 				color: colors.neutral,
 				author: { name: "Language" },
 				title: `There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`,
-				footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 			})
 
 			if (language !== "en") embed.setDescription(users.join(", "))
@@ -110,31 +110,31 @@ const command: Command = {
 						const result = await collection.updateOne({ id: interaction.user.id }, { $set: { lang: language } })
 						if (result.modifiedCount) {
 							randomTip = generateTip(getString, language)
-							const embed = new MessageEmbed({
+							const embed = new Embed({
 								color: colors.success,
 								author: { name: getString("moduleName", { lang: language }) },
 								title: getString("changedToTitle", { lang: language }),
 								description: getString("credits", { lang: language }),
-								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
+								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ extension: "png" }) },
 							})
 							return await interaction.reply({ embeds: [embed] })
 						} else {
-							const embed = new MessageEmbed({
+							const embed = new Embed({
 								color: colors.error,
 								author: { name: getString("moduleName", { lang: language }) },
 								title: getString("didntChange", { lang: language }),
 								description: getString("alreadyThis", { lang: language }),
-								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
+								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ extension: "png" }) },
 							})
 							return await interaction.reply({ embeds: [embed] })
 						}
 					} else {
-						const embed = new MessageEmbed({
+						const embed = new Embed({
 							color: colors.error,
 							author: { name: getString("moduleName") },
 							title: getString("didntChange"),
 							description: getString("notTranslated"),
-							footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
+							footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ extension: "png" }) },
 						})
 						return await interaction.reply({ embeds: [embed] })
 					}
@@ -142,12 +142,12 @@ const command: Command = {
 					readdir(stringsFolder, async (_err, files) => {
 						const emptyIndex = files.indexOf("empty")
 						if (~emptyIndex && !member?.roles.cache.has(ids.roles.admin)) files.splice(emptyIndex, 1)
-						const embed = new MessageEmbed({
+						const embed = new Embed({
 							color: colors.error,
 							author: { name: getString("moduleName") },
 							title: getString("errorTitle"),
 							description: `${getString("errorDescription")}\n\`${files.join("`, `")}\`\n${getString("suggestAdd")}`,
-							footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
+							footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ extension: "png" }) },
 						})
 						await interaction.reply({ embeds: [embed] })
 					})
@@ -158,21 +158,21 @@ const command: Command = {
 				newLanguage = transformDiscordLocale(interaction.locale) // This is because now that language is not set, we can try to get the locale from discord
 			if (result.modifiedCount) {
 				randomTip = generateTip(getString, newLanguage)
-				const embed = new MessageEmbed({
+				const embed = new Embed({
 					color: colors.success,
 					author: { name: getString("moduleName", { lang: newLanguage }) },
 					title: getString("resetTitle", { lang: newLanguage }),
 					description: getString("credits", { lang: newLanguage }),
-					footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ extension: "png" }) },
 				})
 				await interaction.reply({ embeds: [embed] })
 			} else {
-				const embed = new MessageEmbed({
+				const embed = new Embed({
 					color: colors.error,
 					author: { name: getString("moduleName", { lang: newLanguage }) },
 					title: getString("didntChange", { lang: newLanguage }),
 					description: getString("notSet", { lang: newLanguage }),
-					footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ extension: "png" }) },
 				})
 				await interaction.reply({ embeds: [embed] })
 			}

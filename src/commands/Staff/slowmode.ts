@@ -1,4 +1,4 @@
-import { TextChannel } from "discord.js"
+import { ApplicationCommandOptionType, TextChannel } from "discord.js"
 
 import { ids } from "../../config.json"
 
@@ -9,7 +9,7 @@ const command: Command = {
 	description: "Sets the slowmode for the current channel",
 	options: [
 		{
-			type: "INTEGER",
+			type: ApplicationCommandOptionType.Integer,
 			name: "seconds",
 			description: "The value to set the slowmode to, in seconds. Maximum 21600 (6 hours)",
 			required: true,

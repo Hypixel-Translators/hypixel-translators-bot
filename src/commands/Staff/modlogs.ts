@@ -1,4 +1,4 @@
-import { MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { ActionRow, ApplicationCommandOptionType, ButtonComponent, ButtonStyle, Colors, ComponentType, Embed } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
@@ -11,7 +11,7 @@ const command: Command = {
 	description: "Shows you a user's past infractions",
 	options: [
 		{
-			type: "USER",
+			type: ApplicationCommandOptionType.User,
 			name: "user",
 			description: "The user to see the modlogs for",
 			required: true,
@@ -29,55 +29,55 @@ const command: Command = {
 			randomTip = generateTip()
 
 		if (!modlogs.length) {
-			const embed = new MessageEmbed({
-				color: "BLURPLE",
+			const embed = new Embed({
+				color: Colors.Blurple,
 				author: { name: "Modlogs" },
 				title: `Couldn't find any modlogs for ${userInput.tag}`,
-				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})
 			await interaction.reply({ embeds: [embed] })
 		} else if (modlogs.length === 1) {
-			const embed = new MessageEmbed({
+			const embed = new Embed({
 				color: colors.success,
 				author: { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}` },
 				title: `Found 1 modlog for ${userInput.tag}`,
 				description: `Case #${modlogs[0].case}`,
-				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})
 			updateModlogFields(embed, modlogs[0])
 			await interaction.reply({ embeds: [embed] })
 		} else {
-			const embed = new MessageEmbed({
+			const embed = new Embed({
 					color: colors.success,
 					author: { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}` },
 					title: `Found ${modlogs.length} modlogs for ${userInput.tag}`,
 					description: `Case #${modlogs[0].case}`,
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				}),
-				controlButtons = new MessageActionRow({
+				controlButtons = new ActionRow<ButtonComponent>({
 					components: [
-						new MessageButton({
-							style: "SECONDARY",
-							emoji: "⏮️",
+						new ButtonComponent({
+							style: ButtonStyle.Secondary,
+							emoji: { name: "⏮️" },
 							customId: "first",
 							label: "First log",
 							disabled: true,
 						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "◀️",
+						new ButtonComponent({
+							style: ButtonStyle.Success,
+							emoji: { name: "◀️" },
 							customId: "previous",
 							label: "Previous log",
 						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "▶️",
+						new ButtonComponent({
+							style: ButtonStyle.Success,
+							emoji: { name: "▶️" },
 							customId: "next",
 							label: "Next log",
 						}),
-						new MessageButton({
-							style: "SECONDARY",
-							emoji: "⏭️",
+						new ButtonComponent({
+							style: ButtonStyle.Secondary,
+							emoji: { name: "⏭️" },
 							customId: "last",
 							label: "Last log",
 							disabled: true,
@@ -90,7 +90,7 @@ const command: Command = {
 			updateModlogFields(embed, modlogs[0], modlogs)
 
 			const msg = await interaction.reply({ embeds: [embed], components: [controlButtons], fetchReply: true }),
-				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: 60_000 })
+				collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: 60_000 })
 
 			collector.on("collect", async buttonInteraction => {
 				if (interaction.user.id !== buttonInteraction.user.id) {

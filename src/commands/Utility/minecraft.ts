@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GuildMember, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { GuildMember, Message, ActionRow, ButtonComponent, Embed, ComponentType, ButtonStyle, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
@@ -14,18 +14,18 @@ const command: Command = {
 	description: "Looks up a specific Minecraft player's name history or skin",
 	options: [
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "history",
 			description: "Shows a user's name history. You must provide at least 1 parameter if your MC account is not linked",
 			options: [
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "username",
 					description: "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked",
 					required: false,
 				},
 				{
-					type: "USER",
+					type: ApplicationCommandOptionType.User,
 					name: "user",
 					description: "The server member to get the name history for. Only works if the user has verified themselves",
 					required: false,
@@ -33,18 +33,18 @@ const command: Command = {
 			],
 		},
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "skin",
 			description: "Shows a user's skin. You must provide at least 1 parameter if your MC account is not linked",
 			options: [
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "username",
 					description: "The IGN/UUID of the user to get the skin for. Defaults to your own skin if your account is linked",
 					required: false,
 				},
 				{
-					type: "USER",
+					type: ApplicationCommandOptionType.User,
 					name: "user",
 					description: "The server member to get the skin for. Only works if the user has verified themselves",
 					required: false,
@@ -87,30 +87,30 @@ const command: Command = {
 
 				if (pages.length === 1) await interaction.editReply({ embeds: [fetchPage(0)] })
 				else {
-					let controlButtons = new MessageActionRow({
+					let controlButtons = new ActionRow<ButtonComponent>({
 							components: [
-								new MessageButton({
-									style: "SUCCESS",
+								new ButtonComponent({
+									style: ButtonStyle.Success,
 									customId: "first",
-									emoji: "⏮️",
+									emoji: { name: "⏮️" },
 									label: getString("pagination.first", { file: "global" }),
 								}),
-								new MessageButton({
-									style: "SUCCESS",
+								new ButtonComponent({
+									style: ButtonStyle.Success,
 									customId: "previous",
-									emoji: "◀️",
+									emoji: { name: "◀️" },
 									label: getString("pagination.previous", { file: "global" }),
 								}),
-								new MessageButton({
-									style: "SUCCESS",
+								new ButtonComponent({
+									style: ButtonStyle.Success,
 									customId: "next",
-									emoji: "▶️",
+									emoji: { name: "▶️" },
 									label: getString("pagination.next", { file: "global" }),
 								}),
-								new MessageButton({
-									style: "SUCCESS",
+								new ButtonComponent({
+									style: ButtonStyle.Success,
 									customId: "last",
-									emoji: "⏭️",
+									emoji: { name: "⏭️" },
 									label: getString("pagination.last", { file: "global" }),
 								}),
 							],
@@ -120,7 +120,7 @@ const command: Command = {
 
 					controlButtons = updateButtonColors(controlButtons, page, pages)
 					const msg = (await interaction.editReply({ embeds: [pageEmbed], components: [controlButtons] })) as Message,
-						collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
+						collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: this.cooldown! * 1000 })
 
 					collector.on("collect", async buttonInteraction => {
 						const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
@@ -158,7 +158,7 @@ const command: Command = {
 				}
 
 				function fetchPage(page: number) {
-					return new MessageEmbed({
+					return new Embed({
 						color: colors.success,
 						author: { name: getString("moduleName") },
 						title: getString("history.nameHistoryFor", { variables: { username } }),
@@ -176,7 +176,7 @@ const command: Command = {
 								pages.length === 1
 									? randomTip
 									: getString("pagination.page", { variables: { number: page + 1, total: pages.length }, file: "global" }),
-							iconURL: member.displayAvatarURL({ format: "png", dynamic: true }),
+							iconURL: member.displayAvatarURL({ extension: "png" }),
 						},
 					})
 				}
@@ -191,13 +191,13 @@ const command: Command = {
 
 				break
 			case "skin":
-				const skinEmbed = new MessageEmbed({
+				const skinEmbed = new Embed({
 					color: colors.success,
 					author: { name: getString("moduleName") },
 					title: isOwnUser ? getString("skin.yourSkin") : getString("skin.userSkin", { variables: { user: (await getPlayer(uuid)).name } }),
 					description: uuidDb && !isOwnUser ? getString("skin.isLinked", { variables: { user: `<@!${uuidDb.id}>` } }) : "",
 					image: { url: `https://crafatar.com/renders/body/${uuid}?overlay` },
-					footer: { text: randomTip, iconURL: member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 				})
 				await interaction.editReply({ embeds: [skinEmbed] })
 				break

@@ -1,4 +1,14 @@
-import { ChatInputCommandInteraction, GuildMember, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import {
+	ChatInputCommandInteraction,
+	GuildMember,
+	Message,
+	ActionRow,
+	ButtonComponent,
+	Embed,
+	ButtonStyle,
+	ComponentType,
+	ApplicationCommandOptionType,
+} from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
@@ -12,13 +22,13 @@ const command: Command = {
 	description: "Shows you the XP leaderboard",
 	options: [
 		{
-			type: "BOOLEAN",
+			type: ApplicationCommandOptionType.Boolean,
 			name: "me",
 			description: 'Whether to start at the page you appear in. Has priority over the "page" argument.',
 			required: false,
 		},
 		{
-			type: "INTEGER",
+			type: ApplicationCommandOptionType.Integer,
 			name: "page",
 			description: "The leaderboard page to get",
 			required: false,
@@ -43,41 +53,41 @@ const command: Command = {
 		else if (inputPage) page = inputPage - 1
 
 		if (page >= pages.length || page < 0) {
-			const embed = new MessageEmbed({
+			const embed = new Embed({
 				color: colors.error,
 				author: { name: getString("moduleName") },
 				title: getString("pageTitle"),
 				description: getString("pageNotExist"),
 				footer: {
 					text: generateTip(getString),
-					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 				},
 			})
 			return await interaction.reply({ embeds: [embed] })
 		} else {
-			let controlButtons = new MessageActionRow({
+			let controlButtons = new ActionRow<ButtonComponent>({
 					components: [
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "⏮️",
+						new ButtonComponent({
+							style: ButtonStyle.Success,
+							emoji: { name: "⏮️" },
 							customId: "first",
 							label: getString("pagination.first", { file: "global" }),
 						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "◀️",
+						new ButtonComponent({
+							style: ButtonStyle.Success,
+							emoji: { name: "◀️" },
 							customId: "previous",
 							label: getString("pagination.previous", { file: "global" }),
 						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "▶️",
+						new ButtonComponent({
+							style: ButtonStyle.Success,
+							emoji: { name: "▶️" },
 							customId: "next",
 							label: getString("pagination.next", { file: "global" }),
 						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "⏭️",
+						new ButtonComponent({
+							style: ButtonStyle.Success,
+							emoji: { name: "⏭️" },
 							customId: "last",
 							label: getString("pagination.last", { file: "global" }),
 						}),
@@ -87,7 +97,7 @@ const command: Command = {
 
 			controlButtons = updateButtonColors(controlButtons, page, pages)
 			const msg = (await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true })) as Message,
-				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
+				collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: this.cooldown! * 1000 })
 
 			collector.on("collect", async buttonInteraction => {
 				const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
@@ -128,36 +138,36 @@ const command: Command = {
 function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction, interaction: ChatInputCommandInteraction) {
 	if (page > pages.length - 1) page = pages.length - 1
 	if (page < 0) page = 0
-	const pageEmbed = new MessageEmbed({
+	const pageEmbed = new Embed({
 		color: colors.neutral,
 		author: { name: getString("moduleName") },
 		title: getString("pageTitle"),
 		footer: {
 			text: getString("pagination.page", { variables: { number: page + 1, total: pages.length }, file: "global" }),
-			iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+			iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 		},
 	})
 	for (let i = 0; i <= pages[page].length - 1; i++) {
 		// Get the user if we ever decide to change that
 		// const user = interaction.client.users.cache.get(pages[page][i].id)!
 		if (pages[page][i].levels) {
-			pageEmbed.addField(
-				getString("level", {
+			pageEmbed.addField({
+				name: getString("level", {
 					variables: {
 						rank: i + 1 + page * 24,
 						level: pages[page][i].levels!.level,
 						xp: parseToNumberString(pages[page][i].levels!.totalXp, getString),
 					},
 				}),
-				`<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
-				true,
-			)
+				value: `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
+				inline: true,
+			})
 		} else {
-			pageEmbed.addField(
-				getString("unranked", { variables: { rank: i + 1 + page * 24 } }),
-				`<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
-				true,
-			)
+			pageEmbed.addField({
+				name: getString("unranked", { variables: { rank: i + 1 + page * 24 } }),
+				value: `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
+				inline: true,
+			})
 		}
 	}
 	return pageEmbed

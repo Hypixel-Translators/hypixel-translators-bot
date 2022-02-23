@@ -1,4 +1,4 @@
-import { GuildMember, MessageEmbed } from "discord.js"
+import { GuildMember, Embed, Colors, ApplicationCommandOptionType } from "discord.js"
 
 import { ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
@@ -11,7 +11,7 @@ const command: Command = {
 	description: "Gives you information about any given case.",
 	options: [
 		{
-			type: "INTEGER",
+			type: ApplicationCommandOptionType.Integer,
 			name: "case",
 			description: "Case number",
 			required: true,
@@ -29,12 +29,12 @@ const command: Command = {
 		if (!modLog) throw `Couldn't find that case number! You must enter a number between 1 and ${await collection.estimatedDocumentCount()}`
 
 		const offender = interaction.guild!.members.cache.get(modLog.id) ?? (await interaction.client.users.fetch(modLog.id)),
-			embed = new MessageEmbed({
-				color: "BLURPLE",
+			embed = new Embed({
+				color: Colors.Blurple,
 				author: { name: "Punishment case" },
 				title: `Here's case #${caseNumber}`,
 				description: `Offender: ${offender instanceof GuildMember ? offender : offender.tag}`,
-				footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})
 		updateModlogFields(embed, modLog)
 		await interaction.reply({ embeds: [embed] })

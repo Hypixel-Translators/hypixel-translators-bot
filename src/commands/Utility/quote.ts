@@ -1,4 +1,4 @@
-import { ChatInputCommandInteraction, GuildMember, MessageEmbed, TextChannel } from "discord.js"
+import { ChatInputCommandInteraction, GuildMember, Embed, TextChannel, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
@@ -12,12 +12,12 @@ const command: Command = {
 	description: "Gets (or adds) a funny/weird/wise quote from the server.",
 	options: [
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "get",
 			description: "Get a random/specific quote",
 			options: [
 				{
-					type: "INTEGER",
+					type: ApplicationCommandOptionType.Integer,
 					name: "index",
 					description: "The index of the quote you want to see",
 					required: false,
@@ -26,30 +26,30 @@ const command: Command = {
 			],
 		},
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "add",
 			description: "Adds a new quote. Staff only",
 			options: [
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "quote",
 					description: "The quote you want to add",
 					required: true,
 				},
 				{
-					type: "USER",
+					type: ApplicationCommandOptionType.User,
 					name: "author",
 					description: "The author of this quote",
 					required: true,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "url",
 					description: "The url of the message this quote came from. If the message has an image it will be included as well",
 					required: false,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "image",
 					description: "The url of the image to be included with this quote. Has priority over url's image if provided",
 					required: false,
@@ -57,19 +57,19 @@ const command: Command = {
 			],
 		},
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "edit",
 			description: "Edits a quote. Staff only",
 			options: [
 				{
-					type: "INTEGER",
+					type: ApplicationCommandOptionType.Integer,
 					name: "index",
 					description: "The index of the quote to edit",
 					required: true,
 					autocomplete: true,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "quote",
 					description: "The new quote",
 					required: true,
@@ -77,12 +77,12 @@ const command: Command = {
 			],
 		},
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "delete",
 			description: "Deletes a quote. Staff only",
 			options: [
 				{
-					type: "INTEGER",
+					type: ApplicationCommandOptionType.Integer,
 					name: "index",
 					description: "The index of the quote to delete",
 					required: true,
@@ -91,25 +91,25 @@ const command: Command = {
 			],
 		},
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "link",
 			description: "Links a quote to a message. Staff only",
 			options: [
 				{
-					type: "INTEGER",
+					type: ApplicationCommandOptionType.Integer,
 					name: "index",
 					description: "The index of the quote to link",
 					required: true,
 					autocomplete: true,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "url",
 					description: "The URL of the message to link this quote to",
 					required: true,
 				},
 				{
-					type: "BOOLEAN",
+					type: ApplicationCommandOptionType.Boolean,
 					name: "image",
 					description: "Whether or not to attach this message's image to the quote.",
 					required: false,
@@ -125,7 +125,7 @@ const command: Command = {
 			collection = db.collection<Quote>("quotes"),
 			subCommand = interaction.options.getSubcommand()
 		let allowed = false
-		if ((interaction.member as GuildMember | null)?.permissions.has("VIEW_AUDIT_LOG")) allowed = true
+		if ((interaction.member as GuildMember | null)?.permissions.has("ViewAuditLog")) allowed = true
 		if (subCommand === "add" && allowed) await addQuote(interaction, collection)
 		else if (subCommand === "edit" && allowed) await editQuote(interaction, collection)
 		else if (subCommand === "delete" && allowed) await deleteQuote(interaction, collection)
@@ -143,14 +143,14 @@ async function findQuote(randomTip: string, interaction: ChatInputCommandInterac
 
 	const quote = await collection.findOne({ id: quoteId })
 	if (!quote) {
-		const embed = new MessageEmbed({
+		const embed = new Embed({
 			color: colors.error,
 			author: { name: getString("moduleName") },
 			title: getString("invalidArg"),
 			description: getString("indexArg", { variables: { arg: quoteId!, max: count } }),
 			footer: {
 				text: randomTip,
-				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 			},
 		})
 		return await interaction.reply({ embeds: [embed], ephemeral: true })
@@ -166,18 +166,18 @@ async function findQuote(randomTip: string, interaction: ChatInputCommandInterac
 						.catch(() => "Deleted User#0000"),
 			),
 		),
-		embed = new MessageEmbed({
+		embed = new Embed({
 			color: colors.success,
 			author: { name: getString("moduleName") },
 			title: quote.quote,
 			description: `      - ${author.join(" and ")}`,
 			footer: {
 				text: randomTip,
-				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 			},
 		})
 	if (quote.imageURL) embed.setImage(quote.imageURL)
-	if (quote.url) embed.addField(getString("msgUrl"), quote.url)
+	if (quote.url) embed.addField({ name: getString("msgUrl"), value: quote.url })
 	return await interaction.reply({ embeds: [embed] })
 }
 
@@ -194,20 +194,20 @@ async function addQuote(interaction: ChatInputCommandInteraction, collection: Co
 		if (urlSplit.length === 7) {
 			const msg = await (interaction.client.channels.cache.get(urlSplit[5]) as TextChannel | undefined)?.messages.fetch(urlSplit[6]).catch(() => null)
 			if (!msg) {
-				const embed = new MessageEmbed({
+				const embed = new Embed({
 					color: colors.error,
 					author: { name: "Quote" },
 					title: "Couldn't find a message linked to that URL!",
 					description: "Make sure you obtained it by coping the message URL directly and that I have permission to see that message.",
 					footer: {
 						text: generateTip(),
-						iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+						iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 					},
 				})
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
 			if (msg.attachments.size > 0) pictureUrl ??= msg.attachments.first()!.url
-			const embed = new MessageEmbed({
+			const embed = new Embed({
 				color: colors.success,
 				author: { name: "Quote" },
 				title: "Success! The following quote has been added:",
@@ -219,7 +219,7 @@ async function addQuote(interaction: ChatInputCommandInteraction, collection: Co
 				],
 				footer: {
 					text: generateTip(),
-					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 				},
 			})
 			if (pictureUrl) {
@@ -228,19 +228,19 @@ async function addQuote(interaction: ChatInputCommandInteraction, collection: Co
 			} else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url! })
 			await interaction.reply({ embeds: [embed] })
 		} else {
-			const embed = new MessageEmbed({
+			const embed = new Embed({
 				color: colors.error,
 				author: { name: "Quote" },
 				title: "Provided URL isn't a valid message URL!",
 				footer: {
 					text: generateTip(),
-					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 				},
 			})
 			return await interaction.reply({ embeds: [embed], ephemeral: true })
 		}
 	} else {
-		const embed = new MessageEmbed({
+		const embed = new Embed({
 			color: colors.success,
 			author: { name: "Quote" },
 			title: "Success! The following quote has been added:",
@@ -251,7 +251,7 @@ async function addQuote(interaction: ChatInputCommandInteraction, collection: Co
 			],
 			footer: {
 				text: generateTip(),
-				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 			},
 		})
 		if (pictureUrl) {
@@ -278,7 +278,7 @@ async function editQuote(interaction: ChatInputCommandInteraction, collection: C
 							.catch(() => "Deleted User#0000"),
 				),
 			),
-			embed = new MessageEmbed({
+			embed = new Embed({
 				color: colors.success,
 				author: { name: "Quote" },
 				title: `Successfully edited quote #${quoteId}`,
@@ -290,19 +290,19 @@ async function editQuote(interaction: ChatInputCommandInteraction, collection: C
 				],
 				footer: {
 					text: generateTip(),
-					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 				},
 			})
 		if (result.value.imageURL) embed.setImage(result.value.imageURL)
 		await interaction.reply({ embeds: [embed] })
 	} else {
-		const embed = new MessageEmbed({
+		const embed = new Embed({
 			color: colors.error,
 			author: { name: "Quote" },
 			title: "Couldn't find a quote with that ID!",
 			footer: {
 				text: generateTip(),
-				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 			},
 		})
 		await interaction.reply({ embeds: [embed], ephemeral: true })
@@ -325,7 +325,7 @@ async function deleteQuote(interaction: ChatInputCommandInteraction, collection:
 			),
 		)
 		await collection.updateMany({ id: { $gt: quoteId } }, { $inc: { id: -1 } })
-		const embed = new MessageEmbed({
+		const embed = new Embed({
 			color: colors.success,
 			author: { name: "Quote" },
 			title: `Successfully deleted quote #${quoteId}`,
@@ -336,19 +336,19 @@ async function deleteQuote(interaction: ChatInputCommandInteraction, collection:
 			],
 			footer: {
 				text: generateTip(),
-				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 			},
 		})
 		if (result.value.imageURL) embed.setImage(result.value.imageURL)
 		await interaction.reply({ embeds: [embed] })
 	} else {
-		const embed = new MessageEmbed({
+		const embed = new Embed({
 			color: colors.error,
 			author: { name: "Quote" },
 			title: "Couldn't find a quote with that ID!",
 			footer: {
 				text: generateTip(),
-				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 			},
 		})
 		await interaction.reply({ embeds: [embed], ephemeral: true })
@@ -361,14 +361,14 @@ async function linkQuote(interaction: ChatInputCommandInteraction, collection: C
 		linkAttch = interaction.options.getBoolean("attachment", false),
 		msg = await (interaction.client.channels.cache.get(urlSplit[5]) as TextChannel | undefined)?.messages.fetch(urlSplit[6]).catch(() => null)
 	if (!msg) {
-		const embed = new MessageEmbed({
+		const embed = new Embed({
 			color: colors.error,
 			author: { name: "Quote" },
 			title: "Couldn't find a message linked to that URL!",
 			description: "Make sure you obtained it by coping the message URL directly and that I have permission to see that message.",
 			footer: {
 				text: generateTip(),
-				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 			},
 		})
 		return await interaction.reply({ embeds: [embed], ephemeral: true })
@@ -388,7 +388,7 @@ async function linkQuote(interaction: ChatInputCommandInteraction, collection: C
 							.catch(() => "Deleted User#0000"),
 				),
 			),
-			embed = new MessageEmbed({
+			embed = new Embed({
 				color: colors.success,
 				author: { name: "Quote" },
 				title: `Successfully linked quote #${quoteId}`,
@@ -400,20 +400,20 @@ async function linkQuote(interaction: ChatInputCommandInteraction, collection: C
 				],
 				footer: {
 					text: generateTip(),
-					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 				},
 			})
 		if (linkAttch && firstAttachment) embed.setImage(firstAttachment)
 		else if (result.value.imageURL) embed.setImage(result.value.imageURL)
 		await interaction.reply({ embeds: [embed] })
 	} else {
-		const embed = new MessageEmbed({
+		const embed = new Embed({
 			color: colors.error,
 			author: { name: "Quote" },
 			title: "Couldn't find a quote with that ID!",
 			footer: {
 				text: generateTip(),
-				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 			},
 		})
 		await interaction.reply({ embeds: [embed], ephemeral: true })

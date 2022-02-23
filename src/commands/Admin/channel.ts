@@ -1,4 +1,4 @@
-import { ChatInputCommandInteraction, MessageEmbed, TextChannel } from "discord.js"
+import { ApplicationCommandOptionType, ChatInputCommandInteraction, Colors, Embed, TextChannel } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
@@ -12,7 +12,7 @@ const command: Command = {
 	channelWhitelist: [ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	options: [
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "channel",
 			description: "The channel to update",
 			required: false,
@@ -31,44 +31,44 @@ const command: Command = {
 		await interaction.deferReply()
 		if (channelInput === "info") {
 			await info(interaction)
-			const successEmbed = new MessageEmbed({
+			const successEmbed = new Embed({
 				color: colors.success,
 				author: { name: "Channel updater" },
 				title: "Updated the information channel!",
 				description: `Check it out at <#${ids.channels.serverInfo}>!`,
-				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})
 			await interaction.editReply({ embeds: [successEmbed] })
 		} else if (channelInput === "rules") {
 			await rules(interaction)
-			const successEmbed = new MessageEmbed({
+			const successEmbed = new Embed({
 				color: colors.success,
 				author: { name: "Channel updater" },
 				title: "Updated the rules channel!",
 				description: `Check it out at <#${interaction.guild.rulesChannel}>!`,
-				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})
 			await interaction.editReply({ embeds: [successEmbed] })
 		} else if (channelInput === "verify") {
 			await verify(interaction)
-			const successEmbed = new MessageEmbed({
+			const successEmbed = new Embed({
 				color: colors.success,
 				author: { name: "Channel updater" },
 				title: "Updated the verification channel!",
 				description: `Check it out at <#${ids.channels.verify}>!`,
-				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})
 			await interaction.editReply({ embeds: [successEmbed] })
 		} else if (!channelInput) {
 			await info(interaction)
 			await verify(interaction)
 			await rules(interaction)
-			const successEmbed = new MessageEmbed({
+			const successEmbed = new Embed({
 				color: colors.success,
 				author: { name: "Channel updater" },
 				title: "Updated all channels!",
 				description: `Check them out at <#${ids.channels.serverInfo}>, ${interaction.guild!.rulesChannel} and <#${ids.channels.verify}>!`,
-				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})
 			await interaction.editReply({ embeds: [successEmbed] })
 		}
@@ -78,8 +78,8 @@ const command: Command = {
 async function info(interaction: ChatInputCommandInteraction<"cached">) {
 	const serverInfo = interaction.client.channels.cache.get(ids.channels.serverInfo) as TextChannel,
 		channelsMessage = await serverInfo.messages.fetch("800415708851732491"),
-		channelsEmbed = new MessageEmbed({
-			color: "#0022FF",
+		channelsEmbed = new Embed({
+			color: 0x0022ff,
 			title: "Channels",
 			description: "Each channel has important information pinned in it. We highly recommend checking it out.",
 			fields: [
@@ -105,8 +105,8 @@ async function info(interaction: ChatInputCommandInteraction<"cached">) {
 		})
 	await channelsMessage.edit({ content: null, embeds: [channelsEmbed] })
 
-	const botsEmbed = new MessageEmbed({
-		color: "#0055FF",
+	const botsEmbed = new Embed({
+		color: 0x0055ff,
 		title: "Bots",
 		description: `Information about all bots on this server can be found here. They all support slash commands, so you can type \`/\` in <#${ids.channels.bots}> to see all their commands.`,
 		fields: [
@@ -123,8 +123,8 @@ async function info(interaction: ChatInputCommandInteraction<"cached">) {
 	})
 	await serverInfo.messages.edit("800415710508744744", { content: null, embeds: [botsEmbed] })
 
-	const rolesEmbed = new MessageEmbed({
-		color: "#0077FF",
+	const rolesEmbed = new Embed({
+		color: 0x0077ff,
 		title: "Roles",
 		description: "Every role has a meaning behind it. Find out what they all are below!",
 		fields: [
@@ -158,8 +158,8 @@ async function info(interaction: ChatInputCommandInteraction<"cached">) {
 }
 
 async function rules(interaction: ChatInputCommandInteraction<"cached">) {
-	const rulesEmbed = new MessageEmbed({
-		color: "BLURPLE",
+	const rulesEmbed = new Embed({
+		color: Colors.Blurple,
 		title: "Server Rules",
 		description:
 			"Welcome to the rules channel! In this channel, you will find every rule on this discord server. Please do not break any of the rules listed below or there will be consequences.",
@@ -213,10 +213,10 @@ async function rules(interaction: ChatInputCommandInteraction<"cached">) {
 }
 
 async function verify(interaction: ChatInputCommandInteraction<"cached">) {
-	const verifyEmbed = new MessageEmbed({
-		color: "BLURPLE",
+	const verifyEmbed = new Embed({
+		color: Colors.Blurple,
 		author: { name: "Welcome!" },
-		thumbnail: { url: interaction.guild.iconURL({ format: "png", dynamic: true })! },
+		thumbnail: { url: interaction.guild.iconURL({ extension: "png" })! },
 		title: `The ${interaction.guild.name}`,
 		description: `Hello there and welcome to the __**Unofficial**__ Hypixel Translators Server! In order to verify yourself to have access to other channels, please follow the instructions below. While you wait we also suggest you check out ${
 			interaction.guild!.rulesChannel

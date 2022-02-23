@@ -1,4 +1,4 @@
-import { ColorResolvable, MessageEmbed } from "discord.js"
+import { ApplicationCommandOptionType, Colors, Embed } from "discord.js"
 
 import { ids } from "../../config.json"
 import { client } from "../../index"
@@ -11,7 +11,7 @@ const command: Command = {
 	description: "Shows information about the specified user.",
 	options: [
 		{
-			type: "USER",
+			type: ApplicationCommandOptionType.User,
 			name: "user",
 			description: "The user to check",
 			required: true,
@@ -21,8 +21,9 @@ const command: Command = {
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.managers],
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return
-		const memberInput = interaction.options.getMember("user", true),
-			userDb = await client.getUser(memberInput.id)
+		const memberInput = interaction.options.getMember("user")
+		if (!memberInput) throw "falseUser"
+		const userDb = await client.getUser(memberInput.id)
 
 		let note: string | undefined
 		if (memberInput.id === interaction.guild!.ownerId) note = "Discord Owner"
@@ -34,8 +35,8 @@ const command: Command = {
 		else if (memberInput.roles.cache.find(r => r.name === "Hypixel Staff")) note = "Hypixel Staff Member"
 		else if (userDb?.profile) note = userDb.profile
 
-		let color: ColorResolvable = memberInput.displayHexColor
-		if (color === "#000000") color = "BLURPLE"
+		let color = memberInput.displayColor
+		if (!color) color = Colors.Blurple
 		const joinedAgo = Math.round(memberInput.joinedAt!.getTime() / 1000),
 			createdAgo = Math.round(memberInput.user.createdAt.getTime() / 1000),
 			rolesCache = memberInput.roles.cache
@@ -48,9 +49,9 @@ const command: Command = {
 				.join(", ")
 		} else userRoles = "No roles yet!"
 
-		const embed = new MessageEmbed({
+		const embed = new Embed({
 			color,
-			author: { name: "User information", iconURL: memberInput.user.displayAvatarURL({ format: "png", dynamic: true }) },
+			author: { name: "User information", iconURL: memberInput.user.displayAvatarURL({ extension: "png" }) },
 			title: memberInput.user.tag,
 			description: `${memberInput} (ID: ${memberInput.id})`,
 			fields: [
@@ -58,10 +59,10 @@ const command: Command = {
 				{ name: "Account created on", value: `<t:${createdAgo}:F> (<t:${createdAgo}:R>)`, inline: true },
 				{ name: "Roles", value: userRoles },
 			],
-			thumbnail: { url: memberInput.displayAvatarURL({ format: "png", dynamic: true }) },
-			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+			thumbnail: { url: memberInput.displayAvatarURL({ extension: "png" }) },
+			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 		})
-		if (note) embed.addField("Note", note)
+		if (note) embed.addField({ name: "Note", value: note })
 		await interaction.reply({ embeds: [embed] })
 	},
 }

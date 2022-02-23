@@ -93,7 +93,7 @@ export async function generateWelcomeImage(member: GuildMember) {
 	ctx.closePath()
 
 	// Put the image in the circle
-	const userPic = await loadImage(member.user.displayAvatarURL({ format: "png" }))
+	const userPic = await loadImage(member.user.displayAvatarURL({ extension: "png" }))
 	ctx.clip()
 	ctx.drawImage(userPic, 25, 25, 150, 150)
 	ctx.restore()

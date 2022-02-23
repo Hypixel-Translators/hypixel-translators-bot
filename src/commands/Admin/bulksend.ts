@@ -1,4 +1,4 @@
-import { MessageEmbed, TextChannel } from "discord.js"
+import { ApplicationCommandOptionType, ChannelType, Embed, TextChannel } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { updateProjectStatus } from "../../events/stats"
@@ -13,20 +13,20 @@ const command: Command = {
 	roleWhitelist: [ids.roles.admin],
 	options: [
 		{
-			type: "CHANNEL",
-			channelTypes: ["GUILD_TEXT"],
+			type: ApplicationCommandOptionType.Channel,
+			channelTypes: [ChannelType.GuildText],
 			name: "channel",
 			description: "The channel to send bulk messages in",
 			required: true,
 		},
 		{
-			type: "INTEGER",
+			type: ApplicationCommandOptionType.Integer,
 			name: "amount",
 			description: "The amount of messages to send in bulk",
 			required: true,
 		},
 		{
-			type: "BOOLEAN",
+			type: ApplicationCommandOptionType.Boolean,
 			name: "update",
 			description: "Whether to update language statistics once all messages have been sent",
 			required: false,
@@ -40,12 +40,12 @@ const command: Command = {
 		if (!channel) throw "Couldn't resolve that channel!"
 		await interaction.deferReply()
 		for (let i = amount; i > 0; i--) await channel.send("Language statistics will be here shortly!")
-		const embed = new MessageEmbed({
+		const embed = new Embed({
 			color: colors.success,
 			author: { name: "Bulk Send" },
 			title: `Success! Message${amount === 1 ? "" : "s"} sent!`,
 			description: `${channel}`,
-			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 		})
 		await interaction.editReply({ embeds: [embed] })
 		if (interaction.options.getBoolean("update", false)) {

@@ -1,6 +1,17 @@
 import { setTimeout } from "node:timers/promises"
 
-import { ButtonInteraction, GuildMember, MessageActionRow, MessageButton, MessageEmbed, TextChannel, User } from "discord.js"
+import {
+	ButtonInteraction,
+	GuildMember,
+	ActionRow,
+	ButtonComponent,
+	Embed,
+	TextChannel,
+	User,
+	ComponentType,
+	ButtonStyle,
+	ApplicationCommandOptionType,
+} from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
@@ -15,18 +26,18 @@ const command: Command = {
 	description: "Punishes a user or calculates the punishment based on the amount of points given.",
 	options: [
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "give",
 			description: "Punish a user",
 			options: [
 				{
-					type: "USER",
+					type: ApplicationCommandOptionType.User,
 					name: "user",
 					description: "The user to punish",
 					required: true,
 				},
 				{
-					type: "INTEGER",
+					type: ApplicationCommandOptionType.Integer,
 					name: "points",
 					description: "How many points to give this member for this infraction",
 					required: true,
@@ -40,13 +51,13 @@ const command: Command = {
 					],
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "reason",
 					description: "The reason for this punishment",
 					required: true,
 				},
 				{
-					type: "INTEGER",
+					type: ApplicationCommandOptionType.Integer,
 					name: "duration",
 					description: "The duration of the punishment",
 					required: false,
@@ -54,18 +65,18 @@ const command: Command = {
 			],
 		},
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "calculate",
 			description: "Calculate a punishment for a user and evaluate permissions to apply it",
 			options: [
 				{
-					type: "USER",
+					type: ApplicationCommandOptionType.User,
 					name: "user",
 					description: "The user to punish",
 					required: true,
 				},
 				{
-					type: "INTEGER",
+					type: ApplicationCommandOptionType.Integer,
 					name: "points",
 					description: "How many points to give this member for this infraction",
 					required: true,
@@ -81,12 +92,12 @@ const command: Command = {
 			],
 		},
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "status",
 			description: "Shows you a user's currently active points and punishments",
 			options: [
 				{
-					type: "USER",
+					type: ApplicationCommandOptionType.User,
 					name: "user",
 					description: "The user to check standing for",
 					required: true,
@@ -94,24 +105,24 @@ const command: Command = {
 			],
 		},
 		{
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			name: "revoke",
 			description: "Revoke all active punishments the user has",
 			options: [
 				{
-					type: "USER",
+					type: ApplicationCommandOptionType.User,
 					name: "user",
 					description: "The user to revoke punishments from",
 					required: true,
 				},
 				{
-					type: "STRING",
+					type: ApplicationCommandOptionType.String,
 					name: "reason",
 					description: "The reason for revoking this user's punishment",
 					required: true,
 				},
 				{
-					type: "BOOLEAN",
+					type: ApplicationCommandOptionType.Boolean,
 					name: "senddm",
 					description: "Whether to send a DM to this user regarding the removal of their punishment",
 					required: true,
@@ -126,24 +137,24 @@ const command: Command = {
 		const subCommand = interaction.options.getSubcommand(),
 			collection = db.collection<PunishmentLog>("punishments"),
 			user = interaction.options.getUser("user", true),
-			memberInput = interaction.options.getMember("user", false),
+			memberInput = interaction.options.getMember("user"),
 			points = interaction.options.getInteger("points", false) as PunishmentPoints | null,
 			duration = interaction.options.getNumber("duration", false),
 			punishment = await calculatePunishment(user, points ?? 1),
-			buttons = new MessageActionRow({
+			buttons = new ActionRow({
 				components: [
-					new MessageButton({
-						style: "SUCCESS",
+					new ButtonComponent({
+						style: ButtonStyle.Success,
 						customId: "confirm",
 						label: "Confirm",
-						emoji: "✅",
+						emoji: { name: "✅" },
 						disabled: true,
 					}),
-					new MessageButton({
-						style: "DANGER",
+					new ButtonComponent({
+						style: ButtonStyle.Danger,
 						customId: "cancel",
 						label: "Cancel",
-						emoji: "❎",
+						emoji: { name: "❎" },
 						disabled: true,
 					}),
 				],
@@ -170,11 +181,11 @@ const command: Command = {
 			// Apply the punishment
 			if (punishment.type === "VERBAL") {
 				if (!memberInput) throw "Couldn't find that member! Are you sure they're on the server?"
-				const punishmentLog = new MessageEmbed({
+				const punishmentLog = new Embed({
 						color: colors.error,
 						author: {
 							name: `Case ${caseNumber} | Verbal Warning | ${points} point${points === 1 ? "" : "s"}`,
-							iconURL: user.displayAvatarURL({ format: "png", dynamic: true }),
+							iconURL: user.displayAvatarURL({ extension: "png" }),
 						},
 						fields: [
 							{ name: "User", value: user.toString(), inline: true },
@@ -196,7 +207,7 @@ const command: Command = {
 					moderator: interaction.user.id,
 					logMsg: msg.id,
 				} as PunishmentLog)
-				const embed = new MessageEmbed({
+				const embed = new Embed({
 					color: colors.success,
 					author: { name: "Punishments" },
 					title: "Successfully registered this verbal warning!",
@@ -205,30 +216,30 @@ const command: Command = {
 						{ name: "Points", value: points!.toString(), inline: true },
 						{ name: "Reason", value: reason! },
 					],
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
 				await interaction.editReply({ embeds: [embed] })
 			} else if (punishment.type === "WARN") {
 				if (!memberInput) throw "Couldn't find that member! Are you sure they're on the server?"
-				const confirmEmbed = new MessageEmbed({
+				const confirmEmbed = new Embed({
 						color: colors.loading,
 						author: { name: "Punishments" },
 						title: `Are you sure you want to warn ${user.tag}?`,
 						description: reason!,
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					}),
 					confirmMsg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] })
 
 				await setTimeout(5_000)
 				buttons.components.map(b => b.setDisabled(false))
 				await interaction.editReply({ components: [buttons] })
-				const buttonInteraction = await confirmMsg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 }).catch(() => null)
+				const buttonInteraction = await confirmMsg.awaitMessageComponent<ComponentType.Button>({ filter, time: 65_000 }).catch(() => null)
 				if (!buttonInteraction) {
-					const embed = new MessageEmbed({
+					const embed = new Embed({
 						color: colors.error,
 						author: { name: "Punishments" },
 						title: "You didn't respond in time, so this user wasn't warned",
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 					await interaction.editReply({ embeds: [embed], components: [] })
 					return
@@ -236,11 +247,11 @@ const command: Command = {
 				if (buttonInteraction.customId === "confirm") {
 					await buttonInteraction.deferUpdate()
 
-					const punishmentLog = new MessageEmbed({
+					const punishmentLog = new Embed({
 							color: colors.error,
 							author: {
 								name: `Case ${caseNumber} | Warning | ${points} point${points === 1 ? "" : "s"}`,
-								iconURL: user.displayAvatarURL({ format: "png", dynamic: true }),
+								iconURL: user.displayAvatarURL({ extension: "png" }),
 							},
 							fields: [
 								{ name: "User", value: user.toString(), inline: true },
@@ -262,14 +273,14 @@ const command: Command = {
 						moderator: interaction.user.id,
 						logMsg: msg.id,
 					} as PunishmentLog)
-					const dmEmbed = new MessageEmbed({
+					const dmEmbed = new Embed({
 							color: colors.error,
 							author: { name: "Punishment" },
 							title: `You have been warned on the ${interaction.guild!.name}`,
 							description: `**Reason:** ${reason}`,
 							timestamp: Date.now(),
 						}),
-						embed = new MessageEmbed({
+						embed = new Embed({
 							color: colors.success,
 							author: { name: "Punishments" },
 							title: "Successfully warned this member!",
@@ -278,7 +289,7 @@ const command: Command = {
 								{ name: "Points", value: points!.toString(), inline: true },
 								{ name: "Reason", value: reason! },
 							],
-							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 						})
 					await user
 						.send({ embeds: [dmEmbed] })
@@ -289,34 +300,34 @@ const command: Command = {
 							await buttonInteraction.editReply({ embeds: [embed], components: [] })
 						})
 				} else if (buttonInteraction.customId === "cancel") {
-					const embed = new MessageEmbed({
+					const embed = new Embed({
 						color: colors.success,
 						author: { name: "Punishments" },
 						title: "Successfully cancelled this punishment",
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 					await buttonInteraction.update({ embeds: [embed], components: [] })
 				}
 			} else if (punishment.type === "MUTE") {
-				const confirmEmbed = new MessageEmbed({
+				const confirmEmbed = new Embed({
 						color: colors.loading,
 						author: { name: "Punishments" },
 						title: "Are you sure you want to mute this member?",
 						description: `Confirming this will mute ${user} for ${punishment.duration} hours with the following reason:\n\n${reason}`,
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					}),
 					confirmMsg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] })
 
 				await setTimeout(5_000)
 				buttons.components.map(b => b.setDisabled(false))
 				await interaction.editReply({ components: [buttons] })
-				const buttonInteraction = await confirmMsg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 }).catch(() => null)
+				const buttonInteraction = await confirmMsg.awaitMessageComponent<ComponentType.Button>({ filter, time: 65_000 }).catch(() => null)
 				if (!buttonInteraction) {
-					const embed = new MessageEmbed({
+					const embed = new Embed({
 						color: colors.error,
 						author: { name: "Punishments" },
 						title: "You didn't respond in time, so this user wasn't muted",
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 					await interaction.editReply({ embeds: [embed], components: [] })
 					return
@@ -324,11 +335,11 @@ const command: Command = {
 				if (buttonInteraction.customId === "confirm") {
 					await buttonInteraction.deferUpdate()
 					const endTimestamp = new Date().setHours(new Date().getHours() + punishment.duration!),
-						punishmentLog = new MessageEmbed({
+						punishmentLog = new Embed({
 							color: colors.error,
 							author: {
 								name: `Case ${caseNumber} | Mute | ${points} point${points === 1 ? "" : "s"}`,
-								iconURL: user.displayAvatarURL({ format: "png", dynamic: true }),
+								iconURL: user.displayAvatarURL({ extension: "png" }),
 							},
 							fields: [
 								{ name: "User", value: user.toString(), inline: true },
@@ -360,7 +371,7 @@ const command: Command = {
 					if (memberInput.moderatable) await memberInput.disableCommunicationUntil(endTimestamp, `${reason} | ${interaction.user.tag}`)
 					else throw "I cannot mute that member!"
 
-					const dmEmbed = new MessageEmbed({
+					const dmEmbed = new Embed({
 							color: colors.error,
 							author: { name: "Punishment" },
 							title: `You have been muted on the ${interaction.guild!.name} for ${punishment.duration} hours`,
@@ -369,7 +380,7 @@ const command: Command = {
 							)}:R>)`,
 							timestamp: Date.now(),
 						}),
-						embed = new MessageEmbed({
+						embed = new Embed({
 							color: colors.success,
 							author: { name: "Punishments" },
 							title: "Successfully muted this member!",
@@ -379,7 +390,7 @@ const command: Command = {
 								{ name: "Duration", value: `${punishment.duration!.toString()} hours`, inline: true },
 								{ name: "Reason", value: reason! },
 							],
-							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 						})
 					await user
 						.send({ embeds: [dmEmbed] })
@@ -391,16 +402,16 @@ const command: Command = {
 						})
 					awaitMute(punishmentDb)
 				} else if (buttonInteraction.customId === "cancel") {
-					const embed = new MessageEmbed({
+					const embed = new Embed({
 						color: colors.success,
 						author: { name: "Punishments" },
 						title: "Successfully cancelled this punishment",
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 					await buttonInteraction.update({ embeds: [embed], components: [] })
 				}
 			} else if (punishment.type === "BAN") {
-				const confirmEmbed = new MessageEmbed({
+				const confirmEmbed = new Embed({
 						color: colors.loading,
 						author: { name: "Punishments" },
 						title: "Are you sure you want to ban this member?",
@@ -409,20 +420,20 @@ const command: Command = {
 						} with the following reason:\n\n${reason}${
 							punishment.activePunishmentPoints ? "\n\n⚠ This user currently has an active punishment! Think twice before confirming this." : ""
 						}`,
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					}),
 					confirmMsg = await interaction.editReply({ embeds: [confirmEmbed], components: [buttons] })
 
 				await setTimeout(5_000)
 				buttons.components.map(b => b.setDisabled(false))
 				await interaction.editReply({ components: [buttons] })
-				const buttonInteraction = await confirmMsg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 }).catch(() => null)
+				const buttonInteraction = await confirmMsg.awaitMessageComponent<ComponentType.Button>({ filter, time: 65_000 }).catch(() => null)
 				if (!buttonInteraction) {
-					const embed = new MessageEmbed({
+					const embed = new Embed({
 						color: colors.error,
 						author: { name: "Punishments" },
 						title: "You didn't respond in time, so this user wasn't banned",
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 					await interaction.editReply({ embeds: [embed], components: [] })
 					return
@@ -435,11 +446,11 @@ const command: Command = {
 					else throw "I cannot ban that member!"
 
 					const endTimestamp = punishment.duration ? new Date().setDate(new Date().getDate() + punishment.duration) : 0,
-						punishmentLog = new MessageEmbed({
+						punishmentLog = new Embed({
 							color: colors.error,
 							author: {
 								name: `Case ${caseNumber} | Ban | ${points} point${points === 1 ? "" : "s"}`,
-								iconURL: user.displayAvatarURL({ format: "png", dynamic: true }),
+								iconURL: user.displayAvatarURL({ extension: "png" }),
 							},
 							fields: [
 								{ name: "User", value: user.toString(), inline: true },
@@ -493,7 +504,7 @@ const command: Command = {
 							.then(result => collection.findOne({ _id: result.insertedId })))!
 					}
 
-					const dmEmbed = new MessageEmbed({
+					const dmEmbed = new Embed({
 							color: colors.error,
 							author: { name: "Punishments" },
 							title: `You have been ${punishment.duration ? "" : "permanently "}banned from the ${interaction.guild!.name} ${
@@ -506,7 +517,7 @@ const command: Command = {
 							}`,
 							timestamp: Date.now(),
 						}),
-						embed = new MessageEmbed({
+						embed = new Embed({
 							color: colors.success,
 							author: { name: "Punishments" },
 							title: "Successfully banned this member!",
@@ -520,7 +531,7 @@ const command: Command = {
 								},
 								{ name: "Reason", value: reason! },
 							],
-							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+							footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 						})
 					await user
 						.send({ embeds: [dmEmbed] })
@@ -532,11 +543,11 @@ const command: Command = {
 						})
 					awaitBan(punishmentDb)
 				} else if (buttonInteraction.customId === "cancel") {
-					const embed = new MessageEmbed({
+					const embed = new Embed({
 						color: colors.success,
 						author: { name: "Punishments" },
 						title: "Successfully cancelled this punishment",
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 					await buttonInteraction.update({ embeds: [embed], components: [] })
 				}
@@ -548,11 +559,11 @@ const command: Command = {
 				activePoints += punish.points ?? 0
 			})
 
-			const embed = new MessageEmbed({
+			const embed = new Embed({
 				color: activePoints ? colors.error : colors.success,
 				author: { name: "Punishments" },
 				title: `${user.tag} currently has ${activePoints} point${activePoints === 1 ? "" : "s"}.`,
-				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})
 			activePunishments.forEach(punish => {
 				const durationString = punish.duration ? `${punish.duration}${punish.type === "BAN" ? "d" : "h"} ` : "permanent ",
@@ -562,20 +573,20 @@ const command: Command = {
 							: punish.type === "WARN"
 							? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 7)
 							: new Date(punish.endTimestamp!).setDate(new Date(punish.endTimestamp!).getDate() + 30)
-				embed.addField(
-					`Case ${punish.case}: ${punish.endTimestamp ? durationString : ""}${punish.type} (${punish.points} points)`,
-					`${
+				embed.addField({
+					name: `Case ${punish.case}: ${punish.endTimestamp ? durationString : ""}${punish.type} (${punish.points} points)`,
+					value: `${
 						typeof punish.duration === "number" ? (punish.duration ? `Ends <t:${Math.round(punish.endTimestamp! / 1000)}:R>\n` : "Never ends\n") : ""
 					}${expireTimestamp ? `Expires <t:${Math.round(expireTimestamp / 1000)}:R>` : ""}`,
-					true,
-				)
+					inline: true,
+				})
 			})
 			await interaction.reply({ embeds: [embed] })
 		} else if (subCommand === "calculate") {
 			const hasPermission = checkPermissions(interaction.member, punishment),
 				unexpiredPunishments = await getActivePunishments(user),
 				durationString = punishment.duration ? `${punishment.duration}${punishment.type === "BAN" ? "d" : "h"} ` : "permanent ",
-				embed = new MessageEmbed({
+				embed = new Embed({
 					color: hasPermission ? colors.success : colors.error,
 					author: { name: "Punishments" },
 					title: `Giving this member ${points} points will result in a ${["MUTE", "BAN"].includes(punishment.type) ? durationString : ""}${
@@ -584,7 +595,7 @@ const command: Command = {
 					description: `You ${hasPermission ? "" : "don't "}have permission to issue this punishment.\n\n${
 						unexpiredPunishments.length ? `Here are ${user}'s active punishments:` : `${user} has no active punishments at the moment`
 					}`,
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
 			unexpiredPunishments.forEach(punish => {
 				const expireTimestamp =
@@ -593,19 +604,19 @@ const command: Command = {
 						: punish.type === "WARN"
 						? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 7)
 						: new Date(punish.endTimestamp!).setDate(new Date(punish.endTimestamp!).getDate() + 30)
-				embed.addField(
-					`Case ${punish.case}: ${
+				embed.addField({
+					name: `Case ${punish.case}: ${
 						punish.endTimestamp ? (punish.duration ? `${punish.duration}${punish.type === "BAN" ? "d" : "h"} ` : "permanent ") : ""
 					}${punish.type} (${punish.points} points)`,
-					`${
+					value: `${
 						typeof punish.duration === "number" ? (punish.duration ? `Ends <t:${Math.round(punish.endTimestamp! / 1000)}:R>\n` : "Never ends\n") : ""
 					}${expireTimestamp ? `Expires <t:${Math.round(expireTimestamp / 1000)}:R>` : ""}`,
-					true,
-				)
+					inline: true,
+				})
 			})
 			await interaction.reply({ embeds: [embed] })
 		} else if (subCommand === "revoke") {
-			if (!interaction.member.permissions.has("VIEW_AUDIT_LOG")) throw "noAccess"
+			if (!interaction.member.permissions.has("ViewAuditLog")) throw "noAccess"
 			const activePunishments = await collection.find({ id: user.id, ended: false }).toArray()
 			if (activePunishments.length > 1) {
 				return await interaction.reply({
@@ -614,11 +625,11 @@ const command: Command = {
 					ephemeral: true,
 				})
 			} else if (!activePunishments.length) throw "This user has no active punishments!"
-			const confirmEmbed = new MessageEmbed({
+			const confirmEmbed = new Embed({
 				color: colors.loading,
 				author: { name: "Punishments" },
 				title: `Are you sure you want to revoke ${user.tag}'s active ${activePunishments[0].type}?`,
-				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})
 			activePunishments.forEach(punish => {
 				const durationString = punish.duration ? `${punish.duration}${punish.type === "BAN" ? "d" : "h"} ` : "permanent ",
@@ -628,37 +639,37 @@ const command: Command = {
 							: punish.type === "WARN"
 							? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 7)
 							: new Date(punish.endTimestamp!).setDate(new Date(punish.endTimestamp!).getDate() + 30)
-				confirmEmbed.addField(
-					`Case ${punish.case}: ${punish.endTimestamp ? durationString : ""}${punish.type} (${punish.points} points)`,
-					`${
+				confirmEmbed.addField({
+					name: `Case ${punish.case}: ${punish.endTimestamp ? durationString : ""}${punish.type} (${punish.points} points)`,
+					value: `${
 						typeof punish.duration === "number" ? (punish.duration ? `Ends <t:${Math.round(punish.endTimestamp! / 1000)}:R>\n` : "Never ends\n") : ""
 					}${expireTimestamp ? `Expires <t:${Math.round(expireTimestamp / 1000)}:R>` : ""}`,
-					true,
-				)
+					inline: true,
+				})
 			})
 			const confirmMsg = await interaction.reply({ embeds: [confirmEmbed], components: [buttons], fetchReply: true })
 
 			await setTimeout(5_000)
 			buttons.components.map(b => b.setDisabled(false))
 			await interaction.editReply({ components: [buttons] })
-			const buttonInteraction = await confirmMsg.awaitMessageComponent<"BUTTON">({ filter, time: 65_000 }).catch(() => null)
+			const buttonInteraction = await confirmMsg.awaitMessageComponent<ComponentType.Button>({ filter, time: 65_000 }).catch(() => null)
 			if (!buttonInteraction) {
-				const embed = new MessageEmbed({
+				const embed = new Embed({
 					color: colors.error,
 					author: { name: "Punishments" },
 					title: "You didn't respond in time, so this user's punishments weren't revoked",
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
 				await interaction.editReply({ embeds: [embed], components: [] })
 				return
 			}
 			if (buttonInteraction.customId === "confirm") {
 				await buttonInteraction.deferUpdate()
-				const punishmentLog = new MessageEmbed({
+				const punishmentLog = new Embed({
 						color: colors.success,
 						author: {
 							name: `Case ${caseNumber} | ${activePunishments[0].type === "BAN" ? "Unban" : "Unmute"} | ${user.tag}`,
-							iconURL: user.displayAvatarURL({ format: "png", dynamic: true }),
+							iconURL: user.displayAvatarURL({ extension: "png" }),
 						},
 						fields: [
 							{ name: "User", value: `${user}`, inline: true },
@@ -692,14 +703,14 @@ const command: Command = {
 					},
 				])
 
-				const dmEmbed = new MessageEmbed({
+				const dmEmbed = new Embed({
 						color: colors.success,
 						author: { name: "Punishments" },
 						title: `You have been un${activePunishments[0].type === "BAN" ? "banned" : "muted"} from the ${interaction.guild!.name}`,
 						description: `**Reason:** ${reason}`,
 						timestamp: Date.now(),
 					}),
-					embed = new MessageEmbed({
+					embed = new Embed({
 						color: colors.success,
 						author: { name: "Punishments" },
 						title: "Successfully revoked this member's punishment!",
@@ -708,7 +719,7 @@ const command: Command = {
 							{ name: "Punishment type", value: activePunishments[0].type, inline: true },
 							{ name: "Reason", value: reason!, inline: true },
 						],
-						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
 
 				if (activePunishments[0].type === "BAN") {
@@ -730,11 +741,11 @@ const command: Command = {
 						})
 				} else await buttonInteraction.editReply({ embeds: [embed], components: [] })
 			} else if (buttonInteraction.customId === "cancel") {
-				const embed = new MessageEmbed({
+				const embed = new Embed({
 					color: colors.success,
 					author: { name: "Punishments" },
 					title: "Successfully cancelled revoking this punishment",
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
 				await buttonInteraction.update({ embeds: [embed], components: [] })
 			}

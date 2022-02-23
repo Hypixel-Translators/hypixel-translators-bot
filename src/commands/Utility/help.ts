@@ -1,6 +1,16 @@
 import { readdirSync } from "node:fs"
 
-import { ChatInputCommandInteraction, GuildMember, Message, MessageActionRow, MessageEmbed, MessageSelectMenu } from "discord.js"
+import {
+	ChatInputCommandInteraction,
+	GuildMember,
+	Message,
+	ActionRow,
+	Embed,
+	SelectMenuComponent,
+	Colors,
+	ComponentType,
+	ApplicationCommandOptionType,
+} from "discord.js"
 
 import { ids } from "../../config.json"
 import { client } from "../../index"
@@ -14,14 +24,14 @@ const command: Command = {
 	description: "Shows you all available commands and general info about the bot.",
 	options: [
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "command",
 			description: "The command to get information for",
 			required: false,
 			autocomplete: true,
 		},
 		{
-			type: "INTEGER",
+			type: ApplicationCommandOptionType.Integer,
 			name: "page",
 			description: "The help page to open",
 			choices: [
@@ -52,7 +62,7 @@ const command: Command = {
 			readdirSync(`./src/commands/${category}/`).forEach(cmd => categoryCommands.push(cmd.split(".").shift()!))
 			categoryCommands.forEach(cmd => {
 				if (client.commands.get(cmd)!.dev && interaction.channelId !== ids.channels.botDev) categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
-				else if (!client.commands.get(cmd)!.allowDM && interaction.channel!.type === "DM") categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
+				else if (!client.commands.get(cmd)!.allowDM && interaction.channel!.isDMBased()) categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
 			})
 			pages[pageIndex].commands = categoryCommands
 			pageIndex++
@@ -65,8 +75,8 @@ const command: Command = {
 			let pageNum = 0
 			if (pageInput) pageNum = pageInput
 
-			const page1 = new MessageEmbed({
-				color: "BLURPLE",
+			const page1 = new Embed({
+				color: Colors.Blurple,
 				author: { name: getString("moduleName") },
 				title: `${pages[0].badge} ${getString("mainPage")}`,
 				description: getString("commandsListTooltip", {
@@ -75,36 +85,37 @@ const command: Command = {
 						github: "(https://github.com/Hypixel-Translators/hypixel-translators-bot)",
 					},
 				}),
-				footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ extension: "png" }) },
 			})
 			pages.forEach(page => {
 				if (page.number === 0) return
-				page1.addField(
-					getString("pageNumber", { variables: { number: page.number, total: pages.length } }),
-					`${page.badge} ${getString(page.titleString)}`,
-					true,
-				)
+				page1.addField({
+					name: getString("pageNumber", { variables: { number: page.number, total: pages.length } }),
+					value: `${page.badge} ${getString(page.titleString)}`,
+					inline: true,
+				})
 			})
 
 			pages[0].embed = page1
 
 			// Determine which page to use
 			let pageEmbed = fetchPage(pageNum, pages, getString, interaction)!
-			const pageMenu = new MessageActionRow({
+			const pageMenu = new ActionRow({
+					// TODO remove toJSON() because it's redundant but it's needed due to a typings error
 					components: [
-						new MessageSelectMenu({
+						new SelectMenuComponent({
 							customId: "page",
 							options: pages.map(p => ({
 								label: getString(p.titleString),
 								value: `${p.number}`,
-								emoji: p.badge,
+								emoji: { name: p.badge },
 								default: p.number === pageNum,
 							})),
-						}),
+						}).toJSON(),
 					],
 				}),
 				msg = (await interaction.reply({ embeds: [pageEmbed], components: [pageMenu], fetchReply: true })) as Message,
-				collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
+				collector = msg.createMessageComponentCollector<ComponentType.SelectMenu>({ idle: this.cooldown! * 1000 })
 
 			collector.on("collect", async menuInteraction => {
 				const userDb: DbUser = await client.getUser(menuInteraction.user.id),
@@ -120,7 +131,7 @@ const command: Command = {
 					})
 				} else pageNum = Number(option)
 				pageEmbed = fetchPage(pageNum, pages, getString, interaction)!
-				;(pageMenu.components[0] as MessageSelectMenu).options.forEach(o => (o.default = option === o.value))
+				;(pageMenu.components[0] as SelectMenuComponent).options.forEach(o => o.setDefault(option === o.value))
 				await menuInteraction.update({ embeds: [pageEmbed], components: [pageMenu] })
 			})
 
@@ -146,18 +157,20 @@ const command: Command = {
 
 			if (cmd.dev && !member?.roles.cache.has(ids.roles.staff)) cmdDesc = getString("inDev")
 
-			const embed = new MessageEmbed({
-				color: "BLURPLE",
+			const embed = new Embed({
+				color: Colors.Blurple,
 				author: { name: getString("moduleName") },
 				title: `${getString("commandInfoFor")}\`/${cmd.name}\``,
 				description: cmdDesc ?? getString("staffOnly"),
-				footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ extension: "png" }) },
 			})
 			if (cmdDesc !== getString("inDev")) {
 				if (cmd.cooldown) {
-					if (cmd.cooldown >= 120) embed.addField(getString("cooldownField"), `${cmd.cooldown / 60} ${getString("minutes")}`, true)
-					else if (cmd.cooldown === 1) embed.addField(getString("cooldownField"), `${cmd.cooldown} ${getString("second")}`, true)
-					else embed.addField(getString("cooldownField"), `${cmd.cooldown} ${getString("seconds")}`, true)
+					if (cmd.cooldown >= 120)
+						embed.addField({ name: getString("cooldownField"), value: `${cmd.cooldown / 60} ${getString("minutes")}`, inline: true })
+					else if (cmd.cooldown === 1)
+						embed.addField({ name: getString("cooldownField"), value: `${cmd.cooldown} ${getString("second")}`, inline: true })
+					else embed.addField({ name: getString("cooldownField"), value: `${cmd.cooldown} ${getString("seconds")}`, inline: true })
 				}
 			}
 			await interaction.reply({ embeds: [embed] })
@@ -168,13 +181,13 @@ const command: Command = {
 function fetchPage(page: number, pages: Page[], getString: GetStringFunction, interaction: ChatInputCommandInteraction) {
 	if (page > pages.length - 1) page = pages.length - 1
 	if (page < 0) page = 0
-	let pageEmbed: MessageEmbed
+	let pageEmbed: Embed
 
 	if (pages[page]) {
 		if (pages[page].embed) pageEmbed = pages[page].embed!
 		else if (pages[page].commands) {
-			pageEmbed = new MessageEmbed({
-				color: "BLURPLE",
+			pageEmbed = new Embed({
+				color: Colors.Blurple,
 				author: { name: getString("moduleName") },
 				title: `${pages[page].badge} ${getString(pages[page].titleString!)}`,
 				footer: {
@@ -185,10 +198,10 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, in
 						},
 						file: "global",
 					}),
-					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 				},
 			})
-			pages[page].commands!.forEach(cmd => pageEmbed!.addField(`\`/${cmd}\``, getString(`${cmd}.description`)))
+			pages[page].commands!.forEach(cmd => pageEmbed!.addField({ name: `\`/${cmd}\``, value: getString(`${cmd}.description`) }))
 		} else return console.error(`Help page ${page} has no embed fields specified!`)
 	} else return console.error(`Tried accessing help page ${page} but it doesn't exist in the pages array!`)
 
@@ -200,7 +213,7 @@ interface Page {
 	commands?: string[]
 	badge: string
 	titleString: string
-	embed?: MessageEmbed
+	embed?: Embed
 }
 
 export default command

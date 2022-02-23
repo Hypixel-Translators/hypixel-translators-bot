@@ -1,3 +1,5 @@
+import { GuildScheduledEventStatus } from "discord.js"
+
 import { ids } from "../config.json"
 import { client } from "../index"
 
@@ -6,7 +8,7 @@ client.on("guildScheduledEventUserAdd", async (event, user) => {
 })
 
 client.on("guildScheduledEventUpdate", (oldEvent, newEvent) => {
-	if (oldEvent.status !== newEvent.status && newEvent.status === "COMPLETED") {
+	if (oldEvent.status !== newEvent.status && newEvent.status === GuildScheduledEventStatus.Completed) {
 		const role = newEvent.guild!.roles.cache.get(ids.roles.event)!
 		role.members.forEach(async m => await m.roles.remove(role.id, `Event ${newEvent.name} is over`))
 	}
