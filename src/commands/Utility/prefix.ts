@@ -15,7 +15,7 @@ const command: Command = {
 		{
 			type: ApplicationCommandOptionType.String,
 			name: "flags",
-			description: "The flags to be applied to your prefix.",
+			description: "The flags to be applied to your prefix, separated with spaces.",
 			required: false,
 		},
 	],
