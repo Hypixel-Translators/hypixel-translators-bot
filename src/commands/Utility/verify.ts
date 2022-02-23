@@ -33,7 +33,7 @@ const command: Command = {
 			verify = interaction.client.channels.cache.get(ids.channels.verify) as TextChannel,
 			profileUrl = interaction.options.getString("url", false),
 			memberInput = interaction.options.getMember("user", false),
-			url = profileUrl?.match(/(https:\/\/)([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0],
+			url = profileUrl?.match(/(?:https?:\/\/)?(?:[a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0],
 			collection = db.collection<DbUser>("users")
 		await interaction.deferReply({ ephemeral: true })
 		if (!interaction.member.roles.cache.has(ids.roles.verified) && interaction.channelId === ids.channels.verify && !url) {
