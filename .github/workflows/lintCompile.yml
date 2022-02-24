@@ -1,4 +1,4 @@
-name: Testing
+name: Compile and lint
 on:
     push:
         branches-ignore:
@@ -6,18 +6,18 @@ on:
     pull_request:
 
 jobs:
-    Install:
-        name: Install dependencies and compile
+    lintCompile:
+        name: Lint
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout repository
+            - name: Checkout Project
               uses: actions/checkout@v2
-
-            - name: Install Node v16
+            - name: Use Node.js 16
               uses: actions/setup-node@v2
               with:
                   node-version: 16
                   cache: "yarn"
-
-            - name: Install dependencies
+            - name: Install dependencies and compile
               run: yarn
+            - name: Lint
+              run: yarn lint:ci
