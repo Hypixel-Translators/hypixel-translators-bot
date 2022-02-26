@@ -6,7 +6,7 @@ import { db, DbUser } from "../lib/dbclient"
 export default async function updateVerified(limit = 0) {
 	const verifiedUsers = await db
 		.collection<DbUser>("users")
-		.find({ profile: { $exists: true } })
+		.find({ profile: { $type: "string" } })
 		.limit(limit)
 		.toArray()
 
