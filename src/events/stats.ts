@@ -1,9 +1,9 @@
-import { Embed, NewsChannel, TextChannel } from "discord.js"
+import { Embed, type NewsChannel, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client, crowdin } from "../index"
 import { db } from "../lib/dbclient"
-import { closeConnection, CrowdinProject, getBrowser, MongoLanguage, LanguageStatus, Stats } from "../lib/util"
+import { closeConnection, type CrowdinProject, getBrowser, type MongoLanguage, type LanguageStatus, type Stats } from "../lib/util"
 
 export async function stats(manual = false) {
 	const m = new Date().getUTCMinutes()

@@ -1,9 +1,9 @@
 import { readdirSync } from "node:fs"
 
 import {
-	ChatInputCommandInteraction,
-	GuildMember,
-	Message,
+	type ChatInputCommandInteraction,
+	type GuildMember,
+	type Message,
 	ActionRow,
 	Embed,
 	SelectMenuComponent,

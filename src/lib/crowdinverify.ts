@@ -1,9 +1,9 @@
 import { setTimeout } from "node:timers/promises"
 
-import { GuildMember, Embed, Role, TextChannel, Colors } from "discord.js"
+import { type GuildMember, Embed, type Role, type TextChannel, Colors } from "discord.js"
 
-import { db, DbUser } from "./dbclient"
-import { closeConnection, getBrowser, MongoLanguage, Stats } from "./util"
+import { db, type DbUser } from "./dbclient"
+import { closeConnection, getBrowser, type MongoLanguage, type Stats } from "./util"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"

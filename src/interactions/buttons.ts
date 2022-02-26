@@ -1,8 +1,8 @@
-import { ButtonInteraction, Snowflake } from "discord.js"
-
 import { ids } from "../config.json"
 import { client } from "../index"
-import { GetStringFunction } from "../lib/imports"
+
+import type { GetStringFunction } from "../lib/imports"
+import type { ButtonInteraction, Snowflake } from "discord.js"
 
 export default async function handleButtonInteractions(interaction: ButtonInteraction<"cached">, getString: GetStringFunction) {
 	// Staff LOA warning removal system

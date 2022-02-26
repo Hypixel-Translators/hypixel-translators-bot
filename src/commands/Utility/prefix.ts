@@ -1,10 +1,10 @@
-import { ActionRow, ButtonComponent, Embed, TextChannel, ButtonStyle, ApplicationCommandOptionType, ComponentType } from "discord.js"
+import { ActionRow, ButtonComponent, Embed, type TextChannel, ButtonStyle, ApplicationCommandOptionType, ComponentType } from "discord.js"
 import { getEmoji } from "language-flag-colors"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db } from "../../lib/dbclient"
-import { generateTip, MongoLanguage, transformDiscordLocale } from "../../lib/util"
+import { generateTip, type MongoLanguage, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 

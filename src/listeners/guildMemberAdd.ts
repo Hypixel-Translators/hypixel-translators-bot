@@ -1,9 +1,9 @@
 import { registerFont, createCanvas, loadImage } from "canvas"
-import { GuildMember, MessageAttachment, TextChannel } from "discord.js"
+import { type GuildMember, MessageAttachment, type TextChannel } from "discord.js"
 
 import { ids } from "../config.json"
 import { client } from "../index"
-import { db, DbUser, cancelledEvents } from "../lib/dbclient"
+import { db, type DbUser, cancelledEvents } from "../lib/dbclient"
 
 // A regular member only actually joins once they accept the membership screening, therefore we need to use this event instead
 client.on("guildMemberUpdate", async (oldMember, newMember) => {

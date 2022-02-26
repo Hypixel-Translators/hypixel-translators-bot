@@ -5,16 +5,16 @@ import { setInterval } from "node:timers"
 
 import axios from "axios"
 import {
-	ChatInputCommandInteraction,
-	GuildMember,
+	type ChatInputCommandInteraction,
+	type GuildMember,
 	ActionRow,
 	ButtonComponent,
 	Embed,
-	NewsChannel,
-	Role,
-	Snowflake,
-	TextChannel,
-	User,
+	type NewsChannel,
+	type Role,
+	type Snowflake,
+	type TextChannel,
+	type User,
 	ButtonStyle,
 } from "discord.js"
 import puppeteer from "puppeteer"

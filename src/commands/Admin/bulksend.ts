@@ -1,9 +1,9 @@
-import { ApplicationCommandOptionType, ChannelType, Embed, TextChannel } from "discord.js"
+import { ApplicationCommandOptionType, ChannelType, Embed, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { updateProjectStatus } from "../../events/stats"
 import { db } from "../../lib/dbclient"
-import { CrowdinProject, generateTip } from "../../lib/util"
+import { type CrowdinProject, generateTip } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
 

@@ -1,7 +1,7 @@
 import {
-	BufferResolvable,
-	GuildChannel,
-	Message,
+	type BufferResolvable,
+	type GuildChannel,
+	type Message,
 	MessageComponentInteraction,
 	Embed,
 	TextChannel,
@@ -16,9 +16,9 @@ import {
 import { colors, ids } from "../config.json"
 import { client } from "../index"
 import { crowdinVerify } from "../lib/crowdinverify"
-import { db, DbUser, cancelledEvents } from "../lib/dbclient"
+import { db, type DbUser, cancelledEvents } from "../lib/dbclient"
 import { leveling } from "../lib/leveling"
-import { arrayEqual, Stats } from "../lib/util"
+import { arrayEqual, type Stats } from "../lib/util"
 
 import type { Stream } from "node:stream"
 

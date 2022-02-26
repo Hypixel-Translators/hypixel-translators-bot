@@ -3,7 +3,7 @@ import { ApplicationCommandOptionType, Embed } from "discord.js"
 import { colors, ids } from "../../config.json"
 import { client, crowdin } from "../../index"
 import { db } from "../../lib/dbclient"
-import { transformDiscordLocale, generateTip, MongoLanguage } from "../../lib/util"
+import { transformDiscordLocale, generateTip, type MongoLanguage } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 

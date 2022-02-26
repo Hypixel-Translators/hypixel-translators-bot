@@ -1,4 +1,4 @@
-import { Constants, Formatters, GuildTextBasedChannel, Embed, ApplicationCommandOptionType } from "discord.js"
+import { Constants, Formatters, type GuildTextBasedChannel, Embed, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"

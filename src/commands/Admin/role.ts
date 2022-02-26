@@ -1,4 +1,4 @@
-import { EmbedFieldData, Embed, Colors, ApplicationCommandOptionType } from "discord.js"
+import { type EmbedFieldData, Embed, Colors, ApplicationCommandOptionType } from "discord.js"
 
 import { ids } from "../../config.json"
 import { generateTip } from "../../lib/util"

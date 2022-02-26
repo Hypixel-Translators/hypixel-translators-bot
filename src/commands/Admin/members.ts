@@ -1,4 +1,13 @@
-import { GuildMember, ActionRow, ButtonComponent, Embed, ApplicationCommandOptionType, ButtonStyle, Colors, ComponentType } from "discord.js"
+import {
+	type GuildMember,
+	ActionRow,
+	ButtonComponent,
+	Embed,
+	ApplicationCommandOptionType,
+	ButtonStyle,
+	Colors,
+	type ComponentType,
+} from "discord.js"
 
 import { ids } from "../../config.json"
 import { generateTip, updateButtonColors } from "../../lib/util"

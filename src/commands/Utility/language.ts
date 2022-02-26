@@ -1,10 +1,10 @@
 import { access, constants, readdir, readdirSync } from "node:fs"
 
-import { GuildMember, Embed, ApplicationCommandOptionType } from "discord.js"
+import { type GuildMember, Embed, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
-import { db, DbUser } from "../../lib/dbclient"
-import { generateTip, MongoLanguage, transformDiscordLocale } from "../../lib/util"
+import { db, type DbUser } from "../../lib/dbclient"
+import { generateTip, type MongoLanguage, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 

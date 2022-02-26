@@ -2,7 +2,7 @@ import { ActionRow, ApplicationCommandOptionType, ButtonComponent, ButtonStyle, 
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { generateTip, PunishmentLog, updateButtonColors, updateModlogFields } from "../../lib/util"
+import { generateTip, type PunishmentLog, updateButtonColors, updateModlogFields } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
 

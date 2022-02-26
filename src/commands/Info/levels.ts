@@ -1,7 +1,7 @@
 import {
-	ChatInputCommandInteraction,
-	GuildMember,
-	Message,
+	type ChatInputCommandInteraction,
+	type GuildMember,
+	type Message,
 	ActionRow,
 	ButtonComponent,
 	Embed,
@@ -12,7 +12,7 @@ import {
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
-import { db, DbUser } from "../../lib/dbclient"
+import { db, type DbUser } from "../../lib/dbclient"
 import { generateTip, parseToNumberString, transformDiscordLocale, updateButtonColors } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"

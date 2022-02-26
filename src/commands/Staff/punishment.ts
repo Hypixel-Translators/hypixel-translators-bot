@@ -1,13 +1,13 @@
 import { setTimeout } from "node:timers/promises"
 
 import {
-	ButtonInteraction,
-	GuildMember,
+	type ButtonInteraction,
+	type GuildMember,
 	ActionRow,
 	ButtonComponent,
 	Embed,
-	TextChannel,
-	User,
+	type TextChannel,
+	type User,
 	ComponentType,
 	ButtonStyle,
 	ApplicationCommandOptionType,
@@ -15,7 +15,7 @@ import {
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { generateTip, getActivePunishments, PunishmentLog, PunishmentPoints } from "../../lib/util"
+import { generateTip, getActivePunishments, type PunishmentLog, type PunishmentPoints } from "../../lib/util"
 import { awaitBan, awaitMute } from "../../listeners/ready"
 
 import type { Command } from "../../lib/imports"

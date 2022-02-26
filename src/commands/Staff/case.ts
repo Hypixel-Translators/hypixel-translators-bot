@@ -2,7 +2,7 @@ import { GuildMember, Embed, Colors, ApplicationCommandOptionType } from "discor
 
 import { ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { generateTip, PunishmentLog, updateModlogFields } from "../../lib/util"
+import { generateTip, type PunishmentLog, updateModlogFields } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
 

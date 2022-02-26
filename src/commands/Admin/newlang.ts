@@ -1,10 +1,10 @@
-import { ApplicationCommandOptionType, ChannelType, Embed, OverwriteResolvable } from "discord.js"
+import { ApplicationCommandOptionType, ChannelType, Embed, type OverwriteResolvable } from "discord.js"
 import { getLanguage } from "language-flag-colors"
 
 import { colors, ids } from "../../config.json"
 import { crowdin } from "../../index"
 import { db } from "../../lib/dbclient"
-import { generateTip, MongoLanguage } from "../../lib/util"
+import { generateTip, type MongoLanguage } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
 

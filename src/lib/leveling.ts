@@ -1,7 +1,7 @@
-import { Collection, Message, Snowflake } from "discord.js"
+import { Collection, type Message, type Snowflake } from "discord.js"
 
-import { db, DbUser } from "./dbclient"
-import { getXpNeeded, Stats } from "./util"
+import { db, type DbUser } from "./dbclient"
+import { getXpNeeded, type Stats } from "./util"
 
 import { client } from "../index"
 

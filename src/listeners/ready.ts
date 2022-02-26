@@ -3,12 +3,12 @@ import { setInterval } from "node:timers"
 import { setTimeout } from "node:timers/promises"
 
 import {
-	ApplicationCommand,
-	ApplicationCommandPermissionData,
-	ChatInputApplicationCommandData,
-	GuildApplicationCommandPermissionData,
+	type ApplicationCommand,
+	type ApplicationCommandPermissionData,
+	type ChatInputApplicationCommandData,
+	type GuildApplicationCommandPermissionData,
 	Embed,
-	TextChannel,
+	type TextChannel,
 	ApplicationCommandPermissionType,
 	ActivityType,
 } from "discord.js"
@@ -20,7 +20,7 @@ import inactives from "../events/inactives"
 import stats from "../events/stats"
 import { client } from "../index"
 import { db } from "../lib/dbclient"
-import { getInviteLink, PunishmentLog, restart, sendHolidayMessage } from "../lib/util"
+import { getInviteLink, type PunishmentLog, restart, sendHolidayMessage } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 

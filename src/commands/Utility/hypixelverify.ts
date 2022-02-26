@@ -2,8 +2,8 @@ import axios from "axios"
 import { ApplicationCommandOptionType, Embed } from "discord.js"
 
 import { colors, ids } from "../../config.json"
-import { db, DbUser } from "../../lib/dbclient"
-import { fetchSettings, generateTip, getUUID, updateRoles, GraphQLQuery } from "../../lib/util"
+import { db, type DbUser } from "../../lib/dbclient"
+import { fetchSettings, generateTip, getUUID, updateRoles, type GraphQLQuery } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 

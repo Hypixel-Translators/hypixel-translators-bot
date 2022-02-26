@@ -1,4 +1,4 @@
-import { ApplicationCommandOptionType, ChatInputCommandInteraction, Colors, Embed, TextChannel } from "discord.js"
+import { ApplicationCommandOptionType, type ChatInputCommandInteraction, Colors, Embed, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"

@@ -1,10 +1,19 @@
 import axios from "axios"
-import { GuildMember, Message, Embed, SelectMenuComponent, ComponentType, ActionRow, ApplicationCommandOptionType, Colors } from "discord.js"
+import {
+	type GuildMember,
+	type Message,
+	Embed,
+	SelectMenuComponent,
+	ComponentType,
+	ActionRow,
+	ApplicationCommandOptionType,
+	Colors,
+} from "discord.js"
 
 import { ids } from "../../config.json"
 import { client } from "../../index"
-import { db, DbUser } from "../../lib/dbclient"
-import { fetchSettings, generateTip, getMCProfile, getUUID, gql, GraphQLQuery, transformDiscordLocale, updateRoles } from "../../lib/util"
+import { db, type DbUser } from "../../lib/dbclient"
+import { fetchSettings, generateTip, getMCProfile, getUUID, gql, type GraphQLQuery, transformDiscordLocale, updateRoles } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 

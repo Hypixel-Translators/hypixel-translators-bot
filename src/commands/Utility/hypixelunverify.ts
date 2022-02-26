@@ -2,7 +2,7 @@ import { ApplicationCommandOptionType, Embed } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
-import { db, DbUser } from "../../lib/dbclient"
+import { db, type DbUser } from "../../lib/dbclient"
 import { generateTip, updateRoles } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"

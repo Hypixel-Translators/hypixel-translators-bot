@@ -2,14 +2,14 @@ import process from "node:process"
 // Cannot use promisified setTimeout here
 import { setTimeout } from "node:timers"
 
-import { Collection, Formatters, GuildChannel, Message, Embed, TextChannel } from "discord.js"
+import { Collection, Formatters, GuildChannel, type Message, Embed, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"
 import handleAutocompleteInteractions from "../interactions/autocomplete"
 import handleButtonInteractions from "../interactions/buttons"
-import { db, DbUser, cancelledEvents } from "../lib/dbclient"
-import { arrayEqual, transformDiscordLocale, generateTip, Stats } from "../lib/util"
+import { db, type DbUser, cancelledEvents } from "../lib/dbclient"
+import { arrayEqual, transformDiscordLocale, generateTip, type Stats } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
@@ -21,8 +21,8 @@ client.on("interactionCreate", async interaction => {
 		randomTip = generateTip(getString),
 		statsColl = db.collection<Stats>("stats")
 
-	if (interaction.isButton() && interaction.inCachedGuild()) return void (await handleButtonInteractions(interaction, getString))
-	else if (interaction.isAutocomplete()) return void (await handleAutocompleteInteractions(interaction))
+	if (interaction.isButton() && interaction.inCachedGuild()) return await handleButtonInteractions(interaction, getString)
+	else if (interaction.isAutocomplete()) return await handleAutocompleteInteractions(interaction)
 
 	if (!interaction.isChatInputCommand()) return
 

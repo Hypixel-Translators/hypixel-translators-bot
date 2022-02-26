@@ -1,6 +1,6 @@
 import { ids } from "../config.json"
 import { client } from "../index"
-import { db, DbUser } from "../lib/dbclient"
+import { db, type DbUser } from "../lib/dbclient"
 
 import type { TextChannel } from "discord.js"
 

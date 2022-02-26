@@ -1,9 +1,18 @@
 import axios from "axios"
-import { GuildMember, Message, ActionRow, ButtonComponent, Embed, ComponentType, ButtonStyle, ApplicationCommandOptionType } from "discord.js"
+import {
+	type GuildMember,
+	type Message,
+	ActionRow,
+	ButtonComponent,
+	Embed,
+	ComponentType,
+	ButtonStyle,
+	ApplicationCommandOptionType,
+} from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
-import { db, DbUser } from "../../lib/dbclient"
+import { db, type DbUser } from "../../lib/dbclient"
 import { fetchSettings, generateTip, getUUID, transformDiscordLocale, updateButtonColors } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"

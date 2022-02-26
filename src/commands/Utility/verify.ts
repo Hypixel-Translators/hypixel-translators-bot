@@ -1,11 +1,11 @@
 import { setTimeout } from "node:timers/promises"
 
-import { ApplicationCommandOptionType, Embed, TextChannel } from "discord.js"
+import { ApplicationCommandOptionType, Embed, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { crowdinVerify } from "../../lib/crowdinverify"
-import { db, DbUser } from "../../lib/dbclient"
+import { db, type DbUser } from "../../lib/dbclient"
 
 import type { Command } from "../../lib/imports"
 

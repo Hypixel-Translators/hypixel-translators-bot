@@ -1,8 +1,8 @@
-import { Formatters, Embed, TextChannel } from "discord.js"
+import { Formatters, Embed, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"
-import { db, DbUser, cancelledEvents } from "../lib/dbclient"
+import { db, type DbUser, cancelledEvents } from "../lib/dbclient"
 
 client.on("guildMemberRemove", async member => {
 	if (!db) return void cancelledEvents.push({ listener: "guildMemberRemove", args: [member] })

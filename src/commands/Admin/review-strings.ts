@@ -1,4 +1,4 @@
-import { ApplicationCommandOptionType, CategoryChannel } from "discord.js"
+import { ApplicationCommandOptionType, type CategoryChannel } from "discord.js"
 
 import { ids } from "../../config.json"
 import { db } from "../../lib/dbclient"

@@ -1,8 +1,8 @@
-import { GuildMember, Embed, ApplicationCommandOptionType } from "discord.js"
+import { type GuildMember, Embed, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
-import { db, DbUser } from "../../lib/dbclient"
+import { db, type DbUser } from "../../lib/dbclient"
 import { generateTip, getXpNeeded, parseToNumberString } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"

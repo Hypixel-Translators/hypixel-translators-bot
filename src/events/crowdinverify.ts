@@ -1,7 +1,7 @@
 import { ids } from "../config.json"
 import { client } from "../index"
 import { crowdinVerify } from "../lib/crowdinverify"
-import { db, DbUser } from "../lib/dbclient"
+import { db, type DbUser } from "../lib/dbclient"
 
 export default async function updateVerified(limit = 0) {
 	const verifiedUsers = await db

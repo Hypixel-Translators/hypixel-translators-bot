@@ -1,4 +1,4 @@
-import { GuildMember, Embed, ApplicationCommandOptionType } from "discord.js"
+import { type GuildMember, Embed, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"

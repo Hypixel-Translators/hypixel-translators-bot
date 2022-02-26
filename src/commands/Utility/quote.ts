@@ -1,8 +1,8 @@
-import { ChatInputCommandInteraction, GuildMember, Embed, TextChannel, ApplicationCommandOptionType } from "discord.js"
+import { type ChatInputCommandInteraction, type GuildMember, Embed, type TextChannel, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { generateTip, Quote } from "../../lib/util"
+import { generateTip, type Quote } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 import type { Collection } from "mongodb"

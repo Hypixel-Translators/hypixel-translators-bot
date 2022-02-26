@@ -1,4 +1,4 @@
-import { Embed, TextChannel } from "discord.js"
+import { Embed, type TextChannel } from "discord.js"
 
 import { ids } from "../config.json"
 import { client } from "../index"
