@@ -2,7 +2,7 @@
 	"moduleName": "معلومات",
 	"commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
 	"pageNumber": "الصفحة %%number%%",
-	"mainPage": "Main Page",
+	"mainPage": "الصفحة الرئيسية",
 	"utilityHelp": "أدوات و خدمات",
 	"infoHelp": "أوامر المعلومات",
 	"commandInfo": "معلومات الأوامر",
@@ -26,13 +26,13 @@
 		"description": "يظهر لك الإحصائيات الأساسية للمستخدم المتوفرة في هايبكسل."
 	},
 	"hypixelunverify": {
-		"description": "Unlinks your Discord account from your Minecraft account."
+		"description": "يلغي ربط حساب دسكورد الخاص بك من حساب ماينكرافت الخاص بك."
 	},
 	"hypixelverify": {
 		"description": "Links your Discord account with your Minecraft account."
 	},
 	"language": {
-		"description": "Changes your language, shows your current one or a list of available languages."
+		"description": "تغيير لغتك، تظهر لغتك الحالية أو قائمة اللغات المتاحة. إذا كنت ترغب في طلب لغة جديدة للبوت، قم بتنفيذ `/language add <لغة>`."
 	},
 	"languagestats": {
 		"description": "يظهر لك مدى تقدم اللغة في جميع المشاريع التي ندعمها."
