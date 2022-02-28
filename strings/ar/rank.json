@@ -1,11 +1,11 @@
 {
-	"moduleName": "User level",
-	"yourRank": "Here's your rank",
-	"userRank": "Here's %%user%%'s rank",
-	"youNotRanked": "You're not ranked yet!",
-	"userNotRanked": "That user is not ranked yet!",
-	"howRank": "In order to be ranked you must talk in the chats!",
-	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Messages",
-	"youLevel": "You're at level %%level%% and you're #%%rank%% on the leaderboard!",
-	"userLevel": "%%user%% is at level %%level%% and they're #%%rank%% on the leaderboard!"
+	"moduleName": "مستوى المستخدم",
+	"yourRank": "إليك رتبتك",
+	"userRank": "اليك رتبة %%user%%",
+	"youNotRanked": "أنت لست مصنفًا بعد!",
+	"userNotRanked": "هذا المستخدم لم يتم تصنيفه بعد!",
+	"howRank": "من أجل الحصول على ترتيب، يجب عليك التحدث في المحادثات!",
+	"textProgress": "%%currentXp%%/%%xpNeeded%%/%%messages%% الرسائل",
+	"youLevel": "أنت في المستوى %%level%% وأنت #%%rank%% على لوحة المتصدرين!",
+	"userLevel": "%%user%% في المستوى %%level%% وهم #%%rank%% على لوحة المتصدرين!"
 }

@@ -1,7 +1,7 @@
 {
 	"moduleName": "البرفكس",
 	"errors": {
-		"noLanguages": "You don't seem to have any language roles! Please contact an administrator if you believe this is an error.",
+		"noLanguages": "يبدو أنك لا تملك أي رتبة لغة! يرجى الاتصال اداري او مالك السيرفر إذا كنت تعتقد أن هذا خطأ.",
 		"trNoRoles": "لاحظنا أنك مترجم ولكن لا يوجد لديك أي من رتب اللغات.",
 		"error": "فشل تغيير الاسم المستعار. يمكنك نسخ الاسم المستعار أدناه وتضعه بنفسك.",
 		"confirmedNoFlags": "لقد أكدت ولكنك لم تضغط على أي أعلام، ",
@@ -12,7 +12,7 @@
 		"timeOutCustom": "لم تقم بالتأكد، ",
 		"notSaved": "لذلك لم يتم حفظ البرفكس الخاص بك."
 	},
-	"customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
+	"customPrefix": "لا تتردد في استخدام`/prefix <أعلام>` لتحصل على البرفكس المرغوب.",
 	"caution": "تحذير",
 	"warning": "إعداد البرفكس إلى لغة لا تترجمها سيؤدي إلى تحذير. هل تريد تغيير اسمك المستعار على أي حال؟",
 	"react": "اضغط على جميع الأعلام التي تريد إضافتها إلى البرفكس الخاص بك بالترتيب.",

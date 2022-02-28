@@ -1,8 +1,8 @@
 {
 	"moduleName": "معلومات",
-	"commandsListTooltip": "This bot was made for the Hypixel Translators Community and is maintained by %%developer%%. It's open-source and our GitHub repository can be found [here]%%github%%.\nYou can help translate the bot by following the instructions on the `/translate` command.\n\nYou can execute `/help <command>` to learn more about a specific command.\nBelow you can find a list of all the available pages. Use the buttons on this message to cycle through them.",
+	"commandsListTooltip": "تم صنع هذا البوت لمجتمع مترجمين Hypixel من قبل %%developer%%. انه مصدر مفتوح و مشروع GitHub يمكن العثور عليه [here]%%github%%\nيمكنك مساعدتنا في ترجمة البوت من خلال اتباع التعليمات التالية في أمر`/translate`.\n\nيمكنك تنفيذ `/help <اسم الأمر>` لمعرفة المزيد عن أمر معين.\nيمكن العثور على قائمة تحتوي جميع الصفحات المتاحة. استعمل رياكشن هذه الرسالة للتمرير بينهم.",
 	"pageNumber": "الصفحة %%number%%",
-	"mainPage": "Main Page",
+	"mainPage": "الصفحة الرئيسية",
 	"utilityHelp": "أدوات و خدمات",
 	"infoHelp": "أوامر المعلومات",
 	"commandInfo": "معلومات الأوامر",
@@ -14,7 +14,7 @@
 	"minutes": "دقيقة",
 	"cooldownField": "فترة الاستراحة",
 	"8ball": {
-		"description": "The Magic 8 Ball that will answer all your questions."
+		"description": "الكرة السحرية التي سوف تجيب عن جميع اسئلتك."
 	},
 	"feedback": {
 		"description": "تفتح لك صفحة المشاكل الخاصة بنا في Github, المكان الذي تستطيع فيه إخبارنا عن المشاكل و ترسل تقييم."
@@ -26,34 +26,34 @@
 		"description": "يظهر لك الإحصائيات الأساسية للمستخدم المتوفرة في هايبكسل."
 	},
 	"hypixelunverify": {
-		"description": "Unlinks your Discord account from your Minecraft account."
+		"description": "يلغي ربط حساب دسكورد الخاص بك من حساب ماينكرافت الخاص بك."
 	},
 	"hypixelverify": {
-		"description": "Links your Discord account with your Minecraft account."
+		"description": "ربط حساب الدسكورد الخاص بك مع حساب ماينكرافت الخاص بك."
 	},
 	"language": {
-		"description": "Changes your language, shows your current one or a list of available languages."
+		"description": "تغيير لغتك، تظهر لغتك الحالية أو قائمة اللغات المتاحة. إذا كنت ترغب في طلب لغة جديدة للبوت، قم بتنفيذ `/language add <لغة>`."
 	},
 	"languagestats": {
 		"description": "يظهر لك مدى تقدم اللغة في جميع المشاريع التي ندعمها."
 	},
 	"levels": {
-		"description": "Gives you the XP leaderboard."
+		"description": "يعطيك قائمة اعلى المتصدرين في الاكسبي."
 	},
 	"mention": {
 		"description": "منشن رتبة اللغه مع رسالة اختيارية."
 	},
 	"minecraft": {
-		"description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
+		"description": "يبحث عن سجلات الاسامي او شكل لاعب محدد في ماينكرافت. هذا الأمر متوافق مع /hypixelverify ، يسمح لك بالبحث عن معلومات مستخدمين محددين اذا تم التحقق منهم. خيار `user` دائما سيكون له أولوية على `username` وكلاهما اختياري اذا تم تحقق منك، والا سيكون خيار واحد على الاقل مطلوب."
 	},
 	"ping": {
 		"description": "يعطيك ping البوت."
 	},
 	"prefix": {
-		"description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+		"description": "يعطيك الأداة المناسبة للغة (اللغات). للحصول على أداة مخصصة، قم بتنفيذ `/prefix` واستبدل `<flags>` بالكود الإقليمي لعلم بلدك أو اسمه. يمكنك إضافة أكبر عدد من الأعلام كما تريد، مفصولة بمسافة."
 	},
 	"profile": {
-		"description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
+		"description": "يعطيك رابط الى صفحة Crowdin الخاصة بك اذا كان مخزنا على قاعدة بياناتنا. اذا لم يكن الأمر كذلك، يمكنك استخدام امر `/help verify` للتعلم على كيفية تخزين ملفك الشخصي وتحديث رتبك."
 	},
 	"projects": {
 		"description": "يعطيك معلومات وروابط عن جميع مشاريع الترجمة التي يدعمها السيرفر."
@@ -62,15 +62,15 @@
 		"description": "يحضر (أو يضيف) اقتباس مضحك / غريب/حكيم من السيرفر."
 	},
 	"rank": {
-		"description": "Gives you the current XP for yourself or any given user."
+		"description": "يمنحك الاكسبي الحالي الخاص بك او لأي مستخدم معين."
 	},
 	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
+		"description": "يرسل رسالة محددة مسبقا، مما يسمح لك بتنبيه عضو معين عند إرسالها."
 	},
 	"translate": {
 		"description": "يعطيك معلومة مفيدة حول كيفيه ترجمة البوت."
 	},
 	"verify": {
-		"description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+		"description": "يتحقق تلقائيا من التغيرات في حسابك الشخصي الخاص ب Crowdin و يعطيك الرتب المناسبة. اذا كان ملفك الشخصي غير مخزن في قاعدة البيانات الخاصة بنا، يمكنك تقديمه عن طريق الامر. للتحقق اذا كان تم تخزين ملفك الشخصي، يمكنك استعمال `/profile`. يجب عليك التحقق من تفعيل الرسائل الخاصة في هذا السيرفر حتى يتمكن البوت من ارسال رسالة لك."
 	}
 }

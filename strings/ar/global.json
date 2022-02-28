@@ -1,14 +1,14 @@
 {
 	"staffDm": {
-		"confirmSend": "If you confirm this, any messages you send here within the next 48 hours will be sent to staff without any confirmation.",
-		"noConfirmWarn": "Any messages you send here within the next 48 hours will be sent to staff without any confirmation.",
-		"attachmentsWarn": "Attachments will also be included.",
-		"attachmentsSent": "Attachments sent",
-		"attachmentSent": "Attachment sent",
-		"confirmation": "Are you sure you want to send this message to staff?",
+		"confirmSend": "اذا قمت بتاكيد هذا، اي رسالة يتم ارسالها هنا في غضون 48 ساعة القادمة سيتم ارسالها الى الموظفين دون اي تاكيد.",
+		"noConfirmWarn": "اي رسالة تقوم بارسالها هنا في 48 ساعة القادمة سيتم ارسالها الى الموظفين دون اي تاكيد.",
+		"attachmentsWarn": "كما ستُدرج المرفقات.",
+		"attachmentsSent": "تم إرسال المرفقات",
+		"attachmentSent": "تم إرسال المرفق",
+		"confirmation": "هل انت متاكد من ارسال هذي الرسالة للموظفين؟",
 		"messageSent": "تم إرسال رسالة إلى موظفين السيرفر",
-		"dmCancelled": "This message will not be sent.",
-		"resendInfo": "If you still want to talk to staff, resend it and click the ✅ button to confirm."
+		"dmCancelled": "لن يتم إرسال هذه الرسالة.",
+		"resendInfo": "إذا كنت لا تزال ترغب في التحدث مع الموظفين، قم بإعادة ارسال الرسالة وانقر على زر ✅ للتأكيد."
 	},
 	"error": "حدث خطأ",
 	"errors": {
@@ -18,56 +18,56 @@
 		"falseUser": "لم يتم العثور على هذا المستخدم!",
 		"falseFlag": "تعذر العثور على العلم!",
 		"falseLang": "تعذر العثور على هذه اللغة!",
-		"falseRole": "That role couldn't be found!",
-		"falseUUID": "Couldn't find a player with that UUID!",
+		"falseRole": "تعذر العثور علي الرتبه!",
+		"falseUUID": "تعذر العثور على لاعب بهذا UUID!",
 		"noPlayer": "هذا الاعب لم يدخل هايبكسل ابدا!",
-		"notVerified": "That user hasn't linked their Hypixel account yet!",
+		"notVerified": "هذا المستخدم لم يربط حساب Hypixel حتى الان!",
 		"disabled": "هذا الأمر موقَّف بشكل مؤقت.",
 		"noAccess": "غير مسموح لك تنفيذ هذا الأمر!",
 		"noPermission": "غير مسموح لك استعمال هذا الأمر في هذا الروم!",
 		"apiError": "حدث خطأ ما أثناء الاتصال بالـAPI!",
-		"wrongLink": "Wrong link!"
+		"wrongLink": "الرابط الخطأ!"
 	},
 	"roles": {
-		"noLevel": "You must be at least chat level %%level%% to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
-		"successGive": "Successfully gave you the %%role%% role!",
-		"successTake": "Successfully took the %%role%% role from you!"
+		"noLevel": "يجب ان تكون على الاقل مستوى الدردشة %%level%% حتى تقوم باستلام هذي الرتبة! يمكنك التحقق من مستواك الحالي عن طريق استخدام %%command%% في %%channel%%.",
+		"successGive": "تم إعطائك رتبة %%role%% بنجاح!",
+		"successTake": "تمت ازالة رتبة %%role%% منك!"
 	},
 	"cooldown": "فترة الاستراحة",
-	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
+	"timeLeft": "ستتمكن من استخدام %%command%% مرة اخرى في %%timestamp%%.",
 	"linkCorrectionDesc": "الرجاء تغيير الرابط الخاص بك إلى تنسيق %%format%% في المرة القادمة.",
-	"correctLink": "Here's the correct link:",
-	"wrongStringURL": "The link you sent is a link to the editor and not the string itself!",
-	"example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
-	"reminderLang": "Don't forget to also change your link to the %%format%% format.",
+	"correctLink": "إليك الرابط الصحيح:",
+	"wrongStringURL": "الرابط الذي أرسلته هو رابط إلى المحرر وليس السترينغ نفسه!",
+	"example": "انقر الزر المعروض على الصورة أدناه للحصول على رابط الترجمة الصحيحة. يجب ان يبدو مثل هذا: %%url%%",
+	"reminderLang": "لا تنسى أيضا تغيير الرابط الخاص بك إلى تنسيق %%format%%.",
 	"tip": "نصيحة",
 	"tips": {
-		"ib": "Have you tried the Inhale Banana language? Change your language to it using %%langIb%%!",
-		"translators": "I need translators! Find out how to become a bot translator by executing %%translate%%.",
-		"prefix": "Do you wanna have a cool prefix on your nickname? Execute %%prefix%% in %%bots%% and follow the instructions! Available to all Hypixel translators.",
-		"enen": "Don't forget to change your string links to en-en!",
+		"ib": "هل جربت لغة Inhale Banana من قبل؟ غير لغتك لها عن طريق استخدام %%langIb%%!",
+		"translators": "احتاج مترجمين! إطلع على كيف تصبح مترجم للبوت عن طريق استعمال أمر %%translate%%.",
+		"prefix": "هل تريد أن يكون لديك برفكس رائعة على اسمك المستعار ؟ قم بتشغيل %%prefix%% في %%bots%% واتبع التعليمات! متوفر لجميع مترجمي هايبكسل و Quickplay.",
+		"enen": "الرجاء غير رابطك الى en-en!",
 		"xp": "عندما تدردش تحصل على كمية عشوائية من الإكس بي كل دقيقة, و بذلك سيجعلك هذا تزيد مستواك.",
 		"guide": "هل كت تعرف ان لدينا إرشاد عن كيفية البدء في Crowdin, متوافر لكل الترجمين؟ يمكنك ايجاده في %%gettingStarted%%, يوجد فيه نصائح مفيدة!",
 		"twitter": "هل قمت بعمل فولو لنا على حسابنا في تويتر؟ تفقده [هنا]%%twitter%%!",
 		"rulesInfo": "%%rules%% و %%serverInfo%% لديها جميع المعلومات التي قد تحتاجها عن السيرفر!",
 		"fixTranslation": "وجدت خطأ في ترجمة ما؟ تواصل مع مدقق مطبعي للغتك او اخبر الناس في روم الترجمة.",
 		"pinnedInfo": "هل كنت تعرف ان اغلب الرومات يوجد فيها معلومات هامة مثبته؟ تحتاج ان تلقي لها نظرة في كل مرة تزور واحدة!",
-		"hypixelStats": "You can view information about a specific player on Hypixel by executing %%hypixelstats%%!",
-		"languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute %%languagestats%%!",
-		"rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute %%verify%% to have your roles updated!",
-		"botTranslated": "Did you know our bot is available in multiple languages? Try executing %%langList%% to see a list of all the languages we currently support and you may just find your own!",
-		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
-		"moreTips": "We need more tips! Submit them using %%feedback%%."
+		"hypixelStats": "يمكنك عرض معلومات حول لاعب معين في هايبكسلl عن طريق تنفيذ %%hypixelstats%%!",
+		"languageStats": "هل تعلم أنه يمكنك عرض إحصائيات لأي لغة في جميع مشاريعنا؟ فقط نفذ %%languagestats%%!",
+		"rolesChange": "هل حصلت مؤخرًا على رتب جديدة على Crowdin أو انضممت إلى أحد المشاريع التي ندعمها؟ قم باستخدام %%verify%% لتحديث رتبك!",
+		"botTranslated": "هل تعلم أن بوت الخاص بنا متاح بلغات متعددة؟ حاول تنفيذ %%langList%% لمشاهدة قائمة بجميع اللغات التي ندعمها حاليا وقد تجد للغة الخاص بك!",
+		"botUpdates": "نقوم بنشر كل تحديث رئيسي على البوت أو الأخبار الهامة عنه على %%botUpdates%%، قم بزيارتهم!",
+		"moreTips": "نحتاج المزيد من النصائح! قدمهم بإستعمال %%feedback%%."
 	},
 	"pagination": {
-		"first": "First page",
-		"previous": "Previous page",
-		"next": "Next page",
-		"last": "Last page",
-		"confirm": "Confirm",
-		"cancel": "Cancel",
+		"first": "الصفحة الأولى",
+		"previous": "الصفحة السابقة",
+		"next": "الصفحة التالية",
+		"last": "الصفحة الاخيرة",
+		"confirm": "تأكيد",
+		"cancel": "إلغاء",
 		"page": "الصفحة %%number%%/%%total%%",
-		"notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
+		"notYours": "لا يمكنك التفاعل مع هذه القائمة! قم بتنفيذ %%command%% نفسك للقيام بذلك.",
 		"timeOut": "هذه القائمة قد نفذ وقتها. اذا وددت أن تستعملها مره اخرى، اكتب %%command%%."
 	},
 	"region": {
@@ -75,7 +75,7 @@
 		"timeZone": "Asia/Riyadh"
 	},
 	"numberStrings": {
-		"thousand": "k",
-		"million": "M"
+		"thousand": "ك",
+		"million": "م"
 	}
 }

@@ -1,32 +1,32 @@
 {
-	"moduleName": "Magic 8 ball",
-	"question": "Question",
+	"moduleName": "كرة السحرية 8",
+	"question": "سؤال",
 	"answers": {
 		"positive": [
-			"It is certain.",
-			"It is decidedly so.",
-			"Without a doubt.",
-			"Yes – definitely.",
-			"You may rely on it.",
-			"As I see it, yes.",
-			"Most likely.",
-			"Outlook good.",
-			"Yes",
-			"Signs point to yes."
+			"من المؤكد.",
+			"من المؤكد أن الأمر كذلك.",
+			"بلا شك.",
+			"نعم - بالتأكيد.",
+			"يمكنك الاعتماد عليها.",
+			"كما أراه، نعم.",
+			"على الأرجح.",
+			"توقعات جيدة.",
+			"نعم",
+			"تشير الإشارات إلى نعم."
 		],
 		"inconclusive": [
-			"Reply hazy, try again.",
-			"Ask again later.",
-			"Better not tell you now.",
-			"Cannot predict now.",
-			"Concentrate and ask again."
+			"الرد مشتت حاول مرة أخرى.",
+			"اسأل مرة أخرى لاحقاً.",
+			"الأفضل أن لا أقول لك الآن.",
+			"لا يمكن التنبؤ الآن.",
+			"ركز و إسال مرة أخرى."
 		],
 		"negative": [
-			"Don't count on it.",
-			"My reply is no.",
-			"My sources say no.",
-			"Outlook not so good.",
-			"Very doubtful."
+			"لا تعتمد على ذلك.",
+			"جوابي هو لا.",
+			"مصادري تقول لا.",
+			"توقعاتي ليست على ما يرام.",
+			"مشكوك فيه للغاية."
 		]
 	}
 }
