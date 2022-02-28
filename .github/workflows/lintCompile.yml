@@ -7,7 +7,7 @@ on:
 
 jobs:
     lintCompile:
-        name: Lint
+        name: Compile and lint
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Project
