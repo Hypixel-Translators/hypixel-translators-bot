@@ -1,6 +1,6 @@
 {
-	"moduleName": "Hypixel Verification",
-	"unverified": "You were successfully unverified!",
-	"notUnverified": "Couldn't unverify you!",
-	"whyNotUnverified": "This happened because you haven't verified yourself yet! In order to do so, execute `/hypixelverify <username>`."
+	"moduleName": "التحقق من Hypixel",
+	"unverified": "لقد تم إلغاء التحقق بنجاح!",
+	"notUnverified": "تعذر التحقق منك!",
+	"whyNotUnverified": "حدث هذا لأنك لم تتحقق من نفسك بعد! للقيام بذلك، قم بتنفيذ `/hypixelverify <username>`."
 }
