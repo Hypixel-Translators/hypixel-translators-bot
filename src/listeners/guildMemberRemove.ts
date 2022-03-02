@@ -39,7 +39,7 @@ client.on("guildMemberRemove", async member => {
 				description: `${member} (${member.user.tag}) just left the server. Here's their DB data:\n\n${Formatters.codeBlock(
 					"json",
 					// Dirty fix for getting data that can be pasted into the DB.
-					JSON.stringify(Object.assign(oldData, { _id: { $oid: oldData.value!._id } }), null, 2),
+					JSON.stringify(Object.assign(oldData.value, { _id: { $oid: oldData.value!._id } }), null, 2),
 				)}`,
 				footer: { text: `ID: ${member.id}` },
 				timestamp: Date.now(),
