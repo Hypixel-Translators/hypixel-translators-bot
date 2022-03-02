@@ -14,6 +14,7 @@ const fs = require("node:fs"),
 import { inspect } from "node:util"
 
 import discord from "discord.js"
+import { format } from "prettier"
 import { transpile, getParsedCommandLineOfConfigFile, sys } from "typescript"
 
 import { db as mongoDb } from "../../lib/dbclient"
@@ -40,12 +41,13 @@ const command: Command = {
 			{ channel, client } = interaction,
 			Discord = discord,
 			db = mongoDb,
-			generateTip = randomTip
+			generateTip = randomTip,
+			prettierOptions = { ...require("../../../.prettierrc.json"), printWidth: 55 }
 
 		await interaction.deferReply({ ephemeral: interaction.channelId !== ids.channels.botDev })
 		let evaled,
 			codeToRun = interaction.options.getString("code", true).replaceAll(/[“”]/gim, '"')
-		if (codeToRun.includes("await ")) codeToRun = `(async () => {\n${codeToRun}\n})()`
+		codeToRun = format(codeToRun.includes("await ") ? `(async () => {\n${codeToRun}\n})()` : codeToRun, { ...prettierOptions, parser: "typescript" })
 
 		// This is stupid - https://github.com/microsoft/TypeScript/issues/45856
 		const { options } = getParsedCommandLineOfConfigFile(
@@ -59,7 +61,7 @@ const command: Command = {
 		options.sourceMap = false
 		options.alwaysStrict = false
 
-		const compiledCode = transpile(codeToRun, options)
+		const compiledCode = format(transpile(codeToRun, options), { ...prettierOptions, parser: "babel" })
 		try {
 			evaled = await eval(compiledCode)
 			const inspected = inspect(evaled, { depth: 1, getters: true }),
