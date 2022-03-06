@@ -1,8 +1,8 @@
 {
-	"errorNoPing": "You don't have that language's proofreader role, ",
-	"errorNoPingPr": "so you can't mention it.",
-	"errorNoPingTr": "so you can't mention its translator role.",
-	"errorNoPingAll": "so you can't mention the entire language.",
-	"errorNoPingDisclaimer": "Contact the server owner or administrator if you really need to.",
-	"success": "Message sent successfully!"
+	"errorNoPing": "Anda tidak mempunyai role proofreader bahasa tersebut, ",
+	"errorNoPingPr": "jadi anda tidak boleh menyebutnya.",
+	"errorNoPingTr": "jadi anda tidak boleh menyebut role penterjemahnya.",
+	"errorNoPingAll": "jadi anda tidak boleh menyebut keseluruhan bahasa.",
+	"errorNoPingDisclaimer": "Hubungi pemilik atau admin server jika anda sangat perlukan.",
+	"success": "Mesej berjaya dihantar!"
 }

@@ -1,8 +1,8 @@
 {
-	"moduleName": "Problems and feedback",
-	"bugT": "Viewing and adding issues",
-	"bugD": "To show and make suggestions or bug reports, click on the button below!",
-	"urgentT": "Is it urgent?",
-	"urgentD": "If you're trying to report a fatal bug or the bot has been down for a long time without a notice, please mention a staff member in a public channel, explaining the issue.",
-	"link": "Link"
+	"moduleName": "Masalah dan maklum balas",
+	"bugT": "Masalah melihat dan menambah",
+	"bugD": "Untuk tunjuk dan buat cadangan atau laporan bug, klik pada butang di bawah!",
+	"urgentT": "Adakah ia sangat penting?",
+	"urgentD": "Jika anda ingin melaporkan bug yang amat berbahaya atau bot telah dimatikan pada masa yang sangat lama tanpa notis, tolong panggil ahli kakitangan di saluran awam dan jelaskan masalah tersebut.",
+	"link": "Pautan"
 }

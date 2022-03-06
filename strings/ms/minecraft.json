@@ -1,18 +1,18 @@
 {
-	"moduleName": "Minecraft Statistics",
+	"moduleName": "Statistik Minecraft",
 	"history": {
-		"firstName": "First name",
-		"nameHistoryFor": "Name history for %%username%%",
-		"userChangedName": "%%username%% has changed their name %%number%% times.",
-		"youChangedName": "You have changed your name %%number%% times.",
-		"userChangedName1": "%%username%% has changed their name 1 time.",
-		"youChangedName1": "You have changed your name 1 time.",
-		"userNeverChanged": "%%username%% has never changed their name.",
-		"youNeverChanged": "You have never changed your name."
+		"firstName": "Nama Pertama",
+		"nameHistoryFor": "Sejarah nama untuk %%username%%",
+		"userChangedName": "%%username%% pernah mengubah namanya %%number%% kali.",
+		"youChangedName": "Anda pernah mengubah nama anda %%number%% kali.",
+		"userChangedName1": "%%username%% pernah mengubah namanya 1 kali.",
+		"youChangedName1": "Anda pernah mengubah nama anda 1 kali.",
+		"userNeverChanged": "%%username%% tak pernah mengubah namanya.",
+		"youNeverChanged": "Anda tak pernah mengubah nama anda."
 	},
 	"skin": {
-		"yourSkin": "Here's your skin!",
-		"userSkin": "Here's %%user%%'s skin!",
-		"isLinked": "This player is linked to %%user%%"
+		"yourSkin": "Ini kulit anda!",
+		"userSkin": "Ini kulit %%user%%!",
+		"isLinked": "Pemain ini bersambung ke %%user%%"
 	}
 }
