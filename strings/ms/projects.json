@@ -1,8 +1,8 @@
 {
-	"moduleName": "Translation Projects",
-	"allProjects": "Here are all the projects we currently support on the server!",
-	"description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
-	"projectInfo": "You can find the link to the %%project%% project [here](%%link%%). For more information, execute %%command%%.",
-	"alreadyJoined": "You've already joined this project!",
-	"notJoined": "You haven't joined this project yet!"
+	"moduleName": "Projek Penterjemahan",
+	"allProjects": "Di sini terdapat semua projek yang kini kami sokong pada server!",
+	"description": "Jika anda sudah ada dekat beberapa projek ini, tetapi tidak ada role anda lagi, jalankan `/verify [profileURL]` untuk mendapatkannya!",
+	"projectInfo": "Anda boleh menjumpai pautan ke projek %%project%% [sini](%%link%%). Untuk maklumat lanjut, laksanakan %%command%%.",
+	"alreadyJoined": "Anda sudah menyertai projek ini!",
+	"notJoined": "Anda belum menyertai projek ini lagi!"
 }
