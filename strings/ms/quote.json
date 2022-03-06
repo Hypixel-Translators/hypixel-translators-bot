@@ -1,6 +1,6 @@
 {
-	"moduleName": "Quote",
-	"msgUrl": "Message URL",
-	"invalidArg": "Invalid argument!",
-	"indexArg": "A quote with index %%arg%% doesn't exist! Please provide a number between 1 and %%max%%."
+	"moduleName": "Petikan",
+	"msgUrl": "URL Mesej",
+	"invalidArg": "Hujahan tidak sah!",
+	"indexArg": "Petikan dengan indeks %%arg%% tidak ada! Sila berikan nombor antara 1 dan %%max%%."
 }
