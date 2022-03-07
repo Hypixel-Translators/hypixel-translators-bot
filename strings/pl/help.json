@@ -9,9 +9,9 @@
 	"commandInfoFor": "Szczegóły polecenia dla ",
 	"staffOnly": "To polecenie jest dostępne tylko dla administracji, a zatem jej szczegóły są ukryte.\nJeżeli uważasz że to błąd, skontaktuj się z członkiem administracji.",
 	"inDev": "To polecenie jest oebecnie w fazie rozwoju i nie jest jeszcze dostępne!",
-	"seconds": " sekund",
-	"second": "sekunda",
-	"minutes": "minuty",
+	"seconds": "sekund",
+	"second": "sek.",
+	"minutes": "min",
 	"cooldownField": "Czas odnawiania",
 	"8ball": {
 		"description": "Magiczna kula, która odpowie na wszystkie twoje pytania."
@@ -44,10 +44,10 @@
 		"description": "Oznacza rolę językową z opcjonalną wiadomością."
 	},
 	"minecraft": {
-		"description": "Wyszukuje historię nazw użytkownika lub skina gracza Minecraft. Komenda jest kompatybilna z komendą /hypixelverify i pozwala na wyszukiwanie informacji o konkretnym użytkowniku, dopóki są oni zweryfikowanii. Parametr `user` zawsze będzie miał priorytet nad parametrem `username` i oba są opcjonalne, jeśli jesteś zweryfikowany/a, w przeciwnym razie wymagana jest co najmniej jedna opcja."
+		"description": "Wyszukuje historię nazw użytkownika lub skina gracza Minecraft. Komenda jest kompatybilna z komendą /hypixelverify i pozwala na wyszukiwanie informacji o konkretnym użytkowniku, dopóki są oni zweryfikowanii. Parametr `user` zawsze będzie miał priorytet nad parametrem `username` i oba są opcjonalne, jeśli jesteś zweryfikowany(-a), w przeciwnym razie wymagana jest co najmniej jedna opcja."
 	},
 	"ping": {
-		"description": "Podaje informacje o pingu bota."
+		"description": "Podaje opóźnienie bota."
 	},
 	"prefix": {
 		"description": "Daje ci przedrostek odpowiedni dla twojego języka (lub języków). Aby go otrzymać, wpisz `/prefix` i podaj w parametrze `flags` kod flagi twojego kraju albo jej nazwę. Możesz dodać tyle flag, ile chcesz; pamiętaj, by odzielić je spacjami."

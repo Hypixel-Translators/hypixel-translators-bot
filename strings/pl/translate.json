@@ -13,7 +13,7 @@
 	"clickLanguage": "Następnie kliknij na język, na który chciałbyś tłumaczyć",
 	"requestJoin": "Aby dołączyć do tego języka, naciśnij przycisk „Join” i napisz krótko, dlaczego chciałbyś dołączyć do projektu.",
 	"lastThing": "Jeszcze jedna sprawa",
-	"requestInfo": "Pamiętaj, by zawrzeć w podaniu swój znacznik liczbowy (%%tag%%) lub swoje ID (%%id%%) na Discordzie.\n**Jeżeli nie podasz przynajmniej jednej z tych rzeczy, zostaniesz odrzucony/a!**",
+	"requestInfo": "Pamiętaj, by zawrzeć w podaniu swój znacznik liczbowy (%%tag%%) lub swoje ID (%%id%%) na Discordzie.\n**Jeżeli nie podasz przynajmniej jednej z tych rzeczy, zostaniesz odrzucony(-a)!**",
 	"noLanguage": "Nie możesz znaleźć swojego języka?",
 	"langRequest": "Możliwe, że jeszcze nie obsługujemy twojego języka. W takim wypadku skontaktuj się z członkiem administracji."
 }
