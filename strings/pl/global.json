@@ -34,7 +34,7 @@
 		"successTake": "Pomyślnie zabrano Ci rolę %%role%%!"
 	},
 	"cooldown": "Czas odnawiania",
-	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
+	"timeLeft": "Użycie %%command%% będzie ponownie możliwe %%timestamp%%.",
 	"linkCorrectionDesc": "Następnym razem zmień odnośnik na format %%format%%.",
 	"correctLink": "Oto prawidłowy odnośnik:",
 	"wrongStringURL": "Wysłany odnośnik jest odnośnikiem do edytora, a nie do samego ciągu!",
@@ -42,15 +42,15 @@
 	"reminderLang": "Nie zapomnij również zmienić odnośnika na format %%format%%.",
 	"tip": "Wskazówka",
 	"tips": {
-		"ib": "Czy poznałeś/aś już język Inhale Banana? Wypróbuj go, używając polecenia %%langIb%%!",
+		"ib": "Czy poznałeś(-aś) już język Inhale Banana? Wypróbuj go, używając polecenia %%langIb%%!",
 		"translators": "Potrzeba tłumaczy! Dowiedz się, jak wziąć udział w tłumaczeniu bota, wykonując polecenie %%translate%%.",
-		"prefix": "Czy chcesz mieć fajny prefiks przed swoim nickiem? Wpisz %%prefix%% na %%bots%% i postępuj zgodnie z instrukcjami! Dostępne dla wszystkich tłumaczy Hypixel.",
+		"prefix": "Czy chcesz mieć fajny przedrostek przed swoim pseudonimem? Wpisz %%prefix%% na %%bots%% i postępuj zgodnie z instrukcjami! Dostępne dla wszystkich tłumaczy Hypixela.",
 		"enen": "Pamiętaj, aby zmienić odnośniki na en-en!",
 		"xp": "Otrzymujesz losową liczbę PD za każdą minutę rozmowy, dzięki czemu z czasem osiągniesz wyższy poziom.",
-		"guide": "Czy wiedziałeś/aś, że mamy poradnik jak zacząć z Crowdin, dostępny dla wszystkich tłumaczy? Sprawdź go na %%gettingStarted%%, zawiera kilka przydatnych wskazówek!",
-		"twitter": "Czy zaobserwowałeś/aś już nasze konto na Twitterze? Sprawdź je na %%twitter%%!",
+		"guide": "Czy wiedziałeś(-aś), że mamy poradnik jak zacząć z Crowdin, dostępny dla wszystkich tłumaczy? Sprawdź go na %%gettingStarted%%, zawiera kilka przydatnych wskazówek!",
+		"twitter": "Czy śledzisz już nasze konto na Twitterze? Zachęcamy do jego odwiedzenia %%twitter%%!",
 		"rulesInfo": "Na kanałach %%rules%% i %%serverInfo%% znajdują się wszystkie potrzebne informacje o tym serwerze!",
-		"fixTranslation": "Znalazłeś/aś błąd w tłumaczeniu? Skontaktuj się z korektorem swojego języka lub poinformuj o tym innych na kanale tłumaczeniowym.",
+		"fixTranslation": "Znalazłeś(-aś) błąd w tłumaczeniu? Skontaktuj się z korektorem swojego języka lub poinformuj o tym innych na kanale tłumaczeniowym.",
 		"pinnedInfo": "Czy wiesz, że na większości kanałów najważniejsze informacje są przypięte? Powinieneś/powinnaś je sprawdzać za każdym razem, gdy odwiedzasz dany kanał!",
 		"hypixelStats": "Możesz sprawdzić statystyki gracza z Hypixela wpisując %%hypixelstats%%!",
 		"languageStats": "Czy wiesz, że możesz podejrzeć statystyki dowolnego języka we wszystkich naszych projektach? Wystarczy wykonać polecenie %%languagestats%%!",
@@ -75,7 +75,7 @@
 		"timeZone": "Europe/Warsaw"
 	},
 	"numberStrings": {
-		"thousand": " tys",
+		"thousand": " tys.",
 		"million": " mln"
 	}
 }
