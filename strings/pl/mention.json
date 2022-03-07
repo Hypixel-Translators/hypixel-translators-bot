@@ -4,5 +4,5 @@
 	"errorNoPingTr": "więc nie możesz oznaczyć roli tłumacza.",
 	"errorNoPingAll": "więc nie możesz oznaczyć wszystkich ról tegoż języka.",
 	"errorNoPingDisclaimer": "Jeśli jest to konieczne, skontaktuj się z właścicielem serwera lub administratorem.",
-	"success": "Message sent successfully!"
+	"success": "Wysłano wiadomość!"
 }
