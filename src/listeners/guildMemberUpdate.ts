@@ -20,8 +20,7 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 				color: colors.error,
 				author: { name: "Received a message from staff" },
 				description:
-					// TODO reference rule 4
-					"Hey there!\nWe noticed you changed your nickname to include a new prefix, however, prefixes must include country flags or language codes only, which yours doesn't.\nWe've reset your nickname back to the old one. If you have any questions or believe this is a bug, please contact the staff team.",
+					"Hey there!\nWe noticed you changed your nickname to include a new prefix, however it didn't comply with our rule about nicknames (rule 4).\nWe've reset your nickname back to the old one. If you have any questions or believe this is a bug, please contact the staff team.",
 			})
 			await newMember.setNickname(oldMember.nickname)
 			await newMember.send({ embeds: [embed] })
@@ -33,8 +32,7 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 				color: colors.error,
 				author: { name: "Received a message from staff" },
 				description:
-					// TODO reference rule 4
-					"Hey there!\nWe noticed your nickname included a prefix but didn't include country flags nor language codes.\nDue to this we've reset your nickname entirely. If you have any questions or believe this is a bug, please contact the staff team.",
+					"Hey there!\nWe noticed your nickname included a prefix but didn't include country flags nor allowed language codes (rule 4).\nDue to this, we've reset your nickname entirely. If you have any questions or believe this is a bug, please contact the staff team.",
 			})
 			await newMember.setNickname(null)
 			await newMember.send({ embeds: [embed] })
