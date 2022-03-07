@@ -4,8 +4,6 @@ updates:
       directory: "/"
       schedule:
           interval: daily
-          time: "04:00"
-          timezone: Europe/Lisbon
       open-pull-requests-limit: 10
       assignees:
           - imrodry
