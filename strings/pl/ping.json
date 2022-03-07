@@ -1,6 +1,6 @@
 {
 	"moduleName": "Ping",
 	"pong": "%%pingEmote%% Pong!",
-	"message": "Mój ping wynosi %%ping%%ms.",
-	"onlineSince": "Dostępny/a od %%timestamp%% (%%timestampRelative%%)"
+	"message": "Moje opóźnienie wynosi %%ping%% ms.",
+	"onlineSince": "Dostępny(-a) od %%timestamp%% (%%timestampRelative%%)"
 }
