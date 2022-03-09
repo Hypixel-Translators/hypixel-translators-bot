@@ -530,7 +530,7 @@ const command: Command = {
 							embed.setColor(colors.error).setDescription("Warning not sent because the user had DMs off")
 							await buttonInteraction.editReply({ embeds: [embed], components: [] })
 						})
-					awaitBan(punishmentDb)
+					if (punishment.duration) awaitBan(punishmentDb)
 				} else if (buttonInteraction.customId === "cancel") {
 					const embed = new MessageEmbed({
 						color: colors.success,
