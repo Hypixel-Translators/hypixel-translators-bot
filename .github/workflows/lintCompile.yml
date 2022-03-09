@@ -1,8 +1,8 @@
 name: Compile and lint
 on:
     push:
-        branches-ignore:
-            - "translations"
+        branches:
+            - "main"
     pull_request:
 
 jobs:
