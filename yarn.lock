@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@crowdin/crowdin-api-client@^1.14.1":
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/@crowdin/crowdin-api-client/-/crowdin-api-client-1.14.1.tgz#bd54c089a6f5bf6f0e301768713091d07a53b623"
-  integrity sha512-/l5JKA1R/z3KKMGynIL3qGe+1yk5vdyLrrF04t3k8Xer5OrHJ3q1HnHmlBpTZQgWwYIyngGOkyHRo2PVlX4B/w==
+"@crowdin/crowdin-api-client@^1.15.0":
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/@crowdin/crowdin-api-client/-/crowdin-api-client-1.15.0.tgz#e38eeef43f5e8c1f3918191a271252e7045807d5"
+  integrity sha512-qoWJZSKp0e3bmGbuBIm7H5nvZL1bGTqXkQlDvhuioGwtDQvqodgQGMqLtNGWd1CQtYwUcGE15Fs+FHMuSgRIlw==
   dependencies:
     axios "0.21.3"
 
@@ -1847,7 +1847,7 @@ slash@^3.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
-smart-buffer@^4.1.0:
+smart-buffer@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-4.2.0.tgz#6e1d71fa4f18c05f7d0ff216dd16a481d0e8d9ae"
   integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
