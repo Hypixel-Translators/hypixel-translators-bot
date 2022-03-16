@@ -325,6 +325,14 @@ async function deleteQuote(interaction: ChatInputCommandInteraction, collection:
 			),
 		)
 		await collection.updateMany({ id: { $gt: quoteId } }, { $inc: { id: -1 } })
+		if (result.value.url) {
+			const urlSplit = result.value.quote.split("/")
+			// Remove all reactions from the message
+			await (interaction.client.channels.cache.get(urlSplit.at(-2)!) as TextChannel).messages.cache
+				.get(urlSplit.at(-1)!)
+				?.reactions.cache.get("⭐")
+				?.remove()
+		}
 		const embed = new MessageEmbed({
 			color: colors.success,
 			author: { name: "Quote" },
