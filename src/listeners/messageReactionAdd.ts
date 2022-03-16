@@ -117,38 +117,41 @@ client.on("messageReactionAdd", async (reaction, user) => {
 		// Starboard system
 		reaction.emoji.name === "⭐" &&
 		channel.permissionsFor(ids.roles.verified)!.has(["SEND_MESSAGES", "VIEW_CHANNEL"]) &&
-		reaction.count! >= 4 &&
 		!reaction.message.author!.bot &&
 		reaction.message.content
 	) {
-		const collection = db.collection<Quote>("quotes"),
-			urlQuote = await collection.findOne({ url: reaction.message.url })
-		if (!urlQuote) {
-			const id = (await collection.estimatedDocumentCount()) + 1,
-				firstAttachment = reaction.message.attachments.first()?.url
+		if (user.id === reaction.message.author.id) await reaction.users.remove(user.id)
+		if (reaction.count! >= 4) {
+			const collection = db.collection<Quote>("quotes"),
+				urlQuote = await collection.findOne({ url: reaction.message.url })
+			if (!urlQuote) {
+				const id = (await collection.estimatedDocumentCount()) + 1,
+					firstAttachment = reaction.message.attachments.first()?.url
 
-			if (firstAttachment) {
-				await collection.insertOne({
-					id: id,
-					quote: reaction.message.content,
-					author: [reaction.message.author.id],
-					url: reaction.message.url,
-					imageURL: firstAttachment,
+				if (firstAttachment) {
+					await collection.insertOne({
+						id: id,
+						quote: reaction.message.content,
+						author: [reaction.message.author.id],
+						url: reaction.message.url,
+						imageURL: firstAttachment,
+					})
+				} else
+					await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url })
+				const embed = new MessageEmbed({
+					color: colors.success,
+					author: { name: "Starboard" },
+					title: `The following quote reached ${reaction.count} ⭐ reactions and was added!`,
+					description: reaction.message.content,
+					fields: [
+						{ name: "User", value: `${reaction.message.author}` },
+						{ name: "Quote number", value: `${id}` },
+						{ name: "URL", value: reaction.message.url },
+					],
 				})
-			} else await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url })
-			const embed = new MessageEmbed({
-				color: colors.success,
-				author: { name: "Starboard" },
-				title: `The following quote reached ${reaction.count} ⭐ reactions and was added!`,
-				description: reaction.message.content,
-				fields: [
-					{ name: "User", value: `${reaction.message.author}` },
-					{ name: "Quote number", value: `${id}` },
-					{ name: "URL", value: reaction.message.url },
-				],
-			})
-			if (firstAttachment) embed.setImage(firstAttachment)
-			await reaction.message.channel.send({ embeds: [embed] })
+				if (firstAttachment) embed.setImage(firstAttachment)
+				await reaction.message.channel.send({ embeds: [embed] })
+			}
 		}
 	}
 })
