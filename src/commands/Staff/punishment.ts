@@ -46,7 +46,7 @@ const command: Command = {
 					required: true,
 				},
 				{
-					type: "INTEGER",
+					type: "NUMBER",
 					name: "duration",
 					description: "The duration of the punishment",
 					required: false,
@@ -128,7 +128,7 @@ const command: Command = {
 			user = interaction.options.getUser("user", true),
 			memberInput = interaction.options.getMember("user", false),
 			points = interaction.options.getInteger("points", false) as PunishmentPoints | null,
-			duration = interaction.options.getInteger("duration", false),
+			duration = interaction.options.getNumber("duration", false),
 			punishment = await calculatePunishment(user, points ?? 1),
 			buttons = new MessageActionRow({
 				components: [
