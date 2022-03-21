@@ -128,7 +128,7 @@ const command: Command = {
 			user = interaction.options.getUser("user", true),
 			memberInput = interaction.options.getMember("user", false),
 			points = interaction.options.getInteger("points", false) as PunishmentPoints | null,
-			duration = interaction.options.getNumber("duration", false),
+			duration = interaction.options.getInteger("duration", false),
 			punishment = await calculatePunishment(user, points ?? 1),
 			buttons = new MessageActionRow({
 				components: [
