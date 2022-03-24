@@ -1,10 +1,10 @@
 import axios from "axios"
-import { GuildMember, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { GuildMember, Message, MessageEmbed } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { fetchSettings, generateTip, getUUID, transformDiscordLocale, updateButtonColors } from "../../lib/util"
+import { createButtonControls, fetchSettings, generateTip, getButtonControlLocalizations, getUUID, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -84,41 +84,13 @@ const command: Command = {
 				let p = 0
 				const pages: NameHistory[][] = []
 				while (p < nameHistory.length) pages.push(nameHistory.slice(p, (p += 24))) // Max number of fields divisible by 3
-
+				const options = getButtonControlLocalizations(getString)
 				if (pages.length === 1) await interaction.editReply({ embeds: [fetchPage(0)] })
 				else {
-					let controlButtons = new MessageActionRow({
-							components: [
-								new MessageButton({
-									style: "SUCCESS",
-									customId: "first",
-									emoji: "⏮️",
-									label: getString("pagination.first", { file: "global" }),
-								}),
-								new MessageButton({
-									style: "SUCCESS",
-									customId: "previous",
-									emoji: "◀️",
-									label: getString("pagination.previous", { file: "global" }),
-								}),
-								new MessageButton({
-									style: "SUCCESS",
-									customId: "next",
-									emoji: "▶️",
-									label: getString("pagination.next", { file: "global" }),
-								}),
-								new MessageButton({
-									style: "SUCCESS",
-									customId: "last",
-									emoji: "⏭️",
-									label: getString("pagination.last", { file: "global" }),
-								}),
-							],
-						}),
+					let controlButtons = createButtonControls(0, pages, options),
 						page = 0,
 						pageEmbed = fetchPage(page)
 
-					controlButtons = updateButtonColors(controlButtons, page, pages)
 					const msg = (await interaction.editReply({ embeds: [pageEmbed], components: [controlButtons] })) as Message,
 						collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
 
@@ -142,7 +114,7 @@ const command: Command = {
 							page++
 							if (page > pages.length - 1) page = pages.length - 1
 						}
-						controlButtons = updateButtonColors(controlButtons, page, pages)
+						controlButtons = createButtonControls(page, pages, options)
 						pageEmbed = fetchPage(page)
 						await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
 					})

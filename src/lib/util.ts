@@ -292,20 +292,60 @@ export function transformDiscordLocale(discordLocale: string): string {
 	else return "en"
 }
 
-export function updateButtonColors(row: MessageActionRow, page: number, pages: unknown[]) {
-	if (page === 0) {
-		row.components.forEach(button => {
-			if (button.customId === "first" || button.customId === "previous") (button as MessageButton).setStyle("SECONDARY").setDisabled(true)
-			else (button as MessageButton).setStyle("SUCCESS").setDisabled(false)
-		})
-	} else if (page === pages.length - 1) {
-		row.components.forEach(button => {
-			if (button.customId === "last" || button.customId === "next") (button as MessageButton).setStyle("SECONDARY").setDisabled(true)
-			else (button as MessageButton).setStyle("SUCCESS").setDisabled(false)
-		})
-	} else row.components.forEach(button => (button as MessageButton).setStyle("SUCCESS").setDisabled(false))
+export function getButtonControlLocalizations(func: GetStringFunction) {
+	return {
+		firstLabel: func("pagination.first", { file: "global" }),
+		previousLabel: func("pagination.previous", { file: "global" }),
+		nextLabel: func("pagination.next", { file: "global" }),
+		lastLabel: func("pagination.last", { file: "global" }),
+	}
+}
 
-	return row
+export function createButtonControls(
+	pageIndex: number,
+	pages: unknown[],
+	options: { firstLabel: string; nextLabel: string; previousLabel: string; lastLabel: string } = {
+		firstLabel: "First Page",
+		lastLabel: "Last Page",
+		nextLabel: "Next Page",
+		previousLabel: "Previous Page",
+	},
+) {
+	const isLast = pageIndex === pages.length - 1,
+		disabledStyle = (disabled: boolean) => (disabled ? "SECONDARY" : "SUCCESS"),
+		isFirst = !isLast
+	return new MessageActionRow({
+		components: [
+			new MessageButton({
+				style: disabledStyle(isFirst),
+				emoji: "⏮️",
+				customId: "first",
+				label: `First ${options.firstLabel}`,
+				disabled: isFirst,
+			}),
+			new MessageButton({
+				style: disabledStyle(isFirst),
+				emoji: "◀️",
+				customId: `previous ${options.previousLabel}`,
+				label: "Previous log",
+				disabled: isFirst,
+			}),
+			new MessageButton({
+				style: disabledStyle(isLast),
+				emoji: "▶️",
+				customId: "next",
+				label: `${options.nextLabel}`,
+				disabled: isLast,
+			}),
+			new MessageButton({
+				style: disabledStyle(isLast),
+				emoji: "⏭️",
+				customId: "last",
+				label: `${options.nextLabel}`,
+				disabled: isLast,
+			}),
+		],
+	})
 }
 
 export function updateModlogFields(embed: MessageEmbed, modlog: PunishmentLog, modlogs?: PunishmentLog[]) {
