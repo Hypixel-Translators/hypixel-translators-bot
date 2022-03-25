@@ -55,7 +55,7 @@ const command: Command = {
 			})
 			return await interaction.reply({ embeds: [embed] })
 		} else {
-			let controlButtons = createButtonControls(page, pages, { localizations: getString }),
+			let controlButtons = createButtonControls(page, pages, { getString }),
 				pageEmbed = fetchPage(page, pages, getString, interaction)
 
 			const msg = (await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true })) as Message,
@@ -82,7 +82,7 @@ const command: Command = {
 					if (page > pages.length - 1) page = pages.length - 1
 				}
 				pageEmbed = fetchPage(page, pages, getString, interaction)
-				controlButtons = createButtonControls(page, pages, { localizations: getString })
+				controlButtons = createButtonControls(page, pages, { getString })
 				await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
 			})
 

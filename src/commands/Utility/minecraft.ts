@@ -86,7 +86,7 @@ const command: Command = {
 				while (p < nameHistory.length) pages.push(nameHistory.slice(p, (p += 24))) // Max number of fields divisible by 3
 				if (pages.length === 1) await interaction.editReply({ embeds: [fetchPage(0)] })
 				else {
-					let controlButtons = createButtonControls(0, pages, { localizations: getString }),
+					let controlButtons = createButtonControls(0, pages, { getString }),
 						page = 0,
 						pageEmbed = fetchPage(page)
 
@@ -113,7 +113,7 @@ const command: Command = {
 							page++
 							if (page > pages.length - 1) page = pages.length - 1
 						}
-						controlButtons = createButtonControls(page, pages, { localizations: getString })
+						controlButtons = createButtonControls(page, pages, { getString })
 						pageEmbed = fetchPage(page)
 						await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
 					})

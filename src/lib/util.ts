@@ -295,11 +295,11 @@ export function transformDiscordLocale(discordLocale: string): string {
 export function createButtonControls(
 	pageIndex: number,
 	pages: unknown[],
-	options: { localizations?: GetStringFunction; itemName?: string } = { itemName: "page" },
+	options: { getString?: GetStringFunction; itemName?: string } = { itemName: "page" },
 ) {
-	const isLast = pageIndex === pages.length - 1,
-		disabledStyle = (disabled: boolean) => (disabled ? "SECONDARY" : "SUCCESS"),
-		isFirst = pageIndex === 0
+	const isFirst = pageIndex === 0,
+		isLast = pageIndex === pages.length - 1,
+		disabledStyle = (disabled: boolean) => (disabled ? "SECONDARY" : "SUCCESS")
 
 	return new MessageActionRow({
 		components: [
@@ -307,28 +307,28 @@ export function createButtonControls(
 				style: disabledStyle(isFirst),
 				emoji: "⏮️",
 				customId: "first",
-				label: options.localizations ? options.localizations("pagination.first") : `First ${options.itemName}`,
+				label: options.getString?.("pagination.first") ?? `First ${options.itemName}`,
 				disabled: isFirst,
 			}),
 			new MessageButton({
 				style: disabledStyle(isFirst),
 				emoji: "◀️",
 				customId: "previous",
-				label: options.localizations?.("pagination.previous") ?? `Previous ${options.itemName}`,
+				label: options.getString?.("pagination.previous") ?? `Previous ${options.itemName}`,
 				disabled: isFirst,
 			}),
 			new MessageButton({
 				style: disabledStyle(isLast),
 				emoji: "▶️",
 				customId: "next",
-				label: options.localizations ? options.localizations("pagination.next") : `Next ${options.itemName}`,
+				label: options.getString?.("pagination.next") ?? `Next ${options.itemName}`,
 				disabled: isLast,
 			}),
 			new MessageButton({
 				style: disabledStyle(isLast),
 				emoji: "⏭️",
 				customId: "last",
-				label: options.localizations ? options.localizations("pagination.last") : `Last ${options.itemName}`,
+				label: options.getString?.("pagination.last") ?? `Last ${options.itemName}`,
 				disabled: isLast,
 			}),
 		],
