@@ -313,8 +313,8 @@ export function createButtonControls(
 			new MessageButton({
 				style: disabledStyle(isFirst),
 				emoji: "◀️",
-				customId: options.localizations ? options.localizations("pagination.first") : `Last ${options.itemName}`,
-				label: "Previous log",
+				customId: "previous",
+				label: options.localizations?.("pagination.previous") ?? `Previous ${options.itemName}`,
 				disabled: isFirst,
 			}),
 			new MessageButton({
