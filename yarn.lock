@@ -727,10 +727,10 @@ eslint-plugin-import@^2.25.3:
     resolve "^1.20.0"
     tsconfig-paths "^3.12.0"
 
-eslint-plugin-no-one-time-vars@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-no-one-time-vars/-/eslint-plugin-no-one-time-vars-2.2.0.tgz#e86f107b0696dab62b8801e06e02725f15d98dae"
-  integrity sha512-wV0L0J0b0mMzoAP74+sWoL8QZC5LEAzzvm73khuWADXar9HrjU/Ja27K6tXevxJvRurIeZswtV7Or4Y4u9Vddw==
+eslint-plugin-no-one-time-vars@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-no-one-time-vars/-/eslint-plugin-no-one-time-vars-2.2.2.tgz#66f46e995353b4f5894b724b9b093590e81407b0"
+  integrity sha512-bgQKyB8xk/3mmwihBrKJQpA1t1nEmCT8bk/Btu7UW9RQCozaBifnw+Us7ggsHqGYQ4gmTuDzFf2U1avXDgANwA==
   dependencies:
     requireindex "^1.2.0"
 
