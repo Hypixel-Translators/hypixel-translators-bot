@@ -292,41 +292,28 @@ export function transformDiscordLocale(discordLocale: string): string {
 	else return "en"
 }
 
-export function getButtonControlLocalizations(func: GetStringFunction) {
-	return {
-		firstLabel: func("pagination.first", { file: "global" }),
-		previousLabel: func("pagination.previous", { file: "global" }),
-		nextLabel: func("pagination.next", { file: "global" }),
-		lastLabel: func("pagination.last", { file: "global" }),
-	}
-}
-
 export function createButtonControls(
 	pageIndex: number,
 	pages: unknown[],
-	options: { firstLabel: string; nextLabel: string; previousLabel: string; lastLabel: string } = {
-		firstLabel: "First Page",
-		lastLabel: "Last Page",
-		nextLabel: "Next Page",
-		previousLabel: "Previous Page",
-	},
+	options: { localizations?: GetStringFunction; itemName?: string } = { itemName: "page" },
 ) {
 	const isLast = pageIndex === pages.length - 1,
 		disabledStyle = (disabled: boolean) => (disabled ? "SECONDARY" : "SUCCESS"),
-		isFirst = !isLast
+		isFirst = pageIndex === 0
+
 	return new MessageActionRow({
 		components: [
 			new MessageButton({
 				style: disabledStyle(isFirst),
 				emoji: "⏮️",
 				customId: "first",
-				label: `First ${options.firstLabel}`,
+				label: options.localizations ? options.localizations("pagination.first") : `First ${options.itemName}`,
 				disabled: isFirst,
 			}),
 			new MessageButton({
 				style: disabledStyle(isFirst),
 				emoji: "◀️",
-				customId: `previous ${options.previousLabel}`,
+				customId: options.localizations ? options.localizations("pagination.first") : `Last ${options.itemName}`,
 				label: "Previous log",
 				disabled: isFirst,
 			}),
@@ -334,14 +321,14 @@ export function createButtonControls(
 				style: disabledStyle(isLast),
 				emoji: "▶️",
 				customId: "next",
-				label: `${options.nextLabel}`,
+				label: options.localizations ? options.localizations("pagination.next") : `Next ${options.itemName}`,
 				disabled: isLast,
 			}),
 			new MessageButton({
 				style: disabledStyle(isLast),
 				emoji: "⏭️",
 				customId: "last",
-				label: `${options.nextLabel}`,
+				label: options.localizations ? options.localizations("pagination.last") : `Last ${options.itemName}`,
 				disabled: isLast,
 			}),
 		],

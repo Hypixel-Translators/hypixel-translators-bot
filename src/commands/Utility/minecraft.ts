@@ -4,7 +4,7 @@ import { GuildMember, Message, MessageEmbed } from "discord.js"
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { createButtonControls, fetchSettings, generateTip, getButtonControlLocalizations, getUUID, transformDiscordLocale } from "../../lib/util"
+import { createButtonControls, fetchSettings, generateTip, getUUID, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -84,10 +84,9 @@ const command: Command = {
 				let p = 0
 				const pages: NameHistory[][] = []
 				while (p < nameHistory.length) pages.push(nameHistory.slice(p, (p += 24))) // Max number of fields divisible by 3
-				const options = getButtonControlLocalizations(getString)
 				if (pages.length === 1) await interaction.editReply({ embeds: [fetchPage(0)] })
 				else {
-					let controlButtons = createButtonControls(0, pages, options),
+					let controlButtons = createButtonControls(0, pages, { localizations: getString }),
 						page = 0,
 						pageEmbed = fetchPage(page)
 
@@ -114,7 +113,7 @@ const command: Command = {
 							page++
 							if (page > pages.length - 1) page = pages.length - 1
 						}
-						controlButtons = createButtonControls(page, pages, options)
+						controlButtons = createButtonControls(page, pages, { localizations: getString })
 						pageEmbed = fetchPage(page)
 						await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
 					})

@@ -3,7 +3,7 @@ import { ChatInputCommandInteraction, GuildMember, Message, MessageEmbed } from 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { createButtonControls, generateTip, getButtonControlLocalizations, parseToNumberString, transformDiscordLocale } from "../../lib/util"
+import { createButtonControls, generateTip, parseToNumberString, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -55,8 +55,7 @@ const command: Command = {
 			})
 			return await interaction.reply({ embeds: [embed] })
 		} else {
-			const options = getButtonControlLocalizations(getString)
-			let controlButtons = createButtonControls(page, pages, options),
+			let controlButtons = createButtonControls(page, pages, { localizations: getString }),
 				pageEmbed = fetchPage(page, pages, getString, interaction)
 
 			const msg = (await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true })) as Message,
@@ -83,7 +82,7 @@ const command: Command = {
 					if (page > pages.length - 1) page = pages.length - 1
 				}
 				pageEmbed = fetchPage(page, pages, getString, interaction)
-				controlButtons = createButtonControls(page, pages, options)
+				controlButtons = createButtonControls(page, pages, { localizations: getString })
 				await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
 			})
 
