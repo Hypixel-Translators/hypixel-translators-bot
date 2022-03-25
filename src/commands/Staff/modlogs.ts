@@ -1,8 +1,8 @@
-import { MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { MessageEmbed } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { generateTip, PunishmentLog, updateButtonColors, updateModlogFields } from "../../lib/util"
+import { createButtonControls, generateTip, PunishmentLog, updateModlogFields } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
 
@@ -47,6 +47,7 @@ const command: Command = {
 			updateModlogFields(embed, modlogs[0])
 			await interaction.reply({ embeds: [embed] })
 		} else {
+			let log = 0
 			const embed = new MessageEmbed({
 					color: colors.success,
 					author: { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}` },
@@ -54,39 +55,8 @@ const command: Command = {
 					description: `Case #${modlogs[0].case}`,
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 				}),
-				controlButtons = new MessageActionRow({
-					components: [
-						new MessageButton({
-							style: "SECONDARY",
-							emoji: "⏮️",
-							customId: "first",
-							label: "First log",
-							disabled: true,
-						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "◀️",
-							customId: "previous",
-							label: "Previous log",
-						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "▶️",
-							customId: "next",
-							label: "Next log",
-						}),
-						new MessageButton({
-							style: "SECONDARY",
-							emoji: "⏭️",
-							customId: "last",
-							label: "Last log",
-							disabled: true,
-						}),
-					],
-				})
+				controlButtons = createButtonControls(log, modlogs)
 
-			let log = 0
-			updateButtonColors(controlButtons, log, modlogs)
 			updateModlogFields(embed, modlogs[0], modlogs)
 
 			const msg = await interaction.reply({ embeds: [embed], components: [controlButtons], fetchReply: true }),
@@ -107,9 +77,9 @@ const command: Command = {
 					log++
 					if (log > modlogs.length - 1) log = modlogs.length - 1
 				}
-				updateButtonColors(controlButtons, log, modlogs)
+
 				updateModlogFields(embed, modlogs[log], modlogs)
-				await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
+				await buttonInteraction.update({ embeds: [embed], components: [createButtonControls(log, modlogs)] })
 			})
 
 			collector.on("end", async () => {

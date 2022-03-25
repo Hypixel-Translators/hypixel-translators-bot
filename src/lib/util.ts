@@ -77,6 +77,49 @@ export async function closeConnection(uuid: string) {
 	}
 }
 
+export function createButtonControls(
+	pageIndex: number,
+	pages: unknown[],
+	options: { getString?: GetStringFunction; itemName?: string } = { itemName: "page" },
+) {
+	const isFirst = pageIndex === 0,
+		isLast = pageIndex === pages.length - 1,
+		disabledStyle = (disabled: boolean) => (disabled ? "SECONDARY" : "SUCCESS")
+
+	return new MessageActionRow({
+		components: [
+			new MessageButton({
+				style: disabledStyle(isFirst),
+				emoji: "⏮️",
+				customId: "first",
+				label: options.getString?.("pagination.first", { file: "global" }) ?? `First ${options.itemName}`,
+				disabled: isFirst,
+			}),
+			new MessageButton({
+				style: disabledStyle(isFirst),
+				emoji: "◀️",
+				customId: "previous",
+				label: options.getString?.("pagination.previous", { file: "global" }) ?? `Previous ${options.itemName}`,
+				disabled: isFirst,
+			}),
+			new MessageButton({
+				style: disabledStyle(isLast),
+				emoji: "▶️",
+				customId: "next",
+				label: options.getString?.("pagination.next", { file: "global" }) ?? `Next ${options.itemName}`,
+				disabled: isLast,
+			}),
+			new MessageButton({
+				style: disabledStyle(isLast),
+				emoji: "⏭️",
+				customId: "last",
+				label: options.getString?.("pagination.last", { file: "global" }) ?? `Last ${options.itemName}`,
+				disabled: isLast,
+			}),
+		],
+	})
+}
+
 export function generateTip(getString?: GetStringFunction, newLang?: string): string {
 	const strings = require("../../strings/en/global.json"),
 		keys = getString ? Object.keys(getString("tips", { file: "global" })) : Object.keys(strings.tips)
@@ -290,22 +333,6 @@ export function transformDiscordLocale(discordLocale: string): string {
 	if (locales.includes(localeWithCountryCode)) return localeWithCountryCode
 	else if (locales.includes(locale)) return locale
 	else return "en"
-}
-
-export function updateButtonColors(row: MessageActionRow, page: number, pages: unknown[]) {
-	if (page === 0) {
-		row.components.forEach(button => {
-			if (button.customId === "first" || button.customId === "previous") (button as MessageButton).setStyle("SECONDARY").setDisabled(true)
-			else (button as MessageButton).setStyle("SUCCESS").setDisabled(false)
-		})
-	} else if (page === pages.length - 1) {
-		row.components.forEach(button => {
-			if (button.customId === "last" || button.customId === "next") (button as MessageButton).setStyle("SECONDARY").setDisabled(true)
-			else (button as MessageButton).setStyle("SUCCESS").setDisabled(false)
-		})
-	} else row.components.forEach(button => (button as MessageButton).setStyle("SUCCESS").setDisabled(false))
-
-	return row
 }
 
 export function updateModlogFields(embed: MessageEmbed, modlog: PunishmentLog, modlogs?: PunishmentLog[]) {

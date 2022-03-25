@@ -1,9 +1,9 @@
-import { ChatInputCommandInteraction, GuildMember, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { ChatInputCommandInteraction, GuildMember, Message, MessageEmbed } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { generateTip, parseToNumberString, transformDiscordLocale, updateButtonColors } from "../../lib/util"
+import { createButtonControls, generateTip, parseToNumberString, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -55,37 +55,9 @@ const command: Command = {
 			})
 			return await interaction.reply({ embeds: [embed] })
 		} else {
-			let controlButtons = new MessageActionRow({
-					components: [
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "⏮️",
-							customId: "first",
-							label: getString("pagination.first", { file: "global" }),
-						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "◀️",
-							customId: "previous",
-							label: getString("pagination.previous", { file: "global" }),
-						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "▶️",
-							customId: "next",
-							label: getString("pagination.next", { file: "global" }),
-						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "⏭️",
-							customId: "last",
-							label: getString("pagination.last", { file: "global" }),
-						}),
-					],
-				}),
+			let controlButtons = createButtonControls(page, pages, { getString }),
 				pageEmbed = fetchPage(page, pages, getString, interaction)
 
-			controlButtons = updateButtonColors(controlButtons, page, pages)
 			const msg = (await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true })) as Message,
 				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
 
@@ -110,7 +82,7 @@ const command: Command = {
 					if (page > pages.length - 1) page = pages.length - 1
 				}
 				pageEmbed = fetchPage(page, pages, getString, interaction)
-				controlButtons = updateButtonColors(controlButtons, page, pages)
+				controlButtons = createButtonControls(page, pages, { getString })
 				await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
 			})
 

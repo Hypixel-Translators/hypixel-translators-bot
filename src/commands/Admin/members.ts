@@ -1,7 +1,7 @@
-import { ColorResolvable, GuildMember, MessageActionRow, MessageButton, MessageEmbed } from "discord.js"
+import { ColorResolvable, GuildMember, MessageEmbed } from "discord.js"
 
 import { ids } from "../../config.json"
-import { generateTip, updateButtonColors } from "../../lib/util"
+import { createButtonControls, generateTip } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
 
@@ -35,36 +35,7 @@ const command: Command = {
 		if (maxMembersArr.length > 1) {
 			let page = 0,
 				pageEmbed = updatePage(maxMembersArr[page], page + 1),
-				controlButtons = new MessageActionRow({
-					components: [
-						new MessageButton({
-							style: "SECONDARY",
-							emoji: "⏮️",
-							customId: "first",
-							label: "First page",
-							disabled: true,
-						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "◀️",
-							customId: "previous",
-							label: "Previous page",
-						}),
-						new MessageButton({
-							style: "SUCCESS",
-							emoji: "▶️",
-							customId: "next",
-							label: "Next page",
-						}),
-						new MessageButton({
-							style: "SECONDARY",
-							emoji: "⏭️",
-							customId: "last",
-							label: "Last page",
-							disabled: true,
-						}),
-					],
-				})
+				controlButtons = createButtonControls(page, maxMembersArr)
 			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }),
 				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: 60_000 })
 
@@ -83,7 +54,7 @@ const command: Command = {
 					page++
 					if (page > maxMembersArr.length - 1) page = maxMembersArr.length - 1
 				}
-				controlButtons = updateButtonColors(controlButtons, page, maxMembersArr)
+				controlButtons = createButtonControls(page, maxMembersArr)
 				pageEmbed = updatePage(maxMembersArr[page], page + 1)
 				await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })
 			})
