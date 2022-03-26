@@ -8,7 +8,7 @@ client.on("guildScheduledEventUserAdd", async (event, user) => {
 })
 
 client.on("guildScheduledEventUpdate", async (oldEvent, newEvent) => {
-	if (oldEvent.status !== newEvent.status) {
+	if (oldEvent.status !== newEvent.status && newEvent.channelId === ids.channels.event) {
 		const eventChannel = client.channels.cache.get(ids.channels.event) as VoiceChannel
 		if (newEvent.status === "COMPLETED") {
 			const role = newEvent.guild!.roles.cache.get(ids.roles.event)!
