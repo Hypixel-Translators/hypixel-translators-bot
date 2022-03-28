@@ -211,33 +211,35 @@ const command: Command = {
 				if (mongoLanguage) userLangs.push(mongoLanguage)
 			})
 			userLangs = userLangs.reverse()
-			const prefixButtons = userLangs.map(
-					entry =>
-						new MessageButton({
-							style: "SUCCESS",
-							customId: entry.code,
-							emoji: entry.emoji,
-						}),
-				),
-				components: MessageButton[][] = []
 			let p = 0
-			while (p < prefixButtons.length) components.push(prefixButtons.slice(p, (p += 5)))
-			components.push([
-				new MessageButton({
+			const rows: MessageActionRow[] = [],
+				components: Map<string, MessageButton> = new Map()
+			userLangs.forEach(entry => {
+				const button = new MessageButton({
+					style: "SUCCESS",
+					customId: entry.code,
+					emoji: entry.emoji,
+				})
+				if (rows[p].components.length >= 5) p++
+				rows[p].addComponents(button)
+				components.set(entry.code, button)
+			})
+
+			const confirmButton = new MessageButton({
 					style: "SUCCESS",
 					customId: "confirm",
 					emoji: "✅",
 					label: getString("pagination.confirm", { file: "global" }),
 					disabled: true,
 				}),
-				new MessageButton({
+				cancelButton = new MessageButton({
 					style: "DANGER",
 					customId: "cancel",
 					emoji: "❎",
 					label: getString("pagination.cancel", { file: "global" }),
-				}),
-			])
-			const rows = components.map(c => ({ type: "ACTION_ROW", components: c } as const))
+				})
+
+			rows.push(new MessageActionRow().addComponents(confirmButton, cancelButton))
 
 			if (!userLangs.length) {
 				if (
@@ -287,14 +289,9 @@ const command: Command = {
 						ephemeral: true,
 					})
 				}
-				if (buttonInteraction.customId !== "cancel") {
-					components
-						.at(-1)!
-						.find(b => b.customId === "confirm")!
-						.setDisabled(false)
-				}
+				if (buttonInteraction.customId !== "cancel") confirmButton.setDisabled(true)
 				if (buttonInteraction.customId === "confirm") {
-					components.forEach(buttons => buttons.forEach(button => button.setDisabled()))
+					components.forEach(buttons => buttons.setDisabled())
 					collector.stop("responded")
 					if (prefixes) {
 						if (interaction.member.nickname !== `[${prefixes}] ${nickNoPrefix}`) {
@@ -341,7 +338,7 @@ const command: Command = {
 						await buttonInteraction.update({ embeds: [embed], components: rows })
 					}
 				} else if (buttonInteraction.customId === "cancel") {
-					components.forEach(buttons => buttons.forEach(button => button.setDisabled()))
+					components.forEach(buttons => buttons.setDisabled())
 					collector.stop("responded")
 					const embed = new MessageEmbed({
 						color: colors.error,
@@ -354,12 +351,7 @@ const command: Command = {
 					const clickedEntry = languages.find(entry => entry.code === buttonInteraction.customId)!
 					if (prefixes) prefixes = `${prefixes}-${clickedEntry.emoji}`
 					else prefixes = `${clickedEntry.emoji}`
-					components.find(button =>
-						button
-							.find(b => b.customId === buttonInteraction.customId)
-							?.setDisabled()
-							.setStyle("SECONDARY"),
-					)
+					components.get(buttonInteraction.customId)?.setDisabled().setStyle("SECONDARY")
 					const embed = new MessageEmbed({
 						color: colors.neutral,
 						author: { name: getString("moduleName") },
@@ -374,7 +366,7 @@ const command: Command = {
 
 			collector.on("end", async (_collected, reason) => {
 				if (reason === "responded") return
-				components.forEach(buttons => buttons.forEach(button => button.setDisabled()))
+				components.forEach(buttons => buttons.setDisabled())
 				if (prefixes.length > 0) {
 					if (interaction.member.nickname !== `[${prefixes}] ${nickNoPrefix}`) {
 						interaction.member
