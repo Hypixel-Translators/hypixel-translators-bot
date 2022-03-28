@@ -555,15 +555,16 @@ const command: Command = {
 				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 			})
 			activePunishments.forEach(punish => {
-				const durationString = punish.duration ? `${punish.duration}${punish.type === "BAN" ? "d" : "h"} ` : "permanent ",
-					expireTimestamp =
-						punish.type === "VERBAL"
-							? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 1)
-							: punish.type === "WARN"
-							? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 7)
-							: new Date(punish.endTimestamp!).setDate(new Date(punish.endTimestamp!).getDate() + 30)
+				const expireTimestamp =
+					punish.type === "VERBAL"
+						? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 1)
+						: punish.type === "WARN"
+						? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 7)
+						: new Date(punish.endTimestamp!).setDate(new Date(punish.endTimestamp!).getDate() + 30)
 				embed.addField(
-					`Case ${punish.case}: ${punish.endTimestamp ? durationString : ""}${punish.type} (${punish.points} points)`,
+					`Case ${punish.case}: ${
+						punish.endTimestamp ? (punish.duration ? `${punish.duration}${punish.type === "BAN" ? "d" : "h"} ` : "permanent ") : ""
+					}${punish.type} (${punish.points} points)`,
 					`${
 						typeof punish.duration === "number" ? (punish.duration ? `Ends <t:${Math.round(punish.endTimestamp! / 1000)}:R>\n` : "Never ends\n") : ""
 					}${expireTimestamp ? `Expires <t:${Math.round(expireTimestamp / 1000)}:R>` : ""}`,
@@ -621,15 +622,16 @@ const command: Command = {
 				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 			})
 			activePunishments.forEach(punish => {
-				const durationString = punish.duration ? `${punish.duration}${punish.type === "BAN" ? "d" : "h"} ` : "permanent ",
-					expireTimestamp =
-						punish.type === "VERBAL"
-							? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 1)
-							: punish.type === "WARN"
-							? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 7)
-							: new Date(punish.endTimestamp!).setDate(new Date(punish.endTimestamp!).getDate() + 30)
+				const expireTimestamp =
+					punish.type === "VERBAL"
+						? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 1)
+						: punish.type === "WARN"
+						? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 7)
+						: new Date(punish.endTimestamp!).setDate(new Date(punish.endTimestamp!).getDate() + 30)
 				confirmEmbed.addField(
-					`Case ${punish.case}: ${punish.endTimestamp ? durationString : ""}${punish.type} (${punish.points} points)`,
+					`Case ${punish.case}: ${
+						punish.endTimestamp ? (punish.duration ? `${punish.duration}${punish.type === "BAN" ? "d" : "h"} ` : "permanent ") : ""
+					}${punish.type} (${punish.points} points)`,
 					`${
 						typeof punish.duration === "number" ? (punish.duration ? `Ends <t:${Math.round(punish.endTimestamp! / 1000)}:R>\n` : "Never ends\n") : ""
 					}${expireTimestamp ? `Expires <t:${Math.round(expireTimestamp / 1000)}:R>` : ""}`,
