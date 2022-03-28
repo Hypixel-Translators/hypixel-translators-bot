@@ -305,16 +305,13 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 	const endingMessageProjects: {
 		[name: string]: Role[]
 	} = {}
-	for (const [key, value] of Object.entries(highestProjectRoles)) {
-		const role = member.guild!.roles.cache.find(r => r.name.toLowerCase() === `${key} ${value}`.toLowerCase())!
-		endingMessageProjects[key] = [role]
-	}
+	for (const [key, value] of Object.entries(highestProjectRoles))
+		endingMessageProjects[key] = [member.guild!.roles.cache.find(r => r.name.toLowerCase() === `${key} ${value}`.toLowerCase())!]
 
 	for (const [key, value] of Object.entries(highestLangRoles)) {
 		const lang = (await languages.findOne({ id: key }))!.name
 		value.projects.forEach(p => {
-			const role = member.guild!.roles.cache.find(r => r.name === `${lang} ${value.type}`)!
-			endingMessageProjects[p].push(role)
+			endingMessageProjects[p].push(member.guild!.roles.cache.find(r => r.name === `${lang} ${value.type}`)!)
 		})
 	}
 

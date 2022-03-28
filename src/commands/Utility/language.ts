@@ -84,8 +84,7 @@ const command: Command = {
 		} else if (subCommand === "stats") {
 			if (!member?.roles.cache.has(ids.roles.admin))
 				return await interaction.reply({ content: getString("errors.noAccess", { file: "global" }), ephemeral: true })
-			const files = readdirSync(stringsFolder)
-			if (!files.includes(language!)) throw "falseLang"
+			if (!readdirSync(stringsFolder).includes(language!)) throw "falseLang"
 			const langUsers = await collection.find({ lang: language }).toArray(),
 				users: string[] = []
 			langUsers.forEach(u => users.push(`<@!${u.id}>`))
