@@ -23,7 +23,6 @@ const command: Command = {
 	allowDM: true,
 	async execute(interaction, getString: GetStringFunction) {
 		const randomTip = generateTip(getString),
-			collection = db.collection<DbUser>("users"),
 			user = interaction.options.getUser("user", false) ?? interaction.user,
 			member = (interaction.member as GuildMember | null) ?? interaction.user,
 			userDb = await client.getUser(user.id)
@@ -39,7 +38,15 @@ const command: Command = {
 			return await interaction.reply({ embeds: [errorEmbed] })
 		}
 		const totalXp = getXpNeeded(userDb.levels.level),
-			ranking = (await collection.find({}, { sort: { "levels.totalXp": -1, id: 1 } }).toArray()).map(u => u.id).indexOf(user.id) + 1,
+			ranking =
+				(
+					await db
+						.collection<DbUser>("users")
+						.find({}, { sort: { "levels.totalXp": -1, id: 1 } })
+						.toArray()
+				)
+					.map(u => u.id)
+					.indexOf(user.id) + 1,
 			embed = new MessageEmbed({
 				color: colors.neutral,
 				author: { name: getString("moduleName") },

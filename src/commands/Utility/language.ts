@@ -63,9 +63,8 @@ const command: Command = {
 		let language = interaction.options.getString("language", ["set", "stats"].includes(subCommand))?.toLowerCase()
 
 		if (subCommand === "list") {
-			const files = readdirSync(stringsFolder),
-				langList: string[] = []
-			files.forEach(async (element, index, array) => {
+			const langList: string[] = []
+			readdirSync(stringsFolder).forEach(async (element, index, array) => {
 				if (element === "empty" && !member?.roles.cache.has(ids.roles.admin)) return
 				let languageString: string
 				if (element === "empty") languageString = "Empty"

@@ -39,7 +39,6 @@ const command: Command = {
 		const randomTip = generateTip(getString),
 			member = interaction.member as GuildMember | null,
 			// Define categories to get commands from and all pages
-			categories = ["Utility", "Info"],
 			pages: Page[] = [
 				{ number: 0, badge: "🏠", titleString: "mainPage" },
 				{ number: 1, badge: "🛠️", titleString: "utilityHelp" },
@@ -47,7 +46,7 @@ const command: Command = {
 			]
 
 		let pageIndex = 1
-		categories.forEach(category => {
+		;["Utility", "Info"].forEach(category => {
 			const categoryCommands: string[] = []
 			readdirSync(`./src/commands/${category}/`).forEach(cmd => categoryCommands.push(cmd.split(".").shift()!))
 			categoryCommands.forEach(cmd => {

@@ -206,8 +206,7 @@ const command: Command = {
 			interaction.member.roles.cache.forEach(r => {
 				const roleName = r.name.split(" ")
 				roleName.splice(roleName.length - 1, 1)
-				const role = roleName.join(" "),
-					mongoLanguage = languages.find(l => l.name === role)
+				const mongoLanguage = languages.find(l => l.name === roleName.join(" "))
 				if (mongoLanguage) userLangs.push(mongoLanguage)
 			})
 			userLangs = userLangs.reverse()
