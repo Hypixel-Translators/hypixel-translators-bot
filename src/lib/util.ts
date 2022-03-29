@@ -312,16 +312,16 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 		logMsg = logMsg.concat(`${lang}: ${log[lang]}\n`)
 	}
 	const announcement = holiday.join(" "),
-		announcements = client.channels.cache.get(ids.channels.announcements) as NewsChannel,
 		adminBots = client.channels.cache.get(ids.channels.adminBots) as TextChannel,
 		holidayNameFormatted = holidayName.charAt(0).toUpperCase() + holidayName.slice(1).replace(/([A-Z])/, " $1")
 	if (announcement) {
-		await announcements.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`).then(msg => msg.crosspost())
+		await (client.channels.cache.get(ids.channels.announcements) as NewsChannel)
+			.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`)
+			.then(msg => msg.crosspost())
 		await adminBots.send(`${holidayNameFormatted} announcement sent! Here's each language's translation:\n${logMsg}`)
 		console.table(log)
 		console.log(`Sent the ${holidayNameFormatted} announcement`)
-	} else
-		return await adminBots.send(`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`)
+	} else await adminBots.send(`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`)
 }
 
 export function transformDiscordLocale(discordLocale: string): string {
