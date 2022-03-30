@@ -223,8 +223,8 @@ async function addQuote(interaction: ChatInputCommandInteraction, collection: Co
 			})
 			if (pictureUrl) {
 				embed.setImage(pictureUrl)
-				await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url!, imageURL: pictureUrl })
-			} else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url! })
+				await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: msg.url, imageURL: pictureUrl })
+			} else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: msg.url })
 			await interaction.reply({ embeds: [embed] })
 		} else {
 			const embed = new MessageEmbed({
