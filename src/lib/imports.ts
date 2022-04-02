@@ -1,6 +1,8 @@
 import { readdirSync, statSync } from "node:fs"
 import { resolve, sep } from "node:path"
 
+import { botLocales, transformBotLocale } from "./util"
+
 import type { HTBClient } from "./dbclient"
 import type { ChatInputApplicationCommandData, Snowflake, ChatInputCommandInteraction } from "discord.js"
 
@@ -26,6 +28,30 @@ export function setup(client: HTBClient) {
 			const command: Command = require(file).default
 
 			command.category = file.split(sep).at(-2)! as Category
+
+			command.nameLocalizations = {}
+			command.descriptionLocalizations = {}
+
+			for (const locale of botLocales) {
+				const discordLocale = transformBotLocale(locale)
+				if (!discordLocale) continue
+				const commandsJson = require(`./strings/${locale}/commands.json`)
+				if (!commandsJson.names.includes(command.name)) continue // Command is admin or staff only
+
+				command.nameLocalizations[discordLocale] = commandsJson.names[command.name]
+				command.descriptionLocalizations[discordLocale] = commandsJson.descriptions[command.name]
+
+				if (command.options) {
+					for (const option of command.options) {
+						option.nameLocalizations = {}
+						option.descriptionLocalizations = {}
+
+						option.nameLocalizations[discordLocale] = commandsJson.options[command.name][option.name].name
+						option.descriptionLocalizations[discordLocale] = commandsJson.options[command.name][option.name].description
+					}
+				}
+			}
+
 			client.commands.set(command.name, command)
 		})
 		console.log(`Loaded ${cmdFiles.length} commands.`)

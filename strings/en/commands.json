@@ -1,0 +1,329 @@
+{
+	"names": {
+		"8ball": "8ball",
+		"feedback": "feedback",
+		"levels": "levels",
+		"ping": "ping",
+		"profile": "profile",
+		"projects": "projects",
+		"rank": "rank",
+		"tag": "tag",
+		"translate": "translate",
+		"help": "help",
+		"hypixelstats": "hypixelstats",
+		"hypixelunverify": "hypixelunverify",
+		"hypixelverify": "hypixelverify",
+		"language": "language",
+		"languagestats": "languagestats",
+		"mention": "mention",
+		"minecraft": "minecraft",
+		"prefix": "prefix",
+		"quote": "quote",
+		"verify": "verify"
+	},
+	"descriptions": {
+		"8ball": "The Magic 8 Ball that will answer all your questions.",
+		"feedback": "Opens our GitHub issues page, where you can report problems and send feedback.",
+		"help": "Shows you all available commands and other info about the bot.",
+		"hypixelstats": "Shows you basic Hypixel stats for the provided user.",
+		"hypixelunverify": "Unlinks your Discord account from your Minecraft account.",
+		"hypixelverify": "Links your Discord account with your Minecraft account.",
+		"language": "Changes your language, shows your current one or a list of available languages.",
+		"languagestats": "Shows you the progress of a language on all the projects we currently support.",
+		"levels": "Gives you the XP leaderboard.",
+		"mention": "Mentions a language role with an optional message.",
+		"minecraft": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required.",
+		"ping": "Gives you the bot's ping.",
+		"prefix": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space.",
+		"profile": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles.",
+		"projects": "Gives you links and information about all the translation projects we support on the server.",
+		"quote": "Gets (or adds) a funny/weird/wise quote from the server.",
+		"rank": "Gives you the current XP for yourself or any given user.",
+		"tag": "Sends a preset message, allowing you to notify a specific member when sending it.",
+		"translate": "Gives you useful information on how to translate the Bot.",
+		"verify": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+	},
+	"options": {
+		"8ball": {
+			"question": {
+				"name": "question",
+				"description": "The question to ask the bot"
+			}
+		},
+		"feedback": {},
+		"levels": {
+			"me": {
+				"name": "me",
+				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
+			},
+			"page": {
+				"name": "page",
+				"description": "The leaderboard page to get"
+			}
+		},
+		"ping": {},
+		"profile": {
+			"user": {
+				"name": "user",
+				"description": "The user to find the profile for. Admin only."
+			},
+			"profile": {
+				"name": "profile",
+				"description": "The new profile to set for the user. Admin only"
+			}
+		},
+		"projects": {},
+		"rank": {
+			"user": {
+				"name": "user",
+				"description": "The user to get the rank for"
+			}
+		},
+		"tag": {
+			"tag": {
+				"name": "tag",
+				"description": "The tag you want to see",
+				"choices": {
+					"invite": "Invite link to the server",
+					"hypixel": "Hypixel links",
+					"guidelines": "Hypixel project guidelines",
+					"proofreader": "How to get proofreader on the Hypixel project",
+					"minecraft": "Minecraft Crowdin Project",
+					"quickplay": "Quickplay links",
+					"skyblockaddons": "SkyblockAddons links",
+					"thread": "Discord server thread",
+					"twitter": "Hypixel Translators Community Twitter"
+				}
+			},
+			"target": {
+				"name": "target",
+				"description": "The user to mention with this tag"
+			}
+		},
+		"translate": {},
+		"help": {
+			"command": {
+				"name": "command",
+				"description": "The command to get information for"
+			},
+			"page": {
+				"name": "page",
+				"description": "The help page to open",
+				"choices": [
+					"Main Page",
+					"Tools & Utilities",
+					"Information commands"
+				]
+			}
+		},
+		"hypixelstats": {
+			"username": {
+				"name": "username",
+				"description": "The IGN of the user to get statistics for. Can also be a UUID"
+			},
+			"user": {
+				"name": "user",
+				"description": "The server member to get statistics for. Only works if the user has verified themselves"
+			}
+		},
+		"hypixelunverify": {
+			"user": {
+				"name": "user",
+				"description": "The user to unverify. Admin only"
+			}
+		},
+		"hypixelverify": {
+			"username": {
+				"name": "username",
+				"description": "Your Hypixel IGN. Must have your Discord linked in-game"
+			},
+			"user": {
+				"name": "user",
+				"description": "The user to verify. Admin only"
+			}
+		},
+		"language": {
+			"set": {
+				"name": "set",
+				"description": "Sets your language to a new one. Leave empty to see your current language",
+				"options": {
+					"language": {
+						"name": "language",
+						"description": "The new language you want to set"
+					}
+				}
+			},
+			"reset": {
+				"name": "reset",
+				"description": "Resets your language"
+			},
+			"list": {
+				"name": "list",
+				"description": "Gives you a list of all the available languages"
+			},
+			"stats": {
+				"name": "stats",
+				"description": "Gives you usage statistics for a given language. Admin only",
+				"options": {
+					"language": {
+						"name": "language",
+						"description": "The language to get usage statistics for"
+					}
+				}
+			}
+		},
+		"languagestats": {
+			"language": {
+				"name": "language",
+				"description": "The language to get progress statistics for. Required if your language is set to English"
+			}
+		},
+		"mention": {
+			"language": {
+				"name": "language",
+				"description": "The language to mention"
+			},
+			"role": {
+				"name": "role",
+				"description": "The role to mention",
+				"choices": {
+					"all": "Both roles",
+					"translator": "Translator",
+					"proofreader": "Proofreader"
+				}
+			},
+			"message": {
+				"name": "message",
+				"description": "The message to send with the mention"
+			}
+		},
+		"minecraft": {
+			"history": {
+				"name": "history",
+				"description": "Gives you the history of a given Minecraft username",
+				"options": {
+					"history": {
+						"name": "history",
+						"description": "Shows a user's name history. You must provide at least 1 parameter if your MC account is not linked",
+						"options": {
+							"username": {
+								"name": "username",
+								"description": "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked"
+							},
+							"user": {
+								"name": "user",
+								"description": "The server member to get name history for. Only works if the user has verified themselves"
+							}
+						}
+					},
+					"skin": {
+						"name": "skin",
+						"description": "Shows a user's skin. You must provide at least 1 parameter if your MC account is not linked",
+						"options": {
+							"username": {
+								"name": "username",
+								"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
+							},
+							"user": {
+								"name": "user",
+								"description": "The server member to get skin for. Only works if the user has verified themselves"
+							}
+						}
+					}
+				}
+			}
+		},
+		"prefix": {
+			"flags": {
+				"name": "flags",
+				"description": "The flags to be applied to your prefix, separated with spaces"
+			}
+		},
+		"quote": {
+			"get": {
+				"name": "get",
+				"description": "Get a random/specific quote",
+				"options": {
+					"index": {
+						"name": "index",
+						"description": "The index of the quote you want to see"
+					}
+				}
+			},
+			"add": {
+				"name": "add",
+				"description": "Add a new quote. Staff only",
+				"options": {
+					"quote": {
+						"name": "quote",
+						"description": "The quote you want to add"
+					},
+					"author": {
+						"name": "author",
+						"description": "The author of this quote"
+					},
+					"url": {
+						"name": "url",
+						"description": "The url of the message this quote came from. If the message has an image it will be included as well"
+					},
+					"image": {
+						"name": "image",
+						"description": "The url of the image to be included with this quote. Has priority over url's image if provided"
+					}
+				}
+			},
+			"edit": {
+				"name": "edit",
+				"description": "Edit a quote. Staff only",
+				"options": {
+					"index": {
+						"name": "index",
+						"description": "The index of the quote to edit"
+					},
+					"quote": {
+						"name": "quote",
+						"description": "The new quote"
+					}
+				}
+			},
+			"delete": {
+				"name": "delete",
+				"description": "Delete a quote. Staff only",
+				"options": {
+					"index": {
+						"name": "index",
+						"description": "The index of the quote to delete"
+					}
+				}
+			},
+			"link": {
+				"name": "link",
+				"description": "Link a quote to a message. Staff only",
+				"options": {
+					"index": {
+						"name": "index",
+						"description": "The index of the quote to link"
+					},
+					"url": {
+						"name": "url",
+						"description": "The URL of the message to link this quote to"
+					},
+					"image": {
+						"name": "image",
+						"description": "Whether or not to attach this message's image to the quote."
+					}
+				}
+			}
+		},
+		"verify": {
+			"url": {
+				"name": "url",
+				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section."
+			},
+			"user": {
+				"name": "user",
+				"description": "The user to manually verify. Admin only"
+			}
+		}
+	}
+}

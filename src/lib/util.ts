@@ -17,6 +17,8 @@ import {
 	type User,
 	ButtonStyle,
 	EmbedData,
+	Locale,
+	LocaleString,
 } from "discord.js"
 import puppeteer from "puppeteer"
 import { v4 } from "uuid"
@@ -382,9 +384,26 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 	} else await adminBots.send(`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`)
 }
 
+// eslint-disable-next-line no-one-time-vars/no-one-time-vars
+export const botLocales = readdirSync("./strings")
+
 export function transformDiscordLocale(discordLocale: string): string {
 	// We support all of Discord's languages so we only need to do this
-	return discordLocale.replace("-", "_")
+	discordLocale = discordLocale.replace("-", "_")
+	if (botLocales.includes(discordLocale)) return discordLocale
+	return "en"
+}
+
+export function transformBotLocale(botLocale: string): LocaleString | null {
+	const isLocale = (locale: string): locale is LocaleString => Object.values(Locale).includes(locale as Locale)
+
+	if (botLocale === "ua") return "uk" // Handle ukrainian
+	else if (botLocale.startsWith("en") || botLocale === "empty") return "en-US" // Handle english, pirate and empty
+	else if (botLocale.startsWith("es")) return "es-ES" // Handle different spanish dialects
+	else if (botLocale.startsWith("sv")) return "sv-SE" // Handle swedish being 2 parts on discord's side
+	else if (botLocale.length >= 4) return `${botLocale.slice(0, 2)}-${botLocale.slice(2).toUpperCase()}` as LocaleString // Handle 2 part locales
+	else if (isLocale(botLocale)) return botLocale
+	return null
 }
 
 export async function updateRoles(member: GuildMember): Promise<void>
