@@ -1,4 +1,4 @@
-import { ColorResolvable, MessageEmbed } from "discord.js"
+import { type ColorResolvable, MessageEmbed, User } from "discord.js"
 
 import { ids } from "../../config.json"
 import { client } from "../../index"
@@ -21,8 +21,10 @@ const command: Command = {
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.managers],
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return
-		const memberInput = interaction.options.getMember("user", true),
-			userDb = await client.getUser(memberInput.id)
+		const memberInput = interaction.options.getMember("user", false) ?? interaction.options.getUser("user", true)
+		if (memberInput instanceof User)
+			return await interaction.reply({ content: `Couldn't find member ${memberInput}! Are you sure they're on this server?`, ephemeral: true })
+		const userDb = await client.getUser(memberInput.id)
 
 		let note: string | undefined
 		if (memberInput.id === interaction.guild!.ownerId) note = "Discord Owner"
