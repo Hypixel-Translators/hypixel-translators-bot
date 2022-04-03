@@ -196,8 +196,6 @@ const command: Command = {
 						description: getString("endingWarningDesc", {
 							variables: { fullTime: `<t:${discordEndTimestamp}:F>`, relativeTime: `<t:${discordEndTimestamp}:R>` },
 						}),
-						footer: { text: getString("endingAt") },
-						timestamp: pollDb.endTimestamp,
 					}),
 					buttons = new MessageActionRow({
 						components: [
@@ -225,8 +223,9 @@ const command: Command = {
 							const cancelEmbed = new MessageEmbed({
 								color: colors.error,
 								title: getString("didntReply"),
-								footer: { text: getString("endingAt") },
-								timestamp: pollDb.endTimestamp,
+								description: getString("endScheduled", {
+									variables: { fullTime: `<t:${discordEndTimestamp}:F>`, relativeTime: `<t:${discordEndTimestamp}:R>` },
+								}),
 							})
 							await interaction.editReply({ embeds: [cancelEmbed], components: [] })
 							return null
@@ -243,8 +242,6 @@ const command: Command = {
 						description: getString("endScheduled", {
 							variables: { fullTime: `<t:${discordEndTimestamp}:F>`, relativeTime: `<t:${discordEndTimestamp}:R>` },
 						}),
-						footer: { text: getString("endingAt") },
-						timestamp: pollDb.endTimestamp,
 					})
 					await buttonInteraction.update({ embeds: [successEmbed], components: [] })
 				}
@@ -291,6 +288,9 @@ const command: Command = {
 				embed = new MessageEmbed({
 					color: "BLURPLE",
 					title: pollDb.question,
+					description: `**${getString("totalVotes")}**: ${totalVoteCount}\n**${getString("createdOn")}**: <t:${Math.round(
+						new ObjectId(pollDb._id).getTimestamp().getTime() / 1000,
+					)}:F>${pollDb.endTimestamp ? `\n**${getString("endingOn")}**: <t:${Math.round(pollDb.endTimestamp / 1000)}:F>` : ""}`,
 					fields: pollDb.options.map(o => ({
 						name: o.text,
 						// Make sure to account for NaN values
@@ -298,8 +298,7 @@ const command: Command = {
 							Math.round((o.votes.length / totalVoteCount) * 100) || 0
 						}% (**${getString(o.votes.length === 1 ? "voteCount" : "voteCountPlural", { variables: { number: o.votes.length } })}**)`,
 					})),
-					footer: { text: `${getString("pollResults")} • ${getString("createdAt")}` },
-					timestamp: new ObjectId(pollDb._id).getTimestamp().getTime(),
+					footer: { text: getString("pollResults") },
 				})
 			await interaction.editReply({ embeds: [embed] })
 		}
