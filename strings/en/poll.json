@@ -1,0 +1,22 @@
+{
+    "successPost": "Successfully posted your poll!",
+    "successEnd": "Successfully ended your poll!",
+    "endPost": "It will end on %%fullTime%% (%%relativeTime%%)",
+    "noChannelId": "Couldn't find a channel with that ID!",
+    "noMessageId": "Couldn't find a message with that ID!",
+    "noPoll": "It seems like that message doesn't have a poll in it. If it does, please contact the developer about this.",
+    "noPollDb": "We couldn't find that poll in our database! Please contact the bot developer about this and create a new poll",
+    "errorNotOwner": "Only the creator of the poll can view its results before it ends!",
+    "voteCount": "%%number%% vote",
+    "voteCountPlural": "%%number%% votes",
+    "pollResults": "Poll results",
+    "createdAt": "Created at",
+    "endingWarning": "Watch out! This poll is ending soon",
+    "endingWarningDesc": "This poll is scheduled to end on %%fullTime%% (%%relativeTime%%), so you probably don't wanna end it just yet. If you do, confirm using the button below.",
+    "endingAt": "Ending at",
+    "didntReply": "You didn't reply, so this poll will not end",
+    "successCancelEnd": "Successfully cancelled the ending of this poll!",
+    "endScheduled": "It will instead end on the scheduled time: %%fullTime%% (%%relativeTime%%)",
+    "successVote": "Successfully registered your vote!",
+    "alreadyVoted": "You had already voted for this option, so your vote was not changed."
+}

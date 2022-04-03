@@ -3,7 +3,7 @@ import { GuildMember, MessageEmbed } from "discord.js"
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { generateTip, getXpNeeded, parseToNumberString } from "../../lib/util"
+import { generateProgressBar, generateTip, getXpNeeded, parseToNumberString } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -71,19 +71,6 @@ const command: Command = {
 			})
 		await interaction.reply({ embeds: [embed] })
 	},
-}
-
-function generateProgressBar(current: number, goal: number, places = 10): string {
-	const leftEmoji = "<:progress_left:820405406906974289>"
-	if (isNaN(current) || isNaN(goal)) return `${leftEmoji.repeat(places)}\u200b`
-
-	const progressFixed = Math.round((current / goal) * places),
-		leftFixed = places - progressFixed
-
-	// Apparently leftFixed can be negative and progressFixed can be bigger than 10, so let's not do that
-	return `${
-		"<:progress_done:820405383935688764>".repeat(progressFixed > 10 ? 10 : progressFixed) + leftEmoji.repeat(leftFixed < 0 ? 0 : leftFixed)
-	}\u200b` // Add a blank char at the end to prevent huge emojis on android
 }
 
 export default command

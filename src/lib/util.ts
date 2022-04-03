@@ -120,6 +120,19 @@ export function createButtonControls(
 	})
 }
 
+export function generateProgressBar(current: number, goal: number, places = 10): string {
+	const leftEmoji = "<:progress_left:820405406906974289>"
+	if (isNaN(current) || isNaN(goal) || (current === 0 && goal === 0)) return `${leftEmoji.repeat(places)}\u200b`
+
+	const progressFixed = Math.round((current / goal) * places),
+		leftFixed = places - progressFixed
+
+	// Apparently leftFixed can be negative and progressFixed can be bigger than 10, so let's not do that
+	return `${
+		"<:progress_done:820405383935688764>".repeat(progressFixed > 10 ? 10 : progressFixed) + leftEmoji.repeat(leftFixed < 0 ? 0 : leftFixed)
+	}\u200b` // Add a blank char at the end to prevent huge emojis on android
+}
+
 export function generateTip(getString?: GetStringFunction, newLang?: string): string {
 	const strings = require("../../strings/en/global.json"),
 		keys = getString ? Object.keys(getString("tips", { file: "global" })) : Object.keys(strings.tips)
