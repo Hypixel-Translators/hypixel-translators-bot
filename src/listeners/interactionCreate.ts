@@ -2,14 +2,14 @@ import process from "node:process"
 // Cannot use promisified setTimeout here
 import { setTimeout } from "node:timers"
 
-import { Collection, Formatters, GuildChannel, Message, MessageEmbed, TextChannel } from "discord.js"
+import { Collection, Formatters, GuildChannel, type Message, MessageEmbed, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"
 import handleAutocompleteInteractions from "../interactions/autocomplete"
 import handleButtonInteractions from "../interactions/buttons"
-import { db, DbUser, cancelledEvents } from "../lib/dbclient"
-import { arrayEqual, transformDiscordLocale, generateTip, Stats } from "../lib/util"
+import { db, type DbUser, cancelledEvents } from "../lib/dbclient"
+import { arrayEqual, transformDiscordLocale, generateTip, type Stats } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
@@ -132,7 +132,7 @@ client.on("interactionCreate", async interaction => {
 						string = enStrings[pathPart] // If the string hasn't been added yet or if the variables changed
 						if (!string) {
 							string = null // In case of fire
-							if (command!.category !== "Admin" && command!.category !== "Staff" && !path.includes(" "))
+							if (command?.category !== "Admin" && command?.category !== "Staff" && !path.includes(" "))
 								console.error(`Couldn't get string ${path} in English for ${file}, please fix this`)
 						}
 					}
