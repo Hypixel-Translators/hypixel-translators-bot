@@ -128,7 +128,6 @@ const command: Command = {
 		ids.categories.bot,
 		ids.categories.quickplay,
 	],
-	dev: true,
 	async execute(interaction, getString: GetStringFunction) {
 		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply({ ephemeral: true })
