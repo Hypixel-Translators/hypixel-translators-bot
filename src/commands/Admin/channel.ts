@@ -17,9 +17,9 @@ const command: Command = {
 			description: "The channel to update",
 			required: false,
 			choices: [
-				{ name: "The #rules channel", value: "rules" },
-				{ name: "The #server-info channel", value: "info" },
-				{ name: "The #verify channel", value: "verify" },
+				{ name: "The rules channel", value: "rules" },
+				{ name: "The server-info channel", value: "info" },
+				{ name: "The verify channel", value: "verify" },
 			],
 		},
 	],
