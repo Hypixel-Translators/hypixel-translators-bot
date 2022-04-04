@@ -1,0 +1,23 @@
+{
+    "successPost": "Kysely aloitettu onnistuneesti!",
+    "endPost": "Päättyy %%fullTime%% (%%relativeTime%%)",
+    "successEnd": "Kysely päätetty onnistuneesti!",
+    "noChannelId": "Ei löytynyt kanavaa tällä ID:llä!",
+    "noMessageId": "Ei löytynyt viestiä tällä ID:llä!",
+    "noPoll": "Vaikuttaisi siltä, ettei tässä viestissä ole kyselyä. Mikäli kysely kuitenkin löytyy, otathan yhteyttä kehittäjään.",
+    "noPollDb": "Kyselyä ei löytynyt tietokannastamme! Otathan yhteyttä botin kehittäjään ja luo uusi kysely",
+    "errorNotOwner": "Vain kyselyn luoja voi tarkastella tuloksia ennen kyselyn päättymistä!",
+    "totalVotes": "Äänet yhteensä",
+    "createdOn": "Luotu",
+    "endingOn": "Päättyy",
+    "voteCount": "%%number%% ääni",
+    "voteCountPlural": "%%number%% ääntä",
+    "pollResults": "Kyselyn tulokset",
+    "endingWarning": "Huomio! Tämä kysely päättyy pian",
+    "endingWarningDesc": "Tämä kysely on ajastettu päättymään %%fullTime%% (%%relativeTime%%), joten et välttämättä halua lopettaa sitä ihan vielä. Jos kuitenkin haluat, vahvista käyttämällä alla olevaa nappia.",
+    "didntReply": "You didn't reply, so this poll will not end now",
+    "successCancelEnd": "Kyselyn päättäminen peruttu onnistuneesti!",
+    "endScheduled": "Päättyy sen sijaan ajastuksen mukaan: %%fullTime%% (%%relativeTime%%)",
+    "successVote": "Ääni rekisteröity onnistuneesti!",
+    "alreadyVoted": "Olet jo äänestänyt tätä vaihtoehtoa, joten ääntäsi ei muutettu."
+}
