@@ -16,6 +16,7 @@
 	"bg": "Bulharština",
 	"zhcn": "Čínština (zjednodušená)",
 	"zhtw": "Čínština (tradiční)",
+	"hr": "Croatian",
 	"cs": "Čeština",
 	"da": "Dánština",
 	"nl": "Nizozemština",
@@ -33,6 +34,7 @@
 	"it": "Italština",
 	"ja": "Japonština",
 	"ko": "Korejština",
+	"lt": "Lithuanian",
 	"ms": "Malajština",
 	"no": "Norština",
 	"fa": "Persian",
@@ -48,5 +50,6 @@
 	"sv": "Švédština",
 	"th": "Thajština",
 	"tr": "Turečtina",
-	"ua": "Ukrajinština"
+	"ua": "Ukrajinština",
+	"vi": "Vietnamese"
 }
