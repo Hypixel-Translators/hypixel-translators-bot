@@ -8,7 +8,7 @@
 	"notTranslated": "O idioma que você tentou selecionar não está traduzido o suficiente para ser usado. Se você fala este idioma, ajude a traduzi-lo usando `/translate`.",
 	"errorTitle": "Esse idioma ainda não foi adicionado!",
 	"errorDescription": "Seu idioma não foi alterado. Os idiomas a seguir estão disponíveis no momento (isso não significa que estejam traduzidos):",
-	"suggestAdd": "Caso queira que este idioma seja adicionado ao bot, por favor contate um administrador.",
+	"suggestAdd": "Contate um administrador caso queira que este idioma seja adicionado ao bot.",
 	"listTitle": "Lista de idiomas",
 	"listElement": "`%%code%%` | **%%language%%**",
 	"credits": "Encontrou algum problema? Relate-o usando `/feedback`.",
@@ -16,6 +16,7 @@
 	"bg": "Búlgaro",
 	"zhcn": "Chinês (Simplificado)",
 	"zhtw": "Chinês (Tradicional)",
+	"hr": "Croata",
 	"cs": "Tcheco",
 	"da": "Dinamarquês",
 	"nl": "Holandês",
@@ -33,6 +34,7 @@
 	"it": "Italiano",
 	"ja": "Japonês",
 	"ko": "Coreano",
+	"lt": "Lituano",
 	"ms": "Malaio",
 	"no": "Norueguês",
 	"fa": "Persa",
@@ -48,5 +50,6 @@
 	"sv": "Sueco",
 	"th": "Tailandês",
 	"tr": "Turco",
-	"ua": "Ucraniano"
+	"ua": "Ucraniano",
+	"vi": "Vietnamita"
 }

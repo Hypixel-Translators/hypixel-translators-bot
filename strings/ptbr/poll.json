@@ -1,0 +1,23 @@
+{
+    "successPost": "Sua enquete foi publicada com sucesso!",
+    "endPost": "Termina em %%fullTime%% (%%relativeTime%%)",
+    "successEnd": "Sua enquete foi finalizada com sucesso!",
+    "noChannelId": "Não foi possível encontrar um canal com esse ID!",
+    "noMessageId": "Não foi possível encontrar uma mensagem com esse ID!",
+    "noPoll": "Parece que essa mensagem não possui uma enquete. Se possuir, entre em contato com um desenvolvedor.",
+    "noPollDb": "Não foi possível encontrar essa enquete em nosso banco de dados! Contate o desenvolvedor do bot para tratar sobre isto e crie uma nova enquete",
+    "errorNotOwner": "Apenas o criador da enquete pode ver o resultado antes dela terminar!",
+    "totalVotes": "Total de votos",
+    "createdOn": "Criada em",
+    "endingOn": "Termina em",
+    "voteCount": "%%number%% voto",
+    "voteCountPlural": "%%number%% votos",
+    "pollResults": "Resultados da enquete",
+    "endingWarning": "Atenção! Esta enquete termina em breve",
+    "endingWarningDesc": "Esta enquete está agendada para terminar em %%fullTime%% (%%relativeTime%%), então você provavelmente não quer terminá-la ainda. Se este for o caso, confirme clicando no botão abaixo.",
+    "didntReply": "Você não respondeu, então esta enquete não vai terminar agora",
+    "successCancelEnd": "O fim desta enquete foi cancelado com sucesso!",
+    "endScheduled": "Ela terminará no horário agendado: %%fullTime%% (%%relativeTime%%)",
+    "successVote": "Seu voto foi registrado com sucesso!",
+    "alreadyVoted": "Você já votou nesta opção, então nada foi alterado."
+}

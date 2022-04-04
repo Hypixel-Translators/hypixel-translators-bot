@@ -8,12 +8,12 @@
 	"checkGuide": "Confira nosso guia com várias dicas e ferramentas úteis para o Crowdin! Você pode encontrá-lo em %%gettingStarted%%.",
 	"newTranslator": "Você está querendo traduzir o nosso bot para o seu próprio idioma?",
 	"join": "Nós adoraríamos ter você no projeto! Veja como você pode participar:",
-	"openProject": "Por favor, abra o projeto no Crowdin",
+	"openProject": "Abra o projeto no Crowdin",
 	"howOpen": "Isto pode ser feito acessando o link clicando [aqui](%%link%%).",
 	"clickLanguage": "Agora, clique no idioma que você deseja traduzir",
 	"requestJoin": "Para entrar no projeto do idioma, você precisa clicar em \"Juntar-se\" e escrever uma mensagem simples sobre o porquê de você querer se juntar ao projeto.",
 	"lastThing": "Só mais uma coisa",
-	"requestInfo": "Ao enviar seu pedido, por favor lembre-se de incluir sua tag (%%tag%%) ou ID (%%id%%).\n**Se você não incluir pelo menos um deles, seu pedido será rejeitado!**",
+	"requestInfo": "Lembre-se de incluir sua tag (%%tag%%) ou ID (%%id%%) ao enviar o pedido.\n**Se você não incluir pelo menos um deles, seu pedido será rejeitado!**",
 	"noLanguage": "Não encontrou seu idioma?",
-	"langRequest": "É possível que nós não suportemos o seu idioma ainda. Se este for o caso, por favor, contate um administrador pedindo para que adicione o idioma que você deseja."
+	"langRequest": "É possível que nós não suportemos o seu idioma ainda. Se este for o caso, contate um administrador pedindo para que adicione o idioma que você deseja."
 }

@@ -16,6 +16,7 @@
 	"bg": "Bulgariska",
 	"zhcn": "Kinesiska (förenklad)",
 	"zhtw": "Kinesiska (traditionell)",
+	"hr": "Kroatiska",
 	"cs": "Tjeckiska",
 	"da": "Danska",
 	"nl": "Nederländska",
@@ -33,6 +34,7 @@
 	"it": "Italienska",
 	"ja": "Japanska",
 	"ko": "Koreanska",
+	"lt": "Litauiska",
 	"ms": "Malajiska",
 	"no": "Norska",
 	"fa": "Persian",
@@ -48,5 +50,6 @@
 	"sv": "Svenska",
 	"th": "Thailändska",
 	"tr": "Turkiska",
-	"ua": "Ukrainska"
+	"ua": "Ukrainska",
+	"vi": "Vietnamesiska"
 }

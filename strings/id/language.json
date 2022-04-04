@@ -16,6 +16,7 @@
 	"bg": "Bahasa Bulgaria",
 	"zhcn": "Bahasa Mandarin (Simpel)",
 	"zhtw": "Bahasa Mandarin (Tradisional)",
+	"hr": "Kroasia",
 	"cs": "Bahasa Czech",
 	"da": "Bahasa Denmark",
 	"nl": "Bahasa Belanda",
@@ -33,6 +34,7 @@
 	"it": "Italia",
 	"ja": "Jepang",
 	"ko": "Korea",
+	"lt": "Lithuania",
 	"ms": "Melayu",
 	"no": "Norwegia",
 	"fa": "Bahasa Persia",
@@ -48,5 +50,6 @@
 	"sv": "Swedia",
 	"th": "Thailand",
 	"tr": "Turki",
-	"ua": "Ukraina"
+	"ua": "Ukraina",
+	"vi": "Bahasa Vietnam"
 }

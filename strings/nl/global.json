@@ -34,7 +34,7 @@
 		"successTake": "Rol %%role%% ontnomen."
 	},
 	"cooldown": "Afkoeltijd",
-	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
+	"timeLeft": "Je kunt %%command%% %%timestamp%% weer gebruiken.",
 	"linkCorrectionDesc": "Verander je link de volgende keer naar de indeling %%format%%.",
 	"correctLink": "Hier is de juiste koppeling:",
 	"wrongStringURL": "Je hebt een link naar de editor gestuurd en niet naar de tekenreeks zelf!",

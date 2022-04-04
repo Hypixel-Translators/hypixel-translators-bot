@@ -7,7 +7,7 @@
 	"infoHelp": "Comandos de informação",
 	"commandInfo": "Informações do comando",
 	"commandInfoFor": "Informação para o comando ",
-	"staffOnly": "Este comando está disponível apenas para a equipe, logo sua informação está escondida.\nPor favor, contate um membro da equipe se você acredita que isto é um erro.",
+	"staffOnly": "Este comando está disponível apenas para a equipe, logo sua informação está escondida.\nContate um membro da equipe se você acredita que isto é um erro.",
 	"inDev": "Este comando está em desenvolvimento e estará disponível no futuro!",
 	"seconds": "segundos",
 	"second": "segundo",
