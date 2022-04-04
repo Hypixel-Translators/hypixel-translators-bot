@@ -16,6 +16,7 @@
 	"bg": "Búlgaro",
 	"zhcn": "Chino Simplificado",
 	"zhtw": "Chino Tradicional",
+	"hr": "Croata",
 	"cs": "Checo",
 	"da": "Danés",
 	"nl": "Holandés",
@@ -33,6 +34,7 @@
 	"it": "Italiano",
 	"ja": "Japonés",
 	"ko": "Coreano",
+	"lt": "Lituano",
 	"ms": "Malayo",
 	"no": "Noruego",
 	"fa": "Persa",
@@ -48,5 +50,6 @@
 	"sv": "Sueco",
 	"th": "Tailandés",
 	"tr": "Turco",
-	"ua": "Ucraniano"
+	"ua": "Ucraniano",
+	"vi": "Vietnamita"
 }
