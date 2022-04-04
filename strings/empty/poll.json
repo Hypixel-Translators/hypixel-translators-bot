@@ -1,0 +1,23 @@
+{
+    "successPost": "crwdns2356:0crwdne2356:0",
+    "endPost": "crwdns2360:0%%fullTime%%crwdnd2360:0%%relativeTime%%crwdne2360:0",
+    "successEnd": "crwdns2358:0crwdne2358:0",
+    "noChannelId": "crwdns2362:0crwdne2362:0",
+    "noMessageId": "crwdns2364:0crwdne2364:0",
+    "noPoll": "crwdns2366:0crwdne2366:0",
+    "noPollDb": "crwdns2368:0crwdne2368:0",
+    "errorNotOwner": "crwdns2370:0crwdne2370:0",
+    "totalVotes": "crwdns2402:0crwdne2402:0",
+    "createdOn": "crwdns2404:0crwdne2404:0",
+    "endingOn": "crwdns2406:0crwdne2406:0",
+    "voteCount": "crwdns2372:0%%number%%crwdne2372:0",
+    "voteCountPlural": "crwdns2374:0%%number%%crwdne2374:0",
+    "pollResults": "crwdns2376:0crwdne2376:0",
+    "endingWarning": "crwdns2380:0crwdne2380:0",
+    "endingWarningDesc": "crwdns2382:0%%fullTime%%crwdnd2382:0%%relativeTime%%crwdne2382:0",
+    "didntReply": "crwdns2386:0crwdne2386:0",
+    "successCancelEnd": "crwdns2388:0crwdne2388:0",
+    "endScheduled": "crwdns2390:0%%fullTime%%crwdnd2390:0%%relativeTime%%crwdne2390:0",
+    "successVote": "crwdns2392:0crwdne2392:0",
+    "alreadyVoted": "crwdns2394:0crwdne2394:0"
+}
