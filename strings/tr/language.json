@@ -16,6 +16,7 @@
 	"bg": "Bulgarca",
 	"zhcn": "Çince (Basitleştirilmiş)",
 	"zhtw": "Çince (Geleneksel)",
+	"hr": "Hırvatça",
 	"cs": "Çekçe",
 	"da": "Danimarka dili",
 	"nl": "Hollanda dili",
@@ -33,6 +34,7 @@
 	"it": "İtalyanca",
 	"ja": "Japonca",
 	"ko": "Korece",
+	"lt": "Litvanca",
 	"ms": "Malayca",
 	"no": "Norveççe",
 	"fa": "Farsça",
@@ -48,5 +50,6 @@
 	"sv": "İsveççe",
 	"th": "Tay Dili",
 	"tr": "Türkçe",
-	"ua": "Ukraynaca"
+	"ua": "Ukraynaca",
+	"vi": "Vietnamca"
 }
