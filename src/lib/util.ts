@@ -424,6 +424,7 @@ export async function updateRoles(member: GuildMember, json?: GraphQLQuery["data
 			roles.splice(roles.indexOf(ids.roles.hypixelStaff), 1)
 			await member.roles.remove(roles, "Updated roles")
 			await member.roles.add([ids.roles.hypixelGm, ids.roles.hypixelStaff], `Successfully verified as ${json.username}`)
+			role = member.guild.roles.cache.get(ids.roles.hypixelAdmin)!
 			break
 		case "YOUTUBER":
 			roles.splice(roles.indexOf(ids.roles.youtuber), 1)
