@@ -206,14 +206,13 @@ const command: Command = {
 			interaction.member.roles.cache.forEach(r => {
 				const roleName = r.name.split(" ")
 				roleName.splice(roleName.length - 1, 1)
-				const role = roleName.join(" "),
-					mongoLanguage = languages.find(l => l.name === role)
+				const mongoLanguage = languages.find(l => l.name === roleName.join(" "))
 				if (mongoLanguage) userLangs.push(mongoLanguage)
 			})
 			userLangs = userLangs.reverse()
-			let p = 0
-			const rows: MessageActionRow[] = [],
-				components: Map<string, MessageButton> = new Map()
+			let p = 0,
+				rows: MessageActionRow[] = Array(5).fill(new MessageActionRow())
+			const components: Map<string, MessageButton> = new Map()
 			userLangs.forEach(entry => {
 				const button = new MessageButton({
 					style: "SUCCESS",
@@ -224,6 +223,7 @@ const command: Command = {
 				rows[p].addComponents(button)
 				components.set(entry.code, button)
 			})
+			rows = rows.filter(r => r.components.length)
 
 			const confirmButton = new MessageButton({
 					style: "SUCCESS",
@@ -239,7 +239,7 @@ const command: Command = {
 					label: getString("pagination.cancel", { file: "global" }),
 				})
 
-			rows.push(new MessageActionRow().addComponents(confirmButton, cancelButton))
+			rows.push(new MessageActionRow({ components: [confirmButton, cancelButton] }))
 
 			if (!userLangs.length) {
 				if (
