@@ -10,7 +10,7 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "poll",
-	description: "Creates/ends a poll in the current channel",
+	description: "Creates or manages polls on the server. Available to Hypixel Proofreaders and above",
 	options: [
 		{
 			type: "SUB_COMMAND",
