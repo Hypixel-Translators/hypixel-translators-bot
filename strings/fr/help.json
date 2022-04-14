@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "Te donnes le temps de latence du bot."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "Te donnes le préfixe approprié pour ta/tes langue(s). Afin d'obtenir un préfixe personnalisé, exécutes `/prefix` et fournissez le code régional du drapeau de votre pays ou son nom dans le paramètre `flags`. Vous pouvez ajouter autant de drapeaux que vous le souhaitez, séparés par un espace."
 	},
