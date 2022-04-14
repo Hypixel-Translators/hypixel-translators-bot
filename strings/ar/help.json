@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "يعطيك ping البوت."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "يعطيك الأداة المناسبة للغة (اللغات). للحصول على أداة مخصصة، قم بتنفيذ `/prefix` واستبدل `<flags>` بالكود الإقليمي لعلم بلدك أو اسمه. يمكنك إضافة أكبر عدد من الأعلام كما تريد، مفصولة بمسافة."
 	},
