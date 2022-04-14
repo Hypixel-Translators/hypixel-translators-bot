@@ -1,0 +1,18 @@
+{
+	"moduleName": "Minecraft 统计数据",
+	"history": {
+		"firstName": "初始游戏名",
+		"nameHistoryFor": "%%username%% 的曾用游戏名",
+		"userChangedName": "%%username%% 已更改过游戏名 %%number%% 次。",
+		"youChangedName": "你已更改过游戏名 %%number%% 次。",
+		"userChangedName1": "%%username%% 仅更改过 1 次游戏名。",
+		"youChangedName1": "你更改过游戏名 1 次。",
+		"userNeverChanged": "%%username%% 从未更改游戏名。",
+		"youNeverChanged": "你从未更改游戏名。"
+	},
+	"skin": {
+		"yourSkin": "这是你的皮肤！",
+		"userSkin": "这是 %%user%% 的皮肤！",
+		"isLinked": "此玩家已绑定为 %%user%%"
+	}
+}
