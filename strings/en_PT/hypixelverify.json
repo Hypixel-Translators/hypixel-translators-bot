@@ -1,0 +1,9 @@
+{
+	"moduleName": "Hypixel Verification",
+	"success": "Ye successfully verified yerself as %%player%%!",
+	"role": "Ye was given th' %%role%% role due t' yer rank on th' server.",
+	"alreadyVerified": "Ye already be verified!",
+	"nameChangeDisclaimer": "Keep in mind that ye does nah need t' verify yerself again if ye change yer name!",
+	"error": "We could nah verify ye because ye did nah set yer Discord on Hypixel properly!",
+	"tutorial": "In order t' be verified, ye must set yer Discord on Hypixel t' %%tag%% and wait up t' 10 minutes t' execute th' command again. Follow th' instructions in th' video below if ye do nah know how t' do 'tis."
+}
