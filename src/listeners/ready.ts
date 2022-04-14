@@ -7,18 +7,23 @@ import {
 	ApplicationCommandPermissionData,
 	ChatInputApplicationCommandData,
 	GuildApplicationCommandPermissionData,
+	MessageActionRow,
+	MessageButton,
 	MessageEmbed,
+	type TextBasedChannel,
 	TextChannel,
 } from "discord.js"
+import { ObjectId } from "mongodb"
 import { schedule } from "node-cron"
 
+import { Poll } from "../commands/Utility/poll"
 import { colors, listeningStatuses, watchingStatuses, playingStatuses, ids } from "../config.json"
 import crowdin from "../events/crowdinverify"
 import inactives from "../events/inactives"
 import stats from "../events/stats"
 import { client } from "../index"
 import { db } from "../lib/dbclient"
-import { getInviteLink, PunishmentLog, restart, sendHolidayMessage } from "../lib/util"
+import { generateProgressBar, getInviteLink, PunishmentLog, restart, sendHolidayMessage } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 
@@ -113,17 +118,24 @@ client.on("ready", async () => {
 	schedule("0 0 1 1 *", () => sendHolidayMessage("newYear"))
 
 	// Check for active punishments and start a timeout to conclude them
-	const punishments = await db.collection<PunishmentLog>("punishments").find({ ended: false }).toArray()
+	const punishments = await db
+		.collection<PunishmentLog>("punishments")
+		.find({ ended: false, endTimestamp: { $exists: true } })
+		.toArray()
 	for (const punishment of punishments) {
-		if (!punishment.endTimestamp) continue
-		// The setTimeout function doesn't accept values bigger than the 32-bit signed integer limit, so we need to check for that.
-		// Additionally, we restart the bot at least once every 2 days so no punishment will be left unexpired
 		if (punishment.type === "MUTE") awaitMute(punishment)
 		else if (punishment.type === "BAN") awaitBan(punishment)
 		else console.error(`For some reason a ${punishment.type} punishment wasn't expired. Case ${punishment.case}`)
 	}
 
-	// Restart the bot every 2 days
+	// Check for unfinished polls and start a timeout to conclude them
+	const polls = await db
+		.collection<Poll>("polls")
+		.find({ ended: false, endTimestamp: { $exists: true } })
+		.toArray()
+	for (const poll of polls) awaitPoll(poll)
+
+	// We restart the bot at least once every 2 days so no punishment will be left unexpired
 	setInterval(async () => {
 		console.log("Bot has been running for 2 days, restarting...")
 		;(client.channels.cache.get(ids.channels.botDev) as TextChannel).send("I have been running for 2 days straight, gonna restart...")
@@ -132,6 +144,7 @@ client.on("ready", async () => {
 })
 
 export async function awaitMute(punishment: PunishmentLog) {
+	// The setTimeout function doesn't accept values bigger than the 32-bit signed integer limit, so we need to check for that.
 	const msLeft = punishment.endTimestamp! - Date.now()
 	if (msLeft > 2 ** 31 - 1) return
 	await setTimeout(msLeft)
@@ -191,6 +204,7 @@ export async function awaitMute(punishment: PunishmentLog) {
 }
 
 export async function awaitBan(punishment: PunishmentLog) {
+	// The setTimeout function doesn't accept values bigger than the 32-bit signed integer limit, so we need to check for that.
 	const msLeft = punishment.endTimestamp! - Date.now()
 	if (msLeft > 2 ** 31 - 1) return
 	await setTimeout(msLeft)
@@ -238,6 +252,48 @@ export async function awaitBan(punishment: PunishmentLog) {
 		moderator: client.user.id,
 		logMsg: msg.id,
 	} as PunishmentLog)
+}
+
+export async function awaitPoll(poll: Poll) {
+	const msLeft = poll.endTimestamp! - Date.now()
+	if (msLeft > 2 ** 31 - 1) return
+	await setTimeout(msLeft)
+	const message = await (client.channels.cache.get(poll.channelId) as TextBasedChannel)?.messages.fetch(poll.messageId).catch(() => null),
+		pollDb = await db.collection<Poll>("polls").findOneAndUpdate({ messageId: poll.messageId, channelId: poll.channelId }, { $set: { ended: true } })
+	if (!message || !pollDb.value) return
+	const totalVoteCount = pollDb.value.options.reduce((acc, o) => acc + o.votes.length, 0),
+		embed = new MessageEmbed({
+			color: "BLURPLE",
+			title: pollDb.value.question,
+			description: totalVoteCount
+				? `A total of ${totalVoteCount} ${totalVoteCount === 1 ? "person" : "people"} voted on this poll!`
+				: "Unfortunately, no one voted on this poll",
+			fields: totalVoteCount
+				? pollDb.value.options.map(o => ({
+						name: o.text,
+						// Make sure to account for NaN values
+						value: `${generateProgressBar(o.votes.length, totalVoteCount)} ${Math.round((o.votes.length / totalVoteCount) * 100) || 0}% (**${
+							o.votes.length
+						} votes**)`,
+				  }))
+				: [],
+			footer: { text: "Poll results • Created at" },
+			timestamp: new ObjectId(pollDb.value._id).getTimestamp().getTime(),
+		}),
+		msg = await message.channel!.send({ embeds: [embed], content: `<@${pollDb.value.authorId}> your poll just ended. Check out the results below!` }),
+		linkButton = new MessageActionRow({
+			components: [
+				new MessageButton({
+					style: "LINK",
+					url: msg.url,
+					label: "See results",
+				}),
+			],
+		})
+	await message.edit({
+		content: "This poll has ended!",
+		components: [linkButton],
+	})
 }
 
 function getPermissions(commands: ApplicationCommand[]) {

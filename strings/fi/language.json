@@ -16,6 +16,7 @@
 	"bg": "bulgaria",
 	"zhcn": "kiina (yksinkertaistettu)",
 	"zhtw": "kiina (perinteinen)",
+	"hr": "kroatia",
 	"cs": "tšekki",
 	"da": "tanska",
 	"nl": "hollanti",
@@ -33,6 +34,7 @@
 	"it": "italia",
 	"ja": "japani",
 	"ko": "korea",
+	"lt": "liettua",
 	"ms": "malaiji",
 	"no": "norja",
 	"fa": "farsi",
@@ -48,5 +50,6 @@
 	"sv": "ruotsi",
 	"th": "thai",
 	"tr": "turkki",
-	"ua": "ukraina"
+	"ua": "ukraina",
+	"vi": "vietnam"
 }

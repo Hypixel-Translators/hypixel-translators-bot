@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "Te da el ping del bot."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "Te da el prefijo apropiado para tu(s) idioma(s). Para obtener un prefijo personalizado, usa `/prefix` con el código regional de tu país o su nombre en el parámetro `banderas`. Puedes añadir tantas banderas como quieras, separadas con espacios."
 	},

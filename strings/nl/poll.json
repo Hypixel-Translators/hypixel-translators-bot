@@ -1,0 +1,23 @@
+{
+    "successPost": "Peiling geplaatst!",
+    "endPost": "Hij zal eindigen op %%fullTime%% (%%relativeTime%%)",
+    "successEnd": "Peiling beëindigd!",
+    "noChannelId": "Kon geen kanaal vinden met die ID!",
+    "noMessageId": "Kon geen bericht vinden met die ID!",
+    "noPoll": "Het lijkt erop dat dit bericht geen peiling bevat. Als dit niet klopt, neem dan contact op met de ontwikkelaar.",
+    "noPollDb": "Die peiling kon niet worden gevonden in de database. Breng de ontwikkelaar hiervan op de hoogte en maak een nieuwe peiling aan.",
+    "errorNotOwner": "Alleen de maker van de peiling kan de resultaten bekijken voordat deze is afgelopen!",
+    "totalVotes": "Aantal stemmen",
+    "createdOn": "Gemaakt op",
+    "endingOn": "Eindigt op",
+    "voteCount": "%%number%% stem",
+    "voteCountPlural": "%%number%% stemmen",
+    "pollResults": "Resultaten peiling",
+    "endingWarning": "Let op: deze peiling eindigt binnenkort!",
+    "endingWarningDesc": "Deze peiling zal eindigen op %%fullTime%% (%%relativeTime%%), dus misschien wil je deze nog niet beëindigen. Als dit wel het geval is, bevestig dit dan met de knop hieronder.",
+    "didntReply": "You didn't reply, so this poll will not end now",
+    "successCancelEnd": "Beëindigen van deze peiling geannuleerd!",
+    "endScheduled": "Hij zal eindigen op het ingestelde moment: %%fullTime%% (%%relativeTime%%)",
+    "successVote": "Stem geregistreerd!",
+    "alreadyVoted": "Je hebt al eens voor deze optie gestemd, dus je stem is niet veranderd."
+}

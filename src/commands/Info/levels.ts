@@ -32,14 +32,13 @@ const command: Command = {
 				.collection<DbUser>("users")
 				.find({}, { sort: { "levels.totalXp": -1, id: 1 } })
 				.toArray(),
-			inputMe = interaction.options.getBoolean("me", false),
 			inputPage = interaction.options.getInteger("page", false),
 			pages: DbUser[][] = [] // Inner arrays are of length 24
 		let n = 0
 		while (n < allUsers.length) pages.push(allUsers.slice(n, (n += 24))) // Max number of fields divisible by 3
 
 		let page = 0
-		if (inputMe) page = pages.indexOf(pages.find(p => p.some(u => u.id === interaction.user.id))!)
+		if (interaction.options.getBoolean("me", false)) page = pages.indexOf(pages.find(p => p.some(u => u.id === interaction.user.id))!)
 		else if (inputPage) page = inputPage - 1
 
 		if (page >= pages.length || page < 0) {

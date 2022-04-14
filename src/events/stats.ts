@@ -39,31 +39,32 @@ export async function updateProjectStatus(projectId: number) {
 			.sort((a, b) => b.data.phrases.total - a.data.phrases.total),
 		sortedSatus = Array.from(langStatus).sort((currentStatus, nextStatus) => nextStatus.language.name.localeCompare(currentStatus.language.name)),
 		channel = client.channels.cache.find(c => (c as TextChannel).name === `${mongoProject.shortName}-language-status`) as TextChannel,
-		messages = await channel.messages.fetch(),
-		fiMessages = messages.filter(msg => msg.author.id === client.user!.id)
+		messages = await channel.messages.fetch()
 	let index = 0
-	fiMessages.forEach(async msg => {
-		const fullData = sortedSatus[index],
-			crowdinData = fullData.data
+	messages
+		.filter(msg => msg.author.id === client.user!.id)
+		.forEach(async msg => {
+			const fullData = sortedSatus[index],
+				crowdinData = fullData.data
 
-		let color: number
-		if (mongoProject.identifier === "hypixel") color = fullData.language.color!
-		else if (crowdinData.approvalProgress > 89) color = colors.success
-		else if (crowdinData.approvalProgress > 49) color = colors.loading
-		else color = colors.error
+			let color: number
+			if (mongoProject.identifier === "hypixel") color = fullData.language.color!
+			else if (crowdinData.approvalProgress > 89) color = colors.success
+			else if (crowdinData.approvalProgress > 49) color = colors.loading
+			else color = colors.error
 
-		const embed = new MessageEmbed({
-			color,
-			title: `${fullData.language.emoji ?? "<:icon_question:882267041904607232>"} | ${fullData.language.name}`,
-			thumbnail: { url: fullData.language.flag },
-			description: `${crowdinData.translationProgress}% translated (${crowdinData.phrases.translated}/${crowdinData.phrases.total} strings)\n**${crowdinData.approvalProgress}% approved (${crowdinData.phrases.approved}/${crowdinData.phrases.total} strings)**`,
-			fields: [{ name: "Translate at", value: `https://crowdin.com/project/${mongoProject.identifier}/${fullData.language.id}` }],
-			footer: { text: "Last update" },
-			timestamp: Date.now(),
+			const embed = new MessageEmbed({
+				color,
+				title: `${fullData.language.emoji ?? "<:icon_question:882267041904607232>"} | ${fullData.language.name}`,
+				thumbnail: { url: fullData.language.flag },
+				description: `${crowdinData.translationProgress}% translated (${crowdinData.phrases.translated}/${crowdinData.phrases.total} strings)\n**${crowdinData.approvalProgress}% approved (${crowdinData.phrases.approved}/${crowdinData.phrases.total} strings)**`,
+				fields: [{ name: "Translate at", value: `https://crowdin.com/project/${mongoProject.identifier}/${fullData.language.id}` }],
+				footer: { text: "Last update" },
+				timestamp: Date.now(),
+			})
+			index++
+			await msg.edit({ content: null, embeds: [embed] })
 		})
-		index++
-		await msg.edit({ content: null, embeds: [embed] })
-	})
 	const oldStringCount = mongoProject.stringCount,
 		newStringCount = langStatus[0].data.phrases.total
 
@@ -114,6 +115,7 @@ export async function checkBuild() {
 	await closeConnection(browser.uuid)
 
 	if (lastBuild.timestamp > (await collection.findOne({ identifier: "hypixel" }))!.lastBuild!) {
+		// eslint-disable-next-line no-one-time-vars/no-one-time-vars
 		const author = lastBuild.message.match(/>(.*)( \([^(]*\))?</)?.[1],
 			embed = new MessageEmbed({
 				color: colors.success,

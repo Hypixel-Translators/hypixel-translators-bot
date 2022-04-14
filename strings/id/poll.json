@@ -1,0 +1,23 @@
+{
+    "successPost": "Berhasil post poll anda!",
+    "endPost": "Ini akan berakhir pada %%fullTime%% (%%relativeTime%%)",
+    "successEnd": "Berhasil mengakhiri poll anda!",
+    "noChannelId": "Tidak dapat menemukan channel dengan ID tersebut!",
+    "noMessageId": "Tidak dapat menemukan pesan dengan ID tersebut!",
+    "noPoll": "Sepertinya pesan tersebut tidak ada poll di dalamnya. Jika ada, mohon kontak dengan developer mengenai ini.",
+    "noPollDb": "Kami tidak dapat menemukan poll tersebut di database! Mohon kontak developer bot mengenai ini dan buat poll baru",
+    "errorNotOwner": "Hanya pembuat poll yang dapat melihat hasil sebelum poll selesai!",
+    "totalVotes": "Total suara",
+    "createdOn": "Dibuat pada",
+    "endingOn": "Selesai pada",
+    "voteCount": "%%number%% suara",
+    "voteCountPlural": "%%number%% suara",
+    "pollResults": "Hasil poll",
+    "endingWarning": "Hati-hati! Poll ini akan selesai sebentar lagi",
+    "endingWarningDesc": "Poll ini sudah dijadwalkan untuk selesai pada %%fullTime%% (%%relativeTime%%), jadi anda mungkin tidak ingin mengakhirinya dulu. Jika anda ingin, konfirmasi dengan tombol dibawah ini.",
+    "didntReply": "Anda tidak membalas, jadi poll tidak akan berakhir sekarang",
+    "successCancelEnd": "Berhasil memberhentikan keberhentian poll ini!",
+    "endScheduled": "Sebagai gantinya, ini akan berakhir pada %%fullTime%% (%%relativeTime%%)",
+    "successVote": "Berhasil mencatat suara anda!",
+    "alreadyVoted": "Anda sudah memilih untuk opsi ini, jadi suara anda tidak berubah."
+}

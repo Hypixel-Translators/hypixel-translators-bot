@@ -121,6 +121,19 @@ export function createButtonControls(
 	})
 }
 
+export function generateProgressBar(current: number, goal: number, places = 10): string {
+	const leftEmoji = "<:progress_left:820405406906974289>"
+	if (isNaN(current) || isNaN(goal) || (current === 0 && goal === 0)) return `${leftEmoji.repeat(places)}\u200b`
+
+	const progressFixed = Math.round((current / goal) * places),
+		leftFixed = places - progressFixed
+
+	// Apparently leftFixed can be negative and progressFixed can be bigger than 10, so let's not do that
+	return `${
+		"<:progress_done:820405383935688764>".repeat(progressFixed > 10 ? 10 : progressFixed) + leftEmoji.repeat(leftFixed < 0 ? 0 : leftFixed)
+	}\u200b` // Add a blank char at the end to prevent huge emojis on android
+}
+
 export function generateTip(getString?: GetStringFunction, newLang?: string): string {
 	const strings = require("../../strings/en/global.json"),
 		keys = getString ? Object.keys(getString("tips", { file: "global" })) : Object.keys(strings.tips)
@@ -313,16 +326,16 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 		logMsg = logMsg.concat(`${lang}: ${log[lang]}\n`)
 	}
 	const announcement = holiday.join(" "),
-		announcements = client.channels.cache.get(ids.channels.announcements) as NewsChannel,
 		adminBots = client.channels.cache.get(ids.channels.adminBots) as TextChannel,
 		holidayNameFormatted = holidayName.charAt(0).toUpperCase() + holidayName.slice(1).replace(/([A-Z])/, " $1")
 	if (announcement) {
-		await announcements.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`).then(msg => msg.crosspost())
+		await (client.channels.cache.get(ids.channels.announcements) as NewsChannel)
+			.send(`${announcement}\n\n - From the Hypixel Translators Team. ❤`)
+			.then(msg => msg.crosspost())
 		await adminBots.send(`${holidayNameFormatted} announcement sent! Here's each language's translation:\n${logMsg}`)
 		console.table(log)
 		console.log(`Sent the ${holidayNameFormatted} announcement`)
-	} else
-		return await adminBots.send(`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`)
+	} else await adminBots.send(`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`)
 }
 
 export function transformDiscordLocale(discordLocale: string): string {
@@ -413,6 +426,7 @@ export async function updateRoles(member: GuildMember, json?: GraphQLQuery["data
 			roles.splice(roles.indexOf(ids.roles.hypixelStaff), 1)
 			await member.roles.remove(roles, "Updated roles")
 			await member.roles.add([ids.roles.hypixelGm, ids.roles.hypixelStaff], `Successfully verified as ${json.username}`)
+			role = member.guild.roles.cache.get(ids.roles.hypixelAdmin)!
 			break
 		case "YOUTUBER":
 			roles.splice(roles.indexOf(ids.roles.youtuber), 1)

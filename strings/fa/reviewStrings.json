@@ -1,9 +1,0 @@
-{
-	"moduleName": "بررسی رشته",
-	"message": "پیام",
-	"clickHere": "اینجا کلیک کنید",
-	"requestDetails": "کاربر %%user%% درخواست اطلاعات بیشتری دربارۀ پیشنهاد شما کرد",
-	"requestedBy": "درخواست شده توسط %%user%%",
-	"rejected": "کاربر %%user%% پیشنهاد شما را رد کرد",
-	"rejectedBy": "توسط %%user%% رد شد"
-}

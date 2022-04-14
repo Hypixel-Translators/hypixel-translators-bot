@@ -1,0 +1,23 @@
+{
+    "successPost": "Pomyślnie stworzono Twoją ankietę!",
+    "endPost": "Ankieta zamyka się o %%fullTime%% (%%relativeTime%%)",
+    "successEnd": "Pomyślnie zakończono Twoją ankietę!",
+    "noChannelId": "Nie udało się znaleźć kanału o takim ID!",
+    "noMessageId": "Nie udało się znaleźć wiadomości o takim ID!",
+    "noPoll": "Wygląda na to, że ta wiadomość nie jest ankietą. Jeśli jednak jest ona, proszę, skontaktuj się z deweloperem.",
+    "noPollDb": "Nie mogliśmy znaleźć tej ankiety w naszej bazie danych! Skontaktuj się z twórcą bota i stwórz nową ankietę",
+    "errorNotOwner": "Tylko twórca tej ankiety może wyświetlać jej wyniki przed jej zakończeniem!",
+    "totalVotes": "Ogółem głosów",
+    "createdOn": "Stworzona:",
+    "endingOn": "Kończy się o:",
+    "voteCount": "%%number%% głos",
+    "voteCountPlural": "%%number%% głosy(-ów)",
+    "pollResults": "Wyniki ankiety",
+    "endingWarning": "Uwaga! Ta ankieta wkrótce się zakończy",
+    "endingWarningDesc": "Ta ankieta zakończy się %%fullTime%% (%%relativeTime%%), więc prawdopodobnie nie chcesz jeszcze jej zakończyć. Jeśli jednak chcesz, potwierdź to za pomocą przycisku poniżej.",
+    "didntReply": "Nie odpowiedziałeś(-aś), więc ta ankieta się nie zakończy",
+    "successCancelEnd": "Pomyślnie anulowano zakończenie tej ankiety!",
+    "endScheduled": "Zamiast tego, zakończy się ona o planowanym czasie %%fullTime%% (%%relativeTime%%)",
+    "successVote": "Pomyślnie zliczono Twój głos!",
+    "alreadyVoted": "Zagłosowałeś(-aś) już na tę opcję, więc twój głos nie został policzony."
+}

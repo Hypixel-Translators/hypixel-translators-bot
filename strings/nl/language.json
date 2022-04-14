@@ -16,6 +16,7 @@
 	"bg": "Bulgaars",
 	"zhcn": "Vereenvoudigd Chinees",
 	"zhtw": "Traditioneel Chinees",
+	"hr": "Kroatisch",
 	"cs": "Tsjechisch",
 	"da": "Deens",
 	"nl": "Nederlands",
@@ -33,6 +34,7 @@
 	"it": "Italiaans",
 	"ja": "Japans",
 	"ko": "Koreaans",
+	"lt": "Litouws",
 	"ms": "Maleis",
 	"no": "Noors",
 	"fa": "Perzisch",
@@ -48,5 +50,6 @@
 	"sv": "Zweeds",
 	"th": "Thais",
 	"tr": "Turks",
-	"ua": "Oekraïens"
+	"ua": "Oekraïens",
+	"vi": "Vietnamees"
 }

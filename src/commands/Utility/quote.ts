@@ -121,8 +121,7 @@ const command: Command = {
 	allowDM: true,
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],
 	async execute(interaction, getString: GetStringFunction) {
-		const randomTip = generateTip(getString),
-			collection = db.collection<Quote>("quotes"),
+		const collection = db.collection<Quote>("quotes"),
 			subCommand = interaction.options.getSubcommand()
 		let allowed = false
 		if ((interaction.member as GuildMember | null)?.permissions.has("VIEW_AUDIT_LOG")) allowed = true
@@ -130,7 +129,7 @@ const command: Command = {
 		else if (subCommand === "edit" && allowed) await editQuote(interaction, collection)
 		else if (subCommand === "delete" && allowed) await deleteQuote(interaction, collection)
 		else if (subCommand === "link" && allowed) await linkQuote(interaction, collection)
-		else if (subCommand === "get") await findQuote(randomTip, interaction, getString, collection)
+		else if (subCommand === "get") await findQuote(generateTip(getString), interaction, getString, collection)
 		else await interaction.reply({ content: getString("errors.noAccess", { file: "global" }), ephemeral: true })
 	},
 }
@@ -224,8 +223,8 @@ async function addQuote(interaction: ChatInputCommandInteraction, collection: Co
 			})
 			if (pictureUrl) {
 				embed.setImage(pictureUrl)
-				await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url!, imageURL: pictureUrl })
-			} else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: url! })
+				await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: msg.url, imageURL: pictureUrl })
+			} else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: msg.url })
 			await interaction.reply({ embeds: [embed] })
 		} else {
 			const embed = new MessageEmbed({

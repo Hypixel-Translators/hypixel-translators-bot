@@ -1,8 +1,11 @@
-import { ButtonInteraction, Snowflake } from "discord.js"
+import { ButtonInteraction, type Snowflake } from "discord.js"
 
 import { ids } from "../config.json"
 import { client } from "../index"
-import { GetStringFunction } from "../lib/imports"
+import { db } from "../lib/dbclient"
+
+import type { Poll } from "../commands/Utility/poll"
+import type { GetStringFunction } from "../lib/imports"
 
 export default async function handleButtonInteractions(interaction: ButtonInteraction<"cached">, getString: GetStringFunction) {
 	// Staff LOA warning removal system
@@ -46,5 +49,27 @@ export default async function handleButtonInteractions(interaction: ButtonIntera
 			await interaction.reply({ content: getString("roles.successGive", { variables: { role: `<@&${roleId}>` } }), ephemeral: true })
 			console.log(`Gave the ${interaction.guild!.roles.cache.get(roleId)!.name} role to ${interaction.user.tag}`)
 		}
+	} else if (/option[1-8]/g.test(interaction.customId)) {
+		// User polls system
+		const collection = db.collection<Poll>("polls"),
+			pollDb = await collection.findOne({ channelId: interaction.channelId, messageId: interaction.message.id }),
+			// eslint-disable-next-line no-one-time-vars/no-one-time-vars
+			optionIndex = Number(interaction.customId.at(-1)) - 1
+
+		if (!pollDb) return await interaction.reply({ content: getString("noPollDb", { file: "poll" }), ephemeral: true })
+
+		if (pollDb.options[optionIndex].votes.includes(interaction.user.id))
+			return await interaction.reply({ content: getString("alreadyVoted", { file: "poll" }), ephemeral: true })
+
+		for (const option of pollDb.options) {
+			const voteIndex = option.votes.indexOf(interaction.user.id)
+			// Remove user's votes on other options, if any
+			if (~voteIndex) option.votes.splice(voteIndex, 1)
+			// Add the new vote to the correct option
+			if (option.id === interaction.customId) option.votes.push(interaction.user.id)
+		}
+
+		await collection.updateOne({ channelId: interaction.channelId, messageId: interaction.message.id }, { $set: { options: pollDb.options } })
+		await interaction.reply({ content: getString("successVote", { file: "poll" }), ephemeral: true })
 	}
 }

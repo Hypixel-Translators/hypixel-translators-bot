@@ -17,9 +17,9 @@ const command: Command = {
 			description: "The channel to update",
 			required: false,
 			choices: [
-				{ name: "The #rules channel", value: "rules" },
-				{ name: "The #server-info channel", value: "info" },
-				{ name: "The #verify channel", value: "verify" },
+				{ name: "The rules channel", value: "rules" },
+				{ name: "The server-info channel", value: "info" },
+				{ name: "The verify channel", value: "verify" },
 			],
 		},
 	],
@@ -45,7 +45,7 @@ const command: Command = {
 				color: colors.success,
 				author: { name: "Channel updater" },
 				title: "Updated the rules channel!",
-				description: `Check it out at <#${interaction.guild.rulesChannel}>!`,
+				description: `Check it out at ${interaction.guild.rulesChannel}!`,
 				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
 			})
 			await interaction.editReply({ embeds: [successEmbed] })
@@ -180,7 +180,7 @@ async function rules(interaction: ChatInputCommandInteraction<"cached">) {
 			{
 				name: "4 - Nicks",
 				value:
-					"Your nickname must not contain zalgo or a prefix for a language you do not translate (e.g. `[PT]` or `[🇵🇹]`). It should also obey the remaining rules.",
+					'Your nickname must not contain zalgo or a prefix for a language you do not translate. Additionally, prefixes should only include the flag(s) of the language(s) you translate, separated by a dash ("-") (e.g. `[🇵🇹]` or `[🇩🇪-🇪🇸]`) and nothing else (e.g. your role on the project or alternative acronyms to resemble your language). The only exception applies to Chinese translators, who can include "CS" or "CT" in their prefixes if they do not wish to use the flags. Nicknames should also obey the remaining rules.',
 			},
 			{
 				name: "5 - Do not excessively tag Discord and Hypixel Staff members/project managers.",

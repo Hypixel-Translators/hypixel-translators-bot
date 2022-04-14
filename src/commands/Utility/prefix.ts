@@ -34,7 +34,7 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		if (!interaction.inCachedGuild()) return
 		const randomTip = generateTip(getString),
-			nickNoPrefix = interaction.member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim(),
+			nickNoPrefix = interaction.member.displayName.replaceAll(/\[.*\] ?/g, "").trim(),
 			languages = await db.collection<MongoLanguage>("languages").find().toArray()
 
 		if (interaction.options.getString("flags", false) && !interaction.member.roles.cache.hasAny(ids.roles.hypixelTranslator, ids.roles.hypixelPf)) {
@@ -206,8 +206,7 @@ const command: Command = {
 			interaction.member.roles.cache.forEach(r => {
 				const roleName = r.name.split(" ")
 				roleName.splice(roleName.length - 1, 1)
-				const role = roleName.join(" "),
-					mongoLanguage = languages.find(l => l.name === role)
+				const mongoLanguage = languages.find(l => l.name === roleName.join(" "))
 				if (mongoLanguage) userLangs.push(mongoLanguage)
 			})
 			userLangs = userLangs.reverse()

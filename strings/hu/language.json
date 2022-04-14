@@ -16,6 +16,7 @@
 	"bg": "Bolgár",
 	"zhcn": "Kínai Egyszerűsített",
 	"zhtw": "Kínai Hagyományos",
+	"hr": "Horvát",
 	"cs": "Cseh",
 	"da": "Dán",
 	"nl": "Holland",
@@ -33,6 +34,7 @@
 	"it": "Olasz",
 	"ja": "Japán",
 	"ko": "Kóreai",
+	"lt": "Litván",
 	"ms": "Maláj",
 	"no": "Norvég",
 	"fa": "Persian",
@@ -48,5 +50,6 @@
 	"sv": "Svéd",
 	"th": "Tháj",
 	"tr": "Török",
-	"ua": "Ukrán"
+	"ua": "Ukrán",
+	"vi": "Vietnám"
 }

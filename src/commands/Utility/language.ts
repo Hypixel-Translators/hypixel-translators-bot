@@ -63,9 +63,8 @@ const command: Command = {
 		let language = interaction.options.getString("language", ["set", "stats"].includes(subCommand))?.toLowerCase()
 
 		if (subCommand === "list") {
-			const files = readdirSync(stringsFolder),
-				langList: string[] = []
-			files.forEach(async (element, index, array) => {
+			const langList: string[] = []
+			readdirSync(stringsFolder).forEach(async (element, index, array) => {
 				if (element === "empty" && !member?.roles.cache.has(ids.roles.admin)) return
 				let languageString: string
 				if (element === "empty") languageString = "Empty"
@@ -84,8 +83,7 @@ const command: Command = {
 		} else if (subCommand === "stats") {
 			if (!member?.roles.cache.has(ids.roles.admin))
 				return await interaction.reply({ content: getString("errors.noAccess", { file: "global" }), ephemeral: true })
-			const files = readdirSync(stringsFolder)
-			if (!files.includes(language!)) throw "falseLang"
+			if (!readdirSync(stringsFolder).includes(language!)) throw "falseLang"
 			const langUsers = await collection.find({ lang: language }).toArray(),
 				users: string[] = []
 			langUsers.forEach(u => users.push(`<@!${u.id}>`))

@@ -1,0 +1,23 @@
+{
+    "successPost": "アンケートが作成されました！",
+    "endPost": "%%fullTime%%（%%relativeTime%%）に終了します",
+    "successEnd": "アンケートが終了しました！",
+    "noChannelId": "そのIDのチャンネルは見つかりませんでした！",
+    "noMessageId": "そのIDのメッセージは見つかりませんでした！",
+    "noPoll": "そのメッセージにはアンケートが存在しないようです。もしアンケートが存在する場合、開発者に連絡してください。",
+    "noPollDb": "データベース内でそのアンケートを見つけることができませんでした！ボットの開発者に連絡し、新しいアンケートを作成してください",
+    "errorNotOwner": "アンケートの作成者だけがアンケート終了前に結果を表示できます！",
+    "totalVotes": "合計投票数",
+    "createdOn": "作成日時",
+    "endingOn": "終了日時",
+    "voteCount": "%%number%%票",
+    "voteCountPlural": "%%number%%票",
+    "pollResults": "アンケート結果",
+    "endingWarning": "注意！このアンケートは間もなく終了します",
+    "endingWarningDesc": "This poll is scheduled to end on %%fullTime%% (%%relativeTime%%), so you probably don't wanna end it just yet. If you do, confirm using the button below.",
+    "didntReply": "You didn't reply, so this poll will not end now",
+    "successCancelEnd": "このアンケートの終了をキャンセルしました！",
+    "endScheduled": "It will instead end on the scheduled time: %%fullTime%% (%%relativeTime%%)",
+    "successVote": "投票しました！",
+    "alreadyVoted": "You had already voted for this option, so your vote was not changed."
+}

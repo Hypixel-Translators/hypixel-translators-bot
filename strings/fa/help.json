@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "پینگ بات را به شما می‌دهد."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "پیشوند مناسب زبان(های) تان را به شما می‌دهد. برای دریافت پیشوند شخصی، `prefix/` را اجرا کنید و کد منطقه‌ای پرچم کشورتان یا نام کشورتان را در پارامتر `flags` وارد کنید. شما می‌توانید هر چقدر پرچم که با اسپیس جدا کرده‌اید را اضافه کنید."
 	},

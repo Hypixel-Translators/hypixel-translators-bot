@@ -1,4 +1,3 @@
-import "source-map-support/register"
 import process from "node:process"
 
 // Setup dotenv and define client

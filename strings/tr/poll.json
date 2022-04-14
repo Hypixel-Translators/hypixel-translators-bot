@@ -1,0 +1,23 @@
+{
+    "successPost": "Anketiniz başarıyla yayınlandı!",
+    "endPost": "%%fullTime%% (%%relativeTime%%) tarihinde sona erecek.",
+    "successEnd": "Anketiniz başarıyla sonlandırıldı!",
+    "noChannelId": "Bu ID'ye sahip bir kanal bulamadım!",
+    "noMessageId": "Bu ID'ye sahip bir mesaj bulamadım!",
+    "noPoll": "Bu mesajın içinde anket yok gibi görünüyor. Eğer var ise, lütfen bu konu hakkında geliştiriciyle iletişime geçin.",
+    "noPollDb": "Bu anketi veri tabanımızda bulamadık! Lütfen bu konu hakkında bot geliştiricisiyle iletişime geçin ve yeni bir anket oluşturun",
+    "errorNotOwner": "Yalnızca anketin yaratıcısı sonuçlarını bitmeden görüntüleyebilir!",
+    "totalVotes": "Toplam oy",
+    "createdOn": "Oluşturulma Tarihi:",
+    "endingOn": "Bitiş Tarihi:",
+    "voteCount": "%%number%% oy",
+    "voteCountPlural": "%%number%% oy",
+    "pollResults": "Anket sonuçları",
+    "endingWarning": "Dikkat et! Bu anket yakında sona eriyor",
+    "endingWarningDesc": "Bu anketin %%fullTime%% (%%relativeTime%%) tarihinde bitmesi planlanıyor, bu yüzden muhtemelen henüz bu anketi sonlandırmak istemiyorsunuzdur. Eğer istiyorsanız, aşağıdaki düğmeyi kullanarak bunu onaylayın.",
+    "didntReply": "Yanıt vermedin; bu yüzden anket sonlandırılmayacak",
+    "successCancelEnd": "Anketi sonuçlandırma işlemi başarıyla iptal edildi!",
+    "endScheduled": "Bunun yerine, planlanan zamanda sona erecek: %%fullTime%% (%%relativeTime%%)",
+    "successVote": "Başarıyla oy verdin!",
+    "alreadyVoted": "Bu seçeneğe zaten oy vermiştiniz, bu yüzden oyunuz değiştirilmedi."
+}
