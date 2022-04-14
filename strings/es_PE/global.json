@@ -1,0 +1,81 @@
+{
+	"staffDm": {
+		"confirmSend": "Si confirmas esto, cualquier mensaje que envías aquí dentro de las próximas 48 horas se enviará al staff sin ninguna confirmación.",
+		"noConfirmWarn": "Cualquier mensaje que envías aquí dentro de las próximas 48 horas se enviará al staff sin ninguna confirmación.",
+		"attachmentsWarn": "También se incluirán archivos adjuntos.",
+		"attachmentsSent": "Archivos adjuntos enviados",
+		"attachmentSent": "Archivo adjunto enviado",
+		"confirmation": "¿Estás seguro que deseas enviar este mensaje al staff?",
+		"messageSent": "Tu mensaje fue enviado al staff",
+		"dmCancelled": "Este mensaje no se enviará.",
+		"resendInfo": "Si aún deseas hablar con el staff, vuelve a enviarlo y haz clic en el botón ✅ para confirmar."
+	},
+	"error": "Error",
+	"errors": {
+		"noCommand": "¡Ese comando no existe!",
+		"noUser": "¡No has dado ningún usuario!",
+		"noLang": "¡No diste un idioma!",
+		"falseUser": "¡Ese usuario no fue encontrado!",
+		"falseFlag": "¡Esa bandera no fue encontrada!",
+		"falseLang": "¡Ese idioma no fue encontrado!",
+		"falseRole": "¡Ese rol no fue encontrado!",
+		"falseUUID": "¡No se pudo encontrar un jugador con ese UUID!",
+		"noPlayer": "¡Ese jugador nunca se ha unido a Hypixel!",
+		"notVerified": "Esse utilizador ainda não conectou a sua conta no Hypixel!",
+		"disabled": "Este comando ha sido temporalmente desactivado.",
+		"noAccess": "¡No puedes usar este comando!",
+		"noPermission": "¡No puedes ejecutar este comando en este canal!",
+		"apiError": "¡Algo salió mal al comunicarse con la API!",
+		"wrongLink": "¡Link incorrecto!"
+	},
+	"roles": {
+		"noLevel": "¡Debes ser al menos nivel %%level%% de chat para recibir este rol! Puedes verificar tu nivel de chat actual usando %%command%% en %%channel%%.",
+		"successGive": "¡Se te dio con éxito el rol de %%role%%!",
+		"successTake": "¡Se te quitó con éxito el rol %%role%%!"
+	},
+	"cooldown": "Enfriamiento",
+	"timeLeft": "Podrás usar %%command%% otra vez %%timestamp%%.",
+	"linkCorrectionDesc": "Cambia tu link al formato de %%format%% para la próxima.",
+	"correctLink": "Aquí está el link correcto:",
+	"wrongStringURL": "¡El link que enviaste es un link al editor y no al string!",
+	"example": "Haz clic en el botón que muestra la imagen de abajo para obtener la URL del string correcta. Debería verse así: %%url%%",
+	"reminderLang": "No olvides también cambiar tu link al formato %%format%%.",
+	"tip": "Consejo",
+	"tips": {
+		"ib": "¿Has probado el idioma Inhale Banana? ¡Cambia tu idioma usando %%langIb%%!",
+		"translators": "¡Necesito traductores! Aprende sobre como ser un traductor usando %%translate%%.",
+		"prefix": "¿Quieres tener un prefijo genial en tu apodo? ¡Ejecuta %%prefix%% en %%bots%% y sigue las instrucciones! Disponible para todos los traductores de Hypixel.",
+		"enen": "¡No olvides cambiar tus link a en-en!",
+		"xp": "Obtienes cantidades aleatorias de XP cada minuto cuando estás chateando, lo que eventualmente te hará subir de nivel.",
+		"guide": "¿Sabías que tenemos una guía para empezar con Crowdin, disponible para todos los traductores? ¡Míralo en %%gettingStarted%%, tiene algunos consejos útiles!",
+		"twitter": "¿Has seguido nuestra cuenta de twitter? ¡Síguelo en aquí: %%twitter%%!",
+		"rulesInfo": "¡%%rules%% y %%serverInfo%% tienen toda la información que necesitas sobre este servidor!",
+		"fixTranslation": "¿Encontraste un error en una traducción? Ponte en contacto con un proofreader de tu idioma o haz que la gente lo sepa en un canal de traducción.",
+		"pinnedInfo": "¿Sabes que la mayoría de canales tienen información importante fijada? ¡Deberías verlas cada vez que visites uno!",
+		"hypixelStats": "¡Puedes ver información sobre un jugador en Hypixel usando %%hypixelstats%%!",
+		"languageStats": "¿Sabías que puedes ver estadísticas de cualquier idioma en todos de nuestros proyectos? ¡Usa %%languagestats%%!",
+		"rolesChange": "¿Obtuviste recientemente nuevos roles en Crowdin o te uniste a uno de los proyectos que apoyamos? ¡Usa %%verify%% para actualizar tus roles!",
+		"botTranslated": "¿Sabías que nuestro bot está disponible en varios idiomas? ¡Intenta usar %%langList%% para ver una lista de todos los idiomas que tenemos actualmente y puedes encontrar el tuyo!",
+		"botUpdates": "¡Publicamos cada actualización o noticia importante del bot en %%botUpdates%%, échale un vistazo!",
+		"moreTips": "¡Necesitamos más consejos! Envíalos usando %%feedback%%."
+	},
+	"pagination": {
+		"first": "Primera página",
+		"previous": "Página anterior",
+		"next": "Siguiente página",
+		"last": "Última página",
+		"confirm": "Confirmar",
+		"cancel": "Cancelar",
+		"page": "Página %%number%%/%%total%%",
+		"notYours": "¡No puedes interactuar con este menú! Ejecuta %%command%% tú mismo para hacer esto.",
+		"timeOut": "Este menú ha expirado. Si deseas reiniciarlo, ejecuta %%command%%."
+	},
+	"region": {
+		"dateLocale": "es-PE",
+		"timeZone": "America/Lima"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
+	}
+}
