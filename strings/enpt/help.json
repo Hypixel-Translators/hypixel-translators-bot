@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "Gives ye th' bot's ping."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "Gives ye th' appropriate prefix fer yer language(s)."
 	},
