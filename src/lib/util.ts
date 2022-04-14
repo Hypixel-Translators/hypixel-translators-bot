@@ -10,7 +10,6 @@ import {
 	MessageActionRow,
 	MessageButton,
 	MessageEmbed,
-	MessageEmbedOptions,
 	NewsChannel,
 	Role,
 	Snowflake,
@@ -349,8 +348,7 @@ export function transformDiscordLocale(discordLocale: string): string {
 	else return "en"
 }
 
-export function createModlogEmbed(embedOptions: MessageEmbedOptions, modlog: PunishmentLog, modlogs?: PunishmentLog[]) {
-	const embed = new MessageEmbed(embedOptions)
+export function updateModlogFields(embed: MessageEmbed, modlog: PunishmentLog, modlogs?: PunishmentLog[]) {
 	embed.setAuthor({ name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlog.logMsg}` })
 	const expireTimestamp =
 		modlog.type === "VERBAL"
@@ -390,7 +388,7 @@ export function createModlogEmbed(embedOptions: MessageEmbedOptions, modlog: Pun
 	if (modlogs) {
 		embed.setDescription(`Case #${modlog.case}`).setFooter({
 			text: `Modlog ${modlogs.indexOf(modlog) + 1}/${modlogs.length}`,
-			iconURL: embedOptions.footer!.iconURL!,
+			iconURL: embed.footer!.iconURL!,
 		})
 	}
 	return embed

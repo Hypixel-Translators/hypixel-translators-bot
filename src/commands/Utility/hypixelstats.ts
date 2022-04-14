@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GuildMember, HexColorString, Message, MessageEmbed, MessageSelectMenu } from "discord.js"
+import { GuildMember, HexColorString, Message, MessageEmbed, MessageSelectMenu, MessageSelectOption } from "discord.js"
 
 import { ids } from "../../config.json"
 import { client } from "../../index"
@@ -268,32 +268,38 @@ const command: Command = {
 
 		let embed = stats()
 
-		const optionsSelect = new MessageSelectMenu({
-			customId: "statType",
-			options: [
-				{
-					label: getString("stats"),
-					value: "stats",
-					emoji: "📊",
-					default: true,
-				},
-				{
-					label: getString("social"),
-					value: "social",
-					emoji: "twitter:821752918352068677",
-					default: false,
-				},
-			],
-		})
-		if (guildJson.guild) {
-			optionsSelect.addOptions({
-				label: "Guild",
-				value: "guild",
-				emoji: "🏡",
-				default: false,
-			})
-		}
-		const msg = (await interaction.editReply({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })) as Message,
+		const createStats = (selected: MessageSelectOption[] = []) => {
+				const isSelected = (value: string) => selected.some(opt => opt.value === value),
+					options = [
+						{
+							label: getString("stats"),
+							value: "stats",
+							emoji: "📊",
+							default: isSelected("stats"),
+						},
+						{
+							label: getString("social"),
+							value: "social",
+							emoji: "twitter:821752918352068677",
+							default: isSelected("social"),
+						},
+					]
+				if (guildJson.guild) {
+					options.push({
+						label: "Guild",
+						value: "guild",
+						emoji: "🏡",
+						default: isSelected("guild"),
+					})
+				}
+
+				return new MessageSelectMenu({
+					customId: "statType",
+					options,
+				})
+			},
+			optionsSelect = createStats(),
+			msg = (await interaction.editReply({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })) as Message,
 			collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
 
 		collector.on("collect", async menuInteraction => {
@@ -311,8 +317,7 @@ const command: Command = {
 			} else if (option === "stats") embed = stats()
 			else if (option === "social") embed = social()
 			else if (option === "guild") embed = guild()!
-			optionsSelect.options.forEach(o => (o.default = option === o.value))
-			await menuInteraction.update({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })
+			await menuInteraction.update({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [createStats(optionsSelect.options)] }] })
 		})
 
 		collector.on("end", async () => {
