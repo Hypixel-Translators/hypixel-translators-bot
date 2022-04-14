@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "Îți dă ping-ul botului."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "Îți dă prefixul potrivit pentru limba sau limbile tale. În ordine ca să primești un prefix custom, execută `/prefix` și îți furnizează codul regional pentru steagul tării tale sau numele pe parametrul `flags`. Poți adăuga câte steaguri dorești, separate de un spațiu."
 	},
