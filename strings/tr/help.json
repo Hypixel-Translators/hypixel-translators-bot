@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "Size botun gecikmesini söyler."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "Sana, dil(ler) için uygun ön ek verir. Özel bir ön ek almak için, `/prefix` komutunu kullan ve `<bayrak>` öğesini ülkenin bayrağıyla veya ülkenin bölge koduyla değiştir. Boşluk tuşu ile ayırarak, istediğin kadar bayrak ekleyebilirsin."
 	},

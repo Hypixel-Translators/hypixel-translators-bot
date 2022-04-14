@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "Memberikan anda ping bot."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "Memberikan anda prefix yang tepat untuk bahasa anda. Untuk mendapatkan prefix kustom, jalankan `/prefix` dan sediakan kode regional bendera negara anda atau namanya di parameter `flags`. Anda dapat memasukkan bendera sebanyak-banyaknya, dipisahkan dengan spasi."
 	},

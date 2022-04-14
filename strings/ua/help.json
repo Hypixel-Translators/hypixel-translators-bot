@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "Показує пінг бота."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "Надає Вам відповідний префікс для вашої мов(и). Щоб отримати користувацький префікс, напишіть `/prefix` та замініть `<прапори>` регіональним кодом прапора Вашої країни або її ім'я. Можна додавати стільки прапорів, скільки захочете, розділяючи пробілом."
 	},

@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "Laat de vertraging van de bot zien."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "Geeft je het juiste voorvoegsel voor je taal/talen. Voor een aangepast voorvoegsel kun je `/prefix` uitvoeren en in het argument `vlaggen` een de code van een land of vlag of de naam van een land opgeven. Je kunt zo veel talen selecteren als je wilt, zolang je ze scheidt met een spatie."
 	},

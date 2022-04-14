@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "Veja o ping do bot."
 	},
+	"poll": {
+		"description": "Cria ou gerencia enquetes no servidor. Disponível para os revisores do Hypixel e superiores"
+	},
 	"prefix": {
 		"description": "Fornece a você um prefixo de acordo com o(s) seu(s) idioma(s). Caso queira um prefixo customizado, use `/prefix` com o código da bandeira do seu país ou o seu nome no campo `bandeiras`. Você pode adicionar quantas bandeiras desejar, separando-as com espaço."
 	},

@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "ボットのPing値を表示します。"
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "あなたの言語に対して適切な接頭辞を設定します。カスタムな接頭辞を取得するには`/prefix`を実行し、`旗`の引数を国旗または国名の地域コードに置き換えてください。スラッシュで区切ることで複数個追加できます。"
 	},

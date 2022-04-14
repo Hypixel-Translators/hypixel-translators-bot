@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "Podaje opóźnienie bota."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "Daje ci przedrostek odpowiedni dla twojego języka (lub języków). Aby go otrzymać, wpisz `/prefix` i podaj w parametrze `flags` kod flagi twojego kraju albo jej nazwę. Możesz dodać tyle flag, ile chcesz; pamiętaj, by odzielić je spacjami."
 	},

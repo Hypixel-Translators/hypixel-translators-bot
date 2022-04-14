@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "נותן לך את הping של הבוט."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "פקודה זאת נותנת לך קידות מתאימה בעבור השפה/ות שלך. בכדי לקבל קידומת מותאמת אישית, בצע/י `prefix/` עם הקוד האזורי של מדינתך או שם מדינתך. ביכולתך להוסיף כמה דגלים שתרצה/י, שמופרדים ברווחים."
 	},

@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "Hehe ping go brr."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "Gib u aprorprate prefucks fur ur langag(agags). Fur custúm prefucks excut `/prefix <flagz>` and replac `<flagz>` withs region cods of cuntry flæg or næm. U cans ad as manys flagz as wants, spearated by spæce."
 	},
