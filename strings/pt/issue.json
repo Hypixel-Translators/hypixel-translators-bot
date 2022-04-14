@@ -1,7 +1,0 @@
-{
-    "moduleName": "Problemas e feedback",
-    "bugT": "Ver e adicionar issues",
-    "bugD": "Para ver ou fazer sugestões e reportar erros, [clica aqui]%%github%%.",
-    "urgentT": "É urgente?",
-    "urgentD": "Se estás a tentar reportar um erro fatal ou o bot tem estado offline por muito tempo sem notícias da staff, identifica um membro da staff num canal público e explica o problema."
-}
