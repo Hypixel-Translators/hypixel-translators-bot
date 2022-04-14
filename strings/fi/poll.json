@@ -15,7 +15,7 @@
     "pollResults": "Kyselyn tulokset",
     "endingWarning": "Huomio! Tämä kysely päättyy pian",
     "endingWarningDesc": "Tämä kysely on ajastettu päättymään %%fullTime%% (%%relativeTime%%), joten et välttämättä halua lopettaa sitä ihan vielä. Jos kuitenkin haluat, vahvista käyttämällä alla olevaa nappia.",
-    "didntReply": "You didn't reply, so this poll will not end now",
+    "didntReply": "Et vastannut, joten tämä kysely ei pääty nyt",
     "successCancelEnd": "Kyselyn päättäminen peruttu onnistuneesti!",
     "endScheduled": "Päättyy sen sijaan ajastuksen mukaan: %%fullTime%% (%%relativeTime%%)",
     "successVote": "Ääni rekisteröity onnistuneesti!",
