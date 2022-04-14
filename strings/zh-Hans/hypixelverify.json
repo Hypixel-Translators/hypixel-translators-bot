@@ -1,0 +1,9 @@
+{
+	"moduleName": "Hypixel 验证",
+	"success": "你已成功验证为 %%player%%！",
+	"role": "根据你在 Hypixel 服务器上的 Rank，你已获得对应的 %%role%% 角色。",
+	"alreadyVerified": "你已经验证过了！",
+	"nameChangeDisclaimer": "请注意，即使修改了游戏名，也无需进行二次验证。",
+	"error": "无法验证你的身份，因为你在 Hypixel 服务器上绑定的 Discord 账号不正确！",
+	"tutorial": "若欲完成验证，请在 Hypixel 服务器上将你的 Discord 账号绑定为 %%tag%%。之后，再等待约 10 分钟并再次执行命令。如果你不清楚如何操作，请观看下面的视频。"
+}
