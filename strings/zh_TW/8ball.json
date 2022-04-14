@@ -1,0 +1,32 @@
+{
+	"moduleName": "Magic 8 ball",
+	"question": "問題",
+	"answers": {
+		"positive": [
+			"這是肯定的。",
+			"It is decidedly so.",
+			"毫無疑問。",
+			"當然是的。",
+			"你或許可以相信它。",
+			"As I see it, yes.",
+			"大概是這樣。",
+			"Outlook good.",
+			"是的",
+			"Signs point to yes."
+		],
+		"inconclusive": [
+			"Reply hazy, try again.",
+			"請在稍後再問一次。",
+			"我現在才不要告訴你呢。",
+			"我現在無法預測。",
+			"集中精神，然後再問一次吧。"
+		],
+		"negative": [
+			"不要指望它了。",
+			"我的回覆是「不」。",
+			"My sources say no.",
+			"Outlook not so good.",
+			"Very doubtful."
+		]
+	}
+}
