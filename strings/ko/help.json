@@ -49,6 +49,9 @@
 	"ping": {
 		"description": "봇의 핑을 보여줍니다."
 	},
+	"poll": {
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+	},
 	"prefix": {
 		"description": "본인의 언어(들) 에 맞는 Prefix를 지정해줍니다. 커스텀 Prefix를 얻기 위해선 `/prefix`를 실행해서 국기 코드 또는 국기의 이름을 `flags`에 넣어주시기 바랍니다. Prefix에는 본인이 원하는 만큼 국기를 많이 넣을 수 있습니다."
 	},
