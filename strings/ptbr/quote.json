@@ -1,6 +1,0 @@
-{
-	"moduleName": "Citação",
-	"msgUrl": "Link da mensagem",
-	"invalidArg": "Argumento inválido!",
-	"indexArg": "A citação de número %%arg%% não existe! O número deve ser entre 1 e %%max%%."
-}

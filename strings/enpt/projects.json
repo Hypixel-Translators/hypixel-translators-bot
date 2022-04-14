@@ -1,8 +1,0 @@
-{
-	"moduleName": "Translation Projects",
-	"allProjects": "Here be all th’ projects we currently support on th’ server!",
-	"description": "If ye're already on some o' these projects but do nah have yer roles yet, execute `/verify [profileURL]` t' get 'em!",
-	"projectInfo": "Ye can find th' link t' th' %%project%% project [here](%%link%%). For more information, execute %%command%%.",
-	"alreadyJoined": "Ye 'ave already joined 'tis project!",
-	"notJoined": "Ye 'ave nah joined 'tis project yet!"
-}

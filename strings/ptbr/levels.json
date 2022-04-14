@@ -1,7 +1,0 @@
-{
-	"moduleName": "Pódio de EXP",
-	"pageTitle": "Aqui está o pódio de EXP!",
-	"level": "%%rank%%º | Nível %%level%% | EXP: %%xp%%",
-	"youIndicator": "VOCÊ",
-	"unranked": "%%rank%%º Sem rank"
-}

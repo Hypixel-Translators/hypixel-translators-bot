@@ -1,9 +1,0 @@
-{
-	"moduleName": "Resposta da sugestão",
-	"message": "Mensagem",
-	"clickHere": "Clique aqui",
-	"requestDetails": "%%user%% solicitou mais detalhes sobre a sua sugestão",
-	"requestedBy": "Solicitado por %%user%%",
-	"rejected": "%%user%% rejeitou a sua sugestão",
-	"rejectedBy": "Rejeitada por %%user%%"
-}
