@@ -1,0 +1,7 @@
+{
+	"moduleName": "XP Leaderboard",
+	"pageTitle": "Here be th' XP leaderboard!",
+	"level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
+	"youIndicator": "YE",
+	"unranked": "#%%rank%% Unranked"
+}
