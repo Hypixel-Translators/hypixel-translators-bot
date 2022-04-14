@@ -1,0 +1,8 @@
+{
+	"errorNoPing": "No tienes el rol de proofreader de ese idioma, ",
+	"errorNoPingPr": "así que no puedes mencionarlo.",
+	"errorNoPingTr": "así que no puedes mencionar su rol de translator.",
+	"errorNoPingAll": "así que no puedes mencionar el idioma entero.",
+	"errorNoPingDisclaimer": "Contacta el dueño del servidor o administrador si realmente lo necesitas.",
+	"success": "¡Mensaje enviado con éxito!"
+}
