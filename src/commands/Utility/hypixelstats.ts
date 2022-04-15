@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GuildMember, HexColorString, Message, MessageEmbed, MessageSelectMenu, MessageSelectOption } from "discord.js"
+import { GuildMember, HexColorString, Message, MessageEmbed, MessageSelectMenu } from "discord.js"
 
 import { ids } from "../../config.json"
 import { client } from "../../index"
@@ -268,8 +268,8 @@ const command: Command = {
 
 		let embed = stats()
 
-		const createStats = (selected: MessageSelectOption[] = []) => {
-				const isSelected = (value: string) => (selected.length ? selected.some(opt => opt.value === value) : value === "stats"),
+		const createStats = (selected?: string) => {
+				const isSelected = (value: string) => (selected ?? "stats") === value,
 					options = [
 						{
 							label: getString("stats"),
@@ -319,7 +319,7 @@ const command: Command = {
 			else if (option === "guild") embed = guild()!
 			await menuInteraction.update({
 				embeds: [embed],
-				components: [{ type: "ACTION_ROW", components: [createStats(menuInteraction.component.options as MessageSelectOption[])] }],
+				components: [{ type: "ACTION_ROW", components: [createStats(option)] }],
 			})
 		})
 
