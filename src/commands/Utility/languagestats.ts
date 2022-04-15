@@ -1,9 +1,9 @@
-import { MessageEmbed } from "discord.js"
+import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client, crowdin } from "../../index"
 import { db } from "../../lib/dbclient"
-import { transformDiscordLocale, generateTip, MongoLanguage } from "../../lib/util"
+import { transformDiscordLocale, generateTip, type MongoLanguage } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -12,7 +12,7 @@ const command: Command = {
 	description: "Shows you the progress of a language on the all projects we currently support.",
 	options: [
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "language",
 			description: "The language to get progress statistics for. Required if your language is set to English.",
 			required: false,
@@ -71,18 +71,18 @@ const command: Command = {
 		else if (approvalProgress >= 50) color = colors.loading
 		else color = colors.error
 
-		const embed = new MessageEmbed({
+		const embed = new EmbedBuilder({
 			color,
 			thumbnail: { url: lang.flag },
 			author: { name: getString("moduleName") },
 			title: `${lang.emoji} | ${getString(`languages.${lang.code}`)}`,
 			description: `${getString("statsAll", { variables: { language: getString(`languages.${lang.code}`) } })}`,
-			footer: { text: generateTip(getString), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+			footer: { text: generateTip(getString), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 		})
 		if (hypixelData) {
-			embed.addField(
-				"Hypixel",
-				`${getString("translated", {
+			embed.addFields({
+				name: "Hypixel",
+				value: `${getString("translated", {
 					variables: {
 						percentage: hypixelData.translationProgress,
 						translated: hypixelData.phrases.translated,
@@ -95,12 +95,12 @@ const command: Command = {
 						total: hypixelData.phrases.total,
 					},
 				})}`,
-			)
+			})
 		}
 		if (quickplayData) {
-			embed.addField(
-				"Quickplay",
-				`${getString("translated", {
+			embed.addFields({
+				name: "Quickplay",
+				value: `${getString("translated", {
 					variables: {
 						percentage: quickplayData.translationProgress,
 						translated: quickplayData.phrases.translated,
@@ -113,12 +113,12 @@ const command: Command = {
 						total: quickplayData.phrases.total,
 					},
 				})}`,
-			)
+			})
 		}
 		if (sbaData) {
-			embed.addField(
-				"SkyblockAddons",
-				`${getString("translated", {
+			embed.addFields({
+				name: "SkyblockAddons",
+				value: `${getString("translated", {
 					variables: {
 						percentage: sbaData.translationProgress,
 						translated: sbaData.phrases.translated,
@@ -131,12 +131,12 @@ const command: Command = {
 						total: sbaData.phrases.total,
 					},
 				})}`,
-			)
+			})
 		}
 		if (botData) {
-			embed.addField(
-				"Hypixel Translators Bot",
-				`${getString("translated", {
+			embed.addFields({
+				name: "Hypixel Translators Bot",
+				value: `${getString("translated", {
 					variables: {
 						percentage: botData.translationProgress,
 						translated: botData.phrases.translated,
@@ -145,7 +145,7 @@ const command: Command = {
 				})}\n${getString("approved", {
 					variables: { percentage: botData.approvalProgress, approved: botData.phrases.approved, total: botData.phrases.total },
 				})}`,
-			)
+			})
 		}
 		await interaction.editReply({ embeds: [embed] })
 	},

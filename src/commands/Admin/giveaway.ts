@@ -1,3 +1,5 @@
+import { ApplicationCommandOptionType } from "discord.js"
+
 import { ids } from "../../config.json"
 
 import type { Command } from "../../lib/imports"
@@ -7,13 +9,13 @@ const command: Command = {
 	description: "Gives you the winners of a giveaway.",
 	options: [
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "messageid",
 			description: "The ID of the message on this channel to fetch winners from",
 			required: true,
 		},
 		{
-			type: "INTEGER",
+			type: ApplicationCommandOptionType.Integer,
 			name: "winners",
 			description: "The amount of winners to pick. defaults to 1",
 			required: false,

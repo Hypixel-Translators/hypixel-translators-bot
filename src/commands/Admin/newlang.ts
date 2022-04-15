@@ -1,10 +1,10 @@
-import { MessageEmbed, OverwriteResolvable } from "discord.js"
+import { ApplicationCommandOptionType, ChannelType, EmbedBuilder, type OverwriteResolvable } from "discord.js"
 import { getLanguage } from "language-flag-colors"
 
 import { colors, ids } from "../../config.json"
 import { crowdin } from "../../index"
 import { db } from "../../lib/dbclient"
-import { generateTip, MongoLanguage } from "../../lib/util"
+import { generateTip, type MongoLanguage } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
 
@@ -13,7 +13,7 @@ const command: Command = {
 	description: "Creates a new language category with the appropriate channels and roles.",
 	options: [
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "code",
 			description: "The ISO code of the language to add",
 			required: true,
@@ -39,16 +39,16 @@ const command: Command = {
 				hoist: false,
 				position: 22,
 				permissions: [
-					"VIEW_CHANNEL",
-					"CHANGE_NICKNAME",
-					"SEND_MESSAGES",
-					"ADD_REACTIONS",
-					"USE_EXTERNAL_EMOJIS",
-					"READ_MESSAGE_HISTORY",
-					"CONNECT",
-					"SPEAK",
-					"STREAM",
-					"USE_VAD",
+					"ViewChannel",
+					"ChangeNickname",
+					"SendMessages",
+					"AddReactions",
+					"UseExternalEmojis",
+					"ReadMessageHistory",
+					"Connect",
+					"Speak",
+					"Stream",
+					"UseVAD",
 				],
 				mentionable: false,
 				unicodeEmoji: mongoLanguage?.emoji ?? null,
@@ -60,16 +60,16 @@ const command: Command = {
 				hoist: false,
 				position: 49,
 				permissions: [
-					"VIEW_CHANNEL",
-					"CHANGE_NICKNAME",
-					"SEND_MESSAGES",
-					"ADD_REACTIONS",
-					"USE_EXTERNAL_EMOJIS",
-					"READ_MESSAGE_HISTORY",
-					"CONNECT",
-					"SPEAK",
-					"STREAM",
-					"USE_VAD",
+					"ViewChannel",
+					"ChangeNickname",
+					"SendMessages",
+					"AddReactions",
+					"UseExternalEmojis",
+					"ReadMessageHistory",
+					"Connect",
+					"Speak",
+					"Stream",
+					"UseVAD",
 				],
 				mentionable: false,
 				unicodeEmoji: mongoLanguage?.emoji ?? null,
@@ -78,65 +78,63 @@ const command: Command = {
 			overwrites: OverwriteResolvable[] = [
 				{
 					id: interaction.guild!.id,
-					deny: ["VIEW_CHANNEL", "CONNECT"],
+					deny: ["ViewChannel", "Connect"],
 				},
 				{
 					id: ids.roles.bot,
-					allow: ["VIEW_CHANNEL", "SEND_MESSAGES", "CONNECT", "SPEAK"],
+					allow: ["ViewChannel", "SendMessages", "Connect", "Speak"],
 				},
 				{
 					id: translatorRole.id,
-					allow: ["VIEW_CHANNEL", "CONNECT"],
+					allow: ["ViewChannel", "Connect"],
 				},
 				{
 					id: proofreaderRole.id,
-					allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "MANAGE_THREADS", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"],
+					allow: ["ViewChannel", "ManageMessages", "ManageThreads", "Connect", "PrioritySpeaker", "MoveMembers"],
 				},
 				{
 					id: ids.roles.hypixelManager,
-					allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "MANAGE_THREADS", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"],
+					allow: ["ViewChannel", "ManageMessages", "ManageThreads", "Connect", "PrioritySpeaker", "MoveMembers"],
 				},
 				{
 					id: ids.roles.admin,
-					allow: ["VIEW_CHANNEL", "MANAGE_MESSAGES", "MANAGE_THREADS", "CONNECT", "PRIORITY_SPEAKER", "MOVE_MEMBERS"],
+					allow: ["ViewChannel", "ManageMessages", "ManageThreads", "Connect", "PrioritySpeaker", "MoveMembers"],
 				},
 			],
 			pfOverwrites = Array.from(overwrites)
 		pfOverwrites.splice(3, 1)
 		const category = await interaction.guild!.channels.create(`${country} ${emoji}`, {
-				type: "GUILD_CATEGORY",
+				type: ChannelType.GuildCategory,
 				permissionOverwrites: overwrites,
 				position: 9,
 				reason: `Added language ${language.name}`,
 			}),
 			translatorsChannel = await interaction.guild!.channels.create(`${language.name}-translators`, {
-				type: "GUILD_TEXT",
 				topic: `A text channel where you can discuss ${language.name} translations! ${emoji}\n\nTRANSLATION`,
 				parent: category,
 				permissionOverwrites: overwrites,
 				reason: `Added language ${language.name}`,
 			}),
 			proofreadersChannel = await interaction.guild!.channels.create(`${language.name}-proofreaders`, {
-				type: "GUILD_TEXT",
 				parent: category,
 				permissionOverwrites: pfOverwrites,
 				reason: `Added language ${language.name}`,
 			}),
 			translatorsVoice = await interaction.guild!.channels.create(`${language.name} Translators`, {
-				type: "GUILD_VOICE",
+				type: ChannelType.GuildVoice,
 				userLimit: 10,
 				parent: category,
 				permissionOverwrites: overwrites,
 				reason: `Added language ${language.name}`,
 			}),
 			proofreadersVoice = await interaction.guild!.channels.create(`${language.name} Proofreaders`, {
-				type: "GUILD_VOICE",
+				type: ChannelType.GuildVoice,
 				userLimit: 10,
 				parent: category,
 				permissionOverwrites: pfOverwrites,
 				reason: `Added language ${language.name}`,
 			}),
-			embed = new MessageEmbed({
+			embed = new EmbedBuilder({
 				color: colors.success,
 				author: { name: "Channel creator" },
 				title: `Successfully created the new ${country} category, channels and roles!`,
@@ -147,7 +145,7 @@ const command: Command = {
 					{ name: "Voice Channels", value: `${translatorsVoice} and ${proofreadersVoice}` },
 					{ name: "Roles", value: `${translatorRole} and ${proofreaderRole}` },
 				],
-				footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})
 		await interaction.editReply({ embeds: [embed] })
 	},

@@ -27,7 +27,7 @@ const command: Command = {
 	roleWhitelist: [ids.roles.star],
 	options: [
 		{
-			type: "STRING",
+			type: discord.ApplicationCommandOptionType.String,
 			name: "code",
 			description: "The code to run",
 			required: true,
@@ -63,7 +63,7 @@ const command: Command = {
 		try {
 			evaled = await eval(compiledCode)
 			const inspected = inspect(evaled, { depth: 1, getters: true }),
-				embed = new discord.MessageEmbed({
+				embed = new discord.EmbedBuilder({
 					color: colors.success,
 					author: { name: "Evaluation" },
 					title: "The code was executed successfully! Here's the output",
@@ -83,12 +83,12 @@ const command: Command = {
 						{ name: "Output length", value: `${inspected.length}`, inline: true },
 						{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true },
 					],
-					footer: { text: generateTip(), iconURL: me.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: generateTip(), iconURL: me.displayAvatarURL({ extension: "png" }) },
 				})
 			await interaction.editReply({ embeds: [embed] })
 			console.log(evaled)
 		} catch (error) {
-			const embed = new discord.MessageEmbed({
+			const embed = new discord.EmbedBuilder({
 				color: colors.error,
 				author: { name: "Evaluation" },
 				title: "An error occured while executing that code. Here's the error stack",
@@ -101,7 +101,7 @@ const command: Command = {
 					{ name: "Error length", value: `${(error.stack ?? inspect(error)).length}`, inline: true },
 					{ name: "Time taken", value: `${(Date.now() - interaction.createdTimestamp).toLocaleString()}ms`, inline: true },
 				],
-				footer: { text: generateTip(), iconURL: me.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: generateTip(), iconURL: me.displayAvatarURL({ extension: "png" }) },
 			})
 			console.error(error)
 			await interaction.editReply({ embeds: [embed] })

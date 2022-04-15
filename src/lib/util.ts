@@ -5,16 +5,18 @@ import { setInterval } from "node:timers"
 
 import axios from "axios"
 import {
-	ChatInputCommandInteraction,
-	GuildMember,
-	MessageActionRow,
-	MessageButton,
-	MessageEmbed,
-	NewsChannel,
-	Role,
-	Snowflake,
-	TextChannel,
-	User,
+	type ChatInputCommandInteraction,
+	type GuildMember,
+	ActionRowBuilder,
+	ButtonBuilder,
+	EmbedBuilder,
+	type NewsChannel,
+	type Role,
+	type Snowflake,
+	type TextChannel,
+	type User,
+	ButtonStyle,
+	EmbedData,
 } from "discord.js"
 import puppeteer from "puppeteer"
 import { v4 } from "uuid"
@@ -84,32 +86,32 @@ export function createButtonControls(
 ) {
 	const isFirst = pageIndex === 0,
 		isLast = pageIndex === pages.length - 1,
-		disabledStyle = (disabled: boolean) => (disabled ? "SECONDARY" : "SUCCESS")
+		disabledStyle = (disabled: boolean) => (disabled ? ButtonStyle.Secondary : ButtonStyle.Success)
 
-	return new MessageActionRow({
+	return new ActionRowBuilder<ButtonBuilder>({
 		components: [
-			new MessageButton({
+			new ButtonBuilder({
 				style: disabledStyle(isFirst),
 				emoji: "⏮️",
 				customId: "first",
 				label: options.getString?.("pagination.first", { file: "global" }) ?? `First ${options.itemName}`,
 				disabled: isFirst,
 			}),
-			new MessageButton({
+			new ButtonBuilder({
 				style: disabledStyle(isFirst),
 				emoji: "◀️",
 				customId: "previous",
 				label: options.getString?.("pagination.previous", { file: "global" }) ?? `Previous ${options.itemName}`,
 				disabled: isFirst,
 			}),
-			new MessageButton({
+			new ButtonBuilder({
 				style: disabledStyle(isLast),
 				emoji: "▶️",
 				customId: "next",
 				label: options.getString?.("pagination.next", { file: "global" }) ?? `Next ${options.itemName}`,
 				disabled: isLast,
 			}),
-			new MessageButton({
+			new ButtonBuilder({
 				style: disabledStyle(isLast),
 				emoji: "⏭️",
 				customId: "last",
@@ -118,6 +120,49 @@ export function createButtonControls(
 			}),
 		],
 	})
+}
+export function createModlogEmbed(embedData: EmbedData, modlog: PunishmentLog, modlogs?: PunishmentLog[]) {
+	embedData.author = { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlog.logMsg}` }
+	const expireTimestamp =
+		modlog.type === "VERBAL"
+			? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 1)
+			: modlog.type === "WARN"
+			? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 7)
+			: new Date(modlog.endTimestamp ?? modlog.timestamp).setDate(new Date(modlog.endTimestamp ?? modlog.timestamp).getDate() + 30)
+	if (typeof modlog.duration === "number") {
+		embedData.fields = [
+			{ name: "Moderator", value: `<@!${modlog.moderator}>`, inline: true },
+			{ name: "Applied on", value: `<t:${Math.round(modlog.timestamp / 1000)}:F>`, inline: true },
+			{ name: expireTimestamp > Date.now() ? "Expires" : "Expired", value: `<t:${Math.round(expireTimestamp / 1000)}:R>`, inline: true },
+
+			{ name: "Type", value: modlog.type, inline: true },
+			{ name: "Duration", value: modlog.duration ? `${modlog.duration} ${modlog.type === "BAN" ? "days" : "hours"}` : "Permanent", inline: true },
+			{ name: "Points", value: `${modlog.points ?? "N/A"}`, inline: true },
+
+			{ name: "Reason", value: modlog.reason, inline: true },
+			{
+				name: modlog.ended ? "Ended" : "Ends",
+				value: modlog.endTimestamp ? `<t:${Math.round(modlog.endTimestamp / 1000)}:R>` : "Never",
+				inline: true,
+			},
+			{ name: modlog.revoked ? "Revoked by" : "Revoked", value: modlog.revoked ? `<@!${modlog.revokedBy}>` : "No", inline: true },
+		]
+	} else {
+		embedData.fields = [
+			{ name: "Moderator", value: `<@!${modlog.moderator}>`, inline: true },
+			{ name: "Applied on", value: `<t:${Math.round(modlog.timestamp / 1000)}:F>`, inline: true },
+			{ name: expireTimestamp > Date.now() ? "Expires" : "Expired", value: `<t:${Math.round(expireTimestamp / 1000)}:R>`, inline: true },
+
+			{ name: "Type", value: modlog.type, inline: true },
+			{ name: "Points", value: `${modlog.points ?? "N/A"}`, inline: true },
+			{ name: "Reason", value: modlog.reason, inline: true },
+		]
+	}
+	if (modlogs) {
+		embedData.description = `Case #${modlog.case}`
+		embedData.footer!.text = `Modlog ${modlogs.indexOf(modlog) + 1}/${modlogs.length}`
+	}
+	return new EmbedBuilder(embedData)
 }
 
 export function generateProgressBar(current: number, goal: number, places = 10): string {
@@ -348,52 +393,6 @@ export function transformDiscordLocale(discordLocale: string): string {
 	else return "en"
 }
 
-export function updateModlogFields(embed: MessageEmbed, modlog: PunishmentLog, modlogs?: PunishmentLog[]) {
-	embed.setAuthor({ name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlog.logMsg}` })
-	const expireTimestamp =
-		modlog.type === "VERBAL"
-			? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 1)
-			: modlog.type === "WARN"
-			? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 7)
-			: new Date(modlog.endTimestamp ?? modlog.timestamp).setDate(new Date(modlog.endTimestamp ?? modlog.timestamp).getDate() + 30)
-	if (typeof modlog.duration === "number") {
-		embed.setFields(
-			{ name: "Moderator", value: `<@!${modlog.moderator}>`, inline: true },
-			{ name: "Applied on", value: `<t:${Math.round(modlog.timestamp / 1000)}:F>`, inline: true },
-			{ name: expireTimestamp > Date.now() ? "Expires" : "Expired", value: `<t:${Math.round(expireTimestamp / 1000)}:R>`, inline: true },
-
-			{ name: "Type", value: modlog.type, inline: true },
-			{ name: "Duration", value: modlog.duration ? `${modlog.duration} ${modlog.type === "BAN" ? "days" : "hours"}` : "Permanent", inline: true },
-			{ name: "Points", value: `${modlog.points ?? "N/A"}`, inline: true },
-
-			{ name: "Reason", value: modlog.reason, inline: true },
-			{
-				name: modlog.ended ? "Ended" : "Ends",
-				value: modlog.endTimestamp ? `<t:${Math.round(modlog.endTimestamp / 1000)}:R>` : "Never",
-				inline: true,
-			},
-			{ name: modlog.revoked ? "Revoked by" : "Revoked", value: modlog.revoked ? `<@!${modlog.revokedBy}>` : "No", inline: true },
-		)
-	} else {
-		embed.setFields(
-			{ name: "Moderator", value: `<@!${modlog.moderator}>`, inline: true },
-			{ name: "Applied on", value: `<t:${Math.round(modlog.timestamp / 1000)}:F>`, inline: true },
-			{ name: expireTimestamp > Date.now() ? "Expires" : "Expired", value: `<t:${Math.round(expireTimestamp / 1000)}:R>`, inline: true },
-
-			{ name: "Type", value: modlog.type, inline: true },
-			{ name: "Points", value: `${modlog.points ?? "N/A"}`, inline: true },
-			{ name: "Reason", value: modlog.reason, inline: true },
-		)
-	}
-	if (modlogs) {
-		embed.setDescription(`Case #${modlog.case}`).setFooter({
-			text: `Modlog ${modlogs.indexOf(modlog) + 1}/${modlogs.length}`,
-			iconURL: embed.footer!.iconURL!,
-		})
-	}
-	return embed
-}
-
 export async function updateRoles(member: GuildMember): Promise<void>
 export async function updateRoles(member: GuildMember, json: GraphQLQuery["data"]["players"]["player"]): Promise<Role>
 export async function updateRoles(member: GuildMember, json?: GraphQLQuery["data"]["players"]["player"]): Promise<Role | void> {
@@ -424,7 +423,7 @@ export async function updateRoles(member: GuildMember, json?: GraphQLQuery["data
 			roles.splice(roles.indexOf(ids.roles.hypixelStaff), 1)
 			await member.roles.remove(roles, "Updated roles")
 			await member.roles.add([ids.roles.hypixelGm, ids.roles.hypixelStaff], `Successfully verified as ${json.username}`)
-			role = member.guild.roles.cache.get(ids.roles.hypixelAdmin)!
+			role = member.guild.roles.cache.get(ids.roles.hypixelGm)!
 			break
 		case "YOUTUBER":
 			roles.splice(roles.indexOf(ids.roles.youtuber), 1)

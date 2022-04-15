@@ -1,4 +1,11 @@
-import { ChatInputCommandInteraction, GuildMember, Message, MessageEmbed } from "discord.js"
+import {
+	type ChatInputCommandInteraction,
+	type GuildMember,
+	type Message,
+	EmbedBuilder,
+	ComponentType,
+	ApplicationCommandOptionType,
+} from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
@@ -12,13 +19,13 @@ const command: Command = {
 	description: "Shows you the XP leaderboard",
 	options: [
 		{
-			type: "BOOLEAN",
+			type: ApplicationCommandOptionType.Boolean,
 			name: "me",
 			description: 'Whether to start at the page you appear in. Has priority over the "page" argument.',
 			required: false,
 		},
 		{
-			type: "INTEGER",
+			type: ApplicationCommandOptionType.Integer,
 			name: "page",
 			description: "The leaderboard page to get",
 			required: false,
@@ -42,14 +49,14 @@ const command: Command = {
 		else if (inputPage) page = inputPage - 1
 
 		if (page >= pages.length || page < 0) {
-			const embed = new MessageEmbed({
+			const embed = new EmbedBuilder({
 				color: colors.error,
 				author: { name: getString("moduleName") },
 				title: getString("pageTitle"),
 				description: getString("pageNotExist"),
 				footer: {
 					text: generateTip(getString),
-					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 				},
 			})
 			return await interaction.reply({ embeds: [embed] })
@@ -58,7 +65,7 @@ const command: Command = {
 				pageEmbed = fetchPage(page, pages, getString, interaction)
 
 			const msg = (await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true })) as Message,
-				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
+				collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: this.cooldown! * 1000 })
 
 			collector.on("collect", async buttonInteraction => {
 				const userDb = await client.getUser(buttonInteraction.user.id)
@@ -99,36 +106,36 @@ const command: Command = {
 function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction, interaction: ChatInputCommandInteraction) {
 	if (page > pages.length - 1) page = pages.length - 1
 	if (page < 0) page = 0
-	const pageEmbed = new MessageEmbed({
+	const pageEmbed = new EmbedBuilder({
 		color: colors.neutral,
 		author: { name: getString("moduleName") },
 		title: getString("pageTitle"),
 		footer: {
 			text: getString("pagination.page", { variables: { number: page + 1, total: pages.length }, file: "global" }),
-			iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }),
+			iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 		},
 	})
 	for (let i = 0; i <= pages[page].length - 1; i++) {
 		// Get the user if we ever decide to change that
 		// const user = interaction.client.users.cache.get(pages[page][i].id)!
 		if (pages[page][i].levels) {
-			pageEmbed.addField(
-				getString("level", {
+			pageEmbed.addFields({
+				name: getString("level", {
 					variables: {
 						rank: i + 1 + page * 24,
 						level: pages[page][i].levels!.level,
 						xp: parseToNumberString(pages[page][i].levels!.totalXp, getString),
 					},
 				}),
-				`<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
-				true,
-			)
+				value: `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
+				inline: true,
+			})
 		} else {
-			pageEmbed.addField(
-				getString("unranked", { variables: { rank: i + 1 + page * 24 } }),
-				`<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
-				true,
-			)
+			pageEmbed.addFields({
+				name: getString("unranked", { variables: { rank: i + 1 + page * 24 } }),
+				value: `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
+				inline: true,
+			})
 		}
 	}
 	return pageEmbed

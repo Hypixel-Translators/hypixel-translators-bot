@@ -1,3 +1,5 @@
+import { ApplicationCommandOptionType } from "discord.js"
+
 import { ids } from "../../config.json"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -7,14 +9,14 @@ const command: Command = {
 	description: "Mentions a language role with a message.",
 	options: [
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "language",
 			description: "The language to mention",
 			required: true,
 			autocomplete: true,
 		},
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "role",
 			description: "The role to mention",
 			choices: [
@@ -25,7 +27,7 @@ const command: Command = {
 			required: true,
 		},
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "message",
 			description: "The message to send with the mention.",
 			required: false,
@@ -48,7 +50,7 @@ const command: Command = {
 				.guild!.roles.cache.filter(r => r.name.startsWith(roleName))
 				.partition(r => r.name.endsWith(" Proofreader"))
 				.map(r => r.first()!),
-			hasPerm = interaction.member.roles.cache.has(pfRole?.id) || interaction.member.permissions.has("MANAGE_ROLES")
+			hasPerm = interaction.member.roles.cache.has(pfRole?.id) || interaction.member.permissions.has("ManageRoles")
 
 		if (!pfRole) throw "falseRole"
 		switch (interaction.options.getString("role", true) as "all" | "proofreader" | "translator") {

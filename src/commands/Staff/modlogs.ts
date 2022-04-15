@@ -1,8 +1,8 @@
-import { MessageEmbed } from "discord.js"
+import { ApplicationCommandOptionType, Colors, ComponentType, EmbedBuilder } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { createButtonControls, generateTip, PunishmentLog, updateModlogFields } from "../../lib/util"
+import { createButtonControls, generateTip, PunishmentLog, createModlogEmbed } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
 
@@ -11,7 +11,7 @@ const command: Command = {
 	description: "Shows you a user's past infractions",
 	options: [
 		{
-			type: "USER",
+			type: ApplicationCommandOptionType.User,
 			name: "user",
 			description: "The user to see the modlogs for",
 			required: true,
@@ -29,38 +29,38 @@ const command: Command = {
 			randomTip = generateTip()
 
 		if (!modlogs.length) {
-			const embed = new MessageEmbed({
-				color: "BLURPLE",
+			const embed = new EmbedBuilder({
+				color: Colors.Blurple,
 				author: { name: "Modlogs" },
 				title: `Couldn't find any modlogs for ${userInput.tag}`,
-				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})
 			await interaction.reply({ embeds: [embed] })
 		} else if (modlogs.length === 1) {
-			const embed = new MessageEmbed({
-				color: colors.success,
-				author: { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}` },
-				title: `Found 1 modlog for ${userInput.tag}`,
-				description: `Case #${modlogs[0].case}`,
-				footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
-			})
-			updateModlogFields(embed, modlogs[0])
+			const embed = createModlogEmbed(
+				{
+					color: colors.success,
+					author: { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}` },
+					title: `Found 1 modlog for ${userInput.tag}`,
+					description: `Case #${modlogs[0].case}`,
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
+				},
+				modlogs[0],
+			)
 			await interaction.reply({ embeds: [embed] })
 		} else {
 			let log = 0
-			const embed = new MessageEmbed({
+			const embedData = {
 					color: colors.success,
 					author: { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}` },
 					title: `Found ${modlogs.length} modlogs for ${userInput.tag}`,
 					description: `Case #${modlogs[0].case}`,
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
-				}),
-				controlButtons = createButtonControls(log, modlogs)
-
-			updateModlogFields(embed, modlogs[0], modlogs)
-
-			const msg = await interaction.reply({ embeds: [embed], components: [controlButtons], fetchReply: true }),
-				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: 60_000 })
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
+				},
+				controlButtons = createButtonControls(log, modlogs),
+				embed = createModlogEmbed(embedData, modlogs[0], modlogs),
+				msg = await interaction.reply({ embeds: [embed], components: [controlButtons], fetchReply: true }),
+				collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: 60_000 })
 
 			collector.on("collect", async buttonInteraction => {
 				if (interaction.user.id !== buttonInteraction.user.id) {
@@ -78,7 +78,7 @@ const command: Command = {
 					if (log > modlogs.length - 1) log = modlogs.length - 1
 				}
 
-				updateModlogFields(embed, modlogs[log], modlogs)
+				createModlogEmbed(embedData, modlogs[log], modlogs)
 				await buttonInteraction.update({ embeds: [embed], components: [createButtonControls(log, modlogs)] })
 			})
 
@@ -86,7 +86,7 @@ const command: Command = {
 				controlButtons.components.forEach(button => button.setDisabled(true))
 				await interaction.editReply({
 					content: `This menu has timed out. If you wish to use it again, execute \`/${this.name}\`.`,
-					embeds: [embed],
+					embeds: [embedData],
 					components: [controlButtons],
 				})
 			})

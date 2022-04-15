@@ -1,4 +1,4 @@
-import { EmbedFieldData, MessageEmbed } from "discord.js"
+import { type EmbedFieldData, EmbedBuilder, Colors, ApplicationCommandOptionType } from "discord.js"
 
 import { ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
@@ -10,7 +10,7 @@ const command: Command = {
 	description: "Gives information about any given role",
 	options: [
 		{
-			type: "ROLE",
+			type: ApplicationCommandOptionType.Role,
 			name: "role",
 			description: "The role to get information for",
 			required: true,
@@ -35,9 +35,9 @@ const command: Command = {
 				}
 			} else if (role.tags.premiumSubscriberRole) tags = { name: "Premium Subscriber Role", value: "True", inline: true }
 		}
-		const embed = new MessageEmbed({
-			color: role.color || "BLURPLE",
-			thumbnail: { url: role.iconURL({ format: "png", size: 4096 }) ?? "" },
+		const embed = new EmbedBuilder({
+			color: role.color || Colors.Blurple,
+			thumbnail: { url: role.iconURL({ extension: "png", size: 4096 }) ?? "" },
 			author: { name: "Role information" },
 			title: `${role.name} ${role.unicodeEmoji ?? ""}`,
 			description: `${role} (ID: ${role.id})`,
@@ -50,9 +50,9 @@ const command: Command = {
 				{ name: "Position", value: `${role.position}`, inline: true },
 				{ name: "HEX color", value: role.hexColor, inline: true },
 
-				{ name: "Permissions", value: permissions.includes("ADMINISTRATOR") ? "ADMINISTRATOR" : permissions.join(", ") || "None" },
+				{ name: "Permissions", value: permissions.includes("Administrator") ? "Administrator" : permissions.join(", ") || "None" },
 			],
-			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 		})
 		if (tags) embed.spliceFields(5, 1, tags)
 

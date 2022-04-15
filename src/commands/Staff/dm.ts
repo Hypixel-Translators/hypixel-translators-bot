@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js"
+import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
@@ -11,13 +11,13 @@ const command: Command = {
 	description: "Sends the user a private message.",
 	options: [
 		{
-			type: "USER",
+			type: ApplicationCommandOptionType.User,
 			name: "user",
 			description: "The user to DM",
 			required: true,
 		},
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "message",
 			description: "The message to send",
 			required: true,
@@ -30,7 +30,7 @@ const command: Command = {
 		const recipient = interaction.options.getUser("user", true),
 			recipientDb = await client.getUser(recipient.id),
 			message = interaction.options.getString("message", true).replaceAll("\\n", "\n"),
-			dm = new MessageEmbed({
+			dm = new EmbedBuilder({
 				color: colors.neutral,
 				author: getString("incoming", { lang: recipientDb.lang ?? "en" }),
 				description: message,
@@ -40,22 +40,22 @@ const command: Command = {
 		await recipient
 			.send({ embeds: [dm] })
 			.then(async () => {
-				const embed = new MessageEmbed({
+				const embed = new EmbedBuilder({
 					color: colors.success,
 					author: { name: "Direct Message" },
 					title: `Sent message to ${recipient.tag}`,
 					description: message,
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
 				await interaction.editReply({ embeds: [embed] })
 			})
 			.catch(async error => {
-				const errorEmbed = new MessageEmbed({
+				const errorEmbed = new EmbedBuilder({
 					color: colors.error,
 					author: { name: "Direct Message" },
 					title: `An error occured while trying to message ${recipient.tag}`,
 					description: `${error}`,
-					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
 				await interaction.editReply({ embeds: [errorEmbed] })
 			})

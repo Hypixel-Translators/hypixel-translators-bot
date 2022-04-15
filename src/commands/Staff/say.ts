@@ -1,4 +1,4 @@
-import { Constants, Formatters, GuildTextBasedChannel, MessageEmbed } from "discord.js"
+import { Constants, Formatters, type GuildTextBasedChannel, EmbedBuilder, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
@@ -10,14 +10,14 @@ const command: Command = {
 	description: "Says something in a specific channel.",
 	options: [
 		{
-			type: "CHANNEL",
+			type: ApplicationCommandOptionType.Channel,
 			channelTypes: Constants.TextBasedChannelTypes,
 			name: "channel",
 			description: "The channel to send the message in",
 			required: true,
 		},
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "message",
 			description: "The message to send",
 			required: true,
@@ -30,16 +30,16 @@ const command: Command = {
 		const sendTo = interaction.options.getChannel("channel", true) as GuildTextBasedChannel,
 			message = interaction.options.getString("message", true)
 
-		if (!interaction.member.permissionsIn(sendTo).has("SEND_MESSAGES")) throw "noPermission"
+		if (!interaction.member.permissionsIn(sendTo).has("SendMessages")) throw "noPermission"
 
-		if (interaction.member.permissions.has("MANAGE_ROLES")) await sendTo.send(message)
+		if (interaction.member.permissions.has("ManageRoles")) await sendTo.send(message)
 		else await sendTo.send(Formatters.blockQuote(message))
-		const embed = new MessageEmbed({
+		const embed = new EmbedBuilder({
 			color: colors.success,
 			author: { name: "Message" },
 			title: "Success! Message sent.",
 			description: `${sendTo}:\n${message}`,
-			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 		})
 		await interaction.reply({ embeds: [embed] })
 	},

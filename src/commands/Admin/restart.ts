@@ -1,6 +1,6 @@
 import process from "node:process"
 
-import { MessageEmbed } from "discord.js"
+import { EmbedBuilder } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { generateTip, restart } from "../../lib/util"
@@ -14,11 +14,11 @@ const command: Command = {
 	channelWhitelist: [ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return
-		const embed = new MessageEmbed({
+		const embed = new EmbedBuilder({
 			color: colors.success,
 			author: { name: "Restart" },
 			title: "Restarting...",
-			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ format: "png", dynamic: true }) },
+			footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 		})
 		await interaction.reply({ embeds: [embed] })
 		if (process.env.NODE_ENV === "production") await restart(interaction)

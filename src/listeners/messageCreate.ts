@@ -1,21 +1,24 @@
 import {
-	BufferResolvable,
-	GuildChannel,
-	Message,
-	MessageActionRow,
-	MessageButton,
+	type BufferResolvable,
+	type Message,
 	MessageComponentInteraction,
-	MessageEmbed,
+	EmbedBuilder,
 	TextChannel,
 	Util,
+	ComponentType,
+	MessageType,
+	ButtonStyle,
+	ButtonBuilder,
+	ActionRowBuilder,
+	type GuildTextBasedChannel,
 } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"
 import { crowdinVerify } from "../lib/crowdinverify"
-import { db, DbUser, cancelledEvents } from "../lib/dbclient"
+import { db, type DbUser, cancelledEvents } from "../lib/dbclient"
 import { leveling } from "../lib/leveling"
-import { arrayEqual, Stats } from "../lib/util"
+import { arrayEqual, type Stats } from "../lib/util"
 
 import type { Stream } from "node:stream"
 
@@ -23,7 +26,8 @@ client.on("messageCreate", async message => {
 	if (!db) return void cancelledEvents.push({ listener: "messageCreate", args: [message] })
 
 	// Delete pinned message and thread created messages
-	if (message.type === "THREAD_CREATED" && (message.channel as TextChannel).name.endsWith("-review-strings")) return void (await message.delete())
+	if (message.type === MessageType.ThreadCreated && (message.channel as TextChannel).name.endsWith("-review-strings"))
+		return void (await message.delete())
 
 	if (message.system) return
 
@@ -39,7 +43,7 @@ client.on("messageCreate", async message => {
 
 	// Publish message if sent in bot-updates or in a project-updates channel or if it's a tweet
 	if (
-		message.channel.type === "GUILD_NEWS" &&
+		message.channel.isNews() &&
 		(message.channel.id === ids.channels.botUpdates ||
 			(message.channel.id === ids.channels.twitter && !message.embeds[0]?.description?.startsWith("@")) ||
 			message.channel.name.endsWith("-project-updates"))
@@ -86,7 +90,7 @@ client.on("messageCreate", async message => {
 	client.channels.cache.filter(c => (c as TextChannel).name?.endsWith("review-strings")).forEach(c => noXpChannels.push(c.id))
 	if (
 		message.guild?.id === ids.guilds.main &&
-		!noXpChannels.includes((message.channel as GuildChannel).parentId!) &&
+		!noXpChannels.includes((message.channel as GuildTextBasedChannel).parentId!) &&
 		!noXpChannels.includes(message.channel.id!) &&
 		!message.member?.roles.cache.some(r => noXpRoles.includes(r.id))
 	)
@@ -97,7 +101,7 @@ client.on("messageCreate", async message => {
 
 	// Link correction system
 	if (
-		message.channel.type !== "DM" &&
+		!message.channel.isDMBased() &&
 		message.content.toLowerCase().includes("/translate/hypixel/") &&
 		message.content.includes("://") &&
 		/(https:\/\/)?(crowdin\.com|translate\.hypixel\.net)\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)
@@ -111,7 +115,7 @@ client.on("messageCreate", async message => {
 			const langFix = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
 			if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
 				await message.react("vote_no:839262184882044931")
-				const embed = new MessageEmbed({
+				const embed = new EmbedBuilder({
 					color: colors.error,
 					author: { name: getGlobalString("errors.wrongLink") },
 					title: getGlobalString("wrongStringURL"),
@@ -124,7 +128,7 @@ client.on("messageCreate", async message => {
 							"reminderLang",
 							{
 								variables: {
-									format: "`crowdin.com/translate/.../.../en-en#`",
+									extension: "`crowdin.com/translate/.../.../en-en#`",
 								},
 							},
 						)}`,
@@ -137,10 +141,10 @@ client.on("messageCreate", async message => {
 				await message.react("vote_no:839262184882044931")
 				await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "badLink", user: message.author.id })
 				const correctLink = langFix.match(stringURLRegex)![0],
-					embed = new MessageEmbed({
+					embed = new EmbedBuilder({
 						color: colors.error,
 						author: { name: getGlobalString("errors.wrongLink") },
-						title: getGlobalString("linkCorrectionDesc", { variables: { format: "`crowdin.com/translate/hypixel/.../en-en#`" } }),
+						title: getGlobalString("linkCorrectionDesc", { variables: { extension: "`crowdin.com/translate/hypixel/.../en-en#`" } }),
 						description: `**${getGlobalString("correctLink")}**\n${correctLink.startsWith("https://") ? correctLink : `https://${correctLink}`}`,
 					})
 				await message.reply({ embeds: [embed] })
@@ -158,35 +162,35 @@ client.on("messageCreate", async message => {
 	}
 
 	// Staff messaging system
-	if (message.author !== client.user && message.channel.type === "DM") {
+	if (message.author !== client.user && message.channel.isDMBased()) {
 		if (!message.content && message.stickers.size >= 0 && message.attachments.size === 0) return // We don't need stickers being sent to us
 		const staffBots = client.channels.cache.get(ids.channels.staffBots) as TextChannel,
-			controlButtons = new MessageActionRow({
+			controlButtons = new ActionRowBuilder<ButtonBuilder>({
 				components: [
-					new MessageButton({
-						style: "SUCCESS",
+					new ButtonBuilder({
+						style: ButtonStyle.Success,
 						customId: "confirm",
-						emoji: "✅",
+						emoji: { name: "✅" },
 						label: getGlobalString("pagination.confirm"),
 					}),
-					new MessageButton({
-						style: "DANGER",
+					new ButtonBuilder({
+						style: ButtonStyle.Danger,
 						customId: "cancel",
-						emoji: "❎",
+						emoji: { name: "❎" },
 						label: getGlobalString("pagination.cancel"),
 					}),
 				],
 			})
 		if (!author.staffMsgTimestamp || author.staffMsgTimestamp + 48 * 60 * 60 * 1000 < message.createdTimestamp) {
-			const embed = new MessageEmbed({
+			const embed = new EmbedBuilder({
 				color: colors.neutral,
 				title: getGlobalString("staffDm.confirmation"),
 				description: message.content,
-				footer: { text: getGlobalString("staffDm.confirmSend"), iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }) },
+				footer: { text: getGlobalString("staffDm.confirmSend"), iconURL: message.author.displayAvatarURL({ extension: "png" }) },
 			})
 			if (message.attachments.size > 0) embed.setTitle(`${getGlobalString("staffDm.confirmation")} ${getGlobalString("staffDm.attachmentsWarn")}`)
 			const msg = await message.channel.send({ embeds: [embed], components: [controlButtons] }),
-				collector = msg.createMessageComponentCollector<"BUTTON">({ idle: 60_000 })
+				collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: 60_000 })
 
 			collector.on("collect", async buttonInteraction => {
 				collector.stop("responded")
@@ -197,7 +201,7 @@ client.on("messageCreate", async message => {
 						.setTitle(getGlobalString("staffDm.dmCancelled"))
 						.setFooter({
 							text: getGlobalString("staffDm.resendInfo"),
-							iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }),
+							iconURL: message.author.displayAvatarURL({ extension: "png" }),
 						})
 					await buttonInteraction.update({ embeds: [embed], components: [controlButtons] })
 				} else if (buttonInteraction.customId === "confirm") await staffDm(buttonInteraction)
@@ -206,11 +210,11 @@ client.on("messageCreate", async message => {
 			collector.on("end", async (_, reason) => {
 				if (reason === "responded") return
 				controlButtons.components.forEach(button => button.setDisabled(true))
-				const timeOutEmbed = new MessageEmbed({
+				const timeOutEmbed = new EmbedBuilder({
 					color: colors.error,
 					author: getGlobalString("staffDm.dmCancelled"),
 					description: message.content,
-					footer: { text: getGlobalString("staffDm.resendInfo"), iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: getGlobalString("staffDm.resendInfo"), iconURL: message.author.displayAvatarURL({ extension: "png" }) },
 				})
 				await msg.edit({ embeds: [timeOutEmbed], components: [controlButtons] })
 			})
@@ -221,16 +225,16 @@ client.on("messageCreate", async message => {
 			await db
 				.collection<DbUser>("users")
 				.updateOne({ id: message.author.id }, { $set: { staffMsgTimestamp: afterConfirm ? Date.now() : message.createdTimestamp } })
-			const staffMsg = new MessageEmbed({
+			const staffMsg = new EmbedBuilder({
 					color: colors.neutral,
 					author: { name: `Incoming message from ${message.author.tag}` },
 					description: message.content,
 				}),
-				dmEmbed = new MessageEmbed({
+				dmEmbed = new EmbedBuilder({
 					color: colors.success,
 					author: getGlobalString("staffDm.messageSent"),
 					description: message.content,
-					footer: { text: getGlobalString("staffDm.noConfirmWarn"), iconURL: message.author.displayAvatarURL({ format: "png", dynamic: true }) },
+					footer: { text: getGlobalString("staffDm.noConfirmWarn"), iconURL: message.author.displayAvatarURL({ extension: "png" }) },
 				})
 			if (message.attachments.size > 1 || !(message.attachments.first()?.contentType?.startsWith("image") ?? true)) {
 				const images: (BufferResolvable | Stream)[] = []

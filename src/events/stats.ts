@@ -1,9 +1,9 @@
-import { MessageEmbed, NewsChannel, TextChannel } from "discord.js"
+import { EmbedBuilder, type NewsChannel, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client, crowdin } from "../index"
 import { db } from "../lib/dbclient"
-import { closeConnection, CrowdinProject, getBrowser, MongoLanguage, LanguageStatus, Stats } from "../lib/util"
+import { closeConnection, type CrowdinProject, getBrowser, type MongoLanguage, type LanguageStatus, type Stats } from "../lib/util"
 
 export async function stats(manual = false) {
 	const m = new Date().getUTCMinutes()
@@ -53,7 +53,7 @@ export async function updateProjectStatus(projectId: number) {
 			else if (crowdinData.approvalProgress > 49) color = colors.loading
 			else color = colors.error
 
-			const embed = new MessageEmbed({
+			const embed = new EmbedBuilder({
 				color,
 				title: `${fullData.language.emoji ?? "<:icon_question:882267041904607232>"} | ${fullData.language.name}`,
 				thumbnail: { url: fullData.language.flag },
@@ -72,7 +72,7 @@ export async function updateProjectStatus(projectId: number) {
 		const updatesChannel = client.channels.cache.find(c => (c as NewsChannel).name === `${mongoProject.shortName}-project-updates`) as NewsChannel,
 			stringDiff = Math.abs(newStringCount - oldStringCount)
 		if (oldStringCount < newStringCount) {
-			const embed = new MessageEmbed({
+			const embed = new EmbedBuilder({
 				color: colors.success,
 				author: { name: "New strings!" },
 				title: `${stringDiff} ${stringDiff === 1 ? "string has" : "strings have"} been added to the ${mongoProject.name} project.`,
@@ -81,7 +81,7 @@ export async function updateProjectStatus(projectId: number) {
 			})
 			await updatesChannel.send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}> New strings!` })
 		} else if (oldStringCount > newStringCount) {
-			const embed = new MessageEmbed({
+			const embed = new EmbedBuilder({
 				color: colors.error,
 				author: { name: "Removed strings!" },
 				title: `${stringDiff} ${stringDiff === 1 ? "string has" : "strings have"} been removed from the ${mongoProject.name} project.`,
@@ -117,7 +117,7 @@ export async function checkBuild() {
 	if (lastBuild.timestamp > (await collection.findOne({ identifier: "hypixel" }))!.lastBuild!) {
 		// eslint-disable-next-line no-one-time-vars/no-one-time-vars
 		const author = lastBuild.message.match(/>(.*)( \([^(]*\))?</)?.[1],
-			embed = new MessageEmbed({
+			embed = new EmbedBuilder({
 				color: colors.success,
 				thumbnail: { url: lastBuild.avatar },
 				author: { name: "New build!" },

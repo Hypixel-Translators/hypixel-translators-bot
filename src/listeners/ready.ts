@@ -3,15 +3,19 @@ import { setInterval } from "node:timers"
 import { setTimeout } from "node:timers/promises"
 
 import {
-	ApplicationCommand,
-	ApplicationCommandPermissionData,
-	ChatInputApplicationCommandData,
-	GuildApplicationCommandPermissionData,
-	MessageActionRow,
-	MessageButton,
-	MessageEmbed,
+	type ApplicationCommand,
+	type ApplicationCommandPermissionData,
+	type GuildApplicationCommandPermissionData,
+	type ChatInputApplicationCommandData,
 	type TextBasedChannel,
-	TextChannel,
+	type TextChannel,
+	EmbedBuilder,
+	ActionRowBuilder,
+	ButtonBuilder,
+	ApplicationCommandPermissionType,
+	ActivityType,
+	Colors,
+	ButtonStyle,
 } from "discord.js"
 import { ObjectId } from "mongodb"
 import { schedule } from "node-cron"
@@ -23,7 +27,7 @@ import inactives from "../events/inactives"
 import stats from "../events/stats"
 import { client } from "../index"
 import { db } from "../lib/dbclient"
-import { generateProgressBar, getInviteLink, PunishmentLog, restart, sendHolidayMessage } from "../lib/util"
+import { generateProgressBar, getInviteLink, type PunishmentLog, restart, sendHolidayMessage } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 
@@ -90,15 +94,15 @@ client.on("ready", async () => {
 		if (toPick > 66) {
 			// Higher than 66%
 			const playingStatus = playingStatuses[Math.floor(Math.random() * playingStatuses.length)].replace("RANDOM_USER", pickedUser)
-			client.user.setActivity({ name: playingStatus, type: "PLAYING" })
+			client.user.setActivity({ name: playingStatus, type: ActivityType.Playing })
 		} else if (toPick <= 66 && toPick > 33) {
 			// Between 33% and 66% (inclusive)
 			const watchStatus = watchingStatuses[Math.floor(Math.random() * watchingStatuses.length)].replace("RANDOM_USER", pickedUser)
-			client.user.setActivity({ name: watchStatus, type: "WATCHING" })
+			client.user.setActivity({ name: watchStatus, type: ActivityType.Watching })
 		} else if (toPick <= 33 && toPick > 0) {
 			// Between 0% and 33% (inclusive)
 			const listenStatus = listeningStatuses[Math.floor(Math.random() * listeningStatuses.length)].replace("RANDOM_USER", pickedUser)
-			client.user.setActivity({ name: listenStatus, type: "LISTENING" })
+			client.user.setActivity({ name: listenStatus, type: ActivityType.Listening })
 		} else console.error(`Couldn't set the status because the percentage is a weird number: ${toPick}`)
 	}).start()
 	// Run at 02:00
@@ -152,11 +156,11 @@ export async function awaitMute(punishment: PunishmentLog) {
 		punishmentsColl = db.collection<PunishmentLog>("punishments"),
 		caseNumber = (await punishmentsColl.estimatedDocumentCount()) + 1,
 		user = await client.users.fetch(punishment.id),
-		punishmentLog = new MessageEmbed({
+		punishmentLog = new EmbedBuilder({
 			color: colors.success,
 			author: {
 				name: `Case ${caseNumber} | Unmute | ${user.tag}`,
-				iconURL: (guild.members.cache.get(punishment.id!) ?? user).displayAvatarURL({ format: "png", dynamic: true }),
+				iconURL: (guild.members.cache.get(punishment.id!) ?? user).displayAvatarURL({ extension: "png" }),
 			},
 			fields: [
 				{ name: "User", value: user.toString(), inline: true },
@@ -193,7 +197,7 @@ export async function awaitMute(punishment: PunishmentLog) {
 			},
 		},
 	])
-	const dmEmbed = new MessageEmbed({
+	const dmEmbed = new EmbedBuilder({
 		color: colors.success,
 		author: { name: "Punishment" },
 		title: `Your mute on the ${guild.name} has expired.`,
@@ -215,11 +219,11 @@ export async function awaitBan(punishment: PunishmentLog) {
 			.remove(punishment.id!, "Punishment ended")
 			.catch(err => console.error(`Couldn't unban user with id ${punishment.id}. Here's the error:\n`, err)),
 		userFetched = await client.users.fetch(punishment.id).catch(() => null),
-		punishmentLog = new MessageEmbed({
+		punishmentLog = new EmbedBuilder({
 			color: colors.success,
 			author: {
 				name: `Case ${caseNumber} | Unban | ${userFetched?.tag ?? "Deleted User#0000"}`,
-				iconURL: userFetched?.displayAvatarURL({ format: "png", dynamic: true }) ?? client.user.defaultAvatarURL,
+				iconURL: userFetched?.displayAvatarURL({ extension: "png" }) ?? client.user.defaultAvatarURL,
 			},
 			fields: [
 				{ name: "User", value: `<@${punishment.id}>`, inline: true },
@@ -231,7 +235,7 @@ export async function awaitBan(punishment: PunishmentLog) {
 		})
 	if (!user) punishmentLog.setDescription("Couldn't unban user from the server.")
 	else {
-		const dmEmbed = new MessageEmbed({
+		const dmEmbed = new EmbedBuilder({
 			color: colors.success,
 			author: { name: "Punishment" },
 			title: `Your ban on the ${guild.name} has expired.`,
@@ -262,8 +266,8 @@ export async function awaitPoll(poll: Poll) {
 		pollDb = await db.collection<Poll>("polls").findOneAndUpdate({ messageId: poll.messageId, channelId: poll.channelId }, { $set: { ended: true } })
 	if (!message || !pollDb.value) return
 	const totalVoteCount = pollDb.value.options.reduce((acc, o) => acc + o.votes.length, 0),
-		embed = new MessageEmbed({
-			color: "BLURPLE",
+		embed = new EmbedBuilder({
+			color: Colors.Blurple,
 			title: pollDb.value.question,
 			description: totalVoteCount
 				? `A total of ${totalVoteCount} ${totalVoteCount === 1 ? "person" : "people"} voted on this poll!`
@@ -281,10 +285,10 @@ export async function awaitPoll(poll: Poll) {
 			timestamp: new ObjectId(pollDb.value._id).getTimestamp().getTime(),
 		}),
 		msg = await message.channel!.send({ embeds: [embed], content: `<@${pollDb.value.authorId}> your poll just ended. Check out the results below!` }),
-		linkButton = new MessageActionRow({
+		linkButton = new ActionRowBuilder<ButtonBuilder>({
 			components: [
-				new MessageButton({
-					style: "LINK",
+				new ButtonBuilder({
+					style: ButtonStyle.Link,
 					url: msg.url,
 					label: "See results",
 				}),
@@ -306,7 +310,7 @@ function getPermissions(commands: ApplicationCommand[]) {
 				id: command.id,
 				permissions: [
 					{
-						type: "ROLE",
+						type: ApplicationCommandPermissionType.Role,
 						id: ids.roles.staff,
 						permission: true,
 					},
@@ -317,7 +321,7 @@ function getPermissions(commands: ApplicationCommand[]) {
 			// Add whitelisted roles
 			clientCmd.roleWhitelist?.forEach(id => {
 				commandPerms.push({
-					type: "ROLE",
+					type: ApplicationCommandPermissionType.Role,
 					id,
 					permission: true,
 				})
@@ -325,7 +329,7 @@ function getPermissions(commands: ApplicationCommand[]) {
 			// Add blacklisted roles
 			clientCmd.roleBlacklist?.forEach(id => {
 				commandPerms.push({
-					type: "ROLE",
+					type: ApplicationCommandPermissionType.Role,
 					id,
 					permission: false,
 				})

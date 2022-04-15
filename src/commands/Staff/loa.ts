@@ -1,4 +1,4 @@
-import { MessageActionRow, MessageButton, MessageEmbed, TextChannel } from "discord.js"
+import { ActionRowBuilder, ApplicationCommandOptionType, ButtonBuilder, ButtonStyle, Colors, EmbedBuilder, type TextChannel } from "discord.js"
 
 import { ids } from "../../config.json"
 
@@ -9,7 +9,7 @@ const command: Command = {
 	description: "Report the time you're gonna be away for",
 	options: [
 		{
-			type: "INTEGER",
+			type: ApplicationCommandOptionType.Integer,
 			name: "startday",
 			description: "The day in which your LOA will start",
 			required: true,
@@ -17,7 +17,7 @@ const command: Command = {
 			maxValue: 31,
 		},
 		{
-			type: "INTEGER",
+			type: ApplicationCommandOptionType.Integer,
 			name: "startmonth",
 			description: "The month in which your LOA will start",
 			choices: [
@@ -37,7 +37,7 @@ const command: Command = {
 			required: true,
 		},
 		{
-			type: "INTEGER",
+			type: ApplicationCommandOptionType.Integer,
 			name: "startyear",
 			description: "The year in which your LOA will start",
 			required: true,
@@ -45,7 +45,7 @@ const command: Command = {
 			maxValue: new Date().getFullYear() + 1,
 		},
 		{
-			type: "INTEGER",
+			type: ApplicationCommandOptionType.Integer,
 			name: "endday",
 			description: "The day in which your LOA will end",
 			required: true,
@@ -53,7 +53,7 @@ const command: Command = {
 			maxValue: 31,
 		},
 		{
-			type: "INTEGER",
+			type: ApplicationCommandOptionType.Integer,
 			name: "endmonth",
 			description: "The month in which your LOA will end",
 			choices: [
@@ -73,7 +73,7 @@ const command: Command = {
 			required: true,
 		},
 		{
-			type: "INTEGER",
+			type: ApplicationCommandOptionType.Integer,
 			name: "endyear",
 			description: "The year in which your LOA will end",
 			required: true,
@@ -81,13 +81,13 @@ const command: Command = {
 			maxValue: new Date().getFullYear() + 1,
 		},
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "reason",
 			description: "The reason why you're gonna be away",
 			required: true,
 		},
 		{
-			type: "STRING",
+			type: ApplicationCommandOptionType.String,
 			name: "extrainfo",
 			description: "More info you'd like to add",
 			required: false,
@@ -119,8 +119,8 @@ const command: Command = {
 		else if (endDate.getTime() <= yesterday.getTime() || startDate.getTime() <= yesterday.getTime())
 			return await interaction.reply({ content: "The end and start date must both be after yesterday!", ephemeral: true })
 
-		const embed = new MessageEmbed({
-			color: "BLURPLE",
+		const embed = new EmbedBuilder({
+			color: Colors.Blurple,
 			author: { name: interaction.user.tag, iconURL: interaction.member.displayAvatarURL() },
 			title: `${interaction.member.displayName} is going away for some time!`,
 			fields: [
@@ -129,13 +129,13 @@ const command: Command = {
 				{ name: "Reason", value: interaction.options.getString("reason", true) },
 			],
 		})
-		if (extraInfo) embed.addField("Extra info", extraInfo)
-		const doneRow = new MessageActionRow({
+		if (extraInfo) embed.addFields({ name: "Extra info", value: extraInfo })
+		const doneRow = new ActionRowBuilder<ButtonBuilder>({
 			components: [
-				new MessageButton({
-					style: "SUCCESS",
+				new ButtonBuilder({
+					style: ButtonStyle.Success,
 					label: "End LOA",
-					emoji: "✅",
+					emoji: { name: "✅" },
 					customId: "done",
 				}),
 			],
