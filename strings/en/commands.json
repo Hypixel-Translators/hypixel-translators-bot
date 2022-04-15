@@ -50,7 +50,6 @@
 				"description": "The question to ask the bot"
 			}
 		},
-		"feedback": {},
 		"levels": {
 			"me": {
 				"name": "me",
@@ -61,7 +60,6 @@
 				"description": "The leaderboard page to get"
 			}
 		},
-		"ping": {},
 		"profile": {
 			"user": {
 				"name": "user",
@@ -72,7 +70,6 @@
 				"description": "The new profile to set for the user. Admin only"
 			}
 		},
-		"projects": {},
 		"rank": {
 			"user": {
 				"name": "user",
