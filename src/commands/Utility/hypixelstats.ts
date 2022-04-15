@@ -270,25 +270,22 @@ const command: Command = {
 			selectedMenu = "stats"
 		const createMenu = (selected: string) => {
 				const isSelected = (value: string) => selected === value,
-					menu = new SelectMenuBuilder({
-						customId: "statType",
-						options: [
-							{
-								label: getString("stats"),
-								value: "stats",
-								emoji: "📊",
-								default: isSelected("stats"),
-							},
-							{
-								label: getString("social"),
-								value: "social",
-								emoji: "twitter:821752918352068677",
-								default: isSelected("social"),
-							},
-						],
-					})
+					options = [
+						{
+							label: getString("stats"),
+							value: "stats",
+							emoji: "📊",
+							default: isSelected("stats"),
+						},
+						{
+							label: getString("social"),
+							value: "social",
+							emoji: "twitter:821752918352068677",
+							default: isSelected("social"),
+						},
+					]
 				if (guildJson.guild) {
-					menu.addOptions({
+					options.push({
 						label: "Guild",
 						value: "guild",
 						emoji: "🏡",
@@ -296,7 +293,10 @@ const command: Command = {
 					})
 				}
 
-				return menu
+				return new SelectMenuBuilder({
+					customId: "statType",
+					options,
+				})
 			},
 			msg = (await interaction.editReply({
 				embeds: [embed],
