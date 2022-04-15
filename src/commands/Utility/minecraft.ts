@@ -94,7 +94,7 @@ const command: Command = {
 						collector = msg.createMessageComponentCollector<"BUTTON">({ idle: this.cooldown! * 1000 })
 
 					collector.on("collect", async buttonInteraction => {
-						const userDb: DbUser = await client.getUser(buttonInteraction.user.id)
+						const userDb = await client.getUser(buttonInteraction.user.id)
 						if (interaction.user.id !== buttonInteraction.user.id) {
 							return await buttonInteraction.reply({
 								content: getString("pagination.notYours", {
