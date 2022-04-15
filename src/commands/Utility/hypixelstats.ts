@@ -269,7 +269,7 @@ const command: Command = {
 		let embed = stats()
 
 		const createStats = (selected: MessageSelectOption[] = []) => {
-				const isSelected = (value: string) => selected.some(opt => opt.value === value),
+				const isSelected = (value: string) => (selected.length ? selected.some(opt => opt.value === value) : value === "stats"),
 					options = [
 						{
 							label: getString("stats"),
@@ -317,7 +317,10 @@ const command: Command = {
 			} else if (option === "stats") embed = stats()
 			else if (option === "social") embed = social()
 			else if (option === "guild") embed = guild()!
-			await menuInteraction.update({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [createStats(optionsSelect.options)] }] })
+			await menuInteraction.update({
+				embeds: [embed],
+				components: [{ type: "ACTION_ROW", components: [createStats(menuInteraction.component.options as MessageSelectOption[])] }],
+			})
 		})
 
 		collector.on("end", async () => {
