@@ -15,8 +15,8 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
 		else if ((!newState.channel || newState.channelId === newState.guild.afkChannelId) && newState.member!.roles.cache.has(ids.roles.voice))
 			await newState.member!.roles.remove(ids.roles.voice, "Left a voice channel")
 
+		// Convert to boolean to prevent null !== false from triggering the condition
 		if (!!oldState.serverMute !== !!newState.serverMute) {
-			// Convert to boolean to prevent null !== false from triggering the condition
 			const embed = new EmbedBuilder({
 				color: newState.serverMute ? errorColor : successColor,
 				author: {
