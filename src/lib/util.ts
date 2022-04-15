@@ -397,8 +397,7 @@ export function transformDiscordLocale(discordLocale: string): string {
 export function transformBotLocale(botLocale: string): LocaleString | null {
 	const isLocale = (locale: string): locale is LocaleString => Object.values(Locale).includes(locale as Locale)
 
-	if (botLocale === "ua") return "uk" // Handle ukrainian
-	else if (botLocale.startsWith("en") || botLocale === "empty") return "en-US" // Handle english, pirate and empty
+	if (botLocale.startsWith("en") || botLocale === "empty") return "en-US" // Handle english, pirate and empty
 	else if (botLocale.startsWith("es")) return "es-ES" // Handle different spanish dialects
 	else if (botLocale.startsWith("sv")) return "sv-SE" // Handle swedish being 2 parts on discord's side
 	else if (botLocale.length >= 4) return `${botLocale.slice(0, 2)}-${botLocale.slice(2).toUpperCase()}` as LocaleString // Handle 2 part locales
