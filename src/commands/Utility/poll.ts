@@ -2,12 +2,12 @@ import {
 	ActionRowBuilder,
 	ApplicationCommandOptionType,
 	ButtonBuilder,
-	ButtonInteraction,
+	type ButtonInteraction,
 	ButtonStyle,
 	Colors,
 	ComponentType,
 	EmbedBuilder,
-	TextBasedChannel,
+	type TextBasedChannel,
 	type Snowflake,
 } from "discord.js"
 import { ObjectId } from "mongodb"
