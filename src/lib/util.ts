@@ -383,14 +383,8 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 }
 
 export function transformDiscordLocale(discordLocale: string): string {
-	if (discordLocale === "uk") return "ua"
-	const localeWithCountryCode = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, (_, a, b) => (b ? `${a}${b.toLowerCase()}` : a)),
-		locale = discordLocale.replace(/([a-z]+)(?:-([A-Z]+))?/, "$1"),
-		locales = readdirSync("./strings")
-
-	if (locales.includes(localeWithCountryCode)) return localeWithCountryCode
-	else if (locales.includes(locale)) return locale
-	else return "en"
+	// We support all of Discord's languages so we only need to do this
+	return discordLocale.replace("-", "_")
 }
 
 export async function updateRoles(member: GuildMember): Promise<void>
