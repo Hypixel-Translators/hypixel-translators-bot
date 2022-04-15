@@ -268,7 +268,7 @@ const command: Command = {
 
 		let embed = stats()
 
-		const createStats = (selected?: string) => {
+		const createMenu = (selected?: string) => {
 				const isSelected = (value: string) => (selected ?? "stats") === value,
 					options = [
 						{
@@ -298,7 +298,7 @@ const command: Command = {
 					options,
 				})
 			},
-			optionsSelect = createStats(),
+			optionsSelect = createMenu(),
 			msg = (await interaction.editReply({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })) as Message,
 			collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
 
@@ -319,7 +319,7 @@ const command: Command = {
 			else if (option === "guild") embed = guild()!
 			await menuInteraction.update({
 				embeds: [embed],
-				components: [{ type: "ACTION_ROW", components: [createStats(option)] }],
+				components: [{ type: "ACTION_ROW", components: [createMenu(option)] }],
 			})
 		})
 

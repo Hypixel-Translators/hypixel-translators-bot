@@ -89,25 +89,28 @@ const command: Command = {
 
 			// Determine which page to use
 			let pageEmbed = fetchPage(pageNum, pages, getString, interaction)!
-			const pageMenu = new MessageActionRow({
-					components: [
-						new MessageSelectMenu({
-							customId: "page",
-							options: pages.map(p => ({
-								label: getString(p.titleString),
-								value: `${p.number}`,
-								emoji: p.badge,
-								default: p.number === pageNum,
-							})),
-						}),
-					],
-				}),
+			const createMenu = (selected: number) => {
+					const isSelected = (index: number) => selected === index
+					return new MessageActionRow({
+						components: [
+							new MessageSelectMenu({
+								customId: "page",
+								options: pages.map(p => ({
+									label: getString(p.titleString),
+									value: `${p.number}`,
+									emoji: p.badge,
+									default: isSelected(p.number),
+								})),
+							}),
+						],
+					})
+				},
+				pageMenu = createMenu(pageNum),
 				msg = (await interaction.reply({ embeds: [pageEmbed], components: [pageMenu], fetchReply: true })) as Message,
 				collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
 
 			collector.on("collect", async menuInteraction => {
-				const userDb: DbUser = await client.getUser(menuInteraction.user.id),
-					option = menuInteraction.values[0]
+				const userDb: DbUser = await client.getUser(menuInteraction.user.id)
 				if (interaction.user.id !== menuInteraction.user.id) {
 					return await menuInteraction.reply({
 						content: getString("pagination.notYours", {
@@ -117,10 +120,10 @@ const command: Command = {
 						}),
 						ephemeral: true,
 					})
-				} else pageNum = Number(option)
+				}
+				pageNum = Number(menuInteraction.values[0])
 				pageEmbed = fetchPage(pageNum, pages, getString, interaction)!
-				;(pageMenu.components[0] as MessageSelectMenu).options.forEach(o => (o.default = option === o.value))
-				await menuInteraction.update({ embeds: [pageEmbed], components: [pageMenu] })
+				await menuInteraction.update({ embeds: [pageEmbed], components: [createMenu(pageNum)] })
 			})
 
 			collector.on("end", async () => {
