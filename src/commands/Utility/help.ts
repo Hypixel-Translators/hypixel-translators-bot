@@ -1,6 +1,6 @@
 import { readdirSync } from "node:fs"
 
-import { ChatInputCommandInteraction, GuildMember, Message, MessageActionRow, MessageEmbed, MessageSelectMenu } from "discord.js"
+import { ChatInputCommandInteraction, GuildMember, Message, MessageEmbed, MessageSelectMenu } from "discord.js"
 
 import { ids } from "../../config.json"
 import { client } from "../../index"
@@ -91,22 +91,21 @@ const command: Command = {
 			let pageEmbed = fetchPage(pageNum, pages, getString, interaction)!
 			const createMenu = (selected: number) => {
 					const isSelected = (index: number) => selected === index
-					return new MessageActionRow({
-						components: [
-							new MessageSelectMenu({
-								customId: "page",
-								options: pages.map(p => ({
-									label: getString(p.titleString),
-									value: `${p.number}`,
-									emoji: p.badge,
-									default: isSelected(p.number),
-								})),
-							}),
-						],
+					return new MessageSelectMenu({
+						customId: "page",
+						options: pages.map(p => ({
+							label: getString(p.titleString),
+							value: `${p.number}`,
+							emoji: p.badge,
+							default: isSelected(p.number),
+						})),
 					})
 				},
-				pageMenu = createMenu(pageNum),
-				msg = (await interaction.reply({ embeds: [pageEmbed], components: [pageMenu], fetchReply: true })) as Message,
+				msg = (await interaction.reply({
+					embeds: [pageEmbed],
+					components: [{ type: "ACTION_ROW", components: [createMenu(pageNum)] }],
+					fetchReply: true,
+				})) as Message,
 				collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
 
 			collector.on("collect", async menuInteraction => {
@@ -123,15 +122,14 @@ const command: Command = {
 				}
 				pageNum = Number(menuInteraction.values[0])
 				pageEmbed = fetchPage(pageNum, pages, getString, interaction)!
-				await menuInteraction.update({ embeds: [pageEmbed], components: [createMenu(pageNum)] })
+				await menuInteraction.update({ embeds: [pageEmbed], components: [{ type: "ACTION_ROW", components: [createMenu(pageNum)] }] })
 			})
 
 			collector.on("end", async () => {
-				pageMenu.components.forEach(component => component.setDisabled(true))
 				await interaction.editReply({
 					content: getString("pagination.timeOut", { variables: { command: `\`/${this.name}\`` }, file: "global" }),
 					embeds: [pageEmbed],
-					components: [pageMenu],
+					components: [{ type: "ACTION_ROW", components: [createMenu(pageNum)] }],
 				})
 			})
 		} else {

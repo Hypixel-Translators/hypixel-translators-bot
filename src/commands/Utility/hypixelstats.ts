@@ -268,24 +268,27 @@ const command: Command = {
 
 		let embed = stats()
 
-		const createMenu = (selected?: string) => {
-				const isSelected = (value: string) => (selected ?? "stats") === value,
-					options = [
-						{
-							label: getString("stats"),
-							value: "stats",
-							emoji: "📊",
-							default: isSelected("stats"),
-						},
-						{
-							label: getString("social"),
-							value: "social",
-							emoji: "twitter:821752918352068677",
-							default: isSelected("social"),
-						},
-					]
+		const createMenu = (selected = "stats") => {
+				const isSelected = (value: string) => selected === value,
+					menu = new MessageSelectMenu({
+						customId: "statType",
+						options: [
+							{
+								label: getString("stats"),
+								value: "stats",
+								emoji: "📊",
+								default: isSelected("stats"),
+							},
+							{
+								label: getString("social"),
+								value: "social",
+								emoji: "twitter:821752918352068677",
+								default: isSelected("social"),
+							},
+						],
+					})
 				if (guildJson.guild) {
-					options.push({
+					menu.addOptions({
 						label: "Guild",
 						value: "guild",
 						emoji: "🏡",
@@ -293,13 +296,9 @@ const command: Command = {
 					})
 				}
 
-				return new MessageSelectMenu({
-					customId: "statType",
-					options,
-				})
+				return menu
 			},
-			optionsSelect = createMenu(),
-			msg = (await interaction.editReply({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })) as Message,
+			msg = (await interaction.editReply({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [createMenu()] }] })) as Message,
 			collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
 
 		collector.on("collect", async menuInteraction => {
@@ -324,10 +323,10 @@ const command: Command = {
 		})
 
 		collector.on("end", async () => {
-			optionsSelect.setDisabled(true)
+			const finalMenu = createMenu((msg.components[0].components[0] as MessageSelectMenu).options.find(o => o.default)!.value).setDisabled(true)
 			await interaction.editReply({
 				content: getString("pagination.timeOut", { variables: { command: `\`/${this.name}\`` }, file: "global" }),
-				components: [{ type: "ACTION_ROW", components: [optionsSelect] }],
+				components: [{ type: "ACTION_ROW", components: [finalMenu] }],
 				embeds: [embed],
 			})
 		})
