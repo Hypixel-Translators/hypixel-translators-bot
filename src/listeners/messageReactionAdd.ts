@@ -31,7 +31,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 		if (reaction.message.guild!.members.resolve(user.id)!.roles.cache.has(role.id)) {
 			let strings: { [key: string]: string }
 			try {
-				strings = require(`../../strings/${channel.name.split("-")[0]}/reviewStrings.json`)
+				strings = require(`../../strings/${language!.id.replace("-", "_")}/reviewStrings.json`)
 			} catch {
 				strings = require("../../strings/en/reviewStrings.json")
 			}
