@@ -8,7 +8,7 @@ import { colors, ids } from "../config.json"
 import { client } from "../index"
 import handleAutocompleteInteractions from "../interactions/autocomplete"
 import handleButtonInteractions from "../interactions/buttons"
-import { db, type DbUser, cancelledEvents } from "../lib/dbclient"
+import { db, cancelledEvents } from "../lib/dbclient"
 import { arrayEqual, transformDiscordLocale, generateTip, type Stats } from "../lib/util"
 
 import type { Command } from "../lib/imports"
@@ -16,7 +16,7 @@ client.on("interactionCreate", async interaction => {
 	if (!db) return void cancelledEvents.push({ listener: "interactionCreate", args: [interaction] })
 	if (interaction.user.bot) return
 	let command: Command | null = null
-	const author: DbUser = await client.getUser(interaction.user.id),
+	const author = await client.getUser(interaction.user.id),
 		member = interaction.client.guilds.cache.get(ids.guilds.main)!.members.cache.get(interaction.user.id)!,
 		randomTip = generateTip(getString),
 		statsColl = db.collection<Stats>("stats")

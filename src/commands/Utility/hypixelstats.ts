@@ -33,7 +33,7 @@ const command: Command = {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
 			member = (interaction.member as GuildMember | null) ?? interaction.user,
-			authorDb: DbUser = await client.getUser(interaction.user.id),
+			authorDb = await client.getUser(interaction.user.id),
 			userInput = interaction.options.getUser("user", false),
 			usernameInput = interaction.options.getString("username", false)
 
@@ -266,39 +266,46 @@ const command: Command = {
 				return embed
 			}
 
-		let embed = stats()
+		let embed = stats(),
+			selectedMenu = "stats"
+		const createMenu = (selected: string) => {
+				const isSelected = (value: string) => selected === value,
+					menu = new MessageSelectMenu({
+						customId: "statType",
+						options: [
+							{
+								label: getString("stats"),
+								value: "stats",
+								emoji: "📊",
+								default: isSelected("stats"),
+							},
+							{
+								label: getString("social"),
+								value: "social",
+								emoji: "twitter:821752918352068677",
+								default: isSelected("social"),
+							},
+						],
+					})
+				if (guildJson.guild) {
+					menu.addOptions({
+						label: "Guild",
+						value: "guild",
+						emoji: "🏡",
+						default: isSelected("guild"),
+					})
+				}
 
-		const optionsSelect = new MessageSelectMenu({
-			customId: "statType",
-			options: [
-				{
-					label: getString("stats"),
-					value: "stats",
-					emoji: "📊",
-					default: true,
-				},
-				{
-					label: getString("social"),
-					value: "social",
-					emoji: "twitter:821752918352068677",
-					default: false,
-				},
-			],
-		})
-		if (guildJson.guild) {
-			optionsSelect.addOptions({
-				label: "Guild",
-				value: "guild",
-				emoji: "🏡",
-				default: false,
-			})
-		}
-		const msg = (await interaction.editReply({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })) as Message,
+				return menu
+			},
+			msg = (await interaction.editReply({
+				embeds: [embed],
+				components: [{ type: "ACTION_ROW", components: [createMenu(selectedMenu)] }],
+			})) as Message,
 			collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
 
 		collector.on("collect", async menuInteraction => {
-			const userDb: DbUser = await client.getUser(menuInteraction.user.id),
-				option = menuInteraction.values[0]
+			const userDb = await client.getUser(menuInteraction.user.id)
 			if (interaction.user.id !== menuInteraction.user.id) {
 				return await menuInteraction.reply({
 					content: getString("pagination.notYours", {
@@ -308,18 +315,21 @@ const command: Command = {
 					}),
 					ephemeral: true,
 				})
-			} else if (option === "stats") embed = stats()
-			else if (option === "social") embed = social()
-			else if (option === "guild") embed = guild()!
-			optionsSelect.options.forEach(o => (o.default = option === o.value))
-			await menuInteraction.update({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [optionsSelect] }] })
+			}
+			selectedMenu = menuInteraction.values[0]
+			if (selectedMenu === "stats") embed = stats()
+			else if (selectedMenu === "social") embed = social()
+			else if (selectedMenu === "guild") embed = guild()!
+			await menuInteraction.update({
+				embeds: [embed],
+				components: [{ type: "ACTION_ROW", components: [createMenu(selectedMenu)] }],
+			})
 		})
 
 		collector.on("end", async () => {
-			optionsSelect.setDisabled(true)
 			await interaction.editReply({
 				content: getString("pagination.timeOut", { variables: { command: `\`/${this.name}\`` }, file: "global" }),
-				components: [{ type: "ACTION_ROW", components: [optionsSelect] }],
+				components: [{ type: "ACTION_ROW", components: [createMenu(selectedMenu).setDisabled()] }],
 				embeds: [embed],
 			})
 		})

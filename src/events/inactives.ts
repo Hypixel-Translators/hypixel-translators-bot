@@ -17,7 +17,7 @@ export default function check() {
 		.forEach(async member => {
 			await member.fetch()
 			const verifyLogs = client.channels.cache.get(ids.channels.verifyLogs) as TextChannel,
-				userDb: DbUser = await client.getUser(member.id)
+				userDb = await client.getUser(member.id)
 			if (member.roles.cache.has(ids.roles.alerted)) {
 				if (Number(userDb.unverifiedTimestamp) <= verify || member.joinedTimestamp! <= verify) {
 					await member
