@@ -6,7 +6,6 @@ import { ids } from "../../config.json"
 import { client } from "../../index"
 import { generateTip, transformDiscordLocale } from "../../lib/util"
 
-import type { DbUser } from "../../lib/dbclient"
 import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
@@ -109,7 +108,7 @@ const command: Command = {
 				collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
 
 			collector.on("collect", async menuInteraction => {
-				const userDb: DbUser = await client.getUser(menuInteraction.user.id)
+				const userDb = await client.getUser(menuInteraction.user.id)
 				if (interaction.user.id !== menuInteraction.user.id) {
 					return await menuInteraction.reply({
 						content: getString("pagination.notYours", {
@@ -129,7 +128,7 @@ const command: Command = {
 				await interaction.editReply({
 					content: getString("pagination.timeOut", { variables: { command: `\`/${this.name}\`` }, file: "global" }),
 					embeds: [pageEmbed],
-					components: [{ type: "ACTION_ROW", components: [createMenu(pageNum)] }],
+					components: [{ type: "ACTION_ROW", components: [createMenu(pageNum).setDisabled()] }],
 				})
 			})
 		} else {

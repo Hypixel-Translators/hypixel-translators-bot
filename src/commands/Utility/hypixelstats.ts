@@ -33,7 +33,7 @@ const command: Command = {
 		await interaction.deferReply()
 		const randomTip = generateTip(getString),
 			member = (interaction.member as GuildMember | null) ?? interaction.user,
-			authorDb: DbUser = await client.getUser(interaction.user.id),
+			authorDb = await client.getUser(interaction.user.id),
 			userInput = interaction.options.getUser("user", false),
 			usernameInput = interaction.options.getString("username", false)
 
@@ -266,9 +266,9 @@ const command: Command = {
 				return embed
 			}
 
-		let embed = stats()
-
-		const createMenu = (selected = "stats") => {
+		let embed = stats(),
+			selectedMenu = "stats"
+		const createMenu = (selected: string) => {
 				const isSelected = (value: string) => selected === value,
 					menu = new MessageSelectMenu({
 						customId: "statType",
@@ -298,12 +298,14 @@ const command: Command = {
 
 				return menu
 			},
-			msg = (await interaction.editReply({ embeds: [embed], components: [{ type: "ACTION_ROW", components: [createMenu()] }] })) as Message,
+			msg = (await interaction.editReply({
+				embeds: [embed],
+				components: [{ type: "ACTION_ROW", components: [createMenu(selectedMenu)] }],
+			})) as Message,
 			collector = msg.createMessageComponentCollector<"SELECT_MENU">({ idle: this.cooldown! * 1000 })
 
 		collector.on("collect", async menuInteraction => {
-			const userDb: DbUser = await client.getUser(menuInteraction.user.id),
-				option = menuInteraction.values[0]
+			const userDb = await client.getUser(menuInteraction.user.id)
 			if (interaction.user.id !== menuInteraction.user.id) {
 				return await menuInteraction.reply({
 					content: getString("pagination.notYours", {
@@ -313,20 +315,21 @@ const command: Command = {
 					}),
 					ephemeral: true,
 				})
-			} else if (option === "stats") embed = stats()
-			else if (option === "social") embed = social()
-			else if (option === "guild") embed = guild()!
+			}
+			selectedMenu = menuInteraction.values[0]
+			if (selectedMenu === "stats") embed = stats()
+			else if (selectedMenu === "social") embed = social()
+			else if (selectedMenu === "guild") embed = guild()!
 			await menuInteraction.update({
 				embeds: [embed],
-				components: [{ type: "ACTION_ROW", components: [createMenu(option)] }],
+				components: [{ type: "ACTION_ROW", components: [createMenu(selectedMenu)] }],
 			})
 		})
 
 		collector.on("end", async () => {
-			const finalMenu = createMenu((msg.components[0].components[0] as MessageSelectMenu).options.find(o => o.default)!.value).setDisabled(true)
 			await interaction.editReply({
 				content: getString("pagination.timeOut", { variables: { command: `\`/${this.name}\`` }, file: "global" }),
-				components: [{ type: "ACTION_ROW", components: [finalMenu] }],
+				components: [{ type: "ACTION_ROW", components: [createMenu(selectedMenu).setDisabled()] }],
 				embeds: [embed],
 			})
 		})
