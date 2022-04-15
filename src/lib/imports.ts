@@ -4,7 +4,13 @@ import { resolve, sep } from "node:path"
 import { botLocales, transformBotLocale } from "./util"
 
 import type { HTBClient } from "./dbclient"
-import type { ChatInputApplicationCommandData, Snowflake, ChatInputCommandInteraction } from "discord.js"
+import type {
+	ChatInputApplicationCommandData,
+	Snowflake,
+	ChatInputCommandInteraction,
+	ApplicationCommandSubGroupData,
+	ApplicationCommandSubCommandData,
+} from "discord.js"
 
 export function findCommands(dir: string, pattern: string) {
 	let results: string[] = []
@@ -41,15 +47,21 @@ export function setup(client: HTBClient) {
 				command.nameLocalizations[discordLocale] = commandsJson.names[command.name]
 				command.descriptionLocalizations[discordLocale] = commandsJson.descriptions[command.name]
 
-				if (command.options) {
-					for (const option of command.options) {
-						option.nameLocalizations = {}
-						option.descriptionLocalizations = {}
+				function assignLocalisation(command: Command | ApplicationCommandSubGroupData | ApplicationCommandSubCommandData) {
+					if (command.options) {
+						for (const option of command.options) {
+							option.nameLocalizations = {}
+							option.descriptionLocalizations = {}
 
-						option.nameLocalizations[discordLocale] = commandsJson.options[command.name][option.name].name
-						option.descriptionLocalizations[discordLocale] = commandsJson.options[command.name][option.name].description
+							option.nameLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].name
+							option.descriptionLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].description
+
+							if ("options" in option) assignLocalisation(option)
+						}
 					}
 				}
+
+				assignLocalisation(command)
 			}
 
 			client.commands.set(command.name, command)

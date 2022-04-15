@@ -384,7 +384,6 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 	} else await adminBots.send(`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`)
 }
 
-// eslint-disable-next-line no-one-time-vars/no-one-time-vars
 export const botLocales = readdirSync("./strings")
 
 export function transformDiscordLocale(discordLocale: string): string {
