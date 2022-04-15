@@ -35,8 +35,8 @@ export function setup(client: HTBClient) {
 			for (const locale of botLocales) {
 				const discordLocale = transformBotLocale(locale)
 				if (!discordLocale) continue
-				const commandsJson = require(`./strings/${locale}/commands.json`)
-				if (!commandsJson.names.includes(command.name)) continue // Command is admin or staff only
+				const commandsJson = require(`./strings/${locale}/commands.json`) as CommandStrings
+				if (!(command.name in commandsJson.names)) continue // Command is admin or staff only
 
 				command.nameLocalizations[discordLocale] = commandsJson.names[command.name]
 				command.descriptionLocalizations[discordLocale] = commandsJson.descriptions[command.name]
@@ -86,3 +86,20 @@ export type GetStringFunction = (
 	options?: { variables?: Record<string, string | number>; file?: string; lang?: string },
 ) => // eslint-disable-next-line @typescript-eslint/no-explicit-any
 any
+
+interface CommandStrings {
+	names: {
+		[key: string]: string
+	}
+	descriptions: {
+		[key: string]: string
+	}
+	options: {
+		[key: string]: {
+			[key: string]: {
+				name: string
+				description: string
+			}
+		}
+	}
+}
