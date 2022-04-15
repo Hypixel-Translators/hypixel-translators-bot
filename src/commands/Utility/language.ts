@@ -60,22 +60,23 @@ const command: Command = {
 			stringsFolder = "./strings/",
 			member = interaction.member as GuildMember | null,
 			subCommand = interaction.options.getSubcommand()
-		let language = interaction.options.getString("language", ["set", "stats"].includes(subCommand))?.toLowerCase()
+		let language = interaction.options.getString("language", ["set", "stats"].includes(subCommand))
 
 		if (subCommand === "list") {
-			const langList: string[] = []
+			const langList: string[] = [],
+				authorLanguage = (await collection.findOne({ id: interaction.user.id }))!.lang ?? transformDiscordLocale(interaction.locale)
 			readdirSync(stringsFolder).forEach(async (element, index, array) => {
 				if (element === "empty" && !member?.roles.cache.has(ids.roles.admin)) return
 				let languageString: string
 				if (element === "empty") languageString = "Empty"
 				else languageString = getString(element)
-				langList.push(getString("listElement", { variables: { code: element, language: languageString ?? "Unknown" } }))
+				langList.push(authorLanguage === element ? `**${languageString}**` : languageString)
 				if (index === array.length - 1) {
 					const embed = new MessageEmbed({
 						color: colors.neutral,
 						author: { name: getString("moduleName") },
 						title: getString("listTitle"),
-						description: langList.join("\n"),
+						description: langList.join(", "),
 					})
 					await interaction.reply({ embeds: [embed] })
 				}
@@ -84,7 +85,7 @@ const command: Command = {
 			if (!member?.roles.cache.has(ids.roles.admin))
 				return await interaction.reply({ content: getString("errors.noAccess", { file: "global" }), ephemeral: true })
 			if (!readdirSync(stringsFolder).includes(language!)) throw "falseLang"
-			const langUsers = await collection.find({ lang: language }).toArray(),
+			const langUsers = await collection.find({ lang: language! }).toArray(),
 				users: string[] = []
 			langUsers.forEach(u => users.push(`<@!${u.id}>`))
 			const embed = new MessageEmbed({
@@ -104,24 +105,24 @@ const command: Command = {
 			if (language === "empty" && !member?.roles.cache.has(ids.roles.admin)) language = "denied"
 			access(`./strings/${language}/language.json`, constants.F_OK, async err => {
 				if (!err) {
-					if (getString("changedToTitle", { lang: "en" }) !== getString("changedToTitle", { lang: language }) || language === "en") {
-						const result = await collection.updateOne({ id: interaction.user.id }, { $set: { lang: language } })
+					if (getString("changedToTitle", { lang: "en" }) !== getString("changedToTitle", { lang: language! }) || language === "en") {
+						const result = await collection.updateOne({ id: interaction.user.id }, { $set: { lang: language! } })
 						if (result.modifiedCount) {
-							randomTip = generateTip(getString, language)
+							randomTip = generateTip(getString, language!)
 							const embed = new MessageEmbed({
 								color: colors.success,
-								author: { name: getString("moduleName", { lang: language }) },
-								title: getString("changedToTitle", { lang: language }),
-								description: getString("credits", { lang: language }),
+								author: { name: getString("moduleName", { lang: language! }) },
+								title: getString("changedToTitle", { lang: language! }),
+								description: getString("credits", { lang: language! }),
 								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 							})
 							return await interaction.reply({ embeds: [embed] })
 						} else {
 							const embed = new MessageEmbed({
 								color: colors.error,
-								author: { name: getString("moduleName", { lang: language }) },
-								title: getString("didntChange", { lang: language }),
-								description: getString("alreadyThis", { lang: language }),
+								author: { name: getString("moduleName", { lang: language! }) },
+								title: getString("didntChange", { lang: language! }),
+								description: getString("alreadyThis", { lang: language! }),
 								footer: { text: randomTip, iconURL: (member ?? interaction.user).displayAvatarURL({ format: "png", dynamic: true }) },
 							})
 							return await interaction.reply({ embeds: [embed] })
