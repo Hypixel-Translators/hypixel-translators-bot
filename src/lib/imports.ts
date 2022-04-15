@@ -89,14 +89,14 @@ any
 
 interface CommandStrings {
 	names: {
-		[key: string]: string
+		[command: string]: string
 	}
 	descriptions: {
-		[key: string]: string
+		[command: string]: string
 	}
 	options: {
-		[key: string]: {
-			[key: string]: {
+		[command: string]: {
+			[option: string]: {
 				name: string
 				description: string
 			}
