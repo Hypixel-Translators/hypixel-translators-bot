@@ -356,6 +356,8 @@ function convertToDiscordCommand(command: Command): ChatInputApplicationCommandD
 		description: command.description,
 		defaultPermission: !(command.roleWhitelist || command.dev),
 		options: command.options ?? [],
+		nameLocalizations: command.nameLocalizations,
+		descriptionLocalizations: command.descriptionLocalizations,
 	}
 }
 
