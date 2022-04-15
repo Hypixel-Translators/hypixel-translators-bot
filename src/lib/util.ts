@@ -396,9 +396,8 @@ export function transformDiscordLocale(discordLocale: string): string {
 export function transformBotLocale(botLocale: string): LocaleString | null {
 	const isLocale = (locale: string): locale is LocaleString => Object.values(Locale).includes(locale as Locale)
 
-	if (botLocale === "en") return "en-US"
-	else if (botLocale.length >= 4) return botLocale.replace("_", "-") as LocaleString // Handle 2 part locales
-	else if (isLocale(botLocale)) return botLocale
+	botLocale = botLocale.replace("_", "-")
+	if (isLocale(botLocale)) return botLocale
 	return null
 }
 
