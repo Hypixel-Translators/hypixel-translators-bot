@@ -1,0 +1,9 @@
+{
+	"moduleName": "Revisión de strings",
+	"message": "Mensaje",
+	"clickHere": "Haz clic aquí",
+	"requestDetails": "%%user%% solicitó más detalles sobre su sugerencia",
+	"requestedBy": "Solicitado por %%user%%",
+	"rejected": "%%user%% rechazó tu sugerencia",
+	"rejectedBy": "Rechazado por %%user%%"
+}
