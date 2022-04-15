@@ -4,13 +4,7 @@ import { resolve, sep } from "node:path"
 import { botLocales, transformBotLocale } from "./util"
 
 import type { HTBClient } from "./dbclient"
-import type {
-	ChatInputApplicationCommandData,
-	Snowflake,
-	ChatInputCommandInteraction,
-	ApplicationCommandSubGroupData,
-	ApplicationCommandSubCommandData,
-} from "discord.js"
+import type { ChatInputApplicationCommandData, Snowflake, ChatInputCommandInteraction, ApplicationCommandOptionData } from "discord.js"
 
 export function findCommands(dir: string, pattern: string) {
 	let results: string[] = []
@@ -37,31 +31,30 @@ export function setup(client: HTBClient) {
 
 			command.nameLocalizations = {}
 			command.descriptionLocalizations = {}
-
 			for (const locale of botLocales) {
 				const discordLocale = transformBotLocale(locale)
-				if (!discordLocale) continue
-				const commandsJson = require(`./strings/${locale}/commands.json`) as CommandStrings
-				if (!(command.name in commandsJson.names)) continue // Command is admin or staff only
+				if (!discordLocale || locale === "en") continue
+				try {
+					const commandsJson = require(`../../strings/${locale}/commands.json`) as CommandStrings
+					if (!(command.name in commandsJson.names)) continue // Command is admin or staff only
 
-				command.nameLocalizations[discordLocale] = commandsJson.names[command.name]
-				command.descriptionLocalizations[discordLocale] = commandsJson.descriptions[command.name]
+					command.nameLocalizations[discordLocale] = commandsJson.names[command.name]
+					command.descriptionLocalizations[discordLocale] = commandsJson.descriptions[command.name]
 
-				function assignLocalisation(command: Command | ApplicationCommandSubGroupData | ApplicationCommandSubCommandData) {
-					if (command.options) {
-						for (const option of command.options) {
-							option.nameLocalizations = {}
-							option.descriptionLocalizations = {}
+					function assignLocalisation(option: ApplicationCommandOptionData) {
+						option.nameLocalizations = {}
+						option.descriptionLocalizations = {}
 
-							option.nameLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].name
-							option.descriptionLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].description
+						option.nameLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].name
+						option.descriptionLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].description
 
-							if ("options" in option) assignLocalisation(option)
-						}
+						if ("options" in option) for (const subOption of option.options!) assignLocalisation(subOption)
 					}
-				}
 
-				assignLocalisation(command)
+					for (const option of command.options ?? []) assignLocalisation(option)
+				} catch {
+					continue
+				}
 			}
 
 			client.commands.set(command.name, command)
