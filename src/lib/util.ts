@@ -352,7 +352,7 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 	const holiday: string[] = [],
 		log: { [Language: string]: string } = {}
 	holiday.push(strings![holidayName])
-	readdirSync("./strings").forEach(lang => {
+	botLocales.forEach(lang => {
 		if (lang === "empty") return
 		try {
 			strings = require(`../../strings/${lang}/holidays.json`)
