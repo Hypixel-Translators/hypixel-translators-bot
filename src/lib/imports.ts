@@ -59,6 +59,7 @@ export function setup(client: HTBClient) {
 
 					for (const option of command.options ?? []) assignLocalisation(option)
 				} catch {
+					console.error(`Failed to load command localisation for ${locale} for command ${command.name}`)
 					continue
 				}
 			}
