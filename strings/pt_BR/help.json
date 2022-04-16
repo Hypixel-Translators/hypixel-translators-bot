@@ -53,7 +53,7 @@
 		"description": "Cria ou gerencia enquetes no servidor. Disponível para os revisores do Hypixel e superiores"
 	},
 	"prefix": {
-		"description": "Fornece a você um prefixo de acordo com o(s) seu(s) idioma(s). Caso queira um prefixo customizado, use `/prefix` com o código da bandeira do seu país ou o seu nome no campo `bandeiras`. Você pode adicionar quantas bandeiras desejar, separando-as com espaço."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "Receba o link do seu perfil do Crowdin se ele estiver salvo em nosso banco de dados. Caso contrário, use `/help verify` para saber como armazenar seu perfil e atualizar seus cargos."
@@ -71,7 +71,7 @@
 		"description": "Envia uma mensagem predefinida, permitindo que você notifique um membro específico ao enviá-la."
 	},
 	"translate": {
-		"description": "Receba informações úteis sobre como traduzir o Bot."
+		"description": "Receba informações úteis sobre como traduzir o bot."
 	},
 	"verify": {
 		"description": "Verifica automaticamente se há alterações no seu perfil do Crowdin e define os cargos apropriados. Se o seu perfil não foi armazenado em nosso banco de dados, você pode definir um argumento no comando. Para conferir se seu perfil está armazenado, use `/profile`. Lembre-se de ativar as mensagens diretas de membros deste servidor para que você receba a mensagem."
