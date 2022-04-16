@@ -53,7 +53,7 @@
 		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
 	},
 	"prefix": {
-		"description": "Te da el prefijo apropiado para tu(s) idioma(s). Para obtener un prefijo personalizado, usa `/prefix` con el código regional de tu país o su nombre en el parámetro `banderas`. Puedes añadir tantas banderas como quieras, separadas con espacios."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "Te da el enlace a tu perfil de Crowdin si está almacenado en nuestra base de datos. Si no está, puedes usar `/help verify` para aprender como almacenar tu perfil y actualizar tus roles."
@@ -62,7 +62,7 @@
 		"description": "Te da enlaces e información sobre todos los proyectos de traducción que tenemos en el servidor."
 	},
 	"quote": {
-		"description": "Obtiene (o añade) una cita divertida/extraña/sabia del servidor."
+		"description": "Shows a funny/weird/wise quote from the server."
 	},
 	"rank": {
 		"description": "Te da la XP actual para ti o para cualquier usuario."
@@ -71,7 +71,7 @@
 		"description": "Envía un mensaje preestablecido, permitiéndote notificar a un miembro específico al enviarlo."
 	},
 	"translate": {
-		"description": "Te da información útil sobre como traducir al Bot."
+		"description": "Gives you useful information on how to translate the bot."
 	},
 	"verify": {
 		"description": "Comprueba automáticamente los cambios en tu perfil de Crowdin y te da los roles adecuados. Si tu perfil no está almacenado en nuestra base de datos, puedes darlo como un argumento en el comando. Para verificar si tu perfil está almacenado, usa `/profile`. Asegúrate de tener DMs habilitados desde este servidor para que el bot pueda enviarte un mensaje."
