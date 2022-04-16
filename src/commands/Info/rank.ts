@@ -9,7 +9,7 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "rank",
-	description: "Gives you the current xp for yourself or any given user",
+	description: "Gives you the current XP for yourself or any given user",
 	options: [
 		{
 			type: ApplicationCommandOptionType.User,
