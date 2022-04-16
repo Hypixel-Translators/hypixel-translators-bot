@@ -382,12 +382,8 @@ function constructGuildCommands() {
 
 function convertToDiscordCommand(command: Command): ChatInputApplicationCommandData {
 	return {
-		name: command.name,
-		description: command.description,
+		...command,
 		defaultPermission: !(command.roleWhitelist || command.dev),
-		options: command.options ?? [],
-		nameLocalizations: command.nameLocalizations,
-		descriptionLocalizations: command.descriptionLocalizations,
 	}
 }
 
