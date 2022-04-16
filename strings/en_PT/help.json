@@ -53,7 +53,7 @@
 		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
 	},
 	"prefix": {
-		"description": "Gives ye th' appropriate prefix fer yer language(s)."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "Gives ye th' link t' yer Crowdin profile if it be stored on our database. If it nah be stored, ye can execute `/help verify` t' learn how t' store yer profile and update yer roles."
@@ -62,7 +62,7 @@
 		"description": "Gives ye links and information about all th' translation projects we support on th' server."
 	},
 	"quote": {
-		"description": "Gets (or adds) a funny/weird/wise quote from the server."
+		"description": "Shows a funny/weird/wise quote from the server."
 	},
 	"rank": {
 		"description": "Gives ye th' current XP for yerself or any given pirate."
@@ -71,7 +71,7 @@
 		"description": "Sends a preset message, allowin' ye t' notify a specific pirate when sendin' it."
 	},
 	"translate": {
-		"description": "Gives ye useful information on how t' translate th' Bot."
+		"description": "Gives you useful information on how to translate the bot."
 	},
 	"verify": {
 		"description": "Automatically checks fer changes on yer Crowdin profile an' gives ye th' appropriate roles. If yer profile is not stored on our database, ye can provide it as an argument in th' command. T' check if yer profile is stored, execute `/profile`. Make sure ye have DMs enabled from 'tis server so that th' bot can send ye a message."
