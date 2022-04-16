@@ -138,12 +138,8 @@ export type GetStringFunction = (
 any
 
 interface CommandStrings {
-	names: {
-		[command: string]: string
-	}
-	descriptions: {
-		[command: string]: string
-	}
+	names: { [command: string]: string }
+	descriptions: { [command: string]: string }
 	options: {
 		[command: string]: {
 			[option: string]: CommandOption
