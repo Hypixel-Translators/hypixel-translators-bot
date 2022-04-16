@@ -36,7 +36,7 @@
 		"minecraft": "Looks up a specific Minecraft player's name history or skin",
 		"ping": "Gives you the bot's ping",
 		"prefix": "Lets you an appropriate prefix for your language(s)",
-		"profile": "Gets the profile of a user",
+		"profile": "Gives you the link to your Crowdin profile if it's stored on our database.",
 		"projects": "Gives you links and information about all the translation projects we support on the server",
 		"quote": "Gets (or adds) a funny/weird/wise quote from the server",
 		"rank": "Gives you the current xp for yourself or any given user",

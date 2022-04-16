@@ -9,7 +9,7 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "profile",
-	description: "Gets the profile of a user",
+	description: "Gives you the link to your Crowdin profile if it's stored on our database.",
 	options: [
 		{
 			type: ApplicationCommandOptionType.User,
