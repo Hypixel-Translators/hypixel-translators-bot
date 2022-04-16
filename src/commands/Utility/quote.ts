@@ -9,7 +9,7 @@ import type { Collection } from "mongodb"
 
 const command: Command = {
 	name: "quote",
-	description: "Gets (or adds) a funny/weird/wise quote from the server",
+	description: "Shows a funny/weird/wise quote from the server",
 	options: [
 		{
 			type: ApplicationCommandOptionType.Subcommand,

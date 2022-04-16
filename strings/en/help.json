@@ -62,7 +62,7 @@
 		"description": "Gives you links and information about all the translation projects we support on the server."
 	},
 	"quote": {
-		"description": "Gets (or adds) a funny/weird/wise quote from the server."
+		"description": "Shows a funny/weird/wise quote from the server."
 	},
 	"rank": {
 		"description": "Gives you the current XP for yourself or any given user."
