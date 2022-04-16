@@ -50,10 +50,10 @@
 		"description": "يعطيك ping البوت."
 	},
 	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+		"description": "يُنشئ أو يدير استطلاعات الرأي في السيرفر. متوفر ل Hypixel Proofreaders وما فوق"
 	},
 	"prefix": {
-		"description": "يعطيك الأداة المناسبة للغة (اللغات). للحصول على أداة مخصصة، قم بتنفيذ `/prefix` واستبدل `<flags>` بالكود الإقليمي لعلم بلدك أو اسمه. يمكنك إضافة أكبر عدد من الأعلام كما تريد، مفصولة بمسافة."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "يعطيك رابط الى صفحة Crowdin الخاصة بك اذا كان مخزنا على قاعدة بياناتنا. اذا لم يكن الأمر كذلك، يمكنك استخدام امر `/help verify` للتعلم على كيفية تخزين ملفك الشخصي وتحديث رتبك."
@@ -71,7 +71,7 @@
 		"description": "يرسل رسالة محددة مسبقا، مما يسمح لك بتنبيه عضو معين عند إرسالها."
 	},
 	"translate": {
-		"description": "يعطيك معلومة مفيدة حول كيفيه ترجمة البوت."
+		"description": "يعطيك معلومات مفيدة حول كيفيه ترجمة البوت."
 	},
 	"verify": {
 		"description": "يتحقق تلقائيا من التغيرات في حسابك الشخصي الخاص ب Crowdin و يعطيك الرتب المناسبة. اذا كان ملفك الشخصي غير مخزن في قاعدة البيانات الخاصة بنا، يمكنك تقديمه عن طريق الامر. للتحقق اذا كان تم تخزين ملفك الشخصي، يمكنك استعمال `/profile`. يجب عليك التحقق من تفعيل الرسائل الخاصة في هذا السيرفر حتى يتمكن البوت من ارسال رسالة لك."
