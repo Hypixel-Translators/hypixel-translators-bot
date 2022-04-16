@@ -53,7 +53,7 @@
 		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
 	},
 	"prefix": {
-		"description": "あなたの言語に対して適切な接頭辞を設定します。カスタムな接頭辞を取得するには`/prefix`を実行し、`旗`の引数を国旗または国名の地域コードに置き換えてください。スラッシュで区切ることで複数個追加できます。"
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "我々のデータベースに保存されている場合、あなたのCrowdinプロフィールのリンクを表示します。保存されていない場合`/help verify`を実行することで、プロフィールの保存とロールの更新方法を確認できます。"
@@ -62,7 +62,7 @@
 		"description": "このサーバーが支援しているすべての翻訳プロジェクトのリンクと情報を表示します。"
 	},
 	"quote": {
-		"description": "サーバーから面白い/奇妙な/賢い引用を取得（または追加）します。"
+		"description": "Shows a funny/weird/wise quote from the server."
 	},
 	"rank": {
 		"description": "自分自身、または指定したユーザーの現在のXPを表示します。"
@@ -71,7 +71,7 @@
 		"description": "プリセットメッセージを送信します。送信時、特定のメンバーに通知することができます。"
 	},
 	"translate": {
-		"description": "ボットを翻訳する方法の便利な情報を表示します。"
+		"description": "Gives you useful information on how to translate the bot."
 	},
 	"verify": {
 		"description": "Crowdinプロフィールの変更を自動で確認し、適切なロールを付与します。あなたのプロフィールが我々のデータベース上に保存されていない場合は、コマンドの引数として指定できます。プロフィールが保存されているかの確認は`/profile`を実行してください。その際ボットからのメッセージを受信できるように、このサーバーからのDMが有効になっているかを確認してください。"
