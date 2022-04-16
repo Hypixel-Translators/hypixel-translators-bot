@@ -50,10 +50,10 @@
 		"description": "Size botun gecikmesini söyler."
 	},
 	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+		"description": "Sunucuda anket oluşturur veya mevcut anketi yönetir. Hypixel Düzeltmenleri ve üstü için kullanılabilir"
 	},
 	"prefix": {
-		"description": "Sana, dil(ler) için uygun ön ek verir. Özel bir ön ek almak için, `/prefix` komutunu kullan ve `<bayrak>` öğesini ülkenin bayrağıyla veya ülkenin bölge koduyla değiştir. Boşluk tuşu ile ayırarak, istediğin kadar bayrak ekleyebilirsin."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "Veritabanımızda saklanıyorsa, Crowdin profiline yönlendiren bağlantı verir. Saklanmıyorsa, profilini nasıl saklayacağını ve rollerini nasıl güncelleyeceğini öğrenmek için `/help verify` komutunu kullanabilirsin."
@@ -62,7 +62,7 @@
 		"description": "Sunucuda desteklediğimiz tüm çeviri projeleri hakkında size bağlantılar ve bilgiler verir."
 	},
 	"quote": {
-		"description": "Sunucudan komik/garip/bilge bir alıntı alır (veya ekler)."
+		"description": "Sunucudan komik/garip/bilge bir alıntı gösterir."
 	},
 	"rank": {
 		"description": "Senin veya herhangi bir kullanıcının mevcut deneyim puanını gösterir."
