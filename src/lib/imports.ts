@@ -29,13 +29,13 @@ export function setup(client: HTBClient) {
 
 			command.category = file.split(sep).at(-2)! as Category
 
-			command.nameLocalizations = {}
-			command.descriptionLocalizations = {}
+			command.nameLocalizations ??= {}
+			command.descriptionLocalizations ??= {}
 			for (const locale of botLocales) {
 				const discordLocale = transformBotLocale(locale)
 				if (!discordLocale || locale === "en") continue
 				try {
-					const commandsJson = require(`../../strings/${locale}/commands.json`) as CommandStrings
+					const commandsJson: CommandStrings = require(`../../strings/${locale}/commands.json`)
 					if (!(command.name in commandsJson.names)) continue // Command is admin or staff only
 
 					command.nameLocalizations[discordLocale] = commandsJson.names[command.name]
@@ -49,13 +49,13 @@ export function setup(client: HTBClient) {
 						option.descriptionLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].description
 
 						if ("choices" in option) {
-							for (const choice of option.choices!) {
+							for (const choice of option.choices ?? []) {
 								choice.nameLocalizations ??= {}
-								choice.nameLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].choices![choice.name]
+								choice.nameLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].choices![choice.value]
 							}
 						}
 
-						if ("options" in option) for (const subOption of option.options!) assignLocalisation(subOption)
+						if ("options" in option) for (const subOption of option.options ?? []) assignLocalisation(subOption)
 					}
 
 					for (const option of command.options ?? []) assignLocalisation(option)
