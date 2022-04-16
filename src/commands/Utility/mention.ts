@@ -6,7 +6,7 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "mention",
-	description: "Mentions a language role with a message.",
+	description: "Mentions a language role with a message",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,
@@ -29,7 +29,7 @@ const command: Command = {
 		{
 			type: ApplicationCommandOptionType.String,
 			name: "message",
-			description: "The message to send with the mention.",
+			description: "The message to send with the mention",
 			required: false,
 		},
 	],

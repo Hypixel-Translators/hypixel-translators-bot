@@ -8,7 +8,7 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "dm",
-	description: "Sends the user a private message.",
+	description: "Sends the user a private message",
 	options: [
 		{
 			type: ApplicationCommandOptionType.User,

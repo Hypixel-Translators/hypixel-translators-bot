@@ -10,7 +10,7 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "language",
-	description: "Changes your language, shows your current one or a list of available languages.",
+	description: "Changes your language, shows your current one or a list of available languages",
 	options: [
 		{
 			type: ApplicationCommandOptionType.Subcommand,

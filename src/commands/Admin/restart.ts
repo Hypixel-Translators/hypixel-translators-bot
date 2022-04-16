@@ -9,7 +9,7 @@ import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "restart",
-	description: "Refresh the bot to apply changes and to fix errors.",
+	description: "Refresh the bot to apply changes and to fix errors",
 	roleWhitelist: [ids.roles.admin],
 	channelWhitelist: [ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction) {

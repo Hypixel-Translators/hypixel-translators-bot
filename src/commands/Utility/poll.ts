@@ -49,7 +49,7 @@ const command: Command = {
 				{
 					type: ApplicationCommandOptionType.Number,
 					name: "time",
-					description: "How long before this poll is automatically closed and results are published (in hours).",
+					description: "How long before this poll is automatically closed and results are published (in hours)",
 					required: false,
 					maxValue: 720,
 				},

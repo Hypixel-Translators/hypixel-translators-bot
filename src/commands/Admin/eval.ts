@@ -23,7 +23,7 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "eval",
-	description: "Evals the specified code.",
+	description: "Evals the specified code",
 	roleWhitelist: [ids.roles.star],
 	options: [
 		{

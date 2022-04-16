@@ -7,7 +7,7 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "8ball",
-	description: "The Magic 8 Ball that will answer all your questions.",
+	description: "The Magic 8 Ball that will answer all your questions",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,

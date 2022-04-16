@@ -7,7 +7,7 @@ import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "say",
-	description: "Says something in a specific channel.",
+	description: "Says something in a specific channel",
 	options: [
 		{
 			type: ApplicationCommandOptionType.Channel,
