@@ -50,10 +50,10 @@
 		"description": "Laat de vertraging van de bot zien."
 	},
 	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+		"description": "Maakt of beheert peilingen op de server. Beschikbaar voor Hypixel-proeflezers en hoger gemachtigden"
 	},
 	"prefix": {
-		"description": "Geeft je het juiste voorvoegsel voor je taal/talen. Voor een aangepast voorvoegsel kun je `/prefix` uitvoeren en in het argument `vlaggen` een de code van een land of vlag of de naam van een land opgeven. Je kunt zo veel talen selecteren als je wilt, zolang je ze scheidt met een spatie."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "Geeft je de link naar je Crowdin-profiel als deze is opgeslagen in onze database. Als dit niet het geval is, kun je `/help verify` uitvoeren om te zien hoe je je profiel kunt laten opslaan en je rollen kunt updaten."
