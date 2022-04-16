@@ -99,7 +99,6 @@
 				"description": "The user to mention with this tag"
 			}
 		},
-		"translate": {},
 		"help": {
 			"command": {
 				"name": "command",
