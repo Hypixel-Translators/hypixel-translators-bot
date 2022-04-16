@@ -1,4 +1,4 @@
-import { access, constants, readdir, readdirSync } from "node:fs"
+import { access, constants, readdir } from "node:fs"
 
 import { type GuildMember, EmbedBuilder, ApplicationCommandOptionType } from "discord.js"
 

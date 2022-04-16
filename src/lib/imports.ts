@@ -48,11 +48,12 @@ export function setup(client: HTBClient) {
 						option.nameLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].name
 						option.descriptionLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].description
 
-						if ("choices" in option)
+						if ("choices" in option) {
 							for (const choice of option.choices!) {
 								choice.nameLocalizations = {}
 								choice.nameLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].choices![choice.name]
 							}
+						}
 
 						if ("options" in option) for (const subOption of option.options!) assignLocalisation(subOption)
 					}
