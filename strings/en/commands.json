@@ -65,7 +65,7 @@
 		"profile": {
 			"user": {
 				"name": "user",
-				"description": "The user to find the profile for. Admin only."
+				"description": "The user to find the profile for. Admin only"
 			},
 			"profile": {
 				"name": "profile",
@@ -302,7 +302,7 @@
 					},
 					"image": {
 						"name": "image",
-						"description": "Whether or not to attach this message's image to the quote."
+						"description": "Whether or not to attach this message's image to the quote"
 					}
 				}
 			}
@@ -310,7 +310,7 @@
 		"verify": {
 			"url": {
 				"name": "url",
-				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section."
+				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section"
 			},
 			"user": {
 				"name": "user",
@@ -336,7 +336,7 @@
 					},
 					"time": {
 						"name": "time",
-						"description": "How long before this poll is automatically closed and results are published (in hours)."
+						"description": "How long before this poll is automatically closed and results are published (in hours)"
 					},
 					"option3": {
 						"name": "option3",
