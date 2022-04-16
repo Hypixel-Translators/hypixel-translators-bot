@@ -53,7 +53,7 @@
 		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
 	},
 	"prefix": {
-		"description": "Te donnes le préfixe approprié pour ta/tes langue(s). Afin d'obtenir un préfixe personnalisé, exécutes `/prefix` et fournissez le code régional du drapeau de votre pays ou son nom dans le paramètre `flags`. Vous pouvez ajouter autant de drapeaux que vous le souhaitez, séparés par un espace."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "Te donnes le lien vers ton profil Crowdin s'il est stocké dans notre base de données. S'il ne l'est pas, vous pouvez exécuter `/help verify` pour apprendre comment sauvegarder ton profil et mettre à jour tes rôles."
@@ -62,7 +62,7 @@
 		"description": "Te donnes des liens et des informations sur tous les projets de traduction que nous supportons sur le serveur."
 	},
 	"quote": {
-		"description": "Obtient (ou ajoute) une citation drôle/bizarre/sage du serveur."
+		"description": "Shows a funny/weird/wise quote from the server."
 	},
 	"rank": {
 		"description": "T'affiches tes points d'expérience ou ceux d'un autre utilisateur donné."
@@ -71,7 +71,7 @@
 		"description": "Envoie un message prédéfini, permettant d'avertir un membre spécifique lors de son envoi."
 	},
 	"translate": {
-		"description": "Te donnes des informations utiles sur la façon de traduire le Bot."
+		"description": "Gives you useful information on how to translate the bot."
 	},
 	"verify": {
 		"description": "Vérifie automatiquement les changements sur ton profil Crowdin et te donnes les rôles appropriés. Si ton profil n'est pas stocké dans notre base de données, tu peux le fournir comme argument dans la commande. Pour vérifier si ton profil est stocké, exécutes `/profile`. Assures-toi que tu as activé les MPs depuis ce serveur afin que le bot puisse t'envoyer un message."
