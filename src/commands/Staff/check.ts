@@ -8,7 +8,7 @@ import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "check",
-	description: "Shows information about the specified user.",
+	description: "Shows information about the specified user",
 	options: [
 		{
 			type: ApplicationCommandOptionType.User,

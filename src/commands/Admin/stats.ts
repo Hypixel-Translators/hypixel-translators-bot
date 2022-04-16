@@ -8,7 +8,7 @@ import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "stats",
-	description: "Updates statistics channels and notifies members of new strings (if applicable).",
+	description: "Updates statistics channels and notifies members of new strings (if applicable)",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,

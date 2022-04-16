@@ -9,7 +9,7 @@ import type { Collection } from "mongodb"
 
 const command: Command = {
 	name: "quote",
-	description: "Gets (or adds) a funny/weird/wise quote from the server.",
+	description: "Gets (or adds) a funny/weird/wise quote from the server",
 	options: [
 		{
 			type: ApplicationCommandOptionType.Subcommand,
@@ -111,7 +111,7 @@ const command: Command = {
 				{
 					type: ApplicationCommandOptionType.Boolean,
 					name: "image",
-					description: "Whether or not to attach this message's image to the quote.",
+					description: "Whether or not to attach this message's image to the quote",
 					required: false,
 				},
 			],

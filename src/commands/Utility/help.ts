@@ -19,7 +19,7 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "help",
-	description: "Shows you all available commands and general info about the bot.",
+	description: "Shows you all available commands and general info about the bot",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,

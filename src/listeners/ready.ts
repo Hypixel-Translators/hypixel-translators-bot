@@ -16,6 +16,7 @@ import {
 	ActivityType,
 	Colors,
 	ButtonStyle,
+	Formatters,
 } from "discord.js"
 import { ObjectId } from "mongodb"
 import { schedule } from "node-cron"
@@ -37,10 +38,19 @@ client.on("ready", async () => {
 	if (!db) return
 	console.log(`Logged in as ${client.user.tag}!`)
 	const guild = client.guilds.cache.get(ids.guilds.main)!,
-		globalCommands = await client.application.commands.fetch()
+		globalCommands = await client.application.commands.fetch(),
+		botDev = guild.channels.cache.get(ids.channels.botDev) as TextChannel
 
 	// Set guild commands - these don't need checks since they update instantly
-	await guild.commands.set(constructGuildCommands())
+	await guild.commands.set(constructGuildCommands()).catch(async err => {
+		const embed = new EmbedBuilder({
+			color: colors.error,
+			title: "Failed to update guild commands!",
+			description: Formatters.codeBlock(err.stack),
+			timestamp: Date.now(),
+		})
+		await botDev.send({ embeds: [embed] })
+	})
 
 	if (process.env.NODE_ENV === "production") {
 		// Only update global commands in production
@@ -50,11 +60,31 @@ client.on("ready", async () => {
 				const discordCommand = globalCommands.find(c => c.name === command.name)
 				// Chech if the command is published
 				if (!discordCommand) {
-					await client.application.commands.create(convertToDiscordCommand(command))
-					console.log(`Published command ${command.name}!`)
+					try {
+						await client.application.commands.create(convertToDiscordCommand(command))
+						console.log(`Published command ${command.name}!`)
+					} catch (err) {
+						const embed = new EmbedBuilder({
+							color: colors.error,
+							title: `Failed to create command ${command.name}!`,
+							description: Formatters.codeBlock(err.stack),
+							timestamp: Date.now(),
+						})
+						await botDev.send({ embeds: [embed] })
+					}
 				} else if (!discordCommand.equals(command, true)) {
-					await discordCommand.edit(convertToDiscordCommand(command))
-					console.log(discordCommand, command, `\nEdited command ${command.name} since changes were found`)
+					try {
+						await discordCommand.edit(convertToDiscordCommand(command))
+						console.log(discordCommand, command, `\nEdited command ${command.name} since changes were found`)
+					} catch (err) {
+						const embed = new EmbedBuilder({
+							color: colors.error,
+							title: `Failed to edit command ${command.name}!`,
+							description: Formatters.codeBlock(err.stack),
+							timestamp: Date.now(),
+						})
+						await botDev.send({ embeds: [embed] })
+					}
 				}
 			})
 
@@ -142,7 +172,7 @@ client.on("ready", async () => {
 	// We restart the bot at least once every 2 days so no punishment will be left unexpired
 	setInterval(async () => {
 		console.log("Bot has been running for 2 days, restarting...")
-		;(client.channels.cache.get(ids.channels.botDev) as TextChannel).send("I have been running for 2 days straight, gonna restart...")
+		botDev.send("I have been running for 2 days straight, gonna restart...")
 		await restart()
 	}, 172_800_000)
 })
@@ -352,10 +382,8 @@ function constructGuildCommands() {
 
 function convertToDiscordCommand(command: Command): ChatInputApplicationCommandData {
 	return {
-		name: command.name,
-		description: command.description,
+		...command,
 		defaultPermission: !(command.roleWhitelist || command.dev),
-		options: command.options ?? [],
 	}
 }
 

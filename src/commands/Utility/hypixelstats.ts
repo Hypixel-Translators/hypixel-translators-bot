@@ -11,7 +11,7 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 // Credits to marzeq for initial implementation
 const command: Command = {
 	name: "hypixelstats",
-	description: "Shows you basic Hypixel stats for the provided user.",
+	description: "Shows you basic Hypixel stats for the provided user",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,

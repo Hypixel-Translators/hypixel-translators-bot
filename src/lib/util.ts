@@ -17,6 +17,8 @@ import {
 	type User,
 	ButtonStyle,
 	EmbedData,
+	Locale,
+	LocaleString,
 } from "discord.js"
 import puppeteer from "puppeteer"
 import { v4 } from "uuid"
@@ -350,7 +352,7 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 	const holiday: string[] = [],
 		log: { [Language: string]: string } = {}
 	holiday.push(strings![holidayName])
-	readdirSync("./strings").forEach(lang => {
+	botLocales.forEach(lang => {
 		if (lang === "empty") return
 		try {
 			strings = require(`../../strings/${lang}/holidays.json`)
@@ -382,9 +384,21 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 	} else await adminBots.send(`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`)
 }
 
+export const botLocales = readdirSync("./strings")
+
 export function transformDiscordLocale(discordLocale: string): string {
 	// We support all of Discord's languages so we only need to do this
-	return discordLocale.replace("-", "_")
+	discordLocale = discordLocale.replace("-", "_")
+	if (botLocales.includes(discordLocale)) return discordLocale
+	return "en"
+}
+
+export function transformBotLocale(botLocale: string): LocaleString | null {
+	const isLocale = (locale: string): locale is LocaleString => Object.values(Locale).includes(locale as Locale)
+
+	botLocale = botLocale.replace("_", "-")
+	if (isLocale(botLocale)) return botLocale
+	return null
 }
 
 export async function updateRoles(member: GuildMember): Promise<void>

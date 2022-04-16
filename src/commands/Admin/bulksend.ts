@@ -9,7 +9,7 @@ import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "bulksend",
-	description: "Send messages in a channel, ready to be edited.",
+	description: "Send messages in a channel, ready to be edited",
 	roleWhitelist: [ids.roles.admin],
 	options: [
 		{

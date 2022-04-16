@@ -10,7 +10,7 @@ import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "newlang",
-	description: "Creates a new language category with the appropriate channels and roles.",
+	description: "Creates a new language category with the appropriate channels and roles",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,

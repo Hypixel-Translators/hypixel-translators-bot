@@ -6,7 +6,7 @@ import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "giveaway",
-	description: "Gives you the winners of a giveaway.",
+	description: "Gives you the winners of a giveaway",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,

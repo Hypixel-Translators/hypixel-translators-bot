@@ -1,16 +1,16 @@
-import { access, constants, readdir, readdirSync } from "node:fs"
+import { access, constants, readdir } from "node:fs"
 
 import { type GuildMember, EmbedBuilder, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { db, type DbUser } from "../../lib/dbclient"
-import { generateTip, type MongoLanguage, transformDiscordLocale } from "../../lib/util"
+import { generateTip, type MongoLanguage, transformDiscordLocale, botLocales } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "language",
-	description: "Changes your language, shows your current one or a list of available languages.",
+	description: "Changes your language, shows your current one or a list of available languages",
 	options: [
 		{
 			type: ApplicationCommandOptionType.Subcommand,
@@ -65,7 +65,7 @@ const command: Command = {
 		if (subCommand === "list") {
 			const langList: string[] = [],
 				authorLanguage = (await collection.findOne({ id: interaction.user.id }))!.lang ?? transformDiscordLocale(interaction.locale)
-			readdirSync(stringsFolder).forEach(async (element, index, array) => {
+			botLocales.forEach(async (element, index, array) => {
 				if (element === "empty" && !member?.roles.cache.has(ids.roles.admin)) return
 				let languageString: string
 				if (element === "empty") languageString = "Empty"
@@ -84,7 +84,7 @@ const command: Command = {
 		} else if (subCommand === "stats") {
 			if (!member?.roles.cache.has(ids.roles.admin))
 				return await interaction.reply({ content: getString("errors.noAccess", { file: "global" }), ephemeral: true })
-			if (!readdirSync(stringsFolder).includes(language!)) throw "falseLang"
+			if (!botLocales.includes(language!)) throw "falseLang"
 			const langUsers = await collection.find({ lang: language! }).toArray(),
 				users: string[] = []
 			langUsers.forEach(u => users.push(`<@!${u.id}>`))

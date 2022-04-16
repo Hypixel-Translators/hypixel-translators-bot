@@ -14,13 +14,13 @@ const command: Command = {
 		{
 			type: ApplicationCommandOptionType.User,
 			name: "user",
-			description: "The user to find the profile for. Admin only.",
+			description: "The user to find the profile for. Admin only",
 			required: false,
 		},
 		{
 			type: ApplicationCommandOptionType.String,
 			name: "profile",
-			description: "The new profile to set for the user. Admin only.",
+			description: "The new profile to set for the user. Admin only",
 			required: false,
 		},
 	],

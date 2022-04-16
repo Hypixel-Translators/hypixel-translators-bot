@@ -6,7 +6,7 @@ import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "tag",
-	description: "Sends a preset message, allowing you to notify a specific member when sending it.",
+	description: "Sends a preset message, allowing you to notify a specific member when sending it",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,

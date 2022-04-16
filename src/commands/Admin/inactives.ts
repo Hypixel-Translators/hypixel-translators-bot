@@ -8,7 +8,7 @@ import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "inactives",
-	description: "Checks for inactive unverified members (if applicable).",
+	description: "Checks for inactive unverified members (if applicable)",
 	roleWhitelist: [ids.roles.admin],
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return

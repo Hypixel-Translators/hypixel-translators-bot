@@ -7,7 +7,7 @@ import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "channel",
-	description: "Updates the specified channel.",
+	description: "Updates the specified channel",
 	roleWhitelist: [ids.roles.admin],
 	channelWhitelist: [ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	options: [

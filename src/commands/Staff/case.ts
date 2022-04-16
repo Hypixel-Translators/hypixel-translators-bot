@@ -8,7 +8,7 @@ import type { Command } from "../../lib/imports"
 
 const command: Command = {
 	name: "case",
-	description: "Gives you information about any given case.",
+	description: "Gives you information about any given case",
 	options: [
 		{
 			type: ApplicationCommandOptionType.Integer,

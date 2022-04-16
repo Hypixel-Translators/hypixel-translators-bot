@@ -9,12 +9,12 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "languagestats",
-	description: "Shows you the progress of a language on the all projects we currently support.",
+	description: "Shows you the progress of a language on the all projects we currently support",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,
 			name: "language",
-			description: "The language to get progress statistics for. Required if your language is set to English.",
+			description: "The language to get progress statistics for. Required if your language is set to English",
 			required: false,
 			autocomplete: true,
 		},

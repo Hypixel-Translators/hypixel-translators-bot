@@ -23,7 +23,7 @@ import type { WithId } from "mongodb"
 
 const command: Command = {
 	name: "punishment",
-	description: "Punishes a user or calculates the punishment based on the amount of points given.",
+	description: "Punishes a user or calculates the punishment based on the amount of points given",
 	options: [
 		{
 			type: ApplicationCommandOptionType.Subcommand,

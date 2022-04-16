@@ -10,12 +10,12 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "prefix",
-	description: "Gives the author the appropriate prefix for their language(s).",
+	description: "Gives the author the appropriate prefix for their language(s)",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,
 			name: "flags",
-			description: "The flags to be applied to your prefix, separated with spaces.",
+			description: "The flags to be applied to your prefix, separated with spaces",
 			required: false,
 		},
 	],
