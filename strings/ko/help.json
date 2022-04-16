@@ -53,7 +53,7 @@
 		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
 	},
 	"prefix": {
-		"description": "본인의 언어(들) 에 맞는 Prefix를 지정해줍니다. 커스텀 Prefix를 얻기 위해선 `/prefix`를 실행해서 국기 코드 또는 국기의 이름을 `flags`에 넣어주시기 바랍니다. Prefix에는 본인이 원하는 만큼 국기를 많이 넣을 수 있습니다."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "데이터베이스에 저장되어 있는 본인의 CrowdIn 프로필의 링크를 제공해줍니다. 제공된 링크가 본인의 것이 아니라면, `/help verify` 를 입력해서 프로필 저장 및 역할 업데이트에 대해 알아보세요."
@@ -62,7 +62,7 @@
 		"description": "우리 서버에서 지원하는 프로젝트들에 대한 정보와 링크를 제공합니다."
 	},
 	"quote": {
-		"description": "재미있거나 이상하거나 유익한 글귀들을 확인 (또는 추가) 할 수 있습니다."
+		"description": "Shows a funny/weird/wise quote from the server."
 	},
 	"rank": {
 		"description": "본인, 또는 지정한 유저에 대한 XP를 확인할 수 있습니다."
@@ -71,7 +71,7 @@
 		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
-		"description": "이 봇을 어떻게 번역할 수 있는지에 대한 정보를 제공합니다."
+		"description": "Gives you useful information on how to translate the bot."
 	},
 	"verify": {
 		"description": "CrowdIn 프로필을 확인하며, 적절한 역할을 자동으로 지급합니다. 크라우드인 프로필이 데이터베이스에 없다면, 이 명령어를 통해 제공할 수 있습니다. CrowdIn 프로필이 있는지 확인하기 위해선 `/profile` 명령어를 입력해보세요. \n명령어를 실행하기 전, 봇이 본인에게 DM을 보낼 수 있는지 확인하세요."
