@@ -10,7 +10,7 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "prefix",
-	description: "Gives the author the appropriate prefix for their language(s)",
+	description: "Lets you an appropriate prefix for your language(s)",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,
