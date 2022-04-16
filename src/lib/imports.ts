@@ -41,26 +41,28 @@ export function setup(client: HTBClient) {
 					command.nameLocalizations[discordLocale] = commandsJson.names[command.name]
 					command.descriptionLocalizations[discordLocale] = commandsJson.descriptions[command.name]
 
-					function assignLocalisation(option: ApplicationCommandOptionData) {
+					function assignLocalisation(option: ApplicationCommandOptionData, optionJson: CommandOption) {
 						option.nameLocalizations ??= {}
 						option.descriptionLocalizations ??= {}
 
-						option.nameLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].name
-						option.descriptionLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].description
+						option.nameLocalizations[discordLocale!] = optionJson.name
+						option.descriptionLocalizations[discordLocale!] = optionJson.description
 
 						if ("choices" in option) {
 							for (const choice of option.choices ?? []) {
 								choice.nameLocalizations ??= {}
-								choice.nameLocalizations[discordLocale!] = commandsJson.options[command.name][option.name].choices![choice.value]
+								choice.nameLocalizations[discordLocale!] = optionJson.choices![choice.value]
 							}
 						}
 
-						if ("options" in option) for (const subOption of option.options ?? []) assignLocalisation(subOption)
+						if ("options" in option) for (const subOption of option.options ?? []) assignLocalisation(subOption, optionJson.options![subOption.name])
 					}
 
-					for (const option of command.options ?? []) assignLocalisation(option)
-				} catch {
-					console.error(`Failed to load command localisation for ${locale} for command ${command.name}`)
+					for (const option of command.options ?? []) {
+						assignLocalisation(option, commandsJson.options[command.name][option.name])
+					}
+				} catch (err) {
+					console.error(`Failed to load command localization for ${locale} for command ${command.name}: ${err}`)
 					continue
 				}
 			}
@@ -109,13 +111,14 @@ interface CommandStrings {
 	}
 	options: {
 		[command: string]: {
-			[option: string]: {
-				name: string
-				description: string
-				choices?: {
-					[choice: string]: string
-				}
-			}
+			[option: string]: CommandOption
 		}
 	}
+}
+
+interface CommandOption {
+	name: string
+	description: string
+	choices?: { [choice: string]: string }
+	options?: { [option: string]: CommandOption }
 }
