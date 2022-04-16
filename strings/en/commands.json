@@ -198,35 +198,29 @@
 		"minecraft": {
 			"history": {
 				"name": "history",
-				"description": "Gives you the history of a given Minecraft username",
+				"description": "Shows a user's name history. You must provide at least 1 parameter if your MC account is not linked",
 				"options": {
-					"history": {
-						"name": "history",
-						"description": "Shows a user's name history. You must provide at least 1 parameter if your MC account is not linked",
-						"options": {
-							"username": {
-								"name": "username",
-								"description": "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked"
-							},
-							"user": {
-								"name": "user",
-								"description": "The server member to get name history for. Only works if the user has verified themselves"
-							}
-						}
+					"username": {
+						"name": "username",
+						"description": "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked"
 					},
-					"skin": {
-						"name": "skin",
-						"description": "Shows a user's skin. You must provide at least 1 parameter if your MC account is not linked",
-						"options": {
-							"username": {
-								"name": "username",
-								"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
-							},
-							"user": {
-								"name": "user",
-								"description": "The server member to get skin for. Only works if the user has verified themselves"
-							}
-						}
+					"user": {
+						"name": "user",
+						"description": "The server member to get name history for. Only works if the user has verified themselves"
+					}
+				}
+			},
+			"skin": {
+				"name": "skin",
+				"description": "Shows a user's skin. You must provide at least 1 parameter if your MC account is not linked",
+				"options": {
+					"username": {
+						"name": "username",
+						"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
+					},
+					"user": {
+						"name": "user",
+						"description": "The server member to get skin for. Only works if the user has verified themselves"
 					}
 				}
 			}
