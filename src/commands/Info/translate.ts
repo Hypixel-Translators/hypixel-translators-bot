@@ -7,7 +7,7 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "translate",
-	description: "Gives you useful information on how to translate the Bot",
+	description: "Gives you useful information on how to translate the bot",
 	cooldown: 120,
 	allowDM: true,
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],

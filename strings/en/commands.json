@@ -41,7 +41,7 @@
 		"quote": "Shows a funny/weird/wise quote from the server",
 		"rank": "Gives you the current XP for yourself or any given user",
 		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
-		"translate": "Gives you useful information on how to translate the Bot",
+		"translate": "Gives you useful information on how to translate the bot",
 		"verify": "Verifies and gives you your corresponding roles",
 		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
 	},
