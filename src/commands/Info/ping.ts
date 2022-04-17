@@ -1,7 +1,7 @@
 import { type GuildMember, EmbedBuilder } from "discord.js"
 
 import { colors, ids } from "../../config.json"
-import { generateTip } from "../../lib/util"
+import { formatNumberToLocaleString, generateTip } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -28,7 +28,7 @@ const command: Command = {
 			color,
 			author: { name: getString("moduleName") },
 			title: getString("pong", { variables: { pingEmote: "<:ping:620954198493888512>" } }),
-			description: `${getString("message", { variables: { ping: ping } })}\n\n${getString("onlineSince", {
+			description: `${getString("message", { variables: { ping: formatNumberToLocaleString(ping, getString) } })}\n\n${getString("onlineSince", {
 				variables: {
 					timestamp: `<t:${onlineSince}>`,
 					timestampRelative: `<t:${onlineSince}:R>`,

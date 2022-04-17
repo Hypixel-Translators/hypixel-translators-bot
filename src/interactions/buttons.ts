@@ -1,6 +1,7 @@
 import { ids } from "../config.json"
 import { client } from "../index"
 import { db } from "../lib/dbclient"
+import { formatNumberToLocaleString } from "../lib/util"
 
 import type { Poll } from "../commands/Utility/poll"
 import type { GetStringFunction } from "../lib/imports"
@@ -33,7 +34,13 @@ export default async function handleButtonInteractions(interaction: ButtonIntera
 			if ((userDb.levels?.level ?? 0) < 5) {
 				console.log(`${interaction.member.user.tag} tried to get the Giveaway pings role but they're level ${userDb.levels?.level ?? 0} lol`)
 				return await interaction.reply({
-					content: getString("roles.noLevel", { variables: { level: 5, command: "`/rank`", channel: `<#${ids.channels.bots}>` } }),
+					content: getString("roles.noLevel", {
+						variables: {
+							level: formatNumberToLocaleString(5, getString),
+							command: "`/rank`",
+							channel: `<#${ids.channels.bots}>`,
+						},
+					}),
 					ephemeral: true,
 				})
 			}

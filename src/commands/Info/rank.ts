@@ -3,7 +3,7 @@ import { type GuildMember, EmbedBuilder, ApplicationCommandOptionType } from "di
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, type DbUser } from "../../lib/dbclient"
-import { generateProgressBar, generateTip, getXpNeeded } from "../../lib/util"
+import { formatNumberToLocaleString, generateProgressBar, generateTip, getXpNeeded } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -51,10 +51,13 @@ const command: Command = {
 				color: colors.neutral,
 				author: { name: getString("moduleName") },
 				title: user.id === interaction.user.id ? getString("yourRank") : getString("userRank", { variables: { user: user.tag } }),
-				description:
-					user.id === interaction.user.id
-						? getString("youLevel", { variables: { level: userDb.levels.level, rank: ranking } })
-						: getString("userLevel", { variables: { user: `${user}`, level: userDb.levels.level, rank: ranking } }),
+				description: getString(user.id === interaction.user.id ? "youLevel" : "userLevel", {
+					variables: {
+						user: `${user}`,
+						level: formatNumberToLocaleString(userDb.levels.level, getString),
+						rank: formatNumberToLocaleString(ranking, getString),
+					},
+				}),
 				fields: [
 					{
 						name: getString("textProgress", {

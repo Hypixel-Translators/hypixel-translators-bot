@@ -14,7 +14,7 @@ import { ObjectId } from "mongodb"
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { generateProgressBar } from "../../lib/util"
+import { formatNumberToLocaleString, generateProgressBar } from "../../lib/util"
 import { awaitPoll } from "../../listeners/ready"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -309,7 +309,9 @@ const command: Command = {
 						// Make sure to account for NaN values
 						value: `${generateProgressBar(o.votes.length, totalVoteCount)} ${
 							Math.round((o.votes.length / totalVoteCount) * 100) || 0
-						}% (**${getString(o.votes.length === 1 ? "voteCount" : "voteCountPlural", { variables: { number: o.votes.length } })}**)`,
+						}% (**${getString(o.votes.length === 1 ? "voteCount" : "voteCountPlural", {
+							variables: { number: formatNumberToLocaleString(o.votes.length, getString) },
+						})}**)`,
 					})),
 					footer: { text: getString("pollResults") },
 				})

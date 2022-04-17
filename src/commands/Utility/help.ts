@@ -13,7 +13,7 @@ import {
 
 import { ids } from "../../config.json"
 import { client } from "../../index"
-import { generateTip, transformDiscordLocale } from "../../lib/util"
+import { formatNumberToLocaleString, generateTip, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -87,7 +87,9 @@ const command: Command = {
 			pages.forEach(page => {
 				if (page.number === 0) return
 				page1.addFields({
-					name: getString("pageNumber", { variables: { number: page.number, total: pages.length } }),
+					name: getString("pageNumber", {
+						variables: { number: formatNumberToLocaleString(page.number, getString) },
+					}),
 					value: `${page.badge} ${getString(page.titleString)}`,
 					inline: true,
 				})
@@ -190,8 +192,8 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, in
 				footer: {
 					text: getString("pagination.page", {
 						variables: {
-							number: page + 1,
-							total: pages.length,
+							number: formatNumberToLocaleString(page + 1, getString),
+							total: formatNumberToLocaleString(pages.length, getString),
 						},
 						file: "global",
 					}),

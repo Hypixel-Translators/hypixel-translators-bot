@@ -29,7 +29,7 @@
 		"wrongLink": "Wrong link!"
 	},
 	"roles": {
-		"noLevel": "You must be at least chat level {level, number} to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
+		"noLevel": "You must be at least chat level %%level%% to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
 		"successGive": "Successfully gave you the %%role%% role!",
 		"successTake": "Successfully took the %%role%% role from you!"
 	},
@@ -66,7 +66,7 @@
 		"last": "Last page",
 		"confirm": "Confirm",
 		"cancel": "Cancel",
-		"page": "Page {number, number}/{total, number}",
+		"page": "Page %%number%%/%%total%%",
 		"notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
 		"timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%."
 	},
