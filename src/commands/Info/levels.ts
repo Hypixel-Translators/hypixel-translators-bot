@@ -10,7 +10,7 @@ import {
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { createButtonControls, generateTip, transformDiscordLocale } from "../../lib/util"
+import { createButtonControls, formatNumberToLocaleString, generateTip, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -111,7 +111,13 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 		author: { name: getString("moduleName") },
 		title: getString("pageTitle"),
 		footer: {
-			text: getString("pagination.page", { variables: { number: page + 1, total: pages.length }, file: "global" }),
+			text: getString("pagination.page", {
+				variables: {
+					number: formatNumberToLocaleString(page + 1, getString),
+					total: formatNumberToLocaleString(pages.length, getString),
+				},
+				file: "global",
+			}),
 			iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 		},
 	})
@@ -122,8 +128,8 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 			pageEmbed.addFields({
 				name: getString("level", {
 					variables: {
-						rank: i + 1 + page * 24,
-						level: pages[page][i].levels!.level,
+						rank: formatNumberToLocaleString(i + 1 + page * 24, getString),
+						level: formatNumberToLocaleString(pages[page][i].levels!.level, getString),
 						xp: pages[page][i].levels!.totalXp,
 					},
 				}),
@@ -132,7 +138,7 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 			})
 		} else {
 			pageEmbed.addFields({
-				name: getString("unranked", { variables: { rank: i + 1 + page * 24 } }),
+				name: getString("unranked", { variables: { rank: formatNumberToLocaleString(i + 1 + page * 24, getString) } }),
 				value: `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
 				inline: true,
 			})

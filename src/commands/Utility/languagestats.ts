@@ -3,7 +3,7 @@ import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js"
 import { colors, ids } from "../../config.json"
 import { client, crowdin } from "../../index"
 import { db } from "../../lib/dbclient"
-import { transformDiscordLocale, generateTip, type MongoLanguage } from "../../lib/util"
+import { transformDiscordLocale, generateTip, type MongoLanguage, formatNumberToLocaleString } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -84,15 +84,15 @@ const command: Command = {
 				name: "Hypixel",
 				value: `${getString("translated", {
 					variables: {
-						percentage: hypixelData.translationProgress,
-						translated: hypixelData.phrases.translated,
-						total: hypixelData.phrases.total,
+						percentage: formatNumberToLocaleString(hypixelData.translationProgress, getString),
+						translated: formatNumberToLocaleString(hypixelData.phrases.translated, getString),
+						total: formatNumberToLocaleString(hypixelData.phrases.total, getString),
 					},
 				})}\n${getString("approved", {
 					variables: {
-						percentage: hypixelData.approvalProgress,
-						approved: hypixelData.phrases.approved,
-						total: hypixelData.phrases.total,
+						percentage: formatNumberToLocaleString(hypixelData.approvalProgress, getString),
+						approved: formatNumberToLocaleString(hypixelData.phrases.approved, getString),
+						total: formatNumberToLocaleString(hypixelData.phrases.total, getString),
 					},
 				})}`,
 			})
@@ -102,15 +102,15 @@ const command: Command = {
 				name: "Quickplay",
 				value: `${getString("translated", {
 					variables: {
-						percentage: quickplayData.translationProgress,
-						translated: quickplayData.phrases.translated,
-						total: quickplayData.phrases.total,
+						percentage: formatNumberToLocaleString(quickplayData.translationProgress, getString),
+						translated: formatNumberToLocaleString(quickplayData.phrases.translated, getString),
+						total: formatNumberToLocaleString(quickplayData.phrases.total, getString),
 					},
 				})}\n${getString("approved", {
 					variables: {
-						percentage: quickplayData.approvalProgress,
-						approved: quickplayData.phrases.approved,
-						total: quickplayData.phrases.total,
+						percentage: formatNumberToLocaleString(quickplayData.approvalProgress, getString),
+						approved: formatNumberToLocaleString(quickplayData.phrases.approved, getString),
+						total: formatNumberToLocaleString(quickplayData.phrases.total, getString),
 					},
 				})}`,
 			})
@@ -120,15 +120,15 @@ const command: Command = {
 				name: "SkyblockAddons",
 				value: `${getString("translated", {
 					variables: {
-						percentage: sbaData.translationProgress,
-						translated: sbaData.phrases.translated,
-						total: sbaData.phrases.total,
+						percentage: formatNumberToLocaleString(sbaData.translationProgress, getString),
+						translated: formatNumberToLocaleString(sbaData.phrases.translated, getString),
+						total: formatNumberToLocaleString(sbaData.phrases.total, getString),
 					},
 				})}\n${getString("approved", {
 					variables: {
-						percentage: sbaData.approvalProgress,
-						approved: sbaData.phrases.approved,
-						total: sbaData.phrases.total,
+						percentage: formatNumberToLocaleString(sbaData.approvalProgress, getString),
+						approved: formatNumberToLocaleString(sbaData.phrases.approved, getString),
+						total: formatNumberToLocaleString(sbaData.phrases.total, getString),
 					},
 				})}`,
 			})
@@ -138,12 +138,16 @@ const command: Command = {
 				name: "Hypixel Translators Bot",
 				value: `${getString("translated", {
 					variables: {
-						percentage: botData.translationProgress,
-						translated: botData.phrases.translated,
-						total: botData.phrases.total,
+						percentage: formatNumberToLocaleString(botData.translationProgress, getString),
+						translated: formatNumberToLocaleString(botData.phrases.translated, getString),
+						total: formatNumberToLocaleString(botData.phrases.total, getString),
 					},
 				})}\n${getString("approved", {
-					variables: { percentage: botData.approvalProgress, approved: botData.phrases.approved, total: botData.phrases.total },
+					variables: {
+						percentage: formatNumberToLocaleString(botData.approvalProgress, getString),
+						approved: formatNumberToLocaleString(botData.phrases.approved, getString),
+						total: formatNumberToLocaleString(botData.phrases.total, getString),
+					},
 				})}`,
 			})
 		}

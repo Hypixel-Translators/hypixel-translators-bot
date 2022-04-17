@@ -167,6 +167,10 @@ export function createModlogEmbed(embedData: EmbedData, modlog: PunishmentLog, m
 	return new EmbedBuilder(embedData)
 }
 
+export function formatNumberToLocaleString(number: number, getString: GetStringFunction) {
+	return number.toLocaleString(getString("region.dateLocale", { file: "global" }))
+}
+
 export function generateProgressBar(current: number, goal: number, places = 10): string {
 	const leftEmoji = "<:progress_left:820405406906974289>"
 	if (isNaN(current) || isNaN(goal) || (current === 0 && goal === 0)) return `${leftEmoji.repeat(places)}\u200b`
