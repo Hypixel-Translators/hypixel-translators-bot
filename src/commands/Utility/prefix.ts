@@ -244,6 +244,9 @@ const command: Command = {
 					label: getString("pagination.cancel", { file: "global" }),
 				})
 
+			components.set("confirm", confirmButton)
+			components.set("cancel", cancelButton)
+
 			rows.push(new ActionRowBuilder({ components: [confirmButton, cancelButton] }))
 
 			if (!userLangs.length) {
