@@ -6,7 +6,7 @@ import { client } from "../index"
 client.on("guildMemberUpdate", async (oldMember, newMember) => {
 	// Prefix validation
 	if (!newMember.manageable) return
-	if (newMember.nickname && /\[\.*\]/g.test(newMember.nickname) && oldMember.nickname !== newMember.nickname) {
+	if (newMember.nickname && /\[.*\]/g.test(newMember.nickname) && oldMember.nickname !== newMember.nickname) {
 		// \u2620 is the unicode for the skull emoji, the other pattern is for letter emojis
 		const flagRegex = /\[(?:(?:\uD83C[\uDDE6-\uDDFF]){2}|\u2620)((-(?:(?:\uD83C[\uDDE6-\uDDFF]){2}|\u2620))?)+\]/,
 			chineseRegex = /\[(?:(?:CS|CT)-?)+\]/
