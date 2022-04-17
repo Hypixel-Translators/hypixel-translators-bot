@@ -53,7 +53,7 @@
 		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
 	},
 	"prefix": {
-		"description": "Надає Вам відповідний префікс для вашої мов(и). Щоб отримати користувацький префікс, напишіть `/prefix` та замініть `<прапори>` регіональним кодом прапора Вашої країни або її ім'я. Можна додавати стільки прапорів, скільки захочете, розділяючи пробілом."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "Надає Вам посилання на Ваш профіль Crowdin, якщо він зберігається в нашій базі даних. Якщо це не так, Ви можете написати `/help verify`, щоб дізнатися як зберігати свій профіль і оновити ролі."
@@ -62,7 +62,7 @@
 		"description": "Надає Вам посилання і інформацію про всі проєкти перекладу, які ми підтримуємо на сервері."
 	},
 	"quote": {
-		"description": "Надає (або додає) смішну/дивну/мудру цитату з сервера."
+		"description": "Shows a funny/weird/wise quote from the server."
 	},
 	"rank": {
 		"description": "Надає Вам поточну кількість Вашого досвіду або досвіду будь-якого іншого користувача."
@@ -71,7 +71,7 @@
 		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
-		"description": "Надає Вам корисну інформацію про те, як перекласти бота."
+		"description": "Gives you useful information on how to translate the bot."
 	},
 	"verify": {
 		"description": "Автоматично перевіряє зміни в профілі Crowdin і дає відповідні ролі. Якщо Ваш профіль не зберігається в нашій базі даних, Ви можете надати посилання на нього в якості аргументу до команди. Щоб перевірити, чи зберігається Ваш профіль, напишіть `/profile`. Переконайтеся, що у Вас включені приватні повідомлення від учасників цього сервера, щоб бот міг надіслати Вам повідомлення."

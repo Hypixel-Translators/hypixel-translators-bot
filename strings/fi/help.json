@@ -53,7 +53,7 @@
 		"description": "Luo ja hallitse kyselyitä palvelimella. Saatavilla Hypixelin oikolukijoille ja korkeammille"
 	},
 	"prefix": {
-		"description": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen. Saadaksesi etuliitteen, käytä komentoa `/prefix` ja syötä oman maasi lipun aluekoodi tai nimi. Voit lisätä niin monta lippua kuin haluat erottamalla ne välilyönneillä."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "Antaa Crowdin-profiilisi linkin, jos se on tallennettu tietokantaamme. Jos näin ei ole, voit käyttää komentoa `/help verify` saadaksesi lisätietoa siitä, kuinka voit tallentaa profiilisi ja päivittää roolisi."
@@ -62,7 +62,7 @@
 		"description": "Antaa sinulle osoitteita ja tietoa kaikista käännösprojekteista, joita tällä palvelimella tuetaan."
 	},
 	"quote": {
-		"description": "Hakee (tai lisää) hauskan/oudon/viisaan lainauksen palvelimelta."
+		"description": "Shows a funny/weird/wise quote from the server."
 	},
 	"rank": {
 		"description": "Kertoo oman tai haluamasi käyttäjän tämänhetkisen XP-määrän."
@@ -71,7 +71,7 @@
 		"description": "Lähettää ilmoituksen haluamallesi käyttäjälle esiasetetulla viestillä."
 	},
 	"translate": {
-		"description": "Antaa sinulle hyödyllistä tietoa Botin kääntämisestä."
+		"description": "Gives you useful information on how to translate the bot."
 	},
 	"verify": {
 		"description": "Tarkistaa automaattisesti Crowdin-profiilisi päivitykset ja antaa sinulle näin oikeat sinulle kuuluvat roolit. Jos profiiliasi ei ole tallennettu tietokantaamme, voit liittää sen osaksi komentoa. Tarkistaaksesi, onko profiilisi tallennettu, käytä komentoa `/profile`. Varmista, että olet sallinut yksityisviestit tältä palvelimelta, jotta botti voi lähettää sinulle viestin."

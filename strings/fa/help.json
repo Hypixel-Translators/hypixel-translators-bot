@@ -53,7 +53,7 @@
 		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
 	},
 	"prefix": {
-		"description": "پیشوند مناسب زبان(های) تان را به شما می‌دهد. برای دریافت پیشوند شخصی، `prefix/` را اجرا کنید و کد منطقه‌ای پرچم کشورتان یا نام کشورتان را در پارامتر `flags` وارد کنید. شما می‌توانید هر چقدر پرچم که با اسپیس جدا کرده‌اید را اضافه کنید."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "لینک پروفایل کراودین‌تان را در صورت وجود در دیتابیس ما، به شما می‌دهد. اگر وجود نداشته باشد، می‌توانید کامند `help verify/` را استفاده کرده تا چگونگی ذخیره پروفایل‌تان و دریافت رول را مطالعه کنید."
@@ -62,7 +62,7 @@
 		"description": "لینک‌ها و اطلاعاتی دربارۀ پروژه‌های ترجمه‌ای که ما در سرور پشتیبانی می‌کنیم به شما می‌دهد."
 	},
 	"quote": {
-		"description": "نقل قول بامزه، عجیب و غریب یا عاقلانه‌ای را از سرور دریافت(یا اضافه) می‌کند."
+		"description": "Shows a funny/weird/wise quote from the server."
 	},
 	"rank": {
 		"description": "تجربۀ فعلی شما و یا هر کاربر دیگری را به شما می‌دهد."
@@ -71,7 +71,7 @@
 		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
-		"description": "اطلاعاتی مفید دربارۀ چگونگی ترجمه این بات را به شما می‌دهد."
+		"description": "Gives you useful information on how to translate the bot."
 	},
 	"verify": {
 		"description": "به صورت اتوماتیک تغییرات پروفایل کراودین شما را بررسی می‌کند و رول‌های مناسب را به شما می‌دهد. اگر پروفایل شما در دیتابیس ما موجود نباشد، می‌توانید آن را به صورت یک آرگومان در کامند وارد کنید. برای بررسی وجود پروفایل شما در دیتابیس، کامند `profile/` را اجرا کنید. توجه داشته باشید دریافت DM از این سرور باید برایتان فعال باشد که بات بتواند به شما پیام بدهد."

@@ -53,7 +53,7 @@
 		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
 	},
 	"prefix": {
-		"description": "Gives you the appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "如果你的 Crowdin 個人檔案已儲存在我們的資料庫中，則會給予你的個人檔案連結。否則，你可以執行 `/help verify` 以了解如何儲存你的個人檔案至資料庫和更新你的身分組。"
@@ -62,7 +62,7 @@
 		"description": "給予你在伺服器上支援的所有翻譯項目之連結及相關訊息。"
 	},
 	"quote": {
-		"description": "取得（或新增）一條在這個伺服器的有趣／神奇／睿智的引文。"
+		"description": "Shows a funny/weird/wise quote from the server."
 	},
 	"rank": {
 		"description": "顯示你自己或任何使用者目前的 XP。"
@@ -71,7 +71,7 @@
 		"description": "發送預設訊息，並讓你在發送時通知特定使用者。"
 	},
 	"translate": {
-		"description": "給予你有關 Hypixel Translators Bot 項目的實用訊息。"
+		"description": "Gives you useful information on how to translate the bot."
 	},
 	"verify": {
 		"description": "自動檢查你的 Crowdin 個人檔案的任何更改，並給予你適當的身分組。如果你的資料不在我們的資料庫裡，你可以在指令中將其作為參數提供給我們。如果你想確認你的個人檔案是否已經儲存，你可以執行 `/profile`。請確保你已允許來自本伺服器的私人訊息 (DM)，以便機器人可以直接發送訊息給你。"

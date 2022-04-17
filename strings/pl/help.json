@@ -53,7 +53,7 @@
 		"description": "Tworzy lub zarządza ankietami na serwerze. Dostępne dla korektorów Hypixel i wyżej"
 	},
 	"prefix": {
-		"description": "Daje ci przedrostek odpowiedni dla twojego języka (lub języków). Aby go otrzymać, wpisz `/prefix` i podaj w parametrze `flags` kod flagi twojego kraju albo jej nazwę. Możesz dodać tyle flag, ile chcesz; pamiętaj, by odzielić je spacjami."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "Podaje odnośnik do Twojego profilu Crowdin, jeśli jest on przechowywany w naszej bazie danych. W przeciwnym razie, możesz wykonać polecenie `/help verify`, by dowiedzieć się, jak przechowywać swój profil i aktualizować swoje role."
@@ -62,7 +62,7 @@
 		"description": "Daje ci odnośniki i informacje o wszystkich projektach tłumaczeniowych, które wspieramy na serwerze."
 	},
 	"quote": {
-		"description": "Pobiera (lub dodaje) śmieszny/dziwny/mądry cytat z serwera."
+		"description": "Shows a funny/weird/wise quote from the server."
 	},
 	"rank": {
 		"description": "Podaje twoje obecne PD lub PD wybranego użytkownika."
@@ -71,7 +71,7 @@
 		"description": "Wysyła konktetną wiadomość, pozwalając Ci powiadomić danego użytkownika po wysłaniu wiadomości."
 	},
 	"translate": {
-		"description": "Podaje ci przydatne informacje o tym, jak tłumaczyć Bota."
+		"description": "Gives you useful information on how to translate the bot."
 	},
 	"verify": {
 		"description": "Automatycznie sprawdza zmiany w Twoim profilu Crowdin i daje Ci odpowiednie role. Jeśli Twój profil nie jest przechowywany w naszej bazie danych, możesz podać go jako argument w poleceniu. Aby sprawdzić, czy Twój profil jest tam przechowywany, wykonaj polecenie `/profile`. Upewnij się, że masz włączone wiadomości prywatne z tego serwera, aby bot mógł wysłać Ci wiadomość."

@@ -53,7 +53,7 @@
 		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
 	},
 	"prefix": {
-		"description": "Gibt dir den passenden Präfix für deine Sprache(n). Um einen benutzerdefiniertes Präfix zu erhalten, führe `/prefix` aus und gebe den Regionalcode der Flagge deines Landes oder dessen Namen an. Du kannst so viele Flaggen hinzufügen wie du magst, getrennt durch ein Leerzeichen."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "Gibt dir den Link zu deinem Crowdin-Profil, wenn er in unserer Datenbank gespeichert ist. Falls nicht, kannst du `/help verify` ausführen, um zu erfahren, wie du dein Profil speicherst und deine Rollen aktualisierst."
@@ -62,7 +62,7 @@
 		"description": "Gibt dir Links und Informationen zu allen Übersetzungsprojekten, die wir auf dem Server unterstützen."
 	},
 	"quote": {
-		"description": "Ruft (oder fügt hinzu) ein lustiges/seltsames/weises Zitat vom Server ab."
+		"description": "Shows a funny/weird/wise quote from the server."
 	},
 	"rank": {
 		"description": "Gibt dir die aktuellen XP für dich selbst oder einen bestimmten Benutzer an."
@@ -71,7 +71,7 @@
 		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
 	},
 	"translate": {
-		"description": "Gibt dir nützliche Informationen, wie du den Bot übersetzen kannst."
+		"description": "Gives you useful information on how to translate the bot."
 	},
 	"verify": {
 		"description": "Überprüft automatisch auf Änderungen in deinem Crowdin-Profil und gibt dir die entsprechenden Rollen. Wenn dein Profil nicht in unserer Datenbank gespeichert ist, wirst du gebeten, dein Profil erneut zu senden. Um zu überprüfen, ob dein Profil gespeichert ist, führe `/profile` aus. Stelle sicher, dass DMs auf diesem Server aktiviert sind, damit der Bot dir eine Nachricht senden kann."

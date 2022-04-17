@@ -1,0 +1,397 @@
+{
+	"names": {
+		"8ball": "crwdns2426:0crwdne2426:0",
+		"feedback": "crwdns2428:0crwdne2428:0",
+		"levels": "crwdns2430:0crwdne2430:0",
+		"ping": "crwdns2432:0crwdne2432:0",
+		"profile": "crwdns2434:0crwdne2434:0",
+		"projects": "crwdns2436:0crwdne2436:0",
+		"rank": "crwdns2438:0crwdne2438:0",
+		"tag": "crwdns2440:0crwdne2440:0",
+		"translate": "crwdns2442:0crwdne2442:0",
+		"help": "crwdns2444:0crwdne2444:0",
+		"hypixelstats": "crwdns2446:0crwdne2446:0",
+		"hypixelunverify": "crwdns2448:0crwdne2448:0",
+		"hypixelverify": "crwdns2450:0crwdne2450:0",
+		"language": "crwdns2452:0crwdne2452:0",
+		"languagestats": "crwdns2454:0crwdne2454:0",
+		"mention": "crwdns2456:0crwdne2456:0",
+		"minecraft": "crwdns2458:0crwdne2458:0",
+		"prefix": "crwdns2460:0crwdne2460:0",
+		"quote": "crwdns2462:0crwdne2462:0",
+		"verify": "crwdns2464:0crwdne2464:0",
+		"poll": "crwdns2466:0crwdne2466:0"
+	},
+	"descriptions": {
+		"8ball": "crwdns2468:0crwdne2468:0",
+		"feedback": "crwdns2470:0crwdne2470:0",
+		"help": "crwdns2472:0crwdne2472:0",
+		"hypixelstats": "crwdns2474:0crwdne2474:0",
+		"hypixelunverify": "crwdns2476:0crwdne2476:0",
+		"hypixelverify": "crwdns2478:0crwdne2478:0",
+		"language": "crwdns2480:0crwdne2480:0",
+		"languagestats": "crwdns2482:0crwdne2482:0",
+		"levels": "crwdns2484:0crwdne2484:0",
+		"mention": "crwdns2486:0crwdne2486:0",
+		"minecraft": "crwdns2488:0crwdne2488:0",
+		"ping": "crwdns2490:0crwdne2490:0",
+		"prefix": "crwdns2492:0crwdne2492:0",
+		"profile": "crwdns2494:0crwdne2494:0",
+		"projects": "crwdns2496:0crwdne2496:0",
+		"quote": "crwdns2498:0crwdne2498:0",
+		"rank": "crwdns2500:0crwdne2500:0",
+		"tag": "crwdns2502:0crwdne2502:0",
+		"translate": "crwdns2504:0crwdne2504:0",
+		"verify": "crwdns2506:0crwdne2506:0",
+		"poll": "crwdns2508:0crwdne2508:0"
+	},
+	"options": {
+		"8ball": {
+			"question": {
+				"name": "crwdns2510:0crwdne2510:0",
+				"description": "crwdns2512:0crwdne2512:0"
+			}
+		},
+		"levels": {
+			"me": {
+				"name": "crwdns2514:0crwdne2514:0",
+				"description": "crwdns2516:0crwdne2516:0"
+			},
+			"page": {
+				"name": "crwdns2518:0crwdne2518:0",
+				"description": "crwdns2520:0crwdne2520:0"
+			}
+		},
+		"profile": {
+			"user": {
+				"name": "crwdns2522:0crwdne2522:0",
+				"description": "crwdns2524:0crwdne2524:0"
+			},
+			"profile": {
+				"name": "crwdns2526:0crwdne2526:0",
+				"description": "crwdns2528:0crwdne2528:0"
+			}
+		},
+		"rank": {
+			"user": {
+				"name": "crwdns2530:0crwdne2530:0",
+				"description": "crwdns2532:0crwdne2532:0"
+			}
+		},
+		"tag": {
+			"tag": {
+				"name": "crwdns2534:0crwdne2534:0",
+				"description": "crwdns2536:0crwdne2536:0",
+				"choices": {
+					"invite": "crwdns2538:0crwdne2538:0",
+					"hypixel": "crwdns2540:0crwdne2540:0",
+					"guidelines": "crwdns2542:0crwdne2542:0",
+					"proofreader": "crwdns2544:0crwdne2544:0",
+					"minecraft": "crwdns2546:0crwdne2546:0",
+					"quickplay": "crwdns2548:0crwdne2548:0",
+					"skyblockaddons": "crwdns2550:0crwdne2550:0",
+					"thread": "crwdns2552:0crwdne2552:0",
+					"twitter": "crwdns2554:0crwdne2554:0"
+				}
+			},
+			"target": {
+				"name": "crwdns2556:0crwdne2556:0",
+				"description": "crwdns2558:0crwdne2558:0"
+			}
+		},
+		"help": {
+			"command": {
+				"name": "crwdns2560:0crwdne2560:0",
+				"description": "crwdns2562:0crwdne2562:0"
+			},
+			"page": {
+				"name": "crwdns2564:0crwdne2564:0",
+				"description": "crwdns2566:0crwdne2566:0",
+				"choices": [
+					"crwdns2568:0crwdne2568:0",
+					"crwdns2570:0crwdne2570:0",
+					"crwdns2572:0crwdne2572:0"
+				]
+			}
+		},
+		"hypixelstats": {
+			"username": {
+				"name": "crwdns2574:0crwdne2574:0",
+				"description": "crwdns2576:0crwdne2576:0"
+			},
+			"user": {
+				"name": "crwdns2578:0crwdne2578:0",
+				"description": "crwdns2580:0crwdne2580:0"
+			}
+		},
+		"hypixelunverify": {
+			"user": {
+				"name": "crwdns2582:0crwdne2582:0",
+				"description": "crwdns2584:0crwdne2584:0"
+			}
+		},
+		"hypixelverify": {
+			"username": {
+				"name": "crwdns2586:0crwdne2586:0",
+				"description": "crwdns2588:0crwdne2588:0"
+			},
+			"user": {
+				"name": "crwdns2590:0crwdne2590:0",
+				"description": "crwdns2592:0crwdne2592:0"
+			}
+		},
+		"language": {
+			"set": {
+				"name": "crwdns2594:0crwdne2594:0",
+				"description": "crwdns2596:0crwdne2596:0",
+				"options": {
+					"language": {
+						"name": "crwdns2598:0crwdne2598:0",
+						"description": "crwdns2600:0crwdne2600:0"
+					}
+				}
+			},
+			"reset": {
+				"name": "crwdns2602:0crwdne2602:0",
+				"description": "crwdns2604:0crwdne2604:0"
+			},
+			"list": {
+				"name": "crwdns2606:0crwdne2606:0",
+				"description": "crwdns2608:0crwdne2608:0"
+			},
+			"stats": {
+				"name": "crwdns2610:0crwdne2610:0",
+				"description": "crwdns2612:0crwdne2612:0",
+				"options": {
+					"language": {
+						"name": "crwdns2614:0crwdne2614:0",
+						"description": "crwdns2616:0crwdne2616:0"
+					}
+				}
+			}
+		},
+		"languagestats": {
+			"language": {
+				"name": "crwdns2618:0crwdne2618:0",
+				"description": "crwdns2620:0crwdne2620:0"
+			}
+		},
+		"mention": {
+			"language": {
+				"name": "crwdns2622:0crwdne2622:0",
+				"description": "crwdns2624:0crwdne2624:0"
+			},
+			"role": {
+				"name": "crwdns2626:0crwdne2626:0",
+				"description": "crwdns2628:0crwdne2628:0",
+				"choices": {
+					"all": "crwdns2630:0crwdne2630:0",
+					"translator": "crwdns2632:0crwdne2632:0",
+					"proofreader": "crwdns2634:0crwdne2634:0"
+				}
+			},
+			"message": {
+				"name": "crwdns2636:0crwdne2636:0",
+				"description": "crwdns2638:0crwdne2638:0"
+			}
+		},
+		"minecraft": {
+			"history": {
+				"name": "crwdns2640:0crwdne2640:0",
+				"description": "crwdns2642:0crwdne2642:0",
+				"options": {
+					"username": {
+						"name": "crwdns2644:0crwdne2644:0",
+						"description": "crwdns2646:0crwdne2646:0"
+					},
+					"user": {
+						"name": "crwdns2648:0crwdne2648:0",
+						"description": "crwdns2650:0crwdne2650:0"
+					}
+				}
+			},
+			"skin": {
+				"name": "crwdns2652:0crwdne2652:0",
+				"description": "crwdns2654:0crwdne2654:0",
+				"options": {
+					"username": {
+						"name": "crwdns2656:0crwdne2656:0",
+						"description": "crwdns2658:0crwdne2658:0"
+					},
+					"user": {
+						"name": "crwdns2660:0crwdne2660:0",
+						"description": "crwdns2662:0crwdne2662:0"
+					}
+				}
+			}
+		},
+		"prefix": {
+			"flags": {
+				"name": "crwdns2664:0crwdne2664:0",
+				"description": "crwdns2666:0crwdne2666:0"
+			}
+		},
+		"quote": {
+			"get": {
+				"name": "crwdns2668:0crwdne2668:0",
+				"description": "crwdns2670:0crwdne2670:0",
+				"options": {
+					"index": {
+						"name": "crwdns2672:0crwdne2672:0",
+						"description": "crwdns2674:0crwdne2674:0"
+					}
+				}
+			},
+			"add": {
+				"name": "crwdns2676:0crwdne2676:0",
+				"description": "crwdns2678:0crwdne2678:0",
+				"options": {
+					"quote": {
+						"name": "crwdns2680:0crwdne2680:0",
+						"description": "crwdns2682:0crwdne2682:0"
+					},
+					"author": {
+						"name": "crwdns2684:0crwdne2684:0",
+						"description": "crwdns2686:0crwdne2686:0"
+					},
+					"url": {
+						"name": "crwdns2688:0crwdne2688:0",
+						"description": "crwdns2690:0crwdne2690:0"
+					},
+					"image": {
+						"name": "crwdns2692:0crwdne2692:0",
+						"description": "crwdns2694:0crwdne2694:0"
+					}
+				}
+			},
+			"edit": {
+				"name": "crwdns2696:0crwdne2696:0",
+				"description": "crwdns2698:0crwdne2698:0",
+				"options": {
+					"index": {
+						"name": "crwdns2700:0crwdne2700:0",
+						"description": "crwdns2702:0crwdne2702:0"
+					},
+					"quote": {
+						"name": "crwdns2704:0crwdne2704:0",
+						"description": "crwdns2706:0crwdne2706:0"
+					}
+				}
+			},
+			"delete": {
+				"name": "crwdns2708:0crwdne2708:0",
+				"description": "crwdns2710:0crwdne2710:0",
+				"options": {
+					"index": {
+						"name": "crwdns2712:0crwdne2712:0",
+						"description": "crwdns2714:0crwdne2714:0"
+					}
+				}
+			},
+			"link": {
+				"name": "crwdns2716:0crwdne2716:0",
+				"description": "crwdns2718:0crwdne2718:0",
+				"options": {
+					"index": {
+						"name": "crwdns2720:0crwdne2720:0",
+						"description": "crwdns2722:0crwdne2722:0"
+					},
+					"url": {
+						"name": "crwdns2724:0crwdne2724:0",
+						"description": "crwdns2726:0crwdne2726:0"
+					},
+					"image": {
+						"name": "crwdns2728:0crwdne2728:0",
+						"description": "crwdns2730:0crwdne2730:0"
+					}
+				}
+			}
+		},
+		"verify": {
+			"url": {
+				"name": "crwdns2732:0crwdne2732:0",
+				"description": "crwdns2734:0crwdne2734:0"
+			},
+			"user": {
+				"name": "crwdns2736:0crwdne2736:0",
+				"description": "crwdns2738:0crwdne2738:0"
+			}
+		},
+		"poll": {
+			"start": {
+				"name": "crwdns2740:0crwdne2740:0",
+				"description": "crwdns2742:0crwdne2742:0",
+				"options": {
+					"question": {
+						"name": "crwdns2744:0crwdne2744:0",
+						"description": "crwdns2746:0crwdne2746:0"
+					},
+					"option1": {
+						"name": "crwdns2748:0crwdne2748:0",
+						"description": "crwdns2750:0crwdne2750:0"
+					},
+					"option2": {
+						"name": "crwdns2752:0crwdne2752:0",
+						"description": "crwdns2754:0crwdne2754:0"
+					},
+					"time": {
+						"name": "crwdns2756:0crwdne2756:0",
+						"description": "crwdns2758:0crwdne2758:0"
+					},
+					"option3": {
+						"name": "crwdns2760:0crwdne2760:0",
+						"description": "crwdns2762:0crwdne2762:0"
+					},
+					"option4": {
+						"name": "crwdns2764:0crwdne2764:0",
+						"description": "crwdns2766:0crwdne2766:0"
+					},
+					"option5": {
+						"name": "crwdns2768:0crwdne2768:0",
+						"description": "crwdns2770:0crwdne2770:0"
+					},
+					"option6": {
+						"name": "crwdns2772:0crwdne2772:0",
+						"description": "crwdns2774:0crwdne2774:0"
+					},
+					"option7": {
+						"name": "crwdns2776:0crwdne2776:0",
+						"description": "crwdns2778:0crwdne2778:0"
+					},
+					"option8": {
+						"name": "crwdns2780:0crwdne2780:0",
+						"description": "crwdns2782:0crwdne2782:0"
+					}
+				}
+			},
+			"end": {
+				"name": "crwdns2784:0crwdne2784:0",
+				"description": "crwdns2786:0crwdne2786:0",
+				"options": {
+					"message_id": {
+						"name": "crwdns2788:0crwdne2788:0",
+						"description": "crwdns2790:0crwdne2790:0"
+					},
+					"channel_id": {
+						"name": "crwdns2792:0crwdne2792:0",
+						"description": "crwdns2794:0crwdne2794:0"
+					}
+				}
+			},
+			"show": {
+				"name": "crwdns2796:0crwdne2796:0",
+				"description": "crwdns2798:0crwdne2798:0",
+				"options": {
+					"message_id": {
+						"name": "crwdns2800:0crwdne2800:0",
+						"description": "crwdns2802:0crwdne2802:0"
+					},
+					"channel_id": {
+						"name": "crwdns2804:0crwdne2804:0",
+						"description": "crwdns2806:0crwdne2806:0"
+					}
+				}
+			}
+		}
+	}
+}

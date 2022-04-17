@@ -15,7 +15,7 @@
     "pollResults": "Resultaten peiling",
     "endingWarning": "Let op: deze peiling eindigt binnenkort!",
     "endingWarningDesc": "Deze peiling zal eindigen op %%fullTime%% (%%relativeTime%%), dus misschien wil je deze nog niet beëindigen. Als dit wel het geval is, bevestig dit dan met de knop hieronder.",
-    "didntReply": "You didn't reply, so this poll will not end now",
+    "didntReply": "Je hebt niet gereageerd, dus deze peiling zal niet eindigen",
     "successCancelEnd": "Beëindigen van deze peiling geannuleerd!",
     "endScheduled": "Hij zal eindigen op het ingestelde moment: %%fullTime%% (%%relativeTime%%)",
     "successVote": "Stem geregistreerd!",

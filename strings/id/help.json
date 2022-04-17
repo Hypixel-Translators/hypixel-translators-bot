@@ -53,7 +53,7 @@
 		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
 	},
 	"prefix": {
-		"description": "Memberikan anda prefix yang tepat untuk bahasa anda. Untuk mendapatkan prefix kustom, jalankan `/prefix` dan sediakan kode regional bendera negara anda atau namanya di parameter `flags`. Anda dapat memasukkan bendera sebanyak-banyaknya, dipisahkan dengan spasi."
+		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
 	},
 	"profile": {
 		"description": "Memberikan anda tautan ke profil Crowdin anda jika tersimpan di database kami. Jika tidak, anda dapat menjalankan `/help verify` untuk mengetahui cara memasukkan profil anda dan memperbarui role anda."
@@ -62,7 +62,7 @@
 		"description": "Memberikan anda tautan-tautan dan informasi mengenai semua proyek terjemahan yang kami dukung di server."
 	},
 	"quote": {
-		"description": "Mendapatkan (atau menambahkan) sebuah kutipan lucu/aneh/bijaksana dari server."
+		"description": "Shows a funny/weird/wise quote from the server."
 	},
 	"rank": {
 		"description": "Memberikan anda angka XP anda atau orang lain."
@@ -71,7 +71,7 @@
 		"description": "Mengirimkan pesan yang telah tersedia, juga memperbolehkan anda untuk memberitahukan seorang member saat mengirimkannya."
 	},
 	"translate": {
-		"description": "Memberikan anda informasi yang berguna mengenai cara menerjemahkan Bot."
+		"description": "Gives you useful information on how to translate the bot."
 	},
 	"verify": {
 		"description": "Mengecek perubahan di profil Crowdin anda secara otomatis dan memberikan anda role yang sesuai. Jika profil anda tidak tersimpan di database kami, anda dapat menyediakannya sebagai argumen di perintahnya. Untuk mengecek apakah profil anda tersimpan, jalankan `/profile`. Pastikan anda mengaktifkan DMs dari server ini agar bot dapat mengirimkan anda pesan."
