@@ -43,7 +43,7 @@
 		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
 		"translate": "Gives you useful information on how to translate the bot",
 		"verify": "Verifies and gives you your corresponding roles",
-		"poll": "Sunucuda anket oluşturur veya mevcut anketi yönetir. Hypixel Düzeltmenleri ve üstü için kullanılabilir"
+		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
 	},
 	"options": {
 		"8ball": {
