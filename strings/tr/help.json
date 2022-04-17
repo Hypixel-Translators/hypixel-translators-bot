@@ -53,7 +53,7 @@
 		"description": "Sunucuda anket oluşturur veya mevcut anketi yönetir. Hypixel Düzeltmenleri ve üstü için kullanılabilir"
 	},
 	"prefix": {
-		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+		"description": "Dil(ler)iniz için uygun bir önek verir. Özel bir önek almak için `/prefix` komutunu kullanın ve ülkenizin bayrağının bölgesel kodunu veya adını `flags` parametresinde belirtin. Bir boşlukla ayırarak, istediğiniz kadar bayrak ekleyebilirsiniz."
 	},
 	"profile": {
 		"description": "Veritabanımızda saklanıyorsa, Crowdin profiline yönlendiren bağlantı verir. Saklanmıyorsa, profilini nasıl saklayacağını ve rollerini nasıl güncelleyeceğini öğrenmek için `/help verify` komutunu kullanabilirsin."
