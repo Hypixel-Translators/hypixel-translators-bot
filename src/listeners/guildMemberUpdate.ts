@@ -16,9 +16,9 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 			if (chineseRegex.test(newMember.nickname)) return
 			if (oldMember.nickname && (chineseRegex.test(oldMember.nickname) || flagRegex.test(oldMember.nickname)))
 				await sendRevertAlert(oldMember, newMember)
-			else await sendRemoveAlert(newMember)
-		} else if (oldMember.nickname && !flagRegex.test(oldMember.nickname)) await sendRevertAlert(oldMember, newMember)
-		else await sendRemoveAlert(newMember)
+			else await sendRemoveAlert(oldMember, newMember)
+		} else if (oldMember.nickname && flagRegex.test(oldMember.nickname)) await sendRevertAlert(oldMember, newMember)
+		else await sendRemoveAlert(oldMember, newMember)
 	}
 })
 
@@ -49,7 +49,7 @@ async function sendRevertAlert(oldMember: GuildMember | PartialGuildMember, newM
 		})
 }
 
-async function sendRemoveAlert(newMember: GuildMember) {
+async function sendRemoveAlert(oldMember: GuildMember | PartialGuildMember, newMember: GuildMember) {
 	const embed = new EmbedBuilder({
 			color: colors.error,
 			author: { name: "Received a message from staff" },
@@ -59,7 +59,7 @@ async function sendRemoveAlert(newMember: GuildMember) {
 		staffEmbed = new EmbedBuilder({
 			color: colors.loading,
 			title: "Member nickname removed",
-			description: `I noticed that ${newMember}'s new nickname: \`${newMember.nickname}\` didn't follow our rules, and neither did their old one, so I removed their nickname entirely. Make sure this is correct and, if it isn't, feel free to undo.`,
+			description: `I noticed that ${newMember}'s new nickname: \`${newMember.nickname}\` didn't follow our rules, and neither did their old one (${oldMember.nickname}), so I removed their nickname entirely. Make sure this is correct and, if it isn't, feel free to undo.`,
 			timestamp: Date.now(),
 		}),
 		staffBots = client.channels.cache.get(ids.channels.staffBots) as TextChannel
