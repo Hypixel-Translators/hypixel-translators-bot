@@ -30,34 +30,34 @@
 	},
 	"roles": {
 		"noLevel": "You must be at least chat level {level, number} to receive this role! You can check your current chat level using {command} in {channel}.",
-		"successGive": "Successfully gave you the {role} role!",
-		"successTake": "Successfully took the {role} role from you!"
+		"successGive": "Successfully gave you the %%role%% role!",
+		"successTake": "Successfully took the %%role%% role from you!"
 	},
 	"cooldown": "Cooldown",
-	"timeLeft": "You'll be able to use {command} again {timestamp}.",
-	"linkCorrectionDesc": "Please change your link to the {format} format next time.",
+	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
+	"linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
 	"correctLink": "Here's the correct link:",
 	"wrongStringURL": "The link you sent is a link to the editor and not the string itself!",
-	"example": "Click the button shown on the image below to get the correct string URL. It should look like this: {url}",
-	"reminderLang": "Don't forget to also change your link to the {format} format.",
+	"example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
+	"reminderLang": "Don't forget to also change your link to the %%format%% format.",
 	"tip": "Tip",
 	"tips": {
-		"ib": "Have you tried the Inhale Banana language? Change your language to it using {langIb}!",
-		"translators": "I need translators! Find out how to become a bot translator by executing {translate}.",
-		"prefix": "Do you wanna have a cool prefix on your nickname? Execute {prefix} in {bots} and follow the instructions! Available to all Hypixel translators.",
+		"ib": "Have you tried the Inhale Banana language? Change your language to it using %%langIb%%!",
+		"translators": "I need translators! Find out how to become a bot translator by executing %%translate%%.",
+		"prefix": "Do you wanna have a cool prefix on your nickname? Execute %%prefix%% in %%bots%% and follow the instructions! Available to all Hypixel translators.",
 		"enen": "Don't forget to change your string links to en-en!",
 		"xp": "You get random amounts of XP every minute when you're chatting, which will eventually make you level up.",
-		"guide": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at {gettingStarted}, it has some useful tips!",
-		"twitter": "Have you followed our twitter account? Check it out at {twitter}!",
-		"rulesInfo": "{rules} and {serverInfo} have all the info you need about this server!",
+		"guide": "Did you know we have a guide on how to get started with Crowdin, available for all translators? Check it out at %%gettingStarted%%, it has some useful tips!",
+		"twitter": "Have you followed our twitter account? Check it out at %%twitter%%!",
+		"rulesInfo": "%%rules%% and %%serverInfo%% have all the info you need about this server!",
 		"fixTranslation": "Found a mistake in a translation? Contact a proofreader for your language or let people know in a translation channel.",
 		"pinnedInfo": "Did you know most channels have important information pinned? You should check it out every time you visit one!",
-		"hypixelStats": "You can view information about a specific player on Hypixel by executing {hypixelstats}!",
-		"languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute {languagestats}!",
-		"rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute {verify} to have your roles updated!",
-		"botTranslated": "Did you know our bot is available in multiple languages? Try executing {langList} to see a list of all the languages we currently support and you may just find your own!",
-		"botUpdates": "We post every major update to the bot or important news about it on {botUpdates}, check it out!",
-		"moreTips": "We need more tips! Submit them using {feedback}."
+		"hypixelStats": "You can view information about a specific player on Hypixel by executing %%hypixelstats%%!",
+		"languageStats": "Did you know you can view statistics for any language on all of our projects? Just execute %%languagestats%%!",
+		"rolesChange": "Did you recently get new roles on Crowdin or join one of the projects we support? Execute %%verify%% to have your roles updated!",
+		"botTranslated": "Did you know our bot is available in multiple languages? Try executing %%langList%% to see a list of all the languages we currently support and you may just find your own!",
+		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
+		"moreTips": "We need more tips! Submit them using %%feedback%%."
 	},
 	"pagination": {
 		"first": "First page",
@@ -67,8 +67,8 @@
 		"confirm": "Confirm",
 		"cancel": "Cancel",
 		"page": "Page {number, number}/{total, number}",
-		"notYours": "You cannot interact with this menu! Execute {command} yourself to do this.",
-		"timeOut": "This menu has timed out. If you wish to use it again, execute {command}."
+		"notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
+		"timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%."
 	},
 	"region": {
 		"dateLocale": "en-GB",

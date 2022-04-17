@@ -1,6 +1,6 @@
 {
     "successPost": "Successfully posted your poll!",
-    "endPost": "It will end on {fullTime} ({relativeTime})",
+    "endPost": "It will end on %%fullTime%% (%%relativeTime%%)",
     "successEnd": "Successfully ended your poll!",
     "noChannelId": "Couldn't find a channel with that ID!",
     "noMessageId": "Couldn't find a message with that ID!",
@@ -14,10 +14,10 @@
     "voteCountPlural": "{number, number} votes",
     "pollResults": "Poll results",
     "endingWarning": "Watch out! This poll is ending soon",
-    "endingWarningDesc": "This poll is scheduled to end on {fullTime} ({relativeTime}), so you probably don't wanna end it just yet. If you do, confirm using the button below.",
+    "endingWarningDesc": "This poll is scheduled to end on %%fullTime%% (%%relativeTime%%), so you probably don't wanna end it just yet. If you do, confirm using the button below.",
     "didntReply": "You didn't reply, so this poll will not end now",
     "successCancelEnd": "Successfully cancelled the ending of this poll!",
-    "endScheduled": "It will instead end on the scheduled time: {fullTime} ({relativeTime})",
+    "endScheduled": "It will instead end on the scheduled time: %%fullTime%% (%%relativeTime%%)",
     "successVote": "Successfully registered your vote!",
     "alreadyVoted": "You had already voted for this option, so your vote was not changed."
 }

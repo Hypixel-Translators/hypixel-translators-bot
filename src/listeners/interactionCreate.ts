@@ -138,6 +138,7 @@ client.on("interactionCreate", async interaction => {
 						}
 					}
 					if (typeof string === "string" && variables) {
+						for (const [variable, text] of Object.entries(variables)) string = string.replace(`%%${variable}%%`, String(text))
 						const discordLocale = transformBotLocale(lang) ?? "en-GB"
 						string = new MessageFormat(
 							{
