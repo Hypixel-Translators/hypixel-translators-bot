@@ -1,0 +1,397 @@
+{
+	"names": {
+		"8ball": "bola8",
+		"feedback": "feedback",
+		"levels": "níveis",
+		"ping": "ping",
+		"profile": "perfil",
+		"projects": "projetos",
+		"rank": "cargo",
+		"tag": "tag",
+		"translate": "traduzir",
+		"help": "ajuda",
+		"hypixelstats": "estatísticashypixel",
+		"hypixelunverify": "hypixeldesverificar",
+		"hypixelverify": "hypixelverificar",
+		"language": "idioma",
+		"languagestats": "estatísticasidioma",
+		"mention": "mencionar",
+		"minecraft": "minecraft",
+		"prefix": "prefixo",
+		"quote": "citação",
+		"verify": "verificar",
+		"poll": "enquete"
+	},
+	"descriptions": {
+		"8ball": "A bola mágica que vai responder a todas as suas questões",
+		"feedback": "Fornece instruções sobre como dar feedback sobre o bot",
+		"help": "Exibe todos os comandos disponíveis e informações gerais sobre o bot",
+		"hypixelstats": "Exibe estatísticas básicas do Hypixel para o usuário dado",
+		"hypixelunverify": "Desvincula a sua conta do Discord da sua conta do Hypixel",
+		"hypixelverify": "Vincula a sua conta do Discord com a sua conta do Hypixel",
+		"language": "Altera o seu idioma, exibe o atual ou uma lista de idiomas disponíveis",
+		"languagestats": "Exibe o progresso de um idioma nos projetos que suportamos atualmente",
+		"levels": "Exibe o pódio de EXP",
+		"mention": "Menciona um cargo de idioma com uma mensagem",
+		"minecraft": "Procura o histórico de nomes ou skin de um jogador do Minecraft",
+		"ping": "Exibe o ping do bot",
+		"prefix": "Fornece o prefixo apropriado do(s) seu(s) idioma(s)",
+		"profile": "Fornece o link de um perfil do Crowdin se ele estiver em nosso banco de dados.",
+		"projects": "Fornece os links e as informações sobre os projetos de tradução disponíveis no servidor",
+		"quote": "Mostra ou adiciona uma citação engraçada, estranha ou sábia dita no servidor",
+		"rank": "Exibe o seu EXP atual ou de um outro usuário",
+		"tag": "Envia uma mensagem pré-definida, permitindo notificar um membro específico ao enviá-la",
+		"translate": "Fornece informação úteis sobre como traduzir o bot",
+		"verify": "Verifica e fornece a você os cargos correspondentes",
+		"poll": "Cria ou gerencia enquetes no servidor. Disponível para os revisores do Hypixel e superiores"
+	},
+	"options": {
+		"8ball": {
+			"question": {
+				"name": "pergunta",
+				"description": "A pergunta para enviar ao bot"
+			}
+		},
+		"levels": {
+			"me": {
+				"name": "eu",
+				"description": "Começar ou não na página onde você aparece. Tem prioridade sobre o argumento \"página\""
+			},
+			"page": {
+				"name": "página",
+				"description": "A página do pódio para ver"
+			}
+		},
+		"profile": {
+			"user": {
+				"name": "usuário",
+				"description": "O usuário para ver o perfil. Exclusivo para administrador"
+			},
+			"profile": {
+				"name": "perfil",
+				"description": "O novo perfil para definir para o usuário. Exclusivo para administrador"
+			}
+		},
+		"rank": {
+			"user": {
+				"name": "usuário",
+				"description": "O usuário para obter o cargo"
+			}
+		},
+		"tag": {
+			"tag": {
+				"name": "tag",
+				"description": "A tag que você quer ver",
+				"choices": {
+					"invite": "Link de convite para o servidor",
+					"hypixel": "Links do Hypixel",
+					"guidelines": "Guia do projeto do Hypixel",
+					"proofreader": "Como ser revisor no projeto do Hypixel",
+					"minecraft": "Projeto do Crowdin do Minecraft",
+					"quickplay": "Links do Quickplay",
+					"skyblockaddons": "Links do SkyblockAddons",
+					"thread": "Artigo do servidor de Discord",
+					"twitter": "Twitter da Comunidade de Tradutores do Hypixel"
+				}
+			},
+			"target": {
+				"name": "alvo",
+				"description": "O usuário para identificar com esta tag"
+			}
+		},
+		"help": {
+			"command": {
+				"name": "comando",
+				"description": "O comando para ver"
+			},
+			"page": {
+				"name": "página",
+				"description": "A página de ajuda para abrir",
+				"choices": [
+					"Página principal",
+					"Ferramentas e Utilidades",
+					"Comandos de informação"
+				]
+			}
+		},
+		"hypixelstats": {
+			"username": {
+				"name": "jogador",
+				"description": "O nome do usuário para ver as estatísticas. Também pode ser um UUID"
+			},
+			"user": {
+				"name": "usuário",
+				"description": "O usuário do servidor para obter estatísticas. Só funciona se o usuário estiver verificado"
+			}
+		},
+		"hypixelunverify": {
+			"user": {
+				"name": "usuário",
+				"description": "O usuário para desvincular. Exclusivo para administrador"
+			}
+		},
+		"hypixelverify": {
+			"username": {
+				"name": "jogador",
+				"description": "Seu nome no Hypixel. Deve ter o Discord vinculado no jogo"
+			},
+			"user": {
+				"name": "usuário",
+				"description": "O usuário para verificar. Exclusivo para administrador"
+			}
+		},
+		"language": {
+			"set": {
+				"name": "definir",
+				"description": "Define o seu idioma para um novo. Deixe em branco para ver o atual",
+				"options": {
+					"language": {
+						"name": "idioma",
+						"description": "O novo idioma que você deseja usar"
+					}
+				}
+			},
+			"reset": {
+				"name": "redefinir",
+				"description": "Redefine seu idioma"
+			},
+			"list": {
+				"name": "listar",
+				"description": "Exibe uma lista de todos os idiomas disponíveis"
+			},
+			"stats": {
+				"name": "estatísticas",
+				"description": "Exibe estatísticas de utilização do idioma fornecido. Exclusivo para administrador",
+				"options": {
+					"language": {
+						"name": "idioma",
+						"description": "O idioma para obter estatísticas de utilização"
+					}
+				}
+			}
+		},
+		"languagestats": {
+			"language": {
+				"name": "idioma",
+				"description": "O idioma para obter estatísticas de progresso. Obrigatório se o seu idioma for o inglês"
+			}
+		},
+		"mention": {
+			"language": {
+				"name": "idioma",
+				"description": "O idioma a ser mencionado"
+			},
+			"role": {
+				"name": "cargo",
+				"description": "O cargo a ser mencionado",
+				"choices": {
+					"all": "Ambos cargos",
+					"translator": "Tradutor",
+					"proofreader": "Revisor"
+				}
+			},
+			"message": {
+				"name": "mensagem",
+				"description": "A mensagem que será enviada com a menção"
+			}
+		},
+		"minecraft": {
+			"history": {
+				"name": "histórico",
+				"description": "Mostra o histórico de nomes do usuário. Pelo menos 1 parâmetro deve ser dado se não vinculado",
+				"options": {
+					"username": {
+						"name": "jogador",
+						"description": "O nome/UUID do usuário para obter o histórico de nomes. O padrão será você se estiver verificado"
+					},
+					"user": {
+						"name": "usuário",
+						"description": "O membro do servidor para obter o histórico de nomes. Só funciona se o usuário estiver vinculado"
+					}
+				}
+			},
+			"skin": {
+				"name": "skin",
+				"description": "Mostra a skin do usuário. Pelo menos 1 parâmetro deve ser dado se não vinculado",
+				"options": {
+					"username": {
+						"name": "jogador",
+						"description": "O nome/UUID do usuário para obter a skin. O padrão será você se estiver verificado"
+					},
+					"user": {
+						"name": "usuário",
+						"description": "O usuário do servidor para obter a skin. Só funciona se o usuário estiver verificado"
+					}
+				}
+			}
+		},
+		"prefix": {
+			"flags": {
+				"name": "bandeiras",
+				"description": "As bandeiras a serem aplicadas ao seu prefixo, separadas por espaço"
+			}
+		},
+		"quote": {
+			"get": {
+				"name": "obter",
+				"description": "Recebe uma citação aleatória ou específica",
+				"options": {
+					"index": {
+						"name": "número",
+						"description": "O número da citação que você deseja ver"
+					}
+				}
+			},
+			"add": {
+				"name": "adicionar",
+				"description": "Adiciona uma nova citação. Exclusivo para equipe",
+				"options": {
+					"quote": {
+						"name": "citação",
+						"description": "A citação que você quer adicionar"
+					},
+					"author": {
+						"name": "autor",
+						"description": "O autor desta citação"
+					},
+					"url": {
+						"name": "url",
+						"description": "A URL da mensagem desta citação. Imagens anexadas também serão incluídas"
+					},
+					"image": {
+						"name": "imagem",
+						"description": "A URL da imagem a ser incluída nesta citação. Tem prioridade sobre a imagem da URL se fornecido"
+					}
+				}
+			},
+			"edit": {
+				"name": "editar",
+				"description": "Edita uma citação. Exclusivo para equipe",
+				"options": {
+					"index": {
+						"name": "número",
+						"description": "O número da citação para editar"
+					},
+					"quote": {
+						"name": "citação",
+						"description": "A nova citação"
+					}
+				}
+			},
+			"delete": {
+				"name": "excluir",
+				"description": "Exclui a citação. Exclusivo para equipe",
+				"options": {
+					"index": {
+						"name": "número",
+						"description": "O número da citação para excluir"
+					}
+				}
+			},
+			"link": {
+				"name": "link",
+				"description": "Vincula uma citação a uma mensagem. Exclusivo para equipe",
+				"options": {
+					"index": {
+						"name": "número",
+						"description": "O número da citação para receber o link"
+					},
+					"url": {
+						"name": "url",
+						"description": "A URL da mensagem para vincular esta citação"
+					},
+					"image": {
+						"name": "imagem",
+						"description": "Anexar ou não a imagem da mensagem na citação"
+					}
+				}
+			}
+		},
+		"verify": {
+			"url": {
+				"name": "url",
+				"description": "A URL do seu perfil do Crowdin. Deve ter sua tag do Discord na sua seção \"Sobre mim\""
+			},
+			"user": {
+				"name": "usuário",
+				"description": "O usuário para verificar manualmente. Exclusivo para administrador"
+			}
+		},
+		"poll": {
+			"start": {
+				"name": "iniciar",
+				"description": "Inicia uma enquete no canal atual",
+				"options": {
+					"question": {
+						"name": "pergunta",
+						"description": "A questão da enquete"
+					},
+					"option1": {
+						"name": "opção1",
+						"description": "A primeira opção na enquete"
+					},
+					"option2": {
+						"name": "opção2",
+						"description": "A segunda opção na enquete"
+					},
+					"time": {
+						"name": "duração",
+						"description": "Duração em horas até esta enquete ser finalizada e os resultados serem publicados"
+					},
+					"option3": {
+						"name": "opção3",
+						"description": "A terceira opção na enquete"
+					},
+					"option4": {
+						"name": "opção4",
+						"description": "A quarta opção na enquete"
+					},
+					"option5": {
+						"name": "opção5",
+						"description": "A quinta opção na enquete"
+					},
+					"option6": {
+						"name": "opção6",
+						"description": "A sexta opção na enquete"
+					},
+					"option7": {
+						"name": "opção7",
+						"description": "A sétima opção na enquete"
+					},
+					"option8": {
+						"name": "opção8",
+						"description": "A oitava opção na enquete"
+					}
+				}
+			},
+			"end": {
+				"name": "finalizar",
+				"description": "Finaliza a enquete informada com o ID da mensagem",
+				"options": {
+					"message_id": {
+						"name": "id_da_mensagem",
+						"description": "O ID da mensagem que contém a enquete"
+					},
+					"channel_id": {
+						"name": "id_do_canal",
+						"description": "O ID do canal no qual a enquete foi criada, se não o atual"
+					}
+				}
+			},
+			"show": {
+				"name": "exibir",
+				"description": "Exibe os resultados atuais da enquete sem terminá-la. Disponível apenas para o criador da enquete",
+				"options": {
+					"message_id": {
+						"name": "id_da_mensagem",
+						"description": "O ID da mensagem que contém a enquete"
+					},
+					"channel_id": {
+						"name": "id_do_canal",
+						"description": "O ID do canal no qual a enquete foi criada, se não o atual"
+					}
+				}
+			}
+		}
+	}
+}
