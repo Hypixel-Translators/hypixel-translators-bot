@@ -210,20 +210,25 @@ const command: Command = {
 				if (mongoLanguage) userLangs.push(mongoLanguage)
 			})
 			userLangs = userLangs.reverse()
-			let p = 0,
-				rows: ActionRowBuilder<ButtonBuilder>[] = Array(5).fill(new ActionRowBuilder())
-			const components: Map<string, ButtonBuilder> = new Map()
-			userLangs.forEach(entry => {
-				const button = new ButtonBuilder({
-					style: ButtonStyle.Success,
-					customId: entry.code,
-					emoji: entry.emoji,
-				})
-				if (rows[p].components.length >= 5) p++
-				rows[p].addComponents(button)
-				components.set(entry.code, button)
-			})
-			rows = rows.filter(r => r.components.length)
+			let p = 0
+			const rows: ActionRowBuilder<ButtonBuilder>[] = [],
+				components: Map<string, ButtonBuilder> = new Map()
+			while (p < userLangs.length) {
+				rows.push(
+					new ActionRowBuilder<ButtonBuilder>({
+						components: userLangs.slice(p, (p += 5)).map(l => {
+							const button = new ButtonBuilder({
+								style: ButtonStyle.Success,
+								customId: l.code,
+								emoji: l.emoji,
+							})
+							components.set(l.code, button)
+							return button
+						}),
+					}),
+				)
+			}
+			console.log(rows)
 
 			const confirmButton = new ButtonBuilder({
 					style: ButtonStyle.Success,
