@@ -50,7 +50,7 @@
 		"description": "يعطيك ping البوت."
 	},
 	"poll": {
-		"description": "يُنشئ أو يدير استطلاعات الرأي في السيرفر. متوفر ل Hypixel Proofreaders وما فوق"
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
 	},
 	"prefix": {
 		"description": "يعطيك الأداة المناسبة للغة (اللغات). للحصول على أداة مخصصة، قم بتنفيذ `/prefix` واستبدل `<flags>` بالكود الإقليمي لعلم بلدك أو اسمه. يمكنك إضافة أكبر عدد من الأعلام كما تريد، مفصولة بمسافة."

@@ -50,7 +50,7 @@
 		"description": "Laat de vertraging van de bot zien."
 	},
 	"poll": {
-		"description": "Maakt of beheert peilingen op de server. Beschikbaar voor Hypixel-proeflezers en hoger gemachtigden"
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
 	},
 	"prefix": {
 		"description": "Geeft je het juiste voorvoegsel voor je taal/talen. Voor een aangepast voorvoegsel kun je `/prefix` uitvoeren en in het argument `vlaggen` een de code van een land of vlag of de naam van een land opgeven. Je kunt zo veel talen selecteren als je wilt, zolang je ze scheidt met een spatie."
