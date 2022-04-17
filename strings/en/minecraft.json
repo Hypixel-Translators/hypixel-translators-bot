@@ -2,17 +2,13 @@
 	"moduleName": "Minecraft Statistics",
 	"history": {
 		"firstName": "First name",
-		"nameHistoryFor": "Name history for %%username%%",
-		"userChangedName": "%%username%% has changed their name %%number%% times.",
-		"youChangedName": "You have changed your name %%number%% times.",
-		"userChangedName1": "%%username%% has changed their name 1 time.",
-		"youChangedName1": "You have changed your name 1 time.",
-		"userNeverChanged": "%%username%% has never changed their name.",
-		"youNeverChanged": "You have never changed your name."
+		"nameHistoryFor": "Name history for {username}",
+		"youChangedName": "You have {number, plural, =0 {never changed your name} one {changed your name # time} other {changed your name # times}}.",
+		"userChangedName": "{username} has {number, plural, =0 {never changed their name} one {changed their name # time} other {changed their name # times}}."
 	},
 	"skin": {
 		"yourSkin": "Here's your skin!",
-		"userSkin": "Here's %%user%%'s skin!",
-		"isLinked": "This player is linked to %%user%%"
+		"userSkin": "Here's {user}'s skin!",
+		"isLinked": "This player is linked to {user}"
 	}
 }

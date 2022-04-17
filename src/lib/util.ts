@@ -317,26 +317,6 @@ export function gql(cleanText: TemplateStringsArray, ...substitutions: unknown[]
 	return returnQuery.replaceAll("\t", "").replaceAll("\n", " ")
 }
 
-export function parseToNumberString(num: number, getString: GetStringFunction): string {
-	if (num >= 1_000_000) {
-		return `${Number((num / 1_000_000).toFixed(2)).toLocaleString(getString("region.dateLocale", { file: "global" }))}${getString(
-			"numberStrings.million",
-			{
-				file: "global",
-			},
-		)}`
-	}
-	if (num >= 1000) {
-		return `${Number((num / 1000).toFixed(2)).toLocaleString(getString("region.dateLocale", { file: "global" }))}${getString(
-			"numberStrings.thousand",
-			{
-				file: "global",
-			},
-		)}`
-	}
-	return `${num}`
-}
-
 export async function restart(interaction?: ChatInputCommandInteraction) {
 	await axios.delete("https://api.heroku.com/apps/hypixel-translators/dynos", {
 		headers: {
