@@ -50,7 +50,7 @@
 		"description": "Дава ви пинга на бота."
 	},
 	"poll": {
-		"description": "Създава или поддържа анкети в сървъра. Само за Hypixel Proofreader-и и над тях"
+		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
 	},
 	"prefix": {
 		"description": "Дава ви правилният префикс на вашият/вашите език/езици. За да получите персонализиран префикс, използвайте командата '/prefix' и предоставете регионалният код на флага на вашата страна или името ѝ в периметъра 'флагове'. Може да добавите колкото флагове искате, разделени с разстояние."
