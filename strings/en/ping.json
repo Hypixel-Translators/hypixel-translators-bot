@@ -1,6 +1,6 @@
 {
 	"moduleName": "Ping",
-	"pong": "{pingEmote} Pong!",
+	"pong": "%%pingEmote%% Pong!",
 	"message": "My ping is {ping, number}ms.",
-	"onlineSince": "Online since {timestamp} ({timestampRelative})"
+	"onlineSince": "Online since %%timestamp%% (%%timestampRelative%%)"
 }
