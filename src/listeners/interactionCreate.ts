@@ -2,6 +2,7 @@ import process from "node:process"
 // Cannot use promisified setTimeout here
 import { setTimeout } from "node:timers"
 
+import MessageFormat from "@messageformat/core"
 import { Collection, Formatters, GuildChannel, type Message, EmbedBuilder, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
@@ -9,7 +10,7 @@ import { client } from "../index"
 import handleAutocompleteInteractions from "../interactions/autocomplete"
 import handleButtonInteractions from "../interactions/buttons"
 import { db, cancelledEvents } from "../lib/dbclient"
-import { arrayEqual, transformDiscordLocale, generateTip, type Stats } from "../lib/util"
+import { arrayEqual, transformDiscordLocale, generateTip, type Stats, transformBotLocale } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
@@ -136,8 +137,15 @@ client.on("interactionCreate", async interaction => {
 								console.error(`Couldn't get string ${path} in English for ${file}, please fix this`)
 						}
 					}
-					if (typeof string === "string" && variables)
-						for (const [variable, text] of Object.entries(variables)) string = string.replace(`%%${variable}%%`, String(text))
+					if (typeof string === "string" && variables) {
+						const discordLocale = transformBotLocale(lang) ?? "en-GB"
+						string = new MessageFormat(
+							{
+								[discordLocale]: (value: string | number, ord?: boolean) =>
+									new Intl.PluralRules(discordLocale, { type: ord ? "ordinal" : "cardinal" }).select(Number(value)),
+							}[discordLocale],
+						).compile(string)(variables)
+					}
 				}
 			} else if (strings) string = strings
 			else string = enStrings
