@@ -139,12 +139,12 @@ client.on("interactionCreate", async interaction => {
 					}
 					if (typeof string === "string" && variables) {
 						for (const [variable, text] of Object.entries(variables)) string = string.replace(`%%${variable}%%`, String(text))
-						const discordLocale = transformBotLocale(lang)!
+						const locale = lang.replace("_", "-")
 						string = new MessageFormat(
 							{
-								[discordLocale]: (value: string | number, ord?: boolean) =>
-									new Intl.PluralRules(discordLocale, { type: ord ? "ordinal" : "cardinal" }).select(Number(value)),
-							}[discordLocale],
+								[locale]: (value: string | number, ord?: boolean) =>
+									new Intl.PluralRules(locale, { type: ord ? "ordinal" : "cardinal" }).select(Number(value)),
+							}[locale],
 						).compile(string)(variables)
 					}
 				}
