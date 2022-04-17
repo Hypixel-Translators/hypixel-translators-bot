@@ -10,7 +10,7 @@ import { client } from "../index"
 import handleAutocompleteInteractions from "../interactions/autocomplete"
 import handleButtonInteractions from "../interactions/buttons"
 import { db, cancelledEvents } from "../lib/dbclient"
-import { arrayEqual, transformDiscordLocale, generateTip, type Stats, transformBotLocale } from "../lib/util"
+import { arrayEqual, transformDiscordLocale, generateTip, type Stats } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
