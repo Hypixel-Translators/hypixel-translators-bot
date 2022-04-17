@@ -5,7 +5,7 @@
 	"youNotRanked": "You're not ranked yet!",
 	"userNotRanked": "That user is not ranked yet!",
 	"howRank": "In order to be ranked you must talk in the chats!",
-	"textProgress": "{currentXp, number, :: .00 compact-short}/{xpNeeded, number, :: .00 compact-short} | {messages, number, :: .00 compact-short} Messages",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Messages",
 	"youLevel": "You're at level %%level%% and you're #%%rank%% on the leaderboard!",
 	"userLevel": "%%user%% is at level %%level%% and they're #%%rank%% on the leaderboard!"
 }

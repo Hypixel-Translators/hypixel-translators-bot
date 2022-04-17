@@ -3,7 +3,7 @@ import { type GuildMember, EmbedBuilder, ApplicationCommandOptionType } from "di
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, type DbUser } from "../../lib/dbclient"
-import { formatNumberToLocaleString, generateProgressBar, generateTip, getXpNeeded } from "../../lib/util"
+import { formatNumberToLocaleString, generateProgressBar, generateTip, getXpNeeded, parseToNumberString } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -62,9 +62,9 @@ const command: Command = {
 					{
 						name: getString("textProgress", {
 							variables: {
-								currentXp: userDb.levels.levelXp,
-								xpNeeded: totalXp,
-								messages: userDb.levels.messageCount,
+								currentXp: parseToNumberString(userDb.levels.levelXp, getString),
+								xpNeeded: parseToNumberString(totalXp, getString),
+								messages: parseToNumberString(userDb.levels.messageCount, getString),
 							},
 						}),
 						value: generateProgressBar(userDb.levels.levelXp, totalXp),
