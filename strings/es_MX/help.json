@@ -50,10 +50,10 @@
 		"description": "Le da el ping del bot."
 	},
 	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
+		"description": "Crea o administra encuestas en el servidor. Disponible para Proofreaders de Hypixel y superior. Todos los votos en las encuestas creadas con este comando serán privados hasta que finalice la encuesta y los nombres de los votantes no se divulgarán, solo se mostrarán los recuentos de votos."
 	},
 	"prefix": {
-		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+		"description": "Te permite elegir un prefijo apropiado para su(s) idioma(s). Para obtener un prefijo personalizado, ejecute `/prefix` y proporcione el código regional de la bandera de su país o su nombre en el parámetro `flags`. Puede agregar tantas banderas como desee, separadas por un espacio."
 	},
 	"profile": {
 		"description": "Le da el enlace a su perfil de Crowdin si está almacenado en nuestra base de datos. Si no es así, puede ejecutar `/help verify` para aprender a almacenar su perfil y actualizar sus roles."
@@ -62,7 +62,7 @@
 		"description": "Le brinda enlaces e información sobre todos los proyectos de traducción que apoyamos en el servidor."
 	},
 	"quote": {
-		"description": "Shows a funny/weird/wise quote from the server."
+		"description": "Muestra una cita divertida/extraña/sabia del servidor."
 	},
 	"rank": {
 		"description": "Le da la XP actual para ti o para cualquier usuario."
@@ -71,7 +71,7 @@
 		"description": "Envía un mensaje preestablecido, lo que le permite notificar a un miembro específico cuando lo envía."
 	},
 	"translate": {
-		"description": "Gives you useful information on how to translate the bot."
+		"description": "Le brinda información útil sobre cómo traducir el bot."
 	},
 	"verify": {
 		"description": "Comprueba automáticamente los cambios en su perfil de Crowdin y le proporciona los roles adecuados. Si su perfil no está almacenado en nuestra base de datos, puede proporcionarlo como argumento en el comando. Para comprobar si su perfil está almacenado, ejecute `/profile`. Asegúrese de tener DMs habilitados desde este servidor para que el bot pueda enviarle un mensaje."
