@@ -15,6 +15,7 @@ export const client = new HTBClient({
 			IntentsBitField.Flags.GuildMembers,
 			IntentsBitField.Flags.GuildVoiceStates,
 			IntentsBitField.Flags.GuildMessages,
+			IntentsBitField.Flags.MessageContent,
 			IntentsBitField.Flags.GuildMessageReactions,
 			IntentsBitField.Flags.GuildScheduledEvents,
 			IntentsBitField.Flags.DirectMessages,
