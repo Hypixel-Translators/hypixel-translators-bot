@@ -1,308 +1,308 @@
 {
 	"names": {
-		"8ball": "8ball",
-		"feedback": "feedback",
-		"levels": "levels",
+		"8ball": "8pallo",
+		"feedback": "palaute",
+		"levels": "tasot",
 		"ping": "ping",
-		"profile": "profile",
-		"projects": "projects",
-		"rank": "rank",
+		"profile": "profiili",
+		"projects": "projektit",
+		"rank": "sijoitus",
 		"tag": "tag",
-		"translate": "translate",
-		"help": "help",
-		"hypixelstats": "hypixelstats",
-		"hypixelunverify": "hypixelunverify",
-		"hypixelverify": "hypixelverify",
-		"language": "language",
-		"languagestats": "languagestats",
-		"mention": "mention",
+		"translate": "kääntäminen",
+		"help": "apua",
+		"hypixelstats": "hypixeltilastot",
+		"hypixelunverify": "poistahypixelvahvistus",
+		"hypixelverify": "hypixelvahvistus",
+		"language": "kieli",
+		"languagestats": "kielitilastot",
+		"mention": "maininta",
 		"minecraft": "minecraft",
-		"prefix": "prefix",
-		"quote": "quote",
-		"verify": "verify",
-		"poll": "poll"
+		"prefix": "etuliite",
+		"quote": "lainaus",
+		"verify": "vahvistus",
+		"poll": "kysely"
 	},
 	"descriptions": {
-		"8ball": "The Magic 8 Ball that will answer all your questions",
-		"feedback": "Gives you instructions on how to give feedback towards the bot",
-		"help": "Shows you all available commands and general info about the bot",
-		"hypixelstats": "Shows you basic Hypixel stats for the provided user",
-		"hypixelunverify": "Unlinks your Discord account from your Hypixel player",
-		"hypixelverify": "Links your Discord account with your Hypixel player",
-		"language": "Changes your language, shows your current one or a list of available languages",
-		"languagestats": "Shows you the progress of a language on the all projects we currently support",
-		"levels": "Shows you the XP leaderboard",
-		"mention": "Mentions a language role with a message",
-		"minecraft": "Looks up a specific Minecraft player's name history or skin",
-		"ping": "Gives you the bot's ping",
-		"prefix": "Lets you pick an appropriate prefix for your language(s)",
-		"profile": "Gives you the link to your Crowdin profile if it's stored on our database.",
-		"projects": "Gives you links and information about all the translation projects we support on the server",
-		"quote": "Shows a funny/weird/wise quote from the server",
-		"rank": "Gives you the current XP for yourself or any given user",
-		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
-		"translate": "Gives you useful information on how to translate the bot",
-		"verify": "Verifies and gives you your corresponding roles",
+		"8ball": "Taikapallo, joka vastaa kaikkiin kysymyksiisi",
+		"feedback": "Antaa ohjeita palautteen antamisesta botista",
+		"help": "Näyttää kaikki saatavilla olevat komennot ja muuta yleistä tietoa botista",
+		"hypixelstats": "Näyttää haluamasi käyttäjän Hypixel-profiilin perustiedot",
+		"hypixelunverify": "Irrottaa Discord-käyttäjäsi Hypixel-pelaajatilistäsi",
+		"hypixelverify": "Yhdistää Discord-käyttäjäsi Hypixel-pelaajatilisi kanssa",
+		"language": "Vaihtaa kielesi, näyttää käytössä olevan kielesi tai listaa kaikki saatavilla olevat kielet",
+		"languagestats": "Näyttää projektin tukemien kielten käännöstyön edistymisen",
+		"levels": "Näyttää sinulle XP-pistetaulun",
+		"mention": "Lähettää viestin käyttäjälle, jolla on valittu kielirooli",
+		"minecraft": "Etsii valitun Minecraft-pelaajan nimihistorian tai skinin",
+		"ping": "Antaa botin viiveen",
+		"prefix": "Antaa sinun valita kieleesi/kieliisi sopivan etuliitteen",
+		"profile": "Antaa sinulle linkin Crowdin-profiiliisi, mikäli se löytyy tietokannastamme.",
+		"projects": "Antaa sinulle osoitteita ja tietoa kaikista käännösprojekteista, joita tällä palvelimella tuetaan",
+		"quote": "Hakee hauskan/oudon/viisaan lainauksen palvelimelta",
+		"rank": "Kertoo oman tai haluamasi käyttäjän tämänhetkisen XP-määrän",
+		"tag": "Lähettää ilmoituksen haluamallesi käyttäjälle esiasetetulla viestillä",
+		"translate": "Antaa sinulle hyödyllistä tietoa botin kääntämisestä",
+		"verify": "Vahvistaa tilisi ja antaa sopivat roolit",
 		"poll": "Luo ja hallitse kyselyitä palvelimella. Saatavilla Hypixelin oikolukijoille ja korkeammille"
 	},
 	"options": {
 		"8ball": {
 			"question": {
-				"name": "question",
-				"description": "The question to ask the bot"
+				"name": "kysymys",
+				"description": "Botilta kysyttävä kysymys"
 			}
 		},
 		"levels": {
 			"me": {
-				"name": "me",
-				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
+				"name": "minä",
+				"description": "Aloita sivulta, jolla itse olet. Ohittaa erillisen sivuvalinnan"
 			},
 			"page": {
-				"name": "page",
-				"description": "The leaderboard page to get"
+				"name": "sivu",
+				"description": "Pistetaulukon sivu, jonka haluat nähdä"
 			}
 		},
 		"profile": {
 			"user": {
-				"name": "user",
-				"description": "The user to find the profile for. Admin only"
+				"name": "käyttäjä",
+				"description": "Etsittävän käyttäjän nimi. Vain admineille"
 			},
 			"profile": {
-				"name": "profile",
-				"description": "The new profile to set for the user. Admin only"
+				"name": "profiili",
+				"description": "Käyttäjälle asetettava uusi profiili. Vain admineille"
 			}
 		},
 		"rank": {
 			"user": {
-				"name": "user",
-				"description": "The user to get the rank for"
+				"name": "käyttäjä",
+				"description": "Käyttäjä, jonka sijoituksen haluat nähdä"
 			}
 		},
 		"tag": {
 			"tag": {
 				"name": "tag",
-				"description": "The tag you want to see",
+				"description": "Viesti, jonka haluat lähettää",
 				"choices": {
-					"invite": "Invite link to the server",
-					"hypixel": "Hypixel links",
-					"guidelines": "Hypixel project guidelines",
-					"proofreader": "How to get proofreader on the Hypixel project",
-					"minecraft": "Minecraft Crowdin Project",
-					"quickplay": "Quickplay links",
-					"skyblockaddons": "SkyblockAddons links",
-					"thread": "Discord server thread",
-					"twitter": "Hypixel Translators Community Twitter"
+					"invite": "Palvelimen kutsulinkki",
+					"hypixel": "Hypixelin linkit",
+					"guidelines": "Hypixelin projektin ohjesäännöt",
+					"proofreader": "Kuinka pääset oikolukijaksi Hypixelin projektissa",
+					"minecraft": "Minecraftin Crowdin-projekti",
+					"quickplay": "Quickplayn linkit",
+					"skyblockaddons": "SkyblockAddonsin linkit",
+					"thread": "Discord-palvelimen viestiketju",
+					"twitter": "Hypixelin kääntäjien yhteisön Twitter-tili"
 				}
 			},
 			"target": {
-				"name": "target",
-				"description": "The user to mention with this tag"
+				"name": "kohde",
+				"description": "Tässä viestissä mainittava käyttäjä"
 			}
 		},
 		"help": {
 			"command": {
-				"name": "command",
-				"description": "The command to get information for"
+				"name": "komento",
+				"description": "Komento, josta haluat tietoa"
 			},
 			"page": {
-				"name": "page",
-				"description": "The help page to open",
+				"name": "sivu",
+				"description": "Apuohjeistuksen sivu, jonka haluat nähdä",
 				"choices": [
 					"Pääsivu",
 					"Työkalut",
-					"Information commands"
+					"Infokomennot"
 				]
 			}
 		},
 		"hypixelstats": {
 			"username": {
-				"name": "username",
-				"description": "The IGN of the user to get statistics for. Can also be a UUID"
+				"name": "käyttäjänimi",
+				"description": "IGN käyttäjälle, jonka tilastoja haluat tarkastella. Voit myös antaa UUID:n"
 			},
 			"user": {
-				"name": "user",
-				"description": "The server member to get statistics for. Only works if the user has verified themselves"
+				"name": "käyttäjä",
+				"description": "Palvelimen käyttäjä, jonka tilastoja haluat tarkastella. Toimii vain yhdistetyille käyttäjille"
 			}
 		},
 		"hypixelunverify": {
 			"user": {
-				"name": "user",
-				"description": "The user to unverify. Admin only"
+				"name": "käyttäjä",
+				"description": "Käyttäjä, jonka vahvistuksen haluat poitaa. Vain admineille"
 			}
 		},
 		"hypixelverify": {
 			"username": {
-				"name": "username",
-				"description": "Your Hypixel IGN. Must have your Discord linked in-game"
+				"name": "käyttäjänimi",
+				"description": "Hypixel-pelinimesi. Discord-tilisi tulee olla yhdistetty pelissä"
 			},
 			"user": {
-				"name": "user",
-				"description": "The user to verify. Admin only"
+				"name": "käyttäjä",
+				"description": "Vahvistettava käyttäjä. Vain admineille"
 			}
 		},
 		"language": {
 			"set": {
-				"name": "set",
-				"description": "Sets your language to a new one. Leave empty to see your current language",
+				"name": "aseta",
+				"description": "Asettaa käyttöösi valitsemasi kielen. Jätä tyhjäksi nähdäksesi nyt käytössäsi olevan kielen",
 				"options": {
 					"language": {
-						"name": "language",
-						"description": "The new language you want to set"
+						"name": "kieli",
+						"description": "Kieli, jota haluat käyttää"
 					}
 				}
 			},
 			"reset": {
-				"name": "reset",
-				"description": "Resets your language"
+				"name": "nollaa",
+				"description": "Nollaa kielesi"
 			},
 			"list": {
-				"name": "list",
-				"description": "Gives you a list of all the available languages"
+				"name": "lista",
+				"description": "Antaa listan saatavilla olevista kielistä"
 			},
 			"stats": {
-				"name": "stats",
-				"description": "Gives you usage statistics for a given language. Admin only",
+				"name": "tilastot",
+				"description": "Antaa käyttötilastoja valitsemastasi kielestä. Vain admineille",
 				"options": {
 					"language": {
-						"name": "language",
-						"description": "The language to get usage statistics for"
+						"name": "kieli",
+						"description": "Kieli, jonka tilastoja haluat tarkastella"
 					}
 				}
 			}
 		},
 		"languagestats": {
 			"language": {
-				"name": "language",
-				"description": "The language to get progress statistics for. Required if your language is set to English"
+				"name": "kieli",
+				"description": "Kieli, jonka edistymistä haluat tarkastella. Vaatii, että kieleksesi on asetettu englanti"
 			}
 		},
 		"mention": {
 			"language": {
-				"name": "language",
-				"description": "The language to mention"
+				"name": "kieli",
+				"description": "Kieli, jonka haluat mainita"
 			},
 			"role": {
-				"name": "role",
-				"description": "The role to mention",
+				"name": "rooli",
+				"description": "Rooli, jonka haluat mainita",
 				"choices": {
-					"all": "Both roles",
-					"translator": "Translator",
-					"proofreader": "Proofreader"
+					"all": "Molemmat roolit",
+					"translator": "Kääntäjä",
+					"proofreader": "Oikolukija"
 				}
 			},
 			"message": {
-				"name": "message",
-				"description": "The message to send with the mention"
+				"name": "viesti",
+				"description": "Viesti, jonka haluat lähettää maininnan mukana"
 			}
 		},
 		"minecraft": {
 			"history": {
-				"name": "history",
-				"description": "Shows a user's name history. You must provide at least 1 parameter if your MC account is not linked",
+				"name": "historia",
+				"description": "Näyttää käyttäjän nimihistorian. Anna vähintään yksi parametri, jos MC-tiliäsi ei ole yhdistetty",
 				"options": {
 					"username": {
-						"name": "username",
-						"description": "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked"
+						"name": "käyttäjänimi",
+						"description": "IGN/UUID käyttäjälle, jonka nimihistorian haluat nähdä. Automaattisesti omasi, jos tilit yhdistetty"
 					},
 					"user": {
-						"name": "user",
-						"description": "The server member to get name history for. Only works if the user has verified themselves"
+						"name": "käyttäjä",
+						"description": "Palvelimen käyttäjä, jonka nimihistoriaa haluat tarkastella. Toimii vain yhdistetyille käyttäjille"
 					}
 				}
 			},
 			"skin": {
 				"name": "skin",
-				"description": "Shows a user's skin. You must provide at least 1 parameter if your MC account is not linked",
+				"description": "Näyttää käyttäjän skinin. Anna vähintään yksi parametri, jos MC-tiliäsi ei ole yhdistetty",
 				"options": {
 					"username": {
-						"name": "username",
-						"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
+						"name": "käyttäjänimi",
+						"description": "IGN/UUID käyttäjälle, jonka skinin haluat nähdä. Automaattisesti omasi, jos tilit yhdistetty"
 					},
 					"user": {
-						"name": "user",
-						"description": "The server member to get skin for. Only works if the user has verified themselves"
+						"name": "käyttäjä",
+						"description": "Palvelimen käyttäjä, jonka skinin haluat nähdä. Toimii vain yhdistetyille käyttäjille"
 					}
 				}
 			}
 		},
 		"prefix": {
 			"flags": {
-				"name": "flags",
-				"description": "The flags to be applied to your prefix, separated with spaces"
+				"name": "liput",
+				"description": "Etuliitteeseesi asetettavat liput välilyönneillä erotettuina"
 			}
 		},
 		"quote": {
 			"get": {
-				"name": "get",
-				"description": "Get a random/specific quote",
+				"name": "hae",
+				"description": "Hae satunnainen/tietty lainaus",
 				"options": {
 					"index": {
-						"name": "index",
-						"description": "The index of the quote you want to see"
+						"name": "hakunumero",
+						"description": "Haluamasi lainauksen hakunumero"
 					}
 				}
 			},
 			"add": {
-				"name": "add",
-				"description": "Add a new quote. Staff only",
+				"name": "lisää",
+				"description": "Lisää uusi lainaus. Vain ylläpidolle",
 				"options": {
 					"quote": {
-						"name": "quote",
-						"description": "The quote you want to add"
+						"name": "lainaus",
+						"description": "Lainaus, jonka haluat lisätä"
 					},
 					"author": {
-						"name": "author",
-						"description": "The author of this quote"
+						"name": "tekijä",
+						"description": "Lainauksen tekijä"
 					},
 					"url": {
 						"name": "url",
-						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
+						"description": "Lainauksen alkuperäisen viestin osoite. Jos viestissä on kuva, sekin sisältyy tähän"
 					},
 					"image": {
-						"name": "image",
-						"description": "The URL of the image to be included with this quote. Has priority over URL's image if provided"
+						"name": "kuva",
+						"description": "Lainaukseen lisättävän kuvan osoite. Ohittaa viestin url-osoitteen"
 					}
 				}
 			},
 			"edit": {
-				"name": "edit",
-				"description": "Edit a quote. Staff only",
+				"name": "muokkaa",
+				"description": "Muokkaa lainausta. Vain ylläpidolle",
 				"options": {
 					"index": {
-						"name": "index",
-						"description": "The index of the quote to edit"
+						"name": "hakunumero",
+						"description": "Hakunumero lainaukselle, jota haluat muokata"
 					},
 					"quote": {
-						"name": "quote",
-						"description": "The new quote"
+						"name": "lainaus",
+						"description": "Uusi lainaus"
 					}
 				}
 			},
 			"delete": {
-				"name": "delete",
-				"description": "Delete a quote. Staff only",
+				"name": "poista",
+				"description": "Poista lainaus. Vain ylläpidolle",
 				"options": {
 					"index": {
-						"name": "index",
-						"description": "The index of the quote to delete"
+						"name": "hakunumero",
+						"description": "Hakunumero lainaukselle, jonka haluat poistaa"
 					}
 				}
 			},
 			"link": {
-				"name": "link",
-				"description": "Link a quote to a message. Staff only",
+				"name": "linkitä",
+				"description": "Linkitä linaus viestiin. Vain ylläpidolle",
 				"options": {
 					"index": {
-						"name": "index",
-						"description": "The index of the quote to link"
+						"name": "hakunumero",
+						"description": "Hakunumero lainaukselle, jonka haluat linkittää"
 					},
 					"url": {
 						"name": "url",
-						"description": "The URL of the message to link this quote to"
+						"description": "URL-osoite viestille, joka halutaa linkittää valittuun lainaukseen"
 					},
 					"image": {
-						"name": "image",
-						"description": "Whether or not to attach this message's image to the quote"
+						"name": "kuva",
+						"description": "Liitetäänkö viestin kuva lainaukseen"
 					}
 				}
 			}
@@ -310,85 +310,85 @@
 		"verify": {
 			"url": {
 				"name": "url",
-				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section"
+				"description": "Crowdin-profiilisi osoite. Discord-tagin tulee näkyä \"About me\" -osiossa"
 			},
 			"user": {
-				"name": "user",
-				"description": "The user to manually verify. Admin only"
+				"name": "käyttäjä",
+				"description": "Käsin vahvistettava käyttäjä. Vain admineille"
 			}
 		},
 		"poll": {
 			"start": {
-				"name": "start",
-				"description": "Starts a poll in the current channel",
+				"name": "aloita",
+				"description": "Aloittaa kyselyn nykyisellä kanavalla",
 				"options": {
 					"question": {
-						"name": "question",
-						"description": "The question of the poll"
+						"name": "kysymys",
+						"description": "Kyselyn kysymys"
 					},
 					"option1": {
-						"name": "option1",
-						"description": "The first option in the poll"
+						"name": "vaihtoehto1",
+						"description": "Kyselyn ensimmäinen vaihtoehto"
 					},
 					"option2": {
-						"name": "option2",
-						"description": "The second option in the poll"
+						"name": "vaihtoehto2",
+						"description": "Kyselyn toinen vaihtoehto"
 					},
 					"time": {
-						"name": "time",
-						"description": "How long before this poll is automatically closed and results are published (in hours)"
+						"name": "aika",
+						"description": "Kuinka kuan ennen kuin se sulkeutuu automaattisesti ja sen tulokset julkaistaan (tunteina)"
 					},
 					"option3": {
-						"name": "option3",
-						"description": "The third option in the poll"
+						"name": "vaihtoehto3",
+						"description": "Kyselyn kolmas vaihtoehto"
 					},
 					"option4": {
-						"name": "option4",
-						"description": "The fourth option in the poll"
+						"name": "vaihtoehto4",
+						"description": "Kyselyn neljäs vaihtoehto"
 					},
 					"option5": {
-						"name": "option5",
-						"description": "The fifth option in the poll"
+						"name": "vaihtoehto5",
+						"description": "Kyselyn viides vaihtoehto"
 					},
 					"option6": {
-						"name": "option6",
-						"description": "The sixth option in the poll"
+						"name": "vaihtoehto6",
+						"description": "Kyselyn kuudes vaihtoehto"
 					},
 					"option7": {
-						"name": "option7",
-						"description": "The seventh option in the poll"
+						"name": "vaihtoehto7",
+						"description": "Kyselyn seitsemäs vaihtoehto"
 					},
 					"option8": {
-						"name": "option8",
-						"description": "The eigth option in the poll"
+						"name": "vaihtoehto8",
+						"description": "Kyselyn kahdeksas vaihtoehto"
 					}
 				}
 			},
 			"end": {
-				"name": "end",
-				"description": "End a poll given its message ID",
+				"name": "päätä",
+				"description": "Päätä kysely antamalla sen viestin ID",
 				"options": {
 					"message_id": {
-						"name": "message_id",
-						"description": "The ID of the message containing the poll"
+						"name": "viestin_id",
+						"description": "Kyselyn sisältävän viestin ID"
 					},
 					"channel_id": {
-						"name": "channel_id",
-						"description": "The ID of the channel the poll was posted in, if not the current one"
+						"name": "kanavan_id",
+						"description": "ID kanavalle, jolla kysely on, jos se ei ole nykyinen kanava"
 					}
 				}
 			},
 			"show": {
-				"name": "show",
-				"description": "Shows the current results of a poll without ending it. Only available to the creator of the poll",
+				"name": "näytä",
+				"description": "Näytä kyselyn tämänhetkiset tulokset päättämättä itse kyselyä. Saatavilla vain kyselyn luojalle",
 				"options": {
 					"message_id": {
-						"name": "message_id",
-						"description": "The ID of the message containing the poll"
+						"name": "viestin_id",
+						"description": "Kyselyn sisältävän viestin ID"
 					},
 					"channel_id": {
-						"name": "channel_id",
-						"description": "The ID of the channel the poll was posted in, if not the current one"
+						"name": "kanavan_id",
+						"description": "ID kanavalle, jolla kysely on, jos se ei ole nykyinen kanava"
 					}
 				}
 			}

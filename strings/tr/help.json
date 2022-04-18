@@ -50,7 +50,7 @@
 		"description": "Size botun gecikmesini söyler."
 	},
 	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
+		"description": "Sunucuda anket oluşturur veya yönetir. Hypixel Düzeltmenleri ve üzeri kullanıcılar için kullanılabilir. Bu komut kullanılarak oluşturulan anketlerdeki tüm oylar, anket bitene kadar gizli kalacak ve oy verenlerin isimleri açıklanmayacak, sadece oy sayıları görüntülenecektir."
 	},
 	"prefix": {
 		"description": "Dil(ler)iniz için uygun bir önek verir. Özel bir önek almak için `/prefix` komutunu kullanın ve ülkenizin bayrağının bölgesel kodunu veya adını `flags` parametresinde belirtin. Bir boşlukla ayırarak, istediğiniz kadar bayrak ekleyebilirsiniz."

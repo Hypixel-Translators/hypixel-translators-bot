@@ -19,7 +19,7 @@
 		"falseFlag": "Diese Flagge konnte nicht gefunden werden!",
 		"falseLang": "Diese Sprache konnte nicht gefunden werden!",
 		"falseRole": "Die Rolle wurde nicht gefunden!",
-		"falseUUID": "Couldn't find a player with that UUID!",
+		"falseUUID": "Es konnte kein Spieler mit dieser UUID gefunden werden!",
 		"noPlayer": "Dieser Spieler ist Hypixel nie beigetreten!",
 		"notVerified": "Dieser Benutzer hat seinen Hypixel-Account noch nicht verlinkt!",
 		"disabled": "Der Befehl ist vorübergehend deaktiviert.",
@@ -29,14 +29,14 @@
 		"wrongLink": "Falscher Link!"
 	},
 	"roles": {
-		"noLevel": "You must be at least chat level %%level%% to receive this role! You can check your current chat level using %%command%% in %%channel%%.",
-		"successGive": "Successfully gave you the %%role%% role!",
-		"successTake": "Successfully took the %%role%% role from you!"
+		"noLevel": "Du musst mindestens Chat-Level %%level%% sein, um diese Rolle zu erhalten! Du kannst dein aktuelles Chat-Level mit %%command%% in %%channel%% überprüfen.",
+		"successGive": "Du hast erfolgreich die %%role%%-Rolle bekommen!",
+		"successTake": "Die %%role%%-Rolle wurde dir erfolgreich entfernt!"
 	},
 	"cooldown": "Abklingzeit",
-	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
+	"timeLeft": "Du kannst %%command%% erneut %%timestamp%% verwenden.",
 	"linkCorrectionDesc": "Bitte ändere deinen Link nächstes Mal zum %%format%%-Format.",
-	"correctLink": "Here's the correct link:",
+	"correctLink": "Hier ist der richtige Link:",
 	"wrongStringURL": "Der von dir gesendete Link ist ein Link zum Editor und nicht der String selbst!",
 	"example": "Klicke auf den Knopf auf dem Bild unten, um die korrekte URL zu erhalten. Sie sollte folgendermaßen aussehen: %%url%%",
 	"reminderLang": "Vergiss nicht, auch deinen Link zum %%format%%-Format zu ändern.",
@@ -45,7 +45,7 @@
 		"ib": "Hast du schon die Inhale Banana-Sprache ausprobiert? Ändere deine Sprache mit %%langIb%%!",
 		"translators": "Ich brauche Übersetzer! Finde heraus wie du ein Bot-Übersetzer werden kannst bei %%translate%%.",
 		"prefix": "Möchtest du einen coolen Präfix vor deinem Benutzernamen haben? Führe %%prefix%% in %%bots%% aus und folge den Anweisungen! Verfügbar für alle Hypixel- und Quickplay-Übersetzer.",
-		"enen": "Don't forget to change your string links to en-en!",
+		"enen": "Vergiss nicht, deine String-Links in en-en zu ändern!",
 		"xp": "Du bekommst eine zufällige XP-Anzahl wenn du schreibst, wodurch du ein Level aufsteigst.",
 		"guide": "Wusstest du, dass wir einen Leitfaden für den Einstieg in Crowdin haben, der für alle Übersetzer verfügbar ist? Sieh ihn dir unter %%gettingStarted%% an, er enthält einige nützliche Tipps!",
 		"twitter": "Folgst du unserem Twitter-Account? Schau mal bei %%twitter%% vorbei!",
@@ -56,7 +56,7 @@
 		"languageStats": "Wusstest du, dass du Statistiken für jede Sprache in allen unseren Projekten sehen kannst? Führe einfach %%languagestats%% aus!",
 		"rolesChange": "Hast du kürzlich neue Rollen auf Crowdin erhalten oder einem der von uns unterstützten Projekte beigetreten? Führe %%verify%% aus, um deine Rollen zu aktualisieren!",
 		"botTranslated": "Wusstest du, dass unser Bot in mehreren Sprachen verfügbar ist? Versuche %%langList%% auszuführen, um eine Liste aller Sprachen zu sehen, die wir derzeit unterstützen, und du findest möglicherweise deine eigene!",
-		"botUpdates": "We post every major update to the bot or important news about it on %%botUpdates%%, check it out!",
+		"botUpdates": "Wir posten jede größere Aktualisierung des Bots oder wichtige Neuigkeiten in %%botUpdates%%, schaut mal rein!",
 		"moreTips": "Wir benötigen mehr Tipps! Sende sie mit %%feedback%% ein."
 	},
 	"pagination": {
@@ -76,6 +76,6 @@
 	},
 	"numberStrings": {
 		"thousand": "k",
-		"million": "M"
+		"million": "Mio"
 	}
 }
