@@ -1,86 +1,86 @@
 {
 	"names": {
 		"8ball": "8ball",
-		"feedback": "feedback",
-		"levels": "levels",
+		"feedback": "geribildirim",
+		"levels": "seviyeler",
 		"ping": "ping",
-		"profile": "profile",
-		"projects": "projects",
-		"rank": "rank",
-		"tag": "tag",
-		"translate": "translate",
-		"help": "help",
-		"hypixelstats": "hypixelstats",
-		"hypixelunverify": "hypixelunverify",
-		"hypixelverify": "hypixelverify",
-		"language": "language",
-		"languagestats": "languagestats",
-		"mention": "mention",
+		"profile": "profil",
+		"projects": "projeler",
+		"rank": "derece",
+		"tag": "etiket",
+		"translate": "çeviri",
+		"help": "yardım",
+		"hypixelstats": "hypixelistatistikleri",
+		"hypixelunverify": "hypixeldoğrulamakaldır",
+		"hypixelverify": "hypixeldoğrula",
+		"language": "dil",
+		"languagestats": "dilistatistikleri",
+		"mention": "bahset",
 		"minecraft": "minecraft",
-		"prefix": "prefix",
-		"quote": "quote",
-		"verify": "verify",
-		"poll": "poll"
+		"prefix": "önek",
+		"quote": "alıntı",
+		"verify": "doğrula",
+		"poll": "anket"
 	},
 	"descriptions": {
-		"8ball": "The Magic 8 Ball that will answer all your questions",
-		"feedback": "Gives you instructions on how to give feedback towards the bot",
-		"help": "Shows you all available commands and general info about the bot",
-		"hypixelstats": "Shows you basic Hypixel stats for the provided user",
-		"hypixelunverify": "Unlinks your Discord account from your Hypixel player",
-		"hypixelverify": "Links your Discord account with your Hypixel player",
-		"language": "Changes your language, shows your current one or a list of available languages",
-		"languagestats": "Shows you the progress of a language on the all projects we currently support",
-		"levels": "Shows you the XP leaderboard",
-		"mention": "Mentions a language role with a message",
-		"minecraft": "Looks up a specific Minecraft player's name history or skin",
-		"ping": "Gives you the bot's ping",
-		"prefix": "Lets you pick an appropriate prefix for your language(s)",
-		"profile": "Gives you the link to your Crowdin profile if it's stored on our database.",
-		"projects": "Gives you links and information about all the translation projects we support on the server",
-		"quote": "Shows a funny/weird/wise quote from the server",
-		"rank": "Gives you the current XP for yourself or any given user",
-		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
-		"translate": "Gives you useful information on how to translate the bot",
-		"verify": "Verifies and gives you your corresponding roles",
-		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+		"8ball": "8 Ball, tüm sorularınıza cevap verir",
+		"feedback": "Bota nasıl geri bildirim vereceğiniz konusunda size talimatlar verir",
+		"help": "Mevcut tüm komutları ve botla ilgili genel bilgileri gösterir",
+		"hypixelstats": "Belirtilen kullanıcı için temel Hypixel istatistiklerini gösterir",
+		"hypixelunverify": "Hypixel oyuncunuzdan Discord hesabınızın bağlantısını kaldırır",
+		"hypixelverify": "Discord hesabınızı Hypixel oyuncunuza bağlar",
+		"language": "Dilinizi değiştirir, geçerli dilinizi veya kullanılabilir dillerin listesini gösterir",
+		"languagestats": "Şu anda desteklediğimiz tüm projelerde bir dilin ilerlemesini gösterir",
+		"levels": "Deneyim puanı sıralamasını gösterir",
+		"mention": "Mesajla bir dil rolünden bahseder",
+		"minecraft": "Belirtilen Minecraft oyuncusunun isim geçmişini veya cildini gösterir",
+		"ping": "Botun gecikmesini gösterir",
+		"prefix": "Dil(ler)iniz için uygun bir önek sağlar",
+		"profile": "Eğer veritabanımızda saklanıyorsa, Crowdin profilinizin bağlantısını size verir.",
+		"projects": "Sunucuda desteklediğimiz tüm çeviri projeleri hakkında size bağlantılar ve bilgiler verir",
+		"quote": "Sunucudan komik/garip/bilge bir alıntı gösterir",
+		"rank": "Kendiniz veya herhangi bir kullanıcı için o anki deneyim puanını gösterir",
+		"tag": "Gönderirken belirli bir üyeyi bilgilendirmenize izin veren önceden ayarlanmış bir mesaj gönderir",
+		"translate": "Botun nasıl çevrileceği hakkında size yararlı bilgiler verir",
+		"verify": "Size karşılık gelen rolleri doğrular ve verir",
+		"poll": "Sunucuda anket oluşturur veya yönetir. Hypixel Düzeltmenleri ve üstü kullanabilir"
 	},
 	"options": {
 		"8ball": {
 			"question": {
-				"name": "question",
-				"description": "The question to ask the bot"
+				"name": "soru",
+				"description": "Bot'a sorulacak soru"
 			}
 		},
 		"levels": {
 			"me": {
-				"name": "me",
-				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
+				"name": "kendim",
+				"description": "Göründüğünüz sayfadan başlayıp başlamayacağınız. \"Sayfa\" bağımsız değişkenine göre önceliğe sahiptir"
 			},
 			"page": {
-				"name": "page",
-				"description": "The leaderboard page to get"
+				"name": "sayfa",
+				"description": "Gösterilecek sayfa sayısı"
 			}
 		},
 		"profile": {
 			"user": {
-				"name": "user",
-				"description": "The user to find the profile for. Admin only"
+				"name": "kullanıcı",
+				"description": "Gösterilecek kullanıcı. Sadece yöneticiler kullanabilir"
 			},
 			"profile": {
-				"name": "profile",
+				"name": "profil",
 				"description": "The new profile to set for the user. Admin only"
 			}
 		},
 		"rank": {
 			"user": {
-				"name": "user",
+				"name": "kullanıcı",
 				"description": "The user to get the rank for"
 			}
 		},
 		"tag": {
 			"tag": {
-				"name": "tag",
+				"name": "etiket",
 				"description": "The tag you want to see",
 				"choices": {
 					"invite": "Invite link to the server",
@@ -105,7 +105,7 @@
 				"description": "The command to get information for"
 			},
 			"page": {
-				"name": "page",
+				"name": "sayfa",
 				"description": "The help page to open",
 				"choices": [
 					"Ana Sayfa",
@@ -120,13 +120,13 @@
 				"description": "The IGN of the user to get statistics for. Can also be a UUID"
 			},
 			"user": {
-				"name": "user",
+				"name": "kullanıcı",
 				"description": "The server member to get statistics for. Only works if the user has verified themselves"
 			}
 		},
 		"hypixelunverify": {
 			"user": {
-				"name": "user",
+				"name": "kullanıcı",
 				"description": "The user to unverify. Admin only"
 			}
 		},
@@ -136,7 +136,7 @@
 				"description": "Your Hypixel IGN. Must have your Discord linked in-game"
 			},
 			"user": {
-				"name": "user",
+				"name": "kullanıcı",
 				"description": "The user to verify. Admin only"
 			}
 		},
@@ -146,7 +146,7 @@
 				"description": "Sets your language to a new one. Leave empty to see your current language",
 				"options": {
 					"language": {
-						"name": "language",
+						"name": "dil",
 						"description": "The new language you want to set"
 					}
 				}
@@ -164,7 +164,7 @@
 				"description": "Gives you usage statistics for a given language. Admin only",
 				"options": {
 					"language": {
-						"name": "language",
+						"name": "dil",
 						"description": "The language to get usage statistics for"
 					}
 				}
@@ -172,13 +172,13 @@
 		},
 		"languagestats": {
 			"language": {
-				"name": "language",
+				"name": "dil",
 				"description": "The language to get progress statistics for. Required if your language is set to English"
 			}
 		},
 		"mention": {
 			"language": {
-				"name": "language",
+				"name": "dil",
 				"description": "The language to mention"
 			},
 			"role": {
@@ -205,7 +205,7 @@
 						"description": "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked"
 					},
 					"user": {
-						"name": "user",
+						"name": "kullanıcı",
 						"description": "The server member to get name history for. Only works if the user has verified themselves"
 					}
 				}
@@ -219,176 +219,176 @@
 						"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
 					},
 					"user": {
-						"name": "user",
-						"description": "The server member to get skin for. Only works if the user has verified themselves"
+						"name": "kullanıcı",
+						"description": "Cildi gösterilecek sunucu üyesi. Yalnızca kullanıcı kendini doğruladıysa çalışır"
 					}
 				}
 			}
 		},
 		"prefix": {
 			"flags": {
-				"name": "flags",
-				"description": "The flags to be applied to your prefix, separated with spaces"
+				"name": "bayraklar",
+				"description": "Ön ekinizde gösterilecek bayraklar, boşluklarla ayırın"
 			}
 		},
 		"quote": {
 			"get": {
-				"name": "get",
-				"description": "Get a random/specific quote",
+				"name": "göster",
+				"description": "Rastgele/belirli bir alıntı görün",
 				"options": {
 					"index": {
-						"name": "index",
-						"description": "The index of the quote you want to see"
+						"name": "dizin",
+						"description": "Görmek istediğiniz alıntının dizini"
 					}
 				}
 			},
 			"add": {
-				"name": "add",
-				"description": "Add a new quote. Staff only",
+				"name": "ekle",
+				"description": "Yeni bir alıntı ekleyin. Sadece yetkililer kullanabilir",
 				"options": {
 					"quote": {
-						"name": "quote",
-						"description": "The quote you want to add"
+						"name": "alıntı",
+						"description": "Eklemek istediğiniz alıntı"
 					},
 					"author": {
-						"name": "author",
-						"description": "The author of this quote"
+						"name": "yazar",
+						"description": "Bu alıntının yazarı"
 					},
 					"url": {
-						"name": "url",
-						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
+						"name": "bağlantı",
+						"description": "Bu alıntının geldiği mesajın bağlantısı. Mesajın bir resmi varsa, o da eklenecektir"
 					},
 					"image": {
-						"name": "image",
-						"description": "The URL of the image to be included with this quote. Has priority over URL's image if provided"
+						"name": "resim",
+						"description": "Bu alıntıya eklenecek resmin bağlantısı. Sağlanırsa bağlantının görüntüsüne göre önceliğe sahiptir"
 					}
 				}
 			},
 			"edit": {
-				"name": "edit",
-				"description": "Edit a quote. Staff only",
+				"name": "düzenle",
+				"description": "Bir alıntıyı düzenleyin. Sadece yetkililer kullanabilir",
 				"options": {
 					"index": {
-						"name": "index",
-						"description": "The index of the quote to edit"
+						"name": "dizin",
+						"description": "Düzenlenecek alıntının dizini"
 					},
 					"quote": {
-						"name": "quote",
-						"description": "The new quote"
+						"name": "alıntı",
+						"description": "Yeni alıntı"
 					}
 				}
 			},
 			"delete": {
-				"name": "delete",
-				"description": "Delete a quote. Staff only",
+				"name": "sil",
+				"description": "Bir alıntıyı silin. Sadece yetkililer kullanabilir",
 				"options": {
 					"index": {
-						"name": "index",
-						"description": "The index of the quote to delete"
+						"name": "dizin",
+						"description": "Silinecek alıntının dizini"
 					}
 				}
 			},
 			"link": {
-				"name": "link",
-				"description": "Link a quote to a message. Staff only",
+				"name": "bağlantı",
+				"description": "Bir alıntıyı bir mesaja bağlayın. Sadece yetkililer kullanabilir",
 				"options": {
 					"index": {
-						"name": "index",
-						"description": "The index of the quote to link"
+						"name": "dizin",
+						"description": "Bağlanacak alıntının dizini"
 					},
 					"url": {
-						"name": "url",
-						"description": "The URL of the message to link this quote to"
+						"name": "bağlantı",
+						"description": "Bu alıntının bağlanacağı iletinin bağlantısı"
 					},
 					"image": {
-						"name": "image",
-						"description": "Whether or not to attach this message's image to the quote"
+						"name": "resim",
+						"description": "Bu mesajın resminin alıntıya eklenip eklenmeyeceği"
 					}
 				}
 			}
 		},
 		"verify": {
 			"url": {
-				"name": "url",
-				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section"
+				"name": "bağlantı",
+				"description": "Crowdin profilinizin bağlantısı. \"Hakkımda\" bölümünde Discord etiketiniz olmalı"
 			},
 			"user": {
-				"name": "user",
-				"description": "The user to manually verify. Admin only"
+				"name": "kullanıcı",
+				"description": "Manuel olarak doğrulanacak kullanıcı. Yalnızca yöneticiler kullanabilir"
 			}
 		},
 		"poll": {
 			"start": {
-				"name": "start",
-				"description": "Starts a poll in the current channel",
+				"name": "başlat",
+				"description": "Geçerli kanalda bir anket başlatır",
 				"options": {
 					"question": {
-						"name": "question",
-						"description": "The question of the poll"
+						"name": "soru",
+						"description": "Anketin sorusu"
 					},
 					"option1": {
-						"name": "option1",
-						"description": "The first option in the poll"
+						"name": "seçenek1",
+						"description": "Anketteki ilk seçenek"
 					},
 					"option2": {
-						"name": "option2",
-						"description": "The second option in the poll"
+						"name": "seçenek2",
+						"description": "Anketteki ikinci seçenek"
 					},
 					"time": {
-						"name": "time",
-						"description": "How long before this poll is automatically closed and results are published (in hours)"
+						"name": "süre",
+						"description": "Bu anketin otomatik olarak kapatılması ve sonuçların yayınlanması ne kadar sürecek (saat olarak)"
 					},
 					"option3": {
-						"name": "option3",
-						"description": "The third option in the poll"
+						"name": "seçenek3",
+						"description": "Anketteki üçüncü seçenek"
 					},
 					"option4": {
-						"name": "option4",
-						"description": "The fourth option in the poll"
+						"name": "seçenek4",
+						"description": "Anketteki dördüncü seçenek"
 					},
 					"option5": {
-						"name": "option5",
-						"description": "The fifth option in the poll"
+						"name": "seçenek5",
+						"description": "Anketteki beşinci seçenek"
 					},
 					"option6": {
-						"name": "option6",
-						"description": "The sixth option in the poll"
+						"name": "seçenek6",
+						"description": "Ankette altıncı seçenek"
 					},
 					"option7": {
-						"name": "option7",
-						"description": "The seventh option in the poll"
+						"name": "seçenek7",
+						"description": "Anketteki yedinci seçenek"
 					},
 					"option8": {
-						"name": "option8",
-						"description": "The eigth option in the poll"
+						"name": "seçenek8",
+						"description": "Anketteki sekizinci seçenek"
 					}
 				}
 			},
 			"end": {
-				"name": "end",
-				"description": "End a poll given its message ID",
+				"name": "sonlandır",
+				"description": "Mesaj kimliği verilen bir anketi sonlandır",
 				"options": {
 					"message_id": {
-						"name": "message_id",
-						"description": "The ID of the message containing the poll"
+						"name": "mesaj_kimliği",
+						"description": "Anketi içeren mesajın kimliği"
 					},
 					"channel_id": {
-						"name": "channel_id",
-						"description": "The ID of the channel the poll was posted in, if not the current one"
+						"name": "kanal_kimliği",
+						"description": "Geçerli kanal değilse, anketin yayınlandığı kanalın kimliği"
 					}
 				}
 			},
 			"show": {
-				"name": "show",
-				"description": "Shows the current results of a poll without ending it. Only available to the creator of the poll",
+				"name": "göster",
+				"description": "Anketin mevcut sonuçlarını sonlandırmadan gösterir. Yalnızca anketi oluşturan kişi kullanılabilir",
 				"options": {
 					"message_id": {
-						"name": "message_id",
-						"description": "The ID of the message containing the poll"
+						"name": "mesaj_kimliği",
+						"description": "Anketi içeren mesajın kimliği"
 					},
 					"channel_id": {
-						"name": "channel_id",
-						"description": "The ID of the channel the poll was posted in, if not the current one"
+						"name": "kanal_kimliği",
+						"description": "Geçerli kanal değilse, anketin yayınlandığı kanalın kimliği"
 					}
 				}
 			}
