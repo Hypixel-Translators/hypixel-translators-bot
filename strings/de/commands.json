@@ -1,26 +1,26 @@
 {
 	"names": {
-		"8ball": "8ball",
+		"8ball": "8-ball",
 		"feedback": "feedback",
-		"levels": "levels",
+		"levels": "level",
 		"ping": "ping",
-		"profile": "profile",
-		"projects": "projects",
-		"rank": "rank",
+		"profile": "profil",
+		"projects": "projekte",
+		"rank": "rang",
 		"tag": "tag",
-		"translate": "translate",
-		"help": "help",
-		"hypixelstats": "hypixelstats",
-		"hypixelunverify": "hypixelunverify",
-		"hypixelverify": "hypixelverify",
-		"language": "language",
-		"languagestats": "languagestats",
-		"mention": "mention",
+		"translate": "übersetze",
+		"help": "hilfe",
+		"hypixelstats": "hypixel-statistiken",
+		"hypixelunverify": "hypixelunverifizieren",
+		"hypixelverify": "hypixelverifizieren",
+		"language": "sprache",
+		"languagestats": "sprachstatistiken",
+		"mention": "erwähnen",
 		"minecraft": "minecraft",
-		"prefix": "prefix",
-		"quote": "quote",
-		"verify": "verify",
-		"poll": "poll"
+		"prefix": "präfix",
+		"quote": "zitat",
+		"verify": "verifizieren",
+		"poll": "umfrage"
 	},
 	"descriptions": {
 		"8ball": "The Magic 8 Ball that will answer all your questions",
@@ -68,7 +68,7 @@
 				"description": "The user to find the profile for. Admin only"
 			},
 			"profile": {
-				"name": "profile",
+				"name": "profil",
 				"description": "The new profile to set for the user. Admin only"
 			}
 		},
@@ -108,7 +108,7 @@
 				"name": "page",
 				"description": "The help page to open",
 				"choices": [
-					"Main Page",
+					"Hauptseite",
 					"Werkzeuge & Hilfsmittel",
 					"Information commands"
 				]
@@ -146,7 +146,7 @@
 				"description": "Sets your language to a new one. Leave empty to see your current language",
 				"options": {
 					"language": {
-						"name": "language",
+						"name": "sprache",
 						"description": "The new language you want to set"
 					}
 				}
@@ -164,7 +164,7 @@
 				"description": "Gives you usage statistics for a given language. Admin only",
 				"options": {
 					"language": {
-						"name": "language",
+						"name": "sprache",
 						"description": "The language to get usage statistics for"
 					}
 				}
@@ -172,13 +172,13 @@
 		},
 		"languagestats": {
 			"language": {
-				"name": "language",
+				"name": "sprache",
 				"description": "The language to get progress statistics for. Required if your language is set to English"
 			}
 		},
 		"mention": {
 			"language": {
-				"name": "language",
+				"name": "sprache",
 				"description": "The language to mention"
 			},
 			"role": {
@@ -247,7 +247,7 @@
 				"description": "Add a new quote. Staff only",
 				"options": {
 					"quote": {
-						"name": "quote",
+						"name": "zitat",
 						"description": "The quote you want to add"
 					},
 					"author": {
@@ -273,7 +273,7 @@
 						"description": "The index of the quote to edit"
 					},
 					"quote": {
-						"name": "quote",
+						"name": "zitat",
 						"description": "The new quote"
 					}
 				}
