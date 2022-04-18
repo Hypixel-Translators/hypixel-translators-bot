@@ -1,5 +1,5 @@
 import { registerFont, createCanvas, loadImage } from "canvas"
-import { type GuildMember, MessageAttachment, type TextChannel } from "discord.js"
+import { type GuildMember, Attachment, type TextChannel } from "discord.js"
 
 import { ids } from "../config.json"
 import { client } from "../index"
@@ -99,5 +99,5 @@ export async function generateWelcomeImage(member: GuildMember) {
 	ctx.restore()
 
 	// OUTPUT
-	return new MessageAttachment(canvas.toBuffer(), `${userName.replaceAll('"', "")} join.png`) // Discord doesn't like quotation marks in filenames
+	return new Attachment(canvas.toBuffer(), `${userName.replaceAll('"', "")} join.png`) // Discord doesn't like quotation marks in filenames
 }

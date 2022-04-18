@@ -28,7 +28,7 @@ const command: Command = {
 		})
 		if (!giveawayMsg) return
 		const users = await giveawayMsg.reactions.cache.get("🎉")?.users.fetch()
-		if (!users) return await interaction.reply({ content: "That message doesn't have any 🎉 reactions.", ephemeral: true })
+		if (!users) return void (await interaction.reply({ content: "That message doesn't have any 🎉 reactions.", ephemeral: true }))
 		await interaction.reply(
 			`Congratulations to ${users
 				.random(interaction.options.getInteger("winners", false) || 1)

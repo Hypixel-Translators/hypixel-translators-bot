@@ -83,7 +83,7 @@ const command: Command = {
 			})
 		} else if (subCommand === "stats") {
 			if (!member?.roles.cache.has(ids.roles.admin))
-				return await interaction.reply({ content: getString("errors.noAccess", { file: "global" }), ephemeral: true })
+				return void (await interaction.reply({ content: getString("errors.noAccess", { file: "global" }), ephemeral: true }))
 			if (!botLocales.includes(language!)) throw "falseLang"
 			const langUsers = await collection.find({ lang: language! }).toArray(),
 				users: string[] = []

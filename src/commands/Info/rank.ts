@@ -35,7 +35,7 @@ const command: Command = {
 				description: getString("howRank"),
 				footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 			})
-			return await interaction.reply({ embeds: [errorEmbed] })
+			return void (await interaction.reply({ embeds: [errorEmbed] }))
 		}
 		const totalXp = getXpNeeded(userDb.levels.level),
 			ranking =

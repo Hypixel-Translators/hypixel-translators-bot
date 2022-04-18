@@ -83,14 +83,14 @@ const command: Command = {
 			collector.on("collect", async buttonInteraction => {
 				const userDb = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) {
-					return await buttonInteraction.reply({
+					return void (await buttonInteraction.reply({
 						content: getString("pagination.notYours", {
 							variables: { command: `/${this.name}` },
 							file: "global",
 							lang: userDb.lang ?? transformDiscordLocale(buttonInteraction.locale),
 						}),
 						ephemeral: true,
-					})
+					}))
 				}
 				collector.stop("responded")
 				if (buttonInteraction.customId === "confirm") {
@@ -288,14 +288,14 @@ const command: Command = {
 			collector.on("collect", async buttonInteraction => {
 				const userDb = await client.getUser(buttonInteraction.user.id)
 				if (interaction.user.id !== buttonInteraction.user.id) {
-					return await buttonInteraction.reply({
+					return void (await buttonInteraction.reply({
 						content: getString("pagination.notYours", {
 							variables: { command: `/${this.name}` },
 							file: "global",
 							lang: userDb.lang ?? transformDiscordLocale(buttonInteraction.locale),
 						}),
 						ephemeral: true,
-					})
+					}))
 				}
 				if (buttonInteraction.customId !== "cancel") confirmButton.setDisabled(true)
 				if (buttonInteraction.customId === "confirm") {

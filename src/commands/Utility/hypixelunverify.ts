@@ -36,7 +36,7 @@ const command: Command = {
 					title: `Successfully unverified ${memberInput.user.tag}`,
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
-				return await interaction.reply({ embeds: [embed] })
+				return void (await interaction.reply({ embeds: [embed] }))
 			} else {
 				const embed = new EmbedBuilder({
 					color: colors.error,
@@ -45,7 +45,7 @@ const command: Command = {
 					description: "This happened because this user isn't verified yet.",
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
-				return await interaction.reply({ embeds: [embed], ephemeral: true })
+				return void (await interaction.reply({ embeds: [embed], ephemeral: true }))
 			}
 		} else {
 			await updateRoles(interaction.member)
@@ -58,7 +58,7 @@ const command: Command = {
 					title: getString("unverified"),
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
-				return await interaction.reply({ embeds: [embed] })
+				return void (await interaction.reply({ embeds: [embed] }))
 			} else {
 				const embed = new EmbedBuilder({
 					color: colors.error,
@@ -67,7 +67,7 @@ const command: Command = {
 					description: getString("whyNotUnverified"),
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
-				return await interaction.reply({ embeds: [embed], ephemeral: true })
+				return void (await interaction.reply({ embeds: [embed], ephemeral: true }))
 			}
 		}
 	},

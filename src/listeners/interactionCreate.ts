@@ -21,8 +21,8 @@ client.on("interactionCreate", async interaction => {
 		randomTip = generateTip(getString),
 		statsColl = db.collection<Stats>("stats")
 
-	if (interaction.isButton() && interaction.inCachedGuild()) return await handleButtonInteractions(interaction, getString)
-	else if (interaction.isAutocomplete()) return await handleAutocompleteInteractions(interaction)
+	if (interaction.isButton() && interaction.inCachedGuild()) return void (await handleButtonInteractions(interaction, getString))
+	else if (interaction.isAutocomplete()) return void (await handleAutocompleteInteractions(interaction))
 
 	if (!interaction.isChatInputCommand()) return
 
@@ -75,7 +75,7 @@ client.on("interactionCreate", async interaction => {
 				}),
 				footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 			})
-			return await interaction.reply({ embeds: [embed], ephemeral: true })
+			return void (await interaction.reply({ embeds: [embed], ephemeral: true }))
 		}
 	}
 

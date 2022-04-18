@@ -64,10 +64,10 @@ const command: Command = {
 
 			collector.on("collect", async buttonInteraction => {
 				if (interaction.user.id !== buttonInteraction.user.id) {
-					return await buttonInteraction.reply({
+					return void (await buttonInteraction.reply({
 						content: `You cannot interact with this menu! Execute /${this.name} yourself to do this.`,
 						ephemeral: true,
-					})
+					}))
 				} else if (buttonInteraction.customId === "first") log = 0
 				else if (buttonInteraction.customId === "last") log = modlogs.length - 1
 				else if (buttonInteraction.customId === "previous") {

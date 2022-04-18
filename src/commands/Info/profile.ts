@@ -40,7 +40,7 @@ const command: Command = {
 						description: userDb.profile,
 						footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
-					return await interaction.reply({ embeds: [embed], ephemeral: true })
+					return void (await interaction.reply({ embeds: [embed], ephemeral: true }))
 				} else {
 					const embed = new EmbedBuilder({
 						color: colors.error,
@@ -48,7 +48,7 @@ const command: Command = {
 						title: `Couldn't find ${user.tag}'s Crowdin profile on the database!`,
 						footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
-					return await interaction.reply({ embeds: [embed], ephemeral: true })
+					return void (await interaction.reply({ embeds: [embed], ephemeral: true }))
 				}
 			} else if (/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(profile)) {
 				const result = await db.collection<DbUser>("users").findOneAndUpdate({ id: user.id }, { $set: { profile: profile } })
@@ -63,7 +63,7 @@ const command: Command = {
 						],
 						footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
-					return await interaction.reply({ embeds: [embed], ephemeral: true })
+					return void (await interaction.reply({ embeds: [embed], ephemeral: true }))
 				} else {
 					const embed = new EmbedBuilder({
 						color: colors.error,
@@ -72,7 +72,7 @@ const command: Command = {
 						description: "Their current profile is the same as the one you tried to add.",
 						footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
-					return await interaction.reply({ embeds: [embed], ephemeral: true })
+					return void (await interaction.reply({ embeds: [embed], ephemeral: true }))
 				}
 			} else throw "wrongLink"
 		} else if (interaction.member.roles.cache.has(ids.roles.admin) && !user && profile) {
@@ -86,7 +86,7 @@ const command: Command = {
 						description: `${userObject}: ${profileUser.profile!}`,
 						footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					})
-				return await interaction.reply({ embeds: [embed], ephemeral: true })
+				return void (await interaction.reply({ embeds: [embed], ephemeral: true }))
 			} else {
 				const embed = new EmbedBuilder({
 					color: colors.neutral,
@@ -94,7 +94,7 @@ const command: Command = {
 					title: "Couldn't find a user with that profile!",
 					footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
-				return await interaction.reply({ embeds: [embed], ephemeral: true })
+				return void (await interaction.reply({ embeds: [embed], ephemeral: true }))
 			}
 		} else {
 			const randomTip = generateTip(getString),
@@ -107,7 +107,7 @@ const command: Command = {
 					description: userDb.profile,
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
-				return await interaction.reply({ embeds: [embed], ephemeral: true })
+				return void (await interaction.reply({ embeds: [embed], ephemeral: true }))
 			} else {
 				const embed = new EmbedBuilder({
 					color: colors.error,
@@ -116,7 +116,7 @@ const command: Command = {
 					description: getString("howStore"),
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				})
-				return await interaction.reply({ embeds: [embed], ephemeral: true })
+				return void (await interaction.reply({ embeds: [embed], ephemeral: true }))
 			}
 		}
 	},

@@ -307,14 +307,14 @@ const command: Command = {
 		collector.on("collect", async menuInteraction => {
 			const userDb = await client.getUser(menuInteraction.user.id)
 			if (interaction.user.id !== menuInteraction.user.id) {
-				return await menuInteraction.reply({
+				return void (await menuInteraction.reply({
 					content: getString("pagination.notYours", {
 						variables: { command: `/${this.name}` },
 						file: "global",
 						lang: userDb.lang ?? transformDiscordLocale(menuInteraction.locale),
 					}),
 					ephemeral: true,
-				})
+				}))
 			}
 			selectedMenu = menuInteraction.values[0]
 			if (selectedMenu === "stats") embed = stats()

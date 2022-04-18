@@ -620,11 +620,11 @@ const command: Command = {
 			if (!interaction.member.permissions.has("ViewAuditLog")) throw "noAccess"
 			const activePunishments = await collection.find({ id: user.id, ended: false }).toArray()
 			if (activePunishments.length > 1) {
-				return await interaction.reply({
+				return void (await interaction.reply({
 					content:
 						"Something went terribly wrong and this user has more than one active punishment! Please contact the developer and let them know about this.",
 					ephemeral: true,
-				})
+				}))
 			} else if (!activePunishments.length) throw "This user has no active punishments!"
 			const confirmEmbed = new EmbedBuilder({
 				color: colors.loading,

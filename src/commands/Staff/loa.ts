@@ -111,13 +111,13 @@ const command: Command = {
 			// I promise this makes sense
 			yesterday = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() - 1)
 
-		if (startDay > 31 || endDay > 31) return await interaction.reply({ content: "You must input a valid day!", ephemeral: true })
+		if (startDay > 31 || endDay > 31) return void (await interaction.reply({ content: "You must input a valid day!", ephemeral: true }))
 		else if (startYear < new Date().getFullYear() || startYear > new Date().getFullYear() + 1)
-			return await interaction.reply({ content: "You must input a valid year!", ephemeral: true })
+			return void (await interaction.reply({ content: "You must input a valid year!", ephemeral: true }))
 		else if (endDate.getTime() < startDate.getTime())
-			return await interaction.reply({ content: "The ending date must be after the starting date!", ephemeral: true })
+			return void (await interaction.reply({ content: "The ending date must be after the starting date!", ephemeral: true }))
 		else if (endDate.getTime() <= yesterday.getTime() || startDate.getTime() <= yesterday.getTime())
-			return await interaction.reply({ content: "The end and start date must both be after yesterday!", ephemeral: true })
+			return void (await interaction.reply({ content: "The end and start date must both be after yesterday!", ephemeral: true }))
 
 		const embed = new EmbedBuilder({
 			color: Colors.Blurple,
