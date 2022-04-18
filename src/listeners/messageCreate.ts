@@ -25,7 +25,7 @@ import type { Stream } from "node:stream"
 client.on("messageCreate", async message => {
 	if (!db) return void cancelledEvents.push({ listener: "messageCreate", args: [message] })
 
-	// Delete pinned message and thread created messages
+	// Delete thread created messages
 	if (message.type === MessageType.ThreadCreated && (message.channel as TextChannel).name.endsWith("-review-strings"))
 		return void (await message.delete())
 
@@ -54,14 +54,14 @@ client.on("messageCreate", async message => {
 	const stringURLRegex = /(?:https:\/\/)?crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
 
 	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings")) {
-		if (!stringURLRegex.test(message.content)) await message.delete().catch(() => null)
-		else if (message.content.match(stringURLRegex)!.length === 1) {
-			await message.react("vote_yes:839262196797669427")
-			await message.react("vote_maybe:839262179416211477")
-			await message.react("vote_no:839262184882044931")
+		const urls = message.content.match(stringURLRegex)
+		if (!urls) await message.delete().catch(() => null)
+		else if (urls.length === 1) {
+			await message.react("vote_yes:839262196797669427").catch(() => null)
+			await message.react("vote_maybe:839262179416211477").catch(() => null)
+			await message.react("vote_no:839262184882044931").catch(() => null)
 		} else {
-			const rawText = message.content.split(stringURLRegex),
-				urls = message.content.match(stringURLRegex)!
+			const rawText = message.content.split(stringURLRegex)
 
 			for (let i = 0; i < urls.length; i++) {
 				let firstText: string | null = null
