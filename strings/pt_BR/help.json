@@ -50,7 +50,7 @@
 		"description": "Veja o ping do bot."
 	},
 	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
+		"description": "Cria ou gerencia enquetes no servidor. Disponível para os revisores do Hypixel e superiores. Todos os votos em enquetes criadas com este comando estarão privados até que a enquete termine e o nome dos usuários que votaram serão ocultados, apenas os votos serão exibidos."
 	},
 	"prefix": {
 		"description": "Fornece o prefixo do(s) seu(s) idioma(s). Caso queira um prefixo customizado, use `/prefix` com o código da bandeira do seu país ou o seu nome no campo `bandeiras`. Você pode adicionar quantas bandeiras desejar, separando-as com espaço."
