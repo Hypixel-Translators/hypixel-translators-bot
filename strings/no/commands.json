@@ -109,7 +109,7 @@
 				"description": "The help page to open",
 				"choices": [
 					"Hovedside",
-					"Tools & Utilities",
+					"Verktøy",
 					"Information commands"
 				]
 			}
