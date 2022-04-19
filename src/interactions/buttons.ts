@@ -33,13 +33,7 @@ export default async function handleButtonInteractions(interaction: ButtonIntera
 			if ((userDb.levels?.level ?? 0) < 5) {
 				console.log(`${interaction.member.user.tag} tried to get the Giveaway pings role but they're level ${userDb.levels?.level ?? 0} lol`)
 				return await interaction.reply({
-					content: getString("roles.noLevel", {
-						variables: {
-							level: 5,
-							command: "`/rank`",
-							channel: `<#${ids.channels.bots}>`,
-						},
-					}),
+					content: getString("roles.noLevel", { variables: { level: 5, command: "`/rank`", channel: `<#${ids.channels.bots}>` } }),
 					ephemeral: true,
 				})
 			}

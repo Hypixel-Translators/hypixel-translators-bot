@@ -309,9 +309,7 @@ const command: Command = {
 						// Make sure to account for NaN values
 						value: `${generateProgressBar(o.votes.length, totalVoteCount)} ${
 							Math.round((o.votes.length / totalVoteCount) * 100) || 0
-						}% (**${getString(o.votes.length === 1 ? "voteCount" : "voteCountPlural", {
-							variables: { number: o.votes.length },
-						})}**)`,
+						}% (**${getString(o.votes.length === 1 ? "voteCount" : "voteCountPlural", { variables: { number: o.votes.length } })}**)`,
 					})),
 					footer: { text: getString("pollResults") },
 				})

@@ -111,13 +111,7 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 		author: { name: getString("moduleName") },
 		title: getString("pageTitle"),
 		footer: {
-			text: getString("pagination.page", {
-				variables: {
-					number: page + 1,
-					total: pages.length,
-				},
-				file: "global",
-			}),
+			text: getString("pagination.page", { variables: { number: page + 1, total: pages.length }, file: "global" }),
 			iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 		},
 	})
