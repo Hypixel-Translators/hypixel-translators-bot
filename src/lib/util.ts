@@ -167,10 +167,6 @@ export function createModlogEmbed(embedData: EmbedData, modlog: PunishmentLog, m
 	return new EmbedBuilder(embedData)
 }
 
-export function formatNumberToLocaleString(number: number, getString: GetStringFunction) {
-	return number.toLocaleString(getString("region.dateLocale", { file: "global" }))
-}
-
 export function generateProgressBar(current: number, goal: number, places = 10): string {
 	const leftEmoji = "<:progress_left:820405406906974289>"
 	if (isNaN(current) || isNaN(goal) || (current === 0 && goal === 0)) return `${leftEmoji.repeat(places)}\u200b`
@@ -322,23 +318,17 @@ export function gql(cleanText: TemplateStringsArray, ...substitutions: unknown[]
 }
 
 export function parseToNumberString(num: number, getString: GetStringFunction): string {
+	const format = (number: number) => number.toLocaleString(getString("region.dateLocale", { file: "global" }))
 	if (num >= 1_000_000) {
-		return `${Number((num / 1_000_000).toFixed(2)).toLocaleString(getString("region.dateLocale", { file: "global" }))}${getString(
-			"numberStrings.million",
-			{
-				file: "global",
-			},
-		)}`
+		return `${format(Number((num / 1_000_000).toFixed(2)))}${getString("numberStrings.million", {
+			file: "global",
+		})}`
+	} else if (num >= 1000) {
+		return `${format(Number((num / 1000).toFixed(2)))}${getString("numberStrings.thousand", {
+			file: "global",
+		})}`
 	}
-	if (num >= 1000) {
-		return `${Number((num / 1000).toFixed(2)).toLocaleString(getString("region.dateLocale", { file: "global" }))}${getString(
-			"numberStrings.thousand",
-			{
-				file: "global",
-			},
-		)}`
-	}
-	return `${num}`
+	return format(num)
 }
 
 export async function restart(interaction?: ChatInputCommandInteraction) {
