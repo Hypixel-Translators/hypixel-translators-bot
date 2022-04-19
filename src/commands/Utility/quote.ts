@@ -2,7 +2,7 @@ import { type ChatInputCommandInteraction, type GuildMember, EmbedBuilder, type 
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { formatNumberToLocaleString, generateTip, type Quote } from "../../lib/util"
+import { generateTip, parseToNumberString, type Quote } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 import type { Collection } from "mongodb"
@@ -146,7 +146,7 @@ async function findQuote(randomTip: string, interaction: ChatInputCommandInterac
 			color: colors.error,
 			author: { name: getString("moduleName") },
 			title: getString("invalidArg"),
-			description: getString("indexArg", { variables: { arg: quoteId!, max: formatNumberToLocaleString(count, getString) } }),
+			description: getString("indexArg", { variables: { arg: quoteId!, max: parseToNumberString(count, getString) } }),
 			footer: {
 				text: randomTip,
 				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),

@@ -3,7 +3,7 @@ import { type GuildMember, EmbedBuilder, ApplicationCommandOptionType } from "di
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, type DbUser } from "../../lib/dbclient"
-import { formatNumberToLocaleString, generateProgressBar, generateTip, getXpNeeded, parseToNumberString } from "../../lib/util"
+import { generateProgressBar, generateTip, getXpNeeded, parseToNumberString } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -54,8 +54,8 @@ const command: Command = {
 				description: getString(user.id === interaction.user.id ? "youLevel" : "userLevel", {
 					variables: {
 						user: `${user}`,
-						level: formatNumberToLocaleString(userDb.levels.level, getString),
-						rank: formatNumberToLocaleString(ranking, getString),
+						level: parseToNumberString(userDb.levels.level, getString),
+						rank: parseToNumberString(ranking, getString),
 					},
 				}),
 				fields: [
