@@ -87,9 +87,7 @@ const command: Command = {
 			pages.forEach(page => {
 				if (page.number === 0) return
 				page1.addFields({
-					name: getString("pageNumber", {
-						variables: { number: page.number },
-					}),
+					name: getString("pageNumber", { variables: { number: page.number } }),
 					value: `${page.badge} ${getString(page.titleString)}`,
 					inline: true,
 				})
