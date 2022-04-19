@@ -141,13 +141,7 @@ const command: Command = {
 							text:
 								pages.length === 1
 									? randomTip
-									: getString("pagination.page", {
-											variables: {
-												number: page + 1,
-												total: pages.length,
-											},
-											file: "global",
-									  }),
+									: getString("pagination.page", { variables: { number: page + 1, total: pages.length }, file: "global" }),
 							iconURL: member.displayAvatarURL({ extension: "png" }),
 						},
 					})

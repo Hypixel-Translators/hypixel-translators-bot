@@ -52,20 +52,12 @@ const command: Command = {
 				author: { name: getString("moduleName") },
 				title: user.id === interaction.user.id ? getString("yourRank") : getString("userRank", { variables: { user: user.tag } }),
 				description: getString(user.id === interaction.user.id ? "youLevel" : "userLevel", {
-					variables: {
-						user: `${user}`,
-						level: userDb.levels.level,
-						rank: ranking,
-					},
+					variables: { user: `${user}`, level: userDb.levels.level, rank: ranking },
 				}),
 				fields: [
 					{
 						name: getString("textProgress", {
-							variables: {
-								currentXp: userDb.levels.levelXp,
-								xpNeeded: totalXp,
-								messages: userDb.levels.messageCount,
-							},
+							variables: { currentXp: userDb.levels.levelXp, xpNeeded: totalXp, messages: userDb.levels.messageCount },
 						}),
 						value: generateProgressBar(userDb.levels.levelXp, totalXp),
 					},
