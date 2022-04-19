@@ -10,7 +10,7 @@ import {
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { createButtonControls, generateTip, parseToNumberString, transformDiscordLocale } from "../../lib/util"
+import { createButtonControls, generateTip, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -113,8 +113,8 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 		footer: {
 			text: getString("pagination.page", {
 				variables: {
-					number: parseToNumberString(page + 1, getString),
-					total: parseToNumberString(pages.length, getString),
+					number: page + 1,
+					total: pages.length,
 				},
 				file: "global",
 			}),
@@ -128,9 +128,9 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 			pageEmbed.addFields({
 				name: getString("level", {
 					variables: {
-						rank: parseToNumberString(i + 1 + page * 24, getString),
-						level: parseToNumberString(pages[page][i].levels!.level, getString),
-						xp: parseToNumberString(pages[page][i].levels!.totalXp, getString),
+						rank: i + 1 + page * 24,
+						level: pages[page][i].levels!.level,
+						xp: pages[page][i].levels!.totalXp,
 					},
 				}),
 				value: `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
@@ -138,7 +138,7 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 			})
 		} else {
 			pageEmbed.addFields({
-				name: getString("unranked", { variables: { rank: parseToNumberString(i + 1 + page * 24, getString) } }),
+				name: getString("unranked", { variables: { rank: i + 1 + page * 24 } }),
 				value: `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,
 				inline: true,
 			})

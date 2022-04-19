@@ -14,7 +14,7 @@ import { ObjectId } from "mongodb"
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { generateProgressBar, parseToNumberString } from "../../lib/util"
+import { generateProgressBar } from "../../lib/util"
 import { awaitPoll } from "../../listeners/ready"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -310,7 +310,7 @@ const command: Command = {
 						value: `${generateProgressBar(o.votes.length, totalVoteCount)} ${
 							Math.round((o.votes.length / totalVoteCount) * 100) || 0
 						}% (**${getString(o.votes.length === 1 ? "voteCount" : "voteCountPlural", {
-							variables: { number: parseToNumberString(o.votes.length, getString) },
+							variables: { number: o.votes.length },
 						})}**)`,
 					})),
 					footer: { text: getString("pollResults") },

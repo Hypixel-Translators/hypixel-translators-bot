@@ -10,7 +10,7 @@ import { client } from "../index"
 import handleAutocompleteInteractions from "../interactions/autocomplete"
 import handleButtonInteractions from "../interactions/buttons"
 import { db, cancelledEvents } from "../lib/dbclient"
-import { arrayEqual, transformDiscordLocale, generateTip, type Stats } from "../lib/util"
+import { arrayEqual, transformDiscordLocale, generateTip, type Stats, parseToNumberString } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
@@ -138,7 +138,8 @@ client.on("interactionCreate", async interaction => {
 						}
 					}
 					if (typeof string === "string" && variables) {
-						for (const [variable, text] of Object.entries(variables)) string = string.replace(`%%${variable}%%`, String(text))
+						for (const [variable, value] of Object.entries(variables))
+							string = string.replace(`%%${variable}%%`, typeof value === "number" ? parseToNumberString(value, getString) : value)
 						const locale = lang.replace("_", "-")
 						string = new MessageFormat(
 							{

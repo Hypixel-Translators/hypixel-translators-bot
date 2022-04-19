@@ -1,7 +1,6 @@
 import { ids } from "../config.json"
 import { client } from "../index"
 import { db } from "../lib/dbclient"
-import { parseToNumberString } from "../lib/util"
 
 import type { Poll } from "../commands/Utility/poll"
 import type { GetStringFunction } from "../lib/imports"
@@ -36,7 +35,7 @@ export default async function handleButtonInteractions(interaction: ButtonIntera
 				return await interaction.reply({
 					content: getString("roles.noLevel", {
 						variables: {
-							level: parseToNumberString(5, getString),
+							level: 5,
 							command: "`/rank`",
 							channel: `<#${ids.channels.bots}>`,
 						},

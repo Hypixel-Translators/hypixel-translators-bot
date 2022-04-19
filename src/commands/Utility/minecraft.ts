@@ -4,7 +4,7 @@ import { ComponentType, GuildMember, Message, ApplicationCommandOptionType, Embe
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { createButtonControls, fetchSettings, generateTip, getUUID, parseToNumberString, transformDiscordLocale } from "../../lib/util"
+import { createButtonControls, fetchSettings, generateTip, getUUID, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -143,8 +143,8 @@ const command: Command = {
 									? randomTip
 									: getString("pagination.page", {
 											variables: {
-												number: parseToNumberString(page + 1, getString),
-												total: parseToNumberString(pages.length, getString),
+												number: page + 1,
+												total: pages.length,
 											},
 											file: "global",
 									  }),
