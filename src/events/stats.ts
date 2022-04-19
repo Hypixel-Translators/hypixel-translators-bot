@@ -20,7 +20,12 @@ export async function stats(manual = false) {
 }
 
 export async function updateProjectStatus(projectId: number) {
-	if (projectId === ids.projects.hypixel) checkBuild()
+	const channel = client.channels.cache.find(c => (c as TextChannel).name === `${mongoProject.shortName}-language-status`) as TextChannel,
+		messages = await channel.messages.fetch(),
+		// Only ping if last ping was more than 90 minutes ago
+		shouldPing =
+			(messages.filter(m => m.mentions.roles.has(ids.roles.crowdinUpdates)).first()?.createdTimestamp ?? Infinity) > Date.now() - 90 * 60 * 1000
+	if (projectId === ids.projects.hypixel) checkBuild(shouldPing)
 	const languages = await db.collection<MongoLanguage>("languages").find().toArray(),
 		projects = db.collection<CrowdinProject>("crowdin"),
 		mongoProject = (await projects.findOne({ id: projectId }))!,
@@ -37,9 +42,7 @@ export async function updateProjectStatus(projectId: number) {
 				return status as LanguageStatus
 			})
 			.sort((a, b) => b.data.phrases.total - a.data.phrases.total),
-		sortedSatus = Array.from(langStatus).sort((currentStatus, nextStatus) => nextStatus.language.name.localeCompare(currentStatus.language.name)),
-		channel = client.channels.cache.find(c => (c as TextChannel).name === `${mongoProject.shortName}-language-status`) as TextChannel,
-		messages = await channel.messages.fetch()
+		sortedSatus = Array.from(langStatus).sort((currentStatus, nextStatus) => nextStatus.language.name.localeCompare(currentStatus.language.name))
 	let index = 0
 	messages
 		.filter(msg => msg.author.id === client.user!.id)
@@ -79,7 +82,7 @@ export async function updateProjectStatus(projectId: number) {
 				description: `Translate at <https://crowdin.com/translate/${mongoProject.identifier}/all/en>`,
 				footer: { text: `There are now ${newStringCount} strings on the project.` },
 			})
-			await updatesChannel.send({ embeds: [embed], content: `<@&${ids.roles.crowdinUpdates}> New strings!` })
+			await updatesChannel.send({ embeds: [embed], content: `${shouldPing ? `<@&${ids.roles.crowdinUpdates}> ` : ""}New strings!` })
 		} else if (oldStringCount > newStringCount) {
 			const embed = new EmbedBuilder({
 				color: colors.error,
@@ -94,7 +97,7 @@ export async function updateProjectStatus(projectId: number) {
 	}
 }
 
-export async function checkBuild() {
+export async function checkBuild(shouldPing: boolean) {
 	const browser = await getBrowser(),
 		page = await browser.pupBrowser.newPage(),
 		collection = db.collection<CrowdinProject>("crowdin")
@@ -128,7 +131,7 @@ export async function checkBuild() {
 			})
 		await (client.channels.cache.get(ids.channels.hypixelUpdates) as NewsChannel).send({
 			embeds: [embed],
-			content: `<@&${ids.roles.crowdinUpdates}> New build!`,
+			content: `${shouldPing ? `<@&${ids.roles.crowdinUpdates}> ` : ""}New build!`,
 		})
 		await collection.updateOne({ identifier: "hypixel" }, { $set: { lastBuild: lastBuild.timestamp } })
 	}
