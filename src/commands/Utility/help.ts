@@ -163,7 +163,7 @@ const command: Command = {
 			})
 			if (cmdDesc !== getString("inDev")) {
 				if (cmd.cooldown) {
-					if (cmd.cooldown >= 120) {
+					if (cmd.cooldown >= 60) {
 						embed.addFields({
 							name: getString("cooldownField"),
 							value: getString("minutes", { variables: { number: cmd.cooldown / 60 } }),
