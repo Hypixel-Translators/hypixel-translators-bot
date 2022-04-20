@@ -24,148 +24,148 @@
 	},
 	"descriptions": {
 		"8ball": "The Magic 8 Ball that will answer all your questions",
-		"feedback": "Gives you instructions on how to give feedback towards the bot",
-		"help": "Shows you all available commands and general info about the bot",
-		"hypixelstats": "Shows you basic Hypixel stats for the provided user",
-		"hypixelunverify": "Unlinks your Discord account from your Hypixel player",
-		"hypixelverify": "Links your Discord account with your Hypixel player",
-		"language": "Changes your language, shows your current one or a list of available languages",
-		"languagestats": "Shows you the progress of a language on the all projects we currently support",
-		"levels": "Shows you the XP leaderboard",
-		"mention": "Mentions a language role with a message",
-		"minecraft": "Looks up a specific Minecraft player's name history or skin",
-		"ping": "Gives you the bot's ping",
-		"prefix": "Lets you pick an appropriate prefix for your language(s)",
-		"profile": "Gives you the link to your Crowdin profile if it's stored on our database.",
-		"projects": "Gives you links and information about all the translation projects we support on the server",
-		"quote": "Shows a funny/weird/wise quote from the server",
-		"rank": "Gives you the current XP for yourself or any given user",
+		"feedback": "Gibt dir Informationen darüber, wie du dem Bot ein Feedback geben kannst",
+		"help": "Zeigt dir alle verfügbaren Befehle und allgemeine Informationen über den Bot an",
+		"hypixelstats": "Zeigt dir grundlegende Hypixel-Statistiken für den angegebenen Benutzer",
+		"hypixelunverify": "Hebt die Verknüpfung zwischen deinem Discord-Konto und deinem Hypixel-Spieler auf",
+		"hypixelverify": "Verknüpft dein Discord-Konto mit deinem Hypixel-Spieler",
+		"language": "Ändert deine Sprache, zeigt deine aktuelle Sprache oder eine Liste der verfügbaren Sprachen an",
+		"languagestats": "Zeigt dir den Fortschritt einer Sprache in allen Projekten, die wir derzeit unterstützen",
+		"levels": "Zeigt dir die XP-Rangliste",
+		"mention": "Erwähnt eine Sprachrolle mit einer Nachricht",
+		"minecraft": "Sucht nach dem Namen eines bestimmten Minecraft-Spielers, dessen Namensverlauf oder Skin",
+		"ping": "Gibt dir den Ping des Bots",
+		"prefix": "Ermöglicht dir die Auswahl eines geeigneten Präfixes für deine Sprache(n)",
+		"profile": "Hier findest du den Link zu deinem Crowdin-Profil, wenn es in unserer Datenbank gespeichert ist.",
+		"projects": "Gibt dir Links und Informationen zu allen Übersetzungsprojekten, die wir auf dem Server unterstützen",
+		"quote": "Zeigt dir ein lustiges/schräges/weises Zitat vom Server an",
+		"rank": "Zeigt dir den aktuellen XP-Wert für dich selbst oder einen bestimmten Benutzer an",
 		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
-		"translate": "Gives you useful information on how to translate the bot",
-		"verify": "Verifies and gives you your corresponding roles",
-		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+		"translate": "Gibt dir nützliche Informationen, wie du den Bot übersetzen kannst",
+		"verify": "Verifiziert dich und gibt dir deine entsprechenden Rollen",
+		"poll": "Erstellt oder verwaltet Umfragen auf dem Server. Verfügbar für Hypixel Korrekturleser und höher"
 	},
 	"options": {
 		"8ball": {
 			"question": {
-				"name": "question",
-				"description": "The question to ask the bot"
+				"name": "frage",
+				"description": "Die Frage an den Bot"
 			}
 		},
 		"levels": {
 			"me": {
-				"name": "me",
-				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
+				"name": "ich",
+				"description": "Ob auf der Seite begonnen werden soll, auf der du erscheinst. Hat Vorrang vor dem Argument \"seite\""
 			},
 			"page": {
-				"name": "page",
-				"description": "The leaderboard page to get"
+				"name": "seite",
+				"description": "Die Ranglistenseite, die angezeigt werden soll"
 			}
 		},
 		"profile": {
 			"user": {
-				"name": "user",
-				"description": "The user to find the profile for. Admin only"
+				"name": "benutzer",
+				"description": "Der Benutzer, dessen Profil gesucht werden soll. Nur für Administratoren"
 			},
 			"profile": {
 				"name": "profil",
-				"description": "The new profile to set for the user. Admin only"
+				"description": "Das neue Profil, das für den Benutzer festgelegt werden soll. Nur für Administratoren"
 			}
 		},
 		"rank": {
 			"user": {
-				"name": "user",
-				"description": "The user to get the rank for"
+				"name": "benutzer",
+				"description": "Der Benutzer, für den der Rang angezeigt werden soll"
 			}
 		},
 		"tag": {
 			"tag": {
 				"name": "tag",
-				"description": "The tag you want to see",
+				"description": "Der Tag, den du sehen willst",
 				"choices": {
-					"invite": "Invite link to the server",
-					"hypixel": "Hypixel links",
-					"guidelines": "Hypixel project guidelines",
-					"proofreader": "How to get proofreader on the Hypixel project",
-					"minecraft": "Minecraft Crowdin Project",
-					"quickplay": "Quickplay links",
-					"skyblockaddons": "SkyblockAddons links",
-					"thread": "Discord server thread",
-					"twitter": "Hypixel Translators Community Twitter"
+					"invite": "Einladungslink zu dem Server",
+					"hypixel": "Hypixel-Links",
+					"guidelines": "Hypixel-Projektrichtlinien",
+					"proofreader": "Wie man ein Korrekturleser für das Hypixel-Projekt wird",
+					"minecraft": "Minecraft-Crowdin-Projekt",
+					"quickplay": "Quickplay-Links",
+					"skyblockaddons": "SkyblockAddons-Links",
+					"thread": "Discord-Server-Thread",
+					"twitter": "Hypixel Translators Community-Twitter"
 				}
 			},
 			"target": {
-				"name": "target",
-				"description": "The user to mention with this tag"
+				"name": "ziel",
+				"description": "Der Benutzer, der mit diesem Tag erwähnt werden soll"
 			}
 		},
 		"help": {
 			"command": {
-				"name": "command",
-				"description": "The command to get information for"
+				"name": "befehl",
+				"description": "Der Befehl für den du Informationen haben willst"
 			},
 			"page": {
-				"name": "page",
-				"description": "The help page to open",
+				"name": "seite",
+				"description": "Die zu öffnende Hilfeseite",
 				"choices": [
 					"Hauptseite",
 					"Werkzeuge & Hilfsmittel",
-					"Information commands"
+					"Informationsbefehle"
 				]
 			}
 		},
 		"hypixelstats": {
 			"username": {
-				"name": "username",
-				"description": "The IGN of the user to get statistics for. Can also be a UUID"
+				"name": "benutzername",
+				"description": "Der IGN des Benutzers, für den Statistiken abgerufen werden sollen. Kann auch eine UUID sein"
 			},
 			"user": {
-				"name": "user",
+				"name": "benutzer",
 				"description": "The server member to get statistics for. Only works if the user has verified themselves"
 			}
 		},
 		"hypixelunverify": {
 			"user": {
-				"name": "user",
-				"description": "The user to unverify. Admin only"
+				"name": "benutzer",
+				"description": "Der zu entverifizierende Benutzer. Nur für Administratoren"
 			}
 		},
 		"hypixelverify": {
 			"username": {
-				"name": "username",
-				"description": "Your Hypixel IGN. Must have your Discord linked in-game"
+				"name": "benutzername",
+				"description": "Dein Hypixel IGN. Du musst dein Discord im Spiel verlinkt haben"
 			},
 			"user": {
-				"name": "user",
-				"description": "The user to verify. Admin only"
+				"name": "benutzer",
+				"description": "Der zu verifizierende Benutzer. Nur für Administratoren"
 			}
 		},
 		"language": {
 			"set": {
-				"name": "set",
-				"description": "Sets your language to a new one. Leave empty to see your current language",
+				"name": "setze",
+				"description": "Setzt deine Sprache auf eine neue Sprache. Leer lassen, um die aktuelle Sprache anzuzeigen",
 				"options": {
 					"language": {
 						"name": "sprache",
-						"description": "The new language you want to set"
+						"description": "Die neue Sprache, die du einstellen willst"
 					}
 				}
 			},
 			"reset": {
-				"name": "reset",
-				"description": "Resets your language"
+				"name": "zurücksetzen",
+				"description": "Setzt deine Sprache zurück"
 			},
 			"list": {
-				"name": "list",
-				"description": "Gives you a list of all the available languages"
+				"name": "liste",
+				"description": "Zeigt dir eine Liste aller derzeit verfügbaren Sprachen an"
 			},
 			"stats": {
-				"name": "stats",
-				"description": "Gives you usage statistics for a given language. Admin only",
+				"name": "statistiken",
+				"description": "Zeigt dir Nutzungsstatistiken für eine bestimmte Sprache an. Nur für Administratoren",
 				"options": {
 					"language": {
 						"name": "sprache",
-						"description": "The language to get usage statistics for"
+						"description": "Die Sprache, für die Nutzungsstatistiken abgerufen werden sollen"
 					}
 				}
 			}
@@ -179,33 +179,33 @@
 		"mention": {
 			"language": {
 				"name": "sprache",
-				"description": "The language to mention"
+				"description": "Die zu erwähnende Sprache"
 			},
 			"role": {
-				"name": "role",
-				"description": "The role to mention",
+				"name": "rolle",
+				"description": "Die zu erwähnende Rolle",
 				"choices": {
-					"all": "Both roles",
-					"translator": "Translator",
-					"proofreader": "Proofreader"
+					"all": "Beide Rollen",
+					"translator": "Übersetzer",
+					"proofreader": "Korrekturleser"
 				}
 			},
 			"message": {
-				"name": "message",
-				"description": "The message to send with the mention"
+				"name": "nachricht",
+				"description": "Die mit der Erwähnung zu versendende Nachricht"
 			}
 		},
 		"minecraft": {
 			"history": {
-				"name": "history",
+				"name": "verlauf",
 				"description": "Shows a user's name history. You must provide at least 1 parameter if your MC account is not linked",
 				"options": {
 					"username": {
-						"name": "username",
+						"name": "benutzername",
 						"description": "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked"
 					},
 					"user": {
-						"name": "user",
+						"name": "benutzer",
 						"description": "The server member to get name history for. Only works if the user has verified themselves"
 					}
 				}
@@ -215,11 +215,11 @@
 				"description": "Shows a user's skin. You must provide at least 1 parameter if your MC account is not linked",
 				"options": {
 					"username": {
-						"name": "username",
+						"name": "benutzername",
 						"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
 					},
 					"user": {
-						"name": "user",
+						"name": "benutzer",
 						"description": "The server member to get skin for. Only works if the user has verified themselves"
 					}
 				}
@@ -227,82 +227,82 @@
 		},
 		"prefix": {
 			"flags": {
-				"name": "flags",
-				"description": "The flags to be applied to your prefix, separated with spaces"
+				"name": "flaggen",
+				"description": "Die Flaggen, die auf dein Präfix angewendet werden sollen, getrennt durch Leerzeichen"
 			}
 		},
 		"quote": {
 			"get": {
-				"name": "get",
-				"description": "Get a random/specific quote",
+				"name": "erhalten",
+				"description": "Erhalte ein zufällig/spezifisches Zitat",
 				"options": {
 					"index": {
 						"name": "index",
-						"description": "The index of the quote you want to see"
+						"description": "Der Index des Zitats, das du sehen willst"
 					}
 				}
 			},
 			"add": {
-				"name": "add",
-				"description": "Add a new quote. Staff only",
+				"name": "hinzufügen",
+				"description": "Füge ein neues Zitat hinzu. Nur für Administratoren",
 				"options": {
 					"quote": {
 						"name": "zitat",
-						"description": "The quote you want to add"
+						"description": "Das Zitat, das du hinzufügen möchtest"
 					},
 					"author": {
-						"name": "author",
-						"description": "The author of this quote"
+						"name": "autor",
+						"description": "Der Autor des Zitats"
 					},
 					"url": {
 						"name": "url",
 						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
 					},
 					"image": {
-						"name": "image",
+						"name": "bild",
 						"description": "The URL of the image to be included with this quote. Has priority over URL's image if provided"
 					}
 				}
 			},
 			"edit": {
-				"name": "edit",
-				"description": "Edit a quote. Staff only",
+				"name": "bearbeiten",
+				"description": "Bearbeite ein Zitat. Nur für Administratoren",
 				"options": {
 					"index": {
 						"name": "index",
-						"description": "The index of the quote to edit"
+						"description": "Der Index des zu bearbeitenden Zitats"
 					},
 					"quote": {
 						"name": "zitat",
-						"description": "The new quote"
+						"description": "Das neue Zitat"
 					}
 				}
 			},
 			"delete": {
-				"name": "delete",
-				"description": "Delete a quote. Staff only",
+				"name": "löschen",
+				"description": "Lösche ein Zitat. Nur für Administratoren",
 				"options": {
 					"index": {
 						"name": "index",
-						"description": "The index of the quote to delete"
+						"description": "Der Index des zu löschenden Zitats"
 					}
 				}
 			},
 			"link": {
 				"name": "link",
-				"description": "Link a quote to a message. Staff only",
+				"description": "Verlinke ein Zitat mit einer Nachricht. Nur für Administratoren",
 				"options": {
 					"index": {
 						"name": "index",
-						"description": "The index of the quote to link"
+						"description": "Der Index des zu verlinkenden Zitats"
 					},
 					"url": {
 						"name": "url",
-						"description": "The URL of the message to link this quote to"
+						"description": "Die URL der Nachricht, mit der dieses Zitat verknüpft werden soll"
 					},
 					"image": {
-						"name": "image",
-						"description": "Whether or not to attach this message's image to the quote"
+						"name": "bild",
+						"description": "Ob das Bild dieser Nachricht an das Zitat angehängt werden soll oder nicht"
 					}
 				}
 			}
@@ -310,85 +310,85 @@
 		"verify": {
 			"url": {
 				"name": "url",
-				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section"
+				"description": "Die URL zu deinem Crowdin-Profil. Dein Discord-Tag muss in deinem \"Über mich\"-Bereich stehen"
 			},
 			"user": {
-				"name": "user",
-				"description": "The user to manually verify. Admin only"
+				"name": "benutzer",
+				"description": "Der manuell zu verifizierende Benutzer. Nur für Administratoren"
 			}
 		},
 		"poll": {
 			"start": {
 				"name": "start",
-				"description": "Starts a poll in the current channel",
+				"description": "Startet eine Umfrage im aktuellen Kanal",
 				"options": {
 					"question": {
-						"name": "question",
-						"description": "The question of the poll"
+						"name": "frage",
+						"description": "Die Frage der Umfrage"
 					},
 					"option1": {
 						"name": "option1",
-						"description": "The first option in the poll"
+						"description": "Die erste Option in der Umfrage"
 					},
 					"option2": {
 						"name": "option2",
-						"description": "The second option in the poll"
+						"description": "Die zweite Option in der Umfrage"
 					},
 					"time": {
-						"name": "time",
+						"name": "zeit",
 						"description": "How long before this poll is automatically closed and results are published (in hours)"
 					},
 					"option3": {
 						"name": "option3",
-						"description": "The third option in the poll"
+						"description": "Die dritte Option in der Umfrage"
 					},
 					"option4": {
 						"name": "option4",
-						"description": "The fourth option in the poll"
+						"description": "Die vierte Option in der Umfrage"
 					},
 					"option5": {
 						"name": "option5",
-						"description": "The fifth option in the poll"
+						"description": "Die fünfte Option in der Umfrage"
 					},
 					"option6": {
 						"name": "option6",
-						"description": "The sixth option in the poll"
+						"description": "Die sechste Option in der Umfrage"
 					},
 					"option7": {
 						"name": "option7",
-						"description": "The seventh option in the poll"
+						"description": "Die siebte Option in der Umfrage"
 					},
 					"option8": {
 						"name": "option8",
-						"description": "The eigth option in the poll"
+						"description": "Die achte Option in der Umfrage"
 					}
 				}
 			},
 			"end": {
-				"name": "end",
-				"description": "End a poll given its message ID",
+				"name": "ende",
+				"description": "Beende eine Umfrage mit der Nachrichten-ID",
 				"options": {
 					"message_id": {
-						"name": "message_id",
-						"description": "The ID of the message containing the poll"
+						"name": "nachricht_id",
+						"description": "Die ID der Nachricht, die die Umfrage enthält"
 					},
 					"channel_id": {
-						"name": "channel_id",
-						"description": "The ID of the channel the poll was posted in, if not the current one"
+						"name": "kanal_id",
+						"description": "Die ID des Kanals, in dem die Umfrage gepostet wurde, wenn es nicht der aktuelle ist"
 					}
 				}
 			},
 			"show": {
-				"name": "show",
+				"name": "zeige",
 				"description": "Shows the current results of a poll without ending it. Only available to the creator of the poll",
 				"options": {
 					"message_id": {
-						"name": "message_id",
-						"description": "The ID of the message containing the poll"
+						"name": "nachricht_id",
+						"description": "Die ID der Nachricht, die die Umfrage enthält"
 					},
 					"channel_id": {
-						"name": "channel_id",
-						"description": "The ID of the channel the poll was posted in, if not the current one"
+						"name": "kanal_id",
+						"description": "Die ID des Kanals, in dem die Umfrage gepostet wurde, wenn es nicht der aktuelle ist"
 					}
 				}
 			}
