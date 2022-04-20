@@ -1,7 +1,7 @@
 {
 	"moduleName": "Sprache",
 	"changedToTitle": "Deine Sprache wurde auf Deutsch geändert!",
-	"resetTitle": "Reset your language!",
+	"resetTitle": "Deine Sprache wurde zurückgesetzt!",
 	"didntChange": "Deine Sprache hat sich nicht verändert",
 	"alreadyThis": "Dies geschah, weil du eine Sprache gewählt hast, die bereits deine Sprachpräferenz war.",
 	"notSet": "Dies geschah, weil du zu Beginn keine Sprache festgelegt hast.",
