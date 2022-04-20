@@ -334,7 +334,12 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 			.shift()
 		if (highestRole) {
 			const lang = await languages.findOne({ name: highestRole.name.replace(" Translator", "").replace(" Proofreader", "") })
-			if (lang) await usersColl.updateOne({ id: member.id, $or: [{ lang: "en" }, { lang: { $exists: false } }] }, { $set: { lang: lang.code } })
+			if (lang) {
+				await usersColl.updateOne(
+					{ id: member.id, $or: [{ lang: "en" }, { lang: { $exists: false } }] },
+					{ $set: { lang: lang.id.replace("-", "_") } },
+				)
+			}
 		}
 	}
 
