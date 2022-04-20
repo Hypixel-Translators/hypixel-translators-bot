@@ -1,8 +1,0 @@
-{
-	"errorNoPing": "Não tens o cargo de revisor desse idioma, ",
-	"errorNoPingPr": "logo não o podes mencionar.",
-	"errorNoPingTr": "logo não podes mencionar o seu cargo de tradutor.",
-	"errorNoPingAll": "logo não podes mencionar o idioma todo.",
-	"errorNoPingDisclaimer": "Se precisares mesmo de o fazer, contacta o dono ou o administrador do servidor.",
-	"success": "Mensagem enviada com sucesso!"
-}
