@@ -1,0 +1,81 @@
+{
+	"staffDm": {
+		"confirmSend": "Se confirmares, quaisquer mensagens que enviares aqui nas próximas 48 horas serão enviadas à staff sem qualquer confirmação.",
+		"noConfirmWarn": "Quaisquer mensagens que enviares aqui nas próximas 48 horas serão enviadas à staff sem qualquer confirmação.",
+		"attachmentsWarn": "Os ficheiros também serão incluídos.",
+		"attachmentsSent": "Ficheiros enviados",
+		"attachmentSent": "Ficheiro enviado",
+		"confirmation": "Tens a certeza de que queres enviar esta mensagem à staff?",
+		"messageSent": "Mensagem enviada à staff",
+		"dmCancelled": "Esta mensagem não será enviada.",
+		"resendInfo": "Se ainda quiseres falar com a staff, reenvia-a e clica no ✅ para confirmar."
+	},
+	"error": "Erro",
+	"errors": {
+		"noCommand": "Esse comando não existe!",
+		"noUser": "Não adicionaste um utilizador!",
+		"noLang": "Não adicionaste um idioma!",
+		"falseUser": "Não foi possível encontrar esse utilizador!",
+		"falseFlag": "Não foi possível encontrar essa bandeira!",
+		"falseLang": "Não foi possível encontrar esse idioma!",
+		"falseRole": "Não foi possível encontrar esse cargo!",
+		"falseUUID": "Não foi possível encontrar um jogador com esse UUID!",
+		"noPlayer": "Esse jogador nunca entrou no Hypixel!",
+		"notVerified": "Esse utilizador ainda não conectou a sua conta no Hypixel!",
+		"disabled": "Este comando foi temporariamente desativado.",
+		"noAccess": "Não tens permissão para executar esse comando!",
+		"noPermission": "Não tens permissão para executar esse comando neste canal!",
+		"apiError": "Alguma coisa correu mal ao contactar a API!",
+		"wrongLink": "Link errado!"
+	},
+	"roles": {
+		"noLevel": "Precisas de ter, no mínimo, o nível %%level%% no chat para receber este cargo! Usa o comando %%command%% para veres o teu nível no canal %%channel%%.",
+		"successGive": "Recebeste o cargo %%role%%!",
+		"successTake": "Ficaste sem o cargo %%role%%!"
+	},
+	"cooldown": "Tempo de espera",
+	"timeLeft": "Vais poder voltar a usar o comando %%command%% %%timestamp%%.",
+	"linkCorrectionDesc": "Da próxima vez, muda o teu link para o formato %%format%%.",
+	"correctLink": "Aqui tens o link certo:",
+	"wrongStringURL": "O link que enviaste é um link para o editor e não para a string em si!",
+	"example": "Clica no botão mostrado na imagem abaixo para obteres o link para a string correto. Ele deve ser parecido com isto: %%url%%",
+	"reminderLang": "Não te esqueças de também alterar o teu link para o formato %%format%%.",
+	"tip": "Dica",
+	"tips": {
+		"ib": "Já experimentaste o idioma Inhale Banana? Muda o teu idioma usando %%langIb%% para experimentares!",
+		"translators": "Precisamos de tradutores! Descobre como te podes tornar num executando %%translate%%.",
+		"prefix": "Queres ter um prefixo fixe no teu apelido? Faz %%prefix%% no %%bots%% e segue as instruções! Disponível para todos os tradutores do Hypixel.",
+		"enen": "Não te esqueças de mudar os links de strings para en-en!",
+		"xp": "À medida que vais falando nos chats, vais ganhando quantidades de XP aleatórias a cada minuto, as quais te farão subir de nível eventualmente.",
+		"guide": "Sabias que temos um guia para te ajudar a começar com o Crowdin, disponível para todos os tradutores? Recomendamos que o leias em %%gettingStarted%%, tem boas dicas!",
+		"twitter": "Já seguiste a nossa conta do Twitter? Podes fazê-lo em %%twitter%%!",
+		"rulesInfo": "%%rules%% e %%serverInfo%% têm toda a informação que precisas de saber sobre este servidor!",
+		"fixTranslation": "Encontraste um erro numa tradução? Entra em contacto com um revisor do teu idioma ou informa os tradutores no canal das traduções apropriado.",
+		"pinnedInfo": "Sabias que a maioria dos canais têm informação importante afixada? Devias ver as mensagens afixadas sempre que estás num!",
+		"hypixelStats": "Podes ver informações sobre um jogador específico no Hypixel usando %%hypixelstats%%!",
+		"languageStats": "Sabias que podes ver estatísticas para qualquer idioma em todos os nossos projetos? Executa %%languagestats%%!",
+		"rolesChange": "Recebeste novos cargos no Crowdin ou entraste num dos nossos projetos recentemente? Executa %%verify%% para atualizares os teus cargos!",
+		"botTranslated": "Sabias que o nosso bot está disponível em vários idiomas? Experimenta executar %%langList%% para veres todos os idiomas que temos disponíveis e pode ser que encontres o teu!",
+		"botUpdates": "Publicamos as principais atualizações e notícias sobre o bot no canal %%botUpdates%%, passa por lá!",
+		"moreTips": "Precisamos de mais dicas! Envia-as usando %%feedback%%."
+	},
+	"pagination": {
+		"first": "Primeira página",
+		"previous": "Página anterior",
+		"next": "Página seguinte",
+		"last": "Última página",
+		"confirm": "Confirmar",
+		"cancel": "Cancelar",
+		"page": "Página %%number%%/%%total%%",
+		"notYours": "Não podes interagir com este menu! Executa %%command%% para fazeres isto.",
+		"timeOut": "Este menu foi desativado. Se o quiseres usar outra vez, executa %%command%%."
+	},
+	"region": {
+		"dateLocale": "pt-PT",
+		"timeZone": "Europe/Lisbon"
+	},
+	"numberStrings": {
+		"thousand": "k",
+		"million": "M"
+	}
+}
