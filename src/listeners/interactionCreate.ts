@@ -10,7 +10,7 @@ import { client } from "../index"
 import handleAutocompleteInteractions from "../interactions/autocomplete"
 import handleButtonInteractions from "../interactions/buttons"
 import { db, cancelledEvents } from "../lib/dbclient"
-import { arrayEqual, transformDiscordLocale, generateTip, type Stats, parseToNumberString } from "../lib/util"
+import { transformDiscordLocale, generateTip, type Stats, parseToNumberString, checkVariables } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
@@ -126,10 +126,7 @@ client.on("interactionCreate", async interaction => {
 					enStrings = enStrings[pathPart]
 				} else {
 					string = strings[pathPart]
-					if (
-						!string ||
-						(typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g)?.sort(), enStrings[pathPart].match(/%%\w+%%/g)?.sort()))
-					) {
+					if (!string || (typeof string === "string" && !checkVariables(string, enStrings[pathPart]))) {
 						string = enStrings[pathPart] // If the string hasn't been added yet or if the variables changed
 						if (!string) {
 							string = null // In case of fire
