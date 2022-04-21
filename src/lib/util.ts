@@ -72,6 +72,22 @@ export function checkVariables(firstString: string, secondString: string) {
 	return arrayEqual(match(firstString), match(secondString))
 }
 
+export async function closeConnection(uuid: string) {
+	//* Check if connection exists. If it does, remove connection from connection list.
+	const index = activeConnections.indexOf(uuid)
+	if (~index) activeConnections.splice(index, 1)
+
+	//* Close browser if connection list is empty.
+	if (!activeConnections.length) {
+		browserClosing = true
+		await browser!.close()
+		browser = null
+		clearInterval(interval!)
+		interval = null
+		browserClosing = false
+	}
+}
+
 export function createButtonControls(
 	pageIndex: number,
 	pages: unknown[],
