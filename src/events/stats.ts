@@ -20,15 +20,15 @@ export async function stats(manual = false) {
 }
 
 export async function updateProjectStatus(projectId: number) {
-	const channel = client.channels.cache.find(c => (c as TextChannel).name === `${mongoProject.shortName}-language-status`) as TextChannel,
+	const projects = db.collection<CrowdinProject>("crowdin"),
+		mongoProject = (await projects.findOne({ id: projectId }))!,
+		channel = client.channels.cache.find(c => (c as TextChannel).name === `${mongoProject.shortName}-language-status`) as TextChannel,
 		messages = await channel.messages.fetch(),
 		// Only ping if last ping was more than 90 minutes ago
 		shouldPing =
 			(messages.filter(m => m.mentions.roles.has(ids.roles.crowdinUpdates)).first()?.createdTimestamp ?? Infinity) > Date.now() - 90 * 60 * 1000
 	if (projectId === ids.projects.hypixel) checkBuild(shouldPing)
 	const languages = await db.collection<MongoLanguage>("languages").find().toArray(),
-		projects = db.collection<CrowdinProject>("crowdin"),
-		mongoProject = (await projects.findOne({ id: projectId }))!,
 		json = await crowdin.translationStatusApi
 			.withFetchAll()
 			.getProjectProgress(projectId)
