@@ -135,7 +135,7 @@ const command: Command = {
 				new ButtonBuilder({
 					style: ButtonStyle.Success,
 					label: "End LOA",
-					emoji: { name: "✅" },
+					emoji: "✅",
 					customId: "done",
 				}),
 			],

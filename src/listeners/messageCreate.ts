@@ -170,13 +170,13 @@ client.on("messageCreate", async message => {
 					new ButtonBuilder({
 						style: ButtonStyle.Success,
 						customId: "confirm",
-						emoji: { name: "✅" },
+						emoji: "✅",
 						label: getGlobalString("pagination.confirm"),
 					}),
 					new ButtonBuilder({
 						style: ButtonStyle.Danger,
 						customId: "cancel",
-						emoji: { name: "❎" },
+						emoji: "❎",
 						label: getGlobalString("pagination.cancel"),
 					}),
 				],

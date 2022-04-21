@@ -66,13 +66,13 @@ const command: Command = {
 							customId: "confirm",
 							style: ButtonStyle.Success,
 							label: getString("pagination.confirm", { file: "global" }),
-							emoji: { name: "✅" },
+							emoji: "✅",
 						}),
 						new ButtonBuilder({
 							customId: "cancel",
 							style: ButtonStyle.Danger,
 							label: getString("pagination.cancel", { file: "global" }),
-							emoji: { name: "❎" },
+							emoji: "❎",
 						}),
 					],
 				}),
@@ -233,14 +233,14 @@ const command: Command = {
 			const confirmButton = new ButtonBuilder({
 					style: ButtonStyle.Success,
 					customId: "confirm",
-					emoji: { name: "✅" },
+					emoji: "✅",
 					label: getString("pagination.confirm", { file: "global" }),
 					disabled: true,
 				}),
 				cancelButton = new ButtonBuilder({
 					style: ButtonStyle.Danger,
 					customId: "cancel",
-					emoji: { name: "❎" },
+					emoji: "❎",
 					label: getString("pagination.cancel", { file: "global" }),
 				})
 
