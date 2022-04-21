@@ -47,38 +47,29 @@ const activeConnections: string[] = []
 
 // #region Functions
 
-export function arrayEqual(a: unknown, b: unknown) {
-	if (a === b) return true
+export function checkVariables(firstString: string, secondString: string) {
+	const match = (string: string) =>
+			Array.from(string.matchAll(/%%(\w+)%%|{(\w+)(, \w+(, .+)?)?}/g))
+				.map(el => el[1] ?? el[2])
+				.sort(),
+		arrayEqual = (a: unknown, b: unknown) => {
+			if (a === b) return true
 
-	if (!Array.isArray(a) || !Array.isArray(b)) return false
+			if (!Array.isArray(a) || !Array.isArray(b)) return false
 
-	// .concat() to not mutate arguments
-	let arr1 = a.concat().sort(),
-		arr2 = b.concat().sort()
+			// .concat() to not mutate arguments
+			let arr1 = a.concat().sort(),
+				arr2 = b.concat().sort()
 
-	// Remove duplicated values
-	arr1 = arr1.filter((item: string, index: number) => arr1.indexOf(item) === index)
-	arr2 = arr2.filter((item: string, pos: number) => arr2.indexOf(item) === pos)
+			// Remove duplicated values
+			arr1 = arr1.filter((item: string, index: number) => arr1.indexOf(item) === index)
+			arr2 = arr2.filter((item: string, pos: number) => arr2.indexOf(item) === pos)
 
-	for (let i = 0; i < arr1.length; i++) if (arr1[i] !== arr2[i]) return false
+			for (let i = 0; i < arr1.length; i++) if (arr1[i] !== arr2[i]) return false
 
-	return true
-}
-
-export async function closeConnection(uuid: string) {
-	//* Check if connection exists. If it does, remove connection from connection list.
-	const index = activeConnections.indexOf(uuid)
-	if (~index) activeConnections.splice(index, 1)
-
-	//* Close browser if connection list is empty.
-	if (!activeConnections.length) {
-		browserClosing = true
-		await browser!.close()
-		browser = null
-		clearInterval(interval!)
-		interval = null
-		browserClosing = false
-	}
+			return true
+		}
+	return arrayEqual(match(firstString), match(secondString))
 }
 
 export function createButtonControls(
