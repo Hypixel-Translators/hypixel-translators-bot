@@ -128,7 +128,7 @@ client.on("messageCreate", async message => {
 							"reminderLang",
 							{
 								variables: {
-									extension: "`crowdin.com/translate/.../.../en-en#`",
+									format: "`crowdin.com/translate/.../.../en-en#`",
 								},
 							},
 						)}`,
