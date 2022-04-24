@@ -38,7 +38,7 @@ client.on("ready", async () => {
 	if (!db) return
 	console.log(`Logged in as ${client.user.tag}!`)
 	const guild = client.guilds.cache.get(ids.guilds.main)!,
-		globalCommands = await client.application.commands.fetch(),
+		globalCommands = await client.application.commands.fetch({ withLocalizations: true }),
 		botDev = guild.channels.cache.get(ids.channels.botDev) as TextChannel
 
 	// Set guild commands - these don't need checks since they update instantly
