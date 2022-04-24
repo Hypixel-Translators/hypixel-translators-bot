@@ -33,7 +33,7 @@ export async function updateProjectStatus(projectId: number) {
 			.withFetchAll()
 			.getProjectProgress(projectId)
 			.catch(err => console.error(`Crowdin API is down, couldn't update ${mongoProject.name} language statistics. Here's the error:`, err))
-	if (!json?.data) return console.error("We got no data from the API when trying to update Hypixel! Here's the response:\n", json)
+	if (!json?.data) return console.error("We got no data from the API when trying to update language stats! Here's the response:\n", json)
 	const langStatus: LanguageStatus[] = json.data
 			.map(status => {
 				Object.defineProperty(status, "language", {
