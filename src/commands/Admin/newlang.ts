@@ -102,7 +102,7 @@ const command: Command = {
 				},
 			],
 			pfOverwrites = Array.from(overwrites)
-		pfOverwrites.splice(3, 1)
+		pfOverwrites.splice(2, 1)
 		const category = await interaction.guild!.channels.create(`${country} ${emoji}`, {
 				type: ChannelType.GuildCategory,
 				permissionOverwrites: overwrites,
