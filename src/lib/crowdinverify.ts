@@ -254,7 +254,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 	const joinedProjects: string[] = []
 
 	projects
-		.filter(project => Object.keys(projectIDs).includes(project.id) && project.user_role !== "pending")
+		.filter(project => Object.keys(projectIDs).includes(project.id))
 		.forEach(async project => {
 			if (!project.contributed_languages?.length && !["owner", "manager"].includes(project.user_role) && projectIDs[project.id].langRoles)
 				return removeProjectRoles("Hypixel", member)
