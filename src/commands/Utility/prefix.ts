@@ -228,7 +228,6 @@ const command: Command = {
 					}),
 				)
 			}
-			console.log(rows)
 
 			const confirmButton = new ButtonBuilder({
 					style: ButtonStyle.Success,
@@ -297,7 +296,7 @@ const command: Command = {
 						ephemeral: true,
 					}))
 				}
-				if (buttonInteraction.customId !== "cancel") confirmButton.setDisabled(true)
+				if (buttonInteraction.customId !== "cancel") confirmButton.setDisabled(false)
 				if (buttonInteraction.customId === "confirm") {
 					components.forEach(buttons => buttons.setDisabled())
 					collector.stop("responded")
