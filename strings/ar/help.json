@@ -9,9 +9,8 @@
 	"commandInfoFor": "معلومات الأوامر لـ ",
 	"staffOnly": ". هذا الأمر متاح فقط للموظفين وبالتالي هذه المعلومات غير مرئية.\nفضلاً تواصل مع موظف اذا كنت تعتقد ان هناك خطأ.",
 	"inDev": "هذا الأمر قيد التطوير حاليا وسوف يكون متاح في وقت لاحق!",
-	"seconds": " ثواني",
-	"second": "ثانية",
-	"minutes": "دقيقة",
+	"seconds": "{number, plural, one {# second} other {# seconds}}",
+	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "فترة الاستراحة",
 	"8ball": {
 		"description": "الكرة السحرية التي سوف تجيب عن جميع اسئلتك."
