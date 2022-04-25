@@ -1,8 +1,8 @@
 {
 	"moduleName": "Статистики на Езика",
 	"statsAll": "Ето статистиките за %%language%% език на всички проекти който до момента поддържаме.",
-	"translated": "%%percentage%%% преведено (%%translated%%/%%total%% линии)",
-	"approved": "%%percentage%%% одобрени (%%approved%%/%%total%% линии)",
+	"translated": "%%percentage%%% translated (%%translated%%/{total, plural, one {# string} other {# strings}})",
+	"approved": "%%percentage%%% approved (%%approved%%/{total, plural, one {# string} other {# strings}})",
 	"languages": {
 		"ar": "Арабски",
 		"bc": "Biscuitish",
