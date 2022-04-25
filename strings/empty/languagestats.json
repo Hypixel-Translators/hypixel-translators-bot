@@ -1,8 +1,8 @@
 {
 	"moduleName": "crwdns1012:0crwdne1012:0",
 	"statsAll": "crwdns1014:0%%language%%crwdne1014:0",
-	"translated": "crwdns1016:0%%percentage%%crwdnd1016:0%%translated%%crwdnd1016:0%%total%%crwdne1016:0",
-	"approved": "crwdns1018:0%%percentage%%crwdnd1018:0%%approved%%crwdnd1018:0%%total%%crwdne1018:0",
+	"translated": "crwdns1016:0total={total}crwdne1016:0",
+	"approved": "crwdns1018:0total={total}crwdne1018:0",
 	"languages": {
 		"ar": "crwdns1020:0crwdne1020:0",
 		"bc": "crwdns1024:0crwdne1024:0",
