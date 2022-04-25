@@ -1,8 +1,4 @@
 {
-	"errorNoPing": "Tu n'as pas le rôle de traducteur de cette langue, ",
-	"errorNoPingPr": "donc tu ne peux pas le mentionner.",
-	"errorNoPingTr": "donc tu ne peux pas mentionner son rôle de translator.",
-	"errorNoPingAll": "donc tu ne peux pas mentionner toute la langue.",
-	"errorNoPingDisclaimer": "Contacte le propriétaire ou 'administrateur du serveur si tu en as vraiment besion.",
+	"errorNoPing": "You don't have that language's proofreader role, {role, select, translator {so you can't mention its translator role} proofreader {so you can't mention it} other {so you can't mention the entire language}}. Contact a server administrator if you really need to.",
 	"success": "Message sent successfully!"
 }
