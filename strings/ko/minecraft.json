@@ -3,12 +3,8 @@
 	"history": {
 		"firstName": "이름",
 		"nameHistoryFor": "%%username%%의 이름 히스토리",
-		"userChangedName": "%%username%%은 본인의 이름을 %%number%%번 바꿨습니다.",
-		"youChangedName": "이름을 %%number%%번 바꿨습니다.",
-		"userChangedName1": "%%username%%은 이름을 1번 바꿨습니다.",
-		"youChangedName1": "이름을 1번 바꿨습니다.",
-		"userNeverChanged": "%%username%%은 한번도 이름을 바꾼 적이 없습니다.",
-		"youNeverChanged": "한번도 이름을 바꾼 적이 없습니다."
+		"youChangedName": "You have {number, plural, =0 {never changed your name} one {changed your name # time} other {changed your name # times}}.",
+		"userChangedName": "%%username%% has {number, plural, =0 {never changed their name} one {changed their name # time} other {changed their name # times}}."
 	},
 	"skin": {
 		"yourSkin": "본인의 스킨입니다.",
