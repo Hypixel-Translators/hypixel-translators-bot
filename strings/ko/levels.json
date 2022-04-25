@@ -2,6 +2,6 @@
 	"moduleName": "XP 리더보드",
 	"pageTitle": "XP 리더보드입니다!",
 	"level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
-	"youIndicator": "나",
-	"unranked": "#%%rank%% 랭크되지 않음."
+	"unranked": "#%%rank%% 랭크되지 않음.",
+	"youIndicator": "나"
 }
