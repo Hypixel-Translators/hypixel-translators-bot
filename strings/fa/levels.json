@@ -2,6 +2,6 @@
 	"moduleName": "لیدربورد تجربۀ افراد",
 	"pageTitle": "این لیدربورد تجربۀ افراد است!",
 	"level": "#%%rank%% | سطح %%level%% | تجربه: %%xp%%",
-	"youIndicator": "شما",
-	"unranked": "#%%rank%% بدون رتبه"
+	"unranked": "#%%rank%% بدون رتبه",
+	"youIndicator": "شما"
 }
