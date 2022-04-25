@@ -1,8 +1,4 @@
 {
-	"errorNoPing": "Du besitzt die Proofreader Rolle für diese Sprache nicht, ",
-	"errorNoPingPr": "du kannst es nicht erwähnen.",
-	"errorNoPingTr": "also kannst du seine Rolle als Übersetzer nicht erwähnen.",
-	"errorNoPingAll": "also kannst du nicht die gesamte Sprache erwähnen.",
-	"errorNoPingDisclaimer": "Kontaktiere den Server Besitzer oder Administrator, falls du wirklich Hilfe benötigst.",
+	"errorNoPing": "You don't have that language's proofreader role, {role, select, translator {so you can't mention its translator role} proofreader {so you can't mention it} other {so you can't mention the entire language}}. Contact a server administrator if you really need to.",
 	"success": "Nachricht erfolgreich gesendet!"
 }
