@@ -3,12 +3,8 @@
 	"history": {
 		"firstName": "Първо име",
 		"nameHistoryFor": "История на имената на %%username%%",
-		"userChangedName": "%%username%% е променил името си %%number%% пъти.",
-		"youChangedName": "Вие сте променили името си %%number%% пъти.",
-		"userChangedName1": "%%username%% е променил името си 1 път.",
-		"youChangedName1": "Вие сте променили името си 1 път.",
-		"userNeverChanged": "%%username%% никога не е променял името си.",
-		"youNeverChanged": "Вие никога не сте променяли името си."
+		"youChangedName": "You have {number, plural, =0 {never changed your name} one {changed your name # time} other {changed your name # times}}.",
+		"userChangedName": "%%username%% has {number, plural, =0 {never changed their name} one {changed their name # time} other {changed their name # times}}."
 	},
 	"skin": {
 		"yourSkin": "Ето го skin-а Ви!",
