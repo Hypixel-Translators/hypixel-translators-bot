@@ -2,6 +2,6 @@
 	"moduleName": "XP-Rangliste",
 	"pageTitle": "Hier ist die XP-Rangliste!",
 	"level": "#%%rank%% | Level %%level%% | XP: %%xp%%",
-	"youIndicator": "DU",
-	"unranked": "#%%rank%% ohne Rang"
+	"unranked": "#%%rank%% ohne Rang",
+	"youIndicator": "DU"
 }
