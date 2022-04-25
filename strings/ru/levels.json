@@ -2,6 +2,6 @@
 	"moduleName": "Таблица лидеров по опыту",
 	"pageTitle": "Вот таблица лидеров по опыту!",
 	"level": "%%rank%% место | %%level%% уровень | %%xp%% опыта",
-	"youIndicator": "ВЫ",
-	"unranked": "%%rank%% место | Ранга нет"
+	"unranked": "%%rank%% место | Ранга нет",
+	"youIndicator": "ВЫ"
 }
