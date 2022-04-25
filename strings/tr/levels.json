@@ -2,6 +2,6 @@
 	"moduleName": "Deneyim Puanı Sıralaması",
 	"pageTitle": "İşte Deneyim Puanı Sıralaması!",
 	"level": "#%%rank%% | Seviye %%level%% | Deneyim Puanı: %%xp%%",
-	"youIndicator": "SEN",
-	"unranked": "#%%rank%% Derecesiz"
+	"unranked": "#%%rank%% Derecesiz",
+	"youIndicator": "SEN"
 }
