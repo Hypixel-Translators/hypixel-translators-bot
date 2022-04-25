@@ -1,8 +1,4 @@
 {
-	"errorNoPing": "คุณไม่มียศผู้พิสูจน์อักษรของภาษานั้น, ",
-	"errorNoPingPr": "ดังนั้นคุณจึงไม่สามารถกล่าวถึงได้",
-	"errorNoPingTr": "คุณจึงไม่สามารถพูดถึงยศนักแปลได้",
-	"errorNoPingAll": "คุณจึงไม่สามารถพูดถึงภาษาทั้งหมดได้",
-	"errorNoPingDisclaimer": "ติดต่อเจ้าของเซิร์ฟเวอร์หรือผู้ดูแลระบบหากคุณต้องการจริงๆ",
+	"errorNoPing": "You don't have that language's proofreader role, {role, select, translator {so you can't mention its translator role} proofreader {so you can't mention it} other {so you can't mention the entire language}}. Contact a server administrator if you really need to.",
 	"success": "Message sent successfully!"
 }
