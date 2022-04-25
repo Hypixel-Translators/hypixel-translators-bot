@@ -2,6 +2,6 @@
 	"moduleName": "XP Ranglista",
 	"pageTitle": "Itt az XP ranglista!",
 	"level": "#%%rank%% | %%level%%. szint | XP: %%xp%%",
-	"youIndicator": "TE",
-	"unranked": "#%%rank%% Rangtalan"
+	"unranked": "#%%rank%% Rangtalan",
+	"youIndicator": "TE"
 }
