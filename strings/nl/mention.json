@@ -1,8 +1,4 @@
 {
-	"errorNoPing": "Je hebt de proeflezerrol van die taal niet, ",
-	"errorNoPingPr": "dus je kunt het niet vermelden.",
-	"errorNoPingTr": "dus je kunt de vertalersrol niet vermelden.",
-	"errorNoPingAll": "dus je kunt de hele taal niet vermelden.",
-	"errorNoPingDisclaimer": "Neem contact op met de servereigenaar of -beheerder als het echt nodig is.",
+	"errorNoPing": "Omdat je geen proeflezer bent voor deze taal, {role, select, translator {kun je de vertalers niet vermelden} proofreader {kun je de proeflezers niet vermelden} other {kun je de hele taal niet vermelden}}. Neem contact op met een administrator als dit echt nodig is.",
 	"success": "Bericht verzonden!"
 }
