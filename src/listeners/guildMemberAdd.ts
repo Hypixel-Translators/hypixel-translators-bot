@@ -48,6 +48,7 @@ export async function generateWelcomeImage(member: GuildMember) {
 	registerFont("assets/Whitney-Book.ttf", { family: "Whitney-Book" })
 	registerFont("assets/NotoSans-Bold.ttf", { family: "NotoSans-Bold" })
 	registerFont("assets/NotoSansKR-Bold.otf", { family: "NotoSans-Bold" })
+	registerFont("assets/TwitterColorEmoji-SVGinOT.ttf", { family: "Twitter Color Emoji" })
 	const canvas = createCanvas(800, 200),
 		ctx = canvas.getContext("2d"),
 		userName = member.displayName
@@ -70,7 +71,7 @@ export async function generateWelcomeImage(member: GuildMember) {
 	// Measure text widths
 	ctx.font = "37.5px Whitney-Book, Arial, sans-serif"
 	const welcome = ctx.measureText("Welcome ")
-	ctx.font = "37.5px Whitney-Bold, NotoSans-Bold, Arial, sans-serif"
+	ctx.font = "37.5px Whitney-Bold, NotoSans-Bold, Twitter Color Emoji, Arial, sans-serif"
 	const name = ctx.measureText(userName)
 	if (name.width > 550 - welcome.width) nameWidth = 550 - welcome.width
 	else nameWidth = name.width
@@ -81,7 +82,7 @@ export async function generateWelcomeImage(member: GuildMember) {
 	ctx.fillText("!", 200 + welcome.width + nameWidth, 92.5)
 
 	// Draw username
-	ctx.font = "37.5px Whitney-Bold, NotoSans-Bold, Arial, sans-serif"
+	ctx.font = "37.5px Whitney-Bold, NotoSans-Bold, Twitter Color Emoji, Arial, sans-serif"
 	ctx.fillText(userName, 200 + welcome.width, 92.5, 550 - welcome.width)
 
 	// Draw member count
