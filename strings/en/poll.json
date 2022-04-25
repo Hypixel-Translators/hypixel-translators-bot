@@ -10,7 +10,7 @@
     "totalVotes": "Total votes",
     "createdOn": "Created on",
     "endingOn": "Ending on",
-    "voteCount": "{number, plural, one {vote} other {votes}}",
+    "voteCount": "{number, plural, one {# vote} other {# votes}}",
     "pollResults": "Poll results",
     "endingWarning": "Watch out! This poll is ending soon",
     "endingWarningDesc": "This poll is scheduled to end on %%fullTime%% (%%relativeTime%%), so you probably don't wanna end it just yet. If you do, confirm using the button below.",
