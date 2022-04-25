@@ -9,9 +9,8 @@
 	"commandInfoFor": "Information de la commande ",
 	"staffOnly": "Cette commande est disponible que pour les administrateurs et donc ses informations sont masquées.\nVeuillez contacter un membre de l'administration si vous pensez qu'il s'agit d'une erreur.",
 	"inDev": "Cette commande est actuellement en cours de développement et sera disponible plus tard!",
-	"seconds": "secondes",
-	"second": "seconde",
-	"minutes": "minutes",
+	"seconds": "{number, plural, one {# second} other {# seconds}}",
+	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "Temps de recharge",
 	"8ball": {
 		"description": "La boule de cristal répondra à toutes vos questions."
