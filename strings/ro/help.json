@@ -9,9 +9,8 @@
 	"commandInfoFor": "Comandă informații pentru ",
 	"staffOnly": "Această comandă este disponibilă doar staff-ului și astfel, informația sa este ascunsă.\nTe rog contactează un membru staff dacă consideri că asta este o eroare.",
 	"inDev": "Această comandă este momentan în dezvoltare și va fi disponibilă la o dată mai îndepărtată!",
-	"seconds": "secunde",
-	"second": "secundă",
-	"minutes": "minute",
+	"seconds": "{number, plural, one {# second} other {# seconds}}",
+	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "Cooldown",
 	"8ball": {
 		"description": "Mingea Magică care îți va răspunde la toate întrebările."
