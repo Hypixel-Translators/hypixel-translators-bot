@@ -145,7 +145,7 @@ client.on("messageCreate", async message => {
 					embed = new EmbedBuilder({
 						color: colors.error,
 						author: { name: getGlobalString("errors.wrongLink") },
-						title: getGlobalString("linkCorrectionDesc", { variables: { extension: "`crowdin.com/translate/hypixel/.../en-en#`" } }),
+						title: getGlobalString("linkCorrectionDesc", { variables: { format: "`crowdin.com/translate/hypixel/.../en-en#`" } }),
 						description: `**${getGlobalString("correctLink")}**\n${correctLink.startsWith("https://") ? correctLink : `https://${correctLink}`}`,
 					})
 				await message.reply({ embeds: [embed] })
