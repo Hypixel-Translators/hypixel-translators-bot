@@ -9,9 +9,8 @@
 	"commandInfoFor": "Commando-informatie voor ",
 	"staffOnly": "De info voor dit commando is verborgen, omdat het alleen voor staff bestemd is. \nNeem contact op met een stafflid als je denkt dat dit een fout is.",
 	"inDev": "Dit commando is momenteel in ontwikkeling en komt binnenkort beschikbaar!",
-	"seconds": "seconden",
-	"second": "seconde",
-	"minutes": "minuten",
+	"seconds": "{number, plural, one{# seconde} other{# seconden}}",
+	"minutes": "{number, plural, one {# minuut} other {# minuten}}",
 	"cooldownField": "Afkoeltijd",
 	"8ball": {
 		"description": "De glazen bol die al je vragen zal beantwoorden."
@@ -50,7 +49,7 @@
 		"description": "Laat de vertraging van de bot zien."
 	},
 	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
+		"description": "Maakt of beheert peilingen op de server. Beschikbaar voor Hypixel-proeflezers en hoger gemachtigden. Stemmen zijn privé totdat de peiling wordt beëindigd en de namen van stemmers worden nooit openbaar gemaakt. Alleen aantallen worden weergegeven."
 	},
 	"prefix": {
 		"description": "Geeft je het juiste voorvoegsel voor je taal/talen. Voor een aangepast voorvoegsel kun je `/prefix` uitvoeren en in het argument `vlaggen` een de code van een land of vlag of de naam van een land opgeven. Je kunt zo veel talen selecteren als je wilt, zolang je ze scheidt met een spatie."
