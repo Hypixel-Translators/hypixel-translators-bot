@@ -2,6 +2,6 @@
 	"moduleName": "Таблиця лідерів за досвідом",
 	"pageTitle": "Ось таблиця лідерів за досвідом!",
 	"level": "#%%rank%% місце | %%level%% рівень | %%xp%% досвіду",
-	"youIndicator": "ВИ",
-	"unranked": "#%%rank%% місце | Без рангу"
+	"unranked": "#%%rank%% місце | Без рангу",
+	"youIndicator": "ВИ"
 }
