@@ -9,9 +9,8 @@
 	"commandInfoFor": "Tiedot komennolle ",
 	"staffOnly": "Tämä komento on vain ylläpidon käytössä ja sen tiedot on siksi piilotettu.\nOtathan yhteyttä ylläpitäjään, mikäli uskot tämän olevan virhe.",
 	"inDev": "Tämä komento on vasta kehitteillä ja tulee käyttöön myöhemmin!",
-	"seconds": "sekuntia",
-	"second": "sekunti",
-	"minutes": "minuuttia",
+	"seconds": "{number, plural, one {# sekunti} other {# sekuntia}}",
+	"minutes": "{number, plural, one {# minuutti} other {# minuuttia}}",
 	"cooldownField": "Odotusaika",
 	"8ball": {
 		"description": "Taikapallo, joka vastaa kaikkiin kysymyksiisi."
