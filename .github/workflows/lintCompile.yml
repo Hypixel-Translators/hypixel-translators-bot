@@ -1,4 +1,7 @@
 name: Compile and lint
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
 on:
     push:
         branches:
