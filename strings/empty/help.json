@@ -9,9 +9,8 @@
 	"commandInfoFor": "crwdns566:0crwdne566:0",
 	"staffOnly": "crwdns570:0crwdne570:0",
 	"inDev": "crwdns572:0crwdne572:0",
-	"seconds": "crwdns574:0crwdne574:0",
-	"second": "crwdns576:0crwdne576:0",
-	"minutes": "crwdns578:0crwdne578:0",
+	"seconds": "crwdns574:0number={number}crwdne574:0",
+	"minutes": "crwdns578:0number={number}crwdne578:0",
 	"cooldownField": "crwdns582:0crwdne582:0",
 	"8ball": {
 		"description": "crwdns1240:0crwdne1240:0"
