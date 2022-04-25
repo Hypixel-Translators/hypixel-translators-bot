@@ -9,9 +9,8 @@
 	"commandInfoFor": "Komut bilgisi: ",
 	"staffOnly": "Bu komut sadece yetkililer tarafından kullanılabilir; bu nedenle komut bilgileri gösterilemiyor.\nBunun bir hata olduğunu düşünüyorsan lütfen bir yetkiliyle iletişime geç.",
 	"inDev": "Bu komut şimdilik bakımdadır ve ilerki zamanlarda kullanılabilir olacaktır!",
-	"seconds": " saniye",
-	"second": "saniye",
-	"minutes": "dakika",
+	"seconds": "{number, plural, one {# second} other {# seconds}}",
+	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "Bekleme Süresi",
 	"8ball": {
 		"description": "Sihirli Top, tüm sorularını cevaplayacak."
