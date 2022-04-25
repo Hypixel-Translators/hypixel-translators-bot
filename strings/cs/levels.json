@@ -2,6 +2,6 @@
 	"moduleName": "XP žebříček",
 	"pageTitle": "Tady je XP žebříček!",
 	"level": "#%%rank%% | Úroveň %%level%% | XP: %%xp%%",
-	"youIndicator": "TY",
-	"unranked": "#%%rank%% Nezařazený"
+	"unranked": "#%%rank%% Nezařazený",
+	"youIndicator": "TY"
 }

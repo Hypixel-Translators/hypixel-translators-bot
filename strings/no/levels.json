@@ -2,6 +2,6 @@
 	"moduleName": "XP-toppliste",
 	"pageTitle": "Her er XP-topplisten!",
 	"level": "#%%rank%% | Nivå %%level%% | XP: %%xp%%",
-	"youIndicator": "DEG",
-	"unranked": "#%%rank%% Unranked"
+	"unranked": "#%%rank%% Unranked",
+	"youIndicator": "DEG"
 }

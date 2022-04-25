@@ -2,6 +2,6 @@
 	"moduleName": "قائمة المتصدرين",
 	"pageTitle": "اليك قائمة أعلي المتصدرين في الاكسبي!",
 	"level": "#%%rank%% | المستوى %%level%% | XP: %%xp%%",
-	"youIndicator": "أنت",
-	"unranked": "#%%rank%% غير مصنف"
+	"unranked": "#%%rank%% غير مصنف",
+	"youIndicator": "أنت"
 }

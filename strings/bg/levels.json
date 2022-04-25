@@ -2,6 +2,6 @@
 	"moduleName": "XP Класация",
 	"pageTitle": "Ето я XP класацията!",
 	"level": "#%%rank%% | Ниво %%level%% | XP: %%xp%%",
-	"youIndicator": "ВИЕ",
-	"unranked": "#%%rank%% Не сте класирани"
+	"unranked": "#%%rank%% Не сте класирани",
+	"youIndicator": "ВИЕ"
 }

@@ -2,6 +2,6 @@
 	"moduleName": "Papan Kedudukan XP",
 	"pageTitle": "Di sini papan kedudukan XP!",
 	"level": "#%%rank%% | Tahap %%level%% | XP: %%xp%%",
-	"youIndicator": "ANDA",
-	"unranked": "#%%rank%% Takde kedudukan"
+	"unranked": "#%%rank%% Takde kedudukan",
+	"youIndicator": "ANDA"
 }

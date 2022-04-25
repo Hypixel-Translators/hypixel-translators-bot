@@ -2,6 +2,6 @@
 	"moduleName": "XP-pistetaulu",
 	"pageTitle": "Tässä on XP-pistetaulu!",
 	"level": "#%%rank%% | Taso %%level%% | XP: %%xp%%",
-	"youIndicator": "SINÄ",
-	"unranked": "#%%rank%% Ei-tilastoitu"
+	"unranked": "#%%rank%% Ei-tilastoitu",
+	"youIndicator": "SINÄ"
 }

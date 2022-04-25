@@ -2,6 +2,6 @@
 	"moduleName": "Classement d'expérience",
 	"pageTitle": "Voici le classement d'expérience !",
 	"level": "#%%rank%% | Niveau %%level%% | XP: %%xp%%",
-	"youIndicator": "TOI",
-	"unranked": "#%%rank%% Non classé"
+	"unranked": "#%%rank%% Non classé",
+	"youIndicator": "TOI"
 }

@@ -2,6 +2,6 @@
 	"moduleName": "XP-scorebord",
 	"pageTitle": "Hier is het XP-scorebord!",
 	"level": "%%rank%%e | Niveau %%level%% | XP: %%xp%%",
-	"youIndicator": "JIJ",
-	"unranked": "%%rank%%e | geen rang"
+	"unranked": "%%rank%%e | geen rang",
+	"youIndicator": "JIJ"
 }

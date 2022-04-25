@@ -2,6 +2,6 @@
 	"moduleName": "XP 排行榜",
 	"pageTitle": "Here is the XP leaderboard!",
 	"level": "#%%rank%% | 等級︰%%level%% | XP︰%%xp%%",
-	"youIndicator": "你",
-	"unranked": "#%%rank%% Unranked"
+	"unranked": "#%%rank%% Unranked",
+	"youIndicator": "你"
 }

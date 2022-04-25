@@ -2,6 +2,6 @@
 	"moduleName": "XP Leaderboard",
 	"pageTitle": "Her er XP leaderboardet!",
 	"level": "#%%rank%% | Niveau %%level%% | XP: %%xp%%",
-	"youIndicator": "YOU",
-	"unranked": "#%%rank%% Unranked"
+	"unranked": "#%%rank%% Unranked",
+	"youIndicator": "YOU"
 }
