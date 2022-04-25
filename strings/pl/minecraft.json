@@ -3,12 +3,8 @@
 	"history": {
 		"firstName": "Pierwsza nazwa użytkownika",
 		"nameHistoryFor": "Wykaz nazw użytkownika (%%username%%)",
-		"userChangedName": "%%username%% zmienił(a) swoją nazwę użytkownika %%number%% razy.",
-		"youChangedName": "Zmieniłeś(-aś) swoją nazwę użytkownika %%number%% razy.",
-		"userChangedName1": "%%username%% zmienił(a) swoją nazwę użytkownika tylko raz.",
-		"youChangedName1": "Zmieniłeś(-aś) swoją nazwę użytkownika tylko raz.",
-		"userNeverChanged": "%%username%% nigdy nie zmienił(a) swojej nazwy użytkownika.",
-		"youNeverChanged": "Nigdy nie zmieniłeś(-aś) swojej nazwy użytkownika."
+		"youChangedName": "{number, plural, =0 {Nie zmieniłeś(-aś) swojej nazwy użytkownika ani razu} one {Zmieniłeś(-aś) swoją nazwę użytkownika raz} other {Zmieniłeś(-aś) swoją nazwę użytkownika # razy}}.",
+		"userChangedName": "Użytkownik %%username%% {number, plural, =0 {nigdy nie zmienił swojej nazwy} one {zmienił swoją nazwę raz} other {zmienił swoją nazwę # razy}}."
 	},
 	"skin": {
 		"yourSkin": "Oto Twoja skórka!",
