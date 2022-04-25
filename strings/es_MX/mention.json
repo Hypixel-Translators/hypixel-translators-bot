@@ -1,8 +1,4 @@
 {
-	"errorNoPing": "No tienes el rol de corrector de pruebas de ese idioma, ",
-	"errorNoPingPr": "por lo que no puedes mencionarlo.",
-	"errorNoPingTr": "por lo que no puede mencionar su rol de traductor.",
-	"errorNoPingAll": "por lo que no puede mencionar todo el idioma.",
-	"errorNoPingDisclaimer": "Póngase en contacto con el propietario o administrador del servidor si realmente lo necesita.",
+	"errorNoPing": "No tiene el rol de corrector de pruebas de ese idioma, {role, select,translator {por lo que no puede mencionar su rol de traductor} proofreader {por lo que no puedes mencionarlo} other {por lo que no puede mencionar el idioma completo}}. Póngase en contacto con un administrador del servidor si realmente lo necesita.",
 	"success": "¡Mensaje enviado con éxito!"
 }
