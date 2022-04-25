@@ -1,8 +1,8 @@
 {
 	"moduleName": "Στατιστικά Γλώσσας",
 	"statsAll": "Here are the statistics for the %%language%% language on all the projects we currently support.",
-	"translated": "Μεταφράστηκε το %%percentage%%% (%%translated%%/%%total%% strings)",
-	"approved": "Εγκρίθηκε το %%percentage%%% (%%approved%%/%%total%% strings)",
+	"translated": "%%percentage%%% translated (%%translated%%/{total, plural, one {# string} other {# strings}})",
+	"approved": "%%percentage%%% approved (%%approved%%/{total, plural, one {# string} other {# strings}})",
 	"languages": {
 		"ar": "Αραβικά",
 		"bc": "Biscuitish",
