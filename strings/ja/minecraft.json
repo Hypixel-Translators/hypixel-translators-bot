@@ -3,12 +3,8 @@
 	"history": {
 		"firstName": "最初の名前",
 		"nameHistoryFor": "%%username%%の名前履歴",
-		"userChangedName": "%%username%%は名前を%%number%%回変更しています。",
-		"youChangedName": "あなたは自身の名前を%%number%%回変更しています。",
-		"userChangedName1": "%%username%%は名前を1回変更しています。",
-		"youChangedName1": "あなたは自身の名前を1回変更しています。",
-		"userNeverChanged": "%%username%%は名前を変更したことがありません。",
-		"youNeverChanged": "あなたは名前を変更したことがありません。"
+		"youChangedName": "You have {number, plural, =0 {never changed your name} one {changed your name # time} other {changed your name # times}}.",
+		"userChangedName": "%%username%% has {number, plural, =0 {never changed their name} one {changed their name # time} other {changed their name # times}}."
 	},
 	"skin": {
 		"yourSkin": "こちらがあなたのスキンです！",

@@ -3,12 +3,8 @@
 	"history": {
 		"firstName": "Первое имя",
 		"nameHistoryFor": "История имени игрока %%username%%",
-		"userChangedName": "%%username%% изменял своё имя %%number%% раз.",
-		"youChangedName": "Вы изменяли своё имя %%number%% раз.",
-		"userChangedName1": "%%username%% изменял своё имя 1 раз.",
-		"youChangedName1": "Вы изменяли своё имя 1 раз.",
-		"userNeverChanged": "%%username%% никогда не изменял своё имя.",
-		"youNeverChanged": "Вы никогда не изменяли своё имя."
+		"youChangedName": "Вы {number, plural, =0 {никогда не меняли имя} few {меняли имя # раза} other {меняли имя # раз}}.",
+		"userChangedName": "%%username%% {number, plural, =0 {никогда не менял имя} few {менял имя # раза} other {менял имя # раз}}."
 	},
 	"skin": {
 		"yourSkin": "Вот ваш скин!",

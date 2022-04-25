@@ -5,7 +5,7 @@
 	"youNotRanked": "¡Aún no estás clasificado!",
 	"userNotRanked": "¡Ese usuario aún no está clasificado!",
 	"howRank": "¡Para ser clasificado debes hablar en los chats!",
-	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Mensajes",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | {messages, plural, one {# Message} other {# Messages}}",
 	"youLevel": "¡Eres nivel %%level%% y eres #%%rank%% en el podio!",
 	"userLevel": "¡%%user%% es nivel %%level%% y es #%%rank%% en el podio!"
 }

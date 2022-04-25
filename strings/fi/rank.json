@@ -5,7 +5,7 @@
 	"youNotRanked": "Et ole vielä sijoittunut pistetaululla!",
 	"userNotRanked": "Tämä käyttäjä ei ole vielä sijoittunut pistetaululla!",
 	"howRank": "Sijoittuaksesi pistetaululla sinun tulee jutella chateissa!",
-	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% viestiä",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | {messages, plural, one {# viesti} other {# viestiä}}",
 	"youLevel": "Olet tasolla %%level%% ja olet pistetaululla sijalla #%%rank%%!",
 	"userLevel": "%%user%% on tasolla %%level%% hän on pistetaululla sijalla #%%rank%%!"
 }

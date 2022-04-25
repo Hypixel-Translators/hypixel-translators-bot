@@ -9,9 +9,8 @@
 	"commandInfoFor": "Command information fer ",
 	"staffOnly": "'Tis command be only available t' staff an' thus, its information be stashed away. Please contact a staff member if ye believe 'tis be an error.",
 	"inDev": "'Tis command be currently in development an' will be available at a later date!",
-	"seconds": "seconds",
-	"second": "second",
-	"minutes": "minutes",
+	"seconds": "{number, plural, one {# second} other {# seconds}}",
+	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "Cooldown",
 	"8ball": {
 		"description": "Th' Magic 8 Ball that will answer all yer questions."

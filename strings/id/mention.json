@@ -1,8 +1,4 @@
 {
-	"errorNoPing": "Anda tidak memiliki role proofreader bahasa tersebut, ",
-	"errorNoPingPr": "jadi anda tidak boleh menyebutkannya.",
-	"errorNoPingTr": "jadi anda tidak boleh menyebutkan role penerjemahnya.",
-	"errorNoPingAll": "jadi anda tidak dapat menyebutkan seluruh bahasanya.",
-	"errorNoPingDisclaimer": "Kontak pemilik server atau admin jika anda sangatlah memerlukannya.",
+	"errorNoPing": "You don't have that language's proofreader role, {role, select, translator {so you can't mention its translator role} proofreader {so you can't mention it} other {so you can't mention the entire language}}. Contact a server administrator if you really need to.",
 	"success": "Pesan berhasil dikirim!"
 }

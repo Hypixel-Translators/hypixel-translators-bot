@@ -1,8 +1,8 @@
 {
 	"moduleName": "وضعیت زبان",
 	"statsAll": "این وضعیت موجود برای زبان %%language%% در تمام پروژه‌هایی که ما پشتیبانی می‌کنیم است.",
-	"translated": "%%percentage%%% ترجمه شده\n(%%translated%%/%%total%% استرینگ)",
-	"approved": "%%percentage%%% پذیرفته شده\n(%%approved%%/%%total%% استرینگ)",
+	"translated": "%%percentage%%% translated (%%translated%%/{total, plural, one {# string} other {# strings}})",
+	"approved": "%%percentage%%% approved (%%approved%%/{total, plural, one {# string} other {# strings}})",
 	"languages": {
 		"ar": "عربی",
 		"bc": "Biscuitish",

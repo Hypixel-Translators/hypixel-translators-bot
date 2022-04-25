@@ -3,12 +3,8 @@
 	"history": {
 		"firstName": "Første navn",
 		"nameHistoryFor": "Navnehistorikk for %%username%%",
-		"userChangedName": "%%username%% har endret navnet sitt %%number%% ganger.",
-		"youChangedName": "Du har endret navnet ditt %%number%% ganger.",
-		"userChangedName1": "%%username%% har endret navnet sitt 1 gang.",
-		"youChangedName1": "Du har endret navnet ditt 1 gang.",
-		"userNeverChanged": "%%username%% har aldri endret navnet sitt.",
-		"youNeverChanged": "Du har aldri endret navnet ditt."
+		"youChangedName": "You have {number, plural, =0 {never changed your name} one {changed your name # time} other {changed your name # times}}.",
+		"userChangedName": "%%username%% has {number, plural, =0 {never changed their name} one {changed their name # time} other {changed their name # times}}."
 	},
 	"skin": {
 		"yourSkin": "Her er skallet ditt!",

@@ -1,8 +1,8 @@
 {
 	"moduleName": "Nyelv statisztikák",
 	"statsAll": "Here are the statistics for the %%language%% language on all the projects we currently support.",
-	"translated": "%%percentage%%% translated (%%translated%%/%%total%% strings)",
-	"approved": "%%percentage%%% approved (%%approved%%/%%total%% strings)",
+	"translated": "%%percentage%%% translated (%%translated%%/{total, plural, one {# string} other {# strings}})",
+	"approved": "%%percentage%%% approved (%%approved%%/{total, plural, one {# string} other {# strings}})",
 	"languages": {
 		"ar": "Arab",
 		"bc": "Biscuitish",

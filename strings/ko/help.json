@@ -9,9 +9,8 @@
 	"commandInfoFor": "명령어 정보 : ",
 	"staffOnly": "이 명령어는 관리진만 사용할 수 있기 때문에 정보가 노출되지 않습니다.\n오류라고 생각하시면 관리진에게 연락하시기 바랍니다.",
 	"inDev": "이 명령어는 현재 개발중에 있습니다! 기대해주세요!",
-	"seconds": "초",
-	"second": "초",
-	"minutes": "분",
+	"seconds": "{number, plural, one {# second} other {# seconds}}",
+	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "쿨다운",
 	"8ball": {
 		"description": "당신의 질문에 답변해주는 마법에 소라고동!"

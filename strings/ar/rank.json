@@ -5,7 +5,7 @@
 	"youNotRanked": "أنت لست مصنفًا بعد!",
 	"userNotRanked": "هذا المستخدم لم يتم تصنيفه بعد!",
 	"howRank": "من أجل الحصول على ترتيب، يجب عليك التحدث في المحادثات!",
-	"textProgress": "%%currentXp%%/%%xpNeeded%%/%%messages%% الرسائل",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | {messages, plural, one {# Message} other {# Messages}}",
 	"youLevel": "أنت في المستوى %%level%% وأنت #%%rank%% على لوحة المتصدرين!",
 	"userLevel": "%%user%% في المستوى %%level%% وهم #%%rank%% على لوحة المتصدرين!"
 }

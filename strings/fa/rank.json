@@ -5,7 +5,7 @@
 	"youNotRanked": "شما هنوز رتبه‌ای ندارید!",
 	"userNotRanked": "این کاربر هنوز رتبه‌ای ندارد!",
 	"howRank": "برای دریافت رتبه باید در چت‌ها صحبت کنید!",
-	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% پیام‌ها",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | {messages, plural, one {# Message} other {# Messages}}",
 	"youLevel": "شما در سطح %%level%% و رتبۀ #%%rank%% در لیدربورد هستید!",
 	"userLevel": "کاربر %%user%% در سطح %%level%% و رتبۀ #%%rank%% در لیدربورد است!"
 }

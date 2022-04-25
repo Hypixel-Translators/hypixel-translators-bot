@@ -9,9 +9,8 @@
 	"commandInfoFor": "命令信息：",
 	"staffOnly": "此命令仅限管理员使用，因此有关信息不公开显示。\n如果你认为存在错误，请联系管理员。",
 	"inDev": "此命令仍在开发中，敬请期待！",
-	"seconds": " 秒",
-	"second": "秒",
-	"minutes": "分钟",
+	"seconds": "{number, plural, one {# second} other {# seconds}}",
+	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "冷却时间",
 	"8ball": {
 		"description": "占卜球会回答你所有的问题。"

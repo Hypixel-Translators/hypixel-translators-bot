@@ -9,9 +9,8 @@
 	"commandInfoFor": "Kommandoinformasjon for ",
 	"staffOnly": "This command is only available to staff and thus, its information is hidden.\nPlease contact a staff member if you believe this is an error.",
 	"inDev": "This command is currently in development and will be available at a later date!",
-	"seconds": " sekunder",
-	"second": "sekund",
-	"minutes": "minutter",
+	"seconds": "{number, plural, one {# second} other {# seconds}}",
+	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "Nedkjøling",
 	"8ball": {
 		"description": "The Magic 8 Ball that will answer all your questions."

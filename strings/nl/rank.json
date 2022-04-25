@@ -5,7 +5,7 @@
 	"youNotRanked": "Je hebt nog geen rang!",
 	"userNotRanked": "Die gebruiker heeft nog geen rang!",
 	"howRank": "Om een rang te krijgen, moet je eerst chatten!",
-	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% berichten",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | {messages, plural, one {# bericht} other {# berichten}}",
 	"youLevel": "Je bent op niveau %%level%% en bent %%rank%%e op het scorebord!",
 	"userLevel": "%%user%% is op niveau %%level%% en is %%rank%%e op het scorebord!"
 }

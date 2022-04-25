@@ -9,9 +9,8 @@
 	"commandInfoFor": "Maklumat perintah untuk ",
 	"staffOnly": "Perintah ini hanya tersedia untuk kakitangan. Maka, maklumatnya dirahsiakan.\nTolong hubungi ahli kakitangan jika anda rasa ini suatu ralat.",
 	"inDev": "Perintah ini kini dalam pembangunan dan akan ada pada masa yang akan datang!",
-	"seconds": "saat",
-	"second": "saat",
-	"minutes": "minit",
+	"seconds": "{number, plural, other {# saat}}",
+	"minutes": "{number, plural, other {# minit}}",
 	"cooldownField": "Cooldown",
 	"8ball": {
 		"description": "Bola Magik 8 akan menjawab segala persoalan anda."
@@ -50,7 +49,7 @@
 		"description": "Meberikan ping bot kepada anda."
 	},
 	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
+		"description": "Membuatkan atau menguruskan pengundian dalam server. Tersedia kepada Pembaca Pruf Hypixel dan keatas. Semua undian dalam pengundian yang dibuat dengan perintah ini akan dirahsiakan sehingga pengundian tamat dan nama pengundi tak akan didedahkan, hanya bilangan undian yang akan dipaparkan."
 	},
 	"prefix": {
 		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."

@@ -3,12 +3,8 @@
 	"history": {
 		"firstName": "Ensimmäinen nimi",
 		"nameHistoryFor": "Käyttäjän %%username%% nimihistoria",
-		"userChangedName": "%%username%% on vaihtanut nimensä %%number%% kertaa.",
-		"youChangedName": "Olet vaihtanut nimesi %%number%% kertaa.",
-		"userChangedName1": "%%username%% on vaihtanut nimensä kerran.",
-		"youChangedName1": "Olet vaihtanut nimesi kerran.",
-		"userNeverChanged": "%%username%% ei ole koskaan vaihtanut nimeään.",
-		"youNeverChanged": "Et ole koskaan vaihtanut nimeäsi."
+		"youChangedName": "{number, plural, =0 {Et ole koskaan vaihtanut nimeäsi} one {Olet vaihtanut nimesi # kerran} other {Olet vaihtanut nimesi # kertaa}}.",
+		"userChangedName": "%%username%% {number, plural, =0 {ei ole koskaan vaihtanut nimeään} one {on vaihtanut nimensä # kerran} other {on vaihtanut nimensä # kertaa}}."
 	},
 	"skin": {
 		"yourSkin": "Tässä on skinisi!",

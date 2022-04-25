@@ -3,12 +3,8 @@
 	"history": {
 		"firstName": "Nama Pertama",
 		"nameHistoryFor": "Sejarah nama untuk %%username%%",
-		"userChangedName": "%%username%% pernah mengubah namanya %%number%% kali.",
-		"youChangedName": "Anda pernah mengubah nama anda %%number%% kali.",
-		"userChangedName1": "%%username%% pernah mengubah namanya 1 kali.",
-		"youChangedName1": "Anda pernah mengubah nama anda 1 kali.",
-		"userNeverChanged": "%%username%% tak pernah mengubah namanya.",
-		"youNeverChanged": "Anda tak pernah mengubah nama anda."
+		"youChangedName": "Anda {number, plural, =0 {tak pernah mengubah nama anda} other {pernah mengubah nama anda # kali}}.",
+		"userChangedName": "%%username%% {number, plural, =0 {tak pernah mengubah nama dia} other {pernah mengubah nama dia # kali}}."
 	},
 	"skin": {
 		"yourSkin": "Ini kulit anda!",

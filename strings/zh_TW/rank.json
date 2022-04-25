@@ -5,7 +5,7 @@
 	"youNotRanked": "你不在排名上！",
 	"userNotRanked": "該使用者不在排名上！",
 	"howRank": "你必須在頻道裡聊天來提高排名！",
-	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% 則訊息",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | {messages, plural, one {# Message} other {# Messages}}",
 	"youLevel": "你的等級為 %%level%%，你在排行榜的排名是 #%%rank%%！",
 	"userLevel": "%%user%% 的等級為 %%level%%，他們在排行榜的排名是 #%%rank%%！"
 }

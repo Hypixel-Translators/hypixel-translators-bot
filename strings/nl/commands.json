@@ -256,11 +256,11 @@
 					},
 					"url": {
 						"name": "url",
-						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
+						"description": "De URL van het bericht waar dit citaat zich plaatsvindt. Eventuele afbeeldingen worden bijgevoegd"
 					},
 					"image": {
 						"name": "afbeelding",
-						"description": "The URL of the image to be included with this quote. Has priority over URL's image if provided"
+						"description": "De URL van de afbeelding die bij dit citaat hoort. Hogere prioriteit dan eventuele URL afbeelding"
 					}
 				}
 			},

@@ -1,8 +1,4 @@
 {
-	"errorNoPing": "Você não possui o cargo de revisor de idioma, ",
-	"errorNoPingPr": "então você não pode mencioná-lo.",
-	"errorNoPingTr": "então você não pode mencionar o cargo tradutor.",
-	"errorNoPingAll": "então você não pode mencionar todos do idioma.",
-	"errorNoPingDisclaimer": "Contate o dono ou administrador do servidor se você realmente precisar.",
+	"errorNoPing": "Você não possui o cargo de revisor de idioma, {role, select, translator {então não poderá mencionar o cargo dos tradutores} proofreader {então não poderá mencioná-lo} other {então não poderá mencionar o idioma}}. Entre em contato com um administrador do servidor se realmente desejar mencionar um cargo.",
 	"success": "Mensagem enviada com sucesso!"
 }

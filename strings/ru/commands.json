@@ -1,26 +1,26 @@
 {
 	"names": {
-		"8ball": "8ball",
-		"feedback": "feedback",
-		"levels": "levels",
-		"ping": "ping",
-		"profile": "profile",
-		"projects": "projects",
-		"rank": "rank",
-		"tag": "tag",
-		"translate": "translate",
-		"help": "help",
-		"hypixelstats": "hypixelstats",
-		"hypixelunverify": "hypixelunverify",
-		"hypixelverify": "hypixelverify",
-		"language": "language",
-		"languagestats": "languagestats",
-		"mention": "mention",
+		"8ball": "шарсудьбы",
+		"feedback": "отзыв",
+		"levels": "уровни",
+		"ping": "пинг",
+		"profile": "профиль",
+		"projects": "проекты",
+		"rank": "ранг",
+		"tag": "тег",
+		"translate": "перевести",
+		"help": "помощь",
+		"hypixelstats": "статистикаhypixel",
+		"hypixelunverify": "отвязатьhypixel",
+		"hypixelverify": "привязатьhypixel",
+		"language": "язык",
+		"languagestats": "статистикаязыка",
+		"mention": "упомянуть",
 		"minecraft": "minecraft",
-		"prefix": "prefix",
-		"quote": "quote",
-		"verify": "verify",
-		"poll": "poll"
+		"prefix": "префикс",
+		"quote": "цитата",
+		"verify": "привязать",
+		"poll": "опрос"
 	},
 	"descriptions": {
 		"8ball": "The Magic 8 Ball that will answer all your questions",
@@ -48,39 +48,39 @@
 	"options": {
 		"8ball": {
 			"question": {
-				"name": "question",
+				"name": "вопрос",
 				"description": "The question to ask the bot"
 			}
 		},
 		"levels": {
 			"me": {
-				"name": "me",
+				"name": "я",
 				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
 			},
 			"page": {
-				"name": "page",
+				"name": "страница",
 				"description": "The leaderboard page to get"
 			}
 		},
 		"profile": {
 			"user": {
-				"name": "user",
+				"name": "пользователь",
 				"description": "The user to find the profile for. Admin only"
 			},
 			"profile": {
-				"name": "profile",
+				"name": "профиль",
 				"description": "The new profile to set for the user. Admin only"
 			}
 		},
 		"rank": {
 			"user": {
-				"name": "user",
+				"name": "пользователь",
 				"description": "The user to get the rank for"
 			}
 		},
 		"tag": {
 			"tag": {
-				"name": "tag",
+				"name": "тег",
 				"description": "The tag you want to see",
 				"choices": {
 					"invite": "Invite link to the server",
@@ -95,17 +95,17 @@
 				}
 			},
 			"target": {
-				"name": "target",
+				"name": "цель",
 				"description": "The user to mention with this tag"
 			}
 		},
 		"help": {
 			"command": {
-				"name": "command",
+				"name": "команда",
 				"description": "The command to get information for"
 			},
 			"page": {
-				"name": "page",
+				"name": "страница",
 				"description": "The help page to open",
 				"choices": [
 					"Главная страница",
@@ -116,55 +116,55 @@
 		},
 		"hypixelstats": {
 			"username": {
-				"name": "username",
+				"name": "имяпользователя",
 				"description": "The IGN of the user to get statistics for. Can also be a UUID"
 			},
 			"user": {
-				"name": "user",
+				"name": "пользователь",
 				"description": "The server member to get statistics for. Only works if the user has verified themselves"
 			}
 		},
 		"hypixelunverify": {
 			"user": {
-				"name": "user",
+				"name": "пользователь",
 				"description": "The user to unverify. Admin only"
 			}
 		},
 		"hypixelverify": {
 			"username": {
-				"name": "username",
+				"name": "имяпользователя",
 				"description": "Your Hypixel IGN. Must have your Discord linked in-game"
 			},
 			"user": {
-				"name": "user",
+				"name": "пользователь",
 				"description": "The user to verify. Admin only"
 			}
 		},
 		"language": {
 			"set": {
-				"name": "set",
+				"name": "установить",
 				"description": "Sets your language to a new one. Leave empty to see your current language",
 				"options": {
 					"language": {
-						"name": "language",
+						"name": "язык",
 						"description": "The new language you want to set"
 					}
 				}
 			},
 			"reset": {
-				"name": "reset",
+				"name": "сбросить",
 				"description": "Resets your language"
 			},
 			"list": {
-				"name": "list",
+				"name": "список",
 				"description": "Gives you a list of all the available languages"
 			},
 			"stats": {
-				"name": "stats",
+				"name": "статистика",
 				"description": "Gives you usage statistics for a given language. Admin only",
 				"options": {
 					"language": {
-						"name": "language",
+						"name": "язык",
 						"description": "The language to get usage statistics for"
 					}
 				}
@@ -172,17 +172,17 @@
 		},
 		"languagestats": {
 			"language": {
-				"name": "language",
+				"name": "язык",
 				"description": "The language to get progress statistics for. Required if your language is set to English"
 			}
 		},
 		"mention": {
 			"language": {
-				"name": "language",
+				"name": "язык",
 				"description": "The language to mention"
 			},
 			"role": {
-				"name": "role",
+				"name": "роль",
 				"description": "The role to mention",
 				"choices": {
 					"all": "Both roles",
@@ -191,35 +191,35 @@
 				}
 			},
 			"message": {
-				"name": "message",
+				"name": "сообщение",
 				"description": "The message to send with the mention"
 			}
 		},
 		"minecraft": {
 			"history": {
-				"name": "history",
+				"name": "история",
 				"description": "Shows a user's name history. You must provide at least 1 parameter if your MC account is not linked",
 				"options": {
 					"username": {
-						"name": "username",
+						"name": "имяпользователя",
 						"description": "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked"
 					},
 					"user": {
-						"name": "user",
+						"name": "пользователь",
 						"description": "The server member to get name history for. Only works if the user has verified themselves"
 					}
 				}
 			},
 			"skin": {
-				"name": "skin",
+				"name": "скин",
 				"description": "Shows a user's skin. You must provide at least 1 parameter if your MC account is not linked",
 				"options": {
 					"username": {
-						"name": "username",
+						"name": "имяпользователя",
 						"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
 					},
 					"user": {
-						"name": "user",
+						"name": "пользователь",
 						"description": "The server member to get skin for. Only works if the user has verified themselves"
 					}
 				}
@@ -227,81 +227,81 @@
 		},
 		"prefix": {
 			"flags": {
-				"name": "flags",
+				"name": "флаги",
 				"description": "The flags to be applied to your prefix, separated with spaces"
 			}
 		},
 		"quote": {
 			"get": {
-				"name": "get",
+				"name": "получить",
 				"description": "Get a random/specific quote",
 				"options": {
 					"index": {
-						"name": "index",
+						"name": "индекс",
 						"description": "The index of the quote you want to see"
 					}
 				}
 			},
 			"add": {
-				"name": "add",
+				"name": "добавить",
 				"description": "Add a new quote. Staff only",
 				"options": {
 					"quote": {
-						"name": "quote",
+						"name": "цитата",
 						"description": "The quote you want to add"
 					},
 					"author": {
-						"name": "author",
+						"name": "автор",
 						"description": "The author of this quote"
 					},
 					"url": {
-						"name": "url",
+						"name": "ссылка",
 						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
 					},
 					"image": {
-						"name": "image",
+						"name": "изображение",
 						"description": "The URL of the image to be included with this quote. Has priority over URL's image if provided"
 					}
 				}
 			},
 			"edit": {
-				"name": "edit",
+				"name": "изменить",
 				"description": "Edit a quote. Staff only",
 				"options": {
 					"index": {
-						"name": "index",
+						"name": "индекс",
 						"description": "The index of the quote to edit"
 					},
 					"quote": {
-						"name": "quote",
+						"name": "цитата",
 						"description": "The new quote"
 					}
 				}
 			},
 			"delete": {
-				"name": "delete",
+				"name": "удалить",
 				"description": "Delete a quote. Staff only",
 				"options": {
 					"index": {
-						"name": "index",
+						"name": "индекс",
 						"description": "The index of the quote to delete"
 					}
 				}
 			},
 			"link": {
-				"name": "link",
+				"name": "ссылка",
 				"description": "Link a quote to a message. Staff only",
 				"options": {
 					"index": {
-						"name": "index",
+						"name": "индекс",
 						"description": "The index of the quote to link"
 					},
 					"url": {
-						"name": "url",
+						"name": "ссылка",
 						"description": "The URL of the message to link this quote to"
 					},
 					"image": {
-						"name": "image",
+						"name": "изображение",
 						"description": "Whether or not to attach this message's image to the quote"
 					}
 				}
@@ -309,21 +309,21 @@
 		},
 		"verify": {
 			"url": {
-				"name": "url",
+				"name": "ссылка",
 				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section"
 			},
 			"user": {
-				"name": "user",
+				"name": "пользователь",
 				"description": "The user to manually verify. Admin only"
 			}
 		},
 		"poll": {
 			"start": {
-				"name": "start",
+				"name": "начать",
 				"description": "Starts a poll in the current channel",
 				"options": {
 					"question": {
-						"name": "question",
+						"name": "вопрос",
 						"description": "The question of the poll"
 					},
 					"option1": {

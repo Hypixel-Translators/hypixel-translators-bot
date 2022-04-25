@@ -3,12 +3,8 @@
 	"history": {
 		"firstName": "First name",
 		"nameHistoryFor": "Name history for %%username%%",
-		"userChangedName": "%%username%% změnil své jméno %%number%% krát.",
-		"youChangedName": "Své jméno sis změnil %%number%% krát.",
-		"userChangedName1": "%%username%% si změnil své jméno 1 krát.",
-		"youChangedName1": "Své jméno sis změnil 1 krát.",
-		"userNeverChanged": "%%username%% si nikdy nezměnil své jméno.",
-		"youNeverChanged": "Nikdy sis nezměnil své jméno."
+		"youChangedName": "You have {number, plural, =0 {never changed your name} one {changed your name # time} other {changed your name # times}}.",
+		"userChangedName": "%%username%% has {number, plural, =0 {never changed their name} one {changed their name # time} other {changed their name # times}}."
 	},
 	"skin": {
 		"yourSkin": "Zde je tvůj skin!",

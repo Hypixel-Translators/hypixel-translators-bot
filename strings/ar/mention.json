@@ -1,8 +1,4 @@
 {
-	"errorNoPing": "انت لا تملك رتبة مدقق لغة, ",
-	"errorNoPingPr": "لذلك لا تستطيع منشنتها.",
-	"errorNoPingTr": "لذلك لا تستطيع منشن رتبة المترجم الخاصة بها.",
-	"errorNoPingAll": "لذلك لا تستطيع منشن اللغة بأكملها.",
-	"errorNoPingDisclaimer": "تواصل مع صاحب السيرفر أو مسؤول اذا كنت تحتاج حقًا.",
+	"errorNoPing": "You don't have that language's proofreader role, {role, select, translator {so you can't mention its translator role} proofreader {so you can't mention it} other {so you can't mention the entire language}}. Contact a server administrator if you really need to.",
 	"success": "تم إرسال الرسالة بنجاح!"
 }

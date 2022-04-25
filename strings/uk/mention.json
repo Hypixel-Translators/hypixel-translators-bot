@@ -1,8 +1,4 @@
 {
-	"errorNoPing": "У Вас немає ролі коректора цієї мови, ",
-	"errorNoPingPr": "тому Ви не можете зробити це.",
-	"errorNoPingTr": "тому Ви не можете згадати цю роль перекладача.",
-	"errorNoPingAll": "тому Ви не можете згадати всю мову.",
-	"errorNoPingDisclaimer": "Зв'яжіться з власником або адміністратором сервера, якщо Вам дійсно це потрібно.",
+	"errorNoPing": "You don't have that language's proofreader role, {role, select, translator {so you can't mention its translator role} proofreader {so you can't mention it} other {so you can't mention the entire language}}. Contact a server administrator if you really need to.",
 	"success": "Message sent successfully!"
 }

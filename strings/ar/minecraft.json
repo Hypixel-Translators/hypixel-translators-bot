@@ -3,12 +3,8 @@
 	"history": {
 		"firstName": "الاسم الاول",
 		"nameHistoryFor": "سجل الأسماء لـ %%username%%",
-		"userChangedName": "%%username%% قام بتغيير اسمه %%number%% مرات.",
-		"youChangedName": "لقد غيرت اسمك %%number%% مرات.",
-		"userChangedName1": "%%username%% قام بتغيير اسمه مرة واحدة.",
-		"youChangedName1": "لقد قمت بتغيير اسمك مرة واحدة.",
-		"userNeverChanged": "%%username%% لم يغير اسمه أبدا.",
-		"youNeverChanged": "لم تقم بتغيير اسمك أبداً."
+		"youChangedName": "You have {number, plural, =0 {never changed your name} one {changed your name # time} other {changed your name # times}}.",
+		"userChangedName": "%%username%% has {number, plural, =0 {never changed their name} one {changed their name # time} other {changed their name # times}}."
 	},
 	"skin": {
 		"yourSkin": "إليك سكنك!",

@@ -9,9 +9,8 @@
 	"commandInfoFor": "Información para el comando ",
 	"staffOnly": "Este comando solo está disponible para el staff y, por lo tanto, su información está oculta.\nPor favor, comuníquese con un miembro del staff si cree que se trata de un error.",
 	"inDev": "¡Este comando está actualmente en desarrollo y estará disponible posteriormente!",
-	"seconds": "segundos",
-	"second": "segundo",
-	"minutes": "minutos",
+	"seconds": "{number, plural, one {# segundo} other {# segundos}}",
+	"minutes": "{number, plural, one {# minuto} other {# minutos}}",
 	"cooldownField": "Enfriamiento",
 	"8ball": {
 		"description": "La Bola 8 Mágica que responderá a todas tus preguntas."
