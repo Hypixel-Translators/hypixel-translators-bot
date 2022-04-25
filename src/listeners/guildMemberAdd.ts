@@ -50,7 +50,7 @@ export async function generateWelcomeImage(member: GuildMember) {
 	registerFont("assets/NotoSansKR-Bold.otf", { family: "NotoSans-Bold" })
 	const canvas = createCanvas(800, 200),
 		ctx = canvas.getContext("2d"),
-		userName = member.user.username
+		userName = member.displayName
 
 	// Select appropriate font based on used characters
 	/* let usernameFont
