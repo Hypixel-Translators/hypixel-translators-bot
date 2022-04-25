@@ -9,9 +9,8 @@
 	"commandInfoFor": "Info abt acomand ",
 	"staffOnly": "Dis commnad is olny avalibel to staff people and why is hiden.\nPles contact staff person if thinks error.",
 	"inDev": "Dis comnad is developpe and avalibel latr, idot!",
-	"seconds": "sacondz",
-	"second": "sacond",
-	"minutes": "minutz",
+	"seconds": "{number, plural, one {# second} other {# seconds}}",
+	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "Time to get cold and not hot",
 	"8ball": {
 		"description": "Circul anser al ur queziitones."
