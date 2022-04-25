@@ -2,6 +2,6 @@
 	"moduleName": "Pódio de XP",
 	"pageTitle": "Aqui está o pódio de XP!",
 	"level": "%%rank%%º | Nível %%level%% | XP: %%xp%%",
-	"youIndicator": "TU",
-	"unranked": "%%rank%%º Sem rank"
+	"unranked": "%%rank%%º Sem rank",
+	"youIndicator": "TU"
 }
