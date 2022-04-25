@@ -5,7 +5,7 @@
 	"main": "dist/index",
 	"license": "MIT",
 	"scripts": {
-		"start": "node --enable-source-maps .",
+		"start": "node --enable-source-maps --trace-warnings .",
 		"pretty": "prettier --write src",
 		"lint": "eslint --fix src",
 		"lint:ci": "eslint src",
@@ -20,7 +20,7 @@
 		"@crowdin/crowdin-api-client": "^1.17.0",
 		"axios": "^0.26.1",
 		"canvas": "2.9.0",
-		"discord.js": "^14.0.0-dev.1650413390-585169f",
+		"discord.js": "14.0.0-dev.1650413390-585169f",
 		"language-flag-colors": "^2.0.4",
 		"mongodb": "^4.5.0",
 		"node-cron": "^3.0.0",
