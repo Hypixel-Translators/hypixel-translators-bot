@@ -3,12 +3,8 @@
 	"history": {
 		"firstName": "Voornaam",
 		"nameHistoryFor": "Naamgeschiedenis voor %%username%%",
-		"userChangedName": "%%username%% is %%number%% keer van gebruikersnaam veranderd.",
-		"youChangedName": "Je bent %%number%% keer van gebruikersnaam veranderd.",
-		"userChangedName1": "%%username%% is één keer van gebruikersnaam veranderd.",
-		"youChangedName1": "Je bent één keer van gebruikersnaam veranderd.",
-		"userNeverChanged": "%%username%% is nog nooit van gebruikersnaam veranderd.",
-		"youNeverChanged": "Je bent nog nooit van gebruikersnaam veranderd."
+		"youChangedName": "Je hebt je gebruikersnaam {number, plural, =0 {nooit} one {# keer} other {# keer}} veranderd.",
+		"userChangedName": "%%username%% is {number, plural, =0 {nooit} one {# keer} other {# keer}} van gebruikersnaam veranderd."
 	},
 	"skin": {
 		"yourSkin": "Dit is je skin!",
