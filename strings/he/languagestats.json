@@ -1,8 +1,8 @@
 {
 	"moduleName": "סטטיסטיקת השפה",
 	"statsAll": "הנה כמה סטטיסטיקות עבור %%language%% שפה על כל הפרויקטים שבהם אנו כרגע תומכים.",
-	"translated": "%%percentage%%% תורגם (%%translated%%/%%total%% מחרוזות)",
-	"approved": "%%percentage%%% אושרו (%%approved%%/%%total%% מחרוזות)",
+	"translated": "%%percentage%%% translated (%%translated%%/{total, plural, one {# string} other {# strings}})",
+	"approved": "%%percentage%%% approved (%%approved%%/{total, plural, one {# string} other {# strings}})",
 	"languages": {
 		"ar": "ערבית",
 		"bc": "Biscuitish",
