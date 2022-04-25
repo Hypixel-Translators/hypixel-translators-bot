@@ -292,7 +292,7 @@ client.on("messageCreate", async message => {
 					enStrings = enStrings[pathPart]
 				} else {
 					string = strings[pathPart]
-					if (!string || (typeof string === "string" && !checkVariables(string, enStrings))) {
+					if (!string || (typeof string === "string" && !checkVariables(string, enStrings[pathPart]))) {
 						string = enStrings[pathPart] // If the string hasn't been added yet or if the variables changed
 						if (!string) {
 							string = null // In case of fire
