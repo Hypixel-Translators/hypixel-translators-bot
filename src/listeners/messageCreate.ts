@@ -241,13 +241,13 @@ client.on("messageCreate", async message => {
 				const images: (BufferResolvable | Stream)[] = []
 				message.attachments.forEach(file => images.push(file.attachment))
 				staffMsg.setTitle("View attachments")
-				dmEmbed.setTitle(getGlobalString("staffDm.attachmentsSent"))
+				dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent", { variables: { number: message.attachments.size } }))
 				await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg], files: images })
 				await message.channel.send({ embeds: [dmEmbed] })
 				return
 			} else if (message.attachments.size > 0) {
 				staffMsg.setTitle("View attachment").setImage(message.attachments.first()!.url)
-				dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent"))
+				dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent", { variables: { number: 1 } }))
 				await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg] })
 			} else await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg] })
 			if (afterConfirm) await interactionOrMsg.update({ embeds: [dmEmbed], components: [controlButtons] })
