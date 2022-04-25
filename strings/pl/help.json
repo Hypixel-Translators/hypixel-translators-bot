@@ -9,9 +9,8 @@
 	"commandInfoFor": "Szczegóły polecenia dla ",
 	"staffOnly": "To polecenie jest dostępne tylko dla administracji, a zatem jej szczegóły są ukryte.\nJeżeli uważasz że to błąd, skontaktuj się z członkiem administracji.",
 	"inDev": "To polecenie jest oebecnie w fazie rozwoju i nie jest jeszcze dostępne!",
-	"seconds": "sekund",
-	"second": "sek.",
-	"minutes": "min",
+	"seconds": "{number, plural, one {# sekunda} few {# sekundy} many {# sekund} other {# sekundy}}",
+	"minutes": "{number, plural, one {# minuta} few {# minuty} many {# minut} other {# minuty}}",
 	"cooldownField": "Czas odnawiania",
 	"8ball": {
 		"description": "Magiczna kula, która odpowie na wszystkie twoje pytania."
