@@ -9,9 +9,8 @@
 	"commandInfoFor": "Informasi perintah untuk ",
 	"staffOnly": "Perintah ini hanya tersedia bagi staf, maka dari itu informasi tersebut disembunyikan.\nHarap kontak seorang staf jika anda yakin ini adalah eror.",
 	"inDev": "Perintah ini sedang di dalam pengembangan dan akan menjadi tersedia di lain waktu!",
-	"seconds": "detik",
-	"second": "detik",
-	"minutes": "menit",
+	"seconds": "{number, plural, one {# second} other {# seconds}}",
+	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "Cooldown",
 	"8ball": {
 		"description": "Bola ajaib yang akan menjawab seluruh pertanyaan anda."
