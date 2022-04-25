@@ -87,7 +87,7 @@ const command: Command = {
 			pages.forEach(page => {
 				if (page.number === 0) return
 				page1.addFields({
-					name: getString("pageNumber", { variables: { number: page.number, total: pages.length } }),
+					name: getString("pageNumber", { variables: { number: page.number } }),
 					value: `${page.badge} ${getString(page.titleString)}`,
 					inline: true,
 				})
@@ -163,11 +163,14 @@ const command: Command = {
 			})
 			if (cmdDesc !== getString("inDev")) {
 				if (cmd.cooldown) {
-					if (cmd.cooldown >= 120)
-						embed.addFields({ name: getString("cooldownField"), value: `${cmd.cooldown / 60} ${getString("minutes")}`, inline: true })
-					else if (cmd.cooldown === 1)
-						embed.addFields({ name: getString("cooldownField"), value: `${cmd.cooldown} ${getString("second")}`, inline: true })
-					else embed.addFields({ name: getString("cooldownField"), value: `${cmd.cooldown} ${getString("seconds")}`, inline: true })
+					if (cmd.cooldown >= 60) {
+						embed.addFields({
+							name: getString("cooldownField"),
+							value: getString("minutes", { variables: { number: cmd.cooldown / 60 } }),
+							inline: true,
+						})
+					} else
+						embed.addFields({ name: getString("cooldownField"), value: getString("seconds", { variables: { number: cmd.cooldown } }), inline: true })
 				}
 			}
 			await interaction.reply({ embeds: [embed] })

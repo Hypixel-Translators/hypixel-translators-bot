@@ -143,7 +143,11 @@ const command: Command = {
 						total: botData.phrases.total,
 					},
 				})}\n${getString("approved", {
-					variables: { percentage: botData.approvalProgress, approved: botData.phrases.approved, total: botData.phrases.total },
+					variables: {
+						percentage: botData.approvalProgress,
+						approved: botData.phrases.approved,
+						total: botData.phrases.total,
+					},
 				})}`,
 			})
 		}

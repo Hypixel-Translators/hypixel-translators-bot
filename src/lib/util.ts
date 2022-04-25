@@ -57,12 +57,23 @@ export function arrayEqual(a: unknown, b: unknown) {
 		arr2 = b.concat().sort()
 
 	// Remove duplicated values
-	arr1 = arr1.filter((item: string, index: number) => arr1.indexOf(item) === index)
-	arr2 = arr2.filter((item: string, pos: number) => arr2.indexOf(item) === pos)
+	arr1 = arr1.filter((item, index) => arr1.indexOf(item) === index)
+	arr2 = arr2.filter((item, pos) => arr2.indexOf(item) === pos)
+
+	// Compare lengths
+	if (arr1.length !== arr2.length) return false
 
 	for (let i = 0; i < arr1.length; i++) if (arr1[i] !== arr2[i]) return false
 
 	return true
+}
+
+export function checkVariables(firstString: string, secondString: string) {
+	const match = (string: string) =>
+		Array.from(string.matchAll(/%%(\w+)%%|{(\w+)(, \w+(, .+)?)?}/g))
+			.map(el => el[1] ?? el[2])
+			.sort()
+	return arrayEqual(match(firstString), match(secondString))
 }
 
 export async function closeConnection(uuid: string) {
@@ -318,23 +329,17 @@ export function gql(cleanText: TemplateStringsArray, ...substitutions: unknown[]
 }
 
 export function parseToNumberString(num: number, getString: GetStringFunction): string {
+	const format = (number: number) => number.toLocaleString(getString("region.dateLocale", { file: "global" }))
 	if (num >= 1_000_000) {
-		return `${Number((num / 1_000_000).toFixed(2)).toLocaleString(getString("region.dateLocale", { file: "global" }))}${getString(
-			"numberStrings.million",
-			{
-				file: "global",
-			},
-		)}`
+		return `${format(Number((num / 1_000_000).toFixed(2)))}${getString("numberStrings.million", {
+			file: "global",
+		})}`
+	} else if (num >= 1000) {
+		return `${format(Number((num / 1000).toFixed(2)))}${getString("numberStrings.thousand", {
+			file: "global",
+		})}`
 	}
-	if (num >= 1000) {
-		return `${Number((num / 1000).toFixed(2)).toLocaleString(getString("region.dateLocale", { file: "global" }))}${getString(
-			"numberStrings.thousand",
-			{
-				file: "global",
-			},
-		)}`
-	}
-	return `${num}`
+	return format(num)
 }
 
 export async function restart(interaction?: ChatInputCommandInteraction) {

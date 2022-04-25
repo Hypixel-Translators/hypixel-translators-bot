@@ -10,7 +10,7 @@ import {
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { createButtonControls, generateTip, parseToNumberString, transformDiscordLocale } from "../../lib/util"
+import { createButtonControls, generateTip, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -124,7 +124,7 @@ function fetchPage(page: number, pages: DbUser[][], getString: GetStringFunction
 					variables: {
 						rank: i + 1 + page * 24,
 						level: pages[page][i].levels!.level,
-						xp: parseToNumberString(pages[page][i].levels!.totalXp, getString),
+						xp: pages[page][i].levels!.totalXp,
 					},
 				}),
 				value: `<@!${pages[page][i].id}>${pages[page][i].id === interaction.user.id ? ` - **${getString("youIndicator")}**` : ""}`,

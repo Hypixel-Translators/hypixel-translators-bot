@@ -56,15 +56,15 @@ const command: Command = {
 		switch (interaction.options.getString("role", true) as "all" | "proofreader" | "translator") {
 			case "translator":
 				if (hasPerm) await interaction.channel!.send(`**${interaction.user}**: ${trRole} ${message}`)
-				else await interaction.editReply(`${getString("errorNoPing")}${getString("errorNoPingTr")} ${getString("errorNoPingDisclaimer")}`)
+				else await interaction.editReply(getString("errorNoPing", { variables: { role: "tr" } }))
 				break
 			case "proofreader":
 				if (hasPerm) await interaction.channel!.send(`**${interaction.user}**: ${pfRole} ${message}`)
-				else await interaction.editReply(`${getString("errorNoPing")}${getString("errorNoPingPr")} ${getString("errorNoPingDisclaimer")}`)
+				else await interaction.editReply(getString("errorNoPing", { variables: { role: "pr" } }))
 				break
 			case "all":
 				if (hasPerm) await interaction.channel!.send(`**${interaction.user}**: ${trRole} ${pfRole} ${message}`)
-				else await interaction.editReply(`${getString("errorNoPing")}${getString("errorNoPingAll")} ${getString("errorNoPingDisclaimer")}`)
+				else await interaction.editReply(getString("errorNoPing", { variables: { role: "other" } }))
 				break
 			default:
 				throw "falseRole"

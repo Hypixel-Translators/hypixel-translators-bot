@@ -1,3 +1,4 @@
+import MessageFormat from "@messageformat/core"
 import {
 	type BufferResolvable,
 	type Message,
@@ -18,7 +19,7 @@ import { client } from "../index"
 import { crowdinVerify } from "../lib/crowdinverify"
 import { db, type DbUser, cancelledEvents } from "../lib/dbclient"
 import { leveling } from "../lib/leveling"
-import { arrayEqual, type Stats } from "../lib/util"
+import { checkVariables, parseToNumberString, type Stats } from "../lib/util"
 
 import type { Stream } from "node:stream"
 
@@ -240,13 +241,13 @@ client.on("messageCreate", async message => {
 				const images: (BufferResolvable | Stream)[] = []
 				message.attachments.forEach(file => images.push(file.attachment))
 				staffMsg.setTitle("View attachments")
-				dmEmbed.setTitle(getGlobalString("staffDm.attachmentsSent"))
+				dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent", { variables: { number: message.attachments.size } }))
 				await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg], files: images })
 				await message.channel.send({ embeds: [dmEmbed] })
 				return
 			} else if (message.attachments.size > 0) {
 				staffMsg.setTitle("View attachment").setImage(message.attachments.first()!.url)
-				dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent"))
+				dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent", { variables: { number: 1 } }))
 				await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg] })
 			} else await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg] })
 			if (afterConfirm) await interactionOrMsg.update({ embeds: [dmEmbed], components: [controlButtons] })
@@ -291,10 +292,7 @@ client.on("messageCreate", async message => {
 					enStrings = enStrings[pathPart]
 				} else {
 					string = strings[pathPart]
-					if (
-						!string ||
-						(typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g)?.sort(), enStrings[pathPart].match(/%%\w+%%/g)?.sort()))
-					) {
+					if (!string || (typeof string === "string" && !checkVariables(string, enStrings[pathPart]))) {
 						string = enStrings[pathPart] // If the string hasn't been added yet or if the variables changed
 						if (!string) {
 							string = null // In case of fire
@@ -302,8 +300,17 @@ client.on("messageCreate", async message => {
 								console.error(`Couldn't get string ${path} in English for ${file}, please fix this`)
 						}
 					}
-					if (typeof string === "string" && variables)
-						for (const [variable, text] of Object.entries(variables)) string = string.replace(`%%${variable}%%`, String(text))
+					if (typeof string === "string" && variables) {
+						for (const [variable, value] of Object.entries(variables))
+							string = string.replace(`%%${variable}%%`, typeof value === "number" ? parseToNumberString(value, getGlobalString) : value)
+						const locale = lang.replace("_", "-")
+						string = new MessageFormat(
+							{
+								[locale]: (value: string | number, ord?: boolean) =>
+									new Intl.PluralRules(locale, { type: ord ? "ordinal" : "cardinal" }).select(Number(value)),
+							}[locale],
+						).compile(string)(variables)
+					}
 				}
 			} else if (strings) string = strings
 			else string = enStrings

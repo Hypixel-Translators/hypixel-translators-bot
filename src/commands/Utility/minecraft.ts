@@ -133,14 +133,9 @@ const command: Command = {
 						color: colors.success,
 						author: { name: getString("moduleName") },
 						title: getString("history.nameHistoryFor", { variables: { username } }),
-						description:
-							nameHistory.length - 1
-								? nameHistory.length - 1 === 1
-									? getString(isOwnUser ? "history.youChangedName1" : "history.userChangedName1", { variables: { username } })
-									: getString(isOwnUser ? "history.youChangedName" : "history.userChangedName", {
-											variables: { username, number: nameHistory.length - 1 },
-									  })
-								: getString(isOwnUser ? "history.youNeverChanged" : "history.userNeverChanged", { variables: { username } }),
+						description: getString(isOwnUser ? "history.youChangedName" : "history.userChangedName", {
+							variables: { number: nameHistory.length - 1, username },
+						}),
 						fields: constructFields(pages[page]),
 						footer: {
 							text:

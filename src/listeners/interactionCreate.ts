@@ -2,6 +2,7 @@ import process from "node:process"
 // Cannot use promisified setTimeout here
 import { setTimeout } from "node:timers"
 
+import MessageFormat from "@messageformat/core"
 import { Collection, Formatters, GuildChannel, type Message, EmbedBuilder, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
@@ -9,7 +10,7 @@ import { client } from "../index"
 import handleAutocompleteInteractions from "../interactions/autocomplete"
 import handleButtonInteractions from "../interactions/buttons"
 import { db, cancelledEvents } from "../lib/dbclient"
-import { arrayEqual, transformDiscordLocale, generateTip, type Stats } from "../lib/util"
+import { transformDiscordLocale, generateTip, type Stats, parseToNumberString, checkVariables } from "../lib/util"
 
 import type { Command } from "../lib/imports"
 client.on("interactionCreate", async interaction => {
@@ -125,10 +126,7 @@ client.on("interactionCreate", async interaction => {
 					enStrings = enStrings[pathPart]
 				} else {
 					string = strings[pathPart]
-					if (
-						!string ||
-						(typeof string === "string" && !arrayEqual(string.match(/%%\w+%%/g)?.sort(), enStrings[pathPart].match(/%%\w+%%/g)?.sort()))
-					) {
+					if (!string || (typeof string === "string" && !checkVariables(string, enStrings[pathPart]))) {
 						string = enStrings[pathPart] // If the string hasn't been added yet or if the variables changed
 						if (!string) {
 							string = null // In case of fire
@@ -136,8 +134,17 @@ client.on("interactionCreate", async interaction => {
 								console.error(`Couldn't get string ${path} in English for ${file}, please fix this`)
 						}
 					}
-					if (typeof string === "string" && variables)
-						for (const [variable, text] of Object.entries(variables)) string = string.replace(`%%${variable}%%`, String(text))
+					if (typeof string === "string" && variables) {
+						for (const [variable, value] of Object.entries(variables))
+							string = string.replace(`%%${variable}%%`, typeof value === "number" ? parseToNumberString(value, getString) : value)
+						const locale = lang.replace("_", "-")
+						string = new MessageFormat(
+							{
+								[locale]: (value: string | number, ord?: boolean) =>
+									new Intl.PluralRules(locale, { type: ord ? "ordinal" : "cardinal" }).select(Number(value)),
+							}[locale],
+						).compile(string)(variables)
+					}
 				}
 			} else if (strings) string = strings
 			else string = enStrings
