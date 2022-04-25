@@ -9,9 +9,8 @@
 	"commandInfoFor": "Інформація щодо команди ",
 	"staffOnly": "Ця команда доступна тільки команді Discord і тому її інформація прихована.\nБудь ласка, зв'яжіться з один із команди, якщо Ви вважаєте, що це помилка.",
 	"inDev": "Ця команда в даний час на стадії розробки і буде доступна пізніше!",
-	"seconds": "сек.",
-	"second": "сек.",
-	"minutes": "хв.",
+	"seconds": "{number, plural, one {# second} other {# seconds}}",
+	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "Перезарядка",
 	"8ball": {
 		"description": "Магічна куля, яка відповість на всі Ваші запитання."
