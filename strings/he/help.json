@@ -9,9 +9,8 @@
 	"commandInfoFor": "מידע לגבי הפקודה ",
 	"staffOnly": "הפקודה הזאת זמינה רק לחברי צוות ולכן, המידע על אודותיה הינו מוסתר.\nאנא פנו לחבר צוות אם הנכם מאמינים כי חלה טעות.",
 	"inDev": "הפקודה הזאת כרגע תחת פיתוח ואינה תהיה זמינה עד לתאריך מאוחר יותר!",
-	"seconds": " שניות",
-	"second": "שנייה",
-	"minutes": "דקות",
+	"seconds": "{number, plural, one {# second} other {# seconds}}",
+	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "זמן המתנה",
 	"8ball": {
 		"description": "ה8 Ball הקסום שיענה לך על כל השאלות שלך."
