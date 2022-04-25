@@ -44,8 +44,8 @@ client.on("guildMemberAdd", async member => {
 
 export async function generateWelcomeImage(member: GuildMember) {
 	// Define assets and create canvas
-	registerFont("assets/Bitter-Regular.ttf", { family: "Bitter" })
-	registerFont("assets/Bitter-Bold.ttf", { family: "Bitter-Bold" })
+	registerFont("assets/Whitney-Bold.ttf", { family: "Whitney-Bold" })
+	registerFont("assets/Whitney-Book.ttf", { family: "Whitney-Book" })
 	const canvas = createCanvas(800, 200),
 		ctx = canvas.getContext("2d"),
 		userName = member.user.username
@@ -66,24 +66,24 @@ export async function generateWelcomeImage(member: GuildMember) {
 
 	// TEXT
 	// Measure text widths
-	ctx.font = "37.5px Bitter, Arial, sans-serif"
+	ctx.font = "37.5px Whitney-Book, Arial, sans-serif"
 	const welcome = ctx.measureText("Welcome ")
-	ctx.font = "37.5px sans, Arial, sans-serif"
+	ctx.font = "37.5px Whitney-Bold, Arial, sans-serif"
 	const name = ctx.measureText(userName)
 	if (name.width > 550 - welcome.width) nameWidth = 550 - welcome.width
 	else nameWidth = name.width
 
 	// Draw 'Welcome ' and '!'
-	ctx.font = "37.5px Bitter, Arial, sans-serif"
+	ctx.font = "37.5px Whitney-Book, Arial, sans-serif"
 	ctx.fillText("Welcome ", 200, 92.5)
 	ctx.fillText("!", 200 + welcome.width + nameWidth, 92.5)
 
 	// Draw username
-	ctx.font = "37.5px sans, Arial, sans-serif"
+	ctx.font = "37.5px Whitney-Bold, Arial, sans-serif"
 	ctx.fillText(userName, 200 + welcome.width, 92.5, 550 - welcome.width)
 
 	// Draw member count
-	ctx.font = "30px Bitter, Arial, sans-serif"
+	ctx.font = "30px Whitney-Book, Arial, sans-serif"
 	ctx.fillText(`You're member #${member.guild.members.cache.filter(m => !m.pending).size}`, 200, 132.5)
 
 	// ICON
