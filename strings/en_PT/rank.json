@@ -5,7 +5,7 @@
 	"youNotRanked": "Ye nay be ranked yet!",
 	"userNotRanked": "That pirate nay be ranked yet!",
 	"howRank": "In order t' be ranked, ye must talk in th' chats!",
-	"textProgress": "%%currentXp%%/%%xpNeeded%% | %%messages%% Messages",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | {messages, plural, one {# Message} other {# Messages}}",
 	"youLevel": "Ye be at level %%level%% and ye're #%%rank%% on th' leaderboard!",
 	"userLevel": "%%user%% be at level %%level%% an' they be #%%rank%% on th' leaderboard!"
 }
