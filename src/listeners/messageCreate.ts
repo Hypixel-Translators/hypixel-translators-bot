@@ -212,7 +212,7 @@ client.on("messageCreate", async message => {
 				controlButtons.components.forEach(button => button.setDisabled(true))
 				const timeOutEmbed = new EmbedBuilder({
 					color: colors.error,
-					author: getGlobalString("staffDm.dmCancelled"),
+					author: { name: getGlobalString("staffDm.dmCancelled") },
 					description: message.content,
 					footer: { text: getGlobalString("staffDm.resendInfo"), iconURL: message.author.displayAvatarURL({ extension: "png" }) },
 				})
@@ -232,7 +232,7 @@ client.on("messageCreate", async message => {
 				}),
 				dmEmbed = new EmbedBuilder({
 					color: colors.success,
-					author: getGlobalString("staffDm.messageSent"),
+					author: { name: getGlobalString("staffDm.messageSent") },
 					description: message.content,
 					footer: { text: getGlobalString("staffDm.noConfirmWarn"), iconURL: message.author.displayAvatarURL({ extension: "png" }) },
 				})

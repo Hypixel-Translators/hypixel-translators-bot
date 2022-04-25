@@ -32,7 +32,7 @@ const command: Command = {
 			message = interaction.options.getString("message", true).replaceAll("\\n", "\n"),
 			dm = new EmbedBuilder({
 				color: colors.neutral,
-				author: getString("incoming", { lang: recipientDb.lang ?? "en" }),
+				author: { name: getString("incoming", { lang: recipientDb.lang ?? "en" }) },
 				description: message,
 				footer: { text: getString("incomingDisclaimer", { lang: recipientDb.lang ?? "en" }) },
 			}),
