@@ -2,6 +2,6 @@
 	"moduleName": "Tabla de clasificación de XP",
 	"pageTitle": "¡Aquí está la tabla de clasificación de XP!",
 	"level": "#%%rank%% | Nivel %%level%% | XP: %%xp%%",
-	"youIndicator": "USTED",
-	"unranked": "#%%rank%% Sin clasificar"
+	"unranked": "#%%rank%% Sin clasificar",
+	"youIndicator": "USTED"
 }
