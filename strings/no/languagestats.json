@@ -1,8 +1,8 @@
 {
 	"moduleName": "Språkstatistikk",
 	"statsAll": "Here are the statistics for the %%language%% language on all the projects we currently support.",
-	"translated": "%%percentage%%% oversatt (%%translated%%/%%total%% strenger)",
-	"approved": "%%percentage%%% akseptert (%%approved%%/%%total%% strenger)",
+	"translated": "%%percentage%%% translated (%%translated%%/{total, plural, one {# string} other {# strings}})",
+	"approved": "%%percentage%%% approved (%%approved%%/{total, plural, one {# string} other {# strings}})",
 	"languages": {
 		"ar": "Arabisk",
 		"bc": "Biscuitish",
