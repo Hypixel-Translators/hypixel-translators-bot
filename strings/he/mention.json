@@ -1,8 +1,4 @@
 {
-	"errorNoPing": "אין לך את role ההוגה עבור אותה שפה, ",
-	"errorNoPingPr": "אז אינך יכול/ה לתייג אותו/ה.",
-	"errorNoPingTr": "אז אינך יכול/ה לתייג את role המתרגם שלו.",
-	"errorNoPingAll": "אז אינך יכול/ה לתייג את השפה כולה.",
-	"errorNoPingDisclaimer": "פנה לבעלים של השרת או לאדמין אם את/ה ממש צריך/ה.",
+	"errorNoPing": "You don't have that language's proofreader role, {role, select, translator {so you can't mention its translator role} proofreader {so you can't mention it} other {so you can't mention the entire language}}. Contact a server administrator if you really need to.",
 	"success": "Message sent successfully!"
 }
