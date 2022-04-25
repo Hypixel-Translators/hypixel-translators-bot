@@ -56,11 +56,11 @@ const command: Command = {
 		switch (interaction.options.getString("role", true) as "all" | "proofreader" | "translator") {
 			case "translator":
 				if (hasPerm) await interaction.channel!.send(`**${interaction.user}**: ${trRole} ${message}`)
-				else await interaction.editReply(getString("errorNoPing", { variables: { role: "tr" } }))
+				else await interaction.editReply(getString("errorNoPing", { variables: { role: "translator" } }))
 				break
 			case "proofreader":
 				if (hasPerm) await interaction.channel!.send(`**${interaction.user}**: ${pfRole} ${message}`)
-				else await interaction.editReply(getString("errorNoPing", { variables: { role: "pr" } }))
+				else await interaction.editReply(getString("errorNoPing", { variables: { role: "proofreader" } }))
 				break
 			case "all":
 				if (hasPerm) await interaction.channel!.send(`**${interaction.user}**: ${trRole} ${pfRole} ${message}`)
