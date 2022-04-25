@@ -1,8 +1,4 @@
 {
-	"errorNoPing": "U has langag profreder rol not, ",
-	"errorNoPingPr": "so u cant menton it.",
-	"errorNoPingTr": "zo u cannoto menton tramslayor rol.",
-	"errorNoPingAll": "zo u cannoto menton whol langag.",
-	"errorNoPingDisclaimer": "Contacc servar owner or admon if u really wants.",
+	"errorNoPing": "You don't have that language's proofreader role, {role, select, translator {so you can't mention its translator role} proofreader {so you can't mention it} other {so you can't mention the entire language}}. Contact a server administrator if you really need to.",
 	"success": "Message sent successfully!"
 }
