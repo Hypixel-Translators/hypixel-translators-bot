@@ -10,7 +10,7 @@
     "totalVotes": "Общ брой гласове",
     "createdOn": "Създадена на",
     "endingOn": "Свършва на",
-    "voteCount": "{number, plural, one {# vote} other {# votes}}",
+    "voteCount": "{number, plural, one {# глас} other {# гласа}}",
     "pollResults": "Резултати на анкетата",
     "endingWarning": "Внимание! Анкетата свършва скоро",
     "endingWarningDesc": "Анкетата е планирана да свърши на %%fullTime%% (%%relativeTime%%), така че сигурно не искате да я спрете все още. Ако искате, потвърдете с бутона долу.",
