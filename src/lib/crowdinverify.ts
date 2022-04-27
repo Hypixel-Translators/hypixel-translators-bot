@@ -374,6 +374,8 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 async function updateProjectRoles(projectName: ValidProjects, member: GuildMember, project: CrowdinProject) {
 	if (project.user_role === "pending") return
 
+	if (project.contributed_languages?.some(l => !l.user_role))
+		return console.error(`Member ${member.displayName} has a language with no role! Here's their data:\n`, project)
 	const languages = project.contributed_languages?.length
 			? project.contributed_languages.map(lang => ({
 					lang: lang.code,
