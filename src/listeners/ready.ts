@@ -101,9 +101,9 @@ client.on("ready", async () => {
 	}
 
 	// Update permissions
-	await guild.commands.permissions.set({
-		fullPermissions: getPermissions(Array.from(guild.commands.cache.values()).concat(Array.from(client.application.commands.cache.values()))),
-	})
+	// await guild.commands.permissions.set({
+	// 	fullPermissions: getPermissions(Array.from(guild.commands.cache.values()).concat(Array.from(client.application.commands.cache.values()))),
+	// })
 
 	const members = await guild.members.fetch()
 	if (members.size < guild.memberCount) {
