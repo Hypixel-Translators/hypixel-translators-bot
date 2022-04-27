@@ -83,15 +83,15 @@
 				"name": "тег",
 				"description": "The tag you want to see",
 				"choices": {
-					"invite": "Invite link to the server",
-					"hypixel": "Hypixel links",
-					"guidelines": "Hypixel project guidelines",
-					"proofreader": "How to get proofreader on the Hypixel project",
-					"minecraft": "Minecraft Crowdin Project",
-					"quickplay": "Quickplay links",
-					"skyblockaddons": "SkyblockAddons links",
-					"thread": "Discord server thread",
-					"twitter": "Hypixel Translators Community Twitter"
+					"invite": "Ссылка-приглашение на сервер",
+					"hypixel": "Ссылки Hypixel",
+					"guidelines": "Руководящие принципы проекта Hypixel",
+					"proofreader": "Как получить корректора в проекте Hypixel",
+					"minecraft": "Проект Minecraft на Crowdin",
+					"quickplay": "Ссылки Quickplay",
+					"skyblockaddons": "Ссылки SkyblockAddons",
+					"thread": "Тема сервера Discord",
+					"twitter": "Twitter сообщества переводчиков Hypixel"
 				}
 			},
 			"target": {
@@ -110,7 +110,7 @@
 				"choices": [
 					"Главная страница",
 					"Инструменты и утилиты",
-					"Information commands"
+					"Команды информации"
 				]
 			}
 		},
@@ -185,9 +185,9 @@
 				"name": "роль",
 				"description": "The role to mention",
 				"choices": {
-					"all": "Both roles",
-					"translator": "Translator",
-					"proofreader": "Proofreader"
+					"all": "Обе роли",
+					"translator": "Переводчика",
+					"proofreader": "Корректора"
 				}
 			},
 			"message": {
@@ -327,67 +327,67 @@
 						"description": "The question of the poll"
 					},
 					"option1": {
-						"name": "option1",
+						"name": "1_опция",
 						"description": "The first option in the poll"
 					},
 					"option2": {
-						"name": "option2",
+						"name": "2_опция",
 						"description": "The second option in the poll"
 					},
 					"time": {
-						"name": "time",
+						"name": "время",
 						"description": "How long before this poll is automatically closed and results are published (in hours)"
 					},
 					"option3": {
-						"name": "option3",
+						"name": "3_опция",
 						"description": "The third option in the poll"
 					},
 					"option4": {
-						"name": "option4",
+						"name": "4_опция",
 						"description": "The fourth option in the poll"
 					},
 					"option5": {
-						"name": "option5",
+						"name": "5_опция",
 						"description": "The fifth option in the poll"
 					},
 					"option6": {
-						"name": "option6",
+						"name": "6_опция",
 						"description": "The sixth option in the poll"
 					},
 					"option7": {
-						"name": "option7",
+						"name": "7_опция",
 						"description": "The seventh option in the poll"
 					},
 					"option8": {
-						"name": "option8",
+						"name": "8_опция",
 						"description": "The eigth option in the poll"
 					}
 				}
 			},
 			"end": {
-				"name": "end",
+				"name": "завершить",
 				"description": "End a poll given its message ID",
 				"options": {
 					"message_id": {
-						"name": "message_id",
+						"name": "id_сообщения",
 						"description": "The ID of the message containing the poll"
 					},
 					"channel_id": {
-						"name": "channel_id",
+						"name": "id_канала",
 						"description": "The ID of the channel the poll was posted in, if not the current one"
 					}
 				}
 			},
 			"show": {
-				"name": "show",
+				"name": "посмотреть",
 				"description": "Shows the current results of a poll without ending it. Only available to the creator of the poll",
 				"options": {
 					"message_id": {
-						"name": "message_id",
+						"name": "id_сообщения",
 						"description": "The ID of the message containing the poll"
 					},
 					"channel_id": {
-						"name": "channel_id",
+						"name": "id_канала",
 						"description": "The ID of the channel the poll was posted in, if not the current one"
 					}
 				}
