@@ -27,12 +27,12 @@ const command: Command = {
 		const authorDb = await client.getUser(interaction.user.id),
 			discordLocale = transformDiscordLocale(interaction.locale)
 
-		let rawLang = interaction.options.getString("language", false)?.toLowerCase()
+		let rawLang = interaction.options.getString("language", false)?.replace("_", "-").toLowerCase()
 		if (!["en", "empty"].includes(authorDb.lang ?? discordLocale)) rawLang ??= authorDb.lang ?? discordLocale
 		if (!rawLang) throw "noLang"
 		const languages = await db.collection<MongoLanguage>("languages").find().toArray(),
 			lang =
-				languages.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang)! ??
+				languages.find(l => l.code === rawLang || l.id.toLowerCase() === rawLang || l.name.toLowerCase() === rawLang) ??
 				languages.find(l => l.name.toLowerCase().includes(rawLang!))!
 		if (!lang || lang.code === "en") throw "falseLang"
 
