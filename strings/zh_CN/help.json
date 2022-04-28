@@ -9,8 +9,8 @@
 	"commandInfoFor": "命令信息：",
 	"staffOnly": "此命令仅限管理员使用，因此有关信息不公开显示。\n如果你认为存在错误，请联系管理员。",
 	"inDev": "此命令仍在开发中，敬请期待！",
-	"seconds": "{number, plural, one {# second} other {# seconds}}",
-	"minutes": "{number, plural, one {# minute} other {# minutes}}",
+	"seconds": "{number, plural, other {# 秒}}",
+	"minutes": "{number, plural, other {# 分钟}}",
 	"cooldownField": "冷却时间",
 	"8ball": {
 		"description": "占卜球会回答你所有的问题。"
@@ -52,7 +52,7 @@
 		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
 	},
 	"prefix": {
-		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
+		"description": "根据你的语言设置合适的前缀。若需要自定义前缀，请执行 `/prefix` 命令，然后提供对应国家/地区旗帜的代码或名称来作为参数 `flags` 的值。你也可以添加多个旗帜，但请使用空格分隔。"
 	},
 	"profile": {
 		"description": "若我们的数据库中存有你的数据，则可以获取 Crowdin 个人主页链接。否则，请使用 `/help verify` 命令来了解如何保存数据并更新你的角色。"
@@ -70,7 +70,7 @@
 		"description": "发送预设消息，允许你在发送此消息时通知某一特定用户。"
 	},
 	"translate": {
-		"description": "Gives you useful information on how to translate the bot."
+		"description": "获取有关机器人翻译的实用信息。"
 	},
 	"verify": {
 		"description": "自动检测你的 Crowdin 个人档案，并给予你对应的角色。如果你的档案未储存在我们的数据库中，则必须为命令提供参数来指定。如果想查看数据库中是否包含你的数据，请执行 `/profile` 命令。同时也请务必允许来自此服务器的私聊消息，以便机器人通过私聊发送信息。"

@@ -13,7 +13,7 @@
 		"notSaved": "因此前缀未保存。"
 	},
 	"customPrefix": "Feel free to execute `/prefix <flags>` to get your desired prefix.",
-	"caution": "Caution",
+	"caution": "警告",
 	"warning": "Setting your prefix to a language you don't translate will result in a warning. Do you want to change your nickname anyway?",
 	"react": "React with all flags you want to add to your prefix in order.",
 	"reactTimer": "你有 %%cooldown%% 秒的时间。点按 ❎ 以取消。",

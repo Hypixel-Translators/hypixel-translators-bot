@@ -22,9 +22,9 @@
 		"noPlayer": "该玩家从未游玩过 Hypixel！",
 		"notVerified": "That user hasn't linked their Hypixel account yet!",
 		"disabled": "This command has been temporarily disabled.",
-		"noAccess": "You're not allowed to execute this command!",
-		"noPermission": "You're not allowed to execute this command on this channel!",
-		"apiError": "Something went wrong while contacting the API!",
+		"noAccess": "你无权使用此命令！",
+		"noPermission": "你无权在该频道使用此命令！",
+		"apiError": "联系 API 时出现问题！",
 		"wrongLink": "错误的链接！"
 	},
 	"roles": {
@@ -33,12 +33,12 @@
 		"successTake": "Successfully took the %%role%% role from you!"
 	},
 	"cooldown": "冷却时间",
-	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
-	"linkCorrectionDesc": "Please change your link to the %%format%% format next time.",
-	"correctLink": "Here's the correct link:",
-	"wrongStringURL": "The link you sent is a link to the editor and not the string itself!",
-	"example": "Click the button shown on the image below to get the correct string URL. It should look like this: %%url%%",
-	"reminderLang": "Don't forget to also change your link to the %%format%% format.",
+	"timeLeft": "你可以在 %%timestamp%% 后再次使用 %%command%%。",
+	"linkCorrectionDesc": "下次请务必注意，更改链接为 %%format%% 格式。",
+	"correctLink": "以下是正确的链接：",
+	"wrongStringURL": "你发送的链接指向 Crowdin 在线编辑器本身，而非特定字符串！",
+	"example": "点击下方图片上显示的按钮以获取正确的字符串 URL。正确格式应为：%%url%%",
+	"reminderLang": "不要忘记将链接修改为 %%format%% 格式。",
 	"tip": "提示",
 	"tips": {
 		"ib": "试试 Inhale Banana 语言吧，执行 %%langIb%% 命令即可！",
@@ -59,13 +59,13 @@
 		"moreTips": "我们需要更多提示！你可以通过 %%feedback%% 命令来提交。"
 	},
 	"pagination": {
-		"first": "First page",
-		"previous": "Previous page",
-		"next": "Next page",
-		"last": "Last page",
-		"confirm": "Confirm",
-		"cancel": "Cancel",
-		"page": "Page %%number%%/%%total%%",
+		"first": "第一页",
+		"previous": "上一页",
+		"next": "下一页",
+		"last": "最后一页",
+		"confirm": "确认",
+		"cancel": "取消",
+		"page": "第 %%number%%/%%total%% 页",
 		"notYours": "You cannot interact with this menu! Execute %%command%% yourself to do this.",
 		"timeOut": "This menu has timed out. If you wish to use it again, execute %%command%%."
 	},
