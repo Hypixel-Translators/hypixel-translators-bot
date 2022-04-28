@@ -1,10 +1,10 @@
 {
 	"moduleName": "语言",
 	"changedToTitle": "已将你的语言更改为简体中文！",
-	"resetTitle": "Reset your language!",
+	"resetTitle": "已重置语言！",
 	"didntChange": "你的语言未变更",
 	"alreadyThis": "发生这种情况是因为你选择了的语言已经是偏好语言。",
-	"notSet": "This happened because you hadn't set a language to begin with.",
+	"notSet": "出现此情况的原因是你尚未设置语言。",
 	"notTranslated": "所选语言因翻译不完全而无法使用。若你熟知该语言，可使用 `/translate` 命令帮助翻译。",
 	"errorTitle": "该语言尚未被添加！",
 	"errorDescription": "你的语言未被更改。以下是目前可用的语言（可能未翻译）：",
