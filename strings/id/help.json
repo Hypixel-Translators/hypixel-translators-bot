@@ -49,7 +49,7 @@
 		"description": "Memberikan anda ping bot."
 	},
 	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
+		"description": "Membuat atau mengatur poll yang ada di server. Tersedia untuk Proofreader Hypixel dan atasannya. Semua suara di poll yang menggunakan command ini akan menjadi privat sampai poll selesai dan semua pemilih tidak akan diberitahukan, hanya berapa suara saja yang akan diperlihatkan."
 	},
 	"prefix": {
 		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
@@ -61,7 +61,7 @@
 		"description": "Memberikan anda tautan-tautan dan informasi mengenai semua proyek terjemahan yang kami dukung di server."
 	},
 	"quote": {
-		"description": "Shows a funny/weird/wise quote from the server."
+		"description": "Memberikan sebuah quote lucu/aneh/bijak dari server."
 	},
 	"rank": {
 		"description": "Memberikan anda angka XP anda atau orang lain."
