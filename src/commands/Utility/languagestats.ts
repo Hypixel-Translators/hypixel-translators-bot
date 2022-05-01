@@ -3,7 +3,7 @@ import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js"
 import { colors, ids } from "../../config.json"
 import { client, crowdin } from "../../index"
 import { db } from "../../lib/dbclient"
-import { transformDiscordLocale, generateTip, type MongoLanguage } from "../../lib/util"
+import { transformDiscordLocale, generateTip, type MongoLanguage, parseToNumberString } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -88,12 +88,14 @@ const command: Command = {
 						percentage: hypixelData.translationProgress,
 						translated: hypixelData.phrases.translated,
 						total: hypixelData.phrases.total,
+						totalNumber: parseToNumberString(hypixelData.phrases.total, getString)[1],
 					},
 				})}\n${getString("approved", {
 					variables: {
 						percentage: hypixelData.approvalProgress,
 						approved: hypixelData.phrases.approved,
 						total: hypixelData.phrases.total,
+						totalNumber: parseToNumberString(hypixelData.phrases.total, getString)[1],
 					},
 				})}`,
 			})
@@ -106,12 +108,14 @@ const command: Command = {
 						percentage: quickplayData.translationProgress,
 						translated: quickplayData.phrases.translated,
 						total: quickplayData.phrases.total,
+						totalNumber: parseToNumberString(quickplayData.phrases.total, getString)[1],
 					},
 				})}\n${getString("approved", {
 					variables: {
 						percentage: quickplayData.approvalProgress,
 						approved: quickplayData.phrases.approved,
 						total: quickplayData.phrases.total,
+						totalNumber: parseToNumberString(quickplayData.phrases.total, getString)[1],
 					},
 				})}`,
 			})
@@ -124,12 +128,14 @@ const command: Command = {
 						percentage: sbaData.translationProgress,
 						translated: sbaData.phrases.translated,
 						total: sbaData.phrases.total,
+						totalNumber: parseToNumberString(sbaData.phrases.total, getString)[1],
 					},
 				})}\n${getString("approved", {
 					variables: {
 						percentage: sbaData.approvalProgress,
 						approved: sbaData.phrases.approved,
 						total: sbaData.phrases.total,
+						totalNumber: parseToNumberString(sbaData.phrases.total, getString)[1],
 					},
 				})}`,
 			})
@@ -142,12 +148,14 @@ const command: Command = {
 						percentage: botData.translationProgress,
 						translated: botData.phrases.translated,
 						total: botData.phrases.total,
+						totalNumber: parseToNumberString(botData.phrases.total, getString)[1],
 					},
 				})}\n${getString("approved", {
 					variables: {
 						percentage: botData.approvalProgress,
 						approved: botData.phrases.approved,
 						total: botData.phrases.total,
+						totalNumber: parseToNumberString(botData.phrases.total, getString)[1],
 					},
 				})}`,
 			})

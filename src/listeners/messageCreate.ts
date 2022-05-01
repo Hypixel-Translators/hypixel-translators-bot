@@ -302,7 +302,7 @@ client.on("messageCreate", async message => {
 					}
 					if (typeof string === "string" && variables) {
 						for (const [variable, value] of Object.entries(variables))
-							string = string.replace(`%%${variable}%%`, typeof value === "number" ? parseToNumberString(value, getGlobalString) : value)
+							string = string.replace(`%%${variable}%%`, typeof value === "number" ? parseToNumberString(value, getGlobalString)[0] : value)
 						const locale = lang.replace("_", "-")
 						string = new MessageFormat(
 							{
