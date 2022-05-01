@@ -18,7 +18,11 @@ export default async function handleAutocompleteInteractions(interaction: Autoco
 			)
 		let results: MongoLanguage[] = []
 		// If an exact match is found, only return that
-		if (language) return await interaction.respond([{ name: language.name, value: language.id.replace("-", "_") }])
+		if (language) {
+			return await interaction.respond([
+				{ name: language.name, value: interaction.commandName === "mention" ? language.name : language.id.replace("-", "_") },
+			])
+		}
 		// Otherwise find all matching languages, ordered by relevance
 		results.push(...languages.filter(l => l.name.toLowerCase().startsWith(value.toLowerCase())))
 		results.push(...languages.filter(l => l.code.toLowerCase().startsWith(value.toLowerCase()) && !results.find(r => r.code === l.code)))
@@ -49,7 +53,9 @@ export default async function handleAutocompleteInteractions(interaction: Autoco
 
 		// Make sure we only send a maximum of 25 choices
 		results.splice(25, languages.length)
-		return await interaction.respond(results.map(l => ({ name: l.name, value: l.id.replace("-", "_") })))
+		return await interaction.respond(
+			results.map(l => ({ name: l.name, value: interaction.commandName === "mention" ? l.name : l.id.replace("-", "_") })),
+		)
 	} else if (name === "case") {
 		const results = (await db.collection<PunishmentLog>("punishments").find().toArray())
 			.filter(c => c.case.toString().startsWith(value.toString()))
