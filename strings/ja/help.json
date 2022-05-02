@@ -61,7 +61,7 @@
 		"description": "このサーバーが支援しているすべての翻訳プロジェクトのリンクと情報を表示します。"
 	},
 	"quote": {
-		"description": "Shows a funny/weird/wise quote from the server."
+		"description": "サーバーから面白い/奇妙な/賢い引用を表示します。"
 	},
 	"rank": {
 		"description": "自分自身、または指定したユーザーの現在のXPを表示します。"
