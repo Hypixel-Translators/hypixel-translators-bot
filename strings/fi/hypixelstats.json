@@ -2,7 +2,7 @@
 	"moduleName": "Pelaajan tilastot",
 	"statsDesc": "Tässä joitain pelaajan %%username%% Hypixel-tilastoja, jotka on hankittu [täältä]%%link%%.",
 	"socialMedia": "Tässä pelaajan %%username%% sosiaaliset mediat, jotka on hankittu [täältä]%%link%%.",
-	"guildDesc": "Tässä pelaajan %%player%% guildin, %%guildName%%, tietoja, jotka on hankittu [täältä]%%link%%",
+	"guildDesc": "Tässä tietoja pelaajan %%player%% guildista, %%guildName%%, jotka on hankittu [täältä]%%link%%",
 	"guildDescHypixel": "Guildin kuvaus",
 	"noGuildDesc": "Tällä guildilla ei ole kuvausta!",
 	"userVerified": "Tämä pelaaja on vahvistetusti %%user%%.",
