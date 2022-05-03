@@ -49,7 +49,7 @@
 		"description": "Antaa botin viiveen."
 	},
 	"poll": {
-		"description": "Luo ja hallitse kyselyitä palvelimella. Saatavilla Hypixelin oikolukijoille ja korkeammille. Kaikki kyselyn äänet pysyvät piilotettuina, kunnes kysely päätyy. Kyselyyn vastaajien nimiä ei julkaista, vaan ainoastaan äänten määrä näytetään."
+		"description": "Luo ja hallitse kyselyitä palvelimella. Saatavilla Hypixelin oikolukijoille ja korkeammille. Kaikki kyselyn äänet pysyvät piilotettuina, kunnes kysely päättyy. Kyselyyn vastaajien nimiä ei julkaista, vaan ainoastaan äänten määrä näytetään."
 	},
 	"prefix": {
 		"description": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen. Saadaksesi etuliitteen, käytä komentoa `/etuliite` ja syötä oman maasi lipun aluekoodi tai nimi `liput`-parametrin kohdalle. Voit lisätä niin monta lippua kuin haluat erottamalla ne välilyönneillä."
