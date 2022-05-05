@@ -136,7 +136,7 @@ client.on("interactionCreate", async interaction => {
 					}
 					if (typeof string === "string" && variables) {
 						for (const [variable, value] of Object.entries(variables))
-							string = string.replace(`%%${variable}%%`, typeof value === "number" ? parseToNumberString(value, getString) : value)
+							string = string.replace(`%%${variable}%%`, typeof value === "number" ? parseToNumberString(value, getString)[0] : value)
 						const locale = lang.replace("_", "-")
 						string = new MessageFormat(
 							{

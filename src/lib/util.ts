@@ -328,18 +328,26 @@ export function gql(cleanText: TemplateStringsArray, ...substitutions: unknown[]
 	return returnQuery.replaceAll("\t", "").replaceAll("\n", " ")
 }
 
-export function parseToNumberString(num: number, getString: GetStringFunction): string {
+export function parseToNumberString(num: number, getString: GetStringFunction): [string, number] {
 	const format = (number: number) => number.toLocaleString(getString("region.dateLocale", { file: "global" }))
 	if (num >= 1_000_000) {
-		return `${format(Number((num / 1_000_000).toFixed(2)))}${getString("numberStrings.million", {
-			file: "global",
-		})}`
+		const number = Number((num / 1_000_000).toFixed(2))
+		return [
+			`${format(number)}${getString("numberStrings.million", {
+				file: "global",
+			})}`,
+			number,
+		]
 	} else if (num >= 1000) {
-		return `${format(Number((num / 1000).toFixed(2)))}${getString("numberStrings.thousand", {
-			file: "global",
-		})}`
+		const number = Number((num / 1000).toFixed(2))
+		return [
+			`${format(number)}${getString("numberStrings.thousand", {
+				file: "global",
+			})}`,
+			number,
+		]
 	}
-	return format(num)
+	return [format(num), num]
 }
 
 export async function restart(interaction?: ChatInputCommandInteraction) {
