@@ -66,7 +66,8 @@ const command: Command = {
 			case "proofreader":
 				response =
 					'If you\'d like to know how to become a proofreader on the Hypixel project, check out [this link](<https://hypixel.net/translate/post-33017345> "Proofreader Information & FAQ").\n' +
-					'In order to check how many words you have translated on the Hypixel project, go [here](<https://crowdin.com/project/hypixel/reports/top-members> "Top Members - Hypixel - Translation Reports") and follow these steps:\n' +
+					'In order to check how many strings you have translated on the Hypixel project, go [here](<https://crowdin.com/project/hypixel/reports/top-members> "Top Members - Hypixel - Translation Reports") and follow these steps:\n' +
+					' - Click on the "Words" dropdown and select "Strings" to view string counts on all fields;\n' +
 					' - Select your language under the "All languages" dropdown;\n' +
 					' - Change the "Date Range" to start from the day the project was created (you can achieve this easily by deleting one of the digits in the first year and clicking out of the box);\n' +
 					' - Click on the + button next to the arrows and check the box saying "Winning" - this will display how many of your suggestions have been approved on the project!\n' +
