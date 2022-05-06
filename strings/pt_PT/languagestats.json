@@ -1,8 +1,8 @@
 {
 	"moduleName": "Estatísticas do idioma",
 	"statsAll": "Aqui estão as estatísticas para o idioma %%language%% em todos os projetos que suportamos neste momento.",
-	"translated": "%%percentage%%% translated (%%translated%%/%%total%% {totalNumber, plural, one {string} other {strings}})",
-	"approved": "%%percentage%%% approved (%%approved%%/%%total%% {totalNumber, plural, one {string} other {strings}})",
+	"translated": "%%percentage%%% traduzido (%%translated%%/%%total%% {totalNumber, plural, one {frase} other {frases}})",
+	"approved": "%%percentage%%% aprovado (%%approved%%/%%total%% {totalNumber, plural, one {frase} other {frases}})",
 	"languages": {
 		"ar": "Árabe",
 		"bc": "Biscuitish",
