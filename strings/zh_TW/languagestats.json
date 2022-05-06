@@ -1,8 +1,8 @@
 {
 	"moduleName": "語言統計數據",
 	"statsAll": "以下是%%language%%在我們支援的翻譯項目中的翻譯進度。",
-	"translated": "%%percentage%%% translated (%%translated%%/{total, plural, one {# string} other {# strings}})",
-	"approved": "%%percentage%%% approved (%%approved%%/{total, plural, one {# string} other {# strings}})",
+	"translated": "%%percentage%%% translated (%%translated%%/%%total%% {totalNumber, plural, one {string} other {strings}})",
+	"approved": "%%percentage%%% approved (%%approved%%/%%total%% {totalNumber, plural, one {string} other {strings}})",
 	"languages": {
 		"ar": "阿拉伯文",
 		"bc": "Biscuitish",
