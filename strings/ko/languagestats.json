@@ -1,8 +1,8 @@
 {
 	"moduleName": "언어 통계",
 	"statsAll": "%%language%%에 대한 모든 프로젝트의 각 진행률입니다.",
-	"translated": "%%percentage%%% translated (%%translated%%/{total, plural, one {# string} other {# strings}})",
-	"approved": "%%percentage%%% approved (%%approved%%/{total, plural, one {# string} other {# strings}})",
+	"translated": "%%percentage%%% translated (%%translated%%/%%total%% {totalNumber, plural, one {string} other {strings}})",
+	"approved": "%%percentage%%% approved (%%approved%%/%%total%% {totalNumber, plural, one {string} other {strings}})",
 	"languages": {
 		"ar": "아랍어",
 		"bc": "Biscuitish",
