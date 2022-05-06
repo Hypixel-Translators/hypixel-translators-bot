@@ -1,8 +1,8 @@
 {
 	"moduleName": "言語の統計",
 	"statsAll": "以下が現在サポートしている全プロジェクトの%%language%%の統計です。",
-	"translated": "%%percentage%%% translated (%%translated%%/{total, plural, one {# string} other {# strings}})",
-	"approved": "%%percentage%%% approved (%%approved%%/{total, plural, one {# string} other {# strings}})",
+	"translated": "%%percentage%%% translated (%%translated%%/%%total%% {totalNumber, plural, one {string} other {strings}})",
+	"approved": "%%percentage%%% approved (%%approved%%/%%total%% {totalNumber, plural, one {string} other {strings}})",
 	"languages": {
 		"ar": "アラビア語",
 		"bc": "Biscuitish",
