@@ -3,16 +3,12 @@ import { setInterval } from "node:timers"
 import { setTimeout } from "node:timers/promises"
 
 import {
-	type ApplicationCommand,
-	type ApplicationCommandPermissionData,
-	type GuildApplicationCommandPermissionData,
 	type ChatInputApplicationCommandData,
 	type TextBasedChannel,
 	type TextChannel,
 	EmbedBuilder,
 	ActionRowBuilder,
 	ButtonBuilder,
-	ApplicationCommandPermissionType,
 	ActivityType,
 	Colors,
 	ButtonStyle,
@@ -99,11 +95,6 @@ client.on("ready", async () => {
 			}
 		})
 	}
-
-	// Update permissions
-	// await guild.commands.permissions.set({
-	// 	fullPermissions: getPermissions(Array.from(guild.commands.cache.values()).concat(Array.from(client.application.commands.cache.values()))),
-	// })
 
 	const members = await guild.members.fetch()
 	if (members.size < guild.memberCount) {
@@ -328,49 +319,6 @@ export async function awaitPoll(poll: Poll) {
 		content: "This poll has ended!",
 		components: [linkButton],
 	})
-}
-
-function getPermissions(commands: ApplicationCommand[]) {
-	const permissions: GuildApplicationCommandPermissionData[] = []
-	for (const command of commands) {
-		const clientCmd = client.commands.get(command.name)!
-
-		if (clientCmd.dev) {
-			permissions.push({
-				id: command.id,
-				permissions: [
-					{
-						type: ApplicationCommandPermissionType.Role,
-						id: ids.roles.staff,
-						permission: true,
-					},
-				],
-			})
-		} else {
-			const commandPerms: ApplicationCommandPermissionData[] = []
-			// Add whitelisted roles
-			clientCmd.roleWhitelist?.forEach(id => {
-				commandPerms.push({
-					type: ApplicationCommandPermissionType.Role,
-					id,
-					permission: true,
-				})
-			})
-			// Add blacklisted roles
-			clientCmd.roleBlacklist?.forEach(id => {
-				commandPerms.push({
-					type: ApplicationCommandPermissionType.Role,
-					id,
-					permission: false,
-				})
-			})
-			permissions.push({
-				id: command.id,
-				permissions: commandPerms,
-			})
-		}
-	}
-	return permissions
 }
 
 function constructGuildCommands() {

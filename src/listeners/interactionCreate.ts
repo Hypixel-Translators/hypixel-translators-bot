@@ -38,13 +38,17 @@ client.on("interactionCreate", async interaction => {
 
 	let allowed = true
 
-	// Channel Blacklist and whitelist systems
+	// Channel blacklist and whitelist systems
 	if (interaction.channel instanceof GuildChannel) {
 		if (command.categoryBlacklist && command.categoryBlacklist.includes(interaction.channel!.parentId!)) allowed = false
 		else if (command.channelBlacklist && command.channelBlacklist.includes(interaction.channelId)) allowed = false
 		else if (command.categoryWhitelist && !command.categoryWhitelist.includes(interaction.channel!.parentId!)) allowed = false
 		else if (command.channelWhitelist && !command.channelWhitelist.includes(interaction.channelId)) allowed = false
 	}
+
+	// Role blacklist and whitelist systems
+	if (command.roleBlacklist && member.roles.cache.hasAny(...command.roleBlacklist)) allowed = false
+	if (command.roleWhitelist && !member.roles.cache.hasAll(...command.roleWhitelist)) allowed = false
 
 	// Give perm to admins and return if not allowed
 	if (member.roles.cache.has(ids.roles.admin)) allowed = true
