@@ -59,8 +59,10 @@ client.on("messageCreate", async message => {
 
 	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings")) {
 		const urls = message.content.match(stringURLRegex)
-		if (!urls) await message.delete().catch(() => null)
-		else if (urls.length === 1) {
+		if (!urls) {
+			if (message.author.bot) return
+			await message.delete().catch(() => null)
+		} else if (urls.length === 1) {
 			await message.react("vote_yes:839262196797669427").catch(() => null)
 			await message.react("vote_maybe:839262179416211477").catch(() => null)
 			await message.react("vote_no:839262184882044931").catch(() => null)
