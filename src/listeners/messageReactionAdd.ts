@@ -40,7 +40,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 				await reaction.message.react("⏱")
 				await setTimeout(10_000)
 				// Check if the user hasn't removed their reaction
-				if ((await reaction.users.fetch()).has(user.id)) {
+				if ((await reaction.users.fetch().catch(() => reaction.users.cache)).has(user.id)) {
 					if (reaction.message.thread) {
 						// I cannot stress how stupid this is, but it won't work otherwise
 						if (reaction.message.thread.archived) await reaction.message.thread.setArchived(false, "Stupid workaround to lock this thread")
@@ -88,7 +88,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 				})
 				await setTimeout(10_000)
 				// Check if the user hasn't removed their reaction
-				if ((await reaction.users.fetch()).has(user.id)) {
+				if ((await reaction.users.fetch().catch(() => reaction.users.cache)).has(user.id)) {
 					if (reaction.message.thread) {
 						// I cannot stress how stupid this is, but it won't work otherwise
 						if (reaction.message.thread.archived) await reaction.message.thread.setArchived(false, "Stupid workaround to lock this thread")
