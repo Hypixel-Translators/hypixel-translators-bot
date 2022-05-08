@@ -48,7 +48,7 @@ client.on("interactionCreate", async interaction => {
 
 	// Role blacklist and whitelist systems
 	if (command.roleBlacklist && member.roles.cache.hasAny(...command.roleBlacklist)) allowed = false
-	if (command.roleWhitelist && !member.roles.cache.hasAll(...command.roleWhitelist)) allowed = false
+	if (command.roleWhitelist && !member.roles.cache.hasAny(...command.roleWhitelist)) allowed = false
 
 	// Give perm to admins and return if not allowed
 	if (member.roles.cache.has(ids.roles.admin)) allowed = true
