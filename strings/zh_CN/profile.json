@@ -1,6 +1,6 @@
 {
-	"moduleName": "Crowdin Profile",
-	"profileSuccess": "Here's your profile",
-	"noProfile": "We couldn't find your profile in our database!",
-	"howStore": "If you'd like to store it, execute `/help verify` to know how you can do so."
+	"moduleName": "Crowdin 个人信息",
+	"profileSuccess": "这是你的个人信息",
+	"noProfile": "我们在数据库中找不到你的个人信息！",
+	"howStore": "如果你想要储存个人信息，请执行 `/help verify` 来查看步骤。"
 }
