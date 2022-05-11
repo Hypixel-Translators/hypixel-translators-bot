@@ -3,8 +3,8 @@
 	"history": {
 		"firstName": "最初的遊戲名稱",
 		"nameHistoryFor": "%%username%% 曾使用的遊戲名稱",
-		"youChangedName": "You have {number, plural, =0 {never changed your name} one {changed your name # time} other {changed your name # times}}.",
-		"userChangedName": "%%username%% has {number, plural, =0 {never changed their name} one {changed their name # time} other {changed their name # times}}."
+		"youChangedName": "你{number, plural, =0 {從未更改過遊戲名稱} other {已更改遊戲名稱 # 次}}。",
+		"userChangedName": "%%username%% {number, plural, =0 {從未更改過遊戲名稱} other {已更改他的遊戲名稱 # 次}}。"
 	},
 	"skin": {
 		"yourSkin": "Here's your skin!",
