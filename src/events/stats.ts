@@ -23,9 +23,12 @@ export async function updateProjectStatus(projectId: number) {
 	const projects = db.collection<CrowdinProject>("crowdin"),
 		mongoProject = (await projects.findOne({ id: projectId }))!,
 		channel = client.channels.cache.find(c => (c as TextChannel).name === `${mongoProject.shortName}-language-status`) as TextChannel,
-		messages = await channel.messages.fetch(),
+		updatesChannel = client.channels.cache.find(c => (c as NewsChannel).name === `${mongoProject.shortName}-project-updates`) as NewsChannel,
+		statMessages = await channel.messages.fetch(),
 		// Only ping if last ping was more than 90 minutes ago
-		shouldPing = (messages.find(m => m.mentions.roles.has(ids.roles.crowdinUpdates))?.createdTimestamp ?? 0) < Date.now() - 90 * 60 * 1000
+		shouldPing =
+			((await updatesChannel.messages.fetch()).find(m => m.mentions.roles.has(ids.roles.crowdinUpdates))?.createdTimestamp ?? 0) <
+			Date.now() - 120 * 60 * 1000
 	if (projectId === ids.projects.hypixel) checkBuild(shouldPing)
 	const languages = await db.collection<MongoLanguage>("languages").find().toArray(),
 		json = await crowdin.translationStatusApi
@@ -43,7 +46,7 @@ export async function updateProjectStatus(projectId: number) {
 			.sort((a, b) => b.data.phrases.total - a.data.phrases.total),
 		sortedSatus = Array.from(langStatus).sort((currentStatus, nextStatus) => nextStatus.language.name.localeCompare(currentStatus.language.name))
 	let index = 0
-	messages
+	statMessages
 		.filter(msg => msg.author.id === client.user!.id)
 		.forEach(async msg => {
 			const fullData = sortedSatus[index],
@@ -71,8 +74,7 @@ export async function updateProjectStatus(projectId: number) {
 		newStringCount = langStatus[0].data.phrases.total
 
 	if (oldStringCount !== newStringCount) {
-		const updatesChannel = client.channels.cache.find(c => (c as NewsChannel).name === `${mongoProject.shortName}-project-updates`) as NewsChannel,
-			stringDiff = Math.abs(newStringCount - oldStringCount)
+		const stringDiff = Math.abs(newStringCount - oldStringCount)
 		if (oldStringCount < newStringCount) {
 			const embed = new EmbedBuilder({
 				color: colors.success,
