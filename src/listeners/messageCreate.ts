@@ -110,7 +110,7 @@ client.on("messageCreate", async message => {
 		!message.channel.isDMBased() &&
 		message.content.toLowerCase().includes("/translate/hypixel/") &&
 		message.content.includes("://") &&
-		/(https:\/\/)?(crowdin\.com|translate\.hypixel\.net)\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)
+		/(?:https:\/\/)?(?:\w{2,4}\.)?(?:crowdin\.com|translate\.hypixel\.net)\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)
 	) {
 		if (
 			message.channel.parentId === ids.categories.hypixel ||
@@ -118,7 +118,11 @@ client.on("messageCreate", async message => {
 			message.channel.parentId === ids.categories.bot ||
 			message.channel.parentId === ids.categories.quickplay
 		) {
-			const langFix = message.content.replace(/translate\.hypixel\.net/gi, "crowdin.com").replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en-en")
+			const langFix = message.content
+				.replace("translate.hypixel.net", "crowdin.com")
+				.replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en")
+				.replace(/\w{2,4}\.(crowdin\.com)/gi, "$1")
+			// Link isn't a string URL
 			if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
 				await message.react("vote_no:839262184882044931")
 				const embed = new EmbedBuilder({
@@ -143,6 +147,7 @@ client.on("messageCreate", async message => {
 				} else await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "wrongLink", user: message.author.id })
 				await message.reply({ embeds: [embed] })
 				return
+				// Link isn't in en-en, is in translate.hypixel or another Crowdin language
 			} else if (message.content !== langFix && message.channel.parentId === ids.categories.hypixel) {
 				await message.react("vote_no:839262184882044931")
 				await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "badLink", user: message.author.id })

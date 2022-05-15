@@ -18,7 +18,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
 	if (reaction.message.partial) reaction.message = await reaction.message.fetch()
 	if (user.partial) user = await user.fetch()
 	const member = client.guilds.cache.get(ids.guilds.main)!.members.cache.get(user.id)!
-	// Delete message when channel name ends with review-strings
+
+	// X-review-strings system
 	if (
 		channel.name.endsWith("-review-strings") &&
 		/https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content!)
