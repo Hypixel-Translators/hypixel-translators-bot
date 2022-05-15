@@ -1,6 +1,6 @@
 {
 	"names": {
-		"8ball": "8ball",
+		"8ball": "8Ball",
 		"feedback": "feedback",
 		"levels": "level",
 		"ping": "ping",
@@ -23,7 +23,7 @@
 		"poll": "umfrage"
 	},
 	"descriptions": {
-		"8ball": "The Magic 8 Ball that will answer all your questions",
+		"8ball": "Der magische 8-Ball, der alle Fragen von dir beantworten wird",
 		"feedback": "Gibt dir Informationen darüber, wie du dem Bot ein Feedback geben kannst",
 		"help": "Zeigt dir alle verfügbaren Befehle und allgemeine Informationen über den Bot an",
 		"hypixelstats": "Zeigt dir grundlegende Hypixel-Statistiken für den angegebenen Benutzer",
