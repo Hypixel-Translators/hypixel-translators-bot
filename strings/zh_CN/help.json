@@ -49,7 +49,7 @@
 		"description": "获取机器人当前的延迟。"
 	},
 	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
+		"description": "创建或管理服务器上的投票。此功能对 Hypixel 项目审核员及以上等级用户开放。通过此命令创建的投票在结束前均不公开，投票者的名称不会公开显示，仅显示票数。"
 	},
 	"prefix": {
 		"description": "根据你的语言设置合适的前缀。若需要自定义前缀，请执行 `/prefix` 命令，然后提供对应国家/地区旗帜的代码或名称来作为参数 `flags` 的值。你也可以添加多个旗帜，但请使用空格分隔。"
