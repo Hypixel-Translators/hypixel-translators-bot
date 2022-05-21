@@ -122,7 +122,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 		reaction.message.content
 	) {
 		if (user.id === reaction.message.author.id) await reaction.users.remove(user.id)
-		if (reaction.count! >= 4) {
+		if (reaction.count! >= 6) {
 			const collection = db.collection<Quote>("quotes"),
 				urlQuote = await collection.findOne({ url: reaction.message.url })
 			if (!urlQuote) {
