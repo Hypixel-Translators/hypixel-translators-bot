@@ -3,12 +3,12 @@
 	"history": {
 		"firstName": "First name",
 		"nameHistoryFor": "Name history fer %%username%%",
-		"youChangedName": "You have {number, plural, =0 {never changed your name} one {changed your name # time} other {changed your name # times}}.",
+		"youChangedName": "Ye have {number, plural, =0 {never changed yer name} one {changed yer name # time} other {changed yer name # times}}.",
 		"userChangedName": "%%username%% has {number, plural, =0 {never changed their name} one {changed their name # time} other {changed their name # times}}."
 	},
 	"skin": {
 		"yourSkin": "Here be yer skin!",
 		"userSkin": "Here be %%user%%'s skin!",
-		"isLinked": "'Tis player be linked t' %%user%%"
+		"isLinked": "'Tis pirate be linked t' %%user%%"
 	}
 }
