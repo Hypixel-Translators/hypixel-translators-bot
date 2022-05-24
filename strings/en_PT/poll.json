@@ -12,11 +12,11 @@
     "endingOn": "Endin' on",
     "voteCount": "{number, plural, one {# vote} other {# votes}}",
     "pollResults": "Poll results",
-    "endingWarning": "Watch out! This poll is ending soon",
+    "endingWarning": "Avast! 'Tis poll be endin' soon",
     "endingWarningDesc": "'Tis poll be scheduled t' end on %%fullTime%% (%%relativeTime%%), so ye probably do nah wanna end it just yet. If ye do, confirm usin' th' button below.",
-    "didntReply": "Ye did nah reply, so 'tis poll shall not end now.",
+    "didntReply": "Ye did nah reply, so 'tis poll shall nah end now",
     "successCancelEnd": "Successfully cancelled th' endin' o' 'tis poll!",
     "endScheduled": "It shall instead end on th' scheduled time: %%fullTime%% (%%relativeTime%%)",
     "successVote": "Successfully registered yer vote!",
-    "alreadyVoted": "Ye has already voted fer 'tis option, so yer vote was nah changed."
+    "alreadyVoted": "Ye have already voted fer 'tis option, so yer vote nah be changed."
 }
