@@ -1,8 +1,8 @@
 {
 	"moduleName": "Prefix",
 	"errors": {
-		"noLanguages": "Ye do nah seem t' have any language roles! Please contact an administrator if ye believe 'tis be an error.",
-		"trNoRoles": "We noticed ye're a translator but ye do nah have any language roles.",
+		"noLanguages": "Ye do nah seem t' have any lingo roles! Please contact an administrator if ye believe 'tis be an error.",
+		"trNoRoles": "We noticed ye be a translator but ye do nah have any lingo roles.",
 		"error": "Failed t' change nickname. Ye can copy th' nickname below an' apply it yerself.",
 		"confirmedNoFlags": "Ye confirmed but ye did nah react t' any flags, ",
 		"cancelled": "Ye cancelled th' changin' o' yer nickname, ",
@@ -14,7 +14,7 @@
 	},
 	"customPrefix": "Feel free t' execute `/prefix <flags>` t' get yer desired prefix.",
 	"caution": "Caution",
-	"warning": "Setting yer prefix t' a language ye do nah translate will result in a warnin'. Do ye want t' change yer nickname anyway?",
+	"warning": "Setting yer prefix t' a lingo ye do nah translate will result in a warnin'. Do ye want t' change yer nickname anyway?",
 	"react": "React with all flags ye want t' add t' yer prefix in order.",
 	"reactTimer": "Ye 'ave %%cooldown%% seconds. Hit ❎ t' cancel.",
 	"reactTimer2": "Ye 'ave less than %%cooldown%% seconds left. Hit ✅ t' confirm or ❎ t' cancel.",
