@@ -3,7 +3,7 @@
 	"message": "Yer Message",
 	"clickHere": "Click 'ere",
 	"requestDetails": "%%user%% be requestin' more details on yer suggestion",
-	"requestedBy": "This be requested by %%user%%",
+	"requestedBy": "'Tis be requested by %%user%%",
 	"rejected": "%%user%% be rejectin' yer suggestion",
-	"rejectedBy": "This be rejected by %%user%%"
+	"rejectedBy": "'Tis be rejected by %%user%%"
 }
