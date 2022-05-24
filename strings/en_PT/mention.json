@@ -1,4 +1,4 @@
 {
-	"errorNoPing": "You don't have that language's proofreader role, {role, select, translator {so you can't mention its translator role} proofreader {so you can't mention it} other {so you can't mention the entire language}}. Contact a server administrator if you really need to.",
+	"errorNoPing": "Ye do nah have that lingo's proofreader role, {role, select, translator {so ye can nah mention its translator role} proofreader {so ye can nah mention it} other {so ye can nah mention th' entire lingo}}. Contact a server administrator if ye really need t'.",
 	"success": "Message sent successfully!"
 }

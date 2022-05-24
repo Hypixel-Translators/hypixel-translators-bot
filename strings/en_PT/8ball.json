@@ -3,9 +3,9 @@
 	"question": "Question",
 	"answers": {
 		"positive": [
-			"'Tis certain.",
-			"'Tis decidedly so.",
-			"Without a doubt.",
+			"'Tis be certain.",
+			"'Tis be decidedly so.",
+			"Wit'out a doubt.",
 			"Aye – definitely.",
 			"Ye may rely on it.",
 			"As I see it, aye.",
@@ -17,7 +17,7 @@
 		"inconclusive": [
 			"Reply be hazy, try again.",
 			"Ask again later.",
-			"Better not tell ye now.",
+			"Better nah tell ye now.",
 			"Can nah predict now.",
 			"Concentrate n' ask again."
 		],
@@ -25,7 +25,7 @@
 			"Do nah count on it.",
 			"Me reply be nay.",
 			"Me sources say nay.",
-			"Outlook be not so mighty.",
+			"Outlook be nah so mighty.",
 			"Mighty doubtful."
 		]
 	}

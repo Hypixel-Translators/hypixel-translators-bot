@@ -1,8 +1,8 @@
 {
 	"moduleName": "Language statistics",
-	"statsAll": "Here be th' statistics fer th' %%language%% language on all th' projects we currently support.",
-	"translated": "%%percentage%%% translated (%%translated%%/%%total%% {totalNumber, plural, one {string} other {strings}})",
-	"approved": "%%percentage%%% approved (%%approved%%/%%total%% {totalNumber, plural, one {string} other {strings}})",
+	"statsAll": "Here be th' statistics fer th' %%language%% lingo on all th' projects we currently support.",
+	"translated": "%%percentage%%% translated (%%translated%%/%%total%%{totalNumber, plural, one {string} other {strings}})",
+	"approved": "%%percentage%%% approved (%%approved%%/%%total%%{totalNumber, plural, one {string} other {strings}})",
 	"languages": {
 		"ar": "Arabic",
 		"bc": "Biscuitish",
@@ -34,7 +34,7 @@
 		"no": "Norwegian",
 		"ow": "OwO",
 		"fa": "Persian",
-		"enpt": "Pirate English",
+		"enpt": "Pirate Speak",
 		"pl": "Polish",
 		"pt": "Portuguese",
 		"ptbr": "Portuguese, Brazilian",
