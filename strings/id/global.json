@@ -3,7 +3,7 @@
 		"confirmSend": "Jika anda konfirmasi ini, pesan-pesan yang anda kirim disini dalam waktu 48 jam selanjutnya akan dikirim ke staf tanpa konfirmasi apapun.",
 		"noConfirmWarn": "Pesan-pesan yang anda kirim disini dalam waktu 48 jam selanjutnya akan dikirim ke staf tanpa konfirmasi apapun.",
 		"attachmentsWarn": "Lampiran juga akan disertakan.",
-		"attachmentSent": "{number, plural, one {Attachment} other {Attachments}} sent",
+		"attachmentSent": "{number,plural,other{Lampiran}} terkirim",
 		"confirmation": "Apakah anda yakin ingin mengirim pesan ini ke staf?",
 		"messageSent": "Terkirim pesan ke staf",
 		"dmCancelled": "Pesan ini tidak akan dikirim.",
