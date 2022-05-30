@@ -238,6 +238,7 @@ export async function awaitBan(punishment: PunishmentLog) {
 		caseNumber = (await punishmentsColl.estimatedDocumentCount()) + 1,
 		user = await guild.bans
 			.remove(punishment.id!, "Punishment ended")
+			.then(u => u ?? client.users.fetch(punishment.id!))
 			.catch(err => console.error(`Couldn't unban user with id ${punishment.id}. Here's the error:\n`, err)),
 		userFetched = await client.users.fetch(punishment.id).catch(() => null),
 		punishmentLog = new EmbedBuilder({
