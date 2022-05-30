@@ -39,7 +39,7 @@ export interface DbUser {
 	unverifiedTimestamp?: number
 }
 
-interface EventData<T extends keyof ClientEvents> {
+export interface EventData<T extends keyof ClientEvents> {
 	listener: T
 	args: ClientEvents[T]
 }
