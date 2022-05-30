@@ -269,15 +269,32 @@ export async function awaitBan(punishment: PunishmentLog) {
 			.catch(() => console.log(`Couldn't DM user ${userFetched?.tag ?? "Deleted User#0000"}, (${user.id}) about their unban.`))
 	}
 	const msg = await (guild.channels.cache.get(ids.channels.punishments) as TextChannel).send({ embeds: [punishmentLog] })
-	await punishmentsColl.insertOne({
-		case: caseNumber,
-		id: punishment.id,
-		type: "UNBAN",
-		reason: "Ended",
-		timestamp: Date.now(),
-		moderator: client.user.id,
-		logMsg: msg.id,
-	} as PunishmentLog)
+	await punishmentsColl.bulkWrite([
+		{
+			updateOne: {
+				filter: { case: punishment.case },
+				update: {
+					$set: {
+						ended: true,
+						endTimestamp: Date.now(),
+					},
+				},
+			},
+		},
+		{
+			insertOne: {
+				document: {
+					case: caseNumber,
+					id: punishment.id,
+					type: "UNBAN",
+					reason: "Ended",
+					timestamp: Date.now(),
+					moderator: client.user.id,
+					logMsg: msg.id,
+				},
+			},
+		},
+	])
 }
 
 export async function awaitPoll(poll: Poll) {
