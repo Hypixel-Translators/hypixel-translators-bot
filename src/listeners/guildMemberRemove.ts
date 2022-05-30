@@ -36,11 +36,15 @@ client.on("guildMemberRemove", async member => {
 			embed = new EmbedBuilder({
 				color: colors.error,
 				author: { name: "Member Left", iconURL: member.displayAvatarURL({ extension: "png" }) },
-				description: `${member} (${member.user.tag}) just left the server. Here's their DB data:\n\n${Formatters.codeBlock(
-					"json",
-					// Dirty fix for getting data that can be pasted into the DB.
-					JSON.stringify(Object.assign(oldData.value, { _id: { $oid: oldData.value!._id } }), null, 2),
-				)}`,
+				description: `${member} (${member.user.tag}) just left the server. ${
+					oldData.value
+						? `Here's their DB data:\n\n${Formatters.codeBlock(
+								"json",
+								// Dirty fix for getting data that can be pasted into the DB.
+								JSON.stringify(Object.assign(oldData.value, { _id: { $oid: oldData.value!._id } }), null, 2),
+						  )}`
+						: "Couldn't find their DB data!"
+				} `,
 				footer: { text: `ID: ${member.id}` },
 				timestamp: Date.now(),
 			})
