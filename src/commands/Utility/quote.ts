@@ -184,8 +184,7 @@ async function addQuote(interaction: ChatInputCommandInteraction, collection: Co
 	const quoteId = (await collection.estimatedDocumentCount()) + 1,
 		quote = interaction.options.getString("quote", true),
 		author = interaction.options.getUser("author", true),
-		url = interaction.options.getString("url", false),
-		urlSplit = url?.split("/")
+		urlSplit = interaction.options.getString("url", false)?.split("/")
 
 	let pictureUrl = interaction.options.getString("image", false)
 
@@ -214,7 +213,7 @@ async function addQuote(interaction: ChatInputCommandInteraction, collection: Co
 				fields: [
 					{ name: "User", value: `${author}` },
 					{ name: "Quote number", value: `${quoteId}` },
-					{ name: "URL", value: url! },
+					{ name: "URL", value: msg.url },
 				],
 				footer: {
 					text: generateTip(),
