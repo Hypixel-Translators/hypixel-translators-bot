@@ -9,12 +9,6 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
 			successColor = 0x43b581,
 			errorColor = 0xff470f
 
-		// Give users access to #no-mic
-		if (newState.channel && !newState.member!.roles.cache.has(ids.roles.voice) && newState.channelId !== newState.guild.afkChannelId)
-			await newState.member!.roles.add(ids.roles.voice, "Joined a voice channel")
-		else if ((!newState.channel || newState.channelId === newState.guild.afkChannelId) && newState.member!.roles.cache.has(ids.roles.voice))
-			await newState.member!.roles.remove(ids.roles.voice, "Left a voice channel")
-
 		// Convert to boolean to prevent null !== false from triggering the condition
 		if (!!oldState.serverMute !== !!newState.serverMute) {
 			const embed = new EmbedBuilder({
