@@ -9,8 +9,8 @@
 	"commandInfoFor": "Befehlsinformationen für ",
 	"staffOnly": "Dieser Befehl ist nur für Teammitglieder verfügbar und seine Informationen sind daher versteckt.\nBitte kontaktiere ein Teammitglied, wenn du glaubst, dass dies ein Fehler ist.",
 	"inDev": "Dieser Befehl ist derzeit in der Entwicklung und wird zu einem späteren Zeitpunkt verfügbar sein!",
-	"seconds": "{number, plural, one {# second} other {# seconds}}",
-	"minutes": "{number, plural, one {# minute} other {# minutes}}",
+	"seconds": "{number, plural, one {# Sekunde} other {# Sekunden}}",
+	"minutes": "{number, plural, one {# Minute} other {# Minuten}}",
 	"cooldownField": "Abklingzeit",
 	"8ball": {
 		"description": "Der Magic 8 Ball, der alle deine Fragen beantwortet."
