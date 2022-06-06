@@ -3,8 +3,8 @@
 	"history": {
 		"firstName": "Vorname",
 		"nameHistoryFor": "Namensverlauf für %%username%%",
-		"youChangedName": "You have {number, plural, =0 {never changed your name} one {changed your name # time} other {changed your name # times}}.",
-		"userChangedName": "%%username%% has {number, plural, =0 {never changed their name} one {changed their name # time} other {changed their name # times}}."
+		"youChangedName": "Du hast deinen Namen {number, plural, =0 {nie geändert} one {#-mal geändert} other {#-mal geändert}}.",
+		"userChangedName": "%%username%% hat seinen Namen {number, plural, =0 {nie geändert} one {#-mal geändert} other {#-mal geändert}}."
 	},
 	"skin": {
 		"yourSkin": "Hier ist dein Skin!",
