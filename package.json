@@ -24,7 +24,7 @@
 		"discord.js": "^14.0.0-dev.1654519696-fba9710",
 		"language-flag-colors": "^2.0.4",
 		"mongodb": "^4.6.0",
-		"node-cron": "^3.0.0",
+		"node-cron": "^3.0.1",
 		"puppeteer": "^14.2.1",
 		"typescript": "^4.7.3",
 		"uuid": "^8.3.2"
