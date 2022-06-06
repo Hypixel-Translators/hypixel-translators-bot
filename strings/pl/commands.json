@@ -116,7 +116,7 @@
 		},
 		"hypixelstats": {
 			"username": {
-				"name": "username",
+				"name": "nazwaużytkownika",
 				"description": "The IGN of the user to get statistics for. Can also be a UUID"
 			},
 			"user": {
@@ -132,7 +132,7 @@
 		},
 		"hypixelverify": {
 			"username": {
-				"name": "username",
+				"name": "nazwaużytkownika",
 				"description": "Your Hypixel IGN. Must have your Discord linked in-game"
 			},
 			"user": {
@@ -179,13 +179,13 @@
 		"mention": {
 			"language": {
 				"name": "język",
-				"description": "The language to mention"
+				"description": "Język, który ma otrzymać wzmiankę"
 			},
 			"role": {
 				"name": "rola",
-				"description": "The role to mention",
+				"description": "Rola, która ma otrzymać wzmiankę",
 				"choices": {
-					"all": "Both roles",
+					"all": "Obie role",
 					"translator": "Tłumacz",
 					"proofreader": "Korektor"
 				}
@@ -201,7 +201,7 @@
 				"description": "Shows a user's name history. You must provide at least 1 parameter if your MC account is not linked",
 				"options": {
 					"username": {
-						"name": "username",
+						"name": "nazwaużytkownika",
 						"description": "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked"
 					},
 					"user": {
@@ -215,7 +215,7 @@
 				"description": "Shows a user's skin. You must provide at least 1 parameter if your MC account is not linked",
 				"options": {
 					"username": {
-						"name": "username",
+						"name": "nazwaużytkownika",
 						"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
 					},
 					"user": {
@@ -248,18 +248,18 @@
 				"options": {
 					"quote": {
 						"name": "cytat",
-						"description": "The quote you want to add"
+						"description": "Cytat, który chcesz dodać"
 					},
 					"author": {
 						"name": "autor",
-						"description": "The author of this quote"
+						"description": "Autor cytatu"
 					},
 					"url": {
 						"name": "odnośnik",
 						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
 					},
 					"image": {
-						"name": "image",
+						"name": "obraz",
 						"description": "The URL of the image to be included with this quote. Has priority over URL's image if provided"
 					}
 				}
@@ -274,7 +274,7 @@
 					},
 					"quote": {
 						"name": "cytat",
-						"description": "The new quote"
+						"description": "Nowy cytat"
 					}
 				}
 			},
@@ -301,7 +301,7 @@
 						"description": "The URL of the message to link this quote to"
 					},
 					"image": {
-						"name": "image",
+						"name": "obraz",
 						"description": "Whether or not to attach this message's image to the quote"
 					}
 				}
@@ -327,40 +327,40 @@
 						"description": "The question of the poll"
 					},
 					"option1": {
-						"name": "option1",
-						"description": "The first option in the poll"
+						"name": "opcja1",
+						"description": "Pierwsza opcja ankiety"
 					},
 					"option2": {
-						"name": "option2",
-						"description": "The second option in the poll"
+						"name": "opcja2",
+						"description": "Druga opcja ankiety"
 					},
 					"time": {
 						"name": "time",
 						"description": "How long before this poll is automatically closed and results are published (in hours)"
 					},
 					"option3": {
-						"name": "option3",
-						"description": "The third option in the poll"
+						"name": "opcja3",
+						"description": "Trzecia opcja ankiety"
 					},
 					"option4": {
-						"name": "option4",
-						"description": "The fourth option in the poll"
+						"name": "opcja4",
+						"description": "Czwarta opcja ankiety"
 					},
 					"option5": {
-						"name": "option5",
-						"description": "The fifth option in the poll"
+						"name": "opcja5",
+						"description": "Piąta opcja ankiety"
 					},
 					"option6": {
-						"name": "option6",
-						"description": "The sixth option in the poll"
+						"name": "opcja6",
+						"description": "Szósta opcja ankiety"
 					},
 					"option7": {
-						"name": "option7",
-						"description": "The seventh option in the poll"
+						"name": "opcja7",
+						"description": "Siódma opcja ankiety"
 					},
 					"option8": {
-						"name": "option8",
-						"description": "The eigth option in the poll"
+						"name": "opcja8",
+						"description": "Ósma opcja ankiety"
 					}
 				}
 			},
@@ -380,7 +380,7 @@
 			},
 			"show": {
 				"name": "pokaż",
-				"description": "Shows the current results of a poll without ending it. Only available to the creator of the poll",
+				"description": "Pokazuje obecne wyniki ankiety, nie zakańczając jej. Dostępne tylko dla twórcy ankiety",
 				"options": {
 					"message_id": {
 						"name": "id_wiadomości",
