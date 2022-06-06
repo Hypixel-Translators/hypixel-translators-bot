@@ -1,6 +1,6 @@
 import { setTimeout } from "node:timers/promises"
 
-import { EmbedBuilder, ThreadChannel } from "discord.js"
+import { ChannelType, EmbedBuilder, ThreadChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"
@@ -21,6 +21,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
 	// X-review-strings system
 	if (
+		channel.type === ChannelType.GuildText &&
 		channel.name.endsWith("-review-strings") &&
 		/https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content!)
 	) {

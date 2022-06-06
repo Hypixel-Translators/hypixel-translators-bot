@@ -12,6 +12,7 @@ import {
 	ButtonBuilder,
 	ActionRowBuilder,
 	type GuildTextBasedChannel,
+	ChannelType,
 } from "discord.js"
 
 import { colors, ids } from "../config.json"
@@ -47,7 +48,7 @@ client.on("messageCreate", async message => {
 
 	// Publish message if sent in bot-updates or in a project-updates channel or if it's a tweet
 	if (
-		message.channel.isNews() &&
+		message.channel.type === ChannelType.GuildNews &&
 		(message.channel.id === ids.channels.botUpdates ||
 			(message.channel.id === ids.channels.twitter && !message.embeds[0]?.description?.startsWith("@")) ||
 			message.channel.name.endsWith("-project-updates"))

@@ -1,4 +1,4 @@
-import { ApplicationCommandOptionType, type CategoryChannel } from "discord.js"
+import { ApplicationCommandOptionType, ChannelType, type CategoryChannel } from "discord.js"
 
 import { ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
@@ -25,7 +25,9 @@ const command: Command = {
 		const mongoLanguage = await db.collection<MongoLanguage>("languages").findOne({ code: interaction.options.getString("language", true) })
 		if (!mongoLanguage) throw "Couldn't find the language you were looking for! Make sure to pass its code in the language option."
 
-		const category = interaction.guild.channels.cache.find(c => c.name.endsWith(mongoLanguage.emoji) && c.isCategory()) as CategoryChannel
+		const category = interaction.guild.channels.cache.find(
+			c => c.name.endsWith(mongoLanguage.emoji) && c.type === ChannelType.GuildCategory,
+		) as CategoryChannel
 		if (category.children.cache.some(c => c.name.endsWith("-review-strings"))) throw "This language already has a review strings channel!"
 
 		const reviewStrings = await category.children.create(`${mongoLanguage.code}-review-strings`, {

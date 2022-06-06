@@ -45,8 +45,8 @@ export interface EventData<T extends keyof ClientEvents> {
 }
 
 export class HTBClient extends Client<true> {
-	commands: Collection<string, Command> = new Collection()
-	cooldowns: Collection<string, Collection<Snowflake, number>> = new Collection()
+	commands = new Collection<string, Command>()
+	cooldowns = new Collection<string, Collection<Snowflake, number>>()
 	async getUser(): Promise<null>
 	async getUser(id: Snowflake): Promise<WithId<DbUser>>
 	async getUser(id?: Snowflake) {
