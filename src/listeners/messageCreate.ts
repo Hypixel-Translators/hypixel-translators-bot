@@ -5,8 +5,8 @@ import {
 	MessageComponentInteraction,
 	EmbedBuilder,
 	TextChannel,
-	Util,
 	ComponentType,
+	escapeMarkdown,
 	MessageType,
 	ButtonStyle,
 	ButtonBuilder,
@@ -41,7 +41,7 @@ client.on("messageCreate", async message => {
 		await message.delete()
 		await (client.channels.cache.get(ids.channels.staffGeneral) as TextChannel).send({
 			content: `${message.author}'s message in ${message.channel} was deleted because it contained an empty spoiler. Here's what it said:`,
-			embeds: [{ description: Util.escapeMarkdown(message.content) }],
+			embeds: [{ description: escapeMarkdown(message.content) }],
 		})
 		return
 	}

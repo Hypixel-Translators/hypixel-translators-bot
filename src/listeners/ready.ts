@@ -349,7 +349,7 @@ function constructGuildCommands() {
 function convertToDiscordCommand(command: Command): ChatInputApplicationCommandData {
 	return {
 		...command,
-		defaultPermission: !(command.roleWhitelist || command.dev),
+		dmPermission: !(command.roleWhitelist || command.dev),
 	}
 }
 

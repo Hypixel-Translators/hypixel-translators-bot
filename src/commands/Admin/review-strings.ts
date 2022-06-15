@@ -30,7 +30,8 @@ const command: Command = {
 		) as CategoryChannel
 		if (category.children.cache.some(c => c.name.endsWith("-review-strings"))) throw "This language already has a review strings channel!"
 
-		const reviewStrings = await category.children.create(`${mongoLanguage.code}-review-strings`, {
+		const reviewStrings = await category.children.create({
+			name: `${mongoLanguage.code}-review-strings`,
 			reason: `Requested by ${interaction.user.tag}`,
 		})
 		await reviewStrings.permissionOverwrites.edit(

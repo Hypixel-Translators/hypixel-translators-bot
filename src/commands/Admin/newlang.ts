@@ -103,31 +103,36 @@ const command: Command = {
 			],
 			pfOverwrites = Array.from(overwrites)
 		pfOverwrites.splice(2, 1)
-		const category = await interaction.guild!.channels.create(`${country} ${emoji}`, {
+		const category = await interaction.guild!.channels.create({
+				name: `${country} ${emoji}`,
 				type: ChannelType.GuildCategory,
 				permissionOverwrites: overwrites,
 				position: 9,
 				reason: `Added language ${language.name}`,
 			}),
-			translatorsChannel = await interaction.guild!.channels.create(`${language.name}-translators`, {
+			translatorsChannel = await interaction.guild!.channels.create({
+				name: `${language.name}-translators`,
 				topic: `A text channel where you can discuss ${language.name} translations! ${emoji}\n\nTRANSLATION`,
 				parent: category,
 				permissionOverwrites: overwrites,
 				reason: `Added language ${language.name}`,
 			}),
-			proofreadersChannel = await interaction.guild!.channels.create(`${language.name}-proofreaders`, {
+			proofreadersChannel = await interaction.guild!.channels.create({
+				name: `${language.name}-proofreaders`,
 				parent: category,
 				permissionOverwrites: pfOverwrites,
 				reason: `Added language ${language.name}`,
 			}),
-			translatorsVoice = await interaction.guild!.channels.create(`${language.name} Translators`, {
+			translatorsVoice = await interaction.guild!.channels.create({
+				name: `${language.name} Translators`,
 				type: ChannelType.GuildVoice,
 				userLimit: 10,
 				parent: category,
 				permissionOverwrites: overwrites,
 				reason: `Added language ${language.name}`,
 			}),
-			proofreadersVoice = await interaction.guild!.channels.create(`${language.name} Proofreaders`, {
+			proofreadersVoice = await interaction.guild!.channels.create({
+				name: `${language.name} Proofreaders`,
 				type: ChannelType.GuildVoice,
 				userLimit: 10,
 				parent: category,

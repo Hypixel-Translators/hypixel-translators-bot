@@ -46,7 +46,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 					if (reaction.message.thread) {
 						// I cannot stress how stupid this is, but it won't work otherwise
 						if (reaction.message.thread.archived) await reaction.message.thread.setArchived(false, "Stupid workaround to lock this thread")
-						await reaction.message.thread.edit({ locked: true, archived: true }, "String reviewed")
+						await reaction.message.thread.edit({ locked: true, archived: true, reason: "String reviewed" })
 					}
 					await reaction.message.delete().catch(() => null)
 					await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "APPROVED" })
@@ -94,7 +94,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 					if (reaction.message.thread) {
 						// I cannot stress how stupid this is, but it won't work otherwise
 						if (reaction.message.thread.archived) await reaction.message.thread.setArchived(false, "Stupid workaround to lock this thread")
-						await reaction.message.thread.edit({ locked: true, archived: true }, "String rejected")
+						await reaction.message.thread.edit({ locked: true, archived: true, reason: "String rejected" })
 					}
 					const stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/gi)?.[0],
 						fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],

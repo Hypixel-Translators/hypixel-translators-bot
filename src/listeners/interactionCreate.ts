@@ -3,7 +3,7 @@ import process from "node:process"
 import { setTimeout } from "node:timers"
 
 import MessageFormat from "@messageformat/core"
-import { Collection, Formatters, GuildChannel, type Message, EmbedBuilder, type TextChannel } from "discord.js"
+import { Collection, Formatters, GuildChannel, type Message, EmbedBuilder, type TextChannel, InteractionType } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"
@@ -23,7 +23,7 @@ client.on("interactionCreate", async interaction => {
 		statsColl = db.collection<Stats>("stats")
 
 	if (interaction.isButton() && interaction.inCachedGuild()) return void (await handleButtonInteractions(interaction, getString))
-	else if (interaction.isAutocomplete()) return void (await handleAutocompleteInteractions(interaction))
+	else if (interaction.type === InteractionType.ApplicationCommandAutocomplete) return void (await handleAutocompleteInteractions(interaction))
 
 	if (!interaction.isChatInputCommand()) return
 
