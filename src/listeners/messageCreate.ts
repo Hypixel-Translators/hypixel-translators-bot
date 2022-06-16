@@ -59,16 +59,19 @@ client.on("messageCreate", async message => {
 	const stringURLRegex = /(?:https:\/\/)?crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
 
 	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings")) {
-		const urls = message.content.match(stringURLRegex)
+		// Make sure the link leads to the correct language
+		const msgFix = message.content.replaceAll(/(\/en)(?:-\w+)?/g, `$1-${message.channel.name.split("-")[0]}`),
+			urls = msgFix.match(stringURLRegex)
 		if (!urls) {
 			if (message.author.bot) return
 			await message.delete().catch(() => null)
-		} else if (urls.length === 1) {
+		} else if (urls.length === 1 && msgFix === message.content) {
 			await message.react("vote_yes:839262196797669427").catch(() => null)
 			await message.react("vote_maybe:839262179416211477").catch(() => null)
 			await message.react("vote_no:839262184882044931").catch(() => null)
 		} else {
-			const rawText = message.content.split(stringURLRegex)
+			const rawText = msgFix.split(stringURLRegex)
+			console.log(message.content, msgFix, rawText)
 
 			for (let i = 0; i < urls.length; i++) {
 				let firstText: string | null = null
