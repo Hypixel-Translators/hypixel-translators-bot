@@ -77,21 +77,25 @@ const command: Command = {
 					],
 				}),
 				msg = await interaction.reply({ embeds: [confirmEmbed], components: [confirmButtons], fetchReply: true }),
-				collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: this.cooldown! * 1000 })
+				collector = msg.createMessageComponentCollector<ComponentType.Button>({
+					idle: this.cooldown! * 1000,
+					filter: buttonInteraction => interaction.user.id === buttonInteraction.user.id,
+				})
+
+			collector.on("ignore", async buttonInteraction => {
+				const userDb = await client.getUser(buttonInteraction.user.id)
+				await buttonInteraction.reply({
+					content: getString("pagination.notYours", {
+						variables: { command: `/${this.name}` },
+						file: "global",
+						lang: userDb.lang ?? transformDiscordLocale(buttonInteraction.locale),
+					}),
+					ephemeral: true,
+				})
+			})
 
 			confirmButtons.components.forEach(button => button.setDisabled())
 			collector.on("collect", async buttonInteraction => {
-				const userDb = await client.getUser(buttonInteraction.user.id)
-				if (interaction.user.id !== buttonInteraction.user.id) {
-					return void (await buttonInteraction.reply({
-						content: getString("pagination.notYours", {
-							variables: { command: `/${this.name}` },
-							file: "global",
-							lang: userDb.lang ?? transformDiscordLocale(buttonInteraction.locale),
-						}),
-						ephemeral: true,
-					}))
-				}
 				collector.stop("responded")
 				if (buttonInteraction.customId === "confirm") {
 					if (interaction.member.nickname !== `[${prefix}] ${nickNoPrefix}`) {
@@ -282,20 +286,24 @@ const command: Command = {
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				}),
 				msg = await interaction.editReply({ embeds: [noChangesEmbed], components: rows }),
-				collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: this.cooldown! * 1000 })
+				collector = msg.createMessageComponentCollector<ComponentType.Button>({
+					idle: this.cooldown! * 1000,
+					filter: buttonInteraction => interaction.user.id === buttonInteraction.user.id,
+				})
+
+			collector.on("ignore", async buttonInteraction => {
+				const userDb = await client.getUser(buttonInteraction.user.id)
+				await buttonInteraction.reply({
+					content: getString("pagination.notYours", {
+						variables: { command: `/${this.name}` },
+						file: "global",
+						lang: userDb.lang ?? transformDiscordLocale(buttonInteraction.locale),
+					}),
+					ephemeral: true,
+				})
+			})
 
 			collector.on("collect", async buttonInteraction => {
-				const userDb = await client.getUser(buttonInteraction.user.id)
-				if (interaction.user.id !== buttonInteraction.user.id) {
-					return void (await buttonInteraction.reply({
-						content: getString("pagination.notYours", {
-							variables: { command: `/${this.name}` },
-							file: "global",
-							lang: userDb.lang ?? transformDiscordLocale(buttonInteraction.locale),
-						}),
-						ephemeral: true,
-					}))
-				}
 				if (buttonInteraction.customId !== "cancel") confirmButton.setDisabled(false)
 				if (buttonInteraction.customId === "confirm") {
 					components.forEach(buttons => buttons.setDisabled())

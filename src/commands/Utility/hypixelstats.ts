@@ -1,5 +1,5 @@
 import axios from "axios"
-import { type GuildMember, type Message, EmbedBuilder, SelectMenuBuilder, ComponentType, ApplicationCommandOptionType, Colors } from "discord.js"
+import { type GuildMember, EmbedBuilder, SelectMenuBuilder, ComponentType, ApplicationCommandOptionType, Colors } from "discord.js"
 
 import { ids } from "../../config.json"
 import { client } from "../../index"
@@ -298,28 +298,40 @@ const command: Command = {
 					options,
 				})
 			},
-			msg = (await interaction.editReply({
+			msg = await interaction.editReply({
 				embeds: [embed],
 				components: [{ type: ComponentType.ActionRow, components: [createMenu(selectedMenu)] }],
-			})) as Message,
-			collector = msg.createMessageComponentCollector<ComponentType.SelectMenu>({ idle: this.cooldown! * 1000 })
+			}),
+			collector = msg.createMessageComponentCollector<ComponentType.SelectMenu>({
+				idle: this.cooldown! * 1000,
+				filter: menuInteraction => interaction.user.id === menuInteraction.user.id,
+			})
+
+		collector.on("ignore", async menuInteraction => {
+			const userDb = await client.getUser(menuInteraction.user.id)
+			await menuInteraction.reply({
+				content: getString("pagination.notYours", {
+					variables: { command: `/${this.name}` },
+					file: "global",
+					lang: userDb.lang ?? transformDiscordLocale(menuInteraction.locale),
+				}),
+				ephemeral: true,
+			})
+		})
 
 		collector.on("collect", async menuInteraction => {
-			const userDb = await client.getUser(menuInteraction.user.id)
-			if (interaction.user.id !== menuInteraction.user.id) {
-				return void (await menuInteraction.reply({
-					content: getString("pagination.notYours", {
-						variables: { command: `/${this.name}` },
-						file: "global",
-						lang: userDb.lang ?? transformDiscordLocale(menuInteraction.locale),
-					}),
-					ephemeral: true,
-				}))
-			}
 			selectedMenu = menuInteraction.values[0]
-			if (selectedMenu === "stats") embed = stats()
-			else if (selectedMenu === "social") embed = social()
-			else if (selectedMenu === "guild") embed = guild()!
+			switch (selectedMenu) {
+				case "stats":
+					embed = stats()
+					break
+				case "social":
+					embed = social()
+					break
+				case "guild":
+					embed = guild()!
+					break
+			}
 			await menuInteraction.update({
 				embeds: [embed],
 				components: [{ type: ComponentType.ActionRow, components: [createMenu(selectedMenu)] }],

@@ -3,7 +3,7 @@ import process from "node:process"
 import { setTimeout } from "node:timers"
 
 import MessageFormat from "@messageformat/core"
-import { Collection, Formatters, GuildChannel, type Message, EmbedBuilder, type TextChannel, InteractionType } from "discord.js"
+import { Collection, Formatters, GuildChannel, EmbedBuilder, type TextChannel, InteractionType } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"
@@ -206,7 +206,7 @@ client.on("interactionCreate", async interaction => {
 
 		// Deferred is true and replied is false when an interaction is deferred, therefore we need to check for this first
 		if (interaction.deferred) {
-			const errorMsg = (await interaction.editReply({ embeds: [embed], components: [] })) as Message
+			const errorMsg = await interaction.editReply({ embeds: [embed], components: [] })
 			setTimeout(async () => {
 				if (!interaction.ephemeral) await errorMsg.delete().catch(() => null)
 			}, 10_000)

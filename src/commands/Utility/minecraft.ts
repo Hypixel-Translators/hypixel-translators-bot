@@ -1,5 +1,5 @@
 import axios from "axios"
-import { ComponentType, GuildMember, Message, ApplicationCommandOptionType, EmbedBuilder } from "discord.js"
+import { ComponentType, GuildMember, ApplicationCommandOptionType, EmbedBuilder } from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
@@ -90,28 +90,40 @@ const command: Command = {
 						page = 0,
 						pageEmbed = fetchPage(page)
 
-					const msg = (await interaction.editReply({ embeds: [pageEmbed], components: [controlButtons] })) as Message,
-						collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: this.cooldown! * 1000 })
+					const msg = await interaction.editReply({ embeds: [pageEmbed], components: [controlButtons] }),
+						collector = msg.createMessageComponentCollector<ComponentType.Button>({
+							idle: this.cooldown! * 1000,
+							filter: buttonInteraction => interaction.user.id === buttonInteraction.user.id,
+						})
+
+					collector.on("ignore", async buttonInteraction => {
+						const userDb = await client.getUser(buttonInteraction.user.id)
+						await buttonInteraction.reply({
+							content: getString("pagination.notYours", {
+								variables: { command: `/${this.name}` },
+								file: "global",
+								lang: userDb.lang ?? transformDiscordLocale(buttonInteraction.locale),
+							}),
+							ephemeral: true,
+						})
+					})
 
 					collector.on("collect", async buttonInteraction => {
-						const userDb = await client.getUser(buttonInteraction.user.id)
-						if (interaction.user.id !== buttonInteraction.user.id) {
-							return void (await buttonInteraction.reply({
-								content: getString("pagination.notYours", {
-									variables: { command: `/${this.name}` },
-									file: "global",
-									lang: userDb.lang ?? transformDiscordLocale(buttonInteraction.locale),
-								}),
-								ephemeral: true,
-							}))
-						} else if (buttonInteraction.customId === "first") page = 0
-						else if (buttonInteraction.customId === "last") page = pages.length - 1
-						else if (buttonInteraction.customId === "previous") {
-							page--
-							if (page < 0) page = 0
-						} else if (buttonInteraction.customId === "next") {
-							page++
-							if (page > pages.length - 1) page = pages.length - 1
+						switch (buttonInteraction.customId) {
+							case "first":
+								page = 0
+								break
+							case "last":
+								page = pages.length - 1
+								break
+							case "previous":
+								page--
+								if (page < 0) page = 0
+								break
+							case "next":
+								page++
+								if (page >= pages.length) page = pages.length - 1
+								break
 						}
 						controlButtons = createButtonControls(page, pages, { getString })
 						pageEmbed = fetchPage(page)

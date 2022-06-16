@@ -3,7 +3,6 @@ import { readdirSync } from "node:fs"
 import {
 	type ChatInputCommandInteraction,
 	type GuildMember,
-	type Message,
 	EmbedBuilder,
 	SelectMenuBuilder,
 	Colors,
@@ -109,25 +108,29 @@ const command: Command = {
 						})),
 					})
 				},
-				msg = (await interaction.reply({
+				msg = await interaction.reply({
 					embeds: [pageEmbed],
 					components: [{ type: ComponentType.ActionRow, components: [createMenu(pageNum)] }],
 					fetchReply: true,
-				})) as Message,
-				collector = msg.createMessageComponentCollector<ComponentType.SelectMenu>({ idle: this.cooldown! * 1000 })
+				}),
+				collector = msg.createMessageComponentCollector<ComponentType.SelectMenu>({
+					idle: this.cooldown! * 1000,
+					filter: menuInteraction => interaction.user.id === menuInteraction.user.id,
+				})
+
+			collector.on("ignore", async menuInteraction => {
+				const userDb = await client.getUser(menuInteraction.user.id)
+				await menuInteraction.reply({
+					content: getString("pagination.notYours", {
+						variables: { command: `/${this.name}` },
+						file: "global",
+						lang: userDb.lang ?? transformDiscordLocale(menuInteraction.locale),
+					}),
+					ephemeral: true,
+				})
+			})
 
 			collector.on("collect", async menuInteraction => {
-				const userDb = await client.getUser(menuInteraction.user.id)
-				if (interaction.user.id !== menuInteraction.user.id) {
-					return void (await menuInteraction.reply({
-						content: getString("pagination.notYours", {
-							variables: { command: `/${this.name}` },
-							file: "global",
-							lang: userDb.lang ?? transformDiscordLocale(menuInteraction.locale),
-						}),
-						ephemeral: true,
-					}))
-				}
 				pageNum = Number(menuInteraction.values[0])
 				pageEmbed = fetchPage(pageNum, pages, getString, interaction)!
 				await menuInteraction.update({ embeds: [pageEmbed], components: [{ type: ComponentType.ActionRow, components: [createMenu(pageNum)] }] })
