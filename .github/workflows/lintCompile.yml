@@ -1,7 +1,4 @@
 name: Compile and lint
-concurrency:
-  group: ${{ github.ref }}
-  cancel-in-progress: true
 on:
     push:
         branches:
@@ -24,17 +21,3 @@ jobs:
               run: yarn
             - name: Lint
               run: yarn lint:ci
-    CD:
-        name: CD
-        needs: lintCompile
-        runs-on: ubuntu-latest
-        if: github.event_name == 'push'
-        steps:
-            - name: Checkout Project
-              uses: actions/checkout@v2
-            - name: Deploy to Heroku
-              uses: AkhileshNS/heroku-deploy@v3.12.12
-              with:
-                heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-                heroku_app_name: "hypixel-translators"
-                heroku_email: ${{ secrets.HEROKU_EMAIL }}
