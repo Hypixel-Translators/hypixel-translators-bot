@@ -1,4 +1,3 @@
-import axios from "axios"
 import { ComponentType, GuildMember, ApplicationCommandOptionType, EmbedBuilder } from "discord.js"
 
 import { colors, ids } from "../../config.json"
@@ -186,17 +185,17 @@ const command: Command = {
 export default command
 
 async function getPlayer(uuid: string) {
-	const json = await axios
-		.get<UserProfile & { error?: string }>(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings)
-		.then(res => res.data)
+	const json = (await fetch(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings).then(res =>
+		res.json(),
+	)) as UserProfile & { error?: string }
 	if (json.error) throw "falseUUID"
 	return json
 }
 
 async function getNameHistory(uuid: string) {
-	const json = await axios
-		.get<NameHistory[] | MCAPIError>(`https://api.mojang.com/user/profiles/${uuid}/names`, fetchSettings)
-		.then(res => res.data || null)
+	const json = (await fetch(`https://api.mojang.com/user/profiles/${uuid}/names`, fetchSettings)
+		.then(res => res.json())
+		.catch(() => null)) as NameHistory[] | MCAPIError
 	if (!json || "error" in json) throw "falseUUID"
 	return json.reverse()
 }

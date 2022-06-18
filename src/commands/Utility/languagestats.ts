@@ -42,7 +42,7 @@ const command: Command = {
 				.getProjectProgress(ids.projects.hypixel)
 				.then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null)
 				.catch(e => {
-					if (e.code === "ECONNABORTED") {
+					if (e.code === "ECONNRESET") {
 						// This means the request timed out
 						console.error("Crowdin API is down, sending error.")
 						throw "apiError"
