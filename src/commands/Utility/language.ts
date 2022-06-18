@@ -3,6 +3,7 @@ import { access, constants, readdir } from "node:fs"
 import { type GuildMember, EmbedBuilder, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
+import { client } from "../../index"
 import { db, type DbUser } from "../../lib/dbclient"
 import { generateTip, type MongoLanguage, transformDiscordLocale, botLocales } from "../../lib/util"
 
@@ -63,7 +64,7 @@ const command: Command = {
 		let language = interaction.options.getString("language", ["set", "stats"].includes(subCommand))
 
 		if (subCommand === "list") {
-			const authorLanguage = (await collection.findOne({ id: interaction.user.id }))!.lang ?? transformDiscordLocale(interaction.locale),
+			const authorLanguage = (await client.getUser(interaction.user.id)).lang ?? transformDiscordLocale(interaction.locale),
 				langList = botLocales
 					.map<string | null>(locale => {
 						if (locale === "empty" && !member?.roles.cache.has(ids.roles.admin)) return null
