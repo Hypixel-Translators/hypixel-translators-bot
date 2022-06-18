@@ -8,6 +8,8 @@ import {
 	ComponentType,
 	EmbedBuilder,
 	type Snowflake,
+	ChannelType,
+	GuildTextBasedChannel,
 } from "discord.js"
 import { ObjectId } from "mongodb"
 
@@ -124,6 +126,14 @@ const command: Command = {
 					type: ApplicationCommandOptionType.Channel,
 					name: "channel",
 					description: "The channel the poll was posted in, if not the current one",
+					channelTypes: [
+						ChannelType.GuildText,
+						ChannelType.GuildVoice,
+						ChannelType.GuildNews,
+						ChannelType.GuildNewsThread,
+						ChannelType.GuildPublicThread,
+						ChannelType.GuildPrivateThread,
+					],
 					required: false,
 				},
 			],
@@ -190,10 +200,9 @@ const command: Command = {
 			if (endTimestamp) awaitPoll(dbData)
 		} else if (subcommand === "end") {
 			const messageId = interaction.options.getString("message_id", true),
-				channel = interaction.options.getChannel("channel", false) ?? interaction.channel!,
-				collection = db.collection<Poll>("polls")
-			if (!("messages" in channel)) return void (await interaction.editReply(getString("channelNotText")))
-			const message = await channel.messages.fetch(messageId).catch(() => null)
+				channel = (interaction.options.getChannel("channel", false) ?? interaction.channel) as GuildTextBasedChannel,
+				collection = db.collection<Poll>("polls"),
+				message = await channel.messages.fetch(messageId).catch(() => null)
 			if (!message) return void (await interaction.editReply(getString("noMessageId")))
 			const pollDb = await collection.findOne({ messageId, channelId: channel.id })
 			if (!pollDb) return void (await interaction.editReply(getString("noPoll")))
@@ -286,9 +295,8 @@ const command: Command = {
 			await (buttonInt ?? interaction).editReply({ content: getString("successEnd"), embeds: [], components: [] })
 		} else if (subcommand === "show") {
 			const messageId = interaction.options.getString("message_id", true),
-				channel = interaction.options.getChannel("channel", false) ?? interaction.channel!
-			if (!("messages" in channel)) return void (await interaction.editReply(getString("channelNotText")))
-			const message = await channel.messages.fetch(messageId).catch(() => null)
+				channel = (interaction.options.getChannel("channel", false) ?? interaction.channel) as GuildTextBasedChannel,
+				message = await channel.messages.fetch(messageId).catch(() => null)
 			if (!message) return void (await interaction.editReply(getString("noMessageId")))
 			const pollDb = await db.collection<Poll>("polls").findOne({ messageId, channelId: channel.id })
 			if (!pollDb) return void (await interaction.editReply(getString("noPoll")))
