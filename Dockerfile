@@ -1,5 +1,5 @@
 FROM node:18-bullseye
-# Install node v16
+# Define working directory
 WORKDIR /app
 # Copy everything from the current directory to the working directory (except the files in .dockerignore)
 COPY . .
