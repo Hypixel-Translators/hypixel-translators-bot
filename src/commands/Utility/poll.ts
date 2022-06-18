@@ -7,7 +7,6 @@ import {
 	Colors,
 	ComponentType,
 	EmbedBuilder,
-	type TextBasedChannel,
 	type Snowflake,
 } from "discord.js"
 import { ObjectId } from "mongodb"
@@ -103,9 +102,9 @@ const command: Command = {
 					required: true,
 				},
 				{
-					type: ApplicationCommandOptionType.String,
-					name: "channel_id",
-					description: "The ID of the channel the poll was posted in, if not the current one",
+					type: ApplicationCommandOptionType.Channel,
+					name: "channel",
+					description: "The channel the poll was posted in, if not the current one",
 					required: false,
 				},
 			],
@@ -122,9 +121,9 @@ const command: Command = {
 					required: true,
 				},
 				{
-					type: ApplicationCommandOptionType.String,
-					name: "channel_id",
-					description: "The ID of the channel the poll was posted in, if not the current one",
+					type: ApplicationCommandOptionType.Channel,
+					name: "channel",
+					description: "The channel the poll was posted in, if not the current one",
 					required: false,
 				},
 			],
@@ -191,11 +190,9 @@ const command: Command = {
 			if (endTimestamp) awaitPoll(dbData)
 		} else if (subcommand === "end") {
 			const messageId = interaction.options.getString("message_id", true),
-				channel = interaction.client.channels.cache.get(interaction.options.getString("channel_id", false) ?? interaction.channelId) as
-					| TextBasedChannel
-					| undefined,
+				channel = interaction.options.getChannel("channel", false) ?? interaction.channel!,
 				collection = db.collection<Poll>("polls")
-			if (!channel) return void (await interaction.editReply(getString("noChannelId")))
+			if (!("messages" in channel)) return void (await interaction.editReply(getString("channelNotText")))
 			const message = await channel.messages.fetch(messageId).catch(() => null)
 			if (!message) return void (await interaction.editReply(getString("noMessageId")))
 			const pollDb = await collection.findOne({ messageId, channelId: channel.id })
@@ -289,10 +286,8 @@ const command: Command = {
 			await (buttonInt ?? interaction).editReply({ content: getString("successEnd"), embeds: [], components: [] })
 		} else if (subcommand === "show") {
 			const messageId = interaction.options.getString("message_id", true),
-				channel = interaction.client.channels.cache.get(interaction.options.getString("channel_id", false) ?? interaction.channelId) as
-					| TextBasedChannel
-					| undefined
-			if (!channel) return void (await interaction.editReply(getString("noChannelId")))
+				channel = interaction.options.getChannel("channel", false) ?? interaction.channel!
+			if (!("messages" in channel)) return void (await interaction.editReply(getString("channelNotText")))
 			const message = await channel.messages.fetch(messageId).catch(() => null)
 			if (!message) return void (await interaction.editReply(getString("noMessageId")))
 			const pollDb = await db.collection<Poll>("polls").findOne({ messageId, channelId: channel.id })
