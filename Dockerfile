@@ -8,6 +8,8 @@ WORKDIR /app
 COPY . .
 # Install dependencies
 RUN yarn
+# Lint
+RUN yarn lint:ci
 # Set NODE_ENV to production
 ENV NODE_ENV=production
 # Run the app
