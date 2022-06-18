@@ -13,4 +13,4 @@ RUN yarn lint:ci
 # Set NODE_ENV to production
 ENV NODE_ENV=production
 # Run the app
-CMD ["node", "."]
+CMD ["yarn", "start"]
