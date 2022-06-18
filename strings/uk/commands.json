@@ -1,394 +1,394 @@
 {
 	"names": {
-		"8ball": "магічнавісімка",
-		"feedback": "відгук",
-		"levels": "рівні",
-		"ping": "пінг",
-		"profile": "профіль",
-		"projects": "проєкти",
-		"rank": "ранг",
-		"tag": "мітка",
-		"translate": "перекласти",
-		"help": "допомога",
-		"hypixelstats": "статистикаhypixel",
-		"hypixelunverify": "деверифікуватиhypixel",
-		"hypixelverify": "верифікуватиhypixel",
-		"language": "мова",
-		"languagestats": "статистикамови",
-		"mention": "згадати",
+		"8ball": "8ball",
+		"feedback": "feedback",
+		"levels": "levels",
+		"ping": "ping",
+		"profile": "profile",
+		"projects": "projects",
+		"rank": "rank",
+		"tag": "tag",
+		"translate": "translate",
+		"help": "help",
+		"hypixelstats": "hypixelstats",
+		"hypixelunverify": "hypixelunverify",
+		"hypixelverify": "hypixelverify",
+		"language": "language",
+		"languagestats": "languagestats",
+		"mention": "mention",
 		"minecraft": "minecraft",
-		"prefix": "префікс",
-		"quote": "цитата",
-		"verify": "верифікувати",
-		"poll": "опитування"
+		"prefix": "prefix",
+		"quote": "quote",
+		"verify": "verify",
+		"poll": "poll"
 	},
 	"descriptions": {
-		"8ball": "Магічна вісімка, яка відповість на всі ваші запитання",
-		"feedback": "Дає вам вказівки, як дати відгук про бота",
-		"help": "Показує вам усі доступні команди та загальну інформацію про бота",
-		"hypixelstats": "Показує вам базову статистику Hypixel зазначеного користувача",
-		"hypixelunverify": "Відв’язує ваш профіль Discord від вашого профілю Hypixel",
-		"hypixelverify": "Прив’язує ваш профіль Discord до вашого профілю Hypixel",
-		"language": "Змінює вашу мову, показує вашу поточну або список доступних мов",
-		"languagestats": "Показує вам прогрес мови на всіх проєктах, які ми наразі підтримуємо",
-		"levels": "Показує вам таблицю лідерів за досвідом",
-		"mention": "Згадує мовну роль із повідомленням",
-		"minecraft": "Шукає історію імен або скін певного гравця Minecraft",
-		"ping": "Дає затримку (ping) бота",
-		"prefix": "Дозволяє вам вибрати належний префікс до однієї або кількох ваших мов",
-		"profile": "Дає вам посилання на ваш профіль Crowdin, якщо він зберігається в нашій базі даних.",
-		"projects": "Дає вам посилання та інформацію про всі проєкти перекладів, які ми підтримуємо на сервері",
-		"quote": "Показує смішну/дивну/мудру цитату з сервера",
-		"rank": "Дає вам вашу кількість досвіду або досвід будь-якого зазначеного користувача",
-		"tag": "Надсилає шаблонне повідомлення, дозволяючи вам сповістити певного учасника, відправивши його",
-		"translate": "Надає вам корисну інформацію, як перекладати бота",
-		"verify": "Верифікує та надає вам відповідні ролі",
-		"poll": "Створює або керує опитуваннями на сервері. Доступна тільки коректорам Hypixel і вище"
+		"8ball": "The Magic 8 Ball that will answer all your questions",
+		"feedback": "Gives you instructions on how to give feedback towards the bot",
+		"help": "Shows you all available commands and general info about the bot",
+		"hypixelstats": "Shows you basic Hypixel stats for the provided user",
+		"hypixelunverify": "Unlinks your Discord account from your Hypixel player",
+		"hypixelverify": "Links your Discord account with your Hypixel player",
+		"language": "Changes your language, shows your current one or a list of available languages",
+		"languagestats": "Shows you the progress of a language on the all projects we currently support",
+		"levels": "Shows you the XP leaderboard",
+		"mention": "Mentions a language role with a message",
+		"minecraft": "Looks up a specific Minecraft player's name history or skin",
+		"ping": "Gives you the bot's ping",
+		"prefix": "Lets you pick an appropriate prefix for your language(s)",
+		"profile": "Gives you the link to your Crowdin profile if it's stored on our database.",
+		"projects": "Gives you links and information about all the translation projects we support on the server",
+		"quote": "Shows a funny/weird/wise quote from the server",
+		"rank": "Gives you the current XP for yourself or any given user",
+		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
+		"translate": "Gives you useful information on how to translate the bot",
+		"verify": "Verifies and gives you your corresponding roles",
+		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
 	},
 	"options": {
 		"8ball": {
 			"question": {
-				"name": "питання",
-				"description": "Питання до бота"
+				"name": "question",
+				"description": "The question to ask the bot"
 			}
 		},
 		"levels": {
 			"me": {
-				"name": "я",
-				"description": "Чи починати зі сторінки, на якій знаходитеся. Має пріоритет над аргументом «сторінка»"
+				"name": "me",
+				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
 			},
 			"page": {
-				"name": "сторінка",
-				"description": "Сторінка таблиці лідерів, яку треба дати"
+				"name": "page",
+				"description": "The leaderboard page to get"
 			}
 		},
 		"profile": {
 			"user": {
-				"name": "користувач",
-				"description": "Користувач, чий профіль потрібно знайти. Тільки для адміністратора"
+				"name": "user",
+				"description": "The user to find the profile for. Admin only"
 			},
 			"profile": {
-				"name": "профіль",
-				"description": "Новий профіль, який треба задати користувачеві. Тільки для адміністратора"
+				"name": "profile",
+				"description": "The new profile to set for the user. Admin only"
 			}
 		},
 		"rank": {
 			"user": {
-				"name": "користувач",
-				"description": "Користувач, чий ранг треба отримати"
+				"name": "user",
+				"description": "The user to get the rank for"
 			}
 		},
 		"tag": {
 			"tag": {
-				"name": "мітка",
-				"description": "Мітка, яку хочете бачити",
+				"name": "tag",
+				"description": "The tag you want to see",
 				"choices": {
-					"invite": "Посилання-запрошення на сервер",
-					"hypixel": "Посилання Hypixel",
-					"guidelines": "Правила проєкту Hypixel",
-					"proofreader": "Як стати коректором проєкту Hypixel",
-					"minecraft": "Проєкт Minecraft на Crowdin",
-					"quickplay": "Посилання Quickplay",
-					"skyblockaddons": "Посилання SkyblockAddons",
-					"thread": "Гілка серверу Discord",
-					"twitter": "Twitter спільноти перекладачів Hypixel"
+					"invite": "Invite link to the server",
+					"hypixel": "Hypixel links",
+					"guidelines": "Hypixel project guidelines",
+					"proofreader": "How to get proofreader on the Hypixel project",
+					"minecraft": "Minecraft Crowdin Project",
+					"quickplay": "Quickplay links",
+					"skyblockaddons": "SkyblockAddons links",
+					"thread": "Discord server thread",
+					"twitter": "Hypixel Translators Community Twitter"
 				}
 			},
 			"target": {
-				"name": "ціль",
-				"description": "Користувач, якого треба згадати цією міткою"
+				"name": "target",
+				"description": "The user to mention with this tag"
 			}
 		},
 		"help": {
 			"command": {
-				"name": "команда",
-				"description": "Команда, інформацію про яку треба отримати"
+				"name": "command",
+				"description": "The command to get information for"
 			},
 			"page": {
-				"name": "сторінка",
-				"description": "Сторінка допомоги, яку треба відкрити",
+				"name": "page",
+				"description": "The help page to open",
 				"choices": [
-					"Головна сторінка",
+					"Main Page",
 					"Інструменти та засоби",
-					"Інформаційні команди"
+					"Information commands"
 				]
 			}
 		},
 		"hypixelstats": {
 			"username": {
-				"name": "ім’якористувача",
-				"description": "Нікнейм користувача, чию статистику треба отримати. Також може бути UUID"
+				"name": "username",
+				"description": "The IGN of the user to get statistics for. Can also be a UUID"
 			},
 			"user": {
-				"name": "користувач",
-				"description": "Учасник сервера, чию статистику треба отримати. Працює тільки якщо користувач верифікований"
+				"name": "user",
+				"description": "The server member to get statistics for. Only works if the user has verified themselves"
 			}
 		},
 		"hypixelunverify": {
 			"user": {
-				"name": "користувач",
-				"description": "Користувач, якого треба деверифікувати. Тільки для адміністратора"
+				"name": "user",
+				"description": "The user to unverify. Admin only"
 			}
 		},
 		"hypixelverify": {
 			"username": {
-				"name": "ім’якористувача",
-				"description": "Ваш нікнейм Hypixel. Повинен мати ваш зв’язаний у грі Discord"
+				"name": "username",
+				"description": "Your Hypixel IGN. Must have your Discord linked in-game"
 			},
 			"user": {
-				"name": "користувач",
-				"description": "Користувач, якого треба верифікувати. Тільки для адміністратора"
+				"name": "user",
+				"description": "The user to verify. Admin only"
 			}
 		},
 		"language": {
 			"set": {
-				"name": "установити",
-				"description": "Установлює вашу мову на нову. Залиште порожнім, щоб побачити свою поточну мову",
+				"name": "set",
+				"description": "Sets your language to a new one. Leave empty to see your current language",
 				"options": {
 					"language": {
-						"name": "мова",
-						"description": "Нова мова, яку хочете встановити"
+						"name": "language",
+						"description": "The new language you want to set"
 					}
 				}
 			},
 			"reset": {
-				"name": "скинути",
-				"description": "Скидає вашу мову"
+				"name": "reset",
+				"description": "Resets your language"
 			},
 			"list": {
-				"name": "список",
-				"description": "Дає вам список усіх доступних мов"
+				"name": "list",
+				"description": "Gives you a list of all the available languages"
 			},
 			"stats": {
-				"name": "статистика",
-				"description": "Дає вам статистику використання зазначеної мови. Тільки для адміністратора",
+				"name": "stats",
+				"description": "Gives you usage statistics for a given language. Admin only",
 				"options": {
 					"language": {
-						"name": "мова",
-						"description": "Мова, статистику використання якої треба отримати"
+						"name": "language",
+						"description": "The language to get usage statistics for"
 					}
 				}
 			}
 		},
 		"languagestats": {
 			"language": {
-				"name": "мова",
-				"description": "Мова, статистику прогресу якої треба отримати. Необхідний, якщо вашу мову встановлено на англійську"
+				"name": "language",
+				"description": "The language to get progress statistics for. Required if your language is set to English"
 			}
 		},
 		"mention": {
 			"language": {
-				"name": "мова",
-				"description": "Мова, яку треба згадати"
+				"name": "language",
+				"description": "The language to mention"
 			},
 			"role": {
-				"name": "роль",
-				"description": "Роль, яку треба згадати",
+				"name": "role",
+				"description": "The role to mention",
 				"choices": {
-					"all": "Обидві ролі",
-					"translator": "Перекладач",
-					"proofreader": "Коректор"
+					"all": "Both roles",
+					"translator": "Translator",
+					"proofreader": "Proofreader"
 				}
 			},
 			"message": {
-				"name": "повідомлення",
-				"description": "Повідомлення, яке треба надіслати зі згадуванням"
+				"name": "message",
+				"description": "The message to send with the mention"
 			}
 		},
 		"minecraft": {
 			"history": {
-				"name": "історія",
-				"description": "Показує історію імен користувача. Треба надати принаймні 1 параметр, якщо ваш профіль MC не зв’язано",
+				"name": "history",
+				"description": "Shows a user's name history. You must provide at least 1 parameter if your MC account is not linked",
 				"options": {
 					"username": {
-						"name": "ім’якористувача",
-						"description": "Нік/UUID користувача, чия історія імен потрібна. За замовчуванням це ваш профіль, якщо він зв’язаний"
+						"name": "username",
+						"description": "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked"
 					},
 					"user": {
-						"name": "користувач",
-						"description": "Учасник сервера, чию історію імен треба отримати. Працює тільки якщо користувач верифікований"
+						"name": "user",
+						"description": "The server member to get name history for. Only works if the user has verified themselves"
 					}
 				}
 			},
 			"skin": {
-				"name": "скін",
-				"description": "Показує скін користувача. Треба надати принаймні 1 параметр, якщо ваш профіль MC не зв’язаний",
+				"name": "skin",
+				"description": "Shows a user's skin. You must provide at least 1 parameter if your MC account is not linked",
 				"options": {
 					"username": {
-						"name": "ім’якористувача",
-						"description": "Нік/UUID користувача, чий скін треба отримати. За замовчуванням це ваш профіль, якщо він зв’язаний"
+						"name": "username",
+						"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
 					},
 					"user": {
-						"name": "користувач",
-						"description": "Учасник сервера, чий скін треба отримати. Працює тільки якщо користувач верифікований"
+						"name": "user",
+						"description": "The server member to get skin for. Only works if the user has verified themselves"
 					}
 				}
 			}
 		},
 		"prefix": {
 			"flags": {
-				"name": "прапори",
-				"description": "Прапори, які треба застосувати до вашого префіксу, відокремлені пробілами"
+				"name": "flags",
+				"description": "The flags to be applied to your prefix, separated with spaces"
 			}
 		},
 		"quote": {
 			"get": {
-				"name": "отримати",
-				"description": "Отримати випадкову/певну цитату",
+				"name": "get",
+				"description": "Get a random/specific quote",
 				"options": {
 					"index": {
-						"name": "індекс",
-						"description": "Індекс цитати, яку хочете побачити"
+						"name": "index",
+						"description": "The index of the quote you want to see"
 					}
 				}
 			},
 			"add": {
-				"name": "додати",
-				"description": "Додати нову цитату. Тільки для персоналу",
+				"name": "add",
+				"description": "Add a new quote. Staff only",
 				"options": {
 					"quote": {
-						"name": "цитата",
-						"description": "Цитата, яку хочете додати"
+						"name": "quote",
+						"description": "The quote you want to add"
 					},
 					"author": {
-						"name": "автор",
-						"description": "Автор цієї цитати"
+						"name": "author",
+						"description": "The author of this quote"
 					},
 					"url": {
-						"name": "адреса",
-						"description": "URL-адреса цитованого повідомлення. Якщо воно містить зображення, воно також буде включено"
+						"name": "url",
+						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
 					},
 					"image": {
-						"name": "зображення",
-						"description": "URL-адреса зображення, яку треба додати до цитати. Перевизначає зображення за URL за його наявності"
+						"name": "image",
+						"description": "The URL of the image to be included with this quote. Has priority over URL's image if provided"
 					}
 				}
 			},
 			"edit": {
-				"name": "редагувати",
-				"description": "Редагувати цитату. Тільки для персоналу",
+				"name": "edit",
+				"description": "Edit a quote. Staff only",
 				"options": {
 					"index": {
-						"name": "індекс",
-						"description": "Індекс цитати, яку треба редагувати"
+						"name": "index",
+						"description": "The index of the quote to edit"
 					},
 					"quote": {
-						"name": "цитата",
-						"description": "Нова цитата"
+						"name": "quote",
+						"description": "The new quote"
 					}
 				}
 			},
 			"delete": {
-				"name": "видалити",
-				"description": "Видалити цитату. Тільки для персоналу",
+				"name": "delete",
+				"description": "Delete a quote. Staff only",
 				"options": {
 					"index": {
-						"name": "індекс",
-						"description": "Індекс цитати, яку треба видалити"
+						"name": "index",
+						"description": "The index of the quote to delete"
 					}
 				}
 			},
 			"link": {
-				"name": "зв’язати",
-				"description": "Зв’язати посилання з повідомленням. Тільки для персоналу",
+				"name": "link",
+				"description": "Link a quote to a message. Staff only",
 				"options": {
 					"index": {
-						"name": "індекс",
-						"description": "Індекс цитати, яку треба зв’язати"
+						"name": "index",
+						"description": "The index of the quote to link"
 					},
 					"url": {
-						"name": "адреса",
-						"description": "URL-адреса повідомлення, з яким треба зв’язати цитату"
+						"name": "url",
+						"description": "The URL of the message to link this quote to"
 					},
 					"image": {
-						"name": "зображення",
-						"description": "Чи треба прикріпити зображення цього повідомлення до цитати"
+						"name": "image",
+						"description": "Whether or not to attach this message's image to the quote"
 					}
 				}
 			}
 		},
 		"verify": {
 			"url": {
-				"name": "адреса",
-				"description": "URL-адреса вашого профілю Crowdin. Повинен мати вашу мітку Discord у розділі «Про себе»"
+				"name": "url",
+				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section"
 			},
 			"user": {
-				"name": "користувач",
-				"description": "Користувач, якого треба верифікувати вручну. Тільки для адміністратора"
+				"name": "user",
+				"description": "The user to manually verify. Admin only"
 			}
 		},
 		"poll": {
 			"start": {
-				"name": "почати",
-				"description": "Починає голосування в поточному каналі",
+				"name": "start",
+				"description": "Starts a poll in the current channel",
 				"options": {
 					"question": {
-						"name": "питання",
-						"description": "Питання опитування"
+						"name": "question",
+						"description": "The question of the poll"
 					},
 					"option1": {
-						"name": "варіант1",
-						"description": "Перший варіант в опитуванні"
+						"name": "option1",
+						"description": "The first option in the poll"
 					},
 					"option2": {
-						"name": "варіант2",
-						"description": "Другий варіант в опитуванні"
+						"name": "option2",
+						"description": "The second option in the poll"
 					},
 					"time": {
-						"name": "час",
-						"description": "Через скільки це опитування автоматично закривається, а результати опубліковуються (в годинах)"
+						"name": "time",
+						"description": "How long before this poll is automatically closed and results are published (in hours)"
 					},
 					"option3": {
-						"name": "варіант3",
-						"description": "Третій варіант в опитуванні"
+						"name": "option3",
+						"description": "The third option in the poll"
 					},
 					"option4": {
-						"name": "варіант4",
-						"description": "Четвертий варіант в опитуванні"
+						"name": "option4",
+						"description": "The fourth option in the poll"
 					},
 					"option5": {
-						"name": "варіант5",
-						"description": "П’ятий варіант в опитуванні"
+						"name": "option5",
+						"description": "The fifth option in the poll"
 					},
 					"option6": {
-						"name": "варіант6",
-						"description": "Шостий варіант в опитуванні"
+						"name": "option6",
+						"description": "The sixth option in the poll"
 					},
 					"option7": {
-						"name": "варіант7",
-						"description": "Сьомий варіант в опитуванні"
+						"name": "option7",
+						"description": "The seventh option in the poll"
 					},
 					"option8": {
-						"name": "варіант8",
-						"description": "Восьмий варіант в опитуванні"
+						"name": "option8",
+						"description": "The eigth option in the poll"
 					}
 				}
 			},
 			"end": {
-				"name": "закінчити",
-				"description": "Закінчити опитування за його ID повідомлення",
+				"name": "end",
+				"description": "End a poll given its message ID",
 				"options": {
 					"message_id": {
-						"name": "id_повідомлення",
-						"description": "ID повідомлення, що містить опитування"
+						"name": "message_id",
+						"description": "The ID of the message containing the poll"
 					},
-					"channel": {
-						"name": "канал",
-						"description": "Канал, де розміщене опитування, якщо воно не в поточному"
+					"channel_id": {
+						"name": "channel_id",
+						"description": "The ID of the channel the poll was posted in, if not the current one"
 					}
 				}
 			},
 			"show": {
-				"name": "показати",
-				"description": "Показує поточні результати опитування, не завершуючи його. Доступна тільки автору опитування",
+				"name": "show",
+				"description": "Shows the current results of a poll without ending it. Only available to the creator of the poll",
 				"options": {
 					"message_id": {
-						"name": "id_повідомлення",
-						"description": "ID повідомлення, що містить опитування"
+						"name": "message_id",
+						"description": "The ID of the message containing the poll"
 					},
-					"channel": {
-						"name": "канал",
-						"description": "Канал, де розміщене опитування, якщо воно не в поточному"
+					"channel_id": {
+						"name": "channel_id",
+						"description": "The ID of the channel the poll was posted in, if not the current one"
 					}
 				}
 			}
