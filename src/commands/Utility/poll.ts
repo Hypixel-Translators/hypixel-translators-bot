@@ -166,6 +166,8 @@ const command: Command = {
 			// Try to split buttons evenly across the rows
 			while (p < buttons.length) components.push(buttons.slice(p, (p += buttons.length <= 5 ? 5 : Math.ceil(buttons.length / 2))))
 			const msg = await interaction.channel!.send({
+					content:
+						interaction.member.roles.cache.has(ids.roles.admin) && interaction.channelId === ids.channels.polls ? `<@&${ids.roles.polls}>` : "",
 					embeds: [embed],
 					components: components.map(b => new ActionRowBuilder<ButtonBuilder>({ components: b })),
 				}),
