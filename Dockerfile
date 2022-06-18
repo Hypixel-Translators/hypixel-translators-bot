@@ -1,12 +1,5 @@
-FROM ubuntu:22.04
-# Update repositories
-RUN apt-get update
-# Install dependencies
-RUN apt-get install curl -y
+FROM node:18-bullseye
 # Install node v16
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-RUN apt-get install -y nodejs
-# Define working directory
 WORKDIR /app
 # Copy everything from the current directory to the working directory (except the files in .dockerignore)
 COPY . .
