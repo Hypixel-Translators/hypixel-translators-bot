@@ -200,7 +200,7 @@ const command: Command = {
 			if (endTimestamp) awaitPoll(dbData)
 		} else if (subcommand === "end") {
 			const messageId = interaction.options.getString("message_id", true),
-				channel = (interaction.options.getChannel("channel", false) as GuildTextBasedChannel) ?? interaction.channel!,
+				channel = (interaction.options.getChannel("channel", false) ?? interaction.channel) as GuildTextBasedChannel,
 				collection = db.collection<Poll>("polls"),
 				message = await channel.messages.fetch(messageId).catch(() => null)
 			if (!message) return void (await interaction.editReply(getString("noMessageId")))
@@ -295,7 +295,7 @@ const command: Command = {
 			await (buttonInt ?? interaction).editReply({ content: getString("successEnd"), embeds: [], components: [] })
 		} else if (subcommand === "show") {
 			const messageId = interaction.options.getString("message_id", true),
-				channel = (interaction.options.getChannel("channel", false) as GuildTextBasedChannel) ?? interaction.channel!,
+				channel = (interaction.options.getChannel("channel", false) ?? interaction.channel) as GuildTextBasedChannel,
 				message = await channel.messages.fetch(messageId).catch(() => null)
 			if (!message) return void (await interaction.editReply(getString("noMessageId")))
 			const pollDb = await db.collection<Poll>("polls").findOne({ messageId, channelId: channel.id })
