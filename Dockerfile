@@ -1,5 +1,8 @@
 FROM node:18-bullseye
-# Define working directory
+# Install the dependencies for canvas
+RUN apt-get update
+RUN apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+# Define working directory (we will automatically cd into it)
 WORKDIR /app
 # Copy everything from the current directory to the working directory (except the files in .dockerignore)
 COPY . .
