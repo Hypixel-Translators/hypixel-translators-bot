@@ -3,6 +3,7 @@ import { access, constants, readdir } from "node:fs"
 import { type GuildMember, EmbedBuilder, ApplicationCommandOptionType } from "discord.js"
 
 import { colors, ids } from "../../config.json"
+import { client } from "../../index"
 import { db, type DbUser } from "../../lib/dbclient"
 import { generateTip, type MongoLanguage, transformDiscordLocale, botLocales } from "../../lib/util"
 
@@ -63,24 +64,22 @@ const command: Command = {
 		let language = interaction.options.getString("language", ["set", "stats"].includes(subCommand))
 
 		if (subCommand === "list") {
-			const langList: string[] = [],
-				authorLanguage = (await collection.findOne({ id: interaction.user.id }))!.lang ?? transformDiscordLocale(interaction.locale)
-			botLocales.forEach(async (element, index, array) => {
-				if (element === "empty" && !member?.roles.cache.has(ids.roles.admin)) return
-				let languageString: string
-				if (element === "empty") languageString = "Empty"
-				else languageString = getString(element)
-				langList.push(authorLanguage === element ? `**${languageString}**` : languageString)
-				if (index === array.length - 1) {
-					const embed = new EmbedBuilder({
-						color: colors.neutral,
-						author: { name: getString("moduleName") },
-						title: getString("listTitle"),
-						description: langList.join(", "),
+			const authorLanguage = (await client.getUser(interaction.user.id)).lang ?? transformDiscordLocale(interaction.locale),
+				langList = botLocales
+					.map<string | null>(locale => {
+						if (locale === "empty" && !member?.roles.cache.has(ids.roles.admin)) return null
+						const languageString = locale === "empty" ? "Empty" : getString(locale)
+						return authorLanguage === locale ? `**${languageString}**` : languageString
 					})
-					await interaction.reply({ embeds: [embed] })
-				}
-			})
+					.filter((value): value is string => Boolean(value))
+					.sort((a, b) => a.replaceAll("**", "").localeCompare(b.replaceAll("**", ""), authorLanguage.replace("_", "-"))),
+				embed = new EmbedBuilder({
+					color: colors.neutral,
+					author: { name: getString("moduleName") },
+					title: getString("listTitle"),
+					description: langList.join(", "),
+				})
+			await interaction.reply({ embeds: [embed] })
 		} else if (subCommand === "stats") {
 			if (!member?.roles.cache.has(ids.roles.admin))
 				return void (await interaction.reply({ content: getString("errors.noAccess", { file: "global" }), ephemeral: true }))
