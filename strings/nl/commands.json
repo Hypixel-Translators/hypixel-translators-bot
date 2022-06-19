@@ -372,9 +372,9 @@
 						"name": "bericht_id",
 						"description": "Het ID van het bericht van de peiling"
 					},
-					"channel_id": {
-						"name": "kanaal_id",
-						"description": "Het ID van het kanaal waar de peiling in is geplaatst, indien het niet het huidige kanaal is"
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
 			},
@@ -386,9 +386,9 @@
 						"name": "bericht_id",
 						"description": "Het ID van het bericht van de peiling"
 					},
-					"channel_id": {
-						"name": "kanaal_id",
-						"description": "Het ID van het kanaal waar de peiling in is geplaatst, indien het niet het huidige kanaal is"
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
 			}
