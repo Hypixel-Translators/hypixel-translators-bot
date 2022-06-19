@@ -2,7 +2,6 @@
     "successPost": "Deine Umfrage wurde erfolgreich gepostet!",
     "endPost": "Sie endet in %%fullTime%% (%%relativeTime%%)",
     "successEnd": "Deine Umfrage wurde erfolgreich beendet!",
-    "noChannelId": "Es konnte kein Kanal mit dieser ID gefunden werden!",
     "noMessageId": "Es konnte keine Nachricht mit dieser ID gefunden werden!",
     "noPoll": "Es scheint, dass diese Nachricht keine Umfrage enthält. Wenn dies der Fall ist, kontaktiere bitte den Entwickler diesbezüglich.",
     "noPollDb": "Wir konnten diese Umfrage nicht in unserer Datenbank finden! Bitte kontaktiere den Bot-Entwickler und erstelle eine neue Umfrage",
