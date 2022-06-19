@@ -372,9 +372,9 @@
 						"name": "id_сообщения",
 						"description": "The ID of the message containing the poll"
 					},
-					"channel_id": {
-						"name": "id_канала",
-						"description": "The ID of the channel the poll was posted in, if not the current one"
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
 			},
@@ -386,9 +386,9 @@
 						"name": "id_сообщения",
 						"description": "The ID of the message containing the poll"
 					},
-					"channel_id": {
-						"name": "id_канала",
-						"description": "The ID of the channel the poll was posted in, if not the current one"
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
 			}
