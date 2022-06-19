@@ -2,7 +2,6 @@
     "successPost": "Berhasil post poll anda!",
     "endPost": "Ini akan berakhir pada %%fullTime%% (%%relativeTime%%)",
     "successEnd": "Berhasil mengakhiri poll anda!",
-    "noChannelId": "Tidak dapat menemukan channel dengan ID tersebut!",
     "noMessageId": "Tidak dapat menemukan pesan dengan ID tersebut!",
     "noPoll": "Sepertinya pesan tersebut tidak ada poll di dalamnya. Jika ada, mohon kontak dengan developer mengenai ini.",
     "noPollDb": "Kami tidak dapat menemukan poll tersebut di database! Mohon kontak developer bot mengenai ini dan buat poll baru",
