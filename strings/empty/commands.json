@@ -372,9 +372,9 @@
 						"name": "crwdns2788:0crwdne2788:0",
 						"description": "crwdns2790:0crwdne2790:0"
 					},
-					"channel_id": {
-						"name": "crwdns2792:0crwdne2792:0",
-						"description": "crwdns2794:0crwdne2794:0"
+					"channel": {
+						"name": "crwdns2816:0crwdne2816:0",
+						"description": "crwdns2818:0crwdne2818:0"
 					}
 				}
 			},
@@ -386,9 +386,9 @@
 						"name": "crwdns2800:0crwdne2800:0",
 						"description": "crwdns2802:0crwdne2802:0"
 					},
-					"channel_id": {
-						"name": "crwdns2804:0crwdne2804:0",
-						"description": "crwdns2806:0crwdne2806:0"
+					"channel": {
+						"name": "crwdns2820:0crwdne2820:0",
+						"description": "crwdns2822:0crwdne2822:0"
 					}
 				}
 			}
