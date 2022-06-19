@@ -2,7 +2,6 @@
     "successPost": "Anketiniz başarıyla yayınlandı!",
     "endPost": "%%fullTime%% (%%relativeTime%%) tarihinde sona erecek.",
     "successEnd": "Anketiniz başarıyla sonlandırıldı!",
-    "noChannelId": "Bu ID'ye sahip bir kanal bulamadım!",
     "noMessageId": "Bu ID'ye sahip bir mesaj bulamadım!",
     "noPoll": "Bu mesajın içinde anket yok gibi görünüyor. Eğer var ise, lütfen bu konu hakkında geliştiriciyle iletişime geçin.",
     "noPollDb": "Bu anketi veri tabanımızda bulamadık! Lütfen bu konu hakkında bot geliştiricisiyle iletişime geçin ve yeni bir anket oluşturun",
