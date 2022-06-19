@@ -3,8 +3,8 @@
 	"history": {
 		"firstName": "Перше ім'я",
 		"nameHistoryFor": "Історія імен гравця %%username%%",
-		"youChangedName": "You have {number, plural, =0 {never changed your name} one {changed your name # time} other {changed your name # times}}.",
-		"userChangedName": "%%username%% has {number, plural, =0 {never changed their name} one {changed their name # time} other {changed their name # times}}."
+		"youChangedName": "Ви {number, plural, =0 {ніколи не змінювали своє ім’я} one {змінювали своє ім’я # раз} few {змінювали своє ім’я # рази} many {змінювали своє ім’я # разів} other {змінювали своє ім’я # рази}}.",
+		"userChangedName": "%%username%% {number, plural, =0 {ніколи не змінював своє ім’я} one {змінював своє ім’я # раз} few {змінював своє ім’я # рази} many {змінював своє ім’я # разів} other {змінював своє ім’я # рази}}."
 	},
 	"skin": {
 		"yourSkin": "Ось ваш скін!",
