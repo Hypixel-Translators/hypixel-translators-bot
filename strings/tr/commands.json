@@ -372,9 +372,9 @@
 						"name": "mesaj_kimliği",
 						"description": "Anketi içeren mesajın kimliği"
 					},
-					"channel_id": {
-						"name": "kanal_kimliği",
-						"description": "Geçerli kanal değilse, anketin yayınlandığı kanalın kimliği"
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
 			},
@@ -386,9 +386,9 @@
 						"name": "mesaj_kimliği",
 						"description": "Anketi içeren mesajın kimliği"
 					},
-					"channel_id": {
-						"name": "kanal_kimliği",
-						"description": "Geçerli kanal değilse, anketin yayınlandığı kanalın kimliği"
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
 			}
