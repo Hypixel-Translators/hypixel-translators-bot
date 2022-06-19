@@ -2,7 +2,6 @@
     "successPost": "Sua enquete foi publicada com sucesso!",
     "endPost": "Termina em %%fullTime%% (%%relativeTime%%)",
     "successEnd": "Sua enquete foi finalizada com sucesso!",
-    "noChannelId": "Não foi possível encontrar um canal com esse ID!",
     "noMessageId": "Não foi possível encontrar uma mensagem com esse ID!",
     "noPoll": "Parece que essa mensagem não possui uma enquete. Se possuir, entre em contato com um desenvolvedor.",
     "noPollDb": "Não foi possível encontrar essa enquete em nosso banco de dados! Contate o desenvolvedor do bot para tratar sobre isto e crie uma nova enquete",
