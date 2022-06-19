@@ -1,4 +1,4 @@
 {
-	"errorNoPing": "You don't have that language's proofreader role, {role, select, translator {so you can't mention its translator role} proofreader {so you can't mention it} other {so you can't mention the entire language}}. Contact a server administrator if you really need to.",
-	"success": "Message sent successfully!"
+	"errorNoPing": "У вас немає ролі коректора цієї мови, {role, select, translator {тому не можна згадувати роль перекладача цієї мови} proofreader {тому не можна згадувати цю роль} other {тому не можна згадувати мову взагалі}}. Зверніться до адміністратора сервера, якщо вам дійсно треба.",
+	"success": "Повідомлення успішно відправлено!"
 }
