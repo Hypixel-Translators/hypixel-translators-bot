@@ -152,8 +152,8 @@
 				}
 			},
 			"reset": {
-				"name": "reset",
-				"description": "Resets your language"
+				"name": "zresetuj",
+				"description": "Resetuje język"
 			},
 			"list": {
 				"name": "spis",
@@ -372,9 +372,9 @@
 						"name": "id_wiadomości",
 						"description": "The ID of the message containing the poll"
 					},
-					"channel_id": {
-						"name": "id_kanału",
-						"description": "The ID of the channel the poll was posted in, if not the current one"
+					"channel": {
+						"name": "kanał",
+						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
 			},
@@ -386,9 +386,9 @@
 						"name": "id_wiadomości",
 						"description": "The ID of the message containing the poll"
 					},
-					"channel_id": {
-						"name": "id_kanału",
-						"description": "The ID of the channel the poll was posted in, if not the current one"
+					"channel": {
+						"name": "kanał",
+						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
 			}
