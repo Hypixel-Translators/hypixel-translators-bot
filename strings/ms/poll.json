@@ -2,7 +2,6 @@
     "successPost": "Berjaya menghantar pengundian anda!",
     "endPost": "Ia akan tamat pada %%fullTime%% (%%relativeTime%%)",
     "successEnd": "Berjaya menamatkan pengundian anda!",
-    "noChannelId": "Tak dapat menjumpai saluran dengan ID tersebut!",
     "noMessageId": "Tak dapat menjumpai mesej dengan ID tersebut!",
     "noPoll": "Nampaknya mesej tersebut tiada pengundian di dalamnya. Kalau ada, tolong hubungi pemaju tentang perkara ini.",
     "noPollDb": "Kami tak dapat jumpa pengundian tersebut dalam pangkalan data kami! Tolong hubungi pemaju bot tentang perkara ini dan buat pengundian baharu",
