@@ -2,7 +2,6 @@
     "successPost": "Kysely aloitettu onnistuneesti!",
     "endPost": "Päättyy %%fullTime%% (%%relativeTime%%)",
     "successEnd": "Kysely päätetty onnistuneesti!",
-    "noChannelId": "Ei löytynyt kanavaa tällä ID:llä!",
     "noMessageId": "Ei löytynyt viestiä tällä ID:llä!",
     "noPoll": "Vaikuttaisi siltä, ettei tässä viestissä ole kyselyä. Mikäli kysely kuitenkin löytyy, otathan yhteyttä kehittäjään.",
     "noPollDb": "Kyselyä ei löytynyt tietokannastamme! Otathan yhteyttä botin kehittäjään ja luo uusi kysely",

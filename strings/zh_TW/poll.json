@@ -2,7 +2,6 @@
     "successPost": "Successfully posted your poll!",
     "endPost": "將於 %%fullTime%%（%%relativeTime%%）結束",
     "successEnd": "成功結束了投票！",
-    "noChannelId": "無法從該 ID 找到任何頻道！",
     "noMessageId": "無法從該 ID 找到任何訊息！",
     "noPoll": "該訊息似乎未包含任何投票。如果該訊息正在進行投票，請將情況告訴給開發人員。",
     "noPollDb": "我們無法從資料庫中找到該投票！請與機器人開發人員聯繫並建立一個新投票",

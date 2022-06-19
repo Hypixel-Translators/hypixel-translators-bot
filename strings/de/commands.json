@@ -372,9 +372,9 @@
 						"name": "nachricht_id",
 						"description": "Die ID der Nachricht, die die Umfrage enthält"
 					},
-					"channel_id": {
-						"name": "kanal_id",
-						"description": "Die ID des Kanals, in dem die Umfrage gepostet wurde, wenn es nicht der aktuelle ist"
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
 			},
@@ -386,9 +386,9 @@
 						"name": "nachricht_id",
 						"description": "Die ID der Nachricht, die die Umfrage enthält"
 					},
-					"channel_id": {
-						"name": "kanal_id",
-						"description": "Die ID des Kanals, in dem die Umfrage gepostet wurde, wenn es nicht der aktuelle ist"
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
 			}

@@ -2,7 +2,6 @@
     "successPost": "Pomyślnie stworzono Twoją ankietę!",
     "endPost": "Ankieta zamyka się o %%fullTime%% (%%relativeTime%%)",
     "successEnd": "Pomyślnie zakończono Twoją ankietę!",
-    "noChannelId": "Nie udało się znaleźć kanału o takim ID!",
     "noMessageId": "Nie udało się znaleźć wiadomości o takim ID!",
     "noPoll": "Wygląda na to, że ta wiadomość nie jest ankietą. Jeśli jednak jest ona, proszę, skontaktuj się z deweloperem.",
     "noPollDb": "Nie mogliśmy znaleźć tej ankiety w naszej bazie danych! Skontaktuj się z twórcą bota i stwórz nową ankietę",

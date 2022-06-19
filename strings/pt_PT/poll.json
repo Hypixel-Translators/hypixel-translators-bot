@@ -1,8 +1,7 @@
 {
     "successPost": "A tua enquete foi publicada com sucesso!",
-    "endPost": "Esta vai terminar a %%fullTime%% (%%relativeTime%%)",
+    "endPost": "Ela vai terminar a %%fullTime%% (%%relativeTime%%)",
     "successEnd": "A tua enquete foi encerrada com sucesso!",
-    "noChannelId": "Não foi possível encontrar um canal com esse ID!",
     "noMessageId": "Não foi possível encontrar uma mensagem com esse ID!",
     "noPoll": "Parece que essa mensagem não contém uma enquete. Se tiver, fala com o programador sobre isto.",
     "noPollDb": "Não foi possível encontrar essa enquete na nossa base de dados! Entra fala com o programador do bot sobre isto e cria uma nova enquete",
@@ -13,7 +12,7 @@
     "voteCount": "{number, plural, one {# voto} other {# votos}}",
     "pollResults": "Resultados da enquete",
     "endingWarning": "Cuidado! Esta poll vai acabar em breve",
-    "endingWarningDesc": "Esta enquete está agendada para terminar a %%fullTime%% (%%relativeTime%%), por isso é provável que não a queiras terminar ainda. Se quiseres, confirma usando o botão abaixo.",
+    "endingWarningDesc": "Esta enquete está agendada para terminar a %%fullTime%% (%%relativeTime%%), por isso é provável que não a queiras terminar já. Se quiseres, confirma usando o botão abaixo.",
     "didntReply": "Não respondeste, logo esta enquete não vai terminar agora",
     "successCancelEnd": "Cancelaste o fim desta enquete com sucesso!",
     "endScheduled": "Em vez disso, esta vai terminar no horário agendado: %%fullTime%% (%%relativeTime%%)",

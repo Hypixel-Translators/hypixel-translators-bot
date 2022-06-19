@@ -2,7 +2,6 @@
     "successPost": "Successfully posted yer poll!",
     "endPost": "It shall end on %%fullTime%% (%%relativeTime%%)",
     "successEnd": "Successfully ended yer poll!",
-    "noChannelId": "Could nah discover a channel wit' that ID!",
     "noMessageId": "Could nah discover a message wit' that ID!",
     "noPoll": "It be lookin' like that message does nah have a poll in it. If it does, please contact th' developer about 'tis.",
     "noPollDb": "We could nah find that poll in our database! Please contact th' bot developer about 'tis an' create a new poll.",

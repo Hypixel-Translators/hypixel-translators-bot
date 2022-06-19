@@ -5,7 +5,7 @@
 	"youNotRanked": "У вас поки немає рангу!",
 	"userNotRanked": "У цього користувача поки немає рангу!",
 	"howRank": "Для того, щоб отримати ранг, Ви повинні спілкуватися в чатах!",
-	"textProgress": "%%currentXp%%/%%xpNeeded%% | {messages, plural, one {# Message} other {# Messages}}",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | {messages, plural, one {# повідомлення} few {# повідомлення} many {# повідомлень} other {# повідомлення}}",
 	"youLevel": "У вас %%level%% рівень і Ви на #%%rank%% місці в таблиці лідерів!",
 	"userLevel": "%%user%% на %%level%% рівні й він на #%%rank%% місці в таблиці лідерів!"
 }

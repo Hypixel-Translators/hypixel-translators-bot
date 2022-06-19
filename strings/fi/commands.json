@@ -372,9 +372,9 @@
 						"name": "viestin_id",
 						"description": "Kyselyn sisältävän viestin ID"
 					},
-					"channel_id": {
-						"name": "kanavan_id",
-						"description": "ID kanavalle, jolla kysely on, jos se ei ole nykyinen kanava"
+					"channel": {
+						"name": "kanava",
+						"description": "Kanava, jolle kysely lähetettiin, jos se ei ole nykyinen"
 					}
 				}
 			},
@@ -386,9 +386,9 @@
 						"name": "viestin_id",
 						"description": "Kyselyn sisältävän viestin ID"
 					},
-					"channel_id": {
-						"name": "kanavan_id",
-						"description": "ID kanavalle, jolla kysely on, jos se ei ole nykyinen kanava"
+					"channel": {
+						"name": "kanava",
+						"description": "Kanava, jolle kysely lähetettiin, jos se ei ole nykyinen"
 					}
 				}
 			}

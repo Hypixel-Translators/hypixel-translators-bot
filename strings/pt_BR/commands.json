@@ -372,9 +372,9 @@
 						"name": "id_da_mensagem",
 						"description": "O ID da mensagem que contém a enquete"
 					},
-					"channel_id": {
-						"name": "id_do_canal",
-						"description": "O ID do canal no qual a enquete foi criada, se não o atual"
+					"channel": {
+						"name": "canal",
+						"description": "O canal no qual a enquete foi criada, se não o atual"
 					}
 				}
 			},
@@ -386,9 +386,9 @@
 						"name": "id_da_mensagem",
 						"description": "O ID da mensagem que contém a enquete"
 					},
-					"channel_id": {
-						"name": "id_do_canal",
-						"description": "O ID do canal no qual a enquete foi criada, se não o atual"
+					"channel": {
+						"name": "canal",
+						"description": "O canal no qual a enquete foi criada, se não o atual"
 					}
 				}
 			}

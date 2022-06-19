@@ -2,7 +2,6 @@
     "successPost": "¡Se publicó con éxito su encuesta!",
     "endPost": "Finalizará el %%fullTime%% (%%relativeTime%%)",
     "successEnd": "¡Su encuesta finalizó con éxito!",
-    "noChannelId": "¡No se pudo encontrar un canal con esa ID!",
     "noMessageId": "¡No se pudo encontrar un mensaje con esa ID!",
     "noPoll": "Parece que ese mensaje no tiene una encuesta. Si es así, por favor, comuníquese con el desarrollador al respecto.",
     "noPollDb": "¡No pudimos encontrar esa encuesta en nuestra base de datos! Por favor, póngase en contacto con el desarrollador del bot sobre esto y cree una nueva encuesta",
