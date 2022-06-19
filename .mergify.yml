@@ -3,7 +3,7 @@ pull_request_rules:
       conditions:
           - author=HypixelTranslators
           - check-success=GitGuardian Security Checks
-          - check-success=Compile and lint
+          - check-success=Build docker image
       actions:
           merge:
               method: squash
