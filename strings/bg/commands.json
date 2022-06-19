@@ -372,9 +372,9 @@
 						"name": "message_id",
 						"description": "ID-то на съобщението в което се съдържа анкетата"
 					},
-					"channel_id": {
-						"name": "channel_id",
-						"description": "ID-то на канала в който анкетата е била постната, ако не е сегашният"
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
 			},
@@ -386,9 +386,9 @@
 						"name": "message_id",
 						"description": "ID-то на съобщението в което се съдържа анкетата"
 					},
-					"channel_id": {
-						"name": "channel_id",
-						"description": "ID-то на канала в който анкетата е била постната, ако не е сегашният"
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
 			}
