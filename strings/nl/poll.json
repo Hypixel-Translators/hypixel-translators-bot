@@ -2,7 +2,6 @@
     "successPost": "Peiling geplaatst!",
     "endPost": "Hij zal eindigen op %%fullTime%% (%%relativeTime%%)",
     "successEnd": "Peiling beëindigd!",
-    "noChannelId": "Kon geen kanaal vinden met die ID!",
     "noMessageId": "Kon geen bericht vinden met die ID!",
     "noPoll": "Het lijkt erop dat dit bericht geen peiling bevat. Als dit niet klopt, neem dan contact op met de ontwikkelaar.",
     "noPollDb": "Die peiling kon niet worden gevonden in de database. Breng de ontwikkelaar hiervan op de hoogte en maak een nieuwe peiling aan.",
