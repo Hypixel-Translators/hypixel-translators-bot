@@ -373,8 +373,8 @@
 						"description": "ID-то на съобщението в което се съдържа анкетата"
 					},
 					"channel": {
-						"name": "channel",
-						"description": "The channel the poll was posted in, if not the current one"
+						"name": "канал",
+						"description": "Канала в който анкетата беше постната, ако не сегашният"
 					}
 				}
 			},
@@ -387,8 +387,8 @@
 						"description": "ID-то на съобщението в което се съдържа анкетата"
 					},
 					"channel": {
-						"name": "channel",
-						"description": "The channel the poll was posted in, if not the current one"
+						"name": "канал",
+						"description": "Канала в който анкетата беше постната, ако не сегашният"
 					}
 				}
 			}
