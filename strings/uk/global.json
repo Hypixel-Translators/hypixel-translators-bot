@@ -74,7 +74,7 @@
 		"timeZone": "Europe/Kiev"
 	},
 	"numberStrings": {
-		"thousand": "тис.",
+		"thousand": " тис.",
 		"million": " млн"
 	}
 }
