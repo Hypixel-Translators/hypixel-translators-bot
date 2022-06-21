@@ -1,9 +1,9 @@
 {
 	"extends": [
 		"eslint:recommended",
-		"plugin:prettier/recommended",
 		"plugin:@typescript-eslint/eslint-recommended",
-		"plugin:@typescript-eslint/recommended"
+		"plugin:@typescript-eslint/recommended",
+		"prettier"
 	],
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
@@ -120,7 +120,6 @@
 		"prefer-numeric-literals": "error",
 		"prefer-spread": "error",
 		"prefer-template": "error",
-		"prettier/prettier": "error",
 		"quote-props": ["error", "as-needed"],
 		"quotes": ["error", "double", { "avoidEscape": true }],
 		"require-await": "error",
@@ -137,5 +136,5 @@
 		"wrap-iife": ["error", "inside"],
 		"yoda": "error"
 	},
-	"plugins": ["@typescript-eslint", "prettier", "no-one-time-vars", "import"]
+	"plugins": ["@typescript-eslint", "no-one-time-vars", "import"]
 }

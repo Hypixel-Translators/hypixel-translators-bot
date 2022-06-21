@@ -7,8 +7,9 @@
 	"scripts": {
 		"start": "node --enable-source-maps --trace-warnings .",
 		"pretty": "prettier --write src",
-		"lint": "eslint --fix src",
-		"lint:ci": "eslint src",
+		"pretty:ci": "prettier --check src",
+		"lint": "yarn pretty && eslint --fix src",
+		"lint:ci": "yarn pretty:ci && eslint src",
 		"compile": "rimraf dist/ && tsc -w",
 		"postinstall": "tsc"
 	},
@@ -43,7 +44,6 @@
 		"eslint-import-resolver-typescript": "^2.7.1",
 		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-no-one-time-vars": "^2.4.1",
-		"eslint-plugin-prettier": "^4.0.0",
 		"prettier": "^2.7.1",
 		"rimraf": "^3.0.2"
 	}
