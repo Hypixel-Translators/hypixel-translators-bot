@@ -71,7 +71,6 @@ client.on("messageCreate", async message => {
 			await message.react("vote_no:839262184882044931").catch(() => null)
 		} else {
 			const rawText = msgFix.split(stringURLRegex)
-			console.log(message.content, msgFix, rawText)
 
 			for (let i = 0; i < urls.length; i++) {
 				let firstText: string | null = null
