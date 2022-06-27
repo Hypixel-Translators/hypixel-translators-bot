@@ -15,5 +15,5 @@
 	"lastThing": "Vielä kuitenkin yksi juttu",
 	"requestInfo": "Ilmoittautuessasi mukaan liitäthän myös joko Discord-tagisi (%%tag%%) tai ID:si (%%id%%).\n**Jos et syötä jompaakumpaa näistä, hakemuksesi hylätään!**",
 	"noLanguage": "Etkö löydä kieltäsi?",
-	"langRequest": "Emme ehkä tuo kieltäsi vielä. Mikäli näin on, voit pyytää ylläpitoa lisäämään haluamasi kielen projektiin."
+	"langRequest": "On mahdollista, ettemme tue kieltäsi vielä. Mikäli näin on, voit pyytää ylläpitoa lisäämään haluamasi kielen projektiin."
 }
