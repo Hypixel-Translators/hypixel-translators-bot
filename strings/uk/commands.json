@@ -360,7 +360,7 @@
 					},
 					"option8": {
 						"name": "варіант8",
-						"description": "Восьмий варіант в опитуванні"
+						"description": "The eighth option in the poll"
 					}
 				}
 			},
