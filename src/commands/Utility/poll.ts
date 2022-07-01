@@ -87,7 +87,7 @@ const command: Command = {
 				{
 					type: ApplicationCommandOptionType.String,
 					name: "option8",
-					description: "The eigth option in the poll",
+					description: "The eighth option in the poll",
 					required: false,
 				},
 			],
