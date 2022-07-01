@@ -360,7 +360,7 @@
 					},
 					"option8": {
 						"name": "опция8",
-						"description": "Осмата опция от анкетата"
+						"description": "The eighth option in the poll"
 					}
 				}
 			},
