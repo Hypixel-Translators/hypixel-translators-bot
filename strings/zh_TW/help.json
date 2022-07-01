@@ -25,10 +25,10 @@
 		"description": "顯示該使用者的 Hypixel 統計數據。"
 	},
 	"hypixelunverify": {
-		"description": "解除你的 Discord 帳戶與 Minecraft 帳號之間的連結。 "
+		"description": "解除你的 Discord 帳號與 Minecraft 帳號之間的連結。 "
 	},
 	"hypixelverify": {
-		"description": "將你的 Discord 帳戶連結至你的 Minecraft 帳號。 "
+		"description": "將你的 Discord 帳號連結至你的 Minecraft 帳號。 "
 	},
 	"language": {
 		"description": "更改語言、顯示你目前使用的語言或顯示可用的語言列表。"
