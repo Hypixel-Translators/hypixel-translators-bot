@@ -360,7 +360,7 @@
 					},
 					"option8": {
 						"name": "optie8",
-						"description": "De achtste optie in de peiling"
+						"description": "The eighth option in the poll"
 					}
 				}
 			},
