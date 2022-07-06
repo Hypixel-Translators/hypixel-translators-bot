@@ -90,7 +90,6 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 	} catch {
 		// If no projects are available
 		const isPrivate = (await page.$(".private-profile")) !== null,
-			// eslint-disable-next-line no-one-time-vars/no-one-time-vars
 			isValid = (await page.$(".project-list-container")) !== null
 		/*
 		Possible scenarios:

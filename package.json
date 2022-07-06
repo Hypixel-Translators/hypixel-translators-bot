@@ -43,7 +43,6 @@
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-import-resolver-typescript": "^3.2.4",
 		"eslint-plugin-import": "^2.26.0",
-		"eslint-plugin-no-one-time-vars": "^2.4.1",
 		"prettier": "^2.7.1",
 		"rimraf": "^3.0.2"
 	}

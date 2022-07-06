@@ -367,7 +367,6 @@ export function easter(year: number) {
 
 	const l = i - j,
 		month = 3 + Math.floor((l + 40) / 44),
-		// eslint-disable-next-line no-one-time-vars/no-one-time-vars
 		day = l + 28 - 31 * Math.floor(month / 4)
 
 	return [day, month] as const

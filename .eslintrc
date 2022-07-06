@@ -67,7 +67,6 @@
 		"no-new-wrappers": "error",
 		"no-new": "error",
 		"no-octal-escape": "error",
-		"no-one-time-vars/no-one-time-vars": [2, { "ignoredVariables": ["embed"] }],
 		"no-restricted-globals": [
 			"error",
 			{
@@ -136,5 +135,5 @@
 		"wrap-iife": ["error", "inside"],
 		"yoda": "error"
 	},
-	"plugins": ["@typescript-eslint", "no-one-time-vars", "import"]
+	"plugins": ["@typescript-eslint", "import"]
 }

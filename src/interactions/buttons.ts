@@ -52,7 +52,6 @@ export default async function handleButtonInteractions(interaction: ButtonIntera
 		// User polls system
 		const collection = db.collection<Poll>("polls"),
 			pollDb = await collection.findOne({ channelId: interaction.channelId, messageId: interaction.message.id }),
-			// eslint-disable-next-line no-one-time-vars/no-one-time-vars
 			optionIndex = Number(interaction.customId.at(-1)) - 1
 
 		if (!pollDb) return await interaction.reply({ content: getString("noPollDb", { file: "poll" }), ephemeral: true })

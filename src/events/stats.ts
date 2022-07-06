@@ -119,7 +119,6 @@ export async function checkBuild(shouldPing: boolean) {
 	await closeConnection(browser.uuid)
 
 	if (lastBuild.timestamp > (await collection.findOne({ identifier: "hypixel" }))!.lastBuild!) {
-		// eslint-disable-next-line no-one-time-vars/no-one-time-vars
 		const author = lastBuild.message.match(/>(.*)( \([^(]*\))?</)?.[1],
 			embed = new EmbedBuilder({
 				color: colors.success,
