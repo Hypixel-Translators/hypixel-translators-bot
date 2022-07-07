@@ -37,6 +37,12 @@ client.on("interactionCreate", async interaction => {
 		return void (await interaction.reply({ content: "You must be verified to do this!", ephemeral: true }))
 
 	let allowed = true
+	// Role blacklist and whitelist system
+	if (command.roleBlacklist && command.roleBlacklist.some(r => member.roles.cache.has(r))) allowed = false
+	if (command.roleWhitelist) {
+		allowed = false
+		if (command.roleWhitelist.some(r => member.roles.cache.has(r))) allowed = true
+	}
 
 	// Channel blacklist and whitelist systems
 	if (interaction.channel instanceof GuildChannel) {
