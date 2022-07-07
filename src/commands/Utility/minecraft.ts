@@ -3,7 +3,7 @@ import { ComponentType, GuildMember, ApplicationCommandOptionType, EmbedBuilder 
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { createButtonControls, fetchSettings, generateTip, getUUID, transformDiscordLocale } from "../../lib/util"
+import { createButtonControls, fetchSettings, generateTip, getUUID, splitArray, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -78,11 +78,9 @@ const command: Command = {
 			case "history":
 				const nameHistory = await getNameHistory(uuid)
 				nameHistory.forEach(e => (e.name = e.name.replaceAll("_", "\\_")))
-				const username = nameHistory[0].name
+				const username = nameHistory[0].name,
+					pages = splitArray(nameHistory, 24) // Max number of fields divisible by 3
 
-				let p = 0
-				const pages: NameHistory[][] = []
-				while (p < nameHistory.length) pages.push(nameHistory.slice(p, (p += 24))) // Max number of fields divisible by 3
 				if (pages.length === 1) await interaction.editReply({ embeds: [fetchPage(0)] })
 				else {
 					let controlButtons = createButtonControls(0, pages, { getString }),

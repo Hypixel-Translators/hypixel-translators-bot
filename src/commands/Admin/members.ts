@@ -1,7 +1,7 @@
 import { type GuildMember, EmbedBuilder, ApplicationCommandOptionType, Colors, type ComponentType } from "discord.js"
 
 import { ids } from "../../config.json"
-import { createButtonControls, generateTip } from "../../lib/util"
+import { createButtonControls, generateTip, splitArray } from "../../lib/util"
 
 import type { Command } from "../../lib/imports"
 
@@ -26,9 +26,7 @@ const command: Command = {
 
 		role.members.forEach(m => tags.push(m))
 
-		const maxMembersArr: GuildMember[][] = []
-		let p = 0
-		while (p < tags.length) maxMembersArr.push(tags.slice(p, (p += 85))) // 89 is max for now
+		const maxMembersArr = splitArray(tags, 85) // 89 is max for now
 
 		let { color } = role
 		if (!color) color = Colors.Blurple

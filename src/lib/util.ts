@@ -400,6 +400,13 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 	} else await adminBots.send(`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`)
 }
 
+export function splitArray<T>(arr: T[], size: number): T[][] {
+	const result: T[][] = []
+	let n = 0
+	while (n < arr.length) result.push(arr.slice(n, (n += size)))
+	return result
+}
+
 export const botLocales = readdirSync("./strings")
 
 export function transformDiscordLocale(discordLocale: string): string {

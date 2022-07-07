@@ -15,7 +15,7 @@ import { ObjectId } from "mongodb"
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
-import { generateProgressBar } from "../../lib/util"
+import { generateProgressBar, splitArray } from "../../lib/util"
 import { awaitPoll } from "../../listeners/ready"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
@@ -170,11 +170,9 @@ const command: Command = {
 					timestamp: Date.now(),
 				}),
 				buttons = options.map((o, i) => new ButtonBuilder({ customId: o.name, emoji: numberEmojis[i + 1], style: ButtonStyle.Secondary })),
-				components: ButtonBuilder[][] = []
-			let p = 0
-			// Try to split buttons evenly across the rows
-			while (p < buttons.length) components.push(buttons.slice(p, (p += buttons.length <= 5 ? 5 : Math.ceil(buttons.length / 2))))
-			const msg = await interaction.channel!.send({
+				// Try to split buttons evenly across the rows
+				components = splitArray(buttons, buttons.length <= 5 ? 5 : Math.ceil(buttons.length / 2)),
+				msg = await interaction.channel!.send({
 					content:
 						interaction.member.roles.cache.has(ids.roles.admin) && interaction.channelId === ids.channels.polls ? `<@&${ids.roles.polls}>` : "",
 					embeds: [embed],

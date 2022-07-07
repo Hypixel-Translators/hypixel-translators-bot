@@ -3,7 +3,7 @@ import { type ChatInputCommandInteraction, type GuildMember, EmbedBuilder, Compo
 import { colors, ids } from "../../config.json"
 import { client } from "../../index"
 import { db, DbUser } from "../../lib/dbclient"
-import { createButtonControls, generateTip, transformDiscordLocale } from "../../lib/util"
+import { createButtonControls, generateTip, splitArray, transformDiscordLocale } from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -33,9 +33,7 @@ const command: Command = {
 				.find({}, { sort: { "levels.totalXp": -1, id: 1 } })
 				.toArray(),
 			inputPage = interaction.options.getInteger("page", false),
-			pages: DbUser[][] = [] // Inner arrays are of length 24
-		let n = 0
-		while (n < allUsers.length) pages.push(allUsers.slice(n, (n += 24))) // Max number of fields divisible by 3
+			pages = splitArray(allUsers, 24) // Inner arrays are of length 24, max number of fields divisible by 3
 
 		let page = 0
 		if (interaction.options.getBoolean("me", false)) page = pages.indexOf(pages.find(p => p.some(u => u.id === interaction.user.id))!)
