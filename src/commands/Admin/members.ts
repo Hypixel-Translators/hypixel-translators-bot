@@ -35,23 +35,35 @@ const command: Command = {
 				pageEmbed = updatePage(maxMembersArr[page], page + 1),
 				controlButtons = createButtonControls(page, maxMembersArr)
 			const msg = await interaction.reply({ embeds: [pageEmbed], components: [controlButtons], fetchReply: true }),
-				collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: 60_000 })
+				collector = msg.createMessageComponentCollector<ComponentType.Button>({
+					idle: 60_000,
+					filter: buttonInteraction => interaction.user.id === buttonInteraction.user.id,
+				})
 
-			collector.on("collect", async buttonInteraction => {
-				if (interaction.user.id !== buttonInteraction.user.id) {
-					return void (await buttonInteraction.reply({
+			collector.on(
+				"ignore",
+				async buttonInteraction =>
+					void (await buttonInteraction.reply({
 						content: `You cannot interact with this menu! Execute /${this.name} yourself to do this.`,
 						ephemeral: true,
-					}))
-				} else if (buttonInteraction.customId === "first") page = 0
-				else if (buttonInteraction.customId === "last") page = maxMembersArr.length - 1
-				else if (buttonInteraction.customId === "previous") {
-					page--
-					if (page < 0) page = 0
-				} else if (buttonInteraction.customId === "next") {
-					page++
-					if (page > maxMembersArr.length - 1) page = maxMembersArr.length - 1
+					})),
+			)
+
+			collector.on("collect", async buttonInteraction => {
+				switch (buttonInteraction.customId) {
+					case "first":
+						page = 0
+						break
+					case "last":
+						page = maxMembersArr.length - 1
+						break
+					case "previous":
+						page = Math.max(page - 1, 0)
+						break
+					case "next":
+						page = Math.min(page + 1, maxMembersArr.length - 1)
 				}
+
 				controlButtons = createButtonControls(page, maxMembersArr)
 				pageEmbed = updatePage(maxMembersArr[page], page + 1)
 				await buttonInteraction.update({ embeds: [pageEmbed], components: [controlButtons] })

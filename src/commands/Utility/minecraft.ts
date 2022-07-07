@@ -114,12 +114,10 @@ const command: Command = {
 								page = pages.length - 1
 								break
 							case "previous":
-								page--
-								if (page < 0) page = 0
+								page = Math.max(page - 1, 0)
 								break
 							case "next":
-								page++
-								if (page >= pages.length) page = pages.length - 1
+								page = Math.min(page + 1, pages.length - 1)
 								break
 						}
 						controlButtons = createButtonControls(page, pages, { getString })

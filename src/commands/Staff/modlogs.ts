@@ -60,22 +60,34 @@ const command: Command = {
 				controlButtons = createButtonControls(log, modlogs),
 				embed = createModlogEmbed(embedData, modlogs[0], modlogs),
 				msg = await interaction.reply({ embeds: [embed], components: [controlButtons], fetchReply: true }),
-				collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: 60_000 })
+				collector = msg.createMessageComponentCollector<ComponentType.Button>({
+					idle: 60_000,
+					filter: buttonInteraction => interaction.user.id !== buttonInteraction.user.id,
+				})
 
-			collector.on("collect", async buttonInteraction => {
-				if (interaction.user.id !== buttonInteraction.user.id) {
-					return void (await buttonInteraction.reply({
+			collector.on(
+				"ignore",
+				async buttonInteraction =>
+					void (await buttonInteraction.reply({
 						content: `You cannot interact with this menu! Execute /${this.name} yourself to do this.`,
 						ephemeral: true,
-					}))
-				} else if (buttonInteraction.customId === "first") log = 0
-				else if (buttonInteraction.customId === "last") log = modlogs.length - 1
-				else if (buttonInteraction.customId === "previous") {
-					log--
-					if (log < 0) log = 0
-				} else if (buttonInteraction.customId === "next") {
-					log++
-					if (log > modlogs.length - 1) log = modlogs.length - 1
+					})),
+			)
+
+			collector.on("collect", async buttonInteraction => {
+				switch (buttonInteraction.customId) {
+					case "first":
+						log = 0
+						break
+					case "last":
+						log = modlogs.length - 1
+						break
+					case "previous":
+						log = Math.max(log - 1, 0)
+						break
+					case "next":
+						log = Math.min(log + 1, modlogs.length - 1)
+						break
 				}
 
 				createModlogEmbed(embedData, modlogs[log], modlogs)
