@@ -47,7 +47,7 @@ const command: Command = {
 				.join(" "),
 			message = interaction.options.getString("message", false) ?? "<a:bongoping:614477510423478275>",
 			[pfRole, trRole] = interaction
-				.guild!.roles.cache.filter(r => r.name.startsWith(roleName))
+				.guild!.roles.cache.filter(r => r.name.replace(/ (?:Proofreader|Translator)$/, "") === roleName)
 				.partition(r => r.name.endsWith(" Proofreader"))
 				.map(r => r.first()!),
 			hasPerm = interaction.member.roles.cache.has(pfRole?.id) || interaction.member.permissions.has("ManageRoles")
