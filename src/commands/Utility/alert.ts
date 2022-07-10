@@ -110,11 +110,11 @@ const command: Command = {
 								.map(l => interaction.guild.roles.cache.find(r => r.name === `${l.name} Proofreader`)!)
 								.sort((a, b) => a.name.localeCompare(b.name)),
 							dbUsers = await db.collection<DbUser>("users").find().toArray(),
+							sortedMembers = interaction.guild.members.cache
+								.filter(m => !m.user.bot && !m.pending)
+								.sort((a, b) => (dbUsers.find(u => u.id === b.id)!.levels?.totalXp ?? 0) - (dbUsers.find(u => u.id === a.id)!.levels?.totalXp ?? 0)),
 							resolvedData = selectedRoles.map(
-								r =>
-									interaction.guild.members.cache.find(
-										m => m.roles.cache.has(r.id) && (dbUsers.find(u => u.id === m.id)!.settings?.availability ?? true),
-									) ?? r,
+								r => sortedMembers.find(m => m.roles.cache.has(r.id) && (dbUsers.find(u => u.id === m.id)!.settings?.availability ?? true)) ?? r,
 							),
 							[failedRoles, chosenPfs] = resolvedData.reduce(
 								(prev, pfOrRole) => {
