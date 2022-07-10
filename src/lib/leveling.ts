@@ -33,7 +33,7 @@ export async function leveling(message: Message) {
 				),
 				newLvl = (result.value!.levels?.level ?? 0) + 1
 
-			await message.reply(`GG ${message.author}, you just advanced to level ${newLvl}! 🎉`)
+			if (userDb.settings?.lvlUpMsg ?? true) await message.reply(`GG ${message.author}, you just advanced to level ${newLvl}! 🎉`)
 			await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "lvlUp", value: newLvl, user: message.author.id })
 		} else {
 			await collection.updateOne(

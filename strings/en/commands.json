@@ -1,6 +1,7 @@
 {
 	"names": {
 		"8ball": "8ball",
+		"alert": "alert",
 		"feedback": "feedback",
 		"help": "help",
 		"hypixelstats": "hypixelstats",
@@ -18,12 +19,14 @@
 		"projects": "projects",
 		"quote": "quote",
 		"rank": "rank",
+		"settings": "settings",
 		"tag": "tag",
 		"translate": "translate",
 		"verify": "verify"
 	},
 	"descriptions": {
 		"8ball": "The Magic 8 Ball that will answer all your questions",
+		"alert": "Alerts other proofreaders for issues in their translations",
 		"feedback": "Gives you instructions on how to give feedback towards the bot",
 		"help": "Shows you all available commands and general info about the bot",
 		"hypixelstats": "Shows you basic Hypixel stats for the provided user",
@@ -41,6 +44,7 @@
 		"projects": "Gives you links and information about all the translation projects we support on the server",
 		"quote": "Shows a funny/weird/wise quote from the server",
 		"rank": "Gives you the current XP for yourself or any given user",
+		"settings": "Change or view your settings on the bot",
 		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
 		"translate": "Gives you useful information on how to translate the bot",
 		"verify": "Verifies and gives you your corresponding roles"
@@ -50,6 +54,12 @@
 			"question": {
 				"name": "question",
 				"description": "The question to ask the bot"
+			}
+		},
+		"alert": {
+			"message": {
+				"name": "message",
+				"description": "The message to send to the proofreaders"
 			}
 		},
 		"help": {
@@ -360,6 +370,54 @@
 			"user": {
 				"name": "user",
 				"description": "The user to get the rank for"
+			}
+		},
+		"settings": {
+			"get": {
+				"name": "get",
+				"description": "See the value of a setting",
+				"options": {
+					"setting": {
+						"name": "setting",
+						"description": "The setting to see",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Proofreader availability"
+						}
+					}
+				}
+			},
+			"set": {
+				"name": "set",
+				"description": "Change the value of a setting",
+				"options": {
+					"setting": {
+						"name": "setting",
+						"description": "The setting to change",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Proofreader availability"
+						}
+					},
+					"value": {
+						"name": "value",
+						"description": "The value to set the setting to"
+					}
+				}
+			},
+			"reset": {
+				"name": "reset",
+				"description": "Reset the value of a setting",
+				"options": {
+					"setting": {
+						"name": "setting",
+						"description": "The setting to reset",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Proofreader availability"
+						}
+					}
+				}
 			}
 		},
 		"tag": {

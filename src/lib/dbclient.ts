@@ -37,6 +37,10 @@ export interface DbUser {
 	}
 	staffMsgTimestamp?: number
 	unverifiedTimestamp?: number
+	settings?: {
+		lvlUpMsg?: boolean
+		availability?: boolean
+	}
 }
 
 export interface EventData<T extends keyof ClientEvents> {
