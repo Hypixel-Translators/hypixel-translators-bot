@@ -1,4 +1,4 @@
 {
-	"errorNoPing": "Sinulla ei ole tuon kielen oikolukijan roolia, {role, select, translator {joten et voi mainita sen kääntäjien roolia} proofreader {joten et voi mainita sitä} other {joten et voi mainita koko kielen rooleja}}. Ota yhteyttä palvelimen ylläpitäjään, mikäli sinul on pakko.",
+	"errorNoPing": "Sinulla ei ole tuon kielen oikolukijan roolia, {role, select, translator {joten et voi mainita sen kääntäjien roolia} proofreader {joten et voi mainita sitä} other {joten et voi mainita koko kielen rooleja}}. Ota yhteyttä palvelimen ylläpitäjään, mikäli sinun on pakko.",
 	"success": "Viesti on lähetetty onnistuneesti!"
 }
