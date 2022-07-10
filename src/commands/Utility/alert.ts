@@ -156,9 +156,8 @@ const command: Command = {
 						break
 					case "cancel":
 						collector.stop("cancelled")
-						await componentInteraction.reply({
+						await componentInteraction.update({
 							content: "Successfully cancelled this menu. No proofreaders will be notified",
-							ephemeral: true,
 							components: [],
 						})
 						break
