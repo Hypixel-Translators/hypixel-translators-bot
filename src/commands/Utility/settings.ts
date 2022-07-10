@@ -15,12 +15,12 @@ const settings = as<ApplicationCommandOptionChoiceData[]>()([
 	]),
 	command: Command = {
 		name: "settings",
-		description: "Change or view your settings on the bot",
+		description: "Changes or shows your settings on the bot",
 		options: [
 			{
 				type: ApplicationCommandOptionType.Subcommand,
 				name: "get",
-				description: "See the value of a setting",
+				description: "Shows the value of a setting",
 				options: [
 					{
 						type: ApplicationCommandOptionType.String,
@@ -34,7 +34,7 @@ const settings = as<ApplicationCommandOptionChoiceData[]>()([
 			{
 				type: ApplicationCommandOptionType.Subcommand,
 				name: "set",
-				description: "Change the value of a setting",
+				description: "Changes the value of a setting",
 				options: [
 					{
 						type: ApplicationCommandOptionType.String,
@@ -54,7 +54,7 @@ const settings = as<ApplicationCommandOptionChoiceData[]>()([
 			{
 				type: ApplicationCommandOptionType.Subcommand,
 				name: "reset",
-				description: "Reset the value of a setting",
+				description: "Resets the value of a setting",
 				options: [
 					{
 						type: ApplicationCommandOptionType.String,

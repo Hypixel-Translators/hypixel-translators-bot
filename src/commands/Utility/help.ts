@@ -148,7 +148,7 @@ const command: Command = {
 			if (!cmd || !cmd.name) throw "noCommand"
 
 			let cmdDesc: string | undefined
-			if (cmd.category !== "Admin" && cmd.category !== "Staff") cmdDesc = getString(`${cmd.name}.description`)
+			if (cmd.category !== "Admin" && cmd.category !== "Staff") cmdDesc = getString(`descriptions.${cmd.name}`)
 			else if (
 				(cmd.category === "Staff" && member?.roles.cache.has(ids.roles.staff)) ||
 				(cmd.category === "Admin" && member?.roles.cache.has(ids.roles.admin))
@@ -204,7 +204,7 @@ function fetchPage(page: number, pages: Page[], getString: GetStringFunction, in
 					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 				},
 			})
-			pages[page].commands!.forEach(cmd => pageEmbed!.addFields({ name: `\`/${cmd}\``, value: getString(`${cmd}.description`) }))
+			pages[page].commands!.forEach(cmd => pageEmbed!.addFields({ name: `\`/${cmd}\``, value: getString(`descriptions.${cmd}`) }))
 		} else return console.error(`Help page ${page} has no embed fields specified!`)
 	} else return console.error(`Tried accessing help page ${page} but it doesn't exist in the pages array!`)
 
