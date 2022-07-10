@@ -140,7 +140,7 @@ const command: Command = {
 							})
 							await interaction.channel!.send({
 								content: `${interaction.user}: ${message}\n\n${chosenPfs.join(" ")}`,
-								allowedMentions: { users: chosenPfs.map(m => m.id) },
+								allowedMentions: { users: [...new Set(chosenPfs.map(m => m.id))] },
 							})
 						} else {
 							await componentInteraction.update({
@@ -149,7 +149,7 @@ const command: Command = {
 							})
 							await interaction.channel!.send({
 								content: `${interaction.user}: ${message}\n\n${chosenPfs.join(" ")}`,
-								allowedMentions: { users: chosenPfs.map(m => m.id) },
+								allowedMentions: { users: [...new Set(chosenPfs.map(m => m.id))] },
 							})
 						}
 						collector.stop("replied")
