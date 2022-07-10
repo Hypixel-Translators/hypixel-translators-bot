@@ -14,7 +14,7 @@ const command: Command = {
 		{
 			type: ApplicationCommandOptionType.Boolean,
 			name: "me",
-			description: 'Whether to start at the page you appear in. Has priority over the "page" argument.',
+			description: 'Whether to start at the page you appear in. Has priority over the "page" argument',
 			required: false,
 		},
 		{

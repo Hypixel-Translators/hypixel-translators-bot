@@ -9,18 +9,18 @@ import type { Command, GetStringFunction } from "../../lib/imports"
 
 const command: Command = {
 	name: "profile",
-	description: "Gives you the link to your Crowdin profile if it's stored on our database.",
+	description: "Gives you the link to your Crowdin profile if it's stored on our database",
 	options: [
 		{
 			type: ApplicationCommandOptionType.User,
 			name: "user",
-			description: "The user to find the profile for. Admin only",
+			description: "The user to find the profile for. Admin-only",
 			required: false,
 		},
 		{
 			type: ApplicationCommandOptionType.String,
 			name: "profile",
-			description: "The new profile to set for the user. Admin only",
+			description: "The new profile to set for the user. Admin-only",
 			required: false,
 		},
 	],

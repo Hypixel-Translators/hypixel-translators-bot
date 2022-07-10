@@ -40,7 +40,7 @@ const command: Command = {
 		{
 			type: ApplicationCommandOptionType.Subcommand,
 			name: "stats",
-			description: "Gives you usage statistics for a given language. Admin only",
+			description: "Gives you usage statistics for a given language. Admin-only",
 			options: [
 				{
 					type: ApplicationCommandOptionType.String,

@@ -45,13 +45,13 @@ const command: Command = {
 				{
 					type: ApplicationCommandOptionType.String,
 					name: "url",
-					description: "The url of the message this quote came from. If the message has an image it will be included as well",
+					description: "The URL of the message this quote came from. If the message has an image it will be included as well",
 					required: false,
 				},
 				{
 					type: ApplicationCommandOptionType.String,
 					name: "image",
-					description: "The url of the image to be included with this quote. Has priority over url's image if provided",
+					description: "The URL of the image to be included with this quote. Has priority over url's image if provided",
 					required: false,
 				},
 			],

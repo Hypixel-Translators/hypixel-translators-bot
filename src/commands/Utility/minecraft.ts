@@ -26,7 +26,7 @@ const command: Command = {
 				{
 					type: ApplicationCommandOptionType.User,
 					name: "user",
-					description: "The server member to get the name history for. Only works if the user has verified themselves",
+					description: "The server member to get name history for. Only works if the user has verified themselves",
 					required: false,
 				},
 			],

@@ -16,13 +16,13 @@ const command: Command = {
 		{
 			type: ApplicationCommandOptionType.String,
 			name: "url",
-			description: 'The URL to your Crowdin profile. Must have your Discord tag in your "About me" section.',
+			description: 'The URL to your Crowdin profile. Must have your Discord tag in your "About me" section',
 			required: false,
 		},
 		{
 			type: ApplicationCommandOptionType.User,
 			name: "user",
-			description: "The user to manually verify. Admin only",
+			description: "The user to manually verify. Admin-only",
 			required: false,
 		},
 	],

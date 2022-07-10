@@ -42,5 +42,8 @@ export const client = new HTBClient({
 // Import commands and events
 setup(client)
 
+// If running locally, regen the commands.json file
+if (process.env.NODE_ENV === "dev") require("./lib/generateCommandsJson")
+
 // Log in
 client.login()

@@ -37,7 +37,7 @@
 		"ping": "Gives you the bot's ping",
 		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above",
 		"prefix": "Lets you pick an appropriate prefix for your language(s)",
-		"profile": "Gives you the link to your Crowdin profile if it's stored on our database.",
+		"profile": "Gives you the link to your Crowdin profile if it's stored on our database",
 		"projects": "Gives you links and information about all the translation projects we support on the server",
 		"quote": "Shows a funny/weird/wise quote from the server",
 		"rank": "Gives you the current XP for yourself or any given user",
@@ -63,7 +63,7 @@
 				"choices": [
 					"Main Page",
 					"Tools & Utilities",
-					"Information commands"
+					"Information Commands"
 				]
 			}
 		},
@@ -80,7 +80,7 @@
 		"hypixelunverify": {
 			"user": {
 				"name": "user",
-				"description": "The user to unverify. Admin only"
+				"description": "The user to unverify. Admin-only"
 			}
 		},
 		"hypixelverify": {
@@ -90,7 +90,7 @@
 			},
 			"user": {
 				"name": "user",
-				"description": "The user to verify. Admin only"
+				"description": "The user to verify. Admin-only"
 			}
 		},
 		"language": {
@@ -114,7 +114,7 @@
 			},
 			"stats": {
 				"name": "stats",
-				"description": "Gives you usage statistics for a given language. Admin only",
+				"description": "Gives you usage statistics for a given language. Admin-only",
 				"options": {
 					"language": {
 						"name": "language",
@@ -149,8 +149,8 @@
 				"description": "The role to mention",
 				"choices": {
 					"all": "Both roles",
-					"translator": "Translator",
-					"proofreader": "Proofreader"
+					"proofreader": "Proofreader",
+					"translator": "Translator"
 				}
 			},
 			"message": {
@@ -179,11 +179,11 @@
 				"options": {
 					"username": {
 						"name": "username",
-						"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
+						"description": "The IGN/UUID of the user to get the skin for. Defaults to your own skin if your account is linked"
 					},
 					"user": {
 						"name": "user",
-						"description": "The server member to get skin for. Only works if the user has verified themselves"
+						"description": "The server member to get the skin for. Only works if the user has verified themselves"
 					}
 				}
 			}
@@ -273,11 +273,11 @@
 		"profile": {
 			"user": {
 				"name": "user",
-				"description": "The user to find the profile for. Admin only"
+				"description": "The user to find the profile for. Admin-only"
 			},
 			"profile": {
 				"name": "profile",
-				"description": "The new profile to set for the user. Admin only"
+				"description": "The new profile to set for the user. Admin-only"
 			}
 		},
 		"quote": {
@@ -293,7 +293,7 @@
 			},
 			"add": {
 				"name": "add",
-				"description": "Add a new quote. Staff only",
+				"description": "Adds a new quote. Staff only",
 				"options": {
 					"quote": {
 						"name": "quote",
@@ -309,13 +309,13 @@
 					},
 					"image": {
 						"name": "image",
-						"description": "The URL of the image to be included with this quote. Has priority over URL's image if provided"
+						"description": "The URL of the image to be included with this quote. Has priority over url's image if provided"
 					}
 				}
 			},
 			"edit": {
 				"name": "edit",
-				"description": "Edit a quote. Staff only",
+				"description": "Edits a quote. Staff only",
 				"options": {
 					"index": {
 						"name": "index",
@@ -329,7 +329,7 @@
 			},
 			"delete": {
 				"name": "delete",
-				"description": "Delete a quote. Staff only",
+				"description": "Deletes a quote. Staff only",
 				"options": {
 					"index": {
 						"name": "index",
@@ -339,7 +339,7 @@
 			},
 			"link": {
 				"name": "link",
-				"description": "Link a quote to a message. Staff only",
+				"description": "Links a quote to a message. Staff only",
 				"options": {
 					"index": {
 						"name": "index",
@@ -390,7 +390,7 @@
 			},
 			"user": {
 				"name": "user",
-				"description": "The user to manually verify. Admin only"
+				"description": "The user to manually verify. Admin-only"
 			}
 		}
 	}

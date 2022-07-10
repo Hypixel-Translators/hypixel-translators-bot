@@ -137,7 +137,7 @@ export type GetStringFunction = (
 ) => // eslint-disable-next-line @typescript-eslint/no-explicit-any
 any
 
-interface CommandStrings {
+export interface CommandStrings {
 	names: { [command: string]: string }
 	descriptions: { [command: string]: string }
 	options: {
@@ -147,7 +147,7 @@ interface CommandStrings {
 	}
 }
 
-interface CommandOption {
+export interface CommandOption {
 	name: string
 	description: string
 	choices?: { [choice: string]: string }
