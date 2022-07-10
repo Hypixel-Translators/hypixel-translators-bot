@@ -2,25 +2,25 @@
 	"names": {
 		"8ball": "8ball",
 		"feedback": "feedback",
-		"levels": "levels",
-		"ping": "ping",
-		"profile": "profile",
-		"projects": "projects",
-		"rank": "rank",
-		"tag": "tag",
-		"translate": "translate",
 		"help": "help",
 		"hypixelstats": "hypixelstats",
 		"hypixelunverify": "hypixelunverify",
 		"hypixelverify": "hypixelverify",
 		"language": "language",
 		"languagestats": "languagestats",
+		"levels": "levels",
 		"mention": "mention",
 		"minecraft": "minecraft",
+		"ping": "ping",
+		"poll": "poll",
 		"prefix": "prefix",
+		"profile": "profile",
+		"projects": "projects",
 		"quote": "quote",
-		"verify": "verify",
-		"poll": "poll"
+		"rank": "rank",
+		"tag": "tag",
+		"translate": "translate",
+		"verify": "verify"
 	},
 	"descriptions": {
 		"8ball": "The Magic 8 Ball that will answer all your questions",
@@ -35,6 +35,7 @@
 		"mention": "Mentions a language role with a message",
 		"minecraft": "Looks up a specific Minecraft player's name history or skin",
 		"ping": "Gives you the bot's ping",
+		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above",
 		"prefix": "Lets you pick an appropriate prefix for your language(s)",
 		"profile": "Gives you the link to your Crowdin profile if it's stored on our database.",
 		"projects": "Gives you links and information about all the translation projects we support on the server",
@@ -42,61 +43,13 @@
 		"rank": "Gives you the current XP for yourself or any given user",
 		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
 		"translate": "Gives you useful information on how to translate the bot",
-		"verify": "Verifies and gives you your corresponding roles",
-		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+		"verify": "Verifies and gives you your corresponding roles"
 	},
 	"options": {
 		"8ball": {
 			"question": {
 				"name": "question",
 				"description": "The question to ask the bot"
-			}
-		},
-		"levels": {
-			"me": {
-				"name": "me",
-				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
-			},
-			"page": {
-				"name": "page",
-				"description": "The leaderboard page to get"
-			}
-		},
-		"profile": {
-			"user": {
-				"name": "user",
-				"description": "The user to find the profile for. Admin only"
-			},
-			"profile": {
-				"name": "profile",
-				"description": "The new profile to set for the user. Admin only"
-			}
-		},
-		"rank": {
-			"user": {
-				"name": "user",
-				"description": "The user to get the rank for"
-			}
-		},
-		"tag": {
-			"tag": {
-				"name": "tag",
-				"description": "The tag you want to see",
-				"choices": {
-					"invite": "Invite link to the server",
-					"hypixel": "Hypixel links",
-					"guidelines": "Hypixel project guidelines",
-					"proofreader": "How to get proofreader on the Hypixel project",
-					"minecraft": "Minecraft Crowdin Project",
-					"quickplay": "Quickplay links",
-					"skyblockaddons": "SkyblockAddons links",
-					"thread": "Discord server thread",
-					"twitter": "Hypixel Translators Community Twitter"
-				}
-			},
-			"target": {
-				"name": "target",
-				"description": "The user to mention with this tag"
 			}
 		},
 		"help": {
@@ -176,6 +129,16 @@
 				"description": "The language to get progress statistics for. Required if your language is set to English"
 			}
 		},
+		"levels": {
+			"me": {
+				"name": "me",
+				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
+			},
+			"page": {
+				"name": "page",
+				"description": "The leaderboard page to get"
+			}
+		},
 		"mention": {
 			"language": {
 				"name": "language",
@@ -225,10 +188,96 @@
 				}
 			}
 		},
+		"poll": {
+			"start": {
+				"name": "start",
+				"description": "Starts a poll in the current channel",
+				"options": {
+					"question": {
+						"name": "question",
+						"description": "The question of the poll"
+					},
+					"option1": {
+						"name": "option1",
+						"description": "The first option in the poll"
+					},
+					"option2": {
+						"name": "option2",
+						"description": "The second option in the poll"
+					},
+					"time": {
+						"name": "time",
+						"description": "How long before this poll is automatically closed and results are published (in hours)"
+					},
+					"option3": {
+						"name": "option3",
+						"description": "The third option in the poll"
+					},
+					"option4": {
+						"name": "option4",
+						"description": "The fourth option in the poll"
+					},
+					"option5": {
+						"name": "option5",
+						"description": "The fifth option in the poll"
+					},
+					"option6": {
+						"name": "option6",
+						"description": "The sixth option in the poll"
+					},
+					"option7": {
+						"name": "option7",
+						"description": "The seventh option in the poll"
+					},
+					"option8": {
+						"name": "option8",
+						"description": "The eighth option in the poll"
+					}
+				}
+			},
+			"end": {
+				"name": "end",
+				"description": "End a poll given its message ID",
+				"options": {
+					"message_id": {
+						"name": "message_id",
+						"description": "The ID of the message containing the poll"
+					},
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
+					}
+				}
+			},
+			"show": {
+				"name": "show",
+				"description": "Shows the current results of a poll without ending it. Only available to the creator of the poll",
+				"options": {
+					"message_id": {
+						"name": "message_id",
+						"description": "The ID of the message containing the poll"
+					},
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
+					}
+				}
+			}
+		},
 		"prefix": {
 			"flags": {
 				"name": "flags",
 				"description": "The flags to be applied to your prefix, separated with spaces"
+			}
+		},
+		"profile": {
+			"user": {
+				"name": "user",
+				"description": "The user to find the profile for. Admin only"
+			},
+			"profile": {
+				"name": "profile",
+				"description": "The new profile to set for the user. Admin only"
 			}
 		},
 		"quote": {
@@ -307,6 +356,33 @@
 				}
 			}
 		},
+		"rank": {
+			"user": {
+				"name": "user",
+				"description": "The user to get the rank for"
+			}
+		},
+		"tag": {
+			"tag": {
+				"name": "tag",
+				"description": "The tag you want to see",
+				"choices": {
+					"invite": "Invite link to the server",
+					"hypixel": "Hypixel links",
+					"guidelines": "Hypixel project guidelines",
+					"proofreader": "How to get proofreader on the Hypixel project",
+					"minecraft": "Minecraft Crowdin Project",
+					"quickplay": "Quickplay links",
+					"skyblockaddons": "SkyblockAddons links",
+					"thread": "Discord server thread",
+					"twitter": "Hypixel Translators Community Twitter"
+				}
+			},
+			"target": {
+				"name": "target",
+				"description": "The user to mention with this tag"
+			}
+		},
 		"verify": {
 			"url": {
 				"name": "url",
@@ -315,82 +391,6 @@
 			"user": {
 				"name": "user",
 				"description": "The user to manually verify. Admin only"
-			}
-		},
-		"poll": {
-			"start": {
-				"name": "start",
-				"description": "Starts a poll in the current channel",
-				"options": {
-					"question": {
-						"name": "question",
-						"description": "The question of the poll"
-					},
-					"option1": {
-						"name": "option1",
-						"description": "The first option in the poll"
-					},
-					"option2": {
-						"name": "option2",
-						"description": "The second option in the poll"
-					},
-					"time": {
-						"name": "time",
-						"description": "How long before this poll is automatically closed and results are published (in hours)"
-					},
-					"option3": {
-						"name": "option3",
-						"description": "The third option in the poll"
-					},
-					"option4": {
-						"name": "option4",
-						"description": "The fourth option in the poll"
-					},
-					"option5": {
-						"name": "option5",
-						"description": "The fifth option in the poll"
-					},
-					"option6": {
-						"name": "option6",
-						"description": "The sixth option in the poll"
-					},
-					"option7": {
-						"name": "option7",
-						"description": "The seventh option in the poll"
-					},
-					"option8": {
-						"name": "option8",
-						"description": "The eighth option in the poll"
-					}
-				}
-			},
-			"end": {
-				"name": "end",
-				"description": "End a poll given its message ID",
-				"options": {
-					"message_id": {
-						"name": "message_id",
-						"description": "The ID of the message containing the poll"
-					},
-					"channel": {
-						"name": "channel",
-						"description": "The channel the poll was posted in, if not the current one"
-					}
-				}
-			},
-			"show": {
-				"name": "show",
-				"description": "Shows the current results of a poll without ending it. Only available to the creator of the poll",
-				"options": {
-					"message_id": {
-						"name": "message_id",
-						"description": "The ID of the message containing the poll"
-					},
-					"channel": {
-						"name": "channel",
-						"description": "The channel the poll was posted in, if not the current one"
-					}
-				}
 			}
 		}
 	}
