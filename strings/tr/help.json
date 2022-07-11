@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, one {# second} other {# seconds}}",
 	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "Bekleme Süresi",
-	"8ball": {
-		"description": "Sihirli Top, tüm sorularını cevaplayacak."
-	},
-	"feedback": {
-		"description": "Herhangi bir hatayı bildirebileceğiniz GitHub sorunları sayfamızı açar."
-	},
-	"help": {
-		"description": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir."
-	},
-	"hypixelstats": {
-		"description": "Belirtilen kullanıcı için temel Hypixel istatistiklerini gösterir."
-	},
-	"hypixelunverify": {
-		"description": "Discord hesabınıza bağlı Minecraft hesabınızın bağlantısını kaldırır."
-	},
-	"hypixelverify": {
-		"description": "Discord hesabını Hypixel hesabına bağlar."
-	},
-	"language": {
-		"description": "Dilini değiştirir, mevcut dilini veya mevcut dillerin bir listesini gösterir."
-	},
-	"languagestats": {
-		"description": "Şuanda desteklediğimiz bütün dillerdeki ilerlemeyi gösterir."
-	},
-	"levels": {
-		"description": "Deneyim Puanı sıralamasını gösterir."
-	},
-	"mention": {
-		"description": "İsteğe bağlı bir mesajla bir dil rolünden bahseder."
-	},
-	"minecraft": {
-		"description": "Belirtilen oyuncunun ad veya cilt geçmişini gösterir. Bu komut `/hypixelverify` komutu ile uyumludur eğer doğrulanılırsa, belirli bir kullanıcının bilgilerini görüntülemenize izin verir. `user` parametresi her zaman `username`e göre önceliğe sahiptir ve doğrulanmanız durumunda her ikisi de isteğe bağlıdır, aksi takdirde en az biri gereklidir."
-	},
-	"ping": {
-		"description": "Size botun gecikmesini söyler."
-	},
-	"poll": {
-		"description": "Sunucuda anket oluşturur veya yönetir. Hypixel Düzeltmenleri ve üzeri kullanıcılar için kullanılabilir. Bu komut kullanılarak oluşturulan anketlerdeki tüm oylar, anket bitene kadar gizli kalacak ve oy verenlerin isimleri açıklanmayacak, sadece oy sayıları görüntülenecektir."
-	},
-	"prefix": {
-		"description": "Dil(ler)iniz için uygun bir önek verir. Özel bir önek almak için `/prefix` komutunu kullanın ve ülkenizin bayrağının bölgesel kodunu veya adını `flags` parametresinde belirtin. Bir boşlukla ayırarak, istediğiniz kadar bayrak ekleyebilirsiniz."
-	},
-	"profile": {
-		"description": "Veritabanımızda saklanıyorsa, Crowdin profiline yönlendiren bağlantı verir. Saklanmıyorsa, profilini nasıl saklayacağını ve rollerini nasıl güncelleyeceğini öğrenmek için `/help verify` komutunu kullanabilirsin."
-	},
-	"projects": {
-		"description": "Sunucuda desteklediğimiz tüm çeviri projeleri hakkında size bağlantılar ve bilgiler verir."
-	},
-	"quote": {
-		"description": "Sunucudan komik/garip/bilge bir alıntı gösterir."
-	},
-	"rank": {
-		"description": "Senin veya herhangi bir kullanıcının mevcut deneyim puanını gösterir."
-	},
-	"tag": {
-		"description": "Gönderirken belirli bir üyeyi bilgilendirmenize izin veren önceden ayarlanmış bir mesaj gönderir."
-	},
-	"translate": {
-		"description": "Botun nasıl çevrileceği hakkında size yararlı bilgiler verir."
-	},
-	"verify": {
-		"description": "Crowdin profilinizdeki değişiklikleri otomatik olarak kontrol eder ve size uygun rolleri verir. Profiliniz veritabanımızda saklanmıyorsa, bunu komutta bir argüman olarak sağlayabilirsiniz. Profilinin saklanıp saklanmadığını kontrol etmek için `/profile` komutunu kullan. Botun sana bir mesaj gönderebilmesi için Dm'inin açık olduğundan emin ol."
+	"descriptions": {
+		"8ball": "Sihirli Top, tüm sorularını cevaplayacak.",
+		"alert": "Alerts other proofreaders for issues in their translations",
+		"feedback": "Herhangi bir hatayı bildirebileceğiniz GitHub sorunları sayfamızı açar.",
+		"help": "Bot ile ilgili sana bütün mevcut komutları ve başka bilgileri gösterir.",
+		"hypixelstats": "Belirtilen kullanıcı için temel Hypixel istatistiklerini gösterir.",
+		"hypixelunverify": "Discord hesabınıza bağlı Minecraft hesabınızın bağlantısını kaldırır.",
+		"hypixelverify": "Discord hesabını Hypixel hesabına bağlar.",
+		"language": "Dilini değiştirir, mevcut dilini veya mevcut dillerin bir listesini gösterir.",
+		"languagestats": "Şuanda desteklediğimiz bütün dillerdeki ilerlemeyi gösterir.",
+		"levels": "Deneyim Puanı sıralamasını gösterir.",
+		"mention": "İsteğe bağlı bir mesajla bir dil rolünden bahseder.",
+		"minecraft": "Belirtilen oyuncunun ad veya cilt geçmişini gösterir. Bu komut `/hypixelverify` komutu ile uyumludur eğer doğrulanılırsa, belirli bir kullanıcının bilgilerini görüntülemenize izin verir. `user` parametresi her zaman `username`e göre önceliğe sahiptir ve doğrulanmanız durumunda her ikisi de isteğe bağlıdır, aksi takdirde en az biri gereklidir.",
+		"ping": "Size botun gecikmesini söyler.",
+		"poll": "Sunucuda anket oluşturur veya yönetir. Hypixel Düzeltmenleri ve üzeri kullanıcılar için kullanılabilir. Bu komut kullanılarak oluşturulan anketlerdeki tüm oylar, anket bitene kadar gizli kalacak ve oy verenlerin isimleri açıklanmayacak, sadece oy sayıları görüntülenecektir.",
+		"prefix": "Dil(ler)iniz için uygun bir önek verir. Özel bir önek almak için `/prefix` komutunu kullanın ve ülkenizin bayrağının bölgesel kodunu veya adını `flags` parametresinde belirtin. Bir boşlukla ayırarak, istediğiniz kadar bayrak ekleyebilirsiniz.",
+		"profile": "Veritabanımızda saklanıyorsa, Crowdin profiline yönlendiren bağlantı verir. Saklanmıyorsa, profilini nasıl saklayacağını ve rollerini nasıl güncelleyeceğini öğrenmek için `/help verify` komutunu kullanabilirsin.",
+		"projects": "Sunucuda desteklediğimiz tüm çeviri projeleri hakkında size bağlantılar ve bilgiler verir.",
+		"quote": "Sunucudan komik/garip/bilge bir alıntı gösterir.",
+		"rank": "Senin veya herhangi bir kullanıcının mevcut deneyim puanını gösterir.",
+		"settings": "Changes or shows your settings on the bot",
+		"tag": "Gönderirken belirli bir üyeyi bilgilendirmenize izin veren önceden ayarlanmış bir mesaj gönderir.",
+		"translate": "Botun nasıl çevrileceği hakkında size yararlı bilgiler verir.",
+		"verify": "Crowdin profilinizdeki değişiklikleri otomatik olarak kontrol eder ve size uygun rolleri verir. Profiliniz veritabanımızda saklanmıyorsa, bunu komutta bir argüman olarak sağlayabilirsiniz. Profilinin saklanıp saklanmadığını kontrol etmek için `/profile` komutunu kullan. Botun sana bir mesaj gönderebilmesi için Dm'inin açık olduğundan emin ol."
 	}
 }
