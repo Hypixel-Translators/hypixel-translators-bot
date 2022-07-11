@@ -1,29 +1,32 @@
 {
 	"names": {
 		"8ball": "crwdns2426:0crwdne2426:0",
+		"alert": "crwdns2828:0crwdne2828:0",
 		"feedback": "crwdns2428:0crwdne2428:0",
-		"levels": "crwdns2430:0crwdne2430:0",
-		"ping": "crwdns2432:0crwdne2432:0",
-		"profile": "crwdns2434:0crwdne2434:0",
-		"projects": "crwdns2436:0crwdne2436:0",
-		"rank": "crwdns2438:0crwdne2438:0",
-		"tag": "crwdns2440:0crwdne2440:0",
-		"translate": "crwdns2442:0crwdne2442:0",
 		"help": "crwdns2444:0crwdne2444:0",
 		"hypixelstats": "crwdns2446:0crwdne2446:0",
 		"hypixelunverify": "crwdns2448:0crwdne2448:0",
 		"hypixelverify": "crwdns2450:0crwdne2450:0",
 		"language": "crwdns2452:0crwdne2452:0",
 		"languagestats": "crwdns2454:0crwdne2454:0",
+		"levels": "crwdns2430:0crwdne2430:0",
 		"mention": "crwdns2456:0crwdne2456:0",
 		"minecraft": "crwdns2458:0crwdne2458:0",
+		"ping": "crwdns2432:0crwdne2432:0",
+		"poll": "crwdns2466:0crwdne2466:0",
 		"prefix": "crwdns2460:0crwdne2460:0",
+		"profile": "crwdns2434:0crwdne2434:0",
+		"projects": "crwdns2436:0crwdne2436:0",
 		"quote": "crwdns2462:0crwdne2462:0",
-		"verify": "crwdns2464:0crwdne2464:0",
-		"poll": "crwdns2466:0crwdne2466:0"
+		"rank": "crwdns2438:0crwdne2438:0",
+		"settings": "crwdns2830:0crwdne2830:0",
+		"tag": "crwdns2440:0crwdne2440:0",
+		"translate": "crwdns2442:0crwdne2442:0",
+		"verify": "crwdns2464:0crwdne2464:0"
 	},
 	"descriptions": {
 		"8ball": "crwdns2468:0crwdne2468:0",
+		"alert": "crwdns2832:0crwdne2832:0",
 		"feedback": "crwdns2470:0crwdne2470:0",
 		"help": "crwdns2472:0crwdne2472:0",
 		"hypixelstats": "crwdns2474:0crwdne2474:0",
@@ -35,15 +38,16 @@
 		"mention": "crwdns2486:0crwdne2486:0",
 		"minecraft": "crwdns2488:0crwdne2488:0",
 		"ping": "crwdns2490:0crwdne2490:0",
+		"poll": "crwdns2508:0crwdne2508:0",
 		"prefix": "crwdns2492:0crwdne2492:0",
 		"profile": "crwdns2494:0crwdne2494:0",
 		"projects": "crwdns2496:0crwdne2496:0",
 		"quote": "crwdns2498:0crwdne2498:0",
 		"rank": "crwdns2500:0crwdne2500:0",
+		"settings": "crwdns2834:0crwdne2834:0",
 		"tag": "crwdns2502:0crwdne2502:0",
 		"translate": "crwdns2504:0crwdne2504:0",
-		"verify": "crwdns2506:0crwdne2506:0",
-		"poll": "crwdns2508:0crwdne2508:0"
+		"verify": "crwdns2506:0crwdne2506:0"
 	},
 	"options": {
 		"8ball": {
@@ -52,51 +56,10 @@
 				"description": "crwdns2512:0crwdne2512:0"
 			}
 		},
-		"levels": {
-			"me": {
-				"name": "crwdns2514:0crwdne2514:0",
-				"description": "crwdns2516:0crwdne2516:0"
-			},
-			"page": {
-				"name": "crwdns2518:0crwdne2518:0",
-				"description": "crwdns2520:0crwdne2520:0"
-			}
-		},
-		"profile": {
-			"user": {
-				"name": "crwdns2522:0crwdne2522:0",
-				"description": "crwdns2524:0crwdne2524:0"
-			},
-			"profile": {
-				"name": "crwdns2526:0crwdne2526:0",
-				"description": "crwdns2528:0crwdne2528:0"
-			}
-		},
-		"rank": {
-			"user": {
-				"name": "crwdns2530:0crwdne2530:0",
-				"description": "crwdns2532:0crwdne2532:0"
-			}
-		},
-		"tag": {
-			"tag": {
-				"name": "crwdns2534:0crwdne2534:0",
-				"description": "crwdns2536:0crwdne2536:0",
-				"choices": {
-					"invite": "crwdns2538:0crwdne2538:0",
-					"hypixel": "crwdns2540:0crwdne2540:0",
-					"guidelines": "crwdns2542:0crwdne2542:0",
-					"proofreader": "crwdns2544:0crwdne2544:0",
-					"minecraft": "crwdns2546:0crwdne2546:0",
-					"quickplay": "crwdns2548:0crwdne2548:0",
-					"skyblockaddons": "crwdns2550:0crwdne2550:0",
-					"thread": "crwdns2552:0crwdne2552:0",
-					"twitter": "crwdns2554:0crwdne2554:0"
-				}
-			},
-			"target": {
-				"name": "crwdns2556:0crwdne2556:0",
-				"description": "crwdns2558:0crwdne2558:0"
+		"alert": {
+			"message": {
+				"name": "crwdns2836:0crwdne2836:0",
+				"description": "crwdns2838:0crwdne2838:0"
 			}
 		},
 		"help": {
@@ -176,6 +139,16 @@
 				"description": "crwdns2620:0crwdne2620:0"
 			}
 		},
+		"levels": {
+			"me": {
+				"name": "crwdns2514:0crwdne2514:0",
+				"description": "crwdns2516:0crwdne2516:0"
+			},
+			"page": {
+				"name": "crwdns2518:0crwdne2518:0",
+				"description": "crwdns2520:0crwdne2520:0"
+			}
+		},
 		"mention": {
 			"language": {
 				"name": "crwdns2622:0crwdne2622:0",
@@ -186,8 +159,8 @@
 				"description": "crwdns2628:0crwdne2628:0",
 				"choices": {
 					"all": "crwdns2630:0crwdne2630:0",
-					"translator": "crwdns2632:0crwdne2632:0",
-					"proofreader": "crwdns2634:0crwdne2634:0"
+					"proofreader": "crwdns2634:0crwdne2634:0",
+					"translator": "crwdns2632:0crwdne2632:0"
 				}
 			},
 			"message": {
@@ -225,10 +198,96 @@
 				}
 			}
 		},
+		"poll": {
+			"start": {
+				"name": "crwdns2740:0crwdne2740:0",
+				"description": "crwdns2742:0crwdne2742:0",
+				"options": {
+					"question": {
+						"name": "crwdns2744:0crwdne2744:0",
+						"description": "crwdns2746:0crwdne2746:0"
+					},
+					"option1": {
+						"name": "crwdns2748:0crwdne2748:0",
+						"description": "crwdns2750:0crwdne2750:0"
+					},
+					"option2": {
+						"name": "crwdns2752:0crwdne2752:0",
+						"description": "crwdns2754:0crwdne2754:0"
+					},
+					"time": {
+						"name": "crwdns2756:0crwdne2756:0",
+						"description": "crwdns2758:0crwdne2758:0"
+					},
+					"option3": {
+						"name": "crwdns2760:0crwdne2760:0",
+						"description": "crwdns2762:0crwdne2762:0"
+					},
+					"option4": {
+						"name": "crwdns2764:0crwdne2764:0",
+						"description": "crwdns2766:0crwdne2766:0"
+					},
+					"option5": {
+						"name": "crwdns2768:0crwdne2768:0",
+						"description": "crwdns2770:0crwdne2770:0"
+					},
+					"option6": {
+						"name": "crwdns2772:0crwdne2772:0",
+						"description": "crwdns2774:0crwdne2774:0"
+					},
+					"option7": {
+						"name": "crwdns2776:0crwdne2776:0",
+						"description": "crwdns2778:0crwdne2778:0"
+					},
+					"option8": {
+						"name": "crwdns2780:0crwdne2780:0",
+						"description": "crwdns2782:0crwdne2782:0"
+					}
+				}
+			},
+			"end": {
+				"name": "crwdns2784:0crwdne2784:0",
+				"description": "crwdns2786:0crwdne2786:0",
+				"options": {
+					"message_id": {
+						"name": "crwdns2788:0crwdne2788:0",
+						"description": "crwdns2790:0crwdne2790:0"
+					},
+					"channel": {
+						"name": "crwdns2816:0crwdne2816:0",
+						"description": "crwdns2818:0crwdne2818:0"
+					}
+				}
+			},
+			"show": {
+				"name": "crwdns2796:0crwdne2796:0",
+				"description": "crwdns2798:0crwdne2798:0",
+				"options": {
+					"message_id": {
+						"name": "crwdns2800:0crwdne2800:0",
+						"description": "crwdns2802:0crwdne2802:0"
+					},
+					"channel": {
+						"name": "crwdns2820:0crwdne2820:0",
+						"description": "crwdns2822:0crwdne2822:0"
+					}
+				}
+			}
+		},
 		"prefix": {
 			"flags": {
 				"name": "crwdns2664:0crwdne2664:0",
 				"description": "crwdns2666:0crwdne2666:0"
+			}
+		},
+		"profile": {
+			"user": {
+				"name": "crwdns2522:0crwdne2522:0",
+				"description": "crwdns2524:0crwdne2524:0"
+			},
+			"profile": {
+				"name": "crwdns2526:0crwdne2526:0",
+				"description": "crwdns2528:0crwdne2528:0"
 			}
 		},
 		"quote": {
@@ -307,6 +366,81 @@
 				}
 			}
 		},
+		"rank": {
+			"user": {
+				"name": "crwdns2530:0crwdne2530:0",
+				"description": "crwdns2532:0crwdne2532:0"
+			}
+		},
+		"settings": {
+			"get": {
+				"name": "crwdns2840:0crwdne2840:0",
+				"description": "crwdns2842:0crwdne2842:0",
+				"options": {
+					"setting": {
+						"name": "crwdns2844:0crwdne2844:0",
+						"description": "crwdns2846:0crwdne2846:0",
+						"choices": {
+							"lvlUpMsg": "crwdns2848:0crwdne2848:0",
+							"availability": "crwdns2850:0crwdne2850:0"
+						}
+					}
+				}
+			},
+			"set": {
+				"name": "crwdns2852:0crwdne2852:0",
+				"description": "crwdns2854:0crwdne2854:0",
+				"options": {
+					"setting": {
+						"name": "crwdns2856:0crwdne2856:0",
+						"description": "crwdns2858:0crwdne2858:0",
+						"choices": {
+							"lvlUpMsg": "crwdns2860:0crwdne2860:0",
+							"availability": "crwdns2862:0crwdne2862:0"
+						}
+					},
+					"value": {
+						"name": "crwdns2864:0crwdne2864:0",
+						"description": "crwdns2866:0crwdne2866:0"
+					}
+				}
+			},
+			"reset": {
+				"name": "crwdns2868:0crwdne2868:0",
+				"description": "crwdns2870:0crwdne2870:0",
+				"options": {
+					"setting": {
+						"name": "crwdns2872:0crwdne2872:0",
+						"description": "crwdns2874:0crwdne2874:0",
+						"choices": {
+							"lvlUpMsg": "crwdns2876:0crwdne2876:0",
+							"availability": "crwdns2878:0crwdne2878:0"
+						}
+					}
+				}
+			}
+		},
+		"tag": {
+			"tag": {
+				"name": "crwdns2534:0crwdne2534:0",
+				"description": "crwdns2536:0crwdne2536:0",
+				"choices": {
+					"invite": "crwdns2538:0crwdne2538:0",
+					"hypixel": "crwdns2540:0crwdne2540:0",
+					"guidelines": "crwdns2542:0crwdne2542:0",
+					"proofreader": "crwdns2544:0crwdne2544:0",
+					"minecraft": "crwdns2546:0crwdne2546:0",
+					"quickplay": "crwdns2548:0crwdne2548:0",
+					"skyblockaddons": "crwdns2550:0crwdne2550:0",
+					"thread": "crwdns2552:0crwdne2552:0",
+					"twitter": "crwdns2554:0crwdne2554:0"
+				}
+			},
+			"target": {
+				"name": "crwdns2556:0crwdne2556:0",
+				"description": "crwdns2558:0crwdne2558:0"
+			}
+		},
 		"verify": {
 			"url": {
 				"name": "crwdns2732:0crwdne2732:0",
@@ -315,82 +449,6 @@
 			"user": {
 				"name": "crwdns2736:0crwdne2736:0",
 				"description": "crwdns2738:0crwdne2738:0"
-			}
-		},
-		"poll": {
-			"start": {
-				"name": "crwdns2740:0crwdne2740:0",
-				"description": "crwdns2742:0crwdne2742:0",
-				"options": {
-					"question": {
-						"name": "crwdns2744:0crwdne2744:0",
-						"description": "crwdns2746:0crwdne2746:0"
-					},
-					"option1": {
-						"name": "crwdns2748:0crwdne2748:0",
-						"description": "crwdns2750:0crwdne2750:0"
-					},
-					"option2": {
-						"name": "crwdns2752:0crwdne2752:0",
-						"description": "crwdns2754:0crwdne2754:0"
-					},
-					"time": {
-						"name": "crwdns2756:0crwdne2756:0",
-						"description": "crwdns2758:0crwdne2758:0"
-					},
-					"option3": {
-						"name": "crwdns2760:0crwdne2760:0",
-						"description": "crwdns2762:0crwdne2762:0"
-					},
-					"option4": {
-						"name": "crwdns2764:0crwdne2764:0",
-						"description": "crwdns2766:0crwdne2766:0"
-					},
-					"option5": {
-						"name": "crwdns2768:0crwdne2768:0",
-						"description": "crwdns2770:0crwdne2770:0"
-					},
-					"option6": {
-						"name": "crwdns2772:0crwdne2772:0",
-						"description": "crwdns2774:0crwdne2774:0"
-					},
-					"option7": {
-						"name": "crwdns2776:0crwdne2776:0",
-						"description": "crwdns2778:0crwdne2778:0"
-					},
-					"option8": {
-						"name": "crwdns2780:0crwdne2780:0",
-						"description": "crwdns2782:0crwdne2782:0"
-					}
-				}
-			},
-			"end": {
-				"name": "crwdns2784:0crwdne2784:0",
-				"description": "crwdns2786:0crwdne2786:0",
-				"options": {
-					"message_id": {
-						"name": "crwdns2788:0crwdne2788:0",
-						"description": "crwdns2790:0crwdne2790:0"
-					},
-					"channel": {
-						"name": "crwdns2816:0crwdne2816:0",
-						"description": "crwdns2818:0crwdne2818:0"
-					}
-				}
-			},
-			"show": {
-				"name": "crwdns2796:0crwdne2796:0",
-				"description": "crwdns2798:0crwdne2798:0",
-				"options": {
-					"message_id": {
-						"name": "crwdns2800:0crwdne2800:0",
-						"description": "crwdns2802:0crwdne2802:0"
-					},
-					"channel": {
-						"name": "crwdns2820:0crwdne2820:0",
-						"description": "crwdns2822:0crwdne2822:0"
-					}
-				}
 			}
 		}
 	}
