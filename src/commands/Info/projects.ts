@@ -14,7 +14,11 @@ const command: Command = {
 	async execute(interaction, getString: GetStringFunction) {
 		const member = interaction.client.guilds.cache.get(ids.guilds.main)!.members.cache.get(interaction.user.id)!
 		let joinedHypixel: string, joinedQuickplay: string, joinedSba: string, joinedBot: string
-		if (member.roles.cache.find(role => role.name === "Hypixel Translator" || role.name === "Hypixel Proofreader" || role.name === "Hypixel Manager"))
+		if (
+			member.roles.cache.find(
+				role => role.name === "Hypixel Translator" || role.name === "Hypixel Proofreader" || role.name === "Hypixel Manager",
+			)
+		)
 			joinedHypixel = `<:vote_yes:839262196797669427> **${getString("alreadyJoined")}**`
 		else joinedHypixel = `<:vote_no:839262184882044931> **${getString("notJoined")}**`
 		if (
@@ -26,7 +30,8 @@ const command: Command = {
 		else joinedQuickplay = `<:vote_no:839262184882044931> **${getString("notJoined")}**`
 		if (
 			member.roles.cache.find(
-				role => role.name === "SkyblockAddons Translator" || role.name === "SkyblockAddons Proofreader" || role.name === "SkyblockAddons Manager",
+				role =>
+					role.name === "SkyblockAddons Translator" || role.name === "SkyblockAddons Proofreader" || role.name === "SkyblockAddons Manager",
 			)
 		)
 			joinedSba = `<:vote_yes:839262196797669427> **${getString("alreadyJoined")}**`

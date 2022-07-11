@@ -163,9 +163,9 @@ const command: Command = {
 				embed = new EmbedBuilder({
 					color: Colors.Blurple,
 					title: question,
-					description: `${discordEndTimestamp ? `This poll will end on <t:${discordEndTimestamp}:F> (<t:${discordEndTimestamp}:R>)\n\n` : ""}${options
-						.map((o, i) => `${numberEmojis[i + 1]} ${o.value}`)
-						.join("\n\n")}`,
+					description: `${
+						discordEndTimestamp ? `This poll will end on <t:${discordEndTimestamp}:F> (<t:${discordEndTimestamp}:R>)\n\n` : ""
+					}${options.map((o, i) => `${numberEmojis[i + 1]} ${o.value}`).join("\n\n")}`,
 					footer: { text: `Poll by ${interaction.user.tag}`, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					timestamp: Date.now(),
 				}),
@@ -174,7 +174,9 @@ const command: Command = {
 				components = splitArray(buttons, buttons.length <= 5 ? 5 : Math.ceil(buttons.length / 2)),
 				msg = await interaction.channel!.send({
 					content:
-						interaction.member.roles.cache.has(ids.roles.admin) && interaction.channelId === ids.channels.polls ? `<@&${ids.roles.polls}>` : "",
+						interaction.member.roles.cache.has(ids.roles.admin) && interaction.channelId === ids.channels.polls
+							? `<@&${ids.roles.polls}>`
+							: "",
 					embeds: [embed],
 					components: components.map(b => new ActionRowBuilder<ButtonBuilder>({ components: b })),
 				}),
@@ -191,7 +193,9 @@ const command: Command = {
 			await interaction.editReply(
 				`${getString("successPost")}${
 					discordEndTimestamp
-						? ` ${getString("endPost", { variables: { fullTime: `<t:${discordEndTimestamp}:F>`, relativeTime: `<t:${discordEndTimestamp}:R>` } })}`
+						? ` ${getString("endPost", {
+								variables: { fullTime: `<t:${discordEndTimestamp}:F>`, relativeTime: `<t:${discordEndTimestamp}:R>` },
+						  })}`
 						: ""
 				}`,
 			)
@@ -274,9 +278,9 @@ const command: Command = {
 					fields: pollDb.options.map(o => ({
 						name: o.text,
 						// Make sure to account for NaN values
-						value: `${generateProgressBar(o.votes.length, totalVoteCount)} ${Math.round((o.votes.length / totalVoteCount) * 100) || 0}% (**${
-							o.votes.length
-						} votes**)`,
+						value: `${generateProgressBar(o.votes.length, totalVoteCount)} ${
+							Math.round((o.votes.length / totalVoteCount) * 100) || 0
+						}% (**${o.votes.length} votes**)`,
 					})),
 					footer: { text: "Poll results • Created at" },
 					timestamp: new ObjectId(pollDb._id).getTimestamp().getTime(),

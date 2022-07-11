@@ -65,7 +65,8 @@ export default async function handleAutocompleteInteractions(interaction: Autoco
 		return await interaction.respond(results.map(c => ({ name: c.toString(), value: c })))
 	} else if (name === "command" && typeof value === "string") {
 		if (client.commands.get(value)) return await interaction.respond([{ name: value, value: value }])
-		const member = (interaction.member as GuildMember | null) ?? client.guilds.resolve(ids.guilds.main)!.members.resolve(interaction.user.id)!
+		const member =
+			(interaction.member as GuildMember | null) ?? client.guilds.resolve(ids.guilds.main)!.members.resolve(interaction.user.id)!
 		let results = [
 			...new Set(
 				client.commands

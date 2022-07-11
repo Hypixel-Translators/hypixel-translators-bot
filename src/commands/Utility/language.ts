@@ -90,7 +90,9 @@ const command: Command = {
 			const embed = new EmbedBuilder({
 				color: colors.neutral,
 				author: { name: "Language" },
-				title: `There ${langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`} using that language at the moment.`,
+				title: `There ${
+					langUsers.length === 1 ? `is ${langUsers.length} user` : `are ${langUsers.length} users`
+				} using that language at the moment.`,
 				footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 			})
 

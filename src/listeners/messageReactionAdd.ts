@@ -74,7 +74,10 @@ client.on("messageReactionAdd", async (reaction, user) => {
 						autoArchiveDuration: 1440,
 						reason: `${user.tag} requested more details`,
 					})
-				await thread.send({ content: `${user}${reaction.message.author.bot ? `, ${reaction.message.content.split(":")[0]}` : ""}`, embeds: [embed] })
+				await thread.send({
+					content: `${user}${reaction.message.author.bot ? `, ${reaction.message.content.split(":")[0]}` : ""}`,
+					embeds: [embed],
+				})
 				await statsColl.insertOne({ type: "STRINGS", user: user.id, name: "MORE_INFO" })
 			} else if (reaction.emoji.name === "vote_no") {
 				await reaction.message.react("⏱")
@@ -138,8 +141,14 @@ client.on("messageReactionAdd", async (reaction, user) => {
 						url: reaction.message.url,
 						imageURL: firstAttachment,
 					})
-				} else
-					await collection.insertOne({ id: id, quote: reaction.message.content, author: [reaction.message.author.id], url: reaction.message.url })
+				} else {
+					await collection.insertOne({
+						id: id,
+						quote: reaction.message.content,
+						author: [reaction.message.author.id],
+						url: reaction.message.url,
+					})
+				}
 				const embed = new EmbedBuilder({
 					color: colors.success,
 					author: { name: "Starboard" },

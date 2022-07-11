@@ -22,8 +22,14 @@ const command: Command = {
 				title: getString("alreadyTranslator"),
 				description: getString("projectLink", { variables: { link: "https://crowdin.com/project/hypixel-translators-bot" } }),
 				fields: [
-					{ name: getString("question"), value: getString("askTranslators", { variables: { botTranslators: `<#${ids.channels.botTranslators}>` } }) },
-					{ name: getString("newCrowdin"), value: getString("checkGuide", { variables: { gettingStarted: `<#${ids.channels.gettingStarted}>` } }) },
+					{
+						name: getString("question"),
+						value: getString("askTranslators", { variables: { botTranslators: `<#${ids.channels.botTranslators}>` } }),
+					},
+					{
+						name: getString("newCrowdin"),
+						value: getString("checkGuide", { variables: { gettingStarted: `<#${ids.channels.gettingStarted}>` } }),
+					},
 				],
 				footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 			})
@@ -40,7 +46,10 @@ const command: Command = {
 						value: getString("howOpen", { variables: { link: "https://crowdin.com/project/hypixel-translators-bot" } }),
 					},
 					{ name: getString("clickLanguage"), value: getString("requestJoin") },
-					{ name: getString("lastThing"), value: getString("requestInfo", { variables: { tag: interaction.user.tag, id: interaction.user.id } }) },
+					{
+						name: getString("lastThing"),
+						value: getString("requestInfo", { variables: { tag: interaction.user.tag, id: interaction.user.id } }),
+					},
 					{ name: getString("noLanguage"), value: getString("langRequest") },
 				],
 				footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },

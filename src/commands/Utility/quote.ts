@@ -1,4 +1,10 @@
-import { type ChatInputCommandInteraction, type GuildMember, EmbedBuilder, type TextChannel, ApplicationCommandOptionType } from "discord.js"
+import {
+	type ChatInputCommandInteraction,
+	type GuildMember,
+	EmbedBuilder,
+	type TextChannel,
+	ApplicationCommandOptionType,
+} from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { db } from "../../lib/dbclient"
@@ -134,7 +140,12 @@ const command: Command = {
 	},
 }
 
-async function findQuote(randomTip: string, interaction: ChatInputCommandInteraction, getString: GetStringFunction, collection: Collection<Quote>) {
+async function findQuote(
+	randomTip: string,
+	interaction: ChatInputCommandInteraction,
+	getString: GetStringFunction,
+	collection: Collection<Quote>,
+) {
 	const count = await collection.estimatedDocumentCount()
 
 	let quoteId = interaction.options.getInteger("index", false)
@@ -190,7 +201,9 @@ async function addQuote(interaction: ChatInputCommandInteraction, collection: Co
 
 	if (urlSplit) {
 		if (urlSplit.length === 7) {
-			const msg = await (interaction.client.channels.cache.get(urlSplit[5]) as TextChannel | undefined)?.messages.fetch(urlSplit[6]).catch(() => null)
+			const msg = await (interaction.client.channels.cache.get(urlSplit[5]) as TextChannel | undefined)?.messages
+				.fetch(urlSplit[6])
+				.catch(() => null)
 			if (!msg) {
 				const embed = new EmbedBuilder({
 					color: colors.error,
@@ -365,7 +378,9 @@ async function linkQuote(interaction: ChatInputCommandInteraction, collection: C
 	const quoteId = interaction.options.getInteger("index", true),
 		urlSplit = interaction.options.getString("url", true).split("/"),
 		linkAttch = interaction.options.getBoolean("attachment", false),
-		msg = await (interaction.client.channels.cache.get(urlSplit[5]) as TextChannel | undefined)?.messages.fetch(urlSplit[6]).catch(() => null)
+		msg = await (interaction.client.channels.cache.get(urlSplit[5]) as TextChannel | undefined)?.messages
+			.fetch(urlSplit[6])
+			.catch(() => null)
 	if (!msg) {
 		const embed = new EmbedBuilder({
 			color: colors.error,
@@ -381,7 +396,8 @@ async function linkQuote(interaction: ChatInputCommandInteraction, collection: C
 	}
 	const firstAttachment = msg.attachments.first()?.url
 	let result
-	if (linkAttch && firstAttachment) result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url, imageURL: firstAttachment } })
+	if (linkAttch && firstAttachment)
+		result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url, imageURL: firstAttachment } })
 	else result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } })
 	if (result.value) {
 		const author = await Promise.all(

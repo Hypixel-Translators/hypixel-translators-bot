@@ -40,7 +40,10 @@ const command: Command = {
 			const embed = createModlogEmbed(
 				{
 					color: colors.success,
-					author: { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}` },
+					author: {
+						name: "Log message",
+						url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}`,
+					},
 					title: `Found 1 modlog for ${userInput.tag}`,
 					description: `Case #${modlogs[0].case}`,
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
@@ -52,7 +55,10 @@ const command: Command = {
 			let log = 0
 			const embedData = {
 					color: colors.success,
-					author: { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}` },
+					author: {
+						name: "Log message",
+						url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlogs[0].logMsg}`,
+					},
 					title: `Found ${modlogs.length} modlogs for ${userInput.tag}`,
 					description: `Case #${modlogs[0].case}`,
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },

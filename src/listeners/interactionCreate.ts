@@ -23,7 +23,8 @@ client.on("interactionCreate", async interaction => {
 		statsColl = db.collection<Stats>("stats")
 
 	if (interaction.isButton() && interaction.inCachedGuild()) return void (await handleButtonInteractions(interaction, getString))
-	else if (interaction.type === InteractionType.ApplicationCommandAutocomplete) return void (await handleAutocompleteInteractions(interaction))
+	else if (interaction.type === InteractionType.ApplicationCommandAutocomplete)
+		return void (await handleAutocompleteInteractions(interaction))
 
 	if (!interaction.isChatInputCommand()) return
 

@@ -74,7 +74,8 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 						await msg.delete().catch(() => null)
 					})
 			} else await verifyLogs.send(`The profile stored/provided for ${member} was invalid. Please fix this or ask them to fix this.`)
-			if (sendLogs) await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "invalidURL" })
+			if (sendLogs)
+				await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "invalidURL" })
 			return
 			// #endregion
 		}
@@ -134,7 +135,8 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 					`${member}'s profile seems to be invalid: <${url}>\nIf it is, please remove it from the database, otherwise ignore this message or maybe even delete it.`,
 				)
 			}
-			if (sendLogs) await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "invalidURL" })
+			if (sendLogs)
+				await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "invalidURL" })
 			// #endregion
 		} else if (sendLogs && isPrivate) {
 			// If the profile is private
@@ -234,7 +236,8 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 					await msg.delete().catch(() => null)
 				})
 		}
-		if (sendLogs) await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "missingDiscordTag" })
+		if (sendLogs)
+			await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id, error: true, errorMessage: "missingDiscordTag" })
 		return
 		// #endregion
 	}
@@ -441,7 +444,9 @@ async function updateLanguageRoles(
 
 	activeRoles
 		.filter(pj => !addedRoles.includes(pj))
-		.forEach(async p => await member.roles.add(member.guild.roles.cache.find(r => r.name === p)!.id, "User has received this role on Crowdin"))
+		.forEach(
+			async p => await member.roles.add(member.guild.roles.cache.find(r => r.name === p)!.id, "User has received this role on Crowdin"),
+		)
 
 	addedRoles
 		.filter(r => !activeRoles.includes(r))
@@ -468,7 +473,10 @@ async function removeProjectRoles(projectName: ValidProjects, member: GuildMembe
 		"User is no longer in this Crowdin project",
 	)
 
-	await member.roles.remove(member.guild.roles.cache.find(r => r.name === `${projectName} Manager`)!.id, "User is no longer in this Crowdin project")
+	await member.roles.remove(
+		member.guild.roles.cache.find(r => r.name === `${projectName} Manager`)!.id,
+		"User is no longer in this Crowdin project",
+	)
 }
 
 async function veteranMedals(member: GuildMember, project: CrowdinProject) {

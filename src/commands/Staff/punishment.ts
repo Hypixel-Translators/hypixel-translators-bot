@@ -418,7 +418,9 @@ const command: Command = {
 						description: `Confirming this will ban ${user} ${
 							punishment.duration ? `for ${punishment.duration} days` : "permanently"
 						} with the following reason:\n\n${reason}${
-							punishment.activePunishmentPoints ? "\n\n⚠ This user currently has an active punishment! Think twice before confirming this." : ""
+							punishment.activePunishmentPoints
+								? "\n\n⚠ This user currently has an active punishment! Think twice before confirming this."
+								: ""
 						}`,
 						footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 					}),
@@ -577,7 +579,11 @@ const command: Command = {
 						punish.endTimestamp ? (punish.duration ? `${punish.duration}${punish.type === "BAN" ? "d" : "h"} ` : "permanent ") : ""
 					}${punish.type} (${punish.points} points)`,
 					value: `${
-						typeof punish.duration === "number" ? (punish.duration ? `Ends <t:${Math.round(punish.endTimestamp! / 1000)}:R>\n` : "Never ends\n") : ""
+						typeof punish.duration === "number"
+							? punish.duration
+								? `Ends <t:${Math.round(punish.endTimestamp! / 1000)}:R>\n`
+								: "Never ends\n"
+							: ""
 					}${expireTimestamp ? `Expires <t:${Math.round(expireTimestamp / 1000)}:R>` : ""}`,
 					inline: true,
 				})
@@ -610,7 +616,11 @@ const command: Command = {
 						punish.endTimestamp ? (punish.duration ? `${punish.duration}${punish.type === "BAN" ? "d" : "h"} ` : "permanent ") : ""
 					}${punish.type} (${punish.points} points)`,
 					value: `${
-						typeof punish.duration === "number" ? (punish.duration ? `Ends <t:${Math.round(punish.endTimestamp! / 1000)}:R>\n` : "Never ends\n") : ""
+						typeof punish.duration === "number"
+							? punish.duration
+								? `Ends <t:${Math.round(punish.endTimestamp! / 1000)}:R>\n`
+								: "Never ends\n"
+							: ""
 					}${expireTimestamp ? `Expires <t:${Math.round(expireTimestamp / 1000)}:R>` : ""}`,
 					inline: true,
 				})
@@ -644,7 +654,11 @@ const command: Command = {
 						punish.endTimestamp ? (punish.duration ? `${punish.duration}${punish.type === "BAN" ? "d" : "h"} ` : "permanent ") : ""
 					}${punish.type} (${punish.points} points)`,
 					value: `${
-						typeof punish.duration === "number" ? (punish.duration ? `Ends <t:${Math.round(punish.endTimestamp! / 1000)}:R>\n` : "Never ends\n") : ""
+						typeof punish.duration === "number"
+							? punish.duration
+								? `Ends <t:${Math.round(punish.endTimestamp! / 1000)}:R>\n`
+								: "Never ends\n"
+							: ""
 					}${expireTimestamp ? `Expires <t:${Math.round(expireTimestamp / 1000)}:R>` : ""}`,
 					inline: true,
 				})
@@ -730,7 +744,8 @@ const command: Command = {
 						await buttonInteraction.editReply({ embeds: [embed], components: [] })
 					})
 				} else if (!memberInput) embed.setDescription(`Failed to unmute ${user}, they may not be in the server`)
-				else if (activePunishments[0].type === "MUTE") await memberInput.disableCommunicationUntil(null, `${reason} | ${interaction.user.tag}`)
+				else if (activePunishments[0].type === "MUTE")
+					await memberInput.disableCommunicationUntil(null, `${reason} | ${interaction.user.tag}`)
 
 				if (interaction.options.getBoolean("senddm", true)) {
 					await user

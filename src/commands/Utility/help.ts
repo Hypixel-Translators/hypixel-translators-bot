@@ -57,8 +57,10 @@ const command: Command = {
 			const categoryCommands: string[] = []
 			readdirSync(`./src/commands/${category}/`).forEach(cmd => categoryCommands.push(cmd.split(".").shift()!))
 			categoryCommands.forEach(cmd => {
-				if (client.commands.get(cmd)!.dev && interaction.channelId !== ids.channels.botDev) categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
-				else if (!client.commands.get(cmd)!.allowDM && interaction.channel!.isDMBased()) categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
+				if (client.commands.get(cmd)!.dev && interaction.channelId !== ids.channels.botDev)
+					categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
+				else if (!client.commands.get(cmd)!.allowDM && interaction.channel!.isDMBased())
+					categoryCommands.splice(categoryCommands.indexOf(cmd), 1)
 			})
 			pages[pageIndex].commands = categoryCommands
 			pageIndex++
@@ -133,7 +135,10 @@ const command: Command = {
 			collector.on("collect", async menuInteraction => {
 				pageNum = Number(menuInteraction.values[0])
 				pageEmbed = fetchPage(pageNum, pages, getString, interaction)!
-				await menuInteraction.update({ embeds: [pageEmbed], components: [{ type: ComponentType.ActionRow, components: [createMenu(pageNum)] }] })
+				await menuInteraction.update({
+					embeds: [pageEmbed],
+					components: [{ type: ComponentType.ActionRow, components: [createMenu(pageNum)] }],
+				})
 			})
 
 			collector.on("end", async () => {
@@ -172,8 +177,13 @@ const command: Command = {
 							value: getString("minutes", { variables: { number: cmd.cooldown / 60 } }),
 							inline: true,
 						})
-					} else
-						embed.addFields({ name: getString("cooldownField"), value: getString("seconds", { variables: { number: cmd.cooldown } }), inline: true })
+					} else {
+						embed.addFields({
+							name: getString("cooldownField"),
+							value: getString("seconds", { variables: { number: cmd.cooldown } }),
+							inline: true,
+						})
+					}
 				}
 			}
 			await interaction.reply({ embeds: [embed] })

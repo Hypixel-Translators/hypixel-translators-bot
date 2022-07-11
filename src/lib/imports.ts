@@ -4,7 +4,13 @@ import { resolve, sep } from "node:path"
 import { botLocales, transformBotLocale } from "./util"
 
 import type { HTBClient } from "./dbclient"
-import type { ChatInputApplicationCommandData, Snowflake, ChatInputCommandInteraction, ApplicationCommandOptionData, LocaleString } from "discord.js"
+import type {
+	ChatInputApplicationCommandData,
+	Snowflake,
+	ChatInputCommandInteraction,
+	ApplicationCommandOptionData,
+	LocaleString,
+} from "discord.js"
 
 export function findCommands(dir: string, pattern: string) {
 	let results: string[] = []
@@ -50,14 +56,20 @@ export function setup(client: HTBClient) {
 						!nameRegex.test(commandsJson.names[command.name]) ||
 						commandsJson.names[command.name] !== commandsJson.names[command.name].toLowerCase()
 					) {
-						localizationErrors.push({ command: command.name, type: "name", locale: discordLocale, string: commandsJson.names[command.name] })
+						localizationErrors.push({
+							command: command.name,
+							type: "name",
+							locale: discordLocale,
+							string: commandsJson.names[command.name],
+						})
 						continue
 					}
 
 					command.nameLocalizations[discordLocale] = commandsJson.names[command.name]
 					command.descriptionLocalizations[discordLocale] = commandsJson.descriptions[command.name]
 
-					for (const option of command.options ?? []) assignLocalisation(option, commandsJson.options[command.name][option.name], discordLocale)
+					for (const option of command.options ?? [])
+						assignLocalisation(option, commandsJson.options[command.name][option.name], discordLocale)
 				} catch (err) {
 					console.error(`Failed to load command localization for ${locale} for command ${command.name}:\n`, err)
 					continue
@@ -103,7 +115,8 @@ function assignLocalisation(option: ApplicationCommandOptionData, optionJson: Co
 		}
 	}
 
-	if ("options" in option) for (const subOption of option.options ?? []) assignLocalisation(subOption, optionJson.options![subOption.name], locale)
+	if ("options" in option)
+		for (const subOption of option.options ?? []) assignLocalisation(subOption, optionJson.options![subOption.name], locale)
 }
 
 // Command interface

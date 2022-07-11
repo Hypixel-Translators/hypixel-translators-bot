@@ -31,7 +31,9 @@ export default async function handleButtonInteractions(interaction: ButtonIntera
 		else if (interaction.customId === "giveaways") {
 			const userDb = await client.getUser(interaction.user.id)
 			if ((userDb.levels?.level ?? 0) < 5) {
-				console.log(`${interaction.member.user.tag} tried to get the Giveaway pings role but they're level ${userDb.levels?.level ?? 0} lol`)
+				console.log(
+					`${interaction.member.user.tag} tried to get the Giveaway pings role but they're level ${userDb.levels?.level ?? 0} lol`,
+				)
 				return await interaction.reply({
 					content: getString("roles.noLevel", { variables: { level: 5, command: "`/rank`", channel: `<#${ids.channels.bots}>` } }),
 					ephemeral: true,
@@ -67,7 +69,10 @@ export default async function handleButtonInteractions(interaction: ButtonIntera
 			if (option.id === interaction.customId) option.votes.push(interaction.user.id)
 		}
 
-		await collection.updateOne({ channelId: interaction.channelId, messageId: interaction.message.id }, { $set: { options: pollDb.options } })
+		await collection.updateOne(
+			{ channelId: interaction.channelId, messageId: interaction.message.id },
+			{ $set: { options: pollDb.options } },
+		)
 		await interaction.reply({ content: getString("successVote", { file: "poll" }), ephemeral: true })
 	}
 }

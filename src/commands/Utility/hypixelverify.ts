@@ -50,7 +50,10 @@ const command: Command = {
 		else if (json.error || !json.username) {
 			// If other error we didn't plan for appeared
 			if (!json.error && !json.username) throw "noPlayer"
-			console.log("Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n", json.error)
+			console.log(
+				"Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n",
+				json.error,
+			)
 			throw "apiError"
 		}
 		if (json.links?.DISCORD === interaction.user.tag) {

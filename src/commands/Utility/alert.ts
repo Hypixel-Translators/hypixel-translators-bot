@@ -96,7 +96,8 @@ const command: Command = {
 				languages[Number(componentInteraction.customId)] = componentInteraction.values
 				if (languages.flat().length) buttons.components[0].setDisabled(false)
 				else buttons.components[0].setDisabled(true)
-				for (const menu of selectMenus) for (const option of menu.options) option.setDefault(componentInteraction.values.includes(option.data.value!))
+				for (const menu of selectMenus)
+					for (const option of menu.options) option.setDefault(componentInteraction.values.includes(option.data.value!))
 
 				await componentInteraction.update({
 					components: [...selectMenus.map(m => new ActionRowBuilder<SelectMenuBuilder>({ components: [m] })), buttons],
@@ -112,12 +113,17 @@ const command: Command = {
 							dbUsers = await db.collection<DbUser>("users").find().toArray(),
 							sortedMembers = interaction.guild.members.cache
 								.filter(m => !m.user.bot && !m.pending)
-								.sort((a, b) => (dbUsers.find(u => u.id === b.id)!.levels?.totalXp ?? 0) - (dbUsers.find(u => u.id === a.id)!.levels?.totalXp ?? 0)),
+								.sort(
+									(a, b) =>
+										(dbUsers.find(u => u.id === b.id)!.levels?.totalXp ?? 0) - (dbUsers.find(u => u.id === a.id)!.levels?.totalXp ?? 0),
+								),
 							resolvedData = selectedRoles.map(
 								r =>
 									[
 										r,
-										sortedMembers.find(m => m.roles.cache.has(r.id) && (dbUsers.find(u => u.id === m.id)!.settings?.availability ?? true)) ?? null,
+										sortedMembers.find(
+											m => m.roles.cache.has(r.id) && (dbUsers.find(u => u.id === m.id)!.settings?.availability ?? true),
+										) ?? null,
 									] as const,
 							),
 							[failedRoles, chosenPfs] = resolvedData.reduce(

@@ -23,7 +23,9 @@ export async function updateProjectStatus(projectId: number) {
 	const projects = db.collection<CrowdinProject>("crowdin"),
 		mongoProject = (await projects.findOne({ id: projectId }))!,
 		channel = client.channels.cache.find(c => (c as TextChannel).name === `${mongoProject.shortName}-language-status`) as TextChannel,
-		updatesChannel = client.channels.cache.find(c => (c as NewsChannel).name === `${mongoProject.shortName}-project-updates`) as NewsChannel,
+		updatesChannel = client.channels.cache.find(
+			c => (c as NewsChannel).name === `${mongoProject.shortName}-project-updates`,
+		) as NewsChannel,
 		statMessages = await channel.messages.fetch(),
 		// Only ping if last ping was more than 90 minutes ago
 		shouldPing =
@@ -44,7 +46,9 @@ export async function updateProjectStatus(projectId: number) {
 				return status as LanguageStatus
 			})
 			.sort((a, b) => b.data.phrases.total - a.data.phrases.total),
-		sortedSatus = Array.from(langStatus).sort((currentStatus, nextStatus) => nextStatus.language.name.localeCompare(currentStatus.language.name))
+		sortedSatus = Array.from(langStatus).sort((currentStatus, nextStatus) =>
+			nextStatus.language.name.localeCompare(currentStatus.language.name),
+		)
 	let index = 0
 	statMessages
 		.filter(msg => msg.author.id === client.user!.id)

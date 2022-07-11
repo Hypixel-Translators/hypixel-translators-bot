@@ -106,8 +106,12 @@ client.on("ready", async () => {
 	schedule("*/1 * * * *", () => {
 		// Get server boosters and staff for the status
 		const boostersStaff: string[] = []
-		guild?.roles.premiumSubscriberRole?.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
-		guild?.roles.cache.get(ids.roles.staff)!.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
+		guild?.roles.premiumSubscriberRole?.members.forEach(member =>
+			boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()),
+		)
+		guild?.roles.cache
+			.get(ids.roles.staff)!
+			.members.forEach(member => boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()))
 		const pickedUser = boostersStaff[Math.floor(Math.random() * boostersStaff.length)],
 			toPick = Math.ceil(Math.random() * 100) // Get percentage
 		// const statusType = client.user!.presence.activities[0].type
@@ -302,7 +306,9 @@ export async function awaitPoll(poll: Poll) {
 	if (msLeft > 2 ** 31 - 1) return
 	await setTimeout(msLeft)
 	const message = await (client.channels.cache.get(poll.channelId) as TextBasedChannel)?.messages.fetch(poll.messageId).catch(() => null),
-		pollDb = await db.collection<Poll>("polls").findOneAndUpdate({ messageId: poll.messageId, channelId: poll.channelId }, { $set: { ended: true } })
+		pollDb = await db
+			.collection<Poll>("polls")
+			.findOneAndUpdate({ messageId: poll.messageId, channelId: poll.channelId }, { $set: { ended: true } })
 	if (!message || !pollDb.value) return
 	const totalVoteCount = pollDb.value.options.reduce((acc, o) => acc + o.votes.length, 0),
 		embed = new EmbedBuilder({
@@ -315,15 +321,18 @@ export async function awaitPoll(poll: Poll) {
 				? pollDb.value.options.map(o => ({
 						name: o.text,
 						// Make sure to account for NaN values
-						value: `${generateProgressBar(o.votes.length, totalVoteCount)} ${Math.round((o.votes.length / totalVoteCount) * 100) || 0}% (**${
-							o.votes.length
-						} votes**)`,
+						value: `${generateProgressBar(o.votes.length, totalVoteCount)} ${
+							Math.round((o.votes.length / totalVoteCount) * 100) || 0
+						}% (**${o.votes.length} votes**)`,
 				  }))
 				: [],
 			footer: { text: "Poll results • Created at" },
 			timestamp: new ObjectId(pollDb.value._id).getTimestamp().getTime(),
 		}),
-		msg = await message.channel!.send({ embeds: [embed], content: `<@${pollDb.value.authorId}> your poll just ended. Check out the results below!` }),
+		msg = await message.channel!.send({
+			embeds: [embed],
+			content: `<@${pollDb.value.authorId}> your poll just ended. Check out the results below!`,
+		}),
 		linkButton = new ActionRowBuilder<ButtonBuilder>({
 			components: [
 				new ButtonBuilder({
@@ -342,7 +351,9 @@ export async function awaitPoll(poll: Poll) {
 function constructGuildCommands() {
 	if (process.env.NODE_ENV === "production") return client.commands.filter(c => !c.allowDM).map(convertToDiscordCommand)
 	return client.commands
-		.filter(command => (command.allowDM && !client.application.commands.cache.find(c => c.name === command.name)?.equals(command, true)) ?? true)
+		.filter(
+			command => (command.allowDM && !client.application.commands.cache.find(c => c.name === command.name)?.equals(command, true)) ?? true,
+		)
 		.map(convertToDiscordCommand)
 }
 

@@ -3,7 +3,16 @@ import { type GuildMember, EmbedBuilder, SelectMenuBuilder, ComponentType, Appli
 import { ids } from "../../config.json"
 import { client } from "../../index"
 import { db, type DbUser } from "../../lib/dbclient"
-import { postSettings, generateTip, getMCProfile, getUUID, gql, type GraphQLQuery, transformDiscordLocale, updateRoles } from "../../lib/util"
+import {
+	postSettings,
+	generateTip,
+	getMCProfile,
+	getUUID,
+	gql,
+	type GraphQLQuery,
+	transformDiscordLocale,
+	updateRoles,
+} from "../../lib/util"
 
 import type { Command, GetStringFunction } from "../../lib/imports"
 
@@ -63,7 +72,8 @@ const command: Command = {
 			guildJson = graphqlQuery.data.guild
 
 		// Handle errors
-		if (graphqlQuery.errors?.find(e => e.message === "Player does not exist" || e.message === "Invalid username or UUID!")) throw "falseUser"
+		if (graphqlQuery.errors?.find(e => e.message === "Player does not exist" || e.message === "Invalid username or UUID!"))
+			throw "falseUser"
 		else if (graphqlQuery.errors?.find(e => e.message === "Player has no Hypixel stats!")) throw "noPlayer"
 		else if (graphqlQuery.errors?.[0].message || !playerJson.username) {
 			// If other error we didn't plan for appeared
@@ -125,9 +135,11 @@ const command: Command = {
 					author: { name: getString("moduleName") },
 					title: `${rank} ${username}`,
 					thumbnail: { url: skinRender },
-					description: `${getString("statsDesc", { variables: { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` } })}\n${
-						uuidDb ? `${getString("userVerified", { variables: { user: `<@!${uuidDb.id}>` } })}\n` : ""
-					}${getString("updateNote")}\n${getString("otherStats")}`,
+					description: `${getString("statsDesc", {
+						variables: { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` },
+					})}\n${uuidDb ? `${getString("userVerified", { variables: { user: `<@!${uuidDb.id}>` } })}\n` : ""}${getString(
+						"updateNote",
+					)}\n${getString("otherStats")}`,
 					fields: [
 						{ name: getString("networkLevel"), value: Math.abs(playerJson.level).toLocaleString(locale), inline: true },
 						{ name: getString("ap"), value: playerJson.achievement_points.toLocaleString(locale), inline: true },
@@ -180,9 +192,9 @@ const command: Command = {
 								else {
 									discord = getString("blocked")
 									console.log(
-										`Blocked the following Discord invite link in ${playerJson.username}'s Hypixel profile: ${socialMedia.DISCORD} (led to ${
-											invite.guild?.name ?? invite.channel?.name ?? "an unknown channel"
-										})`,
+										`Blocked the following Discord invite link in ${playerJson.username}'s Hypixel profile: ${
+											socialMedia.DISCORD
+										} (led to ${invite.guild?.name ?? invite.channel?.name ?? "an unknown channel"})`,
 									)
 								}
 							})
@@ -205,9 +217,9 @@ const command: Command = {
 					thumbnail: { url: skinRender },
 					description: `${getString("socialMedia", {
 						variables: { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` },
-					})}\n${uuidDb ? `${getString("userVerified", { variables: { user: `<@!${uuidDb.id}>` } })}\n` : ""}${getString("updateNote")}\n${getString(
-						"otherStats",
-					)}`,
+					})}\n${uuidDb ? `${getString("userVerified", { variables: { user: `<@!${uuidDb.id}>` } })}\n` : ""}${getString(
+						"updateNote",
+					)}\n${getString("otherStats")}`,
 					fields: [
 						{ name: "Twitter", value: twitter, inline: true },
 						{ name: "YouTube", value: youtube, inline: true },

@@ -139,7 +139,10 @@ export function createButtonControls(
 	})
 }
 export function createModlogEmbed(embedData: EmbedData, modlog: PunishmentLog, modlogs?: PunishmentLog[]) {
-	embedData.author = { name: "Log message", url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlog.logMsg}` }
+	embedData.author = {
+		name: "Log message",
+		url: `https://discord.com/channels/${ids.guilds.main}/${ids.channels.punishments}/${modlog.logMsg}`,
+	}
 	const expireTimestamp =
 		modlog.type === "VERBAL"
 			? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 1)
@@ -153,7 +156,11 @@ export function createModlogEmbed(embedData: EmbedData, modlog: PunishmentLog, m
 			{ name: expireTimestamp > Date.now() ? "Expires" : "Expired", value: `<t:${Math.round(expireTimestamp / 1000)}:R>`, inline: true },
 
 			{ name: "Type", value: modlog.type, inline: true },
-			{ name: "Duration", value: modlog.duration ? `${modlog.duration} ${modlog.type === "BAN" ? "days" : "hours"}` : "Permanent", inline: true },
+			{
+				name: "Duration",
+				value: modlog.duration ? `${modlog.duration} ${modlog.type === "BAN" ? "days" : "hours"}` : "Permanent",
+				inline: true,
+			},
 			{ name: "Points", value: `${modlog.points ?? "N/A"}`, inline: true },
 
 			{ name: "Reason", value: modlog.reason, inline: true },
@@ -200,26 +207,29 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 		keys = getString ? Object.keys(getString("tips", { file: "global" })) : Object.keys(strings.tips)
 
 	return getString
-		? `${getString("tip", { file: "global", lang: newLang }).toUpperCase()}: ${getString(`tips.${keys[(keys.length * Math.random()) << 0]}`, {
-				variables: {
-					langIb: "/language set language:ib",
-					translate: "/translate",
-					prefix: "/prefix",
-					bots: "#bots",
-					gettingStarted: "#getting-started",
-					twitter: "https://twitter.com/HTranslators",
-					rules: "#rules",
-					serverInfo: "#server-info",
-					hypixelstats: "/hypixelstats",
-					languagestats: "/languagestats",
-					verify: "/verify",
-					langList: "/language list",
-					botUpdates: "#bot-updates",
-					feedback: "/feedback",
+		? `${getString("tip", { file: "global", lang: newLang }).toUpperCase()}: ${getString(
+				`tips.${keys[(keys.length * Math.random()) << 0]}`,
+				{
+					variables: {
+						langIb: "/language set language:ib",
+						translate: "/translate",
+						prefix: "/prefix",
+						bots: "#bots",
+						gettingStarted: "#getting-started",
+						twitter: "https://twitter.com/HTranslators",
+						rules: "#rules",
+						serverInfo: "#server-info",
+						hypixelstats: "/hypixelstats",
+						languagestats: "/languagestats",
+						verify: "/verify",
+						langList: "/language list",
+						botUpdates: "#bot-updates",
+						feedback: "/feedback",
+					},
+					file: "global",
+					lang: newLang,
 				},
-				file: "global",
-				lang: newLang,
-		  })}`
+		  )}`
 		: `${strings.tip.toUpperCase()}: ${strings.tips[keys[(keys.length * Math.random()) << 0]]
 				.replace("%%langIb%%", "/language set language:ib")
 				.replace("%%translate%%", "/translate")
@@ -397,7 +407,11 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 		await adminBots.send(`${holidayNameFormatted} announcement sent! Here's each language's translation:\n${logMsg}`)
 		console.table(log)
 		console.log(`Sent the ${holidayNameFormatted} announcement`)
-	} else await adminBots.send(`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`)
+	} else {
+		await adminBots.send(
+			`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`,
+		)
+	}
 }
 
 export function splitArray<T>(arr: T[], size: number): T[][] {

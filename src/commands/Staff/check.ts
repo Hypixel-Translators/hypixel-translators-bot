@@ -22,8 +22,12 @@ const command: Command = {
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return
 		const memberInput = interaction.options.getMember("user") ?? interaction.options.getUser("user", true)
-		if (memberInput instanceof User)
-			return void (await interaction.reply({ content: `Couldn't find member ${memberInput}! Are you sure they're on this server?`, ephemeral: true }))
+		if (memberInput instanceof User) {
+			return void (await interaction.reply({
+				content: `Couldn't find member ${memberInput}! Are you sure they're on this server?`,
+				ephemeral: true,
+			}))
+		}
 		const userDb = await client.getUser(memberInput.id)
 
 		let note: string | undefined

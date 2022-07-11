@@ -78,7 +78,9 @@ const command: Command = {
 					.send({ embeds: [embed] })
 					.then(async () => {
 						await verifyLogs.send(
-							`${interaction.user} tried to verify with an invalid profile URL ${url ? `(<${url}>) ` : ""}or there was no profile stored for them.`,
+							`${interaction.user} tried to verify with an invalid profile URL ${
+								url ? `(<${url}>) ` : ""
+							}or there was no profile stored for them.`,
 						)
 						await interaction.editReply({ content: "Your request has been processed, check your DMs for more info!" })
 					})

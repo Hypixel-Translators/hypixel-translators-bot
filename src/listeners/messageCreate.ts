@@ -113,7 +113,9 @@ client.on("messageCreate", async message => {
 		!message.channel.isDMBased() &&
 		message.content.toLowerCase().includes("/translate/hypixel/") &&
 		message.content.includes("://") &&
-		/(?:https:\/\/)?(?:\w{2,4}\.)?(?:crowdin\.com|translate\.hypixel\.net)\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(message.content)
+		/(?:https:\/\/)?(?:\w{2,4}\.)?(?:crowdin\.com|translate\.hypixel\.net)\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(
+			message.content,
+		)
 	) {
 		if (
 			message.channel.parentId === ids.categories.hypixel ||
@@ -137,14 +139,13 @@ client.on("messageCreate", async message => {
 				})
 				if (message.content !== langFix && message.channel.parentId === ids.categories.hypixel) {
 					embed.setDescription(
-						`${getGlobalString("example", { variables: { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" } })}\n${getGlobalString(
-							"reminderLang",
-							{
-								variables: {
-									format: "`crowdin.com/translate/.../.../en-en#`",
-								},
+						`${getGlobalString("example", {
+							variables: { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" },
+						})}\n${getGlobalString("reminderLang", {
+							variables: {
+								format: "`crowdin.com/translate/.../.../en-en#`",
 							},
-						)}`,
+						})}`,
 					)
 					await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "wrongBadLink", user: message.author.id })
 				} else await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "wrongLink", user: message.author.id })
@@ -159,7 +160,9 @@ client.on("messageCreate", async message => {
 						color: colors.error,
 						author: { name: getGlobalString("errors.wrongLink") },
 						title: getGlobalString("linkCorrectionDesc", { variables: { format: "`crowdin.com/translate/hypixel/.../en-en#`" } }),
-						description: `**${getGlobalString("correctLink")}**\n${correctLink.startsWith("https://") ? correctLink : `https://${correctLink}`}`,
+						description: `**${getGlobalString("correctLink")}**\n${
+							correctLink.startsWith("https://") ? correctLink : `https://${correctLink}`
+						}`,
 					})
 				await message.reply({ embeds: [embed] })
 				return
@@ -172,7 +175,9 @@ client.on("messageCreate", async message => {
 		await message.react("loading:882267041627766816")
 		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
 		await message.delete().catch(() => null)
-		await (message.channel as TextChannel).bulkDelete((await message.channel.messages.fetch()).filter(msgs => msgs.author.id === message.author.id))
+		await (message.channel as TextChannel).bulkDelete(
+			(await message.channel.messages.fetch()).filter(msgs => msgs.author.id === message.author.id),
+		)
 	}
 
 	// Staff messaging system
@@ -202,7 +207,8 @@ client.on("messageCreate", async message => {
 				description: message.content,
 				footer: { text: getGlobalString("staffDm.confirmSend"), iconURL: message.author.displayAvatarURL({ extension: "png" }) },
 			})
-			if (message.attachments.size > 0) embed.setTitle(`${getGlobalString("staffDm.confirmation")} ${getGlobalString("staffDm.attachmentsWarn")}`)
+			if (message.attachments.size > 0)
+				embed.setTitle(`${getGlobalString("staffDm.confirmation")} ${getGlobalString("staffDm.attachmentsWarn")}`)
 			const msg = await message.channel.send({ embeds: [embed], components: [controlButtons] }),
 				collector = msg.createMessageComponentCollector<ComponentType.Button>({ idle: 60_000 })
 
@@ -286,7 +292,11 @@ client.on("messageCreate", async message => {
 	 */
 	function getGlobalString(
 		path: string,
-		{ variables, file = "global", lang = author.lang ?? "en" }: { variables?: Record<string, string | number>; file?: string; lang?: string } = {},
+		{
+			variables,
+			file = "global",
+			lang = author.lang ?? "en",
+		}: { variables?: Record<string, string | number>; file?: string; lang?: string } = {},
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	): any {
 		const command = client.commands.get(file)

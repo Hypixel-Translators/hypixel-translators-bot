@@ -1,4 +1,12 @@
-import { ActionRowBuilder, ButtonBuilder, EmbedBuilder, type TextChannel, ButtonStyle, ApplicationCommandOptionType, ComponentType } from "discord.js"
+import {
+	ActionRowBuilder,
+	ButtonBuilder,
+	EmbedBuilder,
+	type TextChannel,
+	ButtonStyle,
+	ApplicationCommandOptionType,
+	ComponentType,
+} from "discord.js"
 import { getEmoji } from "language-flag-colors"
 
 import { colors, ids } from "../../config.json"
@@ -37,7 +45,10 @@ const command: Command = {
 			nickNoPrefix = interaction.member.displayName.replaceAll(/\[.*\] ?/g, "").trim(),
 			languages = await db.collection<MongoLanguage>("languages").find().toArray()
 
-		if (interaction.options.getString("flags", false) && !interaction.member.roles.cache.hasAny(ids.roles.hypixelTranslator, ids.roles.hypixelPf)) {
+		if (
+			interaction.options.getString("flags", false) &&
+			!interaction.member.roles.cache.hasAny(ids.roles.hypixelTranslator, ids.roles.hypixelPf)
+		) {
 			const flagEmojis: (string | null)[] = []
 			interaction.options
 				.getString("flags", true)

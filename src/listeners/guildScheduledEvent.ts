@@ -14,7 +14,8 @@ client.on("guildScheduledEventUpdate", async (oldEvent, newEvent) => {
 			const role = newEvent.guild!.roles.cache.get(ids.roles.event)!
 			role.members.forEach(async m => await m.roles.remove(role.id, `${newEvent.name} event is over`))
 			await eventChannel.permissionOverwrites.edit(newEvent.guildId, { Connect: false })
-		} else if (newEvent.status === GuildScheduledEventStatus.Active) await eventChannel.permissionOverwrites.edit(newEvent.guildId, { Connect: null })
+		} else if (newEvent.status === GuildScheduledEventStatus.Active)
+			await eventChannel.permissionOverwrites.edit(newEvent.guildId, { Connect: null })
 	}
 })
 

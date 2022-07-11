@@ -1,4 +1,12 @@
-import { ActionRowBuilder, ApplicationCommandOptionType, ButtonBuilder, ButtonStyle, Colors, EmbedBuilder, type TextChannel } from "discord.js"
+import {
+	ActionRowBuilder,
+	ApplicationCommandOptionType,
+	ButtonBuilder,
+	ButtonStyle,
+	Colors,
+	EmbedBuilder,
+	type TextChannel,
+} from "discord.js"
 
 import { ids } from "../../config.json"
 

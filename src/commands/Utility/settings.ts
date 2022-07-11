@@ -70,8 +70,8 @@ const settings = as<ApplicationCommandOptionChoiceData[]>()([
 			if (!interaction.inCachedGuild()) return
 			const setting = interaction.options.getString("setting", true) as Setting,
 				readableSetting =
-					(require(`../../../strings/${transformDiscordLocale(interaction.locale)}/commands.json`) as CommandStrings).options.settings?.get.options!
-						.setting.choices![settings.find(s => s.value === setting)!.value] ?? settings.find(s => s.value === setting)!.name,
+					(require(`../../../strings/${transformDiscordLocale(interaction.locale)}/commands.json`) as CommandStrings).options.settings?.get
+						.options!.setting.choices![settings.find(s => s.value === setting)!.value] ?? settings.find(s => s.value === setting)!.name,
 				dbUser = await client.getUser(interaction.user.id),
 				defaultSettings = {
 					lvlUpMsg: true,
@@ -100,7 +100,10 @@ const settings = as<ApplicationCommandOptionChoiceData[]>()([
 					break
 				case "reset":
 					await db.collection<DbUser>("users").updateOne({ id: interaction.user.id }, { $unset: { [`settings.${setting}`]: true } })
-					await interaction.reply({ content: getString("successReset", { variables: { setting: `\`${readableSetting}\`` } }), ephemeral: true })
+					await interaction.reply({
+						content: getString("successReset", { variables: { setting: `\`${readableSetting}\`` } }),
+						ephemeral: true,
+					})
 					break
 			}
 		},
