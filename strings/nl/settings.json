@@ -1,0 +1,6 @@
+{
+    "isSetTo": "De instelling '%%setting%%' heeft als waarde '%%value%%'",
+    "successSet": "De instelling '%%setting%%' heeft nu als waarde '%%value%%'",
+    "successReset": "De instelling '%%setting%%' is gereset",
+    "onlyPf": "Deze instelling is alleen beschikbaar voor proeflezers van Hypixel!"
+}
