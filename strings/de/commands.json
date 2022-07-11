@@ -1,29 +1,32 @@
 {
 	"names": {
 		"8ball": "8ball",
+		"alert": "meldung",
 		"feedback": "feedback",
-		"levels": "level",
-		"ping": "ping",
-		"profile": "profil",
-		"projects": "projekte",
-		"rank": "rang",
-		"tag": "tag",
-		"translate": "übersetze",
 		"help": "hilfe",
 		"hypixelstats": "hypixelstatistiken",
 		"hypixelunverify": "hypixelunverifizieren",
 		"hypixelverify": "hypixelverifizieren",
 		"language": "sprache",
 		"languagestats": "sprachstatistiken",
+		"levels": "level",
 		"mention": "erwähnen",
 		"minecraft": "minecraft",
+		"ping": "ping",
+		"poll": "umfrage",
 		"prefix": "präfix",
+		"profile": "profil",
+		"projects": "projekte",
 		"quote": "zitat",
-		"verify": "verifizieren",
-		"poll": "umfrage"
+		"rank": "rang",
+		"settings": "einstellungen",
+		"tag": "tag",
+		"translate": "übersetze",
+		"verify": "verifizieren"
 	},
 	"descriptions": {
 		"8ball": "Der magische 8-Ball, der alle Fragen von dir beantworten wird",
+		"alert": "Weist andere Korrekturleser auf Probleme in ihren Übersetzungen hin",
 		"feedback": "Gibt dir Informationen darüber, wie du dem Bot ein Feedback geben kannst",
 		"help": "Zeigt dir alle verfügbaren Befehle und allgemeine Informationen über den Bot an",
 		"hypixelstats": "Zeigt dir grundlegende Hypixel-Statistiken für den angegebenen Benutzer",
@@ -35,15 +38,16 @@
 		"mention": "Erwähnt eine Sprachrolle mit einer Nachricht",
 		"minecraft": "Sucht nach dem Namen eines bestimmten Minecraft-Spielers, dessen Namensverlauf oder Skin",
 		"ping": "Gibt dir den Ping des Bots",
+		"poll": "Erstellt oder verwaltet Umfragen auf dem Server. Verfügbar für Hypixel Korrekturleser und höher",
 		"prefix": "Ermöglicht dir die Auswahl eines geeigneten Präfixes für deine Sprache(n)",
 		"profile": "Hier findest du den Link zu deinem Crowdin-Profil, wenn es in unserer Datenbank gespeichert ist.",
 		"projects": "Gibt dir Links und Informationen zu allen Übersetzungsprojekten, die wir auf dem Server unterstützen",
 		"quote": "Zeigt dir ein lustiges/schräges/weises Zitat vom Server an",
 		"rank": "Zeigt dir den aktuellen XP-Wert für dich selbst oder einen bestimmten Benutzer an",
+		"settings": "Ändern oder Anzeigen deiner Einstellungen auf den Bot",
 		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
 		"translate": "Gibt dir nützliche Informationen, wie du den Bot übersetzen kannst",
-		"verify": "Verifiziert dich und gibt dir deine entsprechenden Rollen",
-		"poll": "Erstellt oder verwaltet Umfragen auf dem Server. Verfügbar für Hypixel Korrekturleser und höher"
+		"verify": "Verifiziert dich und gibt dir deine entsprechenden Rollen"
 	},
 	"options": {
 		"8ball": {
@@ -52,51 +56,10 @@
 				"description": "Die Frage an den Bot"
 			}
 		},
-		"levels": {
-			"me": {
-				"name": "ich",
-				"description": "Ob auf der Seite begonnen werden soll, auf der du erscheinst. Hat Vorrang vor dem Argument \"seite\""
-			},
-			"page": {
-				"name": "seite",
-				"description": "Die Ranglistenseite, die angezeigt werden soll"
-			}
-		},
-		"profile": {
-			"user": {
-				"name": "benutzer",
-				"description": "Der Benutzer, dessen Profil gesucht werden soll. Nur für Administratoren"
-			},
-			"profile": {
-				"name": "profil",
-				"description": "Das neue Profil, das für den Benutzer festgelegt werden soll. Nur für Administratoren"
-			}
-		},
-		"rank": {
-			"user": {
-				"name": "benutzer",
-				"description": "Der Benutzer, für den der Rang angezeigt werden soll"
-			}
-		},
-		"tag": {
-			"tag": {
-				"name": "tag",
-				"description": "Der Tag, den du sehen willst",
-				"choices": {
-					"invite": "Einladungslink zu dem Server",
-					"hypixel": "Hypixel-Links",
-					"guidelines": "Hypixel-Projektrichtlinien",
-					"proofreader": "Wie man ein Korrekturleser für das Hypixel-Projekt wird",
-					"minecraft": "Minecraft-Crowdin-Projekt",
-					"quickplay": "Quickplay-Links",
-					"skyblockaddons": "SkyblockAddons-Links",
-					"thread": "Discord-Server-Thread",
-					"twitter": "Hypixel Translators Community-Twitter"
-				}
-			},
-			"target": {
-				"name": "ziel",
-				"description": "Der Benutzer, der mit diesem Tag erwähnt werden soll"
+		"alert": {
+			"message": {
+				"name": "nachricht",
+				"description": "Die Nachricht, die du an die Korrekturleser senden möchtest"
 			}
 		},
 		"help": {
@@ -121,7 +84,7 @@
 			},
 			"user": {
 				"name": "benutzer",
-				"description": "The server member to get statistics for. Only works if the user has verified themselves"
+				"description": "Das Mitglied, dessen Statistiken abgerufen werden sollen. Funktioniert nur, wenn er verifiziert ist"
 			}
 		},
 		"hypixelunverify": {
@@ -176,6 +139,16 @@
 				"description": "The language to get progress statistics for. Required if your language is set to English"
 			}
 		},
+		"levels": {
+			"me": {
+				"name": "ich",
+				"description": "Ob auf der Seite begonnen werden soll, auf der du erscheinst. Hat Vorrang vor dem Argument \"seite\""
+			},
+			"page": {
+				"name": "seite",
+				"description": "Die Ranglistenseite, die angezeigt werden soll"
+			}
+		},
 		"mention": {
 			"language": {
 				"name": "sprache",
@@ -186,8 +159,8 @@
 				"description": "Die zu erwähnende Rolle",
 				"choices": {
 					"all": "Beide Rollen",
-					"translator": "Übersetzer",
-					"proofreader": "Korrekturleser"
+					"proofreader": "Korrekturleser",
+					"translator": "Übersetzer"
 				}
 			},
 			"message": {
@@ -216,105 +189,13 @@
 				"options": {
 					"username": {
 						"name": "benutzername",
-						"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
+						"description": "The IGN/UUID of the user to get the skin for. Defaults to your own skin if your account is linked"
 					},
 					"user": {
 						"name": "benutzer",
-						"description": "The server member to get skin for. Only works if the user has verified themselves"
+						"description": "The server member to get the skin for. Only works if the user has verified themselves"
 					}
 				}
-			}
-		},
-		"prefix": {
-			"flags": {
-				"name": "flaggen",
-				"description": "Die Flaggen, die auf dein Präfix angewendet werden sollen, getrennt durch Leerzeichen"
-			}
-		},
-		"quote": {
-			"get": {
-				"name": "erhalten",
-				"description": "Erhalte ein zufällig/spezifisches Zitat",
-				"options": {
-					"index": {
-						"name": "index",
-						"description": "Der Index des Zitats, das du sehen willst"
-					}
-				}
-			},
-			"add": {
-				"name": "hinzufügen",
-				"description": "Füge ein neues Zitat hinzu. Nur für Administratoren",
-				"options": {
-					"quote": {
-						"name": "zitat",
-						"description": "Das Zitat, das du hinzufügen möchtest"
-					},
-					"author": {
-						"name": "autor",
-						"description": "Der Autor des Zitats"
-					},
-					"url": {
-						"name": "url",
-						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
-					},
-					"image": {
-						"name": "bild",
-						"description": "The URL of the image to be included with this quote. Has priority over URL's image if provided"
-					}
-				}
-			},
-			"edit": {
-				"name": "bearbeiten",
-				"description": "Bearbeite ein Zitat. Nur für Administratoren",
-				"options": {
-					"index": {
-						"name": "index",
-						"description": "Der Index des zu bearbeitenden Zitats"
-					},
-					"quote": {
-						"name": "zitat",
-						"description": "Das neue Zitat"
-					}
-				}
-			},
-			"delete": {
-				"name": "löschen",
-				"description": "Lösche ein Zitat. Nur für Administratoren",
-				"options": {
-					"index": {
-						"name": "index",
-						"description": "Der Index des zu löschenden Zitats"
-					}
-				}
-			},
-			"link": {
-				"name": "link",
-				"description": "Verlinke ein Zitat mit einer Nachricht. Nur für Administratoren",
-				"options": {
-					"index": {
-						"name": "index",
-						"description": "Der Index des zu verlinkenden Zitats"
-					},
-					"url": {
-						"name": "url",
-						"description": "Die URL der Nachricht, mit der dieses Zitat verknüpft werden soll"
-					},
-					"image": {
-						"name": "bild",
-						"description": "Ob das Bild dieser Nachricht an das Zitat angehängt werden soll oder nicht"
-					}
-				}
-			}
-		},
-		"verify": {
-			"url": {
-				"name": "url",
-				"description": "Die URL zu deinem Crowdin-Profil. Dein Discord-Tag muss in deinem \"Über mich\"-Bereich stehen"
-			},
-			"user": {
-				"name": "benutzer",
-				"description": "Der manuell zu verifizierende Benutzer. Nur für Administratoren"
 			}
 		},
 		"poll": {
@@ -391,6 +272,183 @@
 						"description": "Der Kanal, in dem die Umfrage gepostet wurde, wenn es nicht der aktuelle Kanal ist"
 					}
 				}
+			}
+		},
+		"prefix": {
+			"flags": {
+				"name": "flaggen",
+				"description": "Die Flaggen, die auf dein Präfix angewendet werden sollen, getrennt durch Leerzeichen"
+			}
+		},
+		"profile": {
+			"user": {
+				"name": "benutzer",
+				"description": "Der Benutzer, dessen Profil gesucht werden soll. Nur für Administratoren"
+			},
+			"profile": {
+				"name": "profil",
+				"description": "Das neue Profil, das für den Benutzer festgelegt werden soll. Nur für Administratoren"
+			}
+		},
+		"quote": {
+			"get": {
+				"name": "erhalten",
+				"description": "Erhalte ein zufällig/spezifisches Zitat",
+				"options": {
+					"index": {
+						"name": "index",
+						"description": "Der Index des Zitats, das du sehen willst"
+					}
+				}
+			},
+			"add": {
+				"name": "hinzufügen",
+				"description": "Füge ein neues Zitat hinzu. Nur für Administratoren",
+				"options": {
+					"quote": {
+						"name": "zitat",
+						"description": "Das Zitat, das du hinzufügen möchtest"
+					},
+					"author": {
+						"name": "autor",
+						"description": "Der Autor des Zitats"
+					},
+					"url": {
+						"name": "url",
+						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
+					},
+					"image": {
+						"name": "bild",
+						"description": "The URL of the image to be included with this quote. Has priority over url's image if provided"
+					}
+				}
+			},
+			"edit": {
+				"name": "bearbeiten",
+				"description": "Bearbeite ein Zitat. Nur für Administratoren",
+				"options": {
+					"index": {
+						"name": "index",
+						"description": "Der Index des zu bearbeitenden Zitats"
+					},
+					"quote": {
+						"name": "zitat",
+						"description": "Das neue Zitat"
+					}
+				}
+			},
+			"delete": {
+				"name": "löschen",
+				"description": "Lösche ein Zitat. Nur für Administratoren",
+				"options": {
+					"index": {
+						"name": "index",
+						"description": "Der Index des zu löschenden Zitats"
+					}
+				}
+			},
+			"link": {
+				"name": "link",
+				"description": "Verlinke ein Zitat mit einer Nachricht. Nur für Administratoren",
+				"options": {
+					"index": {
+						"name": "index",
+						"description": "Der Index des zu verlinkenden Zitats"
+					},
+					"url": {
+						"name": "url",
+						"description": "Die URL der Nachricht, mit der dieses Zitat verknüpft werden soll"
+					},
+					"image": {
+						"name": "bild",
+						"description": "Ob das Bild dieser Nachricht an das Zitat angehängt werden soll oder nicht"
+					}
+				}
+			}
+		},
+		"rank": {
+			"user": {
+				"name": "benutzer",
+				"description": "Der Benutzer, für den der Rang angezeigt werden soll"
+			}
+		},
+		"settings": {
+			"get": {
+				"name": "erhalten",
+				"description": "See the value of a setting",
+				"options": {
+					"setting": {
+						"name": "einstellung",
+						"description": "Die Einstellung, die du sehen möchtest",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Korrekturleser Verfügbarkeit"
+						}
+					}
+				}
+			},
+			"set": {
+				"name": "setze",
+				"description": "Ändere den Wert der Einstellung",
+				"options": {
+					"setting": {
+						"name": "einstellung",
+						"description": "Die Einstellung, die geändert werden soll",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Korrekturleser Verfügbarkeit"
+						}
+					},
+					"value": {
+						"name": "wert",
+						"description": "Der Wert, auf den die Einstellung gesetzt werden soll"
+					}
+				}
+			},
+			"reset": {
+				"name": "zurücksetzen",
+				"description": "Setze den Wert einer Einstellung zurück",
+				"options": {
+					"setting": {
+						"name": "einstellung",
+						"description": "Die Einstellung, die zurückgesetzt werden soll",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Korrekturleser Verfügbarkeit"
+						}
+					}
+				}
+			}
+		},
+		"tag": {
+			"tag": {
+				"name": "tag",
+				"description": "Der Tag, den du sehen willst",
+				"choices": {
+					"invite": "Einladungslink zu dem Server",
+					"hypixel": "Hypixel-Links",
+					"guidelines": "Hypixel-Projektrichtlinien",
+					"proofreader": "Wie man ein Korrekturleser für das Hypixel-Projekt wird",
+					"minecraft": "Minecraft-Crowdin-Projekt",
+					"quickplay": "Quickplay-Links",
+					"skyblockaddons": "SkyblockAddons-Links",
+					"thread": "Discord-Server-Thread",
+					"twitter": "Hypixel Translators Community-Twitter"
+				}
+			},
+			"target": {
+				"name": "ziel",
+				"description": "Der Benutzer, der mit diesem Tag erwähnt werden soll"
+			}
+		},
+		"verify": {
+			"url": {
+				"name": "url",
+				"description": "Die URL zu deinem Crowdin-Profil. Dein Discord-Tag muss in deinem \"Über mich\"-Bereich stehen"
+			},
+			"user": {
+				"name": "benutzer",
+				"description": "Der manuell zu verifizierende Benutzer. Nur für Administratoren"
 			}
 		}
 	}
