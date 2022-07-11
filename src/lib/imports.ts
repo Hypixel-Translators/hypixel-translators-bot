@@ -1,21 +1,10 @@
 import { readdirSync, statSync } from "node:fs"
 import { resolve, sep } from "node:path"
 
-import {
-	type ChatInputApplicationCommandData,
-	type Snowflake,
-	type ChatInputCommandInteraction,
-	type ApplicationCommandOptionData,
-	type LocaleString,
-	EmbedBuilder,
-	Routes,
-} from "discord.js"
-
 import { botLocales, transformBotLocale } from "./util"
 
-import { colors, ids } from "../config.json"
-
 import type { HTBClient } from "./dbclient"
+import type { ChatInputApplicationCommandData, Snowflake, ChatInputCommandInteraction, ApplicationCommandOptionData, LocaleString } from "discord.js"
 
 export function findCommands(dir: string, pattern: string) {
 	let results: string[] = []
@@ -80,22 +69,7 @@ export function setup(client: HTBClient) {
 		console.log(`Loaded ${cmdFiles.length} commands.`)
 	}
 
-	if (localizationErrors.length > 25) {
-		console.error(`There were ${localizationErrors.length} localization errors.`, ...localizationErrors)
-		client.rest.post(Routes.channelMessages(ids.channels.botDev), {
-			body: {
-				content: `There were ${localizationErrors.length} errors in the command localization strings. I couldn't send them all here to check the console for more info.`,
-			},
-		})
-	} else if (localizationErrors.length) {
-		const embed = new EmbedBuilder({
-			color: colors.error,
-			title: "Found errors on command localization strings",
-			fields: localizationErrors.map(err => ({ name: `${err.locale}: ${err.command}: ${err.type}`, value: err.string })),
-			timestamp: Date.now(),
-		})
-		client.rest.post(Routes.channelMessages(ids.channels.botDev), { body: { embeds: [embed.toJSON()] } })
-	}
+	if (localizationErrors.length) console.error(`There were ${localizationErrors.length} localization errors:\n`, ...localizationErrors)
 
 	// Setup listeners
 	const listeners = readdirSync("./dist/listeners").filter(f => f.endsWith(".js"))
