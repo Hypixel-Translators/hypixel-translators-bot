@@ -1,7 +1,6 @@
 import { readdirSync, statSync } from "node:fs"
 import { resolve, sep } from "node:path"
 
-
 import { botLocales, transformBotLocale } from "./util"
 
 import type { HTBClient } from "./dbclient"
