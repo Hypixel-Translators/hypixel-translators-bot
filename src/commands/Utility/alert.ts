@@ -114,14 +114,20 @@ const command: Command = {
 								.filter(m => !m.user.bot && !m.pending)
 								.sort((a, b) => (dbUsers.find(u => u.id === b.id)!.levels?.totalXp ?? 0) - (dbUsers.find(u => u.id === a.id)!.levels?.totalXp ?? 0)),
 							resolvedData = selectedRoles.map(
-								r => sortedMembers.find(m => m.roles.cache.has(r.id) && (dbUsers.find(u => u.id === m.id)!.settings?.availability ?? true)) ?? r,
+								r =>
+									[
+										r,
+										sortedMembers.find(m => m.roles.cache.has(r.id) && (dbUsers.find(u => u.id === m.id)!.settings?.availability ?? true)) ?? null,
+									] as const,
 							),
 							[failedRoles, chosenPfs] = resolvedData.reduce(
-								(prev, pfOrRole) => {
-									prev[pfOrRole instanceof Role ? 0 : 1].push(pfOrRole as GuildMember & Role)
-									return prev
+								([prevRoles, prevPfs], [role, member]) => {
+									if (member) prevPfs.push([role, member])
+									else prevRoles.push(role)
+
+									return [prevRoles, prevPfs]
 								},
-								[[], []] as [Role[], GuildMember[]],
+								[[], []] as [Role[], [Role, GuildMember][]],
 							)
 
 						if (failedRoles.length && !chosenPfs.length) {
@@ -139,8 +145,8 @@ const command: Command = {
 								components: [],
 							})
 							await interaction.channel!.send({
-								content: `${interaction.user}: ${message}\n\n${chosenPfs.join(" ")}`,
-								allowedMentions: { users: [...new Set(chosenPfs.map(m => m.id))] },
+								content: `${interaction.user}: ${message}\n\n${chosenPfs.map(d => d.join(": ")).join(", ")}`,
+								allowedMentions: { users: [...new Set(chosenPfs.map(([, m]) => m.id))], roles: [] },
 							})
 						} else {
 							await componentInteraction.update({
@@ -148,8 +154,8 @@ const command: Command = {
 								components: [],
 							})
 							await interaction.channel!.send({
-								content: `${interaction.user}: ${message}\n\n${chosenPfs.join(" ")}`,
-								allowedMentions: { users: [...new Set(chosenPfs.map(m => m.id))] },
+								content: `${interaction.user}: ${message}\n\n${chosenPfs.map(d => d.join(": ")).join(", ")}`,
+								allowedMentions: { users: [...new Set(chosenPfs.map(([, m]) => m.id))], roles: [] },
 							})
 						}
 						collector.stop("replied")
