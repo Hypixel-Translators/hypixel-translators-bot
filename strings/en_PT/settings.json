@@ -1,0 +1,6 @@
+{
+    "isSetTo": "Yer %%setting%% settin' be set t' %%value%%",
+    "successSet": "Successfully set yer %%setting%% settin' t' %%value%%",
+    "successReset": "Successfully reset yer %%setting%% settin'",
+    "onlyPf": "'Tis here settin' be only available fer Hypixel Proofreaders!"
+}
