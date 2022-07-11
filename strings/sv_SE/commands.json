@@ -1,396 +1,454 @@
 {
 	"names": {
-		"8ball": "8ball",
+		"8ball": "8boll",
+		"alert": "meddela",
 		"feedback": "feedback",
-		"levels": "levels",
-		"ping": "ping",
-		"profile": "profile",
-		"projects": "projects",
-		"rank": "rank",
-		"tag": "tag",
-		"translate": "translate",
-		"help": "help",
-		"hypixelstats": "hypixelstats",
-		"hypixelunverify": "hypixelunverify",
-		"hypixelverify": "hypixelverify",
-		"language": "language",
-		"languagestats": "languagestats",
-		"mention": "mention",
+		"help": "hjälp",
+		"hypixelstats": "hypixelstatistik",
+		"hypixelunverify": "hypixelavverifiera",
+		"hypixelverify": "hypixelverifiera",
+		"language": "språk",
+		"languagestats": "språkstatistik",
+		"levels": "nivåer",
+		"mention": "nämn",
 		"minecraft": "minecraft",
+		"ping": "ping",
+		"poll": "enkät",
 		"prefix": "prefix",
-		"quote": "quote",
-		"verify": "verify",
-		"poll": "poll"
+		"profile": "profil",
+		"projects": "projekt",
+		"quote": "citat",
+		"rank": "rang",
+		"settings": "inställningar",
+		"tag": "tagg",
+		"translate": "översätt",
+		"verify": "verifiera"
 	},
 	"descriptions": {
-		"8ball": "The Magic 8 Ball that will answer all your questions",
-		"feedback": "Gives you instructions on how to give feedback towards the bot",
-		"help": "Shows you all available commands and general info about the bot",
-		"hypixelstats": "Shows you basic Hypixel stats for the provided user",
-		"hypixelunverify": "Unlinks your Discord account from your Hypixel player",
-		"hypixelverify": "Links your Discord account with your Hypixel player",
-		"language": "Changes your language, shows your current one or a list of available languages",
-		"languagestats": "Shows you the progress of a language on the all projects we currently support",
-		"levels": "Shows you the XP leaderboard",
-		"mention": "Mentions a language role with a message",
-		"minecraft": "Looks up a specific Minecraft player's name history or skin",
-		"ping": "Gives you the bot's ping",
-		"prefix": "Lets you pick an appropriate prefix for your language(s)",
-		"profile": "Gives you the link to your Crowdin profile if it's stored on our database.",
-		"projects": "Gives you links and information about all the translation projects we support on the server",
-		"quote": "Shows a funny/weird/wise quote from the server",
-		"rank": "Gives you the current XP for yourself or any given user",
-		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
-		"translate": "Gives you useful information on how to translate the bot",
-		"verify": "Verifies and gives you your corresponding roles",
-		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above"
+		"8ball": "Den Magiska 8-bollen som kommer att svara på alla dina frågor",
+		"alert": "Meddelar andra korrekturläsare om problem i deras översättningar",
+		"feedback": "Ger dig information om hur du ger feedback om botten",
+		"help": "Visar dig alla tillgängliga kommandon och allmän information om botten",
+		"hypixelstats": "Visar grundläggande Hypixel-statistik för den angivna användaren",
+		"hypixelunverify": "Kopplar bort ditt Discord-konto från ditt Hypixel-spelarkonto",
+		"hypixelverify": "Kopplar ditt Discord-konto till ditt Hypixel-spelarkonto",
+		"language": "Ändrar ditt språk, visar ditt nuvarande språk eller en lista över tillgängliga språk",
+		"languagestats": "Visar hur ett språk utvecklas i alla projekt som vi för närvarande stödjer",
+		"levels": "Visar dig XP-topplistan",
+		"mention": "Nämner en språkroll med ett valfritt meddelande",
+		"minecraft": "Söker upp en viss Minecraft-spelares namnhistorik eller utseende",
+		"ping": "Visar bottens ping",
+		"poll": "Skapar eller hanterar enkäter på servern. Tillgängligt för Hypixel-korrekturläsare och högre",
+		"prefix": "Låter dig välja ett lämpligt prefix för ditt/dina språk",
+		"profile": "Ger dig länken till din Crowdin-profil om den lagras i vår databas",
+		"projects": "Ger dig länkar och information om alla översättningsprojekt vi stödjer på servern",
+		"quote": "Visar ett roligt/konstigt/kokt citat från servern",
+		"rank": "Ger dig den nuvarande XP för dig själv eller en vald användare",
+		"settings": "Ändra eller visa dina inställningar för botten",
+		"tag": "Meddelar en vald användare med ett förinställt meddelande",
+		"translate": "Ger dig användbar information om hur du översätter botten",
+		"verify": "Verifierar dig och ger dig motsvarande roller"
 	},
 	"options": {
 		"8ball": {
 			"question": {
-				"name": "question",
-				"description": "The question to ask the bot"
+				"name": "fråga",
+				"description": "Frågan att ställa till botten"
 			}
 		},
-		"levels": {
-			"me": {
-				"name": "me",
-				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
-			},
-			"page": {
-				"name": "page",
-				"description": "The leaderboard page to get"
-			}
-		},
-		"profile": {
-			"user": {
-				"name": "user",
-				"description": "The user to find the profile for. Admin only"
-			},
-			"profile": {
-				"name": "profile",
-				"description": "The new profile to set for the user. Admin only"
-			}
-		},
-		"rank": {
-			"user": {
-				"name": "user",
-				"description": "The user to get the rank for"
-			}
-		},
-		"tag": {
-			"tag": {
-				"name": "tag",
-				"description": "The tag you want to see",
-				"choices": {
-					"invite": "Invite link to the server",
-					"hypixel": "Hypixel links",
-					"guidelines": "Hypixel project guidelines",
-					"proofreader": "How to get proofreader on the Hypixel project",
-					"minecraft": "Minecraft Crowdin Project",
-					"quickplay": "Quickplay links",
-					"skyblockaddons": "SkyblockAddons links",
-					"thread": "Discord server thread",
-					"twitter": "Hypixel Translators Community Twitter"
-				}
-			},
-			"target": {
-				"name": "target",
-				"description": "The user to mention with this tag"
+		"alert": {
+			"message": {
+				"name": "meddelande",
+				"description": "Meddelandet som du vill skicka till korrekturläsare"
 			}
 		},
 		"help": {
 			"command": {
-				"name": "command",
-				"description": "The command to get information for"
+				"name": "kommando",
+				"description": "Kommandot att få information för"
 			},
 			"page": {
-				"name": "page",
-				"description": "The help page to open",
+				"name": "sida",
+				"description": "Hjälpsidan att öppna",
 				"choices": [
-					"Main Page",
+					"Huvudsida",
 					"Verktyg och hjälpmedel",
-					"Information commands"
+					"Informationskommandon"
 				]
 			}
 		},
 		"hypixelstats": {
 			"username": {
-				"name": "username",
-				"description": "The IGN of the user to get statistics for. Can also be a UUID"
+				"name": "användarnamn",
+				"description": "Det spelarnamn för användaren att få statistik för. Kan också vara ett UUID"
 			},
 			"user": {
-				"name": "user",
-				"description": "The server member to get statistics for. Only works if the user has verified themselves"
+				"name": "användare",
+				"description": "Servermedlemmen att få statistik för. Fungerar endast om användaren har verifierat sig själv"
 			}
 		},
 		"hypixelunverify": {
 			"user": {
-				"name": "user",
-				"description": "The user to unverify. Admin only"
+				"name": "användare",
+				"description": "Användaren att avverifiera. Endast för administratörer"
 			}
 		},
 		"hypixelverify": {
 			"username": {
-				"name": "username",
-				"description": "Your Hypixel IGN. Must have your Discord linked in-game"
+				"name": "användarnamn",
+				"description": "Ditt Hypixel-spelarnamn. Du måste ha ditt Discord-konto kopplat till i spelet"
 			},
 			"user": {
-				"name": "user",
-				"description": "The user to verify. Admin only"
+				"name": "användare",
+				"description": "Användaren att verifiera. Endast för administratörer"
 			}
 		},
 		"language": {
 			"set": {
-				"name": "set",
-				"description": "Sets your language to a new one. Leave empty to see your current language",
+				"name": "inställ",
+				"description": "Ställer in ditt språk till ett nytt. Lämna det tomt för att se ditt nuvarande språk",
 				"options": {
 					"language": {
-						"name": "language",
-						"description": "The new language you want to set"
+						"name": "språk",
+						"description": "Det nya språket du vill ställa in"
 					}
 				}
 			},
 			"reset": {
-				"name": "reset",
-				"description": "Resets your language"
+				"name": "återställ",
+				"description": "Återställer ditt språk"
 			},
 			"list": {
-				"name": "list",
-				"description": "Gives you a list of all the available languages"
+				"name": "lista",
+				"description": "Ger dig en lista över alla tillgängliga språk"
 			},
 			"stats": {
-				"name": "stats",
-				"description": "Gives you usage statistics for a given language. Admin only",
+				"name": "statistik",
+				"description": "Ger dig användningsstatistik för et valt språk. Endast för administratörer",
 				"options": {
 					"language": {
-						"name": "language",
-						"description": "The language to get usage statistics for"
+						"name": "språk",
+						"description": "Språket att få användningsstatistik för"
 					}
 				}
 			}
 		},
 		"languagestats": {
 			"language": {
-				"name": "language",
-				"description": "The language to get progress statistics for. Required if your language is set to English"
+				"name": "språk",
+				"description": "Språket att få framstegsstatistik för. Krävs om ditt språk är inställt på engelska"
+			}
+		},
+		"levels": {
+			"me": {
+				"name": "mig",
+				"description": "Om du vill börja på den sida du visas i. Har prioritet framför argumentet \"sida\""
+			},
+			"page": {
+				"name": "sida",
+				"description": "Topplistans sidnummer"
 			}
 		},
 		"mention": {
 			"language": {
-				"name": "language",
-				"description": "The language to mention"
+				"name": "språk",
+				"description": "Språket att nämna"
 			},
 			"role": {
-				"name": "role",
-				"description": "The role to mention",
+				"name": "roll",
+				"description": "Rollen att nämna",
 				"choices": {
-					"all": "Both roles",
-					"translator": "Translator",
-					"proofreader": "Proofreader"
+					"all": "Båda roller",
+					"proofreader": "Korrekturläsare",
+					"translator": "Översättare"
 				}
 			},
 			"message": {
-				"name": "message",
-				"description": "The message to send with the mention"
+				"name": "meddelande",
+				"description": "Meddelandet att skicka med omnämnandet"
 			}
 		},
 		"minecraft": {
 			"history": {
-				"name": "history",
-				"description": "Shows a user's name history. You must provide at least 1 parameter if your MC account is not linked",
+				"name": "historik",
+				"description": "Visar en användares namnhistorik. Du måste ange minst 1 parameter om ditt MC-konto inte är kopplat",
 				"options": {
 					"username": {
-						"name": "username",
-						"description": "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked"
+						"name": "användarnamn",
+						"description": "IGN/UUID för användaren att få namnhistorik för. Standard är din användare om ditt konto är kopplat"
 					},
 					"user": {
-						"name": "user",
-						"description": "The server member to get name history for. Only works if the user has verified themselves"
+						"name": "användare",
+						"description": "Servermedlemmen att få namnhistorik för. Fungerar endast om användaren har verifierat sig själv"
 					}
 				}
 			},
 			"skin": {
-				"name": "skin",
-				"description": "Shows a user's skin. You must provide at least 1 parameter if your MC account is not linked",
+				"name": "utseende",
+				"description": "Visar en användares utseende. Du måste ange minst 1 parameter om ditt MC-konto inte är kopplat",
 				"options": {
 					"username": {
-						"name": "username",
-						"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
+						"name": "användarnamn",
+						"description": "IGN/UUID för användaren att få utseende för. Standard är din användare om ditt konto är kopplat"
 					},
 					"user": {
-						"name": "user",
-						"description": "The server member to get skin for. Only works if the user has verified themselves"
+						"name": "användare",
+						"description": "Servermedlemmen att få utseende för. Fungerar endast om användaren har verifierat sig själv"
+					}
+				}
+			}
+		},
+		"poll": {
+			"start": {
+				"name": "starta",
+				"description": "Startar en enkät i den aktuella kanalen",
+				"options": {
+					"question": {
+						"name": "fråga",
+						"description": "Frågan om enkäten"
+					},
+					"option1": {
+						"name": "alternativ1",
+						"description": "Det första alternativet i enkäten"
+					},
+					"option2": {
+						"name": "alternativ2",
+						"description": "Det andra alternativet i enkäten"
+					},
+					"time": {
+						"name": "tid",
+						"description": "Hur länge tar det innan enkäten stängs automatiskt och resultaten publiceras (i timmar)"
+					},
+					"option3": {
+						"name": "alternativ3",
+						"description": "Det tredje alternativet i enkäten"
+					},
+					"option4": {
+						"name": "alternativ4",
+						"description": "Det fjärde alternativet i enkäten"
+					},
+					"option5": {
+						"name": "alternativ5",
+						"description": "Det femte alternativet i enkäten"
+					},
+					"option6": {
+						"name": "alternativ6",
+						"description": "Det sjätte alternativet i enkäten"
+					},
+					"option7": {
+						"name": "alternativ 7",
+						"description": "Det sjunde alternativet i enkäten"
+					},
+					"option8": {
+						"name": "alternativ8",
+						"description": "Det åttonde alternativet i enkäten"
+					}
+				}
+			},
+			"end": {
+				"name": "avsluta",
+				"description": "Avsluta en enkät med dess meddelande-ID",
+				"options": {
+					"message_id": {
+						"name": "meddelande_id",
+						"description": "ID till meddelandet som innehåller enkäten"
+					},
+					"channel": {
+						"name": "kanal",
+						"description": "Kanalen som enkäten publicerades i, om det inte är den aktuella kanalen"
+					}
+				}
+			},
+			"show": {
+				"name": "visa",
+				"description": "Visar de aktuella resultaten av en enkät utan att avsluta den. Endast för skaparen av enkäten",
+				"options": {
+					"message_id": {
+						"name": "meddelande_id",
+						"description": "ID till meddelandet som innehåller enkäten"
+					},
+					"channel": {
+						"name": "kanal",
+						"description": "Kanalen som enkäten publicerades i, om det inte är den aktuella kanalen"
 					}
 				}
 			}
 		},
 		"prefix": {
 			"flags": {
-				"name": "flags",
-				"description": "The flags to be applied to your prefix, separated with spaces"
+				"name": "flaggor",
+				"description": "Flaggorna att tillämpa på ditt prefix, separata med mellanrum"
+			}
+		},
+		"profile": {
+			"user": {
+				"name": "användare",
+				"description": "Användaren för att hitta profilen för. Endast för administratörer"
+			},
+			"profile": {
+				"name": "profil",
+				"description": "Den nya profilen att ställa in för användaren. Endast för administratörer"
 			}
 		},
 		"quote": {
 			"get": {
-				"name": "get",
-				"description": "Get a random/specific quote",
+				"name": "hämta",
+				"description": "Hämta en slumpmässig/specifik citat",
 				"options": {
 					"index": {
 						"name": "index",
-						"description": "The index of the quote you want to see"
+						"description": "Indexet för citatet du vill se"
 					}
 				}
 			},
 			"add": {
-				"name": "add",
-				"description": "Add a new quote. Staff only",
+				"name": "tillägg",
+				"description": "Lägg till et nytt citat. Endast för staff",
 				"options": {
 					"quote": {
-						"name": "quote",
-						"description": "The quote you want to add"
+						"name": "citat",
+						"description": "Citatet du vill lägga till"
 					},
 					"author": {
-						"name": "author",
-						"description": "The author of this quote"
+						"name": "författare",
+						"description": "Författaren till detta citat"
 					},
 					"url": {
 						"name": "url",
-						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
+						"description": "URL till citatets meddelande. Om meddelandet har en bil kommer det också att inkluderas"
 					},
 					"image": {
-						"name": "image",
-						"description": "The URL of the image to be included with this quote. Has priority over URL's image if provided"
+						"name": "bild",
+						"description": "URL till bilden som ska inkluderas med detta citat. Har prioritet framför URL:ens bild om den anges"
 					}
 				}
 			},
 			"edit": {
-				"name": "edit",
-				"description": "Edit a quote. Staff only",
+				"name": "redigera",
+				"description": "Redigera ett citat. Endast för staff",
 				"options": {
 					"index": {
 						"name": "index",
-						"description": "The index of the quote to edit"
+						"description": "Indexet för citatet att redigera"
 					},
 					"quote": {
-						"name": "quote",
-						"description": "The new quote"
+						"name": "citat",
+						"description": "Det nya citatet"
 					}
 				}
 			},
 			"delete": {
-				"name": "delete",
-				"description": "Delete a quote. Staff only",
+				"name": "bortta",
+				"description": "Ta bort ett citat. Endast för staff",
 				"options": {
 					"index": {
 						"name": "index",
-						"description": "The index of the quote to delete"
+						"description": "Indexet för citatet att ta bort"
 					}
 				}
 			},
 			"link": {
-				"name": "link",
-				"description": "Link a quote to a message. Staff only",
+				"name": "länk",
+				"description": "Koppla ett citat till ett meddelande. Endast för staff",
 				"options": {
 					"index": {
 						"name": "index",
-						"description": "The index of the quote to link"
+						"description": "Indexet för citatet att koppla"
 					},
 					"url": {
 						"name": "url",
-						"description": "The URL of the message to link this quote to"
+						"description": "URL till meddelandet att koppla detta citat till"
 					},
 					"image": {
-						"name": "image",
-						"description": "Whether or not to attach this message's image to the quote"
+						"name": "bild",
+						"description": "Om du vill bifoga meddelandets bild till citatet eller ej"
 					}
 				}
+			}
+		},
+		"rank": {
+			"user": {
+				"name": "användare",
+				"description": "Användaren att få rangen för"
+			}
+		},
+		"settings": {
+			"get": {
+				"name": "hämta",
+				"description": "Se värdet på en inställning",
+				"options": {
+					"setting": {
+						"name": "inställning",
+						"description": "Inställningen att visas",
+						"choices": {
+							"lvlUpMsg": "Skicka meddelanden vid nivå upp",
+							"availability": "Tillgänglighet som korrekturläsare"
+						}
+					}
+				}
+			},
+			"set": {
+				"name": "inställ",
+				"description": "Ändra värdet för en inställning",
+				"options": {
+					"setting": {
+						"name": "inställning",
+						"description": "Inställningen att ändras",
+						"choices": {
+							"lvlUpMsg": "Skicka meddelanden vid nivå upp",
+							"availability": "Tillgänglighet som korrekturläsare"
+						}
+					},
+					"value": {
+						"name": "värde",
+						"description": "Värdet att ställa in inställningen på"
+					}
+				}
+			},
+			"reset": {
+				"name": "återställ",
+				"description": "Återställ värdet på en inställning",
+				"options": {
+					"setting": {
+						"name": "inställning",
+						"description": "Inställningen att återställas",
+						"choices": {
+							"lvlUpMsg": "Skicka meddelanden vid nivå upp",
+							"availability": "Tillgänglighet som korrekturläsare"
+						}
+					}
+				}
+			}
+		},
+		"tag": {
+			"tag": {
+				"name": "tagg",
+				"description": "Taggen du vill se",
+				"choices": {
+					"invite": "Inbjudningslänk till servern",
+					"hypixel": "Hypixel-länkar",
+					"guidelines": "Riktlinjer för Hypixel-projektet",
+					"proofreader": "Hur du blir korrekturläsare på Hypixel-projektet",
+					"minecraft": "Minecraft Crowdin-projekt",
+					"quickplay": "Quickplay-länkar",
+					"skyblockaddons": "SkyblockAddons-länkar",
+					"thread": "Discord-serverns tråd",
+					"twitter": "Hypixel-översättargemenskap på Twitter"
+				}
+			},
+			"target": {
+				"name": "mål",
+				"description": "Användaren att nämna"
 			}
 		},
 		"verify": {
 			"url": {
 				"name": "url",
-				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section"
+				"description": "URL till din Crowdin-profil. Du måste ha din Discord-tagg i avsnittet \"About me\""
 			},
 			"user": {
-				"name": "user",
-				"description": "The user to manually verify. Admin only"
-			}
-		},
-		"poll": {
-			"start": {
-				"name": "start",
-				"description": "Starts a poll in the current channel",
-				"options": {
-					"question": {
-						"name": "question",
-						"description": "The question of the poll"
-					},
-					"option1": {
-						"name": "option1",
-						"description": "The first option in the poll"
-					},
-					"option2": {
-						"name": "option2",
-						"description": "The second option in the poll"
-					},
-					"time": {
-						"name": "time",
-						"description": "How long before this poll is automatically closed and results are published (in hours)"
-					},
-					"option3": {
-						"name": "option3",
-						"description": "The third option in the poll"
-					},
-					"option4": {
-						"name": "option4",
-						"description": "The fourth option in the poll"
-					},
-					"option5": {
-						"name": "option5",
-						"description": "The fifth option in the poll"
-					},
-					"option6": {
-						"name": "option6",
-						"description": "The sixth option in the poll"
-					},
-					"option7": {
-						"name": "option7",
-						"description": "The seventh option in the poll"
-					},
-					"option8": {
-						"name": "option8",
-						"description": "The eighth option in the poll"
-					}
-				}
-			},
-			"end": {
-				"name": "end",
-				"description": "End a poll given its message ID",
-				"options": {
-					"message_id": {
-						"name": "message_id",
-						"description": "The ID of the message containing the poll"
-					},
-					"channel": {
-						"name": "channel",
-						"description": "The channel the poll was posted in, if not the current one"
-					}
-				}
-			},
-			"show": {
-				"name": "show",
-				"description": "Shows the current results of a poll without ending it. Only available to the creator of the poll",
-				"options": {
-					"message_id": {
-						"name": "message_id",
-						"description": "The ID of the message containing the poll"
-					},
-					"channel": {
-						"name": "channel",
-						"description": "The channel the poll was posted in, if not the current one"
-					}
-				}
+				"name": "användare",
+				"description": "Användaren att verifiera manuellt. Endast för administratörer"
 			}
 		}
 	}
