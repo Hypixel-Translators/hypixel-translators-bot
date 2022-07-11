@@ -1,0 +1,6 @@
+{
+    "isSetTo": "Deine Einstellung: \"%%setting%%\" ist auf %%value%% gesetzt",
+    "successSet": "Deine Einstellung: \"%%setting%%\" wurde erfolgreich auf %%value%% gesetzt",
+    "successReset": "Deine Einstellung: \"%%setting%%\" wurde erfolgreich zurückgesetzt",
+    "onlyPf": "Diese Einstellung ist nur für Hypixel-Korrekturleser verfügbar!"
+}
