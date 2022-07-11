@@ -26,6 +26,8 @@ const command: Command = {
 			name: "username",
 			description: "The IGN of the user to get statistics for. Can also be a UUID",
 			required: false,
+			// Max length of a UUID with dashes
+			maxLength: 36,
 		},
 		{
 			type: ApplicationCommandOptionType.User,

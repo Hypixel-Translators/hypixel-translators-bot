@@ -18,6 +18,8 @@ const command: Command = {
 			name: "url",
 			description: 'The URL to your Crowdin profile. Must have your Discord tag in your "About me" section',
 			required: false,
+			// Minimum length of a Crowdin profile URL
+			minLength: 29,
 		},
 		{
 			type: ApplicationCommandOptionType.User,

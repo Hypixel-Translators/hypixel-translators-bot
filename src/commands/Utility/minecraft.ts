@@ -22,6 +22,9 @@ const command: Command = {
 					name: "username",
 					description: "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked",
 					required: false,
+					minLength: 1,
+					// Max length of a UUID with dashes
+					maxLength: 36,
 				},
 				{
 					type: ApplicationCommandOptionType.User,
@@ -41,6 +44,9 @@ const command: Command = {
 					name: "username",
 					description: "The IGN/UUID of the user to get the skin for. Defaults to your own skin if your account is linked",
 					required: false,
+					minLength: 1,
+					// Max length of a UUID with dashes
+					maxLength: 36,
 				},
 				{
 					type: ApplicationCommandOptionType.User,

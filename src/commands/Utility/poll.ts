@@ -102,6 +102,8 @@ const command: Command = {
 					name: "message_id",
 					description: "The ID of the message containing the poll",
 					required: true,
+					minLength: 18,
+					maxLength: 19,
 				},
 				{
 					type: ApplicationCommandOptionType.Channel,
@@ -121,6 +123,8 @@ const command: Command = {
 					name: "message_id",
 					description: "The ID of the message containing the poll",
 					required: true,
+					minLength: 18,
+					maxLength: 19,
 				},
 				{
 					type: ApplicationCommandOptionType.Channel,

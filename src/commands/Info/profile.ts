@@ -22,6 +22,8 @@ const command: Command = {
 			name: "profile",
 			description: "The new profile to set for the user. Admin-only",
 			required: false,
+			// Minimum length of a Crowdin profile URL
+			minLength: 29,
 		},
 	],
 	async execute(interaction, getString: GetStringFunction) {

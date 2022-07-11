@@ -53,11 +53,15 @@ const command: Command = {
 					name: "url",
 					description: "The URL of the message this quote came from. If the message has an image it will be included as well",
 					required: false,
+					// Minimum length of a Discord message URL
+					minLength: 85,
+					// Maximum length of a Discord Canary message URL
+					maxLength: 95,
 				},
 				{
-					type: ApplicationCommandOptionType.String,
+					type: ApplicationCommandOptionType.Attachment,
 					name: "image",
-					description: "The URL of the image to be included with this quote. Has priority over url's image if provided",
+					description: "The image to be included with this quote. Has priority over url's image if provided",
 					required: false,
 				},
 			],
@@ -113,6 +117,10 @@ const command: Command = {
 					name: "url",
 					description: "The URL of the message to link this quote to",
 					required: true,
+					// Minimum length of a Discord message URL
+					minLength: 85,
+					// Maximum length of a Discord Canary message URL
+					maxLength: 95,
 				},
 				{
 					type: ApplicationCommandOptionType.Boolean,
@@ -197,7 +205,7 @@ async function addQuote(interaction: ChatInputCommandInteraction, collection: Co
 		author = interaction.options.getUser("author", true),
 		urlSplit = interaction.options.getString("url", false)?.split("/")
 
-	let pictureUrl = interaction.options.getString("image", false)
+	let picture = interaction.options.getAttachment("image", false)
 
 	if (urlSplit) {
 		if (urlSplit.length === 7) {
@@ -217,7 +225,7 @@ async function addQuote(interaction: ChatInputCommandInteraction, collection: Co
 				})
 				return await interaction.reply({ embeds: [embed], ephemeral: true })
 			}
-			if (msg.attachments.size > 0) pictureUrl ??= msg.attachments.first()!.url
+			if (msg.attachments.size > 0) picture ??= msg.attachments.first()!
 			const embed = new EmbedBuilder({
 				color: colors.success,
 				author: { name: "Quote" },
@@ -233,9 +241,9 @@ async function addQuote(interaction: ChatInputCommandInteraction, collection: Co
 					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 				},
 			})
-			if (pictureUrl) {
-				embed.setImage(pictureUrl)
-				await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: msg.url, imageURL: pictureUrl })
+			if (picture) {
+				embed.setImage(picture.url)
+				await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: msg.url, imageURL: picture.url })
 			} else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], url: msg.url })
 			await interaction.reply({ embeds: [embed] })
 		} else {
@@ -265,9 +273,9 @@ async function addQuote(interaction: ChatInputCommandInteraction, collection: Co
 				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 			},
 		})
-		if (pictureUrl) {
-			embed.setImage(pictureUrl)
-			await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], imageURL: pictureUrl })
+		if (picture) {
+			embed.setImage(picture.url)
+			await collection.insertOne({ id: quoteId, quote: quote, author: [author.id], imageURL: picture.url })
 		} else await collection.insertOne({ id: quoteId, quote: quote, author: [author.id] })
 		await interaction.reply({ embeds: [embed] })
 	}
@@ -377,7 +385,7 @@ async function deleteQuote(interaction: ChatInputCommandInteraction, collection:
 async function linkQuote(interaction: ChatInputCommandInteraction, collection: Collection<Quote>) {
 	const quoteId = interaction.options.getInteger("index", true),
 		urlSplit = interaction.options.getString("url", true).split("/"),
-		linkAttch = interaction.options.getBoolean("attachment", false),
+		linkAttch = interaction.options.getBoolean("image", false),
 		msg = await (interaction.client.channels.cache.get(urlSplit[5]) as TextChannel | undefined)?.messages
 			.fetch(urlSplit[6])
 			.catch(() => null)

@@ -13,6 +13,8 @@ const command: Command = {
 			name: "messageid",
 			description: "The ID of the message on this channel to fetch winners from",
 			required: true,
+			minLength: 18,
+			maxLength: 19,
 		},
 		{
 			type: ApplicationCommandOptionType.Integer,

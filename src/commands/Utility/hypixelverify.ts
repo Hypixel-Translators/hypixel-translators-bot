@@ -15,6 +15,8 @@ const command: Command = {
 			name: "username",
 			description: "Your Hypixel IGN. Must have your Discord linked in-game",
 			required: true,
+			minLength: 1,
+			maxLength: 16,
 		},
 		{
 			type: ApplicationCommandOptionType.User,
