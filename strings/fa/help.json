@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, one {# second} other {# seconds}}",
 	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "مدت زمان لازم برای استفاده مجدد از دستور",
-	"8ball": {
-		"description": "توپ جادویی که به همۀ سوال‌های شما جواب خواهد داد."
-	},
-	"feedback": {
-		"description": "صفحۀ issues گیت‌هاب ما را باز خواهد کرد، جایی که می‌توانید اشکالات را گزارش دهید و نظرات خود را بیان کنید."
-	},
-	"help": {
-		"description": "همۀ کامندهای موجود و اطلاعات دیگری دربارۀ ربات را به شما می‌دهد."
-	},
-	"hypixelstats": {
-		"description": "آمار سادۀ کاربر مدنظر شما در هایپیکسل را به شما می‌دهد."
-	},
-	"hypixelunverify": {
-		"description": "اکانت دیسکورد شما را از اکانت ماینکرفت شما آنلینک می‌کند."
-	},
-	"hypixelverify": {
-		"description": "اکانت دیسکورد شما را با اکانت ماینکرفت شما لینک می‌کند."
-	},
-	"language": {
-		"description": "زبان شما را تغییر می‌دهد، زبان فعلی شما یا لیست زبان‌های موجود را نشان می‌دهد."
-	},
-	"languagestats": {
-		"description": "وضعیت یک زبان را در پروژه‌هایی که ما پشتیبانی می‌کنیم نشان می‌دهد."
-	},
-	"levels": {
-		"description": "لیدربورد تجربۀ افراد را به شما می‌دهد."
-	},
-	"mention": {
-		"description": "یک رول مربوط به زبان را با پیام اختیاری منشن می‌کند."
-	},
-	"minecraft": {
-		"description": "تاریخچۀ نام یا اسکین یک بازیکن مشخص ماینکرفت را جستجو می‌کند. این کامند با کامند hypixelverify/ سازگار است، اجازه می‌دهد اگر بازیکن مشخصی احراز هویت کرده باشد، اطلاعات او را جستجو کنید. پارامتر `user` همیشه بر `username` ارجحیت دارد و اگر احراز هویت کرده باشید، هر دو اختیاری هستند. در غیر این صورت وارد کردن حداقل یکی از آنها الزامی است."
-	},
-	"ping": {
-		"description": "پینگ بات را به شما می‌دهد."
-	},
-	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
-	},
-	"prefix": {
-		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
-	},
-	"profile": {
-		"description": "لینک پروفایل کراودین‌تان را در صورت وجود در دیتابیس ما، به شما می‌دهد. اگر وجود نداشته باشد، می‌توانید کامند `help verify/` را استفاده کرده تا چگونگی ذخیره پروفایل‌تان و دریافت رول را مطالعه کنید."
-	},
-	"projects": {
-		"description": "لینک‌ها و اطلاعاتی دربارۀ پروژه‌های ترجمه‌ای که ما در سرور پشتیبانی می‌کنیم به شما می‌دهد."
-	},
-	"quote": {
-		"description": "Shows a funny/weird/wise quote from the server."
-	},
-	"rank": {
-		"description": "تجربۀ فعلی شما و یا هر کاربر دیگری را به شما می‌دهد."
-	},
-	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
-	},
-	"translate": {
-		"description": "Gives you useful information on how to translate the bot."
-	},
-	"verify": {
-		"description": "به صورت اتوماتیک تغییرات پروفایل کراودین شما را بررسی می‌کند و رول‌های مناسب را به شما می‌دهد. اگر پروفایل شما در دیتابیس ما موجود نباشد، می‌توانید آن را به صورت یک آرگومان در کامند وارد کنید. برای بررسی وجود پروفایل شما در دیتابیس، کامند `profile/` را اجرا کنید. توجه داشته باشید دریافت DM از این سرور باید برایتان فعال باشد که بات بتواند به شما پیام بدهد."
+	"descriptions": {
+		"8ball": "توپ جادویی که به همۀ سوال‌های شما جواب خواهد داد.",
+		"alert": "Alerts other proofreaders for issues in their translations",
+		"feedback": "صفحۀ issues گیت‌هاب ما را باز خواهد کرد، جایی که می‌توانید اشکالات را گزارش دهید و نظرات خود را بیان کنید.",
+		"help": "همۀ کامندهای موجود و اطلاعات دیگری دربارۀ ربات را به شما می‌دهد.",
+		"hypixelstats": "آمار سادۀ کاربر مدنظر شما در هایپیکسل را به شما می‌دهد.",
+		"hypixelunverify": "اکانت دیسکورد شما را از اکانت ماینکرفت شما آنلینک می‌کند.",
+		"hypixelverify": "اکانت دیسکورد شما را با اکانت ماینکرفت شما لینک می‌کند.",
+		"language": "زبان شما را تغییر می‌دهد، زبان فعلی شما یا لیست زبان‌های موجود را نشان می‌دهد.",
+		"languagestats": "وضعیت یک زبان را در پروژه‌هایی که ما پشتیبانی می‌کنیم نشان می‌دهد.",
+		"levels": "لیدربورد تجربۀ افراد را به شما می‌دهد.",
+		"mention": "یک رول مربوط به زبان را با پیام اختیاری منشن می‌کند.",
+		"minecraft": "تاریخچۀ نام یا اسکین یک بازیکن مشخص ماینکرفت را جستجو می‌کند. این کامند با کامند hypixelverify/ سازگار است، اجازه می‌دهد اگر بازیکن مشخصی احراز هویت کرده باشد، اطلاعات او را جستجو کنید. پارامتر `user` همیشه بر `username` ارجحیت دارد و اگر احراز هویت کرده باشید، هر دو اختیاری هستند. در غیر این صورت وارد کردن حداقل یکی از آنها الزامی است.",
+		"ping": "پینگ بات را به شما می‌دهد.",
+		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed.",
+		"prefix": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space.",
+		"profile": "لینک پروفایل کراودین‌تان را در صورت وجود در دیتابیس ما، به شما می‌دهد. اگر وجود نداشته باشد، می‌توانید کامند `help verify/` را استفاده کرده تا چگونگی ذخیره پروفایل‌تان و دریافت رول را مطالعه کنید.",
+		"projects": "لینک‌ها و اطلاعاتی دربارۀ پروژه‌های ترجمه‌ای که ما در سرور پشتیبانی می‌کنیم به شما می‌دهد.",
+		"quote": "Shows a funny/weird/wise quote from the server.",
+		"rank": "تجربۀ فعلی شما و یا هر کاربر دیگری را به شما می‌دهد.",
+		"settings": "Changes or shows your settings on the bot",
+		"tag": "Sends a preset message, allowing you to notify a specific member when sending it.",
+		"translate": "Gives you useful information on how to translate the bot.",
+		"verify": "به صورت اتوماتیک تغییرات پروفایل کراودین شما را بررسی می‌کند و رول‌های مناسب را به شما می‌دهد. اگر پروفایل شما در دیتابیس ما موجود نباشد، می‌توانید آن را به صورت یک آرگومان در کامند وارد کنید. برای بررسی وجود پروفایل شما در دیتابیس، کامند `profile/` را اجرا کنید. توجه داشته باشید دریافت DM از این سرور باید برایتان فعال باشد که بات بتواند به شما پیام بدهد."
 	}
 }

@@ -1,29 +1,32 @@
 {
 	"names": {
 		"8ball": "magicznakula",
+		"alert": "alert",
 		"feedback": "feedback",
-		"levels": "poziomy",
-		"ping": "opóźnienie",
-		"profile": "profil",
-		"projects": "projekty",
-		"rank": "pozycja",
-		"tag": "tag",
-		"translate": "tłumacz",
 		"help": "pomoc",
 		"hypixelstats": "hypixelstats",
 		"hypixelunverify": "odłączeniehypixel",
 		"hypixelverify": "weryfikacjahypixel",
 		"language": "język",
 		"languagestats": "statystykijęzyka",
+		"levels": "poziomy",
 		"mention": "wzmianka",
 		"minecraft": "minecraft",
+		"ping": "opóźnienie",
+		"poll": "ankieta",
 		"prefix": "przedrostek",
+		"profile": "profil",
+		"projects": "projekty",
 		"quote": "cytat",
-		"verify": "weryfikacja",
-		"poll": "ankieta"
+		"rank": "pozycja",
+		"settings": "settings",
+		"tag": "tag",
+		"translate": "tłumacz",
+		"verify": "weryfikacja"
 	},
 	"descriptions": {
 		"8ball": "Zaczarowana kula, która odpowie na wszystkie twoje pytania",
+		"alert": "Alerts other proofreaders for issues in their translations",
 		"feedback": "Gives you instructions on how to give feedback towards the bot",
 		"help": "Pokazuje wszystkie dostępne polecenia i ogólne informacje na temat bota",
 		"hypixelstats": "Pokazuje ci podstawowe statystyki z Hypixela dla danego użytkownika",
@@ -35,15 +38,16 @@
 		"mention": "Oznacza rolę językową z wiadomością",
 		"minecraft": "Wyszukuje historię nazwy użytkownika lub skórkę gracza Minecrafta",
 		"ping": "Podaje opóźnienie bota",
+		"poll": "Tworzy lub zarządza ankietami na serwerze. Dostępne dla korektorów Hypixel i wyżej",
 		"prefix": "Daje autorowi odpowiedni przedrostek odpowiedniego(-ich) języka(-ów)",
 		"profile": "Podaje odnośnik do profilu użytkownika, jeżeli jest on przechowywany w naszej bazie danych.",
 		"projects": "Podaje odnośniki i informacje o wszystkich projektach tłumaczeniowych, które wspieramy na serwerze",
 		"quote": "Znajduje (lub dodaje) śmieszny/dziwny/mądry cytat z serwera",
 		"rank": "Podaje twoje obecne PD lub PD wybranego użytkownika",
+		"settings": "Change or view your settings on the bot",
 		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
 		"translate": "Gives you useful information on how to translate the bot",
-		"verify": "Verifies and gives you your corresponding roles",
-		"poll": "Tworzy lub zarządza ankietami na serwerze. Dostępne dla korektorów Hypixel i wyżej"
+		"verify": "Verifies and gives you your corresponding roles"
 	},
 	"options": {
 		"8ball": {
@@ -52,51 +56,10 @@
 				"description": "The question to ask the bot"
 			}
 		},
-		"levels": {
-			"me": {
-				"name": "ja",
-				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
-			},
-			"page": {
-				"name": "strona",
-				"description": "The leaderboard page to get"
-			}
-		},
-		"profile": {
-			"user": {
-				"name": "użytkownik",
-				"description": "The user to find the profile for. Admin only"
-			},
-			"profile": {
-				"name": "profil",
-				"description": "The new profile to set for the user. Admin only"
-			}
-		},
-		"rank": {
-			"user": {
-				"name": "użytkownik",
-				"description": "The user to get the rank for"
-			}
-		},
-		"tag": {
-			"tag": {
-				"name": "tag",
-				"description": "The tag you want to see",
-				"choices": {
-					"invite": "Invite link to the server",
-					"hypixel": "Hypixel links",
-					"guidelines": "Hypixel project guidelines",
-					"proofreader": "How to get proofreader on the Hypixel project",
-					"minecraft": "Minecraft Crowdin Project",
-					"quickplay": "Quickplay links",
-					"skyblockaddons": "SkyblockAddons links",
-					"thread": "Discord server thread",
-					"twitter": "Hypixel Translators Community Twitter"
-				}
-			},
-			"target": {
-				"name": "cel",
-				"description": "The user to mention with this tag"
+		"alert": {
+			"message": {
+				"name": "wiadomość",
+				"description": "The message to send to the proofreaders"
 			}
 		},
 		"help": {
@@ -127,7 +90,7 @@
 		"hypixelunverify": {
 			"user": {
 				"name": "użytkownik",
-				"description": "The user to unverify. Admin only"
+				"description": "The user to unverify. Admin-only"
 			}
 		},
 		"hypixelverify": {
@@ -137,7 +100,7 @@
 			},
 			"user": {
 				"name": "użytkownik",
-				"description": "The user to verify. Admin only"
+				"description": "The user to verify. Admin-only"
 			}
 		},
 		"language": {
@@ -161,7 +124,7 @@
 			},
 			"stats": {
 				"name": "statystyki",
-				"description": "Gives you usage statistics for a given language. Admin only",
+				"description": "Gives you usage statistics for a given language. Admin-only",
 				"options": {
 					"language": {
 						"name": "język",
@@ -176,6 +139,16 @@
 				"description": "The language to get progress statistics for. Required if your language is set to English"
 			}
 		},
+		"levels": {
+			"me": {
+				"name": "ja",
+				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
+			},
+			"page": {
+				"name": "strona",
+				"description": "The leaderboard page to get"
+			}
+		},
 		"mention": {
 			"language": {
 				"name": "język",
@@ -186,8 +159,8 @@
 				"description": "Rola, która ma otrzymać wzmiankę",
 				"choices": {
 					"all": "Obie role",
-					"translator": "Tłumacz",
-					"proofreader": "Korektor"
+					"proofreader": "Korektor",
+					"translator": "Tłumacz"
 				}
 			},
 			"message": {
@@ -216,105 +189,13 @@
 				"options": {
 					"username": {
 						"name": "nazwaużytkownika",
-						"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
+						"description": "The IGN/UUID of the user to get the skin for. Defaults to your own skin if your account is linked"
 					},
 					"user": {
 						"name": "użytkownik",
-						"description": "The server member to get skin for. Only works if the user has verified themselves"
+						"description": "The server member to get the skin for. Only works if the user has verified themselves"
 					}
 				}
-			}
-		},
-		"prefix": {
-			"flags": {
-				"name": "flagi",
-				"description": "The flags to be applied to your prefix, separated with spaces"
-			}
-		},
-		"quote": {
-			"get": {
-				"name": "get",
-				"description": "Get a random/specific quote",
-				"options": {
-					"index": {
-						"name": "indeks",
-						"description": "The index of the quote you want to see"
-					}
-				}
-			},
-			"add": {
-				"name": "dodaj",
-				"description": "Add a new quote. Staff only",
-				"options": {
-					"quote": {
-						"name": "cytat",
-						"description": "Cytat, który chcesz dodać"
-					},
-					"author": {
-						"name": "autor",
-						"description": "Autor cytatu"
-					},
-					"url": {
-						"name": "odnośnik",
-						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
-					},
-					"image": {
-						"name": "obraz",
-						"description": "The URL of the image to be included with this quote. Has priority over URL's image if provided"
-					}
-				}
-			},
-			"edit": {
-				"name": "edytuj",
-				"description": "Edit a quote. Staff only",
-				"options": {
-					"index": {
-						"name": "indeks",
-						"description": "The index of the quote to edit"
-					},
-					"quote": {
-						"name": "cytat",
-						"description": "Nowy cytat"
-					}
-				}
-			},
-			"delete": {
-				"name": "usuń",
-				"description": "Delete a quote. Staff only",
-				"options": {
-					"index": {
-						"name": "indeks",
-						"description": "The index of the quote to delete"
-					}
-				}
-			},
-			"link": {
-				"name": "połącz",
-				"description": "Link a quote to a message. Staff only",
-				"options": {
-					"index": {
-						"name": "indeks",
-						"description": "The index of the quote to link"
-					},
-					"url": {
-						"name": "odnośnik",
-						"description": "The URL of the message to link this quote to"
-					},
-					"image": {
-						"name": "obraz",
-						"description": "Whether or not to attach this message's image to the quote"
-					}
-				}
-			}
-		},
-		"verify": {
-			"url": {
-				"name": "odnośnik",
-				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section"
-			},
-			"user": {
-				"name": "użytkownik",
-				"description": "The user to manually verify. Admin only"
 			}
 		},
 		"poll": {
@@ -391,6 +272,183 @@
 						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
+			}
+		},
+		"prefix": {
+			"flags": {
+				"name": "flagi",
+				"description": "The flags to be applied to your prefix, separated with spaces"
+			}
+		},
+		"profile": {
+			"user": {
+				"name": "użytkownik",
+				"description": "The user to find the profile for. Admin-only"
+			},
+			"profile": {
+				"name": "profil",
+				"description": "The new profile to set for the user. Admin-only"
+			}
+		},
+		"quote": {
+			"get": {
+				"name": "get",
+				"description": "Get a random/specific quote",
+				"options": {
+					"index": {
+						"name": "indeks",
+						"description": "The index of the quote you want to see"
+					}
+				}
+			},
+			"add": {
+				"name": "dodaj",
+				"description": "Adds a new quote. Staff only",
+				"options": {
+					"quote": {
+						"name": "cytat",
+						"description": "Cytat, który chcesz dodać"
+					},
+					"author": {
+						"name": "autor",
+						"description": "Autor cytatu"
+					},
+					"url": {
+						"name": "odnośnik",
+						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
+					},
+					"image": {
+						"name": "obraz",
+						"description": "The URL of the image to be included with this quote. Has priority over url's image if provided"
+					}
+				}
+			},
+			"edit": {
+				"name": "edytuj",
+				"description": "Edits a quote. Staff only",
+				"options": {
+					"index": {
+						"name": "indeks",
+						"description": "The index of the quote to edit"
+					},
+					"quote": {
+						"name": "cytat",
+						"description": "Nowy cytat"
+					}
+				}
+			},
+			"delete": {
+				"name": "usuń",
+				"description": "Deletes a quote. Staff only",
+				"options": {
+					"index": {
+						"name": "indeks",
+						"description": "The index of the quote to delete"
+					}
+				}
+			},
+			"link": {
+				"name": "połącz",
+				"description": "Links a quote to a message. Staff only",
+				"options": {
+					"index": {
+						"name": "indeks",
+						"description": "The index of the quote to link"
+					},
+					"url": {
+						"name": "odnośnik",
+						"description": "The URL of the message to link this quote to"
+					},
+					"image": {
+						"name": "obraz",
+						"description": "Whether or not to attach this message's image to the quote"
+					}
+				}
+			}
+		},
+		"rank": {
+			"user": {
+				"name": "użytkownik",
+				"description": "The user to get the rank for"
+			}
+		},
+		"settings": {
+			"get": {
+				"name": "get",
+				"description": "See the value of a setting",
+				"options": {
+					"setting": {
+						"name": "setting",
+						"description": "The setting to see",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Proofreader availability"
+						}
+					}
+				}
+			},
+			"set": {
+				"name": "ustaw",
+				"description": "Change the value of a setting",
+				"options": {
+					"setting": {
+						"name": "setting",
+						"description": "The setting to change",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Proofreader availability"
+						}
+					},
+					"value": {
+						"name": "wartość",
+						"description": "The value to set the setting to"
+					}
+				}
+			},
+			"reset": {
+				"name": "zresetuj",
+				"description": "Reset the value of a setting",
+				"options": {
+					"setting": {
+						"name": "setting",
+						"description": "The setting to reset",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Proofreader availability"
+						}
+					}
+				}
+			}
+		},
+		"tag": {
+			"tag": {
+				"name": "tag",
+				"description": "The tag you want to see",
+				"choices": {
+					"invite": "Invite link to the server",
+					"hypixel": "Hypixel links",
+					"guidelines": "Hypixel project guidelines",
+					"proofreader": "How to get proofreader on the Hypixel project",
+					"minecraft": "Minecraft Crowdin Project",
+					"quickplay": "Quickplay links",
+					"skyblockaddons": "SkyblockAddons links",
+					"thread": "Discord server thread",
+					"twitter": "Hypixel Translators Community Twitter"
+				}
+			},
+			"target": {
+				"name": "cel",
+				"description": "The user to mention with this tag"
+			}
+		},
+		"verify": {
+			"url": {
+				"name": "odnośnik",
+				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section"
+			},
+			"user": {
+				"name": "użytkownik",
+				"description": "The user to manually verify. Admin-only"
 			}
 		}
 	}

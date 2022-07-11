@@ -1,0 +1,6 @@
+{
+    "isSetTo": "Din inställning %%setting%% är inställd på %%value%%",
+    "successSet": "Din inställning %%setting%% ställdes in på %%value%%",
+    "successReset": "Din inställning %%setting%% återställdes",
+    "onlyPf": "Denna inställning är endast tillgänglig för Hypixel-korrekturläsare!"
+}

@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, one {# second} other {# seconds}}",
 	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "Cooldown",
-	"8ball": {
-		"description": "Th' Magic 8 Ball that will answer all yer questions."
-	},
-	"feedback": {
-		"description": "Opens our GitHub issues page, where ye can report problems an' send feedback."
-	},
-	"help": {
-		"description": "Shows ye all available commands an' other info about the bot."
-	},
-	"hypixelstats": {
-		"description": "Shows ye basic Hypixel stats fer th' provided pirate."
-	},
-	"hypixelunverify": {
-		"description": "Unlinks yer Discord account from yer Minecraft account."
-	},
-	"hypixelverify": {
-		"description": "Links yer Discord account with yer Minecraft account."
-	},
-	"language": {
-		"description": "Changes yer lingo, shows yer current one or shows a list o' available lingos."
-	},
-	"languagestats": {
-		"description": "Shows ye th' progress o' a lingo on all th' projects we currently support."
-	},
-	"levels": {
-		"description": "Gives ye th' XP leaderboard."
-	},
-	"mention": {
-		"description": "Mentions a lingo role with an optional message."
-	},
-	"minecraft": {
-		"description": "Looks up a specific Minecraft pirate's name history or skin. 'Tis command be compatible with /hypixelverify, letting ye look up a specific pirate's info if they be verified. Th' parameter `user` will always have priority over `username` an' they are both optional if ye are verified, otherwise, at least one be required."
-	},
-	"ping": {
-		"description": "Gives ye th' bot's ping."
-	},
-	"poll": {
-		"description": "Creates or manages polls on th' server! Available t' Hypixel Proofreaders an' above. All votes on polls created usin' 'tis command shall be private 'til the poll be ended an' th' names o' th' voters shall not be disclosed, only vote counts shall be displayed."
-	},
-	"prefix": {
-		"description": "Gives ye th' appropriate prefix fer yer lingo(s)."
-	},
-	"profile": {
-		"description": "Gives ye th' link t' yer Crowdin profile if it be stored on our database. If it nah be stored, ye can execute `/help verify` t' learn how t' store yer profile and update yer roles."
-	},
-	"projects": {
-		"description": "Gives ye links and information about all th' translation projects we support on th' server."
-	},
-	"quote": {
-		"description": "Shows a funny/weird/wise quote from th' server."
-	},
-	"rank": {
-		"description": "Gives ye th' current XP for yerself or any given pirate."
-	},
-	"tag": {
-		"description": "Sends a preset message, allowin' ye t' notify a specific pirate when sendin' it."
-	},
-	"translate": {
-		"description": "Gives ye useful information on how t' translate th' bot."
-	},
-	"verify": {
-		"description": "Automatically checks fer changes on yer Crowdin profile an' gives ye th' appropriate roles. If yer profile nah be stored on our database, ye can provide it as an argument in th' command. T' check if yer profile be stored, execute `/profile`. Make sure ye have DMs enabled from 'tis server so that th' bot can send ye a message."
+	"descriptions": {
+		"8ball": "Th' Magic 8 Ball that will answer all yer questions.",
+		"alert": "Alerts other proofreaders for issues in their translations",
+		"feedback": "Opens our GitHub issues page, where ye can report problems an' send feedback.",
+		"help": "Shows ye all available commands an' other info about the bot.",
+		"hypixelstats": "Shows ye basic Hypixel stats fer th' provided pirate.",
+		"hypixelunverify": "Unlinks yer Discord account from yer Minecraft account.",
+		"hypixelverify": "Links yer Discord account with yer Minecraft account.",
+		"language": "Changes yer lingo, shows yer current one or shows a list o' available lingos.",
+		"languagestats": "Shows ye th' progress o' a lingo on all th' projects we currently support.",
+		"levels": "Gives ye th' XP leaderboard.",
+		"mention": "Mentions a lingo role with an optional message.",
+		"minecraft": "Looks up a specific Minecraft pirate's name history or skin. 'Tis command be compatible with /hypixelverify, letting ye look up a specific pirate's info if they be verified. Th' parameter `user` will always have priority over `username` an' they are both optional if ye are verified, otherwise, at least one be required.",
+		"ping": "Gives ye th' bot's ping.",
+		"poll": "Creates or manages polls on th' server! Available t' Hypixel Proofreaders an' above. All votes on polls created usin' 'tis command shall be private 'til the poll be ended an' th' names o' th' voters shall not be disclosed, only vote counts shall be displayed.",
+		"prefix": "Gives ye th' appropriate prefix fer yer lingo(s).",
+		"profile": "Gives ye th' link t' yer Crowdin profile if it be stored on our database. If it nah be stored, ye can execute `/help verify` t' learn how t' store yer profile and update yer roles.",
+		"projects": "Gives ye links and information about all th' translation projects we support on th' server.",
+		"quote": "Shows a funny/weird/wise quote from th' server.",
+		"rank": "Gives ye th' current XP for yerself or any given pirate.",
+		"settings": "Changes or shows yer settin's on th' bot",
+		"tag": "Sends a preset message, allowin' ye t' notify a specific pirate when sendin' it.",
+		"translate": "Gives ye useful information on how t' translate th' bot.",
+		"verify": "Automatically checks fer changes on yer Crowdin profile an' gives ye th' appropriate roles. If yer profile nah be stored on our database, ye can provide it as an argument in th' command. T' check if yer profile be stored, execute `/profile`. Make sure ye have DMs enabled from 'tis server so that th' bot can send ye a message."
 	}
 }

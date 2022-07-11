@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, one{# seconde} other{# seconden}}",
 	"minutes": "{number, plural, one {# minuut} other {# minuten}}",
 	"cooldownField": "Afkoeltijd",
-	"8ball": {
-		"description": "De glazen bol die al je vragen zal beantwoorden."
-	},
-	"feedback": {
-		"description": "Opent onze GitHub-issuespagina, waar je problemen kunt melden en feedback kunt geven."
-	},
-	"help": {
-		"description": "Geeft alle commando's en andere informatie over de bot weer."
-	},
-	"hypixelstats": {
-		"description": "Geeft je simpele Hypixel-statistieken voor de opgegeven speler."
-	},
-	"hypixelunverify": {
-		"description": "Ontkoppelt je Discord-account van je Minecraft-account."
-	},
-	"hypixelverify": {
-		"description": "Koppelt je Discord-account met je Minecraft-account."
-	},
-	"language": {
-		"description": "Verandert je taal, toont je huidige taal of geeft een lijst met alle beschikbare talen."
-	},
-	"languagestats": {
-		"description": "Toont voortgang in een taal in alle projecten die we ondersteunen."
-	},
-	"levels": {
-		"description": "Geeft je het XP-scorebord."
-	},
-	"mention": {
-		"description": "Vermeldt een taalrol met een optioneel bericht."
-	},
-	"minecraft": {
-		"description": "Zoekt de naamgeschiedenis of skin van een specifieke Minecraft-speler op. Dit commando is compatibel met /hypixelverify, zodat je informatie over een gebruiker kunt opzoeken als diegene geverifieerd is. De parameter `user` heeft altijd prioriteit over `username`. Ze zijn allebei optioneel als je geverifieerd bent, anders moet er één opgegeven worden."
-	},
-	"ping": {
-		"description": "Laat de vertraging van de bot zien."
-	},
-	"poll": {
-		"description": "Maakt of beheert peilingen op de server. Beschikbaar voor Hypixel-proeflezers en hoger gemachtigden. Stemmen zijn privé totdat de peiling wordt beëindigd en de namen van stemmers worden nooit openbaar gemaakt. Alleen aantallen worden weergegeven."
-	},
-	"prefix": {
-		"description": "Geeft je het juiste voorvoegsel voor je taal/talen. Voor een aangepast voorvoegsel kun je `/prefix` uitvoeren en in het argument `vlaggen` een de code van een land of vlag of de naam van een land opgeven. Je kunt zo veel talen selecteren als je wilt, zolang je ze scheidt met een spatie."
-	},
-	"profile": {
-		"description": "Geeft je de link naar je Crowdin-profiel als deze is opgeslagen in onze database. Als dit niet het geval is, kun je `/help verify` uitvoeren om te zien hoe je je profiel kunt laten opslaan en je rollen kunt updaten."
-	},
-	"projects": {
-		"description": "Geeft je links en informatie over alle vertalingsprojecten die we hier ondersteunen."
-	},
-	"quote": {
-		"description": "Geeft een grappig/raar/wijs citaat uit de server (of voegt er een toe)."
-	},
-	"rank": {
-		"description": "Geeft je jouw hoeveelheid XP of die van een andere gebruiker."
-	},
-	"tag": {
-		"description": "Stuurt een bericht, met de mogelijkheid om een specifiek lid te vermelden bij het verzenden."
-	},
-	"translate": {
-		"description": "Geeft je handige tips over het vertalen van de bot."
-	},
-	"verify": {
-		"description": "Controleert automatisch op wijzigingen in je Crowdin-profiel en geeft je de bijbehorende rollen. Als je profiel niet in onze database is opgeslagen, kun je het als argument opgeven in het commando. Om te controleren of je profiel is opgeslagen, kun je `/profile` uitvoeren. Zorg ervoor dat je privéberichten hebt ingeschakeld zodat de bot je een bericht kan sturen."
+	"descriptions": {
+		"8ball": "De glazen bol die al je vragen zal beantwoorden.",
+		"alert": "Attendeert andere proeflezers op fouten in hun vertalingen",
+		"feedback": "Opent onze GitHub-issuespagina, waar je problemen kunt melden en feedback kunt geven.",
+		"help": "Geeft alle commando's en andere informatie over de bot weer.",
+		"hypixelstats": "Geeft je simpele Hypixel-statistieken voor de opgegeven speler.",
+		"hypixelunverify": "Ontkoppelt je Discord-account van je Minecraft-account.",
+		"hypixelverify": "Koppelt je Discord-account met je Minecraft-account.",
+		"language": "Verandert je taal, toont je huidige taal of geeft een lijst met alle beschikbare talen.",
+		"languagestats": "Toont voortgang in een taal in alle projecten die we ondersteunen.",
+		"levels": "Geeft je het XP-scorebord.",
+		"mention": "Vermeldt een taalrol met een optioneel bericht.",
+		"minecraft": "Zoekt de naamgeschiedenis of skin van een specifieke Minecraft-speler op. Dit commando is compatibel met /hypixelverify, zodat je informatie over een gebruiker kunt opzoeken als diegene geverifieerd is. De parameter `user` heeft altijd prioriteit over `username`. Ze zijn allebei optioneel als je geverifieerd bent, anders moet er één opgegeven worden.",
+		"ping": "Laat de vertraging van de bot zien.",
+		"poll": "Maakt of beheert peilingen op de server. Beschikbaar voor Hypixel-proeflezers en hoger gemachtigden. Stemmen zijn privé totdat de peiling wordt beëindigd en de namen van stemmers worden nooit openbaar gemaakt. Alleen aantallen worden weergegeven.",
+		"prefix": "Geeft je het juiste voorvoegsel voor je taal/talen. Voor een aangepast voorvoegsel kun je `/prefix` uitvoeren en in het argument `vlaggen` een de code van een land of vlag of de naam van een land opgeven. Je kunt zo veel talen selecteren als je wilt, zolang je ze scheidt met een spatie.",
+		"profile": "Geeft je de link naar je Crowdin-profiel als deze is opgeslagen in onze database. Als dit niet het geval is, kun je `/help verify` uitvoeren om te zien hoe je je profiel kunt laten opslaan en je rollen kunt updaten.",
+		"projects": "Geeft je links en informatie over alle vertalingsprojecten die we hier ondersteunen.",
+		"quote": "Geeft een grappig/raar/wijs citaat uit de server (of voegt er een toe).",
+		"rank": "Geeft je jouw hoeveelheid XP of die van een andere gebruiker.",
+		"settings": "Staat je toe je instellingen te bekijken of te wijzigen",
+		"tag": "Stuurt een bericht, met de mogelijkheid om een specifiek lid te vermelden bij het verzenden.",
+		"translate": "Geeft je handige tips over het vertalen van de bot.",
+		"verify": "Controleert automatisch op wijzigingen in je Crowdin-profiel en geeft je de bijbehorende rollen. Als je profiel niet in onze database is opgeslagen, kun je het als argument opgeven in het commando. Om te controleren of je profiel is opgeslagen, kun je `/profile` uitvoeren. Zorg ervoor dat je privéberichten hebt ingeschakeld zodat de bot je een bericht kan sturen."
 	}
 }

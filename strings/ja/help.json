@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, one {# second} other {# seconds}}",
 	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "クールダウン",
-	"8ball": {
-		"description": "マジック・エイト・ボール。それはあなたの質問すべてに答えてくれます。"
-	},
-	"feedback": {
-		"description": "GitHubのIssueページを開きます。こちらで問題の報告とフィードバックの送信ができます。"
-	},
-	"help": {
-		"description": "利用可能なすべてのコマンドやボットに関するその他の情報を表示します。"
-	},
-	"hypixelstats": {
-		"description": "指定したユーザーのHypixelの基本統計を表示します。"
-	},
-	"hypixelunverify": {
-		"description": "あなたのDiscordアカウントをMinecraftアカウントから関連付けを解除します。"
-	},
-	"hypixelverify": {
-		"description": "DiscordアカウントとMinecraftアカウントを関連付けます。"
-	},
-	"language": {
-		"description": "言語の変更、現在の言語の表示、利用可能な言語の一覧を表示します。"
-	},
-	"languagestats": {
-		"description": "現在我々がサポートしている全プロジェクトの、言語の進捗状況を表示します。"
-	},
-	"levels": {
-		"description": "XP順位表を表示します。"
-	},
-	"mention": {
-		"description": "任意のメッセージを、言語のロールにメンションします。"
-	},
-	"minecraft": {
-		"description": "特定のMinecraftプレイヤーの名前の履歴またはスキンを検索します。このコマンドは/hypixelverifyと互換性があり、特定のユーザーが認証されていれば、そのユーザーの情報を検索できます。パラメータ`user`は常に`username`よりも優先され、認証されている場合にはどちらも任意ですが、認証されていない場合は少なくとも1つは必要です。"
-	},
-	"ping": {
-		"description": "ボットのPing値を表示します。"
-	},
-	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
-	},
-	"prefix": {
-		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
-	},
-	"profile": {
-		"description": "我々のデータベースに保存されている場合、あなたのCrowdinプロフィールのリンクを表示します。保存されていない場合`/help verify`を実行することで、プロフィールの保存とロールの更新方法を確認できます。"
-	},
-	"projects": {
-		"description": "このサーバーが支援しているすべての翻訳プロジェクトのリンクと情報を表示します。"
-	},
-	"quote": {
-		"description": "サーバーから面白い/奇妙な/賢い引用を表示します。"
-	},
-	"rank": {
-		"description": "自分自身、または指定したユーザーの現在のXPを表示します。"
-	},
-	"tag": {
-		"description": "プリセットメッセージを送信します。送信時、特定のメンバーに通知することができます。"
-	},
-	"translate": {
-		"description": "Gives you useful information on how to translate the bot."
-	},
-	"verify": {
-		"description": "Crowdinプロフィールの変更を自動で確認し、適切なロールを付与します。あなたのプロフィールが我々のデータベース上に保存されていない場合は、コマンドの引数として指定できます。プロフィールが保存されているかの確認は`/profile`を実行してください。その際ボットからのメッセージを受信できるように、このサーバーからのDMが有効になっているかを確認してください。"
+	"descriptions": {
+		"8ball": "マジック・エイト・ボール。それはあなたの質問すべてに答えてくれます。",
+		"alert": "Alerts other proofreaders for issues in their translations",
+		"feedback": "GitHubのIssueページを開きます。こちらで問題の報告とフィードバックの送信ができます。",
+		"help": "利用可能なすべてのコマンドやボットに関するその他の情報を表示します。",
+		"hypixelstats": "指定したユーザーのHypixelの基本統計を表示します。",
+		"hypixelunverify": "あなたのDiscordアカウントをMinecraftアカウントから関連付けを解除します。",
+		"hypixelverify": "DiscordアカウントとMinecraftアカウントを関連付けます。",
+		"language": "言語の変更、現在の言語の表示、利用可能な言語の一覧を表示します。",
+		"languagestats": "現在我々がサポートしている全プロジェクトの、言語の進捗状況を表示します。",
+		"levels": "XP順位表を表示します。",
+		"mention": "任意のメッセージを、言語のロールにメンションします。",
+		"minecraft": "特定のMinecraftプレイヤーの名前の履歴またはスキンを検索します。このコマンドは/hypixelverifyと互換性があり、特定のユーザーが認証されていれば、そのユーザーの情報を検索できます。パラメータ`user`は常に`username`よりも優先され、認証されている場合にはどちらも任意ですが、認証されていない場合は少なくとも1つは必要です。",
+		"ping": "ボットのPing値を表示します。",
+		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed.",
+		"prefix": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space.",
+		"profile": "我々のデータベースに保存されている場合、あなたのCrowdinプロフィールのリンクを表示します。保存されていない場合`/help verify`を実行することで、プロフィールの保存とロールの更新方法を確認できます。",
+		"projects": "このサーバーが支援しているすべての翻訳プロジェクトのリンクと情報を表示します。",
+		"quote": "サーバーから面白い/奇妙な/賢い引用を表示します。",
+		"rank": "自分自身、または指定したユーザーの現在のXPを表示します。",
+		"settings": "Changes or shows your settings on the bot",
+		"tag": "プリセットメッセージを送信します。送信時、特定のメンバーに通知することができます。",
+		"translate": "Gives you useful information on how to translate the bot.",
+		"verify": "Crowdinプロフィールの変更を自動で確認し、適切なロールを付与します。あなたのプロフィールが我々のデータベース上に保存されていない場合は、コマンドの引数として指定できます。プロフィールが保存されているかの確認は`/profile`を実行してください。その際ボットからのメッセージを受信できるように、このサーバーからのDMが有効になっているかを確認してください。"
 	}
 }

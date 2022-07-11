@@ -1,29 +1,32 @@
 {
 	"names": {
 		"8ball": "bola8",
+		"alert": "alerta",
 		"feedback": "feedback",
-		"levels": "níveis",
-		"ping": "ping",
-		"profile": "perfil",
-		"projects": "projetos",
-		"rank": "cargo",
-		"tag": "tag",
-		"translate": "traduzir",
 		"help": "ajuda",
 		"hypixelstats": "estatísticashypixel",
 		"hypixelunverify": "hypixeldesverificar",
 		"hypixelverify": "hypixelverificar",
 		"language": "idioma",
 		"languagestats": "estatísticasidioma",
+		"levels": "níveis",
 		"mention": "mencionar",
 		"minecraft": "minecraft",
+		"ping": "ping",
+		"poll": "enquete",
 		"prefix": "prefixo",
+		"profile": "perfil",
+		"projects": "projetos",
 		"quote": "citação",
-		"verify": "verificar",
-		"poll": "enquete"
+		"rank": "cargo",
+		"settings": "configurações",
+		"tag": "tag",
+		"translate": "traduzir",
+		"verify": "verificar"
 	},
 	"descriptions": {
 		"8ball": "A bola mágica que vai responder a todas as suas questões",
+		"alert": "Alerta outros revisores sobre problemas em suas traduções",
 		"feedback": "Fornece instruções sobre como dar feedback sobre o bot",
 		"help": "Exibe todos os comandos disponíveis e informações gerais sobre o bot",
 		"hypixelstats": "Exibe estatísticas básicas do Hypixel para o usuário dado",
@@ -35,15 +38,16 @@
 		"mention": "Menciona um cargo de idioma com uma mensagem",
 		"minecraft": "Procura o histórico de nomes ou skin de um jogador do Minecraft",
 		"ping": "Exibe o ping do bot",
+		"poll": "Cria ou gerencia enquetes no servidor. Disponível para os revisores do Hypixel e superiores",
 		"prefix": "Fornece o prefixo apropriado do(s) seu(s) idioma(s)",
 		"profile": "Fornece o link de um perfil do Crowdin se ele estiver em nosso banco de dados.",
 		"projects": "Fornece os links e as informações sobre os projetos de tradução disponíveis no servidor",
 		"quote": "Mostra ou adiciona uma citação engraçada, estranha ou sábia dita no servidor",
 		"rank": "Exibe o seu EXP atual ou de um outro usuário",
+		"settings": "Altere ou veja suas configurações do bot",
 		"tag": "Envia uma mensagem pré-definida, permitindo notificar um membro específico ao enviá-la",
 		"translate": "Fornece informação úteis sobre como traduzir o bot",
-		"verify": "Verifica e fornece a você os cargos correspondentes",
-		"poll": "Cria ou gerencia enquetes no servidor. Disponível para os revisores do Hypixel e superiores"
+		"verify": "Verifica e fornece a você os cargos correspondentes"
 	},
 	"options": {
 		"8ball": {
@@ -52,51 +56,10 @@
 				"description": "A pergunta para enviar ao bot"
 			}
 		},
-		"levels": {
-			"me": {
-				"name": "eu",
-				"description": "Começar ou não na página onde você aparece. Tem prioridade sobre o argumento \"página\""
-			},
-			"page": {
-				"name": "página",
-				"description": "A página do pódio para ver"
-			}
-		},
-		"profile": {
-			"user": {
-				"name": "usuário",
-				"description": "O usuário para ver o perfil. Exclusivo para administrador"
-			},
-			"profile": {
-				"name": "perfil",
-				"description": "O novo perfil para definir para o usuário. Exclusivo para administrador"
-			}
-		},
-		"rank": {
-			"user": {
-				"name": "usuário",
-				"description": "O usuário para obter o cargo"
-			}
-		},
-		"tag": {
-			"tag": {
-				"name": "tag",
-				"description": "A tag que você quer ver",
-				"choices": {
-					"invite": "Link de convite para o servidor",
-					"hypixel": "Links do Hypixel",
-					"guidelines": "Guia do projeto do Hypixel",
-					"proofreader": "Como ser revisor no projeto do Hypixel",
-					"minecraft": "Projeto do Crowdin do Minecraft",
-					"quickplay": "Links do Quickplay",
-					"skyblockaddons": "Links do SkyblockAddons",
-					"thread": "Artigo do servidor de Discord",
-					"twitter": "Twitter da Comunidade de Tradutores do Hypixel"
-				}
-			},
-			"target": {
-				"name": "alvo",
-				"description": "O usuário para identificar com esta tag"
+		"alert": {
+			"message": {
+				"name": "mensagem",
+				"description": "A mensagem a ser enviar aos revisores"
 			}
 		},
 		"help": {
@@ -176,6 +139,16 @@
 				"description": "O idioma para obter estatísticas de progresso. Obrigatório se o seu idioma for o inglês"
 			}
 		},
+		"levels": {
+			"me": {
+				"name": "eu",
+				"description": "Começar ou não na página onde você aparece. Tem prioridade sobre o argumento \"página\""
+			},
+			"page": {
+				"name": "página",
+				"description": "A página do pódio para ver"
+			}
+		},
 		"mention": {
 			"language": {
 				"name": "idioma",
@@ -186,8 +159,8 @@
 				"description": "O cargo a ser mencionado",
 				"choices": {
 					"all": "Ambos cargos",
-					"translator": "Tradutor",
-					"proofreader": "Revisor"
+					"proofreader": "Revisor",
+					"translator": "Tradutor"
 				}
 			},
 			"message": {
@@ -225,10 +198,96 @@
 				}
 			}
 		},
+		"poll": {
+			"start": {
+				"name": "iniciar",
+				"description": "Inicia uma enquete no canal atual",
+				"options": {
+					"question": {
+						"name": "pergunta",
+						"description": "A questão da enquete"
+					},
+					"option1": {
+						"name": "opção1",
+						"description": "A primeira opção na enquete"
+					},
+					"option2": {
+						"name": "opção2",
+						"description": "A segunda opção na enquete"
+					},
+					"time": {
+						"name": "duração",
+						"description": "Duração em horas até esta enquete ser finalizada e os resultados serem publicados"
+					},
+					"option3": {
+						"name": "opção3",
+						"description": "A terceira opção na enquete"
+					},
+					"option4": {
+						"name": "opção4",
+						"description": "A quarta opção na enquete"
+					},
+					"option5": {
+						"name": "opção5",
+						"description": "A quinta opção na enquete"
+					},
+					"option6": {
+						"name": "opção6",
+						"description": "A sexta opção na enquete"
+					},
+					"option7": {
+						"name": "opção7",
+						"description": "A sétima opção na enquete"
+					},
+					"option8": {
+						"name": "opção8",
+						"description": "A oitava opção na enquete"
+					}
+				}
+			},
+			"end": {
+				"name": "finalizar",
+				"description": "Finaliza a enquete informada com o ID da mensagem",
+				"options": {
+					"message_id": {
+						"name": "id_da_mensagem",
+						"description": "O ID da mensagem que contém a enquete"
+					},
+					"channel": {
+						"name": "canal",
+						"description": "O canal no qual a enquete foi criada, se não o atual"
+					}
+				}
+			},
+			"show": {
+				"name": "exibir",
+				"description": "Exibe os resultados atuais da enquete sem terminá-la. Disponível apenas para o criador da enquete",
+				"options": {
+					"message_id": {
+						"name": "id_da_mensagem",
+						"description": "O ID da mensagem que contém a enquete"
+					},
+					"channel": {
+						"name": "canal",
+						"description": "O canal no qual a enquete foi criada, se não o atual"
+					}
+				}
+			}
+		},
 		"prefix": {
 			"flags": {
 				"name": "bandeiras",
 				"description": "As bandeiras a serem aplicadas ao seu prefixo, separadas por espaço"
+			}
+		},
+		"profile": {
+			"user": {
+				"name": "usuário",
+				"description": "O usuário para ver o perfil. Exclusivo para administrador"
+			},
+			"profile": {
+				"name": "perfil",
+				"description": "O novo perfil para definir para o usuário. Exclusivo para administrador"
 			}
 		},
 		"quote": {
@@ -307,6 +366,81 @@
 				}
 			}
 		},
+		"rank": {
+			"user": {
+				"name": "usuário",
+				"description": "O usuário para obter o cargo"
+			}
+		},
+		"settings": {
+			"get": {
+				"name": "obter",
+				"description": "Veja o valor de uma configuração",
+				"options": {
+					"setting": {
+						"name": "configuração",
+						"description": "A configuração para ver",
+						"choices": {
+							"lvlUpMsg": "Envia mensagens ao subir de nível",
+							"availability": "Disponibilidade do revisor"
+						}
+					}
+				}
+			},
+			"set": {
+				"name": "definir",
+				"description": "Altera o valor de uma configuração",
+				"options": {
+					"setting": {
+						"name": "configuração",
+						"description": "A configuração para alterar",
+						"choices": {
+							"lvlUpMsg": "Envia mensagens ao subir de nível",
+							"availability": "Disponibilidade do revisor"
+						}
+					},
+					"value": {
+						"name": "valor",
+						"description": "O valor para ser definido numa configuração"
+					}
+				}
+			},
+			"reset": {
+				"name": "redefinir",
+				"description": "Redefine o valor de uma configuração",
+				"options": {
+					"setting": {
+						"name": "configuração",
+						"description": "A configuração para redefinir",
+						"choices": {
+							"lvlUpMsg": "Envia mensagens ao subir de nível",
+							"availability": "Disponibilidade do revisor"
+						}
+					}
+				}
+			}
+		},
+		"tag": {
+			"tag": {
+				"name": "tag",
+				"description": "A tag que você quer ver",
+				"choices": {
+					"invite": "Link de convite para o servidor",
+					"hypixel": "Links do Hypixel",
+					"guidelines": "Guia do projeto do Hypixel",
+					"proofreader": "Como ser revisor no projeto do Hypixel",
+					"minecraft": "Projeto do Crowdin do Minecraft",
+					"quickplay": "Links do Quickplay",
+					"skyblockaddons": "Links do SkyblockAddons",
+					"thread": "Artigo do servidor de Discord",
+					"twitter": "Twitter da Comunidade de Tradutores do Hypixel"
+				}
+			},
+			"target": {
+				"name": "alvo",
+				"description": "O usuário para identificar com esta tag"
+			}
+		},
 		"verify": {
 			"url": {
 				"name": "url",
@@ -315,82 +449,6 @@
 			"user": {
 				"name": "usuário",
 				"description": "O usuário para verificar manualmente. Exclusivo para administrador"
-			}
-		},
-		"poll": {
-			"start": {
-				"name": "iniciar",
-				"description": "Inicia uma enquete no canal atual",
-				"options": {
-					"question": {
-						"name": "pergunta",
-						"description": "A questão da enquete"
-					},
-					"option1": {
-						"name": "opção1",
-						"description": "A primeira opção na enquete"
-					},
-					"option2": {
-						"name": "opção2",
-						"description": "A segunda opção na enquete"
-					},
-					"time": {
-						"name": "duração",
-						"description": "Duração em horas até esta enquete ser finalizada e os resultados serem publicados"
-					},
-					"option3": {
-						"name": "opção3",
-						"description": "A terceira opção na enquete"
-					},
-					"option4": {
-						"name": "opção4",
-						"description": "A quarta opção na enquete"
-					},
-					"option5": {
-						"name": "opção5",
-						"description": "A quinta opção na enquete"
-					},
-					"option6": {
-						"name": "opção6",
-						"description": "A sexta opção na enquete"
-					},
-					"option7": {
-						"name": "opção7",
-						"description": "A sétima opção na enquete"
-					},
-					"option8": {
-						"name": "opção8",
-						"description": "A oitava opção na enquete"
-					}
-				}
-			},
-			"end": {
-				"name": "finalizar",
-				"description": "Finaliza a enquete informada com o ID da mensagem",
-				"options": {
-					"message_id": {
-						"name": "id_da_mensagem",
-						"description": "O ID da mensagem que contém a enquete"
-					},
-					"channel": {
-						"name": "canal",
-						"description": "O canal no qual a enquete foi criada, se não o atual"
-					}
-				}
-			},
-			"show": {
-				"name": "exibir",
-				"description": "Exibe os resultados atuais da enquete sem terminá-la. Disponível apenas para o criador da enquete",
-				"options": {
-					"message_id": {
-						"name": "id_da_mensagem",
-						"description": "O ID da mensagem que contém a enquete"
-					},
-					"channel": {
-						"name": "canal",
-						"description": "O canal no qual a enquete foi criada, se não o atual"
-					}
-				}
 			}
 		}
 	}

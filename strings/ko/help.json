@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, one {# second} other {# seconds}}",
 	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "쿨다운",
-	"8ball": {
-		"description": "당신의 질문에 답변해주는 마법에 소라고동!"
-	},
-	"feedback": {
-		"description": "봇에 대한 피드백 / 버그를 제보할 수 있는 깃허브 이슈 페이지를 오픈합니다."
-	},
-	"help": {
-		"description": "봇에 대한 모든 명령어와 기타 정보를 보여줍니다."
-	},
-	"hypixelstats": {
-		"description": "지정한 유저에 대한 기본적인 하이픽셀 Stats를 보여줍니다."
-	},
-	"hypixelunverify": {
-		"description": "마인크래프트 계정과 디스코드 계정의 연동을 해제합니다."
-	},
-	"hypixelverify": {
-		"description": "마인크래프트 계정과 디스코드 계정을 연동합니다."
-	},
-	"language": {
-		"description": "봇에서 사용할 수 있는 모든 언어들의 리스트를 노출하며, 언어를 바꿀 수 있습니다."
-	},
-	"languagestats": {
-		"description": "우리가 지원하는 모든 프로젝트의 진행률을 보여줍니다."
-	},
-	"levels": {
-		"description": "XP Leaderboard를 보여줍니다."
-	},
-	"mention": {
-		"description": "메시지와 함께 특정 언어 역할을 가지고 있는 유저를 멘션합니다."
-	},
-	"minecraft": {
-		"description": "마인크래프트 유저에 대한 닉네임 변경 히스토리 또는 스킨을 검색해줍니다. /hypixelverify 와 같이 유저가 인증되어 있는지 알 수 있습니다. `user` 는 `username` 보다 상위에 있으며, 본인이 verified 되어 있다면 두개 다 필요가 없지만, verified 되어 있지 않다면 최소한 한 개는 명령어를 실행하기 위해 있어야 합니다."
-	},
-	"ping": {
-		"description": "봇의 핑을 보여줍니다."
-	},
-	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
-	},
-	"prefix": {
-		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
-	},
-	"profile": {
-		"description": "데이터베이스에 저장되어 있는 본인의 CrowdIn 프로필의 링크를 제공해줍니다. 제공된 링크가 본인의 것이 아니라면, `/help verify` 를 입력해서 프로필 저장 및 역할 업데이트에 대해 알아보세요."
-	},
-	"projects": {
-		"description": "우리 서버에서 지원하는 프로젝트들에 대한 정보와 링크를 제공합니다."
-	},
-	"quote": {
-		"description": "Shows a funny/weird/wise quote from the server."
-	},
-	"rank": {
-		"description": "본인, 또는 지정한 유저에 대한 XP를 확인할 수 있습니다."
-	},
-	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
-	},
-	"translate": {
-		"description": "Gives you useful information on how to translate the bot."
-	},
-	"verify": {
-		"description": "CrowdIn 프로필을 확인하며, 적절한 역할을 자동으로 지급합니다. 크라우드인 프로필이 데이터베이스에 없다면, 이 명령어를 통해 제공할 수 있습니다. CrowdIn 프로필이 있는지 확인하기 위해선 `/profile` 명령어를 입력해보세요. \n명령어를 실행하기 전, 봇이 본인에게 DM을 보낼 수 있는지 확인하세요."
+	"descriptions": {
+		"8ball": "당신의 질문에 답변해주는 마법에 소라고동!",
+		"alert": "Alerts other proofreaders for issues in their translations",
+		"feedback": "봇에 대한 피드백 / 버그를 제보할 수 있는 깃허브 이슈 페이지를 오픈합니다.",
+		"help": "봇에 대한 모든 명령어와 기타 정보를 보여줍니다.",
+		"hypixelstats": "지정한 유저에 대한 기본적인 하이픽셀 Stats를 보여줍니다.",
+		"hypixelunverify": "마인크래프트 계정과 디스코드 계정의 연동을 해제합니다.",
+		"hypixelverify": "마인크래프트 계정과 디스코드 계정을 연동합니다.",
+		"language": "봇에서 사용할 수 있는 모든 언어들의 리스트를 노출하며, 언어를 바꿀 수 있습니다.",
+		"languagestats": "우리가 지원하는 모든 프로젝트의 진행률을 보여줍니다.",
+		"levels": "XP Leaderboard를 보여줍니다.",
+		"mention": "메시지와 함께 특정 언어 역할을 가지고 있는 유저를 멘션합니다.",
+		"minecraft": "마인크래프트 유저에 대한 닉네임 변경 히스토리 또는 스킨을 검색해줍니다. /hypixelverify 와 같이 유저가 인증되어 있는지 알 수 있습니다. `user` 는 `username` 보다 상위에 있으며, 본인이 verified 되어 있다면 두개 다 필요가 없지만, verified 되어 있지 않다면 최소한 한 개는 명령어를 실행하기 위해 있어야 합니다.",
+		"ping": "봇의 핑을 보여줍니다.",
+		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed.",
+		"prefix": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space.",
+		"profile": "데이터베이스에 저장되어 있는 본인의 CrowdIn 프로필의 링크를 제공해줍니다. 제공된 링크가 본인의 것이 아니라면, `/help verify` 를 입력해서 프로필 저장 및 역할 업데이트에 대해 알아보세요.",
+		"projects": "우리 서버에서 지원하는 프로젝트들에 대한 정보와 링크를 제공합니다.",
+		"quote": "Shows a funny/weird/wise quote from the server.",
+		"rank": "본인, 또는 지정한 유저에 대한 XP를 확인할 수 있습니다.",
+		"settings": "Changes or shows your settings on the bot",
+		"tag": "Sends a preset message, allowing you to notify a specific member when sending it.",
+		"translate": "Gives you useful information on how to translate the bot.",
+		"verify": "CrowdIn 프로필을 확인하며, 적절한 역할을 자동으로 지급합니다. 크라우드인 프로필이 데이터베이스에 없다면, 이 명령어를 통해 제공할 수 있습니다. CrowdIn 프로필이 있는지 확인하기 위해선 `/profile` 명령어를 입력해보세요. \n명령어를 실행하기 전, 봇이 본인에게 DM을 보낼 수 있는지 확인하세요."
 	}
 }

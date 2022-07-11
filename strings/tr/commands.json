@@ -1,29 +1,32 @@
 {
 	"names": {
 		"8ball": "8ball",
+		"alert": "alert",
 		"feedback": "geribildirim",
-		"levels": "seviyeler",
-		"ping": "ping",
-		"profile": "profil",
-		"projects": "projeler",
-		"rank": "derece",
-		"tag": "etiket",
-		"translate": "çeviri",
 		"help": "yardım",
 		"hypixelstats": "hypixelistatistikleri",
 		"hypixelunverify": "hypixeldoğrulamakaldır",
 		"hypixelverify": "hypixeldoğrula",
 		"language": "dil",
 		"languagestats": "dilistatistikleri",
+		"levels": "seviyeler",
 		"mention": "bahset",
 		"minecraft": "minecraft",
+		"ping": "ping",
+		"poll": "anket",
 		"prefix": "önek",
+		"profile": "profil",
+		"projects": "projeler",
 		"quote": "alıntı",
-		"verify": "doğrula",
-		"poll": "anket"
+		"rank": "derece",
+		"settings": "settings",
+		"tag": "etiket",
+		"translate": "çeviri",
+		"verify": "doğrula"
 	},
 	"descriptions": {
 		"8ball": "8 Ball, tüm sorularınıza cevap verir",
+		"alert": "Alerts other proofreaders for issues in their translations",
 		"feedback": "Bota nasıl geri bildirim vereceğiniz konusunda size talimatlar verir",
 		"help": "Mevcut tüm komutları ve botla ilgili genel bilgileri gösterir",
 		"hypixelstats": "Belirtilen kullanıcı için temel Hypixel istatistiklerini gösterir",
@@ -35,15 +38,16 @@
 		"mention": "Mesajla bir dil rolünden bahseder",
 		"minecraft": "Belirtilen Minecraft oyuncusunun isim geçmişini veya cildini gösterir",
 		"ping": "Botun gecikmesini gösterir",
+		"poll": "Sunucuda anket oluşturur veya yönetir. Hypixel Düzeltmenleri ve üstü kullanabilir",
 		"prefix": "Dil(ler)iniz için uygun bir önek sağlar",
 		"profile": "Eğer veritabanımızda saklanıyorsa, Crowdin profilinizin bağlantısını size verir.",
 		"projects": "Sunucuda desteklediğimiz tüm çeviri projeleri hakkında size bağlantılar ve bilgiler verir",
 		"quote": "Sunucudan komik/garip/bilge bir alıntı gösterir",
 		"rank": "Kendiniz veya herhangi bir kullanıcı için o anki deneyim puanını gösterir",
+		"settings": "Change or view your settings on the bot",
 		"tag": "Gönderirken belirli bir üyeyi bilgilendirmenize izin veren önceden ayarlanmış bir mesaj gönderir",
 		"translate": "Botun nasıl çevrileceği hakkında size yararlı bilgiler verir",
-		"verify": "Size karşılık gelen rolleri doğrular ve verir",
-		"poll": "Sunucuda anket oluşturur veya yönetir. Hypixel Düzeltmenleri ve üstü kullanabilir"
+		"verify": "Size karşılık gelen rolleri doğrular ve verir"
 	},
 	"options": {
 		"8ball": {
@@ -52,51 +56,10 @@
 				"description": "Bot'a sorulacak soru"
 			}
 		},
-		"levels": {
-			"me": {
-				"name": "kendim",
-				"description": "Göründüğünüz sayfadan başlayıp başlamayacağınız. \"Sayfa\" bağımsız değişkenine göre önceliğe sahiptir"
-			},
-			"page": {
-				"name": "sayfa",
-				"description": "Gösterilecek sayfa sayısı"
-			}
-		},
-		"profile": {
-			"user": {
-				"name": "kullanıcı",
-				"description": "Gösterilecek kullanıcı. Sadece yöneticiler kullanabilir"
-			},
-			"profile": {
-				"name": "profil",
-				"description": "The new profile to set for the user. Admin only"
-			}
-		},
-		"rank": {
-			"user": {
-				"name": "kullanıcı",
-				"description": "The user to get the rank for"
-			}
-		},
-		"tag": {
-			"tag": {
-				"name": "etiket",
-				"description": "The tag you want to see",
-				"choices": {
-					"invite": "Invite link to the server",
-					"hypixel": "Hypixel links",
-					"guidelines": "Hypixel project guidelines",
-					"proofreader": "How to get proofreader on the Hypixel project",
-					"minecraft": "Minecraft Crowdin Project",
-					"quickplay": "Quickplay links",
-					"skyblockaddons": "SkyblockAddons links",
-					"thread": "Discord server thread",
-					"twitter": "Hypixel Translators Community Twitter"
-				}
-			},
-			"target": {
-				"name": "target",
-				"description": "The user to mention with this tag"
+		"alert": {
+			"message": {
+				"name": "message",
+				"description": "The message to send to the proofreaders"
 			}
 		},
 		"help": {
@@ -110,7 +73,7 @@
 				"choices": [
 					"Ana Sayfa",
 					"Araçlar & Yardımcı Programlar",
-					"Information commands"
+					"Bilgi komutları"
 				]
 			}
 		},
@@ -127,7 +90,7 @@
 		"hypixelunverify": {
 			"user": {
 				"name": "kullanıcı",
-				"description": "The user to unverify. Admin only"
+				"description": "The user to unverify. Admin-only"
 			}
 		},
 		"hypixelverify": {
@@ -137,7 +100,7 @@
 			},
 			"user": {
 				"name": "kullanıcı",
-				"description": "The user to verify. Admin only"
+				"description": "The user to verify. Admin-only"
 			}
 		},
 		"language": {
@@ -161,7 +124,7 @@
 			},
 			"stats": {
 				"name": "stats",
-				"description": "Gives you usage statistics for a given language. Admin only",
+				"description": "Gives you usage statistics for a given language. Admin-only",
 				"options": {
 					"language": {
 						"name": "dil",
@@ -176,6 +139,16 @@
 				"description": "The language to get progress statistics for. Required if your language is set to English"
 			}
 		},
+		"levels": {
+			"me": {
+				"name": "kendim",
+				"description": "Göründüğünüz sayfadan başlayıp başlamayacağınız. \"Sayfa\" bağımsız değişkenine göre önceliğe sahiptir"
+			},
+			"page": {
+				"name": "sayfa",
+				"description": "Gösterilecek sayfa sayısı"
+			}
+		},
 		"mention": {
 			"language": {
 				"name": "dil",
@@ -186,8 +159,8 @@
 				"description": "The role to mention",
 				"choices": {
 					"all": "Both roles",
-					"translator": "Translator",
-					"proofreader": "Proofreader"
+					"proofreader": "Proofreader",
+					"translator": "Translator"
 				}
 			},
 			"message": {
@@ -216,7 +189,7 @@
 				"options": {
 					"username": {
 						"name": "username",
-						"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
+						"description": "The IGN/UUID of the user to get the skin for. Defaults to your own skin if your account is linked"
 					},
 					"user": {
 						"name": "kullanıcı",
@@ -225,10 +198,96 @@
 				}
 			}
 		},
+		"poll": {
+			"start": {
+				"name": "başlat",
+				"description": "Geçerli kanalda bir anket başlatır",
+				"options": {
+					"question": {
+						"name": "soru",
+						"description": "Anketin sorusu"
+					},
+					"option1": {
+						"name": "seçenek1",
+						"description": "Anketteki ilk seçenek"
+					},
+					"option2": {
+						"name": "seçenek2",
+						"description": "Anketteki ikinci seçenek"
+					},
+					"time": {
+						"name": "süre",
+						"description": "Bu anketin otomatik olarak kapatılması ve sonuçların yayınlanması ne kadar sürecek (saat olarak)"
+					},
+					"option3": {
+						"name": "seçenek3",
+						"description": "Anketteki üçüncü seçenek"
+					},
+					"option4": {
+						"name": "seçenek4",
+						"description": "Anketteki dördüncü seçenek"
+					},
+					"option5": {
+						"name": "seçenek5",
+						"description": "Anketteki beşinci seçenek"
+					},
+					"option6": {
+						"name": "seçenek6",
+						"description": "Ankette altıncı seçenek"
+					},
+					"option7": {
+						"name": "seçenek7",
+						"description": "Anketteki yedinci seçenek"
+					},
+					"option8": {
+						"name": "seçenek8",
+						"description": "Anketteki sekizinci seçenek"
+					}
+				}
+			},
+			"end": {
+				"name": "sonlandır",
+				"description": "Mesaj kimliği verilen bir anketi sonlandır",
+				"options": {
+					"message_id": {
+						"name": "mesaj_kimliği",
+						"description": "Anketi içeren mesajın kimliği"
+					},
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
+					}
+				}
+			},
+			"show": {
+				"name": "göster",
+				"description": "Anketin mevcut sonuçlarını sonlandırmadan gösterir. Yalnızca anketi oluşturan kişi kullanılabilir",
+				"options": {
+					"message_id": {
+						"name": "mesaj_kimliği",
+						"description": "Anketi içeren mesajın kimliği"
+					},
+					"channel": {
+						"name": "channel",
+						"description": "The channel the poll was posted in, if not the current one"
+					}
+				}
+			}
+		},
 		"prefix": {
 			"flags": {
 				"name": "bayraklar",
 				"description": "Ön ekinizde gösterilecek bayraklar, boşluklarla ayırın"
+			}
+		},
+		"profile": {
+			"user": {
+				"name": "kullanıcı",
+				"description": "Gösterilecek kullanıcı. Sadece yöneticiler kullanabilir"
+			},
+			"profile": {
+				"name": "profil",
+				"description": "The new profile to set for the user. Admin-only"
 			}
 		},
 		"quote": {
@@ -307,6 +366,81 @@
 				}
 			}
 		},
+		"rank": {
+			"user": {
+				"name": "kullanıcı",
+				"description": "The user to get the rank for"
+			}
+		},
+		"settings": {
+			"get": {
+				"name": "göster",
+				"description": "See the value of a setting",
+				"options": {
+					"setting": {
+						"name": "setting",
+						"description": "The setting to see",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Proofreader availability"
+						}
+					}
+				}
+			},
+			"set": {
+				"name": "set",
+				"description": "Change the value of a setting",
+				"options": {
+					"setting": {
+						"name": "setting",
+						"description": "The setting to change",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Proofreader availability"
+						}
+					},
+					"value": {
+						"name": "value",
+						"description": "The value to set the setting to"
+					}
+				}
+			},
+			"reset": {
+				"name": "reset",
+				"description": "Reset the value of a setting",
+				"options": {
+					"setting": {
+						"name": "setting",
+						"description": "The setting to reset",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Proofreader availability"
+						}
+					}
+				}
+			}
+		},
+		"tag": {
+			"tag": {
+				"name": "etiket",
+				"description": "The tag you want to see",
+				"choices": {
+					"invite": "Invite link to the server",
+					"hypixel": "Hypixel links",
+					"guidelines": "Hypixel project guidelines",
+					"proofreader": "How to get proofreader on the Hypixel project",
+					"minecraft": "Minecraft Crowdin Project",
+					"quickplay": "Quickplay links",
+					"skyblockaddons": "SkyblockAddons links",
+					"thread": "Discord server thread",
+					"twitter": "Hypixel Translators Community Twitter"
+				}
+			},
+			"target": {
+				"name": "target",
+				"description": "The user to mention with this tag"
+			}
+		},
 		"verify": {
 			"url": {
 				"name": "bağlantı",
@@ -315,82 +449,6 @@
 			"user": {
 				"name": "kullanıcı",
 				"description": "Manuel olarak doğrulanacak kullanıcı. Yalnızca yöneticiler kullanabilir"
-			}
-		},
-		"poll": {
-			"start": {
-				"name": "başlat",
-				"description": "Geçerli kanalda bir anket başlatır",
-				"options": {
-					"question": {
-						"name": "soru",
-						"description": "Anketin sorusu"
-					},
-					"option1": {
-						"name": "seçenek1",
-						"description": "Anketteki ilk seçenek"
-					},
-					"option2": {
-						"name": "seçenek2",
-						"description": "Anketteki ikinci seçenek"
-					},
-					"time": {
-						"name": "süre",
-						"description": "Bu anketin otomatik olarak kapatılması ve sonuçların yayınlanması ne kadar sürecek (saat olarak)"
-					},
-					"option3": {
-						"name": "seçenek3",
-						"description": "Anketteki üçüncü seçenek"
-					},
-					"option4": {
-						"name": "seçenek4",
-						"description": "Anketteki dördüncü seçenek"
-					},
-					"option5": {
-						"name": "seçenek5",
-						"description": "Anketteki beşinci seçenek"
-					},
-					"option6": {
-						"name": "seçenek6",
-						"description": "Ankette altıncı seçenek"
-					},
-					"option7": {
-						"name": "seçenek7",
-						"description": "Anketteki yedinci seçenek"
-					},
-					"option8": {
-						"name": "seçenek8",
-						"description": "Anketteki sekizinci seçenek"
-					}
-				}
-			},
-			"end": {
-				"name": "sonlandır",
-				"description": "Mesaj kimliği verilen bir anketi sonlandır",
-				"options": {
-					"message_id": {
-						"name": "mesaj_kimliği",
-						"description": "Anketi içeren mesajın kimliği"
-					},
-					"channel": {
-						"name": "channel",
-						"description": "The channel the poll was posted in, if not the current one"
-					}
-				}
-			},
-			"show": {
-				"name": "göster",
-				"description": "Anketin mevcut sonuçlarını sonlandırmadan gösterir. Yalnızca anketi oluşturan kişi kullanılabilir",
-				"options": {
-					"message_id": {
-						"name": "mesaj_kimliği",
-						"description": "Anketi içeren mesajın kimliği"
-					},
-					"channel": {
-						"name": "channel",
-						"description": "The channel the poll was posted in, if not the current one"
-					}
-				}
 			}
 		}
 	}

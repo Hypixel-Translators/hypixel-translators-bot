@@ -1,0 +1,6 @@
+{
+    "isSetTo": "crwdns2880:0%%setting%%crwdnd2880:0%%value%%crwdne2880:0",
+    "successSet": "crwdns2882:0%%setting%%crwdnd2882:0%%value%%crwdne2882:0",
+    "successReset": "crwdns2884:0%%setting%%crwdne2884:0",
+    "onlyPf": "crwdns2886:0crwdne2886:0"
+}

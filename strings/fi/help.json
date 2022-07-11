@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, one {# sekunti} other {# sekuntia}}",
 	"minutes": "{number, plural, one {# minuutti} other {# minuuttia}}",
 	"cooldownField": "Odotusaika",
-	"8ball": {
-		"description": "Taikapallo, joka vastaa kaikkiin kysymyksiisi."
-	},
-	"feedback": {
-		"description": "Avaa GitHubin issues-sibun, jossa voit ilmiantaa botissa ilmeneviä ongelmia ja antaa palautetta."
-	},
-	"help": {
-		"description": "Näyttää kaikki saatavilla olevat komennot ja muuta tietoa botista."
-	},
-	"hypixelstats": {
-		"description": "Näyttää haluamasi käyttäjän Hypixel-profiilin perustiedot."
-	},
-	"hypixelunverify": {
-		"description": "Irrottaa Discord-tilisi Minecraft-tilistäsi."
-	},
-	"hypixelverify": {
-		"description": "Yhdistää Discord-tilisi Minecraft-tiliisi."
-	},
-	"language": {
-		"description": "Vaihtaa kielesi, näyttää käytössä olevan kielesi tai listaa kaikki saatavilla olevat kielet."
-	},
-	"languagestats": {
-		"description": "Näyttää kielen käännöstyön edistymisen kaikissa tukemissamme projekteissa."
-	},
-	"levels": {
-		"description": "Näyttää sinulle XP-pistetaulun."
-	},
-	"mention": {
-		"description": "Mainitsee kieliroolin ja lähettää valinnaisen viestin."
-	},
-	"minecraft": {
-		"description": "Etsii tietyn Minecraft-käyttäjän nimihistorian tai skinin. Komento on yhteensopiva komennon /hypixelverify kanssa, ja voit siis tarkastella tietyn käyttäjän tietoja, jos tämä on linkittänyt tilinsä. Parametri `user` ohittaa parametrin `username`, ja ne ovat molemmat valinnaisia, mikäli olet linkittänyt tilisi - muussa tapauksessa ainakin toinen vaaditaan."
-	},
-	"ping": {
-		"description": "Antaa botin viiveen."
-	},
-	"poll": {
-		"description": "Luo ja hallitse kyselyitä palvelimella. Saatavilla Hypixelin oikolukijoille ja korkeammille. Kaikki kyselyn äänet pysyvät piilotettuina, kunnes kysely päättyy. Kyselyyn vastaajien nimiä ei julkaista, vaan ainoastaan äänten määrä näytetään."
-	},
-	"prefix": {
-		"description": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen. Saadaksesi etuliitteen, käytä komentoa `/etuliite` ja syötä oman maasi lipun aluekoodi tai nimi `liput`-parametrin kohdalle. Voit lisätä niin monta lippua kuin haluat erottamalla ne välilyönneillä."
-	},
-	"profile": {
-		"description": "Antaa Crowdin-profiilisi linkin, jos se on tallennettu tietokantaamme. Jos näin ei ole, voit käyttää komentoa `/help verify` saadaksesi lisätietoa siitä, kuinka voit tallentaa profiilisi ja päivittää roolisi."
-	},
-	"projects": {
-		"description": "Antaa sinulle osoitteita ja tietoa kaikista käännösprojekteista, joita tällä palvelimella tuetaan."
-	},
-	"quote": {
-		"description": "Hakee (tai lisää) hauskan/oudon/viisaan lainauksen palvelimelta."
-	},
-	"rank": {
-		"description": "Kertoo oman tai haluamasi käyttäjän tämänhetkisen XP-määrän."
-	},
-	"tag": {
-		"description": "Lähettää ilmoituksen haluamallesi käyttäjälle esiasetetulla viestillä."
-	},
-	"translate": {
-		"description": "Antaa sinulle hyödyllistä tietoa botin kääntämisestä."
-	},
-	"verify": {
-		"description": "Tarkistaa automaattisesti Crowdin-profiilisi päivitykset ja antaa sinulle näin oikeat sinulle kuuluvat roolit. Jos profiiliasi ei ole tallennettu tietokantaamme, voit liittää sen osaksi komentoa. Tarkistaaksesi, onko profiilisi tallennettu, käytä komentoa `/profile`. Varmista, että olet sallinut yksityisviestit tältä palvelimelta, jotta botti voi lähettää sinulle viestin."
+	"descriptions": {
+		"8ball": "Taikapallo, joka vastaa kaikkiin kysymyksiisi.",
+		"alert": "Ilmoittaa muille oikolukijoille virheistä heidän käännöksissään",
+		"feedback": "Avaa GitHubin issues-sibun, jossa voit ilmiantaa botissa ilmeneviä ongelmia ja antaa palautetta.",
+		"help": "Näyttää kaikki saatavilla olevat komennot ja muuta tietoa botista.",
+		"hypixelstats": "Näyttää haluamasi käyttäjän Hypixel-profiilin perustiedot.",
+		"hypixelunverify": "Irrottaa Discord-tilisi Minecraft-tilistäsi.",
+		"hypixelverify": "Yhdistää Discord-tilisi Minecraft-tiliisi.",
+		"language": "Vaihtaa kielesi, näyttää käytössä olevan kielesi tai listaa kaikki saatavilla olevat kielet.",
+		"languagestats": "Näyttää kielen käännöstyön edistymisen kaikissa tukemissamme projekteissa.",
+		"levels": "Näyttää sinulle XP-pistetaulun.",
+		"mention": "Mainitsee kieliroolin ja lähettää valinnaisen viestin.",
+		"minecraft": "Etsii tietyn Minecraft-käyttäjän nimihistorian tai skinin. Komento on yhteensopiva komennon /hypixelverify kanssa, ja voit siis tarkastella tietyn käyttäjän tietoja, jos tämä on linkittänyt tilinsä. Parametri `user` ohittaa parametrin `username`, ja ne ovat molemmat valinnaisia, mikäli olet linkittänyt tilisi - muussa tapauksessa ainakin toinen vaaditaan.",
+		"ping": "Antaa botin viiveen.",
+		"poll": "Luo ja hallitse kyselyitä palvelimella. Saatavilla Hypixelin oikolukijoille ja korkeammille. Kaikki kyselyn äänet pysyvät piilotettuina, kunnes kysely päättyy. Kyselyyn vastaajien nimiä ei julkaista, vaan ainoastaan äänten määrä näytetään.",
+		"prefix": "Antaa sinulle kieleesi/kieliisi sopivan etuliitteen. Saadaksesi etuliitteen, käytä komentoa `/etuliite` ja syötä oman maasi lipun aluekoodi tai nimi `liput`-parametrin kohdalle. Voit lisätä niin monta lippua kuin haluat erottamalla ne välilyönneillä.",
+		"profile": "Antaa Crowdin-profiilisi linkin, jos se on tallennettu tietokantaamme. Jos näin ei ole, voit käyttää komentoa `/help verify` saadaksesi lisätietoa siitä, kuinka voit tallentaa profiilisi ja päivittää roolisi.",
+		"projects": "Antaa sinulle osoitteita ja tietoa kaikista käännösprojekteista, joita tällä palvelimella tuetaan.",
+		"quote": "Hakee (tai lisää) hauskan/oudon/viisaan lainauksen palvelimelta.",
+		"rank": "Kertoo oman tai haluamasi käyttäjän tämänhetkisen XP-määrän.",
+		"settings": "Muuttaa tai näyttää henkilökohtaisia asetuksiasi",
+		"tag": "Lähettää ilmoituksen haluamallesi käyttäjälle esiasetetulla viestillä.",
+		"translate": "Antaa sinulle hyödyllistä tietoa botin kääntämisestä.",
+		"verify": "Tarkistaa automaattisesti Crowdin-profiilisi päivitykset ja antaa sinulle näin oikeat sinulle kuuluvat roolit. Jos profiiliasi ei ole tallennettu tietokantaamme, voit liittää sen osaksi komentoa. Tarkistaaksesi, onko profiilisi tallennettu, käytä komentoa `/profile`. Varmista, että olet sallinut yksityisviestit tältä palvelimelta, jotta botti voi lähettää sinulle viestin."
 	}
 }

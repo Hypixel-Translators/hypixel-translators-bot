@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, other {# 秒}}",
 	"minutes": "{number, plural, other {# 分钟}}",
 	"cooldownField": "冷却时间",
-	"8ball": {
-		"description": "占卜球会回答你所有的问题。"
-	},
-	"feedback": {
-		"description": "打开我们的 GitHub 议题页面，你可以在此页面上报告问题或发送反馈。"
-	},
-	"help": {
-		"description": "显示所有可用的命令以及关于机器人的其他信息。"
-	},
-	"hypixelstats": {
-		"description": "显示所请求的用户的 Hypixel 数据。"
-	},
-	"hypixelunverify": {
-		"description": "解除你当前的 Discord 账号与 Minecraft 账号之间的关联。"
-	},
-	"hypixelverify": {
-		"description": "将你的 Discord 账号与 Minecraft 账号关联。"
-	},
-	"language": {
-		"description": "更改你的语言，显示你的当前语言或可用语言列表。"
-	},
-	"languagestats": {
-		"description": "显示我们当前支持的所有项目的语言进度。"
-	},
-	"levels": {
-		"description": "显示当前的经验排行榜。"
-	},
-	"mention": {
-		"description": "提及某一语言的用户并附带信息。"
-	},
-	"minecraft": {
-		"description": "查找指定 Minecraft 玩家的用户名历史或皮肤。此命令与 /hypixelverify 兼容，可用于查询特定用户是否已经过验证。参数 `user` 的优先级始终高于 `username`，若你已经完成验证，则这两项参数均非必需参数，否则，请指定其中一个参数。"
-	},
-	"ping": {
-		"description": "获取机器人当前的延迟。"
-	},
-	"poll": {
-		"description": "创建或管理服务器上的投票。此功能对 Hypixel 项目审核员及以上等级用户开放。通过此命令创建的投票在结束前均不公开，投票者的名称不会公开显示，仅显示票数。"
-	},
-	"prefix": {
-		"description": "根据你的语言设置合适的前缀。若需要自定义前缀，请执行 `/prefix` 命令，然后提供对应国家/地区旗帜的代码或名称来作为参数 `flags` 的值。你也可以添加多个旗帜，但请使用空格分隔。"
-	},
-	"profile": {
-		"description": "若我们的数据库中存有你的数据，则可以获取 Crowdin 个人主页链接。否则，请使用 `/help verify` 命令来了解如何保存数据并更新你的角色。"
-	},
-	"projects": {
-		"description": "获取我们所支持的所有翻译项目的链接和信息。"
-	},
-	"quote": {
-		"description": "Shows a funny/weird/wise quote from the server."
-	},
-	"rank": {
-		"description": "显示你当前的经验或特定用户的经验。"
-	},
-	"tag": {
-		"description": "发送预设消息，允许你在发送此消息时通知某一特定用户。"
-	},
-	"translate": {
-		"description": "获取有关机器人翻译的实用信息。"
-	},
-	"verify": {
-		"description": "自动检测你的 Crowdin 个人档案，并给予你对应的角色。如果你的档案未储存在我们的数据库中，则必须为命令提供参数来指定。如果想查看数据库中是否包含你的数据，请执行 `/profile` 命令。同时也请务必允许来自此服务器的私聊消息，以便机器人通过私聊发送信息。"
+	"descriptions": {
+		"8ball": "占卜球会回答你所有的问题。",
+		"alert": "Alerts other proofreaders for issues in their translations",
+		"feedback": "打开我们的 GitHub 议题页面，你可以在此页面上报告问题或发送反馈。",
+		"help": "显示所有可用的命令以及关于机器人的其他信息。",
+		"hypixelstats": "显示所请求的用户的 Hypixel 数据。",
+		"hypixelunverify": "解除你当前的 Discord 账号与 Minecraft 账号之间的关联。",
+		"hypixelverify": "将你的 Discord 账号与 Minecraft 账号关联。",
+		"language": "更改你的语言，显示你的当前语言或可用语言列表。",
+		"languagestats": "显示我们当前支持的所有项目的语言进度。",
+		"levels": "显示当前的经验排行榜。",
+		"mention": "提及某一语言的用户并附带信息。",
+		"minecraft": "查找指定 Minecraft 玩家的用户名历史或皮肤。此命令与 /hypixelverify 兼容，可用于查询特定用户是否已经过验证。参数 `user` 的优先级始终高于 `username`，若你已经完成验证，则这两项参数均非必需参数，否则，请指定其中一个参数。",
+		"ping": "获取机器人当前的延迟。",
+		"poll": "创建或管理服务器上的投票。此功能对 Hypixel 项目审核员及以上等级用户开放。通过此命令创建的投票在结束前均不公开，投票者的名称不会公开显示，仅显示票数。",
+		"prefix": "根据你的语言设置合适的前缀。若需要自定义前缀，请执行 `/prefix` 命令，然后提供对应国家/地区旗帜的代码或名称来作为参数 `flags` 的值。你也可以添加多个旗帜，但请使用空格分隔。",
+		"profile": "若我们的数据库中存有你的数据，则可以获取 Crowdin 个人主页链接。否则，请使用 `/help verify` 命令来了解如何保存数据并更新你的角色。",
+		"projects": "获取我们所支持的所有翻译项目的链接和信息。",
+		"quote": "Shows a funny/weird/wise quote from the server.",
+		"rank": "显示你当前的经验或特定用户的经验。",
+		"settings": "Changes or shows your settings on the bot",
+		"tag": "发送预设消息，允许你在发送此消息时通知某一特定用户。",
+		"translate": "获取有关机器人翻译的实用信息。",
+		"verify": "自动检测你的 Crowdin 个人档案，并给予你对应的角色。如果你的档案未储存在我们的数据库中，则必须为命令提供参数来指定。如果想查看数据库中是否包含你的数据，请执行 `/profile` 命令。同时也请务必允许来自此服务器的私聊消息，以便机器人通过私聊发送信息。"
 	}
 }

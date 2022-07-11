@@ -1,0 +1,6 @@
+{
+    "isSetTo": "Sua configuração %%setting%% está definida como %%value%%",
+    "successSet": "A configuração %%setting%% foi alterada com sucesso para %%value%%",
+    "successReset": "A configuração %%setting%% foi redefinida com sucesso",
+    "onlyPf": "Esta configuração só está disponível para revisores do Hypixel!"
+}

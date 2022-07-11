@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, one {# second} other {# seconds}}",
 	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "Cooldown",
-	"8ball": {
-		"description": "Mingea Magică care îți va răspunde la toate întrebările."
-	},
-	"feedback": {
-		"description": "Deschide pagină noastră Github de probleme, unde poți raporta probleme și trimite feedback."
-	},
-	"help": {
-		"description": "Îți arată toate comenzile disponibile și alte informații despre bot."
-	},
-	"hypixelstats": {
-		"description": "Îți arată statistici de bază Hypixel pentru utilizatorul dat."
-	},
-	"hypixelunverify": {
-		"description": "Deconectează contul tău de Discord de contul tău de Minecraft."
-	},
-	"hypixelverify": {
-		"description": "Îți conectează contul Discord cu contul tău de Minecraft."
-	},
-	"language": {
-		"description": "Îți schimbă limba, arată limba curentă sau o listă de limbi disponibile."
-	},
-	"languagestats": {
-		"description": "Îți arată progresul unei limbi pe toate proiectele pe care le suportăm în prezent."
-	},
-	"levels": {
-		"description": "Îți dă clasamentul XP."
-	},
-	"mention": {
-		"description": "Menționează un rol lingvistic cu un mesaj opțional."
-	},
-	"minecraft": {
-		"description": "Caută numele și istoria skinurilor a unui jucător specific. Această comandă este compatibilă cu /hypixelverify, permițându-te să cauți informațiile unui utilizator specific dacă sunt verificate. Parametrul `user` va avea întotdeauna prioritate faţă de `username` şi sunt amândouă opţionale dacă ești verificat, altfel, cel puţin unul este necesar."
-	},
-	"ping": {
-		"description": "Îți dă ping-ul botului."
-	},
-	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
-	},
-	"prefix": {
-		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
-	},
-	"profile": {
-		"description": "Îți dă link-ul către profilul dacă este stocată pe baza noastră de date. Dacă nu e, poți executa `/help verify` pentru a învăța cum să îți stochezi profilul și să îți stochezi rolurile."
-	},
-	"projects": {
-		"description": "Îți dă link-uri și informații despre toate proiectele de traducere sprijinite de noi pe server."
-	},
-	"quote": {
-		"description": "Shows a funny/weird/wise quote from the server."
-	},
-	"rank": {
-		"description": "Îți dă XP-ul curent pentru tine sau orice alt utilizator."
-	},
-	"tag": {
-		"description": "Îți trimite un mesaj presetat, care îți permite să notifici un anumit membru când îl trimiți."
-	},
-	"translate": {
-		"description": "Gives you useful information on how to translate the bot."
-	},
-	"verify": {
-		"description": "Verifică automat pentru modificări pe profilul tău Crowdin și îți oferă rolurile adecvate. Dacă profilul tău nu este stocat în baza noastră de date, îl poți furniza ca un argument în comandă. Pentru a verifica dacă profilul tău este stocat, execută `/profile`. Asigură că ai DM-urile activate de pe acest server, astfel încât bot-ul să îți poată trimite un mesaj."
+	"descriptions": {
+		"8ball": "Mingea Magică care îți va răspunde la toate întrebările.",
+		"alert": "Alerts other proofreaders for issues in their translations",
+		"feedback": "Deschide pagină noastră Github de probleme, unde poți raporta probleme și trimite feedback.",
+		"help": "Îți arată toate comenzile disponibile și alte informații despre bot.",
+		"hypixelstats": "Îți arată statistici de bază Hypixel pentru utilizatorul dat.",
+		"hypixelunverify": "Deconectează contul tău de Discord de contul tău de Minecraft.",
+		"hypixelverify": "Îți conectează contul Discord cu contul tău de Minecraft.",
+		"language": "Îți schimbă limba, arată limba curentă sau o listă de limbi disponibile.",
+		"languagestats": "Îți arată progresul unei limbi pe toate proiectele pe care le suportăm în prezent.",
+		"levels": "Îți dă clasamentul XP.",
+		"mention": "Menționează un rol lingvistic cu un mesaj opțional.",
+		"minecraft": "Caută numele și istoria skinurilor a unui jucător specific. Această comandă este compatibilă cu /hypixelverify, permițându-te să cauți informațiile unui utilizator specific dacă sunt verificate. Parametrul `user` va avea întotdeauna prioritate faţă de `username` şi sunt amândouă opţionale dacă ești verificat, altfel, cel puţin unul este necesar.",
+		"ping": "Îți dă ping-ul botului.",
+		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed.",
+		"prefix": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space.",
+		"profile": "Îți dă link-ul către profilul dacă este stocată pe baza noastră de date. Dacă nu e, poți executa `/help verify` pentru a învăța cum să îți stochezi profilul și să îți stochezi rolurile.",
+		"projects": "Îți dă link-uri și informații despre toate proiectele de traducere sprijinite de noi pe server.",
+		"quote": "Shows a funny/weird/wise quote from the server.",
+		"rank": "Îți dă XP-ul curent pentru tine sau orice alt utilizator.",
+		"settings": "Changes or shows your settings on the bot",
+		"tag": "Îți trimite un mesaj presetat, care îți permite să notifici un anumit membru când îl trimiți.",
+		"translate": "Gives you useful information on how to translate the bot.",
+		"verify": "Verifică automat pentru modificări pe profilul tău Crowdin și îți oferă rolurile adecvate. Dacă profilul tău nu este stocat în baza noastră de date, îl poți furniza ca un argument în comandă. Pentru a verifica dacă profilul tău este stocat, execută `/profile`. Asigură că ai DM-urile activate de pe acest server, astfel încât bot-ul să îți poată trimite un mesaj."
 	}
 }

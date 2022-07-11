@@ -1,29 +1,32 @@
 {
 	"names": {
 		"8ball": "шарсудьбы",
+		"alert": "alert",
 		"feedback": "отзыв",
-		"levels": "уровни",
-		"ping": "пинг",
-		"profile": "профиль",
-		"projects": "проекты",
-		"rank": "ранг",
-		"tag": "тег",
-		"translate": "перевести",
 		"help": "помощь",
 		"hypixelstats": "статистикаhypixel",
 		"hypixelunverify": "отвязатьhypixel",
 		"hypixelverify": "привязатьhypixel",
 		"language": "язык",
 		"languagestats": "статистикаязыка",
+		"levels": "уровни",
 		"mention": "упомянуть",
 		"minecraft": "minecraft",
+		"ping": "пинг",
+		"poll": "опрос",
 		"prefix": "префикс",
+		"profile": "профиль",
+		"projects": "проекты",
 		"quote": "цитата",
-		"verify": "привязать",
-		"poll": "опрос"
+		"rank": "ранг",
+		"settings": "settings",
+		"tag": "тег",
+		"translate": "перевести",
+		"verify": "привязать"
 	},
 	"descriptions": {
 		"8ball": "The Magic 8 Ball that will answer all your questions",
+		"alert": "Alerts other proofreaders for issues in their translations",
 		"feedback": "Gives you instructions on how to give feedback towards the bot",
 		"help": "Shows you all available commands and general info about the bot",
 		"hypixelstats": "Shows you basic Hypixel stats for the provided user",
@@ -35,15 +38,16 @@
 		"mention": "Mentions a language role with a message",
 		"minecraft": "Looks up a specific Minecraft player's name history or skin",
 		"ping": "Gives you the bot's ping",
+		"poll": "Создаёт или управляет опросами на сервере. Доступно для корректоров Hypixel и выше",
 		"prefix": "Lets you pick an appropriate prefix for your language(s)",
-		"profile": "Gives you the link to your Crowdin profile if it's stored on our database.",
+		"profile": "Gives you the link to your Crowdin profile if it's stored on our database",
 		"projects": "Gives you links and information about all the translation projects we support on the server",
 		"quote": "Shows a funny/weird/wise quote from the server",
 		"rank": "Gives you the current XP for yourself or any given user",
+		"settings": "Change or view your settings on the bot",
 		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
 		"translate": "Gives you useful information on how to translate the bot",
-		"verify": "Verifies and gives you your corresponding roles",
-		"poll": "Создаёт или управляет опросами на сервере. Доступно для корректоров Hypixel и выше"
+		"verify": "Verifies and gives you your corresponding roles"
 	},
 	"options": {
 		"8ball": {
@@ -52,51 +56,10 @@
 				"description": "The question to ask the bot"
 			}
 		},
-		"levels": {
-			"me": {
-				"name": "я",
-				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
-			},
-			"page": {
-				"name": "страница",
-				"description": "The leaderboard page to get"
-			}
-		},
-		"profile": {
-			"user": {
-				"name": "пользователь",
-				"description": "The user to find the profile for. Admin only"
-			},
-			"profile": {
-				"name": "профиль",
-				"description": "The new profile to set for the user. Admin only"
-			}
-		},
-		"rank": {
-			"user": {
-				"name": "пользователь",
-				"description": "The user to get the rank for"
-			}
-		},
-		"tag": {
-			"tag": {
-				"name": "тег",
-				"description": "The tag you want to see",
-				"choices": {
-					"invite": "Ссылка-приглашение на сервер",
-					"hypixel": "Ссылки Hypixel",
-					"guidelines": "Руководящие принципы проекта Hypixel",
-					"proofreader": "Как получить корректора в проекте Hypixel",
-					"minecraft": "Проект Minecraft на Crowdin",
-					"quickplay": "Ссылки Quickplay",
-					"skyblockaddons": "Ссылки SkyblockAddons",
-					"thread": "Тема сервера Discord",
-					"twitter": "Twitter сообщества переводчиков Hypixel"
-				}
-			},
-			"target": {
-				"name": "цель",
-				"description": "The user to mention with this tag"
+		"alert": {
+			"message": {
+				"name": "сообщение",
+				"description": "The message to send to the proofreaders"
 			}
 		},
 		"help": {
@@ -127,7 +90,7 @@
 		"hypixelunverify": {
 			"user": {
 				"name": "пользователь",
-				"description": "The user to unverify. Admin only"
+				"description": "The user to unverify. Admin-only"
 			}
 		},
 		"hypixelverify": {
@@ -137,7 +100,7 @@
 			},
 			"user": {
 				"name": "пользователь",
-				"description": "The user to verify. Admin only"
+				"description": "The user to verify. Admin-only"
 			}
 		},
 		"language": {
@@ -161,7 +124,7 @@
 			},
 			"stats": {
 				"name": "статистика",
-				"description": "Gives you usage statistics for a given language. Admin only",
+				"description": "Gives you usage statistics for a given language. Admin-only",
 				"options": {
 					"language": {
 						"name": "язык",
@@ -176,6 +139,16 @@
 				"description": "The language to get progress statistics for. Required if your language is set to English"
 			}
 		},
+		"levels": {
+			"me": {
+				"name": "я",
+				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
+			},
+			"page": {
+				"name": "страница",
+				"description": "The leaderboard page to get"
+			}
+		},
 		"mention": {
 			"language": {
 				"name": "язык",
@@ -186,8 +159,8 @@
 				"description": "The role to mention",
 				"choices": {
 					"all": "Обе роли",
-					"translator": "Переводчика",
-					"proofreader": "Корректора"
+					"proofreader": "Корректора",
+					"translator": "Переводчика"
 				}
 			},
 			"message": {
@@ -216,105 +189,13 @@
 				"options": {
 					"username": {
 						"name": "имяпользователя",
-						"description": "The IGN/UUID of the user to get skin for. Defaults to your user if your account is linked"
+						"description": "The IGN/UUID of the user to get the skin for. Defaults to your own skin if your account is linked"
 					},
 					"user": {
 						"name": "пользователь",
-						"description": "The server member to get skin for. Only works if the user has verified themselves"
+						"description": "The server member to get the skin for. Only works if the user has verified themselves"
 					}
 				}
-			}
-		},
-		"prefix": {
-			"flags": {
-				"name": "флаги",
-				"description": "The flags to be applied to your prefix, separated with spaces"
-			}
-		},
-		"quote": {
-			"get": {
-				"name": "получить",
-				"description": "Get a random/specific quote",
-				"options": {
-					"index": {
-						"name": "индекс",
-						"description": "The index of the quote you want to see"
-					}
-				}
-			},
-			"add": {
-				"name": "добавить",
-				"description": "Add a new quote. Staff only",
-				"options": {
-					"quote": {
-						"name": "цитата",
-						"description": "The quote you want to add"
-					},
-					"author": {
-						"name": "автор",
-						"description": "The author of this quote"
-					},
-					"url": {
-						"name": "ссылка",
-						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
-					},
-					"image": {
-						"name": "изображение",
-						"description": "The URL of the image to be included with this quote. Has priority over URL's image if provided"
-					}
-				}
-			},
-			"edit": {
-				"name": "изменить",
-				"description": "Edit a quote. Staff only",
-				"options": {
-					"index": {
-						"name": "индекс",
-						"description": "The index of the quote to edit"
-					},
-					"quote": {
-						"name": "цитата",
-						"description": "The new quote"
-					}
-				}
-			},
-			"delete": {
-				"name": "удалить",
-				"description": "Delete a quote. Staff only",
-				"options": {
-					"index": {
-						"name": "индекс",
-						"description": "The index of the quote to delete"
-					}
-				}
-			},
-			"link": {
-				"name": "ссылка",
-				"description": "Link a quote to a message. Staff only",
-				"options": {
-					"index": {
-						"name": "индекс",
-						"description": "The index of the quote to link"
-					},
-					"url": {
-						"name": "ссылка",
-						"description": "The URL of the message to link this quote to"
-					},
-					"image": {
-						"name": "изображение",
-						"description": "Whether or not to attach this message's image to the quote"
-					}
-				}
-			}
-		},
-		"verify": {
-			"url": {
-				"name": "ссылка",
-				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section"
-			},
-			"user": {
-				"name": "пользователь",
-				"description": "The user to manually verify. Admin only"
 			}
 		},
 		"poll": {
@@ -391,6 +272,183 @@
 						"description": "The channel the poll was posted in, if not the current one"
 					}
 				}
+			}
+		},
+		"prefix": {
+			"flags": {
+				"name": "флаги",
+				"description": "The flags to be applied to your prefix, separated with spaces"
+			}
+		},
+		"profile": {
+			"user": {
+				"name": "пользователь",
+				"description": "The user to find the profile for. Admin-only"
+			},
+			"profile": {
+				"name": "профиль",
+				"description": "The new profile to set for the user. Admin-only"
+			}
+		},
+		"quote": {
+			"get": {
+				"name": "получить",
+				"description": "Get a random/specific quote",
+				"options": {
+					"index": {
+						"name": "индекс",
+						"description": "The index of the quote you want to see"
+					}
+				}
+			},
+			"add": {
+				"name": "добавить",
+				"description": "Adds a new quote. Staff only",
+				"options": {
+					"quote": {
+						"name": "цитата",
+						"description": "The quote you want to add"
+					},
+					"author": {
+						"name": "автор",
+						"description": "The author of this quote"
+					},
+					"url": {
+						"name": "ссылка",
+						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
+					},
+					"image": {
+						"name": "изображение",
+						"description": "The URL of the image to be included with this quote. Has priority over url's image if provided"
+					}
+				}
+			},
+			"edit": {
+				"name": "изменить",
+				"description": "Edits a quote. Staff only",
+				"options": {
+					"index": {
+						"name": "индекс",
+						"description": "The index of the quote to edit"
+					},
+					"quote": {
+						"name": "цитата",
+						"description": "The new quote"
+					}
+				}
+			},
+			"delete": {
+				"name": "удалить",
+				"description": "Deletes a quote. Staff only",
+				"options": {
+					"index": {
+						"name": "индекс",
+						"description": "The index of the quote to delete"
+					}
+				}
+			},
+			"link": {
+				"name": "ссылка",
+				"description": "Links a quote to a message. Staff only",
+				"options": {
+					"index": {
+						"name": "индекс",
+						"description": "The index of the quote to link"
+					},
+					"url": {
+						"name": "ссылка",
+						"description": "The URL of the message to link this quote to"
+					},
+					"image": {
+						"name": "изображение",
+						"description": "Whether or not to attach this message's image to the quote"
+					}
+				}
+			}
+		},
+		"rank": {
+			"user": {
+				"name": "пользователь",
+				"description": "The user to get the rank for"
+			}
+		},
+		"settings": {
+			"get": {
+				"name": "получить",
+				"description": "See the value of a setting",
+				"options": {
+					"setting": {
+						"name": "setting",
+						"description": "The setting to see",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Proofreader availability"
+						}
+					}
+				}
+			},
+			"set": {
+				"name": "установить",
+				"description": "Change the value of a setting",
+				"options": {
+					"setting": {
+						"name": "setting",
+						"description": "The setting to change",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Proofreader availability"
+						}
+					},
+					"value": {
+						"name": "value",
+						"description": "The value to set the setting to"
+					}
+				}
+			},
+			"reset": {
+				"name": "сбросить",
+				"description": "Reset the value of a setting",
+				"options": {
+					"setting": {
+						"name": "setting",
+						"description": "The setting to reset",
+						"choices": {
+							"lvlUpMsg": "Send messages upon level up",
+							"availability": "Proofreader availability"
+						}
+					}
+				}
+			}
+		},
+		"tag": {
+			"tag": {
+				"name": "тег",
+				"description": "The tag you want to see",
+				"choices": {
+					"invite": "Ссылка-приглашение на сервер",
+					"hypixel": "Ссылки Hypixel",
+					"guidelines": "Руководящие принципы проекта Hypixel",
+					"proofreader": "Как получить корректора в проекте Hypixel",
+					"minecraft": "Проект Minecraft на Crowdin",
+					"quickplay": "Ссылки Quickplay",
+					"skyblockaddons": "Ссылки SkyblockAddons",
+					"thread": "Тема сервера Discord",
+					"twitter": "Twitter сообщества переводчиков Hypixel"
+				}
+			},
+			"target": {
+				"name": "цель",
+				"description": "The user to mention with this tag"
+			}
+		},
+		"verify": {
+			"url": {
+				"name": "ссылка",
+				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section"
+			},
+			"user": {
+				"name": "пользователь",
+				"description": "The user to manually verify. Admin-only"
 			}
 		}
 	}

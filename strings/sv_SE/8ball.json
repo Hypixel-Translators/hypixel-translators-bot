@@ -1,32 +1,32 @@
 {
-	"moduleName": "Magic 8 ball",
-	"question": "Question",
+	"moduleName": "Magisk 8-boll",
+	"question": "Fråga",
 	"answers": {
 		"positive": [
-			"It is certain.",
-			"It is decidedly so.",
-			"Without a doubt.",
-			"Yes – definitely.",
-			"You may rely on it.",
-			"As I see it, yes.",
-			"Most likely.",
-			"Outlook good.",
-			"Yes",
-			"Signs point to yes."
+			"Det är garanterat.",
+			"Det är helt klart så.",
+			"Utan tvekan.",
+			"Ja - självklart.",
+			"Det kan du lita på.",
+			"Som jag ser det, ja.",
+			"Mest troligen.",
+			"Det ser bra ut.",
+			"Ja",
+			"Ja, enligt alla tecken."
 		],
 		"inconclusive": [
-			"Reply hazy, try again.",
-			"Ask again later.",
-			"Better not tell you now.",
-			"Cannot predict now.",
-			"Concentrate and ask again."
+			"Svara dunkel, försök igen.",
+			"Fråga igen senare.",
+			"Bättre att inte berätta det nu.",
+			"Kan inte förutse nu.",
+			"Koncentrera dig och fråga igen."
 		],
 		"negative": [
-			"Don't count on it.",
-			"My reply is no.",
-			"My sources say no.",
-			"Outlook not so good.",
-			"Very doubtful."
+			"Räkna inte med det.",
+			"Mitt svar är nej.",
+			"Mina källor säger nej.",
+			"Det ser inte så bra ut.",
+			"Mycket tveksamt."
 		]
 	}
 }

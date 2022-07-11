@@ -1,14 +1,14 @@
 {
-	"moduleName": "Minecraft Statistics",
+	"moduleName": "Minecraft-statistik",
 	"history": {
-		"firstName": "First name",
-		"nameHistoryFor": "Name history for %%username%%",
-		"youChangedName": "You have {number, plural, =0 {never changed your name} one {changed your name # time} other {changed your name # times}}.",
-		"userChangedName": "%%username%% has {number, plural, =0 {never changed their name} one {changed their name # time} other {changed their name # times}}."
+		"firstName": "Första namn",
+		"nameHistoryFor": "Namnhistorik för %%username%%",
+		"youChangedName": "Du har {number, plural, =0 {aldrig ändrat ditt namn} one {ändrat ditt namn en gång} other {ändrat ditt namn # gånger}}.",
+		"userChangedName": "%%username%% har {number, plural, =0 {aldrig ändrat sitt namn} one {ändrat sitt namn en gång} other {ändrat sitt namn # gånger}}."
 	},
 	"skin": {
-		"yourSkin": "Here's your skin!",
-		"userSkin": "Here's %%user%%'s skin!",
-		"isLinked": "This player is linked to %%user%%"
+		"yourSkin": "Här är ditt utseende!",
+		"userSkin": "Här är %%user%%s utseende!",
+		"isLinked": "Denna spelare är kopplad till %%user%%"
 	}
 }

@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, one {# second} other {# seconds}}",
 	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "Enfriamiento",
-	"8ball": {
-		"description": "La Bola 8 Mágica que responderá a todas tus preguntas."
-	},
-	"feedback": {
-		"description": "Abre nuestra página de errores de GitHub, donde puedes reportar bugs y dar comentarios."
-	},
-	"help": {
-		"description": "Muestra todos los comandos disponibles e información general sobre el bot."
-	},
-	"hypixelstats": {
-		"description": "Te muestra estadísticas simples de Hypixel de un jugador."
-	},
-	"hypixelunverify": {
-		"description": "Desconecta tu cuenta de Discord de tu cuenta de Minecraft."
-	},
-	"hypixelverify": {
-		"description": "Conecta tu cuenta de Discord con tu cuenta de Minecraft."
-	},
-	"language": {
-		"description": "Cambia tu idioma, muestra tu idioma actual o muestra una lista de idiomas disponibles."
-	},
-	"languagestats": {
-		"description": "Te muestra el progreso de un idioma en todos los proyectos disponibles."
-	},
-	"levels": {
-		"description": "Te da el podio de XP."
-	},
-	"mention": {
-		"description": "Menciona un rol de idioma con un mensaje opcional."
-	},
-	"minecraft": {
-		"description": "Busca el historial de nombres o skin de un jugador de Minecraft específico. Este comando es compatible con `/hypixelverify`, lo que te permite buscar la información de un usuario específico si está verificado. El parámetro `user` siempre tendrá prioridad sobre `username` y ambos son opcionales si estás verificado, de lo contrario, se requiere al menos uno."
-	},
-	"ping": {
-		"description": "Te da el ping del bot."
-	},
-	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
-	},
-	"prefix": {
-		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
-	},
-	"profile": {
-		"description": "Te da el enlace a tu perfil de Crowdin si está almacenado en nuestra base de datos. Si no está, puedes usar `/help verify` para aprender como almacenar tu perfil y actualizar tus roles."
-	},
-	"projects": {
-		"description": "Te da enlaces e información sobre todos los proyectos de traducción que tenemos en el servidor."
-	},
-	"quote": {
-		"description": "Shows a funny/weird/wise quote from the server."
-	},
-	"rank": {
-		"description": "Te da la XP actual para ti o para cualquier usuario."
-	},
-	"tag": {
-		"description": "Envía un mensaje preestablecido, permitiéndote notificar a un miembro específico al enviarlo."
-	},
-	"translate": {
-		"description": "Gives you useful information on how to translate the bot."
-	},
-	"verify": {
-		"description": "Comprueba automáticamente los cambios en tu perfil de Crowdin y te da los roles adecuados. Si tu perfil no está almacenado en nuestra base de datos, puedes darlo como un argumento en el comando. Para verificar si tu perfil está almacenado, usa `/profile`. Asegúrate de tener DMs habilitados desde este servidor para que el bot pueda enviarte un mensaje."
+	"descriptions": {
+		"8ball": "La Bola 8 Mágica que responderá a todas tus preguntas.",
+		"alert": "Alerts other proofreaders for issues in their translations",
+		"feedback": "Abre nuestra página de errores de GitHub, donde puedes reportar bugs y dar comentarios.",
+		"help": "Muestra todos los comandos disponibles e información general sobre el bot.",
+		"hypixelstats": "Te muestra estadísticas simples de Hypixel de un jugador.",
+		"hypixelunverify": "Desconecta tu cuenta de Discord de tu cuenta de Minecraft.",
+		"hypixelverify": "Conecta tu cuenta de Discord con tu cuenta de Minecraft.",
+		"language": "Cambia tu idioma, muestra tu idioma actual o muestra una lista de idiomas disponibles.",
+		"languagestats": "Te muestra el progreso de un idioma en todos los proyectos disponibles.",
+		"levels": "Te da el podio de XP.",
+		"mention": "Menciona un rol de idioma con un mensaje opcional.",
+		"minecraft": "Busca el historial de nombres o skin de un jugador de Minecraft específico. Este comando es compatible con `/hypixelverify`, lo que te permite buscar la información de un usuario específico si está verificado. El parámetro `user` siempre tendrá prioridad sobre `username` y ambos son opcionales si estás verificado, de lo contrario, se requiere al menos uno.",
+		"ping": "Te da el ping del bot.",
+		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed.",
+		"prefix": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space.",
+		"profile": "Te da el enlace a tu perfil de Crowdin si está almacenado en nuestra base de datos. Si no está, puedes usar `/help verify` para aprender como almacenar tu perfil y actualizar tus roles.",
+		"projects": "Te da enlaces e información sobre todos los proyectos de traducción que tenemos en el servidor.",
+		"quote": "Shows a funny/weird/wise quote from the server.",
+		"rank": "Te da la XP actual para ti o para cualquier usuario.",
+		"settings": "Changes or shows your settings on the bot",
+		"tag": "Envía un mensaje preestablecido, permitiéndote notificar a un miembro específico al enviarlo.",
+		"translate": "Gives you useful information on how to translate the bot.",
+		"verify": "Comprueba automáticamente los cambios en tu perfil de Crowdin y te da los roles adecuados. Si tu perfil no está almacenado en nuestra base de datos, puedes darlo como un argumento en el comando. Para verificar si tu perfil está almacenado, usa `/profile`. Asegúrate de tener DMs habilitados desde este servidor para que el bot pueda enviarte un mensaje."
 	}
 }

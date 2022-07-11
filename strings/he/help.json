@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, one {# second} other {# seconds}}",
 	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "זמן המתנה",
-	"8ball": {
-		"description": "ה8 Ball הקסום שיענה לך על כל השאלות שלך."
-	},
-	"feedback": {
-		"description": "פותח את עמוד הבעיות שלנו בGitHub, שבו תוכל/י לדווח על בעיות ולשלוח חוות דעת."
-	},
-	"help": {
-		"description": "מציג עבורך את כל הפקודות הזמינות ומידע אחר על הבוט הזה."
-	},
-	"hypixelstats": {
-		"description": "מציג לך סטיסטיקות בסיסיות של הייפיקסל עבור המשתמש המבוקש."
-	},
-	"hypixelunverify": {
-		"description": "Unlinks your Discord account from your Minecraft account."
-	},
-	"hypixelverify": {
-		"description": "Links your Discord account with your Minecraft account."
-	},
-	"language": {
-		"description": "משנה את השפה שלך, מציג לך את השפה הנוכחית שלך או רשימה של כל השפות הזמינות. אם ברצונך לבקש שפה חדשה עבור הבוט בצע את הפקודה הבאה: `<שפה> language add/`."
-	},
-	"languagestats": {
-		"description": "מציג את התקדמות של השפה בכל הפרויקטים בהם אנו תומכים."
-	},
-	"levels": {
-		"description": "נותן לך טבלת מובילים בנקודות XP."
-	},
-	"mention": {
-		"description": "מתייג תג של שפה עם הודעה נוספת."
-	},
-	"minecraft": {
-		"description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
-	},
-	"ping": {
-		"description": "נותן לך את הping של הבוט."
-	},
-	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
-	},
-	"prefix": {
-		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
-	},
-	"profile": {
-		"description": "נותן לך קישור לפרופיל הCrowdin שלך אם הוא שמור במאגר המידע. אם לא, את/ה יכול/ה לבצע `help reverify/` בכדי ללמוד איך לשמור את הפרופיל ולעדכן את הroles שלך."
-	},
-	"projects": {
-		"description": "נותן לך קישור ומידע על כל הפרויקטים של התרגום שאנו תומכים בהם בשרת שלנו."
-	},
-	"quote": {
-		"description": "Shows a funny/weird/wise quote from the server."
-	},
-	"rank": {
-		"description": "נותן לך את כמות נקודות הXP שלך או של כל משתמש אחר."
-	},
-	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
-	},
-	"translate": {
-		"description": "Gives you useful information on how to translate the bot."
-	},
-	"verify": {
-		"description": "בודק באופן אוטומטי שינויים בחשבון הCrowdin שלך ונותן לך את הrole המתאים. אם הפרופיל שלך לא שמור במאגר המידע שלנו את/ה יכול/ה לספק אותו בתור משתנה בפקודה. בכדי לבדוק אם הפרופיל שלך שמור, בצע/י `profile/`. וודא/י שאת/ה מסוגל לקבל הודעות פרטיות (DM) מהשרת הזה כדי שהבוט יוכל לשלוח לך הודעות."
+	"descriptions": {
+		"8ball": "ה8 Ball הקסום שיענה לך על כל השאלות שלך.",
+		"alert": "Alerts other proofreaders for issues in their translations",
+		"feedback": "פותח את עמוד הבעיות שלנו בGitHub, שבו תוכל/י לדווח על בעיות ולשלוח חוות דעת.",
+		"help": "מציג עבורך את כל הפקודות הזמינות ומידע אחר על הבוט הזה.",
+		"hypixelstats": "מציג לך סטיסטיקות בסיסיות של הייפיקסל עבור המשתמש המבוקש.",
+		"hypixelunverify": "Unlinks your Discord account from your Minecraft account.",
+		"hypixelverify": "Links your Discord account with your Minecraft account.",
+		"language": "משנה את השפה שלך, מציג לך את השפה הנוכחית שלך או רשימה של כל השפות הזמינות. אם ברצונך לבקש שפה חדשה עבור הבוט בצע את הפקודה הבאה: `<שפה> language add/`.",
+		"languagestats": "מציג את התקדמות של השפה בכל הפרויקטים בהם אנו תומכים.",
+		"levels": "נותן לך טבלת מובילים בנקודות XP.",
+		"mention": "מתייג תג של שפה עם הודעה נוספת.",
+		"minecraft": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required.",
+		"ping": "נותן לך את הping של הבוט.",
+		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed.",
+		"prefix": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space.",
+		"profile": "נותן לך קישור לפרופיל הCrowdin שלך אם הוא שמור במאגר המידע. אם לא, את/ה יכול/ה לבצע `help reverify/` בכדי ללמוד איך לשמור את הפרופיל ולעדכן את הroles שלך.",
+		"projects": "נותן לך קישור ומידע על כל הפרויקטים של התרגום שאנו תומכים בהם בשרת שלנו.",
+		"quote": "Shows a funny/weird/wise quote from the server.",
+		"rank": "נותן לך את כמות נקודות הXP שלך או של כל משתמש אחר.",
+		"settings": "Changes or shows your settings on the bot",
+		"tag": "Sends a preset message, allowing you to notify a specific member when sending it.",
+		"translate": "Gives you useful information on how to translate the bot.",
+		"verify": "בודק באופן אוטומטי שינויים בחשבון הCrowdin שלך ונותן לך את הrole המתאים. אם הפרופיל שלך לא שמור במאגר המידע שלנו את/ה יכול/ה לספק אותו בתור משתנה בפקודה. בכדי לבדוק אם הפרופיל שלך שמור, בצע/י `profile/`. וודא/י שאת/ה מסוגל לקבל הודעות פרטיות (DM) מהשרת הזה כדי שהבוט יוכל לשלוח לך הודעות."
 	}
 }

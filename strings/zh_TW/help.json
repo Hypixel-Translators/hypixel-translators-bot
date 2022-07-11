@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, other {# 秒}}",
 	"minutes": "{number, plural, other {# 分鐘}}",
 	"cooldownField": "冷卻時間",
-	"8ball": {
-		"description": "The Magic 8 Ball that will answer all your questions."
-	},
-	"feedback": {
-		"description": "開啟我們的 GitHub 議題頁面，你可以在那裡回報問題和發送回饋。"
-	},
-	"help": {
-		"description": "顯示所有你可使用的指令及關於機器人的其他訊息。"
-	},
-	"hypixelstats": {
-		"description": "顯示該使用者的 Hypixel 統計數據。"
-	},
-	"hypixelunverify": {
-		"description": "解除你的 Discord 帳號與 Minecraft 帳號之間的連結。 "
-	},
-	"hypixelverify": {
-		"description": "將你的 Discord 帳號連結至你的 Minecraft 帳號。 "
-	},
-	"language": {
-		"description": "更改語言、顯示你目前使用的語言或顯示可用的語言列表。"
-	},
-	"languagestats": {
-		"description": "顯示特定語言在我們支援的所有項目中的翻譯進度。"
-	},
-	"levels": {
-		"description": "顯示目前的 XP 排行榜。"
-	},
-	"mention": {
-		"description": "提及一個語言身份組，而且可向他們發送訊息。"
-	},
-	"minecraft": {
-		"description": "檢視指定的 Minecraft 玩家的遊戲名稱歷程記錄或外觀。這個指令與 /hypixelverify 相容，你可以檢視已驗證的使用者的資訊。如果你已成功驗證，你可以選擇不填入參數，否則，你必須填入至少一個參數。請注意︰`user` 參數的優先度高於 `username` 參數。"
-	},
-	"ping": {
-		"description": "顯示機器人目前的 Ping。"
-	},
-	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
-	},
-	"prefix": {
-		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
-	},
-	"profile": {
-		"description": "如果你的 Crowdin 個人檔案已儲存在我們的資料庫中，則會給予你的個人檔案連結。否則，你可以執行 `/help verify` 以了解如何儲存你的個人檔案至資料庫和更新你的身分組。"
-	},
-	"projects": {
-		"description": "給予你在伺服器上支援的所有翻譯項目之連結及相關訊息。"
-	},
-	"quote": {
-		"description": "Shows a funny/weird/wise quote from the server."
-	},
-	"rank": {
-		"description": "顯示你自己或任何使用者目前的 XP。"
-	},
-	"tag": {
-		"description": "發送預設訊息，並讓你在發送時通知特定使用者。"
-	},
-	"translate": {
-		"description": "Gives you useful information on how to translate the bot."
-	},
-	"verify": {
-		"description": "自動檢查你的 Crowdin 個人檔案的任何更改，並給予你適當的身分組。如果你的資料不在我們的資料庫裡，你可以在指令中將其作為參數提供給我們。如果你想確認你的個人檔案是否已經儲存，你可以執行 `/profile`。請確保你已允許來自本伺服器的私人訊息 (DM)，以便機器人可以直接發送訊息給你。"
+	"descriptions": {
+		"8ball": "The Magic 8 Ball that will answer all your questions.",
+		"alert": "Alerts other proofreaders for issues in their translations",
+		"feedback": "開啟我們的 GitHub 議題頁面，你可以在那裡回報問題和發送回饋。",
+		"help": "顯示所有你可使用的指令及關於機器人的其他訊息。",
+		"hypixelstats": "顯示該使用者的 Hypixel 統計數據。",
+		"hypixelunverify": "解除你的 Discord 帳號與 Minecraft 帳號之間的連結。 ",
+		"hypixelverify": "將你的 Discord 帳號連結至你的 Minecraft 帳號。 ",
+		"language": "更改語言、顯示你目前使用的語言或顯示可用的語言列表。",
+		"languagestats": "顯示特定語言在我們支援的所有項目中的翻譯進度。",
+		"levels": "顯示目前的 XP 排行榜。",
+		"mention": "提及一個語言身份組，而且可向他們發送訊息。",
+		"minecraft": "檢視指定的 Minecraft 玩家的遊戲名稱歷程記錄或外觀。這個指令與 /hypixelverify 相容，你可以檢視已驗證的使用者的資訊。如果你已成功驗證，你可以選擇不填入參數，否則，你必須填入至少一個參數。請注意︰`user` 參數的優先度高於 `username` 參數。",
+		"ping": "顯示機器人目前的 Ping。",
+		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed.",
+		"prefix": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space.",
+		"profile": "如果你的 Crowdin 個人檔案已儲存在我們的資料庫中，則會給予你的個人檔案連結。否則，你可以執行 `/help verify` 以了解如何儲存你的個人檔案至資料庫和更新你的身分組。",
+		"projects": "給予你在伺服器上支援的所有翻譯項目之連結及相關訊息。",
+		"quote": "Shows a funny/weird/wise quote from the server.",
+		"rank": "顯示你自己或任何使用者目前的 XP。",
+		"settings": "Changes or shows your settings on the bot",
+		"tag": "發送預設訊息，並讓你在發送時通知特定使用者。",
+		"translate": "Gives you useful information on how to translate the bot.",
+		"verify": "自動檢查你的 Crowdin 個人檔案的任何更改，並給予你適當的身分組。如果你的資料不在我們的資料庫裡，你可以在指令中將其作為參數提供給我們。如果你想確認你的個人檔案是否已經儲存，你可以執行 `/profile`。請確保你已允許來自本伺服器的私人訊息 (DM)，以便機器人可以直接發送訊息給你。"
 	}
 }

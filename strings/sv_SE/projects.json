@@ -1,8 +1,8 @@
 {
 	"moduleName": "Översättningsprojekt",
-	"allProjects": "Here are all the projects we currently support on the server!",
-	"description": "If you're already on some of these projects but don't have your roles yet, execute `/verify [profileURL]` to get them!",
-	"projectInfo": "You can find the link to the %%project%% project [here](%%link%%). For more information, execute %%command%%.",
-	"alreadyJoined": "You've already joined this project!",
-	"notJoined": "You haven't joined this project yet!"
+	"allProjects": "Här är alla projekt som vi just nu stödjer på servern!",
+	"description": "Om du redan är med i några av dessa projekt men inte har dina roller ännu, kör `/verify [profileURL]` för att få dem!",
+	"projectInfo": "Du hittar länken till projektet %%project%% [här](%%link%%). För mer information använd %%command%%.",
+	"alreadyJoined": "Du har redan gått med i detta projekt!",
+	"notJoined": "Du har inte gått med i detta projekt ännu!"
 }
