@@ -1,29 +1,32 @@
 {
 	"names": {
 		"8ball": "8ball",
+		"alert": "attendeer",
 		"feedback": "feedback",
-		"levels": "niveaus",
-		"ping": "ping",
-		"profile": "profiel",
-		"projects": "projecten",
-		"rank": "rang",
-		"tag": "label",
-		"translate": "vertaal",
 		"help": "hulp",
 		"hypixelstats": "hypixelstats",
 		"hypixelunverify": "hypixelverificatieverwijderen",
 		"hypixelverify": "hypixelverificatie",
 		"language": "taal",
 		"languagestats": "taalstats",
+		"levels": "niveaus",
 		"mention": "vermeld",
 		"minecraft": "minecraft",
+		"ping": "ping",
+		"poll": "peiling",
 		"prefix": "voorvoegsel",
+		"profile": "profiel",
+		"projects": "projecten",
 		"quote": "citaat",
-		"verify": "verificatie",
-		"poll": "peiling"
+		"rank": "rang",
+		"settings": "instellingen",
+		"tag": "label",
+		"translate": "vertaal",
+		"verify": "verificatie"
 	},
 	"descriptions": {
 		"8ball": "De Magic 8-Ball die al je vragen zal beantwoorden",
+		"alert": "Attendeert andere proeflezers op fouten in hun vertalingen",
 		"feedback": "Geeft je instructies over het verzenden van feedback via de bot",
 		"help": "Geeft alle commando's en andere informatie over de bot weer",
 		"hypixelstats": "Geeft je simpele Hypixel-statistieken voor de opgegeven speler",
@@ -35,15 +38,16 @@
 		"mention": "Vermeldt een taalrol en voegt een bericht bij",
 		"minecraft": "Zoekt de naamgeschiedenis of skin van een specifieke Minecraft-speler op",
 		"ping": "Laat de vertraging van de bot zien",
+		"poll": "Maakt of beheert peilingen op de server. Beschikbaar voor Hypixel-proeflezers en hoger gemachtigden",
 		"prefix": "Geeft je het juiste voorvoegsel voor je taal/talen",
 		"profile": "Haalt het profiel van een gebruiker op",
 		"projects": "Geeft je links en informatie over alle vertalingsprojecten die we hier ondersteunen",
 		"quote": "Geeft een grappig/raar/wijs citaat uit de server (of voegt er een toe)",
 		"rank": "Geeft je jouw hoeveelheid XP of die van een andere gebruiker",
+		"settings": "Bekijk of wijzig je botgerelateerde instellingen",
 		"tag": "Stuurt een bericht, met de mogelijkheid om een specifiek lid te vermelden bij het verzenden",
 		"translate": "Geeft je handige tips over het vertalen van de bot",
-		"verify": "Verifieert je en geeft je de toepasselijke rollen",
-		"poll": "Maakt of beheert peilingen op de server. Beschikbaar voor Hypixel-proeflezers en hoger gemachtigden"
+		"verify": "Verifieert je en geeft je de toepasselijke rollen"
 	},
 	"options": {
 		"8ball": {
@@ -52,51 +56,10 @@
 				"description": "De vraag die je aan de bot wilt stellen"
 			}
 		},
-		"levels": {
-			"me": {
-				"name": "ik",
-				"description": "Of je wilt beginnen bij de pagina waar jij op verschijnt. Hogere prioriteit dan 'pagina'"
-			},
-			"page": {
-				"name": "pagina",
-				"description": "De scorebordpagina die je wilt zien"
-			}
-		},
-		"profile": {
-			"user": {
-				"name": "gebruiker",
-				"description": "De gebruiker die je wilt opzoeken. Alleen beheerders"
-			},
-			"profile": {
-				"name": "profiel",
-				"description": "Het nieuwe profiel voor de gebruiker. Alleen beheerders"
-			}
-		},
-		"rank": {
-			"user": {
-				"name": "gebruiker",
-				"description": "De gebruiker waar je de rang van wilt zien"
-			}
-		},
-		"tag": {
-			"tag": {
-				"name": "label",
-				"description": "Het label dat je wilt zien",
-				"choices": {
-					"invite": "Uitnodigingslink voor de server",
-					"hypixel": "Hypixel-links",
-					"guidelines": "Hypixel-projectrichtlijnen",
-					"proofreader": "Proeflezer worden bij Hypixel",
-					"minecraft": "Minecraft op Crowdin",
-					"quickplay": "Quickplay-links",
-					"skyblockaddons": "SkyblockAddons-links",
-					"thread": "Conversatie op forums over deze server",
-					"twitter": "Hypixel-vertalersgemeenschap op Twitter"
-				}
-			},
-			"target": {
-				"name": "doelwit",
-				"description": "De gebruiker om te vermelden met dit label"
+		"alert": {
+			"message": {
+				"name": "bericht",
+				"description": "Bericht aan de proeflezers"
 			}
 		},
 		"help": {
@@ -176,6 +139,16 @@
 				"description": "De taal waar voortgangsstatistieken voor moeten worden laten zien. Vereist indien je taal Engels is"
 			}
 		},
+		"levels": {
+			"me": {
+				"name": "ik",
+				"description": "Of je wilt beginnen bij de pagina waar jij op verschijnt. Hogere prioriteit dan 'pagina'"
+			},
+			"page": {
+				"name": "pagina",
+				"description": "De scorebordpagina die je wilt zien"
+			}
+		},
 		"mention": {
 			"language": {
 				"name": "taal",
@@ -186,8 +159,8 @@
 				"description": "De rol om te vermelden",
 				"choices": {
 					"all": "Beide rollen",
-					"translator": "Vertalers",
-					"proofreader": "Proeflezers"
+					"proofreader": "Proeflezers",
+					"translator": "Vertalers"
 				}
 			},
 			"message": {
@@ -225,10 +198,96 @@
 				}
 			}
 		},
+		"poll": {
+			"start": {
+				"name": "begin",
+				"description": "Begint een peiling in het huidige kanaal",
+				"options": {
+					"question": {
+						"name": "vraag",
+						"description": "De peilingsvraag"
+					},
+					"option1": {
+						"name": "optie1",
+						"description": "De eerste optie in de peiling"
+					},
+					"option2": {
+						"name": "optie2",
+						"description": "De tweede optie in de peiling"
+					},
+					"time": {
+						"name": "tijd",
+						"description": "De tijd voordat deze peiling wordt gesloten en de resultaten worden gepubliceerd (in uren)"
+					},
+					"option3": {
+						"name": "optie3",
+						"description": "De derde optie in de peiling"
+					},
+					"option4": {
+						"name": "optie4",
+						"description": "De vierde optie in de peiling"
+					},
+					"option5": {
+						"name": "optie5",
+						"description": "De vijfde optie in de peiling"
+					},
+					"option6": {
+						"name": "optie6",
+						"description": "De zesde optie in de peiling"
+					},
+					"option7": {
+						"name": "optie7",
+						"description": "De zevende optie in de peiling"
+					},
+					"option8": {
+						"name": "optie8",
+						"description": "De achtste optie in de peiling"
+					}
+				}
+			},
+			"end": {
+				"name": "beëindigen",
+				"description": "Beëindig een peiling",
+				"options": {
+					"message_id": {
+						"name": "bericht_id",
+						"description": "Het ID van het bericht van de peiling"
+					},
+					"channel": {
+						"name": "kanaal",
+						"description": "Het kanaal waar de peiling in is geplaatst, indien het niet het huidige kanaal is"
+					}
+				}
+			},
+			"show": {
+				"name": "weergeven",
+				"description": "Geeft de tussenstand van een peiling zonder deze te beëindigen. Alleen maker peiling",
+				"options": {
+					"message_id": {
+						"name": "bericht_id",
+						"description": "Het ID van het bericht van de peiling"
+					},
+					"channel": {
+						"name": "kanaal",
+						"description": "Het kanaal waar de peiling in is geplaatst, indien het niet het huidige kanaal is"
+					}
+				}
+			}
+		},
 		"prefix": {
 			"flags": {
 				"name": "vlaggen",
 				"description": "De vlaggen die moeten worden toegepast op je voorvoegsel, gescheiden door spaties"
+			}
+		},
+		"profile": {
+			"user": {
+				"name": "gebruiker",
+				"description": "De gebruiker die je wilt opzoeken. Alleen beheerders"
+			},
+			"profile": {
+				"name": "profiel",
+				"description": "Het nieuwe profiel voor de gebruiker. Alleen beheerders"
 			}
 		},
 		"quote": {
@@ -307,6 +366,81 @@
 				}
 			}
 		},
+		"rank": {
+			"user": {
+				"name": "gebruiker",
+				"description": "De gebruiker waar je de rang van wilt zien"
+			}
+		},
+		"settings": {
+			"get": {
+				"name": "zoek",
+				"description": "Instellingswaarde bekijken",
+				"options": {
+					"setting": {
+						"name": "instelling",
+						"description": "Te bekijken instelling",
+						"choices": {
+							"lvlUpMsg": "Berichten sturen bij niveaustijging",
+							"availability": "Beschikbaarheid als proeflezer"
+						}
+					}
+				}
+			},
+			"set": {
+				"name": "wijzig",
+				"description": "Instellingswaarde wijzigen",
+				"options": {
+					"setting": {
+						"name": "instelling",
+						"description": "Te wijzigen instelling",
+						"choices": {
+							"lvlUpMsg": "Berichten sturen bij niveaustijging",
+							"availability": "Beschikbaarheid als proeflezer"
+						}
+					},
+					"value": {
+						"name": "waarde",
+						"description": "Waarde die moet worden gebruikt"
+					}
+				}
+			},
+			"reset": {
+				"name": "resetten",
+				"description": "Instellingswaarde resetten",
+				"options": {
+					"setting": {
+						"name": "instelling",
+						"description": "Te resetten instelling",
+						"choices": {
+							"lvlUpMsg": "Berichten sturen bij niveaustijging",
+							"availability": "Beschikbaarheid als proeflezer"
+						}
+					}
+				}
+			}
+		},
+		"tag": {
+			"tag": {
+				"name": "label",
+				"description": "Het label dat je wilt zien",
+				"choices": {
+					"invite": "Uitnodigingslink voor de server",
+					"hypixel": "Hypixel-links",
+					"guidelines": "Hypixel-projectrichtlijnen",
+					"proofreader": "Proeflezer worden bij Hypixel",
+					"minecraft": "Minecraft op Crowdin",
+					"quickplay": "Quickplay-links",
+					"skyblockaddons": "SkyblockAddons-links",
+					"thread": "Conversatie op forums over deze server",
+					"twitter": "Hypixel-vertalersgemeenschap op Twitter"
+				}
+			},
+			"target": {
+				"name": "doelwit",
+				"description": "De gebruiker om te vermelden met dit label"
+			}
+		},
 		"verify": {
 			"url": {
 				"name": "url",
@@ -315,82 +449,6 @@
 			"user": {
 				"name": "gebruiker",
 				"description": "De gebruiker die moet worden geverifieerd. Alleen beheerders"
-			}
-		},
-		"poll": {
-			"start": {
-				"name": "begin",
-				"description": "Begint een peiling in het huidige kanaal",
-				"options": {
-					"question": {
-						"name": "vraag",
-						"description": "De peilingsvraag"
-					},
-					"option1": {
-						"name": "optie1",
-						"description": "De eerste optie in de peiling"
-					},
-					"option2": {
-						"name": "optie2",
-						"description": "De tweede optie in de peiling"
-					},
-					"time": {
-						"name": "tijd",
-						"description": "De tijd voordat deze peiling wordt gesloten en de resultaten worden gepubliceerd (in uren)"
-					},
-					"option3": {
-						"name": "optie3",
-						"description": "De derde optie in de peiling"
-					},
-					"option4": {
-						"name": "optie4",
-						"description": "De vierde optie in de peiling"
-					},
-					"option5": {
-						"name": "optie5",
-						"description": "De vijfde optie in de peiling"
-					},
-					"option6": {
-						"name": "optie6",
-						"description": "De zesde optie in de peiling"
-					},
-					"option7": {
-						"name": "optie7",
-						"description": "De zevende optie in de peiling"
-					},
-					"option8": {
-						"name": "optie8",
-						"description": "De achtste optie in de peiling"
-					}
-				}
-			},
-			"end": {
-				"name": "beëindigen",
-				"description": "Beëindig een peiling",
-				"options": {
-					"message_id": {
-						"name": "bericht_id",
-						"description": "Het ID van het bericht van de peiling"
-					},
-					"channel": {
-						"name": "kanaal",
-						"description": "Het kanaal waar de peiling in is geplaatst, indien het niet het huidige kanaal is"
-					}
-				}
-			},
-			"show": {
-				"name": "weergeven",
-				"description": "Geeft de tussenstand van een peiling zonder deze te beëindigen. Alleen maker peiling",
-				"options": {
-					"message_id": {
-						"name": "bericht_id",
-						"description": "Het ID van het bericht van de peiling"
-					},
-					"channel": {
-						"name": "kanaal",
-						"description": "Het kanaal waar de peiling in is geplaatst, indien het niet het huidige kanaal is"
-					}
-				}
 			}
 		}
 	}
