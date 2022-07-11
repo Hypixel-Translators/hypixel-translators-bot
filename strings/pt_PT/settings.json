@@ -1,0 +1,6 @@
+{
+    "isSetTo": "A tua definição %%setting%% está definida como %%value%%",
+    "successSet": "A tua definição %%setting%% foi definida como %%value%%",
+    "successReset": "A tua definição %%setting%% foi redefinida com sucesso",
+    "onlyPf": "Esta definição só está disponível para Proofreaders do Hypixel!"
+}
