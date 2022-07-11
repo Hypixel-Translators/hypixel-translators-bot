@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, one {# segundo} other {# segundos}}",
 	"minutes": "{number, plural, one {# minuto} other {# minutos}}",
 	"cooldownField": "Tempo de espera",
-	"8ball": {
-		"description": "A bola mágica que irá responder a todas as tuas perguntas."
-	},
-	"feedback": {
-		"description": "Abre a nossa página de issues no GitHub, onde podes reportar problemas e enviar feedback."
-	},
-	"help": {
-		"description": "Mostra-te todos os comandos disponíveis e outras informações sobre o bot."
-	},
-	"hypixelstats": {
-		"description": "Mostra-te estatísticas básicas do Hypixel para o jogador requisitado."
-	},
-	"hypixelunverify": {
-		"description": "Desvincula a tua conta de Discord da tua conta de Minecraft."
-	},
-	"hypixelverify": {
-		"description": "Liga a tua conta do Discord à tua conta do Minecraft."
-	},
-	"language": {
-		"description": "Muda o teu idioma, mostra o teu idioma atual ou uma lista de idiomas disponíveis."
-	},
-	"languagestats": {
-		"description": "Mostra-te o progresso de um idioma em todos os projetos que suportamos neste momento."
-	},
-	"levels": {
-		"description": "Dá-te o pódio de XP."
-	},
-	"mention": {
-		"description": "Menciona o cargo de um idioma com uma mensagem opcional."
-	},
-	"minecraft": {
-		"description": "Dá-te o histórico de nomes ou a skin de um jogador específico do Minecraft. Este comando é compatível com o comando `/hypixelverify`, o que te permite procurar informações sobre um utilizador se este estiver verificado. O parâmetro `user` terá sempre prioridade sobre `username` e são ambos opcionais se estiveres verificado, caso contrário, pelo menos um é obrigatório."
-	},
-	"ping": {
-		"description": "Dá-te o ping do bot."
-	},
-	"poll": {
-		"description": "Cria ou gere enquetes no servidor. Disponível para revisores do Hypixel e superiores. Todos os votos nas enquetes criadas com este comando serão mantidos privados até que a enquete termine e os nomes dos votantes não serão exibidos, apenas as contagens dos votos."
-	},
-	"prefix": {
-		"description": "Deixa-te escolher um prefixo apropriado para o(s) teu(s) idioma(s). Para obteres um prefixo personalizado, executa `/prefix` com o código da bandeira do teu país ou o seu nome. Podes incluir tantas bandeiras quanto as que desejares, separadas por um espaço."
-	},
-	"profile": {
-		"description": "Dá-te o link para o teu perfil do Crowdin se estiver guardado na nossa base de dados. Caso não esteja, podes executar `/help verify` para descobrires como podes guardar o teu perfil e atualizar os teus cargos."
-	},
-	"projects": {
-		"description": "Dá-te links e informação sobre todos os projetos de tradução disponíveis no servidor."
-	},
-	"quote": {
-		"description": "Mostra uma frase engraçada/estranha/sábia dita por um membro do servidor."
-	},
-	"rank": {
-		"description": "Dá-te o teu XP atual ou o de qualquer utilizador."
-	},
-	"tag": {
-		"description": "Envia uma mensagem predefinida, permitindo-te notificar um membro específico ao enviá-la."
-	},
-	"translate": {
-		"description": "Dá-te informação útil sobre como traduzir o bot."
-	},
-	"verify": {
-		"description": "Procura alterações no teu perfil do Crowdin automaticamente e dá-te os cargos apropriados. Se o teu perfil não estiver guardado na nossa base de dados, podes adicioná-lo como argumento ao executar o comando. Para saberes se o teu perfil está guardado ou não, executa `/profile`. Não te esqueças de ativar as mensagens privadas neste servidor para que o bot te possa enviar uma."
+	"descriptions": {
+		"8ball": "A bola mágica que irá responder a todas as tuas perguntas.",
+		"alert": "Alerts other proofreaders for issues in their translations",
+		"feedback": "Abre a nossa página de issues no GitHub, onde podes reportar problemas e enviar feedback.",
+		"help": "Mostra-te todos os comandos disponíveis e outras informações sobre o bot.",
+		"hypixelstats": "Mostra-te estatísticas básicas do Hypixel para o jogador requisitado.",
+		"hypixelunverify": "Desvincula a tua conta de Discord da tua conta de Minecraft.",
+		"hypixelverify": "Liga a tua conta do Discord à tua conta do Minecraft.",
+		"language": "Muda o teu idioma, mostra o teu idioma atual ou uma lista de idiomas disponíveis.",
+		"languagestats": "Mostra-te o progresso de um idioma em todos os projetos que suportamos neste momento.",
+		"levels": "Dá-te o pódio de XP.",
+		"mention": "Menciona o cargo de um idioma com uma mensagem opcional.",
+		"minecraft": "Dá-te o histórico de nomes ou a skin de um jogador específico do Minecraft. Este comando é compatível com o comando `/hypixelverify`, o que te permite procurar informações sobre um utilizador se este estiver verificado. O parâmetro `user` terá sempre prioridade sobre `username` e são ambos opcionais se estiveres verificado, caso contrário, pelo menos um é obrigatório.",
+		"ping": "Dá-te o ping do bot.",
+		"poll": "Cria ou gere enquetes no servidor. Disponível para revisores do Hypixel e superiores. Todos os votos nas enquetes criadas com este comando serão mantidos privados até que a enquete termine e os nomes dos votantes não serão exibidos, apenas as contagens dos votos.",
+		"prefix": "Deixa-te escolher um prefixo apropriado para o(s) teu(s) idioma(s). Para obteres um prefixo personalizado, executa `/prefix` com o código da bandeira do teu país ou o seu nome. Podes incluir tantas bandeiras quanto as que desejares, separadas por um espaço.",
+		"profile": "Dá-te o link para o teu perfil do Crowdin se estiver guardado na nossa base de dados. Caso não esteja, podes executar `/help verify` para descobrires como podes guardar o teu perfil e atualizar os teus cargos.",
+		"projects": "Dá-te links e informação sobre todos os projetos de tradução disponíveis no servidor.",
+		"quote": "Mostra uma frase engraçada/estranha/sábia dita por um membro do servidor.",
+		"rank": "Dá-te o teu XP atual ou o de qualquer utilizador.",
+		"settings": "Altera ou mostra as tuas definições no bot",
+		"tag": "Envia uma mensagem predefinida, permitindo-te notificar um membro específico ao enviá-la.",
+		"translate": "Dá-te informação útil sobre como traduzir o bot.",
+		"verify": "Procura alterações no teu perfil do Crowdin automaticamente e dá-te os cargos apropriados. Se o teu perfil não estiver guardado na nossa base de dados, podes adicioná-lo como argumento ao executar o comando. Para saberes se o teu perfil está guardado ou não, executa `/profile`. Não te esqueças de ativar as mensagens privadas neste servidor para que o bot te possa enviar uma."
 	}
 }
