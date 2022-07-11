@@ -1,0 +1,6 @@
+{
+    "isSetTo": "Asetuksesi %%setting%% on asetettu arvoon %%value%%",
+    "successSet": "Asetuksesi %%setting%% asetettiin onnistuneesti arvoon %%value%%",
+    "successReset": "Asetuksesi %%setting%% nollattiin onnistuneesti",
+    "onlyPf": "Tämä asetus on saatavilla vain Hypixelin oikolukijoille!"
+}
