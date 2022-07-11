@@ -74,7 +74,7 @@ export function arrayEqual(a: unknown, b: unknown) {
 
 export function checkVariables(firstString: string, secondString: string) {
 	const match = (string: string) =>
-		Array.from(string.matchAll(/%%(\w+)%%|{(\w+)(, \w+(, .+)?)?}/g))
+		Array.from(string?.matchAll(/%%(\w+)%%|{(\w+)(, \w+(, .+)?)?}/g) ?? [])
 			.map(el => el[1] ?? el[2])
 			.sort()
 	return arrayEqual(match(firstString), match(secondString))

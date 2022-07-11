@@ -287,33 +287,33 @@ client.on("messageCreate", async message => {
 	function getGlobalString(
 		path: string,
 		{ variables, file = "global", lang = author.lang ?? "en" }: { variables?: Record<string, string | number>; file?: string; lang?: string } = {},
-	): // eslint-disable-next-line @typescript-eslint/no-explicit-any
-	any {
-		const command = client.commands.get(file)
-		let enStrings = require(`../../strings/en/${file}.json`)
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		let strings: Record<string, any>
+	): any {
+		const command = client.commands.get(file)
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		let enStrings: Record<string, any> | undefined = require(`../../strings/en/${file}.json`)
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		let strings: Record<string, any> | undefined
 		try {
 			strings = require(`../../strings/${lang}/${file}.json`)
 		} catch {
-			strings = require(`../../strings/en/${file}.json`)
+			strings = Object.assign({}, enStrings)
 		}
 		const pathSplit = path.split(".")
 		let string
-		pathSplit.forEach(pathPart => {
-			if (pathPart) {
-				let jsonElement
-				if (strings[pathPart]) jsonElement = strings[pathPart]
-				else jsonElement = enStrings[pathPart]
 
-				if (typeof jsonElement === "object" && pathSplit.indexOf(pathPart) !== pathSplit.length - 1) {
-					// Check if the string isn't an object nor the end of the path
-					if (strings[pathPart]) strings = strings[pathPart]
-					enStrings = enStrings[pathPart]
+		for (const [index, pathPart] of pathSplit.entries()) {
+			if (pathPart) {
+				string = strings?.[pathPart] ?? enStrings?.[pathPart]
+
+				// Check if the string isn't an object nor the end of the path
+				if (typeof string === "object" && index !== pathSplit.length - 1) {
+					strings = strings?.[pathPart]
+					enStrings = enStrings?.[pathPart]
 				} else {
-					string = strings[pathPart]
-					if (!string || (typeof string === "string" && !checkVariables(string, enStrings[pathPart]))) {
-						string = enStrings[pathPart] // If the string hasn't been added yet or if the variables changed
+					// If the string hasn't been added yet or if the variables changed
+					if (!string || (typeof string === "string" && !checkVariables(strings?.[pathPart], enStrings?.[pathPart]))) {
+						string = enStrings?.[pathPart]
 						if (!string) {
 							string = null // In case of fire
 							if (command?.category !== "Admin" && command?.category !== "Staff" && !path.includes(" "))
@@ -334,7 +334,7 @@ client.on("messageCreate", async message => {
 				}
 			} else if (strings) string = strings
 			else string = enStrings
-		})
+		}
 		return string
 	}
 })
