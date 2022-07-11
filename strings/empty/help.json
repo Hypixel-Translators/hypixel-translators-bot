@@ -12,67 +12,29 @@
 	"seconds": "crwdns574:0number={number}crwdne574:0",
 	"minutes": "crwdns578:0number={number}crwdne578:0",
 	"cooldownField": "crwdns582:0crwdne582:0",
-	"8ball": {
-		"description": "crwdns1240:0crwdne1240:0"
-	},
-	"feedback": {
-		"description": "crwdns1402:0crwdne1402:0"
-	},
-	"help": {
-		"description": "crwdns588:0crwdne588:0"
-	},
-	"hypixelstats": {
-		"description": "crwdns620:0crwdne620:0"
-	},
-	"hypixelunverify": {
-		"description": "crwdns1404:0crwdne1404:0"
-	},
-	"hypixelverify": {
-		"description": "crwdns1184:0crwdne1184:0"
-	},
-	"language": {
-		"description": "crwdns612:0crwdne612:0"
-	},
-	"languagestats": {
-		"description": "crwdns1122:0crwdne1122:0"
-	},
-	"levels": {
-		"description": "crwdns1306:0crwdne1306:0"
-	},
-	"mention": {
-		"description": "crwdns600:0crwdne600:0"
-	},
-	"minecraft": {
-		"description": "crwdns1448:0crwdne1448:0"
-	},
-	"ping": {
-		"description": "crwdns616:0crwdne616:0"
-	},
-	"poll": {
-		"description": "crwdns2408:0crwdne2408:0"
-	},
-	"prefix": {
-		"description": "crwdns592:0crwdne592:0"
-	},
-	"profile": {
-		"description": "crwdns1260:0crwdne1260:0"
-	},
-	"projects": {
-		"description": "crwdns858:0crwdne858:0"
-	},
-	"quote": {
-		"description": "crwdns596:0crwdne596:0"
-	},
-	"rank": {
-		"description": "crwdns1302:0crwdne1302:0"
-	},
-	"tag": {
-		"description": "crwdns2329:0crwdne2329:0"
-	},
-	"translate": {
-		"description": "crwdns648:0crwdne648:0"
-	},
-	"verify": {
-		"description": "crwdns1244:0crwdne1244:0"
+	"descriptions": {
+		"8ball": "crwdns2888:0crwdne2888:0",
+		"alert": "crwdns2930:0crwdne2930:0",
+		"feedback": "crwdns2890:0crwdne2890:0",
+		"help": "crwdns2892:0crwdne2892:0",
+		"hypixelstats": "crwdns2894:0crwdne2894:0",
+		"hypixelunverify": "crwdns2896:0crwdne2896:0",
+		"hypixelverify": "crwdns2898:0crwdne2898:0",
+		"language": "crwdns2900:0crwdne2900:0",
+		"languagestats": "crwdns2902:0crwdne2902:0",
+		"levels": "crwdns2904:0crwdne2904:0",
+		"mention": "crwdns2906:0crwdne2906:0",
+		"minecraft": "crwdns2908:0crwdne2908:0",
+		"ping": "crwdns2910:0crwdne2910:0",
+		"poll": "crwdns2912:0crwdne2912:0",
+		"prefix": "crwdns2914:0crwdne2914:0",
+		"profile": "crwdns2916:0crwdne2916:0",
+		"projects": "crwdns2918:0crwdne2918:0",
+		"quote": "crwdns2920:0crwdne2920:0",
+		"rank": "crwdns2922:0crwdne2922:0",
+		"settings": "crwdns2932:0crwdne2932:0",
+		"tag": "crwdns2924:0crwdne2924:0",
+		"translate": "crwdns2926:0crwdne2926:0",
+		"verify": "crwdns2928:0crwdne2928:0"
 	}
 }
