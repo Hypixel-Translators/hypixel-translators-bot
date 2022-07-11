@@ -12,67 +12,29 @@
 	"seconds": "{number,plural,other{# detik}}",
 	"minutes": "{number,plural,other{# menit}}",
 	"cooldownField": "Cooldown",
-	"8ball": {
-		"description": "Bola ajaib yang akan menjawab seluruh pertanyaan anda."
-	},
-	"feedback": {
-		"description": "Membuka halaman isu GitHub kami, dimana anda dapat melaporkan masalah dan mengirim umpan balik."
-	},
-	"help": {
-		"description": "Memberi kamu semua perintah yang tersedia dan informasi lain tentang Bot ini."
-	},
-	"hypixelstats": {
-		"description": "Memberikan anda stat Hypixel dasar untuk pengguna yang disediakan."
-	},
-	"hypixelunverify": {
-		"description": "Putuskan tautan akun Discord anda dari akun Minecraft anda."
-	},
-	"hypixelverify": {
-		"description": "Hubungkan akun Discord anda dengan akun Minecraft anda."
-	},
-	"language": {
-		"description": "Mengubah bahasa anda, menginformasikan yang anda pakai saat ini atau list bahasa yang tersedia."
-	},
-	"languagestats": {
-		"description": "Memberikan anda progres suatu bahasa dalam semua proyek yang saat ini kami dukung."
-	},
-	"levels": {
-		"description": "Memberikan anda papan peringkat XP."
-	},
-	"mention": {
-		"description": "Menyebutkan role bahasa dengan pesan opsional."
-	},
-	"minecraft": {
-		"description": "Mencari sejarah nama atau skin player Minecraft spesifik. Perintah ini dapat bekerja dengan /hypixelverify, membiarkan anda untuk mencari pengguna spesifik yang terverifikasi. Parameter `user` akan selalu mendapat prioritas diatas `username` dan mereka berdua opsional jika anda terverifikasi, jika tidak, sedikitnya satu diperlukan."
-	},
-	"ping": {
-		"description": "Memberikan anda ping bot."
-	},
-	"poll": {
-		"description": "Membuat atau mengatur poll yang ada di server. Tersedia untuk Proofreader Hypixel dan atasannya. Semua suara di poll yang menggunakan command ini akan menjadi privat sampai poll selesai dan semua pemilih tidak akan diberitahukan, hanya berapa suara saja yang akan diperlihatkan."
-	},
-	"prefix": {
-		"description": "Memberi anda prefix yang sesuai dengan bahasa anda. Untuk mendapatkan prefix unik, jalankan `/prefix` dan sediakan kode regional bendera negara anda atau namanya di parameter `flags`. Anda boleh memasukkan sebanyak-banyaknya bendera yang anda inginkan, dipisahkan dengan spasi."
-	},
-	"profile": {
-		"description": "Memberikan anda tautan ke profil Crowdin anda jika tersimpan di database kami. Jika tidak, anda dapat menjalankan `/help verify` untuk mengetahui cara memasukkan profil anda dan memperbarui role anda."
-	},
-	"projects": {
-		"description": "Memberikan anda tautan-tautan dan informasi mengenai semua proyek terjemahan yang kami dukung di server."
-	},
-	"quote": {
-		"description": "Memberikan sebuah quote lucu/aneh/bijak dari server."
-	},
-	"rank": {
-		"description": "Memberikan anda angka XP anda atau orang lain."
-	},
-	"tag": {
-		"description": "Mengirimkan pesan yang telah tersedia, juga memperbolehkan anda untuk memberitahukan seorang member saat mengirimkannya."
-	},
-	"translate": {
-		"description": "Memberikan anda informasi yang berguna mengenai cara menerjemahkan Bot."
-	},
-	"verify": {
-		"description": "Mengecek perubahan di profil Crowdin anda secara otomatis dan memberikan anda role yang sesuai. Jika profil anda tidak tersimpan di database kami, anda dapat menyediakannya sebagai argumen di perintahnya. Untuk mengecek apakah profil anda tersimpan, jalankan `/profile`. Pastikan anda mengaktifkan DMs dari server ini agar bot dapat mengirimkan anda pesan."
+	"descriptions": {
+		"8ball": "Bola ajaib yang akan menjawab seluruh pertanyaan anda.",
+		"alert": "Alerts other proofreaders for issues in their translations",
+		"feedback": "Membuka halaman isu GitHub kami, dimana anda dapat melaporkan masalah dan mengirim umpan balik.",
+		"help": "Memberi kamu semua perintah yang tersedia dan informasi lain tentang Bot ini.",
+		"hypixelstats": "Memberikan anda stat Hypixel dasar untuk pengguna yang disediakan.",
+		"hypixelunverify": "Putuskan tautan akun Discord anda dari akun Minecraft anda.",
+		"hypixelverify": "Hubungkan akun Discord anda dengan akun Minecraft anda.",
+		"language": "Mengubah bahasa anda, menginformasikan yang anda pakai saat ini atau list bahasa yang tersedia.",
+		"languagestats": "Memberikan anda progres suatu bahasa dalam semua proyek yang saat ini kami dukung.",
+		"levels": "Memberikan anda papan peringkat XP.",
+		"mention": "Menyebutkan role bahasa dengan pesan opsional.",
+		"minecraft": "Mencari sejarah nama atau skin player Minecraft spesifik. Perintah ini dapat bekerja dengan /hypixelverify, membiarkan anda untuk mencari pengguna spesifik yang terverifikasi. Parameter `user` akan selalu mendapat prioritas diatas `username` dan mereka berdua opsional jika anda terverifikasi, jika tidak, sedikitnya satu diperlukan.",
+		"ping": "Memberikan anda ping bot.",
+		"poll": "Membuat atau mengatur poll yang ada di server. Tersedia untuk Proofreader Hypixel dan atasannya. Semua suara di poll yang menggunakan command ini akan menjadi privat sampai poll selesai dan semua pemilih tidak akan diberitahukan, hanya berapa suara saja yang akan diperlihatkan.",
+		"prefix": "Memberi anda prefix yang sesuai dengan bahasa anda. Untuk mendapatkan prefix unik, jalankan `/prefix` dan sediakan kode regional bendera negara anda atau namanya di parameter `flags`. Anda boleh memasukkan sebanyak-banyaknya bendera yang anda inginkan, dipisahkan dengan spasi.",
+		"profile": "Memberikan anda tautan ke profil Crowdin anda jika tersimpan di database kami. Jika tidak, anda dapat menjalankan `/help verify` untuk mengetahui cara memasukkan profil anda dan memperbarui role anda.",
+		"projects": "Memberikan anda tautan-tautan dan informasi mengenai semua proyek terjemahan yang kami dukung di server.",
+		"quote": "Memberikan sebuah quote lucu/aneh/bijak dari server.",
+		"rank": "Memberikan anda angka XP anda atau orang lain.",
+		"settings": "Changes or shows your settings on the bot",
+		"tag": "Mengirimkan pesan yang telah tersedia, juga memperbolehkan anda untuk memberitahukan seorang member saat mengirimkannya.",
+		"translate": "Memberikan anda informasi yang berguna mengenai cara menerjemahkan Bot.",
+		"verify": "Mengecek perubahan di profil Crowdin anda secara otomatis dan memberikan anda role yang sesuai. Jika profil anda tidak tersimpan di database kami, anda dapat menyediakannya sebagai argumen di perintahnya. Untuk mengecek apakah profil anda tersimpan, jalankan `/profile`. Pastikan anda mengaktifkan DMs dari server ini agar bot dapat mengirimkan anda pesan."
 	}
 }
