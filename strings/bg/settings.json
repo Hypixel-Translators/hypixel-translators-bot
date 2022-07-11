@@ -1,0 +1,6 @@
+{
+    "isSetTo": "Вашата %%setting%% настройка бе настроена на %%value%%",
+    "successSet": "Успешно настроихте вашата %%setting%% настройка на %%value%%",
+    "successReset": "Успешно рестартирахте вашата %%setting%% настройка",
+    "onlyPf": "Тази настройка е достъпна само за Hypixel Proofreader-и!"
+}
