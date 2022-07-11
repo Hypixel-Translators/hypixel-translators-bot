@@ -1,29 +1,32 @@
 {
 	"names": {
 		"8ball": "8pallo",
+		"alert": "ilmoita",
 		"feedback": "palaute",
-		"levels": "tasot",
-		"ping": "ping",
-		"profile": "profiili",
-		"projects": "projektit",
-		"rank": "sijoitus",
-		"tag": "tag",
-		"translate": "kääntäminen",
 		"help": "apua",
 		"hypixelstats": "hypixeltilastot",
 		"hypixelunverify": "poistahypixelvahvistus",
 		"hypixelverify": "hypixelvahvistus",
 		"language": "kieli",
 		"languagestats": "kielitilastot",
+		"levels": "tasot",
 		"mention": "maininta",
 		"minecraft": "minecraft",
+		"ping": "ping",
+		"poll": "kysely",
 		"prefix": "etuliite",
+		"profile": "profiili",
+		"projects": "projektit",
 		"quote": "lainaus",
-		"verify": "vahvistus",
-		"poll": "kysely"
+		"rank": "sijoitus",
+		"settings": "asetukset",
+		"tag": "tag",
+		"translate": "kääntäminen",
+		"verify": "vahvistus"
 	},
 	"descriptions": {
 		"8ball": "Taikapallo, joka vastaa kaikkiin kysymyksiisi",
+		"alert": "Ilmoittaa muille oikolukijoille virheistä heidän käännöksissään",
 		"feedback": "Antaa ohjeita palautteen antamisesta botista",
 		"help": "Näyttää kaikki saatavilla olevat komennot ja muuta yleistä tietoa botista",
 		"hypixelstats": "Näyttää haluamasi käyttäjän Hypixel-profiilin perustiedot",
@@ -35,15 +38,16 @@
 		"mention": "Lähettää viestin käyttäjälle, jolla on valittu kielirooli",
 		"minecraft": "Etsii valitun Minecraft-pelaajan nimihistorian tai skinin",
 		"ping": "Antaa botin viiveen",
+		"poll": "Luo ja hallitse kyselyitä palvelimella. Saatavilla Hypixelin oikolukijoille ja korkeammille",
 		"prefix": "Antaa sinun valita kieleesi/kieliisi sopivan etuliitteen",
 		"profile": "Antaa sinulle linkin Crowdin-profiiliisi, mikäli se löytyy tietokannastamme.",
 		"projects": "Antaa sinulle osoitteita ja tietoa kaikista käännösprojekteista, joita tällä palvelimella tuetaan",
 		"quote": "Hakee hauskan/oudon/viisaan lainauksen palvelimelta",
 		"rank": "Kertoo oman tai haluamasi käyttäjän tämänhetkisen XP-määrän",
+		"settings": "Muuta tai tarkastele henkilökohtaisia asetuksiasi",
 		"tag": "Lähettää ilmoituksen haluamallesi käyttäjälle esiasetetulla viestillä",
 		"translate": "Antaa sinulle hyödyllistä tietoa botin kääntämisestä",
-		"verify": "Vahvistaa tilisi ja antaa sopivat roolit",
-		"poll": "Luo ja hallitse kyselyitä palvelimella. Saatavilla Hypixelin oikolukijoille ja korkeammille"
+		"verify": "Vahvistaa tilisi ja antaa sopivat roolit"
 	},
 	"options": {
 		"8ball": {
@@ -52,51 +56,10 @@
 				"description": "Botilta kysyttävä kysymys"
 			}
 		},
-		"levels": {
-			"me": {
-				"name": "minä",
-				"description": "Aloita sivulta, jolla itse olet. Ohittaa erillisen sivuvalinnan"
-			},
-			"page": {
-				"name": "sivu",
-				"description": "Pistetaulukon sivu, jonka haluat nähdä"
-			}
-		},
-		"profile": {
-			"user": {
-				"name": "käyttäjä",
-				"description": "Etsittävän käyttäjän nimi. Vain admineille"
-			},
-			"profile": {
-				"name": "profiili",
-				"description": "Käyttäjälle asetettava uusi profiili. Vain admineille"
-			}
-		},
-		"rank": {
-			"user": {
-				"name": "käyttäjä",
-				"description": "Käyttäjä, jonka sijoituksen haluat nähdä"
-			}
-		},
-		"tag": {
-			"tag": {
-				"name": "tag",
-				"description": "Viesti, jonka haluat lähettää",
-				"choices": {
-					"invite": "Palvelimen kutsulinkki",
-					"hypixel": "Hypixelin linkit",
-					"guidelines": "Hypixelin projektin ohjesäännöt",
-					"proofreader": "Kuinka pääset oikolukijaksi Hypixelin projektissa",
-					"minecraft": "Minecraftin Crowdin-projekti",
-					"quickplay": "Quickplayn linkit",
-					"skyblockaddons": "SkyblockAddonsin linkit",
-					"thread": "Discord-palvelimen viestiketju",
-					"twitter": "Hypixelin kääntäjien yhteisön Twitter-tili"
-				}
-			},
-			"target": {
-				"name": "kohde",
-				"description": "Tässä viestissä mainittava käyttäjä"
+		"alert": {
+			"message": {
+				"name": "viesti",
+				"description": "Viesti, jonka haluat lähettää oikolukijoille"
 			}
 		},
 		"help": {
@@ -176,6 +139,16 @@
 				"description": "Kieli, jonka edistymistä haluat tarkastella. Vaatii, että kieleksesi on asetettu englanti"
 			}
 		},
+		"levels": {
+			"me": {
+				"name": "minä",
+				"description": "Aloita sivulta, jolla itse olet. Ohittaa erillisen sivuvalinnan"
+			},
+			"page": {
+				"name": "sivu",
+				"description": "Pistetaulukon sivu, jonka haluat nähdä"
+			}
+		},
 		"mention": {
 			"language": {
 				"name": "kieli",
@@ -186,8 +159,8 @@
 				"description": "Rooli, jonka haluat mainita",
 				"choices": {
 					"all": "Molemmat roolit",
-					"translator": "Kääntäjä",
-					"proofreader": "Oikolukija"
+					"proofreader": "Oikolukija",
+					"translator": "Kääntäjä"
 				}
 			},
 			"message": {
@@ -225,10 +198,96 @@
 				}
 			}
 		},
+		"poll": {
+			"start": {
+				"name": "aloita",
+				"description": "Aloittaa kyselyn nykyisellä kanavalla",
+				"options": {
+					"question": {
+						"name": "kysymys",
+						"description": "Kyselyn kysymys"
+					},
+					"option1": {
+						"name": "vaihtoehto1",
+						"description": "Kyselyn ensimmäinen vaihtoehto"
+					},
+					"option2": {
+						"name": "vaihtoehto2",
+						"description": "Kyselyn toinen vaihtoehto"
+					},
+					"time": {
+						"name": "aika",
+						"description": "Kuinka kuan ennen kuin se sulkeutuu automaattisesti ja sen tulokset julkaistaan (tunteina)"
+					},
+					"option3": {
+						"name": "vaihtoehto3",
+						"description": "Kyselyn kolmas vaihtoehto"
+					},
+					"option4": {
+						"name": "vaihtoehto4",
+						"description": "Kyselyn neljäs vaihtoehto"
+					},
+					"option5": {
+						"name": "vaihtoehto5",
+						"description": "Kyselyn viides vaihtoehto"
+					},
+					"option6": {
+						"name": "vaihtoehto6",
+						"description": "Kyselyn kuudes vaihtoehto"
+					},
+					"option7": {
+						"name": "vaihtoehto7",
+						"description": "Kyselyn seitsemäs vaihtoehto"
+					},
+					"option8": {
+						"name": "vaihtoehto8",
+						"description": "Kyselyn kahdeksas vaihtoehto"
+					}
+				}
+			},
+			"end": {
+				"name": "päätä",
+				"description": "Päätä kysely antamalla sen viestin ID",
+				"options": {
+					"message_id": {
+						"name": "viestin_id",
+						"description": "Kyselyn sisältävän viestin ID"
+					},
+					"channel": {
+						"name": "kanava",
+						"description": "Kanava, jolle kysely lähetettiin, jos se ei ole nykyinen"
+					}
+				}
+			},
+			"show": {
+				"name": "näytä",
+				"description": "Näytä kyselyn tämänhetkiset tulokset päättämättä itse kyselyä. Saatavilla vain kyselyn luojalle",
+				"options": {
+					"message_id": {
+						"name": "viestin_id",
+						"description": "Kyselyn sisältävän viestin ID"
+					},
+					"channel": {
+						"name": "kanava",
+						"description": "Kanava, jolle kysely lähetettiin, jos se ei ole nykyinen"
+					}
+				}
+			}
+		},
 		"prefix": {
 			"flags": {
 				"name": "liput",
 				"description": "Etuliitteeseesi asetettavat liput välilyönneillä erotettuina"
+			}
+		},
+		"profile": {
+			"user": {
+				"name": "käyttäjä",
+				"description": "Etsittävän käyttäjän nimi. Vain admineille"
+			},
+			"profile": {
+				"name": "profiili",
+				"description": "Käyttäjälle asetettava uusi profiili. Vain admineille"
 			}
 		},
 		"quote": {
@@ -307,6 +366,81 @@
 				}
 			}
 		},
+		"rank": {
+			"user": {
+				"name": "käyttäjä",
+				"description": "Käyttäjä, jonka sijoituksen haluat nähdä"
+			}
+		},
+		"settings": {
+			"get": {
+				"name": "hae",
+				"description": "Näytä asetuksen arvo",
+				"options": {
+					"setting": {
+						"name": "asetus",
+						"description": "Näytettävä asetus",
+						"choices": {
+							"lvlUpMsg": "Lähetä viestejä tasonnousun yhteydessä",
+							"availability": "Käytettävyys oikolukijana"
+						}
+					}
+				}
+			},
+			"set": {
+				"name": "aseta",
+				"description": "Muuta asetuksen arvoa",
+				"options": {
+					"setting": {
+						"name": "asetus",
+						"description": "Muutettava asetus",
+						"choices": {
+							"lvlUpMsg": "Lähetä viestejä tasonnousun yhteydessä",
+							"availability": "Käytettävyys oikolukijana"
+						}
+					},
+					"value": {
+						"name": "arvo",
+						"description": "Arvo, johon asetus asetetaan"
+					}
+				}
+			},
+			"reset": {
+				"name": "nollaa",
+				"description": "Nollaa asetuksen arvo",
+				"options": {
+					"setting": {
+						"name": "asetus",
+						"description": "Nollattava asetus",
+						"choices": {
+							"lvlUpMsg": "Lähetä viestejä tasonnousun yhteydessä",
+							"availability": "Käytettävyys oikolukijana"
+						}
+					}
+				}
+			}
+		},
+		"tag": {
+			"tag": {
+				"name": "tag",
+				"description": "Viesti, jonka haluat lähettää",
+				"choices": {
+					"invite": "Palvelimen kutsulinkki",
+					"hypixel": "Hypixelin linkit",
+					"guidelines": "Hypixelin projektin ohjesäännöt",
+					"proofreader": "Kuinka pääset oikolukijaksi Hypixelin projektissa",
+					"minecraft": "Minecraftin Crowdin-projekti",
+					"quickplay": "Quickplayn linkit",
+					"skyblockaddons": "SkyblockAddonsin linkit",
+					"thread": "Discord-palvelimen viestiketju",
+					"twitter": "Hypixelin kääntäjien yhteisön Twitter-tili"
+				}
+			},
+			"target": {
+				"name": "kohde",
+				"description": "Tässä viestissä mainittava käyttäjä"
+			}
+		},
 		"verify": {
 			"url": {
 				"name": "url",
@@ -315,82 +449,6 @@
 			"user": {
 				"name": "käyttäjä",
 				"description": "Käsin vahvistettava käyttäjä. Vain admineille"
-			}
-		},
-		"poll": {
-			"start": {
-				"name": "aloita",
-				"description": "Aloittaa kyselyn nykyisellä kanavalla",
-				"options": {
-					"question": {
-						"name": "kysymys",
-						"description": "Kyselyn kysymys"
-					},
-					"option1": {
-						"name": "vaihtoehto1",
-						"description": "Kyselyn ensimmäinen vaihtoehto"
-					},
-					"option2": {
-						"name": "vaihtoehto2",
-						"description": "Kyselyn toinen vaihtoehto"
-					},
-					"time": {
-						"name": "aika",
-						"description": "Kuinka kuan ennen kuin se sulkeutuu automaattisesti ja sen tulokset julkaistaan (tunteina)"
-					},
-					"option3": {
-						"name": "vaihtoehto3",
-						"description": "Kyselyn kolmas vaihtoehto"
-					},
-					"option4": {
-						"name": "vaihtoehto4",
-						"description": "Kyselyn neljäs vaihtoehto"
-					},
-					"option5": {
-						"name": "vaihtoehto5",
-						"description": "Kyselyn viides vaihtoehto"
-					},
-					"option6": {
-						"name": "vaihtoehto6",
-						"description": "Kyselyn kuudes vaihtoehto"
-					},
-					"option7": {
-						"name": "vaihtoehto7",
-						"description": "Kyselyn seitsemäs vaihtoehto"
-					},
-					"option8": {
-						"name": "vaihtoehto8",
-						"description": "Kyselyn kahdeksas vaihtoehto"
-					}
-				}
-			},
-			"end": {
-				"name": "päätä",
-				"description": "Päätä kysely antamalla sen viestin ID",
-				"options": {
-					"message_id": {
-						"name": "viestin_id",
-						"description": "Kyselyn sisältävän viestin ID"
-					},
-					"channel": {
-						"name": "kanava",
-						"description": "Kanava, jolle kysely lähetettiin, jos se ei ole nykyinen"
-					}
-				}
-			},
-			"show": {
-				"name": "näytä",
-				"description": "Näytä kyselyn tämänhetkiset tulokset päättämättä itse kyselyä. Saatavilla vain kyselyn luojalle",
-				"options": {
-					"message_id": {
-						"name": "viestin_id",
-						"description": "Kyselyn sisältävän viestin ID"
-					},
-					"channel": {
-						"name": "kanava",
-						"description": "Kanava, jolle kysely lähetettiin, jos se ei ole nykyinen"
-					}
-				}
 			}
 		}
 	}
