@@ -12,67 +12,29 @@
 	"seconds": "{number, plural, one {# second} other {# seconds}}",
 	"minutes": "{number, plural, one {# minute} other {# minutes}}",
 	"cooldownField": "Időköz",
-	"8ball": {
-		"description": "The Magic 8 Ball that will answer all your questions."
-	},
-	"feedback": {
-		"description": "Megnyitja a GitHub oldalunkat, ahol hibákat jelenthetsz és visszajelzést adhatsz."
-	},
-	"help": {
-		"description": "Megmutatja az összes elérhető parancsot és információkat ad a robotról."
-	},
-	"hypixelstats": {
-		"description": "Shows you basic Hypixel stats for the provided user."
-	},
-	"hypixelunverify": {
-		"description": "Szétkapcsolja a Discord és Minecraft fiókodat."
-	},
-	"hypixelverify": {
-		"description": "Links your Discord account with your Minecraft account."
-	},
-	"language": {
-		"description": "Megváltoztatja a nyelved, megmutatja a mostanit, vagy ad egy listát az elérhető nyelvekről."
-	},
-	"languagestats": {
-		"description": "Shows you the progress of a language on all the projects we currently support."
-	},
-	"levels": {
-		"description": "Gives you the XP leaderboard."
-	},
-	"mention": {
-		"description": "Említs meg egy nyelvi csoportot egy választott üzenettel."
-	},
-	"minecraft": {
-		"description": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required."
-	},
-	"ping": {
-		"description": "Megadja a bot és a Discord API pingjét."
-	},
-	"poll": {
-		"description": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed."
-	},
-	"prefix": {
-		"description": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space."
-	},
-	"profile": {
-		"description": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles."
-	},
-	"projects": {
-		"description": "Gives you links and information about all the translation projects we support on the server."
-	},
-	"quote": {
-		"description": "Shows a funny/weird/wise quote from the server."
-	},
-	"rank": {
-		"description": "Gives you the current XP for yourself or any given user."
-	},
-	"tag": {
-		"description": "Sends a preset message, allowing you to notify a specific member when sending it."
-	},
-	"translate": {
-		"description": "Gives you useful information on how to translate the bot."
-	},
-	"verify": {
-		"description": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
+	"descriptions": {
+		"8ball": "The Magic 8 Ball that will answer all your questions.",
+		"alert": "Alerts other proofreaders for issues in their translations",
+		"feedback": "Megnyitja a GitHub oldalunkat, ahol hibákat jelenthetsz és visszajelzést adhatsz.",
+		"help": "Megmutatja az összes elérhető parancsot és információkat ad a robotról.",
+		"hypixelstats": "Shows you basic Hypixel stats for the provided user.",
+		"hypixelunverify": "Szétkapcsolja a Discord és Minecraft fiókodat.",
+		"hypixelverify": "Links your Discord account with your Minecraft account.",
+		"language": "Megváltoztatja a nyelved, megmutatja a mostanit, vagy ad egy listát az elérhető nyelvekről.",
+		"languagestats": "Shows you the progress of a language on all the projects we currently support.",
+		"levels": "Gives you the XP leaderboard.",
+		"mention": "Említs meg egy nyelvi csoportot egy választott üzenettel.",
+		"minecraft": "Looks up a specific Minecraft player's name history or skin. This command is compatible with /hypixelverify, letting you look up a specific user's info if they're verified. The parameter `user` will always have priority over `username` and they are both optional if you're verified, otherwise, at least one is required.",
+		"ping": "Megadja a bot és a Discord API pingjét.",
+		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed.",
+		"prefix": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space.",
+		"profile": "Gives you the link to your Crowdin profile if it's stored on our database. If it's not, you can execute `/help verify` to learn how to store your profile and update your roles.",
+		"projects": "Gives you links and information about all the translation projects we support on the server.",
+		"quote": "Shows a funny/weird/wise quote from the server.",
+		"rank": "Gives you the current XP for yourself or any given user.",
+		"settings": "Changes or shows your settings on the bot",
+		"tag": "Sends a preset message, allowing you to notify a specific member when sending it.",
+		"translate": "Gives you useful information on how to translate the bot.",
+		"verify": "Automatically checks for changes on your Crowdin profile and gives you the appropriate roles. If your profile is not stored on our database, you can provide it as an argument in the command. To check if your profile is stored, execute `/profile`. Make sure you have DMs enabled from this server so that the bot can send you a message."
 	}
 }
