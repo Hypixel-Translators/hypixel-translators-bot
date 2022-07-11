@@ -1,6 +1,6 @@
 {
 	"moduleName": "Citat",
-	"msgUrl": "Message URL",
+	"msgUrl": "Meddelandets URL",
 	"invalidArg": "Ogiltigt argument!",
 	"indexArg": "Ett citat med indexet %%arg%% finns inte! Ange ett nummer mellan 1 och %%max%%."
 }
