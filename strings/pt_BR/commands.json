@@ -319,7 +319,7 @@
 					},
 					"image": {
 						"name": "imagem",
-						"description": "A URL da imagem a ser incluída nesta citação. Tem prioridade sobre a imagem da URL se fornecido"
+						"description": "The image to be included with this quote. Has priority over url's image if provided"
 					}
 				}
 			},
