@@ -319,7 +319,7 @@
 					},
 					"image": {
 						"name": "bild",
-						"description": "The URL of the image to be included with this quote. Has priority over url's image if provided"
+						"description": "The image to be included with this quote. Has priority over url's image if provided"
 					}
 				}
 			},
@@ -375,13 +375,13 @@
 		"settings": {
 			"get": {
 				"name": "erhalten",
-				"description": "See the value of a setting",
+				"description": "Sieh den Wert einer Einstellung",
 				"options": {
 					"setting": {
 						"name": "einstellung",
 						"description": "Die Einstellung, die du sehen möchtest",
 						"choices": {
-							"lvlUpMsg": "Send messages upon level up",
+							"lvlUpMsg": "Sende Nachrichten nach einem Levelaufstieg",
 							"availability": "Korrekturleser Verfügbarkeit"
 						}
 					}
@@ -395,7 +395,7 @@
 						"name": "einstellung",
 						"description": "Die Einstellung, die geändert werden soll",
 						"choices": {
-							"lvlUpMsg": "Send messages upon level up",
+							"lvlUpMsg": "Sende Nachrichten nach einem Levelaufstieg",
 							"availability": "Korrekturleser Verfügbarkeit"
 						}
 					},
@@ -413,7 +413,7 @@
 						"name": "einstellung",
 						"description": "Die Einstellung, die zurückgesetzt werden soll",
 						"choices": {
-							"lvlUpMsg": "Send messages upon level up",
+							"lvlUpMsg": "Sende Nachrichten nach einem Levelaufstieg",
 							"availability": "Korrekturleser Verfügbarkeit"
 						}
 					}
