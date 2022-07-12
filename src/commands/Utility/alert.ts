@@ -32,7 +32,8 @@ const command: Command = {
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply({ ephemeral: true })
-		const message = interaction.options.getString("message"),
+		// Ensure message has no language set
+		const message = interaction.options.getString("message")?.replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en"),
 			langs = await db
 				.collection<MongoLanguage>("languages")
 				.find({ color: { $exists: true } }, { sort: { name: 1 } })
