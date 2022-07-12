@@ -319,7 +319,7 @@
 					},
 					"image": {
 						"name": "снимка",
-						"description": "URL-а на снимката която идва с този цитат. Има приоритет над снимката на URL ако е предоставен"
+						"description": "The image to be included with this quote. Has priority over url's image if provided"
 					}
 				}
 			},

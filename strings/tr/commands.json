@@ -319,7 +319,7 @@
 					},
 					"image": {
 						"name": "resim",
-						"description": "Bu alıntıya eklenecek resmin bağlantısı. Sağlanırsa bağlantının görüntüsüne göre önceliğe sahiptir"
+						"description": "The image to be included with this quote. Has priority over url's image if provided"
 					}
 				}
 			},

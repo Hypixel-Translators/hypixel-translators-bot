@@ -319,7 +319,7 @@
 					},
 					"image": {
 						"name": "afbeelding",
-						"description": "De URL van de afbeelding die bij dit citaat hoort. Hogere prioriteit dan eventuele URL afbeelding"
+						"description": "The image to be included with this quote. Has priority over url's image if provided"
 					}
 				}
 			},

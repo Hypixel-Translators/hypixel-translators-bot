@@ -319,7 +319,7 @@
 					},
 					"image": {
 						"name": "bild",
-						"description": "URL till bilden som ska inkluderas med detta citat. Har prioritet framför URL:ens bild om den anges"
+						"description": "The image to be included with this quote. Has priority over url's image if provided"
 					}
 				}
 			},
