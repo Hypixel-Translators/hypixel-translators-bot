@@ -90,14 +90,14 @@ const command: Command = {
 				})),
 		)
 
-		const languages: [string[]?, string[]?] = []
+		const languages: [string[], string[]] = [[], []]
 		collector.on("collect", async componentInteraction => {
 			if (componentInteraction.isSelectMenu()) {
 				languages[Number(componentInteraction.customId)] = componentInteraction.values
-				if (languages.flat().length) buttons.components[0].setDisabled(false)
+				if (languages.some(l => l.length)) buttons.components[0].setDisabled(false)
 				else buttons.components[0].setDisabled(true)
-				for (const menu of selectMenus)
-					for (const option of menu.options) option.setDefault(componentInteraction.values.includes(option.data.value!))
+				for (const [index, menu] of selectMenus.entries())
+					for (const option of menu.options) option.setDefault(languages[index].includes(option.data.value!))
 
 				await componentInteraction.update({
 					components: [...selectMenus.map(m => new ActionRowBuilder<SelectMenuBuilder>({ components: [m] })), buttons],
