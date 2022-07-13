@@ -154,9 +154,9 @@ client.on("messageCreate", async message => {
 				return
 				// Link isn't in en-en, is in translate.hypixel or another Crowdin language
 			} else if (message.content !== langFix && message.channel.parentId === ids.categories.hypixel) {
-				await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "badLink", user: message.author.id })
 				await message.reply({ content: `${message.author}: ${langFix}`, allowedMentions: { users: [...message.mentions.users.keys()] } })
 				await message.delete()
+				await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "badLink", user: message.author.id })
 				return
 			}
 		}

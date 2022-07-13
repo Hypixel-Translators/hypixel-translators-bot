@@ -135,7 +135,8 @@ const command: Command = {
 									return [prevRoles, prevPfs]
 								},
 								[[], []] as [Role[], [Role, GuildMember][]],
-							)
+							),
+							flagEmojis = chosenPfs.map(([r]) => langs.find(l => l.name === r.name.replace(" Proofreader", ""))!.emoji)
 
 						if (failedRoles.length && !chosenPfs.length) {
 							await componentInteraction.update({
@@ -151,19 +152,25 @@ const command: Command = {
 								allowedMentions: { roles: [] },
 								components: [],
 							})
-							await interaction.channel!.send({
-								content: `${interaction.user}: ${message}\n\n${chosenPfs.map(d => d.join(": ")).join(", ")}`,
+							const alertMessage = await interaction.channel!.send({
+								content: `${interaction.user}: ${message}\n\n${chosenPfs
+									.map(d => d.join(": "))
+									.join(", ")}\nPlease react with your language's flag emoji once you're done!`,
 								allowedMentions: { users: [...new Set(chosenPfs.map(([, m]) => m.id))], roles: [] },
 							})
+							for (const emoji of flagEmojis) await alertMessage.react(emoji)
 						} else {
 							await componentInteraction.update({
 								content: "We managed to find a proofreader for every language you chose! Sending message...",
 								components: [],
 							})
-							await interaction.channel!.send({
-								content: `${interaction.user}: ${message}\n\n${chosenPfs.map(d => d.join(": ")).join(", ")}`,
+							const alertMessage = await interaction.channel!.send({
+								content: `${interaction.user}: ${message}\n\n${chosenPfs
+									.map(d => d.join(": "))
+									.join(", ")}\nPlease react with your language's flag emoji once you're done!`,
 								allowedMentions: { users: [...new Set(chosenPfs.map(([, m]) => m.id))], roles: [] },
 							})
+							for (const emoji of flagEmojis) await alertMessage.react(emoji)
 						}
 						collector.stop("replied")
 						break
