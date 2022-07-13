@@ -101,7 +101,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 		*/
 		await page.close()
 		await closeConnection(browser.uuid)
-		if (!isValid) {
+		if (!isValid && !isPrivate) {
 			// If profile leads to a 404 page
 			// #region return message
 			await member.roles.remove(ids.roles.verified, "Tried to verify with an invalid URL")
