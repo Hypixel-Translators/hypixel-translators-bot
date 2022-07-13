@@ -10,7 +10,5 @@ WORKDIR /app
 COPY . .
 # Install dependencies
 RUN yarn
-# Lint
-RUN yarn lint:ci
 # Run the app
 CMD ["yarn", "start"]
