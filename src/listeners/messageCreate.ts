@@ -137,6 +137,7 @@ client.on("messageCreate", async message => {
 					description: getGlobalString("example", { variables: { url: "https://crowdin.com/translate/hypixel/286/en-en#106644" } }),
 					image: { url: "https://i.imgur.com/eDZ8u9f.png" },
 				})
+				// If it's also not en-en
 				if (message.content !== langFix && message.channel.parentId === ids.categories.hypixel) {
 					embed.setDescription(
 						`${getGlobalString("example", {
@@ -153,18 +154,9 @@ client.on("messageCreate", async message => {
 				return
 				// Link isn't in en-en, is in translate.hypixel or another Crowdin language
 			} else if (message.content !== langFix && message.channel.parentId === ids.categories.hypixel) {
-				await message.react("vote_no:839262184882044931")
 				await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "badLink", user: message.author.id })
-				const correctLink = langFix.match(stringURLRegex)![0],
-					embed = new EmbedBuilder({
-						color: colors.error,
-						author: { name: getGlobalString("errors.wrongLink") },
-						title: getGlobalString("linkCorrectionDesc", { variables: { format: "`crowdin.com/translate/hypixel/.../en-en#`" } }),
-						description: `**${getGlobalString("correctLink")}**\n${
-							correctLink.startsWith("https://") ? correctLink : `https://${correctLink}`
-						}`,
-					})
-				await message.reply({ embeds: [embed] })
+				await message.reply({ content: `${message.author}: ${langFix}`, allowedMentions: { users: [...message.mentions.users.keys()] } })
+				await message.delete()
 				return
 			}
 		}
