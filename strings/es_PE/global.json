@@ -34,8 +34,6 @@
 	},
 	"cooldown": "Enfriamiento",
 	"timeLeft": "Podrás usar %%command%% otra vez %%timestamp%%.",
-	"linkCorrectionDesc": "Cambia tu link al formato de %%format%% para la próxima.",
-	"correctLink": "Aquí está el link correcto:",
 	"wrongStringURL": "¡El link que enviaste es un link al editor y no al string!",
 	"example": "Haz clic en el botón que muestra la imagen de abajo para obtener la URL del string correcta. Debería verse así: %%url%%",
 	"reminderLang": "No olvides también cambiar tu link al formato %%format%%.",
