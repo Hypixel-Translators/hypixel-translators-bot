@@ -34,8 +34,6 @@
 	},
 	"cooldown": "Cooldown",
 	"timeLeft": "Anda akan boleh guna %%command%% lagi %%timestamp%%.",
-	"linkCorrectionDesc": "Tolong tukar pautan anda ke format %%format%% lain kali.",
-	"correctLink": "Ini pautan yang betul:",
 	"wrongStringURL": "Pautan yang anda hantar merupakan pautan ke penyunting dan bukan ke string itu sendiri!",
 	"example": "Klik pada butang yang terletak pada gambar dibawah untuk mendapat Pautan URL String yang betul. Ianya sepatutnya nampak macam ini: %%url%%",
 	"reminderLang": "Jangan lupa untuk mengubah format pautan anda kepada format %%format%%.",
