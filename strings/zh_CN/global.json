@@ -34,8 +34,6 @@
 	},
 	"cooldown": "冷却时间",
 	"timeLeft": "你可以在 %%timestamp%% 后再次使用 %%command%%。",
-	"linkCorrectionDesc": "下次请务必注意，更改链接为 %%format%% 格式。",
-	"correctLink": "以下是正确的链接：",
 	"wrongStringURL": "你发送的链接指向 Crowdin 在线编辑器本身，而非特定字符串！",
 	"example": "点击下方图片上显示的按钮以获取正确的字符串 URL。正确格式应为：%%url%%",
 	"reminderLang": "不要忘记将链接修改为 %%format%% 格式。",
