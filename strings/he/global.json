@@ -34,8 +34,6 @@
 	},
 	"cooldown": "זמן המתנה",
 	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
-	"linkCorrectionDesc": "בבקשה שנה/י את הקישור שלך לפורמט %%format%% בפעם הבאה.",
-	"correctLink": "Here's the correct link:",
 	"wrongStringURL": "הקישור שלך הינו קישור אל העורך ולא אל המחרוזת עצמה!",
 	"example": "לחץ/י על הכפתור המוצג על התמונה המצויה למטה בכדי לקבל את הקישור הנכון למחרוזת. הוא אמור להיראות כך: %%url%%",
 	"reminderLang": "בנוסף, אל תשכח/י לשנות את הקישור שלך לפורמט %%format%%.",
