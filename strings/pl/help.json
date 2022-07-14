@@ -24,7 +24,7 @@
 		"languagestats": "Wyświetla postęp języka we wszystkich projektach, które wspieramy.",
 		"levels": "Pokazuje ci ranking PD.",
 		"mention": "Oznacza rolę językową z opcjonalną wiadomością.",
-		"minecraft": "Wyszukuje historię nazw użytkownika lub skina gracza Minecraft. Komenda jest kompatybilna z komendą /hypixelverify i pozwala na wyszukiwanie informacji o konkretnym użytkowniku, dopóki są oni zweryfikowanii. Parametr `user` zawsze będzie miał priorytet nad parametrem `username` i oba są opcjonalne, jeśli jesteś zweryfikowany(-a), w przeciwnym razie wymagana jest co najmniej jedna opcja.",
+		"minecraft": "Wyszukuje historię nazw użytkownika lub skórkę gracza Minecrafta. Polecenie to jest zgodne z poleceniem /hypixelverify i pozwala wyszukiwać informacje o wybranym użytkowniku, jeśli jest on zweryfikowany. Parametr `user` zawsze ma pierwszeństwo nad parametrem `username` i oba są nie są konieczne, o ile jesteś zweryfikowany(-a), w przeciwnym razie wymagany jest co najmniej jeden z nich.",
 		"ping": "Podaje opóźnienie bota.",
 		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed.",
 		"prefix": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space.",
