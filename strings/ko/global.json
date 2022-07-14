@@ -34,8 +34,6 @@
 	},
 	"cooldown": "쿨다운",
 	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
-	"linkCorrectionDesc": "앞으로는 링크를 %%format%% 형태로 바꿔주시기 바랍니다.",
-	"correctLink": "올바른 링크 형태 : ",
 	"wrongStringURL": "보내주신 링크는 에디터로의 링크이며, 스트링에 대한 링크가 아닙니다.",
 	"example": "아래 이미지에 나와있는 버튼을 눌러 올바른 스트링 링크를 받으세요. 링크는 보통 다음과 같이 생겼습니다 : %%url%%",
 	"reminderLang": "링크를 %%format%% 형태로 바꾸는걸 잊지 마세요.",
