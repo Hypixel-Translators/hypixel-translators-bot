@@ -34,8 +34,6 @@
 	},
 	"cooldown": "クールダウン",
 	"timeLeft": "%%command%%は%%timestamp%%後に再び使用可能になります。",
-	"linkCorrectionDesc": "次回はリンクの型を%%format%%に変更してください。",
-	"correctLink": "こちらが正しいリンクです：",
 	"wrongStringURL": "送信されたリンクは、文字列自体のものではなく編集画面へのリンクです！",
 	"example": "以下の画像にあるボタンをクリックし、正しい文字列のURLを取得してください。以下のような形式です：%%url%%",
 	"reminderLang": "リンクの型を%%format%%に変更することも忘れないでください。",
