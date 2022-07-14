@@ -34,8 +34,6 @@
 	},
 	"cooldown": "Cooldown",
 	"timeLeft": "Ye will be able t' use %%command%% again %%timestamp%%.",
-	"linkCorrectionDesc": "Please change yer link t' th' %%format%% format next time.",
-	"correctLink": "Here be th' correct link:",
 	"wrongStringURL": "Th' link ye sent be a link t' th' editor an' not th' string itself!",
 	"example": "Click th' button shown on th' image below t' get th' correct string URL. It should look like 'tis: %%url%%",
 	"reminderLang": "Do nah forget t' also change yer link t' th' %%format%% format.",
