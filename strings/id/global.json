@@ -34,8 +34,6 @@
 	},
 	"cooldown": "Cooldown",
 	"timeLeft": "Anda dapat menggunakan %%command%% kembali %%timestamp%%.",
-	"linkCorrectionDesc": "Mohon ubah tautan anda ke format %%format%% lain kali.",
-	"correctLink": "Inilah tautan yang benar:",
 	"wrongStringURL": "Tautan yang anda kirim adalah link ke editor dan bukan string itu sendiri!",
 	"example": "Klik tombol yang ditampilkan dibawah gambar untuk mendapatkan URL string yang benar. Seharusnya terlihat seperti ini: %%url%%",
 	"reminderLang": "Jangan lupa juga untuk mengganti tautan ke format %%format%%.",

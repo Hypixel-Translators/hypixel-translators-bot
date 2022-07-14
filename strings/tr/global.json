@@ -34,8 +34,6 @@
 	},
 	"cooldown": "Bekleme Süresi",
 	"timeLeft": "%%command%% komutunu %%timestamp%% sonra tekrar kullanabilirsin.",
-	"linkCorrectionDesc": "Lütfen, bağlantını bir dahaki sefere %%format%% formatında gönder.",
-	"correctLink": "İşte doğru bağlantı:",
 	"wrongStringURL": "Gönderdiğin bağlantı dizenin kendisine değil, editöre yönlendiren bir bağlantıdır!",
 	"example": "Doğru dize bağlantısını kopyalamak için aşağıdaki resimde gösterilen butona tıkla. Doğru bağlantı böyle olmalı: %%url%%",
 	"reminderLang": "Bağlantını %%format%% formatına değiştirmeyi unutma.",

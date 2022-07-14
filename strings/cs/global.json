@@ -34,8 +34,6 @@
 	},
 	"cooldown": "Časové omezení",
 	"timeLeft": "You'll be able to use %%command%% again %%timestamp%%.",
-	"linkCorrectionDesc": "Prosím, příště změň svůj odkaz na formát %%format%%.",
-	"correctLink": "Zde je správný odkaz:",
 	"wrongStringURL": "Odkaz, který jsi poslal, je odkaz na editor, a ne na samotný string!",
 	"example": "Kliknutím na tlačítko zobrazené na obrázku níže získáš správnou URL stringu. Měla by vypadat takto: %%url%%",
 	"reminderLang": "Don't forget to also change your link to the %%format%% format.",

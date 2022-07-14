@@ -34,8 +34,6 @@
 	},
 	"cooldown": "Cooldown",
 	"timeLeft": "Du kan använda %%command%% igen %%timestamp%%.",
-	"linkCorrectionDesc": "Vänligen ändra din länk till \"%%format%%\"-formatet nästa gång.",
-	"correctLink": "Här är den korrekta länken:",
 	"wrongStringURL": "Länken du skickade är en länk till editor och inte till strängen!",
 	"example": "Klicka på knappen som visas på bilden nedan för att få den korrekta sträng-URL:n. Den ska se ut så här: %%url%%",
 	"reminderLang": "Glöm inte att ändra din link till \"%%format%%\"-formatet.",

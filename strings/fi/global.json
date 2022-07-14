@@ -34,8 +34,6 @@
 	},
 	"cooldown": "Odotusaika",
 	"timeLeft": "Voit käyttää komentoa %%command%% uudelleen %%timestamp%%.",
-	"linkCorrectionDesc": "Vaihdathan osoitteen ensi kerralla muotoon %%format%%.",
-	"correctLink": "Tässä oikea linkki:",
 	"wrongStringURL": "Lähettämäsi linkki ohjaa muokkaajaan eikä itse käännettävään tekstiin!",
 	"example": "Klikkaa kuvan mukaista painiketta muokkaajassa saadaksesi oikean linkin. Sen tulisi näyttää tältä: %%url%%",
 	"reminderLang": "Älä unohda vaihtaa linkkiäsi muotoon %%format%%.",

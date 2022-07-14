@@ -34,8 +34,6 @@
 	},
 	"cooldown": "Temps de recharge",
 	"timeLeft": "Tu pourras réutiliser %%command%% dans %%timestamp%%.",
-	"linkCorrectionDesc": "Merci de changer ton lien vers au format %%format%% la prochaine fois.",
-	"correctLink": "Voici le bon lien:",
 	"wrongStringURL": "Le lien que tu as envoyé est un lien vers l'éditeur et non la traduction en question !",
 	"example": "Cliques sur le bouton affiché sur l'image ci-dessous pour obtenir l'URL de la phrase correcte. Il devrait ressembler à ceci: %%url%%",
 	"reminderLang": "N'oublies pas également de modifier ton lien au format %%format%%.",

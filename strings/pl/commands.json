@@ -19,7 +19,7 @@
 		"projects": "projekty",
 		"quote": "cytat",
 		"rank": "pozycja",
-		"settings": "settings",
+		"settings": "ustawienia",
 		"tag": "tag",
 		"translate": "tłumacz",
 		"verify": "weryfikacja"
@@ -46,7 +46,7 @@
 		"rank": "Podaje twoje obecne PD lub PD wybranego użytkownika",
 		"settings": "Change or view your settings on the bot",
 		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
-		"translate": "Gives you useful information on how to translate the bot",
+		"translate": "Podaje przydatne informacje o tym, jak tłumaczyć bota",
 		"verify": "Verifies and gives you your corresponding roles"
 	},
 	"options": {
@@ -69,7 +69,7 @@
 			},
 			"page": {
 				"name": "strona",
-				"description": "The help page to open",
+				"description": "Strona pomocy, która zostanie otwarta",
 				"choices": [
 					"Strona główna",
 					"Narzędzia",
@@ -185,7 +185,7 @@
 			},
 			"skin": {
 				"name": "skórka",
-				"description": "Shows a user's skin. You must provide at least 1 parameter if your MC account is not linked",
+				"description": "Pokazuje skórkę gracza. Jeśli nie połączyłeś swojego konta, musisz podać przynajmniej 1 parametr",
 				"options": {
 					"username": {
 						"name": "nazwaużytkownika",
@@ -378,7 +378,7 @@
 				"description": "See the value of a setting",
 				"options": {
 					"setting": {
-						"name": "setting",
+						"name": "ustawienie",
 						"description": "The setting to see",
 						"choices": {
 							"lvlUpMsg": "Send messages upon level up",
@@ -392,7 +392,7 @@
 				"description": "Change the value of a setting",
 				"options": {
 					"setting": {
-						"name": "setting",
+						"name": "ustawienie",
 						"description": "The setting to change",
 						"choices": {
 							"lvlUpMsg": "Send messages upon level up",
@@ -410,7 +410,7 @@
 				"description": "Reset the value of a setting",
 				"options": {
 					"setting": {
-						"name": "setting",
+						"name": "ustawienie",
 						"description": "The setting to reset",
 						"choices": {
 							"lvlUpMsg": "Send messages upon level up",
@@ -425,9 +425,9 @@
 				"name": "tag",
 				"description": "The tag you want to see",
 				"choices": {
-					"invite": "Invite link to the server",
+					"invite": "Odnośnik z zaproszeniem na serwer",
 					"hypixel": "Hypixel links",
-					"guidelines": "Hypixel project guidelines",
+					"guidelines": "Wytyczne projektu Hypixel",
 					"proofreader": "How to get proofreader on the Hypixel project",
 					"minecraft": "Minecraft Crowdin Project",
 					"quickplay": "Quickplay links",
