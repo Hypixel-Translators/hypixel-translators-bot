@@ -34,8 +34,6 @@
 	},
 	"cooldown": "Nedkjøling",
 	"timeLeft": "Du kan bruke %%command%% igjen %%timestamp%%.",
-	"linkCorrectionDesc": "Vennligst endre linken til %%format%%-formatet neste gang.",
-	"correctLink": "Her er den korrekte lenken:",
 	"wrongStringURL": "Lenken du sendte er en lenke til redigereren og ikke selve strengen!",
 	"example": "Klikk på knappen som vises på bildet under for å få den riktige strengadressen. Den skal se slik ut: %%url%%",
 	"reminderLang": "Glem heller ikke å endre lenken din til %%format%%-formatet.",
