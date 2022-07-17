@@ -1,4 +1,4 @@
-import { type EmbedFieldData, EmbedBuilder, Colors, ApplicationCommandOptionType } from "discord.js"
+import { type APIEmbedField, EmbedBuilder, Colors, ApplicationCommandOptionType } from "discord.js"
 
 import { ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
@@ -24,7 +24,7 @@ const command: Command = {
 			createdAt = Math.round(role.createdTimestamp / 1000),
 			permissions = role.permissions.toArray()
 
-		let tags: EmbedFieldData | null = null
+		let tags: APIEmbedField | null = null
 		if (role.tags) {
 			if (role.tags.botId) tags = { name: "This role is managed by", value: `<@!${role.tags.botId}>`, inline: true }
 			else if (role.tags.integrationId) {

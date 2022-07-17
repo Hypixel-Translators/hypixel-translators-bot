@@ -427,7 +427,6 @@ async function getVeteranRole(member: GuildMember, project: CrowdinProject) {
 
 	if (role.name !== `${years === 1 ? `${years} Year` : `${years} Years`} Veteran`)
 		await role.setName(`${years === 1 ? `${years} Year` : `${years} Years`} Veteran`, "The name was wrong for some reason")
-	// @ts-expect-error ROLE_ICONS is a valid feature, this is a dumb types issue
 	if (role.unicodeEmoji !== medals[years] && role.guild.features.includes("ROLE_ICONS"))
 		await role.setUnicodeEmoji(medals[years], "The emoji was wrong for some reason")
 
