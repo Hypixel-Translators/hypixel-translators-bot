@@ -1,4 +1,4 @@
-import { EmbedBuilder, type NewsChannel, type TextChannel } from "discord.js"
+import { Collection, EmbedBuilder, type Message, type Snowflake, type NewsChannel, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client, crowdin } from "../index"
@@ -26,11 +26,12 @@ export async function updateProjectStatus(projectId: number) {
 		updatesChannel = client.channels.cache.find(
 			c => (c as NewsChannel).name === `${mongoProject.shortName}-project-updates`,
 		) as NewsChannel,
-		statMessages = await channel.messages.fetch(),
 		// Only ping if last ping was more than 90 minutes ago
 		shouldPing =
 			((await updatesChannel.messages.fetch()).find(m => m.mentions.roles.has(ids.roles.crowdinUpdates))?.createdTimestamp ?? 0) <
 			Date.now() - 120 * 60 * 1000
+
+	let statMessages = await channel.messages.fetch().then(msgs => msgs.filter(m => m.author.id === client.user!.id))
 	if (projectId === ids.projects.hypixel) checkBuild(shouldPing)
 	const languages = await db.collection<MongoLanguage>("languages").find().toArray(),
 		json = await crowdin.translationStatusApi
@@ -49,31 +50,30 @@ export async function updateProjectStatus(projectId: number) {
 		sortedSatus = Array.from(langStatus).sort((currentStatus, nextStatus) =>
 			nextStatus.language.name.localeCompare(currentStatus.language.name),
 		)
-	let index = 0
-	statMessages
-		.filter(msg => msg.author.id === client.user!.id)
-		.forEach(async msg => {
-			const fullData = sortedSatus[index],
-				crowdinData = fullData.data
 
-			let color: number
-			if (mongoProject.identifier === "hypixel") color = fullData.language.color!
-			else if (crowdinData.approvalProgress > 89) color = colors.success
-			else if (crowdinData.approvalProgress > 49) color = colors.loading
-			else color = colors.error
+	if (sortedSatus.length !== statMessages.size) statMessages = await updateMessages(sortedSatus, statMessages, channel)
 
-			const embed = new EmbedBuilder({
-				color,
-				title: `${fullData.language.emoji ?? "<:icon_question:882267041904607232>"} | ${fullData.language.name}`,
-				thumbnail: { url: fullData.language.flag },
-				description: `${crowdinData.translationProgress}% translated (${crowdinData.phrases.translated}/${crowdinData.phrases.total} strings)\n**${crowdinData.approvalProgress}% approved (${crowdinData.phrases.approved}/${crowdinData.phrases.total} strings)**`,
-				fields: [{ name: "Translate at", value: `https://crowdin.com/project/${mongoProject.identifier}/${fullData.language.id}` }],
-				footer: { text: "Last update" },
-				timestamp: Date.now(),
-			})
-			index++
-			await msg.edit({ content: null, embeds: [embed] })
+	for (const [index, msg] of [...statMessages.values()].entries()) {
+		const { language, data: crowdinData } = sortedSatus[index]
+
+		let color: number
+		if (mongoProject.identifier === "hypixel") color = language.color!
+		else if (crowdinData.approvalProgress >= 90) color = colors.success
+		else if (crowdinData.approvalProgress >= 50) color = colors.loading
+		else color = colors.error
+
+		const embed = new EmbedBuilder({
+			color,
+			title: `${language.emoji ?? "<:icon_question:882267041904607232>"} | ${language.name}`,
+			thumbnail: { url: language.flag },
+			description: `${crowdinData.translationProgress}% translated (${crowdinData.phrases.translated}/${crowdinData.phrases.total} strings)\n**${crowdinData.approvalProgress}% approved (${crowdinData.phrases.approved}/${crowdinData.phrases.total} strings)**`,
+			fields: [{ name: "Translate at", value: `https://crowdin.com/project/${mongoProject.identifier}/${language.id}` }],
+			footer: { text: "Last update" },
+			timestamp: Date.now(),
 		})
+
+		await msg.edit({ content: null, embeds: [embed] })
+	}
 	const oldStringCount = mongoProject.stringCount,
 		newStringCount = langStatus[0].data.phrases.total
 
@@ -108,7 +108,7 @@ export async function checkBuild(shouldPing: boolean) {
 		collection = db.collection<CrowdinProject>("crowdin")
 	await page.goto("https://crowdin.com/project/hypixel/activity-stream")
 	await page.waitForSelector(".list-activity")
-	const lastBuild: CrowdinBuildActivity = await page.evaluate(async () => {
+	const lastBuild = await page.evaluate(async () => {
 		window.eval('crowdin.activity.filters.filter_by_type = "1"') // Filter by builds only to assure we get a build
 		await window.eval("crowdin.activity.refresh()") // Refresh the activity stream to apply the new filter
 		await new Promise<void>(resolve => {
@@ -138,6 +138,22 @@ export async function checkBuild(shouldPing: boolean) {
 			content: `${shouldPing ? `<@&${ids.roles.crowdinUpdates}> ` : ""}New build!`,
 		})
 		await collection.updateOne({ identifier: "hypixel" }, { $set: { lastBuild: lastBuild.timestamp } })
+	}
+}
+
+async function updateMessages(languages: LanguageStatus[], messages: Collection<Snowflake, Message>, channel: TextChannel) {
+	if (languages.length > messages.size) {
+		for (const message of messages.values()) message.delete()
+		const newMessages: Promise<Message>[] = []
+		for (let i = 0; i < languages.length; i++) newMessages.push(channel.send("Language statistics will be here shortly!"))
+
+		return new Collection<Snowflake, Message>(await Promise.all(newMessages).then(msgs => msgs.map(msg => [msg.id, msg])))
+	} else {
+		for (const message of messages.first(messages.size - languages.length)) {
+			await message.delete().catch(() => null)
+			messages.delete(message.id)
+		}
+		return messages
 	}
 }
 
