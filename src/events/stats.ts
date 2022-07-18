@@ -147,7 +147,7 @@ async function updateMessages(languages: LanguageStatus[], messages: Collection<
 		const newMessages: Promise<Message>[] = []
 		for (let i = 0; i < languages.length; i++) newMessages.push(channel.send("Language statistics will be here shortly!"))
 
-		return new Collection<Snowflake, Message>(await Promise.all(newMessages).then(msgs => msgs.map(msg => [msg.id, msg])))
+		return new Collection<Snowflake, Message>(await Promise.all(newMessages).then(msgs => msgs.map(msg => [msg.id, msg]))).reverse()
 	} else {
 		for (const message of messages.first(messages.size - languages.length)) {
 			await message.delete().catch(() => null)
