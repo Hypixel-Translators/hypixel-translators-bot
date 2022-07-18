@@ -34,6 +34,7 @@ const command: Command = {
 					name: "question",
 					description: "The question of the poll",
 					required: true,
+					maxLength: 256,
 				},
 				{
 					type: ApplicationCommandOptionType.String,
