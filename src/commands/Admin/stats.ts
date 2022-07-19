@@ -37,9 +37,9 @@ const command: Command = {
 				author: { name: "Statistics updater" },
 				title: "All statistics channels have been updated!",
 				description: `Check them out at ${interaction.guild!.channels.cache.find(
-					c => c.name === "hypixel-language-status",
+					c => c.name === "hypixel-language-status"
 				)}, ${interaction.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${interaction.guild!.channels.cache.find(
-					c => c.name === "bot-language-status",
+					c => c.name === "bot-language-status"
 				)} and ${interaction.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`,
 				footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})

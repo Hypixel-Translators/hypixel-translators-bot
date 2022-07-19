@@ -54,7 +54,7 @@ const command: Command = {
 			if (!json.error && !json.username) throw "noPlayer"
 			console.log(
 				"Welp, we didn't plan for this to happen. While you have a mental breakdown, enjoy this little error I have for you\n",
-				json.error,
+				json.error
 			)
 			throw "apiError"
 		}

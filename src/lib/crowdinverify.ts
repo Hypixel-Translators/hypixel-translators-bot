@@ -49,7 +49,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 			await usersColl.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 			dmEmbed
 				.setDescription(
-					"Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!",
+					"Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!"
 				)
 				.setImage("https://i.imgur.com/7FVOSfT.png")
 			if (sendDms) {
@@ -58,14 +58,14 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 					.then(
 						async () =>
 							await verifyLogs.send(
-								`${member} didn't send a valid profile URL. Let's hope they work their way around with the message I just sent them.`,
-							),
+								`${member} didn't send a valid profile URL. Let's hope they work their way around with the message I just sent them.`
+							)
 					)
 					.catch(async () => {
 						dmEmbed.setFooter({ text: "This message will be deleted in a minute" })
 						const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [dmEmbed] })
 						await verifyLogs.send(
-							`${member} didn't send a valid profile URL. Let's hope they work their way around with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`,
+							`${member} didn't send a valid profile URL. Let's hope they work their way around with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`
 						)
 						await setTimeout(60_000)
 						await msg.delete().catch(() => null)
@@ -109,7 +109,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 			if (sendDms) {
 				dmEmbed
 					.setDescription(
-						"Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!",
+						"Hey there! We noticed you tried to send us your Crowdin profile but the link you sent was invalid. This may have happened because you either typed the wrong name in the link or you sent us the generic Crowdin profile link. If you don't know how to obtain the profile URL, make sure it follows the format `https://crowdin.com/profile/<username>` and replace <username> with your username like shown below.\n\nIf you have any questions, be sure to send them to us!"
 					)
 					.setImage("https://i.imgur.com/7FVOSfT.png")
 				await member
@@ -117,14 +117,14 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 					.then(
 						async () =>
 							await verifyLogs.send(
-								`${member} sent the wrong profile link (<${url}>). Let's hope they work their way around with the message I just sent them.`,
-							),
+								`${member} sent the wrong profile link (<${url}>). Let's hope they work their way around with the message I just sent them.`
+							)
 					)
 					.catch(async () => {
 						dmEmbed.setFooter({ text: "This message will be deleted in a minute" })
 						const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [dmEmbed] })
 						await verifyLogs.send(
-							`${member} sent the wrong profile link (<${url}>). Let's hope they work their way around with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`,
+							`${member} sent the wrong profile link (<${url}>). Let's hope they work their way around with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`
 						)
 						await setTimeout(60_000)
 						await msg.delete().catch(() => null)
@@ -135,7 +135,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 			else {
 				// If it gets triggered by scheduled verification
 				dmEmbed.setDescription(
-					`Hey there! We noticed you recently changed your Crowdin profile username and thus we weren't able to check your roles. Please send your new profile URL on the ${verify} channel or run the \`/verify\` command.\n\nThere's a small chance your profile is still valid and this is a false positive. If so, please ignore this message or contact an admin to receive your roles back if you haven't already. We apologize for any inconvenience this may have caused you.`,
+					`Hey there! We noticed you recently changed your Crowdin profile username and thus we weren't able to check your roles. Please send your new profile URL on the ${verify} channel or run the \`/verify\` command.\n\nThere's a small chance your profile is still valid and this is a false positive. If so, please ignore this message or contact an admin to receive your roles back if you haven't already. We apologize for any inconvenience this may have caused you.`
 				)
 
 				await member
@@ -143,14 +143,14 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 					.then(
 						async () =>
 							await verifyLogs.send(
-								`${member}'s profile seems to be invalid: <${url}>\nI notified them about it but it's possible it might've been a false positive. If so, give them the Verified role back`,
-							),
+								`${member}'s profile seems to be invalid: <${url}>\nI notified them about it but it's possible it might've been a false positive. If so, give them the Verified role back`
+							)
 					)
 					.catch(
 						async () =>
 							await verifyLogs.send(
-								`${member}'s profile seems to be invalid: <${url}>\nI couldn't notify them about it so check if it wasn't a false positive and give them the Verified role back if it was.`,
-							),
+								`${member}'s profile seems to be invalid: <${url}>\nI couldn't notify them about it so check if it wasn't a false positive and give them the Verified role back if it was.`
+							)
 					)
 			}
 			if (sendLogs)
@@ -164,7 +164,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 			if (sendDms) {
 				dmEmbed
 					.setDescription(
-						"Hey there! We noticed you sent us your Crowdin profile, however, it was private so we couldn't check it. Please make it public, at least until you get verified, and send us your profile again on the channel. If you don't know how to, then go to your Crowdin profile settings (found [here](https://crowdin.com/settings#account)) and make sure the \"Private Profile\" setting is turned off (see the image below)\n\nIf you have any questions, be sure to send them to us!",
+						"Hey there! We noticed you sent us your Crowdin profile, however, it was private so we couldn't check it. Please make it public, at least until you get verified, and send us your profile again on the channel. If you don't know how to, then go to your Crowdin profile settings (found [here](https://crowdin.com/settings#account)) and make sure the \"Private Profile\" setting is turned off (see the image below)\n\nIf you have any questions, be sure to send them to us!"
 					)
 					.setImage("https://i.imgur.com/YX8VLeu.png")
 				await member
@@ -174,7 +174,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 						dmEmbed.setFooter({ text: "This message will be deleted in a minute" })
 						const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [dmEmbed] })
 						await verifyLogs.send(
-							`${member}'s profile was private (<${url}>), I let them know about that in <#${ids.channels.verify}> since they had DMs off.`,
+							`${member}'s profile was private (<${url}>), I let them know about that in <#${ids.channels.verify}> since they had DMs off.`
 						)
 						await setTimeout(60_000)
 						await msg.delete().catch(() => null)
@@ -187,7 +187,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 			dmEmbed
 				.setColor(Colors.Blurple)
 				.setDescription(
-					"Hey there!\nYou have successfully verified your Crowdin account!\nSadly you didn't receive any roles because you don't translate for any of the projects we currently support.\nWhen you have started translating you can refresh your roles by running `/verify`\nIf you wanna know more about all the projects we currently support, run `/projects` here.",
+					"Hey there!\nYou have successfully verified your Crowdin account!\nSadly you didn't receive any roles because you don't translate for any of the projects we currently support.\nWhen you have started translating you can refresh your roles by running `/verify`\nIf you wanna know more about all the projects we currently support, run `/projects` here."
 				)
 			const logEmbed = new EmbedBuilder({
 				color: Colors.Blurple,
@@ -230,7 +230,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 		await usersColl.updateOne({ id: member.id }, { $set: { unverifiedTimestamp: Date.now() } })
 		dmEmbed
 			.setDescription(
-				`Hey there!\nWe noticed you sent us your Crowdin profile, however, you forgot to add your Discord tag to it! Just add ${member.user.tag} to your about section like shown in the image below. Once you've done so, send us the profile link again.\n\nIf you have any questions, be sure to send them to us!`,
+				`Hey there!\nWe noticed you sent us your Crowdin profile, however, you forgot to add your Discord tag to it! Just add ${member.user.tag} to your about section like shown in the image below. Once you've done so, send us the profile link again.\n\nIf you have any questions, be sure to send them to us!`
 			)
 			.setImage("https://i.imgur.com/BM2bJ4W.png")
 		if (sendDms) {
@@ -239,14 +239,14 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 				.then(
 					async () =>
 						await verifyLogs.send(
-							`${member} forgot to add their Discord to their profile (<${url}>). Let's hope they fix that with the message I just sent them.`,
-						),
+							`${member} forgot to add their Discord to their profile (<${url}>). Let's hope they fix that with the message I just sent them.`
+						)
 				)
 				.catch(async () => {
 					dmEmbed.setFooter({ text: "This message will be deleted in a minute" })
 					const msg = await verify.send({ content: `${member} you had DMs disabled, so here's our message,`, embeds: [dmEmbed] })
 					await verifyLogs.send(
-						`${member} forgot to add their Discord to their profile (<${url}>). Let's hope they fix that with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`,
+						`${member} forgot to add their Discord to their profile (<${url}>). Let's hope they fix that with the message I just sent in <#${ids.channels.verify}> since they had DMs off.`
 					)
 					await setTimeout(60_000)
 					await msg.delete().catch(() => null)
@@ -272,9 +272,9 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 					.filter(
 						r =>
 							isTranslatorRole(r) &&
-							(r.name.startsWith(projectName) || (projectName === "Hypixel" && (!isProjectRole(r) || r.name.endsWith("Veteran")))),
+							(r.name.startsWith(projectName) || (projectName === "Hypixel" && (!isProjectRole(r) || r.name.endsWith("Veteran"))))
 					)
-					.values(),
+					.values()
 			)
 			continue
 		}
@@ -336,7 +336,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 			? // Sort language roles be their position
 			  b.position - a.position
 			: // Place Hypixel project roles first
-			  a.color - b.color,
+			  a.color - b.color
 	)) {
 		const project = isProjectRole(role) ? (role.name.split(" ")[0] as ValidProjects) : "Hypixel"
 		rolesPerProject[project] ??= []
@@ -365,7 +365,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 				await usersColl.updateOne(
 					// Only update if lang is english or not set
 					{ id: member.id, $or: [{ lang: "en" }, { lang: { $exists: false } }] },
-					{ $set: { lang: lang.id.replace("-", "_") } },
+					{ $set: { lang: lang.id.replace("-", "_") } }
 				)
 			}
 		}
@@ -390,7 +390,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 				ids.channels.bots
 			}>;\n - Check out all the projects we currently support by running \`/projects\` either here or in <#${
 				ids.channels.bots
-			}>;\n - Talk with the community in <#${ids.channels.offTopic}>\n\nWe hope you have fun on the server!`,
+			}>;\n - Talk with the community in <#${ids.channels.offTopic}>\n\nWe hope you have fun on the server!`
 		)
 
 	if (sendDms) {

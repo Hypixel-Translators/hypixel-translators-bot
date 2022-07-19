@@ -82,20 +82,20 @@ const command: Command = {
 						await verifyLogs.send(
 							`${interaction.user} tried to verify with an invalid profile URL ${
 								url ? `(<${url}>) ` : ""
-							}or there was no profile stored for them.`,
+							}or there was no profile stored for them.`
 						)
 						await interaction.editReply({ content: "Your request has been processed, check your DMs for more info!" })
 					})
 					.catch(async () => {
 						embed
 							.setDescription(
-								`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us here. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`,
+								`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us here. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`
 							)
 							.setFooter({ text: "" })
 						await verifyLogs.send(
 							`${interaction.user} tried to verify with an invalid profile URL ${
 								url ? `(<${url}>) ` : ""
-							}or there was no profile stored for them but they had DMs off so I couldn't tell them.`,
+							}or there was no profile stored for them but they had DMs off so I couldn't tell them.`
 						)
 						const msg = await verify.send({ content: `${interaction.user} you had DMs disabled, so here's our message:`, embeds: [embed] })
 						await interaction.editReply({ content: `Your request has been processed, check ${verify} for more info!` })

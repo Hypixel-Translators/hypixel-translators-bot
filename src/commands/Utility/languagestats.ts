@@ -66,7 +66,7 @@ const command: Command = {
 			hypixelData?.approvalProgress ?? 0,
 			quickplayData?.approvalProgress ?? 0,
 			sbaData?.approvalProgress ?? 0,
-			botData?.approvalProgress ?? 0,
+			botData?.approvalProgress ?? 0
 		)
 		if (approvalProgress >= 90) color = colors.success
 		else if (approvalProgress >= 50) color = colors.loading

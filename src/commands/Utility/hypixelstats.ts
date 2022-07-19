@@ -84,7 +84,7 @@ const command: Command = {
 					graphqlQuery.errors?.length === 1 ? "" : "s"
 				}\n`,
 				graphqlQuery.errors!.map(e => e.message).join(", "),
-				graphqlQuery.errors,
+				graphqlQuery.errors
 			)
 			throw "apiError"
 		}
@@ -140,7 +140,7 @@ const command: Command = {
 					description: `${getString("statsDesc", {
 						variables: { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` },
 					})}\n${uuidDb ? `${getString("userVerified", { variables: { user: `<@!${uuidDb.id}>` } })}\n` : ""}${getString(
-						"updateNote",
+						"updateNote"
 					)}\n${getString("otherStats")}`,
 					fields: [
 						{ name: getString("networkLevel"), value: Math.abs(playerJson.level).toLocaleString(locale), inline: true },
@@ -196,7 +196,7 @@ const command: Command = {
 									console.log(
 										`Blocked the following Discord invite link in ${playerJson.username}'s Hypixel profile: ${
 											socialMedia.DISCORD
-										} (led to ${invite.guild?.name ?? invite.channel?.name ?? "an unknown channel"})`,
+										} (led to ${invite.guild?.name ?? invite.channel?.name ?? "an unknown channel"})`
 									)
 								}
 							})
@@ -220,7 +220,7 @@ const command: Command = {
 					description: `${getString("socialMedia", {
 						variables: { username: username, link: `(https://api.slothpixel.me/api/players/${uuid})` },
 					})}\n${uuidDb ? `${getString("userVerified", { variables: { user: `<@!${uuidDb.id}>` } })}\n` : ""}${getString(
-						"updateNote",
+						"updateNote"
 					)}\n${getString("otherStats")}`,
 					fields: [
 						{ name: "Twitter", value: twitter, inline: true },

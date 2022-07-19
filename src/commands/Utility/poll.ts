@@ -202,7 +202,7 @@ const command: Command = {
 								variables: { fullTime: `<t:${discordEndTimestamp}:F>`, relativeTime: `<t:${discordEndTimestamp}:R>` },
 						  })}`
 						: ""
-				}`,
+				}`
 			)
 			if (endTimestamp) awaitPoll(dbData)
 		} else if (subcommand === "end") {
@@ -314,7 +314,7 @@ const command: Command = {
 					color: Colors.Blurple,
 					title: pollDb.question,
 					description: `**${getString("totalVotes")}**: ${totalVoteCount}\n**${getString("createdOn")}**: <t:${Math.round(
-						new ObjectId(pollDb._id).getTimestamp().getTime() / 1000,
+						new ObjectId(pollDb._id).getTimestamp().getTime() / 1000
 					)}:F>${pollDb.endTimestamp ? `\n**${getString("endingOn")}**: <t:${Math.round(pollDb.endTimestamp / 1000)}:F>` : ""}`,
 					fields: pollDb.options.map(o => ({
 						name: o.text,

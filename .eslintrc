@@ -27,7 +27,6 @@
 		"brace-style": "error",
 		"camelcase": "error",
 		"capitalized-comments": ["error", "always", { "ignoreConsecutiveComments": true, "ignoreInlineComments": true }],
-		"comma-dangle": ["error", "always-multiline"],
 		"comma-spacing": "error",
 		"comma-style": "error",
 		"computed-property-spacing": "error",

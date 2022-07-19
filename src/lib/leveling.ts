@@ -22,14 +22,14 @@ export async function leveling(message: Message) {
 		if (isNaN(xpNeeded)) {
 			await collection.updateOne(
 				{ id: message.author.id },
-				{ $inc: { "levels.level": 0, "levels.levelXp": 0, "levels.totalXp": 0, "levels.messageCount": 0 } },
+				{ $inc: { "levels.level": 0, "levels.levelXp": 0, "levels.totalXp": 0, "levels.messageCount": 0 } }
 			)
 		}
 		// If user levels up
 		if (xpNeeded <= 0) {
 			const result = await collection.findOneAndUpdate(
 					{ id: message.author.id },
-					{ $inc: { "levels.level": 1, "levels.totalXp": randomXp, "levels.messageCount": 1 }, $set: { "levels.levelXp": -xpNeeded || 0 } },
+					{ $inc: { "levels.level": 1, "levels.totalXp": randomXp, "levels.messageCount": 1 }, $set: { "levels.levelXp": -xpNeeded || 0 } }
 				),
 				newLvl = (result.value!.levels?.level ?? 0) + 1
 
@@ -38,7 +38,7 @@ export async function leveling(message: Message) {
 		} else {
 			await collection.updateOne(
 				{ id: message.author.id },
-				{ $inc: { "levels.totalXp": randomXp, "levels.levelXp": randomXp, "levels.messageCount": 1 } },
+				{ $inc: { "levels.totalXp": randomXp, "levels.levelXp": randomXp, "levels.messageCount": 1 } }
 			)
 		}
 		talkedRecently.set(message.author.id, now)

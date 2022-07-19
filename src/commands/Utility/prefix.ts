@@ -240,7 +240,7 @@ const command: Command = {
 							components.set(l.code, button)
 							return button
 						}),
-					}),
+					})
 				)
 			}
 

@@ -376,7 +376,7 @@ const command: Command = {
 							author: { name: "Punishment" },
 							title: `You have been muted on the ${interaction.guild!.name} for ${punishment.duration} hours`,
 							description: `**Reason:** ${reason}\n\nYour mute will expire on <t:${Math.round(endTimestamp / 1000)}:F> (<t:${Math.round(
-								endTimestamp / 1000,
+								endTimestamp / 1000
 							)}:R>)`,
 							timestamp: Date.now(),
 						}),
@@ -468,7 +468,7 @@ const command: Command = {
 					if (punishment.activePunishmentPoints) {
 						await collection.updateMany(
 							{ id: user.id, ended: false },
-							{ $set: { ended: true, revoked: true, revokedBy: interaction.user.id, endTimestamp: Date.now() } },
+							{ $set: { ended: true, revoked: true, revokedBy: interaction.user.id, endTimestamp: Date.now() } }
 						)
 					}
 

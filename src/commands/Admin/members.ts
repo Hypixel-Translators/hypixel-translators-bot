@@ -46,7 +46,7 @@ const command: Command = {
 					void (await buttonInteraction.reply({
 						content: `You cannot interact with this menu! Execute /${this.name} yourself to do this.`,
 						ephemeral: true,
-					})),
+					}))
 			)
 
 			collector.on("collect", async buttonInteraction => {

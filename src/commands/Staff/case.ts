@@ -37,7 +37,7 @@ const command: Command = {
 					description: `Offender: ${offender instanceof GuildMember ? offender : offender.tag}`,
 					footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				},
-				modLog,
+				modLog
 			)
 		await interaction.reply({ embeds: [embed] })
 	},

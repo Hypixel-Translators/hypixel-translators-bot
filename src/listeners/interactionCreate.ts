@@ -112,7 +112,7 @@ client.on("interactionCreate", async interaction => {
 			variables,
 			file = command?.name ?? "global",
 			lang = author.lang ?? transformDiscordLocale(interaction.locale),
-		}: { variables?: Record<string, string | number>; file?: string; lang?: string } = {},
+		}: { variables?: Record<string, string | number>; file?: string; lang?: string } = {}
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	): any {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -153,7 +153,7 @@ client.on("interactionCreate", async interaction => {
 							{
 								[locale]: (value: string | number, ord?: boolean) =>
 									new Intl.PluralRules(locale, { type: ord ? "ordinal" : "cardinal" }).select(Number(value)),
-							}[locale],
+							}[locale]
 						).compile(string)(variables)
 					}
 				}
@@ -198,7 +198,7 @@ client.on("interactionCreate", async interaction => {
 			console.error(
 				`Unexpected error with command ${interaction.commandName} on channel ${
 					interaction.channel instanceof GuildChannel ? interaction.channel.name : interaction.channel!.type
-				} executed by ${interaction.user.tag}. Here's the error:\n${error.stack}`,
+				} executed by ${interaction.user.tag}. Here's the error:\n${error.stack}`
 			)
 		}
 

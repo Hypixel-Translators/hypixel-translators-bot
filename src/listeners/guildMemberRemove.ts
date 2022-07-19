@@ -41,7 +41,7 @@ client.on("guildMemberRemove", async member => {
 						? `Here's their DB data:\n\n${Formatters.codeBlock(
 								"json",
 								// Dirty fix for getting data that can be pasted into the DB.
-								JSON.stringify(Object.assign(oldData.value, { _id: { $oid: oldData.value!._id } }), null, 2),
+								JSON.stringify(Object.assign(oldData.value, { _id: { $oid: oldData.value!._id } }), null, 2)
 						  )}`
 						: "Couldn't find their DB data!"
 				} `,

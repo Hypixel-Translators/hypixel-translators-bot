@@ -24,7 +24,7 @@ export async function updateProjectStatus(projectId: number) {
 		mongoProject = (await projects.findOne({ id: projectId }))!,
 		channel = client.channels.cache.find(c => (c as TextChannel).name === `${mongoProject.shortName}-language-status`) as TextChannel,
 		updatesChannel = client.channels.cache.find(
-			c => (c as NewsChannel).name === `${mongoProject.shortName}-project-updates`,
+			c => (c as NewsChannel).name === `${mongoProject.shortName}-project-updates`
 		) as NewsChannel,
 		// Only ping if last ping was more than 90 minutes ago
 		shouldPing =
@@ -48,7 +48,7 @@ export async function updateProjectStatus(projectId: number) {
 			})
 			.sort((a, b) => b.data.phrases.total - a.data.phrases.total),
 		sortedSatus = Array.from(langStatus).sort((currentStatus, nextStatus) =>
-			nextStatus.language.name.localeCompare(currentStatus.language.name),
+			nextStatus.language.name.localeCompare(currentStatus.language.name)
 		)
 
 	if (sortedSatus.length !== statMessages.size) statMessages = await updateMessages(sortedSatus, statMessages, channel)

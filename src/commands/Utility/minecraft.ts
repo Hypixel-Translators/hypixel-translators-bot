@@ -188,7 +188,7 @@ export default command
 
 async function getPlayer(uuid: string) {
 	const json = (await fetch(`https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`, fetchSettings).then(res =>
-		res.json(),
+		res.json()
 	)) as UserProfile & { error?: string }
 	if (json.error) throw "falseUUID"
 	return json

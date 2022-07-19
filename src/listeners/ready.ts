@@ -107,7 +107,7 @@ client.on("ready", async () => {
 		// Get server boosters and staff for the status
 		const boostersStaff: string[] = []
 		guild?.roles.premiumSubscriberRole?.members.forEach(member =>
-			boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim()),
+			boostersStaff.push(member.displayName.replaceAll(/\[[^\s]*\] ?/g, "").trim())
 		)
 		guild?.roles.cache
 			.get(ids.roles.staff)!
@@ -352,7 +352,7 @@ function constructGuildCommands() {
 	if (process.env.NODE_ENV === "production") return client.commands.filter(c => !c.allowDM).map(convertToDiscordCommand)
 	return client.commands
 		.filter(
-			command => (command.allowDM && !client.application.commands.cache.find(c => c.name === command.name)?.equals(command, true)) ?? true,
+			command => (command.allowDM && !client.application.commands.cache.find(c => c.name === command.name)?.equals(command, true)) ?? true
 		)
 		.map(convertToDiscordCommand)
 }

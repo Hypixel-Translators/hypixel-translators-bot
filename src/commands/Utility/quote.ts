@@ -152,7 +152,7 @@ async function findQuote(
 	randomTip: string,
 	interaction: ChatInputCommandInteraction,
 	getString: GetStringFunction,
-	collection: Collection<Quote>,
+	collection: Collection<Quote>
 ) {
 	const count = await collection.estimatedDocumentCount()
 
@@ -181,8 +181,8 @@ async function findQuote(
 					interaction.client.users
 						.fetch(a)
 						.then(u => u.tag)
-						.catch(() => "Deleted User#0000"),
-			),
+						.catch(() => "Deleted User#0000")
+			)
 		),
 		embed = new EmbedBuilder({
 			color: colors.success,
@@ -294,8 +294,8 @@ async function editQuote(interaction: ChatInputCommandInteraction, collection: C
 						interaction.client.users
 							.fetch(a)
 							.then(u => u.tag)
-							.catch(() => "Deleted User#0000"),
-				),
+							.catch(() => "Deleted User#0000")
+				)
 			),
 			embed = new EmbedBuilder({
 				color: colors.success,
@@ -340,8 +340,8 @@ async function deleteQuote(interaction: ChatInputCommandInteraction, collection:
 					interaction.client.users
 						.fetch(a)
 						.then(u => u.tag)
-						.catch(() => "Deleted User#0000"),
-			),
+						.catch(() => "Deleted User#0000")
+			)
 		)
 		await collection.updateMany({ id: { $gt: quoteId } }, { $inc: { id: -1 } })
 		if (result.value.url) {
@@ -415,8 +415,8 @@ async function linkQuote(interaction: ChatInputCommandInteraction, collection: C
 						interaction.client.users
 							.fetch(a)
 							.then(u => u.tag)
-							.catch(() => "Deleted User#0000"),
-				),
+							.catch(() => "Deleted User#0000")
+				)
 			),
 			embed = new EmbedBuilder({
 				color: colors.success,

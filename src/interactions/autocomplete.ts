@@ -14,7 +14,7 @@ export default async function handleAutocompleteInteractions(interaction: Autoco
 					l.name.toLowerCase() === value.toLowerCase() ||
 					l.code === value.toLowerCase() ||
 					l.id.toLowerCase() === value.toLowerCase() ||
-					l.id.toLowerCase().replace("-", "") === value.toLowerCase(),
+					l.id.toLowerCase().replace("-", "") === value.toLowerCase()
 			)
 		let results: MongoLanguage[] = []
 		// If an exact match is found, only return that
@@ -54,7 +54,7 @@ export default async function handleAutocompleteInteractions(interaction: Autoco
 		// Make sure we only send a maximum of 25 choices
 		results.splice(25, languages.length)
 		return await interaction.respond(
-			results.map(l => ({ name: l.name, value: interaction.commandName === "mention" ? l.name : l.id.replace("-", "_") })),
+			results.map(l => ({ name: l.name, value: interaction.commandName === "mention" ? l.name : l.id.replace("-", "_") }))
 		)
 	} else if (name === "case") {
 		const results = (await db.collection<PunishmentLog>("punishments").find().toArray())
@@ -72,7 +72,7 @@ export default async function handleAutocompleteInteractions(interaction: Autoco
 				client.commands
 					.filter(c => c.name.startsWith(value))
 					.concat(client.commands.filter(c => c.name.includes(value)))
-					.values(),
+					.values()
 			),
 		]
 

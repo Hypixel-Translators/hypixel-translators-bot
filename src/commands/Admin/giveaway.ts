@@ -35,7 +35,7 @@ const command: Command = {
 			`Congratulations to ${users
 				.random(interaction.options.getInteger("winners", false) || 1)
 				.filter(Boolean)
-				.join(", ")}!`,
+				.join(", ")}!`
 		)
 	},
 }

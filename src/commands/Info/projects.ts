@@ -16,14 +16,14 @@ const command: Command = {
 		let joinedHypixel: string, joinedQuickplay: string, joinedSba: string, joinedBot: string
 		if (
 			member.roles.cache.find(
-				role => role.name === "Hypixel Translator" || role.name === "Hypixel Proofreader" || role.name === "Hypixel Manager",
+				role => role.name === "Hypixel Translator" || role.name === "Hypixel Proofreader" || role.name === "Hypixel Manager"
 			)
 		)
 			joinedHypixel = `<:vote_yes:839262196797669427> **${getString("alreadyJoined")}**`
 		else joinedHypixel = `<:vote_no:839262184882044931> **${getString("notJoined")}**`
 		if (
 			member.roles.cache.find(
-				role => role.name === "Quickplay Translator" || role.name === "Quickplay Proofreader" || role.name === "Quickplay Manager",
+				role => role.name === "Quickplay Translator" || role.name === "Quickplay Proofreader" || role.name === "Quickplay Manager"
 			)
 		)
 			joinedQuickplay = `<:vote_yes:839262196797669427> **${getString("alreadyJoined")}**`
@@ -31,7 +31,7 @@ const command: Command = {
 		if (
 			member.roles.cache.find(
 				role =>
-					role.name === "SkyblockAddons Translator" || role.name === "SkyblockAddons Proofreader" || role.name === "SkyblockAddons Manager",
+					role.name === "SkyblockAddons Translator" || role.name === "SkyblockAddons Proofreader" || role.name === "SkyblockAddons Manager"
 			)
 		)
 			joinedSba = `<:vote_yes:839262196797669427> **${getString("alreadyJoined")}**`

@@ -114,7 +114,7 @@ client.on("messageCreate", async message => {
 		message.content.toLowerCase().includes("/translate/hypixel/") &&
 		message.content.includes("://") &&
 		/(?:https:\/\/)?(?:\w{2,4}\.)?(?:crowdin\.com|translate\.hypixel\.net)\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(
-			message.content,
+			message.content
 		)
 	) {
 		if (
@@ -146,7 +146,7 @@ client.on("messageCreate", async message => {
 							variables: {
 								format: "`crowdin.com/translate/.../.../en-en#`",
 							},
-						})}`,
+						})}`
 					)
 					await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "wrongBadLink", user: message.author.id })
 				} else await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "wrongLink", user: message.author.id })
@@ -168,7 +168,7 @@ client.on("messageCreate", async message => {
 		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
 		await message.delete().catch(() => null)
 		await (message.channel as TextChannel).bulkDelete(
-			(await message.channel.messages.fetch()).filter(msgs => msgs.author.id === message.author.id),
+			(await message.channel.messages.fetch()).filter(msgs => msgs.author.id === message.author.id)
 		)
 	}
 
@@ -288,7 +288,7 @@ client.on("messageCreate", async message => {
 			variables,
 			file = "global",
 			lang = author.lang ?? "en",
-		}: { variables?: Record<string, string | number>; file?: string; lang?: string } = {},
+		}: { variables?: Record<string, string | number>; file?: string; lang?: string } = {}
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	): any {
 		const command = client.commands.get(file)
@@ -330,7 +330,7 @@ client.on("messageCreate", async message => {
 							{
 								[locale]: (value: string | number, ord?: boolean) =>
 									new Intl.PluralRules(locale, { type: ord ? "ordinal" : "cardinal" }).select(Number(value)),
-							}[locale],
+							}[locale]
 						).compile(string)(variables)
 					}
 				}

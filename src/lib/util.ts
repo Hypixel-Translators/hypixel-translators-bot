@@ -99,7 +99,7 @@ export async function closeConnection(uuid: string) {
 export function createButtonControls(
 	pageIndex: number,
 	pages: unknown[],
-	options: { getString?: GetStringFunction; itemName?: string } = { itemName: "page" },
+	options: { getString?: GetStringFunction; itemName?: string } = { itemName: "page" }
 ) {
 	const isFirst = pageIndex === 0,
 		isLast = pageIndex === pages.length - 1,
@@ -228,7 +228,7 @@ export function generateTip(getString?: GetStringFunction, newLang?: string): st
 					},
 					file: "global",
 					lang: newLang,
-				},
+				}
 		  )}`
 		: `${strings.tip.toUpperCase()}: ${strings.tips[keys[(keys.length * Math.random()) << 0]]
 				.replace("%%langIb%%", "/language set language:ib")
@@ -409,7 +409,7 @@ export async function sendHolidayMessage(holidayName: "easter" | "halloween" | "
 		console.log(`Sent the ${holidayNameFormatted} announcement`)
 	} else {
 		await adminBots.send(
-			`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`,
+			`For some reason there is nothing in the ${holidayNameFormatted} announcement so I can't send it. Fix your code bro.`
 		)
 	}
 }

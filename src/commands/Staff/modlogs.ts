@@ -48,7 +48,7 @@ const command: Command = {
 					description: `Case #${modlogs[0].case}`,
 					footer: { text: randomTip, iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 				},
-				modlogs[0],
+				modlogs[0]
 			)
 			await interaction.reply({ embeds: [embed] })
 		} else {
@@ -77,7 +77,7 @@ const command: Command = {
 					void (await buttonInteraction.reply({
 						content: `You cannot interact with this menu! Execute /${this.name} yourself to do this.`,
 						ephemeral: true,
-					})),
+					}))
 			)
 
 			collector.on("collect", async buttonInteraction => {

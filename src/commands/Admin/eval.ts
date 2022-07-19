@@ -53,7 +53,7 @@ const command: Command = {
 			{
 				...sys,
 				onUnRecoverableConfigFileDiagnostic: console.error,
-			},
+			}
 		)!
 		options.sourceMap = false
 		options.alwaysStrict = false

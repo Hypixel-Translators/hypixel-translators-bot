@@ -36,7 +36,7 @@ export const client = new HTBClient({
 		},
 		{
 			userAgent: "Hypixel Translators Bot",
-		},
+		}
 	)
 
 // Import commands and events

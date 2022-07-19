@@ -44,7 +44,7 @@ const command: Command = {
 					label: lang.name,
 					value: lang.code,
 				})),
-				langs.length / Math.ceil(langs.length / 25),
+				langs.length / Math.ceil(langs.length / 25)
 			).map(
 				(o, i) =>
 					new SelectMenuBuilder({
@@ -53,7 +53,7 @@ const command: Command = {
 						maxValues: o.length,
 						minValues: 0,
 						placeholder: "Select the languages you wish to notify",
-					}),
+					})
 			),
 			buttons = new ActionRowBuilder<ButtonBuilder>({
 				components: [
@@ -88,7 +88,7 @@ const command: Command = {
 				void (await componentInteraction.reply({
 					content: `You cannot reply to this interaction! Execute /${this.name} yourself to do this.`,
 					ephemeral: true,
-				})),
+				}))
 		)
 
 		const languages: [string[], string[]] = [[], []]
@@ -116,16 +116,16 @@ const command: Command = {
 								.filter(m => !m.user.bot && !m.pending)
 								.sort(
 									(a, b) =>
-										(dbUsers.find(u => u.id === b.id)!.levels?.totalXp ?? 0) - (dbUsers.find(u => u.id === a.id)!.levels?.totalXp ?? 0),
+										(dbUsers.find(u => u.id === b.id)!.levels?.totalXp ?? 0) - (dbUsers.find(u => u.id === a.id)!.levels?.totalXp ?? 0)
 								),
 							resolvedData = selectedRoles.map(
 								r =>
 									[
 										r,
 										sortedMembers.find(
-											m => m.roles.cache.has(r.id) && (dbUsers.find(u => u.id === m.id)!.settings?.availability ?? true),
+											m => m.roles.cache.has(r.id) && (dbUsers.find(u => u.id === m.id)!.settings?.availability ?? true)
 										) ?? null,
-									] as const,
+									] as const
 							),
 							[failedRoles, chosenPfs] = resolvedData.reduce(
 								([prevRoles, prevPfs], [role, member]) => {
@@ -134,7 +134,7 @@ const command: Command = {
 
 									return [prevRoles, prevPfs]
 								},
-								[[], []] as [Role[], [Role, GuildMember][]],
+								[[], []] as [Role[], [Role, GuildMember][]]
 							),
 							flagEmojis = chosenPfs.map(([r]) => langs.find(l => l.name === r.name.replace(" Proofreader", ""))!.emoji)
 
@@ -147,7 +147,7 @@ const command: Command = {
 						} else if (failedRoles.length && chosenPfs.length) {
 							await componentInteraction.update({
 								content: `Failed to find a proofreader for the following languages:\n${failedRoles.join(
-									", ",
+									", "
 								)}\nThis happened either because there are no proofreaders for those languages on the server or the ones that are here chose not to be notified of these issues.\nYour message will be sent notifying the proofreaders we were able to find.`,
 								allowedMentions: { roles: [] },
 								components: [],
