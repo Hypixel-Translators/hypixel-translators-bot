@@ -54,7 +54,7 @@ const command: Command = {
 				.then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null),
 			sbaData = await crowdin.translationStatusApi
 				.withFetchAll()
-				.getProjectProgress(ids.projects.sba)
+				.getProjectProgress(ids.projects.skyblockaddons)
 				.then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null),
 			botData = await crowdin.translationStatusApi
 				.withFetchAll()

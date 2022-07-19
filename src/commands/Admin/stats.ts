@@ -17,7 +17,7 @@ const command: Command = {
 			choices: [
 				{ name: "Hypixel", value: "hypixel" },
 				{ name: "Quickplay", value: "quickplay" },
-				{ name: "SkyblockAddons", value: "sba" },
+				{ name: "SkyblockAddons", value: "skyblockaddons" },
 				{ name: "Hypixel Translators Bot", value: "bot" },
 			],
 			required: false,
@@ -27,7 +27,7 @@ const command: Command = {
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply()
-		const projectInput = interaction.options.getString("project", false) as "hypixel" | "quickplay" | "sba" | "bot"
+		const projectInput = interaction.options.getString("project", false) as "hypixel" | "quickplay" | "skyblockaddons" | "bot"
 		if (!projectInput) {
 			await stats(true).catch(err => {
 				throw err
