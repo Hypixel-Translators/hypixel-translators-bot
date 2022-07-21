@@ -26,7 +26,6 @@
 	},
 	"descriptions": {
 		"8ball": "Den Magiska 8-bollen som kommer att svara på alla dina frågor",
-		"alert": "Meddelar andra korrekturläsare om problem i deras översättningar",
 		"feedback": "Ger dig information om hur du ger feedback om botten",
 		"help": "Visar dig alla tillgängliga kommandon och allmän information om botten",
 		"hypixelstats": "Visar grundläggande Hypixel-statistik för den angivna användaren",
@@ -44,7 +43,7 @@
 		"projects": "Ger dig länkar och information om alla översättningsprojekt vi stödjer på servern",
 		"quote": "Visar ett roligt/konstigt/kokt citat från servern",
 		"rank": "Ger dig den nuvarande XP för dig själv eller en vald användare",
-		"settings": "Ändra eller visa dina inställningar för botten",
+		"settings": "Changes or shows your settings on the bot",
 		"tag": "Meddelar en vald användare med ett förinställt meddelande",
 		"translate": "Ger dig användbar information om hur du översätter botten",
 		"verify": "Verifierar dig och ger dig motsvarande roller"
@@ -319,7 +318,7 @@
 					},
 					"image": {
 						"name": "bild",
-						"description": "The image to be included with this quote. Has priority over url's image if provided"
+						"description": "Bilden som ska inkluderas med detta citat. Har prioritet framför URL:ens bild om den anges"
 					}
 				}
 			},
@@ -375,7 +374,7 @@
 		"settings": {
 			"get": {
 				"name": "hämta",
-				"description": "Se värdet på en inställning",
+				"description": "Shows the value of a setting",
 				"options": {
 					"setting": {
 						"name": "inställning",
@@ -389,7 +388,7 @@
 			},
 			"set": {
 				"name": "inställ",
-				"description": "Ändra värdet för en inställning",
+				"description": "Changes the value of a setting",
 				"options": {
 					"setting": {
 						"name": "inställning",
@@ -407,7 +406,7 @@
 			},
 			"reset": {
 				"name": "återställ",
-				"description": "Återställ värdet på en inställning",
+				"description": "Resets the value of a setting",
 				"options": {
 					"setting": {
 						"name": "inställning",
