@@ -26,7 +26,6 @@
 	},
 	"descriptions": {
 		"8ball": "De Magic 8-Ball die al je vragen zal beantwoorden",
-		"alert": "Attendeert andere proeflezers op fouten in hun vertalingen",
 		"feedback": "Geeft je instructies over het verzenden van feedback via de bot",
 		"help": "Geeft alle commando's en andere informatie over de bot weer",
 		"hypixelstats": "Geeft je simpele Hypixel-statistieken voor de opgegeven speler",
@@ -44,7 +43,7 @@
 		"projects": "Geeft je links en informatie over alle vertalingsprojecten die we hier ondersteunen",
 		"quote": "Geeft een grappig/raar/wijs citaat uit de server (of voegt er een toe)",
 		"rank": "Geeft je jouw hoeveelheid XP of die van een andere gebruiker",
-		"settings": "Bekijk of wijzig je botgerelateerde instellingen",
+		"settings": "Staat je toe je instellingen te bekijken of te wijzigen",
 		"tag": "Stuurt een bericht, met de mogelijkheid om een specifiek lid te vermelden bij het verzenden",
 		"translate": "Geeft je handige tips over het vertalen van de bot",
 		"verify": "Verifieert je en geeft je de toepasselijke rollen"
@@ -319,7 +318,7 @@
 					},
 					"image": {
 						"name": "afbeelding",
-						"description": "The image to be included with this quote. Has priority over url's image if provided"
+						"description": "De afbeelding die bij dit citaat hoort. Hogere prioriteit dan eventuele afbeeldings-URL"
 					}
 				}
 			},
