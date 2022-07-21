@@ -26,7 +26,6 @@
 	},
 	"descriptions": {
 		"8ball": "Zaczarowana kula, która odpowie na wszystkie twoje pytania",
-		"alert": "Alerts other proofreaders for issues in their translations",
 		"feedback": "Gives you instructions on how to give feedback towards the bot",
 		"help": "Pokazuje wszystkie dostępne polecenia i ogólne informacje na temat bota",
 		"hypixelstats": "Pokazuje ci podstawowe statystyki z Hypixela dla danego użytkownika",
@@ -44,7 +43,7 @@
 		"projects": "Podaje odnośniki i informacje o wszystkich projektach tłumaczeniowych, które wspieramy na serwerze",
 		"quote": "Znajduje (lub dodaje) śmieszny/dziwny/mądry cytat z serwera",
 		"rank": "Podaje twoje obecne PD lub PD wybranego użytkownika",
-		"settings": "Change or view your settings on the bot",
+		"settings": "Changes or shows your settings on the bot",
 		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
 		"translate": "Podaje przydatne informacje o tym, jak tłumaczyć bota",
 		"verify": "Verifies and gives you your corresponding roles"
@@ -375,7 +374,7 @@
 		"settings": {
 			"get": {
 				"name": "get",
-				"description": "See the value of a setting",
+				"description": "Shows the value of a setting",
 				"options": {
 					"setting": {
 						"name": "ustawienie",
@@ -389,7 +388,7 @@
 			},
 			"set": {
 				"name": "ustaw",
-				"description": "Change the value of a setting",
+				"description": "Changes the value of a setting",
 				"options": {
 					"setting": {
 						"name": "ustawienie",
@@ -407,7 +406,7 @@
 			},
 			"reset": {
 				"name": "zresetuj",
-				"description": "Reset the value of a setting",
+				"description": "Resets the value of a setting",
 				"options": {
 					"setting": {
 						"name": "ustawienie",
