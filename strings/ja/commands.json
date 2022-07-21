@@ -26,7 +26,6 @@
 	},
 	"descriptions": {
 		"8ball": "マジック8ボール。それはあなたの質問すべてに答えてくれます",
-		"alert": "Alerts other proofreaders for issues in their translations",
 		"feedback": "Gives you instructions on how to give feedback towards the bot",
 		"help": "利用可能な全コマンドと、ボットに関する一般的情報を表示します",
 		"hypixelstats": "Shows you basic Hypixel stats for the provided user",
@@ -44,7 +43,7 @@
 		"projects": "Gives you links and information about all the translation projects we support on the server",
 		"quote": "Shows a funny/weird/wise quote from the server",
 		"rank": "Gives you the current XP for yourself or any given user",
-		"settings": "Change or view your settings on the bot",
+		"settings": "Changes or shows your settings on the bot",
 		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
 		"translate": "Gives you useful information on how to translate the bot",
 		"verify": "Verifies and gives you your corresponding roles"
@@ -375,7 +374,7 @@
 		"settings": {
 			"get": {
 				"name": "取得",
-				"description": "See the value of a setting",
+				"description": "Shows the value of a setting",
 				"options": {
 					"setting": {
 						"name": "setting",
@@ -389,7 +388,7 @@
 			},
 			"set": {
 				"name": "set",
-				"description": "Change the value of a setting",
+				"description": "Changes the value of a setting",
 				"options": {
 					"setting": {
 						"name": "setting",
@@ -407,7 +406,7 @@
 			},
 			"reset": {
 				"name": "reset",
-				"description": "Reset the value of a setting",
+				"description": "Resets the value of a setting",
 				"options": {
 					"setting": {
 						"name": "setting",
