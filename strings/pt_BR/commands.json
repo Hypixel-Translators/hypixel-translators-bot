@@ -26,7 +26,6 @@
 	},
 	"descriptions": {
 		"8ball": "A bola mágica que vai responder a todas as suas questões",
-		"alert": "Alerta outros revisores sobre problemas em suas traduções",
 		"feedback": "Fornece instruções sobre como dar feedback sobre o bot",
 		"help": "Exibe todos os comandos disponíveis e informações gerais sobre o bot",
 		"hypixelstats": "Exibe estatísticas básicas do Hypixel para o usuário dado",
@@ -319,7 +318,7 @@
 					},
 					"image": {
 						"name": "imagem",
-						"description": "The image to be included with this quote. Has priority over url's image if provided"
+						"description": "A imagem a ser incluída nesta citação. Tem prioridade sobre a URL da imagem se fornecida"
 					}
 				}
 			},
