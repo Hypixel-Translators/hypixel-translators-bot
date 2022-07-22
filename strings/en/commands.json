@@ -26,7 +26,6 @@
 	},
 	"descriptions": {
 		"8ball": "The Magic 8 Ball that will answer all your questions",
-		"alert": "Alerts other proofreaders for issues in their translations",
 		"feedback": "Gives you instructions on how to give feedback towards the bot",
 		"help": "Shows you all available commands and general info about the bot",
 		"hypixelstats": "Shows you basic Hypixel stats for the provided user",
