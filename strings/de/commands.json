@@ -44,7 +44,7 @@
 		"projects": "Gibt dir Links und Informationen zu allen Übersetzungsprojekten, die wir auf dem Server unterstützen",
 		"quote": "Zeigt dir ein lustiges/schräges/weises Zitat vom Server an",
 		"rank": "Zeigt dir den aktuellen XP-Wert für dich selbst oder einen bestimmten Benutzer an",
-		"settings": "Ändern oder Anzeigen deiner Einstellungen auf den Bot",
+		"settings": "Changes or shows your settings on the bot",
 		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
 		"translate": "Gibt dir nützliche Informationen, wie du den Bot übersetzen kannst",
 		"verify": "Verifiziert dich und gibt dir deine entsprechenden Rollen"
@@ -375,7 +375,7 @@
 		"settings": {
 			"get": {
 				"name": "erhalten",
-				"description": "Sieh den Wert einer Einstellung",
+				"description": "Shows the value of a setting",
 				"options": {
 					"setting": {
 						"name": "einstellung",
@@ -389,7 +389,7 @@
 			},
 			"set": {
 				"name": "setze",
-				"description": "Ändere den Wert der Einstellung",
+				"description": "Changes the value of a setting",
 				"options": {
 					"setting": {
 						"name": "einstellung",
@@ -407,7 +407,7 @@
 			},
 			"reset": {
 				"name": "zurücksetzen",
-				"description": "Setze den Wert einer Einstellung zurück",
+				"description": "Resets the value of a setting",
 				"options": {
 					"setting": {
 						"name": "einstellung",

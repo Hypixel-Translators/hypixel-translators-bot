@@ -44,7 +44,7 @@
 		"projects": "Sunucuda desteklediğimiz tüm çeviri projeleri hakkında size bağlantılar ve bilgiler verir",
 		"quote": "Sunucudan komik/garip/bilge bir alıntı gösterir",
 		"rank": "Kendiniz veya herhangi bir kullanıcı için o anki deneyim puanını gösterir",
-		"settings": "Change or view your settings on the bot",
+		"settings": "Changes or shows your settings on the bot",
 		"tag": "Gönderirken belirli bir üyeyi bilgilendirmenize izin veren önceden ayarlanmış bir mesaj gönderir",
 		"translate": "Botun nasıl çevrileceği hakkında size yararlı bilgiler verir",
 		"verify": "Size karşılık gelen rolleri doğrular ve verir"
@@ -375,7 +375,7 @@
 		"settings": {
 			"get": {
 				"name": "göster",
-				"description": "See the value of a setting",
+				"description": "Shows the value of a setting",
 				"options": {
 					"setting": {
 						"name": "setting",
@@ -389,7 +389,7 @@
 			},
 			"set": {
 				"name": "set",
-				"description": "Change the value of a setting",
+				"description": "Changes the value of a setting",
 				"options": {
 					"setting": {
 						"name": "setting",
@@ -407,7 +407,7 @@
 			},
 			"reset": {
 				"name": "reset",
-				"description": "Reset the value of a setting",
+				"description": "Resets the value of a setting",
 				"options": {
 					"setting": {
 						"name": "setting",
