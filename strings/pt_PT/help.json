@@ -14,7 +14,7 @@
 	"cooldownField": "Tempo de espera",
 	"descriptions": {
 		"8ball": "A bola mágica que irá responder a todas as tuas perguntas.",
-		"alert": "Alerts other proofreaders for issues in their translations",
+		"alert": "Alerta outros revisores sobre problemas nas suas traduções",
 		"feedback": "Abre a nossa página de issues no GitHub, onde podes reportar problemas e enviar feedback.",
 		"help": "Mostra-te todos os comandos disponíveis e outras informações sobre o bot.",
 		"hypixelstats": "Mostra-te estatísticas básicas do Hypixel para o jogador requisitado.",
