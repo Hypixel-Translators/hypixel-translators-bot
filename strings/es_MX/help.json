@@ -14,7 +14,7 @@
 	"cooldownField": "Enfriamiento",
 	"descriptions": {
 		"8ball": "La Bola 8 Mágica que responderá a todas tus preguntas.",
-		"alert": "Alerts other proofreaders for issues in their translations",
+		"alert": "Alerta a otros correctores sobre problemas en sus traducciones",
 		"feedback": "Abre nuestra página de problemas de GitHub, donde puede reportar problemas y enviar comentarios.",
 		"help": "Muestra todos los comandos disponibles e información general sobre el bot.",
 		"hypixelstats": "Muestra las estadísticas básicas de Hypixel para el usuario proporcionado.",
@@ -32,7 +32,7 @@
 		"projects": "Le brinda enlaces e información sobre todos los proyectos de traducción que apoyamos en el servidor.",
 		"quote": "Muestra una cita divertida/extraña/sabia del servidor.",
 		"rank": "Le da la XP actual para ti o para cualquier usuario.",
-		"settings": "Changes or shows your settings on the bot",
+		"settings": "Cambia o muestra su configuración en el bot",
 		"tag": "Envía un mensaje preestablecido, lo que le permite notificar a un miembro específico cuando lo envía.",
 		"translate": "Le brinda información útil sobre cómo traducir el bot.",
 		"verify": "Comprueba automáticamente los cambios en su perfil de Crowdin y le proporciona los roles adecuados. Si su perfil no está almacenado en nuestra base de datos, puede proporcionarlo como argumento en el comando. Para comprobar si su perfil está almacenado, ejecute `/profile`. Asegúrese de tener DMs habilitados desde este servidor para que el bot pueda enviarle un mensaje."
