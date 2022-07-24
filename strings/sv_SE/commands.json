@@ -44,7 +44,7 @@
 		"projects": "Ger dig länkar och information om alla översättningsprojekt vi stödjer på servern",
 		"quote": "Visar ett roligt/konstigt/kokt citat från servern",
 		"rank": "Ger dig den nuvarande XP för dig själv eller en vald användare",
-		"settings": "Changes or shows your settings on the bot",
+		"settings": "Ändrar eller visar dina inställningar för botten",
 		"tag": "Meddelar en vald användare med ett förinställt meddelande",
 		"translate": "Ger dig användbar information om hur du översätter botten",
 		"verify": "Verifierar dig och ger dig motsvarande roller"
@@ -375,7 +375,7 @@
 		"settings": {
 			"get": {
 				"name": "hämta",
-				"description": "Shows the value of a setting",
+				"description": "Visar värdet på en inställning",
 				"options": {
 					"setting": {
 						"name": "inställning",
@@ -389,7 +389,7 @@
 			},
 			"set": {
 				"name": "inställ",
-				"description": "Changes the value of a setting",
+				"description": "Ändrar värdet på en inställning",
 				"options": {
 					"setting": {
 						"name": "inställning",
@@ -407,7 +407,7 @@
 			},
 			"reset": {
 				"name": "återställ",
-				"description": "Resets the value of a setting",
+				"description": "Återställer värdet på en inställning",
 				"options": {
 					"setting": {
 						"name": "inställning",
