@@ -44,7 +44,7 @@
 		"projects": "Antaa sinulle osoitteita ja tietoa kaikista käännösprojekteista, joita tällä palvelimella tuetaan",
 		"quote": "Hakee hauskan/oudon/viisaan lainauksen palvelimelta",
 		"rank": "Kertoo oman tai haluamasi käyttäjän tämänhetkisen XP-määrän",
-		"settings": "Changes or shows your settings on the bot",
+		"settings": "Muuttaa tai näyttää henkilökohtaisia asetuksiasi",
 		"tag": "Lähettää ilmoituksen haluamallesi käyttäjälle esiasetetulla viestillä",
 		"translate": "Antaa sinulle hyödyllistä tietoa botin kääntämisestä",
 		"verify": "Vahvistaa tilisi ja antaa sopivat roolit"
@@ -375,7 +375,7 @@
 		"settings": {
 			"get": {
 				"name": "hae",
-				"description": "Shows the value of a setting",
+				"description": "Näyttää asetuksen arvon",
 				"options": {
 					"setting": {
 						"name": "asetus",
@@ -389,7 +389,7 @@
 			},
 			"set": {
 				"name": "aseta",
-				"description": "Changes the value of a setting",
+				"description": "Muuttaa asetuksen arvoa",
 				"options": {
 					"setting": {
 						"name": "asetus",
@@ -407,7 +407,7 @@
 			},
 			"reset": {
 				"name": "nollaa",
-				"description": "Resets the value of a setting",
+				"description": "Nollaa asetuksen arvon",
 				"options": {
 					"setting": {
 						"name": "asetus",
