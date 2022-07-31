@@ -3,7 +3,7 @@ import process from "node:process"
 import { setTimeout } from "node:timers"
 
 import MessageFormat from "@messageformat/core"
-import { Collection, Formatters, GuildChannel, EmbedBuilder, type TextChannel, InteractionType } from "discord.js"
+import { Collection, codeBlock, GuildChannel, EmbedBuilder, type TextChannel, InteractionType } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"
@@ -183,7 +183,7 @@ client.on("interactionCreate", async interaction => {
 					color: colors.error,
 					author: { name: "Unexpected error!" },
 					title: error.toString().substring(0, 255),
-					description: Formatters.codeBlock(error.stack.substring(0, 2_047)),
+					description: codeBlock(error.stack.substring(0, 2_047)),
 					footer: { text: "Check the console for more details" },
 				})
 				await (interaction.client.channels.cache.get(ids.channels.botDev) as TextChannel).send({

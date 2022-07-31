@@ -67,9 +67,9 @@ const command: Command = {
 					author: { name: "Evaluation" },
 					title: "The code was executed successfully! Here's the output",
 					fields: [
-						{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun.substring(0, 1015)) },
-						{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
-						{ name: "Output", value: discord.Formatters.codeBlock("js", inspected.substring(0, 1015)) },
+						{ name: "Input", value: discord.codeBlock("ts", codeToRun.substring(0, 1015)) },
+						{ name: "Compiled code", value: discord.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
+						{ name: "Output", value: discord.codeBlock("js", inspected.substring(0, 1015)) },
 
 						{
 							name: "Output type",
@@ -92,9 +92,9 @@ const command: Command = {
 				author: { name: "Evaluation" },
 				title: "An error occured while executing that code. Here's the error stack",
 				fields: [
-					{ name: "Input", value: discord.Formatters.codeBlock("ts", codeToRun.substring(0, 1015)) },
-					{ name: "Compiled code", value: discord.Formatters.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
-					{ name: "Error", value: discord.Formatters.codeBlock((error.stack ?? inspect(error)).substring(0, 1017)) },
+					{ name: "Input", value: discord.codeBlock("ts", codeToRun.substring(0, 1015)) },
+					{ name: "Compiled code", value: discord.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1015)) },
+					{ name: "Error", value: discord.codeBlock((error.stack ?? inspect(error)).substring(0, 1017)) },
 
 					{ name: "Error Type", value: error.name ?? "Custom", inline: true },
 					{ name: "Error length", value: `${(error.stack ?? inspect(error)).length}`, inline: true },

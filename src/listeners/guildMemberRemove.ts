@@ -1,4 +1,4 @@
-import { Formatters, EmbedBuilder, type TextChannel } from "discord.js"
+import { codeBlock, EmbedBuilder, type TextChannel } from "discord.js"
 
 import { colors, ids } from "../config.json"
 import { client } from "../index"
@@ -38,7 +38,7 @@ client.on("guildMemberRemove", async member => {
 				author: { name: "Member Left", iconURL: member.displayAvatarURL({ extension: "png" }) },
 				description: `${member} (${member.user.tag}) just left the server. ${
 					oldData.value
-						? `Here's their DB data:\n\n${Formatters.codeBlock(
+						? `Here's their DB data:\n\n${codeBlock(
 								"json",
 								// Dirty fix for getting data that can be pasted into the DB.
 								JSON.stringify(Object.assign(oldData.value, { _id: { $oid: oldData.value!._id } }), null, 2)

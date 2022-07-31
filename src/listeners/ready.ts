@@ -12,7 +12,7 @@ import {
 	ActivityType,
 	Colors,
 	ButtonStyle,
-	Formatters,
+	codeBlock,
 } from "discord.js"
 import { ObjectId } from "mongodb"
 import { schedule } from "node-cron"
@@ -42,7 +42,7 @@ client.on("ready", async () => {
 		const embed = new EmbedBuilder({
 			color: colors.error,
 			title: "Failed to update guild commands!",
-			description: Formatters.codeBlock(err.stack),
+			description: codeBlock(err.stack),
 			timestamp: Date.now(),
 		})
 		await botDev.send({ embeds: [embed] })
@@ -63,7 +63,7 @@ client.on("ready", async () => {
 						const embed = new EmbedBuilder({
 							color: colors.error,
 							title: `Failed to create command ${command.name}!`,
-							description: Formatters.codeBlock(err.stack),
+							description: codeBlock(err.stack),
 							timestamp: Date.now(),
 						})
 						await botDev.send({ embeds: [embed] })
@@ -76,7 +76,7 @@ client.on("ready", async () => {
 						const embed = new EmbedBuilder({
 							color: colors.error,
 							title: `Failed to edit command ${command.name}!`,
-							description: Formatters.codeBlock(err.stack),
+							description: codeBlock(err.stack),
 							timestamp: Date.now(),
 						})
 						await botDev.send({ embeds: [embed] })
