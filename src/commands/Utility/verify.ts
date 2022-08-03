@@ -91,7 +91,7 @@ const command: Command = {
 							.setDescription(
 								`Since we didn't have your profile registered on our database, we'd like to ask you to kindly send it to us here. Please make sure your profile is public and that you have your Discord tag (${interaction.user.tag}) in your "About me" section.`
 							)
-							.setFooter({ text: "" })
+							.setFooter(null)
 						await verifyLogs.send(
 							`${interaction.user} tried to verify with an invalid profile URL ${
 								url ? `(<${url}>) ` : ""
