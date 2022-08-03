@@ -94,7 +94,7 @@ const command: Command = {
 				fields: [
 					{ name: "Input", value: discord.codeBlock("ts", codeToRun.substring(0, 1014)) },
 					{ name: "Compiled code", value: discord.codeBlock("js", compiledCode.replaceAll(";", "").substring(0, 1014)) },
-					{ name: "Error", value: discord.codeBlock((error.stack ?? inspect(error)).substring(0, 1017)) },
+					{ name: "Error", value: discord.codeBlock((error.stack ?? inspect(error)).substring(0, 1016)) },
 
 					{ name: "Error Type", value: error.name ?? "Custom", inline: true },
 					{ name: "Error length", value: `${(error.stack ?? inspect(error)).length}`, inline: true },

@@ -54,11 +54,26 @@ const command: Command = {
 				.getString("flags", true)
 				.split(" ")
 				.forEach(emoji => {
-					if (emoji.toLowerCase() === "lol" || emoji.toLowerCase() === "lolcat") flagEmojis.push("😹")
-					else if (emoji.toLowerCase() === "enpt" || emoji.toLowerCase() === "pirate") flagEmojis.push("☠")
-					else if (emoji.toLowerCase() === "ib" || emoji.toLowerCase() === "banana") flagEmojis.push("🍌")
-					else if (emoji.toLowerCase() === "bc" || emoji.toLowerCase() === "biscuitish") flagEmojis.push("🍪")
-					else flagEmojis.push(getEmoji(emoji)!)
+					switch (emoji.toLowerCase()) {
+						case "lol":
+						case "lolcat":
+							flagEmojis.push("😹")
+							break
+						case "enpt":
+						case "pirate":
+							flagEmojis.push("☠")
+							break
+						case "ib":
+						case "banana":
+							flagEmojis.push("🍌")
+							break
+						case "bc":
+						case "biscuitish":
+							flagEmojis.push("🍪")
+							break
+						default:
+							flagEmojis.push(getEmoji(emoji)!)
+					}
 				})
 			if (!flagEmojis.length || flagEmojis.includes(null)) throw "falseFlag"
 
