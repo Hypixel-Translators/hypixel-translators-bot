@@ -9,8 +9,8 @@
 	"commandInfoFor": "コマンド情報：",
 	"staffOnly": "このコマンドはスタッフ専用のため、詳細は表示されません。\nこれがエラーと思われる場合は、スタッフにご連絡ください。",
 	"inDev": "このコマンドは現在開発中で、後日利用可能になります！",
-	"seconds": "{number, plural, one {# second} other {# seconds}}",
-	"minutes": "{number, plural, one {# minute} other {# minutes}}",
+	"seconds": "{number, plural, other {# 秒}}",
+	"minutes": "{number, plural, other {# 分}}",
 	"cooldownField": "クールダウン",
 	"descriptions": {
 		"8ball": "マジック・エイト・ボール。それはあなたの質問すべてに答えてくれます。",
