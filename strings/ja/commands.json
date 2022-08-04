@@ -19,8 +19,8 @@
 		"projects": "projects",
 		"quote": "引用",
 		"rank": "rank",
-		"settings": "settings",
-		"tag": "tag",
+		"settings": "設定",
+		"tag": "タグ",
 		"translate": "translate",
 		"verify": "verify"
 	},
@@ -45,7 +45,7 @@
 		"quote": "Shows a funny/weird/wise quote from the server",
 		"rank": "Gives you the current XP for yourself or any given user",
 		"settings": "Changes or shows your settings on the bot",
-		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
+		"tag": "プリセットメッセージを送信します。送信時、特定のメンバーに通知することができます",
 		"translate": "Gives you useful information on how to translate the bot",
 		"verify": "Verifies and gives you your corresponding roles"
 	},
@@ -58,7 +58,7 @@
 		},
 		"alert": {
 			"message": {
-				"name": "message",
+				"name": "メッセージ",
 				"description": "The message to send to the proofreaders"
 			}
 		},
@@ -79,7 +79,7 @@
 		},
 		"hypixelstats": {
 			"username": {
-				"name": "username",
+				"name": "ユーザ名",
 				"description": "The IGN of the user to get statistics for. Can also be a UUID"
 			},
 			"user": {
@@ -95,7 +95,7 @@
 		},
 		"hypixelverify": {
 			"username": {
-				"name": "username",
+				"name": "ユーザ名",
 				"description": "Your Hypixel IGN. Must have your Discord linked in-game"
 			},
 			"user": {
@@ -105,7 +105,7 @@
 		},
 		"language": {
 			"set": {
-				"name": "set",
+				"name": "設定",
 				"description": "Sets your language to a new one. Leave empty to see your current language",
 				"options": {
 					"language": {
@@ -115,11 +115,11 @@
 				}
 			},
 			"reset": {
-				"name": "reset",
-				"description": "Resets your language"
+				"name": "リセット",
+				"description": "言語をリセットします"
 			},
 			"list": {
-				"name": "list",
+				"name": "一覧",
 				"description": "Gives you a list of all the available languages"
 			},
 			"stats": {
@@ -141,7 +141,7 @@
 		},
 		"levels": {
 			"me": {
-				"name": "me",
+				"name": "自分",
 				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
 			},
 			"page": {
@@ -158,14 +158,14 @@
 				"name": "role",
 				"description": "The role to mention",
 				"choices": {
-					"all": "Both roles",
-					"proofreader": "Proofreader",
-					"translator": "Translator"
+					"all": "両方のロール",
+					"proofreader": "校正者",
+					"translator": "翻訳者"
 				}
 			},
 			"message": {
-				"name": "message",
-				"description": "The message to send with the mention"
+				"name": "メッセージ",
+				"description": "メンションで送信するメッセージ"
 			}
 		},
 		"minecraft": {
@@ -174,7 +174,7 @@
 				"description": "Shows a user's name history. You must provide at least 1 parameter if your MC account is not linked",
 				"options": {
 					"username": {
-						"name": "username",
+						"name": "ユーザ名",
 						"description": "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked"
 					},
 					"user": {
@@ -188,7 +188,7 @@
 				"description": "Shows a user's skin. You must provide at least 1 parameter if your MC account is not linked",
 				"options": {
 					"username": {
-						"name": "username",
+						"name": "ユーザ名",
 						"description": "The IGN/UUID of the user to get the skin for. Defaults to your own skin if your account is linked"
 					},
 					"user": {
@@ -205,52 +205,52 @@
 				"options": {
 					"question": {
 						"name": "質問",
-						"description": "The question of the poll"
+						"description": "アンケートの質問"
 					},
 					"option1": {
-						"name": "option1",
-						"description": "The first option in the poll"
+						"name": "選択肢1",
+						"description": "アンケートの1番目の選択肢"
 					},
 					"option2": {
-						"name": "option2",
-						"description": "The second option in the poll"
+						"name": "選択肢2",
+						"description": "アンケートの2番目の選択肢"
 					},
 					"time": {
 						"name": "time",
 						"description": "How long before this poll is automatically closed and results are published (in hours)"
 					},
 					"option3": {
-						"name": "option3",
-						"description": "The third option in the poll"
+						"name": "選択肢3",
+						"description": "アンケートの3番目の選択肢"
 					},
 					"option4": {
-						"name": "option4",
-						"description": "The fourth option in the poll"
+						"name": "選択肢4",
+						"description": "アンケートの4番目の選択肢"
 					},
 					"option5": {
-						"name": "option5",
-						"description": "The fifth option in the poll"
+						"name": "選択肢5",
+						"description": "アンケートの5番目の選択肢"
 					},
 					"option6": {
-						"name": "option6",
-						"description": "The sixth option in the poll"
+						"name": "選択肢6",
+						"description": "アンケートの6番目の選択肢"
 					},
 					"option7": {
-						"name": "option7",
+						"name": "選択肢7",
 						"description": "The seventh option in the poll"
 					},
 					"option8": {
-						"name": "option8",
-						"description": "The eighth option in the poll"
+						"name": "選択肢8",
+						"description": "アンケートの8番目の選択肢"
 					}
 				}
 			},
 			"end": {
-				"name": "end",
-				"description": "End a poll given its message ID",
+				"name": "終了",
+				"description": "メッセージIDで指定したアンケートを終了します",
 				"options": {
 					"message_id": {
-						"name": "message_id",
+						"name": "メッセージID",
 						"description": "The ID of the message containing the poll"
 					},
 					"channel": {
@@ -264,7 +264,7 @@
 				"description": "Shows the current results of a poll without ending it. Only available to the creator of the poll",
 				"options": {
 					"message_id": {
-						"name": "message_id",
+						"name": "メッセージID",
 						"description": "The ID of the message containing the poll"
 					},
 					"channel": {
@@ -388,7 +388,7 @@
 				}
 			},
 			"set": {
-				"name": "set",
+				"name": "設定",
 				"description": "Changes the value of a setting",
 				"options": {
 					"setting": {
@@ -406,7 +406,7 @@
 				}
 			},
 			"reset": {
-				"name": "reset",
+				"name": "リセット",
 				"description": "Resets the value of a setting",
 				"options": {
 					"setting": {
@@ -422,7 +422,7 @@
 		},
 		"tag": {
 			"tag": {
-				"name": "tag",
+				"name": "タグ",
 				"description": "The tag you want to see",
 				"choices": {
 					"invite": "Invite link to the server",
@@ -433,7 +433,7 @@
 					"quickplay": "Quickplay links",
 					"skyblockaddons": "SkyblockAddons links",
 					"thread": "Discord server thread",
-					"twitter": "Hypixel Translators Community Twitter"
+					"twitter": "Hypixel翻訳者コミュニティTwitter"
 				}
 			},
 			"target": {
@@ -444,11 +444,11 @@
 		"verify": {
 			"url": {
 				"name": "url",
-				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section"
+				"description": " 自身のCrowdinのプロフィールのURL。「プロフィール」欄に自身のDiscordタグの記載が必要です"
 			},
 			"user": {
 				"name": "user",
-				"description": "The user to manually verify. Admin-only"
+				"description": "手動で認証するユーザ。管理者専用"
 			}
 		}
 	}

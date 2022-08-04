@@ -3,7 +3,7 @@
 		"confirmSend": "これを確認した場合、今後48時間以内にこちらに送信したメッセージは、確認なしでスタッフに送信されます。",
 		"noConfirmWarn": "今後48時間以内にこちらに送信したメッセージは、確認なしでスタッフに送信されます。",
 		"attachmentsWarn": "添付ファイルも含まれます。",
-		"attachmentSent": "{number, plural, one {Attachment} other {Attachments}} sent",
+		"attachmentSent": "{number, plural, other {添付ファイル}}を送信しました",
 		"confirmation": "このメッセージをスタッフに送信してもよろしいですか？",
 		"messageSent": "スタッフにメッセージを送信",
 		"dmCancelled": "このメッセージは送信されません。",

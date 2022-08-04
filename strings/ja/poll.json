@@ -17,5 +17,5 @@
     "successCancelEnd": "このアンケートの終了をキャンセルしました！",
     "endScheduled": "It will instead end on the scheduled time: %%fullTime%% (%%relativeTime%%)",
     "successVote": "投票しました！",
-    "alreadyVoted": "You had already voted for this option, so your vote was not changed."
+    "alreadyVoted": "既にこの選択肢について投票していたため、投票は変更されませんでした。"
 }
