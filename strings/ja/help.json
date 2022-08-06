@@ -34,7 +34,7 @@
 		"rank": "自分自身、または指定したユーザーの現在のXPを表示します。",
 		"settings": "Changes or shows your settings on the bot",
 		"tag": "プリセットメッセージを送信します。送信時、特定のメンバーに通知することができます。",
-		"translate": "Gives you useful information on how to translate the bot.",
+		"translate": "ボットを翻訳する方法についての便利な情報を表示します。",
 		"verify": "Crowdinプロフィールの変更を自動で確認し、適切なロールを付与します。あなたのプロフィールが我々のデータベース上に保存されていない場合は、コマンドの引数として指定できます。プロフィールが保存されているかの確認は`/profile`を実行してください。その際ボットからのメッセージを受信できるように、このサーバーからのDMが有効になっているかを確認してください。"
 	}
 }

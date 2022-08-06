@@ -27,7 +27,7 @@
 	"descriptions": {
 		"8ball": "マジック8ボール。それはあなたの質問すべてに答えてくれます",
 		"alert": "Alerts other proofreaders for issues in their translations",
-		"feedback": "Gives you instructions on how to give feedback towards the bot",
+		"feedback": "ボットについてのフィードバックを送信する方法を表示します",
 		"help": "利用可能な全コマンドと、ボットに関する一般的情報を表示します",
 		"hypixelstats": "Shows you basic Hypixel stats for the provided user",
 		"hypixelunverify": "Unlinks your Discord account from your Hypixel player",
@@ -37,17 +37,17 @@
 		"levels": "Shows you the XP leaderboard",
 		"mention": "Mentions a language role with a message",
 		"minecraft": "Looks up a specific Minecraft player's name history or skin",
-		"ping": "Gives you the bot's ping",
+		"ping": "ボットのping値を表示します",
 		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above",
 		"prefix": "Lets you pick an appropriate prefix for your language(s)",
 		"profile": "データベースに保存されている場合、あなたのCrowdinのリンクを出力します。",
-		"projects": "Gives you links and information about all the translation projects we support on the server",
+		"projects": "サーバーでサポートしている全翻訳プロジェクトのリンクと情報を表示します",
 		"quote": "Shows a funny/weird/wise quote from the server",
-		"rank": "Gives you the current XP for yourself or any given user",
+		"rank": "現在の自分、または指定したユーザのXPを表示します",
 		"settings": "Changes or shows your settings on the bot",
 		"tag": "プリセットメッセージを送信します。送信時、特定のメンバーに通知することができます",
-		"translate": "Gives you useful information on how to translate the bot",
-		"verify": "Verifies and gives you your corresponding roles"
+		"translate": "ボットの翻訳方法に関する便利な情報を表示します",
+		"verify": "認証を行い、適切なロールを付与します"
 	},
 	"options": {
 		"8ball": {
@@ -100,7 +100,7 @@
 			},
 			"user": {
 				"name": "user",
-				"description": "The user to verify. Admin-only"
+				"description": "認証するユーザー。管理者専用"
 			}
 		},
 		"language": {
@@ -120,11 +120,11 @@
 			},
 			"list": {
 				"name": "一覧",
-				"description": "Gives you a list of all the available languages"
+				"description": "使用可能な全言語を表示します"
 			},
 			"stats": {
 				"name": "stats",
-				"description": "Gives you usage statistics for a given language. Admin-only",
+				"description": "指定した言語の使用統計を表示します。管理者専用",
 				"options": {
 					"language": {
 						"name": "言語",
