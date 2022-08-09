@@ -319,7 +319,7 @@
 					},
 					"image": {
 						"name": "снимка",
-						"description": "The image to be included with this quote. Has priority over url's image if provided"
+						"description": "Снимката която да бъде прикачена към този цитат. Има приоритет над url-а на снимката ако има такъв"
 					}
 				}
 			},
@@ -389,7 +389,7 @@
 			},
 			"set": {
 				"name": "избиране",
-				"description": "Changes the value of a setting",
+				"description": "Променете стойността на настройка",
 				"options": {
 					"setting": {
 						"name": "настройка",
@@ -407,7 +407,7 @@
 			},
 			"reset": {
 				"name": "нулиране",
-				"description": "Resets the value of a setting",
+				"description": "Рестартиране на стойността на настройка",
 				"options": {
 					"setting": {
 						"name": "настройка",
