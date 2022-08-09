@@ -65,7 +65,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 							iconURL: member.displayAvatarURL({ extension: "png" }),
 						},
 					}),
-					stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/gi)?.[0],
+					stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/i)?.[1],
 					fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
 					thread = await reaction.message.startThread({
 						name: `More details requested on ${
@@ -99,7 +99,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 						if (reaction.message.thread.archived) await reaction.message.thread.setArchived(false, "Stupid workaround to lock this thread")
 						await reaction.message.thread.edit({ locked: true, archived: true, reason: "String rejected" })
 					}
-					const stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/gi)?.[0],
+					const stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/i)?.[1],
 						fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
 						thread = await channel.threads.create({
 							name: `Change rejected on ${

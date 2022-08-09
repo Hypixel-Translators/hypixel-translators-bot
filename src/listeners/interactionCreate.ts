@@ -13,6 +13,7 @@ import { db, cancelledEvents } from "../lib/dbclient"
 import { transformDiscordLocale, generateTip, type Stats, parseToNumberString, checkVariables } from "../lib/util"
 
 import type { Command } from "../lib/imports"
+
 client.on("interactionCreate", async interaction => {
 	if (!db) return void cancelledEvents.push({ listener: "interactionCreate", args: [interaction] })
 	if (interaction.user.bot) return
