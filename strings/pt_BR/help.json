@@ -27,7 +27,7 @@
 		"minecraft": "Verifica a skin e o histórico de nomes de um jogador no Minecraft. Este comando é compatível com /hypixelverify e permite que você veja as informações de um usuário caso ele esteja verificado. O argumento `user` sempre terá maior prioridade que `username` e ambos funcionarão se verificado, caso contrário, apenas um será necessário.",
 		"ping": "Veja o ping do bot.",
 		"poll": "Cria ou gerencia enquetes no servidor. Disponível para os revisores do Hypixel e superiores. Todos os votos em enquetes criadas com este comando estarão privados até que a enquete termine e o nome dos usuários que votaram serão ocultados, apenas os votos serão exibidos.",
-		"prefix": "Fornece o prefixo do(s) seu(s) idioma(s). Caso queira um prefixo customizado, use `/prefix` com o código da bandeira do seu país ou o seu nome no campo `bandeiras`. Você pode adicionar quantas bandeiras desejar, separando-as com espaço.",
+		"prefix": "Fornece o prefixo do(s) seu(s) idioma(s). Caso queira um prefixo personalizado, use `/prefix` com o código da bandeira do seu país ou o seu nome no campo `bandeiras`. Você pode adicionar quantas bandeiras desejar, separando-as com espaço.",
 		"profile": "Receba o link do seu perfil do Crowdin se ele estiver salvo em nosso banco de dados. Caso contrário, use `/help verify` para saber como armazenar seu perfil e atualizar seus cargos.",
 		"projects": "Receba os links e as informações sobre os projetos de tradução disponíveis no servidor.",
 		"quote": "Mostra ou adiciona uma citação engraçada, estranha ou sábia dita no servidor.",
