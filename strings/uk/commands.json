@@ -44,7 +44,7 @@
 		"projects": "Дає вам посилання та інформацію про всі проєкти перекладів, які ми підтримуємо на сервері",
 		"quote": "Показує смішну/дивну/мудру цитату з сервера",
 		"rank": "Надає вам ваш поточний досвід або досвід будь-якого наданого користувача",
-		"settings": "Changes or shows your settings on the bot",
+		"settings": "Змінює або показує ваші налаштування в боті",
 		"tag": "Надсилає шаблонне повідомлення, дозволяючи вам сповістити певного учасника, відправивши його",
 		"translate": "Надає вам корисну інформацію, як перекладати бота",
 		"verify": "Верифікує та надає вам відповідні ролі"
@@ -146,7 +146,7 @@
 			},
 			"page": {
 				"name": "сторінка",
-				"description": "Сторінка таблиці лідерів, яку треба дати"
+				"description": "Сторінка таблиці лідерів, яку треба отримати"
 			}
 		},
 		"mention": {
@@ -319,7 +319,7 @@
 					},
 					"image": {
 						"name": "зображення",
-						"description": "The image to be included with this quote. Has priority over url's image if provided"
+						"description": "Зображення, яке треба додати до цитати. Має пріоритет над зображенням за URL, якщо воно є"
 					}
 				}
 			},
@@ -375,7 +375,7 @@
 		"settings": {
 			"get": {
 				"name": "отримати",
-				"description": "Shows the value of a setting",
+				"description": "Показує значення налаштування",
 				"options": {
 					"setting": {
 						"name": "налаштування",
@@ -389,7 +389,7 @@
 			},
 			"set": {
 				"name": "установити",
-				"description": "Changes the value of a setting",
+				"description": "Змінює значення налаштування",
 				"options": {
 					"setting": {
 						"name": "налаштування",
@@ -407,7 +407,7 @@
 			},
 			"reset": {
 				"name": "скинути",
-				"description": "Resets the value of a setting",
+				"description": "Скидає значення налаштування",
 				"options": {
 					"setting": {
 						"name": "налаштування",
