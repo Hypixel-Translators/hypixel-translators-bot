@@ -389,7 +389,7 @@
 			},
 			"set": {
 				"name": "setze",
-				"description": "Changes the value of a setting",
+				"description": "Ändert den Wert der Einstellung",
 				"options": {
 					"setting": {
 						"name": "einstellung",
@@ -407,7 +407,7 @@
 			},
 			"reset": {
 				"name": "zurücksetzen",
-				"description": "Resets the value of a setting",
+				"description": "Setzt den Wert der Einstellung zurück",
 				"options": {
 					"setting": {
 						"name": "einstellung",
