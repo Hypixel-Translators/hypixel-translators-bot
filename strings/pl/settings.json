@@ -1,6 +1,6 @@
 {
-    "isSetTo": "Your %%setting%% setting is set to %%value%%",
-    "successSet": "Successfully set your %%setting%% setting to %%value%%",
-    "successReset": "Successfully reset your %%setting%% setting",
-    "onlyPf": "This setting is only available for Hypixel Proofreaders!"
+    "isSetTo": "Twoje ustawienie %%setting%% jest ustawione na %%value%%",
+    "successSet": "Pomyślnie ustawiono Twoje ustawienie %%setting%% na %%value%%",
+    "successReset": "Pomyślnie zresetowano Twoje ustawienie %%setting%%",
+    "onlyPf": "To ustawienie jest dostępne tylko dla korektorów Hypixel!"
 }

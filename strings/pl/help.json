@@ -14,7 +14,7 @@
 	"cooldownField": "Czas odnawiania",
 	"descriptions": {
 		"8ball": "Magiczna kula, która odpowie na wszystkie twoje pytania.",
-		"alert": "Alerts other proofreaders for issues in their translations",
+		"alert": "Powiadamia innych korektorów o problemach w ich tłumaczeniach",
 		"feedback": "Otwórz naszą stronę GitHub z problemami, tam możesz zgłosić błędy i wysłać opinię.",
 		"help": "Pokazuje wszystkie dostępne polecenia i inne informacje o bocie.",
 		"hypixelstats": "Pokazuje ci podstawowe informacje danego gracza z Hypixela.",
@@ -26,15 +26,15 @@
 		"mention": "Oznacza rolę językową z opcjonalną wiadomością.",
 		"minecraft": "Wyszukuje historię nazw użytkownika lub skórkę gracza Minecrafta. Polecenie to jest zgodne z poleceniem /hypixelverify i pozwala wyszukiwać informacje o wybranym użytkowniku, jeśli jest on zweryfikowany. Parametr `user` zawsze ma pierwszeństwo nad parametrem `username` i oba są nie są konieczne, o ile jesteś zweryfikowany(-a), w przeciwnym razie wymagany jest co najmniej jeden z nich.",
 		"ping": "Podaje opóźnienie bota.",
-		"poll": "Creates or manages polls on the server. Available to Hypixel Proofreaders and above. All votes on polls created using this command will be private until the poll is ended and the names of the voters will not be disclosed, only vote counts will be displayed.",
-		"prefix": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space.",
+		"poll": "Tworzy lub zarządza ankietami na serwerze. Dostępne dla korektorów Hypixel i wyżej. Wszystkie głosy w ankietach utworzonych za pomocą tego polecenia będą prywatne, dopóki ankieta nie zostanie zakończona, a nazwy wyborców nie zostaną ujawnione, zostaną wyświetlone tylko liczby głosów.",
+		"prefix": "Daje ci przedrostek odpowiedni dla Twojego języka (lub języków). Aby go otrzymać, wpisz `/prefix` i podaj w parametrze `flags` kod flagi twojego kraju albo jej nazwę. Możesz dodać tyle flag, ile chcesz; pamiętaj, by oddzielić je spacjami.",
 		"profile": "Podaje odnośnik do Twojego profilu Crowdin, jeśli jest on przechowywany w naszej bazie danych. W przeciwnym razie, możesz wykonać polecenie `/help verify`, by dowiedzieć się, jak przechowywać swój profil i aktualizować swoje role.",
 		"projects": "Daje ci odnośniki i informacje o wszystkich projektach tłumaczeniowych, które wspieramy na serwerze.",
-		"quote": "Shows a funny/weird/wise quote from the server.",
+		"quote": "Pobiera (lub dodaje) śmieszny/dziwny/mądry cytat z serwera.",
 		"rank": "Podaje twoje obecne PD lub PD wybranego użytkownika.",
-		"settings": "Changes or shows your settings on the bot",
+		"settings": "Zmień lub wyświetl ustawienia bota",
 		"tag": "Wysyła konktetną wiadomość, pozwalając Ci powiadomić danego użytkownika po wysłaniu wiadomości.",
-		"translate": "Gives you useful information on how to translate the bot.",
+		"translate": "Podaje ci przydatne informacje o tym, jak tłumaczyć Bota.",
 		"verify": "Automatycznie sprawdza zmiany w Twoim profilu Crowdin i daje Ci odpowiednie role. Jeśli Twój profil nie jest przechowywany w naszej bazie danych, możesz podać go jako argument w poleceniu. Aby sprawdzić, czy Twój profil jest tam przechowywany, wykonaj polecenie `/profile`. Upewnij się, że masz włączone wiadomości prywatne z tego serwera, aby bot mógł wysłać Ci wiadomość."
 	}
 }

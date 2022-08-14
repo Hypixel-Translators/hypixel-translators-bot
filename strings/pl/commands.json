@@ -1,10 +1,10 @@
 {
 	"names": {
 		"8ball": "magicznakula",
-		"alert": "alert",
-		"feedback": "feedback",
+		"alert": "powiadomienie",
+		"feedback": "opinia",
 		"help": "pomoc",
-		"hypixelstats": "hypixelstats",
+		"hypixelstats": "statystykihypixel",
 		"hypixelunverify": "odłączeniehypixel",
 		"hypixelverify": "weryfikacjahypixel",
 		"language": "język",
@@ -20,14 +20,14 @@
 		"quote": "cytat",
 		"rank": "pozycja",
 		"settings": "ustawienia",
-		"tag": "tag",
+		"tag": "znacznik",
 		"translate": "tłumacz",
 		"verify": "weryfikacja"
 	},
 	"descriptions": {
 		"8ball": "Zaczarowana kula, która odpowie na wszystkie twoje pytania",
-		"alert": "Alerts other proofreaders for issues in their translations",
-		"feedback": "Gives you instructions on how to give feedback towards the bot",
+		"alert": "Powiadamia innych korektorów o problemach w ich tłumaczeniach",
+		"feedback": "Daje Ci instrukcje, jak przekazać opinię na temat bota",
 		"help": "Pokazuje wszystkie dostępne polecenia i ogólne informacje na temat bota",
 		"hypixelstats": "Pokazuje ci podstawowe statystyki z Hypixela dla danego użytkownika",
 		"hypixelunverify": "Odłącza twoje konto Discord od gracza Hypixela",
@@ -44,28 +44,28 @@
 		"projects": "Podaje odnośniki i informacje o wszystkich projektach tłumaczeniowych, które wspieramy na serwerze",
 		"quote": "Znajduje (lub dodaje) śmieszny/dziwny/mądry cytat z serwera",
 		"rank": "Podaje twoje obecne PD lub PD wybranego użytkownika",
-		"settings": "Changes or shows your settings on the bot",
-		"tag": "Sends a preset message, allowing you to notify a specific member when sending it",
+		"settings": "Zmień lub wyświetl ustawienia bota",
+		"tag": "Wysyła konkretną wiadomość, pozwalając Ci powiadomić danego użytkownika po wysłaniu wiadomości",
 		"translate": "Podaje przydatne informacje o tym, jak tłumaczyć bota",
-		"verify": "Verifies and gives you your corresponding roles"
+		"verify": "Weryfikuje i nadaje Ci odpowiednie role"
 	},
 	"options": {
 		"8ball": {
 			"question": {
 				"name": "pytanie",
-				"description": "The question to ask the bot"
+				"description": "Pytanie, które zadajesz botowi"
 			}
 		},
 		"alert": {
 			"message": {
 				"name": "wiadomość",
-				"description": "The message to send to the proofreaders"
+				"description": "Wiadomość, która ma zostać wysłana korektorom"
 			}
 		},
 		"help": {
 			"command": {
 				"name": "polecenie",
-				"description": "The command to get information for"
+				"description": "Polecenie, dla którego ma być otrzymana informacja"
 			},
 			"page": {
 				"name": "strona",
@@ -80,37 +80,37 @@
 		"hypixelstats": {
 			"username": {
 				"name": "nazwaużytkownika",
-				"description": "The IGN of the user to get statistics for. Can also be a UUID"
+				"description": "Nazwa gracza użytkownika, którego statystyki mają być pokazane. Może być również UUID"
 			},
 			"user": {
 				"name": "użytkownik",
-				"description": "The server member to get statistics for. Only works if the user has verified themselves"
+				"description": "Użytkownik serwera, którego statystyki mają być pokazane. Działa tylko wtedy, gdy jest zweryfikowany"
 			}
 		},
 		"hypixelunverify": {
 			"user": {
 				"name": "użytkownik",
-				"description": "The user to unverify. Admin-only"
+				"description": "Użytkownik do odweryfikowania. Tylko dla administratorów"
 			}
 		},
 		"hypixelverify": {
 			"username": {
 				"name": "nazwaużytkownika",
-				"description": "Your Hypixel IGN. Must have your Discord linked in-game"
+				"description": "Twoja nazwa gracza na Hypixelu. Musisz mieć połączony Discord w grze"
 			},
 			"user": {
 				"name": "użytkownik",
-				"description": "The user to verify. Admin-only"
+				"description": "Użytkownik do zweryfikowania. Tylko dla administratorów"
 			}
 		},
 		"language": {
 			"set": {
 				"name": "ustaw",
-				"description": "Sets your language to a new one. Leave empty to see your current language",
+				"description": "Ustawia Twój język na nowy. Pozostaw pole puste, aby zobaczyć obecny język",
 				"options": {
 					"language": {
 						"name": "język",
-						"description": "The new language you want to set"
+						"description": "Nowy język, który chcesz ustawić"
 					}
 				}
 			},
@@ -124,11 +124,11 @@
 			},
 			"stats": {
 				"name": "statystyki",
-				"description": "Gives you usage statistics for a given language. Admin-only",
+				"description": "Podaje statystyki użycia dla danego języka. Tylko dla administratorów",
 				"options": {
 					"language": {
 						"name": "język",
-						"description": "The language to get usage statistics for"
+						"description": "Język, którego statystyki chcesz otrzymać"
 					}
 				}
 			}
@@ -136,17 +136,17 @@
 		"languagestats": {
 			"language": {
 				"name": "język",
-				"description": "The language to get progress statistics for. Required if your language is set to English"
+				"description": "Język, którego statystyki postępu chcesz otrzymać. Wymagane, jeśli twój język jest angielski"
 			}
 		},
 		"levels": {
 			"me": {
 				"name": "ja",
-				"description": "Whether to start at the page you appear in. Has priority over the \"page\" argument"
+				"description": "Czy zacząć na stronie, na której jesteś. Ma priorytet nad argumentem \"strona\""
 			},
 			"page": {
 				"name": "strona",
-				"description": "The leaderboard page to get"
+				"description": "Strona rankingu do podania"
 			}
 		},
 		"mention": {
@@ -165,21 +165,21 @@
 			},
 			"message": {
 				"name": "wiadomość",
-				"description": "The message to send with the mention"
+				"description": "Wiadomość do wysłania ze wzmianką"
 			}
 		},
 		"minecraft": {
 			"history": {
 				"name": "historia",
-				"description": "Shows a user's name history. You must provide at least 1 parameter if your MC account is not linked",
+				"description": "Daje historię nazw gracza. Wymagany jest przynajmniej 1 parametr, gdy Twoje konto MC jest odłączone",
 				"options": {
 					"username": {
 						"name": "nazwaużytkownika",
-						"description": "The IGN/UUID of the user to get name history for. Defaults to your user if your account is linked"
+						"description": "Imię gracza/UUID, którego historię nazw masz uzyskać. Jeśli Twoje konto jest połączone, to jesteś ty"
 					},
 					"user": {
 						"name": "użytkownik",
-						"description": "The server member to get name history for. Only works if the user has verified themselves"
+						"description": "Użytkownik, którego historię nazw chcesz uzyskać. Działa tylko wtedy, gdy jest on zweryfikowany"
 					}
 				}
 			},
@@ -189,11 +189,11 @@
 				"options": {
 					"username": {
 						"name": "nazwaużytkownika",
-						"description": "The IGN/UUID of the user to get the skin for. Defaults to your own skin if your account is linked"
+						"description": "Imię gracza/UUID, którego skórkę chcesz zobaczyć. Jeśli Twoje konto jest połączone, to domyślnie Ty"
 					},
 					"user": {
 						"name": "użytkownik",
-						"description": "The server member to get the skin for. Only works if the user has verified themselves"
+						"description": "Użytkownik serwera, którego statystyki mają być pokazane. Działa tylko wtedy, gdy jest zweryfikowany"
 					}
 				}
 			}
@@ -201,11 +201,11 @@
 		"poll": {
 			"start": {
 				"name": "rozpocznij",
-				"description": "Starts a poll in the current channel",
+				"description": "Rozpoczyna ankietę na obecnym kanale",
 				"options": {
 					"question": {
 						"name": "pytanie",
-						"description": "The question of the poll"
+						"description": "Pytanie w ankiecie"
 					},
 					"option1": {
 						"name": "opcja1",
@@ -216,8 +216,8 @@
 						"description": "Druga opcja ankiety"
 					},
 					"time": {
-						"name": "time",
-						"description": "How long before this poll is automatically closed and results are published (in hours)"
+						"name": "czas",
+						"description": "Na jak długo ma być otwarta ankieta, zanim wyniki jej zostaną opublikowane (czas w godzinach)"
 					},
 					"option3": {
 						"name": "opcja3",
@@ -247,15 +247,15 @@
 			},
 			"end": {
 				"name": "zakończ",
-				"description": "End a poll given its message ID",
+				"description": "Zakończ ankietę, podając jej ID wiadomości",
 				"options": {
 					"message_id": {
 						"name": "id_wiadomości",
-						"description": "The ID of the message containing the poll"
+						"description": "ID wiadomości, która zawiera ankietę"
 					},
 					"channel": {
 						"name": "kanał",
-						"description": "The channel the poll was posted in, if not the current one"
+						"description": "Kanał, w którym ankieta została opublikowana, jeśli nie jest to obecny"
 					}
 				}
 			},
@@ -265,11 +265,11 @@
 				"options": {
 					"message_id": {
 						"name": "id_wiadomości",
-						"description": "The ID of the message containing the poll"
+						"description": "ID wiadomości, która zawiera ankietę"
 					},
 					"channel": {
 						"name": "kanał",
-						"description": "The channel the poll was posted in, if not the current one"
+						"description": "Kanał, w którym ankieta została opublikowana, jeśli nie jest to obecny"
 					}
 				}
 			}
@@ -277,33 +277,33 @@
 		"prefix": {
 			"flags": {
 				"name": "flagi",
-				"description": "The flags to be applied to your prefix, separated with spaces"
+				"description": "Flagi do wstawienia do przedrostka, oddzielone spacjami"
 			}
 		},
 		"profile": {
 			"user": {
 				"name": "użytkownik",
-				"description": "The user to find the profile for. Admin-only"
+				"description": "Użytkownik, którego profil trzeba znaleźć. Tylko dla administratorów"
 			},
 			"profile": {
 				"name": "profil",
-				"description": "The new profile to set for the user. Admin-only"
+				"description": "Nowy profil dla użytkownika. Tylko dla administratorów"
 			}
 		},
 		"quote": {
 			"get": {
-				"name": "get",
-				"description": "Get a random/specific quote",
+				"name": "uzyskaj",
+				"description": "Uzyskaj losowy/konkretny cytat",
 				"options": {
 					"index": {
 						"name": "indeks",
-						"description": "The index of the quote you want to see"
+						"description": "Indeks cytatu, który chcesz zobaczyć"
 					}
 				}
 			},
 			"add": {
 				"name": "dodaj",
-				"description": "Adds a new quote. Staff only",
+				"description": "Dodaj nowy cytat. Tylko dla administracji",
 				"options": {
 					"quote": {
 						"name": "cytat",
@@ -315,21 +315,21 @@
 					},
 					"url": {
 						"name": "odnośnik",
-						"description": "The URL of the message this quote came from. If the message has an image it will be included as well"
+						"description": "Odnośnik do wiadomości, z której pochodzi cytat. Jeśli ma ona obrazek, zostanie on również dołączony"
 					},
 					"image": {
 						"name": "obraz",
-						"description": "The image to be included with this quote. Has priority over url's image if provided"
+						"description": "Odnośnik obrazka, który ma być dołączony do tego cytatu. Ma pierwszeństwo nad odnośnikiem wiadomości"
 					}
 				}
 			},
 			"edit": {
 				"name": "edytuj",
-				"description": "Edits a quote. Staff only",
+				"description": "Edytuje cytat. Tylko dla administracji",
 				"options": {
 					"index": {
 						"name": "indeks",
-						"description": "The index of the quote to edit"
+						"description": "Indeks cytatu, który ma być edytowany"
 					},
 					"quote": {
 						"name": "cytat",
@@ -339,29 +339,29 @@
 			},
 			"delete": {
 				"name": "usuń",
-				"description": "Deletes a quote. Staff only",
+				"description": "Edytuje cytat. Tylko dla administracji",
 				"options": {
 					"index": {
 						"name": "indeks",
-						"description": "The index of the quote to delete"
+						"description": "Indeks cytatu, który ma być usunięty"
 					}
 				}
 			},
 			"link": {
 				"name": "połącz",
-				"description": "Links a quote to a message. Staff only",
+				"description": "Łączy cytat z wiadomością. Tylko dla administracji",
 				"options": {
 					"index": {
 						"name": "indeks",
-						"description": "The index of the quote to link"
+						"description": "Indeks cytatu, który ma być połączony"
 					},
 					"url": {
 						"name": "odnośnik",
-						"description": "The URL of the message to link this quote to"
+						"description": "Odnośnik do wiadomości, do której ten cytat ma być połączony"
 					},
 					"image": {
 						"name": "obraz",
-						"description": "Whether or not to attach this message's image to the quote"
+						"description": "Czy do cytatu dołączyć obrazek tej wiadomości"
 					}
 				}
 			}
@@ -369,52 +369,52 @@
 		"rank": {
 			"user": {
 				"name": "użytkownik",
-				"description": "The user to get the rank for"
+				"description": "Użytkownik, którego rangę chcesz uzyskać"
 			}
 		},
 		"settings": {
 			"get": {
-				"name": "get",
-				"description": "Shows the value of a setting",
+				"name": "uzyskaj",
+				"description": "Zobacz wartość ustawienia",
 				"options": {
 					"setting": {
 						"name": "ustawienie",
-						"description": "The setting to see",
+						"description": "Ustawienie do zobaczenia",
 						"choices": {
-							"lvlUpMsg": "Send messages upon level up",
-							"availability": "Proofreader availability"
+							"lvlUpMsg": "Wysyłaj wiadomości po osiągnięciu wyższego poziomu",
+							"availability": "Dostępność korektora"
 						}
 					}
 				}
 			},
 			"set": {
 				"name": "ustaw",
-				"description": "Changes the value of a setting",
+				"description": "Zmień wartość ustawienia",
 				"options": {
 					"setting": {
 						"name": "ustawienie",
-						"description": "The setting to change",
+						"description": "Ustawienie do zmiany",
 						"choices": {
-							"lvlUpMsg": "Send messages upon level up",
-							"availability": "Proofreader availability"
+							"lvlUpMsg": "Wysyłaj wiadomości po osiągnięciu wyższego poziomu",
+							"availability": "Dostępność korektora"
 						}
 					},
 					"value": {
 						"name": "wartość",
-						"description": "The value to set the setting to"
+						"description": "Wartość do ustawienia ustawienia"
 					}
 				}
 			},
 			"reset": {
 				"name": "zresetuj",
-				"description": "Resets the value of a setting",
+				"description": "Zresetuj wartość ustawienia",
 				"options": {
 					"setting": {
 						"name": "ustawienie",
-						"description": "The setting to reset",
+						"description": "Ustawienie do zresetowania",
 						"choices": {
-							"lvlUpMsg": "Send messages upon level up",
-							"availability": "Proofreader availability"
+							"lvlUpMsg": "Wysyłaj wiadomości po osiągnięciu wyższego poziomu",
+							"availability": "Dostępność korektora"
 						}
 					}
 				}
@@ -422,33 +422,33 @@
 		},
 		"tag": {
 			"tag": {
-				"name": "tag",
-				"description": "The tag you want to see",
+				"name": "znacznik",
+				"description": "Znacznik, który chcesz zobaczyć",
 				"choices": {
 					"invite": "Odnośnik z zaproszeniem na serwer",
-					"hypixel": "Hypixel links",
+					"hypixel": "Odnośniki Hypixela",
 					"guidelines": "Wytyczne projektu Hypixel",
-					"proofreader": "How to get proofreader on the Hypixel project",
-					"minecraft": "Minecraft Crowdin Project",
-					"quickplay": "Quickplay links",
-					"skyblockaddons": "SkyblockAddons links",
-					"thread": "Discord server thread",
-					"twitter": "Hypixel Translators Community Twitter"
+					"proofreader": "Jak zostać korektorem w projekcie Hypixel",
+					"minecraft": "Projekt Crowdin Minecraft",
+					"quickplay": "Odnośniki Quickplay",
+					"skyblockaddons": "Odnośniki SkyblockAddons",
+					"thread": "Wątek serwera Discord",
+					"twitter": "Konto Hypixel Translators Community na Twitterze"
 				}
 			},
 			"target": {
 				"name": "cel",
-				"description": "The user to mention with this tag"
+				"description": "Użytkownik, który dostanie wzmiankę z tym znacznikiem"
 			}
 		},
 		"verify": {
 			"url": {
 				"name": "odnośnik",
-				"description": "The URL to your Crowdin profile. Must have your Discord tag in your \"About me\" section"
+				"description": "Odnośnik do Twojego profilu na Crowdinie. Musisz mieć twój znacznik Discorda w sekcji „O mnie”"
 			},
 			"user": {
 				"name": "użytkownik",
-				"description": "The user to manually verify. Admin-only"
+				"description": "Użytkownik, który ma być manualnie zweryfikowany. Tylko dla administratorów"
 			}
 		}
 	}
