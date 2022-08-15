@@ -82,7 +82,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 		.replace(/^(?:https:\/\/)?/, "https://")
 		.toLowerCase()
 		// Remove localized Crowdin versions
-		.replace(/([a-z]{1,4}[.])?(crowdin[.]com)/gi, "$2")
+		.replace(/(?:[a-z]{2}\.)?(crowdin\.com)/gi, "$1")
 
 	const browser = await getBrowser(),
 		page = await browser.pupBrowser.newPage()

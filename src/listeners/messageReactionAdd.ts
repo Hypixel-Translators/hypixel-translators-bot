@@ -23,17 +23,19 @@ client.on("messageReactionAdd", async (reaction, user) => {
 	if (
 		channel.type === ChannelType.GuildText &&
 		channel.name.endsWith("-review-strings") &&
-		/https:\/\/crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$_.+!*'()-]*)?#\d+/gi.test(reaction.message.content!)
+		/https:\/\/(?:[a-z]{2}\.)?crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(
+			reaction.message.content!
+		)
 	) {
-		const language = await db.collection<MongoLanguage>("languages").findOne({ code: channel.name.split("-")[0] }),
-			role = channel.guild!.roles.cache.find(r => r.name === `${language!.name} Proofreader`),
+		const language = (await db.collection<MongoLanguage>("languages").findOne({ code: channel.name.split("-")[0] }))!,
+			role = channel.guild!.roles.cache.find(r => r.name === `${language.name} Proofreader`),
 			reactedToOwn = reaction.message.author.bot ? reaction.message.content.includes(user.id) : reaction.message.author.id === user.id
 
 		if (!role) return console.error(`Couldn't find the proofreader role for the ${channel} channel!`)
 		if (reaction.message.guild!.members.resolve(user.id)!.roles.cache.has(role.id)) {
 			let strings: { [key: string]: string }
 			try {
-				strings = require(`../../strings/${language!.id.replace("-", "_")}/reviewStrings.json`)
+				strings = require(`../../strings/${language.id.replace("-", "_")}/reviewStrings.json`)
 			} catch {
 				strings = require("../../strings/en/reviewStrings.json")
 			}
@@ -66,7 +68,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 						},
 					}),
 					stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/i)?.[1],
-					fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
+					fileId = reaction.message.content!.match(/^(?:https?:\/\/)?(?:[a-z]{2})?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
 					thread = await reaction.message.startThread({
 						name: `More details requested on ${
 							stringId ? `string ${stringId}` : fileId === "all" ? "all files" : fileId ? `file ${fileId}` : "an unknown string"
@@ -100,7 +102,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 						await reaction.message.thread.edit({ locked: true, archived: true, reason: "String rejected" })
 					}
 					const stringId = reaction.message.content!.match(/(?:\?[\w\d%&=$+!*'()-]*)?#(\d+)/i)?.[1],
-						fileId = reaction.message.content!.match(/^(?:https?:\/\/)?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
+						fileId = reaction.message.content!.match(/^(?:https?:\/\/)?(?:[a-z]{2})?crowdin\.com\/translate\/hypixel\/(\d+|all)\//gi)?.[0],
 						thread = await channel.threads.create({
 							name: `Change rejected on ${
 								stringId ? `string ${stringId}` : fileId === "all" ? "all files" : fileId ? `file ${fileId}` : "an unknown string"

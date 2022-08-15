@@ -35,7 +35,7 @@ const command: Command = {
 			verify = interaction.client.channels.cache.get(ids.channels.verify) as TextChannel,
 			profileUrl = interaction.options.getString("url", false),
 			memberInput = interaction.options.getMember("user"),
-			url = profileUrl?.match(/(?:https?:\/\/)?(?:[a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0],
+			url = profileUrl?.match(/(?:https?:\/\/)?(?:[a-z]{2}\.)?crowdin\.com\/profile\/\S+/gi)?.[0],
 			collection = db.collection<DbUser>("users")
 		await interaction.deferReply({ ephemeral: true })
 		if (!interaction.member.roles.cache.has(ids.roles.verified) && interaction.channelId === ids.channels.verify && !url) {
@@ -61,7 +61,7 @@ const command: Command = {
 			await interaction.editReply("Your request has been processed. Check the logs")
 		} else {
 			const userDb = await client.getUser(interaction.user.id)
-			if (userDb.profile || (profileUrl && /(?:https?:\/\/)?(?:[a-z]{2,}\.)?crowdin\.com\/profile(?:\/\S+)?/gi.test(profileUrl))) {
+			if (userDb.profile || (profileUrl && /(?:https?:\/\/)?(?:[a-z]{2}\.)?crowdin\.com\/profile(?:\/\S+)?/gi.test(profileUrl))) {
 				await collection.updateOne({ id: interaction.member.id }, { $unset: { unverifiedTimestamp: true } })
 				if (interaction.member.roles.cache.has(ids.roles.verified)) await verifyLogs.send(`${interaction.user} is being reverified.`)
 				await crowdinVerify(interaction.member, url, true)

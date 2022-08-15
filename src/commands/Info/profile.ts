@@ -52,7 +52,7 @@ const command: Command = {
 					})
 					return void (await interaction.reply({ embeds: [embed], ephemeral: true }))
 				}
-			} else if (/(https:\/\/)?(www\.)?crowdin\.com\/profile\/\S{1,}/gi.test(profile)) {
+			} else if (/(?:https:\/\/)?(?:www\.)?crowdin\.com\/profile\/\S+/gi.test(profile)) {
 				const result = await db.collection<DbUser>("users").findOneAndUpdate({ id: user.id }, { $set: { profile: profile } })
 				if (result.value!.profile !== profile) {
 					const embed = new EmbedBuilder({

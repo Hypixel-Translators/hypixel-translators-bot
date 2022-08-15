@@ -56,7 +56,7 @@ client.on("messageCreate", async message => {
 		return void (await message.crosspost())
 
 	// Delete non-stringURL messages in review-strings
-	const stringURLRegex = /(?:https:\/\/)?crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
+	const stringURLRegex = /https:\/\/(?:[a-z]{2}\.)?crowdin\.com\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi
 
 	if (message.channel instanceof TextChannel && message.channel.name.endsWith("-review-strings")) {
 		// Make sure the link leads to the correct language
@@ -113,7 +113,7 @@ client.on("messageCreate", async message => {
 		!message.channel.isDMBased() &&
 		message.content.toLowerCase().includes("/translate/hypixel/") &&
 		message.content.includes("://") &&
-		/(?:https:\/\/)?(?:\w{2,4}\.)?(?:crowdin\.com|translate\.hypixel\.net)\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(
+		/(?:https:\/\/)?(?:[a-z]{2}\.)?(?:crowdin\.com|translate\.hypixel\.net)\/translate\/\w+\/(?:\d+|all)\/en(?:-\w+)?/gi.test(
 			message.content
 		)
 	) {
@@ -126,7 +126,7 @@ client.on("messageCreate", async message => {
 			const langFix = message.content
 				.replace("translate.hypixel.net", "crowdin.com")
 				.replace(/\/en-(?!en#)[a-z]{2,4}/gi, "/en")
-				.replace(/\w{2,4}\.(crowdin\.com)/gi, "$1")
+				.replace(/[a-z]{2}\.(crowdin\.com)/gi, "$1")
 			// Link isn't a string URL
 			if (!/(?:\?[\w\d%&=$+!*'()-]*)?#\d+/gi.test(message.content)) {
 				await message.react("vote_no:839262184882044931")
@@ -163,9 +163,9 @@ client.on("messageCreate", async message => {
 	}
 
 	// Crowdin verification system
-	if (/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile?\/?\S{1,}/gi.test(message.content) && message.channel.id === ids.channels.verify) {
+	if (/(https:\/\/)?(?:[a-z]{2}\.)?crowdin\.com\/profile\/?\S*/gi.test(message.content) && message.channel.id === ids.channels.verify) {
 		await message.react("loading:882267041627766816")
-		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)?([a-z]{2,}\.)?crowdin\.com\/profile\/\S{1,}/gi)?.[0], true)
+		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)?(?:[a-z]{2}\.)?crowdin\.com\/profile\/\S+/gi)?.[0], true)
 		await message.delete().catch(() => null)
 		await (message.channel as TextChannel).bulkDelete(
 			(await message.channel.messages.fetch()).filter(msgs => msgs.author.id === message.author.id)
