@@ -250,7 +250,7 @@
 				"description": "メッセージIDで指定したアンケートを終了します",
 				"options": {
 					"message_id": {
-						"name": "メッセージID",
+						"name": "メッセージid",
 						"description": "The ID of the message containing the poll"
 					},
 					"channel": {
@@ -264,7 +264,7 @@
 				"description": "Shows the current results of a poll without ending it. Only available to the creator of the poll",
 				"options": {
 					"message_id": {
-						"name": "メッセージID",
+						"name": "メッセージid",
 						"description": "The ID of the message containing the poll"
 					},
 					"channel": {
