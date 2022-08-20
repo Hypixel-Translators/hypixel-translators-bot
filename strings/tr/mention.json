@@ -1,4 +1,4 @@
 {
-	"errorNoPing": "You don't have that language's proofreader role, {role, select, translator {so you can't mention its translator role} proofreader {so you can't mention it} other {so you can't mention the entire language}}. Contact a server administrator if you really need to.",
+	"errorNoPing": "Bu dilin düzeltmen rolüne sahip değilsin, {role, select, translator {bu yüzden çevirmen rolünü etiketleyemezsin} proofreader {bu yüzden onu etiketleyemezsin} other {bu yüzden tüm dili etiketleyemezsin}}. Gerçekten ihtiyacın varsa bir sunucu yöneticisine başvur.",
 	"success": "Mesaj başarıyla gönderildi!"
 }
