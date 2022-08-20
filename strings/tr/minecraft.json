@@ -3,8 +3,8 @@
 	"history": {
 		"firstName": "İlk ad",
 		"nameHistoryFor": "%%username%% için ad geçmişi",
-		"youChangedName": "You have {number, plural, =0 {never changed your name} one {changed your name # time} other {changed your name # times}}.",
-		"userChangedName": "%%username%% has {number, plural, =0 {never changed their name} one {changed their name # time} other {changed their name # times}}."
+		"youChangedName": "Adını {number, plural,=0 {daha önce hiç değiştirmedin} other {# kez değiştirdin}}.",
+		"userChangedName": "%%username%%, adını {number, plural,=0 {daha önce hiç değiştirmemiş} other {# kez değiştirmiş}}."
 	},
 	"skin": {
 		"yourSkin": "İşte cildin!",
