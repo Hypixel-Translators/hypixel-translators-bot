@@ -5,7 +5,7 @@
 	"youNotRanked": "Henüz derecen yok!",
 	"userNotRanked": "Bu kullanıcının henüz derecesi yok!",
 	"howRank": "Sıralamada yer almak için sohbetlerde konuşmalısın!",
-	"textProgress": "%%currentXp%%/%%xpNeeded%% | {messages, plural, one {# Message} other {# Messages}}",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | {messages, plural, other{# Mesaj}}",
 	"youLevel": "Şu anda %%level%% seviyesin ve sıralamadaki yerin #%%rank%%!",
 	"userLevel": "%%user%% şu anda %%level%% seviye ve sıralamadaki yeri #%%rank%%!"
 }
