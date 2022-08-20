@@ -1,8 +1,8 @@
 {
 	"moduleName": "Dil istatistikleri",
 	"statsAll": "İşte şu anda desteklediğimiz tüm projelerdeki %%language%% dilinin istatistikleri.",
-	"translated": "%%percentage%%% translated (%%translated%%/%%total%% {totalNumber, plural, one {string} other {strings}})",
-	"approved": "%%percentage%%% approved (%%approved%%/%%total%% {totalNumber, plural, one {string} other {strings}})",
+	"translated": "%%%percentage%% çevrildi (%%translated%%/%%total%% {totalNumber, plural, other{dize}})",
+	"approved": "%%%percentage%% onaylandı (%%approved%%/%%total%% {totalNumber, plural, other{dize}})",
 	"languages": {
 		"ar": "Arapça",
 		"bc": "Biscuitish",
